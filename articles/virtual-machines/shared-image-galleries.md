@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 6/8/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: c6c39a7ef0404a0e78e5b8ed0b41bf54156b488a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: c94e040d5047b25b8d260792fd362e50a29b9601
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032660"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696289"
 ---
 # <a name="shared-image-galleries-overview"></a>Vue d’ensemble des galeries d’images partagées
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Shared Image Gallery est un service qui vous permet de structurer et d’organiser vos images. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -27,7 +29,7 @@ Shared Image Gallery est un service qui vous permet de structurer et d’organis
 - Le partage entre différents abonnements, voire entre locataires Active Directory (AD), à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure.
 - la mise à l’échelle de vos déploiements avec des réplicas d’image dans chaque région.
 
-Celle-ci vous permet de partager vos images avec différents utilisateurs, principaux de service ou groupes Active Directory au sein de votre organisation. Il est possible de répliquer des images partagées dans plusieurs régions, pour une mise à l’échelle plus rapide de vos déploiements.
+À l’aide de Shared Image Gallery, vous pouvez partager vos images avec différents utilisateurs, principaux de service ou groupes AD à l’intérieur et à l’extérieur de votre organisation. Il est possible de répliquer des images partagées dans plusieurs régions, pour une mise à l’échelle plus rapide de vos déploiements.
 
 Une image est une copie d’une machine virtuelle complète (dont tous les disques de données attachés) ou juste du disque de système d’exploitation, selon la façon dont elle est créée. Quand vous créez une machine virtuelle à partir de l’image, une copie des disques durs virtuels dans l’image est utilisée pour créer les disques de la nouvelle machine virtuelle. L’image reste dans le stockage et peut être utilisée sans limite pour créer des machines virtuelles.
 
@@ -104,7 +106,7 @@ Les machines virtuelles spécialisées n'ont pas été soumises à un processus 
 
 ## <a name="regional-support"></a>Prise en charge régionale
 
-Toutes les régions publiques peuvent être des régions cibles, mais certaines régions impliquent que les clients se soumettent à un processus de demande pour obtenir un accès. Pour demander l’ajout d’un abonnement à la liste verte d’une région comme Australie Centre ou Australie Centre 2, envoyez [une demande d’accès](/troubleshoot/azure/general/region-access-request-process).
+Toutes les régions publiques peuvent être des régions cibles, mais certaines régions impliquent que les clients se soumettent à un processus de demande pour obtenir un accès. Pour demander l’ajout d’un abonnement à la liste d’autorisation d’une région, par exemple Australie Centre ou Australie Centre 2, envoyez [une demande d’accès](/troubleshoot/azure/general/region-access-request-process)
 
 ## <a name="limits"></a>limites 
 
@@ -133,7 +135,7 @@ De plus, nous recommandons toujours de surapprovisionner le nombre de réplicas,
 
 [Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) fournit une résilience élevée contre une défaillance de la Zone de disponibilité dans la région. Avec la disponibilité générale de la galerie d’images partagées, vous pouvez choisir de stocker vos images dans les comptes ZRS au sein de régions avec des Zones de disponibilité. 
 
-Vous pouvez également choisir le type de compte de chaque région cible. Le type de compte de stockage par défaut est Standard_LRS, mais vous pouvez choisir Standard_ZRS pour les régions avec des Zones de disponibilité. Vérifiez la disponibilité régionale de ZRS [ici](../storage/common/storage-redundancy.md).
+Vous pouvez également choisir le type de compte de chaque région cible. Le type de compte de stockage par défaut est Standard_LRS, mais vous pouvez choisir Standard_ZRS pour les régions avec des Zones de disponibilité. Pour plus d’informations sur la disponibilité régionale de ZRS, consultez [Redondance des données](../storage/common/storage-redundancy.md).
 
 ![Graphique affiche ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -190,7 +192,7 @@ Les SDK suivants prennent en charge la création de galeries d’images partagé
 
 - [.NET](/dotnet/api/overview/azure/virtualmachines/management)
 - [Java](/java/azure/)
-- [Node.JS](/javascript/api/@azure/arm-compute)
+- [Node.JS](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)
 - [Go](/azure/go/)
 
@@ -201,7 +203,6 @@ Vous pouvez créer la ressource de galerie d’images partagées à l’aide de 
 - [Créer une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Créer une machine virtuelle à partir d’une version d’image](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions 
 

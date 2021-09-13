@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/09/2021
-ms.openlocfilehash: 63c7a2c79ca5f0d241ddc3727d006bb2befb8163
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.date: 08/23/2021
+ms.openlocfilehash: e83ea29b4894827ac68af6b243ce0e19842f2d87
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532939"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769812"
 ---
 # <a name="usage-metering-billing-and-pricing-models-for-azure-logic-apps"></a>Modèles de mesure de l’utilisation, de facturation et de tarification pour Azure Logic Apps
 
@@ -42,7 +42,7 @@ Le tableau suivant résume la façon dont le modèle Consommation gère la mesur
 
 À l’exception du nombre initial d’exécutions gratuites d’opérations intégrées, par abonnement Azure, qu’un flux de travail peut exécuter, le modèle Consommation mesure et facture une opération en fonction de *chaque exécution*, que le flux de travail global s’exécute correctement, se termine ou soit même instancié. Une opération n’est généralement exécutée qu’une seule fois, [à moins que les nouvelles tentatives ne soient activées](#other-operation-behavior). De même, une exécution effectue généralement un seul appel, [sauf si l’opération prend en charge et active la segmentation ou la pagination pour obtenir de grandes quantités de données](logic-apps-handle-large-messages.md). Si la segmentation ou la pagination est activée, l’exécution d’une opération peut nécessiter plusieurs appels. Le modèle Consommation mesure et facture une opération *par exécution, et non par appel*.
 
-Supposons, par exemple, qu’un flux de travail commence par un déclencheur d’interrogation qui obtient des enregistrements en effectuant régulièrement des appels sortants vers un point de terminaison. L’appel sortant est mesuré et facturé comme une seule exécution, que le déclencheur se déclenche ou non, ou qu’il soit ignoré. L’état du déclencheur contrôle la création et l’exécution ou non de l’instance de flux de travail. Supposons à présent que l’opération prend également en charge et a activé la segmentation ou la pagination. Si l’opération doit effectuer 10 appels pour finir d’obtenir toutes les données, l’opération est toujours mesurée et facturée comme une *seule exécution*, même si elle passe plusieurs appels.
+Supposons, par exemple, qu’un flux de travail commence par un déclencheur d’interrogation qui obtient des enregistrements en effectuant régulièrement des appels sortants vers un point de terminaison. L’appel sortant est mesuré et facturé comme une seule exécution, que le déclencheur soit activé ou ignoré, par exemple lorsqu’un déclencheur vérifie un point de terminaison, mais ne trouve pas de données ou d’événements. L’état du déclencheur contrôle la création et l’exécution ou non de l’instance de flux de travail. Supposons à présent que l’opération prend également en charge et a activé la segmentation ou la pagination. Si l’opération doit effectuer 10 appels pour finir d’obtenir toutes les données, l’opération est toujours mesurée et facturée comme une *seule exécution*, même si elle passe plusieurs appels.
 
 Le tableau suivant résume la façon dont le modèle Consommation gère la mesure et la facturation de ces types d’opérations lorsqu’il est utilisé avec une application logique et un flux de travail dans Azure Logic Apps multilocataire :
 

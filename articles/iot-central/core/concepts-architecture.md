@@ -3,16 +3,16 @@ title: Concepts d’architecture dans Azure IoT Central | Microsoft Docs
 description: Cet article présente les concepts clés relatifs à l’architecture d’Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/19/2020
+ms.date: 08/31/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 46b8cdc7fa33c8ddd382decb49eaa148093c99fe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 37e4224ae1347647d15959a55d19d2c6487935d7
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562921"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123273210"
 ---
 # <a name="azure-iot-central-architecture"></a>Architecture d’Azure IoT Central
 
@@ -29,71 +29,11 @@ Dans Azure IoT Central, les données qu’un appareil peut échanger avec votre 
 
 Pour plus d’informations sur la façon dont les appareils se connectent à votre application Azure IoT Central, consultez [Connectivité des appareils](concepts-get-connected.md).
 
-## <a name="azure-iot-edge-devices"></a>Appareil Azure IoT Edge
+### <a name="azure-iot-edge-devices"></a>Appareil Azure IoT Edge
 
-En plus des appareils créés à l’aide des [kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdks), vous pouvez également connecter des [appareils Azure IoT Edge](../../iot-edge/about-iot-edge.md) à une application IoT Central. IoT Edge vous permet d’exécuter l’intelligence Cloud et une logique personnalisée directement sur les appareils IoT gérés par IoT Central. Le runtime IoT Edge vous permet d’effectuer les opérations suivantes :
+En plus des appareils créés à l’aide des [kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdks), vous pouvez également connecter des [appareils Azure IoT Edge](../../iot-edge/about-iot-edge.md) à une application IoT Central. IoT Edge vous permet d’exécuter l’intelligence Cloud et une logique personnalisée directement sur les appareils IoT gérés par IoT Central. Vous pouvez également utiliser IoT Edge en tant que passerelle pour permettre à d’autres appareils en aval de se connecter à IoT Central.
 
-- Installer et mettre à jour des charges de travail sur l’appareil.
-- Tenir à jour les normes de sécurité IoT Edge sur l’appareil.
-- Garantir que les modules IoT Edge sont toujours en cours d’exécution.
-- Envoyer des rapports d’intégrité du module dans le cloud pour la supervision à distance.
-- Gérer la communication entre les appareils de nœud terminal en aval et un appareil IoT Edge, entre les modules sur un appareil IoT Edge, ainsi qu’entre un appareil IoT Edge et le cloud.
-
-![Azure IoT Central avec Azure IoT Edge](./media/concepts-architecture/iotedge.png)
-
-IoT Central offre les fonctionnalités suivantes sur les appareils IoT Edge :
-
-- Modèles d’appareils pour décrire les fonctionnalités d'un appareil IoT Edge, par exemple :
-  - Capacité de chargement du manifeste de déploiement, qui vous aide à gérer un manifeste pour une flotte d’appareils.
-  - Modules qui fonctionnent sur l’appareil IoT Edge.
-  - La télémétrie envoyée par chaque module.
-  - Les propriétés signalées par chaque module.
-  - Les commandes auxquelles chaque module répond.
-  - Les relations entre un appareil de passerelle IoT Edge et un appareil en aval.
-  - Les propriétés cloud qui ne sont pas stockées sur l’appareil IoT Edge.
-  - Personnalisations qui modifient la façon dont l’interface utilisateur affiche les fonctionnalités de l’appareil.
-  - Affichages et formulaires de l’appareil.
-
-  Pour plus d’informations, consultez l’article [Connecter des appareils Azure IoT Edge à une application Azure IoT Central](./concepts-iot-edge.md).
-
-- La capacité à provisionner des appareils IoT Edge à grande échelle avec le service Device Provisioning d’Azure IoT
-- Règles et actions.
-- Tableaux de bord et analyses personnalisés.
-- Exportation continue des données de télémétrie depuis les appareils IoT Edge.
-
-### <a name="iot-edge-device-types"></a>Types d'appareils IoT Edge
-
-IoT Central classifie les types d’appareils IoT Edge comme suit :
-
-- Appareils de nœud terminal. Un appareil IoT Edge peut avoir des appareils de nœud terminal en aval, mais ceux-ci ne sont pas approvisionnés dans IoT Central.
-- Appareils de passerelle avec des appareils en aval. L’appareil de passerelle et les appareils en aval sont provisionnés dans IoT Central
-
-![Vue d’ensemble d’IoT Central avec IoT Edge](./media/concepts-architecture/gatewayedge.png)
-
-> [!NOTE]
-> IoT Central ne prend actuellement pas en charge la connexion d’un appareil IoT Edge en tant qu’appareil en aval à une passerelle IoT Edge. Cela est dû au fait que tous les appareils qui se connectent à IoT Central sont provisionnés à l’aide du service Device Provisioning Service (DPS), lequel ne prend pas en charge les scénarios IoT Edge imbriqués.
-
-### <a name="iot-edge-patterns"></a>Modèles IoT Edge
-
-IoT Central prend en charge les modèles d’appareils IoT Edge suivants :
-
-#### <a name="iot-edge-as-leaf-device"></a>Appareil de nœud terminal IoT Edge
-
-![Appareil de nœud terminal IoT Edge](./media/concepts-architecture/edgeasleafdevice.png)
-
-L’appareil IoT Edge est approvisionné dans IoT Central et dans tous les appareils en aval, et leur télémétrie est représentée comme provenant de l’appareil IoT Edge. Les appareils en aval connectés à l’appareil IoT Edge ne sont pas approvisionnés dans IoT Central.
-
-#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>Appareil de passerelle IoT Edge connecté aux appareils en aval avec une identité
-
-![IoT Edge avec identité d'appareil en aval](./media/concepts-architecture/edgewithdownstreamdeviceidentity.png)
-
-L’appareil IoT Edge est approvisionné dans IoT Central avec les appareils en aval connectés à l’appareil IoT Edge. Le runtime pour l’approvisionnement des appareils en aval via la passerelle n'est pas pris en charge actuellement.
-
-#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>Appareil de passerelle IoT Edge connecté aux appareils en aval avec une identité fournie par la passerelle IoT Edge
-
-![IoT Edge avec appareil en aval sans identité](./media/concepts-architecture/edgewithoutdownstreamdeviceidentity.png)
-
-L’appareil IoT Edge est approvisionné dans IoT Central avec les appareils en aval connectés à l’appareil IoT Edge. Le runtime de la passerelle fournissant l’identité aux appareils en aval et le provisionnement des appareils en aval ne sont actuellement pas pris en charge. Si vous apportez votre propre module de traduction d’identité, IoT Central peut prendre en charge ce modèle.
+Pour en savoir plus, reportez-vous à [Connecter des appareils Azure IoT Edge à une application Azure IoT Central](concepts-iot-edge.md).
 
 ## <a name="cloud-gateway"></a>Passerelle cloud
 

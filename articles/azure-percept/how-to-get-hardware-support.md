@@ -1,25 +1,25 @@
 ---
-title: Obtenir de l’aide de la part d’ASUS concernant le matériel Azure Percept
+title: Guide pratique pour obtenir un support du matériel Azure Percept DK auprès d’ASUS
 description: Ce guide vous montre comment contacter ASUS pour bénéficier d’un support technique pour le matériel Azure Percept DK.
-author: juniem
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 07/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: de5d55ebceb5ede8a33e73584631048ba30f27fc
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: b93063660ea9be76cd862498506bef586018d3cd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223368"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531587"
 ---
-# <a name="get-azure-percept-hardware-support-from-asus"></a>Obtenir de l’aide de la part d’ASUS concernant le matériel Azure Percept
+# <a name="get-support-for-your-azure-percept-dk-hardware-from-asus"></a>Obtenir un support pour votre matériel Azure Percept DK auprès d’ASUS
 
 En tant qu’OEM pour Azure Percept DK, ASUS offre un support technique à tous les clients qui ont acheté un appareil et un support commercial aux clients intéressés par l’achat d’appareils. Cet article vous montre comment contacter ASUS pour bénéficier de ce support technique.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 
 - Pour bénéficier d’une expérience de support optimale, préparez-vous à fournir le numéro de série de l’appareil qui se trouve à l’arrière de la carte de développement.
 

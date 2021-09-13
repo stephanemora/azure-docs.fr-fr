@@ -7,14 +7,14 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 06/16/2021
+ms.date: 08/24/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: f0ca8bfb04414328e62e5842431a90a0b5667483
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8c6f5954e173f58333ec3970cb09ca0404adf964
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642022"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822822"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -363,7 +363,11 @@ Si vous sélectionnez l'option **Utiliser le proxy système** pour le proxy HTTP
 > [!IMPORTANT]
 > N’oubliez pas de mettre à jour diahost.exe.config et diawp.exe.config.
 
-Vous devez également vérifier que Microsoft Azure figure dans la liste d’autorisation de votre entreprise. Vous pouvez télécharger la liste des adresses IP Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Vous devez également vérifier que Microsoft Azure figure dans la liste d’autorisation de votre entreprise. Vous pouvez télécharger la liste des adresses IP Azure valides. Les plages d’adresses IP pour chaque cloud, réparties par région et par les services marqués dans ce cloud, sont désormais disponibles sur MS Download : 
+   - Public : https://www.microsoft.com/download/details.aspx?id=56519
+   - US Gov : https://www.microsoft.com/download/details.aspx?id=57063 
+   - Allemagne : https://www.microsoft.com/download/details.aspx?id=57064 
+   - Chine : https://www.microsoft.com/download/details.aspx?id=57062 
 
 ### <a name="possible-symptoms-for-issues-related-to-the-firewall-and-proxy-server"></a>Symptômes possibles problèmes liés au pare-feu et au serveur proxy
 
@@ -420,7 +424,7 @@ Pour certaines bases de données cloud, comme Azure SQL Database et Azure Data L
 
 ### <a name="get-url-of-azure-relay"></a>Obtenir l'URL d'Azure Relay
 
-Un domaine et un port requis doivent être placés dans la liste d’autorisation de votre pare-feu pour la communication avec Azure Relay. Le runtime d'intégration auto-hébergé les utilisera pour la création interactive, par exemple pour tester la connexion, parcourir la liste des dossiers et la liste des tables, obtenir le schéma et afficher un aperçu des données. Si vous ne souhaitez pas autoriser **.servicebus.windows.net** et tenez à bénéficier d'URL plus spécifiques, vous pouvez afficher tous les noms de domaine complets requis par le runtime d'intégration auto-hébergé à partir du portail du service. Procédez comme suit :
+Un domaine et un port requis doivent être placés dans la liste d’autorisation de votre pare-feu pour la communication avec Azure Relay. Le runtime d'intégration auto-hébergé les utilisera pour la création interactive, par exemple pour tester la connexion, parcourir la liste des dossiers et la liste des tables, obtenir le schéma et afficher un aperçu des données. Si vous ne souhaitez pas autoriser **.servicebus.windows.net** et tenez à bénéficier d'URL plus spécifiques, vous pouvez afficher tous les noms de domaine complets requis par le runtime d'intégration auto-hébergé à partir du portail du service. Suivez ces étapes :
 
 1. Accédez au portail du service et sélectionnez votre runtime d'intégration auto-hébergé.
 2. Sur la page Modifier, sélectionnez **Nœuds**.

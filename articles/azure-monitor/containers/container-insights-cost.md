@@ -3,12 +3,12 @@ title: Coût de surveillance pour Container Insights | Microsoft Docs
 description: Cet article décrit le coût de surveillance des métriques et des données d’inventaire collectées par Container Insights, afin d’aider les clients à gérer leur utilisation et les frais associés.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 78387e950d476126d7c2065a530844e44fd59b4f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2ff3616b3c78bbd7202acb08ffb3e46e0f7591b0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728907"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524700"
 ---
 # <a name="understand-monitoring-costs-for-container-insights"></a>Comprendre les coûts de surveillance pour Container Insights
 
@@ -37,7 +37,7 @@ Voici un résumé des types de données collectées à partir d’un cluster Kub
 
 - Activer le scraping des métriques Prometheus
 
-- [Collection des journaux de diagnostic](../../aks/view-control-plane-logs.md) des nœuds Kubernetes principaux de votre cluster AKS, pour l’analyse des données des journaux générés par les principaux composants (comme *kube-apiserver* et *kube-controller-manager*).
+- [Collection des journaux de diagnostic](../../aks/monitor-aks.md#configure-monitoring) des nœuds Kubernetes principaux de votre cluster AKS, pour l’analyse des données des journaux générés par les principaux composants (comme *kube-apiserver* et *kube-controller-manager*).
 
 ## <a name="what-is-collected-from-kubernetes-clusters"></a>Éléments collectés à partir des clusters Kubernetes
 
@@ -108,7 +108,7 @@ Si vous avez activé l’analyse d’un cluster AKS configuré comme suit :
 - Cinq services Kubernetes (y compris les services, les pods et l’espace de nom kube-system)
 - Fréquence de collecte = 60 secondes (par défaut)
 
-Vous pouvez voir les tables et le volume de données générées par heure dans l’espace de travail Log Analytics affecté. Pour plus d’informations sur chacune de ces tables, voir [Enregistrements de conteneur](container-insights-log-search.md#container-records).
+Vous pouvez voir les tables et le volume de données générées par heure dans l’espace de travail Log Analytics affecté. Pour plus d’informations sur chacune de ces tables, consultez [Tables Azure Monitor Logs](../../aks/monitor-aks-reference.md#azure-monitor-logs-tables).
 
 |Table de charge de travail | Estimation de la taille (Mo/heure) |
 |------|---------------|
@@ -138,7 +138,7 @@ Ce classeur permet de visualiser la source de vos données sans avoir à créer 
 - Données facturables ingérées par chaque journal de conteneur (journal des applications)
 - Données des journaux de conteneurs facturables ingérées par chaque espace de noms Kubernetes
 - Données des journaux de conteneurs facturables ingérées, par nom de cluster
-- Données des journaux de conteneurs facturables ingérées, par entrée logsource
+- Données des journaux de conteneurs facturables ingérées par l’entrée de source de journal
 - Données de diagnostic facturables ingérées, par journal de diagnostic de nœud maître
 
 [![Classeur Utilisation des données](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)

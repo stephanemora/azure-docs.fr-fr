@@ -6,19 +6,22 @@ ms.author: jaawasth
 ms.service: virtual-machines-sap
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: f7b6e6efbbd17655b4f68d79ac26ee34ae754a3b
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 3da8c2a0147136ad5da90489e4f8db511cad7378
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728443"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217446"
 ---
 # <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>Haute disponibilité d’Azure (grandes instances) pour SAP sur RHEL
 
 > [!NOTE]
 > Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque ce terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
-Dans cet article, vous allez apprendre à configurer le cluster Pacemaker dans RHEL 7.6 pour automatiser un basculement de base de données SAP HANA. Vous devez avoir une bonne compréhension de Linux, de SAP HANA et de Pacemaker pour suivre les étapes de ce guide.
+> [!NOTE]
+> Cet article contient des références au terme esclave, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+
+Dans cet article, vous allez apprendre à configurer le cluster Pacemaker dans RHEL 7 pour automatiser un basculement de base de données SAP HANA. Vous devez avoir une bonne compréhension de Linux, de SAP HANA et de Pacemaker pour suivre les étapes de ce guide.
 
 Le tableau suivant répertorie les noms d’hôte utilisés dans cet article. Les blocs de code dans l’article montrent les commandes qui doivent être exécutées, ainsi que la sortie de ces commandes. Portez une attention particulière au nœud référencé dans chaque commande.
 
@@ -136,6 +139,7 @@ Avant de commencer la configuration du cluster, configurez l’échange de clés
 
 6. Mettre à jour le système
     1. Tout d’abord, installez les dernières mises à jour sur le système avant de commencer l’installation de l’appareil SBD.
+    1. Les clients doivent s’assurer qu’ils disposent au moins de la version 4.1.1-12.el7_6.26 du package resource-agents-sap-hana, comme indiqué dans [Stratégies de support pour les clusters à haute disponibilité RHEL - Gestion de SAP HANA dans un cluster](https://access.redhat.com/articles/3397471)
     1. Si vous ne souhaitez pas une mise à jour complète du système, même si c’est recommandé, mettez au moins à jour les packages suivants.
         1. `resource-agents-sap-hana`
         1. `selinux-policy`
@@ -308,7 +312,7 @@ Dans cette section, vous découvrez comment configurer la surveillance (watchdog
 ## <a name="sbd-configuration"></a>Configuration de SBD
 Dans cette section, vous découvrez comment configurer SBD. Cette section utilise les deux mêmes hôtes, `sollabdsm35` et `sollabdsm36` , référencés au début de cet article.
 
-1.  Assurez-vous que le disque iSCSI ou FC est visible sur les deux nœuds. Cet exemple utilise un appareil SBD basé sur FC. Pour plus d’informations sur l’isolation SBD, consultez [Conseils pour la conception pour les clusters à haute disponibilité RHEL - Considérations relatives à SBD](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faccess.redhat.com%2Farticles%2F2941601&data=04%7C01%7Cralf.klahr%40microsoft.com%7Cd49d7a3e3871449cdecc08d8c77341f1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478645171139432%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=c%2BUAC5gmgpFNWZCQFfiqcik8CH%2BmhH2ly5DsOV1%2FE5M%3D&reserved=0).
+1.  Assurez-vous que le disque iSCSI ou FC est visible sur les deux nœuds. Cet exemple utilise un appareil SBD basé sur FC. Pour plus d’informations sur l’isolation SBD, consultez [Conseils de conception pour les clusters à haute disponibilité RHEL - Considérations sur SBD](https://access.redhat.com/articles/2941601) et [Stratégies de support pour les clusters à haute disponibilité RHEL- sbd et fence_sbd](https://access.redhat.com/articles/2800691).
 2.  L’ID LUN doit être identique sur tous les nœuds.
   
 3.  Vérifiez l’état multichemin pour l’appareil SBD.
@@ -641,7 +645,7 @@ Dans cette section, vous initialisez le cluster. Cette section utilise les deux 
 
 Dans cette section, vous intégrez HANA dans le cluster. Cette section utilise les deux mêmes hôtes, `sollabdsm35` et `sollabdsm36` , référencés au début de cet article.
 
-Il existe deux options pour intégrer HANA. La première option est une solution à coût optimisé dans laquelle vous pouvez utiliser le système secondaire pour exécuter le système QAS. Nous ne recommandons pas d’utiliser cette méthode, car elle ne laisse aucun système pour tester les mises à jour sur le logiciel du cluster, le système d’exploitation ou HANA, et les mises à jour de la configuration peuvent entraîner des temps d’arrêt non planifiés du système PRD. En outre, si le système PRD doit être activé sur le système secondaire, QAS doit être arrêté sur le nœud secondaire. La deuxième option consiste à installer le système QAS sur un seul cluster et à utiliser un deuxième cluster pour PRD. Cette option vous permet également de tester tous les composants avant qu’ils ne soient mis en production. Cet article vous montre comment configurer la deuxième option.
+La méthode par défaut et prise en charge consiste à créer un scénario à performances optimisées dans lequel la base de données peut être basculée directement. Seul ce scénario est décrit dans ce document. Dans ce cas, nous vous recommandons d’installer un cluster pour le système QAS et un cluster distinct pour le système PRD. Dans ce cas uniquement, il est possible de tester tous les composants avant le passage en production.
 
 
 * Ce processus est issu de la description RHEL sur la page :
@@ -649,6 +653,12 @@ Il existe deux options pour intégrer HANA. La première option est une solution
   * https://access.redhat.com/articles/3004101
 
  ### <a name="steps-to-follow-to-configure-hsr"></a>Étapes à suivre pour configurer HSR
+
+ | **Mode de réplication de journal**            | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **synchrone en mémoire (par défaut)** | Synchrone en mémoire (mode=syncmem) signifie que l’écriture dans le journal est considérée comme réussie, quand l’entrée du journal a été écrite dans le volume du fichier journal de l’instance principale et que l’envoi du journal a été accepté par l’instance secondaire après la copie en mémoire. Quand la connexion au système secondaire est perdue, le système principal continue le traitement des transactions et écrit les modifications uniquement sur le disque local. Une perte de données peut se produire en cas d’échec des systèmes principal et secondaire en même temps tant que le système secondaire est connecté ou quand une prise de contrôle est exécutée, alors que le système secondaire est déconnecté. Cette option offre de meilleures performances parce qu’il n’est pas nécessaire d’attendre les E/S disque sur l’instance secondaire, mais elle est plus vulnérable à la perte de données.                                                                                                                                                                                                                                                                                                                     |
+| **Synchrone**                     | Synchrone (mode=sync) signifie que l’écriture dans le journal est considérée comme réussie quand l’entrée du journal a été écrite dans le volume du fichier journal de l’instance principale et de l’instance secondaire. Quand la connexion au système secondaire est perdue, le système principal continue le traitement des transactions et écrit les modifications uniquement sur le disque local. Aucune perte de données ne se produit dans ce scénario tant que le système secondaire est connecté. Une perte de données peut se produire quand une prise de contrôle est exécutée alors que le système secondaire est déconnecté. En outre, ce mode de réplication peut s’exécuter avec une option de synchronisation complète. Cela signifie que l’écriture dans le journal est réussie quand le tampon du journal a été écrit dans le fichier journal de l’instance principale et de l’instance secondaire. De plus, quand le système secondaire est déconnecté (par exemple, en raison d’une défaillance du réseau), le système principal interrompt le traitement des transactions jusqu’à ce que la connexion au système secondaire soit rétablie. Aucune perte de données ne se produit dans ce scénario. Vous pouvez définir l’option de synchronisation complète pour la réplication du système uniquement avec le paramètre \[system\_replication\]/enable\_full\_sync. Pour plus d’informations sur l’activation de l’option de synchronisation complète, consultez Activer l’option de synchronisation complète pour la réplication du système.                                                                                                                                                                                                                                                                                                              |
+| **Asynchrone**                    | Asynchrone (mode=async) signifie que le système principal envoie des tampons de journal de restauration au système secondaire de manière asynchrone. Le système principal valide une transaction quand elle a été écrite dans le fichier journal du système principal et envoyée au système secondaire par le biais du réseau. Il n’attend pas la confirmation du système secondaire. Cette option offre de meilleures performances, car il n’est pas nécessaire d’attendre les E/S du journal sur le système secondaire. La cohérence de la base de données pour tous les services sur le système secondaire est garantie. Toutefois, elle est plus vulnérable à la perte de données. Des modifications de données peuvent être perdues lors d’une prise de contrôle.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 1.  Voici les actions à exécuter sur le nœud 1 (principal).
     1. Assurez-vous que le mode de journalisation de la base de données est défini sur normal.
@@ -1052,7 +1062,11 @@ Vérifiez que les prérequis suivants sont remplis :
 3.  Créez une ressource SAPHanaTopology clonée.
     La ressource SAPHanaTopology recueille l’état et la configuration de la réplication du système SAP HANA sur chaque nœud. SAPHanaTopology requiert la configuration des attributs suivants.
        ```
-       pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 InstanceNumber=00 --clone clone-max=2 clone-node-max=1    interleave=true
+       pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 op start timeout=600 \
+       op stop timeout=300 \
+       op monitor interval=10 timeout=600 \
+       clone clone-max=2 clone-node-max=1 interleave=true
+
        ```
 
     | Nom d’attribut | Description  |
@@ -1064,26 +1078,15 @@ Vérifiez que les prérequis suivants sont remplis :
        ```
        pcs resource show SAPHanaTopology_HR2_00
    
-       InstanceNumber 2-digit SAP Instance identifier.
-       pcs resource show SAPHanaTopology_HR2_00-clone
-   
        Clone: SAPHanaTopology_HR2_00-clone
-   
         Meta Attrs: clone-max=2 clone-node-max=1 interleave=true
-   
-        Resource: SAPHanaTopology_HR2_00 (class=ocf provider=heartbeat
-       type=SAPHanaTopology)
-   
-        Attributes: InstanceNumber=00 SID=HR2
-   
-        Operations: monitor interval=60 timeout=60
-       (SAPHanaTopology_HR2_00-monitor-interval-60)
-   
-        start interval=0s timeout=180
-       (SAPHanaTopology_HR2_00-start-interval-0s)
-   
-        stop interval=0s timeout=60 (SAPHanaTopology_HR2_00-stop-interval-0s)
-   
+        Resource: SAPHanaTopology_HR2_00 (class=ocf provider=heartbeat type=SAPHanaTopology)
+         Attributes: InstanceNumber=00 SID=HR2
+         Operations: monitor interval=60 timeout=60 (SAPHanaTopology_HR2_00-monitor-interval-60)
+                     start interval=0s timeout=180 (SAPHanaTopology_HR2_00-start-interval-0s)
+                     stop interval=0s timeout=60 (SAPHanaTopology_HR2_00-stop-interval-0s)
+       
+         
        ```
 
 4.  Créez une ressource SAPHana principale/secondaire.
@@ -1100,39 +1103,32 @@ Vérifiez que les prérequis suivants sont remplis :
 
 5.  Créez les ressources HANA.
     ```
-    pcs resource create SAPHana_HR2_00 SAPHana SID=HR2 InstanceNumber=00 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200   AUTOMATED_REGISTER=true primary notify=true clone-max=2 clone-node-max=1 interleave=true
+    pcs resource create SAPHana_HR2_00 SAPHana SID=HR2 InstanceNumber=00 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=true op start timeout=3600 \
+    op stop timeout=3600 \
+    op monitor interval=61 role="Slave" timeout=700 \
+    op monitor interval=59 role="Master" timeout=700 \
+    op promote timeout=3600 \
+    op demote timeout=3600 \
+    master meta notify=true clone-max=2 clone-node-max=1 interleave=true
+
 
     pcs resource show SAPHana_HR2_00-primary
 
 
     Primary: SAPHana_HR2_00-primary
-
-        Meta Attrs: clone-max=2 clone-node-max=1 interleave=true notify=true
-
-        Resource: SAPHana_HR2_00 (class=ocf provider=heartbeat type=SAPHana)
-
-        Attributes: AUTOMATED_REGISTER=false DUPLICATE_PRIMARY_TIMEOUT=7200
-    InstanceNumber=00 PREFER_SITE_TAKEOVER=true SID=HR2
-
-        Operations: demote interval=0s timeout=320
-    (SAPHana_HR2_00-demote-interval-0s)
-
-        monitor interval=120 timeout=60 (SAPHana_HR2_00-monitor-interval-120)
-
-        monitor interval=121 role=Secondary timeout=60
-    (SAPHana_HR2_00-monitor-
-
-        interval-121)
-
-        monitor interval=119 role=Primary timeout=60 (SAPHana_HR2_00-monitor-
-
-        interval-119)
-
-        promote interval=0s timeout=320 (SAPHana_HR2_00-promote-interval-0s)
-
-        start interval=0s timeout=180 (SAPHana_HR2_00-start-interval-0s)
-
-        stop interval=0s timeout=240 (SAPHana_HR2_00-stop-interval-0s)
+     Meta Attrs: clone-max=2 clone-node-max=1 interleave=true notify=true
+     Resource: SAPHana_HR2_00 (class=ocf provider=heartbeat type=SAPHana)
+      Attributes: AUTOMATED_REGISTER=false DUPLICATE_PRIMARY_TIMEOUT=7200 InstanceNumber=00 PREFER_SITE_TAKEOVER=true SID=HR2
+      Operations: demote interval=0s timeout=320 (SAPHana_HR2_00-demote-interval-0s)
+                  monitor interval=120 timeout=60 (SAPHana_HR2_00-monitor-interval-120)
+                  monitor interval=121 role=Secondary timeout=60 (SAPHana_HR2_00-monitor-
+                  interval-121)
+                  monitor interval=119 role=Primary timeout=60 (SAPHana_HR2_00-monitor-
+                  interval-119)
+                  promote interval=0s timeout=320 (SAPHana_HR2_00-promote-interval-0s)
+                  start interval=0s timeout=180 (SAPHana_HR2_00-start-interval-0s)
+                  stop interval=0s timeout=240 (SAPHana_HR2_00-stop-interval-0s)
+   
 
     
     
@@ -1318,3 +1314,10 @@ pcs cluster node clear node1
 ```
 
 La préférence pour l’enregistrement automatique dépend du scénario du client. Le réenregistrement automatique du nœud après une prise de contrôle est plus facile pour l’équipe d’exploitation. Toutefois, vous souhaiterez peut-être enregistrer le nœud manuellement pour exécuter d’abord des tests supplémentaires afin de vérifier que tout fonctionne comme prévu.
+
+##  <a name="references"></a>Références
+
+1. [Réplication de système SAP HANA automatisée dans un scale-up au sein d’un cluster Pacemaker](https://access.redhat.com/articles/3397471)
+2. [Stratégies de support pour les clusters à haute disponibilité RHEL - Gestion de SAP HANA dans un cluster](https://access.redhat.com/articles/3397471)
+3. [Configuration de Pacemaker sur RHEL dans Azure - Machines Virtuelles Azure](high-availability-guide-rhel-pacemaker.md)
+4. [Contrôle des grandes instances Azure HANA à l’aide du portail Azure - Machines Virtuelles Azure](hana-li-portal.md)

@@ -4,16 +4,16 @@ description: Cet article fournit des informations sur la configuration des limit
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/20/2020
+ms.date: 07/06/2021
 ms.author: victorh
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e6403b1bab2bcdd6a001c5f55b34519b9447194d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 3b6042ec28e7b774f57be19809c585ad919b25b0
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668624"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432497"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions
 
@@ -97,7 +97,12 @@ Le pare-feu d’applications web vous permet de configurer des limites maximale 
    - 500 Mo pour les grandes passerelles v1 WAF
    - 750 Mo pour les passerelles v2 WAF 
 
- La valeur par défaut pour la limite de chargement de fichier est de 100 Mo.
+La valeur par défaut pour la limite de chargement de fichier est de 100 Mo.
+
+Pour CRS 3.2 (sur la référence WAF_v2) et versions ultérieures, ces limites sont les suivantes :
+   
+   - 2 Mo pour la taille maximale du corps de requête
+   - 4 Mo pour la limite de chargement de fichiers 
 
 Le WAF offre également un bouton configurable qui permet d’activer ou de désactiver l’inspection du corps de la demande. Par défaut, l’inspection du corps de la demande est activée. Si l’inspection du corps de la requête est désactivée, le WAF n’évalue pas le contenu du corps du message HTTP. Dans ce cas, le WAF continue d’appliquer ses règles sur les en-têtes, les cookies et les URI. Si l’inspection du corps de la demande est désactivée, le champ de la taille maximale du corps de la demande n’est pas applicable et ne peut pas être défini. La désactivation de l’inspection du corps de la demande permet l’envoi au WAF de messages dont la taille est supérieure à 128 Ko, mais le corps du message n’est pas inspecté.
 

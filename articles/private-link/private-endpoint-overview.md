@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 07/15/2021
 ms.author: allensu
-ms.openlocfilehash: e2d8fe69d3657b991abea6401071023ad00a2cf3
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: f816ae15ddba9f56f1b504b2e4ccc52efdc09249
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608221"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099973"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -42,7 +42,7 @@ Le service peut être l’un des services Azure suivants :
 Voici quelques détails clés sur Private Endpoint : 
 - Private Endpoint permet la connectivité entre consommateurs à partir du même réseau virtuel, des réseaux virtuels avec homologation globale et locaux l’aide d’un [VPN](https://azure.microsoft.com/services/vpn-gateway/) ou [d’Express Route](https://azure.microsoft.com/services/expressroute/) et des services basés sur Private Link.
  
-- Des connexions réseau ne peuvent être établies que par des clients se connectant au point de terminaison privé. Les fournisseurs de services n’ont pas de configuration de routage pour établir des connexions avec des consommateurs du service. Les connexions ne peuvent uniquement être établies quand dans une seule direction.
+- Des connexions réseau ne peuvent être établies que par des clients se connectant au point de terminaison privé. Les fournisseurs de services n’ont pas de configuration de routage pour établir des connexions avec des consommateurs du service. Les connexions ne peuvent être établies que dans une seule direction.
 
 - Lors de la création d’un point de terminaison privé, une interface réseau en lecture seule est créée pour le cycle de vie de la ressource. Une adresse IP privée dynamique est attribuée à l’interface à partir du sous-réseau qui est mappé à la ressource de liaison privée. La valeur de l’adresse IP privée reste inchangée pour l’intégralité du cycle de vie du point de terminaison privé.
  
@@ -137,18 +137,19 @@ Lors de la connexion à une ressource de liaison privée à l’aide d’un nom 
 L’interface réseau associée au point de terminaison privé contient l’ensemble complet des informations requises pour configurer votre DNS, y compris le nom de domaine complet et les adresses IP privées données pour une ressource de liaison privée. 
 
 Pour obtenir des informations détaillées complètes sur les recommandations relatives à la configuration du DNS pour les points de terminaison privés, consultez [Configuration DNS des points de terminaison privés](private-endpoint-dns.md).
-
-
-
  
 ## <a name="limitations"></a>Limites
  
 Le tableau suivant répertorie les limitations connues lors de l’utilisation de Private Endpoint : 
 
+| Limitation | Description |Limitation des risques |
+| --------- | --------- | --------- |
+| Le trafic destiné à un point de terminaison privé qui utilise un itinéraire défini par l’utilisateur peut être asymétrique. | Le trafic de retour issu d’un point de terminaison privé ignore une appliance virtuelle réseau (NVA) et tente de revenir à la machine virtuelle source. | Pour tout le trafic destiné à un point de terminaison privé qui utilise un itinéraire défini par l’utilisateur, il est recommandé d’appliquer la traduction d’adresses réseau source (SNAT) au trafic au niveau de la NVA pour garantir le routage symétrique.  |
 
-|Limitation |Description |Limitation des risques  |
-|---------|---------|---------|
-|Les règles de groupe de sécurité réseau et les itinéraires définis par l’utilisateur ne s’appliquent pas au point de terminaison privé.    | Un groupe de sécurité réseau n’est pas pris en charge sur des points de terminaison privés. Si les sous-réseaux contenant le point de terminaison privé peuvent avoir un groupe de sécurité réseau associé, les règles ne sont pas effectives sur le trafic traité par le point de terminaison privé. Vous devez [désactiver l’application des stratégies réseau](disable-private-endpoint-network-policy.md) pour déployer Private Endpoint dans un sous-réseau. Le groupe de sécurité réseau est toujours appliqué sur les autres charges de travail hébergées sur le même sous-réseau. Les routes sur un sous-réseau client, quel qu’il soit, utiliseront un préfixe /32. La modification du comportement de routage par défaut nécessite une UDR similaire.  | Contrôlez le trafic à l’aide de règles de groupe de sécurité réseau pour le trafic sortant sur les clients source. Déployez des routes individuelles avec le préfixe /32 pour remplacer les routes de points de terminaison privés. Les journaux de trafic NSG et les informations de supervision pour les connexions sortantes sont toujours pris en charge et peuvent être utilisés.        |
+> [!IMPORTANT]
+> La prise en charge de NSG et UDR pour les points de terminaison privés est en version préliminaire publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

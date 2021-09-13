@@ -21,7 +21,7 @@ items:
               - name: Portail Azure
                 href: storage-quickstart-blobs-portal.md
               - name: Explorateur Stockage
-                href: storage-quickstart-blobs-storage-explorer.md
+                href: quickstart-storage-explorer.md
               - name: PowerShell
                 href: storage-quickstart-blobs-powershell.md
               - name: Interface de ligne de commande

@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 07/06/2021
 ms.author: aahi
-ms.openlocfilehash: 0e897b71f1f5f99ce2834768a72bf99b9773301f
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 917a2206d59ef145beb2c5355002827069b86e92
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078255"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867308"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Prise en charge linguistique de l’API Analyse de texte v3 
 
-> [!NOTE]
-> Des langues sont ajoutées à mesure que de nouvelles versions de modèle sont publiées pour des fonctionnalités Analyse de texte spécifiques. Consultez [Gestion des versions des modèles](concepts/model-versioning.md) pour connaître la version de modèle la plus récente pour les fonctionnalités que vous utilisez, et obtenir plus d’informations.   
-
 #### <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment-analysis)
 
-| Langage              | Code langue | Prise en charge de v3 | À partir de la version de modèle v3 : |              Notes |
+> [!NOTE]
+> Des langues sont ajoutées à mesure que de nouvelles [versions de modèle](concepts/model-versioning.md) sont publiées pour des fonctionnalités d’Analyse de texte spécifiques. La version actuelle du modèle pour l’Analyse des sentiments est `2020-04-01`.
+
+| Langage              | Code langue | support v3. x | À partir de la version de modèle v3 : |              Notes |
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
 | Chinois simplifié    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` également accepté |
 | Chinois traditionnel   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
@@ -42,7 +42,7 @@ ms.locfileid: "112078255"
 | Espagnol               |     `es`      |     ✓      |         2019-10-01         |                    |
 | Turc               |     `tr`      |     ✓       |         2020-04-01        |                    |
 
-### <a name="opinion-mining-v31-preview-only"></a>Exploration des opinions (v3.1-preview uniquement)
+### <a name="opinion-mining-v31-only"></a>Exploration des opinions (v3.1 uniquement)
 
 | Langage              | Code langue | À partir de la version de modèle v3 : |              Notes |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
@@ -53,8 +53,9 @@ ms.locfileid: "112078255"
 
 > [!NOTE]
 > * Les entités « Person », « Location » et « Organization » sont retournées pour les autres langues marquées d’un astérisque *.
+> * Des langues sont ajoutées à mesure que de nouvelles [versions de modèle](concepts/model-versioning.md) sont publiées pour des fonctionnalités d’Analyse de texte spécifiques. La version actuelle du modèle pour NER est `2021-06-01`.
 
-| Langage               | Code langue | Prise en charge de v3 | À partir de la version de modèle v3 : |       Notes        |
+| Langage               | Code langue | support v3. x | À partir de la version de modèle v3 : |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Arabe                 |     `ar`      |      ✓*    |               2019-10-01        |                    |
 | Chinois simplifié     |   `zh-hans`   |     ✓      |               15-01-2021        | `zh` également accepté |
@@ -80,9 +81,12 @@ ms.locfileid: "112078255"
 | Suédois               |     `sv`      |     ✓*      |               2019-10-01        |                    |
 | Turc               |     `tr`      |     ✓*      |               2019-10-01        |                    |
 
-#### <a name="key-phrase-extraction"></a>[Extraction de phrases clés](#tab/key-phrase-extraction)
+#### <a name="key-phrase-extraction"></a>[Extraction d’expressions clés](#tab/key-phrase-extraction)
 
-| Langage              | Code langue |  Prise en charge de v3 | À partir de la version de modèle v3 : |       Notes        |
+> [!NOTE]
+> Des langues sont ajoutées à mesure que de nouvelles [versions de modèle](concepts/model-versioning.md) sont publiées pour des fonctionnalités d’Analyse de texte spécifiques. La version actuelle du modèle pour l’Extraction de phrases clés est `2021-06-01`.
+
+| Langage              | Code langue |  support v3. x | À partir de la version de modèle v3 : |       Notes        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
 | Afrikaans             |     `af`      |     ✓      |                2020-07-01                 |                    |
 | Bulgare             |     `bg`      |     ✓      |                2020-07-01                 |                    |
@@ -115,16 +119,35 @@ ms.locfileid: "112078255"
 | Suédois               |     `sv`      |     ✓      |                2019-10-01                 |                    |
 | Turc               |     `tr`      |     ✓      |                2020-07-01                 |                    |
 
-#### <a name="entity-linking"></a>[Liaison d’entités](#tab/entity-linking)
+#### <a name="entity-linking"></a>[Entity Linking](#tab/entity-linking)
 
-| Langage | Code langue |  Prise en charge de v3 | À partir de la version de modèle v3 : | Notes |
+> [!NOTE]
+> Des langues sont ajoutées à mesure que de nouvelles [versions de modèle](concepts/model-versioning.md) sont publiées pour des fonctionnalités d’Analyse de texte spécifiques. La version actuelle du modèle pour la Liaison d’entité est `2020-02-01`.
+
+| Langage | Code langue |  support v3. x | À partir de la version de modèle v3 : | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | Anglais  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Espagnol  |     `es`      |    ✓      |                2019-10-01                 |       |
 
+#### <a name="text-analytics-for-health"></a>[Analyse de texte pour la santé](#tab/health)
+
+> [!NOTE]
+> * Le conteneur utilise des versions de modèle différentes de celles des points de terminaison d’API et du kit de développement logiciel (SDK).
+> * Des langues sont ajoutées à mesure que de nouvelles versions de modèle sont publiées pour des fonctionnalités Analyse de texte spécifiques. Les [versions de modèle](concepts/model-versioning.md) actuelles pour l’Analyse de texte pour la santé sont :
+>    * API et SDK : `2021-05-15`
+>    * Conteneur : `2021-03-01`
+
+
+| Langage | Code langue |  support v3. x | À partir de la version de modèle v3 : | Notes |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| Anglais  |     `en`      |     ✓      |                Point de terminaison d’API : 2020-11-01 <br> Conteneur : 2020-04-16                |       |
+
 #### <a name="personally-identifiable-information-pii"></a>[Informations d’identification personnelle (PII)](#tab/pii)
 
-| Langage               | Code langue | Prise en charge de v3 | À partir de la version de modèle v3 : |       Notes        |
+> [!NOTE]
+> Des langues sont ajoutées à mesure que de nouvelles [versions de modèle](concepts/model-versioning.md) sont publiées pour des fonctionnalités d’Analyse de texte spécifiques. La version de modèle actuelle pour les PII est `2021-01-15`.
+
+| Langage               | Code langue | support v3. x | À partir de la version de modèle v3 : |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Chinois simplifié     |   `zh-hans`   |     ✓      |               15-01-2021        | `zh` également accepté |
 | Anglais                |     `en`      |     ✓      |               2020-07-01        |                    |
@@ -139,11 +162,14 @@ ms.locfileid: "112078255"
 
 #### <a name="language-detection"></a>[Détection de la langue](#tab/language-detection)
 
+> [!NOTE]
+> Des langues sont ajoutées à mesure que de nouvelles [versions de modèle](concepts/model-versioning.md) sont publiées pour des fonctionnalités d’Analyse de texte spécifiques. La version de modèle actuelle pour la Détection de la langue est `2021-01-05`.
+
 L’API Analyse de texte peut détecter une grande variété de langues, de variantes, de dialectes ainsi que certaines langues régionales/culturelles et peut retourner les langues détectées avec leur nom et leur code. Les paramètres du code de langue de la fonctionnalité Détection de langue de cette API sont conformes à la norme [BCP-47](https://tools.ietf.org/html/bcp47), avec la plupart d’entre eux conformes aux identificateurs [ISO-639-1](https://www.iso.org/iso-639-language-codes.html). 
 
 Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, vous pouvez essayer Détection de langue pour voir si elle retourne un code. La réponse pour les langues qui ne peuvent pas être détectées est `unknown`.
 
-| Langage | Code de langue | Prise en charge de v3 | À partir de la version de modèle v3 : |
+| Langage | Code de langue | support v3. x | À partir de la version de modèle v3 : |
 |:-|:-:|:-:|:-:|
 |Afrikaans|`af`|✓|    |
 |Albanais|`sq`|✓|    |
@@ -261,6 +287,21 @@ Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, v
 |Yucatec Maya| `yua` | ✓| |
 |Zoulou|`zu`|✓|05-01-2021|
 
+
+#### <a name="text-summarization"></a>[Synthèse de texte](#tab/summarization)
+
+| Langage | Code langue |  support v3. x | À partir de la version de modèle v3 : | Notes |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| Chinois simplifié     |   `zh-hans`   |     ✓      |               2021-08-01        | `zh` également accepté |
+| Anglais  |     `en`      |     ✓      |                2021-08-01                 |       |
+| Français                 |     `fr`      |     ✓      |               2021-08-01        |                    |
+| Allemand                 |     `de`      |     ✓      |               2021-08-01        |                    |
+| Italien               |     `it`      |     ✓       |               2021-08-01        |                    |
+| Japonais              |     `ja`      |     ✓       |               2021-08-01        |                    |
+| Coréen                |     `ko`      |     ✓       |               2021-08-01        |                    |
+| Espagnol               |     `es`      |     ✓       |               2021-08-01        |                    |
+| Portugais (Brésil)   |    `pt-BR`    |     ✓       |               2021-08-01        |                    |
+| Portugais (Portugal) |    `pt-PT`    |     ✓       |               2021-08-01        | `pt` également accepté |
 
 ---
 

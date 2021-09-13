@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Comprendre le concept de jumeau numérique et comment leurs relations aboutissent à un graphique.
 author: baanders
 ms.author: baanders
-ms.date: 6/1/2021
+ms.date: 8/26/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1145525fe3d2e7c42204aa675153d4eb099cccce
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 42cce83683df789aeaabe53ca170f17319ec3603
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534885"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224845"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendre les jumeaux numériques et leur graphique de jumeaux
 
@@ -25,7 +25,7 @@ Dans une solution Azure Digital Twins, les entités de votre environnement sont 
 
 Avant de pouvoir créer un jumeau numérique dans votre instance Azure Digital Twins, vous devez disposer d’un *modèle* chargé sur le service. Un modèle décrit, entre autres choses, l’ensemble des propriétés, des messages de télémétrie et des relations qu’un jumeau particulier peut avoir. Pour obtenir les types d’informations définis dans un modèle, consultez [Modèles personnalisés](concepts-models.md).
 
-Après avoir créé et chargé un modèle, votre application cliente peut créer une instance du type ; il s’agit d’un jumeau numérique. Par exemple, après la création d’un modèle Étage, vous pouvez créer un ou plusieurs jumeaux numériques qui utilisent ce type (par exemple, un jumeau de type Étage appelé Rez-de-chaussée, un autre appelé Étage2, etc.).
+Après avoir créé et chargé un modèle, votre application cliente peut créer une instance de ce type. Cette instance est un jumeau numérique. Par exemple, après la création d’un modèle Étage, vous pouvez créer un ou plusieurs jumeaux numériques qui utilisent ce type (par exemple, un jumeau de type Étage appelé Rez-de-chaussée, un autre appelé Étage2, etc.).
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
@@ -43,7 +43,7 @@ Le résultat de ce processus est un ensemble de nœuds (les jumeaux numériques)
 
 ## <a name="create-with-the-apis"></a>Création avec des API
 
-Cette section montre à quoi ressemble la création de jumeaux numériques et de relations à partir d’une application cliente. Il contient des exemples de code .NET qui utilisent les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins), afin de fournir un contexte supplémentaire sur ce qui se passe à l’intérieur de chacun de ces concepts.
+Cette section montre à quoi ressemble la création de jumeaux numériques et de relations à partir d’une application cliente. Il contient des exemples de code .NET qui utilisent les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins), afin de fournir plus de contexte sur ce qui se passe à l’intérieur de chacun de ces concepts.
 
 ### <a name="create-digital-twins"></a>Créer des jumeaux numériques
 
@@ -66,7 +66,7 @@ Voici un exemple de code client qui utilise les [API DigitalTwins](/rest/api/dig
 
 ## <a name="json-representations-of-graph-elements"></a>Représentations JSON des éléments de graphique
 
-Les données des jumeaux numériques et les données de relation sont stockées au format JSON. Cela signifie que lorsque vous [interrogez le graphique des jumeaux](how-to-query-graph.md) dans votre instance Azure Digital Twins, le résultat est une représentation JSON des jumeaux numériques et des relations que vous avez créées.
+Les données de relation et les données des jumeaux numériques sont toutes stockées au format JSON. Cela signifie que lorsque vous [interrogez le graphique de jumeau](how-to-query-graph.md) dans votre instance Azure Digital Twins, le résultat est une représentation JSON des jumeaux numériques et des relations que vous avez créées.
 
 ### <a name="digital-twin-json-format"></a>Format JSON de jumeaux numériques
 
@@ -89,7 +89,7 @@ Lorsqu’il est représenté sous la forme d’un objet JSON, un jumeau numériq
 | `<component-name>.<property-name>` | Valeur de la propriété du composant au format JSON (`string`, type de nombre ou objet) |
 | `<component-name>.$metadata` | Informations de métadonnées pour le composant, similaires aux `$metadata` au niveau de la racine |
 
-Voici un exemple de jumeau numérique sous la forme d’un objet JSON :
+Voici un exemple de jumeau numérique au format objet JSON :
 
 ```json
 {
@@ -148,7 +148,7 @@ Lorsqu’elle est représentée sous la forme d’un objet JSON, une relation d�
 | `$relationshipName` | Nom de la relation |
 | `<property-name>` | [Facultatif] Valeur d’une propriété de cette relation, au format JSON (`string`, type de nombre ou objet) |
 
-Voici un exemple de relation sous la forme d’un objet JSON :
+Voici un exemple de relation au format objet JSON :
 
 ```json
 {

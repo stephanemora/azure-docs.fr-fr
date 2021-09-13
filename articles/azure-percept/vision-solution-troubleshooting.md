@@ -1,20 +1,20 @@
 ---
-title: Résoudre les problèmes liés à Azure Percept Vision et aux modules de vision
+title: Résoudre les problèmes relatifs à Azure Percept Vision et aux modules de vision
 description: Obtenir des conseils de dépannage pour certains problèmes courants rencontrés lors du prototypage IA de la vision.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 28ac7d0d7079d8ba8c9483e7da816430295941c9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 6bc06ed6850c247641423ef365a86dd9d8aec90a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027854"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225983"
 ---
-# <a name="vision-solution-troubleshooting"></a>Résolution des problèmes liés à la solution de vision
+# <a name="troubleshoot-azure-percept-vision-and-vision-modules"></a>Résoudre les problèmes relatifs à Azure Percept Vision et aux modules de vision
 
 Cet article fournit des informations sur la résolution des problèmes liés aux solutions de vision sans code dans Azure Percept Studio.
 
@@ -58,11 +58,7 @@ Cet article fournit des informations sur la résolution des problèmes liés aux
 
     :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-device.png" alt-text="Capture d’écran montrant le bouton Supprimer mis en évidence dans la page d’accueil IoT Edge.":::
 
-## <a name="eye-module-troubleshooting-tips"></a>Conseils de dépannage pour les modules oculaires
-
-Les conseils de dépannage suivants vous aideront à résoudre certains problèmes couramment rencontrés lors du prototypage IA de la vision.
-
-### <a name="check-the-runtime-status-of-azureeyemodule"></a>Vérifier le statut d’exécution d’azureeyemodule
+## <a name="check-the-runtime-status-of-azureeyemodule"></a>Vérifier le statut d’exécution d’azureeyemodule
 
 En cas de problème avec **WebStreamModule**, vérifiez que **azureeyemodule**, qui s’occupe de l’inférence du modèle de vision, est en cours d’exécution. Pour vérifier l’état de l’exécution :
 
@@ -76,19 +72,20 @@ En cas de problème avec **WebStreamModule**, vérifiez que **azureeyemodule**, 
 
     :::image type="content" source="./media/vision-solution-troubleshooting/firmware-desired-status-stopped.png" alt-text="Capture montrant l’écran de configuration des paramètres du module.":::
 
-### <a name="update-telemetryintervalneuralnetworkms"></a>Mettre à jour TelemetryIntervalNeuralNetworkMs
+## <a name="change-how-often-messages-are-sent-from-the-azureeyemodule"></a>Changer la fréquence d’envoi des messages depuis azureeyemodule
 
-Si vous rencontrez l’erreur ci-dessous concernant une limite maximale atteinte, vous devrez mettre à jour la valeur TelemetryIntervalNeuralNetworkMs dans les paramètres de jumeau du module azureeyemodule.
+Votre niveau d’abonnement peut limiter le nombre de messages pouvant être envoyés de votre appareil vers IoT Hub. Par exemple, le niveau gratuit limite le nombre de messages à 8 000 par jour. Une fois cette limite atteinte, votre azureeyemodule cesse de fonctionner et vous risquez de recevoir cette erreur :
 
 |Message d’erreur|
 |------|
-|Le nombre total de messages sur l’IotHub « xxxxxxxxx » a dépassé le quota alloué. Nombre maximal de messages autorisés : « 8000 », nombre de messages actuel : « xxxx ». Les opérations d’envoi et de réception sont bloquées pour ce hub jusqu’au prochain jour UTC. Envisagez d’augmenter les unités pour que ce hub augmente le quota.|
+|*Le nombre total de messages sur le hub IoT « xxxxxxxxx » a dépassé le quota alloué. Nombre maximal de messages autorisés : « 8 000 », nombre de messages actuel : « xxxx ». Les opérations d’envoi et de réception sont bloquées pour ce hub jusqu’au jour suivant UTC. Envisagez d’augmenter les unités pour ce hub afin d’augmenter le quota.*|
 
-TelemetryIntervalNeuralNetworkMs détermine la fréquence d’envoi des messages à partir du réseau neuronal. La fréquence d’envoi des messages est mesurée en millisecondes. Les abonnements Azure ont un nombre limité de messages par jour.
+Avec le jumeau de module azureeyemodule, il est possible de changer l’intervalle de fréquence d’envoi des messages. La valeur entrée pour l’intervalle indique la fréquence à laquelle chaque message est envoyé, en millisecondes. Plus le nombre est élevé, plus il y a de temps entre chaque message. Par exemple, si vous définissez l’intervalle sur 12 000, cela signifie qu’un message sera envoyé toutes les 12 secondes. Pour un modèle qui s’exécute toute la journée, cet intervalle revient à 7 200 messages par jour, ce qui est inférieur à la limite du niveau gratuit. La valeur que vous choisissez dépend de la réactivité dont vous avez besoin pour votre modèle de vision.
 
-La quantité de messages dépend du niveau de votre abonnement. Si vous êtes bloqué en raison de l’envoi d’un trop grand nombre de messages, augmentez la limite maximale. Une valeur de 12 000 correspond à 1 message toutes les 12 secondes. Cette quantité vous permet d’envoyer 7 200 messages par jour, ce qui est inférieur aux 8 000 messages que permet d’envoyer l’abonnement gratuit.
+> [!NOTE]
+> Le changement d’intervalle des messages n’affecte pas la taille de chaque message. La taille des messages dépend de plusieurs facteurs, tels que le type de modèle et le nombre d’objets détectés dans chaque message. Par conséquent, il est difficile de déterminer la taille des messages.
 
-Pour mettre à jour votre valeur TelemetryIntervalNeuralNetworkMs :
+Pour mettre à jour l’intervalle des messages, suivez ces étapes :
 
 1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home) et ouvrez **Toutes les ressources**.
 
@@ -102,17 +99,22 @@ Pour mettre à jour votre valeur TelemetryIntervalNeuralNetworkMs :
 
     :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Capture d’écran d’une page de module." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
 
-1. Faites défiler jusqu’à **Propriétés**. Les propriétés **Exécution** et **Journalisation** ne sont pas actives pour l’instant.
+1. Faites défiler jusqu’à **Propriétés**.
+1. Recherchez **TelemetryInterval** et remplacez-le par **TelemetryIntervalNeuralNetworkMs**
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Capture d’écran des propriétés du jumeau d’identité de module." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline-02.png" alt-text="Capture d’écran des propriétés du jumeau d’identité de module." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
 
-1. Mettez à jour la valeur **TelemetryIntervalNeuralNetworkMs** selon vos besoins, puis sélectionnez l’icône **Enregistrer**.
+1. Mettez à jour la valeur **TelemetryIntervalNeuralNetworkMs** avec la valeur nécessaire.
+
+1. Sélectionnez l’icône **Enregistrer**.
 
 ## <a name="view-device-rtsp-video-stream"></a>Afficher le flux vidéo RTSP de l’appareil
 
 Affichez le flux vidéo RTSP de votre appareil dans [Azure Percept Studio](./how-to-view-video-stream.md) ou [VLC media player](https://www.videolan.org/vlc/index.html).
 
 Pour ouvrir le flux RTSP dans VLC media player, accédez à **Media** > **Open network stream** > **rtsp://[device IP address]:8554/result**.
+
+Si votre flux RTSP est partiellement bloqué par une zone grise, vous essayez peut-être de l’afficher via une connexion réseau de mauvaise qualité. Vérifiez que votre connexion dispose d’une bande passante suffisante pour les flux vidéo.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

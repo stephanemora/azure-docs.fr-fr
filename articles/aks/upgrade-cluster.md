@@ -4,12 +4,12 @@ description: Découvrez comment mettre à niveau un cluster Azure Kubernetes ser
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 772cb9d33c9bf9307ca0dc16536933fc9123de4b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 9dcbe21ccddb13037cbd7633127880320da9ff2b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085795"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532941"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -66,7 +66,7 @@ AKS accepte à la fois des valeurs entières et des valeurs en pourcentage pour 
 Pendant une mise à niveau, la valeur max-surge peut être égale au minimum à 1 et au maximum au nombre de nœuds dans votre pool de nœuds. Vous pouvez définir des valeurs plus élevées, mais le nombre maximal de nœuds utilisés pour max-surge ne sera pas supérieur au nombre de nœuds dans le pool au moment de la mise à niveau.
 
 > [!Important]
-> Le paramètre max-surge sur un pool de nœuds est permanent.  Les mises à niveau ultérieures de Kubernetes ou les mises à niveau des versions de nœud utiliseront ce paramètre. Vous pouvez modifier la valeur de max-surge pour vos pools de nœuds à tout moment. Pour les pools de nœuds de production, nous vous recommandons de définir un paramètre max-surge de 33 %.
+> Le paramètre max-surge sur un pool de nœuds est persistant.  Les mises à niveau ultérieures de Kubernetes ou les mises à niveau des versions de nœud utiliseront ce paramètre. Vous pouvez modifier la valeur de max-surge pour vos pools de nœuds à tout moment. Pour les pools de nœuds de production, nous vous recommandons de définir un paramètre max-surge de 33 %.
 
 Utilisez les commandes suivantes pour définir des valeurs max-surge pour des pools de nœuds nouveaux ou existants.
 
@@ -136,6 +136,12 @@ La mise à niveau automatique d’un cluster suit le même processus que la mise
 La mise à niveau automatique de cluster pour les clusters AKS est une fonctionnalité d’évaluation.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Ajoutez l’extension suivante pour `az cli`.
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
 
 Inscrivez l’indicateur de fonctionnalité `AutoUpgradePreview` à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 

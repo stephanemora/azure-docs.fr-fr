@@ -6,12 +6,12 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 03/10/2021
-ms.openlocfilehash: c89b352954f114ec9da22cad6751bb57ef59899b
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 9c543b1bebfdeb47c1a1e1326f49247d8103191f
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381795"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525404"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Explication de l’agrégation et de l’affichage des métriques Azure Monitor
 
@@ -97,7 +97,7 @@ Il existe deux types de périodes de collecte.
 
 ### <a name="granularity"></a>Granularité
 
-L’intervalle de temps minimal est de 1 minute. Toutefois, le système sous-jacent peut capturer des données plus rapidement en fonction de la métrique. Par exemple, le pourcentage d’utilisation du processeur est capturé toutes les 15 secondes à intervalle régulier. Étant donné que les échecs HTTP sont capturés comme des transactions, ils peuvent dépasser largement 1 minute. D’autres métriques, telles que le stockage SQL, sont capturées toutes les 20 minutes. Ce choix dépend du fournisseur et du type de ressources. La plupart tentent de fournir le plus petit intervalle possible.
+La granularité temporelle minimale est de 1 minute, mais le système sous-jacent peut capturer des données plus rapidement en fonction de la métrique. Par exemple, le pourcentage d’UC pour une machine virtuelle Azure est capturé selon un intervalle de temps de 15 secondes. Étant donné que les échecs HTTP sont capturés comme des transactions, ils peuvent dépasser largement 1 minute. D’autres métriques, telles que le stockage SQL, sont capturées selon un intervalle de temps de 20 minutes. Ce choix dépend du fournisseur et du type de ressources. La plupart tentent de fournir le plus petit intervalle de temps possible.
 
 ### <a name="dimensions-splitting-and-filtering"></a>Dimensions, fractionnement et filtrage
 

@@ -4,15 +4,15 @@ description: Découvrez le magasin transactionnel (basé sur des lignes) et anal
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9328b8159b04d4e7e7bc2383739c86c76dbf156a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: cc12626747aa7ce8a294695e27239fac36ce5cd0
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985883"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824928"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Qu’est-ce que le magasin analytique Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -149,32 +149,82 @@ Les contraintes suivantes s’appliquent aux données opérationnelles dans Azur
   * La suppression de tous les documents d’une collection ne réinitialise pas le schéma du magasin analytique.
   * Il n’existe pas de contrôle de version de schéma. La dernière version inférée du magasin transactionnel est ce que vous verrez dans le magasin analytique.
 
-* Actuellement, nous ne prenons pas en charge la lecture par Azure Synapse Spark de propriétés dont les noms contiennent des blancs (espaces). Vous devrez utiliser des fonctions Spark telles que `cast` ou `replace` pour pouvoir charger les données dans une tramedonnées (DataFrame) Spark.
+* Actuellement, Azure Synapse Spark ne peut pas lire les propriétés qui contiennent des caractères spéciaux dans leurs noms (indiqués ci-dessous). Si c’est votre cas, contactez l’[équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) pour plus d’informations.
+  * : (deux points)
+  * ` (accent grave)
+  * , (virgule)
+  * ; (point-virgule)
+  * {}
+  * ()
+  * \n
+  * \t
+  * = (signe égal)
+  * " (guillemet)
+ 
+* Azure Synapse Spark prend désormais en charge les propriétés incluant des espaces blancs dans leurs noms.
 
 ### <a name="schema-representation"></a>Représentation du schéma
 
-Il existe deux modes de représentation de schéma dans le magasin analytique. Ces modes présentent des compromis entre la simplicité d’une représentation en colonnes, la gestion des schémas polymorphes et la simplicité de l’expérience de requête :
+Il existe deux modes de représentation de schéma dans le magasin analytique. Ces modes définissent la méthode de représentation de schéma pour tous les conteneurs dans le compte de base de données. Ils présentent des compromis entre la simplicité de l’expérience de requête et la commodité d’une représentation en colonnes plus inclusive pour les schémas polymorphes.
 
-* Représentation de schéma bien définie
-* Représentation de schéma avec une fidélité optimale
+* Représentation de schéma bien définie, option par défaut pour les comptes d’API SQL (Core). 
+* Représentation de schéma de fidélité optimale, option par défaut pour les comptes d’API Azure Cosmos DB pour MongoDB.
 
+Il est possible d’utiliser le schéma de fidélité optimale pour les comptes d’API SQL (Core). Les considérations relatives à cette éventualité sont les suivantes :
+
+ * Cette option n’est valide que pour les comptes pour lesquels la fonctionnalité Synapse Link n’est pas activée.
+ * Il n’est pas possible de désactiver, puis réactiver la fonctionnalité Synapse Link afin de réinitialiser l’option par défaut et passer d’une représentation de schéma bien définie à une représentation de fidélité optimale.
+ * Aucun autre processus ne permet de passer d’une représentation de schéma bien définie à une représentation de fidélité optimale.
+ * Les comptes MongoDB ne sont pas compatibles avec cette possibilité de modifier la méthode de représentation.
+ * Actuellement, il n’est pas possible de prendre cette décision via le portail Azure.
+ * La décision relative à cette option doit être prise au moment de l’activation de la fonctionnalité Synapse Link sur le compte :
+ 
+ Avec Azure CLI :
+ ```cli
+ az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
+ ```
+ 
 > [!NOTE]
-> Pour les comptes d’API SQL (Core), lorsque le magasin analytique est activé, la représentation de schéma par défaut dans le magasin analytique est bien définie. Pour l’API Azure Cosmos DB pour les comptes MongoDB, la représentation de schéma par défaut dans le magasin analytique est une représentation de schéma de fidélité optimale. 
+> Dans la commande ci-dessus, remplacez `create` par `update` pour les comptes existants.
+ 
+  Avec PowerShell :
+  ```
+   New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
+   ```
+ 
+> [!NOTE]
+> Dans la commande ci-dessus, remplacez `New-AzCosmosDBAccount` par `Update-AzCosmosDBAccount` pour les comptes existants.
+ 
 
-**Représentation de schéma bien définie**
+
+#### <a name="well-defined-schema-representation"></a>Représentation de schéma bien définie
 
 La représentation de schéma bien définie crée une représentation tabulaire simple des données indépendantes du schéma dans le magasin transactionnel. La représentation de schéma bien définie prend en compte les considérations suivantes :
 
-* Une propriété a toujours le même type sur plusieurs éléments.
-* Nous autorisons un seul changement de type, de la valeur Null vers tout autre type de données. La première occurrence non Null définit le type de données de la colonne.
+* Le premier document définit le schéma de base, et la propriété doit toujours avoir le même type dans tous les documents. Les exceptions sont les suivantes :
+  * Du type de données Null à tout autre type de données. La première occurrence non Null définit le type de données de la colonne. Tout document ne suivant pas le premier type de données non Null n’est pas représenté dans le magasin analytique.
+  * De `float` à `integer` Tous les documents sont représentés dans le magasin analytique.
+  * De `integer` à `float` Tous les documents sont représentés dans le magasin analytique. Toutefois, pour lire ces données avec des pools serverless Azure Synapse SQL, vous devez utiliser une clause WITH pour convertir la colonne en `varchar`. Il est possible de reconvertir cette conversion initiale en nombre. Vérifiez l’exemple ci-dessous, où la valeur initiale **num** était entière, et la deuxième flottante.
 
-  * Par exemple, `{"a":123} {"a": "str"}` n’a pas de schéma bien défini, car `"a"` est parfois une chaîne et parfois un nombre. Dans ce cas, le magasin analytique inscrit le type de données `"a"` en tant que type de données `“a”` dans l’élément au début de la durée de vie du conteneur. Le document sera toujours inclus dans le magasin analytique, mais les éléments dans lesquels le type de données de `"a"` diffère ne le seront pas.
+```SQL
+SELECT CAST (num as float) as num
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
+                CONNECTION = '<your-connection',
+                OBJECT = 'IntToFloat',
+                SERVER_CREDENTIAL = 'your-credential'
+) 
+WITH (num varchar(100)) AS [IntToFloat]
+```
+
+  * Les propriétés qui ne suivent pas le type de données de schéma de base ne sont pas représentées dans le magasin analytique. Par exemple, considérez les 2 documents ci-dessous. Le premier a défini le schéma de base du magasin analytique. Le deuxième, où `id` est `2`, n’a pas de schéma bien défini, car la propriété `"a"` est une chaîne alors que, dans le premier document, la propriété `"a"` est un nombre. Dans ce cas, le magasin analytique inscrit le type de données `"a"` en tant que type de données `integer` pour toute la durée de vie du conteneur. Le deuxième document restera inclus dans un magasin analytique, mais pas sa propriété `"a"`.
   
-    Cette condition ne s’applique pas aux propriétés NULL. Par exemple, `{"a":123} {"a":null}` est encore bien défini.
+    * `{"id": "1", "a":123}` 
+    * `{"id": "2", "a": "str"}`
+     
+ > [!NOTE]
+ > Cette condition ne s’applique pas aux propriétés Null. Par exemple, `{"a":123} and {"a":null}` est encore bien défini.
 
-* Les types de tableau doivent contenir un type répété unique.
-
-  * Par exemple, `{"a": ["str",12]}` n’est pas un schéma bien défini car le tableau contient un mélange de types d’entiers et de chaînes.
+* Les types de tableau doivent contenir un type répété unique. Par exemple, `{"a": ["str",12]}` n’est pas un schéma bien défini car le tableau contient un mélange de types d’entiers et de chaînes.
 
 > [!NOTE]
 > Si le magasin analytique Azure Cosmos DB suit la représentation de schéma bien définie et que la spécification ci-dessus n’est pas respectée par certains éléments, ceux-ci ne sont pas inclus dans le magasin analytique.
@@ -192,7 +242,7 @@ La représentation de schéma bien définie crée une représentation tabulaire 
   * Les pools serverless SQL dans Azure Synapse représenteront ces colonnes comme `NULL`.
 
 
-**Représentation du schéma de fidélité optimale**
+#### <a name="full-fidelity-schema-representation"></a>Représentation de schéma avec une fidélité optimale
 
 La représentation du schéma de fidélité optimale est conçue pour gérer l’intégralité des schémas polymorphes dans les données opérationnelles indépendantes du schéma. Dans cette représentation de schéma, aucun élément n’est supprimé du magasin analytique, même si les contraintes de schéma bien définies (qui ne sont pas des champs de type de données mixtes ou des tableaux de types de données mixtes) ne sont pas respectées.
 
@@ -260,7 +310,11 @@ Si vous avez un compte Azure Cosmos DB distribué globalement, une fois que vous
 
 ## <a name="security"></a>Sécurité
 
-L’authentification auprès du magasin analytique est identique à celle du magasin transactionnel pour une base de données particulière. Vous pouvez utiliser des clés primaires ou en lecture seule pour l’authentification. Vous pouvez tirer parti du service lié dans Synapse Studio pour empêcher le collage des clés Azure Cosmos DB dans les notebooks Spark. L’accès à ce service lié est accessible à toute personne ayant accès à l’espace de travail.
+* L’**authentification auprès du magasin analytique** est la même qu’auprès du magasin transactionnel pour une base de données particulière. Vous pouvez utiliser des clés primaires ou en lecture seule pour l’authentification. Vous pouvez tirer parti du service lié dans Synapse Studio pour empêcher le collage des clés Azure Cosmos DB dans les notebooks Spark. Pour Azure Synapse SQL serverless, vous pouvez utiliser les informations d’identification SQL pour empêcher également le collage des clés Azure Cosmos DB dans les notebooks SQL. L’accès à ces services liés ou à ces informations d’identification est ouvert à toute personne ayant accès à l’espace de travail.
+
+* **Isolement réseau à l’aide de points de terminaison privés** : vous pouvez contrôler indépendamment l’accès réseau aux données dans le magasin transactionnel et le magasin analytique. L’isolement réseau s’effectue à l’aide de points de terminaison privés managés distincts pour chaque magasin, au sein de réseaux virtuels managés dans les espaces de travail Azure Synapse. Pour plus d’informations, consultez l’article [Configurer des points de terminaison privés pour le magasin analytique](analytical-store-private-endpoints.md).
+
+* **Chiffrement des données avec des clés managées par le client** : vous pouvez chiffrer les données du magasin transactionnel et du magasin analytique de manière fluide en utilisant les mêmes clés managées par le client, de manière automatique et transparente. Azure Synapse Link prend uniquement en charge la configuration des clés gérées par le client en utilisant l’identité managée de votre compte Azure Cosmos DB. Vous devez configurer l’identité managée de votre compte dans votre stratégie d’accès Azure Key Vault avant d’[activer Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) sur votre compte. Pour en savoir plus, consultez l’article [Configurer des clés gérées par le client en utilisant les identités managées des comptes Azure Cosmos DB](how-to-setup-cmk.md#using-managed-identity).
 
 ## <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Support de plusieurs runtimes Azure Synapse Analytics
 
@@ -323,6 +377,8 @@ Pour plus d’informations, consultez [Guide pratique pour configurer la durée 
 Pour en savoir plus, consultez les documents suivants :
 
 * [Synapse Link pour Azure Cosmos DB](synapse-link.md)
+
+* Consultez le module Learn pour savoir comment [Concevoir un traitement transactionnel et analytique hybride avec Azure Synapse Analytics](/learn/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)
 
 * [Prise en main d’Azure Synapse Link pour Azure Cosmos DB](configure-synapse-link.md)
 

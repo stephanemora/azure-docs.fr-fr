@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 131f30c523c3a99bcbd3494833e060ffd3b5ff16
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 06ed84bf63f79087efef33b1061e21b61315e78e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527929"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969454"
 ---
 # <a name="access-control-in-azure-purview"></a>Contrôle d’accès dans Azure Purview
 
@@ -20,8 +20,10 @@ Azure Purview utilise des **collections** pour organiser et gérer l’accès à
 
 > [!NOTE]
 > À ce stade, ces informations s’appliquent uniquement aux comptes Azure Purview créés **à partir du 18 août 2021**. Les instances créées avant le 18 août peuvent créer des collections, mais elles ne gèrent pas les autorisations par le biais de ces collections. Pour plus d’informations sur le contrôle d’accès pour une instance Purview créée avant le 18 août, consultez notre [**guide des autorisations héritées**](#legacy-permission-guide) en bas de page.
+>
+> Tous les comptes hérités seront automatiquement mis à niveau dans les semaines à venir. Vous recevrez une notification par e-mail lors de la mise à niveau de votre compte Purview. Une fois le compte mis à niveau, toutes les autorisations affectées sont automatiquement redéployées vers la collection racine. À ce moment-là, les autorisations doivent être gérées par le biais de collections et non par celui d’Access Control (IAM). Les autorisations IAM ne s’appliquent plus aux artefacts Purview.
 
-## <a name="collections"></a>Collections
+## <a name="collections"></a>Regroupements
 
 Une collection est un outil utilisé par Azure Purview pour regrouper des ressources, des sources et d’autres artefacts dans une hiérarchie afin de faciliter la détection et de gérer le contrôle d’accès. Tous les accès aux ressources de Purview sont gérés à partir de collections dans le compte Purview lui-même.
 
@@ -45,6 +47,8 @@ Azure Purview utilise un ensemble de rôles prédéfinis pour contrôler qui peu
 |Je dois configurer des analyses via Purview Studio|Administrateur de sources de données, plus au moins Lecteur de données **ou** Conservateur de données sur la collection où la source est inscrite|
 |Je dois permettre à un principal de service ou à un groupe de configurer et de surveiller des analyses dans Azure Purview sans leur permettre d’accéder aux informations du catalogue |Administrateur de sources de données|
 |Je dois placer les utilisateurs dans des rôles dans Azure Purview | Administrateur de collections |
+
+:::image type="content" source="./media/catalog-permissions/collection-permissions-roles.png" alt-text="Graphique présentant les rôles Purview" lightbox="./media/catalog-permissions/collection-permissions-roles.png":::
 
 ## <a name="understand-how-to-use-azure-purviews-roles-and-collections"></a>Comprendre comment utiliser les rôles et les collections d’Azure Purview
 
@@ -156,6 +160,8 @@ En ce qui concerne les utilisateurs qui ont accès au [Portail Azure](https://po
 |Je dois configurer des analyses via Purview Studio|Rôle d’administrateur de source de données Purview plus au moins un rôle de lecteur de données Purview ou un rôle de conservateur de données Purview|
 |Je dois activer un principal de service ou une autre identité de programmation pour configurer et surveiller les analyses dans Azure Purview sans autoriser l’identité de programmation à accéder aux informations du catalogue |Rôle d’administrateur de source de données Purview|
 |Je dois placer les utilisateurs dans des rôles dans Azure Purview | Propriétaire ou Administrateur de l’accès utilisateur |
+
+:::image type="content" source="./media/catalog-permissions/collection-permissions-roles-legacy.png" alt-text="Graphique présentant les rôles hérités Purview" lightbox="./media/catalog-permissions/collection-permissions-roles-legacy.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,12 +4,12 @@ description: Créer des alertes de journal d’activité à l’aide du portail 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 08/12/2021
-ms.openlocfilehash: 2128f0ce8b2538d89876f7609002d293a29b3447
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 8f26806a08ca463350e54d5ce1319fe0323715e7
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122533370"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220039"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 
@@ -51,7 +51,7 @@ La procédure suivante décrit comment créer une règle d’alerte de métrique
 3. Cliquez sur **Sélectionner une cible** dans le volet contextuel qui se charge, puis sélectionnez une ressource cible sur laquelle définir une alerte. Utilisez les listes déroulantes **Abonnement** et **Type de ressource** pour rechercher la ressource à surveiller. Vous pouvez également utiliser la barre de recherche pour rechercher votre ressource.
     
     > [!NOTE]
-    > En guise que cible, vous pouvez sélectionner l’intégralité d’un abonnement, un groupe de ressources ou une ressource spécifique. Si vous avez choisi un abonnement ou un groupe de ressources en tant que cible, et également sélectionné un type de ressource, la règle s’applique à toutes les ressources de ce type au sein de l’abonnement sélectionné ou d’un groupe ressources. Si vous avez choisi une ressource cible spécifique, la règle s’applique uniquement à celle-ci. Vous ne pouvez pas sélectionner explicitement plusieurs abonnements, groupes de ressources ou ressources à l’aide du sélecteur de cible. 
+    > En guise que cible, vous pouvez sélectionner l’intégralité d’un abonnement, un groupe de ressources ou une ressource spécifique. Si vous avez choisi un abonnement ou un groupe de ressources comme cible, et également sélectionné un type de ressource, la règle s’applique à toutes les ressources de ce type au sein de l’abonnement sélectionné ou d’un groupe de ressources. Si vous avez choisi une ressource cible spécifique, la règle s’applique uniquement à celle-ci. Vous ne pouvez pas sélectionner explicitement plusieurs abonnements, groupes de ressources ou ressources à l’aide du sélecteur de cible. 
 
 4. Si la ressource sélectionnée a des opérations de journal d’activité sur lesquelles vous pouvez créer des alertes, la zone **Signaux disponibles** en bas à droite affiche Journal d’activité. Vous trouverez la liste complète des types de ressources pris en charge pour les alertes de journal d’activité dans cet [article](../../role-based-access-control/resource-provider-operations.md).
 

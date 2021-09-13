@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: 9b97170e3ff434d40007e46952a52335e5f900b3
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: a83c0f442e88bc2fe0320fe8affe5b114a28a897
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122563698"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314323"
 ---
 # <a name="resource-functions-for-bicep"></a>Fonctions de ressources pour Bicep
 
@@ -20,6 +20,7 @@ Resource Manager propose les fonctions suivantes pour obtenir les valeurs des re
 * [getSecret](#getsecret)
 * [list*](#list)
 * [pickZones](#pickzones)
+* [providers (déconseillé)](#providers)
 * [reference](#reference)
 * [resourceId](#resourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
@@ -476,6 +477,10 @@ La sortie des exemples précédents retourne trois tableaux.
 | notSupportedType | tableau | [] |
 
 Vous pouvez vous servir de la réponse de pickZones pour déterminer s’il convient de fournir une valeur null pour des zones ou affecter des machines virtuelles à différentes zones.
+
+## <a name="providers"></a>fournisseurs
+
+**La fonction de fournisseurs est déconseillée.** Nous ne recommandons plus son utilisation. Si vous avez utilisé cette fonction pour obtenir une version d’API pour le fournisseur de ressources, nous vous recommandons de fournir une version d’API spécifique dans votre modèle. L’utilisation d’une version d’API retournée dynamiquement peut rompre votre modèle si les propriétés changent d’une version à l’autre.
 
 ## <a name="reference"></a>reference
 

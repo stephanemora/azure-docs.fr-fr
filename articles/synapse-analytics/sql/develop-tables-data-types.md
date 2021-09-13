@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: ae919a12dc1c50fcb30d08128e4ebf2faa2b2ccb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e6cd43e61389596be9b134ab2ad62bbf324a5cd
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674157"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693565"
 ---
 # <a name="table-data-types-in-synapse-sql"></a>Types de données de table dans SQL Synapse
 
-Dans cet article, vous trouverez des recommandations pour définir les types de données de table dans Synapse SQL. 
+Dans cet article, vous trouverez des recommandations pour définir les types de données de table dans un pool dédié Synapse SQL. 
 
 ## <a name="data-types"></a>Types de données
 
-SQL Synapse prend en charge les types de données les plus couramment utilisés. Pour obtenir la liste des types de données pris en charge, consultez les [types de données](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes&preserve-view=true) dans l’instruction CREATE TABLE. 
+Un pool dédié Synapse SQL prend en charge les types de données les plus couramment utilisés. Pour obtenir la liste des types de données pris en charge, consultez les [types de données](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes&preserve-view=true) dans l’instruction CREATE TABLE. Pour Synapse SQL serverless, reportez-vous à l’article [Interroger des fichiers de stockage avec un pool SQL serverless dans Azure Synapse Analytics](./query-data-storage.md) et [Guide pratique pour utiliser OPENROWSET avec le pool SQL serverless dans Azure Synapse Analytics](./develop-openrowset.md)
 
 ## <a name="minimize-row-length"></a>Réduction de la longueur de ligne
 
@@ -33,6 +33,7 @@ En réduisant la taille des types de données, vous réduisez la longueur de lig
 - Évitez de définir des colonnes de caractères ayant une grande longueur par défaut. Par exemple, si la valeur la plus longue est de 25 caractères, définissez la colonne en tant que VARCHAR(25).
 - Évitez d’utiliser [NVARCHAR][NVARCHAR] lorsque vous avez uniquement besoin de VARCHAR.
 - Lorsque c’est possible, utilisez NVARCHAR(4000) ou VARCHAR(8000) au lieu de NVARCHAR(MAX) ou VARCHAR(MAX).
+- Évitez d’utiliser des valeurs à virgules flottantes et des valeurs décimales avec une échelle de 0 (zéro).  Ces valeurs doivent être de type TINYINT, SMALLINT, INT ou BIGINT.
 
 > [!NOTE]
 > Si vous utilisez des tables externes PolyBase pour charger vos tables Synapse SQL, la longueur définie pour la ligne de table ne doit pas dépasser 1 Mo. Lorsqu’une ligne avec des données de longueur variable dépasse 1 Mo, vous pouvez télécharger la ligne avec BCP, mais pas avec PolyBase.
@@ -47,7 +48,7 @@ FROM sys.tables  t
 JOIN sys.columns c on t.[object_id]    = c.[object_id]
 JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
 WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','xml')
- AND  y.[is_user_defined] = 1;
+ OR  y.[is_user_defined] = 1;
 ```
 
 ## <a name="workarounds-for-unsupported-data-types"></a><a name="unsupported-data-types"></a>Solutions de contournement pour les types de données non pris en charge

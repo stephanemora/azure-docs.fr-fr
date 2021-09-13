@@ -1,21 +1,21 @@
 ---
 title: Connecter des machines hybrides à Azure à grande échelle
-description: Dans cet article, vous allez apprendre à connecter des machines à Azure à l’aide de serveurs activés par Azure Arc en utilisant un principal de service.
-ms.date: 03/04/2021
+description: Dans cet article, vous allez apprendre à connecter des machines à Azure à l’aide de serveurs avec Azure Arc en utilisant un principal de service.
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4aad01fd6991c059b2cf891fd4f06ae83a78a0e4
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: fb78440bf03970616d3d608dcea2de1dc86681bd
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831597"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563862"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Connecter des machines hybrides à Azure à grande échelle
 
-Vous pouvez activer des serveurs activés par Azure Arc pour plusieurs ordinateurs Windows ou Linux dans votre environnement avec plusieurs options flexibles en fonction de vos besoins. À l’aide du modèle de script que nous fournissons, vous pouvez automatiser chaque étape de l’installation, y compris l’établissement de la connexion à Azure Arc. Toutefois, vous devez exécuter ce script de manière interactive avec un compte qui dispose d’autorisations élevées sur l’ordinateur cible et dans Azure.
+Vous pouvez activer des serveurs avec Azure Arc pour plusieurs machines Windows ou Linux dans votre environnement avec plusieurs options flexibles en fonction de vos besoins. À l’aide du modèle de script que nous fournissons, vous pouvez automatiser chaque étape de l’installation, y compris l’établissement de la connexion à Azure Arc. Toutefois, vous devez exécuter ce script de manière interactive avec un compte qui dispose d’autorisations élevées sur l’ordinateur cible et dans Azure.
 
-Pour connecter les ordinateurs à des serveur activés par Azure Arc, vous pouvez utiliser un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory au lieu d’utiliser votre identité privilégiée pour [connecter l’ordinateur de manière interactive](onboard-portal.md). Un principal du service est une identité de gestion limitée spéciale qui ne dispose que de l’autorisation minimale nécessaire pour connecter des machines à Azure à l’aide de la commande `azcmagent`. Cela est plus sûr que d’utiliser un compte doté de privilèges plus élevés comme un Administrateur client et respecte nos meilleures pratiques en matière de sécurité du contrôle d’accès. Le principal de service est utilisé uniquement pendant l’intégration ; il n’est pas utilisé à d’autres fins.  
+Pour connecter les machines à des serveur avec Azure Arc, vous pouvez utiliser un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory au lieu d’utiliser votre identité privilégiée pour [connecter la machine de manière interactive](onboard-portal.md). Un principal du service est une identité de gestion limitée spéciale qui ne dispose que de l’autorisation minimale nécessaire pour connecter des machines à Azure à l’aide de la commande `azcmagent`. Cela est plus sûr que d’utiliser un compte doté de privilèges plus élevés comme un Administrateur client et respecte nos meilleures pratiques en matière de sécurité du contrôle d’accès. Le principal de service est utilisé uniquement pendant l’intégration ; il n’est pas utilisé à d’autres fins.  
 
 Les méthodes d’installation pour installer et configurer l’agent Connected Machine requièrent que la méthode automatisée que vous utilisez dispose des autorisations d’administrateur sur les ordinateurs. Vous utilisez le compte root sur Linux et un membre du groupe Administrateurs local sur Windows.
 
@@ -89,7 +89,7 @@ Le script permettant d’automatiser le téléchargement et l’installation, et
     1. Dans la liste déroulante **Groupe de ressources**, sélectionnez le groupe de ressources à partir duquel sera gérée la machine.
     1. Dans la liste déroulante **Région**, sélectionnez la région Azure dans laquelle seront stockées les métadonnées des serveurs.
     1. Dans la liste déroulante **Système d’exploitation**, sélectionnez le système d’exploitation sur lequel le script est configuré pour s’exécuter.
-    1. Si la machine passe par un serveur proxy pour se connecter à Internet, spécifiez l’adresse IP du serveur proxy ou le nom et le numéro de port que la machine doit utiliser pour communiquer avec le serveur proxy. Saisissez la valeur au format `http://<proxyURL>:<proxyport>`.
+    1. Si la machine passe par un serveur proxy pour se connecter à Internet, spécifiez l’adresse IP du serveur proxy ou le nom et le numéro de port que la machine doit utiliser pour communiquer avec le serveur proxy. À l’aide de cette configuration, l’agent communique par le biais du serveur proxy en utilisant le protocole HTTP. Saisissez la valeur au format `http://<proxyURL>:<proxyport>`.
     1. Sélectionnez **Suivant : authentification**.
 
 1. Sur la page **Authentification**, sous la liste déroulante **Principal du service**, sélectionnez **Arc-for-servers**.  Ensuite, sélectionnez **Suivant : Balises**.
@@ -122,7 +122,7 @@ Pour en savoir plus sur l’outil de ligne de commande `azcmagent`, consultez le
 >Le script Windows PowerShell ne prend en charge que l’exécution à partir d’une version 64 bits de Windows PowerShell.
 >
 
-Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte à Azure Arc enabled servers, accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
+Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte aux serveurs avec Azure Arc, accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
 
 ![Connexion au serveur réussie](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -130,6 +130,6 @@ Une fois que vous avez installé l’agent et que vous l’avez configuré pour 
 
 - Pour plus d’informations sur la résolution des problèmes, consultez le [guide Résoudre les problèmes de l’agent Connected Machine](troubleshoot-agent-onboard.md).
 
-- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor pour machines virtuelles](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.
+- Consultez le [Guide de planification et de déploiement](plan-at-scale-deployment.md) pour planifier le déploiement de serveurs avec Azure Arc à n’importe quelle échelle et implémenter la gestion et la supervision centralisées.
 
-- En savoir plus sur [l’agent Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez collecter des données de supervision du système d’exploitation et de la charge de travail avec Azure Monitor pour machines virtuelles, gérer les ressources à l’aide de runbooks Automation ou de fonctionnalités comme Update Management, ou utiliser d’autres services Azure comme [Azure Security Center](../../security-center/security-center-introduction.md).
+- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration d’invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, à vérifier que la machine crée des rapports sur l’espace de travail Log Analytics prévu, à activer la surveillance avec [VM Insights](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.

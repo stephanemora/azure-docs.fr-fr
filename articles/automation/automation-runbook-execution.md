@@ -3,15 +3,15 @@ title: Exécution d'un Runbook dans Azure Automation
 description: Cet article fournit une vue d’ensemble du traitement des runbooks dans Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2021
+ms.date: 08/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5fcef44fed77b01e069129a160299f547340c346
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 454c59b5f5f5d0781f99f21b612ac2a3fc904fb9
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964571"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533101"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -21,7 +21,7 @@ Automation exécute vos runbooks selon la logique avec laquelle ils ont été d�
 
 Dans Azure Automation, le démarrage d'un runbook crée une tâche, qui correspond à une instance d’exécution unique du runbook. Chaque tâche accède à des ressources Azure en établissant une connexion à votre abonnement Azure. La tâche accède uniquement aux ressources de votre centre de données si ces ressources sont accessibles depuis le cloud public.
 
-Azure Automation charge un Worker d’exécuter chaque tâche pendant l’exécution du runbook. Même si les travaux sont partagés par de nombreux comptes Azure, les tâches des différents comptes Automation sont isolées les unes des autres. Vous ne pouvez pas contrôler le Worker qui traite les requêtes de votre tâche.
+Azure Automation charge un Worker d’exécuter chaque tâche pendant l’exécution du runbook. Même si les workers sont partagés par de nombreux comptes Automation, les tâches des différents comptes Automation sont isolées les unes des autres. Vous ne pouvez pas contrôler le Worker qui traite les requêtes de votre tâche.
 
 Quand vous affichez la liste des runbooks sur le portail Azure, elle indique l’état de chaque tâche qui a été démarrée pour chaque runbook. Azure Automation stocke les journaux de tâches pendant une durée maximale de 30 jours.
 
@@ -35,10 +35,11 @@ Le diagramme suivant illustre le cycle de vie d’une tâche de runbook pour les
 
 Les runbooks d’Azure Automation peuvent s’exécuter dans un bac à sable Azure ou dans un [runbook Worker hybride](automation-hybrid-runbook-worker.md). 
 
-Les runbooks conçus pour s’authentifier et s’exécuter sur des ressources dans Azure s'exécutent dans un bac à sable Azure, à savoir un environnement partagé utilisé par plusieurs travaux. Les travaux qui utilisent le même bac à sable sont liés par les limitations de ressources du bac à sable. L’environnement de bac à sable Azure ne prend pas en charge les opérations interactives. Il empêche l’accès à tous les serveurs COM hors processus, et ne prend pas en charge les [appels WMI](/windows/win32/wmisdk/wmi-architecture) au fournisseur Win32 dans votre runbook.  Ces scénarios sont pris en charge uniquement en exécutant le runbook sur un Runbook Worker hybride Windows.
-
+Les runbooks conçus pour s’authentifier et s’exécuter sur des ressources dans Azure s’exécutent dans un bac à sable Azure. Azure Automation affecte un worker pour exécuter chaque tâche pendant l’exécution du runbook dans le bac à sable. Même si les workers sont partagés par de nombreux comptes Automation, les tâches des différents comptes Automation sont isolées les unes des autres.  Les travaux qui utilisent le même bac à sable sont liés par les limitations de ressources du bac à sable. L’environnement de bac à sable Azure ne prend pas en charge les opérations interactives. Il empêche l’accès à tous les serveurs COM hors processus, et ne prend pas en charge les [appels WMI](/windows/win32/wmisdk/wmi-architecture) au fournisseur Win32 dans votre runbook.  Ces scénarios sont pris en charge uniquement en exécutant le runbook sur un Runbook Worker hybride Windows.
 
 Vous pouvez également utiliser un [runbook Worker hybride](automation-hybrid-runbook-worker.md) pour exécuter des runbooks directement sur l’ordinateur qui héberge le rôle et avec les ressources disponibles dans l’environnement. Azure Automation stocke et gère les runbooks et les remet à un ou plusieurs ordinateurs assignés.
+
+L’activation du Pare-feu Azure sur le [Stockage Azure](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md) ou [Azure SQL](../azure-sql/database/firewall-configure.md) bloque l’accès à partir des runbooks Azure Automation pour ces services. L’accès sera bloqué même lorsque l’exception de pare-feu pour autoriser les services Microsoft approuvés est activée, car Automation ne fait pas partie de la liste des services approuvés. Lorsqu’un pare-feu est activé, l’accès n’est possible qu’à l’aide d’un Runbook Worker hybride et d’un [point de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 >[!NOTE]
 >Pour s’exécuter sur un runbook Worker hybride Linux, vos scripts doivent être signés et le Worker configuré en conséquence. Sinon, la [validation de la signature doit être désactivée](automation-linux-hrw-install.md#turn-off-signature-validation).

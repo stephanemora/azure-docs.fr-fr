@@ -5,12 +5,12 @@ description: Consultez la foire aux questions lorsque vous exécutez des pools d
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 5d3d78eb20a9ca8b663fa0cf381fcce1bd528345
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b278be45af62d50c8df85ed833ebbeb99dd5c35d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463301"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525140"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Foire aux questions relative aux pools de nœuds Windows Server dans AKS
 
@@ -103,7 +103,7 @@ az aks update \
 
 ## <a name="how-many-node-pools-can-i-create"></a>Combien de pools de nœuds puis-je créer ?
 
-Le cluster AKS peut comprendre au maximum 10 pools de nœuds. Vous pouvez avoir au maximum 1000 nœuds dans ces pools de nœuds. [Limitations de pool de nœuds][nodepool-limitations].
+Le cluster AKS peut avoir un maximum de 100 pools de nœuds. Vous pouvez avoir au maximum 1000 nœuds dans ces pools de nœuds. [Limitations de pool de nœuds][nodepool-limitations].
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>Comment puis-je nommer mes pools de nœuds Windows ?
 

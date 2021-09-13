@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 06/25/2021
+ms.date: 08/24/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: a7035cff720b7eee4467f355a533a19f059c4baa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b64cf919c0197ccc8e7128a045db0eee27356c78
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531663"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123355215"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -27,7 +27,7 @@ ms.locfileid: "122531663"
 | Règles personnalisées de pare-feu d’applications web par stratégie | 100 |
 | Stratégie de pare-feu d’applications web par abonnement | 100 |
 | Conditions de correspondance du pare-feu d'applications web par règle personnalisée | 10 |
-| Plages d’adresses IP du pare-feu d'applications web par condition de correspondance | 600 |
+| Plages d’adresses IP du pare-feu d’applications web par règle personnalisée | 600 |
 | Valeurs de correspondance de chaîne du pare-feu d'applications web par condition de correspondance | 10 |
 | Longueur de valeur de correspondance de chaîne du pare-feu d'applications web | 256 |
 | Longueur de nom de paramètre du corps POST du pare-feu d’applications web | 256 |
@@ -55,7 +55,7 @@ ms.locfileid: "122531663"
 | URL dans un appel de vidage du cache unique | 100 | 100 |
 | Règles personnalisées de pare-feu d’applications web par stratégie | 100 | 100 |
 | Conditions de correspondance du pare-feu d'applications web par règle personnalisée | 10 | 10 |
-| Plages d’adresses IP du pare-feu d'applications web par condition de correspondance | 600 | 600 |
+| Plages d’adresses IP du pare-feu d’applications web par règle personnalisée | 600 | 600 |
 | Valeurs de correspondance de chaîne du pare-feu d'applications web par condition de correspondance | 10 | 10 |
 | Longueur de valeur de correspondance de chaîne du pare-feu d'applications web | 256 | 256 |
 | Longueur de nom de paramètre du corps POST du pare-feu d’applications web | 256 | 256 |

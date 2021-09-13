@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021
 ms.custom: monitoring
-ms.openlocfilehash: 7dcacdaec429673f04e4e9d4c2127da3dcd34632
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 37a916ca07a1767855b32b79ccb35722cc389f65
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122566162"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830989"
 ---
 # <a name="best-practices-for-monitoring-azure-blob-storage"></a>Meilleures pratiques pour la supervision du Stockage Blob Azure
 
@@ -155,7 +155,7 @@ L’authentification avec clé partagée et SAP n’offre aucun moyen d’audite
 
 ## <a name="optimize-cost-for-infrequent-queries"></a>Optimiser les coûts des requêtes peu fréquentes
 
-Si vous conservez une grande quantité de données de journal, mais que vous envisagez de les interroger de manière occasionnelle uniquement (par exemple, pour répondre aux obligations de conformité et de sécurité), envisagez d’archiver vos journaux dans un compte de stockage au lieu d’utiliser Log Analytics. Pour un grand nombre de transactions, [le coût d’utilisation de Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) peut être élevé par rapport à l’archivage dans le stockage et l’utilisation d’autres techniques de requête. L’utilisation de Log Analytics est logique lorsque vous souhaitez utiliser les fonctionnalités enrichies de Log Analytics. Vous pouvez réduire le coût de l’interrogation des données en archivant les journaux dans un compte de stockage, puis en interrogeant ces journaux à l’aide d’une solution de requête serverless en plus des données du journal, par exemple, une requête Azure Synapse.
+Vous pouvez exporter les journaux vers Log Analytics afin de bénéficier de fonctionnalités de requête natives riches. Lorsque vous avez des transactions massives sur votre compte de stockage, le coût d’utilisation des journaux avec Log Analytics peut être élevé. Consultez [Tarification d’Azure Log Analytics](https://azure.microsoft.com/pricing/details/monitor/). Si vous n’envisagez d’interroger des journaux qu’occasionnellement (par exemple, à des fins d’audit de conformité), vous pouvez envisager de réduire le coût total de ces requêtes en exportant les journaux vers un compte de stockage, puis en utilisant une solution de requête serverless sur données de journal, telle qu’Azure Synapse.
 
 Azure Synapse vous permet de créer un pool SQL serverless pour interroger des données de journal quand vous en avez besoin. Cela peut réduire sensiblement les coûts. 
 
@@ -188,6 +188,7 @@ Azure Synapse vous permet de créer un pool SQL serverless pour interroger des d
 ## <a name="see-also"></a>Voir aussi
 
 - [Supervision du service Stockage Blob Azure](monitor-blob-storage.md)
+- [Informations de référence sur les données de supervision du Stockage Blob Azure](monitor-blob-storage-reference.md)
 - [Tutoriel : Utiliser des requêtes Kusto dans Azure Data Explorer et Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer)
 - [Bien démarrer avec les requêtes de journal dans Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 

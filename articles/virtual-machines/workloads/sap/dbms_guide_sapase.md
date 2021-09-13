@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 430af1dfcbd9c7faabfca2f3f5b80b3b3106a889
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74d5bee95ae91eb11f249518f49b711d9649db01
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675793"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467653"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles SAP ASE Azure pour charge de travail SAP
 
@@ -188,7 +188,7 @@ Le Guide de l’utilisateur du HADR décrit l’installation et la configuration
 > La seule configuration prise en charge sur Azure est d’utiliser le gestionnaire d’incidents sans adresse IP flottante.  La méthode d’adresse IP flottante ne fonctionnera pas sur Azure. 
 
 ### <a name="third-node-for-disaster-recovery"></a>Troisième nœud pour la reprise d’activité
-Au-delà de l’utilisation de SAP ASE Always On pour la haute disponibilité locale, vous souhaiterez peut-être étendre la configuration à un nœud répliqué de manière asynchrone dans une autre région Azure. Vous trouverez la documentation pour un tel scénario [ici](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
+Au-delà de l’utilisation de SAP ASE Always On pour la haute disponibilité locale, vous souhaiterez peut-être étendre la configuration à un nœud répliqué de manière asynchrone dans une autre région Azure. Pour plus d’informations, consultez [Installation Procedure for Sybase 16. 3 Patch Level 3 Always-on + DR on Suse 12.3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
 
 ## <a name="sap-ase-database-encryption--ssl"></a>Chiffrement de la base de données SAP ASE et SSL 
 L’outil SAP SWPM (Software Provisioning Manager) donne la possibilité de chiffrer la base de données lors de l’installation.  Si vous souhaitez utiliser le chiffrement, il est recommandé d’utiliser le chiffrement complet de la base de données SAP.  Pour plus d’informations, consultez :
@@ -245,7 +245,6 @@ Si vous avez déployé la machine virtuelle dans un scénario de cloud uniquemen
 > 
 > 
 
-Vous trouverez plus d’informations sur le nom DNS [ici][virtual-machines-azurerm-versus-azuresm].
 
 Lorsque vous définissez le paramètre de profil SAP icm/host_name_full sur le nom DNS de la machine virtuelle Azure, le lien peut ressembler à ceci :
 

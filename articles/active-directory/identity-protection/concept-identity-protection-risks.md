@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 08/30/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 011b04e8e7931726b2585c5cbc606855001675fa
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: df7ec7aa9fe6fb73cd7d6871fe9b6a698e324899
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527972"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219700"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
-Les détections de risques dans Azure AD Identity Protection incluent toutes les actions suspectes identifiées liées aux comptes d’utilisateur dans l’annuaire.
+Les détections de risques dans Azure AD Identity Protection incluent toutes les actions suspectes identifiées liées aux comptes d’utilisateur dans l’annuaire. Les détections de risques (utilisateur et de connexion) contribuent au score de risque de l’utilisateur global qui se trouve dans le rapport utilisateurs à risque.
 
 Identity Protection offre aux organisations un accès à des ressources puissantes pour voir et traiter rapidement ces actions suspectes. 
 
@@ -31,13 +31,13 @@ Identity Protection offre aux organisations un accès à des ressources puissant
 
 ## <a name="risk-types-and-detection"></a>Types de risques et détection
 
-Il existe deux types d’**utilisateurs** et de **connexions** à risque, ainsi que deux types de détections ou de calculs **en temps réel** et **hors connexion**.
+Le risque peut être détecté au niveau de l’**utilisateur** ou de la **Connexion** et il existe deux types de détection ou de calcul : **en temps réel** et **hors connexion**.
 
 Les détections en temps réel peuvent ne pas apparaître dans les rapports pendant cinq à dix minutes. Les détections hors connexion peuvent ne pas apparaître dans les rapports pendant 2 à 24 heures.
 
-### <a name="user-risk"></a>Risque de l’utilisateur
+### <a name="user-linked-detections"></a>Détections liées aux utilisateurs
 
-Un risque utilisateur reflète la probabilité qu’une identité ou un compte donné soit compromis. 
+Une activité à risque peut être détectée pour un utilisateur qui n’est pas lié à une connexion malveillante spécifique, mais à l’utilisateur lui-même. Ces détections de risques sont calculées hors connexion à l’aide de sources de renseignement sur les menaces internes et externes de Microsoft, dont des chercheurs en sécurité, des professionnels de la justice, des équipes de sécurité de Microsoft et d’autres sources approuvées.
 
 Ces risques sont calculés hors connexion à l’aide de sources d’informations sur les menaces internes et externes de Microsoft, dont des chercheurs en sécurité, des professionnels de la justice, des équipes de sécurité de Microsoft et d’autres sources approuvées.
 

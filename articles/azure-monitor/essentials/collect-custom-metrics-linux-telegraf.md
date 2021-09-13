@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.openlocfilehash: 1ef7bb79257387526720dd80e86e296280632c82
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 336f7ff589cdc9b2df3f8e447294719869ca0c2f
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410150"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564106"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf
 
@@ -28,7 +28,7 @@ Azure Monitor vous permet de collecter des métriques personnalisées par le bia
 
 ## <a name="send-custom-metrics"></a>Envoyer des métriques personnalisées 
 
-Pour les besoins de ce tutoriel, nous allons déployer une machine virtuelle Linux exécutant le système d’exploitation Ubuntu 16.04 LTS. L’agent Telegraf est pris en charge sur la plupart des systèmes d’exploitation Linux. Les packages Debian et RPM, ainsi que les fichiers binaires décompressés de Linux, sont disponibles sur le [portail de téléchargement InfluxData](https://portal.influxdata.com/downloads). Consultez ce [guide d’installation Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) pour obtenir des instructions et connaître les options d’installation supplémentaires. 
+Pour les besoins de ce tutoriel, nous allons déployer une machine virtuelle Linux exécutant le système d’exploitation Ubuntu 18.04 LTS. L’agent Telegraf est pris en charge sur la plupart des systèmes d’exploitation Linux. Les packages Debian et RPM, ainsi que les fichiers binaires décompressés de Linux, sont disponibles sur le [portail de téléchargement InfluxData](https://portal.influxdata.com/downloads). Consultez ce [guide d’installation Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) pour obtenir des instructions et connaître les options d’installation supplémentaires. 
 
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -39,7 +39,7 @@ Créez une machine virtuelle Linux :
 
 1. Sélectionnez l’option **Créer une ressource** dans le volet de navigation gauche. 
 1. Recherchez **Machine virtuelle**.  
-1. Sélectionnez **Ubuntu 16.04 LTS**, puis sélectionnez **Créer**. 
+1. Sélectionnez **Ubuntu 18.04 LTS**, puis sélectionnez **Créer**. 
 1. Donnez un nom à votre machine virtuelle comme **MyTelegrafVM**.  
 1. Gardez la valeur **SSD** pour le type de disque. Ensuite, fournissez un **nom d’utilisateur**, comme **azureuser**. 
 1. Pour le **Type d’authentification**, sélectionnez **Mot de passe**. Ensuite, entrez un mot de passe que vous utiliserez plus tard pour établir une connexion SSH avec cette machine virtuelle. 
@@ -79,15 +79,16 @@ Collez la commande de connexion SSH dans un interpréteur de commandes, par exem
 
 Pour installer le package Debian Telegraf sur la machine virtuelle, exécutez les commandes suivantes à partir de votre session SSH : 
 
-```cmd
+```bash
 # download the package to the VM 
-wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
-# install the package 
-sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
+curl -s https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+source /etc/lsb-release
+echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 ```
+
 Le fichier de configuration de Telegraf définit les opérations de Telegraf. Par défaut, un exemple de fichier de configuration est installé au chemin suivant : **/etc/telegraf/telegraf.conf**. L’exemple de fichier de configuration répertorie tous les plug-ins d’entrée et de sortie possibles. Toutefois, nous allons créer un fichier de configuration personnalisé, que l’agent utilisera en exécutant les commandes suivantes : 
 
-```cmd
+```bash
 # generate the new Telegraf config file in the current directory 
 telegraf --input-filter cpu:mem --output-filter azure_monitor config > azm-telegraf.conf 
 
@@ -100,7 +101,7 @@ sudo cp azm-telegraf.conf /etc/telegraf/telegraf.conf
 
 Enfin, pour que l’agent démarre avec la nouvelle configuration, nous forçons l’arrêt et le redémarrage de l’agent en exécutant les commandes suivantes : 
 
-```cmd
+```bash
 # stop the telegraf agent on the VM 
 sudo systemctl stop telegraf 
 # start the telegraf agent on the VM to ensure it picks up the latest configuration 

@@ -6,12 +6,12 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: bcd455590e804ad337f25afbd38d729f03ef3dc4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5ad806603ea64f643122ebc1f753e52b9d9e4225
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562954"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251440"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurer une appliance avec un script
 
@@ -61,14 +61,17 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
     **Télécharger** | **Valeur de hachage**
     --- | ---
-    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2116601) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2116601) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 > [!NOTE]
 > Le même script peut être utilisé pour configurer une appliance VMware pour un cloud public Azure ou un cloud Azure Government.
 
 ### <a name="run-the-script"></a>Exécuter le script
 
-1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
+1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.
+> [!NOTE]
+> Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate. L’exécution du script sur l’appliance Azure Migrate supprimera la configuration de travail et la remplacera par une configuration nouvellement définie.
+
 2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
 4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
@@ -118,14 +121,17 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
     **Télécharger** | **Valeur de hachage**
     --- | ---
-    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2116657) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2116657) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 > [!NOTE]
 > Le même script peut être utilisé pour configurer une appliance Hyper-V pour un cloud public Azure ou un cloud Azure Government.
 
 ### <a name="run-the-script"></a>Exécuter le script
 
-1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
+1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.
+> [!NOTE]
+> Veillez à ne pas exécuter le script sur une appliance Azure Migrate existante. L’exécution du script sur l’appliance Azure Migrate supprimera la configuration de travail et la remplacera par une configuration nouvellement définie.
+
 2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
 4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :

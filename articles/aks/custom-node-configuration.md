@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a280a191d25a2d41173b30c56447b1ece7077206
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7d9b3a6d3a5178354cced3cd5e4a49f7113ecdce
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524267"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220022"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personnaliser la configuration des nœuds pour les pools de nœuds Azure Kubernetes service (AKS) [préversion]
 
@@ -68,6 +68,8 @@ Les paramètres kubelet pris en charge et les valeurs acceptées sont répertori
 | `imageGcLowThreshold` | 0 à 100, pas plus que `imageGcHighThreshold` | 80 | Pourcentage d’utilisation du disque avant lequel le nettoyage de la mémoire d’images n’est jamais exécuté. Utilisation minimale du disque qui **peut** déclencher le nettoyage de la mémoire. |
 | `topologyManagerPolicy` | none, best-effort, restricted, single-numa-node | aucun | Optimisez l’alignement des nœuds NUMA. En savoir plus [ici](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). Uniquement kubernetes v1.18 et versions ultérieures. |
 | `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | Aucun | Liste autorisée de modèles sysctls ou sysctl non sécurisés. | 
+| `containerLogMaxSizeMB` | Taille en mégaoctets (Mo) | 10 Mo | Taille maximale (10 Mo, par exemple) d’un fichier journal de conteneur avant sa rotation. | 
+| `containerLogMaxFiles` | ≥ 2 | 5 | Nombre maximal de fichiers journaux de conteneur pouvant être présents pour un conteneur. | 
 
 ### <a name="linux-os-custom-configuration"></a>Configuration personnalisée du système d’exploitation Linux
 

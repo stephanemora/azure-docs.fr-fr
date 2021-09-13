@@ -4,12 +4,12 @@ description: Cet article décrit comment mettre à jour Container Insights afin 
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: edca7e4e8f6a9ea8dd9efdaafab8c906efd671b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1921a0cc0aa15a5e877d64cbe2c7ad094f9e144f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708269"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532551"
 ---
 # <a name="how-to-update-container-insights-to-enable-metrics"></a>Comment mettre à jour Container Insights pour activer les métriques
 
@@ -33,7 +33,7 @@ Pour prendre en charge ces nouvelles fonctionnalités, un nouvel agent en conten
 Les deux processus attribuent le rôle **Éditeur de métriques d’analyse** au principal de service du cluster ou à l'identité MSI affectée par l'utilisateur pour le module complémentaire de supervision afin que les données collectées par l’agent puissent être publiées sur votre ressource de cluster. L’Éditeur de métriques d’analyse est uniquement autorisé à envoyer (push) des métriques à la ressource. Il ne peut pas modifier d’état, mettre à jour la ressource ni lire aucune donnée. Pour plus d’informations sur le rôle, consultez [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher) (Rôle Éditeur de métriques d’analyse). L'exigence relative au rôle Publication des métriques de surveillance ne s'applique pas aux clusters Kubernetes avec Azure Arc.
 
 > [!IMPORTANT]
-> La mise à niveau n'est pas nécessaire pour les clusters Kubernetes avec Azure Arc car ils disposent déjà de la version minimale requise de l'agent.
+> La mise à niveau n'est pas nécessaire pour les clusters Kubernetes avec Azure Arc car ils disposent déjà de la version minimale requise de l'agent. L’affectation du rôle **Éditeur de métriques d’analyse** au principal de service du cluster ou à l’identité MSI affectée à l’utilisateur pour le module complémentaire d’analyse s’effectue automatiquement lorsque vous utilisez le portail Azure, Azure PowerShell ou l’interface Azure CLI.
 
 ## <a name="prerequisites"></a>Prérequis
 

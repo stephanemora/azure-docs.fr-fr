@@ -3,18 +3,17 @@ title: Utilisation du module Indoor Maps d’Azure Maps avec les services Micros
 description: Découvrez comment utiliser le module Cartes d’intérieur d’Azure Maps pour afficher les cartes en incorporant les bibliothèques JavaScript du module.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/20/2020
+ms.date: 07/13/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 59521aa0be652ef37c39f45bb323fbc49a93b99d
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 32df2b3805d5c79504380676a72d43467ff2092d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030410"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531591"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utiliser le module Cartes d’intérieur d’Azure Maps
 
@@ -50,8 +49,8 @@ Pour utiliser la version Azure Content Delivery Network hébergée dans le monde
   2. Référencez le JavaScript et la feuille de style du module *Cartes d’intérieur Azure* dans l’élément `<head>` du fichier HTML :
 
       ```html
-      <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.css" type="text/css" />
-      <script src="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.js"></script>
+      <link rel="stylesheet" href="node_modules/azure-maps-indoor/dist/atlas-indoor.min.css" type="text/css" />
+      <script src="node_modules/azure-maps-indoor/dist/atlas-indoor.min.js"></script>
       ```
 
 ## <a name="instantiate-the-map-object"></a>Instancier l’objet Map
@@ -103,6 +102,14 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 if (statesetId.length > 0) {
     indoorManager.setDynamicStyling(true);
 }
+```
+
+## <a name="geographic-settings-optional"></a>Paramètres géographiques (facultatif)
+
+Ce guide suppose que vous avez créé votre service Creator aux États-Unis. Si tel est le cas, vous pouvez ignorer cette section. Toutefois, si votre service Creator a été créé en Europe, ajoutez le code suivant :
+
+```javascript
+  indoorManager.setOptions({ geography: 'eu' });.
 ```
 
 ## <a name="indoor-level-picker-control"></a>Contrôle Sélecteur de niveau intérieur

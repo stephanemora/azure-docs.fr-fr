@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: b0a912a3023ba6d8504d5856d5a45a93d0dc9488
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: a3eb35ada01612d3a3298b1899d3e9fb7101684b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809397"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524592"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Résoudre les problèmes côté serveur liés à Azure Cache pour Redis
 
@@ -42,6 +42,7 @@ Vous pouvez apporter plusieurs modifications pour maintenir une utilisation corr
 - Divisez vos objets volumineux mis en cache en objets plus petits.
 - [Créez des alertes](cache-how-to-monitor.md#alerts) pour des métriques comme la mémoire utilisée, afin d’être averti le plus tôt possible des impacts potentiels.
 - [Effectuez une mise à l’échelle](cache-how-to-scale.md) pour une plus grande taille de cache et une plus grande capacité de mémoire.
+- [Effectuez une mise à l’échelle](cache-how-to-scale.md) pour une plus grande taille de cache et une plus grande capacité de mémoire. Pour plus d’informations, consultez [FAQ sur la planification d’Azure Cache pour Redis](./cache-planning-faq.yml).
 
 ## <a name="high-cpu-usage-or-server-load"></a>Utilisation élevée du processeur ou charge importante du serveur
 
@@ -53,11 +54,11 @@ Plusieurs modifications sont possibles pour réduire la charge serveur :
 
 - Recherchez la cause des pics d’utilisation du processeur, comme l’exécution de [commandes de longue durée](#long-running-commands) ou les défauts de page dus à une trop grande sollicitation de la mémoire.
 - [Créez des alertes](cache-how-to-monitor.md#alerts) pour des métriques comme l’utilisation du processus ou la charge serveur, afin d’être averti le plus tôt possible des impacts potentiels.
-- [Effectuez une mise à l’échelle](cache-how-to-scale.md) pour une plus grande taille de cache et une plus grande capacité de processeur.
+- [Effectuez un scale-out](cache-how-to-scale.md) vers plus de partitions pour répartir la charge sur plusieurs processus Redis ou effectuez un scale-up vers une plus grande taille de cache avec plus de cœurs de processeur. Pour plus d’informations, consultez [FAQ sur la planification d’Azure Cache pour Redis](./cache-planning-faq.yml).
 
 ## <a name="long-running-commands"></a>Commandes de longue durée
 
-Certaines commandes Redis sont plus coûteuses à exécuter que d’autres. La [documentation concernant les commandes Redis](https://redis.io/commands) montre la complexité temporelle de chaque commande. Étant donné que le traitement des commandes Redis ne fait appel qu’à un seul thread, une commande qui prend du temps à s’exécuter bloque toutes les autres qui suivent. Vous devez passer en revue les commandes que vous émettez à votre serveur Redis pour comprendre leur impact sur le niveau de performance. Par exemple, les utilisateurs se servent souvent de la commande [KEYS](https://redis.io/commands/keys) sans savoir qu’il s’agit d’une opération O(N). Vous pouvez éviter la commande KEYS en utilisant [SCAN](https://redis.io/commands/scan) pour réduire les pics d’utilisation du processeur.
+Certaines commandes Redis sont plus coûteuses à exécuter que d’autres. La [documentation concernant les commandes Redis](https://redis.io/commands) montre la complexité temporelle de chaque commande. Étant donné que le traitement des commandes Redis ne fait appel qu’à un seul thread, une commande qui prend du temps à s’exécuter bloque toutes les autres qui suivent. Passez en revue les commandes que vous émettez à votre serveur Redis pour comprendre leur impact sur le niveau de performance. Par exemple, les utilisateurs se servent souvent de la commande [KEYS](https://redis.io/commands/keys) sans savoir qu’il s’agit d’une opération O(N). Vous pouvez éviter la commande KEYS en utilisant [SCAN](https://redis.io/commands/scan) pour réduire les pics d’utilisation du processeur.
 
 Avec la commande [SLOWLOG](https://redis.io/commands/slowlog), vous pouvez mesurer les commandes consommant beaucoup de ressources qui sont actuellement exécutées sur le serveur.
 
@@ -71,12 +72,12 @@ Pour réduire une utilisation de la bande passante réseau proche de la capacit�
 
 - Modifiez le comportement d’appel du client afin de réduire la demande réseau.
 - [Créez des alertes](cache-how-to-monitor.md#alerts) pour des métriques comme la lecture du cache ou l’écriture dans le cache, afin d’être averti le plus tôt possible des impacts potentiels.
-- [Effectuez une mise à l’échelle](cache-how-to-scale.md) pour une plus grande taille de cache et une plus grande capacité de bande passante réseau.
+- [Effectuez une mise à l’échelle](cache-how-to-scale.md) pour une plus grande taille de cache et une plus grande capacité de bande passante réseau. Pour plus d’informations, consultez [FAQ sur la planification d’Azure Cache pour Redis](./cache-planning-faq.yml).
 
 ## <a name="additional-information"></a>Informations supplémentaires
 
 - [Résoudre les problèmes côté client liés à Azure Cache pour Redis](cache-troubleshoot-client.md)
 - [Choix du niveau approprié](cache-overview.md#choosing-the-right-tier)
-- [Comment puis-je évaluer et tester les performances de mon cache ?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Comment puis-je évaluer et tester les performances de mon cache ?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
 - [Surveillance du cache Azure pour Redis](cache-how-to-monitor.md)
-- [Comment exécuter des commandes Redis ?](cache-development-faq.md#how-can-i-run-redis-commands)
+- [Comment exécuter des commandes Redis ?](cache-development-faq.yml#how-can-i-run-redis-commands-)

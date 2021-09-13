@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/04/2019
+ms.date: 08/21/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397b55bccde5781de5b9e53922e31281b3ec855c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ee3ff6fc063de5eebd4a7cc300fdc0a5ceeba560
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525212"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038384"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Accorder le consentement administrateur au niveau locataire à une application
 
@@ -46,7 +46,10 @@ Pour accorder le consentement administrateur au niveau locataire à une applicat
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un rôle permettant d’autoriser le consentement de l’administrateur (voir[Prérequis](#prerequisites)).
 2. Sélectionnez **Azure Active Directory** puis **Applications d’entreprise**.
 3. Sélectionnez l’application à laquelle vous souhaitez accorder le consentement administrateur au niveau locataire.
-4. Sélectionnez **Autorisations**, puis cliquez sur **Accorder le consentement administrateur**.
+4. Sélectionnez **Autorisations**, puis cliquez sur **Accorder le consentement administrateur**. Dans cet exemple, nous utilisons des applications 10,000ft Plans.
+
+   :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Capture d’écran montre comment accorder le consentement de l’administrateur au niveau du locataire.":::
+
 5. Examinez attentivement les autorisations requises par l’application.
 6. Si vous acceptez les autorisations requises par l’application, accordez le consentement. Si ce n’est pas le cas, cliquez sur **Annuler** ou fermez la fenêtre.
 

@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/13/2021
+ms.date: 08/20/2021
 ms.custom: generated
-ms.openlocfilehash: 70df27cdec96d6338cbbd13b517a6261d328ac5d
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: b1c1944ddf5fdae42bea41482d429a207190d11f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633973"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771129"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
@@ -121,6 +121,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | [Contributeur de SQL Managed Instance](#sql-managed-instance-contributor) | Permet de gérer des instances SQL Managed Instance et la configuration réseau requise, mais pas d’accorder l’accès à d’autres personnes. | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | [Gestionnaire de sécurité SQL](#sql-security-manager) | Permet de gérer les stratégies de sécurité des serveurs et bases de données SQL, mais pas d’y accéder. | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |
 > | [Contributeur SQL Server](#sql-server-contributor) | Permet de gérer des serveurs et bases de données SQL, mais pas d’y accéder, ni de gérer leurs stratégies de sécurité. | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
+> | [Intégration de SQL Server connecté à Azure](#azure-connected-sql-server-onboarding) | Autorise l’accès en lecture et en écriture aux ressources Azure pour SQL Server sur les serveurs avec Arc. | e8113dce-c529-4d33-91fa-e9b972617508 |
 > | **Analyse** |  |  |
 > | [Propriétaire de données Azure Event Hubs](#azure-event-hubs-data-owner) | Permet un accès complet aux ressources Azure Event Hubs. | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | [Récepteur de données Azure Event Hubs](#azure-event-hubs-data-receiver) | Permet d’obtenir un accès en réception aux ressources Azure Event Hubs. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
@@ -235,10 +236,10 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | [Opérateur Automation](#automation-operator) | Les opérateurs d’Automation sont en mesure de démarrer, d’arrêter, de suspendre et de reprendre des travaux | d3881f73-407a-4167-8283-e981cbba0404 |
 > | [Opérateur de runbook Automation](#automation-runbook-operator) | Propriétés de lecture du runbook : pour pouvoir créer des travaux depuis le runbook. | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
 > | [Rôle d'utilisateur de cluster Kubernetes avec Azure Arc](#azure-arc-enabled-kubernetes-cluster-user-role) | Répertorie les actions relatives aux informations d'identification de l'utilisateur du cluster. | 00493d72-78f6-4148-b6c5-d3ce8e4799dd |
-> | [Administrateur Kubernetes Azure Arc](#azure-arc-kubernetes-admin) | Gérez toutes les ressources sous cluster/espace de noms, à l’exception de la mise à jour ou de la suppression de quotas de ressources et d’espaces de noms. | dffb1e0c-446f-4dde-a09f-99eb5cc68b96 |
-> | [Administrateur de cluster Kubernetes Azure Arc](#azure-arc-kubernetes-cluster-admin) | Gérez toutes les ressources du cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
-> | [Visionneuse Kubernetes Azure Arc](#azure-arc-kubernetes-viewer) | Affichez toutes les ressources dans le cluster/l’espace de noms, à l’exception des secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
-> | [Enregistreur Kubernetes Azure Arc](#azure-arc-kubernetes-writer) | Vous permet de mettre à jour tout ce qui se trouve dans le cluster/espace de noms, à l'exception des rôles (de cluster) et des liaisons de rôles (de cluster). | 5b999177-9696-4545-85c7-50de3797e5a1 |
+> | [Azure Arc Kubernetes Admin](#azure-arc-kubernetes-admin) | Gérez toutes les ressources sous cluster/espace de noms, à l’exception de la mise à jour ou de la suppression de quotas de ressources et d’espaces de noms. | dffb1e0c-446f-4dde-a09f-99eb5cc68b96 |
+> | [Azure Arc Kubernetes Cluster Admin](#azure-arc-kubernetes-cluster-admin) | Gérez toutes les ressources du cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
+> | [Azure Arc Kubernetes Viewer](#azure-arc-kubernetes-viewer) | Affichez toutes les ressources dans le cluster/l’espace de noms, à l’exception des secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
+> | [Azure Arc Kubernetes Writer](#azure-arc-kubernetes-writer) | Vous permet de mettre à jour tout ce qui se trouve dans le cluster/espace de noms, à l'exception des rôles (de cluster) et des liaisons de rôles (de cluster). | 5b999177-9696-4545-85c7-50de3797e5a1 |
 > | [Intégration de machine connectée à Azure](#azure-connected-machine-onboarding) | Peut intégrer des machines connectées à Azure. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | [Administrateur des ressources de la machine connectée à Azure](#azure-connected-machine-resource-administrator) | Peut lire, écrire, supprimer et réintégrer des machines connectées à Azure. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | [Lecteur de facturation](#billing-reader) | Autorise l’accès en lecture aux données de facturation | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
@@ -5325,6 +5326,46 @@ Permet de gérer des serveurs et bases de données SQL, mais pas d’y accéder,
 }
 ```
 
+### <a name="azure-connected-sql-server-onboarding"></a>Intégration de SQL Server connecté à Azure
+
+ Autorise l’accès en lecture et en écriture aux ressources Azure pour SQL Server sur les serveurs avec Arc.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> |Microsoft.AzureArcData/sqlServerInstances/read| Lire des informations relatives aux ressources Azure. |
+> |Microsoft.AzureArcData/sqlServerInstances/write| Écrire des informations relatives aux ressources Azure.  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  | 
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/e8113dce-c529-4d33-91fa-e9b972617508",
+    "properties": {
+        "roleName": "Azure Connected SQL Server Onboarding",
+        "description": "Microsoft.AzureArcData service role to access the resources of Microsoft.AzureArcData stored with RPSAAS.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.AzureArcData/sqlServerInstances/read",
+                    "Microsoft.AzureArcData/sqlServerInstances/write"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ## <a name="analytics"></a>Analytics
 
 
@@ -6723,7 +6764,7 @@ Vous permet de lire et de répertorier les clés de Cognitive Services. [En savo
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
-> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/listkeys/action | List keys (Afficher la liste des clés) |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/listkeys/action | Afficher la liste des clés |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/read | Lire une alerte de métrique classique |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/read | Lire un paramètre de diagnostic de ressource |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/logDefinitions/read | Lire les définitions de journal |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a21505fc37ad3b7fb47af8c6b79262ebb654d800
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 15b15b91e08ba404eac0fb2c30df924d2f84731b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228031"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866660"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
@@ -62,6 +62,7 @@ Les administrateurs d’appareil sont affectés à toutes les appareils joints �
 
 - Jusqu’à 4 heures ont passé pour qu’Azure AD émette un nouveau jeton d’actualisation principal avec les privilèges appropriés. 
 - L’utilisateur se déconnecte, puis se reconnecte, sans verrouillage/déverrouillage, pour actualiser son profil.
+- Les utilisateurs ne sont pas répertoriés dans le groupe d’administrateurs local, les autorisations sont reçues via le jeton d’actualisation principal. 
 
 > [!NOTE]
 > Les actions ci-dessus ne s’appliquent pas aux utilisateurs qui ne se sont pas connectés précédemment à l’appareil approprié. Dans ce cas, les privilèges d’administrateur sont appliqués immédiatement après leur première connexion à l’appareil. 
