@@ -3,16 +3,16 @@ title: Recevoir des appels et y répondre à l’aide du protocole HTTPS
 description: Gérer des requêtes HTTPS entrantes en provenance de services externes à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewers: jonfan, logicappspm
+ms.reviewers: estfan, azla
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 08/04/2021
 tags: connectors
-ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8efcbac4b2cdd93c2646ad75a024df79cf5f2623
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99063010"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562125"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
@@ -152,6 +152,23 @@ Votre application logique garde une requête entrante ouverte seulement pendant 
       ```
 
 1. Pour vérifier que le corps de la demande de l’appel entrant correspond au schéma spécifié, procédez comme suit :
+
+   1. Pour faire en sorte que le message entrant contienne exactement les champs décrits dans votre schéma, ajoutez la propriété `required` à votre schéma et spécifiez les champs requis. Ajoutez `addtionalProperties` et définissez la valeur sur `false`. 
+   
+      Par exemple, le schéma suivant spécifie que le message entrant doit contenir le champ `msg` et aucun autre :
+
+      ```json
+      {
+         "properties": {
+           "msg": {
+              "type": "string"
+           }
+         },
+         "type": "object",
+         "required": ["msg"],
+         "additionalProperties": false
+      }
+      ```
 
    1. Dans la barre de titre du déclencheur de requête, sélectionnez le bouton représentant des points de suspension ( **...** ).
 

@@ -3,13 +3,13 @@ title: Quotas et limitations d’Azure Video Analyzer – Azure
 description: Cet article décrit les quotas et les limitations d’Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: d4bc488411319832b59540fb1392b5d3259cef69
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.date: 06/01/2021
+ms.openlocfilehash: a94ebd36728519b7ae73d9cc48c82097dcfdbb21
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652184"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602087"
 ---
 # <a name="video-analyzer-quotas-and-limitations"></a>Quotas et limitations de Video Analyzer
 
@@ -60,7 +60,9 @@ Voici les limitations relatives à la façon dont différents nœuds peuvent êt
 ### <a name="supported-cameras"></a>Caméras prises en charge
 Vous ne pouvez utiliser que des caméras IP qui prennent en charge le protocole RTSP. Vous trouverez les caméras IP qui prennent RTSP en charge dans la page des [produits conformes ONVIF](https://www.onvif.org/conformant-products). Recherchez les appareils conformes aux profils G, S ou T.
 
-En outre, vous devez configurer ces caméras pour utiliser la vidéo H.264 et l’audio AAC. Les autres codecs ne sont actuellement pas pris en charge.
+Vous devez configurer ces caméras pour utiliser la vidéo H.264 et l’audio AAC. Les autres codecs ne sont actuellement pas pris en charge.
+
+Video Analyzer prend en charge RTSP uniquement avec des [flux RTP entrelacés]( https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). Dans ce mode, le trafic RTP est traité par tunnel par le biais de la connexion TCP RTSP. Le trafic RTP sur UDP n’est pas pris en charge.
 
 ### <a name="support-for-video-ai"></a>Prise en charge de l’intelligence artificielle vidéo
 Les processeurs d’extension HTTP ou gRPC prennent uniquement en charge l’envoi de données d’image ou de vidéo avec un module d’IA externe. Ainsi, l’exécution de l’inférence sur des données audio n’est pas prise en charge. Par conséquent, les nœuds de processeur dans les topologies de pipeline qui ont un nœud source RTSP parmi leur `inputs` utilisent également une propriété `outputSelectors` pour s’assurer que seules des vidéos sont transmises au processeur. Pour un exemple, regardez cette [topologie](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json).

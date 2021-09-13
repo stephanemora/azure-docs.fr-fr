@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/03/2021
+ms.date: 08/11/2021
 ms.author: aahi
-ms.openlocfilehash: 9c2cdcaa5aaadf9b1314b436fce4ab747bebdf8c
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 9d63fc9f90408fd60331f77079fdd8f15ca4aad6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527601"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524524"
 ---
 # <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>Catégories d’entité prises en charge dans l’API Analyse de texte v3
 
 Utilisez cet article pour rechercher les catégories d’entité qui peuvent être retournées par la [Reconnaissance d’entité nommée](how-tos/text-analytics-how-to-entity-linking.md) (NER). NER exécute un modèle prédictif pour identifier et classer les entités nommées à partir d’un document d’entrée.
 
-Une préversion de NER v3.1 est également disponible, elle permet de détecter les informations personnelles (`PII`) et médicales (`PHI`). Cliquez également sur l’onglet **Intégrité** pour voir la liste des catégories prises en charge dans l’Analyse de texte pour l’intégrité. 
+NER v3.1 est également disponible. Il permet de détecter les informations personnelles (`PII`) et médicales (`PHI`). Cliquez également sur l’onglet **Intégrité** pour voir la liste des catégories prises en charge dans l’Analyse de texte pour l’intégrité. 
 
 Vous trouverez la liste des types retournés par la version 2.1 dans le [guide de migration](migration-guide.md?tabs=named-entity-recognition)
 

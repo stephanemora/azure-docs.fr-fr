@@ -2,17 +2,31 @@
 title: Sauvegarder des bases de données SQL Server à l'aide du serveur de sauvegarde Azure
 description: Cet article présente les étapes de configuration de la sauvegarde des bases de données SQL Server à l'aide du serveur de sauvegarde Microsoft Azure.
 ms.topic: conceptual
-ms.date: 03/24/2017
-ms.openlocfilehash: e79b5263b248312b7170288be24ab5fc196042a7
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 07/28/2021
+ms.openlocfilehash: f97fc81b051b8c7d76ee1769b82ad4a2d489357b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518658"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524027"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Sauvegarder des bases de données SQL Server sur Azure à l'aide du serveur de sauvegarde Azure
 
-Cet article explique comment configurer des sauvegardes de bases de données SQL Server à l'aide du serveur de sauvegarde Microsoft Azure.
+Le serveur de sauvegarde Microsoft Azure (MABS, Microsoft Azure Backup Server) assure la sauvegarde et la récupération des bases de données SQL Server. En plus de la sauvegarde des bases de données SQL Server, vous pouvez exécuter une sauvegarde système ou une sauvegarde complète de l’ordinateur SQL Server. MABS peut protéger les éléments suivants :
+
+- Une instance de SQL Server autonome
+- Une instance du cluster de basculement SQL Server
+
+>[!Note]
+>MABS v3 UR2 prend en charge une instance de cluster de basculement (FCI) SQL Server à l’aide du volume partagé de cluster.
+>
+>Cette fonctionnalité prend en charge la protection des FCI SQL Server avec espaces de stockage direct sur Azure et avec disques partagés Azure. Le serveur DPM doit être déployé sur la machine virtuelle Azure pour protéger l’instance SQL FCI SQL déployée sur les machines virtuelles Azure.
+>
+>Un groupe de disponibilité AlwaysOn SQL Server avec ces préférences :
+>- Préférer secondaire
+>- Secondaire uniquement
+>- Principal
+>- Tout réplica
 
 Pour sauvegarder une base de données SQL Server et la récupérer à partir d'Azure :
 

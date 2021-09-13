@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: c6c09389628e1a9648d827eb5562a06c4f746db2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8c40af42248e41346d10ec0028c1f13ff7ef22d6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370940"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457944"
 ---
 # <a name="cognitive-services-development-options"></a>Options de développement Cognitive Services
 
@@ -28,14 +28,14 @@ Cognitive Services est organisée en quatre catégories : Décision, Langage, P
 * Conteneurs Docker Cognitive Services pour un accès sécurisé
 * des outils comme Apache Spark, Azure Databricks, Azure Synapse Analytics et Azure Kubernetes Service pour les scénarios de Big Data. 
 
-Avant de vous lancer, il est important de savoir que Cognitive Services est principalement utilisé pour deux tâches distinctes. En fonction de la tâche que vous souhaitez effectuer, vous avez le choix entre différentes options de développement et de déploiement. 
+Avant de vous lancer, il est important de savoir que Cognitive Services est principalement utilisé pour deux tâches distinctes. En fonction de la tâche que vous souhaitez effectuer, vous avez le choix entre différentes options de développement et de déploiement. 
 
 * [Options de développement pour la prédiction et l’analyse](#development-options-for-prediction-and-analysis)
 * [Outils pour personnaliser et configurer des modèles](#tools-to-customize-and-configure-models)
 
 ## <a name="development-options-for-prediction-and-analysis"></a>Options de développement pour la prédiction et l’analyse 
 
-Les outils que vous utiliserez pour personnaliser et configurer les modèles sont différents de ceux que vous utiliserez pour appeler Cognitive Services. D’emblée, la plupart des services Cognitive Services vous permettent d’envoyer des données et de recevoir des insights sans aucune personnalisation. Par exemple : 
+Les outils que vous utiliserez pour personnaliser et configurer les modèles sont différents de ceux que vous utiliserez pour appeler Cognitive Services. D’emblée, la plupart des services Cognitive Services vous permettent d’envoyer des données et de recevoir des insights sans aucune personnalisation. Par exemple : 
 
 * Vous pouvez envoyer une image au service Vision par ordinateur pour détecter des mots et des expressions ou pour compter le nombre de personnes dans le cadre.
 * Vous pouvez envoyer un fichier audio au service Speech et recevoir des transcriptions et traduire la parole en texte en même temps.
@@ -54,14 +54,14 @@ Les bibliothèques de client et les API REST Cognitive Services vous fournissent
 * **Interface utilisateur** : s.o. (code uniquement)
 * **Abonnement(s)**  : Compte Azure + ressources Cognitive Services
 
-Si vous souhaitez en savoir plus sur les bibliothèques de client et les API REST disponibles, consultez notre [présentation de Cognitive Services](index.yml) pour choisir un service et prendre en main l’un de nos démarrages rapides pour la vision, la décision, le langage et la parole.
+Si vous souhaitez en savoir plus sur les bibliothèques de client et les API REST disponibles, consultez notre [vue d’ensemble de Cognitive Services](index.yml) pour choisir un service et commencer avec l’un de nos guides de démarrage rapide pour la vision, la décision, le langage et la parole.
 
 ### <a name="cognitive-services-for-big-data"></a>Cognitive Services pour le Big Data
 
-Avec Cognitive Services pour le Big Data, vous pouvez incorporer des modèles toujours plus intelligents et plus performants dans les calculs Apache Spark&trade; et SQL. Ces outils libèrent les développeurs des tâches réseau de bas niveau, qui peuvent ainsi se concentrer sur la création d’applications intelligentes et distribuées. Cognitive Services pour le Big Data prend en charge les plateformes et connecteurs suivants : Azure Databricks, Azure Synapse, Azure Kubernetes Service et les connecteurs de données.
+Avec Cognitive Services pour le Big Data, vous pouvez incorporer des modèles toujours plus intelligents et plus performants dans les calculs Apache Spark&trade; et SQL. Ces outils libèrent les développeurs des tâches réseau de bas niveau, qui peuvent ainsi se concentrer sur la création d’applications intelligentes et distribuées. Cognitive Services pour le Big Data prend en charge les plateformes et connecteurs suivants : Azure Databricks, Azure Synapse, Azure Kubernetes Service et les connecteurs de données.
 
 * **Utilisateur(s) cible(s)**  : Scientifiques des données et ingénieurs des données
-* **Avantages** : Azure Cognitive Services pour le Big Data permet aux utilisateurs de canaliser des téraoctets de données à travers Cognitive Services à l’aide d’Apache Spark&trade;. Il est facile de créer des applications intelligentes à grande échelle avec n’importe quel magasin de données
+* **Avantages** : Azure Cognitive Services pour le Big Data permet aux utilisateurs de canaliser des téraoctets de données à travers Cognitive Services à l’aide d’Apache Spark&trade;. Il est facile de créer des applications intelligentes à grande échelle avec n’importe quel magasin de données
 * **Interface utilisateur** : s.o. (code uniquement)
 * **Abonnement(s)**  : Compte Azure + ressources Cognitive Services
 
@@ -78,7 +78,7 @@ Si vous souhaitez en savoir plus sur le Big Data pour Cognitive Services, il est
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps 
 
-[Azure Logic Apps](../logic-apps/index.yml) partage le même concepteur de workflow et les mêmes connecteurs que Power Automate, mais propose un contrôle plus avancé, notamment des intégrations à Visual Studio et à DevOps. Power Automate facilite l’intégration à vos ressources Cognitive Services grâce à des connecteurs spécifiques aux services qui fournissent un proxy ou un wrapper autour des API. Ce sont les mêmes connecteurs que ceux disponibles dans Power Automate. 
+[Azure Logic Apps](../logic-apps/index.yml) partage le même concepteur de workflow et les mêmes connecteurs que Power Automate, mais propose un contrôle plus avancé, notamment des intégrations à Visual Studio et à DevOps. Power Automate facilite l’intégration à vos ressources Cognitive Services grâce à des connecteurs spécifiques aux services qui fournissent un proxy ou un wrapper autour des API. Ce sont les mêmes connecteurs que ceux disponibles dans Power Automate. 
 
 * **Utilisateur(s) cible(s)**  : Développeurs, intégrateurs, professionnels de l’informatique, DevOps
 * **Avantages** : Modèle de développement orienté concepteur (déclaratif) fournissant des options avancées et une intégration dans une solution à faible code
@@ -87,7 +87,7 @@ Si vous souhaitez en savoir plus sur le Big Data pour Cognitive Services, il est
 
 ### <a name="power-automate"></a>Power Automate 
 
-Power Automate est un service de [Microsoft Power Platform](/power-platform/) qui vous permet de créer des workflows automatisés entre les applications et les services sans écrire de code. Nous proposons plusieurs connecteurs pour faciliter l’interaction avec votre ressource Cognitive Services dans une solution Power Automate. Power Automate repose sur Logic Apps. 
+Power Automate est un service de [Microsoft Power Platform](/power-platform/) qui vous permet de créer des workflows automatisés entre les applications et les services sans écrire de code. Nous proposons plusieurs connecteurs pour faciliter l’interaction avec votre ressource Cognitive Services dans une solution Power Automate. Power Automate repose sur Logic Apps. 
 
 * **Utilisateur(s) cible(s)**  : Utilisateurs professionnels (analystes) et administrateurs SharePoint
 * **Avantages** : Automatisez les tâches manuelles répétitives en enregistrant simplement les clics de souris, les frappes de touche et les opérations de copier-coller sur votre bureau
@@ -96,7 +96,7 @@ Power Automate est un service de [Microsoft Power Platform](/power-platform/) qu
 
 ### <a name="ai-builder"></a>AI Builder 
 
-[Le générateur IA](/ai-builder/overview) est une capacité de Microsoft Power Platform que vous pouvez utiliser pour améliorer les performances de l’entreprise en automatisant les processus et en prédisant les résultats. Le générateur IA apporte la puissance de l’intelligence artificielle à vos solutions grâce à une expérience de pointer-cliquer. De nombreux services cognitifs tels que Form Recognizer, Analyse de texte et Vision par ordinateur ont été directement intégrés ici, et vous n’avez pas besoin de créer vos propres services cognitifs. 
+[Le générateur IA](/ai-builder/overview) est une capacité de Microsoft Power Platform que vous pouvez utiliser pour améliorer les performances de l’entreprise en automatisant les processus et en prédisant les résultats. AI Builder apporte la puissance de l’intelligence artificielle à vos solutions grâce à une expérience de pointer-cliquer. De nombreux services cognitifs tels que Form Recognizer, Analyse de texte et Vision par ordinateur ont été directement intégrés ici, et vous n’avez pas besoin de créer vos propres services cognitifs. 
 
 * **Utilisateur(s) cible(s)**  : Utilisateurs professionnels (analystes) et administrateurs SharePoint
 * **Avantages** : Solution clé en main qui apporte la puissance de l’intelligence artificielle grâce à une expérience de pointer-cliquer. Aucune qualification en codage ou en science des données n’est requise
@@ -105,7 +105,7 @@ Power Automate est un service de [Microsoft Power Platform](/power-platform/) qu
 
 ### <a name="continuous-integration-and-deployment"></a>Intégration et déploiement continus
 
-Vous pouvez utiliser Azure DevOps et GitHub Actions pour gérer vos déploiements. Dans la [section ci-dessous](#continuous-integration-and-delivery-with-devops-and-github-actions), nous présentons deux exemples d’intégrations CI/CD pour effectuer l’apprentissage et déployer des modèles personnalisés pour Speech et le service Language Understanding (LUIS). 
+Vous pouvez utiliser Azure DevOps et GitHub Actions pour gérer vos déploiements. Dans la [section ci-dessous](#continuous-integration-and-delivery-with-devops-and-github-actions), nous fournissons deux exemples d’intégrations CI/CD pour entraîner et déployer des modèles personnalisés pour Speech et le service Language Understanding (LUIS). 
 
 * **Utilisateur(s) cible(s)**  : Développeurs, scientifiques des données et ingénieurs des données
 * **Avantages** : Vous permet d’ajuster, de mettre à jour et de déployer continuellement des applications et des modèles par programmation. Il existe un avantage significatif quand vous utilisez régulièrement vos données pour améliorer et mettre à jour des modèles pour les catégories Parole, Vision, Langage et Décision 
@@ -116,18 +116,17 @@ Vous pouvez utiliser Azure DevOps et GitHub Actions pour gérer vos déploiement
 
 Au fur et à mesure que vous progressez dans la création d’une application ou d’un workflow avec Cognitive Services, il se peut que vous deviez personnaliser le modèle pour obtenir les performances souhaitées. La plupart de nos services vous permettent de compléter des modèles prédéfinis pour répondre à vos besoins professionnels spécifiques. Pour tous nos services personnalisables, nous fournissons à la fois une expérience pilotée par l’interface utilisateur pour parcourir le processus et des API pour la formation pilotée par le code. Par exemple :
 
-* Vous souhaitez effectuer l’apprentissage d’un modèle Custom Speech pour qu’il reconnaisse correctement les termes médicaux avec un taux d’erreur sur les mots (WER) inférieur à 3 %.
+* Vous souhaitez entraîner un modèle Custom Speech pour qu’il reconnaisse correctement les termes médicaux avec un taux d’erreur sur les mots (WER) inférieur à 3 %.
 * Vous souhaitez créer un classifieur d’images avec Custom Vision qui peut faire la différence entre les conifères et les arbres à feuillage caduc.
 * Vous souhaitez créer une voix neurale personnalisée avec vos données vocales personnelles pour une meilleure expérience client automatisée.
 
-Les outils que vous utiliserez pour effectuer l’apprentissage des modèles et les configurer sont différents de ceux que vous utiliserez pour appeler Cognitive Services. Dans de nombreux cas, les services cognitifs qui prennent en charge la personnalisation proposent des portails et des outils d’interface utilisateur conçus pour vous aider à effectuer l’apprentissage des modèles, les évaluer et les déployer. Examinons rapidement quelques options :<br><br>
+Les outils que vous utiliserez pour entraîner les modèles et les configurer sont différents de ceux que vous utiliserez pour appeler Cognitive Services. Dans de nombreux cas, les services cognitifs qui prennent en charge la personnalisation proposent des portails et des outils d’interface utilisateur conçus pour vous aider à effectuer l’apprentissage des modèles, les évaluer et les déployer. Examinons rapidement quelques options :<br><br>
 
 | Pilier | Service | Personnalisation de l’interface utilisateur | Démarrage rapide |
 |--------|---------|------------------|------------|
 | Vision | Vision personnalisée | https://www.customvision.ai/ | [Démarrage rapide](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
 | Vision | Form Recognizer | [Outil d’étiquetage des exemples](https://aka.ms/fott-2.1-ga) | [Article de guide pratique](./form-recognizer/label-tool.md?tabs=v2-0) |
 | Décision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Démarrage rapide](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
-| Décision | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Démarrage rapide](./metrics-advisor/quickstarts/web-portal.md) |
 | Décision | Personalizer | L’interface utilisateur est disponible dans le portail Azure sous votre ressource Personalizer. | [Démarrage rapide](./personalizer/quickstart-personalizer-sdk.md) |
 | Langage | Language Understanding (LUIS) | https://www.luis.ai/ | |
 | Langage | QnA Maker | https://www.qnamaker.ai/ | [Démarrage rapide](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
@@ -143,9 +142,9 @@ Language Understanding et le service Speech offrent des solutions d’intégrati
 * [CI/CD pour Custom Speech](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
 * [CI/CD pour LUIS](./luis/luis-concept-devops-automation.md)
 
-## <a name="on-prem-containers"></a>Conteneurs locaux 
+## <a name="on-premises-containers"></a>Conteneurs locaux 
 
-La plupart des services cognitifs peuvent être déployés dans des conteneurs pour un accès et un usage locaux. Grâce à ces conteneurs, Cognitive Services se trouve au plus près de vos données du point de vue de la conformité, de la sécurité et de l’exploitation. Pour obtenir la liste complète des conteneurs Cognitive Services, consultez [Conteneurs locaux pour Cognitive Services](./cognitive-services-container-support.md).
+La plupart des services cognitifs peuvent être déployés dans des conteneurs pour un accès et un usage locaux. Grâce à ces conteneurs, Cognitive Services se trouve au plus près de vos données du point de vue de la conformité, de la sécurité et de l’exploitation. Pour obtenir la liste complète des conteneurs Cognitive Services, consultez [Conteneurs locaux pour Cognitive Services](./cognitive-services-container-support.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 <!--

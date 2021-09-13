@@ -8,12 +8,12 @@ ms.date: 2/11/2020
 ms.author: amgowda
 ms.service: container-service
 ms.subservice: confidential-computing
-ms.openlocfilehash: 280f75e8d18d16dd76d0730a90755774af34d6f6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7b225fa68b9a280ef4a1c7145ab691b82168202a
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933574"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967409"
 ---
 # <a name="confidential-containers"></a>Conteneurs confidentiels
 
@@ -59,7 +59,7 @@ Commencez avec un exemple de Cache Redis et d’application personnalisée Pytho
 
 ### <a name="fortanix"></a>Fortanix
 
-[Fortanix](https://www.fortanix.com/) offre aux développeurs la possibilité de choisir un portail et une expérience basée sur une interface de ligne de commande pour importer leurs applications en conteneur et les convertir en conteneurs confidentiels compatibles SGX sans avoir à modifier ou à recompiler l’application. Fortanix offre la flexibilité nécessaire pour exécuter et gérer l’ensemble le plus vaste d’applications, à savoir des applications existantes, de nouvelles applications natives de l’enclave et des applications prépackagées. Les utilisateurs peuvent commencer avec l’interface utilisateur du [Confidential Computing Manager](https://em.fortanix.com/) ou des [API REST](https://www.fortanix.com/api/em/) pour créer des conteneurs confidentiels en suivant le guide de [Démarrage rapide](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) pour Azure Kubernetes Service.
+[Fortanix](https://www.fortanix.com/) offre aux développeurs la possibilité de choisir un portail et une expérience basée sur une interface de ligne de commande pour importer leurs applications en conteneur et les convertir en conteneurs confidentiels compatibles SGX sans avoir à modifier ou à recompiler l’application. Fortanix offre la flexibilité nécessaire pour exécuter et gérer l’ensemble le plus vaste d’applications, à savoir des applications existantes, de nouvelles applications natives de l’enclave et des applications prépackagées. Les utilisateurs peuvent commencer avec l’interface utilisateur du [Confidential Computing Manager](https://em.fortanix.com/) ou des [API REST](https://www.fortanix.com/api/em/) pour créer des conteneurs confidentiels en suivant le guide de [Démarrage rapide](https://fortanix.com/blog/2020/10/fortanix-confidential-containers-on-microsoft-azure-kubernetes-service-aks/) pour Azure Kubernetes Service.
 
 ![Processus de déploiement de Fortanix](./media/confidential-containers/fortanix-confidential-containers-flow.png)
 
@@ -89,6 +89,15 @@ Commencez avec un exemple d’application et un déploiement sur AKS [ici](https
 
 Occlum prend en charge les déploiements AKS. Suivez les instructions de déploiement avec divers exemples d’applications [ici](https://github.com/occlum/occlum/blob/master/docs/azure_aks_deployment_guide.md).
 
+### <a name="marblerun"></a>Marblerun
+
+[Marblerun](https://marblerun.sh/) est un framework d’orchestration pour les conteneurs confidentiels. Il simplifie l’exécution et la mise à l’échelle des services confidentiels sur Kubernetes compatible SGX. Marblerun assure des tâches réutilisables telles que la vérification des services dans votre cluster, la gestion des secrets pour ces services et l’établissement de connexions mTLS d’enclave à enclave entre eux. Marblerun garantit également que votre cluster de conteneurs confidentiels respecte un manifeste défini en code JSON simple. Le manifeste peut être vérifié par des clients externes par le biais d’une attestation distante. 
+
+![Flux Marblerun](./media/confidential-containers/marblerun-workflow.png)
+
+En résumé, Marblerun étend les propriétés de confidentialité, d’intégrité et de vérifiabilité d’une seule enclave à un cluster Kubernetes. 
+
+Marblerun prend en charge les conteneurs confidentiels créés avec Graphene, Occlum et EGo. Vous trouverez [ici](https://docs.edgeless.systems/marblerun/#/examples?id=examples) des exemples pour chaque SDK. Marblerun est conçu pour s’exécuter sur Kubernetes, parallèlement à vos outils natifs cloud existants. Il offre une interface de ligne de commande simple à utiliser et des graphiques Helm. Il assure une excellente prise en charge des nœuds de calcul confidentiels sur AKS. Vous trouverez [ici](https://docs.edgeless.systems/marblerun/#/deployment/cloud?id=cloud-deployment) des informations sur le déploiement de Marblerun sur AKS.
 
 ## <a name="confidential-containers-demo"></a>Démonstration des conteneurs confidentiels
 Regardez la démonstration relative à la confidentialité des soins de santé avec des conteneurs confidentiels. L’exemple est disponible [ici](/azure/architecture/example-scenario/confidential/healthcare-inference). 

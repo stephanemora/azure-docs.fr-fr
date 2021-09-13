@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 06/22/2021
 ms.custom: template-concept
-ms.openlocfilehash: 262616ca82e9c06baec0d7a1b81a0e3dff2ed8db
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 7786cd64ebf46038cc4d41f13ef76bb4d543752f
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304509"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112970118"
 ---
 # <a name="marketing-properties"></a>Propriétés marketing
 
@@ -50,13 +50,16 @@ La partie supérieure de la page de description du produit met en évidence les 
 | Secteurs d’activité cibles  | Les trois principaux secteurs d’activité pour lesquels votre appareil est optimisé  | Détails marketing |
 | Description de produit  | Champ de texte libre dans lequel vous pouvez rédiger la description marketing de votre produit. Il peut s’agir de détails non répertoriés dans le portail ou d’un contexte supplémentaire pour les avantages de l’utilisation de votre produit. | Détails marketing|
 
-Le reste de la page est consacré à l’affichage des spécifications techniques de votre appareil sous forme de tableau qui aidera votre client à mieux comprendre votre produit. Pour plus de commodité, les informations affichées en haut de la page sont également répertoriées ici. Le reste du tableau est divisé en sections selon les composants spécifiés dans le portail.
+Le reste de la page est consacré à l’affichage des spécifications techniques de votre appareil sous forme de tableau qui aidera votre client à mieux comprendre votre produit. Pour des raisons pratiques, les informations affichées en haut de la page sont également listées ici avec quelques informations supplémentaires sur l’appareil. Le reste du tableau est divisé en sections selon les composants spécifiés dans le portail.
 
 ![Bas de page PDP](./media/concepts-marketing/pdp-bottom.png)
 
 | Champ | Description                  | Où ajouter dans le portail                |
 |---------------|-------------------------|----------------------------------|
-| Type de composant | Classification du facteur de forme et de l’objectif principal de votre appareil ([En savoir plus](./resources-glossary.md))       | Détails du produit dans Détails de l’appareil|
+| Certifications environnementales | Certifications officielles reçues pour une utilisation dans différents environnements     | Matériel sous Détails de l’appareil  |
+| Conditions de fonctionnement | Indice de protection ou plages de températures pour lesquels l’appareil est qualifié     | Logiciel sous Détails de l’appareil  |
+| Configuration logicielle Azure | Classification du processus de configuration pour connecter l’appareil à Azure ([en savoir plus](./how-to-software-levels.md))     | Logiciel sous Détails de l’appareil  |
+| Type de composant | Classification du facteur de forme et de l’objectif principal de votre appareil ([En savoir plus](./resources-glossary.md))       | Matériel sous Détails de l’appareil|
 | Nom du composant| Nom du composant que vous décrivez | Détails du produit dans Détails de l’appareil |
 | Informations supplémentaires sur les composants | Spécifications matérielles supplémentaires, telles que les capteurs inclus, la connectivité, les accélérateurs, etc.  | Informations supplémentaires sur les composants dans Détails de l’appareil ([En savoir plus](./how-to-using-the-components-feature.md))  |
 | Texte de dépendance de l’appareil | Texte fourni par le partenaire décrivant les différentes dépendances requises par le produit pour se connecter à Azure ([En savoir plus](./how-to-indirectly-connected-devices.md))   | Section des commentaires côté client de l’onglet Dépendances dans Détails de l’appareil |
@@ -73,6 +76,7 @@ Un bouton « Acheter » est disponible à la fois sur la vignette produit et s
 | Obtenir un appareil| Lien vers un site Web externe permettant au client d’acheter l’appareil (ou de demander un devis au distributeur). Il peut s’agir de la même page que celle du fabricant si le distributeur est le fabricant de l’appareil. Si une page d’achat n’est pas disponible, elle redirige le client vers la page du distributeur afin que le client puisse le contacter directement.  | URL de la page produit du distributeur dans les détails marketing. Si aucune page d’achat n’est disponible, le lien sera par défaut l’URL du distributeur dans Détails marketing. |
 
 ## <a name="external-links"></a>Liens externes
+
 Des liens sont également inclus dans la page Description du produit pour accéder à des sites ou des fichiers fournis par les partenaires qui aident le client à mieux comprendre le produit. Ils apparaissent en haut de la page, sous le texte de description du produit. Les liens affichés diffèrent selon les types d’appareils et les programmes de certification.
 
 | Lien | Description                  | Où ajouter dans le portail                |

@@ -8,16 +8,16 @@ ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: shkale-msft
-ms.author: shkale
+author: SQLSourabh
+ms.author: sourabha
 ms.reviewer: mathoma
-ms.date: 02/25/2021
-ms.openlocfilehash: e49f6220a25a449221ccab70a7439722189378cd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 07/13/2021
+ms.openlocfilehash: 13e522b45673723a33b8739ccefafa4a8410910a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708498"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525316"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Conservation à long terme – Azure SQL Database et Azure SQL Managed Instance
 
@@ -34,7 +34,7 @@ La conservation à long terme peut être activée pour Azure SQL Database et est
 
 ## <a name="how-long-term-retention-works"></a>Fonctionnement de la conservation à long terme
      
-La rétention des sauvegardes à long terme (LTR) s’appuie sur les sauvegardes intégrales des bases de données qui sont [créées automatiquement](automated-backups-overview.md) pour permettre la récupération jusqu’à une date et heure. Si une stratégie LTR est spécifiée, ces sauvegardes sont copiées vers différents objets blob pour stockage à long terme. La copie est un travail en arrière-plan qui n’a aucun impact en matière de performance sur la charge de travail de la base de données. La stratégie LTR pour chaque base de données dans SQL Database peut également spécifier la fréquence à laquelle les sauvegardes LTR sont créées.
+La conservation des sauvegardes à long terme (LTR) s’appuie sur les sauvegardes de base de données complètes qui sont [créées automatiquement](automated-backups-overview.md) pour permettre la récupération jusqu’à une date et heure. Si une stratégie LTR est spécifiée, ces sauvegardes sont copiées vers différents objets blob pour stockage à long terme. La copie est un travail en arrière-plan qui n’a aucun impact en matière de performance sur la charge de travail de la base de données. La stratégie LTR pour chaque base de données dans SQL Database peut également spécifier la fréquence à laquelle les sauvegardes LTR sont créées.
 
 Pour activer LTR, vous pouvez définir une stratégie utilisant une combinaison de quatre paramètres : rétention hebdomadaire des sauvegardes (W), rétention mensuelle des sauvegardes (M), rétention annuelle des sauvegardes (Y) et semaine de l’année (WeekOfYear). Si vous indiquez W, une sauvegarde est copiée sur le dispositif de stockage à long terme toutes les semaines. Si vous indiquez M, la première sauvegarde de chaque mois est copiée sur le stockage à long terme. Si vous indiquez Y, une sauvegarde est copiée sur le dispositif de stockage à long terme pendant la semaine définie par WeekOfYear. Si la valeur WeekOfYear spécifiée est dans le passé lorsque la stratégie est configurée, la première sauvegarde LTR sera créée l’année suivante. Chaque sauvegarde est conservée dans le stockage à long terme en fonction des paramètres de stratégie qui sont configurés lors de la création de la sauvegarde LTR.
 
@@ -87,7 +87,7 @@ Vous pouvez configurer la conservation des sauvegardes à long terme à l’aide
 
 Pour apprendre à configurer la conservation à long terme ou à restaurer une base de données à partir d’une sauvegarde pour SQL Database à l’aide du Portail Azure ou de PowerShell, consultez [Gérer la conservation à long terme des sauvegardes Azure SQL Database](long-term-backup-retention-configure.md).
 
-Pour savoir comment configurer la conservation à long terme ou restaurer une base de données à partir d’une sauvegarde pour Azure SQL Managed Instance à l’aide de PowerShell, consultez [Gérer la conservation à long terme des sauvegardes Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md).
+Pour savoir comment configurer la conservation à long terme ou restaurer une base de données à partir d’une sauvegarde pour Azure SQL Managed Instance à l’aide du portail Azure ou de PowerShell, consultez [Gérer la conservation à long terme des sauvegardes Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md).
 
 Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage. Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. Pour apprendre à restaurer votre base de données à partir d’une sauvegarde LTR à l’aide du Portail Azure ou de PowerShell, consultez [Gérer la rétention à long terme des sauvegardes Azure SQL Database](long-term-backup-retention-configure.md). 
 

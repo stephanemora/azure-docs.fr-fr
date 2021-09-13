@@ -2,13 +2,13 @@
 title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 8fca05f8718fc5e44da33b19447895f5daafc905
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.date: 06/23/2021
+ms.openlocfilehash: 532ca138a9f003f38dac9245f4478b81e2d827f7
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107716742"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541659"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -91,6 +91,17 @@ La consommation du stockage, l’objectif de délai de récupération (RTO) et l
 - Pour les sauvegardes incrémentielles, le deuxième mois, les blocs A2, A3, A4 et A9 sont marqués comme modifiés et transférés. Lors du troisième mois, seul le bloc A5 qui a changé est marqué et transféré.
 
 ![Illustration montrant des comparaisons entre méthodes de sauvegarde](./media/backup-architecture/backup-method-comparison.png)
+
+## <a name="sap-hana-backup-types"></a>Types de sauvegarde SAP HANA
+
+Le tableau suivant présente les différents types de sauvegardes utilisées pour les bases de données SAP HANA et leur fréquence d’utilisation :
+
+| Type de sauvegarde | Détails | Usage |
+| --- | --- | --- |
+| **Sauvegarde complète** | une sauvegarde complète de base de données sauvegarde l’intégralité de la base de données. Ce type de sauvegarde peut être utilisé de façon indépendante pour effectuer une restauration à un point spécifique. | Vous pouvez planifier au plus une sauvegarde complète par jour. <br><br> Vous pouvez choisir de planifier une sauvegarde complète à intervalle quotidien ou hebdomadaire. |
+| **Sauvegarde différentielle** | Une sauvegarde différentielle est basée sur la sauvegarde de données complète précédente la plus récente. <br><br> Elle capture uniquement les données qui ont changé depuis la sauvegarde complète précédente. | Vous pouvez planifier au plus une sauvegarde différentielle par jour.  <br><br> Vous ne pouvez pas configurer une sauvegarde complète et une sauvegarde différentielle le même jour. |
+| **Sauvegarde incrémentielle** | Une sauvegarde incrémentielle est basée sur la sauvegarde de données complète/différentielle/incrémentielle précédente la plus récente. <br><br> Elle capture uniquement les données qui ont changé depuis la sauvegarde de données précédente. | Vous pouvez planifier au plus une sauvegarde incrémentielle par jour. <br><br> Vous ne pouvez pas planifier à la fois des sauvegardes différentielles et incrémentielles sur une base de données. Un seul type de sauvegarde delta peut être planifié. <br><br> Vous ne pouvez pas configurer une sauvegarde complète et une sauvegarde différentielle le même jour. |k
+| **Sauvegarde de fichier journal** | une sauvegarde de fichier journal permet d’effectuer une restauration ponctuelle à la seconde donnée. | Au plus, vous pouvez configurer des sauvegardes du journal des transactions toutes les 15 minutes. |
 
 ## <a name="backup-features"></a>Fonctionnalités de sauvegarde
 

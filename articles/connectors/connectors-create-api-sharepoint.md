@@ -1,20 +1,20 @@
 ---
-title: Se connecter à SharePoint à partir d’Azure Logic Apps
+title: Se connecter à SharePoint
 description: Superviser et gérer des ressources dans SharePoint Online ou SharePoint Server en local à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 08/11/2021
 tags: connectors
-ms.openlocfilehash: 750253d5607262614cf8576c376b261616361266
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: e53fca8b0e9f8dbca3dba8bd684e71ef25c88738
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285445"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524018"
 ---
-# <a name="connect-to-sharepoint-resources-with-azure-logic-apps"></a>Se connecter à des ressources SharePoint avec Azure Logic Apps
+# <a name="connect-to-sharepoint-resources-using-azure-logic-apps"></a>Se connecter à des ressources SharePoint avec Azure Logic Apps
 
 Pour automatiser les tâches qui surveillent et gèrent les ressources, telles que des fichiers, dossiers, listes et éléments, dans SharePoint Online ou SharePoint Server en local, vous pouvez créer des workflows d’intégration automatisés en utilisant Azure Logic Apps et le connecteur SharePoint.
 
@@ -36,9 +36,16 @@ Dans votre workflow d’application logique, vous pouvez utiliser un déclencheu
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
+* Les informations d’identification de compte Microsoft Office 365 utilisées avec SharePoint quand vous vous connectez avec un [compte professionnel ou scolaire](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool).
 
-* L’adresse de votre site SharePoint et vos informations d’identification utilisateur. Vous avez besoin de ces informations d’identification pour autoriser votre workflow à accéder à votre compte SharePoint.
+  Vous avez besoin de ces informations d’identification pour autoriser votre workflow à accéder à votre compte SharePoint.
+
+  > [!NOTE]
+  > Si vous utilisez [Microsoft Azure géré par 21Vianet](https://portal.azure.cn), l’authentification Azure AD (Active Directory) fonctionne uniquement avec un compte pour Microsoft Office 365 géré par 21Vianet (.cn) et non les comptes .com.
+
+* L’adresse de votre site SharePoint
+
+* Un compte et un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Pour les connexions à un serveur SharePoint local, vous devez [installer et configurer la passerelle de données](../logic-apps/logic-apps-gateway-install.md) sur un ordinateur local et une [ressource de passerelle de données déjà créée dans Azure](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -49,13 +56,17 @@ Dans votre workflow d’application logique, vous pouvez utiliser un déclencheu
   * Pour démarrer le workflow avec un déclencheur SharePoint, vous avez besoin d’un workflow d’application logique vierge.
   * Pour ajouter une action SharePoint, votre workflow doit déjà avoir un déclencheur.
 
+## <a name="connector-reference"></a>Référence de connecteur
+
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/sharepoint/).
+
 ## <a name="connect-to-sharepoint"></a>Se connecter à SharePoint
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 ## <a name="add-a-trigger"></a>Ajouter un déclencheur
 
-1. Dans le portail Azure, Visual Studio Code ou Visual Studio, ouvrez votre workflow d’application logique dans le concepteur d’applications logiques, si ce n’est pas déjà fait.
+1. Dans le portail Azure, Visual Studio Code ou Visual Studio, ouvrez votre workflow d’application logique dans le concepteur visuel si ce n’est déjà fait.
 
 1. Dans la zone de recherche du concepteur, entrez `sharepoint` comme terme de recherche. Sélectionnez le connecteur **SharePoint**.
 
@@ -74,7 +85,7 @@ Dans votre workflow d’application logique, vous pouvez utiliser un déclencheu
 
 ## <a name="add-an-action"></a>Ajouter une action
 
-1. Dans le portail Azure, Visual Studio Code ou Visual Studio, ouvrez votre workflow d’application logique dans le concepteur d’applications logiques, si ce n’est pas déjà fait.
+1. Dans le portail Azure, Visual Studio Code ou Visual Studio, ouvrez votre workflow d’application logique dans le concepteur visuel si ce n’est déjà fait.
 
 1. Choisissez l’une des options suivantes :
 
@@ -95,10 +106,6 @@ Dans votre workflow d’application logique, vous pouvez utiliser un déclencheu
    Une fois que votre workflow a créé la connexion, l’action sélectionnée s’affiche.
 
 1. Fournissez les informations nécessaires à la configuration de l’action et poursuivez la construction de votre workflow.
-
-## <a name="connector-reference"></a>Référence de connecteur
-
-Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/sharepoint/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

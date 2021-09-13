@@ -2,13 +2,13 @@
 title: Résoudre des problèmes de réseau avec un registre
 description: Symptômes, causes et résolution de problèmes courants lors de l’accès à un registre de conteneurs Azure dans un réseau virtuel ou derrière un pare-feu
 ms.topic: article
-ms.date: 03/30/2021
-ms.openlocfilehash: d9cfa0aa902fca1afd1033d40b33ccdf5baa56d7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 05/10/2021
+ms.openlocfilehash: 7ea4eb698f855a98df22e2e0426a0004c890290c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066673"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562121"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Résoudre des problèmes de réseau avec un registre
 
@@ -34,7 +34,7 @@ Peuvent inclure un ou plusieurs des symptômes suivants :
 
 * Un pare-feu ou proxy de client empêche l’accès : [solution](#configure-client-firewall-access).
 * Les règles d’accès au réseau public dans le registre empêchent l’accès : [solution](#configure-public-access-to-registry).
-* La configuration du réseau virtuel empêche l’accès : [solution](#configure-vnet-access).
+* La configuration du réseau virtuel ou du point de terminaison privé empêche l’accès : [solution](#configure-vnet-access)
 * Vous tentez d’intégrer Azure Security Center ou certains autres services Azure avec un registre qui a un point de terminaison privé, un point de terminaison de service ou des règles d’accès aux IP publiques : [solution](#configure-service-access).
 
 ## <a name="further-diagnosis"></a>Diagnostics plus poussés 
@@ -87,7 +87,11 @@ Liens connexes :
 
 Vérifiez que le réseau virtuel est configuré avec un point de terminaison privé pour une liaison privée ou un point de terminaison de service (préversion). Actuellement, un point de terminaison Azure Bastion n’est pas pris en charge.
 
-Si un point de terminaison privé est configuré, vérifiez que DNS résout le nom de domaine complet public du registre, par exemple *myregistry.azurecr.io* à l’adresse IP privée du registre. Utilisez un utilitaire réseau comme `dig` ou `nslookup` pour la recherche DNS. Vérifiez que les [enregistrements DNS sont configurés](container-registry-private-link.md#dns-configuration-options) pour le nom de domaine complet du registre et pour chacun des noms de domaine complets du point de terminaison de données.
+Si un point de terminaison privé est configuré, vérifiez que DNS résout le nom de domaine complet public du registre, par exemple *myregistry.azurecr.io* à l’adresse IP privée du registre.
+
+  * Exécutez la commande [az acr check-health](/cli/azure/acr#az_acr_check_health) avec le paramètre `--vnet` pour vérifier le routage DNS vers le point de terminaison privé dans le réseau virtuel.
+  * Utilisez un utilitaire réseau comme `dig` ou `nslookup` pour la recherche DNS. 
+  * Vérifiez que les [enregistrements DNS sont configurés](container-registry-private-link.md#dns-configuration-options) pour le nom de domaine complet du registre et pour chacun des noms de domaine complets du point de terminaison de données. 
 
 Examinez les règles de groupe de sécurité réseau et les balises de service utilisées pour limiter le trafic à partir d’autres ressources du réseau vers le registre. 
 
@@ -130,8 +134,8 @@ Si la [collecte des journaux de ressources](monitor-service.md) est activée dan
 
 Liens connexes :
 
-* [Surveiller Azure Container Registry](monitor-service.md)
-* [FAQ sur le registre de conteneurs](container-registry-faq.md)
+* [Journaux pour l’évaluation et l’audit de diagnostics](./monitor-service.md)
+* [FAQ sur le registre de conteneurs](container-registry-faq.yml)
 * [Ligne de base de sécurité Azure pour Azure Container Registry](security-baseline.md)
 * [Meilleures pratiques pour Azure Container Registry](container-registry-best-practices.md)
 

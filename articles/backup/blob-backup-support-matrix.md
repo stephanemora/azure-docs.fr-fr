@@ -2,14 +2,14 @@
 title: Matrice de prise en charge pour la sauvegarde des objets blob Azure
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge lors de la sauvegarde des objets blob Azure.
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 07/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 06e6d193ec929961dd4eeb192045a217aefa4ab2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ba2798ff464720379326ee56098f840a06e2c042
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475098"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531390"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Matrice de prise en charge pour la sauvegarde des objets blob Azure
 
@@ -32,6 +32,7 @@ La sauvegarde opérationnelle des objets blob utilise la restauration à un inst
 - Un bloc qui a été chargé via [Put Block](/rest/api/storageservices/put-block) ou [Put Block à partir d’une URL](/rest/api/storageservices/put-block-from-url), mais qui n’est pas validé via [Put Block List](/rest/api/storageservices/put-block-list), ne fait pas partie d’un objet blob et n’est donc pas restauré dans le cadre d’une opération de restauration.
 - Un objet blob avec un bail actif ne peut pas être restauré. Si un objet blob avec un bail actif est inclus dans la plage d’objets blob à restaurer, l’opération de restauration échoue de façon automatique. Arrêtez tout bail actif avant de démarrer l’opération de restauration.
 - Les instantanés ne sont pas créés ou supprimés dans le cadre d’une opération de restauration. Seul l’objet blob de base est restauré à son état précédent.
+- Si les objets blob restaurés incluent des [objets blob immuables](../storage/blobs/immutable-storage-overview.md#about-immutable-storage-for-blobs), ces derniers ne sont pas restaurés à l’état au point de récupération sélectionné. Toutefois, les autres objets blob pour lesquels l’immuabilité n’est pas activée seront restaurés comme prévu au point de récupération sélectionné.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

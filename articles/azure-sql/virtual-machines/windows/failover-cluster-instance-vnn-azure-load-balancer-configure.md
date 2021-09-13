@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5cecf43f3795e38daa75f9463cadec94114046de
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 66b762cac767987a1ea2cf74b9e706e7a7939d51
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111568897"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563397"
 ---
 # <a name="configure-azure-load-balancer-for-an-fci-vnn"></a>Configurer Azure Load Balancer pour un VNN FCI
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,6 +41,9 @@ Avant d’effectuer les étapes décrites dans cet article, vous devez déjà di
 - Avoir installé la version la plus récente de [PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). 
 
 ## <a name="create-load-balancer"></a>Créer un équilibreur de charge
+
+Vous pouvez créer un équilibreur de charge interne ou externe. Avec un équilibreur de charge interne, le trafic peut provenir uniquement des ressources privées sollicitées internes au réseau.  Un équilibreur de charge externe peut router le trafic des ressources publiques vers les ressources internes. Quand vous configurez un équilibreur de charge interne, utilisez, pour l’IP front-end, la même adresse IP que celle de la ressource FCI pour les règles d’équilibrage de charge. Quand vous configurez un équilibreur de charge externe, vous ne pouvez pas utiliser la même adresse IP que celle de la FCI. L’adresse IP ne peut pas être publique. Ainsi, pour utiliser un équilibreur de charge externe, allouez logiquement une adresse IP dans le même sous-réseau que la FCI, qui n’est pas en conflit avec une autre adresse IP et utilisez cette adresse comme adresse IP front-end pour les règles d’équilibrage de charge. 
+
 
 Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibreur de charge :
 
@@ -75,7 +78,7 @@ Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibre
 
 1. Associez le pool principal au groupe à haute disponibilité contenant les machines virtuelles.
 
-1. Sous **Configurations IP du réseau cible**, sélectionnez **MACHINE VIRTUELLE** et choisissez les machines virtuelles qui participent en tant que nœuds de cluster. Veillez à inclure toutes les machines virtuelles qui hébergeront l’infrastructure ICF.
+1. Sous **Configurations IP du réseau cible**, sélectionnez **MACHINE VIRTUELLE** et choisissez les machines virtuelles qui participent en tant que nœuds de cluster. Veillez à inclure toutes les machines virtuelles qui hébergeront l’infrastructure ICF. Ajoutez uniquement l’adresse IP principale de chaque machine virtuelle. N’ajoutez pas d’adresses IP secondaires. 
 
 1. Sélectionnez **OK** pour créer le pool principal.
 
@@ -97,14 +100,19 @@ Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibre
 
 ## <a name="set-load-balancing-rules"></a>Définir les règles d’équilibrage de charge
 
+Définissez les règles d’équilibrage de charge pour l’équilibreur de charge. 
+
+
+# <a name="private-load-balancer"></a>[Équilibreur de charge privé](#tab/ilb)
+
+Définissez les règles d’équilibrage de charge pour l’équilibreur de charge privé en effectuant les étapes suivantes : 
+
 1. Dans le volet de l’équilibreur de charge, sélectionnez **Règles d’équilibrage de charge**.
-
 1. Sélectionnez **Ajouter**.
-
 1. Définissez les paramètres de règles d’équilibrage de charge :
 
    - **Name** : Nom des règles d’équilibrage de charge.
-   - **Adresse IP du serveur frontal** : Adresse IP de la ressource réseau en cluster de la FCI SQL Server ou de l’écouteur de groupe de disponibilité.
+   - **Adresse IP front-end** : adresse IP de la ressource réseau clusterisée de la FCI SQL Server.
    - **Port** : Port TCP SQL Server. Le port d’instance par défaut est 1433.
    - **Port principal** : Même port que la valeur **Port** lorsque vous activez **Adresse IP flottante (retour direct du serveur)** .
    - **Pool principal** : Le nom du pool principal que vous avez configuré précédemment.
@@ -115,9 +123,35 @@ Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibre
 
 1. Sélectionnez **OK**.
 
+# <a name="public-load-balancer"></a>[Équilibreur de charge public](#tab/elb)
+
+Définissez les règles d’équilibrage de charge pour l’équilibreur de charge public en effectuant les étapes suivantes : 
+
+1. Dans le volet de l’équilibreur de charge, sélectionnez **Règles d’équilibrage de charge**.
+1. Sélectionnez **Ajouter**.
+1. Définissez les paramètres de règles d’équilibrage de charge :
+
+   - **Name** : Nom des règles d’équilibrage de charge.
+   - **Adresse IP front-end** : Adresse IP publique que les clients utilisent pour se connecter au point de terminaison public. 
+   - **Port** : Port TCP SQL Server. Le port d’instance par défaut est 1433.
+   - **Port principal** : Port utilisé par l’instance FCI. La valeur par défaut est 1433. 
+   - **Pool principal** : Le nom du pool principal que vous avez configuré précédemment.
+   - **Sonde d’intégrité** : La sonde d’intégrité que vous avez configurée précédemment.
+   - **Persistance de session** : Aucun.
+   - **Délai d’inactivité (minutes)**  : 4.
+   - **Adresse IP flottante (retour serveur direct)**  : désactivée.
+
+1. Sélectionnez **OK**.
+
+---
+
+
+
 ## <a name="configure-cluster-probe"></a>Configurer le probe du cluster
 
 Définissez le paramètre de port de sonde de cluster dans PowerShell.
+
+# <a name="private-load-balancer"></a>[Équilibreur de charge privé](#tab/ilb)
 
 Pour définir le paramètre de port de sonde de cluster, mettez à jour les variables dans le script suivant avec des valeurs à partir de votre environnement. Supprimez les crochets pointus (`<` et `>`) du script.
 
@@ -138,7 +172,7 @@ Le tableau ci-dessous décrit les valeurs que vous devez mettre à jour :
 |**Valeur**|**Description**|
 |---------|---------|
 |`Cluster Network Name`| Nom du cluster de basculement Windows Server pour le réseau. Dans le **Gestionnaire du cluster de basculement** > **Réseaux**, cliquez avec le bouton droit sur le réseau et sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
-|`SQL Server FCI/AG listener IP Address Resource Name`|Nom de la ressource pour l’adresse IP de la FCI SQL Server ou de l’écouteur de groupe de disponibilité. Dans **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle de l’instance de cluster de basculement SQL Server, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, puis sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
+|`SQL Server FCI IP Address Resource Name`|Nom de la ressource pour l’adresse IP de la FCI SQL Server. Dans **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle de l’instance de cluster de basculement SQL Server, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, puis sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
 |`ILBIP`|Adresse IP de l’équilibreur de charge interne (ILB). Cette adresse est configurée dans le portail Azure en tant qu’adresse frontale de l’équilibreur de charge interne. Il s’agit également de l’adresse IP de la FCI SQL Server. Vous pouvez la trouver dans le **Gestionnaire du cluster de basculement** sur la page de propriétés où se trouve également localisé le `<SQL Server FCI/AG listener IP Address Resource Name>`.|
 |`nnnnn`|Port de probe que vous avez configuré dans le probe d’intégrité de l’équilibreur de charge. N’importe quel port TCP inutilisé est valide.|
 |« SubnetMask »| Masque de sous-réseau pour le paramètre de cluster. Il doit s’agir de l’adresse de diffusion TCP IP : `255.255.255.255`.| 
@@ -149,6 +183,43 @@ Après avoir défini la sonde du cluster, vous pouvez voir tous les paramètres 
 ```powershell
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
+
+# <a name="public-load-balancer"></a>[Équilibreur de charge public](#tab/elb)
+
+Pour définir le paramètre de port de sonde de cluster, mettez à jour les variables dans le script suivant avec des valeurs à partir de votre environnement. Supprimez les crochets pointus (`<` et `>`) du script.
+
+```powershell
+$ClusterNetworkName = "<Cluster Network Name>"
+$IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+$ELBIP = "<n.n.n.n>" 
+[int]$ProbePort = <nnnnn>
+
+Import-Module FailoverClusters
+
+Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ELBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+```
+
+Le tableau ci-dessous décrit les valeurs que vous devez mettre à jour :
+
+
+|**Valeur**|**Description**|
+|---------|---------|
+|`Cluster Network Name`| Nom du cluster de basculement Windows Server pour le réseau. Dans le **Gestionnaire du cluster de basculement** > **Réseaux**, cliquez avec le bouton droit sur le réseau et sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
+|`SQL Server FCI IP Address Resource Name`|Nom de la ressource pour l’adresse IP de la FCI SQL Server. Dans **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle de l’instance de cluster de basculement SQL Server, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, puis sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
+|`ELBIP`|Adresse IP de l’équilibreur de charge externe (ELB, external load balancer). Cette adresse est configurée dans le portail Azure comme adresse front-end de l’ELB et est utilisée pour la connexion à l’équilibreur de charge public à partir de ressources externes. |
+|`nnnnn`|Port de sonde que vous avez configuré dans la sonde d’intégrité de l’équilibreur de charge. N’importe quel port TCP inutilisé est valide.|
+|« SubnetMask »| Masque de sous-réseau pour le paramètre de cluster. Il doit s’agir de l’adresse de diffusion TCP IP : `255.255.255.255`.| 
+
+Après avoir défini la sonde du cluster, vous pouvez voir tous les paramètres de cluster dans PowerShell. Exécutez ce script :
+
+```powershell
+Get-ClusterResource $IPResourceName | Get-ClusterParameter
+```
+
+> [!NOTE]
+> Étant donné qu’il n’y a pas d’adresse IP privée pour l’équilibreur de charge externe, les utilisateurs ne peuvent pas utiliser directement le nom DNS VNN, car il résout l’adresse IP dans le sous-réseau. Utilisez l’adresse IP publique de l’équilibreur de charge public ou configurez un autre mappage DNS sur le serveur DNS. 
+
+---
 
 ## <a name="modify-connection-string"></a>Modifier la chaîne de connexion 
 
@@ -189,8 +260,8 @@ Le **Gestionnaire du cluster de basculement** présente le rôle et ses ressourc
 
 Pour tester la connectivité, connectez-vous à une autre machine virtuelle sur le même réseau virtuel. Ouvrez **SQL Server Management Studio** et connectez-vous au nom FCI SQL Server. 
 
->[!NOTE]
->Si nécessaire, vous pouvez [télécharger SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+> [!NOTE]
+> Si nécessaire, vous pouvez [télécharger SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 

@@ -2,13 +2,13 @@
 title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 226c3d08903385a1df97d83209762452a70ed816
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.date: 07/27/2021
+ms.openlocfilehash: ef23abb7ba25675ce267fb6a4b0e273a1cc445a4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565645"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524028"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Sauvegarder et Restaurer des machines virtuelles Azure chiffrées
 
@@ -44,9 +44,9 @@ Sauvegarde Azure peut sauvegarder et restaurer des machines virtuelles Azure à 
 
 ### <a name="limitations"></a>Limites
 
-- Vous pouvez sauvegarder et restaurer des machines virtuelles chiffrées par ADE dans les mêmes abonnement et région.
+- Vous pouvez sauvegarder et restaurer des machines virtuelles chiffrées par ADE dans le même abonnement.
 - Sauvegarde Azure prend en charge les machines virtuelles chiffrées à l’aide de clés autonomes. Aucune clé appartenant à un certificat utilisé pour chiffrer une machine virtuelle n’est prise en charge.
-- Vous pouvez sauvegarder et restaurer des machines virtuelles chiffrées par ADE dans les mêmes abonnement et région que le coffre de sauvegarde Recovery Services.
+- Sauvegarde Azure prend en charge la restauration inter-région de machines virtuelles Azure chiffrées vers les régions appairées Azure. Pour plus d’informations, consultez la [matrice de prise en charge](./backup-support-matrix.md#cross-region-restore).
 - Les machines virtuelles chiffrées par ADE ne peuvent pas être récupérées au niveau du fichier/dossier. Vous devez récupérer la machine virtuelle entière pour restaurer des fichiers et des dossiers.
 - Quand vous restaurez une machine virtuelle, vous ne pouvez pas utiliser l’option de [remplacement de la machine virtuelle existante](backup-azure-arm-restore-vms.md#restore-options) pour les machines virtuelles chiffrées par ADE. Cette option est uniquement prise en charge pour les disques managés non chiffrés.
 

@@ -1,7 +1,7 @@
 ---
 title: Concepts de reconnaissance faciale
 titleSuffix: Azure Cognitive Services
-description: Cet article explique les concepts des opérations de reconnaissance faciale Vérifier, Rechercher semblables, Grouper et Identifier, ainsi que des structures de données sous-jacentes.
+description: Cet article explique le concept de reconnaissance faciale, les opérations associées et les structures de données sous-jacentes.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: 00dadf8a91b7ed01ab9f91933d296744305a95af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f22e48c869ebc2cf4101127f3d87cc7836da35d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92518804"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525126"
 ---
 # <a name="face-recognition-concepts"></a>Concepts de reconnaissance faciale
 
-Cet article explique les concepts des opérations de reconnaissance faciale Vérifier, Rechercher semblables, Grouper et Identifier, ainsi que des structures de données sous-jacentes. Globalement, la reconnaissance décrit le travail de comparaison de deux visages différents pour déterminer s’ils sont similaires ou s’ils appartiennent à la même personne.
+Cet article explique le concept de reconnaissance faciale, les opérations associées et les structures de données sous-jacentes. D’une manière générale, la reconnaissance faciale fait référence à la méthode de vérification ou d’identification d’une personne à l’aide de son visage. La vérification est une correspondance un-à-un qui prend deux visages et indique s’ils correspondent à la même personne. L’identification est une correspondance un-à-plusieurs qui prend un seul visage comme entrée et retourne un ensemble de candidats correspondants. La reconnaissance faciale est importante pour l’implémentation du scénario de vérification d’identité, que les entreprises et les applications utilisent pour vérifier qu’un utilisateur (distant) est bien celui qu’il prétend être.
 
-## <a name="recognition-related-data-structures"></a>Structures de données liées à la reconnaissance
+## <a name="related-data-structures"></a>Structures de données associées
 
 Les opérations de reconnaissance utilisent principalement les structures de données suivantes. Ces objets sont stockés dans le cloud et peuvent être référencés par leurs chaînes d’ID. Les chaînes d’ID sont toujours uniques dans un abonnement. Les champs de noms peuvent être dupliqués.
 
@@ -35,23 +35,23 @@ Les opérations de reconnaissance utilisent principalement les structures de don
 
 ## <a name="recognition-operations"></a>Opérations de reconnaissance
 
-Cette section décrit en détail comment les quatre opérations de reconnaissance utilisent les structures de données précédemment décrites. Pour obtenir une description générale de chaque opération de reconnaissance, consultez [Vue d’ensemble](../Overview.md).
+Cette section explique en détail comment les opérations sous-jacentes utilisent les structures de données décrites précédemment pour identifier et vérifier un visage.
 
-### <a name="verify"></a>Vérifier
+### <a name="persongroup-creation-and-training"></a>Création et entraînement de PersonGroup
 
-L’opération [Vérifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) accepte un ID de visage issu de DetectedFace ou de PersistedFace et un autre ID de visage ou un objet Person, et détermine s’ils appartiennent à la même personne. Si vous transmettez un objet Person, vous pouvez éventuellement transmettre un PersonGroup auquel cet objet Person appartient pour améliorer les performances.
+Vous devez créer un [PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) ou un [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) pour stocker l’ensemble de personnes avec lequel établir une correspondance. Les PersonGroups contiennent des objets [Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), chacun représentant une personne spécifique et contenant un ensemble de données de visage appartenant à cette personne.
 
-### <a name="find-similar"></a>Rechercher semblables
+L’opération [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) prépare le jeu de données à utiliser pour les comparaisons de données de visage.
 
-L’opération [Rechercher semblables](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) accepte un ID de visage issu de DetectedFace ou de PersistedFace et un FaceList ou un tableau d’autres ID de visages. Avec un FaceList, elle retourne un plus petit FaceList de visages semblables au visage donné. Avec un tableau d’ID de visages, elle retourne de même un tableau plus petit.
+### <a name="identification"></a>Identification
 
-### <a name="group"></a>Groupe
+L’opération [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) prend un ou plusieurs ID de visage source (à partir d’un objet DetectedFace ou PersistedFace) et un PersonGroup ou un LargePersonGroup. Elle retourne une liste des objets Person auxquels chaque visage source peut appartenir. Les objets Person retournés sont empaquetés en tant qu’objets de candidats et comportent une valeur de niveau de confiance de prédiction.
 
-L’opération [Grouper](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) accepte un tableau d’ID de visages assortis issus de DetectedFace ou de PersistedFace, et retourne les mêmes ID regroupés en plusieurs tableaux plus petits. Chaque tableau de « groupes » contient les ID de visages qui apparaissent semblables. Un tableau unique « messyGroup » contient des ID de visages pour lesquels aucune ressemblance n’a été trouvée.
 
-### <a name="identify"></a>Identifier
+### <a name="verification"></a>Vérification
 
-L’opération [Identity](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) prend un ou plusieurs ID de visage à partir de DetectedFace ou de PersistedFace ainsi qu’un groupe de personnes et retourne une liste d’objets Person auxquels chaque face peut appartenir. Les objets Person retournés sont empaquetés en tant qu’objets de candidats et comportent une valeur de niveau de confiance de prédiction.
+L’opération [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) prend un seul ID de visage (à partir d’un objet DetectedFace ou PersistedFace) et un objet Person. Elle détermine si le visage appartient à la même personne. La vérification est une correspondance un-à-un et peut être utilisée comme contrôle final des résultats de l’appel d’API Identify. Toutefois, si vous le souhaitez, vous pouvez transmettre le PersonGroup auquel appartient l’objet Person candidat pour améliorer les performances de l’API.
+
 
 ## <a name="input-data"></a>Données d’entrée
 

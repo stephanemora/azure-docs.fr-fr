@@ -2,21 +2,23 @@
 title: Secret Azure Key Vault avec modèle
 description: Montre comment passer une clé secrète à partir d’un coffre de clés en tant que paramètre lors du déploiement.
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/18/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 1cf3b1f3433b47d029876e9676b85c5de776d455
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: a5ee223c9cfa2dada3da4f6eb901550c9d4eec9d
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110795700"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380713"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement
 
-Au lieu de placer une valeur sécurisée (telle qu’un mot de passe) directement dans votre modèle ou fichier de paramètres, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../../key-vault/general/overview.md) pendant un déploiement. Vous récupérez la valeur en référençant le coffre de clés et la clé secrète dans votre fichier de paramètres. La valeur n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Le coffre de clés peut exister dans un autre abonnement que le groupe de ressources sur lequel vous effectuez le déploiement.
+Au lieu de placer une valeur sécurisée (telle qu’un mot de passe) directement dans votre modèle ou fichier de paramètres, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../../key-vault/general/overview.md) pendant un déploiement. Vous récupérez la valeur en référençant le coffre de clés et la clé secrète dans votre fichier de paramètres. La valeur n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés.
 
-Cet article est consacré à la transmission d’une valeur sensible en tant que paramètre de modèle. L’article ne traite pas de la définition d’une propriété de machine virtuelle sur l’URL d’un certificat dans un coffre de clés.
-Vous trouverez un modèle de démarrage rapide de ce scénario dans [Installer un certificat à partir d’Azure Key Vault sur une machine virtuelle](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
+> [!IMPORTANT]
+> Cet article est consacré à la transmission d’une valeur sensible comme paramètre de modèle. Quand le secret est transmis comme paramètre, le coffre de clés peut exister dans un autre abonnement que le groupe de ressources sur lequel vous effectuez le déploiement. 
+>
+> Cet article ne traite pas de la définition d’une propriété de machine virtuelle sur l’URL d’un certificat dans un coffre de clés. Vous trouverez un modèle de démarrage rapide de ce scénario dans [Installer un certificat à partir d’Azure Key Vault sur une machine virtuelle](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Déployer des coffres de clés et des secrets
 

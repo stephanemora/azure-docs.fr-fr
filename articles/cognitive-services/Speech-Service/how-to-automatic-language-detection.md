@@ -3,20 +3,20 @@ title: Guide pratique pour utiliser l’identification de la langue
 titleSuffix: Azure Cognitive Services
 description: L’identification de la langue sert à déterminer la langue parlée dans l’audio transmis au SDK Speech par comparaison à une liste de langues fournies.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.author: trbye
+ms.author: lajanuar
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 2c9adacbb9e333c81c4f90868a69f8a23a3c15a7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e24a24b54d31a98497bfba453b6677ebf0f560a9
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962919"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527681"
 ---
 # <a name="how-to-use-language-identification"></a>Guide pratique pour utiliser l’identification de la langue
 
@@ -33,7 +33,7 @@ Cet article part du principe que vous avez un abonnement Azure et une ressource 
 L’identification de la langue est actuellement limitée à **quatre langues** pour une reconnaissance unique et à **10 langues** pour une reconnaissance continue. Gardez cette limite à l’esprit lors de la construction de votre objet `AutoDetectSourceLanguageConfig`. Dans les exemples ci-dessous, vous utilisez `AutoDetectSourceLanguageConfig` pour définir la liste des langues possibles à identifier, puis vous référencez ces langues lors de l’exécution de la reconnaissance vocale.
 
 > [!IMPORTANT]
-> L’identification de la langue en continu est actuellement disponible en **préversion** et uniquement prise en charge en C# et C++.
+> L’identification de la langue en continu est prise en charge uniquement en C#, C++ et Python.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -155,14 +155,11 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
 ```
 
 > [!NOTE]
-> Les modes `Latency` et `Accuracy`, ainsi que la reconnaissance continue multilingue, sont actuellement pris en charge uniquement en C# et C++.
+> Les modes `Latency` et `Accuracy` ainsi que la reconnaissance continue multilingue sont actuellement pris en charge uniquement en C#, C++ et Python.
  
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-
-> [!IMPORTANT]
-> Cette fonctionnalité illustrée ci-dessous est actuellement en **préversion**.
 
 L’exemple suivant exécute une reconnaissance unique, en donnant la priorité à `Latency`. Cette propriété peut également avoir la valeur `Accuracy` selon la priorité définie pour votre cas d’usage. `Latency` constitue la meilleure option à utiliser si vous avez besoin d’un résultat à faible latence (par exemple, en cas de streaming en direct), mais que vous ne connaissez pas la langue de l’échantillon audio. 
 
@@ -265,7 +262,7 @@ recognizer->StopContinuousRecognitionAsync().get();
 ```
 
 > [!NOTE]
-> Les modes `Latency` et `Accuracy`, ainsi que la reconnaissance continue multilingue, sont actuellement pris en charge uniquement en C# et C++.
+> Les modes `Latency` et `Accuracy` ainsi que la reconnaissance continue multilingue sont actuellement pris en charge uniquement en C#, C++ et Python.
 
 ::: zone-end
 
@@ -406,22 +403,22 @@ Consultez l’[exemple sur GitHub](https://github.com/Azure-Samples/cognitive-se
 
 ::: zone pivot="programming-language-java"
 > [!IMPORTANT]
-> Cette fonctionnalité est actuellement prise en charge uniquement en C# et C++.
+> Cette fonctionnalité est actuellement prise en charge uniquement en C#, C++ et Python.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 > [!IMPORTANT]
-> Cette fonctionnalité est actuellement prise en charge uniquement en C# et C++.
+> Cette fonctionnalité est actuellement prise en charge uniquement en C#, C++ et Python.
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
 > [!IMPORTANT]
-> Cette fonctionnalité est actuellement prise en charge uniquement en C# et C++.
+> Cette fonctionnalité est actuellement prise en charge uniquement en C#, C++ et Python.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 > [!IMPORTANT]
-> Cette fonctionnalité est actuellement prise en charge uniquement en C# et C++.
+> Cette fonctionnalité est actuellement prise en charge uniquement en C#, C++ et Python.
 ::: zone-end
 
 ## <a name="use-a-custom-model-for-language-identification"></a>Utiliser un modèle personnalisé pour l’identification de la langue

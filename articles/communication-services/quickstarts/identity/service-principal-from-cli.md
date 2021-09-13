@@ -5,16 +5,16 @@ description: Dans ce guide de démarrage rapide, nous allons créer une applicat
 services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 06/30/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: 5b25c0c5d140302d6ea8abbc3eeafaf47fb3b64b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6e573b455896b2eec6ec8163e1c463ed758279d4
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114473159"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257962"
 ---
 # <a name="quickstart-authenticate-using-azure-active-directory-azure-cli"></a>Démarrage rapide : S’authentifier à l’aide d’Azure Active Directory (Azure CLI)
 

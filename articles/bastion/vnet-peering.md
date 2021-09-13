@@ -1,18 +1,18 @@
 ---
 title: Appairage de réseaux virtuels et architecture d’Azure Bastion
-description: Dans cet article, vous allez découvrir la possibilité d’utilisation conjointe de l’appairage de réseaux virtuels et d’Azure Bastion pour se connecter aux machines virtuelles.
+description: Découvrez comment utiliser conjointement VNET Peering et Azure Bastion pour vous connecter à des machines virtuelles.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 07/13/2021
 ms.author: cherylmc
-ms.openlocfilehash: 60ad4ece6de40b61b1d25e61963b30c084639eba
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: ccbee86e8f5ae2ab514c8ec7ece4d41e1e890e4e
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072960"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733283"
 ---
 # <a name="vnet-peering-and-azure-bastion"></a>Appairage de réseaux virtuels et Azure Bastion
 
@@ -48,7 +48,7 @@ Cette figure représente l’architecture d’un déploiement Azure Bastion dans
 3. Pour afficher Bastion dans le menu déroulant **Connexion**, vous devez sélectionner les abonnements auxquels vous avez accès dans **Abonnement > Abonnement global**.
 4. Sélectionnez la machine virtuelle à laquelle vous souhaitez vous connecter.
 5. Azure Bastion est détecté en toute transparence sur le réseau virtuel appairé.
-6. D’un simple clic, la session RDP/SSH s’ouvre dans le navigateur. Pour les limites de session RDP et SSH simultanées, consultez [Sessions RDP et SSH](bastion-faq.md#limits).
+6. D’un simple clic, la session RDP/SSH s’ouvre dans le navigateur.
 
   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connexion":::
 
@@ -59,7 +59,7 @@ Cette figure représente l’architecture d’un déploiement Azure Bastion dans
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 
-[!INCLUDE [FAQ for VNet peering](../../includes/bastion-faq-peering-include.md)]
+Pour accéder aux questions fréquentes, consultez le [FAQ](bastion-faq.md#peering) Bastion (section sur l’appairage de réseau virtuel).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

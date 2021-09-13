@@ -1,27 +1,27 @@
 ---
 title: Tables de registre en ajout seul dans Azure SQL Database
 description: Cet article fournit des informations sur le schéma et les vues de table de registre en ajout seul dans Azure SQL Database.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: bb8c1c933bda5a972209133fea301c1d87f6bd06
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a23190552239af387fa2af362592347c0c46b900
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080198"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666726"
 ---
 # <a name="azure-sql-database-append-only-ledger-tables"></a>Tables de registre en ajout seul dans Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans la région USA Centre-Ouest.
+> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans les régions Europe Ouest, Brésil Sud et USA Centre-Ouest.
 
 Les tables de registre en ajout seul autorisent seulement les opérations `INSERT` sur vos tables, ce qui garantit que les utilisateurs privilégiés, par exemple les administrateurs de base de données, ne peuvent pas modifier les données à l’aide d’opérations de [langage de manipulation de données](/sql/t-sql/queries/queries) traditionnelles. Les tables de registre en ajout seul sont idéales pour les systèmes qui ne mettent pas à jour ou ne suppriment pas les enregistrements, par exemple les systèmes d’informations de sécurité et gestion d’événements ou les systèmes blockchain dans lesquels les données doivent être répliquées à partir du blockchain sur une base de données. Comme aucune opération `UPDATE` ou `DELETE` n’est effectuée sur une table en ajout seul, vous n’avez pas besoin de la table d’historique correspondante, contrairement aux [tables de registre pouvant être mises à jour](ledger-updatable-ledger-tables.md).
 

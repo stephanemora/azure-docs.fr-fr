@@ -2,13 +2,13 @@
 title: Supervision et journalisation - Azure
 description: Cet article fournit une vue d’ensemble de la surveillance et de la journalisation dans Azure Video Analyzer.
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.openlocfilehash: d7f048aecd89d75ad7bff728bc8a4ddebc8f515a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 7938a68272378cf592fff17be0c4dfef2ca0e3f3
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386139"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604857"
 ---
 # <a name="monitor-and-log-on-iot-edge"></a>Surveiller et journaliser sur IoT Edge
 
@@ -392,31 +392,38 @@ Comme avec d’autres modules IoT Edge, vous pouvez également [examiner les jou
    * `MediaPipeline` : Journaux détaillés qui peuvent offrir des insights lorsque vous résolvez des problèmes, comme des difficultés à établir une connexion avec une caméra compatible RTSP.
    
 ### <a name="generating-debug-logs"></a>Génération des journaux de débogage
+Dans certains cas, pour aider Support Azure à résoudre un problème, vous aurez peut-être besoin de générer des journaux plus détaillés que ceux décrits précédemment. Pour générer ces journaux :  
 
-Dans certains cas, pour aider Support Azure à résoudre un problème, vous aurez peut-être besoin de générer des journaux plus détaillés que ceux décrits précédemment. Pour générer ces journaux :
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre hub IoT.
+1. Dans le volet gauche, sélectionnez **IoT Edge**.
+1. Dans la liste des appareils, sélectionnez l’ID de l’appareil cible.
+1. En haut du volet, sélectionnez **Définir les modules**.
 
-1. [Liez le stockage du module au stockage de l’appareil](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) via `createOptions`. Si vous examinez un [modèle de manifeste de déploiement](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp/blob/master/src/edge/deployment.template.json) à partir des démarrages rapides, vous verrez ce code :
+   ![Capture d’écran du bouton « Définir les modules » dans le portail Azure.](media/troubleshoot/set-modules.png)
 
-   ```json
-   "createOptions": {
-     …
-     "Binds": [
-       "/var/local/videoAnalyzer/:/var/lib/videoAnalyzer/"
-     ]
-    }
-   ```
+1. Dans la section **Modules IoT Edge**, sélectionnez **avaedge**.
+1. Sélectionnez **Jumeau d’identité de module**. Un volet modifiable s’ouvre.
+1. Sous **Clé souhaitée**, ajoutez la paire clé-valeur suivante :
 
-   Ce code permet au module Edge d’écrire des journaux sur le chemin de stockage `/var/local/videoAnalyzer/` de l’appareil. 
+   `"DebugLogsDirectory": "/var/lib/videoanalyzer/logs"`
 
- 1. Ajoutez la propriété `desired` suivante au module :
+   > [!NOTE]
+   > Cette commande lie les dossiers de journaux entre l’appareil Edge et le conteneur. Si vous souhaitez collecter les journaux à un autre emplacement sur l’appareil :
+   >
+   > 1. Créez une liaison pour l’emplacement du journal de débogage dans la section **Liaisons**, en remplaçant **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** et **$DEBUG_LOG_LOCATION** par l’emplacement de votre choix : `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+   > 2. Utilisez la commande suivante, en remplaçant **$DEBUG_LOG_LOCATION** par l’emplacement utilisé à l’étape précédente : `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`
 
-    `"debugLogsDirectory": "/var/lib/videoAnalyzer/debuglogs/"`
+1. Sélectionnez **Enregistrer**.
 
-Le module écrira maintenant les journaux de débogage dans un format binaire sous le chemin de stockage `/var/local/videoAnalyzer/debuglogs/` de l’appareil. Vous pouvez partager ces journaux avec Support Azure.
+Le module écrira maintenant les journaux de débogage dans un format binaire sous le chemin de stockage `/var/local/videoAnalyzer/debuglogs/` de l’appareil. Vous pouvez partager ces journaux avec Support Azure.  
+
+Vous pouvez arrêter la collecte des journaux en définissant la valeur dans **Jumeau d’identité de module** sur _Null_. Retournez sur la page **Module Identity Twin** et mettez à jour le paramètre suivant comme suit :
+
+   `"DebugLogsDirectory": ""`
 
 ## <a name="faq"></a>Forum Aux Questions
 
-Si vous avez des questions, consultez la [FAQ sur la supervision et les métriques](faq-edge.md#monitoring-and-metrics).
+Si vous avez des questions, consultez la [FAQ sur la supervision et les métriques](faq-edge.yml#monitoring-and-metrics).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

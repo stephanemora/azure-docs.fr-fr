@@ -2,13 +2,13 @@
 title: Utiliser Bicep pour déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un fichier Bicep.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: af1ca550a6443fa7791d4f5ac496ae2d0626b176
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 07/19/2021
+ms.openlocfilehash: 3f446670cd85daa5b541cc9b5858ab768ac8411d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111371754"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453406"
 ---
 # <a name="tenant-deployments-with-bicep-file"></a>Déploiements de locataires avec fichier Bicep
 
@@ -146,7 +146,7 @@ resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
 
 ### <a name="scope-to-management-group"></a>Étendue au groupe d’administration
 
-Pour cibler un groupe d'administration au sein du locataire, ajoutez un module. Utilisez la [fonction managementGroup](bicep-functions-scope.md#managementgroup) pour définir sa propriété `scope`. Indiquez le nom du groupe d’administration.
+Pour cibler un groupe d’administration au sein du locataire, ajoutez un [module](modules.md). Utilisez la [fonction managementGroup](bicep-functions-scope.md#managementgroup) pour définir sa propriété `scope`. Indiquez le nom du groupe d’administration.
 
 ```bicep
 targetScope = 'tenant'

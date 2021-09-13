@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 08/25/2021
 ms.author: b-juche
-ms.openlocfilehash: cb53bad331e511ea2daacc2a0fbc9c178a193a2f
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: fc5d979c0c89c6f331e6b48fa1ffba30b5a91eb2
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655133"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122970319"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architectures de solution avec Azure NetApp Files
 Cet article fournit des références aux meilleures pratiques pouvant vous aider à comprendre les architectures de solution pour l’utilisation d’Azure NetApp Files.  
@@ -34,7 +34,7 @@ Cette section fournit des références pour les solutions de bases de données e
 
 ### <a name="oracle"></a>Oracle
 
-* [Oracle on Azure deployment best practice guide - Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
+* [Bases de données Oracle sur Microsoft Azure avec Azure NetApp Files](https://www.netapp.com/media/17105-tr4780.pdf)
 * [Images de machine virtuelle Oracle et leur déploiement sur Microsoft Azure : options de configuration de stockage partagé](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Performances des bases de données Oracle sur des volumes uniques Azure NetApp Files](performance-oracle-single-volumes.md)
 * [Avantages de l’utilisation d’Azure NetApp Files avec Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
@@ -53,7 +53,7 @@ Cette section fournit des références pour les applications Windows et les solu
 ### <a name="file-sharing-and-global-file-caching"></a>Partage de fichiers et mise en cache de fichiers globaux
 
 * [Build Your Own Azure NFS? Wrestling Linux File Shares into Cloud](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
-* [Déploiement de Global File Cache / Azure NetApp Files](https://youtu.be/91LKb1qsLIM)
+* [Globally Distributed Enterprise File Sharing with Azure NetApp Files and NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/NA-580-0521-Architecture-Doc-R3.pdf)
 * [Conformité cloud pour Azure NetApp Files](https://cloud.netapp.com/hubfs/Cloud%20Compliance%20for%20Azure%20NetApp%20Files%20-%20November%202020.pdf)
 
 ### <a name="sql-server"></a>SQL Server
@@ -90,6 +90,7 @@ Cette section fournit des références pour les Solutions SAP sur Azure.
 
 * [Déploiement SGBD de machines virtuelles Oracle Azure pour charge de travail SAP - Machines virtuelles Azure](../virtual-machines/workloads/sap/dbms_guide_oracle.md#oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux)
 * [Déployer SAP AnyDB (Oracle 19c) avec Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
+* [Déploiement SGBD de machines virtuelles IBM Db2 Azure pour charge de travail SAP avec Azure NetApp Files](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
 
 ### <a name="sap-iq-nls"></a>SAP IQ-NLS
 
@@ -116,14 +117,19 @@ Cette section fournit des références pour les Solutions SAP sur Azure.
 
 Cette section fournit des références pour les solutions d’infrastructure de bureau virtuel.
 
-### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
+### <a name="azure-virtual-desktop"></a><a name="windows-virtual-desktop"></a>Azure Virtual Desktop
 
-* [Avantages d’utiliser Azure NetApp Files avec Windows Virtual Desktop](solutions-windows-virtual-desktop.md)
-* [Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop](../virtual-desktop/store-fslogix-profile.md#azure-platform-details)
+* [Avantages d’utiliser Azure NetApp Files avec Azure Virtual Desktop](solutions-windows-virtual-desktop.md)
+* [Options de stockage des conteneurs de profils FSLogix dans Azure Virtual Desktop](../virtual-desktop/store-fslogix-profile.md#azure-platform-details)
 * [Créer un conteneur de profils FSLogix pour un pool d’hôtes à l'aide d’Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
-* [Windows Virtual Desktop à l’échelle de l’entreprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [Azure Virtual Desktop à l’échelle de l’entreprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [Microsoft FSLogix pour l’entreprise – Meilleures pratiques Azure NetApp Files](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
 * [Configuration d’Azure NetApp Files pour l’attachement d’application MSIX](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/setting-up-azure-netapp-files-for-msix-app-attach-step-by-step/m-p/1990021)
+
+### <a name="citrix"></a>Citrix   
+
+* [Guide de gestion des profils Citrix avec Azure NetApp Files meilleures pratiques](https://www.netapp.com/pdf.html?item=/media/55973-tr-4901.pdf)
+
 
 ## <a name="hpc-solutions"></a>Solutions HPC
 
@@ -151,6 +157,7 @@ Cette section fournit des références pour les solutions HPC (Calcul haute perf
 * [Azure NetApp Files : un système de fichiers partagé à utiliser avec la grille SAS sur Microsoft Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [Azure NetApp Files : un système de fichiers partagé à utiliser avec la grille SAS sur MS Azure – MISE À JOUR RHEL8.3/nconnect](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [Meilleures pratiques d’utilisation de Microsoft Azure avec SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
+* [Guide de l’architecture SAS sur Azure - Centre des architectures Azure | Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs)
 
 ## <a name="azure-platform-services-solutions"></a>Déployer des solutions pour les services de plateforme Azure
 
@@ -158,6 +165,7 @@ Cette section fournit des solutions pour les services de plateforme Azure.
 
 ### <a name="azure-kubernetes-services-and-kubernetes"></a>Azure Kubernetes Serviceset Kubernetes
 
+* [Astra : protégez, récupérez et gérez vos charges de travail AKS sur Azure NetApp Files](https://cloud.netapp.com/hubfs/Astra%20Azure%20Documentation.pdf) 
 * [Intégrer Azure NetApp Files à Azure Kubernetes Service](../aks/azure-netapp-files.md)
 * [Performances exceptionnelles de Kubernetes sur Azure avec Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Azure NetApp Files + Trident = stockage dynamique et persistant pour Kubernetes](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
