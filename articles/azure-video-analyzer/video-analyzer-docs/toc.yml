@@ -63,6 +63,8 @@
           href: analyze-live-video-custom-vision.md
         - name: Avec l’analyse spatiale
           href: computer-vision-for-spatial-analysis.md
+    - name: Visualiser les événements d’inférence IA
+      href: visualize-ai-events-power-bi.md
 - name: "Exemples\_GitHub"
   items:
     - name: Exemple de dépôt C#

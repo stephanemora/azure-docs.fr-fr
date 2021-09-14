@@ -5,7 +5,7 @@
   items:
     - name: "Qu’est-ce qu’Azure DB pour MySQL\_?"
       href: overview.md
-    - name: "Quelle option MySQL dois-je choisir\_?"
+    - name: Sélectionner le bon type de déploiement MySQL
       href: select-right-deployment-type.md
     - name: Nouveautés du déploiement Serveur unique
       href: single-server-whats-new.md
@@ -608,7 +608,10 @@
       displayName: 'import , migrate, export'
     - name: Migrer des données RDS MySQL avec MySQL Workbench
       href: how-to-migrate-rds-mysql-workbench.md
-      displayName: 'import , migrate, export'
+      displayName: 'migrate, rds, workbench'
+    - name: Migrer des données RDS MySQL en utilisant la réplication des données entrantes
+      href: how-to-migrate-rds-mysql-data-in-replication.md
+      displayName: 'migrate, rds, data-in replication'
     - name: "Migrer Azure\_DB pour MySQL – Serveur unique vers Azure\_DB pour MySQL – Serveur flexible"
       href: howto-migrate-single-flexible-minimum-downtime.md
       displayName: 'migrate, Single to Flexible'

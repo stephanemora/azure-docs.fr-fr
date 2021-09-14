@@ -49,8 +49,6 @@ items:
             href: quickstarts/voice-video-calling/getting-started-with-calling.md
           - name: Ajouter un appel vidéo à votre application cliente
             href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-          - name: Utiliser le SDK Calling
-            href: quickstarts/voice-video-calling/calling-client-samples.md
           - name: Joindre votre application cliente d’appel à une réunion Teams
             href: quickstarts/voice-video-calling/get-started-teams-interop.md
           - name: Utiliser les API d’automatisation d’appel
@@ -125,6 +123,8 @@ items:
             href: concepts/call-flows.md
           - name: Topologies des flux d’appels
             href: concepts/detailed-call-flows.md
+          - name: Diagnostics d’appel
+            href: concepts/voice-video-calling/call-diagnostics.md
           - name: Bonnes pratiques du web
             href: concepts/best-practices.md
           - name: Problèmes connus
@@ -160,6 +160,28 @@ items:
         href: concepts/metrics.md
       - name: Résolution des problèmes
         href: concepts/troubleshooting-info.md
+  - name: Guides pratiques
+    items:
+      - name: Utilisation du kit SDK Appel
+        items:
+          - name: Gérer les appels
+            href: how-tos/calling-sdk/manage-calls.md
+          - name: Gérer la vidéo
+            href: how-tos/calling-sdk/manage-video.md
+          - name: Enregistrer les appels
+            href: how-tos/calling-sdk/record-calls.md
+          - name: Activer les notifications Push
+            href: how-tos/calling-sdk/push-notifications.md
+          - name: Transcrire les appels
+            href: how-tos/calling-sdk/call-transcription.md
+          - name: Montrer les haut-parleurs actifs
+            href: how-tos/calling-sdk/dominant-speaker.md
+          - name: Transférer les appels
+            href: how-tos/calling-sdk/transfer-calls.md
+          - name: Participer à une réunion Teams
+            href: how-tos/calling-sdk/teams-interoperability.md
+          - name: S’abonner aux événements SDK
+            href: how-tos/calling-sdk/events.md
   - name: Exemples
     items:
       - name: Vue d’ensemble

@@ -69,7 +69,7 @@
           href: pim-resource-roles-renew-extend.md
         - name: Groupes d’accès privilégiés
           href: groups-renew-extend.md
-    - name: Définir les valeurs par défaut des rôles
+    - name: Définir les paramètres des rôles
       items:
         - name: Rôles Azure AD
           href: pim-how-to-change-default-settings.md

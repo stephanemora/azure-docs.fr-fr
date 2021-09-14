@@ -963,7 +963,7 @@
           href: ./policy-reference.md
 - name: API Cassandra
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: "Qu’est-ce que l’API Cassandra dans Cosmos DB\_?"
           href: cassandra/cassandra-introduction.md
@@ -1323,19 +1323,17 @@
           href: ./table/how-to-use-python.md
     - name: Tutoriels
       items:
-        - name: "1\_- Créer et gérer des données"
-          href: table/tutorial-develop-table-dotnet.md
-        - name: 2 - Migrer les données
+        - name: 1 - Migrer les données
           displayName: import
           href: table/table-import.md
-        - name: 3 - Interroger les données
+        - name: 2 - Interroger les données
           href: table/tutorial-query-table.md
-        - name: 4 - Distribuer les données globalement
+        - name: 3 - Distribuer les données globalement
           href: table/tutorial-global-distribution-table.md
     - name: Exemples
       items:
         - name: .NET
-          href: ./table/tutorial-develop-table-dotnet.md
+          href: 'https://github.com/Azure-Samples/msdocs-azure-tables-sdk-dotnet.git'
         - name: Java
           href: table/how-to-use-java.md
         - name: Node.js
@@ -1374,15 +1372,13 @@
     - name: Informations de référence
       items:
         - name: .NET
-          href: table/dotnet-sdk.md
-        - name: .NET Standard
-          href: table/dotnet-standard-sdk.md
+          href: /dotnet/api/overview/azure/data.tables-readme-pre
         - name: Java
-          href: table/java-sdk.md
+          href: /java/api/overview/azure/data-tables-readme
         - name: Node.js
-          href: table/nodejs-sdk.md
+          href: /javascript/api/overview/azure/data-tables-readme
         - name: Python
-          href: table/python-sdk.md
+          href: /python/api/azure-data-tables/azure.data.tables
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: API REST du Stockage de table

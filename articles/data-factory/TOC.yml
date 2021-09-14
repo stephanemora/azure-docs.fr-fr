@@ -688,9 +688,21 @@ items:
           - name: Surveiller visuellement
             href: monitor-visually.md
           - name: Surveiller avec Azure Monitor
-            href: monitor-using-azure-monitor.md
-          - name: Surveiller SSIS avec Azure Monitor
-            href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
+            items:
+              - name: Vue d’ensemble
+                href: monitor-using-azure-monitor.md
+              - name: Métriques et alertes Azure Data Factory
+                href: monitor-metrics-alerts.md
+              - name: Configurer les paramètres de diagnostic et l’espace de travail
+                href: monitor-configure-diagnostics.md
+              - name: Configurer les journaux de diagnostic via l’API REST Azure Monitor
+                href: monitor-logs-rest.md
+              - name: Surveiller les opérations SSIS avec Azure Monitor
+                href: monitor-ssis.md
+              - name: Schéma des journaux et des événements
+                href: monitor-schema-logs-events.md
+              - name: Installer la solution Azure Data Factory Analytics à partir de la Place de marché Azure
+                href: monitor-install-analytics.md
           - name: Surveiller avec les Kits de développement logiciel (SDK)
             href: monitor-programmatically.md
           - name: Surveiller le runtime d’intégration

@@ -423,6 +423,8 @@
       href: insights-dashboard.md
     - name: Tableau de bord des licences
       href: license-dashboard.md
+    - name: Tableau de bord de la qualité de service
+      href: quality-of-service-dashboard.md
     - name: Tableau de bord Téléchargements
       href: downloads-dashboard.md
     - name: Tableau de bord des évaluations et des avis

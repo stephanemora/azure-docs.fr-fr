@@ -16,7 +16,7 @@
       href: tutorial-expressroute-global-reach-private-cloud.md
     - name: "4\_– Installer le connecteur VMware HCX"
       href: install-vmware-hcx.md
-    - name: "5\_– Configurer le connecteur VMware HCX local"
+    - name: 5 - Configurer le connecteur HCX local
       href: configure-vmware-hcx.md
 - name: Didacticiels
   items:
@@ -108,12 +108,16 @@
           href: configure-l2-stretched-vmware-hcx-networks.md
         - name: Configurer le redirecteur DNS
           href: configure-dns-azure-vmware-solution.md
+        - name: Configurer l’extension réseau HCX
+          href: configure-hcx-network-extension.md
         - name: Configurer la mise en miroir des ports
           href: configure-port-mirroring-azure-vmware-solution.md
-        - name: Activer l’accès Internet public
-          href: enable-public-internet-access.md
         - name: Configurer un réseau VPN de site à site dans un WAN virtuel
           href: configure-site-to-site-vpn-gateway.md
+        - name: Activer l’accès Internet public
+          href: enable-public-internet-access.md
+        - name: Guide sur HCX Mobility Optimized Networking (MON)
+          href: vmware-hcx-mon-guidance.md
     - name: Configurer des stratégies de stockage
       href: configure-storage-policy.md
     - name: Configurer le cluster de basculement Windows Server
@@ -122,10 +126,6 @@
       href: connect-multiple-private-clouds-same-region.md
     - name: Déployer la reprise d’activité
       items:
-        - name: Déployer la reprise d’activité JetStream
-          href: deploy-disaster-recovery-using-jetstream.md
-        - name: Déployer la reprise d’activité Zerto
-          href: deploy-zerto-disaster-recovery.md
         - name: Déployer VMware HCX pour la reprise d’activité
           href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Déployer VMware SRM pour la reprise d’activité
@@ -150,6 +150,8 @@
           href: ecosystem-migration-vms.md
     - name: Solutions VMware
       items:
+        - name: Configurer l’extension réseau HCX
+          href: configure-hcx-network-extension.md
         - name: Configurer des opérations vRealize
           href: vrealize-operations-for-azure-vmware-solution.md
         - name: Déployer VMware Horizon

@@ -140,7 +140,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-vms-introduction.md
-        - name: Backup
+        - name: Sauvegarde
           items:
             - name: Sauvegarder et restaurer des machines virtuelles Azure avec la restauration instantanée de Sauvegarde Azure
               href: backup-instant-restore-capability.md
@@ -186,9 +186,9 @@
           items:
             - name: Sauvegarder plusieurs machines virtuelles SQL Server à partir du coffre
               href: backup-sql-server-database-azure-vms.md
-            - name: Sauvegarde de groupes de disponibilité SQL
+            - name: Sauvegarder un groupe de disponibilité SQL Server
               href: backup-sql-server-on-availability-groups.md
-            - name: Sauvegarder une machine virtuelle SQL Server à partir du volet de machine virtuelle
+            - name: Sauvegarder une machine virtuelle SQL Server à partir du volet Machine virtuelle
               href: backup-sql-server-vm-from-vm-pane.md
         - name: Restaurer
           href: restore-sql-database-azure-vm.md
@@ -198,6 +198,8 @@
       items:
         - name: Backup
           href: backup-azure-database-postgresql.md
+        - name: Gérer
+          href: manage-azure-database-postgresql.md
     - name: Sauvegarde Windows avec l’agent MARS
       items:
         - name: Vue d’ensemble
@@ -208,7 +210,7 @@
               href: install-mars-agent.md
             - name: Mettre à niveau l’agent MARS
               href: upgrade-mars-agent.md
-        - name: Backup
+        - name: Sauvegarde
           items:
             - name: Sauvegarder les fichiers et dossiers de Windows Server
               href: backup-windows-with-mars-agent.md
@@ -232,13 +234,15 @@
           href: disk-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-managed-disks.md
             - name: Restaurer
               href: restore-managed-disks.md
+            - name: Gérer
+              href: manage-azure-managed-disks.md
         - name: Avec PowerShell
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-managed-disks-ps.md
             - name: Restaurer
               href: restore-managed-disks-ps.md
@@ -260,7 +264,7 @@
               href: blob-restore.md
         - name: Avec PowerShell
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-blobs-storage-account-ps.md
             - name: Restaurer
               href: restore-blobs-storage-account-ps.md
@@ -284,7 +288,7 @@
           href: azure-file-share-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-afs.md
             - name: Restaurer
               href: restore-afs.md
@@ -292,7 +296,7 @@
               href: manage-afs-backup.md
         - name: Avec l’interface de ligne de commande Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-afs-cli.md
             - name: Restaurer
               href: restore-afs-cli.md
@@ -300,7 +304,7 @@
               href: manage-afs-backup-cli.md
         - name: Avec PowerShell
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-azure-afs-automation.md
             - name: Restaurer
               href: restore-afs-powershell.md
@@ -308,7 +312,7 @@
               href: manage-afs-powershell.md
         - name: Avec l’API REST
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-azure-file-share-rest-api.md
             - name: Restaurer
               href: restore-azure-file-share-rest-api.md
@@ -318,7 +322,7 @@
       items:
         - name: Vue d’ensemble
           href: sap-hana-db-about.md
-        - name: Backup
+        - name: Sauvegarde
           href: backup-azure-sap-hana-database.md
         - name: Restaurer
           href: sap-hana-db-restore.md
@@ -549,15 +553,15 @@
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: Azure CLI
       href: /cli/azure/backup
-    - name: "Protection des données Azure\_– CLI"
+    - name: Protection des données Azure - CLI
       href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
-    - name: "Protection des données Azure\_– PowerShell"
+    - name: Protection des données Azure - PowerShell
       href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
     - name: PowerShell – Agent Sauvegarde Azure
       href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
-    - name: "REST\_– Protection des données Azure"
+    - name: REST - Protection des données Azure
       href: /rest/api/dataprotection/
     - name: REST - Sauvegarde
       href: /rest/api/backup/

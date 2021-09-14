@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentation Visage
-summary: Le 11 juin 2020, Microsoft a annoncé qu’il ne vendra pas de technologie de reconnaissance faciale aux services de police des États-Unis tant qu’un règlement strict fondé sur les droits de l’homme n’aura pas été promulgué. Par conséquent, les clients ne doivent pas utiliser les fonctionnalités de reconnaissance faciale ou les fonctionnalités comprises dans les services Azure comme Visage ou Video Indexer, s’ils représentent, ou autorisent l’utilisation de ces services par ou pour, un service de police des États-Unis.
+summary: Le 11 juin 2020, Microsoft a annoncé qu’il ne vendra pas de technologie de reconnaissance faciale aux services de police des États-Unis tant qu’un règlement strict fondé sur les droits de l’homme n’aura pas été promulgué. Par conséquent, les clients ne doivent pas utiliser les fonctionnalités de reconnaissance faciale ou les fonctionnalités comprises dans les services Azure comme Visage ou Azure Video Analyzer for Media, s’ils représentent, ou autorisent l’utilisation de ces services par ou pour, un service de police des États-Unis.
 metadata:
   title: Documentation Visage - Guides de démarrage rapide, tutoriels, informations de référence sur l’API - Azure Cognitive Services | Microsoft Docs
   description: Le service Visage basé sur le cloud offre aux développeurs un accès à des algorithmes avancés de reconnaissance faciale. Les algorithmes de reconnaissance faciale Microsoft permettent la détection des attributs du visage et la reconnaissance faciale. Découvrez comment analyser le contenu de différentes façons avec nos démarrages rapides, tutoriels et exemples.
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: 579db900c31992fbb0555a8e19c9b2753f0bde2a
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: 145727cb5b6cd9c83e33407cb0cbfb3612066c9d
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121744763"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124771913"
 landingContent:
 - title: À propos du service Visage
   linkLists:

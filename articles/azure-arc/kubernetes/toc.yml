@@ -60,7 +60,7 @@
           href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Définitions de stratégie de contrôle d’admission avec Azure Policy
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
-        - name: Déployer Open Service Mesh avec Arc
+        - name: Déployer Open Service Mesh avec Azure Arc
           href: tutorial-arc-enabled-open-service-mesh.md
         - name: Se connecter de façon sécurisée à un cluster depuis n’importe où
           href: cluster-connect.md
@@ -70,9 +70,9 @@
           href: custom-locations.md
         - name: Déployer des charges de travail IoT
           href: deploy-azure-iot-edge-workloads.md
-        - name: Machine Learning avec Arc
+        - name: Machine Learning avec Azure Arc
           href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
-    - name: Résolution des problèmes
+    - name: Dépannage
       href: Troubleshooting.md
 - name: Informations de référence
   items:

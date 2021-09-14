@@ -11,7 +11,7 @@ metadata:
   author: KumudD
   ms.author: kumud
   manager: mtillman
-  ms.date: 07/06/2021
+  ms.date: 09/08/2021
 highlightedContent:
   items:
     - title: "Qu’est-ce qu’Azure Networking\_?"
@@ -78,7 +78,7 @@ additionalContent:
               url: ../dns/index.yml
         - title: Router entre la NVA et le réseau virtuel
           links:
-            - text: Présentation du serveur de routes Azure (préversion)
+            - text: "Qu’est-ce que le Serveur de routes Azure\_?"
               url: ../route-server/overview.md
             - text: Créer et configurer un serveur de routes
               url: ../route-server/quickstart-configure-route-server-portal.md

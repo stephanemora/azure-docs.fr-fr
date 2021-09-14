@@ -46,8 +46,6 @@
   items:
     - name: API REST pour la gestion des ressources Azure Mixed Reality
       href: /rest/api/mixedreality/
-    - name: Détecter un objet difficile
-      href: detect-difficult-object.md
     - name: Questions fréquentes (FAQ)
       href: faq.md
     - name: Codes d’erreur de conversion de modèle
@@ -58,3 +56,9 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-object-anchors'
     - name: Visualiser un modèle converti
       href: visualize-converted-model.md
+- name: Dépannage
+  items:
+    - name: Détecter un objet difficile
+      href: detect-difficult-object.md
+    - name: Résolution des problèmes de détection d’objets
+      href: troubleshoot/object-detection.md

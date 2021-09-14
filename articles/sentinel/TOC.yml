@@ -167,7 +167,7 @@
         - name: Visualiser les données collectées
           href: get-visibility.md
         - name: Utiliser des classeurs Azure Monitor
-          href: /azure/sentinel/monitor-your-data
+          href: ./monitor-your-data.md
     - name: Détecter les menaces et analyser les données
       items:
         - name: Utiliser des règles intégrées
@@ -283,11 +283,13 @@
             - name: Schéma de normalisation des événements de fichier
               href: file-event-normalization-schema.md
             - name: Schéma de normalisation du réseau
-              href: normalization-schema.md
+              href: network-normalization-schema.md
             - name: Traiter le schéma de normalisation des événements
               href: process-events-normalization-schema.md
             - name: Schéma de normalisation des événements de Registre
               href: registry-event-normalization-schema.md
+            - name: Schéma de normalisation de réseau hérité
+              href: normalization-schema-v1.md
     - name: Informations de référence sur la détection et l’analyse
       items:
         - name: Principaux workbools Azure Sentinel

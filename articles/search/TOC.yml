@@ -126,6 +126,8 @@
   items:
     - name: Recherche en texte intégral
       href: search-lucene-query-architecture.md
+    - name: Analyseurs
+      href: search-analyzers.md
     - name: Recherche sémantique
       href: semantic-search-overview.md
     - name: Scoring de pertinence
@@ -182,8 +184,6 @@
           href: search-manage-azure-cli.md
         - name: Déplacer un service d’une région à l’autre
           href: search-howto-move-across-regions.md
-        - name: Résoudre les problèmes liés à la création de ressources Private Link partagées
-          href: troubleshoot-shared-private-link-resources.md
     - name: Sécurité
       items:
         - name: Chiffrement des données
@@ -202,6 +202,8 @@
               href: service-configure-firewall.md
             - name: Créer un Private Endpoint
               href: service-create-private-endpoint.md
+            - name: Résoudre les problèmes des connexions privées
+              href: troubleshoot-shared-private-link-resources.md
         - name: Sécurité sortante (indexeurs)
           items:
             - name: "Accès aux données sur une plage d’adresses\_IP"
@@ -266,8 +268,6 @@
           href: index-sql-relational-data.md
     - name: Analyseurs
       items:
-        - name: Ajout d’analyseurs
-          href: search-analyzers.md
         - name: Ajouter un analyseur de langage
           href: index-add-language-analyzers.md
         - name: Ajouter un analyseur personnalisé

@@ -5,15 +5,15 @@ metadata:
   description: Azure Database pour MySQL - Serveur flexible est un service de base de données relationnelle du cloud Microsoft qui est conçu pour les développeurs et alimenté par MySQL Community Edition.
   author: mksuni
   ms.author: sumuth
-  ms.date: 09/21/2020
+  ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 0d209c2b875b8ff1b22a4fe65098fc3fd076bde3
-  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+  ms.openlocfilehash: 992574a32c657584ef28ad031059d0528a2383bc
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/24/2021
-  ms.locfileid: "122777533"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124784686"
 landingContent:
 - title: À propos de Serveur flexible (préversion)
   linkLists:
@@ -111,6 +111,8 @@ landingContent:
     links:
     - text: Migrer en ligne
       url: ../howto-migrate-online.md
+    - text: Migrer RDS pour MySQL en utilisant la réplication des données entrantes
+      url: ../how-to-migrate-rds-mysql-data-in-replication.md
 - title: Référence
   linkLists:
   - linkListType: reference

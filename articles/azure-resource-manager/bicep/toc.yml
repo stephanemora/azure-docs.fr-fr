@@ -22,8 +22,10 @@
     - name: Microsoft Learn - Bicep
       href: learn-bicep.md
 - name: Procédures
+  expanded: true
   items:
     - name: Auteur
+      expanded: true
       items:
         - name: Ressources
           items:
@@ -146,6 +148,8 @@
           href: bicep-functions-date.md
         - name: Fonctions de déploiement
           href: bicep-functions-deployment.md
+        - name: Fonctions de fichier
+          href: bicep-functions-files.md
         - name: Fonctions logiques
           href: bicep-functions-logical.md
         - name: Fonctions Numériques

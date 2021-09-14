@@ -8,9 +8,9 @@
   items:
     - name: Requêtes Azure Resource Graph
       href: ./resource-graph-samples.md
-- name: "Serveurs avec Arc\_>"
+- name: Serveurs avec Azure Arc >
   href: ./servers/overview.md
-- name: "Kubernetes avec Arc\_>"
+- name: Kubernetes avec Azure Arc >
   href: ./kubernetes/overview.md
 - name: Services de données avec Azure Arc >
   href: ./data/overview.md
