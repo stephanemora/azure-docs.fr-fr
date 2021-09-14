@@ -7,12 +7,12 @@ ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ac057d169e3bab1b154eeb7fc9148310873ed549
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 781157c8cf9e3cc749f74aeb7d9d2f582823885a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731131"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426757"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connecter vos comptes AWS à Azure Security Center
 
@@ -84,11 +84,11 @@ Il y a deux façons de permettre à Security Center de s’authentifier auprès 
     - **ID externe** : entrez l’ID d’abonnement comme indiqué sur la page du connecteur AWS dans Security Center 
 
 1. Sélectionnez **Suivant**.
-1. Dans la section **Attacher des stratégies d’autorisation**, sélectionnez les stratégies suivantes :
+1. Dans la section **Attacher des stratégies d’autorisation**, sélectionnez les [stratégies managées AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html) suivantes :
 
-    - SecurityAudit
-    - AmazonSSMAutomationRole
-    - AWSSecurityHubReadOnlyAccess
+    - SecurityAudit (`arn:aws:iam::aws:policy/SecurityAudit`)
+    - AmazonSSMAutomationRole (`arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole`)
+    - AWSSecurityHubReadOnlyAccess (`arn:aws:iam::aws:policy/AWSSecurityHubReadOnlyAccess`)
 
 1. Ajoutez des étiquettes si vous le souhaitez. L’ajout d’étiquettes à l’utilisateur n’affecte pas la connexion.
 1. Sélectionnez **Suivant**.

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93b5d7059c1d19b3e5130a8e6d360655fa210aba
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: a25f2a83fe03b8510e6ec56eb6bdcfedbb0098d8
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555949"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538072"
 ---
 # <a name="tutorial-use-net-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Didacticiel : utiliser .NET et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
@@ -309,7 +309,7 @@ Pour plus d’informations sur les principes de base des ensembles de compétenc
 
 ### <a name="ocr-skill"></a>Compétence de reconnaissance optique des caractères
 
-La compétence **OCR** extrait le texte des images. Cette compétence suppose l’existence d’un champ normalized_images. Pour générer ce champ, plus loin dans ce didacticiel, nous définirons la configuration ```"imageAction"``` dans la définition de l’indexeur sur ```"generateNormalizedImages"```.
+[`OcrSkill`](/dotnet/api/azure.search.documents.indexes.models.ocrskill) extrait le texte des images. Cette compétence suppose l’existence d’un champ normalized_images. Pour générer ce champ, plus loin dans ce didacticiel, nous définirons la configuration ```"imageAction"``` dans la définition de l’indexeur sur ```"generateNormalizedImages"```.
 
 ```csharp
 private static OcrSkill CreateOcrSkill()
@@ -340,7 +340,7 @@ private static OcrSkill CreateOcrSkill()
 
 ### <a name="merge-skill"></a>Compétence de fusion de texte
 
-Dans cette section, vous allez créer une compétence **Fusion** qui fusionne le champ de contenu de document avec le texte généré par la compétence de reconnaissance optique des caractères.
+Dans cette section, vous allez créer un [`MergeSkill`](/dotnet/api/azure.search.documents.indexes.models.mergeskill) qui fusionne le champ de contenu de document avec le texte généré par la compétence de reconnaissance optique des caractères.
 
 ```csharp
 private static MergeSkill CreateMergeSkill()
@@ -379,7 +379,7 @@ private static MergeSkill CreateMergeSkill()
 
 ### <a name="language-detection-skill"></a>Compétence Détection de langue
 
-La compétence **Détection de langue** détecte la langue du texte d’entrée et renvoie un code de langue unique pour chaque document soumis dans la requête. Nous allons utiliser la sortie de la compétence **Détection de langue** en tant qu'entrée pour la compétence **Fractionnement de texte**.
+[`LanguageDetectionSkill`](/dotnet/api/azure.search.documents.indexes.models.languagedetectionskill) détecte la langue du texte d’entrée et retourne un code de langue unique pour chaque document soumis dans la requête. Nous allons utiliser la sortie de la compétence **Détection de langue** en tant qu'entrée pour la compétence **Fractionnement de texte**.
 
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
@@ -408,7 +408,7 @@ private static LanguageDetectionSkill CreateLanguageDetectionSkill()
 
 ### <a name="text-split-skill"></a>Compétence Fractionnement de texte
 
-La compétence **Fractionnement** ci-dessous fractionnera le texte par pages et limitera la longueur de la page à 4 000 caractères comme indiqué par `String.Length`. L’algorithme essaiera de fractionner le texte en blocs dont la taille n'excède pas `maximumPageLength`. Dans ce cas, l’algorithme fera de son mieux pour arrêter la phrase sur une limite de phrase, de sorte que la taille du bloc peut être légèrement inférieure à `maximumPageLength`.
+Le [`SplitSkill`](/dotnet/api/azure.search.documents.indexes.models.splitskill) ci-dessous fractionne le texte par pages et limite la longueur de la page à 4 000 caractères comme indiqué par `String.Length`. L’algorithme essaiera de fractionner le texte en blocs dont la taille n'excède pas `maximumPageLength`. Dans ce cas, l’algorithme fera de son mieux pour arrêter la phrase sur une limite de phrase, de sorte que la taille du bloc peut être légèrement inférieure à `maximumPageLength`.
 
 ```csharp
 private static SplitSkill CreateSplitSkill()
@@ -444,7 +444,7 @@ private static SplitSkill CreateSplitSkill()
 
 ### <a name="entity-recognition-skill"></a>Compétence de reconnaissance d’entités
 
-Cette instance `EntityRecognitionSkill` est configurée pour reconnaître le type de catégorie `organization`. La compétence **Reconnaissance d’entités** peut également reconnaître les types de catégories `person` et `location`.
+Cette instance `EntityRecognitionSkill` est configurée pour reconnaître le type de catégorie `organization`. [`EntityRecognitionSkill`](/dotnet/api/azure.search.documents.indexes.models.entityrecognitionskill) peut également reconnaître les types de catégories `person` et `location`.
 
 Notez que le champ « contexte » contient la valeur ```"/document/pages/*"``` avec un astérisque, ce qui signifie que l’étape d’enrichissement est appelée pour chaque page sous ```"/document/pages"```.
 
@@ -477,7 +477,7 @@ private static EntityRecognitionSkill CreateEntityRecognitionSkill()
 
 ### <a name="key-phrase-extraction-skill"></a>Compétence Extraction de phrases clés
 
-Comme l'instance `EntityRecognitionSkill` précédemment créée, la compétence **Extraction de phrases clés** est appelée pour chaque page du document.
+Comme l’instance `EntityRecognitionSkill` qui vient d’être créée, le [`KeyPhraseExtractionSkill`](/dotnet/api/azure.search.documents.indexes.models.keyphraseextractionskill) est appelé pour chaque page du document.
 
 ```csharp
 private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
@@ -511,7 +511,7 @@ private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
 
 ### <a name="build-and-create-the-skillset"></a>Générer et créer l'ensemble de compétences
 
-Générez l'`Skillset` en utilisant les compétences que vous avez créées.
+Générez le [`SearchIndexerSkillset`](/dotnet/api/azure.search.documents.indexes.models.searchindexerskillset) en utilisant les compétences que vous avez créées.
 
 ```csharp
 private static SearchIndexerSkillset CreateOrUpdateDemoSkillSet(SearchIndexerClient indexerClient, IList<SearchIndexerSkill> skills,string cognitiveServicesKey)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 88fd6260df0039e960ac87b4b83d43ea497a58b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f142cf84e0e7e75d2ed61fbad9896d89e2364a0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104658507"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436533"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Démarrage rapide : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
@@ -103,9 +103,8 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > 1. Créez un certificat auto-signé de test pour le package et sélectionnez-le :
 >     1. Dans l’**Explorateur de solutions**, double-cliquez sur le fichier *Package.appxmanifest*.
 >     1. Sélectionnez **Empaquetage** > **Choisir un certificat...**  > **Créer...** .
->     1. Entrez un mot de passe, puis sélectionnez **OK**.
->     1. Choisissez **Sélectionner dans un fichier...** , sélectionnez le fichier *Native_UWP_V2_TemporaryKey.pfx* que vous venez de créer, puis cliquez sur **OK**.
->     1. Fermez le fichier *Package.appxmanifest* (sélectionnez **OK** si vous êtes invité à enregistrer le fichier).
+>     1. Entrez un mot de passe, puis sélectionnez **OK**. Un certificat nommé *Native_UWP_V2_TemporaryKey.pfx* est créé. 
+>     1. Sélectionnez **OK** pour fermer la boîte de dialogue **Choisir un certificat**, puis vérifiez que *Native_UWP_V2_TemporaryKey.pfx* s’affiche dans l’Explorateur de solutions.
 >     1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **Native_UWP_V2**, puis sélectionnez **Propriétés**.
 >     1. Choisissez **Signature**, puis sélectionnez le fichier .pfx que vous avez créé dans la liste déroulante **Choisir un fichier de clé de nom fort**.
 

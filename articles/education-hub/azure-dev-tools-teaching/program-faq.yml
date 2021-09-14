@@ -7,13 +7,13 @@ metadata:
   ms.service: azure-education
   ms.subservice: education-hub
   ms.topic: overview
-  ms.date: 06/30/2020
-  ms.openlocfilehash: 9953271e12adb0ccd59deabbb7fbf7a7fc846b94
-  ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+  ms.date: 08/31/2021
+  ms.openlocfilehash: 28972b6c29e14ca453d713e25867b8079e05c3ca
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/31/2021
-  ms.locfileid: "123271878"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123431023"
 title: Questions fréquentes à propos du Hub Education
 summary: Cet article donne des réponses aux questions fréquemment posées sur Azure for Students, Azure for Students Starter et Azure Dev Tools for Teaching.
 sections:
@@ -22,18 +22,21 @@ sections:
   - question: >
       Que se passe-t-il une fois que j’ai utilisé mon crédit de 100 USD ou que j’ai atteint la fin des 12 mois ?
     answer: >
-      Une fois que vous avez épuisé votre crédit disponible ou atteint la fin des 12 mois, votre abonnement Azure est désactivé. Pour continuer à utiliser Azure, vous pouvez effectuer une mise à niveau vers un abonnement avec paiement à l’utilisation dans le portail Azure. Pour obtenir les conditions d’utilisation détaillées pour Azure for Students, consultez les [conditions de l’offre](https://azure.microsoft.com/offers/ms-azr-0170p/).
+      Si votre crédit disponible est épuisé avant la fin de la période de 12 mois et que vous souhaitez continuer à utiliser Azure, vous pouvez effectuer une mise à niveau vers un abonnement avec paiement à l’utilisation dans le portail Azure.  Si vous ne procédez pas à la mise à niveau, votre abonnement Azure est désactivé. Si vous êtes à la fin de la période de 12 mois, vous pouvez renouveler votre abonnement en vous inscrivant à nouveau pour l’offre. Pour obtenir les conditions d’utilisation détaillées pour Azure for Students, consultez les [conditions de l’offre](https://azure.microsoft.com/offers/ms-azr-0170p/).
   - question: >
       Qui peut bénéficier d’Azure for Students ?
-    answer: "Azure for Students Starter est disponible uniquement pour les étudiants qui répondent aux conditions suivantes :\n\n- Vous devez confirmer que vous êtes âgé de 18 ans ou plus et que vous êtes étudiant à plein temps dans un établissement d’enseignement agréé qui décerne des diplômes en deux ou en quatre ans. \n- Vous devez confirmer votre statut universitaire via l’adresse e-mail de votre organisation.\n- Consultez l’[Offre Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) pour connaître les conditions d’utilisation détaillées.\n\nCette offre n’est pas disponible pour une utilisation dans un cours en ligne ouvert à tous (MOOC) ou d’autres formations professionnelles d’organisations à but lucratif.\n\nCette offre est limitée à un seul abonnement Azure for Students par client éligible. Elle est non transférable et ne peut pas être combinée avec d’autres offres, sauf autorisation contraire de Microsoft.\n    \n"
+    answer: "Azure for Students est disponible uniquement pour les étudiants qui répondent aux conditions suivantes :\n\n- Vous devez confirmer que vous êtes âgé de 18 ans ou plus et que vous êtes étudiant à plein temps dans un établissement d’enseignement agréé qui décerne des diplômes en deux ou en quatre ans. \n- Vous devez confirmer votre statut universitaire via l’adresse e-mail de votre organisation.\n- Consultez l’[Offre Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) pour connaître les conditions d’utilisation détaillées.\n\nCette offre n’est pas disponible pour une utilisation dans un cours en ligne ouvert à tous (MOOC) ou d’autres formations professionnelles d’organisations à but lucratif.\n\nCette offre est limitée à un seul abonnement Azure for Students par client éligible. Elle est non transférable et ne peut pas être combinée avec d’autres offres, sauf autorisation contraire de Microsoft.\n    \n"
   - question: >
       Puis-je participer à nouveau à Azure for Students l’année prochaine ?
     answer: >
-      Merci pour votre intérêt envers Azure for Students ! Nous sommes ravis que vous en ayez profité. À ce stade, nous n’annonçons pas de renouvellement. Revenez ici ultérieurement pour consulter les mises à jour.
+      Oui !  Vous pouvez renouveler votre abonnement Azure for Students après 1 an.  Nous vous enverrons des e-mails pour vous rappeler de renouveler votre abonnement juste avant la date anniversaire.  Pour renouveler, réinscrivez-vous simplement à l’offre sur le [site web](https://aka.ms/azure4students) d’Azure for Students.
+  - question: >
+      Pourquoi ai-je reçu une facture de Microsoft ?
+    answer: "Vous pouvez recevoir une facture de Microsoft détaillant votre utilisation du service Azure for Students au cours du mois précédent.  Ne vous inquiétez pas, vous n’êtes pas obligé de la payer puisque le crédit inclus dans Azure for Students couvre cette utilisation.  Pour en savoir plus sur les factures et leur fonctionnement, consultez [cet article](https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/mca-overview) sur docs.microsoft.com. \n"
   - question: >
       Que sont les abonnements et en quoi sont-ils liés à Azure for Students ?
     answer: >
-      Les abonnements permettent d’accéder aux services Azure. Azure for Students vous donne un crédit de 100 USD pendant 12 mois. Cela inclut l’accès à plus de 25 services gratuits, y compris le calcul, le réseau, le stockage et les bases de données. Les frais encourus pendant cette période sont déduits du crédit. Pour continuer à utiliser Azure à la fin des 12 mois ou une fois que vous avez épuisé votre crédit de 100 USD, selon la première éventualité, vous devez effectuer une mise à niveau vers un abonnement avec paiement à l’utilisation.
+      Les abonnements permettent d’accéder aux services Azure. Azure for Students vous offre un crédit de 100 USD pour 12 mois et comprend l’accès à plus de 25 services gratuits, notamment le calcul, le réseau, le stockage et les bases de données. Les frais encourus pendant cette période sont déduits du crédit. Pour continuer à utiliser les services Azure une fois que votre crédit de 100 USD est épuisé, vous devez renouveler votre abonnement (à la fin de la période de 12 mois) ou passer à un abonnement avec paiement à l’utilisation.
   - question: >
       Que se passe-t-il avec mes services Azure si je n’effectue pas de mise à niveau ?
     answer: >
@@ -45,7 +48,7 @@ sections:
   - question: >
       Comment télécharger les outils de développement logiciel ?
     answer: >
-      Votre abonnement Azure for Students vous permet d’accéder à certains outils de développement logiciel. Vous devez posséder un abonnement Azure for Students actif pour accéder aux outils de développement logiciel et les télécharger. Accédez au [hub Education](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) pour télécharger les outils de développement logiciel à l’aide de votre abonnement Azure for Students.
+      Votre abonnement Azure for Students vous permet d’accéder à certains outils de développement logiciel. Vous devez disposer d’un abonnement Azure for Students actif pour accéder aux outils de développement logiciel et les télécharger. Accédez au [hub Education](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) pour télécharger les outils de développement logiciel à l’aide de votre abonnement Azure for Students.
   - question: >
       Qu’est-ce que Microsoft Learn ?
     answer: >

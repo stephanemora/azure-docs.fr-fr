@@ -3,19 +3,17 @@ title: 'Tutoriel : Configurer un environnement Gen2 - Azure Time Series Insight
 description: 'Tutoriel : Découvrez comment configurer un environnement dans Azure Time Series Insights Gen2.'
 author: riserrad
 ms.author: riserrad
-manager: edett
 ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: f3994802e82b126f426a75a26d399f6f86e21797
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7a6562592bb7c0ae37784429d6a36eaf4ade4957
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951997"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449312"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutoriel : Configurer un environnement Azure Time Series Insights Gen2
 
@@ -228,7 +226,7 @@ Dans cette section, vous appliquez un modèle pour structurer vos données. Pour
         | **Nom** | Entrez **Étage**. |
         | **Type** | Sélectionner **Par catégorie** |
         | **Valeur** | Sélectionner à partir d'une présélection : Sélectionnez **Étage (double)** . <br /> Remarque : Le remplissage automatique du champ **Valeur** peut prendre plusieurs minutes après qu’Azure Time Series Insights Gen2 a commencé à recevoir des événements.|
-        | **Catégories** | <span style="text-decoration: underline">Valeurs d'</span>  - <span style="text-decoration: underline">étiquette</span> <br /> Inférieur : 1,2,3,4 <br /> Intermédiaire : 5,6,7,8,9 <br /> Supérieur : 10,11,12,13,14,15 |
+        | **Catégories** | **Étiquette** : **Valeurs** <br /> Inférieur : 1,2,3,4 <br /> Intermédiaire : 5,6,7,8,9 <br /> Supérieur : 10,11,12,13,14,15 |
         | **Catégorie par défaut** | Entrer **Inconnu** |
 
         [![Ajouter les variables de type](media/tutorial-set-up-environment/add-type-variables.png)](media/tutorial-set-up-environment/add-type-variables.png#lightbox)

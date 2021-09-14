@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 0878911bdd3caa2202ef993142aa89e4eabfe33c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f925eb888c1955212a762eb46c63300afd17d77d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464839"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427726"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir des serveurs physiques avec l’outil de découverte et d’évaluation d’Azure Migrate
 
@@ -40,9 +40,12 @@ Avant de commencer ce tutoriel, vérifiez les prérequis.
 
 **Prérequis** | **Détails**
 --- | ---
-**Appliance** | Vous avez besoin d’un serveur sur lequel exécuter l’appliance Azure Migrate. Le serveur doit avoir :<br/><br/> - Windows Server 2016, installé<br/> _(Actuellement, le déploiement de l’appliance est pris en charge uniquement sur Windows Server 2016.)_<br/><br/> -16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque<br/><br/> - Une adresse IP statique ou dynamique, avec un accès à Internet, directement ou via un proxy.
+**Appliance** | Vous avez besoin d’un serveur sur lequel exécuter l’appliance Azure Migrate. Le serveur doit avoir :<br/><br/> - Windows Server 2016, installé<br/> _(Actuellement, le déploiement de l’appliance est pris en charge uniquement sur Windows Server 2016.)_<br/><br/> -16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque<br/><br/> - Une adresse IP statique ou dynamique, avec un accès à Internet, directement ou via un proxy.<br/><br/> - Connectivité Internet sortante aux [URL](migrate-appliance.md#url-access) requises à partir de l’appliance.
 **Serveurs Windows** | Autorisez les connexions entrantes sur le port WinRM 5985 (HTTP) pour que l’appliance puisse tirer (pull) les métadonnées de configuration et de performances.
 **Serveurs Linux** | Autorisez les connexions entrantes via le port 22 (TCP).
+
+> [!NOTE]
+> L’installation de l’appliance Azure Migrate sur un serveur sur lequel l’[appliance de réplication](migrate-replication-appliance.md) ou l’agent du service Mobilité est installé(e) n’est pas prise en charge.  Vérifiez que le serveur de l’appliance n’a pas été précédemment utilisé pour configurer l’appliance de réplication, et que l’agent du service Mobilité n’est pas installé sur le serveur.
 
 ## <a name="prepare-an-azure-user-account"></a>Préparer un compte de stockage Azure
 

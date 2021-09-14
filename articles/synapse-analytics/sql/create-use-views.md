@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 01a48da50391c6d3e826b81c4174936c95f64462
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 94fee0aa5582f76e6d97568a5535d3626d94515b
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597214"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535218"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Créer et utiliser des vues avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -122,7 +122,52 @@ Le nom de dossier dans la fonction `OPENROWSET` (`yellow` dans cet exemple), qui
 > [!div class="mx-imgBorder"]
 >![Dossier Yellow Taxi Delta Lake](./media/shared/yellow-taxi-delta-lake.png)
 
-Delta Lake est en préversion publique, et il existe quelques problèmes connus et des limitations. Consultez les problèmes connus dans la [page d’aide relative aux pools SQL serverless Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+Delta Lake est en préversion publique, et il existe quelques problèmes connus et des limitations. Consultez les problèmes connus sur la [page d’aide relative aux pools SQL serverless Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+
+## <a name="json-views"></a>Vues JSON
+
+Les vues constituent un bon choix si vous devez réaliser un traitement supplémentaire du jeu de résultats récupéré à partir des fichiers. Par exemple, il peut s’agir d’analyser des fichiers JSON auxquels nous devons appliquer les fonctions JSON afin d’extraire les valeurs des documents JSON :
+
+```sql
+CREATE OR ALTER VIEW CovidCases
+AS 
+select
+    *
+from openrowset(
+        bulk 'latest/ecdc_cases.jsonl',
+        data_source = 'covid',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b'
+    ) with (doc nvarchar(max)) as rows
+    cross apply openjson (doc)
+        with (  date_rep datetime2,
+                cases int,
+                fatal int '$.deaths',
+                country varchar(100) '$.countries_and_territories')
+```
+
+La fonction `OPENJSON` analyse chaque ligne du fichier JSON qui contient un document JSON par ligne au format textuel.
+
+## <a name="cosmosdb-view"></a>Vue CosmosDB
+
+Les vues peuvent être créées dans les conteneurs Azure CosmosDB si le stockage analytique CosmosDB est activé pour les conteneurs. Le nom du compte CosmosDB, le nom de la base de données et le nom du conteneur doivent être ajoutés à la vue, et la clé d’accès en lecture seule doit être placée dans les informations d’identification de la base de données qui sont référencées par la vue.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+GO
+CREATE OR ALTER VIEW Ecdc
+AS SELECT *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
+      CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+Pour plus d’informations sur l’[interrogation des conteneurs CosmosDB, consultez Synapse Link ici](query-cosmos-db-analytical-store.md).
 
 ## <a name="use-a-view"></a>Utiliser une vue
 

@@ -1,16 +1,16 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 2a300a2bdffec7c376206f62d1b6fc8791aad01b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 02b4341d9eddb039eb44ba964ca2e4a25c4835a7
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122423369"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539357"
 ---
 Dans ce guide de démarrage rapide, vous découvrez les modèles de conception courants qui permettent d’utiliser la synthèse vocale au moyen du kit SDK Speech. Vous commencez par créer une configuration et une synthèse de base, puis passez à des exemples plus poussés en matière de développement d’applications personnalisées, notamment :
 
@@ -129,7 +129,7 @@ function synthesizeSpeech() {
 
 Exécutez le programme ; un fichier `.wav` synthétisé est alors écrit à l’emplacement que vous avez spécifié. Il s’agit d’un bon exemple de l’utilisation la plus simple, mais vous allez maintenant vous pencher sur la personnalisation de la sortie et sur la gestion de la réponse de sortie sous forme de flux en mémoire pour travailler sur des scénarios personnalisés.
 
-## <a name="synthesize-to-speaker-output"></a>Synthétiser vers la sortie du haut-parleur
+## <a name="synthesize-to-speaker-output-browser-only"></a>Synthétiser vers la sortie du haut-parleur (navigateur uniquement)
 
 Dans certains cas, vous pouvez souhaiter sortir directement la synthèse vocale vers un haut-parleur. Pour cela, instanciez `AudioConfig` à l’aide de la fonction statique `fromDefaultSpeakerOutput()`. La sortie est alors dirigée vers l’appareil de sortie actuellement actif.
 

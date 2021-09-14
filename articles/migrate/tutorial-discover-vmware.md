@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 973d6f9450d0cb58df5b1e8dcd208990806abc54
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 520b75e38d7ccf33c3f900c0b30bfd68e6184720
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967326"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542401"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>Tutoriel : Découvrir les serveurs fonctionnant dans un environnement VMware avec Azure Migrate
 
@@ -103,12 +103,15 @@ Dans le client web VMware vSphere, configurez un compte en lecture seule à util
 > [!NOTE]
 > Vous pouvez définir l’étendue du compte vCenter Server pour limiter la découverte à des centres de données vCenter Server, des clusters, des hôtes, des dossiers de clusters ou d’hôtes ou des serveurs individuels spécifiques. Découvrez comment [définir l’étendue du compte d’utilisateur vCenter Server](set-discovery-scope.md).
 
+> [!NOTE]
+> Les ressources vCenter connectées via Linked-Mode au serveur vCenter spécifié pour la découverte ne seront pas découvertes par Azure Migrate. Une appliance Azure Migrate doit être déployée pour chaque environnement vCenter que vous souhaitez découvrir.
+
 ### <a name="create-an-account-to-access-servers"></a>Créer un compte pour accéder aux serveurs
 
 Votre compte d’utilisateur sur vos serveurs doit disposer des autorisations nécessaires pour lancer la découverte des applications installées, l’analyse des dépendances sans agent et la découverte des applications web, et les bases de données et instances SQL Server. Vous pouvez fournir les informations du compte d’utilisateur dans le gestionnaire de configuration de l’appliance. L’appliance n’installe pas d’agents sur les serveurs.
 
 * Pour la découverte des serveurs Windows et des applications web, créez un compte (local ou de domaine) doté d’autorisations d’administrateur sur les serveurs. Pour découvrir les bases de données et instances SQL, le compte Windows ou SQL Server doit être membre du rôle serveur sysadmin. Découvrez comment [attribuer le rôle requis au compte d’utilisateur](/sql/relational-databases/security/authentication-access/server-level-roles).
-* Pour les serveurs Linux, créez un compte doté de privilèges racine. Vous pouvez aussi créer un compte qui dispose des autorisations CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE sur les fichiers /bin/netstat et /bin/ls.
+* Pour les serveurs Linux, fournissez les détails du compte d’utilisateur racine ou créez un compte disposant des autorisations CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE sur les fichiers /bin/netstat et /bin/ls.
 
 > [!NOTE]
 > Vous pouvez ajouter diverses informations d’identification de serveur dans le gestionnaire de configuration de l’appliance Azure Migrate pour lancer une découverte des applications installées, une analyse des dépendances sans agent et une découverte des applications web et des bases de données et instances SQL Server. Vous pouvez ajouter diverses informations d’authentification de domaine, Windows (hors domaine), Linux (hors domaine) ou SQL Server. Découvrez comment [ajouter des informations d’identification de serveur](add-server-credentials.md).
@@ -138,9 +141,9 @@ L’outil Azure Migrate : découverte et évaluation utilise une appliance Azur
 
 > [!NOTE]
 > Si vous ne pouvez pas configurer l’appliance en utilisant le modèle OVA, vous pouvez la configurer en exécutant un script PowerShell sur un serveur existant exécutant Windows Server 2016. Découvrez comment [utiliser PowerShell pour configurer une appliance Azure Migrate](deploy-appliance-script.md#set-up-the-appliance-for-vmware). <br/>
-> L’option de déploiement d’une appliance à l’aide d’un modèle OVA n’est pas prise en charge dans le cloud Azure Government. [En savoir plus](/azure/migrate/deploy-appliance-script-government) sur le déploiement d’une appliance pour Azure Government Cloud.
+> L’option de déploiement d’une appliance à l’aide d’un modèle OVA n’est pas prise en charge dans le cloud Azure Government. [En savoir plus](/azure/migrate/deploy-appliance-script-government) sur le déploiement d’une appliance pour le cloud Azure Government.
 
-### <a name="deploy-by-using-an-ova-template"></a>Déployer en utilisant un modèle OVA
+### <a name="deploy-by-using-an-ova-template"></a>Déployer à l’aide d’un modèle OVA
 
 Pour configurer l’appliance en utilisant un modèle OVA, vous devez effectuer les étapes décrites plus en détail dans cette section :
 
@@ -270,7 +273,7 @@ L’appliance doit se connecter à vCenter Server pour découvrir les données d
 
 ### <a name="provide-server-credentials"></a>Fournir les informations d’identification du serveur
 
-Dans **Étape 3 : Fournir des informations d’identification de serveur pour effectuer l’inventaire logiciel, l’analyse des dépendances sans agent, la découverte des instances et bases de données SQL Server, et la découverte d’applications web ASP.NET dans votre environnement VMware**, vous pouvez fournir plusieurs informations d’identification de serveur. Si vous ne souhaitez pas utiliser ces fonctionnalités d’appliance, vous pouvez ignorer cette étape et procéder à la découverte de vCenter Server. Vous pouvez changer cette option à tout moment.
+Dans **Étape 3 : Fournir des informations d’identification de serveur pour faire l’inventaire logiciel, l’analyse des dépendances sans agent, la découverte des instances et bases de données SQL Server, et la découverte d’applications web ASP.NET dans votre environnement VMware.** , vous pouvez fournir plusieurs informations d’identification de serveur. Si vous ne souhaitez pas utiliser ces fonctionnalités d’appliance, vous pouvez ignorer cette étape et procéder à la découverte de vCenter Server. Vous pouvez changer cette option à tout moment.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Capture d’écran montrant comment fournir des informations d’identification pour l’inventaire logiciel, l’analyse des dépendances et la découverte de serveurs SQL.":::
 

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 45c7bb19e3f48fedf93fbb147a3014e09914a475
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c0efb162b624cd6bc1ca2266c51506b49bb07f2b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831273"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480279"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Tutoriel : Créer un runbook de workflow PowerShell
 
@@ -227,9 +227,7 @@ Votre runbook démarre actuellement la machine virtuelle que vous avez codée en
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur PowerShell, notamment le langage de référence et les modules d’apprentissage, consultez la [Documentation PowerShell](/powershell/scripting/overview).
-* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](/powershell/module/az.automation).
-* Pour démarrer avec les runbooks graphiques, consultez [Créer un runbook graphique](automation-tutorial-runbook-graphical.md).
-* Pour démarrer avec les runbooks PowerShell, consultez [Créer un runbook PowerShell](automation-tutorial-runbook-textual-powershell.md).
-* Pour plus d’informations sur les types de runbooks, sur leurs avantages et sur leurs limites, voir [Types de runbooks Azure Automation](../automation-runbook-types.md).
-* Pour plus d’informations sur les fonctionnalités de prise en charge de script PowerShell, voir [Prise en charge de script PowerShell natif dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+Dans ce tutoriel, vous avez créé un runbook de workflow PowerShell. Pour obtenir un aperçu des runbooks Python 3, consultez :
+
+> [!div class="nextstepaction"]
+> [Tutoriel : Créer un runbook Python 3 (préversion)](automation-tutorial-runbook-textual-python-3.md)

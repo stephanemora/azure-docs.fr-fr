@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4f56571fb96f6d9baf28a119a978f2658de5616c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 834feed476c307bc1a16bf95719b630389e58511
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860535"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430789"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utiliser des tables externes avec Synapse SQL
 
@@ -297,6 +297,7 @@ CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table
         LOCATION = 'folder_or_filepath',  
         DATA_SOURCE = external_data_source_name,  
         FILE_FORMAT = external_file_format_name
+        [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
     )  
 [;]  
 
@@ -320,6 +321,8 @@ CREATE EXTERNAL TABLE prend en charge la possibilité de configurer le nom de co
 
 Lors de la lecture à partir de fichiers Parquet, vous pouvez spécifier uniquement les colonnes que vous souhaitez lire et ignorer le reste.
 
+#### <a name="location"></a>LOCALISATION
+
 LOCATION = '*folder_or_filepath*'
 
 Spécifie le dossier, ou le chemin et le nom du fichier, où se trouvent les données dans Stockage Blob Azure. L’emplacement commence au dossier racine. Le dossier racine est l’emplacement de données qui est spécifié dans la source de données externe.
@@ -330,9 +333,15 @@ Contrairement aux tables externes Hadoop, les tables externes natives ne retourn
  
 Les tables externes Hadoop et natives ignorent les fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
 
+#### <a name="data_source"></a>DATA_SOURCE
+
 DATA_SOURCE = *external_data_source_name* - Spécifie le nom de la source de données externe qui contient l’emplacement des données externes. Pour créer une source de données externe, utilisez [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
 FILE_FORMAT = *external_file_format_name* - Spécifie le nom de l’objet de format de fichier externe qui stocke le type de fichier et la méthode de compression des données externes. Pour créer un format de fichier externe, utilisez [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+
+#### <a name="table_options"></a>TABLE_OPTIONS
+
+TABLE_OPTIONS = *options json* : spécifie l’ensemble d’options qui décrivent comment lire les fichiers sous-jacents. La seule option disponible est `"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]`. Celle-ci indique à la table externe d’ignorer les mises à jour appliquées aux fichiers sous-jacents, même si cela peut entraîner des opérations de lecture incohérentes. Utilisez cette option uniquement lorsque vous avez des fichiers auxquels sont fréquemment ajoutées des données. Cette option est disponible dans le pool SQL serverless pour le format CSV.
 
 ### <a name="permissions-create-external-table"></a>Autorisations pour CREATE EXTERNAL TABLE
 

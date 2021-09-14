@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Surveiller les métriques de l’application Apache Spark avec Prometheus et Grafana'
+title: 'Tutoriel : Superviser les métriques des applications Apache Spark avec Prometheus et Grafana'
 description: 'Tutoriel : Découvrez comment déployer la solution de métrique de l’application Apache Spark sur un cluster Azure Kubernetes Service (AKS) et intégrer les tableaux de bord Grafana.'
 services: synapse-analytics
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: b32ddb38395d95e1c262c05aef878a1beeddc38c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eb49c65d3d61e17a8e527016d32d80bcc85894d8
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734707"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541222"
 ---
-# <a name="tutorial-monitor-apache-spark-application-level-metrics-with-prometheus-and-grafana"></a>Tutoriel : Surveiller les métriques de l’application Apache Spark avec Prometheus et Grafana
+# <a name="monitor-apache-spark-applications-metrics-with-prometheus-and-grafana"></a>Superviser les métriques des applications Apache Spark avec Prometheus et Grafana
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -129,7 +129,7 @@ Obtenez l’IP de service, copiez et collez l’adresse IP externe dans le navi
 
 Recherchez le tableau de bord Synapse en haut à gauche de la page Grafana (Accueil -> Espace de travail Synapse/Application Synapse). Essayez d’exécuter un exemple de code dans Synapse Studio et patientez quelques secondes pour que les métriques soient extraites.
 
-Vous pouvez aussi utiliser les tableaux de bord « Espace de travail Synapse/Espace de travail » et « Espace de travail Synapse/Pools Spark » pour obtenir une vue d’ensemble de votre espace de travail et de vos pools Apache Spark.
+Vous pouvez aussi utiliser les tableaux de bord « Espace de travail Synapse/Espace de travail » et « Espace de travail Synapse/Pools Apache Spark » pour obtenir une vue d’ensemble de votre espace de travail et de vos pools Apache Spark.
 
 ## <a name="uninstall"></a>Désinstaller l’interface
 
@@ -157,7 +157,7 @@ Le connecteur Synapse Prometheus vous permet de connecter le pool Azure Synap
 2.  La découverte des applications Apache Spark : lorsque vous soumettez des applications dans l’espace de travail cible, le connecteur Synapse Prometheus découvre automatiquement ces applications.
 3.  Les métadonnées de l’application Apache Spark : collecte les informations de base de l’application et exporte les données vers Prometheus.
 
-Le connecteur Synapse Prometheus est publié en tant qu’image Docker hébergée sur [Microsoft Container Registry](https://github.com/microsoft/containerregistry). Il s’agit d’un connecteur open source qui se trouve dans les [métriques de l’application Azure Synapse Spark](https://github.com/microsoft/azure-synapse-spark-metrics).
+Le connecteur Synapse Prometheus est publié en tant qu’image Docker hébergée sur [Microsoft Container Registry](https://github.com/microsoft/containerregistry). Il s’agit d’un connecteur open source qui se trouve dans les [métriques de l’application Azure Synapse Apache Spark](https://github.com/microsoft/azure-synapse-spark-metrics).
 
 ### <a name="prometheus-server"></a>Serveur Prometheus
 
@@ -171,12 +171,12 @@ Grâce au tableau de bord « Espace de travail Synapse/Espace de travail », v
 
 [![capture d’écran de l’espace de travail du tableau de bord](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-workspace.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-workspace.png#lightbox)
 
-Le tableau de bord « Espace de travail Synapse/Pools Spark » contient les métriques des applications Apache Spark s’exécutant dans le pool Apache Spark sélectionné au cours de la période.
+Le tableau de bord « Espace de travail Synapse/Pools Apache Spark » contient les métriques des applications Apache Spark s’exécutant dans le pool Apache Spark sélectionné au cours de la période.
 
 [![capture d’écran du tableau de bord sparkpool](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-sparkpool.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-sparkpool.png#lightbox)
 
-Le tableau de bord « Espace de travail Synapse/Application Spark » contient l’application Apache Spark sélectionnée.
+Le tableau de bord « Espace de travail Synapse/Application Apache Spark » contient l’application Apache Spark sélectionnée.
 
 [![capture d’écran de l’application de tableau de bord](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-application.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-application.png#lightbox)
 
-Les modèles de tableau de bord ci-dessus sont désormais en open source dans les [métriques de l’application Azure Synapse Spark](https://github.com/microsoft/azure-synapse-spark-metrics/tree/main/helm/synapse-prometheus-operator/grafana_dashboards).
+Les modèles de tableau de bord ci-dessus sont désormais en open source dans les [métriques de l’application Azure Synapse Apache Spark](https://github.com/microsoft/azure-synapse-spark-metrics/tree/main/helm/synapse-prometheus-operator/grafana_dashboards).

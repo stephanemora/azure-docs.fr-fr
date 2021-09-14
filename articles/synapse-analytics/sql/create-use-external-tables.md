@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: cfce86e74a5e32f266dd0bbad84a179d8158a687
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 35a56131c55549cc5d33989579514fec3a0184c8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113303685"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428233"
 ---
 # <a name="create-and-use-native-external-tables-using-sql-pools-in-azure-synapse-analytics"></a>Créer et utiliser des tables externes natives à l’aide de pools SQL dans Azure Synapse Analytics
 
@@ -127,6 +127,35 @@ Vous pouvez spécifier le modèle auquel les fichiers doivent se conformer pour 
 
 > [!NOTE]
 > La table est créée sur la structure des dossiers partitionnés, mais vous ne pouvez pas tirer parti de l’élimination de certaines partitions. Si vous souhaitez obtenir de meilleures performances en ignorant les fichiers qui ne répondent pas à certains critères (par exemple, à une année ou à un mois spécifique dans ce cas), utilisez des [vues sur les données externes](create-use-views.md#partitioned-views).
+
+## <a name="external-table-on-appendable-files"></a>Table externe dans des fichiers avec ajout de données
+
+Les fichiers qui sont référencés par une table externe ne doivent pas être modifiés pendant l’exécution de la requête. Dans la requête de longue durée, le pool SQL peut retenter des lectures, lire des parties de fichiers ou même lire un fichier plusieurs fois. La modification du contenu du fichier pourrait entraîner des résultats incorrects. Par conséquent, le pool SQL fait échouer la requête s’il détecte que l’heure de modification d’un fichier a changé pendant l’exécution de la requête.
+Dans certains scénarios, vous souhaiterez peut-être créer une table dans des fichiers auxquels des données sont constamment ajoutées. Pour éviter les échecs de requête dus à l’ajout constant de données aux fichiers, vous pouvez spécifier que la table externe doit ignorer les lectures potentiellement incohérentes à l’aide du paramètre `TABLE_OPTIONS`.
+
+
+```sql
+CREATE EXTERNAL TABLE populationExternalTable
+(
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
+)
+WITH (
+    LOCATION = 'csv/population/population.csv',
+    DATA_SOURCE = sqlondemanddemo,
+    FILE_FORMAT = QuotedCSVWithHeaderFormat,
+    TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+);
+```
+
+L’option de lecture `ALLOW_INCONSISTENT_READS` désactive la vérification de l’heure de modification du fichier pendant le cycle de vie de la requête et lit les informations disponibles dans les fichiers qui sont référencés par la table externe. Dans les fichiers avec ajout de données, le contenu existant n’est pas mis à jour et seules les nouvelles lignes sont ajoutées. Par conséquent, la probabilité de résultats incorrects est réduite par rapport aux fichiers avec modification des données. Cette option peut vous permettre de lire les fichiers auxquels des données sont fréquemment ajoutées sans gérer les erreurs.
+
+Cette option est disponible uniquement dans les tables externes créées au format CSV.
+
+> [!NOTE]
+> Comme le nom de l’option l’indique, le créateur de la table doit accepter le risque que les résultats ne soient pas cohérents. Dans les fichiers avec ajout de données, vous risquez d’obtenir des résultats incorrects si vous forcez plusieurs lectures des fichiers sous-jacents en effectuant une jointure réflexive de la table. Dans la plupart des requêtes « classiques », la table externe ignore simplement certaines lignes ajoutées pendant l’exécution de la requête.
 
 ## <a name="delta-lake-external-table"></a>Table externe Delta Lake
 

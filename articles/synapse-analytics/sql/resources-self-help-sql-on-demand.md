@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/15/2020
+ms.date: 8/31/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3ade548ae31f7f62014d8f41141374aaa73217a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 906f6a7a8e64c255c8b87219ef0549a553821783
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252303"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536478"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Aide autonome pour le pool SQL serverless
 
@@ -81,7 +81,9 @@ Si vous souhaitez interroger data2.csv dans cet exemple, les autorisations suiva
 
 Si votre requête échoue avec le message d’erreur « Cette requête ne peut pas être exécutée en raison de contraintes de ressources », cela signifie que le pool SQL serverless ne peut pas l’exécuter pour le moment en raison de contraintes de ressources : 
 
-- Veillez à utiliser des types de données de taille raisonnable. Spécifiez également un schéma pour les colonnes de type chaîne des fichiers Parquet, car elles auront la valeur VARCHAR(8000) par défaut. 
+- Veillez à utiliser des types de données de taille raisonnable.  
+
+- Si votre requête cible des fichiers Parquet, définissez des types explicites pour les colonnes de chaîne, car ils seront VARCHAR (8000) par défaut. [Vérifiez les types de données déduits](./best-practices-serverless-sql-pool.md#check-inferred-data-types).
 
 - Si votre requête cible des fichiers CSV, envisagez de [créer des statistiques](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
@@ -503,7 +505,7 @@ La prise en charge de Delta Lake est actuellement disponible en préversion publ
 - Assurez-vous que vous référencez le dossier racine Delta Lake dans la fonction [OPENROWSET](./develop-openrowset.md) ou l’emplacement de la table externe.
   - Le dossier racine doit contenir un sous-dossier nommé `_delta_log`. La requête échoue en l’absence de dossier `_delta_log`. Si vous ne voyez pas ce dossier, vous référencez des fichiers Parquet bruts qui doivent être [convertis au format Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) à l’aide de pools Apache Spark.
   - Ne spécifiez pas de caractères génériques pour décrire le schéma de partition. La requête Delta Lake identifie automatiquement les partitions Delta Lake. 
-- Les tables Delta Lake créées dans les pools Apache Spark ne sont pas synchronisées dans le pool SQL serverless. Vous ne pouvez pas interroger de tables Delta Lake de pools Apache Spark à l’aide du langage T-SQL.
+- Les tables Delta Lake créées dans les pools Apache Spark ne sont pas disponibles automatiquement dans le pool SQL serverless. Pour effectuer une requête sur ces tables Delta Lake à l’aide du langage T-SQL, exécutez l’instruction[CREATE EXTERNAL TABLE](https://docs.microsoft.com/azure/synapse-analytics/sql/create-use-external-tables#delta-lake-external-table) et spécifiez le format Delta.
 - Les tables externes ne prennent pas en charge le partitionnement. Utilisez des [vues partitionnées](create-use-views.md#delta-lake-partitioned-views) dans le dossier Delta Lake pour tirer parti de l’élimination des partitions. Consulez les roblèmes connus et solutions de contournement ci-dessous.
 - Les pools SQL serverless ne prennent pas en charge les requêtes de voyage dans le temps. Vous pouvez voter pour cette fonctionnalité sur le [site de commentaires Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Utilisez les pools Apache Spark dans Azure Synapse Analytics pour [lire les données historiques](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Les pools SQL serverless ne prennent pas en charge la mise à jour des fichiers Delta Lake. Vous pouvez utiliser un pool SQL serverless pour interroger la dernière version de Delta Lake. Utilisez les pools Apache Spark dans Azure Synapse Analytics pour [mettre à jour Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).

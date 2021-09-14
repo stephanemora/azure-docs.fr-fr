@@ -1,5 +1,5 @@
 ---
-title: Tutoriel – Connecter et surveiller les métriques de l’application Azure Synapse Spark
+title: Collecter les métriques des applications Apache Spark avec des API
 description: Tutoriel – Découvrez comment intégrer votre serveur Prometheus local à l’espace de travail Azure Synapse pour obtenir les métriques de l’application Azure Spark en quasi-temps réel grâce au connecteur Synapse Prometheus.
 services: synapse-analytics
 author: jejiang
@@ -9,27 +9,27 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: 45ccced6f083e0d304651a0cea7df90c6396fd88
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b2810d97651c6819996c79ce554fa2feee2a6c65
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143248"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539638"
 ---
-# <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>Tutoriel : Connecter et surveiller les métriques de l’application Azure Synapse Spark
+#  <a name="collect-apache-spark-applications-metrics-using-apis"></a>Collecter les métriques des applications Apache Spark avec des API
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Dans ce tutoriel, vous découvrirez comment intégrer votre serveur Prometheus local à l’espace de travail Azure Synapse pour obtenir les métriques de l’application Azure Spark en quasi-temps réel grâce au connecteur Synapse Prometheus. 
+Dans ce tutoriel, vous allez voir comment intégrer votre serveur Prometheus local à l’espace de travail Azure Synapse pour obtenir les métriques de l’application Apache Spark en quasi-temps réel grâce au connecteur Synapse Prometheus. 
 
-Ce tutoriel présente également les API de métriques REST Azure Synapse. Vous pouvez extraire les données de métriques de l’application Spark grâce aux API REST pour créer votre propre kit de ressources de surveillance et de diagnostic ou les intégrer à vos systèmes de surveillance.
+Ce tutoriel présente également les API de métriques REST Azure Synapse. Vous pouvez récupérer les données de métriques de l’application Apache Spark grâce aux API REST pour créer votre propre kit de ressources de supervision et de diagnostic, ou les intégrer à vos systèmes de supervision.
 
 ## <a name="use-azure-synapse-prometheus-connector-for-your-on-premises-prometheus-servers"></a>Utiliser le connecteur Azure Synapse Prometheus pour vos serveurs Prometheus locaux
 
 Le [connecteur Azure Synapse Prometheus](https://github.com/microsoft/azure-synapse-spark-metrics) est un projet open source. Le connecteur Synapse Prometheus utilise une méthode de découverte de service basée sur les fichiers pour vous permettre de :
  - Vous authentifier auprès de l’espace de travail Synapse à l’aide d’un principal du service AAD.
  - Récupérer la liste des applications Apache Spark de l’espace de travail. 
- - Extraire les métriques de l’application Spark à l’aide de la configuration basée sur les fichiers Prometheus. 
+ - Tirez (pull) les métriques de l’application Apache Spark à l’aide de la configuration basée sur les fichiers Prometheus. 
 
 ### <a name="1-prerequisite"></a>1. Configuration requise
 
@@ -176,15 +176,15 @@ La réponse se présente ainsi :
 
 ### <a name="2-list-running-applications-in-the-azure-synapse-workspace"></a>2. Liste des applications en cours d’exécution dans l’espace de travail Azure Synapse
 
-Si vous souhaitez obtenir la liste des applications Spark pour un espace de travail Synapse, consultez ce document [Surveillance – Obtenir la liste des travaux Spark](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
+Si vous souhaitez obtenir la liste des applications Apache Spark pour un espace de travail Synapse, consultez ce document [Supervision – Obtenir la liste des travaux Apache Spark](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
 
 
-### <a name="3-collect-spark-application-metrics-with-the-prometheus-or-rest-apis"></a>3. Collecter les métriques de l’application Spark avec les API REST ou Prometheus
+### <a name="3-collect-apache-spark-application-metrics-with-the-prometheus-or-rest-apis"></a>3. Collecter les métriques de l’application Apache Spark avec les API REST ou Prometheus
 
 
-#### <a name="collect-spark-application-metrics-with-the-prometheus-api"></a>Collectez les métriques de l’application Spark avec les API Prometheus
+#### <a name="collect-apache-spark-application-metrics-with-the-prometheus-api"></a>Collecter les métriques de l’application Apache Spark avec l’API Prometheus
 
-Obtenez les dernières métriques de l’application Spark spécifiée grâce à l’API Prometheus
+Obtenir les dernières métriques de l’application Apache Spark spécifiée grâce à l’API Prometheus
 
 ```
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/metrics/executors/prometheus?format=html
@@ -221,7 +221,7 @@ metrics_executor_completedTasks_total{application_id="application_1605509647837_
 
 ```
 
-#### <a name="collect-spark-application-metrics-with-the-rest-api"></a>Collecter les métriques de l’application Spark avec l’API REST
+#### <a name="collect-apache-spark-application-metrics-with-the-rest-api"></a>Collecter les métriques de l’application Apache Spark avec l’API REST
 
 ```
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/executors
@@ -285,4 +285,4 @@ Exemple du code d’état de la réponse : 200
 
 ### <a name="4-build-your-own-diagnosis-and-monitoring-tools"></a>4. Créer vos propres outils de diagnostic et de surveillance
 
-L’API Prometheus et les API REST fournissent des données de métriques enrichies sur les informations d’exécution de l’application Spark. Vous pouvez collecter les données de métriques relatives à l’application grâce à l’API Prometheus et aux API REST. Vous pouvez aussi créer vos propres outils de diagnostic et de surveillance qui sont plus adaptés à vos besoins.
+L’API Prometheus et les API REST fournissent des données de métriques enrichies sur les informations d’exécution de l’application Apache Spark. Vous pouvez collecter les données de métriques relatives à l’application grâce à l’API Prometheus et aux API REST. Vous pouvez aussi créer vos propres outils de diagnostic et de surveillance qui sont plus adaptés à vos besoins.

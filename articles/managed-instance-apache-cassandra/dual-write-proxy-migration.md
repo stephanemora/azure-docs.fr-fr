@@ -4,14 +4,14 @@ description: Découvrez comment effectuer une migration vers Azure Managed Insta
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
-ms.topic: overview
-ms.date: 06/02/2021
-ms.openlocfilehash: c2529f355e7d39c22bf5f3d703cb33c59101a5f8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.topic: tutorial
+ms.date: 08/17/2021
+ms.openlocfilehash: 03862b42fb181adcf1a6c4edbed66ce61ee49e73
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749458"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426127"
 ---
 # <a name="live-migration-to-azure-managed-instance-for-apache-cassandra-by-using-a-dual-write-proxy"></a>Migration dynamique vers Azure Managed Instance pour Apache Cassandra en utilisant un proxy de double écriture
 
@@ -22,7 +22,7 @@ ms.locfileid: "121749458"
 
 Quand c’est possible, nous vous recommandons d’utiliser la capacité native d’Apache Cassandra à migrer des données de votre cluster existant vers Azure Managed Instance pour Apache Cassandra en configurant un [cluster hybride](configure-hybrid-cluster.md). Cette capacité utilise le protocole gossip d’Apache Cassandra pour répliquer des données de votre centre de données source sur votre nouveau centre de données d’instance managée de façon directe. Cependant, il peut y avoir des scénarios où la version de la base de données source n’est pas compatible, ou dans le cas où une configuration de cluster hybride n’est pas possible. 
 
-Cet article explique comment migrer des données vers Azure Managed Instance pour Apache Cassandra de façon dynamique en utilisant un [proxy de double écriture](https://github.com/Azure-Samples/cassandra-proxy) et Apache Spark. Les avantages de cette approche sont les suivants :
+Ce tutoriel explique comment migrer des données vers Azure Managed Instance pour Apache Cassandra de façon dynamique en utilisant un [proxy de double écriture](https://github.com/Azure-Samples/cassandra-proxy) et Apache Spark. Les avantages de cette approche sont les suivants :
 
 - **Modification minimale de l’application**. Le proxy peut accepter des connexions depuis votre code d’application avec peu ou pas de modifications de configuration. Il va router toutes les demandes vers votre base de données source et router de façon asynchrone les écritures vers une cible secondaire. 
 - **Dépendance du protocole filaire du client**. Cette approche ne dépendant pas de ressources back-end ou de protocoles internes, elle peut être utilisée avec n’importe quel système Cassandra source ou cible implémentant le protocole filaire d’Apache Cassandra.

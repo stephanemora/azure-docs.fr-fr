@@ -7,12 +7,12 @@ metadata:
   ms.service: cosmos-db
   ms.topic: conceptual
   ms.date: 05/18/2021
-  ms.openlocfilehash: 20fe5aabf2e7cc8f38272e86a0df2fc91443eee2
-  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+  ms.openlocfilehash: 960a4e93cfc8f6d2041fceb84b92dd6a4ab8b9e8
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/26/2021
-  ms.locfileid: "111907292"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123426991"
 title: Forum aux questions sur le débit provisionné en mode de mise à l’échelle automatique dans Azure Cosmos DB
 summary: >
   [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -96,7 +96,7 @@ sections:
       Par exemple, si vous démarrez avec une RU/s maximale de 50 000 RU/s (avec une mise à l’échelle de 5 000 à 50 000 RU/s), vous pouvez stocker jusqu’à 500 Go de données. Si vous dépassez 500 Go, par exemple, si le stockage est à présent de 600 Go, la nouvelle unité de requête/s maximale sera de 60 000 RU/s (les mises à l’échelle entre 6 000 et 60 000 RU/s).
   - question: "Puis-je modifier l’unité de requête/s maximale sur la base de données ou le conteneur ? \n"
     answer: >
-      Oui. Consultez cet [article](how-to-provision-autoscale-throughput.md) sur la façon de modifier la RU/s maximale. Lorsque vous modifiez l’unité de requête/s maximale, en fonction de la valeur demandée, il peut s’agir d’une opération asynchrone qui peut prendre un certain temps (pouvant atteindre jusqu’à 4 à 6 heures, en fonction de l’unité de requête/s sélectionnée)
+      Oui. Consultez cet [article](how-to-provision-autoscale-throughput.md) sur la façon de modifier la RU/s maximale. Quand vous modifiez l’unité de requête/s maximale, en fonction de la valeur demandée, il peut s’agir d’une opération asynchrone qui peut prendre un certain temps (jusqu’à 4 à 6 heures en fonction de l’unité de requête/s sélectionnée). [Plus d’informations](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus)
   - question: >
       Amélioration de l’unité de requête/s maximale
     answer: >

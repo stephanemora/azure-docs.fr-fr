@@ -2,13 +2,13 @@
 title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
-ms.date: 02/24/2020
-ms.openlocfilehash: 00109de349c1fdfdbaff9de30d18f64d8b986a59
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 09/01/2021
+ms.openlocfilehash: 3cfbd89e9df6cf2d0d30d744ee8e437e3c364094
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587642"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434247"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -37,7 +37,8 @@ Avant de configurer les sauvegardes, prenez soin d’effectuer les opérations s
   * Pour MDC, la clé doit pointer vers le port SQL de **NAMESERVER**. Pour SDC, elle doit pointer vers le port SQL de **INDEXSERVER**.
   * Elle doit disposer des informations d’identification nécessaires pour ajouter et supprimer des utilisateurs.
   * Notez que cette clé peut être supprimée après l’exécution du script de préinscription
-* Exécutez le script de configuration de sauvegarde SAP HANA (script de préinscription) dans la machine virtuelle où HANA est installé en tant qu’utilisateur racine. [Ce script](https://aka.ms/scriptforpermsonhana) prépare le système HANA pour la sauvegarde. Pour en savoir plus sur le script de préinscription, reportez-vous à la section [Ce que fait le script de préinscription](#what-the-pre-registration-script-does).
+* Vous pouvez également choisir de créer une clé pour l’utilisateur HANA SYSTSEM existant dans **hdbuserstore** au lieu de créer une clé personnalisée comme indiqué dans l’étape ci-dessus.
+* Exécutez le script de configuration de sauvegarde SAP HANA (script de préinscription) dans la machine virtuelle où HANA est installé en tant qu’utilisateur racine. [Ce script](https://aka.ms/scriptforpermsonhana) prépare le système HANA pour la sauvegarde et nécessite que la clé créée dans les étapes ci-dessus soit passée en entrée. Pour comprendre comment passer cette entrée au script en tant que paramètre, consultez la section [Ce que fait le script de préinscription](#what-the-pre-registration-script-does). Vous verrez également ce que fait le script de préinscription.
 * Si votre configuration HANA utilise des points de terminaison privés, exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) avec le paramètre *-sn* ou *--skip-network-checks*.
 
 >[!NOTE]
@@ -145,17 +146,22 @@ Le script de préinscription assure les fonctions suivantes :
 
 * En fonction de votre distribution Linux, le script installe ou met à jour tous les packages nécessaires à l’agent de Sauvegarde Azure sur votre distribution.
 * Il effectue les vérifications de connectivité réseau sortante avec les serveurs de Sauvegarde Azure et les services dépendants comme Azure Active Directory et Stockage Azure.
-* Il se connecte à votre système HANA à l’aide de la clé utilisateur figurant dans les [prérequis](#prerequisites). La clé utilisateur permet de créer un utilisateur de sauvegarde (AZUREWLBACKUPHANAUSER) dans le système HANA et **peut être supprimée dès lors que le script de préinscription a été correctement exécuté**.
+* Il se connecte à votre système HANA en utilisant la clé utilisateur personnalisée ou la clé utilisateur SYSTEM mentionnée dans le cadre des [prérequis](#prerequisites). Il permet de créer un utilisateur de sauvegarde (AZUREWLBACKUPHANAUSER) dans le système HANA, et la clé utilisateur peut être supprimée dès lors que le script de préinscription a été correctement exécuté. _Notez que la clé utilisateur SYSTEM ne doit pas être supprimée_.
 * AZUREWLBACKUPHANAUSER reçoit les rôles et autorisations nécessaires suivants :
   * Pour MDC : DATABASE ADMIN et BACKUP ADMIN (depuis HANA 2.0 SPS05 et versions ultérieures) : pour créer des bases de données lors de la restauration.
   * Pour SDC : BACKUP ADMIN : pour créer des bases de données lors de la restauration.
   * CATALOG READ : permet de lire le catalogue de sauvegarde.
   * SAP_INTERNAL_HANA_SUPPORT : permet d’accéder à certaines tables privées. Obligatoire uniquement pour les versions SDC et MDC antérieures à HANA 2.0 SPS04 rév. 46. Cela n’est pas obligatoire pour HANA 2.0 SPS04 rév. 46 et versions ultérieures, car nous obtenons maintenant les informations requises des tables publiques avec le correctif de l’équipe HANA.
 * Le script ajoute une clé à **hdbuserstore** pour AZUREWLBACKUPHANAUSER afin que le plug-in de sauvegarde HANA gère toutes les opérations (requêtes de base de données, opérations de restauration, configuration et exécution de la sauvegarde).
+* Vous pouvez également choisir de créer votre propre utilisateur de sauvegarde. Vérifiez que les autorisations et rôles requis suivants sont attribués à cet utilisateur :
+  * Pour MDC : DATABASE ADMIN et BACKUP ADMIN (depuis HANA 2.0 SPS05 et versions ultérieures) : pour créer des bases de données lors de la restauration.
+  * Pour SDC : BACKUP ADMIN : pour créer des bases de données lors de la restauration.
+  * CATALOG READ : permet de lire le catalogue de sauvegarde.
+  * SAP_INTERNAL_HANA_SUPPORT : permet d’accéder à certaines tables privées. Obligatoire uniquement pour les versions SDC et MDC antérieures à HANA 2.0 SPS04 rév. 46. Cela n’est pas obligatoire pour HANA 2.0 SPS04 rév. 46 et ultérieur, car nous obtenons maintenant les informations requises des tables publiques avec le correctif de l’équipe HANA.
+* Ajoutez ensuite une clé à hdbuserstore pour votre utilisateur de sauvegarde personnalisé afin que le plug-in de sauvegarde HANA gère toutes les opérations (requêtes de base de données, opérations de restauration, configuration et exécution de la sauvegarde). Passez cette clé d’utilisateur de sauvegarde personnalisée au script en tant que paramètre : `-bk CUSTOM_BACKUP_KEY_NAME` ou `-backup-key CUSTOM_BACKUP_KEY_NAME`.  _Notez que l’expiration du mot de passe de cette clé de sauvegarde personnalisée peut entraîner l’échec des opérations de sauvegarde et de restauration._
 
 >[!NOTE]
-> Vous pouvez transmettre explicitement la clé utilisateur indiquée dans le cadre des [prérequis](#prerequisites) en tant que paramètre au script de pré-inscription : `-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
->Pour connaître les autres paramètres acceptés par le script, utilisez la commande `bash msawb-plugin-config-com-sap-hana.sh --help`
+> Pour connaître les autres paramètres acceptés par le script, utilisez la commande `bash msawb-plugin-config-com-sap-hana.sh --help`
 
 Pour confirmer la création de la clé, exécutez la commande HDBSQL sur la machine HANA avec les informations d’identification SIDADM :
 
@@ -168,7 +174,7 @@ La sortie de commande doit afficher la clé {SID} {DBNAME} avec l’utilisateur 
 >[!NOTE]
 > Vérifiez que vous disposez d’un ensemble unique de fichiers SSFS sous `/usr/sap/{SID}/home/.hdb/`. Vous ne devez trouver qu’un seul dossier dans ce chemin d’accès.
 
-Voici un récapitulatif des étapes requises pour effectuer l’exécution du script de pré-inscription.
+Voici un récapitulatif des étapes requises pour effectuer l’exécution du script de préinscription. Notez que dans ce flux, nous fournissons la clé utilisateur SYSTEM en tant que paramètre d’entrée au script de préinscription.
 
 |Qui  |Du  |À exécuter  |Commentaires  |
 |---------|---------|---------|---------|

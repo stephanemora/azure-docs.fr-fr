@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 96a60c88997226516d451124280053d87065e5b6
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c2720fb5fd52eaf5f4f6d854bba622c0fecb5aeb
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381941"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438243"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Démarrage rapide : Démarrer la supervision de votre application web Node.js avec Azure Application Insights
 
@@ -37,13 +37,15 @@ Application Insights permet de recueillir les données de télémétrie à parti
    > [!NOTE]
    >Si c’est la première fois que vous créez une ressource Application Insights, vous pouvez en apprendre davatange en vous rendant sur la documentation [Créer une ressource Application Insights](../app/create-new-resource.md).
 
-   Une page de configuration s’affiche. Utilisez le tableau suivant pour remplir les champs d’entrée. 
+   Une page de configuration s'affiche. Utilisez le tableau suivant pour remplir les champs d’entrée : 
 
     | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
-   | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
-   | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources où héberger les données AppInsights. Vous pouvez créer un groupe de ressources ou utiliser un groupe existant. |
-   | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
+   | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous supervisez. |
+   | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights Vous pouvez créer un groupe de ressources ou utiliser un groupe existant. |
+   | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée. |
+   | **Mode de ressources** | Basé sur l’espace de travail | Si vous pouvez choisir le mode de ressource, sélectionnez **Basé sur l’espace de travail**.  |
+   | **Espace de travail Log Analytics** | | Acceptez la valeur par défaut. |
 
 3. Sélectionnez **Create** (Créer).
 

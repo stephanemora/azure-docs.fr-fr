@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/12/2021
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal
-ms.openlocfilehash: f23a21bdba5602dad2e38ee931a5e754f0607cde
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: fe1cc48b3106d4874e151ed8be114e6a98e51720
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730590"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434181"
 ---
 # <a name="what-is-azure-bastion"></a>Qu’est-ce qu’Azure Bastion ?
 
@@ -28,7 +28,7 @@ Bastion fournit une connectivité RDP et SSH sécurisée à toutes les machines 
 * **RDP et SSH directement dans le Portail Azure :** vous pouvez accéder directement à la session RDP et SSH dans le Portail Azure en un simple clic.
 * **Session à distance sur TLS et traversée de pare-feu pour RDP/SSH :** Azure Bastion utilise un client web basé sur HTML5 automatiquement diffusé en continu sur votre appareil local. Vous bénéficiez d’une session RDP/SSH sur TLS sur le port 443, ce qui vous permet de traverser les pare-feu d’entreprise en toute sécurité.
 * **Aucune adresse IP publique n’est requise sur la machine virtuelle Azure :** Azure Bastion ouvre la connexion RDP/SSH à votre machine virtuelle Azure en utilisant une adresse IP privée sur votre machine virtuelle. Vous n’avez pas besoin d’une adresse IP publique sur votre machine virtuelle.
-* **Gestion aisée des groupes de sécurité réseau :** Azure Bastion est un service PaaS de plateforme entièrement géré d’Azure, renforcé en interne pour vous fournir une connectivité RDP/SSH sécurisée. Vous n’avez pas besoin d’appliquer des groupes de sécurité réseau sur le sous-réseau Azure Bastion. Comme Azure Bastion se connecte à vos machines virtuelles par le biais d’une adresse IP privée, vous pouvez configurer vos groupes de sécurité réseau pour autoriser RDP/SSH depuis Azure Bastion uniquement. Vous n’avez plus à gérer les groupes de sécurité réseau chaque fois que vous devez vous connecter de manière sécurisée à vos machines virtuelles.
+* **Gestion aisée des groupes de sécurité réseau** : Azure Bastion est un service PaaS de plateforme complètement managé d’Azure, renforcé en interne pour vous fournir une connectivité RDP/SSH sécurisée. Vous n’avez pas besoin d’appliquer des groupes de sécurité réseau sur le sous-réseau Azure Bastion. Comme Azure Bastion se connecte à vos machines virtuelles par le biais d’une adresse IP privée, vous pouvez configurer vos groupes de sécurité réseau pour autoriser RDP/SSH depuis Azure Bastion uniquement. Vous n’avez plus à gérer les groupes de sécurité réseau chaque fois que vous devez vous connecter de manière sécurisée à vos machines virtuelles. Pour plus d’informations sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules).
 * **Protection contre l’analyse des ports :** parce que vous n’avez pas besoin d’exposer vos machines virtuelles à l’Internet public, celles-ci sont protégées contre l’analyse des ports par des utilisateurs malveillants situés en dehors de votre réseau virtuel.
 * **Protégez-vous contre les exploits du jour zéro. Renforcement de la sécurité dans un seul endroit :** Azure Bastion est un service PaaS complètement managé par la plateforme. Comme il se trouve au périmètre de votre réseau virtuel, vous n’avez pas besoin de vous soucier du renforcement de la sécurité de chacune des machines virtuelles de votre réseau virtuel. La plateforme Azure protège contre les exploits du jour zéro en assurant une sécurité durcie permanente et à jour pour Azure Bastion.
 

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 18d97473e128326d6e3eb4c77ecab7fc3ba14c7d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 530078dc7a720b39a2b276230fd7e04fb9ab01d4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121784758"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425659"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -192,6 +192,9 @@ Azure Cosmos DB prend en charge les commandes de base de données suivantes sur 
 | UPDATE IF EXISTS | Yes |
 | UPDATE IF NOT EXISTS | Oui |
 | Conditions UPDATE | No |
+
+> [!NOTE]
+> Les transactions légères ne sont actuellement pas prises en charge pour les comptes avec des écritures multirégions activées.
 
 ## <a name="cql-shell-commands"></a>Commandes de l’interpréteur de commandes CQL
 

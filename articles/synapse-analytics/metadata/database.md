@@ -10,49 +10,43 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93602e522338166abac98c3e4a198e1aff392d21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b671246d3ee199719dbb3da6bf7820a876791cf
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934966"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428287"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de données partagée Azure Synapse Analytics
 
-Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables. Actuellement, les bases de données et les tables Parquet créées sur les pools Apache Spark sont automatiquement partagées avec le moteur du pool SQL serverless.
+Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables. Actuellement, les bases de données et les tables (Parquet ou CSV) créées sur les pools Apache Spark sont automatiquement partagées avec le moteur du pool SQL serverless.
 
-Une base de données créée avec un travail Spark devient visible avec le même nom pour tous les pools Spark actuels et futurs dans l’espace de travail, y compris le moteur du pool SQL serverless. Vous ne pouvez pas ajouter d’objets personnalisés (tables externes, vues, procédures) directement dans cette base de données répliquée en utilisant le pool SQL serverless.
+Une base de données créée avec un travail Spark devient visible avec le même nom pour tous les pools Spark actuels et futurs dans l’espace de travail, y compris le moteur du pool SQL serverless. Vous ne pouvez pas ajouter d’objets personnalisés (tables externes, vues, procédures) directement dans cette base de données synchronisée en utilisant le pool SQL serverless.
 
-La base de données Spark par défaut, nommée `default`, est également visible dans le contexte SQL du pool SQL serverless sous le nom `default`.
+La base de données Spark par défaut, nommée `default`, est également visible dans le contexte SQL du pool SQL serverless sous le nom `default`. Vous ne pouvez pas créer une base de données dans Spark puis créer une autre base de données portant le même nom dans un pool SQL serverless.
 
 Comme les bases de données sont synchronisées avec le pool SQL serverless de façon asynchrone, elles apparaissent après un certain délai.
 
 ## <a name="manage-a-spark-created-database"></a>Gérer une base de données créée avec Spark
 
-Utilisez Spark pour gérer les bases de données créées avec Spark. Par exemple, supprimez-les par le biais d’un travail de pool Spark et créez-y des tables à partir de Spark.
+Pour gérer les bases de données créées avec Spark, vous devez utiliser des pools Apache Spark. Par exemple, créez-les ou supprimez-les par le biais d’un travail de pool Spark.
 
-Si vous créez des objets dans une base de données créée avec Spark en utilisant le pool SQL serverless ou si vous essayez de supprimer la base de données, l’opération réussit, mais la base de données Spark d’origine ne sera pas modifiée.
+Les objets des bases de données synchronisées ne peuvent pas être modifiés à partir d’un pool SQL serverless.
 
-## <a name="how-name-conflicts-are-handled"></a>Gestion des conflits de noms
-
-Si le nom d’une base de données Spark est en conflit avec le nom d’une base de données du pool SQL serverless, un suffixe est ajouté à la base de données Spark dans le pool SQL serverless. Le suffixe dans le pool SQL serverless est `_<workspace name>-ondemand-DefaultSparkConnector`.
-
-Par exemple, si une base de données Spark nommée `mydb` est créée dans l’espace de travail Azure Synapse `myws` et qu’une base de données du pool SQL serverless portant ce nom existe déjà, la base de données Spark dans le pool SQL serverless doit être référencée sous le nom `mydb_myws-ondemand-DefaultSparkConnector`.
-
-> [!CAUTION]
-> Attention : Vous ne devez pas créer de dépendance envers ce comportement.
+>[!NOTE]
+>Vous ne pouvez pas créer plusieurs bases de données portant le même nom à partir de pools différents. Si une base de données de pool SQL serverless est créée, vous ne pouvez pas créer une base de données Spark portant le même nom. De même, si une base de données est créée dans Spark, vous ne pouvez pas créer une base de données de pool SQL serverless portant le même nom.
 
 ## <a name="security-model"></a>Modèle de sécurité
 
 Les bases de données et les tables Spark, ainsi que leurs représentations synchronisées dans le moteur SQL, sont sécurisées au niveau du stockage sous-jacent.
 
-Le principal de sécurité qui crée une base de données est considéré comme le propriétaire de cette base de données, et dispose de tous les droits sur la base de données et ses objets.
+Le principal de sécurité qui crée une base de données est considéré comme le propriétaire de cette base de données, et dispose de tous les droits sur la base de données et ses objets. L’administrateur Synapse et l’administrateur Synapse SQL disposent également de toutes les autorisations sur les objets synchronisés dans le pool SQL serverless par défaut. La création d’objets personnalisés (y compris des utilisateurs) dans des bases de données SQL synchronisées n’est pas autorisée. 
 
-Pour donner à un principal de sécurité, tel qu’un utilisateur ou un groupe de sécurité, l’accès à une base de données, fournissez les autorisations de fichier et de dossier POSIX appropriées aux dossiers et fichiers sous-jacents dans le répertoire `warehouse`. 
+Pour accorder à un principal de sécurité, tel qu’un utilisateur, une application Azure AD ou un groupe de sécurité, l’accès aux données sous-jacentes utilisées pour les tables externes, vous devez leur accorder des autorisations `read (R)` sur les fichiers (tels que les fichiers de données sous-jacents de la table) et `execute (X)` sur le dossier où les fichiers sont stockés ainsi que sur chaque dossier parent jusqu’à la racine. Pour plus d’informations sur ces autorisations, consultez la page [Listes de contrôle d’accès (ACL)](/azure/storage/blobs/data-lake-storage-access-control). 
 
-Par exemple, pour qu’un principal de sécurité puisse lire une table dans une base de données, les autorisations `X` et `R` doivent lui être attribuées pour tous les dossiers à partir du dossier de la base de données dans le répertoire `warehouse`. En outre, les fichiers (tels que les fichiers de données sous-jacents de la table) nécessitent des autorisations `R`. 
+Par exemple, dans `https://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/`, les principaux de sécurité doivent avoir des autorisations `X` sur tous les dossiers de `<fs>` jusqu’à `myparquettable`, et des autorisations `R` sur `myparquettable` et sur les fichiers qui se trouvent dans ce dossier, pour pouvoir lire une table dans une base de données (synchronisée ou d’origine).
 
-Si un principal de sécurité nécessite la capacité à créer ou à supprimer des objets dans une base de données, des autorisations `W` supplémentaires sont requises sur les dossiers et les fichiers du dossier `warehouse`.
+Si un principal de sécurité nécessite la capacité à créer ou à supprimer des objets dans une base de données, des autorisations `W` supplémentaires sont requises sur les dossiers et les fichiers du dossier `warehouse`. La modification des objets d’une base de données n’est pas possible à partir d’un pool SQL serverless, mais uniquement à partir de Spark.
 
 ## <a name="examples"></a>Exemples
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 601970978dc69aea2a6f0947a26cc0bebc1d999d
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 4e37be9e121d634e0d4a83fdd5f786805dedf132
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223026"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427207"
 ---
 # <a name="set-up-the-azure-percept-dk-device"></a>Configurer l’appareil Azure Percept DK
 
@@ -150,7 +150,7 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
     - Sélectionnez un groupe de ressources existant. S’il n’en existe pas, cliquez sur **Créer nouveau** et suivez les demandes.
     - Sélectionnez la région Azure la plus proche de votre localisation physique.
     - Donnez un nom à votre nouveau IoT Hub.
-    - Sélectionnez le niveau tarifaire S1 (standard).
+    - Sélectionnez le **niveau tarifaire S1 (standard)** .
 
     > [!NOTE]
     > L’exécution de votre déploiement IoT Hub peut prendre quelques minutes. Si vous avez besoin d’un [débit de message](../iot-hub/iot-hub-scaling.md#message-throughput) supérieur pour vos applications périphériques d’IA, vous pouvez à tout moment [mettre à niveau votre IoT Hub vers un niveau standard plus élevé](../iot-hub/iot-hub-upgrade.md) dans le portail Azure. Les niveaux B et F ne prennent pas en charge Azure Percept.

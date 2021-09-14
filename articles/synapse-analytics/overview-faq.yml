@@ -7,15 +7,15 @@ metadata:
   ms.service: synapse-analytics
   ms.topic: overview
   ms.subservice: overview
-  ms.date: 07/27/2021
+  ms.date: 09/02/2021
   ms.author: saveenr
   ms.reviewer: jrasnick, wiassaf
-  ms.openlocfilehash: c6e970383611a14694b7e921257a117b09a4da89
-  ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+  ms.openlocfilehash: b076139e94c102ddd850d28bf0288dbd635e7dc1
+  ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/27/2021
-  ms.locfileid: "123029792"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123451058"
 title: Questions fréquentes (FAQ) sur Azure Synapse Analytics
 summary: Ce guide recense les questions les plus fréquemment posées sur Azure Synapse Analytics.
 sections:
@@ -131,5 +131,5 @@ sections:
   - question: >
       Comment sécuriser l’accès à mon espace de travail Azure Synapse ?
     answer: >
-      Avec ou sans [réseau virtuel managé](/azure/synapse-analytics/security/synapse-workspace-managed-vnet), vous pouvez vous connecter à votre espace de travail à partir de réseaux publics. Pour plus d’informations, consultez [Paramètres de connectivité](/azure/azure-sql/database/connectivity-settings). L’accès à partir de réseaux publics peut être contrôlé en activant la [fonctionnalité d’accès réseau public](/azure/azure-sql/database/connectivity-settings#public-network-access) ou le [pare-feu de l’espace de travail](/bs-cyrl-ba/azure/synapse-analytics/security/synapse-workspace-ip-firewall). Vous pouvez également vous connecter à votre espace de travail à l’aide d’un [point de terminaison privé managé](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) et d’une [liaison privée](../azure-sql/database/private-endpoint-overview.md). Les espaces de travail Synapse sans [réseau virtuel géré par Azure Synapse Analytics](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) n’ont pas la possibilité de se connecter via des points de terminaison privés managés.
+      Avec ou sans [réseau virtuel managé](./security/synapse-workspace-managed-vnet.md), vous pouvez vous connecter à votre espace de travail à partir de réseaux publics. Pour plus d’informations, consultez [Paramètres de connectivité](./security/connectivity-settings.md). L’accès à partir de réseaux publics peut être contrôlé en activant la [fonctionnalité d’accès réseau public](./security/connectivity-settings.md#public-network-access) ou le [pare-feu de l’espace de travail](./security/synapse-workspace-ip-firewall.md). Vous pouvez également vous connecter à votre espace de travail à l’aide d’un [point de terminaison privé managé](./security/synapse-workspace-managed-private-endpoints.md) et de [Private Link](../azure-sql/database/private-endpoint-overview.md). Les espaces de travail Synapse sans [réseau virtuel géré par Azure Synapse Analytics](./security/synapse-workspace-managed-vnet.md) n’ont pas la possibilité de se connecter via des points de terminaison privés managés.
 additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n   * [Bien démarrer avec Azure Synapse Analytics](get-started.md)\n   * [Créer un espace de travail](quickstart-create-workspace.md)\n   * [Utiliser un pool SQL serverless](quickstart-sql-on-demand.md)"

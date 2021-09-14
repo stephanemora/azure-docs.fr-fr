@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 01/08/2021
 ms.author: sngun
-ms.openlocfilehash: c24af25b3ac25683e69d077cda0b65d064bfa774
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3e1391aa0d29e6b6ae50964413195552768d12b7
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121784099"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543049"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation d’Azure Cosmos DB : API de table
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -25,13 +25,13 @@ ms.locfileid: "121784099"
 * Une haute disponibilité garantie.
 * Une indexation secondaire automatique.
 
-Les applications écrites pour le stockage de table Azure peuvent migrer vers Azure Cosmos DB à l’aide de l’API de table sans aucune modification de code, et tirer parti des fonctionnalités Premium. L’API de table a des kits de développement logiciel (SDK) pour .NET, Java, Python et Node.js.
+Des [SDK de tables de données Azure](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-data-tables-libraries/) sont disponibles pour .NET, Java, Python, Node.js et Go. Ces SDK peuvent être utilisés pour cibler Stockage Table ou Tables Cosmos DB. Les applications écrites pour le stockage Table Azure avec les SDK de tables de données Azure peuvent être migrées vers l’API Table Azure Cosmos DB sans aucune modification de code pour tirer parti des fonctionnalités premium.
 
 > [!NOTE]
 > Le [mode de capacité serverless](../serverless.md) est maintenant disponible sur l’API Table d’Azure Cosmos DB.
 
 > [!IMPORTANT]
-> Le kit de développement logiciel (SDK) .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) est en mode maintenance et sera bientôt déprécié. Mettez à niveau vers la nouvelle bibliothèque .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) pour continuer à bénéficier des dernières fonctionnalités prises en charge par l’API Table.
+> La bibliothèque de tables .NET Cosmos DB [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) est en mode maintenance et sera bientôt dépréciée. Effectuez une mise à niveau vers la nouvelle bibliothèque de tables de données .NET Azure [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Azure.Data.Tables/) pour continuer à bénéficier des dernières fonctionnalités prises en charge par l’API Table.
 
 ## <a name="table-offerings"></a>Offres de table
 Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des avantages suivants en passant à l’API Table d’Azure Cosmos DB :

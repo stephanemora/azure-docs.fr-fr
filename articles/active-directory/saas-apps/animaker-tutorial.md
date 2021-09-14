@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 4e340e2046a3e1611d9204fba262e42696de49e1
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: e5f4c198114a49049c22ef0d79adcb08b85683c9
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123077561"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435687"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-animaker"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Animaker
 
@@ -73,11 +73,23 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
+1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
+
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://app.animaker.com/login/samlsuccess/<Anyone_Home_Provided_Unique_Value>`
+
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://app.animaker.com/login/samlsuccess/<Anyone_Home_Provided_Unique_Value>`
+
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique d’Animaker](mailto:help@animaker.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.animaker.com/login/samlsuccess/azure/`
+    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.animaker.com/login/samlsuccess/<Anyone_Home_Provided_Unique_Value>`
+
+1. L’application Animaker s’attend à recevoir les assertions SAML dans un certain format, ce qui vous demande d’ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application Appraisd s’attend à ce que **nameidentifier** soit mappé sur **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
+
+    ![Capture d’écran montrant le volet Attributs utilisateur avec l’icône de modification mise en évidence.](common/edit-attribute.png)
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 9e77bb7318f9b2d84bfef0282a817054fd5ea6f4
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: cabddc920971d75bc609ce5b0b736cefca6ce1d4
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308792"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535880"
 ---
 ### <a name="combine-results-from-two-queries-into-a-single-result"></a>Combiner les résultats de deux requêtes en un résultat unique
 
@@ -527,7 +527,7 @@ Search-AzGraph -Query "Resources | project id, subscriptionId, location, type, p
 
 ### <a name="list-all-extensions-installed-on-a-virtual-machine"></a>Lister toutes les extensions installées sur une machine virtuelle
 
-Tout d’abord, cette requête utilise `extend` sur le type de ressource des machines virtuelles pour obtenir l’ID en majuscules (`toupper()`), obtenir le nom et le type du système d’exploitation, et obtenir la taille des machines virtuelles. L’obtention de l’ID de ressource en majuscules est un bon moyen de préparer la jointure à une autre propriété. Ensuite, la requête utilise `join` avec **kind** comme _leftouter_ pour obtenir les extensions de machine virtuelle en faisant correspondre une `substring` en majuscules de l’ID d’extension. La partie de l’ID avant « /extensions/\<ExtensionName\> » est du même format que l’ID des machines virtuelles. Nous utilisons donc cette propriété pour `join`. `summarize` est ensuite utilisé avec `make_list` sur le nom de l’extension de machine virtuelle pour combiner le nom de chaque extension où _id_, _OSName_, _OSType_ et _VMSize_ sont les mêmes dans une propriété de tableau unique. Enfin, nous ordonnons (`order by`) le nom _OSName_ en minuscules avec **asc**. Par défaut, `order by` est décroissant.
+Tout d’abord, cette requête utilise `extend` sur le type de ressource des machines virtuelles pour obtenir l’ID en majuscules (`toupper()`), obtenir le nom et le type du système d’exploitation, et obtenir la taille des machines virtuelles. L’obtention de l’ID de ressource en majuscules est un bon moyen de préparer la jointure à une autre propriété. Ensuite, la requête utilise `join` avec **kind** comme _leftouter_ pour obtenir les extensions de machine virtuelle en établissant une correspondance avec une `substring` en majuscules de l’ID d’extension. La partie de l’ID avant « /extensions/\<ExtensionName\> » est du même format que l’ID des machines virtuelles. Nous utilisons donc cette propriété pour `join`. `summarize` est ensuite utilisé avec `make_list` sur le nom de l’extension de machine virtuelle pour combiner le nom de chaque extension où _id_, _OSName_, _OSType_ et _VMSize_ sont les mêmes dans une propriété de tableau unique. Enfin, nous effectuons un tri `order by` par _OSName_ en minuscules avec **asc**. Par défaut, `order by` est décroissant.
 
 ```kusto
 Resources
@@ -572,7 +572,7 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ### <a name="list-all-extensions-installed-on-an-azure-arc-enabled-server"></a>Lister toutes les extensions installées sur un serveur avec Azure Arc
 
-Tout d’abord, cette requête utilise `project` sur le type de ressource de machine hybride pour obtenir l’ID en majuscules (`toupper()`), obtenir le nom d’ordinateur et le système d’exploitation en cours d’exécution sur la machine. L’obtention de l’ID de ressource en majuscules est un bon moyen de préparer une opération `join` avec une autre propriété. Ensuite, la requête utilise `join` avec **kind** comme _leftouter_ pour obtenir les extensions en faisant correspondre une `substring` en majuscules de l’ID d’extension. La partie de l’ID avant `/extensions/<ExtensionName>` ayant le même format que l’ID de machine hybride, nous utilisons cette propriété pour `join`. `summarize` est ensuite utilisé avec `make_list` sur le nom de l’extension de machine virtuelle pour combiner le nom de chaque extension où _id_, _OSName_ et _ComputerName_ sont les mêmes dans une propriété monotableau. Enfin, nous trions les _OSName_ en minuscules par ordre alphabétique (**asc**). Par défaut, `order by` est décroissant.
+Tout d’abord, cette requête utilise `project` sur le type de ressource de machine hybride pour obtenir l’ID en majuscules (`toupper()`), obtenir le nom d’ordinateur et le système d’exploitation en cours d’exécution sur la machine. L’obtention de l’ID de ressource en majuscules est un bon moyen de préparer une opération `join` avec une autre propriété. Ensuite, la requête utilise `join` avec **kind** comme _leftouter_ pour obtenir les extensions en établissant une correspondance avec une `substring` en majuscules de l’ID d’extension. La partie de l’ID avant `/extensions/<ExtensionName>` ayant le même format que l’ID de machine hybride, nous utilisons cette propriété pour `join`. `summarize` est ensuite utilisé avec `make_list` sur le nom de l’extension de machine virtuelle pour combiner le nom de chaque extension où _id_, _OSName_ et _ComputerName_ sont les mêmes dans une propriété monotableau. Enfin, nous effectuons un tri par _OSName_ en minuscules avec **asc**. Par défaut, `order by` est décroissant.
 
 ```kusto
 Resources
@@ -757,6 +757,55 @@ Search-AzGraph -Query "ResourceContainers | where isnotempty(tags) | project tag
 
 ---
 
+### <a name="list-arc-enabled-servers-not-running-latest-released-agent-version"></a>Lister les serveurs avec Arc qui n’exécutent pas la dernière version publiée de l’agent
+
+Cette requête retourne tous les serveurs avec Arc qui exécutent une version obsolète de l’agent Connected Machine. Les agents dont l’état est **Expiré** sont exclus des résultats. La requête utilise _leftouter_ `join` pour réunir les recommandations Advisor en rapport avec les agents Connected Machine identifiés comme obsolètes, ainsi que sur les ordinateurs hybrides, de manière à exclure les agents qui n’ont pas communiqué avec Azure pendant une période donnée.
+
+```kusto
+AdvisorResources
+| where type == 'microsoft.advisor/recommendations'
+| where properties.category == 'HighAvailability'
+| where properties.shortDescription.solution == 'Upgrade to the latest version of the Azure Connected Machine agent'
+| project
+        id,
+        JoinId = toupper(properties.resourceMetadata.resourceId),
+        machineName = tostring(properties.impactedValue),
+        agentVersion = tostring(properties.extendedProperties.installedVersion),
+        expectedVersion = tostring(properties.extendedProperties.latestVersion)
+| join kind=leftouter(
+    Resources
+    | where type == 'microsoft.hybridcompute/machines'
+    | project
+        machineId = toupper(id),
+        status = tostring (properties.status)
+    ) on $left.JoinId == $right.machineId
+| where status != 'Expired'
+| summarize by id, machineName, agentVersion, expectedVersion
+| order by tolower(machineName) asc
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "AdvisorResources | where type == 'microsoft.advisor/recommendations' | where properties.category == 'HighAvailability' | where properties.shortDescription.solution == 'Upgrade to the latest version of the Azure Connected Machine agent' | project  id,  JoinId = toupper(properties.resourceMetadata.resourceId),  machineName = tostring(properties.impactedValue),  agentVersion = tostring(properties.extendedProperties.installedVersion),  expectedVersion = tostring(properties.extendedProperties.latestVersion) | join kind=leftouter( Resources | where type == 'microsoft.hybridcompute/machines' | project  machineId = toupper(id),  status = tostring (properties.status) ) on $left.JoinId == $right.machineId | where status != 'Expired' | summarize by id, machineName, agentVersion, expectedVersion | order by tolower(machineName) asc"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "AdvisorResources | where type == 'microsoft.advisor/recommendations' | where properties.category == 'HighAvailability' | where properties.shortDescription.solution == 'Upgrade to the latest version of the Azure Connected Machine agent' | project  id,  JoinId = toupper(properties.resourceMetadata.resourceId),  machineName = tostring(properties.impactedValue),  agentVersion = tostring(properties.extendedProperties.installedVersion),  expectedVersion = tostring(properties.extendedProperties.latestVersion) | join kind=leftouter( Resources | where type == 'microsoft.hybridcompute/machines' | project  machineId = toupper(id),  status = tostring (properties.status) ) on $left.JoinId == $right.machineId | where status != 'Expired' | summarize by id, machineName, agentVersion, expectedVersion | order by tolower(machineName) asc"
+```
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+:::image type="icon" source="../../../../articles/governance/resource-graph/media/resource-graph-small.png"::: Essayez cette requête dans l’Explorateur Azure Resource Graph :
+
+- Portail Azure : <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AdvisorResources%0a%7c%20where%20type%20%3d%3d%20%27microsoft.advisor%2frecommendations%27%0a%7c%20where%20properties.category%20%3d%3d%20%27HighAvailability%27%0a%7c%20where%20properties.shortDescription.solution%20%3d%3d%20%27Upgrade%20to%20the%20latest%20version%20of%20the%20Azure%20Connected%20Machine%20agent%27%0a%7c%20project%0a%09%09id%2c%0a%09%09JoinId%20%3d%20toupper(properties.resourceMetadata.resourceId)%2c%0a%09%09machineName%20%3d%20tostring(properties.impactedValue)%2c%0a%09%09agentVersion%20%3d%20tostring(properties.extendedProperties.installedVersion)%2c%0a%09%09expectedVersion%20%3d%20tostring(properties.extendedProperties.latestVersion)%0a%7c%20join%20kind%3dleftouter(%0a%09Resources%0a%09%7c%20where%20type%20%3d%3d%20%27microsoft.hybridcompute%2fmachines%27%0a%09%7c%20project%0a%09%09machineId%20%3d%20toupper(id)%2c%0a%09%09status%20%3d%20tostring%20(properties.status)%0a%09)%20on%20%24left.JoinId%20%3d%3d%20%24right.machineId%0a%7c%20where%20status%20!%3d%20%27Expired%27%0a%7c%20summarize%20by%20id%2c%20machineName%2c%20agentVersion%2c%20expectedVersion%0a%7c%20order%20by%20tolower(machineName)%20asc" target="_blank">portal.azure.com</a>
+- Portail Azure Government : <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AdvisorResources%0a%7c%20where%20type%20%3d%3d%20%27microsoft.advisor%2frecommendations%27%0a%7c%20where%20properties.category%20%3d%3d%20%27HighAvailability%27%0a%7c%20where%20properties.shortDescription.solution%20%3d%3d%20%27Upgrade%20to%20the%20latest%20version%20of%20the%20Azure%20Connected%20Machine%20agent%27%0a%7c%20project%0a%09%09id%2c%0a%09%09JoinId%20%3d%20toupper(properties.resourceMetadata.resourceId)%2c%0a%09%09machineName%20%3d%20tostring(properties.impactedValue)%2c%0a%09%09agentVersion%20%3d%20tostring(properties.extendedProperties.installedVersion)%2c%0a%09%09expectedVersion%20%3d%20tostring(properties.extendedProperties.latestVersion)%0a%7c%20join%20kind%3dleftouter(%0a%09Resources%0a%09%7c%20where%20type%20%3d%3d%20%27microsoft.hybridcompute%2fmachines%27%0a%09%7c%20project%0a%09%09machineId%20%3d%20toupper(id)%2c%0a%09%09status%20%3d%20tostring%20(properties.status)%0a%09)%20on%20%24left.JoinId%20%3d%3d%20%24right.machineId%0a%7c%20where%20status%20!%3d%20%27Expired%27%0a%7c%20summarize%20by%20id%2c%20machineName%2c%20agentVersion%2c%20expectedVersion%0a%7c%20order%20by%20tolower(machineName)%20asc" target="_blank">portal.azure.us</a>
+- Portail Azure China 21Vianet : <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AdvisorResources%0a%7c%20where%20type%20%3d%3d%20%27microsoft.advisor%2frecommendations%27%0a%7c%20where%20properties.category%20%3d%3d%20%27HighAvailability%27%0a%7c%20where%20properties.shortDescription.solution%20%3d%3d%20%27Upgrade%20to%20the%20latest%20version%20of%20the%20Azure%20Connected%20Machine%20agent%27%0a%7c%20project%0a%09%09id%2c%0a%09%09JoinId%20%3d%20toupper(properties.resourceMetadata.resourceId)%2c%0a%09%09machineName%20%3d%20tostring(properties.impactedValue)%2c%0a%09%09agentVersion%20%3d%20tostring(properties.extendedProperties.installedVersion)%2c%0a%09%09expectedVersion%20%3d%20tostring(properties.extendedProperties.latestVersion)%0a%7c%20join%20kind%3dleftouter(%0a%09Resources%0a%09%7c%20where%20type%20%3d%3d%20%27microsoft.hybridcompute%2fmachines%27%0a%09%7c%20project%0a%09%09machineId%20%3d%20toupper(id)%2c%0a%09%09status%20%3d%20tostring%20(properties.status)%0a%09)%20on%20%24left.JoinId%20%3d%3d%20%24right.machineId%0a%7c%20where%20status%20!%3d%20%27Expired%27%0a%7c%20summarize%20by%20id%2c%20machineName%2c%20agentVersion%2c%20expectedVersion%0a%7c%20order%20by%20tolower(machineName)%20asc" target="_blank">portal.azure.cn</a>
+
+---
+
 ### <a name="list-azure-arc-enabled-custom-locations-with-vmware-or-scvmm-enabled"></a>Répertorier les emplacements personnalisés compatibles avec Azure Arc avec activation de VMware ou SCVMM
 
 Fournit la liste de tous les emplacements personnalisés compatibles avec Azure Arc dont les types de ressources VMware ou SCVMM sont activés.
@@ -833,6 +882,45 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.documentdb/databasea
 - Portail Azure : <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.documentdb%2fdatabaseaccounts%27%0a%7c%20project%20id%2c%20name%2c%20writeLocations%20%3d%20(properties.writeLocations)%0a%7c%20mv-expand%20writeLocations%0a%7c%20project%20id%2c%20name%2c%20writeLocation%20%3d%20tostring(writeLocations.locationName)%0a%7c%20where%20writeLocation%20in%20(%27East%20US%27%2c%20%27West%20US%27)%0a%7c%20summarize%20by%20id%2c%20name" target="_blank">portal.azure.com</a>
 - Portail Azure Government : <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.documentdb%2fdatabaseaccounts%27%0a%7c%20project%20id%2c%20name%2c%20writeLocations%20%3d%20(properties.writeLocations)%0a%7c%20mv-expand%20writeLocations%0a%7c%20project%20id%2c%20name%2c%20writeLocation%20%3d%20tostring(writeLocations.locationName)%0a%7c%20where%20writeLocation%20in%20(%27East%20US%27%2c%20%27West%20US%27)%0a%7c%20summarize%20by%20id%2c%20name" target="_blank">portal.azure.us</a>
 - Portail Azure China 21Vianet : <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.documentdb%2fdatabaseaccounts%27%0a%7c%20project%20id%2c%20name%2c%20writeLocations%20%3d%20(properties.writeLocations)%0a%7c%20mv-expand%20writeLocations%0a%7c%20project%20id%2c%20name%2c%20writeLocation%20%3d%20tostring(writeLocations.locationName)%0a%7c%20where%20writeLocation%20in%20(%27East%20US%27%2c%20%27West%20US%27)%0a%7c%20summarize%20by%20id%2c%20name" target="_blank">portal.azure.cn</a>
+
+---
+
+### <a name="list-impacted-resources-when-transferring-an-azure-subscription"></a>Lister les ressources impactées lors du transfert d’un abonnement Azure
+
+Retourne certaines des ressources Azure qui sont impactées lorsque vous transférez un abonnement vers un autre annuaire Azure Active Directory (Azure AD). Vous devrez recréer certaines des ressources qui existaient avant le transfert de l’abonnement.
+
+```kusto
+Resources
+| where type in (
+    'microsoft.managedidentity/userassignedidentities',
+    'microsoft.keyvault/vaults',
+    'microsoft.sql/servers/databases',
+    'microsoft.datalakestore/accounts',
+    'microsoft.containerservice/managedclusters')
+    or identity has 'SystemAssigned'
+    or (type =~ 'microsoft.storage/storageaccounts' and properties['isHnsEnabled'] == true)
+| summarize count() by type
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "Resources | where type in ( 'microsoft.managedidentity/userassignedidentities', 'microsoft.keyvault/vaults', 'microsoft.sql/servers/databases', 'microsoft.datalakestore/accounts', 'microsoft.containerservice/managedclusters') or identity has 'SystemAssigned' or (type =~ 'microsoft.storage/storageaccounts' and properties['isHnsEnabled'] == true) | summarize count() by type"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type in ( 'microsoft.managedidentity/userassignedidentities', 'microsoft.keyvault/vaults', 'microsoft.sql/servers/databases', 'microsoft.datalakestore/accounts', 'microsoft.containerservice/managedclusters') or identity has 'SystemAssigned' or (type =~ 'microsoft.storage/storageaccounts' and properties['isHnsEnabled'] == true) | summarize count() by type"
+```
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+:::image type="icon" source="../../../../articles/governance/resource-graph/media/resource-graph-small.png"::: Essayez cette requête dans l’Explorateur Azure Resource Graph :
+
+- Portail Azure : <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0a%7c%20where%20type%20in%20(%0a%09%27microsoft.managedidentity%2fuserassignedidentities%27%2c%0a%09%27microsoft.keyvault%2fvaults%27%2c%0a%09%27microsoft.sql%2fservers%2fdatabases%27%2c%0a%09%27microsoft.datalakestore%2faccounts%27%2c%0a%09%27microsoft.containerservice%2fmanagedclusters%27)%0a%09or%20identity%20has%20%27SystemAssigned%27%0a%09or%20(type%20%3d%7e%20%27microsoft.storage%2fstorageaccounts%27%20and%20properties%5b%27isHnsEnabled%27%5d%20%3d%3d%20true)%0a%7c%20summarize%20count()%20by%20type" target="_blank">portal.azure.com</a>
+- Portail Azure Government : <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0a%7c%20where%20type%20in%20(%0a%09%27microsoft.managedidentity%2fuserassignedidentities%27%2c%0a%09%27microsoft.keyvault%2fvaults%27%2c%0a%09%27microsoft.sql%2fservers%2fdatabases%27%2c%0a%09%27microsoft.datalakestore%2faccounts%27%2c%0a%09%27microsoft.containerservice%2fmanagedclusters%27)%0a%09or%20identity%20has%20%27SystemAssigned%27%0a%09or%20(type%20%3d%7e%20%27microsoft.storage%2fstorageaccounts%27%20and%20properties%5b%27isHnsEnabled%27%5d%20%3d%3d%20true)%0a%7c%20summarize%20count()%20by%20type" target="_blank">portal.azure.us</a>
+- Portail Azure China 21Vianet : <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0a%7c%20where%20type%20in%20(%0a%09%27microsoft.managedidentity%2fuserassignedidentities%27%2c%0a%09%27microsoft.keyvault%2fvaults%27%2c%0a%09%27microsoft.sql%2fservers%2fdatabases%27%2c%0a%09%27microsoft.datalakestore%2faccounts%27%2c%0a%09%27microsoft.containerservice%2fmanagedclusters%27)%0a%09or%20identity%20has%20%27SystemAssigned%27%0a%09or%20(type%20%3d%7e%20%27microsoft.storage%2fstorageaccounts%27%20and%20properties%5b%27isHnsEnabled%27%5d%20%3d%3d%20true)%0a%7c%20summarize%20count()%20by%20type" target="_blank">portal.azure.cn</a>
 
 ---
 

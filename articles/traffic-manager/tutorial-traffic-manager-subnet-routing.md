@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2021
 ms.author: duau
-ms.openlocfilehash: 1e95d3b72af14b151bdd1cbeede4d65deef0f817
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5d97ebebe19235a54084ec551f3bbcb9e55e3022
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081512"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425623"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutoriel : Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur via Traffic Manager
 
@@ -154,7 +154,7 @@ Créez un profil Traffic Manager qui vous permet de retourner des points de term
 
     ![Créer un profil Traffic Manager](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
-    | Paramètre                 | Value                                              |
+    | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage de **Sous-réseau**.                                       |
@@ -175,9 +175,9 @@ Ajoutez les deux machines virtuelles qui exécutent les serveurs IIS : *myIISVME
     | Nom           | myInternalWebSiteEndpoint                                        |
     | Type de ressource cible           | Adresse IP publique                          |
     | Ressource cible          | Sélectionnez **Choisir une adresse IP publique** pour afficher la liste des ressources pourvues d’adresses IP publiques dans le même abonnement. Dans **Ressource**, sélectionnez l’adresse IP publique nommée *myIISVMEastUS-ip*. Il s’agit de l’adresse IP publique de la machine virtuelle serveur IIS qui se trouve dans la région USA Est.|
-    |  Paramètres de routage de sous-réseau    |   Ajoutez l’adresse IP de la machine virtuelle de test *myVMEastUS*. Toute requête utilisateur provenant de cette machine virtuelle est dirigée vers *myInternalWebSiteEndpoint*.    |
+    |  Paramètres de routage de sous-réseau    |   Ajoutez l’adresse IP de l’outil de résolution DNS récursif utilisé par la machine virtuelle de test *myVMEastUS*. Toute requête utilisateur provenant de cette machine virtuelle est dirigée vers *myInternalWebSiteEndpoint*.    |
 
-4. Répétez les étapes 2 et 3 pour ajouter un autre point de terminaison nommé *myProdWebsiteEndpoint* pour l’adresse IP publique *myIISVMWestEurope-ip* qui est associée à la machine virtuelle serveur IIS nommée *myIISVMWestEurope*. Pour les **paramètres de routage de sous-réseau**, ajoutez l’adresse IP de la machine virtuelle de test *myVMWestEurope*. Toute requête utilisateur de cette machine virtuelle de test est routée vers le point de terminaison *myProdWebsiteEndpoint*.
+4. Répétez les étapes 2 et 3 pour ajouter un autre point de terminaison nommé *myProdWebsiteEndpoint* pour l’adresse IP publique *myIISVMWestEurope-ip* qui est associée à la machine virtuelle serveur IIS nommée *myIISVMWestEurope*. Pour les **paramètres de routage de sous-réseau**, ajoutez l’adresse IP de l’outil de résolution DNS récursif utilisé par la machine virtuelle de test *myVMWestEurope*. Les requêtes utilisateur qui proviennent de cette machine virtuelle de test en passant par son outil de résolution DNS sont routées vers le point de terminaison *myProdWebsiteEndpoint*.
 5. Une fois l’ajout des deux points de terminaison terminé, ceux-ci s’affichent dans **Profil Traffic Manager** avec leur état de surveillance défini sur **En ligne**.
 
 ## <a name="test-traffic-manager-profile"></a>Tester le profil Traffic Manager

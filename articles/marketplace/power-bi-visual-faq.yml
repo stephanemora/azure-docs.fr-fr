@@ -1,0 +1,123 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ sur le déplacement des offres de visuels Power BI de l’Office Store vers la Place de marché commerciale.
+  description: Forum aux questions sur le déplacement des offres de visuels Power BI de l’Office Store vers la Place de marché commerciale.
+  ms.service: marketplace
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: conceptual
+  ms.date: 09/03/2021
+  author: posurnis
+  ms.author: pooja.surnis
+  ms.reviewer: pooja.surnis
+  ms.openlocfilehash: a86d692daa794aed6130e7e1e4f84b74f04285a6
+  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/07/2021
+  ms.locfileid: "123544531"
+title: FAQ sur les visuels Power BI
+summary: Les offres de visuels Power BI vont être déplacées vers la Place de marché commerciale au sein de l’Espace partenaires afin de simplifier l’expérience de gestion des offres. Toutes les offres de visuels Power BI nouvelles et existantes seront accessibles sur la Place de marché commerciale une fois le basculement effectué par Microsoft en septembre 2021. Cet article répond aux questions fréquentes sur ce déplacement et sur les améliorations apportées à l’expérience de gestion des offres.
+sections:
+- name: Ignoré
+  questions:
+  - question: >
+      Que signifie pour moi le déplacement vers la Place de marché commerciale ?
+    answer: >
+      | Domaine | Modifications |
+
+      | --- | --- |
+
+      | Compte | Vous devez être inscrit sur la Place de marché commerciale pour gérer les offres de visuels Power BI nouvelles et existantes. Si vous n’êtes pas encore inscrit, vous devez signer l’accord de publication pour le programme de la Place de marché commerciale et vous inscrire à l’aide de votre adresse e-mail professionnelle. En savoir plus dans [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](manage-account.md). |
+
+      | Expérience de publication d’offre et de gestion des offres | Nous déplacerons votre offre de l’Office Store vers la Place de marché commerciale en septembre 2021. Après le déplacement, vous gérerez vos offres sur la Place de marché commerciale (plutôt que dans l’Office Store), qui offre une expérience utilisateur améliorée et un processus de soumission de packages simplifié. Découvrez comment [Mettre à jour une offre existante dans la Place de marché commerciale](update-existing-offer.md). |
+
+      | Disponibilité de vos offres dans l’Espace partenaires | Aucun changement. Si votre offre est à l’état publiée ou brouillon dans l’Office Store, elle restera dans le même état après son déplacement vers la Place de marché commerciale. |
+
+      | Acquisitions et déploiements | Aucun changement. Vos clients peuvent continuer à découvrir, à télécharger et à déployer vos offres sans interruption. |
+
+      | Analytics | Le tableau de bord **Insights Place de marché** dans l’Espace partenaires va être amélioré afin d’afficher des informations sur les clics de consentement et la plateforme (site web et client) pour vos offres de visuels Power BI. Utilisez ces informations pour mieux comprendre les sources à la base du trafic, des clics et des conversions de vos offres. |
+
+      |
+  - question: >
+      Dois-je créer un nouveau compte pour gérer mes offres dans l’Espace partenaires ?
+    answer: >
+      Si le même compte que celui de l’Office Store est inscrit dans la Place de marché commerciale, aucune action supplémentaire n’est requise. Une fois le déplacement effectué, connectez-vous à l’Espace partenaires à l’aide du même compte. Vous verrez vos visuels Power BI dans la Place de marché commerciale.
+
+
+      Si votre compte Office Store n’est pas inscrit sur la Place de marché commerciale, contactez le propriétaire du compte afin de procéder à son inscription. Pour éviter de créer un compte ou un ID de vendeur différent pour la Place de marché commerciale, le *Propriétaire* doit effectuer cette inscription. Découvrez comment identifier votre ID de vendeur dans [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](manage-account.md).
+
+
+      Si votre compte Office Store n’est pas inscrit sur la Place de marché commerciale, mais que votre organisation est inscrite sur la Place de marché commerciale avec un autre ID de vendeur, nous vous encourageons quand même à vous inscrire sur la Place de marché commerciale en utilisant le même compte que celui de l’inscription à l’Office Store.
+
+
+      Si vous créez un compte pour l’inscription sur la Place de marché commerciale avec un ID de vendeur différent de celui de l’Office Store, vos offres de visuels Power BI ne seront pas automatiquement déplacées vers la Place de marché commerciale. Contactez le [support technique](https://partner.microsoft.com/support/?stage=2&topicid=dfd204c3-8357-c8d6-4dff-186bd183058c) et fournissez le nouvel ID de vendeur. Nous mapperons votre offre de visuel Power BI existante au nouveau compte une fois le déplacement effectué, et notre équipe d’ingénieurs déplacera votre offre de visuel Power BI vers le nouvel ID de vendeur.
+  - question: >
+      Quelles sont les pages de l’Espace partenaires qui correspondent aux pages que j’utilisais dans l’Office Store ?
+    answer: >
+      Le tableau suivant montre la corrélation entre les anciennes et les nouvelles pages. Si vous avez enregistré les liens de l’Office Store en tant que signets, vous devrez les mettre à jour.
+
+
+      | Nom de la page dans l’Office Store | Nom de la page dans l’Espace partenaires |
+
+      | --- | --- |
+
+      | Vue d’ensemble du produit | Vue d’ensemble de l’offre |
+
+      | Programme d’installation du produit | Configuration de l’offre |
+
+      | Paquets | Configuration technique |
+
+      | Propriétés | Propriétés |
+
+      | Listes Marketplace | Annonce de l’offre |
+
+      | Disponibilité | Disponibilité |
+
+      | Gestion de produit | Gestion des offres |
+
+      |
+  - question: >
+      Qu’en est-il des offres que j’ai publiées dans l’Office Store ?
+    answer: >
+      Les offres de visuels Power BI déplacées vers la Place de marché commerciale seront accessibles lorsque vous vous connecterez à la Place de marché commerciale. Si votre offre était publiée et active dans l’Office Store, elle continuera à être active et vos clients pourront toujours la découvrir, l’acquérir et la télécharger sans interruption.
+  - question: >
+      Toutes mes offres de l’Office Store seront-elles déplacées vers la Place de marché commerciale lors de ce basculement ?
+    answer: >
+      Nous ne déplaçons que vos offres de visuels Power BI vers la Place de marché commerciale. Les offres de l’Office Store pour les **compléments Office**, la **solution SharePoint** et les **applications Teams** resteront accessibles dans l’Office Store.
+
+
+      Toutes les offres de visuels Power BI prises en charge dans l’Office Store seront déplacées, quel que soit leur état (brouillon ou active). Les offres de visuels Power BI seront verrouillées et ne pourront pas être modifiées dans l’Office Store une fois déplacées.
+  - question: >
+      Pourquoi mes offres de visuels Power BI sont-elles introuvables dans l’Espace partenaires ?
+    answer: >
+      Une fois que nous aurons déplacé vos offres vers la Place de marché commerciale, vous ne pourrez plus y accéder à partir de l’Office Store. Ce que vous voyez dans l’Espace partenaires dépend des programmes auxquels vous êtes inscrit, des comptes auxquels vous appartenez, des rôles utilisateur et des autorisations qui vous ont été attribués. De nombreux programmes de l’Espace partenaires sont disponibles et vous pourriez être inscrit à plusieurs d’entre eux. Vous pouvez également avoir accès à plusieurs comptes avec les mêmes informations d’identification utilisateur.
+
+
+      Les offres de visuels Power BI que vous avez créées dans l’Office Store seront disponibles dans la Place de marché commerciale avec le même compte que celui utilisé pour créer les offres d’origine. Effectuez les étapes suivantes pour vérifier que vous affichez le bon programme et le bon compte. Pour obtenir d’autres conseils de dépannage, consultez [Gérer votre compte Espace partenaires](/partner-center/partner-center-account-setup).
+
+
+      **Accéder au programme approprié dans l’Espace partenaires**
+
+
+      1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2166002) à l’aide des mêmes informations d’identification qu’auparavant. Le menu de navigation de gauche contient les options associées aux programmes auxquels vous êtes inscrit, tels que le programme MPN, l’Office Store et la Place de marché commerciale.
+
+
+      1. Sélectionnez **Place de marché commerciale** > **Vue d’ensemble** pour accéder à vos offres (si vous ne voyez pas la Place de marché commerciale dans le menu de navigation de gauche, il se peut que vous soyez connecté au mauvais compte :
+
+         :::image type="content" source="media/power-bi-visual/overview-tab.png" alt-text="Montre l’onglet Vue d’ensemble de l’Espace partenaires.":::
+
+      **Accéder au compte approprié dans l’Espace partenaires**
+
+
+      Si vous avez plusieurs comptes, le menu de gauche de l’Espace partenaires contient un bouton de sélection de compte. Sélectionnez-le pour voir les comptes auxquels vous appartenez. Sélectionnez un compte pour y accéder et voir l’ensemble des programmes et des informations sur ce compte. Si vous ne voyez pas de bouton de sélection de compte dans le menu de navigation, cela signifie que vous n’avez qu’un seul compte.
+
+
+      :::image type="content" source="media/power-bi-visual/account-picker.png" alt-text="Montre le bouton de sélection de compte dans le menu de navigation de gauche de l’Espace partenaires.":::
+  - question: >
+      Où se trouvent les instructions d’utilisation de l’Espace partenaires ?
+    answer: >
+      Accédez à la [page d’accueil](https://aka.ms/MigrationFAQs) de la Place de marché commerciale et développez la section **Créer et gérer des offres**.
+  - question: >
+      Quelles sont les différences en matière de publication et de gestion des offres ?
+    answer: "Voici les principales différences entre la publication d’une offre de visuel Power BI dans l’Office Store et dans la Place de marché commerciale :\n\n1. **Processus de soumission de packages simplifié**\n\n   Pour toute nouvelle offre que vous soumettez sur la Place de marché commerciale dans l’Espace partenaires, vous pouvez charger directement les deux fichiers de package, `.pbix` et `.pbiviz`, dans la page **Configuration technique**. Vous n’avez plus besoin de travailler avec l’équipe de support PBI pour le fichier manifeste XML. L’utilisation d’un fichier XML pour la soumission de l’offre n’est plus nécessaire. Ce processus de soumission simplifié réduit le temps nécessaire à la préparation et à la soumission d’une offre de visuel Power BI.\n\n   :::image type=\"content\" source=\"media/power-bi-visual/technical-config.png\" alt-text=\"Montre la page de configuration technique dans l’Espace partenaires.\":::\n\n1. **Options d’aperçu améliorées**\n\n   La Place de marché commerciale offre une fonctionnalité de comparaison avec des options de filtrage améliorées qui vous permettent de voir les modifications avant de publier votre offre, et de la comparer à ce qui est déjà en préversion ou accessible aux clients. Les mises à jour que vous ne publiez pas sont enregistrées en tant que brouillons. Apprenez-en davantage sur la fonctionnalité de **comparaison** dans [Mettre à jour des offres existantes dans la Place de marché commerciale](update-existing-offer.md#compare-changes-to-your-offer).\n\n   :::image type=\"content\" source=\"media/power-bi-visual/enhanced-preview.png\" lightbox=\"media/power-bi-visual/enhanced-preview.png\" alt-text=\"Montre la page de comparaison d’offre dans l’Espace partenaires.\":::\n\n1. **Changements dans la personnalisation et la navigation**\n\n   Vous remarquerez certaines modifications de personnalisation. Par exemple, les **produits** sont libellés **offres** sur la Place de marché commerciale :\n\n   :::image type=\"content\" source=\"media/power-bi-visual/branding-navigation.png\" alt-text=\"Montre la page Vue d’ensemble de l’offre dans l’Espace partenaires.\":::\n\n1. **Analyse**\n\n   - Le tableau de bord **Insights Place de marché** dans l’Espace partenaires bénéficie des améliorations suivantes :\n\n     - Tendance d’Appels à l’action\n\n       - Ajout de l’analytique des clics de consentement. Les clics de consentement représentent le nombre de tous les clics de consentement effectués dans la page de description de l’offre. Ils apparaissent après qu’un utilisateur a cliqué sur un bouton **Appel à l’action** : *Télécharger maintenant*, *Essai gratuit*, *Contactez-moi* ou *Version d’évaluation*.\n\n         :::image type=\"content\" source=\"media/power-bi-visual/analytics-graphs.png\" alt-text=\"Montre le graphique d’analytique des clics de consentement dans l’Espace partenaires.\":::\n\n     - Visites de pages et Appels à l’action\n     \n     - Les données tabulaires sont modifiées\n\n       - Ajout de la colonne **Clics de consentement**. Utilisez ces informations pour comprendre les taux de conversion de vos offres.\n\n       - Ajout de la colonne **Plateforme** dans la vue par domaine de référence. Utilisez ces informations pour comprendre comment les vues de page, les appels à l’action et les clics de consentement pour vos offres varient selon les plateformes de site web et les plateformes clientes intégrées.\n\n       - Ajout de la **vue Entonnoir** pour afficher les taux de conversion des pages consultées en clics de consentement\n\n         :::image type=\"content\" source=\"media/power-bi-visual/funnel-view.png\" alt-text=\"Montre le graphique d’analytique de la vue Entonnoir dans l’Espace partenaires.\":::\n\n   - Analytique dans la page Office Store\n\n     - L’analytique dans l’Office Store indique la télémétrie d’acquisition uniquement pour le magasin dans le client. L’analytique pour le web store est affichée dans le rapport Insights Place de marché (dans la Place de marché commerciale) une fois les offres migrées.\n     \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\n- Pour obtenir une assistance supplémentaire, contactez le [support](https://partner.microsoft.com/support/?stage=2&topicid=dfd204c3-8357-c8d6-4dff-186bd183058c).\n\n<!--\n- [Create a Power BI visual offer in Partner Center](marketplace-power-bi-visual.md) -->"

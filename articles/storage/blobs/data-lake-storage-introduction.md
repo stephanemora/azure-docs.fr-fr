@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b197d91893cc419913ace60fe30beca88484bfd2
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 65d8ad19426aca491260035364c4e99bfc1b5179
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590951"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469641"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Présentation d'Azure Data Lake Storage Gen2
 
@@ -68,11 +68,11 @@ Les éléments suivants sont des entités équivalentes, décrites par différen
 | Objets BLOB – Stockage d’objets à usage général | Conteneur              | Répertoire virtuel (Kit de développement logiciel uniquement – ne fournit aucune manipulation atomique) | Objet blob           |
 | Azure Data Lake Storage Gen2 – Analytics Storage          | Conteneur            | Répertoire                                                           | Fichier           |
 
-## <a name="supported-blob-storage-features"></a>Fonctionnalités du stockage Blob prises en charge
+## <a name="supported-blob-storage-features"></a>Fonctionnalités Stockage Blob prises en charge
 
-Les fonctionnalités de stockage Blob, telles que la [journalisation des diagnostics](../common/storage-analytics-logging.md), les [niveaux d’accès](storage-blob-storage-tiers.md) et les [stratégies de gestion du cycle de vie du stockage Blob](storage-lifecycle-management-concepts.md) sont disponibles pour votre compte. 
+Les fonctionnalités de Stockage Blob, telles que la [journalisation des diagnostics](../common/storage-analytics-logging.md), les [niveaux d’accès](storage-blob-storage-tiers.md) et les [stratégies de gestion du cycle de vie du stockage Blob](storage-lifecycle-management-concepts.md) sont disponibles pour votre compte. La plupart des fonctionnalités de Stockage Blob sont entièrement prises en charge, mais certaines sont prises en charge uniquement au niveau de la préversion ou ne sont pas encore prises en charge.  
 
-Pour obtenir la liste des fonctionnalités du stockage Blob prises en charge, consultez [Fonctionnalités du stockage Blob disponibles dans Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+Pour voir comment chaque fonctionnalité Stockage Blob est prise en charge avec Data Lake Storage Gen2, consultez [Prise en charge des fonctionnalités de Stockage Blob dans les comptes Stockage Azure](storage-feature-support-in-storage-accounts.md).
 
 ## <a name="supported-azure-service-integrations"></a>Intégrations de service Azure prises en charge
 

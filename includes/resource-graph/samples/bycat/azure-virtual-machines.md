@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 716ac7b7d1c3b6577b9eb7290e249b306a617254
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 263f2be5c13a9086a529271ef8bd03464e20975e
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304095"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536315"
 ---
 ### <a name="count-of-os-update-installation-done"></a>Nombre d’installations de mise à jour du système d’exploitation effectuées
 
@@ -213,7 +213,7 @@ Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachin
 
 ### <a name="list-all-extensions-installed-on-a-virtual-machine"></a>Lister toutes les extensions installées sur une machine virtuelle
 
-Tout d’abord, cette requête utilise `extend` sur le type de ressource des machines virtuelles pour obtenir l’ID en majuscules (`toupper()`), obtenir le nom et le type du système d’exploitation, et obtenir la taille des machines virtuelles. L’obtention de l’ID de ressource en majuscules est un bon moyen de préparer la jointure à une autre propriété. Ensuite, la requête utilise `join` avec **kind** comme _leftouter_ pour obtenir les extensions de machine virtuelle en faisant correspondre une `substring` en majuscules de l’ID d’extension. La partie de l’ID avant « /extensions/\<ExtensionName\> » est du même format que l’ID des machines virtuelles. Nous utilisons donc cette propriété pour `join`. `summarize` est ensuite utilisé avec `make_list` sur le nom de l’extension de machine virtuelle pour combiner le nom de chaque extension où _id_, _OSName_, _OSType_ et _VMSize_ sont les mêmes dans une propriété de tableau unique. Enfin, nous ordonnons (`order by`) le nom _OSName_ en minuscules avec **asc**. Par défaut, `order by` est décroissant.
+Tout d’abord, cette requête utilise `extend` sur le type de ressource des machines virtuelles pour obtenir l’ID en majuscules (`toupper()`), obtenir le nom et le type du système d’exploitation, et obtenir la taille des machines virtuelles. L’obtention de l’ID de ressource en majuscules est un bon moyen de préparer la jointure à une autre propriété. Ensuite, la requête utilise `join` avec **kind** comme _leftouter_ pour obtenir les extensions de machine virtuelle en établissant une correspondance avec une `substring` en majuscules de l’ID d’extension. La partie de l’ID avant « /extensions/\<ExtensionName\> » est du même format que l’ID des machines virtuelles. Nous utilisons donc cette propriété pour `join`. `summarize` est ensuite utilisé avec `make_list` sur le nom de l’extension de machine virtuelle pour combiner le nom de chaque extension où _id_, _OSName_, _OSType_ et _VMSize_ sont les mêmes dans une propriété de tableau unique. Enfin, nous effectuons un tri `order by` par _OSName_ en minuscules avec **asc**. Par défaut, `order by` est décroissant.
 
 ```kusto
 Resources

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de49c820100140f0822149bba84f7a38f034323b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98951241"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473277"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutoriel : Utiliser les API REST
 
@@ -79,20 +79,22 @@ Pour configurer Azure Purview afin qu’il approuve votre nouveau principal de s
 
 1. Accédez à votre compte Purview.
 
-1. Dans la page **Compte Purview**, sélectionnez l’onglet **Contrôle d’accès (IAM)** .
+1. Dans la page **Compte Purview**, ouvrez **Purview Studio**.
 
-1. Cliquez sur **+ Ajouter**
+1. Sélectionnez **Data Map** dans le volet de navigation de gauche.
 
-1. Sélectionnez **Ajouter une attribution de rôle**.
+1. Sélectionnez **Collections**.
 
-1. Pour Rôle, entrez **Conservateur de données Purview**.
+1. Sélectionnez la collection racine dans le menu Collections. Il s’agit de la collection supérieure dans la liste, qui a le même nom que votre compte Purview.
+
+1. Sélectionnez l’onglet **Attributions de rôles**.
+
+1. Faites défiler jusque **Curateurs de données** et sélectionnez le bouton **+** utilisateur.
 
     > [!Note]
-    > Pour plus d’informations sur les autorisations du catalogue de données Azure Purview, consultez [Autorisations du catalogue](catalog-permissions.md). Par exemple, si vous avez besoin d’une autorisation pour déclencher l’analyse, le type de rôle doit être **Administrateur de sources de données Purview**.
+    > Seuls les administrateurs de collection peuvent modifier les autorisations sur une collection. Si vous n’êtes pas administrateur de collection, contactez l’un des administrateurs listés dans la collection racine. Pour plus d’informations, consultez la [page sur les autorisations Purview](catalog-permissions.md).
 
-1. Pour **Attribuer l’accès à**, laissez la valeur par défaut **Utilisateur, groupe ou principal de service**.
-
-1. Pour **Sélectionner**, entrez le nom du principal de service créé précédemment que vous souhaitez affecter, puis cliquez sur son nom dans le volet des résultats.
+1. Recherchez le nom du principal de service créé précédemment que vous souhaitez affecter, puis cliquez sur son nom dans le volet des résultats.
 
 1. Dans le menu Paramètres, cliquez sur **Enregistrer**
 
