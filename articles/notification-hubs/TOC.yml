@@ -119,6 +119,8 @@
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
     - name: Exportation et importation d’enregistrements en masse
       href: export-modify-registrations-bulk.md
+    - name: Déplacer des ressources entre des régions
+      href: move-registrations.md
     - name: Créer un hub de notification à l’aide de Kits de développement logiciel (SDK)
       items:
         - name: Créer un hub de notification - .NET

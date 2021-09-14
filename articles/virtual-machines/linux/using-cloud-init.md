@@ -9,14 +9,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: srijangupta
-ms.openlocfilehash: be1bf712d91aaaff460ff2dcc4a899f8b8a089be
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e62653a7b48ac22f4482974696ad14c13b39a88
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532335"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698854"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
+
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment du provisionnement dans Azure. Ces configurations cloud-init sont exécutées au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
 
 L’approvisionnement de la machine virtuelle est le processus par lequel Azure transmet à votre machine virtuelle les valeurs des paramètres de création, tels que le nom d’hôte, le nom d’utilisateur, le mot de passe, etc. et les met à la disposition de la machine virtuelle au moment de son démarrage. Un « agent d’approvisionnement » consomme ces valeurs, configure la machine virtuelle et renvoie un rapport une fois terminé. 

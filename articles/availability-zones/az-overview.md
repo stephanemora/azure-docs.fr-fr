@@ -8,12 +8,12 @@ ms.date: 04/09/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: a15a94694f3c0623830650a8b5bbb00dc4c4cb6b
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 8d2198c4c2c2dd100d7bbf88eebc4e521d6ace04
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285511"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525139"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Régions et zones de disponibilité dans Azure
 
@@ -38,7 +38,7 @@ Pour mieux comprendre les régions et les zones de disponibilité dans Azure, il
 
 ## <a name="regions"></a>Régions
 
-Une région est constituée d’un ensemble de centres de données déployés dans un périmètre avec une latence définie et connectés via un réseau régional dédié à faible latence. Azure vous offre la possibilité de déployer des applications là où vous en avez besoin, y compris dans plusieurs régions pour fournir une résilience inter-régions. Pour plus d’informations, consultez la page [Vue d’ensemble du pilier de résilience](/azure/architecture/framework/resiliency/overview).
+Une région est constituée d’un ensemble de centres de données déployés dans un périmètre avec une latence définie et connectés via un réseau régional dédié à faible latence. Azure vous offre la possibilité de déployer des applications là où vous en avez besoin, y compris dans plusieurs régions pour fournir une résilience inter-régions. Pour plus d’informations, consultez la page [Vue d’ensemble du pilier de résilience](/azure/architecture/framework/resiliency/principles).
 
 ## <a name="availability-zones"></a>Zones de disponibilité
 
@@ -50,6 +50,9 @@ Générez la haute disponibilité dans votre architecture d’applications par l
 
 - **Services zonaux** : lorsque vous épinglez la ressource à une zone spécifique (par exemple des machines virtuelles, des disques managés, des adresses IP standard) ou
 - **Services redondants interzone** : lorsque la plateforme Azure effectue automatiquement la réplication entre des zones (par exemple, stockage redondant interzone, SQL Database).
+
+> [!NOTE]
+> Les types de ressources SKU standard Adresses IP publiques et Préfixe d’adresse IP publique ont également une option « sans zone ».  Cela permet aux clients d’utiliser les adresses IP publiques de référence SKU standard (et de les associer aux ressources qui autorisent uniquement la référence SKU standard), mais n’offre pas de garantie de redondance.  (Toutes les adresses IP publiques [mises à niveau](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) de la référence SKU de base à la référence standard sont de type « sans zone ».)
 
 Pour obtenir la continuité complète des activités sur Azure, générez votre architecture d’applications à l’aide de la combinaison des Zones de disponibilité et des paires de régions Azure. Vous pouvez effectuer une réplication synchrone de vos applications et données à l’aide des Zones de la disponibilité d’une région Azure pour répliquer en haute disponibilité et de façon asynchrone entre les régions Azure pour la protection de la récupération d’urgence.
  
@@ -173,7 +176,7 @@ Comme mentionné précédemment, Azure classe les services en trois catégories�
 > | Azure Lab Services                                   |
 > | Azure NetApp Files                                   |
 > | Azure Red Hat OpenShift                              |
-> | Service Azure SignalR                                |
+> | Service Azure SignalR                                |
 > | Azure Spring Cloud                                   |
 > | Azure Stream Analytics                               |
 > | Azure Time Series Insights                           |

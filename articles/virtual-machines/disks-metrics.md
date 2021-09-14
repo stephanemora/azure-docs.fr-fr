@@ -7,17 +7,14 @@ ms.topic: conceptual
 ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 461d8c7ae29c56a80b8863b2900c051158add918
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 0d0330996629ec087022e592cc862a428bc02807
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689377"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454576"
 ---
 # <a name="disk-performance-metrics"></a>Mesures de performances de disque
-
-**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
-
 Azure propose des métriques dans le portail Azure qui fournissent des informations sur la façon dont vos machines virtuelles et vos disques fonctionnent. Vous pouvez également récupérer les métriques via un appel d’API. Cet article est divisé en 3 sous-sections :
 
 - **Métriques de profondeur de file d’attente, de débit et d’E/S de disque** : ces métriques vous permettent de voir les performances de stockage sous l’angle d’un disque et d’une machine virtuelle.

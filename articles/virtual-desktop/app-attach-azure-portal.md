@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0fe61e5ef36064234b65da4d059f02beed18f9a6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ec462d04402f20d801c43cebd7f4561eb6177f1c
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745706"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707114"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurer l’attachement d’application MSIX avec le portail Azure
 
@@ -21,7 +21,7 @@ Cet article vous guide tout au long de la configuration de l’attachement d’a
 
 Voici ce dont vous avez besoin pour configurer l’attachement d’application MSIX :
 
-- Un déploiement Azure Virtual Desktop opérationnel. Pour apprendre à déployer Azure Virtual Desktop (classique), consultez [Création d’un locataire dans Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Pour apprendre à déployer Azure Virtual Desktop avec intégration Azure Resource Manager, consultez [Création d’un pool d’hôtes avec le portail Azure](./create-host-pools-azure-marketplace.md).
+- Un déploiement Azure Virtual Desktop opérationnel. Pour savoir comment déployer Azure Virtual Desktop (classique), consultez [Créer un locataire dans Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Pour savoir comment déployer Azure Virtual Desktop avec une intégration Azure Resource Manager, consultez [Créer un pool d’hôtes avec le portail Azure](./create-host-pools-azure-marketplace.md).
 - Un pool d’hôtes Azure Virtual Desktop avec au moins un hôte de session actif.
 - Outil de d’empaquetage MSIX.
 - Une application empaquetée au format MSIX et développée en image MSIX qui est chargée dans un partage de fichiers.
@@ -215,11 +215,11 @@ Pour supprimer des applications MSIX individuelles de votre package :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Posez vos questions concernant cette fonctionnalité à la [communauté technique d’Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Posez vos questions concernant cette fonctionnalité à la [communauté technique Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
 Vous pouvez également formuler vos commentaires concernant Azure Virtual Desktop sur le [Hub de commentaires Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 Voici d’autres articles qui peuvent vous être utiles :
 
 - [Glossaire Attachement d’application MSIX](app-attach-glossary.md)
-- [FAS sur l’attachement d’application MSIX](app-attach-faq.md)
+- [FAS sur l’attachement d’application MSIX](app-attach-faq.yml)

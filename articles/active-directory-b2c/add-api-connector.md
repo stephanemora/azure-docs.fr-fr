@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 62a88350e0bb1fceba635c651f8b831cba30cfce
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e0af1080a2d56fc01bdeb4bfb5f6475c477b685
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531820"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777737"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Ajouter un connecteur d’API à un workflow d’utilisateur d’inscription
 
@@ -320,7 +320,7 @@ Content-type: application/json
 | version     | String | Oui      | Version de votre API.                                                    |
 | action                                             | String            | Oui      | La valeur doit être `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Non       | Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur.                    |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | La revendication n’a pas besoin de contenir `_<extensions-app-id>_`, cela est *facultatif*. Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Non       | La revendication n’a pas besoin de contenir `_<extensions-app-id>_`, cela est *facultatif*. Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur. |
 
 ### <a name="example-of-a-blocking-response"></a>Exemple de réponse de blocage
 
@@ -576,7 +576,8 @@ Pour retourner la revendication de code promotionnel à l’application par part
 ## <a name="test-the-custom-policy"></a>Tester la stratégie personnalisée
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD.
+1. Veillez à utiliser le répertoire qui contient votre locataire Azure AD en sélectionnant l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Infrastructure d’expérience d’identité**.
 1. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les fichiers de stratégie que vous avez modifiés : *TrustFrameworkExtensions.xml* et *SignUpOrSignin.xml*. 

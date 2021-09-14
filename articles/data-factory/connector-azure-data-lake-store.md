@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/19/2021
-ms.openlocfilehash: 56dd047b9a3b7d343fb94ee8feea70ffaa377eff
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: e1ec23300f5bccfea161ec967702e65152bc658f
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641966"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314615"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory ou Azure Synapse Analytics
 
@@ -25,7 +25,7 @@ ms.locfileid: "122641966"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment copier des données vers et depuis Azure Data Lake Storage Gen1. Pour en savoir plus, lisez l’article d’introduction pour [Azure Data Factory](introduction.md) ou [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+Cet article explique comment copier des données vers et depuis Azure Data Lake Storage Gen1. Pour en savoir plus, lisez l’article d’introduction pour [Azure Data Factory](introduction.md) ou [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -53,7 +53,31 @@ Concrètement, avec ce connecteur, vous pouvez effectuer les opérations suivant
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités propres à Azure Data Lake Store.
+## <a name="create-a-linked-service-to-azure-data-lake-storage-gen1-using-ui"></a>Créer un service lié à Azure Data Lake Storage Gen1 à l’aide de l’interface utilisateur
+
+Utilisez les étapes suivantes pour créer un service lié à Azure Data Lake Storage Gen1 dans l’interface utilisateur du Portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse, sélectionnez Services liés, puis cliquez sur Nouveau :
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Synapse.":::
+
+2. Recherchez et sélectionnez le connecteur Azure Data Lake Storage Gen1.
+
+    :::image type="content" source="media/connector-azure-data-lake-store/azure-data-lake-store-connector.png" alt-text="Capture d’écran du connecteur Azure Data Lake Storage Gen1.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-azure-data-lake-store/configure-azure-data-lake-store-linked-service.png" alt-text="Capture d’écran de la configuration de service lié Azure Data Lake Storage Gen1.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration du connecteur
+
+Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités propres à Azure Data Lake Store Gen1.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -248,7 +272,7 @@ Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1
 | ------------------------ | ------------------------------------------------------------ | -------------------------------------------- |
 | type                     | La propriété de type sous `storeSettings` doit être définie sur **AzureDataLakeStoreReadSettings**. | Oui                                          |
 | ***Recherchez les fichiers à copier :*** |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
+| OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : plage de noms<br>- listAfter | Récupérez les dossiers/fichiers dont le nom se trouve après cette valeur par ordre alphabétique (exclusif). Elle utilise le filtre côté service pour ADLS Gen1, qui offre de meilleures performances qu’un filtre de caractères génériques. <br/>Le service applique ce filtre au chemin défini dans le jeu de données ; seul un niveau d’entité est pris en charge. Pour voir d’autres exemples, consultez [Exemples de filtres de plages de noms](#name-range-filter-examples). | Non |
 | OPTION 2 : plage de noms<br/>- listBefore | Récupérez les dossiers/fichiers dont le nom se trouve avant cette valeur par ordre alphabétique (inclusif). Elle utilise le filtre côté service pour ADLS Gen1, qui offre de meilleures performances qu’un filtre de caractères génériques.<br>Le service applique ce filtre au chemin défini dans le jeu de données ; seul un niveau d’entité est pris en charge. Pour voir d’autres exemples, consultez [Exemples de filtres de plages de noms](#name-range-filter-examples). | Non |
 | OPTION 3 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |

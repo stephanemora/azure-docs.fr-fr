@@ -1,27 +1,27 @@
 ---
 title: Registre de base de données
 description: Cet article fournit des informations sur les tables de base de données de registre et les vues associées dans Azure SQL Database.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 01fad48fccb956ab44cd54e67120ac5f7425cacd
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 85ae3c86c98f83499409e024431f83a54622d0f2
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080108"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665893"
 ---
 # <a name="what-is-the-database-ledger"></a>Qu’est-ce que le registre de base de données ?
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans la région USA Centre-Ouest.
+> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans les régions Europe Ouest, Brésil Sud et USA Centre-Ouest.
 
 Le registre de base de données fait partie de la fonctionnalité de registre d’Azure SQL Database. Le registre de base de données capture de manière incrémentielle l’état d’une base de données à mesure qu’elle évolue, pendant que des mises à jour se produisent sur les tables du registre. Il utilise logiquement une blockchain et des [structures de données d’arborescence Merkle](/archive/msdn-magazine/2018/march/blockchain-blockchain-fundamentals). 
 

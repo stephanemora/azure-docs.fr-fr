@@ -8,21 +8,24 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.subservice: cloud-init
-ms.openlocfilehash: 63bc821648348c2936d437fef7fdd89314fad3c5
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 38e020cc7541c6005fe3bc1209d6a31191e49404
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783222"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692209"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Approfondissement de cloud-init
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
+
 Pour en savoir plus sur [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) ou pour le dépanner à un niveau plus approfondi, vous devez comprendre son fonctionnement. Ce document met en évidence les parties importantes et explique les spécificités d’Azure.
 
 Quand cloud-init est inclus dans une image généralisée et qu’une machine virtuelle est créée à partir de cette image, les configurations sont traitées sur 5 index lors du démarrage initial. Ces index sont importants, car ils vous indiquent à quel point cloud-init appliquera les configurations. 
 
 
 ## <a name="understand-cloud-init-configuration"></a>Présentation de la configuration cloud-init
-Pour configurer une machine virtuelle afin qu’elle s’exécute sur une plateforme, cloud-init doit appliquer plusieurs configurations, en tant que contrôle serveur consommateur d’images, les principales configurations avec lesquelles vous interagissez sont `User data` (customData), prenant en charge plusieurs formats. Pour en savoir plus, cliquez [ici](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). Vous avez également la possibilité d’ajouter et d’exécuter des scripts (/var/lib/cloud/scripts) pour une configuration supplémentaire. Pour plus d’informations, voir ci-dessous.
+Pour configurer une machine virtuelle afin qu’elle s’exécute sur une plateforme, cloud-init doit appliquer plusieurs configurations. En tant que consommateur d’images, la principale configuration avec laquelle vous allez interagir est `User data` (customData), qui prend en charge plusieurs formats. Pour plus d’informations, consultez la [documentation sur les formats de données utilisateur et cloud-init 21.2](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). Vous avez également la possibilité d’ajouter et d’exécuter des scripts (/var/lib/cloud/scripts) pour une configuration supplémentaire. Pour plus d’informations, voir ci-dessous.
 
 Certaines configurations sont déjà intégrées aux images de la place de marché Azure qui accompagnent cloud-init, par exemple :
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 8a64956deb7849568e70e94c9b58170df60db1e3
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: cf0afce3c5495199b23059df226115154dade7f0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775734"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524596"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Arrêt TLS avec certificats Key Vault
 
@@ -36,6 +36,9 @@ L’intégration d’Application Gateway avec Key Vault offre de nombreux avanta
 
 > [!NOTE]
 > Le portail Azure prend en charge seulement les certificats KeyVault Certificate, pas les secrets. Application Gateway prend néanmoins toujours en charge le référencement des secrets KeyVault, mais seulement via des ressources autres que celles du portail, comme PowerShell, l’interface CLI, les API, les modèles ARM, etc. 
+
+> [!WARNING]
+> Azure Application Gateway ne prend actuellement en charge que les comptes Key Vault dans le même abonnement que la ressource Application Gateway. Le choix d’un coffre Key Vault dans un autre abonnement que votre passerelle Application Gateway entraîne un échec.
 
 ## <a name="how-integration-works"></a>Fonctionnement de l’intégration
 

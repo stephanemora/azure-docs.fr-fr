@@ -9,18 +9,16 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 88e67711b71ad80b48a7d5c19377847d0dadd296
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 04b1b4b9b9dd859a2f4b4515c2896163b8f9a698
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531542"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038476"
 ---
 # <a name="manage-a-public-ip-address-with-a-load-balancer"></a>Gérer une IP publique avec un équilibreur de charge
 
-Un équilibreur de charge public est une solution de couche 4 permettant de distribuer le trafic TCP et UDP à un pool principal. L’équilibreur de charge est disponible sous les niveaux tarifaires De base et Standard. 
-
-Ces niveaux tarifaires correspondent aux niveaux tarifaires De base et Standard d’une IP publique.
+Un équilibreur de charge public est une solution de couche 4 permettant de distribuer le trafic TCP et UDP à un pool principal. L’équilibreur de charge est disponible sous les niveaux tarifaires De base et Standard. Ces niveaux tarifaires correspondent aux niveaux tarifaires De base et Standard d’une IP publique.
 
 Une IP publique associée à un équilibreur de charge fait office de configuration d’adresse IP frontale accessible sur Internet. Le serveur frontal est utilisé pour accéder aux ressources du pool principal. L’adresse IP du serveur frontal peut être utilisée pour les membres du pool principal en sortie vers Internet. 
 
@@ -77,7 +75,7 @@ Dans cette section, vous allez créer un équilibreur de charge au niveau tarifa
 
 6. Sélectionnez l’onglet **Vérifier + créer**, ou sélectionnez le bouton bleu **Vérifier + créer**. 
 
-7. Sélectionnez **Create** (Créer).
+7. Sélectionnez **Créer**.
 
 > [!NOTE]
 > Il s’agit d’un déploiement simple d’un équilibreur de charge. Pour une configuration et une installation avancées, consultez [Démarrage rapide : Créer un équilibreur de charge public pour équilibrer la charge de machines virtuelles en utilisant le portail Azure](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
@@ -145,7 +143,7 @@ Dans cette section, vous allez modifier la configuration de serveur frontal util
 
 10. Dans **Configuration d’adresses IP frontales**, confirmez que le préfixe d’adresse IP a été ajouté à la configuration du serveur frontal de sortie.
 
-## <a name="more-information"></a>Autres informations
+## <a name="more-information"></a>Informations complémentaires
 
 * Les équilibreurs de charge inter-régions sont un type spécial d’équilibreur de charge public Standard qui peut couvrir plusieurs régions. Le serveur frontal d’un équilibreur de charge inter-région peut uniquement être utilisé avec l’option de niveau global des IP publiques du niveau tarifaire Standard. Le trafic envoyé à l’adresse IP frontale d’un équilibreur de charge inter-région est distribué entre les équilibreurs de charge publics régionaux. Les adresses IP frontales régionales sont contenues dans le pool principal de l’équilibreur de charge inter-région. Pour plus d’informations, consultez [Équilibreur de charge inter-région](../load-balancer/cross-region-overview.md).
 
@@ -157,7 +155,7 @@ Dans cette section, vous allez modifier la configuration de serveur frontal util
 
 ## <a name="caveats"></a>Mises en garde
 
-* Les équilibreurs de charge publics Standard peuvent utiliser des adresses IPv6 comme IP publiques frontales ou préfixes d’IP publiques.  Chaque déploiement doit être à double pile avec des serveurs frontaux IPv4 et IPv6. La traduction NAT64 n’est pas disponible. Pour plus d’informations, consultez [Déployer une application double pile IPv6 dans Azure – PowerShell](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
+* Les équilibreurs de charge publics standard peuvent utiliser des adresses IPv6 comme adresses IP publiques frontales ou préfixes d’adresses IP publiques.  Chaque déploiement doit être à double pile avec des serveurs frontaux IPv4 et IPv6. La traduction NAT64 n’est pas disponible. Pour plus d’informations, consultez [Déployer une application double pile IPv6 dans Azure – PowerShell](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)  (Notez que les équilibreurs de charge publics de base peuvent utiliser des adresses IPv6 dynamiques de SKU de base comme adresses IP publiques frontales).
 
 * Lorsque plusieurs serveurs frontaux sont attribués à un équilibreur de charge public, aucune méthode ne permet d’attribuer des flux d’instances de serveur principal particulières à la sortie sur une adresse IP spécifique.  Pour plus d’informations, consultez [Serveurs frontaux multiples dans Azure Load Balancer](../load-balancer/load-balancer-multivip-overview.md).
 ## <a name="next-steps"></a>Étapes suivantes

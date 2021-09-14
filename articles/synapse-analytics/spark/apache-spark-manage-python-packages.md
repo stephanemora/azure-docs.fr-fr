@@ -9,12 +9,13 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: d440940d98b33ae5906fe5a4a112939682196e57
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1b69aed711100eead6e7669c7d57e2f8faac25ad
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467409"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535197"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques Python pour Apache Spark dans Azure Synapse Analytics
 
@@ -42,7 +43,7 @@ Vous pouvez installer une bibliothèque sur un cluster de deux manières princip
 > [!IMPORTANT]
 > - Si le package que vous installez est volumineux ou si son installation prend beaucoup de temps, cela affecte le temps de démarrage de l’instance Spark.
 > - La modification de la version de PySpark, Python, Scala/Java, .NET ou Spark n’est pas prise en charge.
-> - L’installation de packages à partir de référentiels externes tels que PyPI, Conda-forge ou les canaux Conda par défaut n’est pas prise en charge dans les espaces de travail avec DEP.
+> - L’installation de packages à partir de dépôts externes comme PyPI, Conda-Forge ou des canaux Conda par défaut n’est pas prise en charge dans les espaces de travail avec la protection contre l’exfiltration de données activée.
 
 ### <a name="install-python-packages"></a>Installer des packages Python
 Pour installer les packages Python à partir de référentiels tels que PyPI et Conda-Forge, vous devez fournir un fichier de spécification d’environnement. 
@@ -52,7 +53,7 @@ Pour installer les packages Python à partir de référentiels tels que PyPI et
 ##### <a name="pip-requirementstxt"></a>PIP requirements.txt
 Un fichier *requirements.txt* (sortie de la commande `pip freeze`) permet de mettre à niveau l’environnement. Lorsqu’un pool est mis à jour, les packages répertoriés dans ce fichier sont téléchargés à partir de PyPI. Les dépendances complètes sont ensuite mises en cache et enregistrées pour une réutilisation ultérieure du pool. 
 
-L’extrait de code suivant montre le format du fichier de configuration requise. Le nom du package PyPI est mentionné avec une version exacte. Ce fichier est au format décrit dans la documentation de référence [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/). 
+L’extrait de code suivant montre le format du fichier de configuration requise. Le nom du package PyPI est mentionné avec une version exacte. Ce fichier est au format décrit dans la documentation de référence [pip freeze](https://pip.pypa.io/en/stable/cli/pip_freeze/). 
 
 Cet exemple épingle une version spécifique. 
 ```

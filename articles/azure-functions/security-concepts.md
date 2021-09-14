@@ -3,12 +3,12 @@ title: Sécurisation d’Azure Functions
 description: Découvrez comment exécuter votre code de fonction dans Azure à partir d’attaques courantes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: c8649c342b237a321c3c47510644451ceb3581fe
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 97a58c38f08e3b22f25ca2834a26692452fcff9e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467920"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525088"
 ---
 # <a name="securing-azure-functions"></a>Sécurisation d’Azure Functions
 
@@ -78,9 +78,9 @@ Par défaut, les clés sont stockées dans un conteneur de stockage Blob dans le
 
 |Emplacement  |Paramètre | Valeur | Description  |
 |---------|---------|---------|---------|
-|Autre compte de stockage     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Stocke les clés dans le stockage Blob d’un deuxième compte de stockage, en fonction de l’URL SAS fournie. Les clés sont chiffrées avant d’être stockées à l’aide d’un secret unique pour votre application de fonction. |
+|Autre compte de stockage     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL>` | Stocke les clés dans le stockage Blob d’un deuxième compte de stockage, en fonction de l’URL SAS fournie. Les clés sont chiffrées avant d’être stockées à l’aide d’un secret unique pour votre application de fonction. |
 |Système de fichiers   | `AzureWebJobsSecretStorageType`   |  `files`       | Les clés sont conservées sur le système de fichiers, chiffrées avant le stockage à l’aide d’un secret unique à votre application de fonction. |
-|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | Le coffre doit avoir une stratégie d’accès correspondant à l’identité managée affectée par le système de la ressource d’hébergement. La stratégie d’accès doit accorder à l’identité les autorisations secrètes suivantes : `Get`, `Set`, `List` et `Delete`. <br/>Lors d’une exécution locale, l’identité du développeur est utilisée et les paramètres doivent se trouver dans le [fichier local.settings.json](functions-run-local.md#local-settings-file). | 
+|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | Le coffre doit avoir une stratégie d’accès correspondant à l’identité managée affectée par le système de la ressource d’hébergement. La stratégie d’accès doit accorder à l’identité les autorisations secrètes suivantes : `Get`, `Set`, `List` et `Delete`. <br/>Lors d’une exécution locale, l’identité du développeur est utilisée et les paramètres doivent se trouver dans le [fichier local.settings.json](functions-develop-local.md#local-settings-file). | 
 |Secrets Kubernetes  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (facultatif) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Pris en charge uniquement lors de l’exécution du runtime Functions dans Kubernetes. Lorsque `AzureWebJobsKubernetesSecretName` n’est pas défini, le référentiel est considéré comme étant en lecture seule. Dans ce cas, les valeurs doivent être générées avant le déploiement. La boîte à outils Azure Functions Core Tools génère automatiquement les valeurs lors du déploiement sur Kubernetes.|
 
 ### <a name="authenticationauthorization"></a>Authentification/autorisation
@@ -131,7 +131,7 @@ Par exemple, chaque application de fonction nécessite un compte de stockage ass
 
 Les paramètres de l’application et les chaînes de connexion sont stockés dans Azure. Ils sont déchiffrés uniquement avant d’être injectés dans la mémoire de processus de votre application au démarrage de celle-ci. Les clés de chiffrement sont régulièrement permutées. Si vous préférez gérer le stockage sécurisé de vos secrets, le paramètre d’application doit plutôt faire référence à Azure Key Vault. 
 
-Vous pouvez également chiffrer les paramètres par défaut dans le fichier local.settings.json lors du développement de fonctions sur votre ordinateur local. Pour plus d’informations, consultez la propriété `IsEncrypted` dans le [fichier de paramètres locaux](functions-run-local.md#local-settings-file).  
+Vous pouvez également chiffrer les paramètres par défaut dans le fichier local.settings.json lors du développement de fonctions sur votre ordinateur local. Pour plus d’informations, consultez la propriété `IsEncrypted` dans le [fichier de paramètres locaux](functions-develop-local.md#local-settings-file).  
 
 #### <a name="key-vault-references"></a>Références Key Vault
 
@@ -213,7 +213,7 @@ La restriction de l’accès réseau à votre application de fonction vous perme
 
 ### <a name="set-access-restrictions"></a>Définir les restrictions d’accès
 
-Les restrictions d’accès vous permettent de définir des listes de règles d’autorisation/de refus pour contrôler le trafic vers votre application. Les règles sont évaluées par ordre de priorité. Si aucune règle n’est définie, votre application acceptera le trafic à partir de n’importe quelle adresse. Pour en savoir plus, consultez [Restrictions d’accès dans Azure App Service #](../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json).
+Les restrictions d’accès vous permettent de définir des listes de règles d’autorisation/de refus pour contrôler le trafic vers votre application. Les règles sont évaluées par ordre de priorité. Si aucune règle n’est définie, votre application acceptera le trafic à partir de n’importe quelle adresse. Pour en apprendre davantage, consultez [Restrictions d’accès dans Azure App Service](../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json).
 
 ### <a name="private-site-access"></a>Accès aux sites privés
 

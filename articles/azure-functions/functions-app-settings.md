@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: 7275d81401444dffbe0917bdb72ba79100880749
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 78e142fd97158fb64387950f9515ac168c216e5d
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563400"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108667"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -17,6 +17,7 @@ Les paramètres d’une application de fonction contiennent les options de confi
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Les fichiers [host.json](functions-host-json.md) et [local.settings.json](functions-develop-local.md#local-settings-file) contiennent d’autres options de configuration globale.
+Les exemples de valeurs de chaîne de connexion sont tronqués pour des raisons de lisibilité.
 
 > [!NOTE]
 > Vous pouvez utiliser des paramètres d’application pour remplacer les valeurs de paramètres host.json sans avoir à modifier le fichier host.json proprement dit. C’est utile dans des scénarios où vous devez configurer ou modifier des paramètres host.json spécifiques pour un environnement spécifique. Cela vous permet également de modifier les paramètres host.json sans avoir à republier votre projet. Pour plus d’informations, consultez l’[article de référence host.json](functions-host-json.md#override-hostjson-values). Les changements apportés aux paramètres d’application de fonction nécessitent le redémarrage de votre application de fonction.
@@ -27,7 +28,7 @@ Clé d’instrumentation pour Application Insights. Utilisez `APPINSIGHTS_INSTRU
 
 |Clé|Exemple de valeur|
 |---|------------|
-|APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83bb83bb|
+|APPINSIGHTS_INSTRUMENTATIONKEY|`55555555-af77-484b-9032-64f83bb83bb`|
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
@@ -40,7 +41,7 @@ Pour plus d’informations, consultez [Chaînes de connexion](../azure-monitor/a
 
 |Clé|Exemple de valeur|
 |---|------------|
-|APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey=[key];IngestionEndpoint=[url];LiveEndpoint=[url];ProfilerEndpoint=[url];SnapshotEndpoint=[url];|
+|APPLICATIONINSIGHTS_CONNECTION_STRING|`InstrumentationKey=...`|
 
 ## <a name="azure_function_proxy_disable_local_call"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
@@ -48,8 +49,8 @@ Par défaut, les [proxies Functions](functions-proxies.md) utilisent un raccourc
 
 |Clé|Valeur|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Les appels dont l’URL de back-end pointe vers une fonction de l’application de fonction locale ne seront pas envoyés directement vers la fonction. Au lieu de cela, les requêtes sont retournées au serveur frontal HTTP pour l’application de fonction.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Les appels dont l’URL de back-end pointe vers une fonction de l’application de fonction locale sont transférés directement vers la fonction. Il s’agit de la valeur par défaut. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`true`|Les appels dont l’URL de back-end pointe vers une fonction de l’application de fonction locale ne seront pas envoyés directement vers la fonction. Au lieu de cela, les requêtes sont retournées au serveur frontal HTTP pour l’application de fonction.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`false`|Les appels dont l’URL de back-end pointe vers une fonction de l’application de fonction locale sont transférés directement vers la fonction. Il s’agit de la valeur par défaut. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -57,8 +58,8 @@ Ce paramètre vérifie si les caractères `%2F` sont décodés en tant que barre
 
 |Clé|Valeur|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Les paramètres d’itinéraire avec des barres obliques encodées sont décodés. |
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Tous les paramètres d’itinéraire sont transmis tels quels, ce qui correspond au comportement par défaut. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|`true`|Les paramètres d’itinéraire avec des barres obliques encodées sont décodés. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|`false`|Tous les paramètres d’itinéraire sont transmis tels quels, ce qui correspond au comportement par défaut. |
 
 Par exemple, considérez le fichier proxies.json pour une application de fonction au niveau du domaine `myfunction.com`.
 
@@ -92,7 +93,7 @@ Chaîne de connexion du compte de stockage facultatif pour stocker des journaux 
 
 |Clé|Exemple de valeur|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
+|AzureWebJobsDashboard|`DefaultEndpointsProtocol=https;AccountName=...`|
 
 > [!NOTE]
 > Pour de meilleures performances et une meilleure expérience, le runtime version 2.x et les versions ultérieures utilisent APPINSIGHTS_INSTRUMENTATIONKEY et App Insights pour la supervision au lieu de `AzureWebJobsDashboard`.
@@ -103,7 +104,7 @@ La valeur `true` désigne la désactivation de la page d’arrivée par défaut 
 
 |Clé|Exemple de valeur|
 |---|------------|
-|AzureWebJobsDisableHomepage|true|
+|AzureWebJobsDisableHomepage|`true`|
 
 Lorsque ce paramètre d’application est omis ou défini sur `false`, une page semblable à celle indiquée dans l’exemple suivant s’affiche en réponse à l’URL `<functionappname>.azurewebsites.net`.
 
@@ -115,7 +116,7 @@ La valeur `true` désigne l’utilisation du mode Mise en production lors de la 
 
 |Clé|Exemple de valeur|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|true|
+|AzureWebJobsDotNetReleaseCompilation|`true`|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -123,7 +124,7 @@ Liste délimitée par des virgules des fonctionnalités bêta à activer. Les fo
 
 |Clé|Exemple de valeur|
 |---|------------|
-|AzureWebJobsFeatureFlags|feature1,feature2|
+|AzureWebJobsFeatureFlags|`feature1,feature2`|
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
@@ -139,7 +140,7 @@ Le runtime Azure Functions utilise cette chaîne de connexion de compte de stock
 
 |Clé|Exemple de valeur|
 |---|------------|
-|AzureWebJobsStorage|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|AzureWebJobsStorage|`DefaultEndpointsProtocol=https;AccountName=...`|
 
 ## <a name="azurewebjobs_typescriptpath"></a>AzureWebJobs_TypeScriptPath
 
@@ -147,7 +148,7 @@ Chemin d’accès au compilateur utilisé pour TypeScript. Vous permet d’écra
 
 |Clé|Exemple de valeur|
 |---|------------|
-|AzureWebJobs_TypeScriptPath|%HOME%\typescript|
+|AzureWebJobs_TypeScriptPath|`%HOME%\typescript`|
 
 ## <a name="function_app_edit_mode"></a>FUNCTION\_APP\_EDIT\_MODE
 
@@ -155,7 +156,7 @@ Détermine si la modification est activée dans le portail Azure. Les valeurs va
 
 |Clé|Exemple de valeur|
 |---|------------|
-|FUNCTION\_APP\_EDIT\_MODE|readonly|
+|FUNCTION\_APP\_EDIT\_MODE|`readonly`|
 
 ## <a name="functions_extension_version"></a>FUNCTIONS\_EXTENSION\_VERSION
 
@@ -163,7 +164,7 @@ Version du runtime Functions qui héberge votre application de fonction. Un tild
 
 |Clé|Exemple de valeur|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~3|
+|FUNCTIONS\_EXTENSION\_VERSION|`~3`|
 
 ## <a name="functions_v2_compatibility_mode"></a>FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
@@ -176,7 +177,7 @@ Nécessite que [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functio
 
 |Clé|Exemple de valeur|
 |---|------------|
-|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|true|
+|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|`true`|
 
 ## <a name="functions_worker_process_count"></a>FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
@@ -184,7 +185,7 @@ Spécifie le nombre maximal de processus de traitement de langue, avec la valeur
 
 |Clé|Exemple de valeur|
 |---|------------|
-|FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
+|FUNCTIONS\_WORKER\_PROCESS\_COUNT|`2`|
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
@@ -192,7 +193,7 @@ Runtime du rôle de travail de langage à charger dans l’application de foncti
 
 |Clé|Exemple de valeur|
 |---|------------|
-|FUNCTIONS\_WORKER\_RUNTIME|nœud|
+|FUNCTIONS\_WORKER\_RUNTIME|`node`|
 
 Valeurs valides :
 
@@ -213,7 +214,7 @@ Chaque rôle de travail PowerShell lance la vérification des mises à niveau de
 
 |Clé|Exemple de valeur|
 |---|------------|
-|MDMaxBackgroundUpgradePeriod|7.00:00:00|
+|MDMaxBackgroundUpgradePeriod|`7.00:00:00`|
 
 Pour plus d’informations, consultez [Gestion des dépendances](functions-reference-powershell.md#dependency-management).
 
@@ -227,7 +228,7 @@ Au cours de chaque `MDNewSnapshotCheckPeriod`, le rôle de travail PowerShell v�
 
 |Clé|Exemple de valeur|
 |---|------------|
-|MDNewSnapshotCheckPeriod|01:00:00|
+|MDNewSnapshotCheckPeriod|`01:00:00`|
 
 Pour plus d’informations, consultez [Gestion des dépendances](functions-reference-powershell.md#dependency-management).
 
@@ -240,7 +241,7 @@ Pour éviter des mises à niveau de module excessives lors des fréquents redém
 
 |Clé|Exemple de valeur|
 |---|------------|
-|MDMinBackgroundUpgradePeriod|1.00:00:00|
+|MDMinBackgroundUpgradePeriod|`1.00:00:00`|
 
 Pour plus d’informations, consultez [Gestion des dépendances](functions-reference-powershell.md#dependency-management).
 
@@ -250,18 +251,18 @@ La valeur de ce paramètre indique une URL d’index des packages personnalisée
 
 |Clé|Exemple de valeur|
 |---|------------|
-|PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
+|PIP\_EXTRA\_INDEX\_URL|`http://my.custom.package.repo/simple` |
 
 Pour en savoir plus, consultez [Dépendances personnalisées](functions-reference-python.md#remote-build-with-extra-index-url) dans les informations de référence pour les développeurs Python.
 
-## <a name="python_isolate_worker_dependencies"></a>PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
+## <a name="python_isolate_worker_dependencies-preview"></a>PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES (préversion)
 
-La configuration est spécifique aux applications de fonction Python. Elle définit la priorité de l’ordre de chargement des modules. Lorsque vos applications de fonction Python rencontrent des problèmes liés à la collision des modules (par exemple, lorsque vous utilisez protobuf, tensorflow ou grpcio dans votre projet), la configuration de ce paramètre d’application sur `1` devrait résoudre votre problème. par défaut, cette valeur est définie sur `0`.
+La configuration est spécifique aux applications de fonction Python. Elle définit la priorité de l’ordre de chargement des modules. Lorsque vos applications de fonction Python rencontrent des problèmes liés à la collision des modules (par exemple, lorsque vous utilisez protobuf, tensorflow ou grpcio dans votre projet), la configuration de ce paramètre d’application sur `1` devrait résoudre votre problème. par défaut, cette valeur est définie sur `0`. Cet indicateur est actuellement en préversion.
 
 |Clé|Valeur|Description|
 |---|-----|-----------|
-|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|0| Donne la priorité au chargement des bibliothèques Python provenant des dépendances internes du Worker Python. Les bibliothèques tierces définies dans requirements.txt peuvent être mises en mémoire fantôme. |
-|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|1| Donne la priorité au chargement des bibliothèques Python provenant du package d’application défini dans requirements.txt. Cela empêche vos bibliothèques d’entrer en conflit avec les bibliothèques internes du Worker Python. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| Donne la priorité au chargement des bibliothèques Python provenant des dépendances internes du Worker Python. Les bibliothèques tierces définies dans requirements.txt peuvent être mises en mémoire fantôme. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Donne la priorité au chargement des bibliothèques Python provenant du package d’application défini dans requirements.txt. Cela empêche vos bibliothèques d’entrer en conflit avec les bibliothèques internes du Worker Python. |
 
 ## <a name="python_enable_worker_extensions"></a>PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
@@ -269,8 +270,8 @@ La configuration est spécifique aux applications de fonction Python. Définir c
 
 |Clé|Valeur|Description|
 |---|-----|-----------|
-|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|0| Désactive toutes les extensions de Worker Python. |
-|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|1| Autorise le Worker Python à charger des extensions à partir de requirements.txt. |
+|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|`0`| Désactive toutes les extensions de Worker Python. |
+|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|`1`| Autorise le Worker Python à charger des extensions à partir de requirements.txt. |
 
 ## <a name="python_threadpool_thread_count"></a>PYTHON\_THREADPOOL\_THREAD\_COUNT
 
@@ -288,7 +289,7 @@ Ce paramètre contrôle la journalisation à partir du contrôleur d’échelle 
 
 |Clé|Exemple de valeur|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights:Verbose|
+|SCALE_CONTROLLER_LOGGING_ENABLED|`AppInsights:Verbose`|
 
 La valeur de cette clé est fournie au format `<DESTINATION>:<VERBOSITY>`, qui est défini comme suit :
 
@@ -300,7 +301,7 @@ Contrôle le délai d’attente, en secondes, lors de la connexion aux journaux 
 
 |Clé|Exemple de valeur|
 |-|-|
-|SCM_LOGSTREAM_TIMEOUT|1800|
+|SCM_LOGSTREAM_TIMEOUT|`1800`|
 
 L’exemple de valeur `1800` ci-dessus définit un délai d’attente de 30 minutes. Pour en savoir plus, consultez la section [Activer les journaux en continu](functions-run-local.md#enable-streaming-logs).
 
@@ -310,19 +311,19 @@ Chaîne de connexion du compte de stockage dans lequel la configuration et le co
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
 Utilisé uniquement lors du déploiement vers un plan Premium ou vers un plan Consommation s’exécutant sur Windows. Non pris en charge pour les plans Consommation s’exécutant sous Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
-La valeur `1` permet à votre application de fonction de se mettre à l’échelle lorsque votre compte de stockage est limité à un réseau virtuel. Vous devez activer ce paramètre lorsque vous limitez votre compte de stockage à un réseau virtuel. Pour en savoir plus, consultez [Restreindre votre compte de stockage à un réseau virtuel](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
+La valeur `1` permet à votre application de fonction de se mettre à l’échelle lorsque votre compte de stockage est limité à un réseau virtuel. Vous devez activer ce paramètre lorsque vous limitez votre compte de stockage à un réseau virtuel. Pour en savoir plus, consultez [Restreindre votre compte de stockage à un réseau virtuel](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE_CONTENTOVERVNET|1|
+|WEBSITE_CONTENTOVERVNET|`1`|
 
-Prise en charge sur les plans [Premium](functions-premium-plan.md) et [Dedicated (App Service)](dedicated-plan.md) [Standard et supérieur] sous Windows. Non prise en charge actuellement pour les plans Consommation et Premium sous Linux. 
+Prise en charge sur les plans [Premium](functions-premium-plan.md) et [Dedicated (App Service)](dedicated-plan.md) [Standard et supérieur]. Non pris en charge lors de l’exécution sur un [plan Consommation](consumption-plan.md). 
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
@@ -330,7 +331,7 @@ Chemin d’accès au code de l’application et à la configuration de la foncti
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE_CONTENTSHARE|functionapp091999e2|
+|WEBSITE_CONTENTSHARE|`functionapp091999e2`|
 
 Utilisé uniquement lors du déploiement vers un plan Premium ou vers un plan Consommation s’exécutant sur Windows. Non pris en charge pour les plans Consommation s’exécutant sous Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
@@ -342,7 +343,7 @@ Définit le serveur DNS qu’une application utilise lors de la résolution d’
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_DNS\_SERVER|168.63.129.16|
+|WEBSITE\_DNS\_SERVER|`168.63.129.16`|
 
 ## <a name="website_enable_brotli_encoding"></a>WEBSITE\_ENABLE\_BROTLI\_ENCODING
 
@@ -357,7 +358,7 @@ Nombre maximal d’instances possibles vers lesquelles l’application peut effe
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|`5`|
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
@@ -366,7 +367,7 @@ Définit la version de Node.js à utiliser lors de l’exécution de votre appli
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|~10|
+|WEBSITE\_NODE\_DEFAULT_VERSION|`~10`|
 
 ## <a name="website_run_from_package"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 
@@ -374,7 +375,7 @@ Permet à votre application de fonction de s’exécuter à partir d’un fichie
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_RUN\_FROM\_PACKAGE|1|
+|WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
 Les valeurs valides sont soit une URL qui correspond à l’emplacement d’un fichier de package de déploiement, soit `1`. Lorsque la valeur `1` est définie, le package doit se trouver dans le dossier `d:\home\data\SitePackages`. Lorsque vous utilisez le déploiement zip avec ce paramètre, le package est automatiquement chargé vers cet emplacement. Dans la préversion, ce paramètre s’appelait `WEBSITE_RUN_FROM_ZIP`. Pour plus d’informations, consultez [Exécuter des fonctions Azure à partir d’un fichier de package](run-functions-from-deployment-package.md).
 
@@ -384,8 +385,8 @@ Vous permet de définir le fuseau horaire de votre application de fonction.
 
 |Clé|Système d''exploitation|Exemple de valeur|
 |---|--|------------|
-|WEBSITE\_TIME\_ZONE|Windows|Heure standard de l'Est|
-|WEBSITE\_TIME\_ZONE|Linux|America/New_York|
+|WEBSITE\_TIME\_ZONE|Windows|`Eastern Standard Time`|
+|WEBSITE\_TIME\_ZONE|Linux|`America/New_York`|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
@@ -395,7 +396,7 @@ Indique si tout le trafic sortant de l’application est routé via le réseau v
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_VNET\_ROUTE\_ALL|1|
+|WEBSITE\_VNET\_ROUTE\_ALL|`1`|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

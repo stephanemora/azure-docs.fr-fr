@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: mathoma
 ms.date: 03/31/2021
-ms.openlocfilehash: 535ad3bac6c4f88593fc196cf6487038f937d509
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e76493aa83383e4ce59da77cfb0ce050475ad303
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697285"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525311"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migrer des bases de données depuis SQL Server vers SQL Managed Instance à l’aide du service LRS (préversion)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,7 +107,7 @@ Nous vous recommandons d'appliquer les méthodes conseillées ci-dessous :
 - Fractionnez les sauvegardes complètes et différentielles en plusieurs fichiers, au lieu d’utiliser un seul fichier.
 - Activez la compression de la sauvegarde.
 - Utilisez Cloud Shell pour exécuter les scripts, car il dispose toujours des cmdlets les plus récents.
-- Planifiez la fin de la migration dans les 47 heures suivant le démarrage de LRS. Il s’agit d’une période de grâce qui empêche l’installation de correctifs logiciels gérés par le système.
+- Planifiez la fin de la migration dans les 36 heures suivant le démarrage du LRS. Il s’agit d’une période de grâce qui empêche l’installation de correctifs logiciels gérés par le système.
 
 > [!IMPORTANT]
 > - Vous ne pouvez pas utiliser la base de données en cours de restauration via LRS jusqu’à ce que le processus de migration se termine. 
@@ -166,7 +166,7 @@ Le Stockage Blob Azure est utilisé comme stockage intermédiaire pour les fichi
 
 Lors de la migration de bases de données vers une instance gérée à l’aide de LRS, vous pouvez utiliser les méthodes suivantes pour charger les sauvegardes dans le Stockage Blob :
 - Utiliser la fonction native [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) de SQL Server
-- Utiliser [AzCopy](../../storage/common/storage-use-azcopy-v10.md) ou l’[Explorateur Stockage Azure](https://azure.microsoft.com/en-us/features/storage-explorer) pour charger des sauvegardes dans un conteneur d’objets Blob
+- Utiliser [AzCopy](../../storage/common/storage-use-azcopy-v10.md) ou l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer) pour charger des sauvegardes dans un conteneur d’objets Blob
 - Utiliser l’Explorateur Stockage dans le Portail Azure
 
 ### <a name="make-backups-from-sql-server-directly-to-blob-storage"></a>Effectuer des sauvegardes de SQL Server directement dans le Stockage Blob
@@ -330,7 +330,7 @@ az sql midb log-replay start <required parameters> &
 ```
 
 > [!IMPORTANT]
-> Une fois que vous avez démarré LRS, tous les correctifs logiciels gérés par le système sont arrêtés pendant 47 heures. Après ce délai, le prochain correctif logiciel automatisé arrête automatiquement le service LRS. Si cela se produit, vous ne pouvez pas reprendre la migration et devez la redémarrer du début. 
+> Une fois que vous avez démarré le LRS, tous les patchs logiciels gérés par le système sont arrêtés pendant 36 heures. Après ce délai, le prochain correctif logiciel automatisé arrête automatiquement le service LRS. Si cela se produit, vous ne pouvez pas reprendre la migration et devez la redémarrer du début. 
 
 ## <a name="monitor-the-migration-progress"></a>Superviser la progression de la migration
 
@@ -389,7 +389,7 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 
 Les limitations fonctionnelles de LRS sont les suivantes :
 - La base de données que vous restaurez ne peut pas être utilisée pour l’accès en lecture seule pendant le processus de migration.
-- Une fois que vous avez démarré LRS, tous les correctifs logiciels gérés par le système sont bloqués pendant 47 heures. Au-delà de ce délai, la mise à jour logicielle suivante arrête le service LRS. Vous devez ensuite recommencer le processus LRS du début.
+- Une fois que vous avez démarré le LRS, tous les patchs logiciels gérés par le système sont bloqués pendant 36 heures. Au-delà de ce délai, la mise à jour logicielle suivante arrête le service LRS. Vous devez ensuite recommencer le processus LRS du début.
 - Le service LRS a besoin que les bases de données sur SQL Server soient sauvegardées avec l’option `CHECKSUM` activée.
 - Le jeton SAS utilisé par LRS doit être généré pour l’ensemble du conteneur Stockage Blob Azure et doit avoir des autorisations de lecture et de liste uniquement.
 - Les fichiers de sauvegarde de différentes bases de données doivent être placés dans des dossiers distincts dans le Stockage Blob.

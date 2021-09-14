@@ -4,41 +4,25 @@ description: Utilisez des boucles et des tableaux dans un fichier Bicep pour dé
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/19/2021
-ms.openlocfilehash: 3185d6bac1e20e1d29c4f55b0a4e954b5ae35499
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 08/30/2021
+ms.openlocfilehash: 1b044b4ae3f5d73ad535d44153ea3d47023aeaaa
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634882"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225308"
 ---
 # <a name="resource-iteration-in-bicep"></a>Itération de ressource dans Bicep
 
-Cet article explique comment créer plusieurs instances d’une ressource dans votre fichier Bicep. Vous pouvez ajouter une boucle à la section `resource` de votre fichier et définir dynamiquement le nombre de ressources à déployer. Vous évitez également de répéter la syntaxe dans votre fichier Bicep.
+Cet article explique comment créer plusieurs instances d’une ressource dans votre fichier Bicep. Vous pouvez ajouter une boucle à une déclaration `resource` et définir de manière dynamique le nombre de ressources à déployer. Vous évitez de répéter la syntaxe dans votre fichier Bicep.
 
-Vous pouvez également utiliser une boucle avec les éléments [properties](loop-properties.md), [variables](loop-variables.md) et [outputs](loop-outputs.md).
+Vous pouvez également utiliser une boucle avec les éléments [modules](loop-modules.md), [properties](loop-properties.md), [variables](loop-variables.md) et [outputs](loop-outputs.md).
 
 Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](conditional-resource-deployment.md).
 
 ## <a name="syntax"></a>Syntaxe
 
 Vous pouvez utiliser des boucles pour déclarer plusieurs ressources par :
-
-- Par une itération sur un tableau.
-
-  ```bicep
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
-    <resource-properties>
-  }]
-  ```
-
-- Par une itération sur les éléments d’un tableau.
-
-  ```bicep
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
-    <resource-properties>
-  }]
-  ```
 
 - Par l’utilisation de l’index d’une boucle.
 
@@ -48,11 +32,33 @@ Vous pouvez utiliser des boucles pour déclarer plusieurs ressources par :
   }]
   ```
 
+  Pour plus d’informations, consultez [Index de boucle](#loop-index).
+
+- Par une itération sur un tableau.
+
+  ```bicep
+  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
+    <resource-properties>
+  }]
+  ```
+
+  Pour plus d’informations, consultez [Tableau de boucle](#loop-array).
+
+- Itération sur un tableau et un index.
+
+  ```bicep
+  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
+    <resource-properties>
+  }]
+  ```
+
+  Pour plus d’informations, consultez [Tableau de boucles et index](#loop-array-and-index).
+
 ## <a name="loop-limits"></a>Limites des boucles
 
-Les itérations de boucle du fichier Bicep ne peuvent pas avoir une valeur négative ni dépasser 800 itérations. Pour déployer des fichiers Bicep, installez la dernière version des [outils Bicep](install.md).
+Les itérations de boucle du fichier Bicep ne peuvent pas avoir une valeur négative ni dépasser 800 itérations.
 
-## <a name="resource-iteration"></a>Itération de ressource
+## <a name="loop-index"></a>Index de boucle
 
 L’exemple suivant crée le nombre de comptes de stockage spécifiés dans le paramètre `storageCount`.
 
@@ -71,6 +77,8 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
 ```
 
 Notez que l’index `i` est utilisé pour créer le nom de ressource du compte de stockage.
+
+## <a name="loop-array"></a>Tableau de boucle
 
 L’exemple suivant crée un compte de stockage par nom fourni dans le paramètre `storageNames`.
 
@@ -94,6 +102,49 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name 
 
 Si vous souhaitez renvoyer des valeurs à partir des ressources déployées, vous pouvez utiliser une boucle dans la [section outputs](loop-outputs.md).
 
+## <a name="loop-array-and-index"></a>Tableau de boucles et index
+
+L’exemple suivant utilise à la fois l’élément de tableau et la valeur d’index lors de la définition du compte de stockage.
+
+```bicep
+param storageAccountNamePrefix string
+
+var storageConfigurations = [
+  {
+    suffix: 'local'
+    sku: 'Standard_LRS'
+  }
+  {
+    suffix: 'geo'
+    sku: 'Standard_GRS'
+  }
+]
+
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-02-01' = [for (config, i) in storageConfigurations: {
+  name: '${storageAccountNamePrefix}${config.suffix}${i}'
+  location: resourceGroup().location
+  properties: {
+    supportsHttpsTrafficOnly: true
+    accessTier: 'Hot'
+    encryption: {
+      keySource: 'Microsoft.Storage'
+      services: {
+        blob: {
+          enabled: true
+        }
+        file: {
+          enabled: true
+        }
+      }
+    }
+  }
+  kind: 'StorageV2'
+  sku: {
+    name: config.sku
+  }
+}]
+```
+
 ## <a name="resource-iteration-with-condition"></a>Itération de ressource avec condition
 
 L’exemple suivant montre une boucle imbriquée associée à une boucle de ressource filtrée. Les filtres doivent être des expressions qui correspondent à une valeur booléenne.
@@ -110,7 +161,7 @@ resource parentResources 'Microsoft.Example/examples@2020-06-06' = [for parent i
 }]
 ```
 
-Les filtres sont également pris en charge avec les boucles de module.
+Les filtres sont également pris en charge avec les [boucles de module](loop-modules.md).
 
 ## <a name="deploy-in-batches"></a>Déployer par lots
 
@@ -118,7 +169,7 @@ Par défaut, Resource Manager crée des ressources en parallèle. Lorsque vous u
 
 Il se peut que vous ne souhaitiez pas mettre à jour toutes les instances d’un type de ressource en même temps. Par exemple, lors de la mise à jour d’un environnement de production, vous souhaiterez échelonner les mises à jour afin que seulement un certain nombre soient mises à jour à un moment donné. Vous pouvez spécifier qu’un sous-ensemble des instances soit traité par lots ensemble et déployé en même temps. Les autres instances attendent que ce lot soit finalisé.
 
-Pour déployer en série des instances d’une ressource, ajoutez l’[élément décoratif BatchSize](./file.md#resource-and-module-decorators). Définissez sa valeur sur le nombre d’instances à déployer à la fois. Une dépendance est créée sur les instances précédentes de la boucle, afin de ne pas démarrer un lot tant que le précédent n’est pas terminé.
+Pour déployer en série des instances d’une ressource, ajoutez l’[élément décoratif BatchSize](./file.md#resource-and-module-decorators). Définissez sa valeur comme le nombre d’instances à déployer simultanément. Une dépendance est créée sur les instances précédentes de la boucle, afin de ne pas démarrer un lot tant que le précédent n’est pas terminé.
 
 ```bicep
 param rgLocation string = resourceGroup().location
@@ -133,6 +184,8 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
   kind: 'Storage'
 }]
 ```
+
+Pour un déploiement purement séquentiel, définissez la taille du lot sur 1.
 
 ## <a name="iteration-for-a-child-resource"></a>Itération d’une ressource enfant
 
@@ -182,24 +235,10 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-02-01
 }]
 ```
 
-## <a name="example-templates"></a>Exemples de modèles
-
-Les exemples suivants montrent des scénarios courants de création de plusieurs instances d’une ressource ou d’une propriété.
-
-|Modèle  |Description  |
-|---------|---------|
-|[Stockage de boucle](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopstorage.bicep) |Déploie plusieurs comptes de stockage dont le nom comporte un numéro d’index . |
-|[Stockage de boucle en série](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopserialstorage.bicep) |Déploie plusieurs comptes de stockage un par un. Le nom inclut le numéro d’index. |
-|[Stockage de boucle avec tableau](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopstoragewitharray.bicep) |Déploie plusieurs comptes de stockage. Le nom contient une valeur tirée d’un tableau. |
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour connaître les autres utilisations de la boucle, consultez :
-  - [Itération de propriété dans les fichiers Bicep](loop-properties.md)
-  - [Itération de variable dans les fichiers Bicep](loop-variables.md)
-  - [Itération de sortie dans les fichiers Bicep](loop-outputs.md)
-- Pour plus d’informations sur les différentes sections d’un fichier Bicep, consultez [Présentation de la structure et de la syntaxe des fichiers Bicep](file.md).
-- Pour plus d’informations sur le déploiement de plusieurs ressources, consultez [Utiliser des modules Bicep](modules.md).
+  - [Itération de propriété dans Bicep](loop-properties.md)
+  - [Itération de variable dans Bicep](loop-variables.md)
+  - [Itération de sortie dans Bicep](loop-outputs.md)
 - Pour définir des dépendances sur des ressources créées dans une boucle, consultez [Définir des dépendances de ressource](./resource-declaration.md#set-resource-dependencies).
-- Pour savoir comment effectuer un déploiement avec PowerShell, consultez [Déployer des ressources avec Bicep et Azure PowerShell](deploy-powershell.md).
-- Pour savoir comment effectuer un déploiement avec Azure CLI, consultez [Déployer des ressources avec Bicep et Azure CLI](deploy-cli.md).

@@ -1,133 +1,205 @@
 ---
 title: Créer une adresse IP publique - Azure PowerShell
+titleSuffix: Azure Virtual Network
 description: Découvrez comment créer une adresse IP publique à l’aide d’Azure PowerShell
 services: virtual-network
-documentationcenter: na
-author: blehr
+author: asudbring
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/28/2020
-ms.author: blehr
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 381f0bfcc7ff676754994573c50df6296c14a25e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 05/03/2021
+ms.author: allensu
+ms.openlocfilehash: dc9a6aa398a8cab2927bc8890ceaeb4d0026714c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675971"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434804"
 ---
-# <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>Démarrage rapide : Créer une adresse IP publique à l’aide d’Azure PowerShell
+# <a name="create-a-public-ip-address-using-azure-powershell"></a>Créer une adresse IP publique à l’aide d’Azure PowerShell
 
-Cet article explique comment créer une ressource d’adresse IP publique à l’aide d’Azure PowerShell. Pour savoir quelles ressources peuvent être associées, connaître la différence entre les références SKU De base et Standard et obtenir d’autres informations connexes, consultez [Adresses IP publiques](./public-ip-addresses.md).  Cet exemple traite seulement des adresses IPv4. Pour plus d’informations sur les adresses IPv6, consultez [IPv6 pour les réseaux virtuels Azure](./ipv6-overview.md).
+Cet article explique comment créer une ressource d’adresse IP publique à l’aide d’Azure PowerShell. 
 
+Pour plus d’informations sur les ressources qui prennent en charge des adresses IP publiques, consultez [Adresses IP publiques](./public-ip-addresses.md).
 ## <a name="prerequisites"></a>Prérequis
 
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installé localement ou Azure Cloud Shell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.4.1 ou ultérieure pour les besoins de cet article. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Connect-AzAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-
 Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
 Avec la commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup), créez un groupe de ressources nommé **myResourceGroup** dans l’emplacement **eastus2**.
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'myResourceGroup'
-$loc = 'eastus2'
-
-New-AzResourceGroup -Name $rg -Location $loc
+$rg =@{
+    Name = 'myResourceGroup'
+    Location = 'eastus2'
+}
+New-AzResourceGroup @rg
 ```
-## <a name="create-public-ip"></a>Créer une adresse IP publique
+## <a name="create-standard-sku-public-ip-with-zones"></a>Créer une IP publique de référence SKU standard avec des zones
 
----
-# <a name="standard-sku---using-zones"></a>[**Référence SKU Standard - Avec des zones**](#tab/option-create-public-ip-standard-zones)
+Dans cette section, vous allez créer une IP publique avec des zones. Les adresses IP publiques peuvent être redondantes interzones ou être zonales.
+
+### <a name="zone-redundant"></a>Redondant interzone
 
 >[!NOTE]
 >La commande suivante fonctionne pour le module Az.Network version 4.5.0 ou ultérieure.  Pour plus d’informations sur les modules PowerShell en cours d’utilisation, reportez-vous à la [documentation de PowerShellGet](/powershell/module/powershellget/).
 
-Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IP publique redondante interzone standard nommée **myStandardZRPublicIP** dans **myResourceGroup**.
+Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IPv4 publique redondante interzone standard, nommée **myStandardZRPublicIP**, dans **myResourceGroup**. 
+
+Pour créer une adresse IPv6, changez la valeur du paramètre **version** pour **IPv6**.
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'myResourceGroup'
-$loc = 'eastus2'
-$pubIP = 'myStandardZRPublicIP'
-$sku = 'Standard'
-$alloc = 'Static'
-$zone = 1,2,3
-
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
+$ip = @{
+    Name = 'myStandardZRPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
+}
+New-AzPublicIpAddress @ip
 ```
 > [!IMPORTANT]
 > Pour les modules Az.Network antérieurs à la version 4.5.0, exécutez la commande ci-dessus sans spécifier de paramètre de zone pour créer une adresse IP redondante interzone. 
 >
 
-Pour créer une adresse IP publique zonale standard dans la zone 2 nommée **myStandardZonalPublicIP** dans **myResourceGroup**, exécutez la commande suivante :
+### <a name="zonal"></a>Zonal
+
+Pour créer une adresse IPv4 publique zonale standard à l’intérieur de la zone 2, nommée **myStandardZonalPublicIP**, dans **myResourceGroup**, exécutez la commande suivante.
+
+Pour créer une adresse IPv6, changez la valeur du paramètre **version** pour **IPv6**.
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'myResourceGroup'
-$loc = 'eastus2'
-$pubIP = 'myStandardZonalPublicIP'
-$sku = 'Standard'
-$alloc = 'Static'
-$zone = 2
-
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
+$ip = @{
+    Name = 'myStandardZonalPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 2
+}
+New-AzPublicIpAddress @ip
 ```
+>[!NOTE]
+>Les sélections des options de zone ci-dessus sont valides uniquement dans les régions pourvues de [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
-Notez que les sélections des options de zone ci-dessus sont valides uniquement dans des régions avec des [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+## <a name="create-standard-public-ip-without-zones"></a>Créer une IP publique standard sans zone
 
-# <a name="standard-sku---no-zones"></a>[**Référence SKU Standard - Sans zones**](#tab/option-create-public-ip-standard)
+Dans cette section, vous allez créer une adresse IP non zonale.  
 
 >[!NOTE]
 >La commande suivante fonctionne pour le module Az.Network version 4.5.0 ou ultérieure.  Pour plus d’informations sur les modules PowerShell en cours d’utilisation, reportez-vous à la [documentation de PowerShellGet](/powershell/module/powershellget/).
 
-Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IP publique standard en tant que ressource non zonale nommée **myStandardPublicIP** dans **myResourceGroup**.
+Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IPv4 publique standard en tant que ressource non zonale, nommée **myStandardPublicIP**, dans **myResourceGroup**. 
+
+Pour créer une adresse IPv6, changez la valeur du paramètre **version** pour **IPv6**.
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'myResourceGroup'
-$loc = 'eastus2'
-$pubIP = 'myStandardPublicIP'
-$sku = 'Standard'
-$alloc = 'Static'
-
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku
+$ip = @{
+    Name = 'myStandardPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+}
+New-AzPublicIpAddress @ip
 ```
+La suppression du paramètre **zone** dans la commande est valide dans toutes les régions.  
 
-Cette sélection est valide dans toutes les régions. Il s’agit de la sélection par défaut pour les adresses IP publiques standard dans les régions sans [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+La suppression du paramètre **zone** constitue la sélection par défaut pour les adresses IP publiques standard dans les régions sans [zone de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
-# <a name="basic-sku"></a>[**Référence De base**](#tab/option-create-public-ip-basic)
+## <a name="create-a-basic-public-ip"></a>Créer une IP publique de base
 
-Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IP publique statique de base nommée **myBasicPublicIP** dans **myResourceGroup**.  Les adresses IP publiques de base n’intègrent pas le concept de zones de disponibilité.
+Dans cette section, vous allez créer une IP de base. Les adresses IP publiques de base ne prennent pas en charge les zones de disponibilité.
+
+Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IPv4 publique statique de base, nommée **myBasicPublicIP**, dans **myResourceGroup**.  
+
+Pour créer une adresse IPv6, changez la valeur du paramètre **version** pour **IPv6**. 
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'myResourceGroup'
-$loc = 'eastus2'
-$pubIP = 'myBasicPublicIP'
-$sku = 'Basic'
-$alloc = 'Static'
-
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku
+$ip = @{
+    Name = 'myStandardPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Basic'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+}
+New-AzPublicIpAddress @ip
 ```
-S’il est acceptable que l’adresse IP change au fil du temps, l’attribution **dynamique** d’adresse IP peut être sélectionnée en changeant la méthode d’allocation (AllocationMethod) par « Dynamique ».
+S’il est acceptable que l’adresse IP change au fil du temps, l’affectation **dynamique** d’adresses IP peut être sélectionnée en changeant la méthode d’allocation (AllocationMethod) pour **Dynamique**. 
 
----
+>[!NOTE]
+> Une adresse IPv6 de base doit toujours être « dynamique ».
+
+## <a name="routing-preference-and-tier"></a>Préférence de routage et niveau
+
+Les adresses IPv4 publiques statiques de référence SKU standard prennent en charge la Préférence de routage ou la fonctionnalité Niveau global.
+
+### <a name="routing-preference"></a>Préférence de routage
+
+Par défaut, la préférence de routage pour les adresses IP publiques est définie sur le « Réseau Microsoft », qui remet le trafic à l’utilisateur via le réseau étendu mondial de Microsoft.  
+
+La sélection de **Internet** réduit les déplacements sur le réseau de Microsoft, et utilise plutôt le réseau du fournisseur de services Internet pour acheminer le trafic à un coût optimisé.  
+
+Pour plus d’informations sur la préférence de routage, consultez la section [Qu’est-ce qu’une préférence de routage (préversion) ?](./routing-preference-overview.md).
+
+La commande crée une nouvelle adresse IPv4 publique redondante interzone standard avec une préférence de routage de type **Internet** :
+
+```azurepowershell-interactive
+## Create IP tag for Internet and Routing Preference. ##
+$tag = ${
+    IpTagType = 'RoutingPreference'
+    Tag = 'Internet'   
+}
+$ipTag = New-AzPublicIpTag @tag
+
+## Create IP. ##
+$ip = @{
+    Name = 'myStandardPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    IpTag = $ipTag
+    Zone = 1,2,3   
+}
+New-AzPublicIpAddress @ip
+```
+### <a name="tier"></a>Niveau
+
+Les adresses IP publiques sont associées à une seule région. Le niveau **Global** s’étend sur une adresse IP dans plusieurs régions. Le niveau **Global** est exigé pour les front-ends des équilibreurs de charge inter-régions.  
+
+Pour plus d’informations, consultez [Équilibreur de charge inter-région](../load-balancer/cross-region-overview.md).
+
+La commande suivante crée une adresse IPv4 globale. Cette adresse peut être associée au serveur front-end d’un équilibreur de charge inter-région.
+
+```azurepowershell-interactive
+$ip = @{
+    Name = 'myStandardPublicIP-Global'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Tier = 'Global'
+}
+New-AzPublicIpAddress @ip
+```
+>[!NOTE]
+>Les adresses du niveau Global ne prennent pas en charge les zones de disponibilité.
 
 ## <a name="additional-information"></a>Informations supplémentaires 
 
-Pour plus d’informations sur chacune des variables listées ci-dessus, consultez [Gérer les adresses IP publiques](./virtual-network-public-ip-address.md#create-a-public-ip-address).
+Pour plus d’informations sur les paramètres listés dans ce guide pratique, consultez [Gérer les adresses IP publiques](./virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Associer une [adresse IP publique à une machine virtuelle](./associate-public-ip-address-vm.md#azure-portal)

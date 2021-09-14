@@ -12,12 +12,12 @@ ms.date: 06/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 36e0b286cc073f5c6843f1bab59af5a811cbf281
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 33389224bcc4abf05ffbb261e23409eb95896781
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112452923"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220862"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notes à destination des développeurs pour Azure Active Directory B2C
 
@@ -74,7 +74,7 @@ Le tableau suivant récapitule les flux d’authentification d’application Sec
 |Fonctionnalité  |Flux utilisateur  |Stratégie personnalisée  |Notes  |
 |---------|:---------:|:---------:|---------|
 [Lancée par le fournisseur de services](saml-service-provider.md) | N/D | GA | Liaisons POST et de redirection. |
-[Lancée par le fournisseur d’identité](saml-service-provider-options.md#identity-provider-initiated-flow) | N/D | GA | Où le fournisseur d’identité à l’origine de l’initialisation est Azure AD B2C.  |
+[Lancée par le fournisseur d’identité](saml-service-provider-options.md#configure-idp-initiated-flow) | N/D | GA | Où le fournisseur d’identité à l’origine de l’initialisation est Azure AD B2C.  |
 
 ## <a name="user-experience-customization"></a>Personnalisation de l’expérience utilisateur
 
@@ -123,7 +123,7 @@ Le tableau suivant récapitule les flux d’authentification d’application Sec
 |[OAuth2](oauth2-technical-profile.md) | N/D | GA | Par exemple, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md) et [Facebook](identity-provider-facebook.md).|
 |[OAuth1](oauth1-technical-profile.md) | N/D | GA | Par exemple, [Twitter](identity-provider-twitter.md). |
 |[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | Par exemple, [Azure AD](identity-provider-azure-ad-single-tenant.md).  |
-|[SAML2](identity-provider-generic-saml.md) | N/D | GA | Par exemple, [Salesforce](identity-provider-salesforce-saml.md) et [AD-FS]. (identity-provider-adfs.md) |
+|[SAML2](identity-provider-generic-saml.md) | N/D | GA | Par exemple, [Salesforce](identity-provider-salesforce-saml.md) et [AD-FS](identity-provider-adfs.md). |
 | WSFED | N/D | N/D | |
 
 ### <a name="api-connectors"></a>Connecteurs d’API

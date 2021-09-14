@@ -1,17 +1,17 @@
 ---
-title: Automatiser des rapports personnalisés avec des données Azure Application Insights
-description: Automatiser des rapports quotidients/hebdomadaires/mensuels personnalisés avec des données Azure Application Insights
+title: Automatiser des rapports personnalisés avec des données Application Insights
+description: Automatisez des rapports quotidiens/hebdomadaires/mensuels personnalisés avec des données Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1579874f77a41abbfef6a9ba44f997d1ec06bb76
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590048"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563674"
 ---
-# <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatiser des rapports personnalisés avec des données Azure Application Insights
+# <a name="automate-custom-reports-with-application-insights-data"></a>Automatiser des rapports personnalisés avec des données Application Insights
 
 Les rapports périodiques permettent de tenir une équipe informée sur le fonctionnement des services critiques pour l’entreprise dont elle s’occupe. Les développeurs, les équipes DevOps/SRE et leurs responsables peuvent produire des rapports automatisés qui fournissent des insights fiables, sans demander à quiconque de se connecter au portail. Ces rapports servent également à mieux identifier les augmentations progressives des latences, des taux de chargement ou d’échec susceptibles de ne pas déclencher de règles d’alerte.
 

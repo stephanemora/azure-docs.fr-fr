@@ -1,28 +1,28 @@
 ---
 title: Activer l’extension de machine virtuelle à partir du portail Azure
-description: Cet article explique comment déployer des extensions de machine virtuelle sur des serveurs Azure Arc exécutés dans des environnements cloud hybrides à partir du portail Azure.
-ms.date: 04/13/2021
+description: Cet article explique comment déployer des extensions de machine virtuelle sur des serveurs avec Azure Arc qui s’exécutent dans des environnements cloud hybrides à partir du portail Azure.
+ms.date: 08/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: b5b4ff79d68ec9ff0cc61b9dbb7d3c5d7fe93598
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 740ee7954340da0a34b581356d51135033a3829d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388276"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531595"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Activer les extensions de machine virtuelle Azure à partir du portail Azure
 
-Cet article explique comment déployer et désinstaller des extensions de machine virtuelle Azure, prises en charge par les serveurs Azure Arc, sur une machine hybride Linux ou Windows via le portail Azure.
+Cet article explique comment déployer, mettre à jour et désinstaller des extensions de machine virtuelle Azure prises en charge par les serveurs avec Azure Arc, sur une machine hybride Linux ou Windows à l’aide du portail Azure.
 
 > [!NOTE]
-> L’extension de la machine virtuelle Key Vault (préversion) ne prend pas en charge le déploiement à partir du portail Azure, uniquement à l’aide de l’interface de ligne de commande Azure, d’Azure PowerShell ou d’un modèle Azure Resource Manager.
+> L’extension de machine virtuelle Key Vault ne prend pas en charge le déploiement à partir du portail Azure, uniquement à l’aide de l’interface Azure CLI, d’Azure PowerShell ou d’un modèle Azure Resource Manager.
 
 > [!NOTE]
-> Les serveurs avec Azure Arc ne prennent pas en charge le déploiement et la gestion des extensions de machine virtuelle sur les machines virtuelles Azure. Pour les machines virtuelles Azure, consultez l’article [Vue d’ensemble de l’extension de machine virtuelle](../../virtual-machines/extensions/overview.md) suivant.
+> Les serveurs avec Azure Arc ne prennent pas en charge le déploiement ni la gestion des extensions de machine virtuelle sur les machines virtuelles Azure. Pour les machines virtuelles Azure, consultez l’article [Vue d’ensemble de l’extension de machine virtuelle](../../virtual-machines/extensions/overview.md) suivant.
 
-## <a name="enable-extensions-from-the-portal"></a>Activer les extensions à partir du portail
+## <a name="enable-extensions"></a>Activer les extensions
 
-Les extensions de machine virtuelle peuvent être appliquées pour une machine managée par serveur via le portail Azure.
+Les extensions de machine virtuelle peuvent être appliquées à votre machine managée par serveur avec Arc à l’aide du portail Azure.
 
 1. À partir de votre navigateur, accédez au [portail Azure](https://portal.azure.com).
 
@@ -38,7 +38,7 @@ Les extensions de machine virtuelle peuvent être appliquées pour une machine m
 
     Pour mener à bien l’installation, il vous est demandé de fournir l’ID et la clé primaire de l’espace de travail. Si vous ne savez pas comment vous procurer ces informations, consultez [Obtenir l’ID et la clé d’espace de travail](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
-4. Après avoir confirmé les informations nécessaires que vous avez fournies, sélectionnez **Créer**. Dans le résumé du déploiement qui s’affiche, examinez l’état du déploiement.
+4. Après avoir confirmé les informations requises fournies, sélectionnez **Vérifier + créer**. Dans le résumé du déploiement qui s’affiche, examinez l’état du déploiement.
 
 >[!NOTE]
 >Même si plusieurs extensions peuvent être regroupées et traitées ensemble, elles sont installées en série. Une fois l’installation de la première extension terminée, l’installation de la suivante est entreprise.
@@ -53,11 +53,42 @@ Vous pouvez obtenir la liste des extensions de machine virtuelle sur votre serve
 
 3. Choisissez **Extensions** pour obtenir la liste des extensions installées.
 
-    ![Répertorier l’extension de machine virtuelle déployée sur la machine sélectionnée](./media/manage-vm-extensions/list-vm-extensions.png)
+    :::image type="content" source="media/manage-vm-extensions/list-vm-extensions.png" alt-text="Répertorier l’extension de machine virtuelle déployée sur la machine sélectionnée" border="true":::
 
-## <a name="uninstall-extension"></a>Désinstaller une extension
+## <a name="update-extensions"></a>Mettre à jour les extensions
 
-Vous pouvez supprimer une ou plusieurs extensions d’un serveur Arc à partir du portail Azure. Ensuite, effectuez les opérations suivantes pour supprimer une extension.
+Quand une nouvelle version d’une extension prise en charge est publiée, vous pouvez mettre à jour l’extension vers cette dernière version. Les serveurs avec Arc présentent une bannière dans le portail Azure lorsque vous accédez à des serveurs avec Arc. Elle vous informe de la disponibilité de mises à jour pour une ou plusieurs extensions installées sur une machine. Lorsque vous affichez la liste des extensions installées pour un serveur avec Arc sélectionné, vous remarquez une colonne intitulée **Mise à jour disponible**. Si une version plus récente d’une extension est publiée, la colonne **Mise à jour disponible** pour cette extension indique **Oui**. 
+
+La mise à jour d’une extension vers la version la plus récente n’affecte pas la configuration de cette extension. Vous n’êtes pas obligé de redéfinir les informations de configuration des extensions que vous mettez à jour.
+
+:::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-status.png" alt-text="Lister l’état de mise à jour des extensions de machine virtuelle" border="true":::
+
+Vous pouvez mettre à jour une extension ou sélectionner plusieurs extensions éligibles pour une mise à jour à partir du portail Azure en effectuant les étapes suivantes.
+
+> [!NOTE]
+> Actuellement, vous pouvez uniquement mettre à jour les extensions à partir du portail Azure. La réalisation de cette opération dans l’interface Azure CLI, dans Azure PowerShell ou à l’aide d’un modèle Azure Resource Manager n’est pas prise en charge pour l’instant.
+
+1. À partir de votre navigateur, accédez au [portail Azure](https://portal.azure.com).
+
+2. Sur le portail, accédez à **Serveurs – Azure Arc**, puis sélectionnez votre machine hybride dans la liste.
+
+3. Choisissez **Extensions** et passez en revue l’état des extensions sous la colonne **Mise à jour disponible**. 
+
+Vous pouvez mettre à jour une extension de trois manières :
+
+* En sélectionnant une extension dans la liste des extensions installées et, sous les propriétés de l’extension, en sélectionnant l’option **Mettre à jour**.
+
+    :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png" alt-text="Mettre à jour l’extension à partir de l’extension sélectionnée" border="true":::
+
+* En sélectionnant l’extension dans la liste des extensions installées et en sélectionnant l’option **Mettre à jour** en haut de la page.
+
+* En sélectionnant une ou plusieurs extensions éligibles pour une mise à jour dans la liste des extensions installées, puis en sélectionnant l’option **Mettre à jour**.
+
+    :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-selected.png" alt-text="Mettre à jour l’extension sélectionnée" border="true":::
+
+## <a name="uninstall-extensions"></a>Désinstaller les extensions
+
+Vous pouvez supprimer une ou plusieurs extensions d’un serveur avec Arc à partir du portail Azure. Ensuite, effectuez les opérations suivantes pour supprimer une extension.
 
 1. À partir de votre navigateur, accédez au [portail Azure](https://portal.azure.com).
 

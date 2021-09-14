@@ -3,19 +3,20 @@ title: Versions de Kubernetes prises en charge dans Azure Kubernetes Service
 description: Comprendre la stratégie de prise en charge des versions de Kubernetes et le cycle de vie des clusters dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: f2f1c01ec323452997f5e7ab8f20e13e1d572a72
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 525ae8e08965a63b79ed23a706795472743a00c2
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438195"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222557"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
-La communauté Kubernetes publie des versions mineures à peu près tous les trois mois. Récemment, la communauté Kubernetes a [prolongé la fenêtre de prise en charge de chaque version de 9 mois à 12 mois](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), à compter de la version 1.19. 
+La communauté Kubernetes publie des versions mineures à peu près tous les trois mois. Récemment, la communauté Kubernetes a [prolongé la fenêtre de prise en charge de chaque version de 9 mois à 12 mois](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), à compter de la version 1.19.
 
 Les versions mineures contiennent de nouvelles fonctionnalités et des améliorations. Les publications de correctifs sont plus fréquentes (parfois hebdomadaires) et sont destinées aux correctifs de bogues critiques dans une version mineure. Les versions de correctif comportent des correctifs pour les failles de sécurité et les bogues majeurs.
 
@@ -100,7 +101,20 @@ Vous pouvez utiliser une version mineure de `kubectl` plus ancienne ou plus réc
 
 Par exemple, si vous avez la version *1.17* de *kube-apiserver*, vous pouvez utiliser les versions *1.16* à *1.18* de `kubectl`.
 
-Pour installer ou mettre à jour votre version de `kubectl`, exécutez `az aks install-cli`.
+Pour installer ou mettre à jour `kubectl` vers la dernière version, exécutez :
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az aks install-cli
+```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```powershell
+Install-AzAksKubectl -Version latest
+```
+---
 
 ## <a name="release-and-deprecation-process"></a>Processus de publication et de dépréciation
 
@@ -113,7 +127,7 @@ Pour les nouvelles versions **mineures** de Kubernetes :
 
     > [!NOTE]
     > Pour savoir qui sont les administrateurs de votre abonnement ou pour les modifier, consultez [Gérer les abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
-    
+
   * Les utilisateurs ont **30 jours** à compter de la suppression d’une version pour effectuer une mise à niveau vers une version mineure prise en charge afin de continuer à bénéficier du support.
 
 Pour les nouvelles versions de **correctif** de Kubernetes :
@@ -129,7 +143,9 @@ Certaines versions de correctifs spécifiques peuvent être ignorées, ou le dé
 
 ## <a name="azure-portal-and-cli-versions"></a>Versions du Portail Azure et de l’interface CLI
 
-Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini par défaut sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* et *1.15.f*, la version sélectionnée par défaut est *1.16.c*.
+Quand vous déployez un cluster AKS dans le portail, avec Azure CLI ou avec Azure PowerShell, le cluster est toujours défini par défaut sur la version mineure n-1 et le dernier patch. Par exemple, si AKS prend en charge *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* et *1.15.f*, la version sélectionnée par défaut est *1.16.c*.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour savoir quelles sont les versions disponibles pour vos abonnement et région, utilisez la commande [az aks get-versions][az-aks-get-versions]. L’exemple suivant répertorie les versions Kubernetes disponibles pour la région *EastUS* :
 
@@ -137,16 +153,27 @@ Pour savoir quelles sont les versions disponibles pour vos abonnement et région
 az aks get-versions --location eastus --output table
 ```
 
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Pour savoir quelles sont les versions disponibles pour vos abonnement et région, utilisez la cmdlet [Get-AzAksVersion][get-azaksversion]. L’exemple suivant répertorie les versions Kubernetes disponibles pour la région *EastUS* :
+
+```azurepowershell-interactive
+Get-AzAksVersion -Location eastus
+```
+
+---
+
 ## <a name="aks-kubernetes-release-calendar"></a>Calendrier des versions d’AKS Kubernetes
 
 Pour connaître l’historique des versions antérieures, cliquez sur [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
 |  Version de K8s | Sortie en amont  | Préversion d’AKS  | Version GA d’AKS  | Fin de vie |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.18  | 23 mars 20  | Mai 2020   | Août 2020  | *1.21 GA | 
-| 1,19  | 4 août 20  | Septembre 2020   | Nov. 2020  | 1.22 GA | 
+| 1.18  | 23 mars 20  | Mai 2020   | Août 2020  | *1.21 GA |
+| 1,19  | 4 août 20  | Septembre 2020   | Nov. 2020  | 1.22 GA |
 | 1.20  | 8 décembre2020  | Janvier 2021   | Mars 2021  | 1.23 GA |
-| 1.21  | 8 avril 2021 | Mai 2021   | Juin 2021  | 1.24 GA |
+| 1.21  | 8 avril 2021 | Mai 2021   | Juil. 2021  | 1.24 GA |
 | 1,22  | 04 août 21 | Septembre 2021   | Octobre 2021  | 1.25 GA |
 | 1.23  | Décembre 2021 | Janvier 2022   | Février 2022  | 1.26 GA |
 
@@ -160,11 +187,11 @@ Pour connaître l’historique des versions antérieures, cliquez sur [Kubernete
 
 **Comment Microsoft m’informe-t-il des nouvelles versions de Kubernetes ?**
 
-L’équipe d’AKS publie des annonces préalables avec les dates prévues des nouvelles versions de Kubernetes dans notre documentation, sur notre [GitHub](https://github.com/Azure/AKS/releases) ainsi que dans des e-mails adressés aux administrateurs d’abonnements qui possèdent des clusters qui ne seront plus pris en charge.  Outre les annonces, AKS utilise également [Azure Advisor](../advisor/advisor-overview.md) pour informer le client dans le portail Azure afin de prévenir les utilisateurs s’ils ne sont plus pris en charge, ainsi que pour les avertir des API déconseillées qui auront une incidence sur leur application ou leur processus de développement. 
+L’équipe d’AKS publie des annonces préalables avec les dates prévues des nouvelles versions de Kubernetes dans notre documentation, sur notre [GitHub](https://github.com/Azure/AKS/releases) ainsi que dans des e-mails adressés aux administrateurs d’abonnements qui possèdent des clusters qui ne seront plus pris en charge.  Outre les annonces, AKS utilise également [Azure Advisor](../advisor/advisor-overview.md) pour informer le client dans le portail Azure afin de prévenir les utilisateurs s’ils ne sont plus pris en charge, ainsi que pour les avertir des API déconseillées qui auront une incidence sur leur application ou leur processus de développement.
 
 **À quelle fréquence dois-je prévoir de mettre à niveau les versions de Kubernetes pour continuer à bénéficier de la prise en charge ?**
 
-Avec Kubernetes 1.19, la [communauté open source a étendu la durée de prise en charge à une année](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS s’engage à activer les correctifs et à prendre en charge le respect des engagements en amont. Pour les clusters AKS sur 1.19 et versions ultérieures, vous pourrez effectuer une mise à niveau au moins une fois par an pour rester sur une version prise en charge. 
+Avec Kubernetes 1.19, la [communauté open source a étendu la durée de prise en charge à une année](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS s’engage à activer les correctifs et à prendre en charge le respect des engagements en amont. Pour les clusters AKS sur 1.19 et versions ultérieures, vous pourrez effectuer une mise à niveau au moins une fois par an pour rester sur une version prise en charge.
 
 Pour les versions sur 1.18 ou version antérieure, la fenêtre de prise en charge reste à 9 mois, ce qui nécessite une mise à niveau tous les 9 mois afin de rester sur une version prise en charge. Vérifiez régulièrement l’existence de nouvelles versions et préparez-vous à la mise à niveau vers des versions plus récentes afin de capturer les dernières améliorations stables dans Kubernetes.
 
@@ -181,7 +208,7 @@ Les passages à une version antérieure ne sont pas pris en charge.
 
 « Ne plus disposer du support technique » signifie que :
 * La version que vous exécutez n’est pas dans la liste des versions prises en charge.
-* Vous serez invité à mettre à niveau le cluster vers une version prise en charge lors de la demande d’assistance, sauf si vous êtes dans la période de grâce de 30 jours après la dépréciation de la version. 
+* Vous serez invité à mettre à niveau le cluster vers une version prise en charge lors de la demande d’assistance, sauf si vous êtes dans la période de grâce de 30 jours après la dépréciation de la version.
 
 Par ailleurs, AKS n’offre aucune garantie d’exécution ou autre pour les clusters qui ne figurent pas dans la liste des versions prises en charge.
 
@@ -216,7 +243,7 @@ Non. Une fois qu’une version est déconseillée/supprimée, il n’est plus po
 
 **Je travaille sur une version désormais déconseillée, puis-je toujours ajouter de nouveaux pools de nœuds ? Ou une mise à niveau est-elle nécessaire ?**
 
-Non. Vous n’êtes pas autorisé à ajouter des pools de nœuds de la version déconseillée à votre cluster. Vous pouvez ajouter des pools de nœuds d’une nouvelle version. Toutefois, vous devrez peut-être d’abord mettre à jour le plan de contrôle. 
+Non. Vous n’êtes pas autorisé à ajouter des pools de nœuds de la version déconseillée à votre cluster. Vous pouvez ajouter des pools de nœuds d’une nouvelle version. Toutefois, vous devrez peut-être d’abord mettre à jour le plan de contrôle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -230,3 +257,4 @@ Pour plus d’informations sur la mise à niveau de votre cluster, consultez [Me
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[get-azaksversion]: /powershell/module/az.aks/get-azaksversion

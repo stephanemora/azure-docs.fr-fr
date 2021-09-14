@@ -8,19 +8,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/21/2021
+ms.date: 08/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dc4450fb1e21211b43bc178d94cf4bdfe6da58e1
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 44b7d541809bc3bd8657fcc4ec626e35ef0b19c1
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256784"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829450"
 ---
-# <a name="embedded-sign-in-experience"></a>Expérience de connexion incorporée
+# <a name="embedded-sign-up-or-sign-in-experience"></a>Expérience d’inscription ou de connexion intégrée
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -32,7 +32,10 @@ ms.locfileid: "107256784"
 
 ::: zone pivot="b2c-custom-policy"
 
-Pour simplifier l’expérience de connexion, vous pouvez éviter de rediriger les utilisateurs vers une page de connexion distincte ou de générer une fenêtre contextuelle. L’élément de cadre en ligne `<iframe>` vous permet d’incorporer l’interface utilisateur de connexion Azure AD B2C directement dans votre application web.
+Pour simplifier l’expérience d’inscription ou de connexion, vous pouvez éviter de rediriger les utilisateurs vers une page d’inscription ou de connexion distincte, ou de générer une fenêtre contextuelle. L’élément HTM &lt;iframe&gt; de cadre inséré vous permet d’incorporer l’interface utilisateur de connexion Azure AD B2C directement dans votre application web. 
+
+> [!TIP]
+> Utilisez l’élément HTML &lt;iframe&gt; pour incorporer les stratégies personnalisées d’[inscription ou connexion](add-sign-up-and-sign-in-policy.md), de [modification de profil](add-profile-editing-policy.md) ou de [modification de mot de passe](add-password-change-policy.md) dans votre application web ou monopage.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -44,7 +47,7 @@ L’élément de cadre en ligne `<iframe>` permet d’incorporer un document dan
 
 Lors de l’utilisation d’un IFrame, tenez compte de ce qui suit :
 
-- Une connexion incorporée ne prend en charge que des comptes locaux. La plupart des fournisseurs d’identité sociale (par exemple, Google et Facebook) bloquent l’affichage de leurs pages de connexion dans des cadres en ligne.
+- Une inscription ou connexion incorporée ne prend en charge que des comptes locaux. La plupart des fournisseurs d’identité sociale (par exemple, Google et Facebook) bloquent l’affichage de leurs pages de connexion dans des cadres en ligne.
 - Étant donné que les cookies de session Azure AD B2C dans un IFrame sont considérés comme des cookies tiers, certains navigateurs (par exemple, Safari ou Chrome en mode Incognito) les bloquent ou les suppriment, ce qui entraîne une expérience utilisateur indésirable. Pour éviter ce problème, assurez-vous que le nom de domaine de votre application et votre domaine Azure AD B2C ont la *même origine*. Pour utiliser la même origine, [activez les domaines personnalisés](custom-domain.md) pour le locataire Azure AD B2C, puis configurez votre application web avec la même origine. Par exemple, une application hébergée sur « https://app.contoso.com  » a la même origine qu’Azure AD B2C s’exécutant sur « https://login.contoso.com  ».
 
 ## <a name="prerequisites"></a>Prérequis
@@ -107,7 +110,7 @@ window.parent.postMessage("signUp", '*');
 
 ## <a name="configure-a-web-application"></a>Configurer une application web
 
-Quand un utilisateur sélectionne le bouton de connexion, l’[application web](code-samples.md#web-apps-and-apis) génère une demande d’autorisation qui amène l’utilisateur à expérience de connexion Azure AD B2C. Une fois la connexion établie, Azure AD B2C retourne un jeton d’ID ou un code d’autorisation à l’URI de redirection configuré dans votre application.
+Quand un utilisateur sélectionne le bouton de connexion, l’[application web](integrate-with-app-code-samples.md#web-apps-and-apis) génère une demande d’autorisation qui amène l’utilisateur à expérience de connexion Azure AD B2C. Une fois la connexion établie, Azure AD B2C retourne un jeton d’ID ou un code d’autorisation à l’URI de redirection configuré dans votre application.
 
 Pour prendre en charge la connexion incorporée, la propriété **src** de l’IFrame pointe vers le contrôleur de connexion, tel `/account/SignUpSignIn`, qui génère la demande d’autorisation et redirige l’utilisateur vers une stratégie Azure AD B2C.
 
@@ -168,6 +171,6 @@ Consultez les articles associés suivants :
 - [Personnalisation de l’interface utilisateur](customize-ui.md)
 - Référence de l’élément [RelyingParty](relyingparty.md)
 - [Activer votre stratégie pour JavaScript](./javascript-and-page-layout.md)
-- [Exemples de code](code-samples.md)
+- [Exemples de code](integrate-with-app-code-samples.md)
 
 ::: zone-end

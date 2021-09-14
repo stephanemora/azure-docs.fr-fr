@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: a5af992bdfe3bb97383d3c8ed1ccd0e57dd1efb7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8429ed368e8465c45137e555444a18b8a66769dd
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524460"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123271950"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>Fonctions PowerShell pour IoT Edge pour Linux sur Windows
 
@@ -21,7 +21,7 @@ ms.locfileid: "122524460"
 
 Découvrez les fonctions PowerShell qui déploient, approvisionnent et obtiennent l’état de votre IoT Edge pour Linux sur une machine virtuelle Windows (EFLOW).
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Les commandes décrites dans cet article proviennent du fichier `AzureEFLOW.psm1`, qui se trouve sur votre système dans votre répertoire `WindowsPowerShell` sous `C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW`.
 
@@ -67,7 +67,7 @@ L’utilisateur **iotedge-user** doit disposer de l’autorisation de lecture su
 | --------- | --------------- | -------- |
 | fromFile | Chaîne représentant le chemin d’accès au fichier | Définit le fichier à partir duquel effectuer la lecture. |
 | toFile | Chaîne représentant le chemin d’accès au fichier |  Définit le fichier dans lequel écrire. |
-| pushFile | Aucune | Cet indicateur indique la direction de la copie. Si présent, la commande transmet le fichier à la machine virtuelle. Si absent, la commande extrait le fichier à partir de la machine virtuelle. |
+| pushFile | Aucun | Cet indicateur indique la direction de la copie. Si présent, la commande transmet le fichier à la machine virtuelle. Si absent, la commande extrait le fichier à partir de la machine virtuelle. |
 
 Pour plus d'informations, utilisez la commande `Get-Help Copy-EflowVMFile -full`.
 
@@ -81,7 +81,7 @@ La commande **Deploy-Eflow** est la principale méthode de déploiement. La comm
 | acceptOptionalTelemetry | **Oui** ou **Non** |  Raccourci permettant d’accepter/de refuser la télémétrie facultative et de contourner l’invite de télémétrie. |
 | cpuCount | Valeur entière comprise entre 1 et les cœurs d’UC de l’appareil |  Nombre de cœurs de processeur pour la machine virtuelle.<br><br>**Valeur par défaut**: 1 vCore. |
 | memoryInMB | Valeur entière comprise entre 1 024 et la quantité maximale de mémoire disponible de l’appareil |Mémoire allouée pour la machine virtuelle.<br><br>**DValeur par défaut**  : 1 024 Mo. |
-| vmDiskSize | Entre 8 Go et 256 Go | Taille de disque maximale du disque dur virtuel de taille dynamique.<br><br>**Valeur par défaut** : 16 Go. |
+| vmDiskSize | Entre 8 Go et 256 Go | Taille de disque maximale du disque dur virtuel de taille dynamique.<br><br>**Valeur par défaut** : 10 Go. |
 | vswitchName | Nom du commutateur virtuel |  Nom du commutateur virtuel affecté à la machine virtuelle EFLOW. |
 | vswitchType | **Interne** ou **externe** | Nom du commutateur virtuel affecté à la machine virtuelle EFLOW. |
 | ip4Address | Adresse IPv4 dans la plage de l’étendue du serveur DCHP | Adresse IPv4 statique de la machine virtuelle EFLOW. _Remarque : uniquement pris en charge avec le commutateur par défaut ICS_. |
@@ -176,8 +176,8 @@ Les paramètres facultatifs suivants peuvent être utilisés pour spécifier la 
 
 | Paramètre | Valeurs acceptées | Commentaires |
 | --------- | --------------- | -------- |
-| commande | Chaîne | Commande à exécuter sur la machine virtuelle. |
-| ignoreError | Aucune |  Si cet indicateur est présent, ignorez les erreurs de la commande. |
+| commande | String | Commande à exécuter sur la machine virtuelle. |
+| ignoreError | Aucun |  Si cet indicateur est présent, ignorez les erreurs de la commande. |
 
 Pour plus d'informations, utilisez la commande `Get-Help Invoke-EflowVmCommand -full`.
 
@@ -210,7 +210,7 @@ La commande **Set-EflowVM** actualise la configuration de la machine virtuelle a
 | gpuName | Nom du Périphérique GPU |  Nom du périphérique GPU à utiliser pour le relais. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, ou aucun (pas de relais) |  Type de relais GPU |
 | gpuCount | Valeur entière comprise entre 1 et les cœurs GPU de l’appareil | Nombre d’appareils GPU pour la machine virtuelle. **Remarque** : uniquement valide en cas d’utilisation de DirectDeviceAssignment |
-| sans affichage | Aucune | Si cet indicateur est présent, il détermine si l’utilisateur doit confirmer en cas d’émission d’un avertissement de sécurité. |
+| sans affichage | Aucun | Si cet indicateur est présent, il détermine si l’utilisateur doit confirmer en cas d’émission d’un avertissement de sécurité. |
 
 Pour plus d'informations, utilisez la commande `Get-Help Set-EflowVM -full`.
 
@@ -221,7 +221,7 @@ La commande **Set-EflowVmFeature** active ou désactive l’état d’IoT Edge p
 | Paramètre | Valeurs acceptées | Commentaires |
 | --------- | --------------- | -------- |
 | fonctionnalité | **DpsTpm** | Nom de la fonctionnalité à activer/désactiver. |
-| enable | Aucune | Si cet indicateur est présent, la commande active la fonctionnalité. |
+| enable | Aucun | Si cet indicateur est présent, la commande active la fonctionnalité. |
 
 Pour plus d'informations, utilisez la commande `Get-Help Set-EflowVmFeature -full`.
 

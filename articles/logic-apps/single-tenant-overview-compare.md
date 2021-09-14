@@ -1,17 +1,17 @@
 ---
-title: 'Vue d’ensemble : Environnement monolocataire Azure Logic Apps'
+title: Comparaison entre l’architecture monolocataire et l’architecture multilocataire d’Azure Logic Apps
 description: Découvrez les différences entre une architecture monolocataire ou mutualisée et un service d’intégration (ISE) pour Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, ladolan, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 0c09d013e3e9e3934702eb512334a33a60044b9d
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.date: 08/18/2021
+ms.openlocfilehash: 61dbf2f83ad135cfdef6fffcc3a8c162d0a4c0cd
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441237"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111451"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Architecture monolocataire ou multilocataire et environnement de service d’intégration pour Azure Logic Apps
 
@@ -38,7 +38,7 @@ Le tableau suivant résume brièvement les différences entre le type de ressour
 
 ## <a name="logic-app-standard-resource"></a>Ressource Application logique (Standard)
 
-Le type de ressource **Application logique (Standard)** repose sur le runtime Azure Logic Apps monolocataire remanié. Le runtime en conteneur utilise le [modèle d’extensibilité d’Azure Functions](../azure-functions/functions-bindings-register.md) et est hébergé en tant qu’extension sur le runtime d’Azure Functions. Cette conception offre une portabilité, une flexibilité et des performances accrues pour vos workflows d’application logique, ainsi que d’autres fonctionnalités et avantages hérités de la plateforme Azure Functions et de l’écosystème Azure App Service.
+Le type de ressource **Application logique (Standard)** repose sur le runtime Azure Logic Apps monolocataire remanié. Ce runtime utilise le [modèle d’extensibilité d’Azure Functions](../azure-functions/functions-bindings-register.md) et est hébergé en tant qu’extension sur le runtime d’Azure Functions. Cette conception offre une portabilité, une flexibilité et des performances accrues pour vos workflows d’application logique, ainsi que d’autres fonctionnalités et avantages hérités de la plateforme Azure Functions et de l’écosystème Azure App Service.
 
 Par exemple, vous pouvez exécuter des applications logiques monolocataires et leurs workflows partout où les applications de fonction Azure et leurs fonctions peuvent s’exécuter. Le type de ressource Standard introduit une structure de ressources qui peut héberger plusieurs workflows, de la même manière qu’une application de fonction Azure peut héberger plusieurs fonctions. Avec un mappage de 1 à plusieurs, les workflows dans la même application logique et le même client partagent les ressources de calcul et de traitement, ce qui améliore les performances en raison de leur proximité. Cette structure diffère de la ressource **Application logique (Consommation)** où vous avez un mappage 1 à 1 entre une ressource d’application logique et un workflow.
 
@@ -55,7 +55,7 @@ Pour en savoir plus sur la portabilité, la flexibilité et les améliorations d
 
 Lorsque vous créez des applications logiques à l’aide du type de ressource **Application logique (Standard)** , vous pouvez exécuter vos workflows partout où vous pouvez exécuter des applications de fonction Azure et leurs fonctions, et pas uniquement dans l’environnement de service monolocataire.
 
-Par exemple, lorsque vous utilisez Visual Studio Code avec l’extension **Azure Logic Apps (Standard)** , vous pouvez développer, générer et exécuter *localement* vos workflows dans votre environnement de développement sans avoir à effectuer de déploiement sur Azure. Si votre scénario requiert des conteneurs, vous pouvez les mettre en conteneur et déployer les applications logiques en tant que conteneurs.
+Par exemple, lorsque vous utilisez Visual Studio Code avec l’extension **Azure Logic Apps (Standard)** , vous pouvez développer, générer et exécuter *localement* vos workflows dans votre environnement de développement sans avoir à effectuer de déploiement sur Azure. Si votre scénario requiert des conteneurs, [créez des applications logiques monolocataires utilisant des Logic Apps Azure Arc ](azure-arc-enabled-logic-apps-create-deploy-workflows.md). Pour plus d’informations, consultez [Qu’est-ce que Logic Apps avec Azure Arc ?](azure-arc-enabled-logic-apps-overview.md)
 
 Ces fonctionnalités fournissent des améliorations majeures et des avantages substantiels par rapport au modèle mutualisé, ce qui vous oblige à développer sur une ressource en cours d’exécution existante dans Azure. En outre, le modèle multi-locataire pour automatiser le déploiement des ressources **Application logique (Consommation)** est entièrement basé sur des modèles Azure Resource Manager (modèles ARM), qui combinent et gèrent l’approvisionnement des ressources pour les applications et l’infrastructure.
 
@@ -95,7 +95,7 @@ Pour créer une application logique basée sur l’environnement souhaité, vous
 | Portail Azure | Type de ressource **Application logique (Consommation)** | [Démarrage rapide : Créer des workflows d’intégration dans une instance mutalisée Azure Logic Apps - Portail Azure](quickstart-create-first-logic-app-workflow.md) |
 | Visual Studio Code | [Extension **Azure Logic Apps (Consommation)**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) | [Démarrage rapide : Créer des workflows d’intégration dans une instance mutalisée Azure Logic Apps - Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 | Azure CLI | [Extension **Azure CLI Logic Apps**](https://github.com/Azure/azure-cli-extensions/tree/master/src/logic) | - [Démarrage rapide : Créer et gérer des workflows d’intégration dans une instance mutalisée Azure Logic Apps - Azure CLI](quickstart-logic-apps-azure-cli.md) <p><p>- [az logic](/cli/azure/logic) |
-| Azure Resource Manager | [Modèle Azure Resource Manager (ARM) **Créer une application logique**](https://azure.microsoft.com/resources/templates/logic-app-create/) | [Démarrage rapide : Créer et déployer des workflows d’intégration dans une instance mutalisée Azure Logic Apps - Modèle ARM](quickstart-create-deploy-azure-resource-manager-template.md) |
+| Azure Resource Manager | [**Créer une application logique** Modèle ARM](https://azure.microsoft.com/resources/templates/logic-app-create/) | [Démarrage rapide : Créer et déployer des workflows d’intégration dans une instance mutalisée Azure Logic Apps - Modèle ARM](quickstart-create-deploy-azure-resource-manager-template.md) |
 | Azure PowerShell | [Az.LogicApp module](/powershell/module/az.logicapp) | [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps) |
 | API REST Azure | [API REST Azure Logic Apps](/rest/api/logic) | [Référence Bien démarrer avec l’API REST Azure](/rest/api/azure) |
 ||||
@@ -119,11 +119,14 @@ Avec le type de ressource **Application logique (Standard)** , vous pouvez crée
 
 * *Avec état*
 
-  Créez des workflows avec état lorsque vous devez conserver, examiner ou référencer des données d’événements précédents. Ces workflows enregistrent les entrées et les sorties de chaque action, ainsi que leurs états, dans un stockage externe qui permet d’examiner les détails et l’historique d’exécution à l’issue de chaque exécution. Les workflows avec état offrent une haute résilience en cas d’interruption. Une fois les services et systèmes restaurés, vous pouvez reconstituer les exécutions interrompues à partir de l’état enregistré et réexécuter les workflows jusqu’à leur terme. Les workflows avec état peuvent continuer à s’exécuter plus longtemps que les workflows sans état.
+  Créez un workflow avec état lorsque vous devez conserver, examiner ou référencer des données d’événements précédents. Ces workflows enregistrent et transfèrent toutes les entrées et les sorties de chaque action, ainsi que leurs états, dans un stockage externe qui permet d’examiner les détails et l’historique d’exécution à l’issue de chaque exécution. Les workflows avec état offrent une haute résilience en cas d’interruption. Une fois les services et systèmes restaurés, vous pouvez reconstituer les exécutions interrompues à partir de l’état enregistré et réexécuter les workflows jusqu’à leur terme. Les workflows avec état peuvent continuer à s’exécuter plus longtemps que les workflows sans état.
 
 * *Sans état*
 
-  Créez des workflows sans état lorsque vous n’avez pas besoin d’enregistrer, d’examiner ou de référencer des données d’événements précédents dans un stockage externe pour les consulter ultérieurement. Ces workflows enregistrent les entrées et les sorties pour chaque action et leurs états *uniquement en mémoire*, au lieu de transférer ces données vers un stockage externe. Par conséquent, les workflows sans état offrent des temps d’exécution plus courts généralement inférieurs à cinq minutes, des performances plus rapides avec des temps de réponse plus courts, un débit plus élevé, et des coûts d’exécution réduits, car les détails et l’historique d’exécution ne sont pas conservés dans un stockage externe. Toutefois, en cas de panne, les exécutions interrompues ne sont pas automatiquement restaurées, de sorte que l’appelant doit relancer manuellement les exécutions interrompues. Ces workflows peuvent uniquement s’exécuter de façon synchrone.
+  Créez un workflow sans état lorsque vous n’avez pas besoin de conserver, d’examiner ou de référencer des données d’événements précédents dans un stockage externe après chaque exécution pour les consulter ultérieurement. Ces workflows enregistrent toutes les entrées et les sorties pour chaque action et leurs états *uniquement en mémoire*, et non dans un stockage externe. Par conséquent, les workflows sans état offrent des temps d’exécution plus courts généralement inférieurs à cinq minutes, des performances plus rapides avec des temps de réponse plus courts, un débit plus élevé, et des coûts d’exécution réduits, car les détails et l’historique d’exécution ne sont pas enregistrés dans un stockage externe. Toutefois, en cas de panne, les exécutions interrompues ne sont pas automatiquement restaurées, de sorte que l’appelant doit relancer manuellement les exécutions interrompues. Ces workflows peuvent uniquement s’exécuter de façon synchrone.
+
+  > [!IMPORTANT]
+  > Un workflow sans état offre les meilleures performances lors de la gestion des données ou du contenu, tel qu’un fichier, qui ne dépasse pas 64 Ko au *total*. Des tailles de contenu plus volumineuses, telles que plusieurs pièces jointes imposantes, peuvent ralentir considérablement les performances de votre workflow ou même provoquer le blocage de votre workflow en raison d’exceptions de mémoire insuffisante. Si votre workflow peut être amené à gérer des tailles de contenu supérieures, utilisez un workflow avec état à la place.
 
   Pour faciliter le débogage, vous pouvez activer l’historique des exécutions pour un workflow sans état (ce qui a un certain impact sur les performances), puis le désactiver lorsque vous avez terminé. Pour plus d’informations, consultez [Créer des flux de travail basés sur un locataire dans Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) ou [Créer des flux de travail basés sur un locataire dans le portail Azure](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
@@ -179,20 +182,25 @@ Le modèle monolocataire et le type de ressource **Application logique (Standard
 
     La fonctionnalité de création n’est actuellement disponible que dans Visual Studio Code, mais elle n’est pas activée par défaut. Pour créer ces connecteurs, [changez votre projet basé sur bundle d’extensions (Node.js) en projet basé sur package NuGet (.NET)](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring). Pour plus d’informations, consultez [Azure Logic Apps s’exécutant partout – Extensibilité de connecteur intégré](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
-  * Vous pouvez utiliser les actions B2B pour Liquid Operations et XML Operations sans compte d’intégration. Pour utiliser ces actions, vous devez disposer de cartes Liquid, de cartes XML ou de schémas XML que vous pouvez charger par le biais des actions respectives dans le portail Azure ou ajouter au dossier **Artefacts** de votre projet Visual Studio Code à l’aide des dossiers **Cartes** et **Schémas**.
+  * Vous pouvez utiliser les actions suivantes pour Liquid Operations et XML Operations sans compte d’intégration. Ces opérations peuvent être notamment les actions suivantes :
 
-  * Les ressources **Application logique (Standard)** peuvent s’exécuter en tout lieu, car le service Azure Logic Apps génère des chaînes de connexion avec signature d’accès partagé (SAP) que ces applications logiques peuvent utiliser pour envoyer des demandes au point de terminaison du runtime de connexion cloud. Le service Logic Apps enregistre ces chaînes de connexion avec d’autres paramètres de l’application pour vous permettre de stocker facilement ces valeurs dans Azure Key Vault quand vous opérez un déploiement sur Azure.
+    * XML : **Transformation XML** et **Validation XML**
+
+    * Liquid : **Transformer JSON en JSON**, **Transformer JSON en TEXT**, **Transformer XML en JSON** et **Transformer XML en Text**
+
+    > [!NOTE]
+    > Pour utiliser ces actions dans des Azure Logic Apps monolocataires (Standard), vous devez disposer de mappages Liquid, de mappages XML ou de schémas XML. Vous pouvez charger ces artefacts sur le portail Azure à partir du menu des ressources de votre application logique, sous **Artefacts**, qui inclut les sections **Schémas** et **Mappages**. Vous pouvez également ajouter ces artefacts à votre dossier **Artefacts** du projet Visual Studio Code, en utilisant les **Mappages** et les **Schémas** correspondants. Vous pouvez ensuite utiliser ces artefacts sur plusieurs workflows au sein de la *même ressource d’application logique*.
+
+  * Les ressources **Application logique (Standard)** peuvent s’exécuter en tout lieu, car Azure Logic Apps génère des chaînes de connexion avec signature d’accès partagé (SAP) que ces applications logiques peuvent utiliser pour envoyer des demandes au point de terminaison du runtime de connexion cloud. Le service Logic Apps enregistre ces chaînes de connexion avec d’autres paramètres de l’application pour vous permettre de stocker facilement ces valeurs dans Azure Key Vault quand vous opérez un déploiement sur Azure.
 
     > [!NOTE]
     > Par défaut, l’[identité managée assignée par le système](../logic-apps/create-managed-service-identity.md) d’une ressource **Application logique (Standard)** est automatiquement activée pour authentifier les connexions au moment de l’exécution. Cette identité diffère des informations d’identification d’authentification ou de la chaîne de connexion que vous utilisez lors de la création d’une connexion. Si vous désactivez cette identité, les connexions ne fonctionneront pas au moment de l’exécution. Pour afficher ce paramètre, dans le menu de votre application logique, sous **Paramètres**, sélectionnez **Identité**.
-
-* Les workflows sans état s’exécutent uniquement en mémoire, de sorte qu’ils opèrent plus rapidement, répondent plus promptement, présentent un débit plus élevé et réduisent le coût d’exécution, car les historiques et données d’exécution entre les actions ne sont pas conservés dans un stockage externe. Si vous le souhaitez, vous pouvez activer l’historique d’exécution pour faciliter le débogage. Pour plus d’informations, consultez [Workflows avec et sans état](#stateful-stateless).
 
 * Vous pouvez exécuter, tester et déboguer localement vos applications logiques et leurs workflows dans l’environnement de développement Visual Studio Code.
 
   Avant d’exécuter et de tester votre application logique, vous pouvez faciliter le débogage en ajoutant et en utilisant des points d’arrêt dans le fichier **workflow.json** d’un workflow. Toutefois, les points d’arrêt sont pris en charge uniquement pour les actions à l’heure actuelle, et non pour les déclencheurs. Pour plus d’informations, consultez [Créer des workflows monolocataires dans Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
-* Publiez ou déployez directement des applications logiques et leurs workflows de Visual Studio Code vers divers environnements d’hébergement tels qu’Azure et des conteneurs.
+* Publiez ou déployez directement des applications logiques et leurs workflows de Visual Studio Code vers divers environnements d’hébergement tels qu’Azure et des Logic Apps Azure Arc.
 
 * Activez les capacités de journalisation et de suivi des diagnostics pour votre application logique en utilisant [Application Insights](../azure-monitor/app/app-insights-overview.md) lorsque la fonctionnalité est prise en charge par votre abonnement Azure et les paramètres de l’application logique.
 
@@ -230,13 +238,15 @@ Pour la ressource **Application logique (Standard)** , ces capacités ont chang�
       >
       > Comme dans le modèle multilocataire, si vous renouvelez cette clé, par exemple par le biais de l’expérience Azure Functions dans le portail, l’action de la fonction ne marchera plus en raison de la clé devenue non valide. Pour résoudre ce problème, vous devez recréer la connexion à la fonction que vous souhaitez appeler ou mettre à jour les paramètres de votre application avec la nouvelle clé.
 
-    * L’[action de code inline](logic-apps-add-run-inline-code.md) intégrée est renommée **Opérations de code inline**, n’a plus besoin d’un compte d’intégration et a des [limites mises à jour](logic-apps-limits-and-config.md).
+    * L’action intégrée [Code inline](logic-apps-add-run-inline-code.md) intégrée est renommée **Opérations de code inline**, n’a plus besoin d’un compte d’intégration et a des [limites mises à jour](logic-apps-limits-and-config.md).
 
     * L’action intégrée, [Azure Logic Apps – Choisir un workflow d’application logique](logic-apps-http-endpoint.md) est désormais **Workflow Operations – Appeler un workflow dans cette application de workflow**.
 
-    * Certains [déclencheurs et actions B2B intégrés pour les comptes d’intégration](../connectors/managed.md#integration-account-connectors) ne sont pas disponibles, par exemple, les actions de codage et de décodage **Fichier plat**.
+    * Certains [déclencheurs et actions intégrés pour les comptes d’intégration](../connectors/managed.md#integration-account-connectors) ne sont pas disponibles, par exemple, les actions de codage et de décodage **Fichier plat**.
 
     * Les [connecteurs gérés personnalisés](../connectors/apis-list.md#custom-apis-and-connectors) ne sont actuellement pas pris en charge. Toutefois, vous pouvez créer des *opérations intégrées personnalisées* lorsque vous utilisez Visual Studio Code. Pour plus d’informations, consultez [Créer des workflows monolocataires avec Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
+
+* Pour la transformation XML, le référencement d’assemblys à partir de mappages n’est pas pris en charge actuellement. Par ailleurs, seul XSLT 1.0 est actuellement pris en charge.
 
 * **Débogage des points d’arrêt dans Visual Studio Code** : Bien que vous puissiez ajouter et utiliser des points d’arrêt à l’intérieur du fichier **workflow.json** pour un workflow, les points d’arrêt sont pris en charge uniquement pour les actions pour le moment, et non pour les déclencheurs. Pour plus d’informations, consultez [Créer des workflows monolocataires dans Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 

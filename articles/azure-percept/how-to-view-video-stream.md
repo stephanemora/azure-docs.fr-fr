@@ -1,18 +1,18 @@
 ---
 title: Afficher le flux vidéo RTSP de votre appareil Azure Percept DK
 description: Découvrez comment afficher le flux vidéo RTSP d’Azure Percept DK.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: ef0f7a581329e9ee5e4d891b41d321ed559d64d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 10d836e6d77f83e70efa1fc7757c8d8dd1d3f3f4
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531586"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221635"
 ---
 # <a name="view-your-azure-percept-dk-rtsp-video-stream"></a>Afficher le flux vidéo RTSP de votre appareil Azure Percept DK
 

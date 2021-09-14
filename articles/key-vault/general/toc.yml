@@ -87,13 +87,7 @@
     - name: Autoriser l’accès
       items:
         - name: Affecter une stratégie d’accès
-          items:
-            - name: Interface de ligne de commande
-              href: assign-access-policy-cli.md
-            - name: PowerShell
-              href: assign-access-policy-powershell.md
-            - name: Portail
-              href: assign-access-policy-portal.md
+          href: assign-access-policy.md
         - name: Modèle d’autorisation RBAC Azure
           items:
             - name: "Utiliser un rôle\_RBAC Azure pour gérer l’accès aux clés, aux secrets et aux certificats"

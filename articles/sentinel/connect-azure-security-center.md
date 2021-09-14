@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 0d348231c28e33b7eaef97a468e7e8a6a8677c32
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 9612b5aaaec10358609abba3878f6f09405ad076
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525658"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260122"
 ---
 # <a name="connect-azure-defender-alerts-from-azure-security-center"></a>Connecter les alertes Azure Defender à partir d’Azure Security Center
 
-## <a name="background"></a>Arrière-plan
+## <a name="background"></a>Contexte
 
 [Azure Defender](../security-center/azure-defender.md), la plateforme cloud intégrée de protection de charge de travail (CWPP) d’[Azure Security Center](../security-center/security-center-introduction.md), est un outil de gestion de la sécurité qui vous permet de détecter les menaces et d’y répondre rapidement sur les charges de travail cloud hybride. 
 
@@ -56,7 +56,7 @@ Comme Azure Defender lui-même est activé par abonnement, le connecteur Azure�
 
 1. Dans Azure Sentinel, sélectionnez **Connecteurs de données** dans le menu de navigation.
 
-1. Dans la galerie des connecteurs de données, sélectionnez **Azure Defender**, puis cliquez sur **Ouvrir la page du connecteur** dans le volet d’informations.
+1. Dans la galerie des connecteurs de données, sélectionnez **Azure Defender**, puis sélectionnez **Ouvrir la page du connecteur** dans le volet d’informations.
 
 1. Sous **Configuration**, vous verrez une liste des abonnements de votre locataire et l’état de leur connexion à Azure Defender. Sélectionnez le bouton bascule **État** à côté de chaque abonnement dont vous souhaitez diffuser les alertes dans Azure Sentinel. Si vous souhaitez connecter plusieurs abonnements à la fois, vous pouvez le faire en cochant les cases à côté des abonnements concernés, puis en sélectionnant le bouton **Connecter** dans la barre située au-dessus de la liste.
 

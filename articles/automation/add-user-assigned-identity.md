@@ -3,14 +3,14 @@ title: Utilisation d’une identité managée affectée par l’utilisateur pour
 description: Cet article explique comment configurer une identité managée affectée par l’utilisateur pour les comptes Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/09/2021
+ms.date: 08/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: f1e66f63da69a4c8e30db1b7d4bb4f71a4db79d5
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: ce409853cddfd0278692e2c6e233331530296d6b
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665627"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214262"
 ---
 # <a name="using-a-user-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Utilisation d’une identité managée affectée par l’utilisateur pour un compte Azure Automation (préversion)
 
@@ -119,7 +119,7 @@ Pour obtenir une sortie supplémentaire, exécutez : `$output.identity | Conver
 
 Vous trouverez ci-dessous la syntaxe et des exemples d’étapes.
 
-#### <a name="syntax"></a>Syntax
+#### <a name="syntax"></a>Syntaxe
 
 L’exemple de syntaxe de corps ci-dessous active une identité managée affectée par le système si elle n’est pas déjà activée et affecte deux identités managées affectées par l’utilisateur existantes au compte Automation existant.
 
@@ -303,7 +303,9 @@ Un compte Automation peut utiliser son identité managée affectée par l’util
 
 Avant de pouvoir vous servir de l’identité managée affectée par l’utilisateur dans le cadre de l’authentification, configurez l’accès de cette identité à la ressource Azure où vous prévoyez de l’utiliser. Pour effectuer cette tâche, attribuez le rôle approprié à cette identité sur la ressource Azure cible.
 
-Cet exemple utilise Azure PowerShell pour montrer comment attribuer le rôle Contributeur dans l’abonnement à la ressource Azure cible. Le rôle Contributeur est utilisé à titre d’exemple et peut ne pas être requis dans votre cas. Vous pouvez également utiliser le portail pour attribuer le rôle à la ressource Azure cible.
+Suivez le principe des privilèges minimum et attribuez avec précaution les seules autorisations nécessaires pour exécuter votre runbook. Par exemple, si le compte Automation est requis uniquement pour démarrer ou arrêter une machine virtuelle Azure, les autorisations attribuées au compte d’identification ou à l’identité managée doivent servir uniquement à démarrer ou arrêter la machine virtuelle. De même, si un runbook lit à partir du stockage blob, attribuez des autorisations en lecture seule.
+
+Cet exemple utilise Azure PowerShell pour montrer comment attribuer le rôle Contributeur dans l’abonnement à la ressource Azure cible. Le rôle Contributeur est utilisé à titre d’exemple et peut ne pas être requis dans votre cas. Vous pouvez également attribuer le rôle à la ressource Azure cible dans le [portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 ```powershell
 New-AzRoleAssignment `

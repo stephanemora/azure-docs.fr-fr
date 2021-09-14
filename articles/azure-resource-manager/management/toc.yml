@@ -163,8 +163,6 @@
       href: lock-resources.md
     - name: S’authentifier auprès des locataires
       href: authenticate-multi-tenant.md
-    - name: Afficher les journaux d’activité
-      href: view-activity-logs.md
     - name: Demandes de limitation
       href: request-limits-and-throttling.md
     - name: Suivre les opérations asynchrones

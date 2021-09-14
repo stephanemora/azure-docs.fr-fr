@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c373e45c8607f10c36f40a23c776bd081bf13207
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 59eb3874a7f0de9eba1f5b75204618c887cb9bb2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789516"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525841"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
@@ -54,6 +54,7 @@ Avec *Azure CNI*, chaque pod reçoit une adresse IP dans le sous-réseau IP et
 * L’utilisation de kubenet requiert des tables de routage et des itinéraires définis par l’utilisateur, ce qui complique les opérations.
 * Le design de kubenet ne permet pas la prise en charge de l’adressage direct aux pods.
 * Contrairement aux clusters Azure CNI, plusieurs clusters kubenet ne peuvent pas partager un sous-réseau.
+* Si vous fournissez votre propre sous-réseau, vous devez gérer les groupes de sécurité réseau (NSG) associés à ce sous-réseau. AKS ne modifiera aucun des groupes de sécurité réseau associés à ce sous-réseau. Vous devez également vous assurer que les règles de sécurité figurant dans les groupes de sécurité réseau autorisent le trafic entre le nœud et le CIDR de pod.
 * Les fonctionnalités **non prises en charge sur kubenet** comprennent :
    * les [stratégies réseau Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), mais les stratégies réseau Calico sont prises en charge sur kubenet ;
    * les [pools de nœuds Windows](./windows-faq.md) ;
@@ -75,7 +76,7 @@ Les calculs de base suivants comparent la différence entre les modèles de rés
   - Ce nombre de nœuds peut seulement prendre en charge jusqu’à *240* pods (avec un maximum par défaut de 30 pods par nœud avec *Azure CNI*)
 
 > [!NOTE]
-> Ces valeurs maximales ne prennent pas en compte les opérations de mise à niveau ou de mise à l’échelle. Dans la pratique, vous ne pouvez pas exécuter le nombre maximal de nœuds que la plage d’adresses IP de sous-réseau prend en charge. Vous devez laisser certaines adresses IP disponibles pour qu’elles puissent être utilisées pendant les opérations de mise à l’échelle ou de mise à niveau.
+> Ces valeurs maximales ne prennent pas en compte les opérations de mise à niveau ou de mise à l’échelle. Dans la pratique, vous ne pouvez pas exécuter le nombre maximal de nœuds que la plage d’adresses IP de sous-réseau prend en charge. Vous devez laisser certaines adresses IP disponibles pour qu’elles puissent être utilisées pendant les opérations de mise à l’échelle et de mise à niveau.
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Peering de réseau virtuel et connexions ExpressRoute
 

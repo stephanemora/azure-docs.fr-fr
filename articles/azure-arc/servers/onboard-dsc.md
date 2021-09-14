@@ -1,18 +1,18 @@
 ---
 title: Installer l’agent Connected Machine à l’aide de DSC Windows PowerShell
-description: Dans cet article, vous allez apprendre à connecter des machines à Azure à l’aide d’Azure Arc enabled servers en utilisant DSC Windows PowerShell.
-ms.date: 09/24/2020
+description: Dans cet article, vous allez apprendre à connecter des machines à Azure à l’aide de serveurs avec Azure Arc en utilisant DSC Windows PowerShell.
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: c0ae9c97afe14559aa36c1b8387f07897aa4c43b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a6e955df43e3589c97091cb111699ce402723d0
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587648"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534989"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Guide pratique pour installer l’agent Connected Machine à l’aide de DSC Windows PowerShell
 
-Avec [Desired State Configuration (DSC) Windows PowerShell](/powershell/scripting/dsc/getting-started/winGettingStarted), vous pouvez automatiser l’installation et la configuration de logiciels pour un ordinateur Windows. Cet article explique comment utiliser DSC pour installer l’agent Connected Machine Azure Arc enabled servers sur des machines Windows hybrides.
+Avec [Desired State Configuration (DSC) Windows PowerShell](/powershell/scripting/dsc/getting-started/winGettingStarted), vous pouvez automatiser l’installation et la configuration de logiciels pour un ordinateur Windows. Cet article explique comment utiliser DSC pour installer l’agent Connected Machine des serveurs avec Azure Arc sur des machines Windows hybrides.
 
 ## <a name="requirements"></a>Spécifications
 
@@ -20,7 +20,7 @@ Avec [Desired State Configuration (DSC) Windows PowerShell](/powershell/scriptin
 
 - Module DSC [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc)
 
-- Un principal de service pour connecter de manière non interactive les machines à Azure Arc enabled servers. Suivez les étapes sous la section [Créer un principal de service pour une intégration à grande échelle](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) si vous n’avez pas déjà créé de principal de service pour Azure Arc enabled servers.
+- Un principal de service pour connecter de manière non interactive les machines aux serveurs avec Azure Arc. Suivez les étapes stipulées sous la section [Créer un principal de service pour une intégration à grande échelle](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) si vous n’avez pas déjà créé de principal de service pour les serveurs avec Azure Arc.
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>Installer le module DSC ConnectedMachine
 
@@ -44,7 +44,7 @@ Avec [Desired State Configuration (DSC) Windows PowerShell](/powershell/scriptin
 
 Les ressources de ce module sont conçues pour gérer la configuration de l’agent Azure Connected Machine. Également disponible un script PowerShell `AzureConnectedMachineAgent.ps1`, dans le dossier `AzureConnectedMachineDsc\examples`. Il utilise les ressources de la communauté pour automatiser le téléchargement et l’installation, établir aussi une connexion avec Azure Arc. Ce script effectue des étapes similaires à celles décrites dans l’article [Connecter des machines hybrides à Azure à partir du portail Azure](onboard-portal.md).
 
-Si la machine doit communiquer avec le service via un serveur proxy, après avoir installé l’agent, vous devez exécuter une commande décrite [ici](manage-agent.md#update-or-remove-proxy-settings). Cette dernière définit la variable d’environnement système du serveur proxy `https_proxy`. Au lieu d’exécuter la commande manuellement, vous pouvez effectuer cette étape avec DSC en utilisant le module [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc).
+Si la machine doit communiquer avec le service via un serveur proxy, après avoir installé l’agent, vous devez exécuter une commande décrite [ici](manage-agent.md#update-or-remove-proxy-settings). Cette dernière définit la variable d’environnement système du serveur proxy `https_proxy`. Au lieu d’exécuter la commande manuellement, vous pouvez effectuer cette étape avec DSC en utilisant le module [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc). Avec cette configuration, l’agent communique par le biais du serveur proxy en utilisant le protocole HTTP.
 
 >[!NOTE]
 >Pour permettre l’exécution de DSC, Windows doit être configuré pour recevoir des commandes PowerShell à distance, même lorsque vous exécutez une configuration localhost. Pour configurer facilement et correctement votre environnement, exécutez simplement `Set-WsManQuickConfig -Force` dans un terminal PowerShell avec élévation de privilèges.
@@ -76,7 +76,7 @@ Voici les paramètres que vous transmettez au script PowerShell à utiliser.
 
 3. Cette opération crée un `localhost.mof file` dans un nouveau dossier nommé `C:\dsc`.
 
-Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte à Azure Arc enabled servers, accédez au portail Azure pour vérifier que le serveur a été correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
+Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte aux serveurs avec Azure Arc, accédez au portail Azure pour vérifier que le serveur a été correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
 
 ## <a name="adding-to-existing-configurations"></a>Ajout aux configurations existantes
 
@@ -88,6 +88,6 @@ Le module [CompositeResource](https://www.powershellgallery.com/packages/composi
 
 * Pour plus d’informations sur la résolution des problèmes, consultez le [guide Résoudre les problèmes de l’agent Connected Machine](troubleshoot-agent-onboard.md).
 
-* Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.
+* Consultez le [Guide de planification et de déploiement](plan-at-scale-deployment.md) pour planifier le déploiement de serveurs avec Azure Arc à n’importe quelle échelle et implémenter la gestion et la supervision centralisées.
 
-* En savoir plus sur [l’agent Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez superviser de manière proactive le système d’exploitation et les charges de travail en cours d’exécution sur la machine, gérer le système d’exploitation à l’aide de runbooks Automation ou de solutions comme Update Management ou utiliser d’autres services Azure tels qu’[Azure Security Center](../../security-center/security-center-introduction.md).
+* Découvrez comment gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration d’invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, en vérifiant que la machine crée des rapports sur l’espace de travail Log Analytics prévu, activez la supervision avec [VM Insights](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.

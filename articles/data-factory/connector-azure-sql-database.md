@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/15/2021
-ms.openlocfilehash: c18fbc20078ca99e1afca215e702e391d5c1b2b1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: c594d253c193928eae47949474aaa75c4f27b60d
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641964"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314001"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données dans Azure SQL Database à l’aide de pipelines Azure Data Factory ou Azure Synapse Analytics
 
@@ -25,7 +25,7 @@ ms.locfileid: "122641964"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article indique comment utiliser l’activité de copie dans les pipelines Azure Data Factory ou Azure Synapse pour copier des données depuis et vers Azure SQL Database et comment utiliser Data Flow pour transformer les données dans Azure SQL Database. Pour en savoir plus, lisez l’article d’introduction pour [Azure Data Factory](introduction.md) ou [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+Cet article indique comment utiliser l’activité de copie dans les pipelines Azure Data Factory ou Azure Synapse pour copier des données depuis et vers Azure SQL Database et comment utiliser Data Flow pour transformer les données dans Azure SQL Database. Pour en savoir plus, lisez l’article d’introduction pour [Azure Data Factory](introduction.md) ou [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -53,6 +53,32 @@ Pour l’activité de copie, ce connecteur Azure SQL Database prend en charge le
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-an-azure-sql-database-linked-service-using-ui"></a>Créer un service lié Azure SQL Database à l’aide de l’interface utilisateur
+
+Procédez comme suit pour créer un service lié Azure SQL Database dans l’interface utilisateur Portail Azure.
+
+1. Accédez à l’onglet Gérer dans votre espace de travail Azure Data Factory ou Synapse, sélectionnez Services liés, puis cliquez sur Nouveau :
+
+   # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+   :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+
+   # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+   :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Synapse.":::
+
+   
+
+2. Recherchez SQL et sélectionnez le connecteur Azure SQL Database.
+
+    :::image type="content" source="media/connector-azure-sql-database/azure-sql-database-connector.png" alt-text="Sélectionnez le connecteur Azure SQL Database.":::    
+
+1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
+
+    :::image type="content" source="media/connector-azure-sql-database/configure-azure-sql-database-linked-service.png" alt-text="Capture d’écran de la configuration d’un service lié Azure SQL Database.":::
+
+## <a name="connector-configuration-details"></a>Détails de configuration du connecteur
+
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités du pipeline Azure Data Factory ou Synapse propres à un connecteur Azure SQL Database.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
@@ -66,7 +92,7 @@ Les propriétés prises en charge pour un service lié Azure SQL Database sont l
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | tenant | Spécifiez les informations de locataire, comme le nom de domaine ou l’ID de locataire, dans lequel votre application se trouve. Récupérez-les en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
-| azureCloudType | Pour l'authentification du principal de service, spécifiez le type d'environnement cloud Azure auquel votre application Azure AD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud du pipeline de fabrique de données ou Synapse est utilisé. | No |
+| azureCloudType | Pour l'authentification du principal de service, spécifiez le type d'environnement cloud Azure auquel votre application Azure AD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud du pipeline de fabrique de données ou Synapse est utilisé. | Non |
 | alwaysEncryptedSettings | Spécifiez les informations **alwaysencryptedsettings** nécessaires pour permettre à Always Encrypted de protéger les données sensibles stockées dans SQL Server à l’aide d’une identité managée ou d’un principal de service. Pour plus d’informations, consultez l’exemple JSON figurant après le tableau et la section [Utilisation d’Always Encrypted](#using-always-encrypted). S’il n’est pas spécifié, le paramètre par défaut Always Encrypted est désactivé. |Non |
 | connectVia | Ce [runtime d'intégration](concepts-integration-runtime.md) permet de se connecter au magasin de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. | Non |
 

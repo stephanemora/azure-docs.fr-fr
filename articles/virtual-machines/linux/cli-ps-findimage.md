@@ -9,16 +9,14 @@ ms.date: 03/22/2021
 ms.author: cynthn
 ms.collection: linux
 ms.custom: contperf-fy21q3-portal, devx-track-azurecli
-ms.openlocfilehash: b0df8d446716363f21c468838523ffe4804f2e9c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: f440518e0d7b4fc347da6455e7f6c06e18633598
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691904"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532225"
 ---
 # <a name="find-azure-marketplace-image-information-using-the-azure-cli"></a>Rechercher des informations sur les images de Place de marché Azure à l’aide d’Azure CLI
-
-**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cette rubrique décrit comment utiliser Azure CLI pour rechercher des images de machine virtuelle sur la Place de marché Microsoft Azure. Ces informations permettent de spécifier une image de la Place de marché lorsque vous créez une machine virtuelle par programmation avec l’interface CLI, des modèles de Resource Manager ou d’autres outils.
 

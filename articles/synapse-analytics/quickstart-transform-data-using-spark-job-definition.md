@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2021
-ms.openlocfilehash: f7a44ae2033d75c81f80bc9a37e17ed8fe2786b2
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 2b7392af7a00ec68ad263b7c930842714c94fe1d
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110501196"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967711"
 ---
 # <a name="quickstart-transform-data-using-apache-spark-job-definition"></a>Démarrage rapide : Transformer des données à l’aide d’une définition de travail Apache Spark
 
@@ -42,13 +42,13 @@ Dans ce guide de démarrage rapide, nous utilisons l’espace de travail nommé 
 
 Un pipeline contient le flux logique pour l’exécution d’un ensemble d’activités. Dans cette section, vous allez créer un pipeline qui contient une activité de définition de travail Apache Spark.
 
-1. Accédez à l’onglet **Intégrer**. Sélectionnez l’icône + à côté de l’en-tête Pipelines, puis sélectionnez Pipeline.
+1. Accédez à l’onglet **Intégrer**. Sélectionnez l’icône plus (+) située en regard de l’en-tête Pipelines, puis sélectionnez **Pipeline**.
 
      ![Créer un pipeline](media/doc-common-process/new-pipeline.png)
 
 2. Dans la page des paramètres **Propriétés** du pipeline, entrez **demo** en guise de **Nom**.
 
-3. Sous *Synapse*, dans le volet *Activités*, faites glisser la **Définition de travail Spark** jusqu’au canevas du pipeline.
+3. Sous **Synapse**, dans le volet **Activités**, faites glisser la **Définition de travail Spark** jusqu’au canevas du pipeline.
 
      ![faire glisser la définition de travail Spark](media/quickstart-transform-data-using-spark-job-definition/drag-spark-job-definition.png)
 
@@ -59,9 +59,9 @@ Après avoir créé votre définition de travail Apache Spark, vous accédez aut
 
 ### <a name="general-settings"></a>Paramètres généraux :
 
-1. Sélectionnez le module de définition de travail Spark dans le canevas.
+1. Sélectionnez le module de définition de travail Spark sur le canevas.
 
-2. Dans l’onglet Général, entrez **sample** en guise de **Nom**.
+2. Sous l’onglet **Général**, entrez **sample** en guise de **Nom**.
 
 3. (Facultatif) Vous pouvez également indiquer une description.
 
@@ -71,9 +71,9 @@ Après avoir créé votre définition de travail Apache Spark, vous accédez aut
 
 6. Intervalle avant nouvelle tentative : nombre de secondes entre les nouvelles tentatives.
 
-7. Sortie sécurisée : lorsque cette option est cochée, la sortie de l’activité n’est pas capturée dans la journalisation.
+7. Sortie sécurisée : quand cette option est cochée, la sortie de l’activité n’est pas capturée dans la journalisation.
 
-8. Entrée sécurisée : lorsque cette option est cochée, l’entrée de l’activité n’est pas capturée dans la journalisation.
+8. Entrée sécurisée : quand cette option est cochée, l’entrée de l’activité n’est pas capturée dans la journalisation.
 
      ![définition de travail Spark – général](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-general.png)
 
@@ -81,9 +81,9 @@ Après avoir créé votre définition de travail Apache Spark, vous accédez aut
 
 Dans ce panneau, vous pouvez référencer la définition de travail Spark à exécuter.
 
-* Développez la liste des définitions de travail Spark, vous pouvez choisir une définition de travail Apache Spark existante. Vous pouvez également créer une définition de travail Apache Spark en cliquant sur le bouton Nouveau pour référencer la définition de travail Spark à exécuter.
+* Développez la liste des définitions de travail Spark, vous pouvez choisir une définition de travail Apache Spark existante. Vous pouvez également créer une définition de travail Apache Spark en sélectionnant le bouton **Nouveau** pour référencer la définition de travail Spark à exécuter.
 
-* Vous pouvez ajouter des arguments de ligne de commande en cliquant sur le bouton **Nouveau**. Notez que les arguments de ligne de commande définis par la définition de travail Spark seront alors remplacés. <br> *Exemple : `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
+* Vous pouvez ajouter des arguments de ligne de commande en cliquant sur le bouton **Nouveau**. Notez que l’ajout d’arguments de ligne de commande remplace ceux définis par la définition de travail Spark. <br> *Exemple : `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
 
      ![paramètres du pipeline de définition de travail Spark](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 

@@ -10,12 +10,13 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 557c2591b0bd5406266e5f833ca8c5c4fb581e47
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 5e0590dd524c516b2c6b909184de1f2d65f0074c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125352"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257037"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Présentation des utilitaires Microsoft Spark
 
@@ -25,23 +26,36 @@ Microsoft Spark Utilities (MSSparkUtils) est un package intégré qui vous perme
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configurer l’accès à Azure Data Lake Storage Gen2 
 
-Les notebooks Synapse utilisent le transfert direct vers Azure Active Directory (AAD) pour accéder aux comptes ADLS Gen2. Vous devez être un **Contributeur aux données Blob de stockage** pour accéder au compte (ou au dossier) ADLS Gen2. 
+Les notebooks Synapse utilisent le Pass-through Azure Active Directory (Azure AD) pour accéder aux comptes ADLS Gen2. Vous devez être un **Contributeur aux données Blob de stockage** pour accéder au compte (ou au dossier) ADLS Gen2. 
 
 Les pipelines Synapse utilisent l’identité MSI (Managed Service Identity) de l’espace de travail pour accéder aux comptes de stockage. Pour utiliser MSSparkUtils dans vos activités de pipeline, l'identité de votre espace de travail doit être un **Contributeur aux données Blob de stockage** pour accéder au compte (ou au dossier) ADLS Gen2.
 
 Procédez comme suit pour vous assurer que votre compte Azure AD et votre espace de travail MSI ont accès au compte ADLS Gen2 :
 1. Ouvrez le [portail Azure](https://portal.azure.com/) et le compte de stockage auquel vous souhaitez accéder. Vous pouvez accéder au conteneur spécifique auquel vous souhaitez accéder.
-2. Dans le volet de gauche, sélectionnez **Contrôle d’accès (IAM)** .
-3. Attribuez **votre compte Azure AD** et **votre identité d’espace de travail** (identique au nom de votre espace de travail) au rôle du **contributeur aux données Blob du stockage** sur le compte de stockage, s’il n’est pas déjà attribué. 
-4. Sélectionnez **Enregistrer**.
+1. Dans le volet de gauche, sélectionnez **Contrôle d’accès (IAM)** .
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | Contributeur aux données Blob du stockage |
+    | Attribuer l’accès à | USER et MANAGEDIDENTITY |
+    | Membres | Votre compte Azure AD et votre identité d’espace de travail |
+
+    > [!NOTE]
+    > Le nom de l’identité managée correspond également au nom de l’espace de travail.
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+ 
+1. Sélectionnez **Enregistrer**.
 
 Vous pouvez accéder aux données sur ADLS Gen2 à l’aide de Synapse Spark via l’URL suivante :
 
-<code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
+`abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path>`
 
 ### <a name="configure-access-to-azure-blob-storage"></a>Configurer l’accès à Stockage Blob Azure  
 
-Synapse utilise la [**signature d’accès partagé (SAP)** ](../../storage/common/storage-sas-overview.md) pour accéder à Stockage Blob Azure. Pour éviter d’exposer des clés SAP dans le code, nous vous recommandons de créer un nouveau service lié dans l’espace de travail Synapse sur le compte Stockage Blob Azure auquel vous souhaitez accéder.
+Synapse utilise la [**signature d’accès partagé (SAP)**](../../storage/common/storage-sas-overview.md) pour accéder à Stockage Blob Azure. Pour éviter d’exposer des clés SAP dans le code, nous vous recommandons de créer un nouveau service lié dans l’espace de travail Synapse sur le compte Stockage Blob Azure auquel vous souhaitez accéder.
 
 Procédez comme suit pour ajouter un nouveau service lié pour un compte Stockage Blob Azure :
 
@@ -55,7 +69,7 @@ Procédez comme suit pour ajouter un nouveau service lié pour un compte Stockag
 
 Vous pouvez accéder aux données sur Stockage Blob Azure à l’aide de Synapse Spark via l’URL suivante :
 
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+`wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path>`
 
 Voici un exemple de code :
 

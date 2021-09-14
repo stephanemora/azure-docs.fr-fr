@@ -2,13 +2,13 @@
 title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources, un nouvel abonnement ou une nouvelle région.
 ms.topic: conceptual
-ms.date: 04/23/2021
-ms.openlocfilehash: f00acadf42c3767814850db59c64ab76b30de2ea
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.date: 08/30/2021
+ms.openlocfilehash: 614ef51474f789073f35e722733d255818bf3957
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297000"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260883"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -1598,8 +1598,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
-> [!IMPORTANT]
-> Voir [Conseils sur le déplacement de Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+>[!IMPORTANT]
+>- Voir [Conseils sur le déplacement de Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+>- Consultez [Continuer de sauvegarder des ressources dans un coffre Recovery Services après déplacement de celles-ci vers une autre région](../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement | Changement de région |
@@ -2022,6 +2023,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | availablestacks | Non | Non | Non |
 > | billingmeters | Non | Non | Non |
 > | certificates | Non | Oui | Non |
+> | certificates (managés) | Non | Non | Non |
 > | connectiongateways | Oui | Oui | Non |
 > | connections | Oui | Oui | Non |
 > | customapis | Oui | Oui | Non |
