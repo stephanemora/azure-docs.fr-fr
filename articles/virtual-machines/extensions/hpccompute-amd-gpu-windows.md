@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c356ea88d23bf431df2b7785003ef23d28b5c598
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: bcf66b905b1944a160a19c35ff8d8e00c9a52e67
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572449"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446031"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extension du pilote GPU AMD pour Windows
 
 Cet article fournit une vue d’ensemble de l’extension de machine virtuelle pour déployer des pilotes GPU AMD sur des machines virtuelles [série NVv4](../nvv4-series.md) Windows. Lorsque vous installez des pilotes AMD à l’aide de cette extension, vous acceptez les termes du [contrat de licence utilisateur final AMD](https://amd.com/radeonsoftwarems). Pendant le processus d’installation, la machine virtuelle peut redémarrer pour terminer l’installation du pilote.
 
-Des instructions sur l’installation manuelle des pilotes et les versions actuellement prises en charge sont disponibles [ici](../windows/n-series-amd-driver-setup.md).
+Des instructions sur l’installation manuelle des pilotes et les versions actuelles prises en charge sont disponibles. Pour plus d’informations, consultez [Configuration des pilotes GPU AMD de série N Azure pour Windows](../windows/n-series-amd-driver-setup.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

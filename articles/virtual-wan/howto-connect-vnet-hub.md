@@ -8,16 +8,20 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: f67feb63bf5dcbe14ef6e7adc892bea59ae5ecc9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0a8e5af0d918058c8bada3baafbabe4fe669c2c5
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524919"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822705"
 ---
 # <a name="connect-a-virtual-network-to-a-virtual-wan-hub"></a>Connecter un réseau virtuel à un hub Virtual WAN
 
 Cet article vous aide à connecter votre réseau virtuel à votre hub virtuel. Répétez ces étapes pour chaque réseau virtuel que vous souhaitez connecter.
+
+> [!NOTE]
+> Un réseau virtuel ne peut être connecté qu’à un seul hub virtuel à la fois.
+> 
 
 ## <a name="add-a-connection"></a>Ajouter une connexion
 

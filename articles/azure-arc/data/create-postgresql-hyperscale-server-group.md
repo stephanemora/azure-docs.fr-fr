@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 24e81f9d83212b674b50acdb24042b6d29a9c266
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c9987e82fe64dd30584f3ceb8dbacfc857d27ab8
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532307"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779384"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc
 
@@ -67,9 +67,9 @@ Les principaux paramètres à prendre en compte sont les suivants :
 
 |Vous devez avoir   |Forme du groupe de serveurs que vous allez déployer   |paramètre-w à utiliser   |Notes   |
 |---|---|---|---|
-|Forme de Postgres avec scale-out pour répondre aux besoins de scalabilité de vos applications.   |3 instances Postgres ou plus, 1 est coordinateur, n sont des Workers avec n>=2.   |Utilisez-w n, avec n>= 2.   |L’extension Citus qui fournit la capacité Hyperscale est chargée.   |
-|Forme de base de Postgres Hyperscale permettant la validation fonctionnelle de votre application à un coût minimal. Non valide pour la validation des performances et de la scalabilité. En fonction de vos besoins, vous devez utiliser l’un des types de déploiement décrit ci-dessus.   |1 instance Postgres qui est à la fois coordinateur et Worker.   |Utilisez -w 0 et chargez l’extension Citus. Utilisez les paramètres suivants si vous opérez le déploiement à partir de la ligne de commande :-w 0--extensions Citus.   |L’extension Citus qui fournit la capacité Hyperscale est chargée.   |
-|Instance simple de Postgres prête pour un scale-out quand vous en avez besoin.   |1 instance Postgres. La sémantique pour le coordinateur et le Worker n’est pas encore déterminée. Pour effectuer un scale-out après le déploiement, modifiez la configuration, augmentez le nombre de nœuds Worker et distribuez les données.   |Utilisez -w 0 ou ne spécifiez pas -w.   |L’extension Citus qui fournit la capacité Hyperscale est présente dans votre déploiement, mais elle n’est pas encore chargée.   |
+|Une forme de Postgres avec scale-out pour répondre aux besoins de scalabilité de vos applications.   |3 instances Postgres ou plus, 1 est coordinateur, n sont des Workers avec n>=2.   |Utilisez-w n, avec n>= 2.   |L’extension Citus qui fournit la capacité Hyperscale est chargée.   |
+|Une forme de base de Postgres Hyperscale permettant la validation fonctionnelle de votre application à un coût minimal. Non valide pour la validation des performances et de la scalabilité. Pour cela, vous devez utiliser le type de déploiement décrit ci-dessus.   |1 instance Postgres qui est à la fois coordinateur et Worker.   |Utilisez -w 0 et chargez l’extension Citus. Utilisez les paramètres suivants si vous opérez le déploiement à partir de la ligne de commande :-w 0--extensions Citus.   |L’extension Citus qui fournit la capacité Hyperscale est chargée.   |
+|Une instance simple de Postgres prête pour un scale-out quand vous en avez besoin.   |1 instance Postgres. La sémantique du coordinateur et du Worker n’est pas encore déterminée. Pour effectuer un scale-out après le déploiement, modifiez la configuration, augmentez le nombre de nœuds Worker et distribuez les données.   |Utilisez -w 0 ou ne spécifiez pas -w.   |L’extension Citus qui fournit la capacité Hyperscale est présente dans votre déploiement, mais elle n’est pas encore chargée.   |
 |   |   |   |   |
 
 Si vous l’utilisation de -w 1 fonctionne, nous vous déconseillons de l’utiliser. Ce déploiement vous apporte peu de valeur. Cette configuration vous permet d’obtenir 2 instances de Postgres : 1 coordinateur et 1 Worker. Avec cette configuration, vous n’effectuez pas le scale-out des données, car vous déployez un seul Worker. Par conséquent, le niveau de performances et de scalabilité n’augmente pas. La prise en charge de ce déploiement sera supprimée dans une version ultérieure.
@@ -94,7 +94,7 @@ az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespa
 
  Cet exemple suppose que votre groupe de serveurs est hébergé dans un cluster Azure Kubernetes Service (AKS). Cet exemple utilise azurefile-premium comme nom de classe de stockage. Vous pouvez ajuster l’exemple ci-dessous en fonction des caractéristiques de votre environnement. Notez que **accessModes ReadWriteMany est requis** pour cette configuration.  
 
-Tout d’abord, créez un fichier YAML qui contient la description ci-dessous du PVC de sauvegarde et nommez-le CreateBackupPVC.yml par exemple :
+Tout d’abord, créez un fichier YAML qui contient la description ci-dessous du PVC (Persistent Volume Claim) de sauvegarde et nommez-le CreateBackupPVC.yml par exemple :
 ```console
 apiVersion: v1
 kind: PersistentVolumeClaim

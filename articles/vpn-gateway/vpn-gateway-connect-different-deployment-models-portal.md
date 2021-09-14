@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ddf94f100503a5571e8ab23c28347480872b97bb
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b50fd13be06e3186e3ce3d3fc90bd60bf6d6e474
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678697"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531695"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
 
@@ -222,7 +222,7 @@ Dans cette procédure, vous configurez la connexion entre le réseau virtuel Res
 
 ### <a name="1-connect-to-your-azure-account"></a>1. Se connecter au compte Azure
 
-Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte Azure. Une fois que vous êtes connecté, vos paramètres de compte sont téléchargés pour être reconnus par Azure PowerShell. Les applets de commande suivantes vous invitent à entrer les informations d’identification de connexion de votre compte Azure pour le modèle de déploiement Resource Manager :
+Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte Azure. Une fois que vous êtes connecté, vos paramètres de compte sont téléchargés pour être reconnus par Azure PowerShell. Les applets de commande suivantes vous invitent à entrer les informations d’identification de connexion de votre compte Azure pour le [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md) :
 
 ```powershell
 Connect-AzAccount

@@ -3,12 +3,12 @@ title: Azure Event Grid – Définir des en-têtes personnalisés sur des évén
 description: Décrit comment vous pouvez définir des en-têtes personnalisés (ou des propriétés de remise) sur les événements remis.
 ms.topic: conceptual
 ms.date: 08/13/2021
-ms.openlocfilehash: de16c3b4981dc02a54a68269d4eef743d9f48c4b
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 3600d74d91ad218f3fcab99002762d605fba3139
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525550"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831349"
 ---
 # <a name="custom-delivery-properties"></a>Propriétés de remise personnalisées
 Les abonnements aux événements vous permettent de définir des en-têtes HTTP qui sont inclus dans les événements remis. Cette fonctionnalité vous permet de définir des en-têtes personnalisés requis par une destination. Vous pouvez configurer jusqu’à 10 en-têtes lors de la création d’un abonnement aux événements. La valeur de chaque en-tête ne doit pas être supérieure à 4 096 (4 Ko) octets.
@@ -62,11 +62,8 @@ Définissez une valeur sur un en-tête Authorization pour identifier la demande 
 Les demandes sortantes doivent maintenant contenir l’en-tête défini sur l’abonnement aux événements :
 
 ```console
-GET /home.html HTTP/1.1
-
+POST /home.html HTTP/1.1
 Host: acme.com
-
-User-Agent: <user-agent goes here>
 
 Authorization: BEARER SlAV32hkKG...
 ```
@@ -75,20 +72,31 @@ Authorization: BEARER SlAV32hkKG...
 > La définition d’en-têtes Authorization est une option raisonnable quand votre destination est un webhook. Il ne faut pas l’utiliser pour des [fonctions souscrites avec un ID de ressource](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs et Connexions hybrides, car ces destinations prennent en charge leurs propres schémas d’authentification quand elle sont utilisées avec Event Grid.
 
 ### <a name="service-bus-example"></a>Exemple Service Bus
-Azure Service Bus prend en charge l’utilisation d’un [en-tête HTTP BrokerProperties](/rest/api/servicebus/message-headers-and-properties#message-headers) pour définir des propriétés de message lors de l’envoi de messages uniques. La valeur de l’en-tête `BrokerProperties` doit être fournie au format JSON. Par exemple, si vous devez définir des propriétés de message lors de l’envoi d’un message à Service Bus, définissez l’en-tête comme suit :
+Azure Service Bus prend en charge l’utilisation des propriétés de message suivantes lors de l’envoi de messages uniques. 
 
-| Nom de l’en-tête | Type d’en-tête | Valeur de l’en-tête |
-| :-- | :-- | :-- |
-|`BrokerProperties` | statique     | `BrokerProperties:  { "MessageId": "{701332E1-B37B-4D29-AA0A-E367906C206E}", "TimeToLive" : 90}` |
+| Nom de l’en-tête | Type d’en-tête |
+| :-- | :-- |
+| `MessageId` | dynamique |  
+| `PartitionKey` | Statique ou dynamique |
+| `SessionId` | Statique ou dynamique |
+| `CorrelationId` | Statique ou dynamique |
+| `Label` | Statique ou dynamique |
+| `ReplyTo` | Statique ou dynamique | 
+| `ReplyToSessionId` | Statique ou dynamique |
+| `To` |Statique ou dynamique |
+| `ViaPartitionKey` | Statique ou dynamique |
 
+> [!NOTE]
+> - La valeur par défaut de `MessageId` est l’ID interne de l’événement Event Grid. Vous pouvez la remplacer. Par exemple : `data.field`.
+> - Vous pouvez définir uniquement `SessionId` ou `MessageId`. 
 
 ### <a name="event-hubs-example"></a>Exemple Event Hubs
 
-Si vous devez publier des événements dans une partition spécifique au sein d’un Event Hub, définissez un [en-tête HTTP BrokerProperties](/rest/api/eventhub/event-hubs-runtime-rest#common-headers) sur votre abonnement aux événements pour spécifier la clé de partition qui identifie la partition Event Hub cible.
+Si vous devez publier des événements dans une partition spécifique au sein d’un Event Hub, définissez une propriété `ParitionKey` sur votre abonnement aux événements pour spécifier la clé de partition qui identifie la partition Event Hub cible.
 
-| Nom de l’en-tête | Type d’en-tête | Valeur de l’en-tête                                  |
-| :-- | :-- | :-- |
-|`BrokerProperties` | statique | `BrokerProperties: {"PartitionKey": "0000000000-0000-0000-0000-000000000000000"}`  |
+| Nom de l’en-tête | Type d’en-tête |
+| :-- | :-- |
+|`PartitionKey` | statique |
 
 
 ### <a name="configure-time-to-live-on-outgoing-events-to-azure-storage-queues"></a>Configurer la durée de vie des événements sortants vers les files d’attente de Stockage Azure
