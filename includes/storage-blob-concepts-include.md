@@ -15,7 +15,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2021
 ms.locfileid: "98612944"
 ---
-Stockage Blob Azure est la solution de stockage d’objets blob de Microsoft pour le cloud. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires.
+Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Stockage Blob est optimisé pour le stockage d’immenses quantités de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires.
 
 ## <a name="about-blob-storage"></a>À propos du stockage Blob
 
