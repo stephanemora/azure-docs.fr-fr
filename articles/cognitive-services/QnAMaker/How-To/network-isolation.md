@@ -4,73 +4,133 @@ description: Les utilisateurs peuvent restreindre l’accès public aux ressourc
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: fa24347c8fcc0550dc6dc86c96624d1b1f6dcf25
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/13/2021
+ms.openlocfilehash: eb00a9fa81b6fadd999c6c824ff7be06f76c8f4a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376320"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221762"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Paramétrages recommandés pour l’isolement réseau
 
-Vous devez suivre les étapes ci-dessous pour restreindre l’accès public aux ressources QnA Maker. Protégez une ressource Cognitive Services contre l’accès public en [configurant le réseau virtuel](../../cognitive-services-virtual-networks.md?tabs=portal).
+Effectuez les étapes suivantes pour restreindre l’accès public aux ressources QnA Maker. Protégez une ressource Cognitive Services contre l’accès public en [configurant le réseau virtuel](../../cognitive-services-virtual-networks.md?tabs=portal).
 
-## <a name="restrict-access-to-app-service-qna-runtime"></a>Restreindre l’accès à App Service (Runtime QnA)
+## <a name="restrict-access-to-app-service-qna-runtime"></a>Restreindre l’accès à App Service (runtime QnA)
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
-Vous pouvez ajouter des IP à la liste verte d’App Service pour restreindre l’accès ou configurer App Service Environment pour héberger QnA Maker App Service.
+Vous pouvez utiliser le ServiceTag `CognitiveServicesMangement` pour restreindre l’accès entrant à App Service ou des règles de trafic entrant de groupe de sécurité réseau ASE (App Service Environment).Pour plus d’informations sur les étiquettes de service, consultez l’ [article sur les étiquettes de service de réseau virtuel](../../../virtual-network/service-tags-overview.md). 
 
-#### <a name="add-ips-to-app-service-allow-list"></a>Ajouter des adresses IP à la liste verte d’App Service
+### <a name="regular-app-service"></a>App Service standard
 
-1. Autorisez le trafic uniquement à partir des adresses IP Cognitive Services. Celles-ci sont déjà incluses dans l’étiquette de service `CognitiveServicesManagement`. Les API de création (création/mise à jour de base de connaissances) peuvent ainsi appeler le service d’application et mettre à jour le service Recherche Azure en conséquence. Consultez d’[autres informations sur les étiquettes de service](../../../virtual-network/service-tags-overview.md).
-2. Assurez-vous d’autoriser également d’autres points d’entrée, tels que Azure Bot Service, le portail QnA Maker, etc. pour accéder à l’API de prévision « GenerateAnswer ».
-3. Pour ajouter les plages d’adresses IP à une liste verte, effectuez les étapes suivantes :
+1. Ouvrez Cloud Shell (PowerShell) à partir du portail Azure.
+2. Exécutez la commande suivante dans la fenêtre PowerShell au bas de la page :
 
-   1. Téléchargez les [plages d’adresses IP de toutes les étiquettes de service](https://www.microsoft.com/download/details.aspx?id=56519).
-   2. Sélectionnez les adresses IP de « CognitiveServicesManagement ».
-   3. Accédez à la section Mise en réseau de votre ressource App Service, puis cliquez sur l’option « Configurer une restriction d’accès » pour ajouter les adresses IP à une liste verte.
+```ps
+Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -WebAppName "<app service name>" -Name "cognitive services Tag" -Priority 100 -Action Allow -ServiceTag "CognitiveServicesManagement" 
+```
+3.  Vérifiez que la règle d’accès ajoutée est présente dans la section **Restrictions d’accès** de l’onglet **Réseau** :  
 
-Nous avons aussi un script automatisé pour faire la même chose pour votre App Service. Vous trouverez le [script PowerShell pour configurer une liste verte](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) sur GitHub. Vous devez entrer l’ID d’abonnement, le groupe de ressources et le nom App Service réel en tant que paramètres du script. L’exécution du script ajoute automatiquement les adresses IP à la liste verte d’App Service.
+    > [!div class="mx-imgBorder"]
+    > [ ![Capture d’écran montrant la règle de restriction d’accès]( ../media/network-isolation/access-restrictions.png) ](  ../media/network-isolation/access-restrictions.png#lightbox)
 
-#### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurer App Service Environment pour héberger le service d’application QnA Maker
+4. Pour accéder au **volet de test** sur le portail https://qnamaker.ai, ajoutez l’**adresse IP publique de la machine** à partir de laquelle vous souhaitez accéder au portail. Dans la page **Restrictions d’accès**, sélectionnez **Ajouter une règle**, puis autorisez l’accès à votre IP cliente. 
+
+    > [!div class="mx-imgBorder"]
+    > [ ![Capture d’écran montrant la règle de restriction d’accès avec l’ajout de l’adresse IP publique]( ../media/network-isolation/public-address.png) ](  ../media/network-isolation/public-address.png#lightbox)
+
+### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurer App Service Environment pour héberger le service d’application QnA Maker
+
+L’environnement ASE (App Service Environment) peut être utilisé pour héberger l’instance App Service QnA Maker. Effectuez les étapes ci-dessous :
+
+1. Créez une [ressource Recherche cognitive Azure](https://ms.portal.azure.com/#create/Microsoft.Search).
+2. Créez un environnement ASE externe avec App Service.
+    - Suivez ce [guide de démarrage rapide App Service](../../../app-service/environment/create-external-ase.md#create-an-ase-and-an-app-service-plan-together) pour obtenir des instructions. Ce processus peut prendre jusqu’à 1 ou 2 heures.
+    - Vous disposerez finalement d’un point de terminaison App Service qui se présentera comme suit : `https://<app service name>.<ASE name>.p.azurewebsite.net`. 
+    - Exemple : `https:// mywebsite.myase.p.azurewebsite.net`  
+3. Ajoutez les configurations App Service suivantes :
     
-Un App Service Environment (ASE) peut être utilisé pour héberger le service d’application QnA Maker. Procédez comme suit :
+    | Nom                       | Valeur                                                     |
+    |:---------------------------|:----------------------------------------------------------| 
+    | PrimaryEndpointKey         | `<app service name>-PrimaryEndpointKey`                   | 
+    | AzureSearchName            | `<Azure Cognitive Search Resource Name from step #1>`     | 
+    | AzureSearchAdminKey        | `<Azure Cognitive Search Resource admin Key from step #1>`| 
+    | QNAMAKER_EXTENSION_VERSION | `latest`                                                  |
+    | DefaultAnswer              | `no answer found`                                         |
 
-1. Créez un App Service Environment et marquez-le comme étant « externe ». Pour obtenir des instructions, suivez le [tutoriel](../../../app-service/environment/create-external-ase.md).
-2.  Créez un App Service à l’intérieur du App Service Environment.
-    1. Vérifiez la configuration de l’App Service et ajoutez « PrimaryEndpointKey » en tant que paramètre d’application. La valeur de « PrimaryEndpointKey » doit être définie sur «\<app-name\>-PrimaryEndpointKey ». Le nom de l’application est défini dans l’URL App Service. Par exemple, si l’URL App Service est « mywebsite.myase.p.azurewebsite.net », le nom de l’application est « mywebsite ». Dans ce cas, la valeur de « PrimaryEndpointKey » doit être définie sur « mywebsite-PrimaryEndpointKey ».
-    2. Créez un service Recherche Azure.
-    3. Vérifiez que les paramètres d’application et de recherche Azure sont configurés correctement. 
-          Veuillez suivre ce [tutoriel](../reference-app-service.md?tabs=v1#app-service).
-3.  Mettre à jour le groupe de sécurité réseau associé au App Service Environment
-    1. Mettez à jour les règles de sécurité de trafic entrant précréées en fonction de vos besoins.
-    2. Ajoutez une nouvelle règle de sécurité de trafic entrant avec la source « balise de service » et la balise de service source « CognitiveServicesManagement ».
-       
-    ![exceptions de port d’entrée](../media/inbound-ports.png)
+4. Ajoutez une origine CORS « * » au service d’application pour autoriser l’accès au volet de test du portail https://qnamaker.ai. L’interface **CORS** est disponible sous l’en-tête d’API du volet App Service.
 
-4.  Créez une instance de service cognitif QnA Maker (Microsoft.CognitiveServices/Accounts) à l’aide d’Azure Resource Manager, où le point de terminaison QnA Maker doit être défini sur le point de terminaison App Service créé ci-dessus (https://mywebsite.myase.p.azurewebsite.net).
+    > [!div class="mx-imgBorder"]
+    > [ ![Capture d’écran de l’interface CORS dans l’IU App Service]( ../media/network-isolation/cross-orgin-resource-sharing.png) ](  ../media/network-isolation/cross-orgin-resource-sharing.png#lightbox)
+
+5. Créez une instance Cognitive Services QnA Maker (Microsoft.CognitiveServices/accounts) à l’aide d’Azure Resource Manager. Le point de terminaison QnA Maker doit être défini sur le point de terminaison App Service créé plus haut (`https:// mywebsite.myase.p.azurewebsite.net`). Vous pouvez utiliser cet [exemple de modèle Azure Resource Manager](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/QnAMakerASEArmTemplate) pour référence.
+
+### <a name="related-questions"></a>Questions associées
+
+#### <a name="can-qna-maker-be-deployed-to-an-internal-ase"></a>QnA Maker peut-il être déployé sur un environnement ASE interne ? 
+
+Un environnement ASE externe est principalement utilisé pour que le back-end du service QnA Maker (API de création) puisse atteindre le service d’application par Internet. Toutefois, vous pouvez toujours le protéger en ajoutant une restriction d’accès entrant pour autoriser uniquement les connexions à partir des adresses associées à l’étiquette de service `CognitiveServicesManagement`.
+
+Si vous souhaitez toujours utiliser un environnement ASE interne, vous devez exposer cette application QnA Maker spécifique dans l’environnement ASE sur un domaine public via le certificat TLS/SSL DNS de la passerelle d’application. Pour plus d’informations, consultez cet [article sur le déploiement en entreprise de services d’application](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment).
+
     
 # <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
-App Service n’est pas déployé avec des réponses aux questions personnalisées.
+App Service n’est pas déployé avec des réponses aux questions personnalisées.
 
 ---
 
-## <a name="restrict-access-to-cognitive-search-resource"></a>Restreindre l’accès à une ressource Recherche cognitive
+## <a name="restrict-access-to-cognitive-search-resource"></a>Restreindre l’accès à une ressource Recherche cognitive
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
-Une instance de Recherche cognitive peut être isolée par le biais d’un point de terminaison privé après la création de ressources QnA Maker. Les connexions de points de terminaison privés requièrent un réseau virtuel par lequel il est possible d’accéder à l’instance de service de recherche. 
+L’instance Recherche cognitive peut être isolée par le biais d’un point de terminaison privé après la création de ressources QnA Maker. Pour verrouiller l’accès, effectuez les étapes suivantes :
 
-Si QnA Maker App Service est restreint à l’aide d’App Service Environment, utilisez le même réseau virtuel pour créer une connexion de point de terminaison privé à l’instance de Recherche cognitive. Créez une entrée DNS dans le réseau virtuel pour mapper le point de terminaison Recherche cognitive à l’adresse IP du point de terminaison privé Recherche cognitive. 
+1. Créez un [réseau virtuel](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) ou utilisez un réseau virtuel existant d’un environnement ASE (App Service Environment).
+2. Ouvrez la ressource de réseau virtuel, puis, sous l’onglet **Sous-réseaux**, créez deux sous-réseaux : un pour le service d’application **(appservicesubnet)** et un autre pour le sous-réseau **(searchservicesubnet)** pour la ressource Recherche cognitive sans délégation. 
 
-Si App Service Environment n’est pas utilisé pour QnA Maker App Service, créez d’abord une ressource de réseau virtuel, puis créez la connexion de point de terminaison privé à l’instance de Recherche cognitive. Dans ce cas, QnA Maker App Service doit [être intégré au réseau virtuel](../../../app-service/web-sites-integrate-with-vnet.md) pour se connecter à l’instance de Recherche cognitive. 
+    > [!div class="mx-imgBorder"]
+    > [ ![Capture d’écran de l’interface utilisateur - sous-réseaux de réseaux virtuels]( ../media/network-isolation/subnets.png) ](  ../media/network-isolation/subnets.png#lightbox)
+
+3. Sous l’onglet **Réseau** de l’instance du service Recherche cognitive, basculez les données de connectivité du point de terminaison de Public vers Privé. Cette opération est un long processus qui peut **prendre jusqu’à 30 minutes**.
+
+    > [!div class="mx-imgBorder"]
+    > [ ![Capture d’écran de l’interface utilisateur - Réseau avec le bouton bascule Public/Privé]( ../media/network-isolation/private.png) ](  ../media/network-isolation/private.png#lightbox)
+
+4. Après le basculement de la ressource de recherche sur Privé, sélectionnez **Point de terminaison privé** en regard du signe +.
+    - **Onglet Informations de base** : veillez à créer votre point de terminaison dans la même région que la ressource de recherche.
+    - **Onglet Ressource** : sélectionnez la ressource de recherche nécessaire de type `Microsoft.Search/searchServices`.
+
+    > [!div class="mx-imgBorder"]
+    > [ ![Capture d’écran de la fenêtre d’IU Créer un point de terminaison privé]( ../media/network-isolation/private-endpoint.png) ](  ../media/network-isolation/private-endpoint.png#lightbox)
+
+    - **Onglet Configuration** : utilisez le sous-réseau de réseau virtuel (searchservicesubnet) créé à l’étape 2. Après cela, dans la section **Intégration à DNS privé**, sélectionnez l’abonnement correspondant et créez une zone DNS privée nommée **privatelink.search.windows.net**.
+
+     > [!div class="mx-imgBorder"]
+     > [ ![Capture d’écran de la fenêtre d’IU Créer un point de terminaison privé avec le champ Sous-réseau renseigné]( ../media/network-isolation/subnet.png) ](  ../media/network-isolation/subnet.png#lightbox)
+
+5. Activez l’intégration au réseau virtuel pour le service d’application standard. Vous pouvez ignorer cette étape pour ASE, qui a déjà accès au réseau virtuel.
+    - Accédez à la section **Réseau** d’App Service, puis ouvrez **Intégration de réseau virtuel**.
+    - Effectuez la liaison avec le sous-réseau de réseau virtuel App Service dédié (appservicevnet) créé à l’étape 2.
+    
+     > [!div class="mx-imgBorder"]
+     > [ ![Capture d’écran de l’IU - Intégration de réseau virtuel]( ../media/network-isolation/integration.png) ](  ../media/network-isolation/integration.png#lightbox)
+
 
 # <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 
 [Créez des points de terminaison privés](../reference-private-endpoint.md) sur la ressource Recherche Azure.
+
+Effectuez les étapes suivantes pour restreindre l’accès public aux ressources QnA Maker. Protégez une ressource Cognitive Services contre l’accès public en [configurant le réseau virtuel](../../cognitive-services-virtual-networks.md?tabs=portal).
+
+Après avoir restreint l’accès à la ressource Cognitive Services en fonction du sous-réseau, effectuez les étapes suivantes pour parcourir les bases de connaissances sur le portail https://qnamaker.ai à partir de votre réseau local ou de votre navigateur local.
+- Accordez l’accès au [réseau local](../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks).
+- Accordez l’accès à votre [machine/navigateur local](../../cognitive-services-virtual-networks.md?tabs=portal#managing-ip-network-rules).
+- Ajoutez l’**adresse IP publique de la machine sous la section Pare-feu** de l’onglet **Réseau**. Par défaut, `portal.azure.com` affiche l’IP publique de la machine de navigation actuelle. Sélectionnez cette entrée, puis sélectionnez **Enregistrer**.
+
+     > [!div class="mx-imgBorder"]
+     > [ ![Capture d’écran de l’IU de configuration - Pare-feux et réseaux virtuels]( ../media/network-isolation/firewall.png) ](  ../media/network-isolation/firewall.png#lightbox)
 
 ---
 

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 08/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 454c59b5f5f5d0781f99f21b612ac2a3fc904fb9
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 9a00022227959d8506bd976c33787bcc5a23273f
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533101"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778799"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -230,7 +230,7 @@ Les runbooks qui s’exécutent dans les bacs à sable Azure ne prennent pas en 
 
 Les tâches de runbook dans les bacs à sable Azure ne peuvent avoir accès aux caractéristiques des appareils ou des applications. Pour interroger les métriques de performances sur Windows, notamment celles, courantes, qui portent sur l’utilisation de la mémoire et du processeur, L’API la plus utilisée est WMI. Cependant, quelle que soit l’API utilisée, les tâches qui s’exécutent dans le cloud ne peuvent avoir accès à l’implémentation Microsoft de WBEM (Web-Based Enterprise Management). Cette plateforme est basée sur CIM (Common Information Model), qui fait office de standard sectoriel pour la définition des caractéristiques des appareils et des applications.
 
-## <a name="webhooks"></a>webhooks
+## <a name="webhooks"></a>Webhooks
 
 Les services externes, par exemple, Azure DevOps Services et GitHub, peuvent démarrer un runbook dans Azure Automation. Pour effectuer ce type de démarrage, le service utilise un [webhook](automation-webhooks.md) via une requête HTTP unique. L’utilisation d’un Webhook permet de démarrer runbooks sans implémenter une fonctionnalité Azure Automation complète.
 
@@ -238,7 +238,7 @@ Les services externes, par exemple, Azure DevOps Services et GitHub, peuvent dé
 
 Pour partager des ressources entre tous les runbooks dans le cloud, Azure utilise un concept appelé « répartition de charge équilibrée ». Grâce à la répartition de charge équilibrée, Azure décharge ou arrête toute tâche exécutée depuis plus de trois heures. Les tâches des [runbooks PowerShell](automation-runbook-types.md#powershell-runbooks) et des [runbooks Python](automation-runbook-types.md#python-runbooks) sont arrêtées et non redémarrées, et leur état devient Arrêté.
 
-Pour les tâches Azure Automation de longue durée, il est recommandé d’utiliser un runbook Worker hybride. Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n'imposent aucune limitation en termes de durée d'exécution des runbooks. Les autres [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides. Les Runbooks Workers hybrides ne sont pas concernés par la limite de trois heures de la répartition de charge équilibrée. Développez malgré tout des runbooks qui s’exécutent sur les Workers prenant en charge les redémarrages après des problèmes inattendus au niveau de l’infrastructure locale.
+Pour les tâches Azure Automation de longue durée, il est recommandé d’utiliser un [runbook Worker hybride](automation-hybrid-runbook-worker.md). Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n'imposent aucune limitation en termes de durée d'exécution des runbooks. Les autres [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides. Les Runbooks Workers hybrides ne sont pas concernés par la limite de trois heures de la répartition de charge équilibrée. Développez malgré tout des runbooks qui s’exécutent sur les Workers prenant en charge les redémarrages après des problèmes inattendus au niveau de l’infrastructure locale.
 
 Une autre option consiste à optimiser un runbook en utilisant des runbooks enfants. Par exemple, il peut arriver que votre runbook exécute la même fonction en boucle sur plusieurs ressources, comme une opération de base de données sur diverses bases de données. Vous pouvez déplacer cette fonction dans un [runbook enfant](automation-child-runbooks.md) et faire en sorte que votre runbook l’appelle à l’aide de [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Les runbooks enfants s’exécutent en parallèle dans des processus distincts.
 

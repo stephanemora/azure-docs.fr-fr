@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 08/27/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, conteneur
-ms.openlocfilehash: ccca7f1deeeef49b734313c30d13290e47b6ab57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a78408759492cdba97bca8b6e4b71411af192f9f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524249"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224117"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installer et exécuter des conteneurs Docker pour les API du service Speech 
 
@@ -30,15 +30,14 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 | Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.13.0 | Mise à la disposition générale |
 | Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.13.0 | Mise à la disposition générale |
 | Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.14.1 | Mise à la disposition générale |
-| Identification de la langue parlée | Permet de détecter la langue parlée en fichiers audio. | 1.3.0 | Préversion contrôlée |
+| Identification de la langue parlée | Permet de détecter la langue parlée en fichiers audio. | 1.3.0 | preview |
 | Synthèse vocale neuronale | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. | 1.8.0 | Mise à la disposition générale |
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
-> Pour utiliser les conteneurs Speech, vous devez envoyer une demande en ligne et obtenir son approbation. Pour plus d’informations, consultez la section **Demande d’approbation pour l’exécution du conteneur** ci-dessous.
+> * Pour utiliser les conteneurs Speech, vous devez envoyer une demande en ligne et obtenir son approbation. Pour plus d’informations, consultez la section **Demande d’approbation pour l’exécution du conteneur** ci-dessous. 
+> * Les conteneurs *généralement disponibles* répondent aux exigences de Microsoft en matière de stabilité et de support. Les conteneurs disponibles en *préversion* sont toujours en cours de développement.
 
 L’utilisation des conteneurs du service Speech est soumise aux prérequis suivants. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 

@@ -2,14 +2,14 @@
 title: Prise en charge du niveau de stockage archive
 description: En savoir plus sur la prise en charge du niveau Archive pour le service Sauvegarde Azure
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ccb85c42685f962da3c9faf098d7847a93f4de74
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 228ab85a0cde5ed37156a5821ad3ac2acd6a7209
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562130"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260789"
 ---
 # <a name="archive-tier-support"></a>Prise en charge du niveau de stockage archive
 
@@ -37,7 +37,7 @@ Clients pris en charge :
 - La fonctionnalité est fournie à l’aide de PowerShell.
 
 >[!Note]
->La prise en charge du niveau archive pour les serveurs SQL Server dans des machines virtuelles Azure est désormais en disponibilité générale dans les régions Europe Nord, Inde Centre, Asie Sud-Est et Australie Est. Pour obtenir la liste détaillée des régions prises en charge, reportez-vous à la [matrice de prise en charge](#support-matrix).    <br><br>    Pour les autres régions pour les serveurs SQL Server dans des machines virtuelles Azure, la prise en charge du niveau archive est en préversion publique limitée. La prise en charge du niveau archive pour les machines virtuelles Azure est également en préversion publique limitée. Pour vous inscrire à la préversion publique limitée, utilisez [ce lien](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
+>La prise en charge du niveau de stockage archive pour les serveurs SQL dans les machines virtuelles Azure est désormais généralement disponible dans plusieurs régions. Pour obtenir la liste détaillée des régions prises en charge, consultez la [matrice de prise en charge](#support-matrix).    <br><br>    Pour les autres régions pour les serveurs SQL Server dans des machines virtuelles Azure, la prise en charge du niveau archive est en préversion publique limitée. La prise en charge du niveau archive pour les machines virtuelles Azure est également en préversion publique limitée. Pour vous inscrire à la préversion publique limitée, utilisez [ce lien](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
 ## <a name="get-started-with-powershell"></a>Bien démarrer avec PowerShell
 
@@ -211,8 +211,8 @@ L’option Arrêter la protection et supprimer les données supprime tous les po
 
 | Charges de travail | Préversion | Mise à la disposition générale |
 | --- | --- | --- |
-| SQL Server dans les machines virtuelles Azure | USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Centre Nord, Brésil Sud, Canada Est, Canada Centre, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Est, Japon Est, Inde Sud | Australie Est, Inde Centre, Europe Nord, Asie Sud-Est |
-| Machines virtuelles Azure | USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Centre Nord, Brésil Sud, Canada Est, Canada Centre, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Est, Japon Est, Inde Sud, Asie Sud-Est, Australie Est, Inde Centre, Europe Nord | Aucune |
+| SQL Server dans les machines virtuelles Azure | USA Est, USA Centre Sud, USA Centre Nord, Europe Ouest | Australie Est, Inde Centre, Europe Nord, Asie Sud-Est, Asie Est, Australie Sud-Est, Canada Centre, Brésil Sud, Canada Est, France Centre, France Sud, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Inde Sud, Royaume-Uni Ouest, Royaume-Uni Sud, USA Centre, USA Est 2, USA Ouest, USA Ouest 2, USA Centre-Ouest |
+| Machines virtuelles Azure | USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Centre Nord, Brésil Sud, Canada Est, Canada Centre, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Est, Japon Est, Inde Sud, Asie Sud-Est, Australie Est, Inde Centre, Europe Nord, Australie Sud-Est, France Centre, France Sud, Japon Ouest, Corée Centre, Corée Sud | Aucun |
 
 ## <a name="error-codes-and-troubleshooting-steps"></a>Codes d’erreur et étapes de résolution des problèmes
 

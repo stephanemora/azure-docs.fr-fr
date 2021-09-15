@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 00ee1b6e9772100cbc4abf9c79260a231bbd27af
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 9b74ccacdb239b7e413d6b21b29da1218d1d5747
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755138"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769407"
 ---
 # <a name="preview-azure-automanage-for-virtual-machines"></a>Préversion : Azure Automanage pour machines virtuelles
 
@@ -35,6 +35,9 @@ Le service Azure Automanage surveille également automatiquement la dérive et l
 
 Automanage ne stocke ni ne traite les données client en dehors de la zone géographique où se trouvent vos machines virtuelles. Par exemple, dans la région Asie Sud-Est, Automanage ne stocke ni ne traite les données en dehors de l’Asie Sud-Est.
 
+> [!NOTE]
+> Automanage peut être activé sur les machines virtuelles Azure, ainsi que sur les serveurs avec Arc. La gestion automanage n’est pas disponible dans le cloud du gouvernement des États-Unis pour le moment.
+
 ## <a name="prerequisites"></a>Prérequis
 
 Il existe plusieurs conditions préalables à prendre en compte avant d’essayer d’activer le service Azure Automanage sur vos machines virtuelles.
@@ -43,6 +46,7 @@ Il existe plusieurs conditions préalables à prendre en compte avant d’essaye
 - Les machines virtuelles doivent se trouver dans une région prise en charge (voir ci-dessous)
 - L’utilisateur doit disposer des autorisations appropriées (voir ci-dessous)
 - Automanage ne prend pas en charge les abonnements sandbox à ce stade
+- La gestion automanage ne prend pas en charge Windows 10 à ce stade
 
 ### <a name="supported-regions"></a>Régions prises en charge
 Automanage prend uniquement en charge les machines virtuelles situées dans les régions suivantes :

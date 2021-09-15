@@ -10,15 +10,16 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 3/31/2021
-ms.openlocfilehash: a3a3ca1e4a6161f12b5695ac96a3d9e562a13947
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 7/8/2021
+ms.openlocfilehash: bd5a9d64b237fe8c6591cac841b13f96a9c16f1d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693341"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864451"
 ---
 # <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database est basé sur une architecture de moteur de base de données SQL Server. Celle-ci est ajustée pour l’environnement cloud afin de garantir une disponibilité de 99,99 % même en cas de panne d’infrastructure. Trois modèles d’architecture sont utilisés dans Azure SQL Database :
 
@@ -41,10 +42,10 @@ Le niveau de service Hyperscale dans Azure SQL Database fournit les fonctionnali
 - Sauvegardes de base de données quasi instantanées (basées sur des instantanés de fichiers conservés dans le Stockage Blob Azure), quel que soit leur taille, sans impact des E/S sur les ressources de calcul  
 - Restaurations de base de données rapides (basées sur des instantanés de fichiers) en minutes plutôt qu’en heures ou en jours (opération qui ne dépend pas de la taille des données)
 - Meilleures performances générales en raison d’un débit de journal plus élevé et de temps de validation de transaction plus rapides, quels que soient les volumes de données
-- Effectuer un scale-out rapide : vous pouvez provisionner un ou plusieurs nœuds en lecture seule pour décharger votre charge de travail de lecture et les utiliser comme serveurs de secours
+- Effectuer un scale-out rapide : vous pouvez provisionner un ou plusieurs [réplicas en lecture seule](service-tier-hyperscale-replicas.md) pour déplacer votre charge de travail de lecture et les utiliser comme serveurs de secours
 - Scale-up rapide : vous pouvez, en temps constant, augmenter la puissance de vos ressources de calcul pour prendre en charge des charges de travail lourdes en cas de besoin, puis la diminuer à nouveau.
 
-Le niveau de service Hyperscale supprime de nombreuses limites pratiques traditionnellement rencontrées dans les bases de données cloud. Là où la plupart des autres bases de données sont limitées par les ressources disponibles dans un seul nœud, les bases de données du niveau de service Hyperscale n’ont pas de limite. Avec son architecture de stockage flexible, le stockage augmente en fonction des besoins. En fait, les bases de données Hyperscale sont créées sans taille maximale définie. Une base de données Hyperscale augmente en fonction des besoins, et vous êtes facturé uniquement pour la capacité que vous utilisez. Pour les charges de travail de lecture intensives, le niveau de service Hyperscale permet une expansion rapide en provisionnant des réplicas de lecture supplémentaires en fonction des besoins pour décharger les charges de travail de lecture.
+Le niveau de service Hyperscale supprime de nombreuses limites pratiques traditionnellement rencontrées dans les bases de données cloud. Là où la plupart des autres bases de données sont limitées par les ressources disponibles dans un seul nœud, les bases de données du niveau de service Hyperscale n’ont pas de limite. Avec son architecture de stockage flexible, le stockage augmente en fonction des besoins. En fait, les bases de données Hyperscale sont créées sans taille maximale définie. Une base de données Hyperscale augmente en fonction des besoins, et vous êtes facturé uniquement pour la capacité que vous utilisez. Pour les charges de travail de lecture intensives, le niveau de service Hyperscale permet un scale-out rapide en provisionnant des réplicas de supplémentaires en fonction des besoins pour déplacer les charges de travail de lecture.
 
 Par ailleurs, le temps nécessaire pour créer des sauvegardes de base de données ou pour augmenter ou diminuer la puissance n’est plus lié au volume de données de la base de données. Les bases de données Hyperscale peuvent être sauvegardées presque instantanément. Vous pouvez aussi mettre à l’échelle une base de données de plusieurs dizaines de téraoctets en quelques minutes. Cette fonctionnalité vous évite d’être limité par votre choix de configuration initial.
 
@@ -69,7 +70,7 @@ Le niveau de service Hyperscale est disponible uniquement dans le [modèle vCore
 
 - **Calcul** :
 
-  Le prix unitaire du calcul Hyperscale est par réplica. Le prix [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) est automatiquement appliqué aux réplicas avec échelle lecture. Par défaut, nous créons un réplica principal et un réplica en lecture seule par base de données Hyperscale.  Les utilisateurs peuvent ajuster le nombre total de réplicas, y compris de réplicas principaux de 1 à 5.
+  Le prix unitaire du calcul Hyperscale est par réplica. Le prix [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) est automatiquement appliqué aux réplicas nommés et à haute disponibilité. Par défaut, nous créons un réplica principal et un [réplica à haute disponibilité](service-tier-hyperscale-replicas.md) secondaire par base de données Hyperscale.  Les utilisateurs peuvent ajuster le nombre total de réplicas à haute disponibilité (entre 0 et 4) selon le [SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) requis. 
 
 - **Stockage** :
 
@@ -79,7 +80,7 @@ Pour plus d’informations sur les tarifs Hyperscale, consultez [Tarifs Azure SQ
 
 ## <a name="distributed-functions-architecture"></a>Architecture des fonctions distribuées
 
-Contrairement aux moteurs de base de données traditionnels qui centralisaient toutes les fonctions de gestion de données dans un même emplacement/processus (même les bases de données distribuées en production aujourd'hui ont plusieurs copies d’un moteur de données monolithique), une base de données Hyperscale sépare le moteur de traitement des requêtes, où la sémantique des différents moteurs de données diffère, des composants qui fournissent un stockage à long terme et une durabilité pour les données. De cette façon, la capacité de stockage peut être facilement mise à l’échelle pour répondre aux besoins (la cible initiale est de 100 To). Comme les réplicas en lecture seule partagent les mêmes composants de stockage, aucune copie de données n’est nécessaire pour mettre en place un nouveau réplica accessible en lecture.
+Contrairement aux moteurs de base de données traditionnels qui centralisaient toutes les fonctions de gestion de données dans un même emplacement/processus (même les bases de données distribuées en production aujourd'hui ont plusieurs copies d’un moteur de données monolithique), une base de données Hyperscale sépare le moteur de traitement des requêtes, où la sémantique des différents moteurs de données diffère, des composants qui fournissent un stockage à long terme et une durabilité pour les données. De cette façon, la capacité de stockage peut être facilement mise à l’échelle pour répondre aux besoins (la cible initiale est de 100 To). Comme les réplicas nommés et à haute disponibilité partagent les mêmes composants de stockage, aucune copie de données n’est nécessaire pour mettre en place un nouveau réplica.
 
 Le diagramme suivant illustre les différents types de nœuds dans une base de données Hyperscale :
 
@@ -141,22 +142,16 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Se connecter à un réplica avec échelle lecture d’une base de données Hyperscale
-
-Dans les bases de données Hyperscale, l'argument `ApplicationIntent` de la chaîne de connexion fournie par le client détermine si la connexion est routée vers le réplica en écriture ou vers un réplica secondaire en lecture seule. Si l’option `ApplicationIntent` est définie sur `READONLY` et que la base de données ne dispose pas de réplica secondaire, la connexion est routée vers le réplica principal et la valeur par défaut est le comportement `ReadWrite`.
-
-```cmd
--- Connection string with application intent
-Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
-```
-
-Les réplicas secondaires Hyperscale sont tous identiques ; ils utilisent le même objectif de niveau de service que le réplica principal. Si plusieurs réplicas secondaires sont présents, la charge de travail est répartie sur l’ensemble des réplicas secondaires disponibles. Chaque réplica secondaire est mis à jour de manière indépendante. Ainsi, différents réplicas peuvent avoir une latence de données différente par rapport au réplica principal.
+> [!NOTE]
+> Pour déplacer une base de données faisant partie d’une relation de [géo-réplication](active-geo-replication-overview.md), en tant que base de données primaire ou secondaire, vers le niveau Hyperscale, vous devez arrêter la réplication. Les bases de données d’un [groupe de basculement](auto-failover-group-overview.md) doivent d’abord être supprimées du groupe.
+>
+> Une fois qu’une base de données a été déplacée vers le niveau Hyperscale, vous pouvez créer un nouveau géo-réplica de niveau Hyperscale pour cette base de données. La géo-réplication pour Hyperscale est disponible en préversion avec certaines [limitations](active-geo-replication-overview.md).
 
 ## <a name="database-high-availability-in-hyperscale"></a>Haute disponibilité de la base de données dans Hyperscale
 
-Comme pour tous les autres niveaux de service, Hyperscale garantit la durabilité des données pour les transactions validées, quelle que soit la disponibilité des réplicas de calcul. L’étendue des temps d’arrêt dus au fait que le réplica principal devient indisponible dépend du type de basculement (planifié ou non planifié) et de la présence d’au moins un réplica secondaire. Dans un basculement planifié (par exemple un événement de maintenance), le système crée le nouveau réplica principal avant de lancer un basculement, ou utilise un réplica secondaire existant comme cible de basculement. Dans un basculement non planifié (par exemple une défaillance matérielle sur le réplica principal), le système utilise un réplica secondaire (s’il en existe un) comme cible de basculement, ou crée un nouveau réplica principal à partir du pool de capacité de calcul disponible. Dans ce dernier cas, la durée d’inactivité est plus longue en raison des étapes supplémentaires nécessaires pour créer le réplica principal.
+Comme pour tous les autres niveaux de service, Hyperscale garantit la durabilité des données pour les transactions validées, quelle que soit la disponibilité des réplicas de calcul. L’étendue des temps d’arrêt dus au fait que le réplica principal devient indisponible dépend du type de basculement (planifié ou non planifié) et de la présence d’au moins un réplica à haute disponibilité. Dans un basculement planifié (par exemple un événement de maintenance), le système crée le réplica principal avant de lancer un basculement ou utilise un réplica à haute disponibilité existant comme cible de basculement. Dans un basculement non planifié (par exemple une défaillance matérielle sur le réplica principal), le système utilise un réplica à haute disponibilité (s’il en existe un) comme cible de basculement ou crée un réplica principal à partir du pool de capacité de calcul disponible. Dans ce dernier cas, la durée d’inactivité est plus longue en raison des étapes supplémentaires nécessaires pour créer le réplica principal.
 
-Pour plus d’informations sur les contrats SLA Hyperscale, consultez [SLA pour Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/).
+Pour plus d’informations sur les contrats SLA Hyperscale, consultez [SLA pour Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database).
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Récupération d’urgence pour les bases de données Hyperscale
 
@@ -175,7 +170,7 @@ Si vous avec besoin de restaurer une base de données Hyperscale dans Azure SQL 
 Le niveau Hyperscale d’Azure SQL Database est disponible dans toutes les régions, mais il est activé par défaut dans les régions suivantes. Si vous souhaitez créer une base de données Hyperscale dans une région où Hyperscale n’est pas activé par défaut, vous pouvez envoyer une requête d’intégration via le portail Azure. Pour obtenir des instructions, consultez [Demander des augmentations de quota pour Azure SQL Database](quota-increase-request.md). Quand vous soumettez votre demande, suivez les instructions ci-après :
 
 - Utilisez le type de quota [Accès à une région](quota-increase-request.md#region) SQL Database.
-- Dans la description, ajoutez la référence SKU de calcul/le nombre total de cœurs, y compris les réplicas lisibles, et indiquez que vous demandez une capacité Hyperscale.
+- Dans la description, ajoutez la référence SKU de calcul/le nombre total de cœurs, y compris les réplicas nommés et à haute disponibilité, et indiquez que vous demandez une capacité Hyperscale.
 - Spécifiez également une projection de la taille totale de toutes les bases de données dans le temps en To.
 
 Régions prises en charge :
@@ -230,11 +225,11 @@ Voici les limitations actuelles du niveau de service Hyperscale depuis la dispon
 | La migration vers Hyperscale est actuellement une opération unidirectionnelle | Une fois qu’une base de données est migrée vers Hyperscale, elle ne peut pas être migrée directement vers un niveau de service non Hyperscale. À l’heure actuelle, la seule façon de migrer une base de données d’Hyperscale vers non-Hyperscale consiste à exporter/importer à l’aide d’un fichier bacpac ou d’autres technologies de déplacement de données (copie en bloc, Azure Data Factory, Azure Databricks, SSIS, etc.) L’exportation et l’importation bacpac à partir du portail Azure, à partir de PowerShell à l’aide des cmdlets [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) ou [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), à partir d’Azure CLI à l’aide des commandes [az sql db export](/cli/azure/sql/db#az_sql_db_export) et [az sql db import](/cli/azure/sql/db#az_sql_db_import), et d’une [API REST](/rest/api/sql/), ne sont pas prises en charge. L’exportation et l’importation bacpac pour des bases de données Hyperscale de plus petite taille (jusqu’à 200 Go) est prise en charge à l’aide de SSMS et de [SqlPackage](/sql/tools/sqlpackage) versions 18.4 et ultérieures. Pour des bases de données plus volumineuses, l’exportation et l’importation bacpac peuvent prendre beaucoup de temps et échouer pour différentes raisons.|
 | Migration de bases de données avec des objets OLTP en mémoire | Hyperscale prend en charge une partie des objets OLTP en mémoire, notamment les types de tables à mémoire optimisée, les variables de table et les modules compilés en mode natif. Toutefois, lorsqu’un des types d’objets OLTP en mémoire est présent dans la base de données en cours de migration, la migration des niveaux de service Premium et Critique pour l’entreprise vers Hyperscale n’est pas prise en charge. Pour migrer une telle base de données vers Hyperscale, tous les objets OLTP en mémoire et leurs dépendances doivent être supprimés. Une fois la base de données migrée, ces objets peuvent être recréés. Les tables à mémoire optimisée durables et non durables ne sont actuellement pas prises en charge dans Hyperscale et doivent être changées en tables de disques.|
 | Géoréplication  | La [géoréplication](active-geo-replication-overview.md) sur Hyperscale est désormais en préversion publique. |
-| Copie de base de données | La [copie de base de données](database-copy.md) sur Hyperscale est désormais en préversion publique. |
 | Fonctionnalités de base de données intelligente | À l'exception de l'option « Forcer le plan », aucune option de réglage automatique n'est encore prise en charge sur Hyperscale : les options peuvent sembler activées, mais aucune recommandation ou action ne sera effectuée. |
 | Query Performance Insight | Query Performance Insights n’est actuellement pas pris en charge pour les bases de données Hyperscale. |
 | Réduire la base de données | DBCC SHRINKDATABASE ou DBCC SHRINKFILE n’est pas pris en charge actuellement pour les bases de données Hyperscale. |
 | Vérification de l’intégrité de la base de données | DBCC CHECKDB n’est pas pris en charge actuellement pour les bases de données Hyperscale. DBCC CHECKFILEGROUP et DBCC CHECKTABLE peuvent être utilisés comme solution de contournement. Pour plus d’informations sur la gestion de l’intégrité des données dans Azure SQL Database, consultez [Intégrité des données dans Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/). |
+| Travaux élastiques | L’utilisation d’une base de données Hyperscale comme base de données de travail n’est pas prise en charge. Toutefois, les travaux élastiques peuvent cibler des bases de données Hyperscale comme n’importe quelle autre base de données Azure SQL. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

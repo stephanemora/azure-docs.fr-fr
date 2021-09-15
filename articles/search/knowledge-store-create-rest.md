@@ -1,27 +1,27 @@
 ---
 title: Créer une base de connaissances avec REST
 titleSuffix: Azure Cognitive Search
-description: Utilisez l’API REST et Postman pour créer une base de connaissances Recherche cognitive Azure pour conserver les enrichissements d’un pipeline d’enrichissement par IA.
+description: Utilisez l’API REST et Postman pour créer une base de connaissances Recherche cognitive Azure pour conserver les enrichissements IA d’un ensemble de compétences.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/18/2020
-ms.openlocfilehash: 69b9fa867159e5bd475d37194422a4fd21bfe9ab
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/10/2021
+ms.openlocfilehash: 0f52fe37e7eadabaefbd35e6ca2c600b53ad3b0c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557238"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724200"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Créer une base de connaissances à l’aide de REST et Postman
 
-Une base de connaissances contient la sortie d’un pipeline d’enrichissement Recherche cognitive Azure pour une analyse ultérieure ou tout autre traitement en aval. Un pipeline enrichi par IA accepte les fichiers image ou les fichiers texte non structurés, les index en utilisant Recherche cognitive Azure, applique des enrichissements par IA provenant de Cognitive Services (par exemple l’analyse d’images et le traitement en langage naturel), puis enregistre les résultats dans une base de connaissances dans Stockage Azure. Vous pouvez utiliser des outils comme Power BI ou l’Explorateur Stockage sur le portail Azure pour explorer la base de connaissances.
+Une base de connaissances contient la sortie d’un pipeline d’enrichissement Recherche cognitive Azure pour une analyse ultérieure ou tout autre traitement en aval. Un pipeline enrichi par IA accepte des fichiers image ou des fichiers texte non structurés, applique des enrichissements par IA à partir de Cognitive Services (par exemple l’analyse d’images et le traitement du langage naturel), puis enregistre la sortie au sein d’une base de connaissances dans Stockage Azure. Vous pouvez utiliser des outils comme Power BI ou l’Explorateur Stockage sur le portail Azure pour explorer la base de connaissances.
 
-Dans cet article, vous allez utiliser l’interface de l’API REST pour ingérer, indexer et appliquer des enrichissements par IA à un ensemble d’avis sur des hôtels. Les avis sur les hôtels sont importés dans le service Stockage Blob Azure. Les résultats sont enregistrés sous la forme d’une base de connaissances dans le service Stockage Table Azure.
+Dans cet article, vous utilisez l’API REST pour ingérer, enrichir et explorer un ensemble d’avis de clients d’hôtel. Pour que le jeu de données initial soit disponible, les avis de l’hôtel sont d’abord importés dans le Stockage Blob Azure. Post-traitement, les résultats sont enregistrés sous la forme d’une base de connaissances dans le service Stockage Table Azure.
 
-Une fois la base de connaissances créée, vous pouvez apprendre à y accéder à l’aide de l’[Explorateur Stockage](knowledge-store-view-storage-explorer.md) ou de [Power BI](knowledge-store-connect-power-bi.md).
+Après avoir créé le magasin de connaissances, explorez son contenu à l’aide de l’[Explorateur Stockage](knowledge-store-view-storage-explorer.md) ou de [Power BI](knowledge-store-connect-power-bi.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -30,9 +30,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="create-services-and-load-data"></a>Créer des services et charger des données
 
-Ce guide de démarrage rapide utilise les services Recherche cognitive Azure, Stockage Blob Azure et [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) pour l’IA. 
+Cet exercice utilise les services Recherche cognitive Azure, Stockage Blob Azure et [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) pour l’IA. 
 
-En raison de la taille réduite de la charge de travail, Cognitive Services est utilisé en arrière-plan pour traiter gratuitement jusqu’à 20 transactions par jour. Parce que le jeu de données est vraiment petit, vous pouvez ignorer la création ou l’attachement d’une ressource Cognitive Services.
+En raison de la taille réduite de la charge de travail, Cognitive Services est utilisé en arrière-plan pour traiter gratuitement jusqu’à 20 transactions par jour. Une petite charge de travail signifie que vous pouvez ignorer la création ou l’attachement d’une ressource Cognitive Services.
 
 1. [Téléchargez le fichier HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Ce fichier CSV contient des données d’avis d’hôtel (issues de Kaggle.com). Il rassemble 19 commentaires de clients relatifs à un seul hôtel. 
 
@@ -90,10 +90,12 @@ Pour obtenir la valeur de `admin-key`, accédez au service Recherche cognitive A
 
 ### <a name="review-the-request-collection-in-postman"></a>Passer en revue la collection de requêtes dans Postman
 
+Les magasins de connaissances sont définis dans des ensembles de compétences, qui sont à leur tour attachés aux indexeurs. Pour créer un magasin de connaissances, vous devez créer tous les objets en amont, y compris un index, une source de données, des compétences et un indexeur. Bien qu’un index ne soit pas lié à un magasin de connaissances, un indexeur l’exige pour l’exécution. Vous allez donc en créer un en tant que composant requis de l’indexeur.
+
 Quand vous créez une base de connaissances, vous devez émettre quatre requêtes HTTP : 
 
-- **Une requête PUT pour créer l’index** : Cet index contient les données utilisées et retournées par Recherche cognitive Azure.
-- **Une requête POST pour créer la source de données** : Cette source de données connecte le comportement du service Recherche cognitive Azure au compte de stockage des données et de la base de connaissances. 
+- **Une requête PUT pour créer l’index** : Cet index contient les données qu’Azure Cognitive Search utilise et renvoie dans les demandes de requête.
+- **Une requête POST pour créer la source de données** : Cette source de données se connecte à votre compte Stockage Azure. 
 - **Une requête PUT pour créer l’ensemble de compétences** : l’ensemble de compétences spécifie les enrichissements appliqués à vos données et à la structure de la base de connaissances.
 - **Une requête PUT pour créer l’indexeur** : L’exécution de l’indexeur lit les données, applique l’ensemble de compétences et stocke les résultats. Vous devez exécuter cette requête en dernier.
 
@@ -102,7 +104,7 @@ Le [code source](https://github.com/Azure-Samples/azure-search-postman-samples/b
 ![Capture d’écran présentant l’interface de Postman pour les en-têtes](media/knowledge-store-create-rest/postman-headers-ui.png)
 
 > [!Note]
-> Vous devez définir les en-têtes `api-key` et `Content-type` dans toutes vos requêtes. Si Postman reconnaît une variable, celle-ci se apparaît en orange, comme pour `{{admin-key}}` dans la capture d’écran précédente. Si la variable est mal orthographiée, elle apparaît en rouge.
+> Toutes les requêtes dans les en-têtes du jeu d’éléments de collecte `api-key` et `Content-type`, qui sont requis. Si Postman reconnaît une variable, celle-ci se apparaît en orange, comme pour `{{admin-key}}` dans la capture d’écran précédente. Si la variable est mal orthographiée, elle apparaît en rouge.
 >
 
 ## <a name="create-an-azure-cognitive-search-index"></a>Création d’un index Recherche cognitive Azure
@@ -147,6 +149,8 @@ Définissez la structure de votre index Recherche cognitive Azure dans le corps 
 Cette définition d’index est une combinaison de données que vous souhaitez présenter à l’utilisateur (nom de l’hôtel, contenu de l’avis, date), de métadonnées de recherche et de données d’amélioration de l’IA (sentiment, phrases clés et langue).
 
 Sélectionnez **Send** (Envoyer) pour émettre la requête PUT. L’état `201 - Created` doit alors s’afficher. Si vous un autre état s’affiche, dans le volet **Body**, recherchez une réponse JSON qui contient un message d’erreur. 
+
+L’index est créé mais pas chargé. L’importation de documents se produit ultérieurement lorsque vous exécutez l’indexeur. 
 
 ## <a name="create-the-datasource"></a>Créer la source de données
 
@@ -306,7 +310,7 @@ Pour générer l’ensemble de compétences, sélectionnez le bouton **Send** da
 
 La dernière étape consiste à créer l’indexeur. L’indexeur lit les données et active l’ensemble de compétences. Dans Postman, sélectionnez la requête **Create Indexer** (Créer l’indexeur), puis examinez le corps. La définition de l’indexeur fait référence à plusieurs autres ressources que vous avez déjà créées : la source de données, l’index et l’ensemble de compétences. 
 
-L’objet `parameters/configuration` contrôle la manière dont l’indexeur ingère les données. Dans ce cas, les données d’entrée se trouvent dans un même document qui comporte une ligne d’en-tête et des valeurs séparées par des virgules. La clé du document est un identificateur unique du document. Avant l’encodage, la clé du document est l’URL du document source. Enfin, les valeurs de sortie de l’ensemble de l’ensemble de compétences, comme le code de langue, le sentiment et les phrases clés, sont mappées à leurs emplacements dans le document. Bien qu’il existe une seule valeur pour `Language`, `Sentiment` est appliqué à chaque élément du tableau de `pages`. `Keyphrases` est un tableau qui est aussi appliqué à chaque élément du tableau `pages`.
+L’objet `parameters/configuration` contrôle la manière dont l’indexeur ingère les données. Dans ce cas, les données d’entrée se trouvent dans un même fichier CSV qui comporte une ligne d’en-tête et des valeurs séparées par des virgules. La clé du document est un identificateur unique du document. Avant l’encodage, la clé du document est l’URL du document source. Enfin, les valeurs de sortie de l’ensemble de l’ensemble de compétences, comme le code de langue, le sentiment et les phrases clés, sont mappées à leurs emplacements dans le document. Bien qu’il existe une seule valeur pour `Language`, `Sentiment` est appliqué à chaque élément du tableau de `pages`. `Keyphrases` est un tableau qui est aussi appliqué à chaque élément du tableau `pages`.
 
 Une fois que vous avez défini les en-têtes `api-key` et `Content-type` et vérifié que le corps de la requête est similaire au code source suivant, sélectionnez **Send** dans Postman. Postman envoie une requête PUT à `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Recherche cognitive Azure crée et exécute l’indexeur. 
 
@@ -342,6 +346,14 @@ Une fois que vous avez défini les en-têtes `api-key` et `Content-type` et vér
 ## <a name="run-the-indexer"></a>Exécuter l’indexeur 
 
 Dans le portail Azure, accédez à la page **Vue d’ensemble** du service Recherche cognitive Azure. Sélectionnez l’onglet **Indexeurs**, puis **hotels-reviews-ixr**. Si l’indexeur n’a pas déjà été exécuté, sélectionnez **Exécuter**. La tâche d’indexation peut déclencher des avertissements liés à la reconnaissance de la langue. Les données incluent des avis rédigés dans des langues qui ne sont pas encore prises en charge par les compétences cognitives. 
+
+## <a name="clean-up"></a>Nettoyage
+
+Lorsque vous travaillez dans votre propre abonnement, il est judicieux à la fin d’un projet de déterminer si vous avez encore besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
+
+Vous pouvez rechercher et gérer les ressources dans le portail à l’aide des liens **Toutes les ressources** ou **Groupes de ressources** situés dans le volet de navigation de gauche.
+
+Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à trois index, indexeurs et sources de données. Vous pouvez supprimer des éléments un par un dans le portail pour ne pas dépasser la limite.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

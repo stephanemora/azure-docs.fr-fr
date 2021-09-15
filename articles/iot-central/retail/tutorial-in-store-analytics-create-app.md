@@ -1,6 +1,6 @@
 ---
-title: Tutoriel - Créer une application d’analytique en magasin dans Azure IoT Central
-description: Ce tutoriel montre comment créer une application de vente au détail pour l’analytique en magasin dans IoT Central. Vous la créerez, la personnaliserez et ajouterez des capteurs.
+title: 'Tutoriel : Analytique en magasin Azure IoT | Microsoft Docs'
+description: Ce tutoriel montre comment déployer et utiliser une application de vente au détail pour l’analytique en magasin dans IoT Central.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -11,83 +11,86 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 224e48bad96340554fa3667d990c29d681963109
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 44e62418a74d40f05ab0ccc9b9da86c76bc07790
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113585976"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122196033"
 ---
-# <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutoriel : Créer une application d’analytique en magasin dans Azure IoT Central
+# <a name="tutorial-deploy-and-walk-through-the-in-store-analytics-application-template"></a>Tutoriel : déployer et découvrir un modèle d’application d’analytique en magasin
 
-Le tutoriel vous montre comment créer une application d’analytique en magasin Azure IoT Central. L’exemple d’application est destiné à un magasin de vente au détail. Il s’agit d’une solution aux besoins courants des entreprises pour surveiller et s’adapter au taux de présence et aux conditions environnementales.
+Utilisez le modèle d’application d’*analytique en magasin* IOT Central et les instructions de cet article pour développer une solution d’analytique en magasin de bout en bout.
 
-L’exemple d’application que vous créez comprend trois appareils réels : une passerelle Rigado Cascade 500 et deux capteurs RuuviTag. Ce tutoriel montre également comment utiliser la simulation du capteur de présence incluse dans le modèle d’application à des fins de test. La passerelle Rigado C500 sert de hub de communication dans votre application. Il communique avec les capteurs de votre magasin et gère leurs connexions au cloud. Le RuuviTag est un capteur environnemental qui fournit des données de télémétrie, notamment la température, l’humidité et la pression. La simulation du capteur de présence permet de suivre le mouvement et la présence de la clientèle dans les zones de caisse d’un magasin. 
+:::image type="content" source="media/tutorial-in-store-analytics-create-app/store-analytics-architecture-frame.png" alt-text="Analytique du magasin Azure IoT Central.":::
 
-Ce tutoriel comprend des instructions pour connecter les appareils Rigado et RuuviTag à votre application. Si vous disposez d’une autre passerelle et d’autres capteurs, vous pouvez tout de même suivre les étapes pour générer votre application. Ce tutoriel montre également comment créer des simulations de capteurs RuuviTag. Les simulations de capteurs vous permettent de générer l’application si vous n’avez pas d’appareils réels. 
+- Ensemble de capteurs IoT envoyant des données de télémétrie à un appareil de passerelle
+- Les appareils de passerelle envoient des données de télémétrie et des insights agrégés à IoT Central
+- Exportation continue des données à destination du service Azure souhaité à des fins de manipulation
+- Les données peuvent être structurées dans le format souhaité et envoyées à un service de stockage
+- Les applications métier peuvent interroger des données et générer des insights pour les opérations de vente au détail
 
-Vous développez la solution de supervision des caisses et des conditions en trois parties :
+Intéressons-nous aux composants clés qui ont généralement un rôle à jouer dans une solution d'analytique en magasin.
 
-* Créer l’application et connecter des appareils pour surveiller les conditions
-* Personnaliser le tableau de bord pour permettre aux opérateurs de surveiller et gérer les appareils
-* Configurer l’exportation des données pour permettre aux responsables de magasin d’exécuter des analytiques et de visualiser les informations
+## <a name="condition-monitoring-sensors"></a>Capteurs de surveillance de l’état
+
+Une solution IoT commence par un ensemble de capteurs capturant des signaux significatifs à partir d’un environnement de magasin de détail. Il est représenté par différentes sortes de capteurs à l’extrême gauche du diagramme d’architecture ci-dessus.
+
+## <a name="gateway-devices"></a>Appareils de passerelle
+
+De nombreux capteurs IoT peuvent alimenter directement les signaux bruts vers le cloud ou un appareil de passerelle à proximité. L’appareil de passerelle effectue l’agrégation des données en périphérie avant d’envoyer un récapitulatif des insights à une application IoT Central. Le cas échéant, les appareils de passerelle sont également chargés de relayer les opérations de commande et de contrôle vers les capteurs. 
+
+## <a name="iot-central-application"></a>Application IoT Central
+
+L’application Azure IoT Central ingère les données de différentes sortes de capteurs IoT et d’appareils de passerelle situés dans l’environnement du magasin de détail. Ces données permettent d’obtenir des insights intéressants.
+
+Azure IoT Central offre également une expérience personnalisée au responsable du magasin, en lui permettant de surveiller et de gérer à distance les appareils de l'infrastructure.
+
+## <a name="data-transform"></a>Transformation des données
+
+Au sein d'une solution, l’application Azure IoT Central peut être configurée pour exporter des insights bruts ou agrégés vers un ensemble de services Azure PaaS capables de manipuler les données et d'enrichir ces insights avant de les transférer à une application métier. 
+
+## <a name="business-application"></a>Applications métier
+
+Les données IoT peuvent être utilisées pour alimenter différentes sortes d’applications métier déployées dans un environnement de vente au détail. Un responsable ou un employé de magasin de détail peut utiliser ces applications pour visualiser les insights métier et prendre des mesures significatives en temps réel. Pour savoir comment créer un tableau de bord Power BI en temps réel pour votre équipe de vendeurs, suivez [ce tutoriel](./tutorial-in-store-analytics-create-app.md).
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
-> * Utiliser le modèle **Analytique en magasin – caisse** Azure IoT Central pour créer une application de magasin de vente au détail
-> * Vérifier les paramètres d’application
-> * Créer et personnaliser des modèles d’appareil IoT
-> * Connecter des appareils à votre application
-> * Ajouter des règles et des actions pour surveiller les conditions
+>
+> - Utiliser le modèle **Analytique en magasin – caisse** Azure IoT Central pour créer une application de magasin de vente au détail
+> - Vérifier les paramètres d’application
+> - Créer et personnaliser des modèles d’appareil IoT
+> - Connecter des appareils à votre application
+> - Ajouter des règles et des actions pour surveiller les conditions
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour réaliser cette série de tutoriels, vous avez besoin des éléments suivants :
-* Un abonnement Azure est recommandé. Vous pouvez éventuellement utiliser une version d’évaluation gratuite de 7 jours. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un sur la [page d’inscription à Azure](https://aka.ms/createazuresubscription).
-* Un accès à un appareil de passerelle et à deux capteurs environnementaux (vous pouvez éventuellement utiliser des appareils simulés comme décrit dans le tutoriel).
-* Des modèles d’appareil pour les appareils que vous utilisez (des modèles sont fournis pour tous les appareils utilisés dans le tutoriel).
+- Le déploiement de cette application ne nécessite aucun prérequis.
+- Vous pouvez utiliser le plan tarifaire gratuit ou utiliser un abonnement Azure.
 
-## <a name="create-an-application"></a>Créer une application
-Dans cette section, vous créerez une application Azure IoT Central à partir d’un modèle. Vous utiliserez cette application tout au long de la série de tutoriels pour générer une solution complète.
+## <a name="create-in-store-analytics-application"></a>Créer une application d’analytique en magasin
 
-Pour créer une nouvelle application Azure IoT Central :
+Créez une application à l’aide de la procédure suivante :
 
-1. Accédez au site web du [gestionnaire d’applications d’Azure IoT Central](https://aka.ms/iotcentral).
+1. Accédez au site de [création d’applications Azure IoT Central](https://aka.ms/iotcentral). Ensuite, connectez-vous avec un compte Microsoft personnel, scolaire ou professionnel. Sélectionnez **Générer** dans la barre de navigation de gauche, puis sélectionnez l’onglet **Vente au détail** : :::image type="content" source="media/tutorial-in-store-analytics-create-app/iotc-retail-homepage.png" alt-text="Modèle logistique connecté":::
 
-1. Si vous disposez d’un abonnement Azure, connectez-vous avec les informations d’identification que vous utilisez pour y accéder. Sinon, connectez-vous à l’aide d’un compte Microsoft :
+1. Sélectionnez **Créer une application** sous **Analytique en magasin - validation**.
 
-    ![Entrer votre compte d’entreprise](./media/tutorial-in-store-analytics-create-app/sign-in.png)
+Pour plus d’informations, consultez [Créer une application IoT Central](../core/howto-create-iot-central-application.md).
 
-1. Pour commencer à créer une application Azure IoT Central, sélectionnez **Nouvelle application**.
+## <a name="walk-through-the-application"></a>examiner l’application
 
-1. Sélectionnez **Distribution**.  La page de vente au détail affiche plusieurs modèles d’application de vente au détail.
+Les sections suivantes décrivent les principales fonctionnalités de l’application :
 
-Pour créer une application d’analytique en magasin pour les caisses :  
+### <a name="customize-application-settings"></a>Personnaliser les paramètres d’application
 
-1. Sélectionnez le modèle d’application **Analytique en magasin – caisse**. Ce modèle comprend des modèles d’appareil pour tous les appareils utilisés dans le tutoriel, à l’exception des capteurs RuuviTag. Le modèle fournit également un tableau de bord permettant de surveiller les caisses et les conditions environnementales, ainsi que l’état des appareils. 
-
-1. Si vous le souhaitez, choisissez un **nom d’application** convivial. Cette application est basée sur un magasin fictif de vente au détail nommé Contoso. Le tutoriel utilise le **nom d’application** *Caisse Contoso*. Le modèle d’application est basé sur la société fictive Northwind. Dans ce tutoriel, vous utilisez Contoso pour apprendre à personnaliser l’application.
-
-    > [!NOTE]
-    > Si vous utilisez un **nom d’application** convivial, vous devez toujours utiliser une valeur unique pour l’**URL** de l’application.
-
-1. Si vous disposez d’un abonnement Azure, entrez vos informations *Répertoire, Abonnement Azure et Région*. Si vous n’avez pas d’abonnement, vous pouvez activer une **version d’évaluation gratuite de 7 jours** et remplir les coordonnées requises.  
-
-1. Sélectionnez **Create** (Créer).
-
-    ![Page de création d’une application Azure IoT Central](./media/tutorial-in-store-analytics-create-app/preview-application-template.png)
-
-    ![Création d’une application Azure IoT Central, informations de facturation](./media/tutorial-in-store-analytics-create-app/preview-application-template-billinginfo.png)
-
-## <a name="customize-application-settings"></a>Personnaliser les paramètres d’application
-
-En tant que réalisateur de logiciel, vous pouvez modifier plusieurs paramètres pour personnaliser l’expérience utilisateur dans votre application. Dans cette section, vous sélectionnerez un thème d’application prédéfini. Si vous le souhaitez, vous apprendrez à créer un thème personnalisé et à mettre à jour l’image de l’application. Un thème personnalisé vous permet de définir les couleurs du navigateur de l’application, l’icône du navigateur et le logo de l’application qui s’affiche dans le titre.
+Vous pouvez modifier plusieurs paramètres pour personnaliser l’expérience utilisateur dans votre application. Dans cette section, vous sélectionnerez un thème d’application prédéfini. Si vous le souhaitez, vous apprendrez à créer un thème personnalisé et à mettre à jour l’image de l’application. Un thème personnalisé vous permet de définir les couleurs du navigateur de l’application, l’icône du navigateur et le logo de l’application qui s’affiche dans le titre.
 
 Pour sélectionner un thème d’application prédéfini :
 
 1. Sélectionnez **Paramètres** dans le titre.
 
-    ![Paramètres d’application Azure IoT Central](./media/tutorial-in-store-analytics-create-app/settings-icon.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/settings-icon.png" alt-text="Paramètres d’application Azure IoT Central.":::
 
 2. Sélectionnez un nouveau **Thème**.
 
@@ -99,7 +102,7 @@ Pour créer un thème personnalisé :
 
 1. Développez le volet gauche, s’il n’est pas déjà développé.
 
-    ![Volet gauche Azure IoT Central](./media/tutorial-in-store-analytics-create-app/dashboard-expand.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/dashboard-expand.png" alt-text="Volet gauche Azure IoT Central.":::
 
 1. Sélectionnez **Administration > Personnaliser votre application**.
 
@@ -111,11 +114,11 @@ Pour créer un thème personnalisé :
 
 1. Sélectionnez **Enregistrer**. 
 
-    ![Personnalisation du logo Azure IoT Central](./media/tutorial-in-store-analytics-create-app/select-application-logo.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/select-application-logo.png" alt-text="Personnalisation du logo Azure IoT Central.":::
 
-    Une fois que vous avez enregistré, l’application met à jour les couleurs du navigateur, le logo dans le titre et l’icône du navigateur. 
+    Une fois que vous avez enregistré, l’application met à jour les couleurs du navigateur, le logo dans le titre et l’icône du navigateur.
 
-    ![Mise à jour des paramètres d’application Azure IoT Central](./media/tutorial-in-store-analytics-create-app/saved-application-settings.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/saved-application-settings.png" alt-text="Mise à jour des paramètres d’application Azure IoT Central.":::
 
 Pour mettre à jour l’image de l’application :
 
@@ -127,10 +130,11 @@ Pour mettre à jour l’image de l’application :
 
 1. Si vous le souhaitez, accédez à l’affichage **Mes applications** sur le site web du [gestionnaire d’applications d’Azure IoT Central](https://aka.ms/iotcentral). La vignette de l’application affiche l’image de l’application mise à jour.
 
-    ![Personnalisation de l’image de l’application Azure IoT Central](./media/tutorial-in-store-analytics-create-app/customize-application-image.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/customize-application-image.png" alt-text="Personnalisation de l’image de l’application Azure IoT Central.":::
 
-## <a name="create-device-templates"></a>Créer des modèles d’appareils
-En tant que réalisateur de logiciel, vous pouvez créer des modèles d’appareil qui vous permettent, à vous et aux opérateurs de l’application, de configurer et de gérer des appareils. Vous créez un modèle en générant un modèle personnalisé, en important un fichier modèle existant ou en important un modèle à partir du catalogue d’appareils Azure IoT. Une fois que vous avez créé et personnalisé un modèle d’appareil, utilisez-le pour connecter des appareils réels à votre application. Si vous le souhaitez, utilisez un modèle d’appareil pour générer des appareils simulés à des fins de test.
+### <a name="create-device-templates"></a>Créer des modèles d’appareils
+
+Vous pouvez créer des modèles d’appareil qui vous permettent, à vous et aux opérateurs de l’application, de configurer et de gérer des appareils. Vous créez un modèle en générant un modèle personnalisé, en important un fichier modèle existant ou en important un modèle à partir du catalogue d’appareils Azure IoT. Une fois que vous avez créé et personnalisé un modèle d’appareil, utilisez-le pour connecter des appareils réels à votre application. Si vous le souhaitez, utilisez un modèle d’appareil pour générer des appareils simulés à des fins de test.
 
 Le modèle d’application **Analytique en magasin – caisse** possède des modèles d’appareil pour plusieurs appareils.  Il existe des modèles d’appareil pour deux des trois appareils que vous utilisez dans l’application. Le modèle d’appareil RuuviTag n’est pas inclus dans le modèle d’application **Analytique en magasin – caisse**. Dans cette section, vous ajouterez un modèle d’appareil pour les capteurs RuuviTag à votre application.
 
@@ -144,15 +148,16 @@ Pour ajouter un modèle d’appareil RuuviTag à votre application :
 
 1. Sélectionnez **Suivant : Personnaliser**.
 
-    ![Capture d’écran mettant en évidence le bouton Suivant : Personnaliser.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png" alt-text="Capture d’écran mettant en évidence le bouton Suivant : Personnaliser.":::
 
 1. Sélectionnez **Create** (Créer). L’application ajoute le modèle d’appareil RuuviTag.
 
 1. Sélectionnez **Modèles d’appareil** dans le volet gauche. La page affiche tous les modèles d’appareil inclus dans le modèle d’application, ainsi que le modèle d’appareil RuuviTag que vous venez d’ajouter.
 
-    ![Modèle d’appareil du capteur RuuviTag Azure IoT Central](./media/tutorial-in-store-analytics-create-app/device-templates-list.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/device-templates-list.png" alt-text="Modèle d’appareil du capteur RuuviTag Azure IoT Central.":::
 
-## <a name="customize-device-templates"></a>Personnaliser des modèles d’appareil
+### <a name="customize-device-templates"></a>Personnaliser des modèles d’appareil
+
 Vous pouvez personnaliser les modèles d’appareil dans votre application de trois façons. Premièrement, vous personnalisez les interfaces natives intégrées de vos appareils en modifiant les fonctionnalités de l’appareil. Par exemple, avec un capteur de température, vous pouvez modifier des détails tels que le nom d’affichage de l’interface de température, le type de données, les unités de mesure et les plages de fonctionnement minimale et maximale. 
 
 Deuxièmement, personnalisez vos modèles d’appareil en ajoutant des propriétés cloud. Les propriétés cloud ne font pas partie des fonctionnalités intégrées de l’appareil. Elles sont des données personnalisées que votre application Azure IoT Central crée, stocke et associe à vos appareils. Un exemple de propriété cloud peut être une valeur calculée ou des métadonnées telles qu’un emplacement que vous souhaitez associer à un ensemble d’appareils.
@@ -169,7 +174,7 @@ Pour personnaliser les interfaces intégrées du modèle d’appareil RuuviTag 
 
 1. Masquez le volet gauche. L’affichage récapitulatif du modèle affiche les fonctionnalités de l’appareil.
 
-    ![Affichage récapitulatif du modèle d’appareil RuuviTag Azure IoT Central](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-summary-view.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-summary-view.png" alt-text="Affichage récapitulatif du modèle d’appareil RuuviTag Azure IoT Central.":::
 
 1. Sélectionnez **Personnaliser** dans le menu du modèle d’appareil RuuviTag. 
 
@@ -187,7 +192,7 @@ Pour le type de télémétrie `humidity`, apportez les modifications suivantes 
 
 1. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
 
-    ![Capture d’écran affichant l’écran Personnaliser et mettant en évidence le bouton Enregistrer.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png" alt-text="Capture d’écran affichant l’écran Personnaliser et mettant en évidence le bouton Enregistrer.":::
 
 Pour ajouter une propriété cloud à un modèle d’appareil dans votre application :
 
@@ -207,16 +212,18 @@ Spécifiez les valeurs suivantes pour créer une propriété personnalisée et s
 
 1. Sélectionnez **Enregistrer** pour enregistrer votre propriété cloud personnalisée.
 
-    ![Personnalisation du modèle d’appareil RuuviTag Azure IoT Central](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-cloud-property.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-cloud-property.png" alt-text="Personnalisation du modèle d’appareil RuuviTag Azure IoT Central.":::
 
 1. Sélectionnez **Publier**. 
 
     La publication d’un modèle d’appareil le rend visible aux opérateurs d’application. Après avoir publié un modèle, utilisez-le pour générer des appareils simulés à des fins de test ou pour connecter des appareils réels à votre application. Si vous avez déjà des appareils connectés à votre application, la publication d’un modèle personnalisé applique les modifications sur les appareils.
 
-## <a name="add-devices"></a>Ajouter des appareils
+### <a name="add-devices"></a>Ajouter des appareils
+
 Une fois que vous avez créé et personnalisé des modèles d’appareil, il est temps d’ajouter des appareils. 
 
 Pour ce tutoriel, vous utiliserez l’ensemble suivant d’appareils réels et simulés pour générer l’application :
+
 - Une passerelle Rigado C500 réelle
 - Deux capteurs RuuviTag réels
 - Un capteur **Présence** simulé. Le capteur simulé est inclus dans le modèle d’application, vous n’avez donc pas besoin de le créer. 
@@ -229,7 +236,8 @@ Suivez les étapes décrites dans les deux articles suivants pour connecter une 
 - Pour connecter une passerelle Rigado, consultez [Connecter une Rigado Cascade 500 à votre application Azure IoT Central](../core/howto-connect-rigado-cascade-500.md).
 - Pour connecter des capteurs RuuviTag, consultez [Connecter un capteur RuuviTag à votre application Azure IoT Central](../core/howto-connect-ruuvi.md). Vous pouvez également utiliser ces instructions pour créer deux capteurs simulés, si nécessaire.
 
-## <a name="add-rules-and-actions"></a>Ajouter des règles et des actions
+### <a name="add-rules-and-actions"></a>Ajouter des règles et des actions
+
 Dans le cadre de l’utilisation de capteurs dans votre application Azure IoT Central pour surveiller des conditions, vous pouvez créer des règles pour exécuter des actions lorsque certaines conditions sont remplies. Une règle est associée à un modèle d’appareil et à un ou plusieurs appareils ; elle contient des conditions qui doivent être satisfaites en fonction des données de télémétrie de l’appareil ou des événements. Une règle a également une ou plusieurs actions associées. Les actions peuvent inclure l’envoi de notifications par e-mail ou le déclenchement d’une action de webhook pour envoyer des données à d’autres services. Le modèle d’application **Analytique en magasin – caisse** contient quelques règles prédéfinies pour les appareils de l’application.
 
 Dans cette section, vous créerez une règle qui vérifie le taux d’humidité relatif maximal en fonction des données de télémétrie du capteur RuuviTag. Vous ajouterez une action à la règle, de sorte que si l’humidité dépasse la valeur maximale, l’application envoie un e-mail. 
@@ -252,11 +260,11 @@ Pour créer une règle :
 
 1. Entrez un taux d’humidité intérieure typique de la plage supérieure pour votre environnement comme **Valeur**. Par exemple, entrez *65*. Vous avez défini une condition pour votre règle qui se produit lorsque l’humidité relative dans un capteur RuuviTag réel ou simulé dépasse cette valeur. Vous devrez peut-être ajuster la valeur en fonction de la plage d’humidité normale dans votre environnement.  
 
-   ![Ajout de conditions de règle Azure IoT Central](./media/tutorial-in-store-analytics-create-app/rules-add-conditions.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/rules-add-conditions.png" alt-text="Ajout de conditions de règle Azure IoT Central.":::
 
 Pour ajouter une action à la règle :
 
-1. Sélectionnez **+ E-mail**. 
+1. Sélectionnez **+ E-mail**.
 
 1. Entrez *Notification d’humidité élevée* comme **Nom d’affichage** convivial pour l’action. 
 
@@ -266,7 +274,7 @@ Pour ajouter une action à la règle :
 
 1. Sélectionnez **Terminé** pour terminer l’action.
 
-   ![Ajout d’actions aux règles Azure IoT Central](./media/tutorial-in-store-analytics-create-app/rules-add-action.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-create-app/rules-add-action.png" alt-text="Ajout d’actions aux règles Azure IoT Central.":::
 
 1. Sélectionnez **Enregistrer** pour enregistrer et activer la nouvelle règle. 
 

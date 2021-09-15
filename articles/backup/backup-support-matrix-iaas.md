@@ -2,14 +2,14 @@
 title: Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge de la sauvegarde de machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 08/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: af008e8f14e3df60f0ce48a23cb32d45716645d0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9244b7c5a62be57b1f8ec9ea0f27918c7aa62457
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531656"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770976"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -174,6 +174,7 @@ Stockage partagé| La sauvegarde des machines virtuelles à l’aide d’un volu
 Disques SSD Ultra | Non pris en charge. Pour plus d’informations, consultez ces [limitations](selective-disk-backup-restore.md#limitations).
 [Disques temporaires](../virtual-machines/managed-disks-overview.md#temporary-disk) | Les disques temporaires ne sont pas sauvegardés par Sauvegarde Azure.
 NVMe/[disques éphémères](../virtual-machines/ephemeral-os-disks.md) | Non pris en charge.
+Restauration [ReFS](/windows-server/storage/refs/refs-overview) | Pris en charge. VSS prend en charge les sauvegardes de cohérence des applications sur ReFS comme NFS.
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles
 
@@ -230,7 +231,7 @@ Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, co
 **Machine** | **Compresser dans MABS/DPM (TCP)** | **Compresser dans le coffre (HTTPS)**
 --- | --- | ---
 Machines Windows locales sans DPM/MAB | N/D | ![Oui][green]
-Machines virtuelles Azure | N/D | N/D
+Machines virtuelles Azure | NA | N/D
 Machines virtuelles locales/Azure avec DPM | ![Oui][green] | ![Oui][green]
 Machines virtuelles locales/Azure avec MABS | ![Oui][green] | ![Oui][green]
 

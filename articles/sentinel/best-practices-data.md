@@ -8,16 +8,16 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 30132d08a1094fc2bd4b7423ed787eadf77c2249
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 35b29ae6116e2e040f2383606fa20c5ab6316315
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533149"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253456"
 ---
 #  <a name="data-collection-best-practices"></a>Meilleures pratiques de collecte de données
 
-Cette section passe en revue les bonnes pratiques pour la collecte de données avec des connecteurs de données Azure Sentinel. Pour plus d’informations, consultez [Connecter des sources de données](connect-data-sources.md), [Connecteurs de données de partenaires Azure Sentinel](partner-data-connectors.md) et le [catalogue de solutions Azure Sentinel](sentinel-solutions-catalog.md).
+Cette section passe en revue les bonnes pratiques pour la collecte de données avec des connecteurs de données Azure Sentinel. Pour plus d’informations, consultez [Connecter des sources de données](connect-data-sources.md), [Connecteurs de données Azure Sentinel](data-connectors-reference.md) et le [catalogue de solutions Azure Sentinel](sentinel-solutions-catalog.md).
 
 ## <a name="prioritize-your-data-connectors"></a>Hiérarchiser vos connecteurs de données
 
@@ -25,7 +25,7 @@ Si vous n’avez pas une idée précise des connecteurs de données qui serviron
 
 Les connecteurs de données gratuits vous permettent de tirer rapidement parti d’Azure Sentinel tout en planifiant d’autres connecteurs de données et budgets.
 
-Pour vos connecteurs de données de [partenaires](partner-data-connectors.md) et [personnalisés](create-custom-connector.md), commencez par configurer les connecteurs [Syslog](connect-syslog.md) et [CEF](connect-common-event-format.md), en privilégiant ceux présentant la priorité la plus élevée, ainsi que tous les appareils Linux.
+Pour vos connecteurs de données de [partenaires](data-connectors-reference.md) et [personnalisés](create-custom-connector.md), commencez par configurer les connecteurs [Syslog](connect-syslog.md) et [CEF](connect-common-event-format.md), en privilégiant ceux présentant la priorité la plus élevée, ainsi que tous les appareils Linux.
 
 Si votre ingestion de données devient trop coûteuse trop vite, arrêtez ou filtrez les journaux transférés avec l’[Agent Azure Monitor](../azure-monitor/agents/azure-monitor-agent-overview.md).
 

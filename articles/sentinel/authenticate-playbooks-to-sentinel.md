@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 5fbe518e894cf6b1dad1407edcc241dc141ef546
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 6c3e4de61d59841f2856af2194ec22a63b407b5c
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284174"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123185432"
 ---
 # <a name="authenticate-playbooks-to-azure-sentinel"></a>Authentifier les playbooks auprès d’Azure Sentinel
 
@@ -31,7 +31,7 @@ Pour obtenir une présentation des playbooks, consultez [Automatiser la réponse
 
 Pour connaître la spécification complète du connecteur Azure Sentinel, consultez la [documentation du connecteur Logic Apps](/connectors/azuresentinel/).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Le connecteur Azure Sentinel dans Logic Apps, ainsi que les déclencheurs et actions de ses composants, peuvent fonctionner pour le compte d’une identité disposant des autorisations nécessaires (lecture et/ou écriture) dans l’espace de travail approprié. Le connecteur prend en charge plusieurs types d’identités :
 
@@ -55,7 +55,11 @@ Le connecteur Azure Sentinel dans Logic Apps, ainsi que les déclencheurs et act
 
 Cette méthode d’authentification vous permet de fournir des autorisations directement au playbook (ressource de workflow d’application logique), afin que les actions du connecteur Azure Sentinel prises par le playbook fonctionnent au nom du playbook, comme s’il s’agissait d’un objet indépendant avec ses propres autorisations sur Azure Sentinel. L’utilisation de cette méthode réduit le nombre d’identités que vous devez gérer. 
 
+> [!NOTE]
+> Pour permettre à une identité managée d’accéder à d’autres ressources (telle que votre espace de travail Azure Sentinel), votre utilisateur connecté doit avoir un rôle autorisé à écrire des attributions de rôle, telles que Propriétaire ou Administrateur de l’accès utilisateur de l’espace de travail Azure Sentinel.
+
 Pour s’authentifier avec une identité managée :
+
 
 1. [Activez l’identité managée](../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal) sur la ressource de workflow Logic Apps. Pour récapituler :
 
@@ -63,10 +67,24 @@ Pour s’authentifier avec une identité managée :
 
     - Votre application logique peut désormais utiliser l’identité affectée par le système qui est inscrite auprès d’Azure AD et représentée par un ID d’objet.
 
-1. [Accordez à cette identité l’accès](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) à l’espace de travail Azure Sentinel en lui attribuant le rôle [Contributeur Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor).
-
-    En savoir plus sur les [rôles disponibles dans Azure Sentinel](./roles.md).
-
+1. [Accordez à cette identité l’accès](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) à l’espace de travail Azure Sentinel : 
+    1. Dans le menu Azure Sentinel, sélectionnez **Paramètres**.
+    1. Sélectionnez l’onglet **Paramètres de l’espace de travail**. Dans le menu de l’espace de travail, sélectionnez **Contrôle d’accès (IAM)** .
+   1. Dans la barre de boutons en haut, sélectionnez **Ajouter**, puis choisissez **Ajouter une attribution de rôle**. Si l’option **Ajouter une attribution de rôle** est désactivée, vous n’avez pas les autorisations pour attribuer les rôles.
+    1. Dans le nouveau volet qui s’affiche, attribuez le rôle approprié :
+    
+        | Role | Situation |
+        | --- | --- |
+        | [**Répondeur Azure Sentinel**](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) | Le playbook inclut les étapes de mise à jour des incidents ou des watchlists |
+        | [**Lecteur Azure Sentinel**](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) | Le playbook reçoit uniquement des incidents |
+        |
+        
+        En savoir plus sur les [rôles disponibles dans Azure Sentinel](./roles.md).
+    1. Sous **Attribuer l’accès à**, choisissez **Application logique**.
+    1. Choisissez l’abonnement auquel appartient le playbook, puis sélectionnez le nom du playbook.
+    1. Sélectionnez **Enregistrer**.
+    
+    
 1. Activez la méthode d’authentification d’identité managée dans le connecteur Logic Apps Azure Sentinel :
 
     1. Dans le Concepteur Logic Apps, ajoutez une étape de connecteur Logic Apps Azure Sentinel. Si le connecteur est déjà activé pour une connexion existante, cliquez sur le lien **Modifier la connexion**.

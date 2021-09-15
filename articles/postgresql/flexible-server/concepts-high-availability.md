@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: fd9b9a90156cabfb051e7c738d13d04bf60c9f5c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cf2fcf836962bbdb8a3af1671ecf9e11f6b4efa1
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563011"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770247"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Concepts de haute disponibilité dans Azure Database pour PostgreSQL – Serveur flexible
 
@@ -105,9 +105,9 @@ Ces déclencheurs de la fonctionnalité arrête le serveur principal et lance le
   | 6 | Une fois le serveur opérationnel, l’enregistrement DNS est mis à jour avec le même nom d’hôte, mais en utilisant l’adresse IP du serveur de secours. | Oui |
   | 7 | L’application peut se reconnecter au nouveau serveur principal et reprendre son fonctionnement. | Non |
   | 8 | Un serveur de secours est étable dans la zone préférée. | Non |
-  | 9 | Le serveur de secours commence à récupérer les journaux (à partir du Stockage Blob Azure) qu’il a manqués pendant la période nécessaire à son établissement. | No |
+  | 9 | Le serveur de secours commence à récupérer les journaux (à partir du Stockage Blob Azure) qu’il a manqués pendant la période nécessaire à son établissement. | Non |
   | 10 | Un état stable entre le serveur principal et le serveur de secours est établi. | Non |
-  | 11 | Le processus de basculement forcé est terminé. | No |
+  | 11 | Le processus de basculement forcé est terminé. | Non |
 
 Le temps d’arrêt de l’application doit normalement commencer après l’étape #1 et persister jusqu’à ce que l’étape #6 soit terminée. Les autres étapes se produisent en arrière-plan sans impact sur les écritures et les validations de l’application.
 
@@ -127,8 +127,8 @@ Lors de l’exécution de cette fonctionnalité, le serveur de secours est d’a
   | 6 | L’application se reconnecte et reprend ses lectures/écritures sur le nouveau serveur principal. | Non |
   | 7 | Un nouveau serveur de secours est établi dans une autre zone. | Non |
   | 8 | Le serveur de secours commence à récupérer les journaux (à partir du Stockage Blob Azure) qu’il a manqués pendant la période nécessaire à son établissement. | Non |
-  | 9 | Un état stable entre le serveur principal et le serveur de secours est établi. | No |
-  | 10 |  Le processus de basculement planifié est terminé. | No |
+  | 9 | Un état stable entre le serveur principal et le serveur de secours est établi. | Non |
+  | 10 |  Le processus de basculement planifié est terminé. | Non |
 
 Le temps d’arrêt de l’application commence à l’étape #3 et son fonctionnement peut reprendre après l’étape #5. Les autres étapes se produisent en arrière-plan sans impact sur les écritures et les validations de l’application. 
 
@@ -191,9 +191,46 @@ Pour les serveurs flexibles configurés avec une haute disponibilité, les donn�
 
 * Si le décodage logique ou la réplication logique sont configurés avec un serveur flexible configuré pour la haute disponibilité, en cas de basculement vers le serveur de secours, les emplacements de réplication logique ne sont pas copiés sur le serveur de secours.  
 
+## <a name="availability-without-zone-redundant-ha"></a>Disponibilité sans haute disponibilité redondante interzone
+
+Pour les serveurs flexibles configurés **sans** haute disponibilité redondante interzone, le service fournit toujours une disponibilité, une redondance et une résilience du stockage intégrées pour faciliter la récupération après un événement de temps d’arrêt planifié ou non.
+
+### <a name="planned-downtime"></a>Temps d’arrêt planifié 
+
+Voici quelques scénarios de maintenance planifiée :
+
+| **Scénario** | **Description**|
+| ------------ | ----------- |
+| <b>Mise à l’échelle du calcul | Quand l’utilisateur effectue une opération de mise à l’échelle du calcul, un nouveau serveur de base de données est approvisionné à l’aide de la configuration de calcul mise à l’échelle. Sur l’ancien serveur de base de données, les points de contrôle actifs sont autorisés à cesser d’opérer, les connexions clientes sont vidées, toutes les transactions non validées sont annulées, puis le serveur est arrêté. Le stockage est ensuite détaché de l’ancien serveur de base de données et attaché au nouveau. Il est alors opérationnel pour accepter toutes les connexions.|
+| <b>Augmentation du stockage | L’augmentation du stockage est actuellement une opération effectuée hors connexion qui implique un temps d’arrêt réduit.|
+| <b>Déploiement de nouveaux logiciels (Azure) | Le déploiement de nouvelles fonctionnalités ou la corrections de bogues se produisent automatiquement dans le cadre de la maintenance planifiée du service. Pour plus d’informations, consultez la [documentation](./concepts-maintenance.md) et visitez votre [portail](https://aka.ms/servicehealthpm).|
+| <b>Mises à niveau de version mineure | Le service Azure Database pour PostgreSQL opère automatiquement la mise à niveau des serveurs de base de données vers la version mineure déterminée par Azure. Cela se produit dans le cadre de la maintenance planifiée du service. L’opération entraîne un bref temps d’arrêt de quelques secondes, et le serveur de base de données est automatiquement redémarré avec la nouvelle version mineure. Pour plus d’informations, consultez la [documentation](./concepts-maintenance.md) et visitez votre [portail](https://aka.ms/servicehealthpm).|
+
+
+###  <a name="unplanned-downtime"></a>Temps d’arrêt non planifié 
+
+Des temps d’arrêt non planifiés peuvent se produire suite à des défaillances imprévues telles qu’un échec matériel sous-jacent, des problèmes de mise en réseau et des bogues logiciels. Si le serveur de base de données tombe en panne de façon inattendue, un nouveau serveur de base de données est automatiquement approvisionné en quelques secondes. Le stockage étendu est automatiquement attaché au nouveau serveur de base de données. Le moteur PostgreSQL effectue l’opération de récupération à l’aide des fichiers WAL et de base de données, puis ouvre le serveur de base de données pour permettre aux clients de se connecter. Les transactions non validées sont perdues et doivent être retentées par l’application. Alors qu’il n’est pas possible d’éviter un temps d’arrêt non planifié, le serveur flexible réduit ce temps d’arrêt en effectuant automatiquement des opérations de récupération au niveau du serveur de base de données et des couches de stockage, sans intervention humaine. 
+
+Voici quelques scénarios d’échec et comment le serveur flexible récupère automatiquement :
+
+| **Scénario** | **Récupération automatique** |
+| ---------- | ---------- |
+| <B>Échec du serveur de base de données | En cas d’arrêt du serveur de base de données en raison d’une erreur matérielle sous-jacente, les connexions actives sont abandonnées et toutes les transactions en cours interrompues. Un nouveau serveur de base de données est déployé automatiquement, et le stockage de données étendu est attaché au nouveau serveur de base de données. Une fois la récupération de la base de données terminée, les clients peuvent se connecter au nouveau serveur de base de données via le même point de terminaison. <br /> <br /> Le temps de récupération (RTO) dépend de différents facteurs, dont l’activité au moment de l’erreur, telle qu’une transaction de grande ampleur, et le volume de la récupération à effectuer pendant le processus de démarrage du serveur de base de données. <br /> <br /> Des applications utilisant les bases de données PostgreSQL doivent être créées de manière à détecter et à retenter les connexions abandonnées et les transactions ayant échoué.  |
+| <B>Échec de stockage | Les applications ne détectent aucun impact des problèmes liés au stockage, tels qu’une défaillance de disque ou une corruption de bloc physique. Les données étant stockées dans 3 copies, la copie des données est servie par le stockage survivant. Les altérations de bloc sont corrigées automatiquement. En cas de perte d’une copie des données, une nouvelle est automatiquement créée. |
+
+Voici quelques scénarios d’échec qui nécessitent une action de l’utilisateur pour la récupération :
+
+| **Scénario** | **Plan de récupération** |
+| ---------- | ---------- |
+| <b>Défaillance de zone de disponibilité | Si la région prend en charge plusieurs zones de disponibilité, les sauvegardes sont automatiquement stockées dans un stockage de sauvegarde redondant interzone. En cas de défaillance d’une zone, vous pouvez effectuer une restauration à partir de la sauvegarde vers une autre zone de disponibilité. Cette opération offre une résilience au niveau des zones. Elle implique toutefois un délai pour la restauration et la récupération. Elle peut occasionner des pertes de données, car tous les enregistrements WAL n’ont peut-être pas été copiés dans le stockage de sauvegarde. <br> <br> Si vous préférez réduire le temps d’arrêt et bénéficier d’une durée de bon fonctionnement élevée, nous vous recommandons de configurer votre serveur avec une haute disponibilité redondante interzone. |
+| <b> Erreurs logiques/de l’utilisateur | La récupération d’erreurs de l’utilisateur, telles qu’une suppression accidentelle de tables ou une mise à jour incorrecte de données, implique l’exécution d’une [récupération jusqu’à une date et heure](./concepts-backup-restore.md) (PITR), en restaurant et récupérant les données jusqu’au moment où l’erreur s’est produite.<br> <br>  Si vous ne souhaitez restaurer qu’un sous-ensemble de bases de données ou de tables spécifiques plutôt que toutes les bases de données du serveur de base de données, vous pouvez restaurer celui-ci dans une nouvelle instance, exporter les tables via l’utilitaire [pg_dump](https://www.postgresql.org/docs/13/app-pgdump.html), puis vous servir de l’utilitaire [pg_restore](https://www.postgresql.org/docs/13/app-pgrestore.html) pour restaurer ces tables dans votre base de données. |
+
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="ha-configuration-questions"></a>Questions sur la configuration de la haute disponibilité
+
+* **Ai-je besoin d’une haute disponibilité redondante interzone pour protéger mon serveur contre les interruptions non planifiées ?** <br>
+    Non. Le serveur flexible offre un stockage redondant local avec 3 copies des données, une sauvegarde redondante interzone (dans les régions où celle-ci est prise en charge), ainsi qu’une résilience de serveur intégrée pour redémarrer automatiquement un serveur défaillant et même déplacer le serveur vers un autre nœud physique. La haute disponibilité redondante interzone offre une durée de bon fonctionnement plus élevée en effectuant un basculement automatique vers un autre serveur (de secours) exécuté dans une autre zone. Elle fournit ainsi une haute disponibilité résiliente aux zones sans perte de données.
 
 * **La haute disponibilité redondante interzone est-elle disponible dans toutes les régions ?** <br>
     La haute disponibilité redondante interzone est disponible dans les régions prenant en charge plusieurs zones de disponibilité . Pour obtenir les informations les plus récentes sur la prise en charge des régions, consultez [cette documentation](overview.md#azure-regions). Nous ajoutons des régions et activons des zones de disponibilité en permanence. 

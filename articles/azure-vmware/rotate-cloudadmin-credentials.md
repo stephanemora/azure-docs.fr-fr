@@ -1,65 +1,61 @@
 ---
 title: Effectuer la rotation des informations d’identification cloudadmin pour Azure VMware Solution
-description: Découvrez comment effectuer la rotation des informations d’identification de vCenter Server et de NSX-T Manager pour votre cloud privé Azure VMware Solution.
+description: Découvrez comment effectuer la rotation des informations d’identification de vCenter Server pour votre cloud privé Azure VMware Solution.
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: 884e3f09e429fff39c0dfafcb5d0c9a7b4915e03
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.date: 08/31/2021
+ms.openlocfilehash: 22a88feb7e7b8656666d82cdac4b4d02d546441e
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122535038"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258059"
 ---
 # <a name="rotate-the-cloudadmin-credentials-for-azure-vmware-solution"></a>Effectuer la rotation des informations d’identification cloudadmin pour Azure VMware Solution
 
-Dans cet article, vous allez effectuer la rotation des informations d’identification cloudadmin (informations d’identification vCenter et NSX-T) pour votre cloud privé Azure VMware Solution.  Bien que les mots de passe de ces comptes n’expirent pas, vous pouvez en générer de nouveaux. Après la génération de nouveaux mots de passe, vous devez mettre à jour le connecteur VMware HCX avec les dernières informations d’identification appliquées.
+>[!IMPORTANT]
+>Actuellement, la rotation de vos informations d’identification d’*administrateur* de NSX-T Manager n’est pas prise en charge.  Pour effectuer une rotation de votre mot de passe NSX-T Manager, envoyez une [demande de support](https://rc.portal.azure.com/#create/Microsoft.Support). Ce processus peut affecter l’exécution des services HCX.
 
-Vous pouvez également regarder une vidéo sur la façon de [réinitialiser le mot de passe d’administrateur vCenter CloudAdminet et NSX-T](https://youtu.be/cK1qY3knj88). 
+Dans cet article, vous allez effectuer la rotation des informations d’identification cloudadmin (informations d’identification *CloudAdmin* vCenter Server) pour votre cloud privé Azure VMware Solution.  Bien que le mot de passe de ce compte n’expire pas, vous pouvez en générer un nouveau à tout moment.
+
+>[!CAUTION]
+>Si vous utilisez vos informations d’identification d’utilisateur cloudadmin pour connecter des services à vCenter dans votre cloud privé, ces connexions cesseront de fonctionner une fois que vous aurez effectué la rotation de votre mot de passe. Ces connexions verrouilleront par ailleurs le compte cloudadmin, sauf si vous arrêtez ces services avant d’effectuer la rotation du mot de passe.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous utilisez vos informations d’identification cloudadmin pour des services connectés tels que HCX, vRealize Orchestrator, vRealize Operations Manager ou VMware Horizon, vos connexions cessent de fonctionner une fois que vous avez mis à jour votre mot de passe.  Arrêtez donc ces services avant d’effectuer la rotation du mot de passe. Sinon, vous constaterez des verrous temporaires sur vos comptes d’administrateur NSX-T et CloudAdmin vCenter, car ces services appellent en permanence à l’aide de vos anciennes informations d’identification.  Pour plus d’informations sur la configuration de comptes distincts pour les services connectés, consultez la page sur les [concepts d’accès et d’identité](./concepts-identity.md).
+Examinez et déterminez les services qui se connectent à vCenter tels que *cloudadmin@vsphere.local* avant d’effectuer la rotation du mot de passe. Ces services peuvent inclure des services VMware tels que HCX, vRealize Orchestrator, vRealize Operations Manager, VMware Horizon ou d’autres outils tiers utilisés pour la surveillance ou l’approvisionnement. 
 
-## <a name="reset-your-azure-vmware-solution-cloudadmin-credentials"></a>Réinitialiser les informations d’identification cloudadmin Azure VMware Solution
+Une façon de déterminer les services qui s’authentifient auprès de vCenter à l’aide de l’utilisateur cloudadmin consiste à inspecter les événements vSphere à l’aide du client vSphere pour votre cloud privé. Après avoir identifié ces services et avant d’effectuer la rotation du mot de passe, vous devez arrêter ces services, sans quoi ceux-ci ne fonctionneront pas une fois la rotation du mot de passe effectuée. Vous rencontrerez également des verrouillages temporaires sur votre compte vCenter CloudAdmin, car ces services essaient continuellement de s’authentifier à l’aide d’une version mise en cache des anciennes informations d’identification. 
 
-Dans cette étape, vous allez effectuer la rotation des informations d’identification cloudadmin pour vos composants Azure VMware Solution. 
+Au lieu d’utiliser l’utilisateur cloudadmin pour connecter des services à vCenter, nous recommandons d’utiliser des comptes individuels pour chaque service. Pour plus d’informations sur la configuration de comptes distincts pour les services connectés, consultez la page sur les [concepts d’accès et d’identité](./concepts-identity.md).
 
->[!NOTE]
->N’oubliez pas de remplacer **{SubscriptionID}** , **{ResourceGroup}** et **{PrivateCloudName}** par les informations de votre cloud privé.
+## <a name="reset-your-vcenter-credentials"></a>Réinitialiser vos informations d’identification vCenter
 
 1. À partir du portail Azure, ouvrez une session Azure Cloud Shell.
 
-2. Mettez à jour votre mot de passe vCenter CloudAdmin.  
+2. Mettez à jour vos informations d’identification vCenter *CloudAdmin*.  N’oubliez pas de remplacer **{SubscriptionID}** , **{ResourceGroup}** et **{PrivateCloudName}** par les informations de votre cloud privé. 
 
    ```azurecli-interactive
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
-          
-3. Mettez à jour votre mot de passe d’administrateur NSX-T. 
-
-   ```azurecli-interactive
-   az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
-   ```
-
-## <a name="update-hcx-connector-with-the-latest-cloudadmin-credentials"></a>Mettre à jour le connecteur HCX avec les dernières informations d’identification cloudadmin
-
-Dans cette étape, vous allez mettre à jour le connecteur HCX avec informations d’identification mises à jour.
+ 
+## <a name="update-hcx-connector"></a>Mettre à jour le connecteur HCX 
 
 1. Accédez au connecteur HCX local à l’adresse à l’adresse https://{ip of the HCX connector appliance}:443 et connectez-vous à l’aide des nouvelles informations d’identification.
 
-   Veillez à utiliser le port 443. 
+   Veillez à utiliser le port **443**. 
 
 2. Dans le tableau de bord VMware HCX, sélectionnez **Site Pairing (Jumelage de sites)** .
     
-   :::image type="content" source="media/rotate-cloudadmin-credentials/hcx-site-pairing.png" alt-text="Capture d’écran du tableau de bord VMware HCX avec l’option Site Pairing mise en surbrillance.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Capture d’écran du tableau de bord VMware HCX avec l’option Site Pairing mise en surbrillance.":::
  
 3. Sélectionnez la connexion à Azure VMware Solution qui convient, puis **Modifier la connexion**.
  
-4. Fournissez les nouvelles informations d’identification utilisateur de CloudAdmin vCenter Server, puis sélectionnez **Modifier** pour les enregistrer. L’enregistrement doit s’afficher correctement.
+4. Fournissez les nouvelles informations d’identification d’utilisateur vCenter et sélectionnez **Modifier**, ce qui permet d’enregistrer les informations d’identification. L’enregistrement doit s’afficher correctement.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous savez comment réinitialiser les informations d’identification de vCenter Server et de NSX-T Manager pour Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
+À présent que vous savez réinitialiser vos informations d’identification vCenter pour Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
 - [Intégration des services natifs Azure dans Azure VMware Solution](integrate-azure-native-services.md)
 - [Déploiement d’une récupération d’urgence pour les charges de travail Azure VMware Solution à l’aide de VMware HCX](deploy-disaster-recovery-using-vmware-hcx.md)

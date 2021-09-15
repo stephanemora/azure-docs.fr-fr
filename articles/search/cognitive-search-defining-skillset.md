@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/15/2021
-ms.openlocfilehash: 5f47eef6d3aeecd64cb3777b1d0858b4904d137d
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 4425a4b7c29bc0f4bc237c021610087c933631d8
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122563699"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224027"
 ---
 # <a name="create-a-skillset-in-azure-cognitive-search"></a>Créer un ensemble de compétences dans la Recherche cognitive Azure
 
@@ -227,6 +227,14 @@ Après avoir exécuté l’indexeur, vous pouvez utiliser l’[Explorateur de re
 L’exemple suivant montre les résultats d’une compétence de reconnaissance d’entité qui a détecté persons, locations, organizations et d’autres entités dans un segment de texte. L’affichage des résultats dans l’Explorateur de recherche peut vous aider à déterminer si une compétence ajoute de la valeur à votre solution.
 
 :::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="Capture d’écran d’un document dans l’Explorateur de recherche":::
+
+## <a name="tips-for-a-first-skillset"></a>Conseils pour un premier ensemble de compétences
+
++ Assemblez un échantillon représentatif de votre contenu dans le Stockage Blob ou une autre source de données d’indexeur prise en charge, puis exécutez l’Assistant **Importer des données** pour créer l’ensemble de compétences, l’index, l’indexeur et l’objet de source de données. 
+
+  L’Assistant automatise plusieurs étapes qui peuvent être difficiles à gérer la première fois, notamment la définition des champs dans un index, la définition des mappages de champs de sortie dans un indexeur et les projections dans une base de connaissances si vous en utilisez une. Pour certaines compétences, telles que la reconnaissance optique de caractères ou l’analyse des images, l’Assistant ajoute des compétences d’utilitaire qui fusionnent le contenu des images et du texte séparé lors du craquage des documents.
+
++ Vous pouvez également importer des collections Postman de compétences qui fournissent des exemples complets de toutes les définitions d’objets requises pour évaluer une compétence, d’un ensemble de compétences à un index interrogeable pour afficher les résultats d’une transformation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

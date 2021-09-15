@@ -1,5 +1,5 @@
 ---
-title: Créer une base de connaissances dans le portail Azure
+title: 'Démarrage rapide : Créer une base de connaissances dans le portail Azure'
 titleSuffix: Azure Cognitive Search
 description: Utilisez l’Assistant Importation de données pour créer une base de connaissances où conserver le contenu enrichi persistant. Connectez-vous à une base de connaissances pour l’analyse à partir d’autres applications, ou envoyez du contenu enrichi aux processus en aval.
 author: HeidiSteen
@@ -7,19 +7,19 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/17/2020
-ms.openlocfilehash: 3225013f09abd326c619b67caf77918889a64859
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/10/2021
+ms.openlocfilehash: d7af6f2ad8e3a45041a22a6268efdbfee32377df
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94741805"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768159"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Démarrage rapide : Créer une base de connaissances Recherche cognitive Azure dans le portail Azure
 
-La base de connaissances est une fonctionnalité de la Recherche cognitive Azure qui conserve la sortie d’un pipeline de traitement de contenu en vue d’analyses ultérieures ou d’un traitement en aval. 
+La base de connaissances est une fonctionnalité de la Recherche cognitive Azure. Elle permet de conserver la sortie d’un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) en vue d’une analyse ultérieure ou d’un traitement en aval. 
 
-Un pipeline accepte du contenu texte et image non structuré, applique l’intelligence artificielle alimentée par Cognitive Services (par exemple, la reconnaissance optique de caractères et le traitement en langage naturel) et génère de nouvelles structures et des informations qui n’existaient pas auparavant. L’un des artefacts physiques créés par un pipeline est une [base de connaissances](knowledge-store-concept-intro.md), à laquelle vous pouvez accéder par le biais d’outils pour analyser et explorer le contenu.
+Un pipeline accepte du contenu texte et image non structuré, applique l’intelligence artificielle alimentée par Cognitive Services (comme l’analyse des sentiments et la traduction de texte) et génère de nouvelles structures et des informations qui n’existaient pas auparavant. L’un des artefacts physiques créés par un pipeline est une [base de connaissances](knowledge-store-concept-intro.md), à laquelle vous pouvez accéder par le biais d’outils qui analysent et explorent le contenu dans Stockage Azure.
 
 Dans ce guide de démarrage rapide, vous combinez des services et des données dans le cloud Azure pour créer une base de connaissances. Une fois tout en place, vous allez exécuter l’Assistant **Importation de données** dans le portail pour tout rassembler. Vous affichez ensuite le contenu du texte d’origine et le contenu généré par l’intelligence artificielle dans le portail (avec l’[Explorateur Stockage](knowledge-store-view-storage-explorer.md)).
 
@@ -158,9 +158,9 @@ Une fois que vous avez enrichi vos données à l’aide de Cognitive Services et
 
 Vous pouvez afficher le contenu dans l’Explorateur Stockage, ou aller un peu plus loin avec Power BI pour obtenir des insights par le biais de la visualisation.
 
-> [!div class="nextstepaction"]
-> [Afficher avec l’Explorateur Stockage](knowledge-store-view-storage-explorer.md)
-> [Se connecter à Power BI](knowledge-store-connect-power-bi.md)
++ [Voir avec l’Explorateur Stockage](knowledge-store-view-storage-explorer.md)
+
++[Se connecter avec Power BI](knowledge-store-connect-power-bi.md)
 
 > [!Tip]
 > Si vous souhaitez répéter cet exercice ou essayer une autre procédure pas à pas d’enrichissement par IA, supprimez l’indexeur *hotel-reviews-idxr*. La suppression de l’indexeur réinitialise le compteur de transactions quotidiennes gratuites à zéro pour le traitement Cognitive Services.

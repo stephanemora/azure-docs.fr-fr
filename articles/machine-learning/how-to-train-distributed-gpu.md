@@ -1,20 +1,20 @@
 ---
 title: Guide de l’entraînement de GPU distribué
 titleSuffix: Azure Machine Learning
-description: Entraînement distribué avec MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow et InfiniBand.
+description: Découvrez les meilleures pratiques en matière d’entraînement distribué avec les frameworks pris en charge par Azure Machine Learning, tels que MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow et InfiniBand.
 author: fuhuifang
 ms.author: fufang
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/12/2021
-ms.openlocfilehash: dc51354605dacba641e5f63f521e448713eec5a5
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.date: 08/19/2021
+ms.openlocfilehash: ff95cb0004fbde34e70bcb778d93a2f381dc5830
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122610083"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122661653"
 ---
 # <a name="distributed-gpu-training-guide"></a>Guide de l’entraînement de GPU distribué
 
@@ -35,7 +35,7 @@ Découvrez-en plus sur l’utilisation du code d’entraînement de GPU distribu
     * Variables d’environnement pour TensorFlow (TF_CONFIG)
 * Entraînement de GPU accéléré avec InfiniBand
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Passez en revue les [concepts de base de l’entraînement de GPU distribué](concept-distributed-training.md), comme le _parallélisme des données_, le _parallélisme des données distribué_ et le _parallélisme des modèles_.
 

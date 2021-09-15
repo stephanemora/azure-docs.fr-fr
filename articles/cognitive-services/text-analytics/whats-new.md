@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/09/2021
+ms.date: 08/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 79d527f0a966388758969837aaab95f7f9327e07
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8752a80eb4b5faae3566ce1e7bbd70dd61b26ba1
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532199"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219611"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
@@ -26,10 +26,7 @@ L’API Analyse de texte est mise à jour de manière continue. Pour vous inform
 
 * Version `3.2-preview.1` qui inclut une préversion publique du [résumé extractif](how-tos/extractive-summarization.md).
 * L’[opération asynchrone](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous) est désormais disponible dans les régions Azure Government et Azure Chine.
-* Nouvelles préversions de la bibliothèque de client avec prise en charge du résumé extractif. Consultez les exemples suivants :
-    * [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample8_ExtractSummary.md)
-    * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeExtractiveSummarization.java)
-    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_extract_summary.py)
+* Nouvelles préversions de la bibliothèque de client avec prise en charge du résumé extractif. Pour plus d’informations, [consultez le démarrage rapide](quickstarts/client-libraries-rest-api.md).
 
 ## <a name="july-2021"></a>Juillet 2021
 

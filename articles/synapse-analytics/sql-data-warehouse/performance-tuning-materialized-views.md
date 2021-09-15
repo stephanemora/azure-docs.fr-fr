@@ -7,15 +7,15 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 09/05/2019
+ms.date: 08/17/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: 7500490115ed360e838dc30038e3e8e602b33449
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: ce3f7b923cec3dec28043f43babbaa86a0c6d92e
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081638"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662067"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
@@ -46,7 +46,7 @@ Une vue matérialisée correctement conçue offre les avantages suivants :
 
 - Réduit le temps d’exécution des requêtes complexes avec des jointures et des fonctions d’agrégation. Plus la requête est complexe, plus le potentiel d’enregistrement au moment de l’exécution est élevé. Le plus grand bénéfice est obtenu quand le coût de calcul d’une requête est élevé et que le jeu de données résultant est petit.  
 - L'optimiseur inclus dans le pool SQL dédié peut automatiquement utiliser les vues matérialisées déployées pour améliorer les plans d'exécution des requêtes.  Ce processus est transparent pour les utilisateurs, offrant des performances plus rapides aux requêtes. De plus, il ne nécessite pas que les requêtes fassent référence directement aux vues matérialisées.
-- Peu de maintenance nécessaire sur les vues.  Toutes les modifications incrémentielles apportées aux données à partir des tables de base sont automatiquement ajoutées aux affichages matérialisés de manière synchrone.  Cette conception permet l’interrogation des vues matérialisées pour retourner les mêmes données qu’avec une interrogation directe des tables de base.
+- Peu de maintenance nécessaire sur les vues.  Tous les changements de données incrémentielles des tables de base sont automatiquement ajoutés aux vues matérialisées de façon synchrone, ce qui signifie que les tables de base aussi bien que les vues matérialisées sont mises à jour dans la même transaction.  Cette conception permet l’interrogation des vues matérialisées pour retourner les mêmes données qu’avec une interrogation directe des tables de base.  
 - Les données comprises dans une vue matérialisée peuvent être distribuées différemment dans les tables de base.  
 - Dans les vues matérialisées, les données présentent les mêmes avantages en matière de haute disponibilité et de résilience que les données comprises dans des tables normales.  
 
@@ -54,10 +54,13 @@ Les vues matérialisées implémentées dans le pool SQL dédié offrent égalem
 
 En comparaison avec d’autres fournisseurs d’entrepôts de données, les vues matérialisées implémentées dans un pool SQL dédié offrent également les avantages suivants :
 
+- Prise en charge étendue des fonctions d’agrégation. Consultez [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
+- Prise en charge de la recommandation de vue matérialisée propre à la requête.  Consultez [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql).
 - Actualisation automatique et synchrone des données avec les modifications apportées aux données dans les tables de base. Aucune action de l'utilisateur n'est requise.
-- Prise en charge étendue des fonctions d’agrégation. Consultez [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).
-- Prise en charge de la recommandation de vue matérialisée propre à la requête.  Consultez [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+>[!note] 
+> Une vue matérialisée créée à l’aide d’expressions CASE stocke des valeurs qui répondent aux critères CASE au moment de la création de la vue uniquement.  La vue matérialisée ne reflète pas les modifications de données incrémentielles résultant des expressions CASE après la création de la vue.   
 
+ 
 ## <a name="common-scenarios"></a>Scénarios courants  
 
 Les vues matérialisées sont généralement utilisées dans les scénarios suivants :

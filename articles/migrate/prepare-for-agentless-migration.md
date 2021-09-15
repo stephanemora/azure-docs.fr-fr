@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 07/06/2021
-ms.openlocfilehash: 4d819993f2c0fdab6da67e98fc767020e543844f
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: c445b6252f19415e51f46f044497ab80207ee860
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720449"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272184"
 ---
 # <a name="prepare-for-vmware-agentless-migration"></a>Préparer la migration sans agent VMware
 
@@ -271,7 +271,7 @@ Le script de préparation effectue les modifications suivantes en fonction du ty
 
     Azure Migrate va tenter d’installer l’agent Linux Microsoft Azure (waagent), un processus léger et sécurisé qui gère le provisionnement de Linux et de FreeBSD, et l’interaction des machines virtuelles avec le contrôleur de structure Azure.  [En savoir plus](../virtual-machines/extensions/agent-linux.md) sur les fonctionnalités activées pour les déploiements IaaS Linux et FreeBSD via l’agent Linux.
 
-    Passez en revue la liste des [packages requis](../virtual-machines/extensions/agent-linux.md#requirements) pour installer l’agent VM Linux. Azure Migrate installe automatiquement l’agent de machine virtuelle Linux pour RHEL6, RHEL7, CentOS7 (la version 6 doit être prise en charge de façon similaire à RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04, Ubuntu 19.04, Ubuntu 19.10 et Ubuntu 20.04 lors de l’utilisation de la méthode de migration VMware sans agent. Suivez ces instructions pour [installer l’agent Linux manuellement](../virtual-machines/extensions/agent-linux.md#installation) pour d’autres versions de système d’exploitation.
+    Passez en revue la liste des [packages requis](../virtual-machines/extensions/agent-linux.md#requirements) pour installer l’agent VM Linux. Azure Migrate installe automatiquement l’agent de machine virtuelle Linux pour RHEL 8/7/6, CentOS 8/7/6, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7 et Oracle 7 lors de l’utilisation de la méthode de migration VMware sans agent. Suivez ces instructions pour [installer l’agent Linux manuellement](../virtual-machines/extensions/agent-linux.md#installation) pour d’autres versions de système d’exploitation.
 
     Vous pouvez utiliser la commande pour vérifier l’état du service de l’agent Linux Azure et être sûr qu’il est en cours d’exécution. Le nom du service peut être **walinuxagent** ou **waagent**.
     Une fois les modifications d’hydratation effectuées, le script va démonter toutes les partitions montées, désactiver les groupes de volumes, puis vider les périphériques.

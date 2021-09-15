@@ -1,15 +1,15 @@
 ---
 title: Types de ressources Azure Resource Manager prises en charge
 description: Fournit la liste des types de ressources Azure Resource Manager prises en charge par Azure Resource Graph et l’historique des modifications.
-ms.date: 08/13/2021
+ms.date: 08/31/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 69b8e4bb3400b04da3986f9e40a1c5b5fba3b750
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 330c406ef1d45a3cd72ac7316ca3985d2a6cd647
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533060"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309770"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informations de référence sur le type de ressource et la table Azure Resource Graph
 
@@ -29,6 +29,10 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 
 - microsoft.alertsmanagement/alerts
 
+## <a name="desktopvirtualizationresources"></a>desktopvirtualizationresources
+
+- microsoft.desktopvirtualization/hostpools/sessionhosts
+
 ## <a name="extendedlocationresources"></a>extendedlocationresources
 
 Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de requêtes Azure Resource Graph pour extendedlocationresources](../samples/samples-by-table.md#extendedlocationresources).
@@ -45,7 +49,6 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
   - Exemple de requête : [Compter les machines dans l’étendue des stratégies de configuration d’invité](../samples/samples-by-category.md#count-machines-in-scope-of-guest-configuration-policies)
   - Exemple de requête : [Nombre d’affectations de configuration d’invité non conformes](../samples/samples-by-category.md#count-of-non-compliant-guest-configuration-assignments)
   - Exemple de requête : [Rechercher tous les motifs pour lesquels une machine n’est pas conforme aux affectations de configuration d’invité](../samples/samples-by-category.md#find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments)
-  - Exemple de requête : [Détails de la requête des rapports d’affectations de configuration d’invité](../samples/samples-by-category.md#query-details-of-guest-configuration-assignment-reports)
 
 ## <a name="healthresources"></a>healthresources
 
@@ -136,6 +139,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Citrix.Services/XenDesktopEssentials (Citrix Virtual Desktops Essentials)
 - conexlink.mycloudit/accounts
 - crypteron.datasecurity/apps
+- dynatrace.observability/monitors
 - GitHub.Enterprise/accounts (GitHub AE)
 - gridpro.evops/accounts
 - gridpro.evops/accounts/eventrules
@@ -243,6 +247,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.CloudTest/images (Images CloudTest)
 - Microsoft.CloudTest/pools (Pools CloudTest)
 - Microsoft.ClusterStor/nodes (ClusterStors)
+- microsoft.codesigning/codesigningaccounts
 - microsoft.codespaces/plans
 - Microsoft.Cognition/syntheticsAccounts (Comptes Synthetics)
 - Microsoft.CognitiveServices/accounts (Cognitive Services)
@@ -276,6 +281,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
   - Exemple de requête : [Compter les machines virtuelles par type de système d’exploitation](../samples/samples-by-category.md#count-virtual-machines-by-os-type)
   - Exemple de requête : [Compter les machines virtuelles par type de système d’exploitation avec extension](../samples/samples-by-category.md#count-virtual-machines-by-os-type-with-extend)
   - Exemple de requête : [Lister toutes les extensions installées sur une machine virtuelle](../samples/samples-by-category.md#list-all-extensions-installed-on-a-virtual-machine)
+  - Exemple de requête : [Lister les machines qui ne sont pas en cours d’exécution et le dernier état de conformité](../samples/samples-by-category.md#list-machines-that-are-not-running-and-the-last-compliance-status)
   - Exemple de requête : [Liste des machines virtuelles par état de disponibilité et état d’alimentation avec les ID de ressource et les groupes de ressources](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - Exemple de requête : [Lister les machines virtuelles avec leur interface réseau et leur adresse IP publique](../samples/samples-by-category.md#list-virtual-machines-with-their-network-interface-and-public-ip)
   - Exemple de requête : [Afficher toutes les machines virtuelles classées par nom par ordre décroissant](../samples/samples-by-category.md#show-all-virtual-machines-ordered-by-name-in-descending-order)
@@ -291,6 +297,8 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.Confluent/organizations (Organisations Confluent)
 - Microsoft.ConnectedCache/cacheNodes (Ressources de cache connecté)
 - Microsoft. ConnectedVehicle/platformAccounts (Plateformes de véhicules connectée)
+- microsoft.connectedvmwarevsphere/clusters
+- microsoft.connectedvmwarevsphere/datastores
 - microsoft.connectedvmwarevsphere/resourcepools
 - Microsoft.connectedVMwareVSphere/vCenters (VMware vCenters)
 - Microsoft.ConnectedVMwarevSphere/VirtualMachines (VMware + machines virtuelles AVS)
@@ -335,6 +343,8 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.DataProtection/BackupVaults (Coffres de sauvegarde)
 - Microsoft.DataProtection/resourceGuards (Protecteurs de ressources (préversion))
 - microsoft.dataprotection/resourceoperationgatekeepers
+- microsoft.datareplication/replicationfabrics
+- microsoft.datareplication/replicationvaults
 - Microsoft.DataShare/accounts (Partages de données)
 - Microsoft.DBforMariaDB/servers (Serveurs Azure Database pour MariaDB)
 - Microsoft.DBforMySQL/flexibleServers (Serveurs flexibles Azure Database pour MySQL)
@@ -398,9 +408,10 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - microsoft.falcon/namespaces
 - Microsoft.Fidalgo/devcenters (Fidalgo DevCenters)
 - microsoft.fidalgo/machinedefinitions
+- microsoft.fidalgo/networksettings
 - Microsoft.Fidalgo/projects (Projets Fidalgo)
 - Microsoft.Fidalgo/projects/environments (Environnements Fidalgo)
-- Microsoft.FluidRelay/fluidRelayServers (Serveurs FluidRelay)
+- Microsoft.FluidRelay/fluidRelayServers (Relais Fluid)
 - microsoft.footprintmonitoring/profiles
 - microsoft.gaming/titles
 - Microsoft.Genomics/accounts (Comptes Genomics)
@@ -410,6 +421,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - microsoft.hardwaresecuritymodules/dedicatedhsms
 - Microsoft.HDInsight/clusterpools (Pool de clusters HDInsight)
 - Microsoft.HDInsight/clusterpools/clusters (Clusters HDInsight Gen2)
+- microsoft.hdinsight/clusterpools/clusters/sessionclusters
 - Microsoft.HDInsight/clusters (Clusters HDInsight)
 - Microsoft.HealthBot/healthBots (Azure Health Bot)
 - Microsoft.HealthcareApis/services (API Azure pour FHIR)
@@ -421,7 +433,9 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.HpcWorkbench/instances (HPC Workbench (préversion))
 - Microsoft.HybridCompute/machines (Serveurs – Azure Arc)
   - Exemple de requête : [Obtenir le nombre et le pourcentage de serveurs avec Arc par domaine](../samples/samples-by-category.md#get-count-and-percentage-of-arc-enabled-servers-by-domain)
+  - Exemple de requête : [Répertorier toutes les extensions installées sur un serveur avec Azure Arc](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - microsoft.hybridcompute/machines/extensions
+  - Exemple de requête : [Répertorier toutes les extensions installées sur un serveur avec Azure Arc](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - Microsoft.HybridCompute/privateLinkScopes (Étendues de liaison privée Azure Arc)
 - Microsoft.HybridData/dataManagers (Gestionnaires de données StorSimple)
 - Microsoft.HybridNetwork/devices (Gestionnaire des fonctions réseau Azure – Appareils [préversion])
@@ -440,7 +454,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - microsoft.insights/alertrules
 - microsoft.insights/autoscalesettings
 - microsoft.insights/components (Application Insights)
-- microsoft.insights/datacollectionendpoints
+- microsoft.insights/datacollectionendpoints (Points de terminaison de collecte de données)
 - microsoft.insights/datacollectionrules (Règles de collecte des données)
 - microsoft.insights/guestdiagnosticsettings
 - microsoft.insights/metricalerts
@@ -535,7 +549,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.MobileNetwork/packetCoreControlPlanes (Arc pour fonctions réseau - Cœurs de paquets)
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks
-- microsoft.mobilenetwork/sims
+- Microsoft.MobileNetwork/sims (Sims)
 - microsoft.mobilenetwork/sims/simprofiles
 - Microsoft.NetApp/netAppAccounts (Comptes NetApp)
 - microsoft.netapp/netappaccounts/backuppolicies
@@ -612,6 +626,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - microsoft.network/vpngateways
 - microsoft.network/vpnserverconfigurations
 - microsoft.network/vpnsites
+- microsoft.networkfunction/azuretrafficcollectors
 - Microsoft.NotificationHubs/namespaces (Espaces de noms du hub de notification)
 - Microsoft.NotificationHubs/namespaces/notificationHubs (Hubs de notification)
 - microsoft.nutanix/interfaces
@@ -675,6 +690,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.Search/searchServices (Services de recherche)
 - microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
+- microsoft.security/securityconnectors
 - Microsoft.SecurityDetonation/chambers (Chambres de détonation de sécurité)
 - Microsoft.ServiceBus/namespaces (Espaces de noms Service Bus)
 - Microsoft.ServiceFabric/clusters (Clusters Service Fabric)
@@ -729,7 +745,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.Synapse/workspaces (Azure Synapse Analytics)
 - Microsoft.Synapse/workspaces/bigDataPools (Pools Apache Spark)
 - microsoft.synapse/workspaces/eventstreams
-- Microsoft.Synapse/workspaces/kustopools (Pools Kusto (préversion))
+- Microsoft.Synapse/workspaces/kustopools (Pools Data Explorer (préversion))
 - microsoft.synapse/workspaces/sqldatabases
 - Microsoft.Synapse/workspaces/sqlPools (Pools SQL dédiés)
 - microsoft.terraformoss/providerregistrations
@@ -772,7 +788,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - microsoft.web/sites/premieraddons
 - Microsoft.Web/sites/slots (App Service (emplacements))
 - Microsoft.Web/StaticSites (Static Web Apps)
-- microsoft.web/workerapps
+- Microsoft.Web/WorkerApps (Container Apps)
 - Microsoft.WindowsESU/multipleActivationKeys (Clés d’activation multiple Windows)
 - Microsoft.WindowsIoT/DeviceServices (Windows 10 IoT Core Services)
 - microsoft.workloadbuilder/migrationagents
@@ -781,7 +797,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - NGINX.NGINXPLUS/nginxDeployments (Déploiement NGINX)
 - Paraleap.CloudMonix/services (CloudMonix)
 - Pokitdok.Platform/services (Plateforme PokitDok)
-- Providers.Test/statefulIbizaEngines (Éditeurs de liens de service)
+- Providers.Test/statefulIbizaEngines (Évaluations d’application)
 - RavenHq.Db/databases (RavenHQ)
 - Raygun.CrashReporting/apps (Raygun)
 - Sendgrid.Email/accounts (Comptes SendGrid)

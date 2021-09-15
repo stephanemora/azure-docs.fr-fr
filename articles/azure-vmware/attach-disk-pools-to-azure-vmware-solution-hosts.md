@@ -2,13 +2,13 @@
 title: Attacher des pools de disques à des hôtes Azure VMware Solution (préversion)
 description: Découvrez comment attacher un pool de disques exposé par le biais d’une cible iSCSI comme magasin de données VMware d’un cloud privé Azure VMware Solution. Une fois que le magasin de données est configuré, vous pouvez y créer des volumes et les attacher à votre instance VMware.
 ms.topic: how-to
-ms.date: 07/13/2021
-ms.openlocfilehash: fefb014f221a121259c0b8d6411de362e11a63c0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/20/2021
+ms.openlocfilehash: 2487e26d887935f0d66f13d51ce7894edb2b2b6e
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532526"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769299"
 ---
 # <a name="attach-disk-pools-to-azure-vmware-solution-hosts-preview"></a>Attacher des pools de disques à des hôtes Azure VMware Solution (préversion)
 
@@ -32,7 +32,7 @@ Le diagramme illustre le fonctionnement des pools de disques avec les hôtes Azu
 Vous pouvez connecter le pool de disques uniquement à un cloud privé Azure VMware Solution dans la même région. Pour obtenir la liste des régions prises en charge, consultez [Disponibilité régionale](../virtual-machines/disks-pools.md#regional-availability).  Si votre cloud privé est déployé dans une région non prise en charge, vous pouvez le redéployer dans une région prise en charge. Le cloud privé Azure VMware Solution et la colocation du pool de disques offrent des performances optimales avec une latence réseau minime.
 
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Les besoins de vos charges de travail en termes de scalabilité et de performances sont identifiées. Pour plus d’informations, consultez [Planification des pools de disques Azure](../virtual-machines/disks-pools-planning.md).
 
@@ -53,83 +53,83 @@ Vous allez attacher un pool de disques exposé par le biais d’une cible iSCSI 
 >[!IMPORTANT]
 >En **préversion publique**, attachez un pool de disques uniquement à un cluster de test ou hors production.
 
-1. Vérifiez si l’abonnement est inscrit auprès de `Microsoft.AVS` :
+1. Vérifiez si l’abonnement est inscrit auprès de `Microsoft.AVS`.
 
    ```azurecli
    az provider show -n "Microsoft.AVS" --query registrationState
    ```
 
-   S’il n’est pas déjà inscrit, inscrivez-le :
+   S’il n’est pas déjà inscrit, inscrivez-le.
 
    ```azurecli
    az provider register -n "Microsoft.AVS"
    ```
 
-1. Vérifiez si l’abonnement est inscrit auprès de l’AFEC `CloudSanExperience` dans Microsoft.AVS :
+2. Vérifiez si l’abonnement est inscrit auprès de l’AFEC `CloudSanExperience` dans Microsoft.AVS.
 
    ```azurecli
    az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"
    ```
 
-   - S’il n’est pas déjà inscrit, inscrivez-le :
+   - S’il n’est pas déjà inscrit, inscrivez-le.
 
       ```azurecli
       az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       ```
 
-      L’inscription peut prendre environ 15 minutes et vous pouvez en vérifier l’état en cours :
+      L’inscription peut prendre environ 15 minutes et vous pouvez en vérifier l’état en cours.
       
       ```azurecli
       az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state
       ```
 
       >[!TIP]
-      >Si l’inscription reste bloquée à un état intermédiaire pendant plus de 15 minutes, annulez-la et recommencez :
+      >Si l’inscription reste bloquée à un état intermédiaire pendant plus de 15 minutes, annulez-la et recommencez.
       >
       >```azurecli
       >az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"
       >az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       >```
 
-1. Vérifiez si l’extension `vmware ` est installée : 
+3. Vérifiez si l’extension `vmware ` est installée. 
 
    ```azurecli
    az extension show --name vmware
    ```
 
-   - Si l’extension est déjà installée, vérifiez si la version est **3.0.0**. Si une version antérieure est installée, mettez l’extension à jour :
+   - Si l’extension est déjà installée, vérifiez si la version est **3.0.0**. Si une version antérieure est installée, mettez l’extension à jour.
 
       ```azurecli
       az extension update --name vmware
       ```
 
-   - Si l’extension n’est pas déjà installée, installez-la :
+   - Si l’extension n’est pas déjà installée, installez-la.
 
       ```azurecli
       az extension add --name vmware
       ```
 
-3. Créez et attachez un magasin de données iSCSI dans le cluster de cloud privé Azure VMware Solution en utilisant la cible iSCSI fournie `Microsoft.StoragePool` :
+4. Créez et attachez un magasin de données iSCSI dans le cluster de cloud privé Azure VMware Solution en utilisant la cible iSCSI fournie `Microsoft.StoragePool`. Le pool de disques est attaché à un réseau virtuel via un sous-réseau délégué. Cette opération est effectuée avec le fournisseur de ressources Microsoft.StoragePool/diskPools.  Si le sous-réseau n’est pas délégué, le déploiement échoue.
 
    ```bash
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
    ```
 
    >[!TIP]
-   >Vous pouvez afficher l’aide sur les magasins de données :
+   >Vous pouvez afficher l’aide sur les magasins de données.
    >
    >   ```azurecli
    >   az vmware datastore -h
    >   ```
    
 
-4. Affichez les détails d’un magasin de données iSCSI dans un cluster de cloud privé :
+5. Affichez les détails d’un magasin de données iSCSI dans un cluster de cloud privé.
    
    ```azurecli
    az vmware datastore show --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster -Cluster-1 --private-cloud MyPrivateCloud
    ```
 
-5. Listez tous les magasins de données dans un cluster de cloud privé :
+6. Listez tous les magasins de données dans un cluster de cloud privé.
 
    ```azurecli
    az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
@@ -147,7 +147,7 @@ Quand vous supprimez un magasin de données du cloud privé, les ressources du p
 
    - Instantanés
 
-2. Supprimez le magasin de données du cloud privé :
+2. Supprimez le magasin de données du cloud privé.
 
    ```azurecli
    az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
@@ -157,7 +157,7 @@ Quand vous supprimez un magasin de données du cloud privé, les ressources du p
 
 Maintenant que vous avez attaché un pool de disques à vos hôtes Azure VMware Solution, vous voudrez peut-être découvrir les sujets suivants :
 
-- [Gestion d’un pool de disques Azure](../virtual-machines/disks-pools-manage.md ).  Après avoir déployé un pool de disques, vous avez à votre disposition différentes actions de gestion. Vous pouvez ajouter un disque à un pool de disques ou supprimer un disque d’un pool de disques, mettre à jour le mappage iSCSI/numéro d’unité logique ou ajouter des listes de contrôle d’accès.
+- [Gestion d’un pool de disques Azure](../virtual-machines/disks-pools-manage.md).  Après avoir déployé un pool de disques, vous avez à votre disposition différentes actions de gestion. Vous pouvez ajouter un disque à un pool de disques ou supprimer un disque d’un pool de disques, mettre à jour le mappage iSCSI/numéro d’unité logique ou ajouter des listes de contrôle d’accès.
 
 - [Suppression d’un pool de disques](../virtual-machines/disks-pools-deprovision.md#delete-a-disk-pool). Quand vous supprimez un pool de disques, toutes les ressources du groupe de ressources managé sont également supprimées.
 

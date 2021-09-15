@@ -4,12 +4,12 @@ description: Découvrez comment utiliser des identités managées par pod AAD da
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.openlocfilehash: 44f4415e09ca9e2942eb1da4c69cf98759f737ce
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 1ecf9b45983dbc34938593424644a646dc3d96cb
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563763"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101227"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Utiliser des identités managées par pod Azure Active Directory dans Azure Kubernetes Service (préversion)
 
@@ -180,6 +180,7 @@ az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSClu
 
 > [!NOTE]
 > Lorsque vous activez l’identité managée par pod sur votre cluster AKS, une AzurePodIdentityException nommée *aks-addon-exception* est ajoutée à l’espace de noms *kube-system*. Une AzurePodIdentityException permet aux pods avec certaines étiquettes d’accéder au point de terminaison Azure Instance Metadata Service (IMDS) sans être interceptés par le serveur d’identité managée par nœud (NMI). *aks-addon-exception* permet aux modules complémentaires internes AKS, comme une identité managée par pod AAD, de fonctionner sans avoir à configurer manuellement une AzurePodIdentityException. Si vous le souhaitez, vous pouvez ajouter, supprimer et mettre à jour une AzurePodIdentityException à l’aide de `az aks pod-identity exception add`, `az aks pod-identity exception delete`, `az aks pod-identity exception update` ou `kubectl`.
+> La variable « POD_IDENTITY_NAME » doit être un [nom de sous-domaine DNS] valide, tel que défini dans [RFC 1123]. 
 
 > [!NOTE]
 > Lorsque vous affectez l’identité de pod à l’aide de `pod-identity add`, l’interface Azure CLI tente d’accorder le rôle d’opérateur d’identités managées sur l’identité de pod (*IDENTITY_RESOURCE_ID*) à l’identité du cluster.
@@ -383,3 +384,5 @@ Pour plus d’informations sur les identités managées, consultez [Identités m
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[RFC 1123]: https://tools.ietf.org/html/rfc1123
+[Nom de sous-domaine DNS]: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names

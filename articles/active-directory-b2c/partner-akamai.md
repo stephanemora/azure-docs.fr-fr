@@ -11,16 +11,19 @@ ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: bee4eb52ffab891f1a0f120fca25573a93d25370
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 09f35e9621f6704fb33720a43afb38fd99e9eec6
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562363"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123213912"
 ---
 # <a name="tutorial-configure-akamai-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Akamai avec Azure Active Directory B2C
 
 Dans cet exemple de tutoriel, découvrez comment activer la solution [Pare-feu d’applications web Akamai](https://www.akamai.com/us/en/resources/web-application-firewall.jsp) pour le locataire Azure Active Directory (AD) B2C à l’aide de domaines personnalisés. Le pare-feu d’applications web Akamai permet à l’organisation de protéger ses applications web contre des attaques malveillantes visant à exploiter des vulnérabilités telles que l’injection SQL et les scripts intersites.
+
+>[!NOTE]
+>Cette fonctionnalité est en version préliminaire publique.
 
 Avantages de l’utilisation de la solution de pare-feu d’applications web Akamai :
 
@@ -79,8 +82,8 @@ L’intégration du pare-feu d’applications web Akamai inclut les composants s
 |:-----------|:-----------|
 | Type d’origine | Votre origine |
 | Nom d’hôte du serveur d’origine | yourafddomain.azurefd.net |
-| En-tête de l’hôte de redirection | Nom d’hôte de l’origine |
-| Nom d’hôte de la clé de cache| Nom d’hôte de l’origine |
+| En-tête de l’hôte de redirection | En-tête d’hôte entrant |
+| Nom d’hôte de la clé de cache| En-tête d’hôte entrant  |
 
 ### <a name="configure-dns"></a>Configurer DNS
 

@@ -3,13 +3,13 @@ title: Concepts – Stockage
 description: En savoir plus sur la capacité de stockage, les stratégies de stockage, la tolérance de panne et l’intégration du stockage dans les clouds privés Azure VMware Solution.
 ms.topic: conceptual
 ms.custom: contperf-fy21q4
-ms.date: 07/28/2021
-ms.openlocfilehash: ae37e0147ea03f91c2af68b8733a1702a02f81f3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/31/2021
+ms.openlocfilehash: fb6397752893640bed426e668e833126537d028a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524305"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255392"
 ---
 # <a name="azure-vmware-solution-storage-concepts"></a>Concepts de stockage pour Azure VMware Solution
 
@@ -33,14 +33,16 @@ Le stockage local dans les hôtes du cluster est utilisé dans un magasin de sto
 
 ## <a name="storage-policies-and-fault-tolerance"></a>Stratégies de stockage et tolérance de panne
 
-Cette stratégie de stockage par défaut est définie sur RAID-1 (Mise en miroir), FTT-1 et l’approvisionnement statique.  À moins que vous n’ajustiez la stratégie de stockage ou que vous appliquiez une nouvelle stratégie, le cluster continue de croître avec cette configuration. Dans un cluster à trois hôtes, FTT-1 prend en charge la défaillance d’un seul hôte. Microsoft régit régulièrement les défaillances et remplace le matériel lorsque des événements sont détectés du point de vue de l’architecture.
+Cette stratégie de stockage par défaut est définie sur RAID-1 (Mise en miroir), FTT-1 et l’approvisionnement statique. À moins que vous n’ajustiez la stratégie de stockage ou que vous appliquiez une nouvelle stratégie, le cluster croît avec cette configuration. Pour définir la stratégie de stockage, consultez [Configurer une stratégie de stockage](configure-storage-policy.md).
+
+Dans un cluster à trois hôtes, FTT-1 prend en charge la défaillance d’un seul hôte. Microsoft régit régulièrement les défaillances et remplace le matériel lorsque des événements sont détectés du point de vue de l’architecture.
 
 :::image type="content" source="media/concepts/vsphere-vm-storage-policies.png" alt-text="Capture d’écran montrant les stratégies de stockage de machines virtuelles du client vSphere.":::
 
 
 |Type d’approvisionnement  |Description  |
 |---------|---------|
-|**Statique**      | Espace de stockage réservé ou pré-alloué. Il protège les systèmes en leur permettant de fonctionner même si le magasin de données vSAN est plein, car l’espace est déjà réservé. Par exemple, si vous créez un disque virtuel de 10 Go avec l’approvisionnement statique, la capacité totale de stockage du disque virtuel est pré-allouée sur la mémoire physique du disque virtuel et utilise tout l’espace qui lui est alloué dans le magasin de données. Il ne permettra pas à d’autres machines virtuelles de partager l’espace du magasin de données.         |
+|**Statique**      | Espace de stockage réservé ou pré-alloué. Il protège les systèmes en leur permettant de fonctionner même si le magasin de données vSAN est plein, car l’espace est déjà réservé. Supposez par exemple que vous créez un disque virtuel de 10 Go avec allocation statique. Dans ce cas, la capacité totale de stockage du disque virtuel est pré-allouée sur le stockage physique du disque virtuel, et consomme tout l’espace qui lui est alloué dans le magasin de données. Il ne permettra pas à d’autres machines virtuelles de partager l’espace du magasin de données.         |
 |**Dynamique**      | Consomme l’espace dont il a besoin initialement et croît jusqu’à la demande d’espace de données utilisé dans le magasin de données. En dehors de la configuration par défaut (approvisionnement statique), vous pouvez créer des machines virtuelles avec l’allocation dynamique FTT-1. Pour la configuration de la déduplication, utilisez l’approvisionnement dynamique pour votre modèle de machine virtuelle.         |
 
 >[!TIP]
@@ -59,15 +61,20 @@ Vous pouvez utiliser les services de stockage Azure dans des charges de travail 
 
 ## <a name="alerts-and-monitoring"></a>Alertes et supervision
 
-Microsoft déclenche des alertes lorsque la consommation de capacité dépasse 75 %.  Vous pouvez surveiller les métriques de consommation de capacité qui sont intégrées à Azure Monitor. Pour plus d’informations, consultez [Configurer des alertes Azure dans Azure VMware Solution](configure-alerts-for-azure-vmware-solution.md).
+Microsoft déclenche des alertes lorsque la consommation de capacité dépasse 75 %. Par ailleurs, vous pouvez surveiller les métriques de consommation de capacité qui sont intégrées à Azure Monitor. Pour plus d’informations, consultez [Configurer des alertes Azure dans Azure VMware Solution](configure-alerts-for-azure-vmware-solution.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez abordé les concepts de stockage d’Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
 - [Attacher des pools de disques à des hôtes Azure VMware Solution (préversion)](attach-disk-pools-to-azure-vmware-solution-hosts.md) : vous pouvez utiliser des disques comme stockage persistant pour Azure VMware Solution afin d’optimiser le coût et les performances.
+
+- [Configurer une stratégie de stockage](configure-storage-policy.md) : au moins une stratégie de stockage de machine virtuelle est associée à chaque machine virtuelle déployée sur un magasin de données vSAN. Vous pouvez attribuer une stratégie de stockage de machine virtuelle dans un déploiement initial de machine virtuelle ou lorsque vous effectuez d’autres opérations de machine virtuelle, telles que le clonage ou la migration.
+
 - [Mettre à l’échelle des clusters dans le cloud privé][tutorial-scale-private-cloud] : vous pouvez mettre à l’échelle les clusters et les hôtes d’un cloud privé en fonction des besoins de la charge de travail de vos applications. Les limitations de performances et de disponibilité pour des services spécifiques doivent être traitées au cas par cas.
+
 - [Azure NetApp Files avec Azure VMware Solution](netapp-files-with-azure-vmware-solution.md) : vous pouvez utiliser Azure NetApp pour migrer et exécuter les charges de travail de fichiers d’entreprise les plus exigeantes dans le cloud (bases de données, SAP et applications informatiques hautes performances) sans aucune modification du code. 
+
 - [Contrôle d’accès en fonction du rôle vSphere pour Azure VMware Solution](concepts-identity.md) : vous utilisez vCenter pour gérer les charges de travail de machine virtuelle et NSX-T Manager pour gérer et étendre le cloud privé. La gestion des accès et des identités utilise le rôle CloudAdmin pour vCenter et des droits d’administrateur restreints pour NSX-T Manager.
 
 

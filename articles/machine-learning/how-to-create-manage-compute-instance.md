@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 08/06/2021
-ms.openlocfilehash: eabe675bd3d1ecc488490604b7c06abae3dacf60
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.date: 08/30/2021
+ms.openlocfilehash: cad2ac9319eb674cb8022ff5ce3d2df2a57df648
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122605298"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224691"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Créer et gérer une instance de calcul Azure Machine Learning
 
@@ -192,51 +192,55 @@ Notez que les étiquettes de fuseau horaire ne tiennent pas compte de l’heure 
 
 ### <a name="create-a-schedule-with-a-resource-manager-template"></a>Créer une planification avec un modèle Resource Manager
 
-Vous pouvez planifier le démarrage et l’arrêt automatiques d’une instance de calcul avec un modèle Resource Manager.  Dans un modèle Resource Manager, utilisez des expressions cron ou LogicApps pour définir une planification du démarrage ou de l’arrêt de l’instance.  
+Vous pouvez planifier le démarrage et l’arrêt automatiques d’une instance de calcul avec un [modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance) Resource Manager.
 
+Dans le modèle Resource Manager, ajoutez :
+
+```
+"schedules": "[parameters('schedules')]"
+```
+
+Utilisez ensuite les expressions cron ou LogicApps pour définir la planification qui démarre ou arrête l’instance dans votre fichier de paramètres :
+ 
 ```json
-"schedules": {
-  "computeStartStop": [
-      {
-      "triggerType": "Cron",
-      "cron": {
-          "startTime": "2021-03-10T21:21:07",
-          "timeZone": "Pacific Standard Time",
-          "expression": "0 18 * * *"
-      },
-      "action": "Stop",
-      "status": "Enabled"
-      },
-      {
-      "triggerType": "Cron",
-      "cron": {
-          "startTime": "2021-03-10T21:21:07",
-          "timeZone": "Pacific Standard Time",
-          "expression": "0 8 * * *"
-      },
-      "action": "Start",
-      "status": "Enabled"
-      },
-      { 
-      "triggerType": "Recurrence", 
-      "recurrence": { 
-          "frequency": "Day", 
-          "interval": 1,
-          "timeZone": "Pacific Standard Time", 
-        "schedule": { 
-          "hours": [18], 
-          "minutes": [0], 
-          "weekDays": [ 
-              "Saturday", 
-              "Sunday"
-          ] 
+        "schedules": {
+        "value": {
+        "computeStartStop": [
+          {
+            "triggerType": "Cron",
+            "cron": {              
+              "timeZone": "UTC",
+              "expression": "0 18 * * *"
+            },
+            "action": "Stop",
+            "status": "Enabled"
+          },
+          {
+            "triggerType": "Cron",
+            "cron": {              
+              "timeZone": "UTC",
+              "expression": "0 8 * * *"
+            },
+            "action": "Start",
+            "status": "Enabled"
+          },
+          { 
+            "triggerType": "Recurrence", 
+            "recurrence": { 
+              "frequency": "Day", 
+              "interval": 1, 
+              "timeZone": "UTC", 
+              "schedule": { 
+                "hours": [17], 
+                "minutes": [0]
+              } 
+            }, 
+            "action": "Stop", 
+            "status": "Enabled" 
           } 
-      }, 
-      "action": "Stop", 
-      "status": "Enabled" 
-      } 
-  ]
-}
+        ]
+      }
+    }
 ```
 
 * L’action peut avoir la valeur « Start » ou « Stop ».
@@ -294,23 +298,11 @@ Les arguments de script peuvent être référencés dans le script sous la forme
 
 Si votre script effectue une opération propre à azureuser, par exemple l’installation de l’environnement Conda ou du noyau Jupyter, vous devez le placer dans le bloc *sudo -u azureuser* comme suit.
 
-```shell
-#!/bin/bash
+:::code language="bash" source="~/azureml-examples-main/setup-ci/install-pip-package.sh":::
 
-set -e
-
-# This script installs a pip package in compute instance azureml_py38 environment
-
-sudo -u azureuser -i <<'EOF'
-# PARAMETERS
-PACKAGE=numpy
-ENVIRONMENT=azureml_py38 
-conda activate "$ENVIRONMENT"
-pip install "$PACKAGE"
-conda deactivate
-EOF
-```
 La commande *sudo -u azureuser* change le répertoire de travail actuel en */home/azureuser*. Vous ne pouvez pas non plus accéder aux arguments du script dans ce bloc.
+
+Pour d’autres exemples de script, consultez [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/setup-ci).
 
 Vous pouvez également utiliser les variables d’environnement suivantes dans votre script :
 
@@ -319,7 +311,8 @@ Vous pouvez également utiliser les variables d’environnement suivantes dans v
 3. CI_NAME
 4. CI_LOCAL_UBUNTU_USER. Cela pointe vers azureuser
 
-Vous pouvez utiliser un script de configuration conjointement avec Azure Policy afin d’appliquer ou d’utiliser par défaut un script de configuration pour chaque création d’instance de calcul.
+Vous pouvez utiliser un script de configuration conjointement avec **Azure Policy afin d’appliquer ou d’utiliser par défaut un script de configuration pour chaque création d’instance de calcul**. La valeur par défaut du délai d’expiration du script de configuration est de 15 minutes. Celle-ci peut être modifiée via l’interface utilisateur de Studio ou des modèles ARM à l’aide du paramètre DURATION.
+DURATION est un nombre à virgule flottante avec un suffixe facultatif : 's' pour les secondes (valeur par défaut), 'm' pour les minutes, 'h' pour les heures ou 'd' pour les jours.
 
 ### <a name="use-the-script-in-the-studio"></a>Utilisation du script dans le studio
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: bc02f9c526ec9b0826bbe640efc4b474794f30ae
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: f253be6bbcea46baa6c86f33223504bfba3ab198
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278488"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475977"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -38,9 +38,6 @@ Ressources supplémentaires :
     * [Débogueur pour Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
     * [Débogueur pour Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
     * [Débogueur pour Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
-
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="object-model"></a>Modèle objet
 
@@ -94,7 +91,7 @@ La signature d’accès partagé (SAS, shared access signature) est utilisée pa
 Pour obtenir l’URL de la signature d’accès partagé du service blob, effectuez les étapes suivantes :
 
 1. Dans le portail Azure, sélectionnez votre compte de stockage.
-2. Accédez à la section **Paramètres** , puis sélectionnez **Signature d’accès partagé**.
+2. Accédez à la section **Sécurité + réseau**, puis sélectionnez **Signature d’accès partagé**.
 3. Faites défiler la page vers le bas, puis cliquez sur le bouton **Générer la chaîne de connexion et SAP**.
 4. Descendez encore et recherchez le champ **URL de la signature d’accès partagé du service BLOB**.
 5. Cliquez sur le bouton **Copier dans le Presse-papiers** situé à l’extrémité droite du champ **URL de la signature d’accès partagé du service BLOB**.

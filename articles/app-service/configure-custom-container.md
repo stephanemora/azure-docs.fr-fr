@@ -2,15 +2,15 @@
 title: Configurer un conteneur personnalisé
 description: Découvrez comment configurer un conteneur personnalisé dans Azure App Service. Cet article présente les tâches de configuration les plus courantes.
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 22a953058084b4f828160cc9ba99c14a5313c9fb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b812495d1046ffc1b9435c0dc2684dd61af89beb
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532654"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865072"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurer un conteneur personnalisé pour Azure App Service
 
@@ -34,8 +34,8 @@ Ce guide fournit les principaux concepts et des instructions pour la mise en con
 
 Pour votre image Windows personnalisée, vous devez choisir l’[image parente (image de base)](https://docs.docker.com/develop/develop-images/baseimages/) appropriée pour l’infrastructure souhaitée :
 
-- Pour déployer des applications .NET Framework, utilisez une image parente basée sur la version Windows Server Core [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc). 
-- Pour déployer des applications .NET Core, utilisez une image parente basée sur la version Windows Server Nano [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel). 
+- Pour déployer des applications .NET Framework, utilisez une image parente basée sur la version Windows Server 2019 Core [Long-Term Servicing Channel (LTSC)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc). 
+- Pour déployer des applications .NET Core, utilisez une image parente basée sur la version Windows Server 2019 Nano [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started/servicing-channels-comparison#semi-annual-channel). 
 
 Le téléchargement d’une image parente lors du démarrage de l’application peut prendre un certain temps. Toutefois, vous pouvez réduire le temps de démarrage en utilisant l’une des images parentes suivantes déjà mises en cache dans Azure App Service :
 

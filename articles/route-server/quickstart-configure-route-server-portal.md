@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 03/03/2021
+ms.date: 08/17/2021
 ms.author: duau
-ms.openlocfilehash: 8e7572f5f39655cd6fae8a6528cacd2e074a002b
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: b5d4017c60a831b90b21527bbf8ecca4282bdd73
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950403"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322946"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>Démarrage rapide : Créer et configurer Route Server en utilisant le portail Azure
 
@@ -56,6 +56,7 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
     | Région | Sélectionnez la région où créer le serveur de routage. Sélectionnez la même région que le réseau virtuel que vous avez créé précédemment pour voir le réseau virtuel dans la liste déroulante. |
     | Réseau virtuel | Sélectionnez le réseau virtuel où le serveur de routage sera créé. Vous pouvez créer un réseau virtuel ou en utiliser un qui existe déjà. Si vous utilisez un réseau virtuel existant, vérifiez que le réseau virtuel existant dispose d’un espace suffisant pour au moins un sous-réseau /27 de façon à répondre aux spécifications de sous-réseau de serveur de routage. Si vous ne voyez pas votre réseau virtuel dans la liste déroulante, vérifiez que vous avez sélectionné la région ou le groupe de ressources approprié. |
     | Sous-réseau | Une fois que vous avez créé ou sélectionné un réseau virtuel, le champ Sous-réseau apparaît. Ce sous-réseau est un sous-réseau dédié exclusivement à Route Server. Sélectionnez **Gérer la configuration du sous-réseau**, puis créez le sous-réseau Azure Route Server. Sélectionnez **+ Sous-réseau**, puis créez un sous-réseau en utilisant les instructions suivantes :</br><br>- Le sous-réseau doit être nommé *RouteServerSubnet*.</br><br>- Le sous-réseau doit avoir une dimension minimale de /27 ou plus.</br> |
+    | Adresse IP publique | Créez ou sélectionnez une ressource IP publique standard existante à attribuer au serveur de routes. Pour garantir la connectivité au service back-end qui gère la configuration de Serveur de routes, une adresse IP publique est nécessaire. |
 
 1. Sélectionnez **Vérifier + Créer**, vérifiez le récapitulatif, puis sélectionnez **Créer**. 
 

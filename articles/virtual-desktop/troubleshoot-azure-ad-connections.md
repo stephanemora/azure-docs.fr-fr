@@ -6,19 +6,19 @@ author: Heidilohr
 manager: lizross
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/11/2021
+ms.date: 08/20/2021
 ms.author: helohr
-ms.openlocfilehash: 97c81eadf7091f04b77b094a4622c1731d19c537
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: f168c05e5df3421126c94bea7160896fb1b75363
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122563701"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662271"
 ---
 # <a name="connections-to-azure-ad-joined-vms"></a>Connexion aux machines virtuelles jointes à Azure AD
 
 >[!IMPORTANT]
->Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager.
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager.
 
 Utilisez cet article pour résoudre les problèmes de connexion aux machines virtuelles jointes à Azure AD dans Azure Virtual Desktop.
 
@@ -41,6 +41,7 @@ Si vous rencontrez une erreur indiquant **Échec de la tentative d’ouverture d
 - Vous utilisez un appareil ayant une jonction Azure AD ou une jonction hybride Azure AD avec le même locataire Azure AD que l’hôte de session OR
 - Vous utilisez un appareil exécutant Windows 10 2004 ou version ultérieure, inscrit auprès d’Azure AD sur le même locataire Azure AD que l’hôte de session
 - Le [protocole PKU2U est activé](/windows/security/threat-protection/security-policy-settings/network-security-allow-pku2u-authentication-requests-to-this-computer-to-use-online-identities) sur le PC local et l’hôte de session
+- L’[authentification multifacteur par utilisateur est désactivée](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) pour le compte d’utilisateur, car elle n’est pas prise en charge pour les machines virtuelles jointes à Azure AD.
 
 ### <a name="the-sign-in-method-youre-trying-to-use-isnt-allowed"></a>La méthode de connexion que vous essayez d’utiliser n’est pas autorisée
 
