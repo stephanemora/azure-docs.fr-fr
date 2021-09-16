@@ -7,13 +7,13 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
-ms.date: 09/02/2021
-ms.openlocfilehash: 026c1794f678c5d194b0e5174986f9f962508647
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.date: 07/31/2020
+ms.openlocfilehash: fa791a1250a5cb5f7749afad961340b0e038a28f
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123473745"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195156"
 ---
 # <a name="tutorial-deploy-and-walk-through-the-video-analytics---object-and-motion-detection-application-template"></a>Tutoriel : déployer et parcourir le modèle d’application Analytique vidéo - détection de mouvement et d’objet
 

@@ -6,12 +6,12 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 04/27/2021
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: 55f7ec48ba940f57daf0b97cf4bf4d82b38c5e75
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dffb2634b59c54632364d8469244edb6840d7b9d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730670"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435417"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>Créer une application Ruby on Rails dans App Service
 
@@ -77,10 +77,10 @@ ms.locfileid: "121730670"
 
 1. Créer une [application web](overview.md#app-service-on-linux) dans le plan App Service `myAppServicePlan`. 
 
-    Dans Cloud Shell, vous pouvez utiliser la commande [`az webapp create`](/cli/azure/webapp). Dans l’exemple suivant, remplacez `<app-name>` par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Le runtime est défini sur `RUBY|2.6.2`. Pour voir tous les runtimes, exécutez [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
+    Dans Cloud Shell, vous pouvez utiliser la commande [`az webapp create`](/cli/azure/webapp). Dans l’exemple suivant, remplacez `<app-name>` par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Le runtime est défini sur `RUBY|2.6`. Pour voir tous les runtimes, exécutez [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
 
     ```azurecli-interactive
-    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'RUBY|2.6.2' --deployment-local-git
+    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'RUBY|2.6' --deployment-local-git
     ```
 
     Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :

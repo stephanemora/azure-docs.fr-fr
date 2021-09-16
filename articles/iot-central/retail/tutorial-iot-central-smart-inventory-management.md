@@ -6,13 +6,13 @@ ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 08/17/2021
-ms.openlocfilehash: 747bcaffd1e24937580dcf95f352a34f66c3314e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 10/20/2019
+ms.openlocfilehash: 316fb7a8f5c633938884c924754efb5819ec8353
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437505"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195940"
 ---
 # <a name="tutorial-deploy-and-walk-through-the-smart-inventory-management-application-template"></a>Tutoriel : déployer et découvrir un modèle d’application de gestion intelligente des stocks
 
