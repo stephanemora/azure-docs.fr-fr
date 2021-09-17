@@ -7,14 +7,16 @@ author: cynthn
 ms.service: virtual-machines
 ms.date: 11/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 9c220814ae1f714e9eac0c0c11a50d9cf68a621d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 543317b2e1dcc0c55ac970212612f5266e5f84aa
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897406"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695360"
 ---
 # <a name="tagging-a-vm-using-the-portal"></a>Balisage d’une machine virtuelle à l’aide du portail
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Cet article explique comment ajouter des balises à une machine virtuelle à l’aide du portail. Les balises sont des paires clé/valeur définies par l’utilisateur, qui peuvent être placées directement sur une ressource ou sur un groupe de ressources. Azure prend actuellement en charge jusqu’à 50 étiquettes par ressource et par groupe de ressources. Les balises peuvent être placées sur une ressource au moment de la création ou bien ajoutées à une ressource existante.
 

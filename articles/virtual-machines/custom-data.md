@@ -7,14 +7,16 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 8b0bc143ca92961d7c358248b73ee5524e6835c3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bf81d49bbbfaae2b96dfb712ae69568695ba6f23
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768190"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687514"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Données personnalisées et Cloud-init sur les machines virtuelles Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles
 
 Vous devrez peut-être injecter un script ou d’autres métadonnées dans une machine virtuelle Microsoft Azure au moment du provisionnement.  Dans d’autres clouds, ce concept est souvent appelé données utilisateur.  Dans Microsoft Azure, nous disposons d’une fonctionnalité similaire appelée données personnalisées. 
 

@@ -7,14 +7,17 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 03/08/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 2acd6fe8450999b4518f19a353d0eab87ddedfaf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 77e2ef4a5af250f19e505dfb9f725aa7674f691f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146416"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694475"
 ---
 # <a name="availability-options-for-azure-virtual-machines"></a>Options de disponibilité pour machines virtuelles Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
 Cet article fournit une vue d'ensemble des options de disponibilité pour machines virtuelles Azure.
 
 ## <a name="availability-zones"></a>Zones de disponibilité

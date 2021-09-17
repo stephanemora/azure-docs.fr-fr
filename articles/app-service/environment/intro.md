@@ -4,15 +4,15 @@ description: Découvrez comment Azure App Service Environment vous permet de met
 author: ccompy
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.topic: overview
-ms.date: 04/19/2018
+ms.date: 07/28/2021
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 990d1ca07d4cf9e66c50a22f213817dda3ae029c
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 195da1286251ca51c9d36aaf7c2dcfb3c2177766
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432911"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725739"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Présentation des environnements App Service #
 > [!NOTE]
@@ -49,7 +49,7 @@ Les environnements ASE hébergent des applications d’un seul client, et le fon
 
 ## <a name="dedicated-environment"></a>Environnement dédié ##
 
-Un environnement App Service est dédié exclusivement à un abonnement et peut héberger 100 instances de plan App Service. Il peut s’agir de 100 instances d’un même plan App Service ou de 100 plans App Service à instance unique, ou de toutes les combinaisons possibles des deux.
+Un environnement App Service (ASE) est un environnement dédié qui est exclusif à un seul client et qui peut héberger 200 instances de plan App Service au total. Un plan App Service SKU isolé unique peut avoir jusqu’à 100 instances. Lorsque vous ajoutez toutes les instances de tous les plans App Service dans cet ASE, le total doit être inférieur ou égal à 200.
 
 Un environnement App Service est composé de frontends et de workers. Les frontends sont responsables de la terminaison du protocole HTTP/HTTPS et de l’équilibrage de charge automatique des demandes d’application dans un environnement App Service. Ils sont ajoutés automatiquement à mesure que les plans App Service dans l’environnement App Service augmentent leur échelle.
 

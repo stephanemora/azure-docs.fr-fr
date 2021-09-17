@@ -1,15 +1,15 @@
 ---
 title: Nouvelle affectation de stratégie à l’aide de modèles
 description: Dans ce guide de démarrage rapide, vous allez utiliser un modèle Azure Resource Manager (modèle ARM) pour créer une affectation de stratégie dans le but d’identifier les ressources non conformes.
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c25107bf5701b4e730924417e01c5e2486317c8e
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 52daeb50d1b8eea91b43c07e45682d87e0bc12cb
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330941"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323478"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Créer une affectation de stratégie pour identifier des ressources non conformes à l’aide d’un modèle ARM
 
@@ -61,7 +61,7 @@ La ressource définie dans le modèle est :
 
 1. Sélectionnez **Achat**.
 
-Ressources supplémentaires :
+Autres ressources :
 
 - Pour trouver des exemples de modèles supplémentaires, consultez [Modèle de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Pour obtenir des informations de référence sur les modèles, accédez au [document de référence des modèles Azure](/azure/templates/microsoft.authorization/allversions).

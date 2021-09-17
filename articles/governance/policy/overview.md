@@ -3,12 +3,12 @@ title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
 ms.date: 07/27/2021
 ms.topic: overview
-ms.openlocfilehash: 387c52eb1337f6d3aa7046b122fa66ff93be5e64
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 9462281ce37e066a920c17d1dc142a177b97fb2a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114726682"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770547"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 

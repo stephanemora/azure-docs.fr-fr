@@ -9,14 +9,17 @@ ms.subservice: disks
 ms.date: 4/25/2017
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 9e4bdf868d3f8ddf3a049509ead30a4b1ba341b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13bdbe7a1f6c328a2797d6f8869c05af9c5cb7f5
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86527436"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690554"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
+
 Pour développer votre espace de stockage, les [groupes de machines virtuelles identiques](./index.yml) Azure prennent en charge les instances de machine virtuelle avec des disques de données associés. Vous pouvez associer des disques de données lorsque le groupe identique est créé ou sur un groupe identique existant.
 
 > [!NOTE]

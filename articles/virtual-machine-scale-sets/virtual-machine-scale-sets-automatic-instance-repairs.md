@@ -9,14 +9,16 @@ ms.subservice: instance-protection
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: af63d27f60c3e3fa8f6aa95cd30d1f93114d4078
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 6134e1f4b4823b2198a1ecc316644ef0cd11ca33
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031166"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690534"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Réparations automatiques d’instances pour les groupes de machines virtuelles identiques Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 L’activation des réparations automatiques d’instance pour les groupes de machines virtuelles identiques Azure permet d’obtenir une haute disponibilité pour les applications en conservant un ensemble d’instances saines. Si une instance du groupe identique n’est pas saine, comme indiqué par l’[extension d’intégrité de l’application](./virtual-machine-scale-sets-health-extension.md) ou les [sondes d’intégrité de l’équilibreur de charge](../load-balancer/load-balancer-custom-probe-overview.md), cette fonctionnalité effectue automatiquement une réparation de l’instance en supprimant l’instance non saine et en en créant une nouvelle pour la remplacer.
 

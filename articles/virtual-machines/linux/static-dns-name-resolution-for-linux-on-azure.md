@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: 3d68ac7aa9927e62011c58b17139d7232ce4a10c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2620595a314cef2317ff56224d325438093b5d2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98200751"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696123"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Création de cartes d’interface réseau virtuelle et d’utilisation des DNS internes pour la résolution des noms de machine virtuelle sur Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cet article explique comment définir des noms DNS internes statiques pour les machines virtuelles Linux à l’aide de cartes réseau virtuelles et de noms d’étiquette DNS avec Azure CLI. Les noms DNS statiques sont utilisés pour les services d’infrastructure permanents comme un serveur de builds Jenkins, qui est utilisé pour ce document, ou un serveur Git.
 

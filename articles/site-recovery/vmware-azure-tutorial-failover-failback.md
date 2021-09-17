@@ -1,22 +1,22 @@
 ---
-title: Effectuer le basculement de machines virtuelles VMware vers Azure à l’aide de Site Recovery
-description: Découvrez comment effectuer le basculement de machines virtuelles VMware vers Azure dans Azure Site Recovery
+title: Effectuer le basculement de machines virtuelles VMware vers Azure à l’aide de Site Recovery – Classic
+description: Découvrez comment effectuer le basculement de machines virtuelles VMware vers Azure dans Azure Site Recovery – Classique
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/16/2019
+ms.date: 08/19/2021
 ms.custom: MVC
-ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c1de30fee09da94546ea0f8b5835477e0f83a2a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86131998"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445303"
 ---
-# <a name="fail-over--vmware-vms"></a>Effectuer le basculement de machines virtuelles VMware
+# <a name="fail-over-vmware-vms---classic"></a>Effectuer le basculement de machines virtuelles VMware – Classic
 
-Cet article explique comment effectuer le basculement d’une machine virtuelle VMware locale vers Azure avec [Azure Site Recovery](site-recovery-overview.md).
+Cet article explique comment effectuer le basculement d’une machine virtuelle VMware locale vers Azure avec [Azure Site Recovery](site-recovery-overview.md) – Classique.
 
-Il s’agit du cinquième tutoriel d’une série qui montre comment configurer la reprise d’activité sur Azure pour des machines locales.
+Pour plus d’informations sur le basculement dans les préversions, [consultez cet article](vmware-azure-tutorial-failover-failback-preview.md).
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous allez apprendre à :
 Effectuez les tutoriels précédents :
 
 1. Vérifiez que vous avez [configuré Azure](tutorial-prepare-azure.md) pour permettre la reprise d’activité locale des machines virtuelles VMware, des machines virtuelles Hyper-V et des machines physiques sur Azure.
-2. Préparez votre environnement [VMware](vmware-azure-tutorial-prepare-on-premises.md) local à la reprise d’activité. 
+2. Préparez votre environnement [VMware](vmware-azure-tutorial-prepare-on-premises.md) local à la reprise d’activité.
 3. Configurez la reprise d’activité pour les [machines virtuelles VMware](vmware-azure-tutorial.md).
 4. Exécutez une [simulation de reprise d’activité](tutorial-dr-drill-azure.md) pour vérifier que tout fonctionne comme prévu.
 
@@ -95,6 +95,7 @@ Dans certains scénarios, le basculement nécessite un traitement supplémentair
 
 >[!TIP]
 > Si vous rencontrez des problèmes de connectivité après le basculement, suivez le [guide de résolution des problèmes](site-recovery-failover-to-azure-troubleshoot.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

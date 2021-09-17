@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 06/30/2021
-ms.openlocfilehash: 4f4e9b51a44ee193a946f76499c95d6fe77f2e5e
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 622e89392dc10f12fe81ed1c1085e5b9cc524999
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665396"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181296"
 ---
 # <a name="register-and-scan-an-azure-database-for-postgresql"></a>Inscrire et analyser une base de données Azure pour PostgreSQL
 
@@ -37,7 +37,7 @@ Purview prend uniquement en charge l’authentification SQL pour les bases de do
 
 #### <a name="sql-authentication-for-an-azure-database-for-postgresql"></a>Authentification SQL pour une base de données Azure pour PostgreSQL
 
-La connexion d’une base de données Azure Database pour PostgreSQL nécessite un nom de serveur complet et des informations d’identification de connexion. Vous pouvez suivre les instructions fournies dans [CONNECTER ET INTERROGER](/azure/postgresql/connect-python) pour créer une connexion pour une base de données Azure pour PostgreSQL si vous n’en avez pas. Vous aurez besoin d’un **nom d’utilisateur** et d’un **mot de passe** pour les étapes suivantes.
+La connexion d’une base de données Azure Database pour PostgreSQL nécessite un nom de serveur complet et des informations d’identification de connexion. Vous pouvez suivre les instructions fournies dans [CONNECTER ET INTERROGER](../postgresql/connect-python.md) pour créer une connexion pour une base de données Azure pour PostgreSQL si vous n’en avez pas. Vous aurez besoin d’un **nom d’utilisateur** et d’un **mot de passe** pour les étapes suivantes.
 
 1. Accédez à votre coffre de clés dans le portail Azure.
 1. Sélectionnez **Paramètres > Secrets**.
@@ -52,9 +52,9 @@ Pour inscrire une nouvelle base de données Azure pour PostgreSQL dans votre cat
 
 1. Accédez à votre compte Purview.
 
-1. Sélectionnez **Sources** dans la barre de navigation à gauche.
+1. Sélectionnez **Data Map** dans le volet de navigation de gauche.
 
-1. Sélectionnez **Inscription**.
+1. Sélectionnez **Inscrire**.
 
 1. Sous **Inscrire des sources**, sélectionnez **Azure Database pour PostgreSQL**. Sélectionnez **Continuer**.
 

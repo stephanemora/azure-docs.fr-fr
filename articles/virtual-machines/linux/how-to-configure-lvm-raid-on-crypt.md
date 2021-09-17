@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2255a076693abb496c8a3823e4e90420f0729a0c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e769e5a8e35854d0b871ed8ecd9bc343cdcc04b6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673122"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697030"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurer LVM et RAID sur des appareils chiffrés
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cet article est un processus pas à pas qui explique comment effectuer une gestion des volumes logiques (LVM) et un RAID sur des appareils chiffrés. Le processus s’applique aux environnements suivants :
 

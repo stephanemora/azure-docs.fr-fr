@@ -9,14 +9,16 @@ ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3237985389b8248781ad6662af895cf5cdf0dfc6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b37f88d79e0b5abdacf7ada31badc57e7e666b03
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663290"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691102"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Disques de système d’exploitation éphémères pour les machines virtuelles Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les disques de système d’exploitation éphémères sont créés sur le stockage local de la machine virtuelle (VM) et ne sont pas enregistrés dans le Stockage Azure à distance. Les disques de système d’exploitation éphémères conviennent particulièrement bien aux charges de travail sans état, car les applications tolèrent les défaillances individuelles des machines virtuelles, mais sont plus sensibles au temps de déploiement de machine virtuelle et de réinitialisation des instances de machines virtuelles individuelles. Comparé à un disque de système d’exploitation standard, un disque éphémère offre une latence plus faible pour les opérations de lecture/écriture et permet une réinitialisation plus rapide des machines virtuelles. 
  

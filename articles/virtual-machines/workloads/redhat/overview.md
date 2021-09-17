@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 4403a45e4bb4383977b68725518317cdf8acbdbc
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 8ccb6b9fa2d6b7e4f91f460c07789a17ad29a4ef
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112467398"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696827"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Charges de travail Red Hat sur Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux 
 
 Les charges de travail Red Hat sont prises en charge par le biais de diverses offres sur Azure. Les images RHEL (Red Hat Enterprise Linux) sont au cœur des charges de travail RHEL, tout comme l’infrastructure RHUI (Red Hat Update Infrastructure).
 

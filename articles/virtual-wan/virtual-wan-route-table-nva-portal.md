@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 08/19/2021
 ms.author: cherylmc
-ms.openlocfilehash: 409858b2a9005592d895f6044d028221769144cc
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e57f419daeb112be0925158109697bb2a9b399e8
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058508"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779978"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Créer une table de routage de hub Virtual WAN pour des appliances réseau virtuelles : Portail Azure
 
@@ -45,7 +45,7 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
 
 ## <a name="2-create-a-virtual-wan"></a><a name="vwan"></a>2. Créer un WAN virtuel
 
-Créez un WAN virtuel. Utilisez les exemples de valeurs suivants :
+Créez un WAN virtuel. Vous pouvez utiliser les valeurs d’exemple suivantes, ou les remplacer par les vôtres.
 
 * **Nom du WAN virtuel :** monWANvirtuel
 * **Groupe de ressources :** testRG
@@ -55,13 +55,13 @@ Créez un WAN virtuel. Utilisez les exemples de valeurs suivants :
 
 ## <a name="3-create-a-hub"></a><a name="hub"></a>3. Créer un hub
 
-Créez le hub. Utilisez les exemples de valeurs suivants :
+Créez le hub. Vous pouvez utiliser les valeurs d’exemple suivantes, ou les remplacer par les vôtres.
 
 * **Emplacement :** USA Ouest
 * **Nom :** westushub
 * **Espace d’adressage privé du hub :** 10.0.1.0/24
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-empty-hub-include.md)]
 
 ## <a name="4-create-and-apply-a-hub-route-table"></a><a name="route"></a>4. Créer et implémenter une table de routage de hub
 

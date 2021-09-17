@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 02eb75f96cee6df8cf2659e65cbb48099b0d81e4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ae1107deb58aa7bcc52fc9ed8055772c81cd4eb3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768244"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696307"
 ---
 # <a name="hb-series"></a>Série HB
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les machines virtuelles de série HB sont optimisées pour les applications qui sont tributaires de la bande passante mémoire, comme la dynamique des fluides, l’analyse explicite par éléments finis et la modélisation météorologique. Les machines virtuelles HB disposent de 60 cœurs de processeur AMD EPYC 7551, de 4 Go de RAM par cœur de processeur, et d’aucun multithreading simultané. Une machine virtuelle HB fournit jusqu’à 260 Go/s de bande passante de mémoire.
 

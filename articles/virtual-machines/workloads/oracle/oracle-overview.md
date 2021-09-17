@@ -13,14 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
-ms.openlocfilehash: 666990d59fe92935150c2ae78712830a186723a8
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 0f41a089dc6757c36ba8fc262553a92b03147263
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205320"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823758"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Vue d’ensemble des applications et des solutions Oracle sur Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux 
 
 Cet article présente les fonctionnalités permettant d’exécuter des solutions Oracle avec l’infrastructure Azure. Consultez aussi les introductions détaillées des [applications Azure WebLogic Server](oracle-weblogic.md) disponibles, des [images de machine virtuelle Oracle](oracle-vm-solutions.md) dans Place de marché Azure et de la capacité [d’interconnexion Azure avec Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
@@ -55,8 +57,6 @@ Exécutez des applications d’entreprise dans Azure sur les images Oracle Linux
 * Configurez [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [Active Data Guard avec FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) ou [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) sur l’infrastructure Azure en association avec les [zones de disponibilité](../../../availability-zones/az-overview.md) à des fins de haute disponibilité au sein d’une région. Vous pouvez également effectuer ces configurations sur plusieurs régions Azure pour bénéficier d’une disponibilité supérieure et améliorer la reprise d’activité.
 
 * Utilisez [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) pour orchestrer et gérer la récupération d’urgence pour vos machines virtuelles Oracle Linux dans Azure et vos serveurs physiques. 
-
-* Activez Oracle Real Application Clusters (RAC) dans Azure à l’aide de l’[Azure VMware Solution](../../../vmware-cloudsimple/oracle-real-application-clusters.md) ou de [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="backup-oracle-workloads"></a>Sauvegarde des charges de travail Oracle
 

@@ -1,25 +1,25 @@
 ---
-title: Tutoriel - Configurer l’intégration continue et le déploiement continu sur des machines virtuelles Azure à l’aide d’Azure Pipelines
-description: Dans ce tutoriel, vous allez voir comment configurer l’intégration continue (CI) et le déploiement continu (CD) d’une application Node.js sur des machines virtuelles Azure à l’aide d’un pipeline Azure basé sur YAML.
+title: Intégration continue et déploiement continu (CI/CD) sur des machines virtuelles Azure à l’aide d’Azure Pipelines
+description: Découvrez comment configurer l’intégration continue (CI) et le déploiement continu (CD) d’une application Node.js sur des machines virtuelles Azure à l’aide d’un pipeline Azure basé sur YAML.
+ms.service: virtual-machines
 author: ushan
 tags: azure-devops-pipelines
-ms.assetid: ''
-ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
-ms.tgt_pltfrm: azure-pipelines
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 49282bf6cbc7c24b75fbe3f1bbe68bd1fac62ae3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a50a51d68154654d204149a5e76e5aa94e57683
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552488"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697739"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutoriel : Déployer votre application sur des machines virtuelles Linux dans Azure à l’aide d’Azure DevOps Services et d’Azure Pipelines
+# <a name="deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Déployer votre application sur des machines virtuelles Linux dans Azure à l’aide d’Azure DevOps Services et d’Azure Pipelines
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux 
 
 L’intégration continue (CI) et le déploiement continu (CD) constituent un pipeline via lequel vous pouvez générer, publier et déployer votre code après chaque validation. Ce document fournit les étapes de configuration d’un pipeline CI/CD pour les déploiements réalisés sur plusieurs machines à l’aide d’Azure Pipelines.
 

@@ -8,14 +8,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: cynthn
-ms.openlocfilehash: 45616c5b5648153291c81c9ac17e3da3a2c66e3f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5e7c342ae66594e502870030f8e8561ba861b05b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769972"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692101"
 ---
 # <a name="use-scp-to-move-files-to-and-from-a-linux-vm"></a>Utiliser SCP pour déplacer des fichiers vers et depuis une machine virtuelle Linux 
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cet article explique comment déplacer des fichiers à partir de votre poste de travail vers une machine virtuelle Linux Azure ou à partir d’une machine virtuelle Linux Azure vers votre poste de travail, à l’aide de la copie sécurisée (SCP). Le déplacement de fichiers entre votre poste de travail et une machine virtuelle Linux, de manière rapide et sécurisée, constitue une partie essentielle de la gestion de votre infrastructure Azure. 
 

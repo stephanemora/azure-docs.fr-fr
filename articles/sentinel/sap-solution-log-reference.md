@@ -8,12 +8,12 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 07/21/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: f2a634aa73cf9b9cb2b379887f9a677a79c39b57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a1511581e3cc80d5f2f71bb82dc1bcb0ba639acb
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532485"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681504"
 ---
 # <a name="azure-sentinel-sap-solution-logs-reference-public-preview"></a>Informations de référence sur les journaux de la solution SAP Azure Sentinel (préversion publique)
 
@@ -620,6 +620,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 - [Déployer la solution Azure Sentinel pour SAP](sap-deploy-solution.md)
 - [Exigences de SAP détaillées pour la solution SAP Azure Sentinel](sap-solution-detailed-requirements.md)
-- [Options de configuration d’experts, déploiement local et sources de journaux SAPControl](sap-solution-deploy-alternate.md)
+- [Déployer le connecteur de données SAP Azure Sentinel avec SNC](sap-solution-deploy-snc.md)
+- [Options de configuration pour experts, déploiement local et sources de journaux SAPControl](sap-solution-deploy-alternate.md)
 - [Solution SAP Azure Sentinel : contenu de sécurité intégré](sap-solution-security-content.md)
 - [Résolution des problèmes liés à votre déploiement de solution SAP Azure Sentinel](sap-deploy-troubleshoot.md)

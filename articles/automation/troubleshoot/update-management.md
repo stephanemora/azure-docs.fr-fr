@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cc65a1c0cd72d9da9208e7377eaef7a887119f43
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 735677886493bace8bb831eae1c974bb0483b0c1
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524367"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771834"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 

@@ -9,14 +9,16 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurepowershell
-ms.openlocfilehash: 8ee124f866a5241620671ff84c24f3713f62efe1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7caa3f2495748305621ff20d5fc553d4d26ea57
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89078467"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693058"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure PowerShell
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 

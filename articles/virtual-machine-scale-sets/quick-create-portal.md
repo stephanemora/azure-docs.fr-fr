@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: f9a5c8e95b5230b5689a63a74bb31324c083e28a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5fd43ebed8d1ebcad3d5f76bda21b978bdb0950e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078291"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693233"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles de mise à l’échelle automatique en fonction de l’utilisation des ressources telles que l’UC, la demande de mémoire ou le trafic réseau. Un équilibreur de charge Azure distribue ensuite le trafic vers les instances de machine virtuelle du groupe identique. Dans ce guide de démarrage rapide, vous créez un groupe de machines virtuelles identiques dans le portail Azure.
 
@@ -34,7 +36,7 @@ Commencez par créer un équilibreur de charge Standard public en utilisant le p
 1. Dans la zone de recherche, tapez **équilibreur de charge**. Sous **Place de marché** dans les résultats de la recherche, choisissez **Équilibreur de charge**.
 1. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre                 | Value   |
+    | Paramètre                 | Valeur   |
     | ---| ---|
     | Abonnement  | Sélectionnez votre abonnement.    |    
     | Resource group | Sélectionnez **Créer**, puis entrez *myVMSSResourceGroup* dans la zone de texte.|

@@ -4,20 +4,22 @@ description: En savoir plus sur les performances et l’évolutivité des taille
 services: virtual-machines
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: bf64cfc8ad00fc7f761019ed2fa66089434a96ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb32a407813ba7e85f55fc39790fba81ca452c50
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604768"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693397"
 ---
 # <a name="hbv3-series-virtual-machine-performance"></a>Performances de la taille de machine virtuelle de la série HBv3
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les attentes en matière de performances à l’aide des microbenchmarks HPC courants sont les suivantes :
 

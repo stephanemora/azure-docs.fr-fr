@@ -1,5 +1,5 @@
 ---
-title: Créer un index de recherche dans le portail Azure
+title: 'Démarrage rapide : Créer un index de recherche dans le portail Azure'
 titleSuffix: Azure Cognitive Search
 description: Créez, chargez et interrogez votre premier index de recherche à l’aide de l’Assistant Importer des données du Portail Azure. Ce guide de démarrage rapide utilise un jeu de données d’hôtel fictif pour les exemples de données.
 manager: nitinme
@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: 1be165bfe7cca44e8a928933c3c8fe926ad7d4c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/24/2021
+ms.openlocfilehash: 9bb3bdc7254fb3f9da62936df6429d8cba6b3bd5
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694833"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450056"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 
@@ -47,7 +47,7 @@ Pour les besoins de ce tutoriel, nous utilisons un exemple de jeu de données in
 
 1. [Recherchez votre service de recherche](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). Ensuite, dans la page Vue d’ensemble, cliquez sur **Importer des données** dans la barre de commandes pour créer et remplir un index de recherche.
 
-   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Commande Importer des données":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Capture d’écran de la commande Importer des données" border="true":::
 
 1. Dans l’Assistant, cliquez sur **Se connecter aux données** > **Exemples** > **hotels-sample**. Cette source de données est intégrée. Si vous avez créé votre propre source de données, vous devez spécifier un nom, un type et des informations de connexion. Une fois créée, elle devient une « source de données existante » qui peut être réutilisée dans d’autres opérations d’importation.
 

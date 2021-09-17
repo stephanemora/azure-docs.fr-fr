@@ -3,14 +3,14 @@ title: Vue d’ensemble
 description: Découvrez comment Azure App Service vous aide à développer et héberger des applications web.
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 07/06/2020
+ms.date: 07/21/2021
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 8994edd417f4f9e94ae14e5923dd1a0d7398f584
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 481ef611bb3bd48ae5096abc538bd43a1bac2423
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209766"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741526"
 ---
 # <a name="app-service-overview"></a>Vue d'ensemble d'App Service
 
@@ -54,9 +54,11 @@ Si vous devez créer une autre application web avec une version obsolète du run
 
 ### <a name="limitations"></a>Limites
 
+> [!NOTE]
+> Les plans App Service Linux et Windows peuvent désormais partager des groupes de ressources. Cette limitation a été supprimée de la plateforme et les groupes de ressources existants ont été mis à jour pour mettre en place cette prise en charge.
+>
+
 - App Service sur Linux n’est pas pris en charge au niveau de tarification [Partagé](https://azure.microsoft.com/pricing/details/app-service/plans/). 
-- Vous ne pouvez pas mélanger les applications Windows et Linux dans le même plan App Service.  
-- Pendant longtemps, il n’était pas possible de mélanger des applications Windows et Linux dans un même groupe de ressources. Cependant, tous les groupes de ressources créés à partir du 21 janvier 2021 prennent en charge ce scénario. Pour les groupes de ressources créés avant le 21 janvier 2021, il sera bientôt possible d’ajouter des déploiements sur plateformes mixtes dans les régions Azure (notamment les régions de cloud national).
 - Le portail Azure affiche uniquement les fonctionnalités actuellement compatibles avec les applications Linux. À mesure que des fonctionnalités sont compatibles, elles sont activées sur le portail.
 - En cas de déploiement sur des images intégrées, votre code et votre contenu sont alloués à un volume de stockage pour le contenu web et sauvegardé par le Stockage Azure. La latence du disque de ce volume est supérieure et plus variable que la latence du système de fichiers du conteneur. L’option de conteneur peut être bénéfique aux applications qui nécessitent un accès en lecture seule intensif aux fichiers de contenu, car les fichiers sont placés dans le système de fichiers du conteneur plutôt que sur le volume de contenu.
 

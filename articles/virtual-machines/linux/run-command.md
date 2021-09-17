@@ -10,14 +10,16 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: 67e84ce780f3013917edbce3e66c5a708509c194
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 2d4c640695395963a83629fbeea87c96b4a31aad
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112518133"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688213"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Exécuter des scripts shell dans votre machine virtuelle Linux avec Run Command
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 La fonctionnalité Run Command utilise l’agent de machine virtuelle (VM) pour exécuter des scripts shell au sein d’une machine virtuelle Linux Azure. Vous pouvez utiliser ces scripts pour la gestion générale des ordinateurs ou des applications. Ils peuvent vous aider à diagnostiquer et corriger rapidement les problèmes de réseau et d’accès aux machines virtuelles et à rétablir l’état de la machine virtuelle.
 

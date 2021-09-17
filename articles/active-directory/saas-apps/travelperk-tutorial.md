@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/23/2020
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: eefc47e1308dc5b59d8b57d7481a5250a7d2af93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ab437afbd8e0dd3035837da47bbbb89e358103f
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99475741"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272305"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-travelperk"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TravelPerk
 
@@ -37,11 +37,11 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* TravelPerk prend en charge l’authentification unique (SSO) lancée par le **fournisseur de services**
+* TravelPerk prend en charge l’authentification unique (SSO) lancée par le **fournisseur de services**.
 
-* TravelPerk prend en charge l'attribution d'utilisateurs **juste-à-temps**
+* TravelPerk prend en charge l’attribution d’utilisateurs **juste-à-temps**.
 
-## <a name="adding-travelperk-from-the-gallery"></a>Ajout de TravelPerk à partir de la galerie
+## <a name="add-travelperk-from-the-gallery"></a>Ajouter TravelPerk à partir de la galerie
 
 Pour configurer l'intégration de TravelPerk avec Azure AD, vous devez ajouter TravelPerk à partir de la galerie à votre liste d'applications SaaS gérées.
 
@@ -51,7 +51,6 @@ Pour configurer l'intégration de TravelPerk avec Azure AD, vous devez ajouter T
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **TravelPerk** dans la zone de recherche.
 1. Sélectionnez **TravelPerk** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-travelperk"></a>Configurer et tester l’authentification unique Azure AD pour TravelPerk
 
@@ -72,20 +71,20 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **TravelPerk**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<COMPANY>.travelperk.com/`
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<COMPANY>.travelperk.com/accounts/saml2/metadata/<APPLICATION_ID>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<COMPANY>.travelperk.com/accounts/saml2/metadata/<APPLICATION_ID>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<COMPANY>.travelperk.com/accounts/saml2/callback/<APPLICATION_ID>/?acs`
 
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<COMPANY>.travelperk.com/accounts/saml2/callback/<APPLICATION_ID>/?acs`
+    c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<COMPANY>.travelperk.com/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’URL de réponse et l’identificateur réels. Les valeurs sont accessibles dans votre compte TravelPerk : accédez à **Company Settings** > **Integrations** > **Single Sign On**. Pour obtenir de l’aide, accédez au [Centre d’assistance de TravelPerk](https://support.travelperk.com/hc/en-us/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML-).
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Les valeurs sont accessibles dans votre compte TravelPerk : accédez à **Company Settings** > **Integrations** > **Single Sign On**. Pour obtenir de l’aide, accédez au [Centre d’assistance de TravelPerk](https://support.travelperk.com/hc/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML).
 
 1. Votre application TravelPerk attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Dans le mappage par défaut, **emailaddress** est mappé avec **user.mail**. Toutefois, l’application TravelPerk s’attend à ce que **emailaddress** soit mappé à **user.userprincipalname**. Pour TravelPerk, vous devez modifier le mappage d’attribut : cliquez sur l’icône **Modifier**, puis modifiez le mappage d’attribut. Pour modifier un attribut, cliquez simplement sur l’attribut pour ouvrir le mode édition.
 
@@ -98,6 +97,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer TravelPerk**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -134,11 +134,11 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans TravelPerk. T
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion TravelPerk, où vous pouvez lancer le processus de connexion. 
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion TravelPerk, où vous pouvez lancer le processus de connexion. 
 
-2. Accédez directement à l’URL de connexion TravelPerk pour lancer le processus de connexion.
+* Accédez directement à l’URL de connexion TravelPerk pour lancer le processus de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette TravelPerk dans le volet d’accès vous redirige vers l’URL de connexion TravelPerk. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette TravelPerk dans Mes applications, vous êtes redirigé vers l’URL de connexion TravelPerk. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

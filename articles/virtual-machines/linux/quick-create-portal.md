@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ca04b3bc0a71dfde11fe6c830912d95b7e9f537d
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6daa33669490e2b63c918860bec752542e35e5bb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "114288234"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691056"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux dans le portail Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux
 
 Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Le portail Azure est une interface utilisateur basée sur un navigateur permettant de créer des ressources Azure. Ce démarrage rapide explique comment utiliser le portail Azure pour déployer une machine virtuelle Linux exécutant Ubuntu 18.04 LTS. Pour voir votre machine virtuelle en action, vous établissez également une connexion SSH à la machine virtuelle et installez le serveur web NGINX.
 

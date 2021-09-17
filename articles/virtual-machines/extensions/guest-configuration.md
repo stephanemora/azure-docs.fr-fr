@@ -1,5 +1,5 @@
 ---
-title: Extension Azure Policy Guest Configuration
+title: Extension Guest Configuration
 description: En savoir plus sur l’extension utilisée pour auditer/configurer les paramètres dans les machines virtuelles
 ms.topic: article
 ms.service: virtual-machines
@@ -8,14 +8,14 @@ author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e12bcc3a1c1589baf5ab8fcc0f2b3e264d1953eb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e795f01b198ee2daf16a2321a4a02b2c06dbac1a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532868"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767805"
 ---
-# <a name="overview-of-the-azure-policy-guest-configuration-extension"></a>Vue d’ensemble de l’extension Azure Policy Guest Configuration
+# <a name="overview-of-the-guest-configuration-extension"></a>Vue d’ensemble de l’extension Guest Configuration
 
 L’extension Guest Configuration est un composant Azure Policy qui effectue des opérations d’audit et de configuration sur des machines virtuelles.
 Les stratégies telles que les définitions de la ligne de base de sécurité pour [Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) et [Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc) ne peuvent pas vérifier les paramètres dans les machines tant que l’extension n’est pas installée.

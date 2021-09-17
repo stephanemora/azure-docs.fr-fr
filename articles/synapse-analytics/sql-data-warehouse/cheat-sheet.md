@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad10e8d9f376578a61aaa7f5dc2cb0e896dd29cb
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98120221"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324663"
 ---
 # <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Aide-mémoire pour pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -92,10 +92,10 @@ Découvrez plus en détail les [index](sql-data-warehouse-tables-index.md).
 
 ## <a name="partitioning"></a>Partitionnement
 
-Vous pouvez partitionner votre table quand vous avez des tables de faits volumineuses contenant plus d’un milliard de lignes. Dans 99 % des cas, la clé de partition doit être basée sur la date. Veillez à ne pas effectuer de partitionnement excessif, en particulier si vous utilisez un index columnstore cluster.
+Vous pouvez partitionner votre table quand vous avez des tables de faits volumineuses contenant plus d’un milliard de lignes. Dans 99 % des cas, la clé de partition doit être basée sur la date. 
 
 Avec les tables de mise en lots qui nécessitent ELT, le partitionnement peut être bénéfique. Il simplifie la gestion du cycle de vie des données.
-Là-aussi, n’effectuez pas de partitionnement excessif, notamment avec un index columnstore cluster.
+Veillez à éviter tout partitionnement excessif de votre table de faits ou de mise en lots, en particulier sur un index columnstore cluster.
 
 Découvrez plus en détail les [partitions](sql-data-warehouse-tables-partition.md).
 

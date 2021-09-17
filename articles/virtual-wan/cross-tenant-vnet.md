@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: d1aae5620f32b5680badc073d74d360b70b68a3b
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 8c9ab37e46f23d533550ffc535633575a85937a6
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579869"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778898"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Connecter des réseaux virtuels inter-locataires à un hub Virtual WAN
 
@@ -44,9 +44,9 @@ Pour utiliser la procédure décrite dans cet article, la configuration suivante
 
 ## <a name="assign-permissions"></a><a name="rights"></a>Affecter des autorisations
 
-Pour que l’abonnement parent doté du hub virtuel puisse accéder aux réseaux virtuels du locataire distant et les modifier, vous devez lui attribuer des autorisations de **Contributeur** à partir de l’abonnement du locataire distant.
+Pour que l’utilisateur qui administre l’abonnement parent doté du hub virtuel puisse accéder aux réseaux virtuels du locataire distant et les modifier, vous devez lui attribuer des autorisations de **Contributeur**. L’attribution des autorisations de **Contributeur** à cet utilisateur se fait dans l’abonnement du réseau virtuel dans le locataire distant.
 
-1. Ajoutez l’attribution de rôle **Contributeur** au compte parent (celui doté du hub WAN virtuel). Pour attribuer ce rôle, vous pouvez utiliser PowerShell ou le portail Azure. Pour connaître les procédures, consultez les articles **Ajouter ou supprimer des attributions de rôle** suivants :
+1. Ajoutez l’attribution de rôle **Contributeur** à l’administrateur (celui utilisé pour administrer le hub WAN virtuel). Pour attribuer ce rôle, vous pouvez utiliser PowerShell ou le portail Azure. Pour connaître les procédures, consultez les articles **Ajouter ou supprimer des attributions de rôle** suivants :
 
    * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
    * [Portail](../role-based-access-control/role-assignments-portal.md)

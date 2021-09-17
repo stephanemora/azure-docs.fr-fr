@@ -8,19 +8,19 @@ ms.subservice: purview-data-map
 ms.topic: quickstart
 ms.date: 08/18/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: ba3265ff435bc0e8a34048b07aeee3ef82b24b6c
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: a1a62bb6253aa2788d8dad41d506ca898a049283
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609137"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475689"
 ---
 # <a name="quickstart-create-a-collection-and-assign-permissions-in-purview"></a>Démarrage rapide : Création d’une collection et attribution d’autorisations dans Purview
 
 > [!NOTE]
 > Pour le moment, ce guide ne s’applique qu’aux instances Purview créées le 18 août 2021 ou après cette date. Les instances créées auparavant peuvent créer des collections, mais ne gèrent pas les autorisations par le biais de ces collections. Pour plus d’informations sur la création d’une collection pour une instance Purview créée avant le 18 août, consultez notre [**guide des collections héritées**](#legacy-collection-guide) en bas de la page.
 > 
-> Tous les comptes hérités seront automatiquement mis à niveau dans les semaines à venir. Vous recevrez une notification par e-mail une fois la mise à niveau de votre compte Purview effectuée. Toutes les autorisations attribuées seront alors automatiquement redéployées dans la collection racine.
+> Tous les comptes hérités seront automatiquement mis à niveau dans les semaines à venir. Vous recevrez une notification par e-mail lors de la mise à niveau de votre compte Purview. Pour plus d’informations sur ce qui va changer une fois votre compte mis à niveau, consultez notre [Guide des comptes mis à niveau](concept-account-upgrade.md).
 
 Les collections constituent l’outil de Purview permettant de gérer la propriété et le contrôle d’accès sur les différentes ressources, sources et informations. Elles organisent également vos sources et ressources dans des catégories personnalisées en fonction de votre expérience de gestion avec vos données. Ce guide vous explique comment configurer votre première collection et votre premier administrateur de collection afin de préparer votre environnement Purview pour votre organisation.
 
@@ -38,7 +38,7 @@ Pour créer et gérer des collections dans Purview, vous devez être **administr
 
 1. Sélectionnez Data Map > Collections dans le volet gauche pour ouvrir la page gestion des collections.
 
-    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur Data Map, avec l’onglet Collections sélectionné." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur le mappage de données, avec l’onglet Collections sélectionné." border="true":::
 
 1. Sélectionnez votre collection racine. Il s’agit de la première collection de la liste. Elle porte le même nom que votre ressource Purview. Dans l’exemple ci-dessous, elle s’appelle Contoso Purview.
 
@@ -48,7 +48,7 @@ Pour créer et gérer des collections dans Purview, vous devez être **administr
 
     :::image type="content" source="./media/quickstart-create-collection/role-assignments.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur Data Map, avec l’onglet Attributions de rôles encadré." border="true":::
 
-1. Pour créer une collection, vous devez vous trouver dans la liste des administrateurs de collection sous Attributions de rôles. En principe, si vous êtes l’auteur de la ressource Purview, vous figurez déjà parmi les administrateurs de collection sous la collection racine. Si ce n’est pas le cas, vous devez contacter l’administrateur de collection pour qu’il vous accorde l’autorisation.
+1. Pour créer une collection, vous devez figurer dans la liste des administrateurs de collections sous attributions de rôle. En principe, si vous êtes l’auteur de la ressource Purview, vous figurez déjà parmi les administrateurs de collection sous la collection racine. Si ce n’est pas le cas, vous devez contacter l’administrateur de collection pour qu’il vous accorde l’autorisation.
 
     :::image type="content" source="./media/quickstart-create-collection/collection-admins.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur Data Map, avec la section Administrateurs de collection encadrée." border="true":::
 
@@ -101,13 +101,13 @@ Tous les rôles attribués s’appliquent aux sources, aux ressources et aux aut
 
 ### <a name="create-a-legacy-collection"></a>Création d’une collection héritée
 
-1. Dans le volet gauche, sélectionnez Data Map pour ouvrir la carte des données. Cette vue vous permet de voir vos collections et les sources listées dessous.
+1. Sélectionnez Data Map dans le volet gauche pour ouvrir le mappage de données. Cette vue vous permet de voir vos collections et les sources listées dessous.
 
-    :::image type="content" source="./media/quickstart-create-collection/legacy-collection-view.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte dans Data Map." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/legacy-collection-view.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur la Data Map." border="true":::
 
 1. Sélectionnez **+ Nouvelle collection**.
 
-    :::image type="content" source="./media/quickstart-create-collection/legacy-collection-create.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur Data Map, avec le bouton + Nouvelle collection encadré." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/legacy-collection-create.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur la Data Map, avec l’option + Nouvelle collection mise en évidence." border="true":::
 
 1. Donnez un nom à votre collection et sélectionnez un parent ou « Aucun ». Sélectionnez **Create** (Créer). Les informations sur la collection sont répercutées sur la carte des données.
 

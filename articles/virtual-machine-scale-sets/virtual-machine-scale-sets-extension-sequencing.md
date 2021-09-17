@@ -9,14 +9,17 @@ ms.subservice: extensions
 ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 013404113c3346cfce752f53266062a3b5386092
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1aa6a3291ef5d770104697669ec20468d91efc66
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673956"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690498"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Séquencer le provisionnement des extensions dans des groupes de machines virtuelles identiques
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
+
 Les extensions de machine virtuelle Azure apportent diverses fonctionnalités, telles que la configuration et la gestion après le déploiement, la supervision, la sécurité, et bien plus encore. Les déploiements de production utilisent généralement une combinaison de plusieurs extensions configurées pour les instances de machine virtuelle afin d’obtenir les résultats souhaités.
 
 Si vous utilisez plusieurs extensions sur une machine virtuelle, il est important de vous assurer que les extensions nécessitant les mêmes ressources de système d’exploitation n’essaieront pas d’acquérir ces ressources au même moment. De plus, certaines extensions peuvent dépendre d’autres extensions pour fournir les configurations requises, comme les paramètres d’environnement et les secrets. Sans un classement et un séquencement corrects des différentes extensions, les déploiements des extensions dépendantes peuvent échouer.

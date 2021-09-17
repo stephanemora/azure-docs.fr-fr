@@ -9,14 +9,16 @@ ms.topic: sample
 ms.service: virtual-machines
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e70284a3a89c30d0f1d1363a15652449a6a1d4f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fc60e5b149ace0243df53e6da09c4f93aaf158a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100558087"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694456"
 ---
 # <a name="move-a-marketplace-azure-virtual-machine-to-another-subscription"></a>Déplacer une machine virtuelle Azure de Place de marché dans un autre abonnement
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles
 
 Pour déplacer une machine virtuelle de Place de marché dans un autre abonnement, vous devez déplacer le disque du système d’exploitation vers cet abonnement, puis recréer la machine virtuelle.
 

@@ -1,6 +1,6 @@
 ---
 title: Créer une machine virtuelle à partir d’un disque dur virtuel généralisé chargé
-description: Chargez un disque dur virtuel généralisé sur Azure et utilisez-le pour créer des machines virtuelles dans le modèle de déploiement du Gestionnaire de ressources.
+description: Chargez un disque dur virtuel généralisé sur Azure et utilisez-le pour créer de nouvelles machines virtuelles dans le modèle de déploiement du Gestionnaire de ressources.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 70a89a8fe4917498dc7c31f2a15b95619e973b99
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 4f31fff34dcaaa8cc30b1a894e24f3eda8e5764d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667860"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688584"
 ---
-# <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure
+# <a name="upload-a-generalized-windows-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé Windows et l’utiliser pour créer de nouvelles machines virtuelles dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 Cet article vous guide dans l’utilisation de PowerShell pour charger un disque dur virtuel d’une machine virtuelle généralisée sur Azure, créer une image à partir du disque dur virtuel et créer une machine virtuelle à partir de cette image. Vous pouvez charger un disque dur virtuel exporté à partir d’un outil de virtualisation local ou d’un autre cloud. L’utilisation de la fonctionnalité [Disques managés](../managed-disks-overview.md) pour la nouvelle machine virtuelle simplifie la gestion de celle-ci et fournit une meilleure disponibilité lorsque la machine virtuelle est placée dans un groupe à haute disponibilité. 
 

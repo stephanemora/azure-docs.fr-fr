@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fbc47fa19cccb8d5ce6af38fdff3f0e772f5039f
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 08/24/2021
+ms.openlocfilehash: 64206d1e5a26d163c5d5ed81c3c762a10de0fe96
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537699"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769587"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble de la continuité d’activité dans Azure Database pour PostgreSQL – Serveur flexible
 
@@ -59,7 +59,7 @@ Des temps d’arrêt non planifiés peuvent se produire suite à des interruptio
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Temps d’arrêt non planifié : scénarios d’échec et récupération du service
 Voici quelques scénarios d’échec non planifiés et le processus de récupération. 
 
-| **Scénario** | **Processus de récupération [sans haute disponibilité]** | **Processus de récupération [haute disponibilité]** |
+| **Scénario** | **Processus de récupération** <br> [Serveurs configurés sans haute disponibilité redondante dans une zone] | **Processus de récupération** <br> [Serveurs configurés avec une haute disponibilité redondante dans une zone] |
 | ---------- | ---------- | ------- |
 | <B>Échec du serveur de base de données | Si le serveur de base de données est à l’arrêt, Azure tente de le redémarrer. En cas d’échec, le serveur de base de données est redémarré sur un autre nœud physique.  <br /> <br /> Le temps de récupération (RTO) dépend de différents facteurs, dont l’activité au moment de la panne, telle qu’une transaction d’ampleur conséquence, et le volume de la récupération à effectuer pendant le processus de démarrage du serveur de base de données. <br /> <br /> Des applications utilisant les bases de données PostgreSQL doivent être créées de manière à détecter et à retenter les connexions abandonnées et les transactions ayant échoué. | Si la défaillance du serveur de base de données est détectée, le serveur est basculé sur le serveur de secours, ce qui réduit le temps d’arrêt. Pour plus d’informations, consultez la [page sur les concepts de haute disponibilité](./concepts-high-availability.md). Le RTO devrait être compris entre 60 et 120 secondes, sans perte de données. |
 | <B>Échec de stockage | Les applications ne détectent aucun impact des problèmes liés au stockage, tels qu’une défaillance de disque ou une corruption de bloc physique. Les données étant stockées dans trois copies, leur copie est servie par le stockage survivant. Le bloc de données endommagé est réparé automatiquement, et une nouvelle copie des données est automatiquement créée. | Pour toute erreur rare et non récupérable, telle que l’inaccessibilité du stockage entier, le serveur flexible est basculé vers le serveur réplica de secours pour réduire le temps d’arrêt. Pour plus d’informations, consultez la [page sur les concepts de haute disponibilité](./concepts-high-availability.md). |

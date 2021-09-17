@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 05/08/2021
-ms.openlocfilehash: 655314720975738ebdbddb009d6d31ad7a322e72
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: 06f3ee8b820d732c0f605adc3201cff57fa70b42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112552250"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739085"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Inscrire et analyser une instance Azure SQL Database Managed Instance
 
@@ -105,9 +105,9 @@ Il est nécessaire d’obtenir l’ID d’application et le secret du principal 
 
 1. Accédez à votre compte Purview.
 
-1. Sélectionnez **Sources** dans la barre de navigation à gauche.
+1. Sélectionnez **Data Map** dans le volet de navigation de gauche.
 
-1. Sélectionnez **Inscription**.
+1. Sélectionnez **Inscrire**.
 
 1. Sélectionnez **Azure SQL Database Managed Instance** puis **Continuer**.
 

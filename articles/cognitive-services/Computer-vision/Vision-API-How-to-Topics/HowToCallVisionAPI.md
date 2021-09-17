@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 5feb16227653bdc7e51925b7a327c3eb50c88491
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0014297d45c26d855a2df8c2a3fdccb2f0c047d2
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453807"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822906"
 ---
 # <a name="call-the-image-analysis-api"></a>Appeler l’API Analyse d’image
 
@@ -136,6 +136,10 @@ Consultez la liste suivante des erreurs possibles et leurs causes :
     * FailedToProcess
     * Timeout : le traitement de l’image a expiré.
     * InternalServerError
+
+> [!TIP]
+> Quand vous utilisez l’API Vision par ordinateur, vous pouvez rencontrer des défaillances temporaires causées par des [limites du taux de transfert](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) appliquées par le service ou d’autres problèmes passagers comme des pannes du réseau. Pour plus d’informations sur la gestion de ces types d’échecs, consultez le [modèle Nouvelle tentative](https://docs.microsoft.com/azure/architecture/patterns/retry) dans le guide des modèles de conception de cloud et le [modèle Disjoncteur](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) connexe.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,14 +13,16 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: dd47250989be5c31d5f0ade2b602b9d6af535d83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5212357fe123d722b7dbb853c874190a3ef9dee0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563997"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697719"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutoriel – Configurer une stratégie de déploiement propagé (Rolling) pour des machines virtuelles Linux Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux
 
 Azure DevOps est un service Azure intégré qui automatise chaque partie du processus DevOps pour toutes les ressources Azure. Que votre application utilise des machines virtuelles, des applications web, Kubernetes ou toute autre ressource, vous pouvez implémenter une infrastructure sous forme de code (IaC), une intégration continue, des tests continus, une livraison continue et une supervision continue avec Azure et Azure DevOps.
 

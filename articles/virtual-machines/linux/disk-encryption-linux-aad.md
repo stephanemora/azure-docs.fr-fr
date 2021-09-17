@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a88fd0cd1e973118cc52456030046b3478d07e7a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dadbd135617335ecff85a4583fd85a79af5b2e34
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524849"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687870"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Activer Azure Disk Encryption avec Azure AD sur des machines virtuelles Linux (version précédente)
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 La nouvelle version d’Azure Disk Encryption évite d’avoir à indiquer un paramètre d’application Azure Active Directory (Azure AD) pour activer le chiffrement de disque de machine virtuelle. Avec la nouvelle version, vous n'êtes plus obligé de fournir les informations d'identification Azure AD lors de l'étape d’activation du chiffrement. À l’aide de la nouvelle version, toutes les nouvelles machines virtuelles doivent être chiffrées sans les paramètres d’application Azure AD. Pour obtenir des instructions sur l’activation du chiffrement de disque de machine virtuelle à l’aide de la nouvelle version, consultez [Azure Disk Encryption pour les machines virtuelles Linux](disk-encryption-linux.md). Les machines virtuelles déjà chiffrées avec les paramètres d’application Azure AD sont toujours prises en charge et doivent continuer à être gérées avec la syntaxe AAD.
 

@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
-ms.openlocfilehash: b7191e4d1cff49ff31fa66f80c3aafbc4dfd9924
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 8132ed61a1588c8ccdeb2ac9dc0eb6b5354fd0e0
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814277"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778844"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps"></a>Configurer les paramètres d’application pour Azure Static Web Apps
 
 Les paramètres d’application contiennent les paramètres de configuration de valeurs susceptibles d’être modifiées, comme les chaînes de connexion de base de données. L’ajout de paramètres d’application vous permet de modifier l’entrée de configuration de votre application, sans avoir à modifier le code de l’application.
 
-Les paramètres de l’application sont :
+Paramètres de l’application :
 
-- Chiffrés au repos
-- Copiés dans les environnements [intermédiaire](review-publish-pull-requests.md) et de production
-
-Les paramètres d’application sont également parfois appelés variables d’environnement.
+- Sont chiffrés au repos
+- Sont copiés dans les environnements [intermédiaire](review-publish-pull-requests.md) et de production
+- Ne peut contenir que des caractères alphanumériques, `.` et `_`
+- Sont également parfois appelés variables d’environnement
 
 > [!IMPORTANT]
 > Les paramètres d’application décrits dans cet article s’appliquent uniquement à l’API back-end d’une application Azure Static Web Apps.

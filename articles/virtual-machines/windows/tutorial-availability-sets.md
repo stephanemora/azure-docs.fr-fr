@@ -9,14 +9,15 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f94b69614c32c09be275780b3a56e1e8f9a2d687
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 369f0df05ff31eca2bf3323c672a7ff8b0ab42eb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668090"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689663"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Créer et déployer des machines virtuelles dans un groupe à haute disponibilité à l’aide d’Azure PowerShell
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
 
 Dans ce tutoriel, vous allez apprendre à augmenter la disponibilité et la fiabilité de vos machines virtuelles à l’aide de groupes à haute disponibilité. Les groupes à haute disponibilité garantissent que les machines virtuelles que vous déployez sur Azure sont distribuées, sur plusieurs nœuds matériels isolés, dans un cluster. 
 

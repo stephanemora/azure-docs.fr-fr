@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 696125f75e41d39b4f9aaa1ff852b03eff589fb0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e129b596473784c72cab93568be88dd6dcb6fe2a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204240"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697992"
 ---
 # <a name="msv2-and-mdsv2-series-medium-memory"></a>Mémoire moyenne des séries Msv2 et Mdsv2
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les machines virtuelles de mémoire moyenne des séries Msv2 et Mdsv2 sont dotées d’un processeur Intel® Xeon® Platinum 8280 (Cascade Lake) avec une fréquence de base pour tous les cœurs de 2,7 GHz et une fréquence turbo monocœur de 4,0 GHz. Avec ces machines virtuelles, les clients bénéficient d’une flexibilité accrue grâce aux options de disque local et sans disque. Les clients ont également accès à un ensemble de nouvelles tailles de machines virtuelles isolées avec des capacités accrues de processeur et de mémoire allant jusqu’à 192 processeurs virtuels avec 4 Tio de mémoire. 
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 06/09/2021
 ms.author: zhshang
-ms.openlocfilehash: 1856f6e012c2b90e173162f055d64402f0c4c908
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 3a3fa958ac6ad1cb440f30b5c680ae3f9139d29a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462106"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444921"
 ---
 # <a name="quickstart-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service-using-c"></a>Démarrage rapide : Créer une application qui indique le nombre d’étoiles GitHub avec Azure Functions and SignalR Service en utilisant C\#
 
@@ -105,7 +105,7 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
                     new SignalRMessage
                     {
                         Target = "newMessage",
-                        Arguments = new[] { $"Current start count of https://github.com/Azure/azure-signalr is: {result.StartCount}" }
+                        Arguments = new[] { $"Current star count of https://github.com/Azure/azure-signalr is: {result.StarCount}" }
                     });
             }
     
@@ -113,14 +113,14 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
             {
                 [JsonRequired]
                 [JsonProperty("stargazers_count")]
-                public string StartCount { get; set; }
+                public string StarCount { get; set; }
             }
         }
     }
     ```
     Ces codes ont trois fonctions. `Index` est utilisé pour obtenir un site web en tant que client. `Negotiate` est utilisé pour que le client obtienne un jeton d’accès. `Broadcast` récupère régulièrement le nombre d’étoiles auprès de GitHub et diffuse des messages à tous les clients.
 
-3. L’interface client de cet exemple est une page web. En considérant que nous lisons le contenu HTML de `content/index.html` dans la fonction `GetHomePage`, créez un nouveau fichier `index.html` dans le répertoire `content`. Ensuite, copiez le contenu suivant.
+3. L’interface client de cet exemple est une page web. En considérant que nous lisons le contenu HTML de `content/index.html` dans la fonction `GetHomePage`, créez un nouveau fichier `index.html` dans le répertoire `content` dans le dossier racine du projet. Ensuite, copiez le contenu suivant.
     ```html
     <html>
     
@@ -147,29 +147,39 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
     </html>
     ```
 
-4. C’est presque terminé. La dernière étape consiste à définir une chaîne de connexion de SignalR Service dans les paramètres d’Azure Functions.
+4. Mettez à jour votre `*.csproj` pour que la page de contenu soit insérée dans le dossier de sortie de la génération.
+
+    ```html
+    <ItemGroup>
+      <None Update="content/index.html">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+    ```
+
+5. C’est presque terminé. La dernière étape consiste à définir une chaîne de connexion de SignalR Service dans les paramètres d’Azure Functions.
 
     1. Dans le navigateur dans lequel le portail Azure est ouvert, vérifiez que l’instance du service SignalR que vous avez déployée précédemment a bien été créée en recherchant son nom dans la zone de recherche en haut du portail. Sélectionnez l’instance pour l’ouvrir.
 
         ![Rechercher l’instance du service SignalR](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-    1. Sélectionnez **Clés** pour afficher les chaînes de connexion de l’instance du service SignalR.
+    2. Sélectionnez **Clés** pour afficher les chaînes de connexion de l’instance du service SignalR.
     
         ![Capture d’écran qui met en évidence la chaîne de connexion principale.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copiez la chaîne de connexion principale. Puis exécutez la commande ci-dessous.
+    3. Copiez la chaîne de connexion principale. Puis exécutez la commande ci-dessous.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
-5. Exécutez la fonction Azure en local :
+6. Exécutez la fonction Azure en local :
 
     ```bash
     func start
     ```
 
-    Après l’exécution locale de la fonction Azure, utilisez votre navigateur pour accéder à l’adresse `http://localhost:7071/api/index` et voir le nombre actuel d’étoiles. Si vous ajoutez ou supprimez une étoile sur le site GitHub, le nombre d’étoiles sera actualisé toutes les quelques secondes.
+    Après l’exécution locale de la fonction Azure, Utilisez votre navigateur pour accéder à l’adresse `http://localhost:7071/api/index` et voir le nombre actuel d’étoiles. Si vous ajoutez ou supprimez une étoile sur le site GitHub, le nombre d’étoiles est actualisé régulièrement au bout de quelques secondes.
 
     > [!NOTE]
     > La liaison SignalR nécessite Stockage Azure, mais vous pouvez utiliser l’émulateur de stockage local lorsque la fonction est exécutée localement.
@@ -193,5 +203,5 @@ Ensuite, découvrez comment permettre une communication bidirectionnelle entre l
 > [Communication bidirectionnelle dans Serverless](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
 
 > [!div class="nextstepaction"]
-> [Développer des fonctions Azure à l’aide de Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Déployer sur l’application de fonction Azure à l’aide de Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure)
 

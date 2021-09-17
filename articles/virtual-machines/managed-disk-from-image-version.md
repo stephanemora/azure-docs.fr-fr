@@ -10,14 +10,16 @@ ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d4a3d1e8b1eb1c3a959e9f48e0c46379d6162644
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: c747a62307f7f08892f3609f410a40875666bd33
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114653041"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687713"
 ---
 # <a name="export-an-image-version-to-a-managed-disk"></a>Exporter une version d’image vers un disque managé
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Vous pouvez exporter le système d’exploitation ou un disque de données unique à partir d’une version d’image en tant que disque managé depuis une version d’image stockée dans Shared Image Gallery.
 

@@ -9,14 +9,16 @@ ms.subservice: autoscale
 ms.date: 04/26/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 0605780651e1a3c54ae53d13a3f99e1124fa76db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ea607f788d9acb971312639851b745eb28b313d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584999"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697383"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Mise à l’échelle automatique en utilisant des mesures invitées dans un modèle de groupe identique Linux
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques uniformes
 
 Dans Azure, il existe deux grands types de métriques qui sont collectés à partir des machines virtuelles et des groupes identiques : les métriques de l’hôte et les métriques de l’invité. En général, si vous utilisez des mesures de processeur, de disque et de réseau standard, les mesures d’hôte sont bien adaptées. Si, en revanche, vous avez besoin d’un éventail plus large de mesures, alors les mesures invitées conviennent mieux.
 

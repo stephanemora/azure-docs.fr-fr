@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 08/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 9636c8cbb517c7aece450f53cfc37e4ddd9803b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6527666bcc3f70e1386a857a921b83301f36645c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92455491"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769502"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-comm100-live-chat"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Comm100 Live Chat
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Comm100 Live Chat à A
 * Contrôler dans Azure AD qui a accès à Comm100 Live Chat.
 * Permettre à vos utilisateurs de se connecter automatiquement à Comm100 Live Chat avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,47 +37,46 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Comm100 Live Chat prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Comm100 Live Chat prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="adding-comm100-live-chat-from-the-gallery"></a>Ajout de Comm100 Live Chat à partir de la galerie
+## <a name="add-comm100-live-chat-from-the-gallery"></a>Ajout de Comm100 Live Chat à partir de la galerie
 
 Pour configurer l’intégration de Comm100 Live Chat avec Azure AD, vous devez ajouter Comm100 Live Chat à votre liste d’applications SaaS gérées à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Comm100 Live Chat** dans la zone de recherche.
 1. Sélectionnez **Comm100 Live Chat** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-comm100-live-chat"></a>Configurer et tester l’authentification unique Azure AD pour Comm100 live chat
+## <a name="configure-and-test-azure-ad-sso-for-comm100-live-chat"></a>Configurer et tester l’authentification unique Azure AD pour Comm100 Live Chat
 
 Configurez et testez l’authentification unique Azure AD avec Comm100 Live Chat à l’aide d’un utilisateur de test appelé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Comm100 Live Chat associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Comm100 Live Chat, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Comm100 Live Chat, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+   1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+   1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Comm100 Live Chat](#configure-comm100-live-chat-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test Comm100 Live Chat](#create-comm100-live-chat-test-user)** pour avoir un équivalent de B.Simon dans Comm100 Live Chat lié à la représentation Azure AD de l’utilisateur.
+   1. **[Créer un utilisateur de test Comm100 Live Chat](#create-comm100-live-chat-test-user)** pour avoir un équivalent de B.Simon dans Comm100 Live Chat lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Comm100 Live Chat**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le Portail Azure, accédez à la page d’intégration de l’application **Comm100 Live Chat**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez l’étape suivante :
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
 
@@ -123,13 +120,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Comm100 Live Chat**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
@@ -140,15 +131,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans l’angle supérieur droit de la page, cliquez sur **My Account** (Mon compte).
 
-   ![Comm100 Live Chat : myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+   ![Mon compte Comm100 Live Chat.](./media/comm100livechat-tutorial/account.png)
 
 1. Dans le menu, à gauche, cliquez sur **Security** (Sécurité), puis sur **Agent Single Sign-On** (Authentification unique des agents).
 
-   ![Capture d’écran montrant le menu de compte de gauche avec « Security » et « Agent Single Sign-On » mis en évidence.](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Capture d’écran montrant le menu de compte de gauche avec « Security » et « Agent Single Sign-On » mis en évidence.](./media/comm100livechat-tutorial/security.png)
 
 1. Dans la page **Agent Single Sign-On** (Authentification unique des agents), effectuez les opérations suivantes :
 
-   ![Comm100 Live Chat : sécurité](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+   ![Sécurité Comm100 Live Chat.](./media/comm100livechat-tutorial/certificate.png)
 
    a. Copiez le premier lien mis en surbrillance et collez-le dans la zone de texte **URL d’authentification** de la section **Configuration SAML de base** du portail Azure.
 
@@ -170,15 +161,15 @@ Pour permettre aux utilisateurs d’Azure AD de se connecter à Comm100 Live Cha
 
 2. Dans l’angle supérieur droit de la page, cliquez sur **My Account** (Mon compte).
 
-    ![Comm100 Live Chat : myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+    ![Mon compte Comm100 Live Chat.](./media/comm100livechat-tutorial/account.png)
 
 3. Dans le menu, à gauche, cliquez sur **Agents**, puis sur **New Agent** (Nouvel agent).
 
-    ![Comm100 Live Chat : agent](./media/comm100livechat-tutorial/tutorial_comm100livechat_agent.png)
+    ![Agent Comm100 Live Chat.](./media/comm100livechat-tutorial/agent.png)
 
 4. Dans la page **New Agent** (Nouvel agent), effectuez les opérations suivantes :
 
-    ![Comm100 Live Chat : nouvel agent](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
+    ![Nouvel agent Comm100 Live Chat.](./media/comm100livechat-tutorial/new-agent.png)
 
     a. a. Dans la zone de texte **Email**, tapez l’adresse e-mail de l’utilisateur, par exemple **B.simon\@contoso.com**.
 
@@ -194,16 +185,14 @@ Pour permettre aux utilisateurs d’Azure AD de se connecter à Comm100 Live Cha
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Comm100 Live Chat dans le volet d’accès, vous devez être connecté automatiquement à l’application Comm100 Live Chat pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Comm100 Live Chat à partir de laquelle vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion à Comm100 Live Chat pour lancer de là le flux de connexion.
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la mosaïque Comm100 Live Chat dans Mes applications, vous êtes redirigé vers l’URL de connexion Comm100 Live Chat. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer Comm100 Live Chat avec Azure AD](https://aad.portal.azure.com/)
+Après avoir configuré Comm100 Live Chat, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

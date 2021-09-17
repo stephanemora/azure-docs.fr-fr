@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/14/2021
 ms.author: duau
-ms.openlocfilehash: 97a96d439773d7332fda3fe545d950dfe0077ad1
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 16b808200c43324a68bf909b3cf5548f34dbdec4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765417"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738055"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Front Door
 
@@ -87,7 +87,7 @@ Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTT
 2. Certificats Azure Key Vault : si vous disposez déjà d’un certificat, vous pouvez le charger directement vers votre compte Azure Key Vault. Vous pouvez également en créer un directement à l’aide d’Azure Key Vault à partir d’une des autorités de certification (CA) partenaires de ce coffre Azure Key Vault. Chargez votre certificat en tant qu’objet de **certificat** et non en tant que **secret**.
 
 > [!NOTE]
-> Pour votre propre certificat TLS/SSL, Front Door ne prend pas en charge les certificats avec des algorithmes de chiffrement EC. Le certificat doit posséder une chaîne de certificats complète avec des certificats feuille et intermédiaires. De plus, l’AC racine doit figurer dans la [liste des autorités de certification de confiance Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> Pour votre propre certificat TLS/SSL, Front Door ne prend pas en charge les certificats avec des algorithmes de chiffrement EC. Le certificat doit avoir une chaîne de certificats complète avec des certificats feuille et intermédiaires, et l’autorité de certification racine doit faire partie de la [liste des autorités de certification de confiance Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### <a name="register-azure-front-door"></a>Inscrire Azure Front Door
 
@@ -136,7 +136,9 @@ Accordez à Azure Front Door l’autorisation d’accéder aux certificats de vo
     - Les versions de secrets disponibles.
 
     > [!NOTE]
-    >  Pour effectuer automatiquement une rotation du certificat avec la dernière version quand une version plus récente est disponible dans votre coffre de clés, choisissez « La plus récente » comme version du secret. Si une version spécifique est sélectionnée, vous devez resélectionner manuellement la nouvelle version pour la rotation du certificat. Le déploiement de la nouvelle version du certificat/secret peut prendre jusqu’à 24 heures. 
+    >  Pour effectuer automatiquement une rotation du certificat avec la dernière version quand une version plus récente est disponible dans votre coffre de clés, choisissez « La plus récente » comme version du secret. Si une version spécifique est sélectionnée, vous devez resélectionner manuellement la nouvelle version pour la rotation du certificat. Le déploiement de la nouvelle version du certificat/secret peut prendre jusqu’à 24 heures.
+    >
+    > :::image type="content" source="./media/front-door-custom-domain-https/certificate-version.png" alt-text="Capture d’écran de la sélection de la version secrète dans la page Mettre à jour le domaine personnalisé.":::
  
 5. Quand vous utilisez votre propre certificat, la validation du domaine n’est pas nécessaire. Passez à [En attente de la propagation](#wait-for-propagation).
 

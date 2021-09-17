@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: a611daf290bda8d6511cb4217e411de2886ce822
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: 95054a4da3bc11e92cc140e7fb6689773b0343ac
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112370848"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698825"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Contrôler les mises à jour avec le contrôle de maintenance et Azure CLI
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Le contrôle de maintenance vous permet de décider du moment où appliquer les mises à jour de la plateforme à l’infrastructure hôte de vos machines virtuelles isolées et vos hôtes dédiés Azure. Cette rubrique traite les options de l’interface Azure CLI pour le contrôle de maintenance. Pour plus d’informations sur les avantages de l’utilisation du contrôle de maintenance, ses limitations et d’autres options de gestion, consultez [Gestion des mises à jour de plateformes avec le contrôle de maintenance](maintenance-control.md).
 

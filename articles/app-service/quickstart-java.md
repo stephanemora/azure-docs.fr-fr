@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: 7393a8085a2ac597f3fdbcc365608d32956f39b7
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 54ca249d1b89eb90b636da72e1378eadfd5fe0c1
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111642"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681386"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Démarrage rapide : Créer une application Java dans Azure App Service
 
@@ -98,7 +98,7 @@ Le processus de déploiement sur Azure App Service utilise vos informations d’
 Exécutez la commande Maven ci-dessous pour configurer le déploiement. Cette commande vous permet de configurer le système d’exploitation App Service, la version de Java et la version de Tomcat.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.0.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -108,7 +108,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.0.0:config
 1. Quand Lorsque vous êtes invité à choisir l’option **Abonnement**, sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
 2. Quand vous êtes invité à choisir l’option **Application web**, sélectionnez l’option par défaut `<create>` en appuyant sur Entrée.
 3. Quand vous êtes invité à choisir l’option **Système d’exploitation**, sélectionnez **Windows** en entrant `2`.
-4. Quand vous y êtes invité à choisir l’option **javaVersion**, sélectionnez **Java 8** en entrant `1`.
+4. Quand vous êtes invité à choisir l’option **javaVersion**, sélectionnez **Java 8** en entrant `1`.
 5. Quand vous êtes invité à choisir l’option **Niveau tarifaire**, sélectionnez **P1v2** en entrant `7`.
 6. Enfin, appuyez sur Entrée dans la dernière invite pour confirmer vos sélections.
 
@@ -291,13 +291,7 @@ Soyez attentif aux valeurs `<appName>` et `<resourceGroup>` (`helloworld-1590394
 
 ## <a name="deploy-the-app"></a>Déployer l’application
 
-Le plug-in Maven utilise les informations d’identification du compte provenant d’Azure CLI pour effectuer le déploiement sur App Services. [Connectez-vous à Azure CLI](/cli/azure/authenticate-azure-cli) avant de continuer.
-
-```azurecli-interactive
-az login
-```
-
-Ensuite, vous pouvez déployer votre application Java sur Azure à l’aide de la commande suivante.
+Une fois que la configuration est prête dans votre fichier POM, vous pouvez déployer votre application Java sur Azure avec une commande unique.
 
 ```azurecli-interactive
 mvn package azure-webapp:deploy

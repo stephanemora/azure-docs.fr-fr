@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: quickstart
-ms.openlocfilehash: ae417006903c8d2478126f928f05647361bad1b9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e77196572a0ea3b18f0b28a6ad26349e6e7c668e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896204"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744786"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Démarrage rapide : Créer, déployer et utiliser un modèle personnalisé
 
@@ -27,6 +27,8 @@ Cet article fournit des instructions détaillées permettant de créer un systè
 2. Un abonnement à l’API de traduction de texte Translator Text via le portail Azure. Vous devez avoir la clé d’abonnement de l’API de traduction de texte Translator Text à associer à votre espace de travail dans Custom Translator. Consultez [Guide pratique pour s’inscrire à l’API de traduction de texte Translator Text](../translator-how-to-signup.md).
 
 3. Quand vous disposez des deux éléments ci-dessus, connectez-vous à [Custom Translator](https://portal.customtranslator.azure.ai) pour créer des espaces de travail, des projets, charger des fichiers et créer/déployer des modèles.
+
+Vous pouvez également regarder une vidéo de procédure pas à pas complète concernant Custom Translator sur [YouTube](https://www.youtube.com/watch?v=TykB6WDTkRc&t=3s).
 
 >[!Note]
 >Custom Translator ne prend pas en charge la création d’espace de travail pour la ressource d’API Translator créée dans un [réseau virtuel activé](../../../api-management/api-management-using-with-vnet.md).

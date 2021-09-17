@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Créer et gérer des réseaux virtuels Azure pour des machines virtuelles Linux'
-description: Dans ce tutoriel, vous allez apprendre à utiliser Azure CLI afin de créer et gérer des réseaux virtuels Azure pour des machines virtuelles Linux
+description: Dans ce tutoriel, vous allez découvrir comment utiliser Azure CLI pour créer et gérer des réseaux virtuels Azure pour des machines virtuelles Linux.
 services: virtual-machines
 author: cynthn
 ms.collection: linux
@@ -10,14 +10,16 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cfc76ffd05b6348c9a585a64e3f2868f28f5e5cd
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: e259a835046b24d84fad9ec9fdb6416bc1bd6c90
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107811703"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698944"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutoriel : Créer et gérer des réseaux virtuels Azure pour des machines virtuelles Linux avec Azure CLI
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Les machines virtuelles Azure utilisent la gestion réseau Azure pour la communication réseau interne et externe. Ce didacticiel vous guide dans le déploiement de deux machines virtuelles et la configuration de la gestion réseau Azure pour celles-ci. Les exemples de ce didacticiel supposent que les machines virtuelles hébergent une application web avec un back-end de base de données. Le didacticiel ne comprend cependant pas le déploiement d’une application. Dans ce tutoriel, vous allez apprendre à :
 

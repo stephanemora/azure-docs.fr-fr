@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 1598d89d254e788ecf94f9a42b83cbe22b62204a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87863037cc494c70e628b4fb60790808430c7225
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67176778"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122263070"
 ---
 ## <a name="set-expiration"></a>Définir une expiration
 
-Il est également possible de configurer votre ancre pour qu’elle expire automatiquement à une date future définie. Lorsqu’une ancre expire, elle ne sera plus localisée, ni mise à jour. L’expiration peut uniquement être définie lorsque l’ancre est créée. La mise à jour de l’expiration par la suite n’est pas possible. Par conséquent, vous pouvez définir sa date d’expiration avant de l’enregistrer dans le cloud.
+Il est également possible de configurer votre ancre pour qu’elle expire automatiquement à une date future définie. Lorsqu’une ancre expire, elle ne sera plus localisée, ni mise à jour. L’expiration peut uniquement être définie lors de la création de l’ancre, avant son enregistrement dans le cloud. La mise à jour de l’expiration par la suite n’est pas possible. Si aucune expiration n’est définie lors de la création de l’ancre, l’ancre expire seulement quand elle est [supprimée manuellement](../articles/spatial-anchors/how-tos/create-locate-anchors-unity.md#delete-anchors).

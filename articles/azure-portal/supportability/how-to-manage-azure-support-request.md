@@ -4,13 +4,13 @@ description: Décrit les procédures d’affichage des demandes de support, d’
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: bc9edecd918668e76c36308a660c47d3a8fd9e8b
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.date: 08/24/2021
+ms.openlocfilehash: 6f1daf2c504be53654c61c5249065cc929ae8066
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110496512"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824127"
 ---
 # <a name="manage-an-azure-support-request"></a>Gérer une demande de support Azure
 
@@ -56,7 +56,7 @@ Sur cette page, vous pouvez rechercher, filtrer et trier des demandes de support
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Partager des informations de diagnostic avec le support Azure
 
-Lors de la création d’une requête de support, l’option **Partager les informations de diagnostic** est sélectionnée par défaut. Cette option permet au support Azure de collecter des [informations de diagnostic](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) à partir de vos ressources Azure qui peuvent éventuellement vous aider à résoudre votre problème.
+Lors de la création d’une demande de support, vous pouvez sélectionner **Oui** ou **Non** dans la section **Partager les informations de diagnostic**. Cette option détermine si le support Azure peut collecter les [informations de diagnostic](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) à partir de vos ressources Azure, lesquelles peuvent éventuellement vous aider à résoudre votre problème.
 
 Pour modifier la sélection des **informations de diagnostic de partage** après la création de la requête :
 

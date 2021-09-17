@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 04319066c59dda5d240f527d86894674a505eaed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f54e9b80bc6babe90093e45d6a9b7400fa0a5b5
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669354"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698129"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-a-resource-manager-template"></a>Déployer des machines virtuelles Azure Spot à l’aide d’un modèle Resource Manager
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Linux
 
 L’utilisation de [machines virtuelles Azure Spot](../spot-vms.md) vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure aura besoin de récupérer la capacité, l’infrastructure Azure supprimera les machines virtuelles Azure Spot. Les machines virtuelles Azure Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 

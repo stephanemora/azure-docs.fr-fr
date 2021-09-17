@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 08/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 88f6da7e43e269816c7e4ae2fd7bbc3f5e26522b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5845df453801b9c59e3652efed5cef7d9f9e0978
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92453091"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272101"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fivetran"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Fivetran
 
@@ -37,8 +37,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Fivetran prend en charge l’authentification unique lancée par le **fournisseur d’identité**
-* Fivetran prend en charge l’attribution d’utilisateurs **juste-à-temps**
+* Fivetran prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
+* Fivetran prend en charge l’attribution d’utilisateurs **juste-à-temps**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -53,7 +53,6 @@ Pour configurer l’intégration de Fivetran à Azure AD, vous devez ajouter Fi
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Fivetran** dans la zone de recherche.
 1. Sélectionnez **Fivetran** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-fivetran"></a>Configurer et tester l’authentification unique Azure AD pour Fivetran
 
@@ -74,12 +73,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la page d’intégration de l’application **Fivetran** du portail Azure, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, l’application est préconfigurée et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
-
 
 1. Votre application Fivetran s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -129,13 +127,14 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 Dans cette section, vous allez configurer l’authentification unique du côté **Fivetran**.
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre compte Fivetran en tant que propriétaire du compte.
+
 1. Sélectionnez la flèche dans le coin supérieur gauche de la fenêtre, puis sélectionnez **Gérer le compte** dans la liste déroulante.
 
-   ![Capture d’écran montrant l’option de menu Gérer le compte sélectionnée.](media/fivetran-tutorial/fivetran-1.png)
+   ![Capture d’écran montrant l’option de menu Gérer le compte sélectionnée.](media/fivetran-tutorial/menu.png)
 
 1. Accédez à la section **Config SAML** de la page **Paramètres**.
 
-   ![Capture d’écran montrant le volet de configuration SAML avec les options de configuration mises en surbrillance.](media/fivetran-tutorial/fivetran-2.png)
+   ![Capture d’écran montrant le volet de configuration SAML avec les options de configuration mises en surbrillance.](media/fivetran-tutorial/settings.png)
 
    1. Pour **Activer l’authentification SAML**, sélectionnez **ON**.
    1. Dans **URL de connexion**, collez la valeur **URL de connexion** que vous avez copiée à partir du Portail Azure.
@@ -149,11 +148,11 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans Fivetran. Fiv
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-1. Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance de Fivetran pour laquelle vous avez configuré l’authentification unique. 
+* Cliquez sur Tester cette application dans le portail Azure. Vous devez alors être connecté automatiquement à l’instance de Fivetran pour laquelle vous avez configuré l’authentification unique.
 
-2. Vous pouvez utiliser le volet d’accès Microsoft. Quand vous cliquez sur la vignette Fivetran dans le volet d’accès, vous devez être automatiquement connecté à l’application Fivetran pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Fivetran dans Mes applications, vous devez être automatiquement connecté à l’application Fivetran pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.subservice: azure-video-analyzer-media
 ms.date: 07/15/2021
 ms.author: juliako
-ms.openlocfilehash: 79c6dc98bd214594b938cf74ce9176a64867fe3e
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 9f7b76a0de33e89a17f89f3c93fc7de430a681c9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114711855"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734152"
 ---
 # <a name="what-is-video-analyzer-for-media"></a>Qu’est-ce que Video Analyzer for Media ?
 
@@ -74,7 +74,7 @@ La liste suivante présente les insights que vous pouvez récupérer à partir d
 
 ### <a name="audio-insights"></a>Insights audio
 
-* **Transcription audio** : Convertit la parole en texte dans 12 langues et autorise les extensions. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (mandarin), le japonais, l’arabe, le russe, le portugais, l’hindi et le coréen.
+* **Transcription audio** : procède à la reconnaissance vocale dans 50 langues et permet les extensions. Les langues prises en charge incluent anglais (États-Unis), anglais (Royaume-Uni), anglais (Australie), espagnol, espagnol (Mexique), français, français (Canada), allemand, italien, chinois (cantonais, traditionnel), chinois (simplifié), japonais, russe, portugais, hindi, tchèque, néerlandais, polonais, danois, norvégien, fin, suédois, thaï, turc, coréen, arabe (Égypte), arabe (République arabe syrienne), arabe (Israël), arabe (Irak), arabe (Jordanie), arabe (Koweït), arabe (Liban), arabe (Oman), arabe (Qatar), arabe (Arabie saoudite), arabe (Émirats Arabes Unis), arabe (Autorité palestinienne) et arabe moderne standard (Bahreïn).
 * **Détection de langue automatique** : Identifie automatiquement la langue parlée dominante. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (mandarin), le japonais, le russe et le portugais. Si la langue ne peut pas être identifiée en toute confiance, Video Analyzer for Media suppose que la langue parlée est l’anglais. Pour plus d'informations, voir [Modèle d’identification de langues](language-identification-model.md).
 * **Identification et transcription de discours en plusieurs langues** : Identifie automatiquement la langue parlée dans les segments différents de l’audio. Il envoie chaque segment du fichier multimédia à transcrire, puis regroupe la transcription dans une transcription unifiée. Pour plus d’informations, consultez [Identifier et transcrire automatiquement un contenu multilingue](multi-language-identification-transcription.md).
 * **Sous-titrage** : Crée un sous-titrage dans trois formats : VTT, TTML, SRT.

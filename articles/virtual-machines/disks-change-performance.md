@@ -8,14 +8,16 @@ ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: c45bc6fa0df5883f060458c3ce92680752e5875a
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: d2f617d2f5d05a6310d5442fa8d4a9e49369912e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113358523"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696417"
 ---
 # <a name="performance-tiers-for-managed-disks"></a>Niveaux de performance des disques managés
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les performances d’un disque managé Azure sont définies lors de sa création, par son niveau de performance. Le niveau de performance détermine ses IOPS et son débit. Lorsque vous définissez la taille approvisionnée de votre disque, un niveau de performance est sélectionné automatiquement. Il peut être modifié au moment du déploiement ou ultérieurement, sans changer de taille de disque.
 

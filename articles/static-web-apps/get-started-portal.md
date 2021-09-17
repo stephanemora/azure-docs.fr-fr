@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: static-web-apps
 ms.custom:
 - mode-portal
-ms.openlocfilehash: ce4c37091fc56398c9986396d56e2cc66f9b1d8a
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: d83a9f96745e798d307c6e5299da84f1ac717e76
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813927"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609082"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Démarrage rapide : Création de votre premier site statique dans le portail Azure
 
@@ -67,9 +67,9 @@ Après vous être connecté à GitHub, entrez les informations relatives au dép
     # <a name="no-framework"></a>[Pas de framework](#tab/vanilla-javascript)
 
     1. Sélectionnez **Personnalisé** dans la liste déroulante _Build Presets_ (Présélections de build).
-    1. Conservez la valeur par défaut dans la zone _Emplacement de l’application_.
+    1. Tapez **./src** dans la zone _Emplacement de l’application_.
     1. Laissez la zone _Emplacement de l’API_ vide.
-    1. Laissez la zone _Emplacement de l’artefact de l’application_ vide.
+    1. Tapez **./src** dans la zone _Emplacement de l’artefact de l’application_.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 

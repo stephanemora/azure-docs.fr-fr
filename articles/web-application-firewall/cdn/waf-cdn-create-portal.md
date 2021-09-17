@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 9579d0da3347bdd4ecc627662cee42f909cbfaf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8710bac1d3161581f1002aa2d7531350c197be1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92132769"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696713"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Tutoriel : Créer une stratégie WAF sur Azure CDN à l’aide du portail Azure
 
@@ -39,8 +39,8 @@ Commencez par créer une stratégie WAF de base avec un ensemble de règles par 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | Stratégie pour            |Sélectionnez Azure CDN (préversion).|
-    | Abonnement            |Sélectionnez le nom de votre abonnement Front Door.|
-    | Resource group          |Sélectionnez le nom de votre groupe de ressources Front Door.|
+    | Abonnement            |Sélectionnez le nom d’abonnement de votre profil CDN.|
+    | Resource group          |Sélectionnez le nom du groupe de ressources de votre profil CDN.|
     | Nom de stratégie             |Entrez un nom unique pour votre stratégie WAF.|
 
    :::image type="content" source="../media/waf-cdn-create-portal/basic.png" alt-text="Capture d’écran de la page Créer une stratégie WAF, avec le bouton Vérifier + créer et des valeurs entrées pour différents paramètres." border="false":::

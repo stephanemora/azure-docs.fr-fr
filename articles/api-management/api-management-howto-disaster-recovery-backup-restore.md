@@ -3,23 +3,18 @@ title: Implémenter une reprise d’activité à l’aide d’une sauvegarde et 
 titleSuffix: Azure API Management
 description: Apprenez à utiliser la sauvegarde et la restauration pour effectuer une récupération d'urgence dans Gestion des API Azure.
 services: api-management
-documentationcenter: ''
 author: mikebudzynski
-manager: erikre
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/05/2020
+ms.date: 08/20/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8148cbd1fa4e34610c4b27609910821323a2acea
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e3b47f38c8ff72c01fb26772cef76bc841d2b1e4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524428"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693377"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -57,40 +52,34 @@ Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure R
 ### <a name="create-an-azure-active-directory-application"></a>Créer une application Azure Active Directory
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. En utilisant l’abonnement qui contient votre instance du service Gestion des API, accédez à l’onglet **Inscriptions des applications** dans **Azure Active Directory** (Azure Active Directory > Gérer/Inscriptions des applications).
-
+1. À l’aide de l’abonnement qui contient votre instance de service Gestion des API, accédez à [portail Azure - Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) pour enregistrer une application dans le Répertoire actif.
     > [!NOTE]
     > Si le répertoire par défaut Azure Active Directory n’est pas visible dans votre compte, contactez l’administrateur de l’abonnement Azure pour accorder les autorisations nécessaires à votre compte.
+1. Sélectionnez **+ Nouvelle inscription**.
+1. Sur la page **Inscrire une application**, définissez les valeurs comme suit :
+    
+    * Choisissez un nom explicite pour le champ **Nom**.
+    * Définissez **Types de comptes pris en charge** sur **Comptes dans cet annuaire organisationnel**. 
+    * Dans l’**URI de redirection**, entrez une URL d’espace réservé, telle que `https://resources`. Il s’agit d’un champ obligatoire, mais la valeur n’est pas utilisée ultérieurement. 
+    * Sélectionnez **Inscription**.
 
-3. Cliquez sur **Nouvelle inscription d’application**.
+### <a name="add-permissions"></a>Ajout d’autorisations
 
-    La fenêtre **Créer** s’affiche sur la droite. C’est là que vous entrez les informations appropriées de l’application AAD.
-
-4. Entrez un nom pour l’application.
-5. Pour le type d’application, sélectionnez **Native**.
-6. Entrez une URL d’espace réservé comme `http://resources` pour l’**URI de redirection**, puisqu’il s’agit d’un champ obligatoire, mais la valeur n’est pas utilisée par la suite. Cliquez sur la case à cocher pour enregistrer l'application.
-7. Cliquez sur **Créer**.
-
-### <a name="add-an-application"></a>Ajouter une application
-
-1. Une fois l’application créée, cliquez sur **Autorisations des API**.
-2. Cliquez sur **+ Ajouter une autorisation**.
-4. Appuyez sur **Sélectionner des API Microsoft**.
-5. Choisissez **Gestion des services Azure**.
-6. Appuyez sur **Sélectionner**.
+1. Une fois l’application créée, sélectionnez **Autorisations d’API** >  **+ Ajouter une autorisation**.
+1. Sélectionnez **API Microsoft**.
+1. Sélectionnez **Gestion du Service Azure**.
 
     :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="Capture d’écran montrant comment des permissions d’application."::: 
 
-7. Cliquez sur **Autorisations déléguées** à côté de l’application ajoutée, puis cochez la case **Accès à la gestion des services Azure (aperçu)** .
+1. Cliquez sur **Autorisations déléguées** à côté de l’application nouvellement ajoutée, puis cochez la case **Accéder à la Gestion du Service Azure en tant qu’utilisateurs de l’organisation (préversion)** .
 
     :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="Capture d’écran montrant comment ajouter des permissions d’application déléguées.":::
 
-8. Appuyez sur **Sélectionner**.
-9. Cliquez sur **Ajouter des autorisations**.
+1. Sélectionnez **Ajouter des autorisations**.
 
-### <a name="configuring-your-app"></a>Configuration de votre application
+### <a name="configure-your-app"></a>Configuration de votre application
 
-Avant d’appeler les API qui génèrent la sauvegarde, puis la restaure, vous devez obtenir un jeton. L’exemple suivant utilise le package NuGet [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) pour récupérer le jeton.
+Avant d’appeler les API qui génèrent la sauvegarde et la restauration, vous devez obtenir un jeton. L’exemple suivant utilise le package NuGet [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) pour récupérer le jeton.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -137,6 +126,9 @@ Remplacez `{tenant id}`, `{application id}` et `{redirect uri}` en suivant les i
 
 Les API REST sont [Service Gestion des API - Sauvegarde](/rest/api/apimanagement/2020-12-01/api-management-service/backup) et [Service Gestion des API - Restauration](/rest/api/apimanagement/2020-12-01/api-management-service/restore).
 
+> [!NOTE]
+> Vous pouvez aussi effectuer les opérations de sauvegarde et de restauration avec les commandes PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) et [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement), respectivement.
+
 Avant d’appeler les opérations de « sauvegarde et de restauration » décrites dans les sections suivantes, définissez l’en-tête de demande d’autorisation de votre appel REST.
 
 ```csharp
@@ -156,7 +148,7 @@ où :
 -   `subscriptionId` : ID de l’abonnement qui contient le service Gestion des API que vous tentez de sauvegarder
 -   `resourceGroupName` : nom du groupe de ressources de votre service Gestion des API Azure
 -   `serviceName` : Nom du service Gestion des API que vous sauvegardez, spécifié au moment de sa création
--   `api-version` : à remplacer par `2020-12-01`
+-   `api-version` -Remplacez par une version API REST prise en charge telle que `2020-12-01`
 
 Dans le corps de la demande, spécifiez le nom du compte de stockage Azure cible, la clé d’accès, le nom du conteneur d’objets blob et le nom de la sauvegarde :
 
@@ -208,14 +200,8 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 >
 > Les **modifications** de configuration du service (par exemple, API, stratégies, apparence du portail des développeurs) pendant qu’une opération de restauration est en cours **peuvent être écrasées**.
 
-<!-- Dummy comment added to suppress markdown lint warning -->
-
-> [!NOTE]
-> Vous pouvez aussi effectuer les opérations de sauvegarde et de restauration avec les commandes PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) et [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement), respectivement.
-
 ## <a name="constraints-when-making-backup-or-restore-request"></a>Contraintes lors de la création d’une requête de sauvegarde ou de restauration
 
--   Le **conteneur** spécifié dans le corps de la demande **doit exister**.
 -   Pendant la sauvegarde, **évitez toutes les modifications de gestion dans le service**, comme mettre à niveau une référence SKU ou la passer à une version antérieure, changer un nom de domaine, etc.
 -   La restauration d’une **sauvegarde n’est garantie que pendant 30 jours** à partir du moment de sa création.
 -   Les **changements** de configuration du service (par exemple, les API, les stratégies et l’apparence du portail des développeurs) pendant une opération de sauvegarde **peuvent être exclus de la sauvegarde et être perdus**.

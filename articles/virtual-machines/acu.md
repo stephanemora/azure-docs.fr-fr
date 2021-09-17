@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: daa53491df084cb68b26d1f9dabb3e17c77880f3
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: 977c92e0537ff44c2cf28085ad7491a8cd18b71c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231014"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692283"
 ---
 # <a name="azure-compute-unit-acu"></a>Unité de calcul Azure (ACU)
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Le concept d’unité Compute Azure (ACU) permet de comparer les performances de calcul (UC) des références SKU Azure. Cela vous aidera à identifier facilement la référence la plus à même de répondre à vos besoins en termes de performances. L’unité ACU est actuellement normalisée sur une petite machine virtuelle (Standard_A1) correspondant à 100, et toutes les autres références représentent ensuite approximativement la rapidité avec laquelle la référence en question peut exécuter un test d’évaluation.
 

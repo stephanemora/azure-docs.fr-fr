@@ -9,14 +9,16 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 1aff05e51bcbc99f33325efb905ade819ae22e02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59f781e1e5969c9d11a0e801fef48e2f6e347832
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90988024"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771354"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Utiliser Azure Disk Encryption avec un séquencement d’extensions de groupes de machines virtuelles identiques
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Il est possible d’ajouter des extensions telles qu’Azure Disk Encryption à un groupe de machines virtuelles identiques dans un ordre spécifié. Pour ce faire, utilisez un [séquencement d’extensions](virtual-machine-scale-sets-extension-sequencing.md). 
 
@@ -31,7 +33,7 @@ Dans les deux cas, la propriété `provisionAfterExtensions` désigne l’extens
 
 Si vous souhaitez qu’Azure Disk Encryption soit appliqué après une autre extension, placez la propriété `provisionAfterExtensions` dans le bloc d’extension AzureDiskEncryption. 
 
-Voici un exemple d’utilisation de « CustomScriptExtension », un script Powershell qui initialise et formate un disque de Windows, suivi de « AzureDiskEncryption » :
+Voici un exemple d’utilisation de « CustomScriptExtension », un script PowerShell qui initialise et formate un disque de Windows, suivi de « AzureDiskEncryption » :
 
 ```json
 "virtualMachineProfile": {

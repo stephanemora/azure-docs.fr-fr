@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: 7eab410bb2344617e555a7a9d1d44cd9adcc676d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 819732043ce035214fc9a56e22a99e9a3dec28a2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674719"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694282"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Économiser grâce aux instances de machines virtuelles Azure réservées
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Vous pouvez faire des économies en optant pour une instance de machine virtuelle réservée Azure. La remise de réservation est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à une machine virtuelle pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie Calcul de l’utilisation de votre machine virtuelle. Pour les machines virtuelles Windows, le compteur d’utilisation est divisé en deux compteurs distincts. Il existe un compteur de calcul, qui est le même que le compteur Linux et un compteur IP Windows. Les frais que vous voyez lorsque vous effectuez l’achat sont uniquement pour les coûts de calcul. Les frais n’incluent pas les coûts des logiciels Windows. Pour plus d’informations sur les coûts liés aux logiciels, consultez [Coûts des logiciels non inclus dans Azure Reserved VM Instances](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 

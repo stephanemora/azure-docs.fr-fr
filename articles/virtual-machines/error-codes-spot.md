@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 6d43935365580233063deb0e523d222351c22d54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f035d7813dfcf84d21e5913fa4626188e125db9a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670618"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691084"
 ---
 # <a name="error-messages-for-azure-spot-virtual-machines-and-scale-sets"></a>Messages d’erreur pour les groupes de machines virtuelles identiques et les machines virtuelles Azure Spot
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Voici quelques codes d’erreur que vous pouvez recevoir lorsque vous utilisez des groupes de machines virtuelles identiques et des machines virtuelles Azure Spot.
 

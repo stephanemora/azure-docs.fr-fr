@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: a0e6a02aed59cbe968abb0df5c3fb612c8f2d3b0
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 811078d18d6659e600cb5b0931dcf2a217a8856e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551683"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751895"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source"></a>Inscrire et analyser une source SAP S/4HANA
 
@@ -54,7 +54,7 @@ La seule authentification prise en charge pour une source SAP S/4HANA est l’*
 Pour inscrire une nouvelle source SAP S/4HANA dans votre catalogue de données, procédez comme suit :
 
 1.  Accédez à votre compte Purview.
-2.  Sélectionnez **Sources** dans la barre de navigation à gauche.
+2.  Sélectionnez **Data Map** dans le volet de navigation de gauche.
 3.  Sélectionnez **Inscrire**.
 4.  Dans Inscrire des sources, sélectionnez **SAP S/4HANA**. Sélectionnez **Continue** (Continuer)
 

@@ -1,29 +1,25 @@
 ---
 title: 'Tutoriel : Gérer la configuration d’une machine virtuelle Linux dans Azure'
 description: Dans ce tutoriel, vous allez apprendre à identifier les changements et à gérer les mises à jour de packages d’une machine virtuelle Linux
-services: virtual-machines
-documentationcenter: virtual-machines
 author: mgoedtel
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: bbc294f006859e30aa891c7aa1b9ad4d1665a21c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fae7a6065f04b34ea952dd474919d43dad46d0df
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139954"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690942"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutoriel : Superviser les changements et mettre à jour une machine virtuelle Linux dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 Azure [Change Tracking](../../automation/change-tracking/overview.md) vous permet d’identifier facilement les changements, tandis que [Update Management](../../automation/update-management/overview.md) vous permet de gérer les mises à jour du système d’exploitation de vos machines virtuelles Linux Azure.
 

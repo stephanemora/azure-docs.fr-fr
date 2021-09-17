@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: c90234249f3cf7eb6ed4793110d61e1f8190ed60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24f05c59d7ceac37ff628aec265541d323f170e3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99092599"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725795"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ServiceNow
 
@@ -92,7 +92,10 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans **URL de connexion**, entrez une URL dont le modèle est le suivant : `https://<instancename>.service-now.com/navpage.do`
+    a. Dans **URL de connexion**, entrez une URL dont le modèle est le suivant : `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    
+    > [!NOTE]
+    >  Copiez la valeur sys_id de l’étape 5.d.iii dans la section **Configurer ServiceNow**.
 
     b. Dans **Identificateur (ID d’entité)** , entrez une URL dont le modèle est le suivant : `https://<instance-name>.service-now.com`
 
@@ -163,7 +166,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Pour **URL de connexion**, entrez une URL dont le modèle est le suivant : `https://<instancename>.service-now.com/navpage.do`
+    a. Pour **URL de connexion**, entrez une URL dont le modèle est le suivant : `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>` Copiez la valeur sys_id de l’étape 5.d.iii dans la section **Configurer ServiceNow**.
 
     b. Pour **Identificateur (ID d’entité)** , entrez une URL dont le modèle est le suivant : `https://<instance-name>.service-now.com`
 
@@ -262,18 +265,20 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
              ![Capture d’écran de la section Identity Provider](./media/servicenow-tutorial/automatic-config.png "Configurer l’authentification unique")
 
-               a. Pour **Name** (Nom), indiquez le nom de votre configuration (par exemple, **Microsoft Azure Federated Single Sign-On**).
+               a. Cliquez avec le bouton droit de la souris sur la barre grise en haut de l’écran et cliquez sur **Copier sys_id** et utilisez cette valeur pour **URL de connexion** dans la section **Configuration SAML de base**.
 
-               b. Copiez la valeur **ServiceNow Homepage** (Page d’accueil de ServiceNow) et collez-la dans **URL de connexion** dans la section **Configuration SAML de base ServiceNow** du portail Azure.
+               b. Pour **Name** (Nom), indiquez le nom de votre configuration (par exemple, **Microsoft Azure Federated Single Sign-On**).
+
+               c. Copiez la valeur **ServiceNow Homepage** (Page d’accueil de ServiceNow) et collez-la dans **URL de connexion** dans la section **Configuration SAML de base ServiceNow** du portail Azure.
 
                 > [!NOTE]
                 > La page d’accueil de l’instance ServiceNow est une concaténation de votre **URL de locataire ServiceNow** et de **/navpage.do** (par exemple, `https://fabrikam.service-now.com/navpage.do`).
 
-              c. Copiez la valeur **Entity ID / Issuer** (ID d’entité / Émetteur) et collez-la dans **Identificateur** dans la section **Configuration SAML de base ServiceNow** du portail Azure.
+              d. Copiez la valeur **Entity ID / Issuer** (ID d’entité / Émetteur) et collez-la dans **Identificateur** dans la section **Configuration SAML de base ServiceNow** du portail Azure.
 
-              d. Confirmez que **NameID Policy** (Stratégie NameID) a la valeur `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. 
+              e. Confirmez que **NameID Policy** (Stratégie NameID) a la valeur `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. 
 
-              e. Cliquez sur **Advanced** (Avancé) et définissez la valeur de **Single Sign-On Script** (Script d’authentification unique) sur **MultiSSOv2_SAML2_custom**.
+              f. Cliquez sur **Advanced** (Avancé) et définissez la valeur de **Single Sign-On Script** (Script d’authentification unique) sur **MultiSSOv2_SAML2_custom**.
 
          1. Faites défiler la page jusqu’à la section **X.509 Certificate**  (Certificat X.509), puis sélectionnez **Edit** (Modifier).
 
@@ -324,7 +329,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
     1. L’URL des métadonnées IdP est alors lue et tous les champs sont renseignés.
 
-        ![Capture d’écran d’Identity Provider](./media/servicenow-tutorial/ic7694982.png "Configurer l’authentification unique")
+        ![Capture d’écran d’Identity Provider](./media/servicenow-tutorial/identity-provider.png "Configurer l’authentification unique")
 
         a. Pour **Name** (Nom), indiquez le nom de votre configuration (par exemple, **Microsoft Azure Federated Single Sign-On**).
 
@@ -384,7 +389,7 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 5. Dans la boîte de dialogue **X.509 Certificates** (Certificats X.509), effectuez les étapes suivantes :
 
-    ![Capture d’écran de la boîte de dialogue X.509 Certificates](./media/servicenow-tutorial/ic7694975.png "Configurer l’authentification unique")
+    ![Capture d’écran de la boîte de dialogue X.509 Certificates](./media/servicenow-tutorial/certificate.png "Configurer l’authentification unique")
 
     a. Pour **Name** (Nom), attribuez un nom à votre configuration (par exemple : **TestSAML2.0**).
 
@@ -404,7 +409,7 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 7. Dans la boîte de dialogue **Add New Identity Provider** (Ajouter un nouveau fournisseur d’identité), sous **Configure Identity Provider** (Configurer un fournisseur d’identité), effectuez les étapes suivantes :
 
-    ![Capture d’écran de la boîte de dialogue Add New Identity Provider](./media/servicenow-tutorial/ic7694982ex.png "Configurer l’authentification unique")
+    ![Capture d’écran de la boîte de dialogue Add New Identity Provider](./media/servicenow-tutorial/new-identity-provider.png "Configurer l’authentification unique")
 
     a. Pour **Name** (Nom), attribuez un nom à votre configuration (par exemple : **SAML 2.0**).
 
@@ -418,7 +423,7 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 8. Sélectionnez **Advanced Settings** (Paramètres avancés). Sous **Additional Identity Provider Properties** (Autres propriétés du fournisseur d’identité), effectuez les étapes suivantes :
 
-    ![Capture d’écran de la boîte de dialogue Add New Identity Provider, avec Advanced Settings mis en évidence](./media/servicenow-tutorial/ic7694983ex.png "Configurer l’authentification unique")
+    ![Capture d’écran de la boîte de dialogue Add New Identity Provider, avec Advanced Settings mis en évidence](./media/servicenow-tutorial/advanced-settings.png "Configurer l’authentification unique")
 
     a. Pour **Protocol Binding for the IDP’s SingleLogoutRequest** (Liaison de protocole pour la demande de déconnexion unique du fournisseur d’identité), entrez **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
@@ -430,7 +435,7 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 9. Sous **Additional Service Provider Properties** (Autres propriétés du fournisseur d’identité), procédez comme suit :
 
-    ![Capture d’écran de la boîte de dialogue Add New Identity Provider, avec différentes propriétés mises en évidence](./media/servicenow-tutorial/ic7694984ex.png "Configurer l’authentification unique")
+    ![Capture d’écran de la boîte de dialogue Add New Identity Provider, avec différentes propriétés mises en évidence](./media/servicenow-tutorial/service-provider.png "Configurer l’authentification unique")
 
     a. Pour **ServiceNow Homepage** (Page d’accueil ServiceNow), entrez l’URL de la page d’accueil de votre instance ServiceNow.
 

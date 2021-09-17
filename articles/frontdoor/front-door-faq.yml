@@ -12,12 +12,12 @@ metadata:
   ms.workload: infrastructure-services
   ms.date: 06/10/2021
   ms.author: duau
-  ms.openlocfilehash: 47faea68e2d5556d83d2b65d88e0f22844f24c4f
-  ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+  ms.openlocfilehash: 4f846d521473c483f7e127df13b5305e7b9cd6de
+  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112007754"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122324585"
 title: Questions fréquentes (FAQ) sur Azure Front Door
 summary: >
   Cet article répond aux questions courantes sur les fonctionnalités d’Azure Front Door. Si vous ne trouvez pas de réponse à votre question ici, vous pouvez nous joindre par le biais des méthodes suivantes (par ordre de priorité) :
@@ -66,9 +66,9 @@ sections:
       Dans quelles régions le service est-il disponible ?
     answer: "Azure Front Door est un service mondial ; il n’est pas lié à une région Azure spécifique. Le seul emplacement que vous devez spécifier lors de la création d’une porte d’entrée est l’emplacement du groupe de ressources, qui correspond en gros à l’emplacement où seront stockées les métadonnées pour le groupe de ressources. Les ressources Front Door proprement dites sont créées en tant que ressource mondiale, et la configuration est déployée dans le monde entier sur tous les emplacements de périphérie. \n"
   - question: >
-      Où sont les emplacements de périphérie pour Azure Front Door ?
+      Où sont les emplacements périphériques pour Azure Front Door ?
     answer: >
-      Pour obtenir la liste complète des emplacements de périphérie Azure Front Door, consultez [Emplacements périphériques Azure Front Door](edge-locations-by-region.md).
+      Pour obtenir la liste complète des emplacements périphériques pour Azure Front Door, consultez [Emplacements périphériques Azure Front Door](edge-locations-by-region.md).
   - question: >
       Azure Front Door est-il un déploiement dédié à mon application ou est-il partagé entre les clients ?
     answer: >
@@ -95,7 +95,7 @@ sections:
     answer: "Oui, Azure Front Door prend en charge les en-têtes X-Forwarded-For, X-Forwarded-Host et X-Forwarded-Proto. Pour X-Forwarded-For, si l’en-tête était déjà présent, Front Door y ajoute l’adresse IP de socket du client. Sinon, il ajoute l’en-tête avec l’adresse IP de socket du client comme valeur. Pour X-Forwarded-Host et X-Forwarded-Proto, la valeur est remplacée.\n\nPour en savoir plus sur les en-têtes HTTP pris en charge par Front Door, consultez [cet article](front-door-http-headers-protocol.md).  \n"
   - question: >
       Combien de temps faut-il pour déployer Azure Front Door ? Ma porte d’entrée fonctionne-t-elle toujours pendant sa mise à jour ?
-    answer: "La plupart des nouveaux déploiements et mises à jour prennent environ 3 à 20 minutes pour le déploiement dans l’ensemble de notre périphérie. \n\n> [!Note]  \n> Le déploiement dans le monde entier des mises à jour des certificats TLS/SSL personnalisés prend généralement environ 30 minutes.\n\nToutes les mises à jour des routes ou des pools de back-ends, etc., étant fluides, elles n’entraînent aucun temps d’arrêt (si la nouvelle configuration est correcte). Les mises à jour de certificat sont également atomiques et ne provoquent pas d’interruption, sauf si vous passez d’une configuration dans laquelle les certificats sont managés par AFD à une configuration dans laquelle vous utilisez votre propre certificat, ou vice versa.\n"
+    answer: "La plupart des nouveaux déploiements et mises à jour prennent environ 3 à 20 minutes pour le déploiement dans l’ensemble de notre périphérie. \n\n> [!Note]  \n> Le déploiement global de la plupart des mises à jour de certificats TLS/SSL personnalisés prend généralement de quelques minutes à une heure.\n\nToutes les mises à jour des routes ou des pools de back-ends, etc., étant fluides, elles n’entraînent aucun temps d’arrêt (si la nouvelle configuration est correcte). Les mises à jour de certificat sont également atomiques et ne provoquent pas d’interruption, sauf si vous passez d’une configuration dans laquelle les certificats sont managés par AFD à une configuration dans laquelle vous utilisez votre propre certificat, ou vice versa.\n"
 - name: Configuration
   questions:
   - question: >
@@ -108,7 +108,7 @@ sections:
       Pour en savoir plus sur tous les délais d’attente et limites documentés pour Azure Front Door, consultez [cet article](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits).
   - question: >
       Combien de temps faut-il pour qu’une règle prenne effet après avoir été ajoutée au moteur de règles Front Door ?
-    answer: "La plupart des mises à jour de la configuration du moteur de règles sont terminées en moins de 20 minutes. Vous pouvez vous attendre à ce que la règle prenne effet dès que la mise à jour est terminée. \n"
+    answer: "La plupart des mises à jour de la configuration du moteur de règles prennent moins de 20 minutes. Vous pouvez vous attendre à ce que la règle prenne effet dès que la mise à jour est terminée. \n"
   - question: >
       Puis-je configurer Azure CDN derrière mon profil Front Door ou vice versa ?
     answer: "Impossible de configurer ensemble Azure Front Door et Azure CDN, car ces deux services utilisent les mêmes sites de périphérie Azure pour répondre aux demandes. \n"
@@ -138,10 +138,10 @@ sections:
     answer: >
       Concernant l’option de certificat managé Front Door, Front Door assure la rotation automatique des certificats. Si vous utilisez un certificat géré Front Door et que vous voyez que la date d’expiration du certificat est inférieure à 60 jours, envoyez un ticket de support.
 
-      </br>Pour votre propre certificat TLS/SSL personnalisé, la rotation automatique n'est pas prise en charge. À l’image de sa configuration initiale pour un domaine personnalisé donné, vous devez pointer Front Door sur la version de certificat appropriée dans votre coffre de clés et vous assurer que le principal de service pour Front Door a toujours accès au coffre de clés. Cette opération de déploiement de certificat mis à jour par Front Door est atomique et n’a aucun impact sur la production, à condition que le nom de l’objet ou le SAN pour le certificat ne change pas.
+      </br>Pour votre propre certificat TLS/SSL personnalisé, affectez la valeur « Latest » à la version secrète pour qu’Azure Front Door effectue automatiquement une rotation vers la dernière version secrète téléchargée sur votre Key Vault. Le déploiement de la nouvelle version du certificat/secret peut prendre jusqu’à 24 heures. Si vous configurez la version secrète sur une version spécifique, vous devez faire pointer Front Door vers la version de certificat appropriée dans votre Key Vault. Assurez-vous que le principal de service pour Front Door a toujours accès au Key Vault. Reportez-vous à [comment accorder l’accès](standard-premium/how-to-configure-https-custom-domain.md#grant-azure-front-door-access-to-your-key-vault) à votre coffre à clés. Cette opération de lancement de certificat mis à jour par Front Door n’interrompt pas la production, à condition que le nom de l’objet ou le nom alternatif du sujet (SAN) pour le certificat ne change pas.
   - question: >
       Quelles sont les suites de chiffrement actuellement prises en charge par Azure Front Door ?
-    answer: "Pour TLS 1.2, les suites de chiffrement suivantes sont prises en charge : \n\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n\nQuand vous utilisez des domaines personnalisés avec TLS 1.0/1.1 activé, les suites de chiffrement suivantes sont prises en charge :\n\n- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\n- TLS_RSA_WITH_AES_256_GCM_SHA384\n- TLS_RSA_WITH_AES_128_GCM_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA256\n- TLS_RSA_WITH_AES_128_CBC_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA\n- TLS_RSA_WITH_AES_128_CBC_SHA\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n"
+    answer: "Pour TLS 1.2, les suites de chiffrement suivantes sont prises en charge : \n\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n\n> [!NOTE]  \n> Pour Windows 10 et versions ultérieures, nous vous recommandons d’activer une, ou les deux, suites de chiffrement ECDHE pour une meilleure sécurité. Windows 8.1, 8 et 7 ne sont pas compatibles avec ces suites de chiffrement ECDHE. Les suites de chiffrement DHE ont été fournies pour la compatibilité avec ces systèmes d’exploitation.\n\nQuand vous utilisez des domaines personnalisés avec TLS 1.0/1.1 activé, les suites de chiffrement suivantes sont prises en charge :\n\n- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\n- TLS_RSA_WITH_AES_256_GCM_SHA384\n- TLS_RSA_WITH_AES_128_GCM_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA256\n- TLS_RSA_WITH_AES_128_CBC_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA\n- TLS_RSA_WITH_AES_128_CBC_SHA\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n"
   - question: >
       Puis-je configurer la stratégie TLS de manière à contrôler les versions du protocole TLS ?
     answer: >

@@ -1,38 +1,31 @@
 ---
-title: Fichier include
-description: Fichier include
-services: virtual-wan
+ms.author: cherylmc
 author: cherylmc
+ms.date: 08/19/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 11/04/2019
-ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 6f910dbe91ed8e1cb65eefa6dfc48c72a689bf25
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f5d641a1d017f40081b311e9b9b610b7fcc7c13c
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "73491585"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122820866"
 ---
-1. Localisez l’instance Virtual WAN que vous avez créée. Dans la page Virtual WAN, sous la section **Connectivité**, sélectionnez **Hubs**.
-2. Dans la page Hubs, cliquez sur **+Nouveau hub** pour ouvrir la page **Créer un hub virtuel**.
-3. Dans la page **Créer un hub virtuel**, sous l’onglet **Fonctions de base**, renseignez les champs suivants :
+1. Localisez l’instance Virtual WAN que vous avez créée. Dans la page Virtual WAN, sous la section **Connectivité**, sélectionnez **Hubs**. Cliquez sur **Nouveau hub** pour ouvrir la page **Créer un hub virtuel**.
 
-   ![Concepts de base](./media/virtual-wan-tutorial-er-hub-include/hub1.png "Concepts de base")
+   :::image type="content" source="media/virtual-wan-empty-hub/new-hub.jpg" alt-text="Capture d’écran affichant la boîte de dialogue Hubs configuration avec l’option New Hub sélectionnée.":::
 
-    **Détails du projet**
+1. Dans la page **Créer un hub virtuel**, renseignez les champs.
 
-   * Région (précédemment appelée Emplacement)
-   * Nom
-   * Espace d’adressage privé du hub. L’espace d’adressage minimal pour créer un hub est /24. Cela implique que toute plage comprise entre /25 et /32 produit une erreur lors de la création.
-4. Sélectionnez l’**onglet ExpressRoute**.
+   :::image type="content" source="media/virtual-wan-tutorial-er-hub/create-hub.png" alt-text="Capture d’écran présentant l’onglet Informations de base dans lequel vous pouvez entrer des valeurs.":::
 
-5. Sous l’onglet **ExpressRoute**, complétez les champs suivants :
+   * **Région** : sélectionnez la région dans laquelle vous souhaitez déployer le hub virtuel.
+   * **Nom** : nom sous lequel vous souhaitez que le hub virtuel soit connu.
+   * **Espace d’adressage privé du hub** : plage d’adresses du hub en notation CIDR.
 
-   ![ExpressRoute](./media/virtual-wan-tutorial-er-hub-include/hub2.png "ExpressRoute")
+1. Sélectionnez l’**onglet ExpressRoute**. Cliquez sur **Oui** pour indiquer les paramètres et renseignez le champ. Pour plus d’informations sur les unités d’échelle de passerelle, consultez la [FAQ](../articles/virtual-wan/virtual-wan-faq.md#what-are-virtual-wan-gateway-scale-units).
 
-   * Sélectionnez **Oui** pour créer une passerelle **ExpressRoute**.
-   * Dans la liste déroulante, sélectionnez la valeur **Unités d’échelle de la passerelle**.
-6. Sélectionnez **Vérifier + créer** pour valider.
-7. Sélectionnez **Créer** pour créer le hub. Après 30 minutes, **actualisez** pour afficher le hub dans la page **Hubs**. Sélectionnez **Accéder à la ressource** pour accéder à ressource.
+   :::image type="content" source="media/virtual-wan-tutorial-er-hub/expressroute.png" alt-text="Capture d’écran présentant l’onglet ExpressRoute dans lequel vous pouvez entrer des valeurs.":::
+
+1. Sélectionnez **Vérifier + créer** pour valider.
+1. Sélectionnez **Créer** pour créer le hub avec une passerelle ExpressRoute. L’exécution d’un hub peut prendre environ 30 minutes. Après 30 minutes, **actualisez** pour afficher le hub dans la page **Hubs**. Sélectionnez **Accéder à la ressource** pour accéder à ressource.

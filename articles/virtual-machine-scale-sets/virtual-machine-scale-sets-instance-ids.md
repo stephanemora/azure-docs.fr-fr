@@ -9,14 +9,17 @@ ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: a62c9bbde0726c8dec8fba1f69e221bd4e4b63bc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7b9b088eb3e9524e711ba4068c49f172e65b1be8
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102209847"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697457"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Présentation des ID d’instance des machines virtuelles d’un groupe identique de machines virtuelles Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
+
 Cet article décrit les ID d’instance des groupes identiques ainsi que les différents modes de surface.
 
 ## <a name="scale-set-instance-ids"></a>ID d’instance des groupes identiques

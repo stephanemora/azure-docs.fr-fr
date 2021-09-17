@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 815e4bd34ecce3e77fafb95520632df6570cebb3
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 14ff8552b2e5244a9820f575a397ecc506f24447
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361150"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689453"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Trouver et supprimer les disques managés et non managés Azure non attachés - Portail Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Par défaut, lorsque vous supprimez une machine virtuelle dans Azure, tous les disques qui sont attachés à cette machine ne sont pas supprimés. Ainsi, vous pouvez éviter une perte de données causée par la suppression involontaire de machines virtuelles. Après la suppression d’une machine virtuelle, vous continuez de payer pour les disques non attachés. Cet article explique comment rechercher et supprimer à l’aide du portail Azure tous les disques non attachés pour réduire les coûts inutiles. Les suppressions sont définitives : vous ne pourrez plus récupérer les données une fois que vous avez supprimé un disque.
 

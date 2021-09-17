@@ -10,14 +10,16 @@ ms.date: 07/07/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1ba23474034623228cc7c645ffb3d0ec5ae65474
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 63e49c5fa68ca415ffd63e7db64bc7f5f89a7ab6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679044"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688653"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>Fournir des informations sur le plan d’achat de la Place de marché Azure lors de la création d’images
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Si vous créez une image dans une galerie partagée, à l’aide d’une source qui a été créée à l’origine à partir d’une image de la Place de marché Azure, vous devrez peut-être effectuer le suivi des informations sur le plan d’achat. Cet article montre comment rechercher des informations sur le plan d’achat pour une machine virtuelle, puis utiliser ces informations lors de la création d’une définition d’image. Nous abordons également l’utilisation des informations de la définition de l’image pour simplifier la fourniture des informations sur le plan d’achat lors de la création d’une machine virtuelle pour une image.
 

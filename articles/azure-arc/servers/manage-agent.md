@@ -3,12 +3,12 @@ title: Gestion de l’agent des serveurs avec Azure Arc
 description: Cet article décrit les différentes tâches de gestion à effectuer en règle générale pendant le cycle de vie de l’agent de machine connectée des serveurs avec Azure Arc.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7905a3fd2bf02ceafcfda8cf574d2f99c1e01b26
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 5e80d240c9b5ce8795de8baee3214d256d180e0f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609600"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769848"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestion et maintenance de l’agent Connected Machine
 
@@ -199,7 +199,7 @@ Vous pouvez effectuer une opération **Connect** et **Disconnect** manuellement 
 
 Ce paramètre spécifie une ressource dans Azure Resource Manager représentant la machine créée dans Azure. La ressource se trouve dans l’abonnement et le groupe de ressources spécifiés, et les données relatives à la machine sont stockées dans la région Azure spécifiée par le paramètre `--location`. Le nom de ressource par défaut est le nom d’hôte de la machine s’il n’est pas spécifié.
 
-Un certificat correspondant à l’identité attribuée par le système de cet machine est ensuite téléchargé, puis stocké localement. Après cette étape, Azure Connected Machine Metadata Service et l’agent Configuration d’invités commencent la synchronisation avec les serveurs avec Azure Arc.
+Un certificat correspondant à l’identité attribuée par le système de cet machine est ensuite téléchargé, puis stocké localement. Après cette étape, Azure Connected Machine Metadata Service et le service d’agent de configuration d’invités commencent la synchronisation avec les serveurs avec Azure Arc.
 
 Pour vous connecter à un principal de service, exécutez la commande suivante :
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec PolicyStat | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory SAML 2.0 avec PolicyStat | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PolicyStat.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c2520c8e209ab8319cbc5a369b70d247a52232c
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 72f62a23c40e005b7cb659aedf52b7eabf81d667
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600996"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutoriel : Intégration d’Azure Active Directory avec PolicyStat
 

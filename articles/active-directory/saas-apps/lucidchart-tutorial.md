@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 5d5b07e761d5ed38cb2083054708265189bdd72f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60b4eb7f827c1ed0084032b5e6cbe13a4c3dccb9
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651573"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180381"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lucidchart"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Lucidchart
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Lucidchart prend en charge l’authentification unique initiée par le **fournisseur de services**
+* Lucidchart prend en charge [l’attribution d’utilisateurs et la suppression des privilèges d’accès **automatisées**](lucidchart-provisioning-tutorial.md) (recommandé).
 * Lucidchart prend en charge le provisionnement des utilisateurs **Juste-à-temps**
 
 ## <a name="add-lucidchart-from-the-gallery"></a>Ajouter LucidChart à partir de la galerie

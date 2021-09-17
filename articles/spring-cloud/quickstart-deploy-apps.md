@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: b82e36b798611aad20044592cd3bec60cdf2e871
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 598702dee3c4e5fa712144eaad5aefff564df602
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469254"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015497"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Démarrage rapide : Créer et déployer des applications sur Azure Spring Cloud
 
@@ -133,7 +133,7 @@ Si vous avez utilisé Azure Cloud Shell jusqu’à présent, passez à une invit
    ```console
    az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip
    ```
-   
+
    L’exécution de cette commande peut durer plusieurs minutes.
 
 ## <a name="assign-public-endpoint"></a>Affecter le point de terminaison public
@@ -162,11 +162,7 @@ Pour tester l’application, envoyez une requête HTTP GET à l’application `
 
 ## <a name="test-the-application"></a>Test de l’application
 
-Envoyez une requête GET à l’application `solar-system-weather`. Dans un navigateur, accédez à l’URL publique en ajoutant `/weatherforecast` à la fin de celle-ci. Par exemple :
-
-```
-https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast
-```
+Envoyez une requête GET à l’application `solar-system-weather`. Dans un navigateur, accédez à l’URL publique en ajoutant `/weatherforecast` à la fin de celle-ci. Par exemple : `https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast`
 
 La sortie est du code JSON :
 
@@ -198,13 +194,14 @@ Avant de procéder au déploiement avec Azure CLI ou Maven, effectuez les exempl
 
 ## <a name="build-the-microservices-applications-locally"></a>Générer localement les applications de microservices
 
-1. Clonez le dépôt des exemples d’application sur votre compte cloud Azure.  Changez le répertoire, puis générez le projet. 
+1. Clonez le dépôt des exemples d’application sur votre compte cloud Azure.  Changez le répertoire, puis générez le projet.
 
     ```azurecli
     git clone https://github.com/azure-samples/spring-petclinic-microservices
     cd spring-petclinic-microservices
     mvn clean package -DskipTests -Denv=cloud
     ```
+
 La compilation du projet prend de 5 à 10 minutes. Une fois l’opération terminée, vous devez avoir des fichiers JAR individuels pour chaque service dans leurs dossiers respectifs.
 
 ## <a name="create-and-deploy-apps-on-azure-spring-cloud"></a>Créer et déployer des applications sur Azure Spring Cloud
@@ -212,7 +209,7 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
 1. Si vous n’avez pas exécuté les commandes suivantes dans les guides de démarrage rapide précédents, définissez les valeurs par défaut de l’interface CLI.
 
     ```azurecli
-    az configure --defaults group=<resource group name> spring-cloud=<service name>  
+    az configure --defaults group=<resource group name> spring-cloud=<service name>
     ```
 
 1. Créez les 2 microservices principaux pour PetClinic : la passerelle API (api-gateway) et le service Clients (customers-service).
@@ -238,8 +235,8 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
     ```azurecli
         Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
     -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
-    api-gateway        eastus      xxxxxx-sp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -     
-    customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -     
+    api-gateway        eastus      xxxxxx-sp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -
+    customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -
     ```
 
 ## <a name="verify-the-services"></a>Vérifier les services
@@ -263,17 +260,19 @@ az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin
 az spring-cloud app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
 az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
 ```
+
 #### <a name="maven"></a>[Maven](#tab/Maven)
 
 ## <a name="build-the-microservices-applications-locally"></a>Générer localement les applications de microservices
 
-1. Clonez le dépôt des exemples d’application sur votre compte cloud Azure.  Changez le répertoire, puis générez le projet. 
+1. Clonez le dépôt des exemples d’application sur votre compte cloud Azure.  Changez le répertoire, puis générez le projet.
 
     ```azurecli
     git clone https://github.com/azure-samples/spring-petclinic-microservices
     cd spring-petclinic-microservices
     mvn clean package -DskipTests -Denv=cloud
     ```
+
 La compilation du projet prend de 5 à 10 minutes. Une fois l’opération terminée, vous devez avoir des fichiers JAR individuels pour chaque service dans leurs dossiers respectifs.
 
 ## <a name="generate-configurations-and-deploy-to-the-azure-spring-cloud"></a>Générer des configurations et déployer vers Azure Spring Cloud
@@ -283,14 +282,16 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
     ```azurecli
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.6.0:config
     ```
-    
+
     Il vous sera demandé de sélectionner les éléments suivants :
+
     * **Modules :** Sélectionnez `api-gateway` et `customers-service`.
     * **Abonnement :** Il s’agit de votre abonnement utilisé pour créer une instance Azure Spring Cloud.
     * **Instance de service :** Il s’agit du nom de votre instance Azure Spring Cloud.
     * **Point de terminaison public :** Dans la liste des projets fournis, entrez le numéro qui correspond à `api-gateway`.  Ceci lui donne un accès public.
 
 1. Vérifiez que les éléments `appName` figurant dans les fichiers POM sont corrects :
+
     ```xml
     <build>
         <plugins>
@@ -302,33 +303,36 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
                     <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>
                     <appName>customers-service</appName>
-    
+
     ```
+
     Vérifiez que les textes `appName` correspondent aux suivants, supprimez tous les préfixes si nécessaire et enregistrez le fichier :
     * api-gateway
     * customers-service
 
-1. Le fichier POM contient désormais les dépendances et les configurations du plug-in. Déployez les applications en utilisant la commande suivante. 
+1. Le fichier POM contient désormais les dépendances et les configurations du plug-in. Déployez les applications en utilisant la commande suivante.
 
     ```azurecli
     mvn azure-spring-cloud:deploy
     ```
-    
+
 ## <a name="verify-the-services"></a>Vérifier les services
 
 Une commande de déploiement réussie renverra une URL au format suivant : `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Utilisez-la pour accéder au service en cours d’exécution.
 
 ![Accéder à PetClinic](media/build-and-deploy/access-customers-service.png)
 
-Vous pouvez également accéder au Portail Azure pour trouver l’URL. 
-1. Accéder au service
-2. Sélectionner **Applications**
-3. Sélectionner **api-gateway** 
-4. Rechercher l’URL dans la page **api-gateway | Vue d’ensemble**
+Vous pouvez également accéder au Portail Azure pour trouver l’URL.
+
+1. Accédez au service.
+2. Sélectionnez **Applications**.
+3. Sélectionnez **api-gateway**.
+4. Rechercher l’URL dans la page **api-gateway | Vue d’ensemble**.
 
 ## <a name="deploy-extra-apps"></a>Déployer des applications supplémentaires
 
 Pour que l’application PetClinic marche avec toutes les fonctionnalités comme le Serveur d’administration, les Visites et les Vétérinaires, vous pouvez déployer les autres microservices. Réexécutez la commande de configuration, puis sélectionnez les microservices suivants.
+
 * admin-server
 * vets-service
 * visits-service
@@ -339,7 +343,7 @@ Corrigez les noms d’application dans chaque `pom.xml` pour les modules ci-dess
 
 ## <a name="import-sample-project-in-intellij"></a>Importer l’exemple de projet dans IntelliJ
 
-1. Téléchargez et décompressez le dépôt source pour ce tutoriel, ou clonez-le avec Git : `git clone https://github.com/azure-samples/spring-petclinic-microservices` 
+1. Téléchargez et décompressez le dépôt source pour ce tutoriel, ou clonez-le avec Git : `git clone https://github.com/azure-samples/spring-petclinic-microservices`
 
 1. Ouvrez la boîte de dialogue **Welcome** d’IntelliJ et sélectionnez **Import Project** pour ouvrir l’Assistant Importation.
 
@@ -348,6 +352,7 @@ Corrigez les noms d’application dans chaque `pom.xml` pour les modules ci-dess
     ![Importer un projet](media/spring-cloud-intellij-howto/import-project-1-pet-clinic.png)
 
 ### <a name="deploy-api-gateway-app-to-azure-spring-cloud"></a>Déployer une application api-gateway sur Azure Spring Cloud
+
 Pour effectuer un déploiement dans Azure, vous devez vous connecter avec votre compte Azure auprès d’Azure Toolkit for IntelliJ et choisir votre abonnement. Pour plus d’informations sur la connexion, consultez [Installation et connexion](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Cliquez avec le bouton droit sur votre projet dans l’explorateur de projets IntelliJ, puis sélectionnez **Azure** -> **Deploy to Azure Spring Cloud**.
@@ -360,27 +365,28 @@ Pour effectuer un déploiement dans Azure, vous devez vous connecter avec votre 
 1. Dans la zone de texte **Spring Cloud**, sélectionnez l’instance Azure Spring Cloud que vous avez créée dans [Provisionner une instance Azure Spring Cloud](./quickstart-provision-service-instance.md).
 1. Définissez **Public Endpoint** (Point de terminaison public) sur *Enable* (Activer).
 1. Dans la zone de texte **App:** , sélectionnez **Create app...** .
-1. Entrez *api-gateway*, puis cliquez sur **OK**.
+1. Entrez *api-gateway*, puis sélectionnez **OK**.
 1. Spécifiez 2 Go de mémoire et les options JVM : `-Xms2048m -Xmx2048m`.
 
-     ![Options JVM de mémoire](media/spring-cloud-intellij-howto/memory-jvm-options.png)
+    ![Options JVM de mémoire](media/spring-cloud-intellij-howto/memory-jvm-options.png)
 
 1. Dans la section **Before launch** (Avant le lancement) de la boîte de dialogue, double-cliquez sur *Run Maven Goal* (Exécuter Maven Goal).
 1. Dans la zone de texte **Working directory** (Répertoire de travail), accédez au dossier *spring-petclinic-microservices/gateway*.
-1. Dans zone de texte **Command line** (Ligne de commande), entrez *package -DskipTests*. Cliquez sur **OK**.
+1. Dans zone de texte **Command line** (Ligne de commande), entrez *package -DskipTests*. Sélectionnez **OK**.
 
     ![Déployer sur Azure OK](media/spring-cloud-intellij-howto/deploy-to-azure-spring-cloud-2-pet-clinic.png)
 
-1. Démarrez le déploiement en cliquant sur le bouton **Run** (Exécuter) en bas de la boîte de dialogue **Deploy Azure Spring Cloud app** (Déployer l’application Azure Spring Cloud). Le plug-in va exécuter la commande `mvn package` sur l’application `api-gateway`, puis va déployer le fichier jar généré par la commande `package`.
+1. Démarrez le déploiement en sélectionnant le bouton **Exécuter** en bas de la boîte de dialogue **Déployer l’application Azure Spring Cloud**. Le plug-in va exécuter la commande `mvn package` sur l’application `api-gateway`, puis va déployer le fichier jar généré par la commande `package`.
 
 ### <a name="deploy-customers-service-and-other-apps-to-azure-spring-cloud"></a>Déployer customers-service et d’autres applications sur Azure Spring Cloud
+
 Répétez les étapes ci-dessus pour déployer `customers-service` et d’autres applications PetClinic sur Azure Spring Cloud :
 
 1. Modifiez **Name** et **Artifact** de façon à identifier l’application `customers-service`.
 1. Dans la zone de texte **App:** (Application :) sélectionnez **Create app...** (Créer une application...) pour créer l’application `customers-service`.
 1. Vérifiez que l’option **Public Endpoint** est définie sur *Disabled* (Désactivé).
 1. Dans la section **Before launch** (Avant le lancement) de la boîte de dialogue, définissez le dossier *petclinic/customers-service* pour **Working directory** (Répertoire de travail).
-1. Démarrez le déploiement en cliquant sur le bouton **Run** (Exécuter) en bas de la boîte de dialogue **Deploy Azure Spring Cloud app** (Déployer l’application Azure Spring Cloud). 
+1. Démarrez le déploiement en sélectionnant le bouton **Exécuter** en bas de la boîte de dialogue **Déployer l’application Azure Spring Cloud**.
 
 ## <a name="verify-the-services"></a>Vérifier les services
 
@@ -388,14 +394,17 @@ Accédez à l’URL au format `https://<service name>-spring-petclinic-api-gatew
 
 ![Accéder à PetClinic](media/build-and-deploy/access-customers-service.png)
 
-Vous pouvez également accéder au Portail Azure pour trouver l’URL. 
+Vous pouvez également accéder au Portail Azure pour trouver l’URL.
+
 1. Accéder au service
 2. Sélectionner **Applications**
-3. Sélectionner **api-gateway** 
+3. Sélectionner **api-gateway**
 4. Rechercher l’URL dans la page **api-gateway | Vue d’ensemble**
 
 ## <a name="deploy-extra-apps"></a>Déployer des applications supplémentaires
-D’autres microservices inclus dans cet exemple peuvent être déployés de la même façon. 
+
+D’autres microservices inclus dans cet exemple peuvent être déployés de la même façon.
+
 * admin-server
 * vets-service
 * visits-service

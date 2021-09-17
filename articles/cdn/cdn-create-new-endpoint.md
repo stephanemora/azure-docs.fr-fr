@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e8b3b5c28d00b4d7c81fa3e245113119ae3134ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d98b7050b2472c1dd0405c213b450c719bcd8572
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555701"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322443"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Démarrage rapide : Créer un profil et un point de terminaison Azure CDN
 
@@ -50,7 +50,7 @@ Une fois que vous avez créé un profil CDN, vous l’utilisez pour créer un po
     | **Type d’origine** | Sélectionnez **Stockage**. | 
     | **Nom d’hôte de l’origine** | Sélectionnez le nom d’hôte du compte de stockage Azure que vous utilisez dans la liste déroulante, par exemple *cdnstorageacct123.blob.core.windows.net*. |
     | **Chemin de l’origine** | Laisser vide. |
-    | **En-tête de l’hôte d’origine** | Laissez la valeur par défaut (qui correspond au nom d’hôte du compte de stockage). |  
+    | **En-tête de l’hôte d’origine** | Laissez la valeur par défaut (il s’agit du nom d’hôte d’origine). |  
     | **Protocole** | Laissez les options **HTTP** et **HTTPS** par défaut sélectionnées. |
     | **Port de l’origine** | Laissez les valeurs de port par défaut. | 
     | **Optimisé pour** | Laissez la sélection **Livraison web générale** par défaut. |

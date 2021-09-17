@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: kegorman
-ms.openlocfilehash: 04a3fb9e4e7dd1d498714cd3b2ebd4c5f6b55bec
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 1dfeaf71d846dfe33f42df3e9931293a76f62209
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210344"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698625"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Solutions d’applications Oracle intégrant Microsoft Azure et l’infrastructure cloud Oracle
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Linux 
 
 Microsoft et Oracle ont collaboré pour fournir une latence faible et une connectivité à débit élevé entre clouds, ce qui vous permet de bénéficier du meilleur des deux clouds. 
 

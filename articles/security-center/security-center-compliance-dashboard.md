@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 08/09/2021
 ms.author: memildin
-ms.openlocfilehash: 970329753d6dd6c6175c26da4288c304e27e3982
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: fae230c3f6dc37a269299fab74400f87198195d2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112237618"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734944"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutoriel : Améliorer votre conformité aux normes
 
@@ -29,7 +29,8 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Évaluer votre conformité aux réglementations à l’aide du tableau de bord de conformité réglementaire
 > * Améliorer votre niveau de conformité en suivant les recommandations
-> * Configurer des alertes en cas de modification de votre posture de conformité
+> * Télécharger les rapports PDF/CSV et les rapports de certification de votre état de conformité
+> * Configurer des alertes en cas de modification de votre état de conformité
 > * Exporter vos données de conformité en tant que flux continu et en tant qu’instantanés hebdomadaires
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -41,7 +42,7 @@ Pour parcourir les fonctionnalités couvertes dans ce tutoriel :
 - [Azure Defender](azure-defender.md) doit être activé. Vous pouvez essayer gratuitement Azure Defender pendant 30 jours.
 - Vous devez être connecté avec un compte qui dispose d’un accès de lecteur aux données de conformité de stratégie (**Lecteur Sécurité** est insuffisant). Le rôle **Lecteur général** pour l’abonnement fonctionnera. Au minimum, les rôles **Contributeur de stratégie de ressource** et **Administration de sécurité** doivent vous être affectés.
 
-##  <a name="assess-your-regulatory-compliance"></a>Évaluer votre conformité aux réglementations
+## <a name="assess-your-regulatory-compliance"></a>Évaluer votre conformité aux réglementations
 
 Le tableau de bord de conformité réglementaire montre vos normes de conformité sélectionnées et toutes leurs exigences, celles prises en charge étant comparées aux évaluations de sécurité applicables. L’état de ces évaluations reflète votre conformité à la norme.
 
@@ -56,12 +57,6 @@ Utilisez le tableau de bord de conformité réglementaire pour vous aider à pre
 1. Sélectionnez un onglet correspondant à une norme de conformité qui vous intéresse (1). Vous verrez sur quels abonnements la norme est appliquée (2) et la liste de tous les contrôles relatifs à cette norme (3). Pour les contrôles applicables, vous pouvez voir les détails des évaluations ayant réussi ou échoué associées à ce contrôle (4) et le nombre de ressources affectées (5). Certains contrôles sont grisés. Aucune évaluation Security Center n’est associée à ces contrôles. Vérifiez les conditions qui leur sont associées et évaluez-les dans votre environnement. Certaines d’entre elles peuvent être liés au processus et ne pas être d’ordre technique.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploration des détails de la conformité à une norme spécifique.":::
-
-1. Pour générer un rapport PDF comportant un résumé de votre état de compatibilité actuel pour une norme particulière, sélectionnez **Télécharger un rapport**.
-
-    Le rapport fournit un résumé général de votre état de conformité pour la norme sélectionnée en fonction des données d’évaluation Security Center. Le rapport est organisé en fonction des contrôles de cette norme particulière. Le rapport peut être partagé avec les parties prenantes concernées et servir de preuve aux auditeurs internes et externes.
-
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Télécharger le rapport de conformité.":::
 
 ## <a name="improve-your-compliance-posture"></a>Améliorer votre niveau de conformité
 
@@ -84,10 +79,32 @@ Utilisez le tableau de bord de conformité réglementaire pour vous aider à pre
     > [!NOTE]
     > Les évaluations s’exécutent toutes les 12 heures environ. L’impact sur vos données de conformité n’est donc visible qu’après l’exécution suivante de l’évaluation correspondante.
 
+## <a name="generate-compliance-status-reports-and-certificates"></a>Générer des rapports d’état de conformité et des certificats
 
-## <a name="export-your-compliance-status-data"></a>Exporter vos données d’état de conformité
+- Pour générer un rapport PDF comportant un résumé de votre état de compatibilité actuel pour une norme particulière, sélectionnez **Télécharger un rapport**.
 
-Si vous souhaitez suivre votre état de conformité avec d’autres outils de supervision dans votre environnement, Security Center comprend un mécanisme d’exportation pour faciliter cette tâche. Configurez l’**exportation continue** pour envoyer des données spécifiques à un hub d’événements Azure ou à un espace de travail Log Analytics.
+    Le rapport fournit un résumé général de votre état de conformité pour la norme sélectionnée en fonction des données d’évaluation Security Center. Le rapport est organisé en fonction des contrôles de cette norme particulière. Le rapport peut être partagé avec les parties prenantes concernées et servir de preuve aux auditeurs internes et externes.
+
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Utilisation de la barre d’outils du tableau de bord de conformité réglementaire de Security Center pour télécharger les rapports de conformité.":::
+
+- Pour télécharger des **rapports de certification** Azure et Dynamics pour les normes appliquées à vos abonnements, utilisez l’option **Rapports d’audit**. 
+
+    :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Utilisation de la barre d’outils du tableau de bord de conformité réglementaire de Security Center pour télécharger les rapports de certification Azure et Dynamics.":::
+
+    Sélectionnez l’onglet pour les types de rapports appropriés (PCI, SOC, ISO et autres) et utiliser des filtres pour rechercher les rapports spécifiques dont vous avez besoin :
+
+    :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Filtrage de la liste des rapports d’audit Azure disponibles en utilisant des onglets et des filtres.":::
+
+    Par exemple, à partir de l’onglet PCI, vous pouvez télécharger un fichier ZIP contenant un certificat signé numériquement, qui démontre la conformité de Microsoft Azure, Dynamics 365 et d’autres services en ligne au framework ISO22301, ainsi que la documentation nécessaire pour interpréter et présenter le certificat. 
+
+    > [!NOTE]
+    > Lorsque vous téléchargez l’un de ces rapports de certification, vous verrez apparaître l’avis de confidentialité suivant :
+    > 
+    > _En téléchargeant ce fichier, vous autorisez Microsoft à enregistrer l’utilisateur actuel et les abonnements sélectionnés au moment du téléchargement. Ces données sont utilisées pour vous informer en cas de modifications ou de mises à jour du rapport d’audit téléchargé. Ces données sont utilisées par Microsoft et les cabinets d’audit qui produisent la certification._
+
+## <a name="configure-frequent-exports-of-your-compliance-status-data"></a>Configurer des exportations fréquentes de vos données d’état de conformité
+
+Si vous souhaitez suivre votre état de conformité avec d’autres outils de supervision dans votre environnement, Security Center comprend un mécanisme d’exportation pour faciliter cette tâche. Configurez l’**exportation continue** pour envoyer des données spécifiques à un hub d’événements Azure ou à un espace de travail Log Analytics. Apprenez-en davantage dans [Exporter en continu des données Security Center](continuous-export.md).
 
 Utilisez les données d’exportation continue envoyées à un hub d’événements Azure ou un espace de travail Log Analytics :
 
@@ -99,11 +116,8 @@ Utilisez les données d’exportation continue envoyées à un hub d’événeme
 
     :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Exporter en continu un instantané hebdomadaire des données de conformité réglementaire." lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
 
-Vous pouvez également exporter un **rapport PDF/CSV** de vos données de conformité directement à partir du tableau de bord de conformité réglementaire :
-
-:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Exporter vos données de conformité réglementaire sous forme de rapport PDF ou CSV." lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
-
-Apprenez-en davantage dans [Exporter en continu des données Security Center](continuous-export.md).
+> [!TIP]
+> Vous pouvez également exporter manuellement des rapports à partir d’un point unique dans le temps directement à partir du tableau de bord de conformité réglementaire. Générez ces **rapports PDF / CSV** ou **rapports de certification Azure et Dynamics** avec les options de barre d’outils **Télécharger le rapport**  ou **Rapports d’audit** Options de la barre d’outils. Consultez [Évaluer votre conformité aux réglementations](#assess-your-regulatory-compliance) 
 
 
 ## <a name="run-workflow-automations-when-there-are-changes-to-your-compliance"></a>Exécuter des automatisations de workflow en cas de modification de votre conformité
@@ -187,11 +201,11 @@ Pour les autres stratégies, vous pouvez créer une exemption directement dans l
 
 
 ### <a name="what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard"></a>De quels plans ou licences Azure Defender ai-je besoin pour utiliser le tableau de bord de conformité réglementaire ?
-Si l’un des packages Azure Defender est activé dans l’un de vos types de ressources Azure, vous avez accès au tableau de bord de conformité réglementaire, avec toutes ses données, dans Security Center.
+Si vous avez activé *n’importe lequel* des plans Azure Defender sur *n’importe laquelle* de vos ressources Azure, vous pouvez accéder au tableau de bord de conformité réglementaire de Security Center et à toutes ses données.
 
 
 ### <a name="how-do-i-know-which-benchmark-or-standard-to-use"></a>Comment déterminer le benchmark ou la norme à utiliser ?
-Le [benchmark de sécurité Azure](/security/benchmark/azure/introduction) (ASB) est l’ensemble canonique des recommandations de sécurité et des bonnes pratiques définies par Microsoft, alignées sur les frameworks de contrôle de conformité courants, notamment [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) et [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). ASB est un benchmark très complet conçu pour recommander les fonctionnalités de sécurité les plus récentes d’un grand nombre de services Azure. Nous recommandons ASB aux clients qui veulent maximiser leur posture de sécurité et avoir la possibilité d’aligner leur état de conformité sur les normes du secteur.
+Le [benchmark de sécurité Azure](/security/benchmark/azure/introduction) (ASB) est l’ensemble canonique des recommandations de sécurité et des bonnes pratiques définies par Microsoft, alignées sur les frameworks de contrôle de conformité courants, notamment [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) et [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). ASB est un benchmark complet conçu pour recommander les fonctionnalités de sécurité les plus récentes d’un grand nombre de services Azure. Nous recommandons ASB aux clients qui veulent maximiser leur posture de sécurité et aligner leur état de conformité sur les normes du secteur.
 
 Le [benchmark CIS](https://www.cisecurity.org/benchmark/azure/) est créé par une entité indépendante, le CIS (Center for Internet Security), et contient des recommandations sur une partie des principaux services Azure. Nous travaillons en collaboration avec le CIS pour garantir que leurs recommandations comprennent les dernières améliorations d’Azure, mais il arrive qu’elles prennent du retard et deviennent obsolètes. Néanmoins, certains clients aiment utiliser cette évaluation tierce objective du CIS comme première et principale base de référence de sécurité.
 

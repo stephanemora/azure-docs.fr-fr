@@ -13,12 +13,12 @@ ms.custom:
 - seo-python-october2019
 - devx-track-azurecli
 - contperf-fy21q1
-ms.openlocfilehash: 9814037b9a4ace0a5f39d6ab0b01d1d940fb00fa
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: cda15b8d0dfd5074fca75283589c3ea173310b4e
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112991979"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769947"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Démarrage rapide : Déployer un cluster Azure Kubernetes Service à l’aide d’Azure CLI
 
@@ -75,25 +75,23 @@ Sortie pour un groupe de ressources créé avec succès :
 
 ## <a name="enable-cluster-monitoring"></a>Activer l’analyse du cluster
 
-1. Vérifiez que *Microsoft.OperationsManagement* et *Microsoft.OperationalInsights* sont inscrits dans votre abonnement. Pour vérifier l’état de l’inscription :
+Vérifiez que *Microsoft.OperationsManagement* et *Microsoft.OperationalInsights* sont inscrits dans votre abonnement. Pour vérifier l’état de l’inscription :
 
-    ```azurecli
-    az provider show -n Microsoft.OperationsManagement -o table
-    az provider show -n Microsoft.OperationalInsights -o table
-    ```
+```azurecli
+az provider show -n Microsoft.OperationsManagement -o table
+az provider show -n Microsoft.OperationalInsights -o table
+```
  
-    Si ce n’est pas le cas, inscrivez *Microsoft.OperationsManagement* et *Microsoft.OperationalInsights* avec :
+Si ce n’est pas le cas, inscrivez *Microsoft.OperationsManagement* et *Microsoft.OperationalInsights* avec :
  
-    ```azurecli
-    az provider register --namespace Microsoft.OperationsManagement
-    az provider register --namespace Microsoft.OperationalInsights
-    ```
-
-2. Activez [Azure Monitor pour conteneurs][azure-monitor-containers] à l’aide du paramètre *--enable-addons monitoring*. 
+```azurecli
+az provider register --namespace Microsoft.OperationsManagement
+az provider register --namespace Microsoft.OperationalInsights
+```
 
 ## <a name="create-aks-cluster"></a>Créer un cluster AKS
 
-Créez un cluster AKS avec la commande [az aks create][az-aks-create]. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster* : 
+Créez un cluster AKS avec la commande [az aks create][az-aks-create] avec le paramètre *--enable-addons monitoring* pour activer [Azure Monitor pour conteneurs][azure-monitor-containers]. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster* : 
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -168,7 +166,7 @@ Deux [services Kubernetes][kubernetes-service] sont également créés :
             app: azure-vote-back
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-back
             image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
@@ -211,7 +209,7 @@ Deux [services Kubernetes][kubernetes-service] sont également créés :
             app: azure-vote-front
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-front
             image: mcr.microsoft.com/azuredocs/azure-vote-front:v1

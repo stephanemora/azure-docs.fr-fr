@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: b180a0f148db5222a288958724ad248acd18b565
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7bd7b8e13ef6c44952f682497a4f4a5cdc2ebc3f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673859"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688085"
 ---
-# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurer Oracle ASM sur une machine virtuelle Linux Azure  
+# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurer Oracle ASM sur une machine virtuelle Linux Azure
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Linux 
 
 Les machines virtuelles fournissent un environnement informatique entièrement configurable et flexible. Ce didacticiel décrit le déploiement de base d’une machine virtuelle Azure associé à l’installation et à la configuration d’Oracle Automated Storage Management (ASM).  Vous allez apprendre à effectuer les actions suivantes :
 

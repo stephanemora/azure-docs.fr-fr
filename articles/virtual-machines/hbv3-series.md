@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: cb87ca44ecc7ff5c308dbf3a74390e34a0f5daea
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 28198fe22bb20e3bb1e4a08715686eca62f1fbba
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770008"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689054"
 ---
 # <a name="hbv3-series"></a>Série HBv3
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les machines virtuelles de la série HBv3 sont optimisées pour les applications HPC telles que la dynamique des fluides, l’analyse des éléments finis explicites et implicites, la modélisation de phénomènes météorologiques, le traitement de données sismiques, la simulation de réservoir et la simulation RTL. Les machines virtuelles HBv3 offrent jusqu’à 120 cœurs de processeurs AMD EPYC™ 7003 (Milan), 448 Go de RAM et aucun hyperthreading. Les machines virtuelles de la série HBv3 offrent également une bande passante mémoire de 350 Go/sec, jusqu’à 32 Mo de cache L3 par cœur, des performances de disque SSD allant jusqu’à 7 Go/s et des fréquences d’horloge allant jusqu’à 3,675 GHz. 
 

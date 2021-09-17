@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 08/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 7ddd3941c3001ba5c12a06d9f8710e2fc6328433
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4ffc4af491380fe02028848b2abeb53c73d8cd8b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059855"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324437"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Tutoriel : Préparer le déploiement d’Azure Stack Edge Pro R
 
@@ -69,8 +69,6 @@ Avant de déployer un appareil physique, assurez-vous que :
 - Vous avez consulté les informations de sécurité de cet appareil sur : [Consignes de sécurité pour votre appareil Azure Stack Edge](azure-stack-edge-pro-r-safety.md).
 [!INCLUDE [Azure Stack Edge device prerequisites](../../includes/azure-stack-edge-gateway-device-prerequisites.md)] 
 
-
-
 ### <a name="for-the-datacenter-network"></a>Pour le réseau du centre de données
 
 Avant de commencer, assurez-vous que :
@@ -86,25 +84,57 @@ Avant de commencer, assurez-vous que :
 
 Si vous disposez d’une ressource Azure Stack Edge existante pour gérer votre appareil physique, ignorez cette étape et passez à la section [Obtenir la clé d’activation](#get-the-activation-key).
 
-### <a name="portal"></a>[Portail](#tab/azure-portal)
+---
+
+### <a name="azure-edge-hardware-center-preview"></a>[Azure Edge Hardware Center (préversion)](#tab/azure-edge-hardware-center)
+
+Azure Edge Hardware Center (préversion) est un nouveau service qui vous permet d’explorer et de commander une variété de matériel à partir du portefeuille hybride Azure, notamment les appareils Azure Stack Edge Pro.
+
+Lorsque vous passez une commande par le biais d’Azure Edge Hardware Center, vous pouvez commander plusieurs appareils, à envoyer à plusieurs adresses, et vous pouvez réutiliser les adresses d’expédition à partir d’autres commandes.
+
+Toute commande par le biais d’Azure Edge Hardware Center crée une ressource Azure qui contient toutes les informations relatives à votre commande. Une seule ressource est créée pour chaque unité commandée. Vous devrez créer une ressource Azure Stack Edge après avoir reçu l’appareil pour l’activer et le gérer.
+
+[!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
+
+#### <a name="create-management-resources-for-devices"></a>Créer des ressources d’administration pour les appareils
+
+Pour gérer les appareils que vous commandez via Azure Edge Hardware Center, vous allez créer des ressources d’administration dans Azure Stack Edge. 
+
+Lorsqu’un appareil est activé, la ressource d’administration est associée à l’article de la commande. Vous pourrez ouvrir l’article de la commande à partir de la ressource d’administration et ouvrir la ressource d’administration à partir de l’article de la commande. 
+
+Une fois l’appareil expédié, un lien **Configurer le matériel** est ajouté aux informations sur l’article de la commande, ce qui vous permet d’ouvrir directement un Assistant pour créer une ressource d’administration. Vous pouvez également utiliser l’option **Créer une ressource d’administration** dans Azure Stack Edge.
+
+[!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
+
+### <a name="portal-classic"></a>[Portail (classique)](#tab/azure-portal)
 
 Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail Azure.
 
 1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter au portail Azure en suivant cette URL : [https://portal.azure.com](https://portal.azure.com).
 
-2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez et sélectionnez **Azure Stack Edge / Data Box Gateway**. Sélectionnez **Create** (Créer). 
+2. Dans **Services Azure**, recherchez et sélectionnez **Azure Stack Edge**. Sélectionnez ensuite **+ Créer**. 
+
+3. Dans **Gérer les appareils Azure Stack Edge**, sélectionnez le lien **Essayer Azure Hardware Center**.
+
+    ![Capture de l’écran « Gérer les appareils Azure Stack Edge », ouvert avec le bouton + Créer. Le lien « Essayer Azure Edge Hardware Center » est mis en surbrillance.](media/azure-stack-edge-pro-r-deploy-prep/classic-order-experience-1.png)
+
+    L’écran **Prise en main** s’ouvre pour la création d’une commande dans Azure Edge Hardware Center. 
+
+4. Si vous ne souhaitez pas commander via Azure Edge Hardware Center, sur l’écran **Prise en main**, sélectionnez **Commander via l’expérience de classement classique**.
+
+   ![Capture de l’écran Prise en main écran dans Azure Stack Edge. Le lien « Commander via l’expérience de commande classique » est mis en surbrillance.](media/azure-stack-edge-pro-r-deploy-prep/classic-order-experience-2.png)
 
 3. Sélectionnez l'abonnement que vous souhaitez utiliser pour l'appareil Azure Stack Edge Pro. Sélectionnez le pays où vous souhaitez expédier cet appareil physique. Sélectionnez **Afficher les appareils**.
 
-    ![Créer une ressource 1](media/azure-stack-edge-pro-r-deploy-prep/create-resource-1.png)
+    ![Capture de l’écran « Sélectionner le type d’appareil » pour sélectionner un abonnement et une région d’expédition pour une ressource Azure Stack Edge. Le bouton Afficher les appareils est mis en surbrillance.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-1.png)
 
-4. Sélectionnez le type d'appareil. Sous **Azure Stack Edge**, choisissez **Azure Stack Edge Pro R**, puis **Sélectionner**. Si vous rencontrez des problèmes ou si vous ne parvenez pas à sélectionner le type d'appareil, accédez à [Résoudre les problèmes de commandes](azure-stack-edge-troubleshoot-ordering.md).
+4. Sélectionnez le type d’appareil. Sous **Azure Stack Edge**, choisissez **Azure Stack Edge Pro R**, puis **Sélectionner**. Si vous rencontrez des problèmes ou si vous ne parvenez pas à sélectionner le type d'appareil, accédez à [Résoudre les problèmes de commandes](azure-stack-edge-troubleshoot-ordering.md).
 
-    ![Créer une ressource 2](media/azure-stack-edge-pro-r-deploy-prep/create-resource-2.png)
+    ![Capture de l’écran « Sélectionner le type d’appareil » pour sélectionner un type d’appareil pour une ressource Azure Stack Edge. Le bouton Sélectionner pour un type d’appareil est mis en surbrillance.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-2.png#lightbox)
 
 5. En fonction des besoins de votre entreprise, vous pouvez sélectionner **Nœud unique Azure Stack Edge Pro R** ou **Nœud unique Azure Stack Edge Pro R avec onduleur**.  
 
-    ![Créer une ressource 3](media/azure-stack-edge-pro-r-deploy-prep/create-resource-3.png)
+    ![Capture de l’écran de sélection d’une configuration pour un appareil Azure Stack Edge Pro R pour une ressource Azure Stack Edge. Une configuration matérielle et le bouton Sélectionner sont mis en surbrillance.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-3.png)
 
 6. Sous l’onglet **Bases**, entrez ou sélectionnez les **détails du projet** suivants.
     
@@ -120,24 +150,24 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
     |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
     |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
 
-    ![Créer une ressource 4](media/azure-stack-edge-pro-r-deploy-prep/create-resource-4.png)
+    ![Capture d’écran de l’onglet Bases de l’Assistant Création d’une ressource et commande d’un appareil pour Azure Stack Edge. L’onglet Bases et le bouton Suivant : adresse d’expédition sont mis en surbrillance.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-4.png)
 
 
 8. Sélectionnez **Suivant : Adresse de livraison**.
 
     - Si vous avez déjà un appareil, sélectionnez **J’ai un appareil Azure Stack Edge Pro R** dans la zone de liste modifiable.
 
-        ![Créer une ressource 5](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
+        ![Capture d’écran de l’onglet « Adresse d’expédition » avec l’option « J’ai déjà une adresse d’expédition pour l’appareil » sélectionnée dans l’Assistant Création d’une ressource pour Azure Stack Edge.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
 
     - Si vous commandez un nouvel appareil, entrez le nom du contact, la société, l’adresse de livraison de l’appareil et les coordonnées.
 
-        ![Créer une ressource 6](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
+        ![Capture d’écran de l’onglet « Adresse d’expédition » dans l’Assistant Création d’une ressource lors de la création d’une ressource Azure Stack Edge.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
 
 9. Sélectionnez **Suivant : Balises**. Si vous le souhaitez, vous pouvez fournir des balises pour catégoriser les ressources et centraliser la facturation. Sélectionnez **Suivant : Vérifier + créer**.
 
 10. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
 
-    ![Créer une ressource 7](media/azure-stack-edge-pro-r-deploy-prep/create-resource-7.png) 
+    ![Capture d’écran de l’onglet Vérifier + créer pour une commande Azure Stack Edge.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-7.png) 
 
     Vous êtes également informé qu’une identité MSI (Managed Service Identity) est activée pendant la création de la ressource qui vous permet de vous authentifier auprès des services cloud. Cette identité existe aussi longtemps que la ressource existe.
 
@@ -147,7 +177,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
     Un message vous informe que la ressource a été créée et déployée. Sélectionnez **Accéder à la ressource**.
 
-    ![Accéder à la ressource Azure Stack Edge Pro](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Capture de l’écran indiquant que le déploiement d’une nouvelle ressource Azure Stack Edge est terminé. Le bouton Accéder à la ressource est mis en surbrillance.](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
 
 Une fois la commande passée, Microsoft l’examine et vous communique (par e-mail) les détails de l’expédition.
 
@@ -215,9 +245,9 @@ Une fois que la ressource Azure Stack Edge est active et en cours d’exécution
 
    Une fois que vous avez spécifié un nom de coffre de clés, sélectionnez **Générer la clé d’activation** pour créer une clé d’activation.
 
-   ![Obtenir une clé d’activation](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
+   ![Capture d’écran du volet Vue d’ensemble pour une ressource Azure Stack Edge nouvellement créée. Le bouton Générer la clé d’activation est mis en surbrillance.](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-   Attendez quelques minutes le temps que le coffre de clés et la clé d’activation soient créés. Sélectionnez l’icône de copie pour copier la clé et l’enregistrer pour une utilisation ultérieure.<!--Verify that the new screen has a copy icon.-->
+   Attendez quelques minutes le temps que le coffre de clés et la clé d’activation soient créés. Sélectionnez l’icône de copie pour copier la clé et l’enregistrer pour une utilisation ultérieure.
 
 > [!IMPORTANT]
 > - La clé d’activation expire 3 jours après sa création.

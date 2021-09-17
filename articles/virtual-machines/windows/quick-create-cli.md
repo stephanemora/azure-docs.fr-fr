@@ -6,19 +6,21 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 07/02/2019
+ms.date: 08/09/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 651d644070f13933fadf4a2616e770a27c014c92
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: ca4466c307a893ac7058581a5e22aec87b9a71a2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074878"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694682"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Démarrage rapide : Créer une machine virtuelle Windows avec l’interface Azure CLI
 
-L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide de démarrage rapide explique comment utiliser l’interface Azure CLI pour déployer dans Azure une machine virtuelle qui fonctionne avec Windows Server 2016. Pour voir votre machine virtuelle en action, vous établirez une connexion RDP à la machine virtuelle et installerez le serveur web IIS.
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows
+
+L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide de démarrage rapide explique comment utiliser l’interface Azure CLI pour déployer dans Azure une machine virtuelle qui fonctionne avec Windows Server 2019. Pour voir votre machine virtuelle en action, vous établirez une connexion RDP à la machine virtuelle et installerez le serveur web IIS.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -41,17 +43,21 @@ az group create --name myResourceGroup --location eastus
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’exemple suivant permet de créer une machine virtuelle nommée *myVM*. Cet exemple utilise *azureuser* comme d’utilisateur administratif. 
 
 Vous devrez fournir un mot de passe qui répond aux [conditions requises pour les mots de passe pour les machines virtuelles Azure](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
-). Dans le cadre de l’exemple ci-après, vous serez invité à entrer un mot de passe dans la ligne de commande. Vous pouvez également ajouter le paramètre `--admin-password` avec une valeur pour votre mot de passe. Le nom d’utilisateur et le mot de passe seront utilisés plus tard, lorsque vous vous connecterez à la machine virtuelle.
+). 
+
+Dans le cadre de l’exemple ci-après, vous serez invité à entrer un mot de passe dans la ligne de commande. Vous pouvez également ajouter le paramètre `--admin-password` avec une valeur pour votre mot de passe. Le nom d’utilisateur et le mot de passe seront utilisés plus tard, lorsque vous vous connecterez à la machine virtuelle.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image win2016datacenter \
+    --image Win2019Datacenter \
+    --public-ip-sku Standard \
     --admin-username azureuser 
 ```
 
 La création de la machine virtuelle et des ressources de support ne nécessite que quelques minutes. L’exemple de sortie suivant illustre la réussite de l’opération de création d’une machine virtuelle.
+
 
 ```output
 {
@@ -67,8 +73,6 @@ La création de la machine virtuelle et des ressources de support ne nécessite 
 ```
 
 Notez votre propre `publicIpAddress` dans la sortie à partir de votre machine virtuelle. Cette adresse permet d’accéder à la machine virtuelle lors des étapes suivantes.
-
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web
 

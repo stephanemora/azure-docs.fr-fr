@@ -10,14 +10,16 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a47d0d99dd4ca3db9098222f62d73fc4ea258d1b
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: a12e378b91f2b303e80b739be3b8e9efea4262ec
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027980"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691075"
 ---
 # <a name="create-a-scale-set-from-a-specialized-image-using-powershell"></a>Créer un groupe identique à partir d’une image spécialisée à l’aide de PowerShell 
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Créez une machine virtuelle à partir d’une version d’image spécialisée stockée dans une [galerie d’images partagées](../virtual-machines/shared-image-galleries.md) à l’aide de PowerShell. Si vous souhaitez créer un groupe identique à l’aide d’une version d’image généralisée, consultez [Créer des instances de groupe identique à partir d’une version d’image généralisée](instance-generalized-image-version-powershell.md).
 

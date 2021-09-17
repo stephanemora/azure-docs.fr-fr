@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 06/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5a83e9452b8ce54875c531bd93bb14009f8eeacd
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 4c29ff09b6d353072cb8486e17ffa605ceff9aea
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607271"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769353"
 ---
 # <a name="plan-your-update-management-deployment"></a>Planifier votre déploiement d’Update Management
 

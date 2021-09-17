@@ -10,14 +10,16 @@ ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8658845a3f5a0e9913536a73850d0cf6442e69d3
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6b6db47d812b13bced9d0e52530ec8c59b58be19
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669509"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770796"
 ---
 # <a name="enable-write-accelerator"></a>Activer l’Accélérateur des écritures
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 L’Accélérateur des écritures est une fonctionnalité de disque des machines virtuelles Série M sur stockage Premium avec Azure Disques managés exclusivement. Comme son nom l’indique, cette fonctionnalité vise à améliorer la latence d’E/S des écritures dans le stockage Azure Premium. L’Accélérateur des écritures est particulièrement adapté lorsque les mises à jour du fichier journal doivent être conservées sur disque dans un système à hautes performances pour répondre aux besoins des bases de données modernes.
 
@@ -52,9 +54,10 @@ L’Accélérateur des écritures prend en charge un nombre limité de disques d
 | --- | --- | --- |
 | M416ms_v2, M416s_v2| 16 | 20000 |
 | M208ms_v2, M208s_v2| 8 | 10000 |
-| M128ms, M128s | 16 | 20000 |
-| M64ms, M64ls, M64s | 8 | 10000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 5 000 |
+| M192ids_v2, M192idms_v2, M192is_v2, M192ims_v2, | 16 | 20000 |
+| M128ms, M128s, M128ds_v2, M128dms_v2, M128s_v2, M128ms_v2 | 16 | 20000 |
+| M64ms, M64ls, M64s, M64ds_v2, M64dms_v2, M64s_v2, M64ms_v2 | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s, M32dms_v2, M32ms_v2 | 4 | 5 000 |
 | M16ms, M16s | 2 | 2 500 |
 | M8ms, M8s | 1 | 1250 |
 

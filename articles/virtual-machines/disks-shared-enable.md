@@ -2,24 +2,35 @@
 title: Activer la fonctionnalité Disques partagés pour les disques managés Azure
 description: Configurer un disque managé Azure avec la fonctionnalité Disques partagés afin de pouvoir le partager avec plusieurs machines virtuelles
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 08/16/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9061e3621d8232c82a126a60bebe16bb32ce6d29
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 594800dcd75de3e5539873f327b5b64b81a8cb1f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673360"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698185"
 ---
 # <a name="enable-shared-disk"></a>Activer la fonctionnalité Disques partagés
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Cet article explique comment activer la fonctionnalité Disques partagés pour les disques managés Azure. La fonctionnalité Disques partagés Azure est une nouvelle fonctionnalité pour disques managés Azure qui vous permet de connecter simultanément un disque managé à plusieurs machines virtuelles. La connexion d'un disque managé à plusieurs machines virtuelles vous permet de déployer de nouvelles applications en cluster ou de migrer des applications en cluster existantes vers Azure. 
 
 Si vous recherchez des informations conceptuelles relatives aux disques managés sur lesquels la fonctionnalité Disques partagés est activée, consultez [Disques partagés Azure](disks-shared.md).
+
+## <a name="prerequisites"></a>Prérequis
+
+Les scripts et les commandes de cet article requièrent l’un des éléments suivants :
+
+- Le module Azure PowerShell, version 6.0.0 ou ultérieure.
+
+ou
+- La version la plus récente d’Azure CLI.
 
 ## <a name="limitations"></a>Limites
 
@@ -41,6 +52,27 @@ Pour déployer un disque managé avec la fonctionnalité de disque partagé acti
 
 > [!IMPORTANT]
 > La valeur de `maxShares` peut être définie ou modifiée uniquement lorsqu’un disque est démonté de toutes les machines virtuelles. Consultez les [tailles de disque](#disk-sizes) afin de connaître les valeurs autorisées pour `maxShares`.
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+1. Connectez-vous au portail Azure. 
+1. Recherchez et sélectionnez **Disques**.
+1. Sélectionnez **+ Créer** pour créer un disque.
+1. Renseignez les détails et sélectionnez une région appropriée, puis sélectionnez **Modifier la taille**.
+
+    :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Capture d’écran du volet créer un disque géré, changer la taille mise en surbrillance." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
+
+1. Sélectionnez la taille de disque SSD Premium souhaitée, puis cliquez sur **OK**.
+
+    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Capture d’écran de la référence du disque, SSD Premium mis en surbrillance." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+
+1. Continuez le déploiement jusqu'à ce que vous arriviez au volet **Avancé**.
+1. Sélectionnez **Oui** pour **Activer le disque partagé** et sélectionnez le nombre de **partages maximum** que vous souhaitez.
+
+    :::image type="content" source="media/disks-shared-enable/enable-premium-shared-disk.png" alt-text="Capture d’écran du volet avancé, activer le disque partagé mis en surbrillance et définir sur Oui." lightbox="media/disks-shared-enable/enable-premium-shared-disk.png":::
+
+1. Sélectionnez **Vérifier + créer**.
+
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -64,6 +96,76 @@ Avant d’utiliser le modèle suivant, remplacez `[parameters('dataDiskName')]`,
 
 ---
 
+### <a name="deploy-a-standard-ssd-as-a-shared-disk"></a>Déployer un disque SSD Standard en tant que disque partagé
+
+Pour déployer un disque managé avec la fonctionnalité de disque partagé activée, utilisez la nouvelle propriété `maxShares` et définissez une valeur supérieure à 1. Cela permet de partager le disque sur plusieurs machines virtuelles.
+
+> [!IMPORTANT]
+> La valeur de `maxShares` peut être définie ou modifiée uniquement lorsqu’un disque est démonté de toutes les machines virtuelles. Consultez les [tailles de disque](#disk-sizes) afin de connaître les valeurs autorisées pour `maxShares`.
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+Actuellement, vous ne pouvez pas déployer un disque SSD standard partagé via le Portail Azure. Utilisez l’Azure CLI, le module Azure PowerShell ou un modèle Azure Resource Manager.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku StandardSSD_LRS --max-shares 2
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType StandardSSD_LRS -CreateOption Empty -MaxSharesCount 2
+
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
+```
+
+# <a name="resource-manager-template"></a>[Modèle Resource Manager](#tab/azure-resource-manager)
+
+Remplacez les valeurs de ce modèle de Azure Resource Manager par les vôtres, avant de l’utiliser :
+
+```rest
+{ 
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "dataDiskName": {
+      "type": "string",
+      "defaultValue": "mySharedDisk"
+    },
+    "dataDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 1024
+    },
+    "maxShares": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/disks",
+      "name": "[parameters('dataDiskName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-07-01",
+      "sku": {
+        "name": "StandardSSD_LRS"
+      },
+      "properties": {
+        "creationData": {
+          "createOption": "Empty"
+        },
+        "diskSizeGB": "[parameters('dataDiskSizeGB')]",
+        "maxShares": "[parameters('maxShares')]"
+      }
+    }
+  ] 
+}
+```
+
+---
+
 ### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>Déployer un disque Ultra en tant que disque partagé
 
 Pour déployer un disque managé avec la fonctionnalité de disque partagé activée, définissez le paramètre `maxShares` sur une valeur supérieure à 1. Cela permet de partager le disque sur plusieurs machines virtuelles.
@@ -71,6 +173,22 @@ Pour déployer un disque managé avec la fonctionnalité de disque partagé acti
 > [!IMPORTANT]
 > La valeur de `maxShares` peut être définie ou modifiée uniquement lorsqu’un disque est démonté de toutes les machines virtuelles. Consultez les [tailles de disque](#disk-sizes) afin de connaître les valeurs autorisées pour `maxShares`.
 
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+1. Connectez-vous au portail Azure. 
+1. Recherchez et sélectionnez **Disques**.
+1. Sélectionnez **+ Créer** pour créer un disque.
+1. Remplissez les détails, puis sélectionnez **Modifier la taille**.
+1. Sélectionnez le disque Ultra pour la **référence SKU de disque**.
+
+    :::image type="content" source="media/disks-shared-enable/select-ultra-shared-disk.png" alt-text="Capture d’écran de la référence SKU de disque Ultra mise en surbrillance." lightbox="media/disks-shared-enable/select-ultra-shared-disk.png":::
+
+1. Sélectionnez la taille de disque souhaitée, puis cliquez sur **OK**.
+1. Continuez le déploiement jusqu'à ce que vous arriviez au volet **Avancé**.
+1. Sélectionnez **Oui** pour **Activer le disque partagé** et sélectionnez le nombre de **partages maximum** que vous souhaitez.
+1. Sélectionnez **Vérifier + créer**.
+
+    :::image type="content" source="media/disks-shared-enable/enable-ultra-shared-disk.png" alt-text="Capture d’écran du volet avancé, activer le disque partagé mis en surbrillance." lightbox="media/disks-shared-enable/enable-ultra-shared-disk.png":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

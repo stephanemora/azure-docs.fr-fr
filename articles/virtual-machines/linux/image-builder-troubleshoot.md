@@ -1,24 +1,37 @@
 ---
 title: Résoudre les problèmes liés au service Azure VM Image Builder
 description: Résoudre les erreurs et problèmes courants lors de l’utilisation du service Azure VM Image Builder
-author: cynthn
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 85296a7b7de8e1bce03d39ab8c96c8444fe1dffb
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 6ef288e776daaf7aa266d13068647bea1c5a4c27
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440949"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691886"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Résoudre les problèmes liés au service Azure VM Image Builder
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
+
 Cet article vous aide à dépanner et à résoudre les problèmes courants que vous pouvez rencontrer lors de l’utilisation du service Azure VM Image Builder.
+
+## <a name="prerequisites"></a>Prérequis
+Quand vous créez une build, assurez-vous qu’elle répond aux conditions préalables suivantes :
+    
+- Le service Azure VM Image Builder communique avec la machine virtuelle de build à l’aide de WinRM ou SSH ; NE désactivez PAS ces paramètres dans le cadre de la build.
+- Azure VM Image Builder créera des ressources dans le cadre de la build, assurez-vous qu’Azure Policy n’empêche pas AIB de créer ou d’utiliser les ressources nécessaires.
+  - Créer un groupe de ressources IT_
+  - Créer un compte de stockage sans pare-feu
+- Vérifiez qu’Azure Policy n’installe pas de fonctionnalités inattendues sur la machine virtuelle de build, comme des extensions Azure.
+-   Assurez-vous qu’Azure VM Image Builder dispose des autorisations appropriées pour lire/écrire des images et se connecter au stockage Azure. Consultez la documentation relative aux autorisations pour [CLI](./image-builder-permissions-cli.md) ou [PowerShell](./image-builder-permissions-powershell.md).
+- Azure VM Image Builder fera échouer la build si les commandes en ligne/scripts échouent avec des erreurs (codes de sortie non nuls) ; assurez-vous d’avoir testé et vérifié que les scripts personnalisés s’exécutent sans erreur (code de sortie 0) ou nécessitent une intervention de l’utilisateur. Pour plus d’informations, consultez la [documentation](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images) suivante.
 
 Les échecs d’AIB peuvent se produire à deux endroits :
 - Envoi de modèle d’image
@@ -525,6 +538,25 @@ Le service Image Builder utilise le port 22 (Linux) ou 5986 (Windows) pour se c
 
 #### <a name="solution"></a>Solution
 Passez en revue vos scripts pour connaître les modifications/activations du pare-feu ou les modifications de SSH ou WinRM, et assurez-vous que les modifications autorisent une connectivité constante entre le service et la machine virtuelle de build sur les ports ci-dessus. Pour plus d’informations sur la mise en réseau d’Image Builder, consultez les [conditions requises](./image-builder-networking.md).
+
+### <a name="jwt-errors-in-log-early-in-the-build"></a>Erreurs JWT dans le journal au début de la build
+
+#### <a name="error"></a>Error
+Au début du processus de création de la build, cette dernière échoue et le journal indique une erreur JWT :
+
+```text
+PACKER OUT Error: Failed to prepare build: "azure-arm"
+PACKER ERR 
+PACKER OUT 
+PACKER ERR * client_jwt will expire within 5 minutes, please use a JWT that is valid for at least 5 minutes
+PACKER OUT 1 error(s) occurred:
+```
+
+#### <a name="cause"></a>Cause
+La valeur `buildTimeoutInMinutes` du modèle est comprise entre 1 et 5 minutes.
+
+#### <a name="solution"></a>Solution
+Comme décrit dans [Créer un modèle Azure VM Image Builder](./image-builder-json.md), le délai d’attente doit être défini sur 0 pour utiliser la valeur par défaut ou sur une valeur supérieure à 5 minutes pour remplacer la valeur par défaut.  Remplacez le délai d’attente de votre modèle par 0 pour utiliser la valeur par défaut ou sur un minimum de 6 minutes.
 
 ## <a name="devops-task"></a>Tâche DevOps 
 

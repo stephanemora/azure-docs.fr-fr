@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/02/2021
 ms.author: jeedes
-ms.openlocfilehash: a2c149bfdf79102779abf7544fed9fb78796a50e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d04d2aa68eecc4b18f0ec1e3bfd1f6cb4d279bc0
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649953"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178860"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à New Relic by Account
 
@@ -38,6 +38,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * New Relic by Account prend en charge l’authentification unique lancée par le **fournisseur de services**
+* New Relic prend en charge le [**provisionnement et le déprovisionnement automatisés des utilisateurs**](new-relic-by-organization-provisioning-tutorial.md) (recommandé).
+
 
 ## <a name="add-new-relic-by-account-from-the-gallery"></a>Ajouter New Relic by Account à partir de la galerie
 

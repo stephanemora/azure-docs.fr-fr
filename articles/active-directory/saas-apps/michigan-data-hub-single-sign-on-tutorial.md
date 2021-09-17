@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2020
+ms.date: 07/30/2021
 ms.author: jeedes
-ms.openlocfilehash: acdfd8b6c57ad2005f116ffb1e5a3c94a5cb87f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb24b950e2fabeb0839cccba06c183dc48270465
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522629"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736157"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-michigan-data-hub-single-sign-on"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Michigan Data Hub Single Sign-On
 
@@ -26,8 +26,6 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Michigan Data Hub Sing
 * Permettre aux utilisateurs de se connecter automatiquement à Michigan Data Hub Single Sign-On avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
@@ -35,30 +33,34 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Michigan Data Hub Single Sign-On pour lequel l’authentification unique est activée
 
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
+
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Michigan Data Hub Single Sign-On prend en charge l’authentification unique lancée par le **fournisseur de services**
-* Après avoir configuré Michigan Data Hub Single Sign-On, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* L’authentification unique Michigan Data Hub prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-## <a name="adding-michigan-data-hub-single-sign-on-from-the-gallery"></a>Ajout de Michigan Data Hub Single Sign-On à partir de la galerie
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
+## <a name="add-michigan-data-hub-single-sign-on-from-the-gallery"></a>Ajouter L’authentification unique Michigan Data Hub à partir de la galerie
 
 Pour configurer l’intégration de Michigan Data Hub Single Sign-On à Azure AD, vous devez ajouter Michigan Data Hub Single Sign-On, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Michigan Data Hub Single Sign-On** dans la zone de recherche.
 1. Sélectionnez **Michigan Data Hub Single Sign-On** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-michigan-data-hub-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD pour Michigan Data Hub Single Sign-On
 
 Configurez et testez l’authentification unique Azure AD avec Michigan Data Hub Single Sign-On en utilisant un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une liaison entre un utilisateur Azure AD et l’utilisateur Michigan Data Hub Single Sign-On associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Michigan Data Hub Single Sign-On, suivez les indications des modules ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec L’authentification unique Michigan Data Hub, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -71,13 +73,13 @@ Pour configurer et tester l’authentification unique Azure AD avec Michigan Da
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Michigan Data Hub Single Sign-On**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans le Portail Azure, dans la page d’intégration de l’application **Authentification unique Michigan Data Hub**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez l’étape suivante :
 
     Dans la zone de texte **URL de connexion**, tapez l’URL : `https://launchpad.midatahub.org`
 
@@ -104,13 +106,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Michigan Data Hub Single Sign-On**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
@@ -125,20 +121,14 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Michig
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Michigan Data Hub Single Sign-On dans le volet d’accès, vous devez être connecté automatiquement à l’application Michigan Data Hub Single Sign-On pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Authentification unique Michigan Data Hub, à partir de laquelle vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion Authentification unique Michigan Data Hub pour lancer le flux de connexion.
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la mosaïque Authentification unique Michigan Data Hub dans Mes applications, vous êtes redirigé vers l’URL de connexion Authentification unique Michigan Data Hub. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer Michigan Data Hub Single Sign-On avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Michigan Data Hub Single Sign-On avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré Michigan Data Hub Single Sign-On, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

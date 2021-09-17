@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 7/15/2021
-ms.openlocfilehash: f7b134f14d190e7ef65eb2da897f9c106583d497
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: d88df617e994f4a609b12dff0419fd673f8207d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393517"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721928"
 ---
 # <a name="register-and-scan-google-bigquery-source-preview"></a>Inscrire et analyser la source Google BigQuery (préversion)
 
@@ -43,7 +43,7 @@ La source BigQuery prend en charge l’Analyse complète pour extraire les méta
 Pour inscrire un nouveau projet Google BigQuery dans votre catalogue de données, procédez comme suit :
 
 1.  Accédez à votre compte Purview.
-2.  Sélectionnez **Sources** dans la barre de navigation à gauche.
+2.  Sélectionnez **Data Map** dans le volet de navigation de gauche.
 3.  Sélectionnez **Inscrire**.
 4.  Dans Inscrire des sources, sélectionnez **Google BigQuery**. Sélectionnez **Continuer.** 
     :::image type="content" source="media/register-scan-google-bigquery-source/register-sources.png" alt-text="Inscrire la source BigQuery" border="true":::
@@ -80,7 +80,7 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
     c.  **Informations d’identification** : lors de la configuration des informations d’identification BigQuery, veillez à :
 
     - Sélectionner **Authentification de base** comme méthode d’authentification
-    - Indiquer l’ID de messagerie du compte de service dans le champ nom d’utilisateur. Par exemple,\xyz\@developer.gserviceaccount.com
+    - Indiquer l’ID de messagerie du compte de service dans le champ nom d’utilisateur. Par exemple, xyz\@developer.gserviceaccount.com
     - Enregistrer un fichier de clé privée du compte de service au format JSON dans le coffre de clés
 
     Pour créer une nouvelle clé privée à partir de la plateforme Cloud de Google, dans le menu de navigation, cliquez sur IAM et Admin- \> Comptes de service- \> Sélectionner un projet- \> cliquez sur l’adresse de messagerie du compte de service pour lequel vous souhaitez créer une clé. Pour cela, \> cliquez sur l’onglet **Clés**\>, cliquez sur le menu déroulant **Ajouter une clé**, puis sélectionnez Créer une clé. Choisissez maintenant le format JSON.

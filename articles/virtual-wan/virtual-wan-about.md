@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: b62f531c355852dd8a66f8186d4bd73a875e6948
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: 97ecb049d4307bacf6c9a7b73d08e3d25e05f112
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371627"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821664"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Qu’est-ce que le WAN virtuel Azure ?
 
@@ -51,11 +51,11 @@ Pour configurer un WAN virtuel de bout en bout, vous devez créer les ressources
 
 * **virtualWAN :** La ressource virtualWAN représente une superposition virtuelle de votre réseau Azure et est une collection de plusieurs ressources. Elle contient des liens vers tous les hubs virtuels que vous souhaitez faire figurer dans le WAN virtuel. Les ressources du WAN virtuel sont isolées les unes des autres et ne peuvent pas contenir de hub commun. Les hubs virtuels d'un WAN virtuel ne communiquent pas entre eux.
 
-* **Hub :** Un hub virtuel est un réseau virtuel géré par Microsoft. Le hub contient différents points de terminaison de service pour activer la connectivité. À partir de votre réseau local (vpnsite), vous pouvez vous connecter à une passerelle VPN à l'intérieur du hub virtuel, connecter des circuits ExpressRoute à un hub virtuel, ou même connecter des utilisateurs mobiles à une passerelle point à site dans le hub virtuel. Le hub est le cœur de votre réseau au sein d’une région spécifique. Il ne peut exister qu’un seul hub par région Azure.
+* **Hub :** Un hub virtuel est un réseau virtuel géré par Microsoft. Le hub contient différents points de terminaison de service pour activer la connectivité. À partir de votre réseau local (vpnsite), vous pouvez vous connecter à une passerelle VPN à l'intérieur du hub virtuel, connecter des circuits ExpressRoute à un hub virtuel, ou même connecter des utilisateurs mobiles à une passerelle point à site dans le hub virtuel. Le hub est le cœur de votre réseau au sein d’une région spécifique. Plusieurs hubs virtuels peuvent être créés dans la même région. 
 
   Une passerelle de hub virtuel est différente d’une passerelle de réseau virtuel que vous utilisez pour les services ExpressRoute et Passerelle VPN. Par exemple, quand vous utilisez Virtual WAN, vous ne créez pas de connexion site à site directe entre votre site local et votre réseau virtuel. Au lieu de cela, vous établissez une connexion site à site avec le hub. Le trafic passe toujours par la passerelle du hub. Cela signifie que vos réseaux virtuels n’ont pas besoin d’avoir leur propre passerelle de réseau virtuel. Le WAN virtuel simplifie la mise à l’échelle de vos réseaux virtuels via le hub virtuel et la passerelle de hub virtuel.
 
-* **Connexion entre hub et réseau virtuel :** La ressource Connexion entre hub et réseau virtuel permet de connecter facilement le hub à votre réseau virtuel.
+* **Connexion entre hub et réseau virtuel :** La ressource Connexion entre hub et réseau virtuel permet de connecter facilement le hub à votre réseau virtuel. Un réseau virtuel ne peut être connecté qu’à un seul hub virtuel. 
 
 * **Connexion de hub à hub :** les hubs sont tous connectés les uns aux autres dans un WAN virtuel. Cela signifie qu'une branche, un utilisateur ou un réseau virtuel connecté à un hub local peut communiquer avec une autre branche ou un autre réseau virtuel en utilisant l'intégralité de l'architecture maillée des hubs connectés. Vous pouvez également connecter des réseaux virtuels au sein d'un hub transitant par le hub virtuel, ainsi que des réseaux virtuels inter-hub, en utilisant l'infrastructure connectée hub à hub.
 

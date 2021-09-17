@@ -8,14 +8,17 @@ ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 0a4d2ef5b7f367130151fabda3f1d97b65605931
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b38ced5ec6ed66f14648b165a9556bdc87aa2302
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676033"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696799"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Images RHEL (Red Hat Enterprise Linux) disponibles dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux 
+
 Azure propose une variété d’images RHEL pour différents cas d’usage.
 
 > [!NOTE]
@@ -70,9 +73,9 @@ RHEL-SAP      | 7.4      | LVM    | Agent Linux | RHEL 7.4 pour SAP HANA et les 
 |             | 7.6       | LVM    | Agent Linux | RHEL 7.6 for SAP HANA et Business Applications. Attachement à des dépôts E4S, facture une prime pour SAP et RHEL, ainsi que des frais de calcul de base.
 |             | 76sap-gen2| LVM    | Agent Linux | RHEL 7.6 for SAP HANA et Business Applications. Image de 2e génération. Attachement à des dépôts E4S, facture une prime pour SAP et RHEL, ainsi que des frais de calcul de base.
 |             | 7,7       | LVM    | Agent Linux | RHEL 7.7 for SAP HANA et Business Applications. Attachement à des dépôts E4S, facture une prime pour SAP et RHEL, ainsi que des frais de calcul de base.
-RHEL-SAP-HANA (sera supprimé en novembre 2020) | 6.7       | RAW    | Agent Linux | RHEL 6.7 pour SAP HANA. Obsolète, privilégier les images RHEL-SAP. Cette image sera supprimée en novembre 2020. Pour plus d’informations sur les offres cloud SAP de Red Hat, [cliquez ici](https://access.redhat.com/articles/3751271).
-|             | 7.2       | LVM    | Agent Linux | RHEL 7.2 pour SAP HANA. Obsolète, privilégier les images RHEL-SAP. Cette image sera supprimée en novembre 2020. Pour plus d’informations sur les offres cloud SAP de Red Hat, [cliquez ici](https://access.redhat.com/articles/3751271).
-|             | 7.3       | LVM    | Agent Linux | RHEL 7.3 pour SAP HANA. Obsolète, privilégier les images RHEL-SAP. Cette image sera supprimée en novembre 2020. Pour plus d’informations sur les offres cloud SAP de Red Hat, [cliquez ici](https://access.redhat.com/articles/3751271).
+RHEL-SAP-HANA (sera supprimé en novembre 2020) | 6.7       | RAW    | Agent Linux | RHEL 6.7 pour SAP HANA. Obsolète, privilégier les images RHEL-SAP. Cette image sera supprimée en novembre 2020. Pour plus d’informations sur les offres disponibles SAP Cloud de Red Hat, consultez les [offres SAP sur les fournisseurs de Cloud certifiés](https://access.redhat.com/articles/3751271).
+|             | 7.2       | LVM    | Agent Linux | RHEL 7.2 pour SAP HANA. Obsolète, privilégier les images RHEL-SAP. Cette image sera supprimée en novembre 2020. Pour plus d’informations sur les offres disponibles SAP Cloud de Red Hat, consultez les [offres SAP sur les fournisseurs de Cloud certifiés](https://access.redhat.com/articles/3751271).
+|             | 7.3       | LVM    | Agent Linux | RHEL 7.3 pour SAP HANA. Obsolète, privilégier les images RHEL-SAP. Cette image sera supprimée en novembre 2020. Pour plus d’informations sur les offres disponibles SAP Cloud de Red Hat, consultez les [offres SAP sur les fournisseurs de Cloud certifiés](https://access.redhat.com/articles/3751271).
 RHEL-SAP-APPS | 6.8       | RAW    | Agent Linux | RHEL 6.8 pour applications métiers SAP. Obsolète, privilégier les images RHEL-SAP.
 |             | 7.3       | LVM    | Agent Linux | RHEL 7.3 pour applications métiers SAP. Obsolète, privilégier les images RHEL-SAP.
 |             | 7.4       | LVM    | Agent Linux | RHEL 7.4 pour applications métiers SAP.
@@ -113,7 +116,7 @@ rhel-byos     |rhel-lvm74| LVM    | Agent Linux | Les images BYOS RHEL 7.4, qui 
 |             |rhel-lvm82-gen2 | LVM    | Agent Linux | Les images BYOS RHEL 8.2 Génération 2, qui ne sont associées à aucune source de mises à jour, ne sont pas facturées comme RHEL Premium.
 
 > [!NOTE]
-> L’offre de produits RHEL-SAP-HANA est considérée comme en fin de vie par Red Hat. Les déploiements existants continueront de fonctionner normalement, mais Red Hat recommande aux clients d’effectuer une migration des images RHEL-SAP-HANA vers les images RHEL-SAP-HA, qui incluent les référentiels SAP HANA ainsi que le module complémentaire HA. Pour plus d’informations sur les offres cloud SAP de Red Hat, [cliquez ici](https://access.redhat.com/articles/3751271).
+> L’offre de produits RHEL-SAP-HANA est considérée comme en fin de vie par Red Hat. Les déploiements existants continueront de fonctionner normalement, mais Red Hat recommande aux clients d’effectuer une migration des images RHEL-SAP-HANA vers les images RHEL-SAP-HA, qui incluent les référentiels SAP HANA ainsi que le module complémentaire HA. Pour plus d’informations sur les offres disponibles SAP Cloud de Red Hat, consultez les [offres SAP sur les fournisseurs de Cloud certifiés](https://access.redhat.com/articles/3751271).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [images Red Hat dans Azure](./redhat-images.md).

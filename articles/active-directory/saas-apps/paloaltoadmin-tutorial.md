@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 57b1d47fa40c0af4bced1e4169fe60cd759ee2f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aceaed29b83a190e4e943f0ec1ae99a8daa44682
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963636"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutoriel : Intégration d’Azure Active Directory à Palo Alto Networks - Admin UI
 
@@ -107,7 +107,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | | |
 
     > [!NOTE]
-    > La valeur _adminrole_ doit être la même que le nom de rôle configuré dans **Palo Alto Networks**, comme mentionné à l’étape 9. 
+    > La valeur **Nom**, indiquée ci-dessus en tant que _adminrole_, doit avoir la même valeur que _l’Attribut du rôle d’administrateur_ qui est configuré à l’étape 12 de la section **[Configurer l’authentification unique Palo Alto Networks – Admin UI](#configure-palo-alto-networks---admin-ui-sso)** . La valeur **Attribut source**, indiquée ci-dessus en tant que _customadmin_, doit avoir la même valeur que le _Nom de profil du rôle d’administrateur_ qui est configuré à l’étape 9 de la section **[Configurer l’authentification unique Palo Alto Networks – Admin UI](#configure-palo-alto-networks---admin-ui-sso)** .  
 
     > [!NOTE]
     > Pour plus d'informations sur les attributs, consultez les articles suivants :

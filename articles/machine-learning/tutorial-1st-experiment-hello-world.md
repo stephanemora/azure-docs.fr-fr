@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
 ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 40fdfcec5e74c7b86807f5cd1577d12ed4904632
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 472fcf4c7a1cc486db5aded40c87ffec2a9e796a
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765735"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634691"
 ---
 # <a name="tutorial-get-started-with-a-python-script-in-azure-machine-learning-part-1-of-3"></a>Tutoriel : prise en main d’un script Python dans Azure Machine Learning (partie 1 sur 3)
 
@@ -149,13 +149,19 @@ Voici une description du fonctionnement du script de contrôle :
 
 ## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Soumettre et exécuter votre code dans le cloud
 
-Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script de contrôle, qui à son tour exécute `hello.py` sur le cluster de calcul que vous avez créé dans le [tutoriel de configuration](quickstart-create-resources.md).
+1. Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script de contrôle, qui à son tour exécute `hello.py` sur le cluster de calcul que vous avez créé dans le [tutoriel de configuration](quickstart-create-resources.md).
 
-Dans le terminal, vous pouvez être invité à vous connecter pour vous authentifier.  Copiez le code et suivez le lien pour effectuer cette étape.
+1. Dans le terminal, vous pouvez être invité à vous connecter pour vous authentifier.  Copiez le code et suivez le lien pour effectuer cette étape.
 
-> [!TIP]
-> Si vous venez de terminer la création du cluster de calcul, vous risquez de voir s’afficher l’erreur « UserError : image de l’ancrage requis introuvable... ». Attendez environ 5 minutes, puis réessayez.  Le cluster de calcul peut avoir besoin de plus de temps avant d’être prêt à créer des nœuds.
+1. Une fois que vous êtes authentifié, vous voyez un lien dans le terminal. Sélectionnez le lien pour afficher l’exécution.
 
+    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+
+## <a name="view-the-output"></a>Affichage du résultat
+
+1. Dans la page qui s’ouvre, vous voyez l’état d’exécution.
+1. Quand l’état de l’exécution est **Terminé**, sélectionnez **Sortie + journaux** en haut de la page.
+1. Sélectionnez **70_driver_log.txt** pour afficher le résultat de votre exécution.
 
 ## <a name="monitor-your-code-in-the-cloud-in-the-studio"></a><a name="monitor"></a>Superviser votre code dans le cloud à partir du studio
 

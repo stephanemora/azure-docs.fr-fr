@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0341e00e51c5d1c112451142d2e48f9707d525ed
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 3b26543927dd2631ebb8a7536b0cf8d5694b28ba
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669117"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689332"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Windows
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 Le service Azure Disk Encryption pour machines virtuelles Windows utilise la fonctionnalité BitLocker de Windows pour effectuer un chiffrement complet des disques de système d’exploitation et du disques de données. Il assure en outre le chiffrement du disque temporaire lorsque le paramètre VolumeType est défini sur Tous.
 
@@ -84,13 +86,10 @@ La syntaxe de la valeur du paramètre key-encryption-key est l’URI complet de 
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
-- **Désactiver le chiffrement de disque :** Pour désactiver le chiffrement, utilisez la cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). La désactivation du chiffrement de disque de données sur la machine virtuelle Windows lorsque les disques du système d’exploitation et de données ont été chiffrés ne fonctionne pas comme prévu. Désactivez plutôt le chiffrement sur tous les disques.
-
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
-     ```
+Pour désactiver le chiffrement, consultez [Désactiver le chiffrement et supprimer l’extension de chiffrement](#disable-encryption-and-remove-the-encryption-extension).
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with-the-azure-cli"></a>Activer le chiffrement sur des machines virtuelles existantes ou en cours d’exécution avec Azure CLI
+
 Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable) pour activer le chiffrement sur une machine virtuelle IaaS en cours d’exécution dans Azure.
 
 - **Chiffrer une machine virtuelle en cours d’exécution :**
@@ -115,11 +114,7 @@ Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az_vm_en
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Désactiver le chiffrement :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable). La désactivation du chiffrement de disque de données sur la machine virtuelle Windows lorsque les disques du système d’exploitation et de données ont été chiffrés ne fonctionne pas comme prévu. Désactivez plutôt le chiffrement sur tous les disques.
-
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
-     ```
+Pour désactiver le chiffrement, consultez [Désactiver le chiffrement et supprimer l’extension de chiffrement](#disable-encryption-and-remove-the-encryption-extension).
 
 ### <a name="using-the-resource-manager-template"></a>Utilisation du modèle Resource Manager
 
@@ -232,6 +227,7 @@ Vous pouvez [ajouter un nouveau disque à une machine virtuelle Windows avec Pow
 La syntaxe de la valeur du paramètre key-encryption-key est l’URI complet de la clé KEK comme dans : https://[nom_coffre_clés].vault.azure.net/keys/[nom_clé_kek]/[ID_unique_clé_kek]
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Activer le chiffrement sur un disque nouvellement ajouté avec Azure CLI
+
  La commande Azure CLI vous propose automatiquement une nouvelle version de la séquence quand vous exécutez la commande pour activer le chiffrement. L’exemple utilise « All » pour le paramètre volume-type. Vous devrez peut-être remplacer le paramètre volume-type par « OS » si vous ne chiffrez que le disque du système d’exploitation. Contrairement à la syntaxe de PowerShell, l’interface CLI ne nécessite pas que l’utilisateur fournisse une version de séquence unique lors de l’activation du chiffrement. L’interface CLI génère automatiquement et utilise sa propre valeur de version de séquence unique.
 
 -  **Chiffrer une machine virtuelle en cours d’exécution :**
@@ -246,9 +242,56 @@ La syntaxe de la valeur du paramètre key-encryption-key est l’URI complet de 
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "All"
      ```
 
+## <a name="disable-encryption-and-remove-the-encryption-extension"></a>Désactiver le chiffrement et supprimer l’extension de chiffrement
 
-## <a name="disable-encryption"></a>Désactiver le chiffrement
-[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-powershell.md)]
+Vous pouvez désactiver l’extension Azure Disk Encryption et vous pouvez également la supprimer. Il s’agit de deux opérations distinctes. 
+
+Pour supprimer ADE, il est recommandé de désactiver d’abord le chiffrement, puis de supprimer l’extension. Si vous supprimez l’extension de chiffrement sans la désactiver, les disques seront toujours chiffrés. Si vous désactivez le chiffrement **après** la suppression de l’extension, l’extension sera réinstallée (pour effectuer l’opération de déchiffrement) et devra être supprimée une deuxième fois.
+
+### <a name="disable-encryption"></a>Désactiver le chiffrement
+
+Vous pouvez désactiver le chiffrement avec Azure PowerShell, Azure CLI ou un modèle Resource Manager. Le fait de désactiver le chiffrement ne supprime **pas** l’extension (voir [Supprimer l’extension de chiffrement](#remove-the-encryption-extension)).
+
+> [!WARNING]
+> La désactivation du chiffrement de disque de données lorsque les disques de système d’exploitation et de données ont été chiffrés peut avoir des résultats inattendus. Désactivez plutôt le chiffrement sur tous les disques.
+>
+> La désactivation du chiffrement entraîne le démarrage d’un processus en arrière-plan de BitLocker pour déchiffrer les disques. Le délai d’exécution de ce processus doit être suffisant avant d’essayer de réactiver le chiffrement.  
+
+- **Désactiver le chiffrement de disque avec Azure PowerShell :** Pour désactiver le chiffrement, utilisez la cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption).
+
+     ```azurepowershell-interactive
+     Disable-AzVMDiskEncryption -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM" -VolumeType "all"
+     ```
+
+- **Désactiver le chiffrement avec Azure CLI :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable). 
+
+     ```azurecli-interactive
+     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
+     ```
+
+- **Désactiver le chiffrement avec un modèle Resource Manager :** 
+
+    1. Cliquez sur **Déployer sur Azure** dans le modèle [Désactiver le chiffrement de disque sur une machine virtuelle Windows en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-windows-vm-without-aad).
+    2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement, la machine virtuelle, le type de volume, les conditions juridiques et le contrat.
+    3.  Cliquez sur **Acheter** pour désactiver le chiffrement de disque sur une machine virtuelle Windows en cours d’exécution.
+
+### <a name="remove-the-encryption-extension"></a>Supprimer l’extension de chiffrement
+
+Si vous souhaitez déchiffrer vos disques et supprimer l’extension de chiffrement, vous devez désactiver le chiffrement **avant** de supprimer extension (voir [Désactiver le chiffrement](#disable-encryption)).
+
+Vous pouvez supprimer l’extension de chiffrement à l’aide d’Azure PowerShell ou d’Azure CLI. 
+
+- **Désactiver le chiffrement de disque avec Azure PowerShell :** pour supprimer le chiffrement, utilisez l’applet de commande [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension).
+
+     ```azurepowershell-interactive
+     Remove-AzVMDiskEncryptionExtension -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM"
+     ```
+
+- **Désactiver le chiffrement avec Azure CLI :** pour supprimer le chiffrement, utilisez la commande [az vm extension delete](/cli/azure/vm/extension#az_vm_extension_delete).
+
+     ```azurecli-interactive
+     az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryptionForWindows"
+     ```
 
 ## <a name="unsupported-scenarios"></a>Scénarios non pris en charge
 

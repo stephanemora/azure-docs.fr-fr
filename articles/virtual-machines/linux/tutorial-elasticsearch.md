@@ -11,14 +11,16 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 3ce28efa30b04a2a762c39f47dac739633eac209
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: ec348f462255a07841cfd794a3054292d2592f95
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818473"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697729"
 ---
 # <a name="install-the-elastic-stack-elk-on-an-azure-vm"></a>Installer Elastic Stack (ELK) sur une machine virtuelle Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cet article vous guide dans le déploiement d’[Elasticsearch](https://www.elastic.co/products/elasticsearch), de [Logstash](https://www.elastic.co/products/logstash) et de [Kibana](https://www.elastic.co/products/kibana) sur une machine virtuelle Ubuntu dans Azure. Pour voir Elastic Stack en action, vous pouvez éventuellement vous connecter à Kibana et travailler avec des exemples de données de journalisation. 
 

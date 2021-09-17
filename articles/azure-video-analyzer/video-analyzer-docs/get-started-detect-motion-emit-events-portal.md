@@ -3,12 +3,12 @@ title: Bien démarrer avec Azure Video Analyzer en utilisant le portail Azure - 
 description: Ce guide de démarrage rapide vous aide à commencer à utiliser Azure Video Analyzer étape par étape en utilisant le Portail Azure.
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.openlocfilehash: 4ff89417a10e50ff404ce22b7c57a2c0e29322e6
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: df63755aa66399a2f457673ba17391d5b42f31a8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601086"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734236"
 ---
 # <a name="quickstart-get-started-with-azure-video-analyzer-in-the-azure-portal"></a>Démarrage rapide : démarrage avec Azure Video Analyzer dans le Portail Azure
 
@@ -230,7 +230,7 @@ Si vous suivez ce guide de démarrage rapide, les événements sont envoyés à 
 
 ## <a name="use-direct-method-calls"></a>Utiliser des appels de méthode directe
 
-Vous pouvez désormais analyser les flux vidéo en direct en appelant les méthodes directes exposées par le module de périphérie Video Analyzer. Lisez [Méthodes directes de Video Analyzer](direct-methods.md) pour examiner toutes les méthodes directes fournies par le module.
+Vous pouvez désormais analyser les flux vidéo en direct en appelant les méthodes directes exposées par le module de périphérie Video Analyzer. Lisez [Méthodes directes de Video Analyzer](direct-methods.md) pour examiner toutes les méthodes directes fournies par le module. Le schéma des méthodes directes est disponible [ici](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.0.0/AzureVideoAnalyzerSdkDefinitions.json).
 
 ### <a name="enumerate-pipeline-topologies"></a>Énumérer les topologies de pipeline
 

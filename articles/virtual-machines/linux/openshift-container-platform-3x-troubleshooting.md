@@ -7,19 +7,20 @@ ms.service: virtual-machines
 ms.subservice: openshift
 ms.collection: linux
 ms.topic: troubleshooting
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
-ms.openlocfilehash: b6dfb4cb697e7d66c7db323df9786ff7ad45e1d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f01a31bbee5a6abe40020a5760ef5a5fafcd3ff
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101672322"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688231"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Résoudre les problèmes de déploiement d’OpenShift Container Platform 3.11 dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Si le cluster OpenShift ne se déploie pas correctement, le portail Azure retourne une sortie d’erreur. La sortie peut être compliquée à lire, ce qui rend difficile l’identification du problème. Examinez rapidement cette sortie pour rechercher le code de sortie 3, 4 ou 5. Ces trois codes de sortie ont les significations suivantes :
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 07/09/2021
 ms.author: niwashbu
-ms.openlocfilehash: 475ea083a6412f38093f601ce34da8775357fa3e
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 09b011d76a570aaed1a9ea8c0b9bdc74e80eca53
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286457"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772185"
 ---
 # <a name="automanage-for-windows-server-services-preview"></a>Automanage pour Windows Server Services (préversion)
 
@@ -27,9 +27,11 @@ Automanage pour Windows Server Services offre de nouvelles fonctionnalités spé
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+> [!NOTE]
+> Hotpatch peut être évalué sur _Windows Server 2022 Datacenter : édition Azure (Core) Preview_.  Hotpatch sur _Windows Server 2019 Datacenter: Azure Edition Preview_ n’est plus disponible pour évaluation.
+
 Vous trouverez les fonctionnalités Windows Server dans une ou plusieurs de ces images de _Windows Server Azure Edition_ : 
 
-- Centre de données Windows Server 2019 : Azure Edition (Core)
 - Centre de données Windows Server 2022 : Azure Edition (expérience Bureau)
 - Centre de données Windows Server 2022 : Azure Edition (Core)
 
@@ -41,7 +43,6 @@ Les fonctionnalités varient selon les images, consultez [démarrage](#getting-s
 
 Hotpatch est disponible en préversion publique sur les images suivantes :
 
-- Centre de données Windows Server 2019 : Azure Edition (Core)
 - Centre de données Windows Server 2022 : Azure Edition (Core)
 
 Hotpatch vous donne la possibilité d’appliquer des mises à jour de sécurité sur votre machine virtuelle sans redémarrage.  En outre, Automanage pour Windows Server automatise l’intégration, la configuration et l’orchestration de la mise à jour corrective à chaud.  Pour en savoir plus, consultez [Patch à chaud](automanage-hotpatch.md).  
@@ -73,7 +74,6 @@ il est important de prendre en compte l’amont, quelles fonctionnalités d’Au
 
 |Image|Fonctionnalités|
 |--|--|
-| Centre de données Windows Server 2019 : Azure Edition (Core) | Mise à jour corrective à chaud | 
 |Centre de données Windows Server 2022 : Azure Edition (expérience Bureau) | SMB sur QUIC, réseau étendu | 
 | Centre de données Windows Server 2022 : Azure Edition (Core) | Hotpatch, SMB sur QUIC, réseau étendu | 
 

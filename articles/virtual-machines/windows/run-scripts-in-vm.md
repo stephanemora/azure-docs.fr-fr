@@ -8,15 +8,16 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
-manager: carmonm
-ms.openlocfilehash: 34abfb3195f8a3640b1b4797aa430b6250d15b68
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 7c45718726e9037021edc53346d20f26273a92b3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112452365"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687487"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Exécuter des scripts dans votre machine virtuelle Windows
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Pour automatiser les tâches ou résoudre les problèmes, vous devrez peut-être exécuter des commandes dans une machine virtuelle. L’article suivant donne une brève vue d’ensemble des fonctionnalités qui sont disponibles pour exécuter des scripts et des commandes sur vos machines virtuelles.
 

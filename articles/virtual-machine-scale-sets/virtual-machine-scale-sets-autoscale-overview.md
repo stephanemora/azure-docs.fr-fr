@@ -9,14 +9,17 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: dbd2d6dc3034ff64ef6b5d4d36d836ce8462b154
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fde975c0649a0ba9da32ed53983e3632d5535ca
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591404"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690524"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Vue d’ensemble de la mise à l’échelle automatique avec des groupes de machines virtuelles identiques Azure
+
+**S’applique à :** :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
 Un groupe de machines virtuelles identiques Azure peut augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle qui exécutent votre application. Ce comportement élastique et automatisé réduit la charge de gestion pour analyser et optimiser les performances de votre application. Vous créez des règles qui définissent les performances acceptables pour une expérience utilisateur positive. Lorsque les seuils définis sont respectés, les règles de mise à l’échelle automatique prennent des mesures pour ajuster la capacité de votre groupe identique. Vous pouvez également planifier des événements qui augmentent ou diminuent automatiquement la capacité de votre groupe identique à des moments donnés. Cet article fournit une vue d’ensemble des mesures de performance disponibles et des actions réalisables par la mise à l’échelle automatique.
 
 

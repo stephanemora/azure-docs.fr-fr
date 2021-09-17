@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 85abc77757d31f3b1054a0670ea3f65a4fcb2e52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc35b26d1bf81b7d3cc139d0076c44a481cf4a70
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555956"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689654"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Windows dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 La synchronisation de l’heure est importante pour la sécurité et la corrélation des événements. Elle est parfois utilisée pour l’implémentation de transactions distribuées. La précision de l’heure entre plusieurs systèmes informatiques est obtenue via la synchronisation. La synchronisation peut être influencée par plusieurs facteurs, tels que les redémarrages et le trafic réseau entre la source de l’heure et l’ordinateur qui récupère l’heure. 
 

@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 08/10/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: b90b19edd1cf7f22f7396476866208e7e3bd2523
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: 3d97c10236391157dbf0a8d32110e3e1d540a3b3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112574620"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729270"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Démarrage rapide : Configurer Azure NetApp Files et créer un volume NFS
 
@@ -89,9 +89,7 @@ Pour plus d’informations, consultez [S’inscrire à Azure NetApp Files](azure
 
       ![Sélectionner Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
-2. Cliquez sur **+Ajouter** pour créer un nouveau compte NetApp.
-
-     ![Créer un compte NetApp](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
+2. Cliquez sur **+ Créer** pour créer votre compte NetApp.
 
 3. Dans la fenêtre Nouveau compte NetApp, entrez les informations suivantes :
    1. Entrez **myaccount1** comme nom de compte.
@@ -287,11 +285,9 @@ L’extrait de code suivant montre comment créer un pool de capacités dans un 
 
     ![Spécifiez le protocole NFS pour le démarrage rapide](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
-5. Cliquez sur **Vérifier + créer**.
+5. Cliquez sur **Vérifier + créer** pour afficher des informations sur le volume que vous créez.  
 
-    ![Fenêtre Examiner et créer](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)
-
-6. Passez en revue les informations concernant le volume, puis cliquez sur **Créer**.
+6. Cliquez sur **Créer** pour créer le volume. 
     Le volume créé s’affiche dans le panneau Volumes.
 
     ![Volume créé](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)

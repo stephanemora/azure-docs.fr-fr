@@ -7,14 +7,16 @@ ms.subservice: disks
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 92e3be9111abe5712549ba85ef4550a9ac1473f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd23b2381fb042d80297c7b29fad382787ef1281
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596805"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697176"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Comment redimensionner des appareils de gestion de volumes logiques avec Azure Disk Encryption
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Dans cet article, vous allez apprendre à redimensionner des disques de données qui utilisent Azure Disk Encryption. Pour redimensionner les disques, vous devez utiliser le gestionnaire de volumes logiques (LVM) sur Linux. Les étapes s’appliquent à plusieurs scénarios.
 

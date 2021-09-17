@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0947f9924e97532b087940ecde08e8a0f8d7e005
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: b77a0a8f1a02fa970965d3393dada2a7720ab3e4
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449103"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821373"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Protéger les comptes d’utilisateur contre les attaques avec le verrouillage intelligent Azure Active Directory
 
@@ -44,10 +44,10 @@ Le verrouillage intelligent peut être intégré aux déploiements hybrides à l
 
 Lorsque vous utilisez [l’authentification directe](../hybrid/how-to-connect-pta.md), les considérations suivantes s’appliquent :
 
-* Le seuil de verrouillage d’AD DS est **inférieur** au seuil de verrouillage de compte Active Directory. Définissez les valeurs de sorte que le seuil de verrouillage de compte Active Directory soit au moins deux ou trois fois supérieur au seuil de verrouillage d’AD DS.
+* Le seuil de verrouillage d’AD DS est **inférieur** au seuil de verrouillage de compte Active Directory. Définissez les valeurs de sorte que le seuil de verrouillage de compte AD DS soit au moins deux ou trois fois supérieur au seuil de verrouillage d’Azure AD.
 * La durée de verrouillage d’Azure AD doit être plus longue que la durée après laquelle réinitialiser le compteur de verrouillage de compte AD DS. La durée d’Azure AD est définie en secondes, tandis que la durée d’AD est définie en minutes.
 
-Par exemple, si vous souhaitez que votre compteur Azure AD soit supérieur à celui d’AD DS, Azure AD doit être défini sur 120 secondes (2 minutes) tandis que votre AD local doit être défini sur 1 minute (60 secondes).
+Par exemple, si vous souhaitez que la durée de verrouillage intelligent de votre Azure AD soit supérieure à celle d’AD DS, Azure AD doit être défini sur 120 secondes (2 minutes) tandis que votre AD local doit être défini sur 1 minute (60 secondes). Si vous souhaitez que le seuil de verrouillage de votre Azure AD soit de 5, vous souhaiterez alors que le seuil de verrouillage de votre AD local soit de 10.  Cette configuration garantit que le verrouillage intelligent empêche le verrouillage de vos comptes AD locaux par des attaques par force brute sur vos comptes Azure AD.
 
 > [!IMPORTANT]
 > Actuellement, un administrateur ne peut pas déverrouiller les comptes cloud des utilisateurs s’ils ont été verrouillés à l’aide de la fonctionnalité Verrouillage intelligent. L’administrateur doit attendre que la durée de verrouillage expire. En revanche, l’utilisateur peut procéder à un déverrouillage en utilisant la réinitialisation de mot de passe en libre-service (SSPR) à partir d’un appareil ou d’un emplacement de confiance.

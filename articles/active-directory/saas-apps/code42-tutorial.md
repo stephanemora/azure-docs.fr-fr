@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 9872402ca86ec1d6de349f921806757822e3b587
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 78fa4b405c95d1f39a733eb22ff7c08d28873940
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111568789"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178063"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-code42"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Code42
 
@@ -38,6 +38,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Code42 prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Code42 prend en charge le [**provisionnement et le déprovisionnement automatisés des utilisateurs**](code42-provisioning-tutorial.md) (recommandé).
+
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.

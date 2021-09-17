@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c27b042b78931fd58e43e4bbb06699abe510f385
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c8c8881de696143be60c9ff61c1649eb31fe59b3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762548"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695609"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Étendre des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cet article explique comment étendre des disques managés pour une machine virtuelle Linux avec Azure CLI. Vous pouvez [ajouter des disques de données](add-disk.md) afin d’offrir un espace de stockage supplémentaire, et vous pouvez également étendre un disque de données existant. La taille par défaut de disque dur virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. 
 

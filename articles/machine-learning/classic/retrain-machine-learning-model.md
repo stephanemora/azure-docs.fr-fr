@@ -1,6 +1,6 @@
 ---
-title: 'ML Studio (classique) : reformer un service web – Azure'
-description: Apprenez à mettre à jour un service web de façon à utiliser un modèle Machine Learning récemment entraîné dans Azure Machine Learning Studio (classique).
+title: 'ML Studio (classique) : Reformer un service web – Azure'
+description: Apprenez à mettre à jour un service web de façon à utiliser un modèle Machine Learning récemment entraîné dans Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,17 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp, devx-track-azurepowershell
 ms.date: 02/14/2019
-ms.openlocfilehash: a1bf9582c73eb168c0f32e713f8308096edcf603
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 374359b3b91a19fdeead862a6fb6d2dad2f4260a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704801"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688417"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Le recyclage représente un moyen de garantir que les modèles Machine Learning restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article montre comment recycler et déployer un modèle Machine Learning sous la forme d’un nouveau service web dans Studio (classique). Pour recycler un service web classique, voir cet article [guide pratique](retrain-classic-web-service.md).
 
@@ -51,7 +52,7 @@ Suivez les étapes ci-dessous pour déployer un service web de recyclage :
     Vous allez maintenant déployer l’expérience de formation en tant que service web de recyclage produisant un modèle entraîné et les résultats de son évaluation.
 
 1. En bas du canevas de l’expérience, cliquez sur **Configurer le service web**.
-1. Sélectionnez **Déployer le service web [Nouveau]**. Le portail des services web Azure Machine Learning s’ouvre sur la page **Déployer le service web**.
+1. Sélectionnez **Déployer le service web [Nouveau]**. Le portail des services web Machine Learning s’ouvre sur la page **Déployer le service web**.
 1. Tapez le nom de votre service web et choisissez un plan de paiement.
 1. Sélectionnez **Déployer**.
 
@@ -70,7 +71,7 @@ Suivez les étapes ci-dessous pour appeler les API de recyclage :
 
 Ajoutez le package NuGet Microsoft.AspNet.WebApi.Client comme indiqué dans les commentaires. Pour ajouter la référence à Microsoft.WindowsAzure.Storage.dll, il peut se révéler nécessaire d’installer la [bibliothèque de client pour les services de Stockage Azure](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-La capture d’écran suivante montre la page **Consommer** du portail des services web Azure Machine Learning.
+La capture d’écran suivante montre la page **Consommer** du portail des services web Machine Learning.
 
 ![Page Consommer](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
@@ -161,7 +162,7 @@ Type : Microsoft.MachineLearning/webServices
 Tags : {}
 ```
 
-Pour déterminer le nom du groupe de ressources d’un service web existant, vous pouvez également vous connecter au portail des services web Azure Machine Learning. Sélectionnez le service web. Le nom de groupe de ressources est le cinquième élément de l’URL du service web, juste après l’élément *resourceGroups* . Dans l’exemple suivant, le nom du groupe de ressources est Default-MachineLearning-SouthCentralUS.
+Pour déterminer le nom du groupe de ressources d’un service web existant, vous pouvez également vous connecter au portail des services web Machine Learning. Sélectionnez le service web. Le nom de groupe de ressources est le cinquième élément de l’URL du service web, juste après l’élément *resourceGroups* . Dans l’exemple suivant, le nom du groupe de ressources est Default-MachineLearning-SouthCentralUS.
 
 `https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237`
 

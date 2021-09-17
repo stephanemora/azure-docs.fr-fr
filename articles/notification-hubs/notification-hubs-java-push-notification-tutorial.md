@@ -5,24 +5,22 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 09553f587916e8204541b36f259a450d72c1b270
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5a3e848694f89d7c0b59304043e774b2291ae1f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87322939"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772779"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Utilisation de Notification Hubs à partir de Java
 
@@ -43,6 +41,9 @@ Le SDK prend en charge :
 * Envois planifiés
 * Opérations asynchrones via Java NIO
 * Plateformes prises en charge : APNs (iOS), FCM (Android), WNS (applications Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sans services Google)
+
+> [!NOTE]
+> Le Service de notifications push Microsoft (MPNS) est obsolète et n’est plus pris en charge.
 
 ## <a name="sdk-usage"></a>Utilisation du kit de développement logiciel (SDK)
 

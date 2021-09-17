@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
-ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12471ef2816f5e4cb1e5f545f6d5670be59b4863
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96178039"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183922"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Didacticiel : Intégration d’Azure Active Directory à Keeper Password Manager & Digital Vault
 
@@ -40,7 +40,7 @@ Pour configurer l’intégration d’Azure AD à Keeper Password Manager & Digi
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Keeper Password Manager & Digital Vault prend en charge l’authentification unique lancée par le fournisseur de services.
-
+* Keeper Password Manager prend en charge [l’attribution d’utilisateurs et la suppression des privilèges d’accès **automatisées**](keeper-password-manager-digitalvault-provisioning-tutorial.md) (recommandé).
 * Keeper Password Manager & Digital Vault prend en charge le provisionnement d’utilisateurs juste-à-temps.
 
 ## <a name="add-keeper-password-manager--digital-vault-from-the-gallery"></a>Ajouter de Keeper Password Manager & Digital Vault à partir de la galerie

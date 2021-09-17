@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 270b3e3f4c5e462b66129413d7acf983efd3f8eb
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: be14a8cb9d72c439f5ba127858ccd3a3249b8a14
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357622"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770769"
 ---
 # <a name="scenario-single-page-application"></a>Scénario : Application monopage
 
@@ -35,7 +35,7 @@ De nombreuses applications web modernes sont créées en tant qu’applications 
 
 La plateforme d’identités Microsoft offre **deux** options pour permettre aux applications monopages d’effectuer la connexion des utilisateurs et d’obtenir des jetons pour accéder aux services back-end ou aux API web :
 
-- [Flux de code d’autorisation OAuth 2.0 (avec PKCE)](./v2-oauth2-auth-code-flow.md). Le flux de code d’autorisation permet à l’application d’échanger un code d’autorisation pour obtenir des jetons d’**ID** afin de représenter l’utilisateur authentifié et des jetons d’**accès** nécessaires pour appeler des API protégées. De plus, il retourne des jetons d’**actualisation** qui fournissent à votre application un accès à long terme à des ressources au nom d’utilisateurs sans nécessiter l’intervention de ces utilisateurs. Il s’agit de l’approche **recommandée**.
+- [Flux de code d’autorisation OAuth 2.0 (avec PKCE)](./v2-oauth2-auth-code-flow.md). Le flux de code d’autorisation permet à l’application d’échanger un code d’autorisation pour obtenir des jetons d’**ID** afin de représenter l’utilisateur authentifié et des jetons d’**accès** nécessaires pour appeler des API protégées. PKCE est la Clé de preuve pour l’Echange de Code et est conçu pour empêcher plusieurs attaques et être en mesure d’effectuer l’échange OAuth en toute sécurité à partir de clients publics. PKCE est un standard IETF documenté dans le document RFC 7636. De plus, il retourne des jetons d’**actualisation** qui fournissent à votre application un accès à long terme à des ressources au nom d’utilisateurs sans nécessiter l’intervention de ces utilisateurs. Il s’agit de l’approche **recommandée**.
 
 ![Authentification des applications monopages](./media/scenarios/spa-app-auth.svg)
 

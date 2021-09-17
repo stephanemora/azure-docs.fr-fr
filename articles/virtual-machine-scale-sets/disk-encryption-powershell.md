@@ -9,14 +9,16 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 59b015232fcfe2fd98e1b9f28c2eb4fa86606049
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b7ed6cbfcf93e05efb294c7af907a2416c3fe56
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519569"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691339"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Chiffrer des disques de données joints et de systèmes d’exploitation dans un groupe de machines virtuelles identiques avec Azure PowerShell
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande PowerShell ou dans des scripts.  Cet article vous montre comment utiliser Azure PowerShell pour créer et chiffrer un groupe de machines virtuelles identiques. Pour plus d’informations sur l’application d’Azure Disk Encryption à un groupe de machines virtuelles identiques, consultez [Azure Disk Encryption pour les groupes de machines virtuelles identiques](disk-encryption-overview.md).
 

@@ -6,14 +6,14 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 08/12/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 71115da01f47572d77243f25204d5b1127db22cd
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 920cfa4053fac692145f46cc5cff7d53381d900b
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887159"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122201796"
 ---
 # <a name="tutorial-create-a-load-balancer-with-more-than-one-availability-set-in-the-backend-pool-using-the-azure-portal"></a>Tutoriel : Créer un équilibreur de charge avec plusieurs groupes à haute disponibilité dans le pool de back-ends à l’aide du portail Azure
 
@@ -109,7 +109,7 @@ Dans cette section, vous allez créer une passerelle NAT pour la connectivité s
 
 6. Sélectionnez **Créer une adresse IP publique** en regard d’**Adresses IP publiques** sous l’onglet **IP sortante**.
 
-7. Entrez **myPublicIP-nat** dans **Nom**.
+7. Dans **Nom**, entrez **myNATgatewayIP**.
 
 8. Sélectionnez **OK**.
 
@@ -127,105 +127,100 @@ Dans cette section, vous allez créer une passerelle NAT pour la connectivité s
 
 Dans cette section, vous allez créer un équilibreur de charge pour les machines virtuelles.
 
-1. Dans la zone de recherche située en haut du portail, entrez **Équilibreur de charge**.
+1. Dans la zone de recherche située en haut du portail, entrez **Équilibreur de charge**. Sélectionnez **Équilibreurs de charge** dans les résultats de la recherche.
 
-2. Sélectionnez **Équilibreurs de charge** dans les résultats de la recherche.
+2. Dans la page **Équilibreur de charge**, sélectionnez **Créer**.
 
-3. Sélectionnez **+ Créer**.
+3. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
-4. Sous l’onglet **Informations de base** de **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes :
-
-    | Paramètre | Valeur |
-    | ------- | ----- |
+    | Paramètre                 | Valeur                                              |
+    | ---                     | ---                                                |
     | **Détails du projet** |   |
-    | Abonnement | Sélectionnez votre abonnement. |
-    | Groupe de ressources | Sélectionnez **TutorLBmultiAVS-rg**. |
+    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Groupe de ressources         | Sélectionnez **TutorLBmultiAVS-rg**. |
     | **Détails de l’instance** |   |
-    | Nom | Entrez **myLoadBalancer**. |
-    | Région | Sélectionnez **(USA) USA Ouest 2**. |
-    | Type | Conservez la valeur par défaut **Public**. |
-    | SKU | Conservez la valeur par défaut **Standard**. |
-    | Niveau | Conservez la valeur par défaut **Régional**. |
-    | **Adresse IP publique** |   |
-    | Adresse IP publique | Conservez la valeur par défaut **Créer**. |
-    | Nom de l’adresse IP publique | Entrez **myPublicIP-lb**. |
-    | Zone de disponibilité | Sélectionnez **Redondant dans une zone**. |
-    | Ajouter une adresse IPv6 publique | Conservez la valeur par défaut **Non**. |
-    | Préférence de routage | Laissez la valeur par défaut **Microsoft network**. |
+    | Nom                   | Entrez **myLoadBalancer**                                   |
+    | Région         | Sélectionnez **(USA) USA Ouest 2**.                                        |
+    | Type          | Sélectionnez **Public**.                                        |
+    | SKU           | Conservez la valeur par défaut **Standard**. |
+    | Niveau          | Conservez la valeur par défaut **Régional**. |
 
-5. Sélectionnez l’onglet **Vérifier + créer**, ou sélectionnez le bouton bleu **Vérifier + créer** situé au bas de la page.
+4. Sélectionnez **Suivant : configuration de l’adresse IP front-end** au bas de la page.
 
-6. Sélectionnez **Create** (Créer).
+5. Dans **Configuration de l’adresse IP front-end**, sélectionnez **+ Ajouter une adresse IP front-end**.
 
-### <a name="configure-load-balancer-settings"></a>Configurer les paramètres d’équilibreur de charge
+6. Entrez **LoadBalancerFrontend** dans **Nom**.
 
-Dans cette section, vous allez créer un pool de back-ends pour **myLoadBalancer**.
+7. Sélectionnez **IPv4** ou **IPv6** pour la **Version IP**.
 
-Vous allez créer une sonde d’intégrité pour superviser **HTTP** et le **Port 80**. La sonde d’intégrité supervise l’intégrité des machines virtuelles dans le pool de back-ends. 
+    > [!NOTE]
+    > IPv6 n’est actuellement pas pris en charge avec la Préférence de routage ou l’équilibrage de charge Inter-régions (niveau Global).
 
-Vous allez créer une règle d’équilibrage de charge pour le **Port 80** avec le mode SNAT sortantes désactivé. La passerelle NAT que vous avez créée précédemment traitera la connectivité sortante des machines virtuelles.
+8. Sélectionnez **Adresse IP** pour **Type IP**.
 
-1. Dans la zone de recherche située en haut du portail, entrez **Équilibreur de charge**.
+    > [!NOTE]
+    > Pour plus d’informations sur les préfixes IP, consultez [Préfixe d’adresse IP publique Azure](../virtual-network/public-ip-address-prefix.md).
 
-2. Sélectionnez **Équilibreurs de charge** dans les résultats de la recherche.
+9. Sélectionnez **Créer nouvelle** dans **Adresse IP publique**.
 
-3. Sélectionnez **myLoadBalancer**.
+10. Dans **Ajouter une adresse IP publique**, entrez **myPublicIP-lb** pour **Nom**.
 
-4. Dans **myLoadBalancer**, sélectionnez **Pools de back-end** dans **Paramètres**.
+11. Sélectionnez **Redondant interzone** dans la **Zone de disponibilité**.
 
-5. Sélectionnez **+ Ajouter** dans **Pools de back-ends**.
+    > [!NOTE]
+    > Dans les régions avec [Zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), vous avez la possibilité de sélectionner aucune zone (option par défaut), une zone spécifique ou redondant interzone. Le choix dépendra de vos exigences spécifiques en matière de défaillance de domaine. Dans les régions sans Zones de disponibilité, ce champ n’apparaît pas. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
 
-6. Dans **Ajouter un pool de back-ends**, entrez ou sélectionnez les informations suivantes :
+12. Laissez la valeur par défaut **Réseau Microsoft** pour **Préférence de routage**.
 
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Nom | Entrez **myBackendPool**. |
-    | Réseau virtuel | Sélectionnez **myVNet**. |
-    | Configuration d’un pool de back-ends | Conservez la valeur par défaut **Carte réseau**. |
-    | Version de l’adresse IP | Conservez la valeur par défaut **IPv4**. |
+13. Sélectionnez **OK**.
 
-7. Sélectionnez **Ajouter**.
+14. Sélectionnez **Ajouter**.
 
-8. Sélectionnez **Sondes d’intégrité**.
+15. Sélectionnez **Suivant : Pools de back-end** au bas de la page.
 
-9. Sélectionnez **Ajouter**.
+16. Sous l’onglet **Pools de back-end**, sélectionnez **+ Ajouter un pool de back-end**.
 
-10. Dans **Ajouter une sonde d’intégrité**, entrez ou sélectionnez les informations suivantes :
+17. Entrez **myBackendPool** comme **Nom** dans **Ajouter un pool de back-end**.
 
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Nom | Entrez **myHTTPProbe**. |
-    | Protocol | Sélectionnez **HTTP**. |
-    | Port | Conservez la valeur par défaut **80**. |
-    | Chemin d’accès | Conservez la valeur par défaut **/** . |
-    | Intervalle | Conservez la valeur par défaut de **5** secondes. |
-    | Seuil de défaillance sur le plan de l’intégrité | Conservez la valeur par défaut de **2** échecs consécutifs. |
+18. Sélectionnez **myVNet** dans **Réseau virtuel**.
 
-11. Sélectionnez **Ajouter**.
+19. Sélectionnez **Carte d’interface réseau** ou **Adresse IP** pour la **Configuration du pool de back-end**.
 
-12. Sélectionnez **Règles d’équilibrage de charge**. 
+20. Sélectionnez **IPv4** ou **IPv6** pour la **Version IP**.
 
-13. Sélectionnez **Ajouter**.
+21. Sélectionnez **Ajouter**.
 
-14. Entrez ou sélectionnez les informations suivantes dans **Ajouter une règle d’équilibrage de charge** :
+22. Sélectionnez le bouton **Suivant : Règles de trafic entrant** au bas de la page.
+
+23. Dans **Règle d’équilibrage de la charge** sous l’onglet **Règles de trafic entrant**, sélectionnez **+ Ajouter une règle d’équilibrage de charge**.
+
+24. Dans **Ajouter une règle d’équilibrage de charge**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez **MyHTTPRule**. |
-    | Version de l’adresse IP | Conservez la valeur par défaut **IPv4**. |
-    | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontEnd**. |
-    | Protocole | Sélectionnez la valeur par défaut **TCP**. |
+    | Nom | Entrez **myHTTPRule** |
+    | Version de l’adresse IP | Sélectionnez **IPv4** ou **IPv6** en fonction de vos besoins. |
+    | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontend**. |
+    | Protocol | Sélectionnez **TCP**. |
     | Port | Entrez **80**. |
     | Port principal | Entrez **80**. |
     | Pool principal | Sélectionnez **MyBackendPool**. |
-    | Sonde d’intégrité | Sélectionnez **myHTTPProbe**. |
-    | Persistance de session | Conservez la valeur par défaut **Aucune**. |
-    | Délai d’inactivité (minutes) | Déplacez le curseur sur **15**. |
+    | Sonde d’intégrité | Sélectionnez **Créer nouveau**. </br> Dans **Nom**, entrez **myHealthProbe**. </br> Sélectionnez **HTTP** dans **Protocole**. </br> Laissez les autres valeurs par défaut et sélectionnez **OK**. |
+    | Persistance de session | Sélectionnez **Aucun**. |
+    | Délai d’inactivité (minutes) | Entrez ou sélectionnez **15**. |
     | Réinitialisation du protocole TCP | Sélectionnez **Enabled**. |
-    | IP flottante | Conservez la valeur par défaut **Désactivé**. |
+    | IP flottante | Sélectionnez **Désactivé**. |
     | Traduction d’adresses réseau (SNAT) sources sortante | Conservez la valeur par défaut **(Recommandé) Utiliser des règles de trafic sortant pour fournir aux membres du pool de back-ends l’accès à Internet**. |
 
-5. Sélectionnez **Ajouter**.
+25. Sélectionnez **Ajouter**.
+
+26. Sélectionnez le bouton bleu **Vérifier + créer** au bas de la page.
+
+27. Sélectionnez **Create** (Créer).
+
+    > [!NOTE]
+    > Dans cet exemple, nous avons créé une passerelle NAT pour fournir un accès Internet sortant. L’onglet Règles de trafic sortant dans la configuration est ignoré, car il n’est pas obligatoire avec la passerelle NAT. Pour plus d’informations sur la passerelle NAT Azure, consultez [Présentation de NAT de réseau virtuel Azure ?](../virtual-network/nat-gateway/nat-overview.md)
+    > Pour plus d’informations sur les connexions sortantes dans Azure, consultez [SNAT (Traduction d'adresses réseau source) pour les connexions sortantes](../load-balancer/load-balancer-outbound-connections.md)
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 

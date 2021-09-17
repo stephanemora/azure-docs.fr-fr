@@ -1,25 +1,25 @@
 ---
-title: Outil de requête Explorateur de recherche sur le Portail Azure
+title: 'Démarrage rapide : Outil de requête de l’Explorateur de recherche'
 titleSuffix: Azure Cognitive Search
-description: Dans ce démarrage rapide sur le portail Azure, utilisez l’Explorateur de recherche pour découvrir la syntaxe de requête, tester les expressions de requête ou inspecter un document de recherche. L’Explorateur de recherche interroge les index dans Recherche cognitive Azure.
+description: L’Explorateur de recherche est un outil de requête dans le portail Azure qui envoie des demandes de requête à un index de recherche dans Recherche cognitive Azure. Utilisez-le pour apprendre la syntaxe, tester les expressions de requête ou inspecter un document de recherche.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: e9607a71ed6b045ac704c43bf4ea54c9f181bbf4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/24/2021
+ms.openlocfilehash: d246c9aad024b1086a531c31a2a9559dfa798642
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98179773"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772827"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Démarrage rapide : Utiliser l’Explorateur de recherche pour exécuter des requêtes dans le portail
 
-**L’Explorateur de recherche** est un outil de requête intégré utilisé pour exécuter des requêtes sur un index de recherche dans Recherche cognitive Azure. Cet outil facilite l’apprentissage de la syntaxe des requêtes, le test d’une requête ou d’une expression de filtre, ou la confirmation de l’actualisation des données en vérifiant si du nouveau contenu existe dans l’index.
+**L’Explorateur de recherche** est un outil de requête intégré au portail Azure utilisé pour exécuter des requêtes sur un index de recherche dans Recherche cognitive Azure. Cet outil facilite l’apprentissage de la syntaxe des requêtes, le test d’une requête ou d’une expression de filtre, ou la confirmation de l’actualisation des données en vérifiant si du nouveau contenu existe dans l’index.
 
-Ce guide de démarrage rapide utilise un index existant pour illustrer l’explorateur de recherche. Les requêtes sont formulées à l’aide de [l’API REST Search](/rest/api/searchservice/search-documents), et les réponses sont retournées sous forme de documents JSON détaillés.
+Ce guide de démarrage rapide utilise un index existant pour illustrer l’explorateur de recherche. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -44,6 +44,8 @@ Avant de commencer, vous devez disposer des prérequis suivants :
    :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Onglet Explorateur de recherche" border="true":::
 
 ## <a name="unspecified-query"></a>Requête non spécifiée
+
+Dans l’Explorateur de recherche, les requêtes sont formulées à l’aide de [l’API REST Search](/rest/api/searchservice/search-documents), et les réponses sont retournées sous forme de documents JSON détaillés.
 
 Pour un premier aperçu du contenu, exécutez une recherche vide en cliquant sur **Rechercher** sans indiquer de termes. Une recherche vide est utile en tant que première requête, car elle renvoie des documents entiers pour vous permettre d'examiner leur composition. Une recherche vide ne présente aucun classement et les documents sont renvoyés dans une ordre arbitraire (`"@search.score": 1` pour tous les documents). Par défaut, 50 documents sont renvoyés dans une requête de recherche.
 

@@ -7,16 +7,16 @@ ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 07/21/2021
-ms.openlocfilehash: d0723d4a5e77fe9bcf52f515a1310dfc270338f6
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 6ac09f7d523cfbc661d2b0303012c8291cc6897a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721831"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729642"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutoriel : Créer et gérer une passerelle VPN à l’aide du portail Azure
 
-Les passerelles VPN Azure fournissent une connectivité entre les locaux du client et Azure. Ce tutoriel décrit les éléments de base du déploiement d’une passerelle VPN Azure, notamment la création et la gestion d’une passerelle VPN. Vous pouvez également créer une passerelle à l’aide d’[Azure CLI](create-routebased-vpn-gateway-cli.md) ou d’[Azure PowerShell](create-routebased-vpn-gateway-powershell.md).
+Les passerelles VPN Azure fournissent une connectivité entre les locaux du client et Azure. Ce tutoriel décrit les éléments de base du déploiement d’une passerelle VPN Azure, notamment la création et la gestion d’une passerelle VPN. Vous pouvez également créer une passerelle à l’aide d’[Azure CLI](create-routebased-vpn-gateway-cli.md) ou d’[Azure PowerShell](create-routebased-vpn-gateway-powershell.md). Si vous souhaitez en savoir plus sur les paramètres de configuration utilisés dans ce tutoriel, consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
 Dans ce tutoriel, vous allez apprendre à :
 

@@ -4,15 +4,16 @@ description: Ces didacticiels vous montrent comment copier de façon incrémenti
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 7161fb30c8b445681b4cd577d8f8ac9fff5106df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a7dae1f33583a7350dd273a44efa90e9cb7dd725
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739243"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638858"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Charger de façon incrémentielle des données d’un magasin de données source vers un magasin de données de destination
 
@@ -43,7 +44,7 @@ Pour des instructions pas à pas, consultez les didacticiels suivants : <br/>
 - [Copier de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie Change Tracking](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>Chargement des fichiers nouveaux et modifiés uniquement à l’aide de LastModifiedDate
-Pour copier les fichiers nouveaux et modifiés, vous devez utiliser LastModifiedDate dans le magasin de destination. ADF analyse tous les fichiers du magasin source, applique le filtre de fichier par date de dernière modification et copie uniquement le nouveau fichier mis à jour depuis son dernier emplacement dans le magasin de destination.  Notez que si vous laissez ADF analyser d'importants volumes de fichiers, mais ne copiez que quelques fichiers dans la destination, cette opération prendra un certain temps car l'analyse de fichiers est chronophage.   
+Pour copier les fichiers nouveaux et modifiés, vous devez utiliser LastModifiedDate dans le magasin de destination. ADF analyse tous les fichiers du magasin source, applique le filtre de fichier par date de dernière modification et copie uniquement le nouveau fichier mis à jour depuis son dernier emplacement dans le magasin de destination.  N’oubliez pas que si vous laissez ADF analyser d’énormes quantités de fichiers, mais que vous ne copiez que quelques fichiers vers la destination, cela peut prendre beaucoup de temps en raison du processus d’analyse de fichiers.   
 
 Pour des instructions pas à pas, consultez les didacticiels suivants : <br/>
 - [Copier de façon incrémentielle des fichiers nouveaux et modifiés uniquement en fonction de la valeur LastModifiedDate du Stockage Blob Azure vers le Stockage Blob Azure](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

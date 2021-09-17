@@ -9,14 +9,17 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2021
 ms.author: jamesser
 ms.reviewer: cynthn
-ms.openlocfilehash: e8e3567d752627915596645b13246236bad321c9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5bd9adb8354c3919a63e3de2e850513641af12a3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146308"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696547"
 ---
 # <a name="add-custom-domain-to-azure-vm-or-resource"></a>Ajouter un domaine personnalisé à une machine virtuelle ou à une ressource Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles
+
 
 Dans Azure, il existe plusieurs façons de connecter un domaine personnalisé à votre machine virtuelle ou ressource. Pour toute ressource avec une adresse IP publique (machine virtuelle, équilibreur de charge, passerelle applicative), la méthode la plus simple consiste à créer un jeu d’enregistrements A dans auprès de votre registrar de domaines correspondant. 
 

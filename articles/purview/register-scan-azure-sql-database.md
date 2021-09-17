@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 06/08/2021
-ms.openlocfilehash: f4fa21c99a17111b1045b66713490b86592e04bf
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 83fd36ca1f352371e4d0717968512d791443d590
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467113"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515533"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Inscrire et analyser une base de données Azure SQL
 
@@ -140,9 +140,9 @@ L’activation des connexions Azure permettra à Azure Purview d’atteindre et 
 
 Un runtime d’intégration auto-hébergé (SHIR) peut être installé sur un ordinateur pour se connecter à une ressource d’un réseau privé.
 
-1. [Créez et installez un runtime d’intégration auto-hébergé](/azure/purview/manage-integration-runtimes) sur un ordinateur personnel ou sur un ordinateur situé dans le même réseau virtuel que votre serveur de base de données.
+1. [Créez et installez un runtime d’intégration auto-hébergé](./manage-integration-runtimes.md) sur un ordinateur personnel ou sur un ordinateur situé dans le même réseau virtuel que votre serveur de base de données.
 1. Vérifiez le pare-feu de votre serveur de base de données pour vérifier que l’ordinateur SHIR a accès par le biais du pare-feu. Ajoutez l’adresse IP de la machine si elle ne dispose pas déjà d’un accès.
-1. Si votre SQL Server Azure se trouve derrière un point de terminaison privé ou dans un réseau virtuel, vous pouvez utiliser un [point de terminaison privé](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources) d’ingestion pour garantir l’isolement réseau de bout en bout.
+1. Si votre SQL Server Azure se trouve derrière un point de terminaison privé ou dans un réseau virtuel, vous pouvez utiliser un [point de terminaison privé](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources) d’ingestion pour garantir l’isolement réseau de bout en bout.
 
 ## <a name="register-an-azure-sql-database-data-source"></a>Inscrire une source de données Azure SQL Database
 
@@ -150,9 +150,9 @@ Pour inscrire une nouvelle base de données Azure SQL Database dans votre catalo
 
 1. Accédez à votre compte Purview.
 
-1. Sélectionnez **Sources** dans la barre de navigation à gauche.
+1. Sélectionnez **Data Map** dans le volet de navigation de gauche.
 
-1. Sélectionnez **Inscription**.
+1. Sélectionnez **Inscrire**.
 
 1. Sous **Inscrire des sources**, sélectionnez **Azure SQL Database**. Sélectionnez **Continuer**.
 

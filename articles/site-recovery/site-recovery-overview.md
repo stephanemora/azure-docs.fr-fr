@@ -2,14 +2,14 @@
 title: À propos d’Azure Site Recovery
 description: Présente le service Azure Site Recovery et récapitule les différents scénarios récupération d’urgence et de déploiement de la migration.
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 08/19/2021
 ms.custom: MVC
-ms.openlocfilehash: 19860e64182cd73fe9f9fa1246f440a03109d465
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d5558930c77c115ba25cb4b35e88d470afc38a23
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92281885"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445688"
 ---
 # <a name="about-site-recovery"></a>À propos de Site Recovery
 
@@ -33,6 +33,7 @@ Site Recovery peut gérer la réplication pour :
 --- | ---
 **Solution BCDR simple** | Grâce à Site Recovery, vous pouvez configurer et gérer la réplication, le basculement et la restauration automatique à partir d’un seul emplacement dans le portail Azure.
 **Réplication de machines virtuelles Azure** | Vous pouvez configurer la récupération d’urgence de machines virtuelles Azure d’une région primaire vers une région secondaire.
+**Réplication de machines virtuelles VMware** | Vous pouvez répliquer des machines virtuelles VMware sur Azure à l’aide de l’appliance de réplication Azure Site Recovery améliorée qui offre une meilleure sécurité et une meilleure résilience que le serveur de configuration. Pour plus d’informations, consultez [Récupération d’urgence des machines virtuelles VMware](vmware-azure-about-disaster-recovery.md).
 **Réplication de machines virtuelles locales** | Vous pouvez répliquer des machines virtuelles et des serveurs physiques locaux sur Azure ou vers un centre de données local secondaire. La réplication sur Azure réduit le coût et la complexité qu’implique la maintenance d’un centre de données secondaire.
 **Réplication de charges de travail** | Répliquez n’importe quelle charge de travail en cours d’exécution sur des machines virtuelles Azure, des machines virtuelles Hyper-V locales et VMware, et des serveurs physiques Windows/Linux pris en charge.
 **Résilience des données** | Site Recovery orchestre la réplication sans intercepter les données d’une application. Lorsque vous effectuez une réplication vers Azure, les données sont stockées dans le stockage Azure, avec la résilience que cela implique. Lors du basculement, les machines virtuelles Azure sont créées à partir des données répliquées.
@@ -58,3 +59,4 @@ Site Recovery peut gérer la réplication pour :
 
 - En savoir plus sur la [prise en charge de la charge de travail](site-recovery-workload.md).
 - Prise en main de [la réplication d’une machine virtuelle Azure entre des régions](azure-to-azure-quickstart.md).
+- Prise en main de la [réplication de machines virtuelles VMware](vmware-azure-enable-replication.md).

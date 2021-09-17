@@ -2,17 +2,20 @@
 title: Créer un cloud privé Azure VMware Solution
 description: Étapes de création d’un cloud privé Azure VMware Solution à l’aide du portail Azure.
 ms.topic: include
-ms.date: 06/17/2021
-ms.openlocfilehash: cb357bf5e0fa42c3c67531e45a51b8dbba6aa6da
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.date: 08/05/2021
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
+ms.openlocfilehash: beae1ba1fe5cb37f9c96d411ca9ee0e8cddfe1d3
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113431086"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122261729"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
-Vous pouvez créer un cloud privé Azure VMware Solution en utilisant le portail Azure ou Azure CLI.
+Vous pouvez créer un cloud privé Azure VMware Solution en utilisant le Portail Azure ou Azure CLI.
 
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
@@ -21,29 +24,29 @@ Vous pouvez créer un cloud privé Azure VMware Solution en utilisant le portail
 
 1. Sélectionnez **Créer une ressource**. 
 
-1. Dans la zone de texte **Rechercher dans la Place de marché**, tapez `Azure VMware Solution`, puis sélectionnez **Azure VMware Solution** dans la liste. 
+1. Dans la zone de texte **Rechercher la Place de marché**, tapez `Azure VMware Solution`, puis sélectionnez-le dans les résultats. 
 
 1. Dans la fenêtre **Azure VMware Solution**, sélectionnez **Créer**.
 
-1. Sous l’onglet **De base**, entrez des valeurs pour les champs. 
+1. Dans l’onglet **Informations de base**, entrez des valeurs pour les champs, puis sélectionnez **Vérifier + créer**. 
 
    >[!TIP]
-   >Vous avez collecté ces informations pendant la [phase de planification](../production-ready-deployment-steps.md) de ce démarrage rapide.
+   >Vous avez collecté ces informations pendant la [phase de planification](../plan-private-cloud-deployment.md) de ce démarrage rapide.
 
    | Champ   | Valeur  |
    | ---| --- |
    | **Abonnement** | Sélectionnez l’abonnement que vous prévoyez d’utiliser pour le déploiement. Toutes les ressources d’un abonnement Azure sont facturées en même temps.|
    | **Groupe de ressources** | Sélectionnez le groupe de ressources pour votre cloud privé. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Vous pouvez également créer un nouveau groupe de ressources pour votre cloud privé. |
-   | **Lieu** | Sélectionnez un emplacement, comme **USA Est**. Il s’agit de la *région* que vous avez définie pendant la phase de planification. |
    | **Nom de la ressource** | Fournissez le nom de votre cloud privé Azure VMware Solution. |
-   | **Référence (SKU)** | Sélectionnez **AV36**. |
-   | **Hôtes** | Affiche le nombre d’hôtes alloués au cluster de cloud privé. La valeur par défaut est 3. Elle peut être augmentée ou diminuée après le déploiement.  |
-   | **Bloc d’adresses** | Fournissez un bloc d’adresses IP pour le cloud privé.  Le CIDR représente le réseau de gestion de cloud privé et sera utilisé pour les services de gestion de cluster, tels que vCenter Server et NSX-T Manager. Utilisez l’espace d’adressage /22, par exemple 10.175.0.0/22.  L’adresse doit être unique et ne pas empiéter sur autres réseaux virtuels Azure et des réseaux locaux. |
-   | **Réseau virtuel** | Laissez ce champ vide, car le circuit ExpressRoute Azure VMware Solution est établi comme une étape post-déploiement.   |
+   | **Lieu** | Sélectionnez un emplacement, comme **USA Est**. Il s’agit de la *région* que vous avez définie pendant la phase de planification. |
+   | **Taille de l’hôte** | Sélectionnez **AV36**. |
+   | **Nombre d’hôtes** | Affiche le nombre d’hôtes alloués au cluster de cloud privé. La valeur par défaut est 3. Vous pouvez l’augmenter ou la diminuer après le déploiement.  |
+   | **Bloc d’adresse pour le cloud privé** | Fournissez un bloc d’adresses IP pour le cloud privé.  Le CIDR représente le réseau de gestion de cloud privé et est utilisé pour les services de gestion de clusters, tels que vCenter Server et NSX-T Manager. Utilisez l’espace d’adressage /22, par exemple 10.175.0.0/22.  L’adresse doit être unique et ne pas empiéter sur d’autres réseaux virtuels Azure et des réseaux locaux. |
+   
 
    :::image type="content" source="../media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="Capture d’écran représentant l’onglet De base dans la fenêtre Créer un cloud privé." border="true":::
 
-1. Quand vous avez terminé, sélectionnez **Vérifier + créer**. Dans l’écran suivant, vérifiez les informations entrées. Si elles sont toutes correctes, sélectionnez **Créer**.
+1. Vérifiez les informations saisies et, si elles sont correctes, sélectionnez **Créer**.  
 
    > [!NOTE]
    > Cette étape prend environ 3 à 4 minutes. L’ajout d’un seul hôte dans un cluster existant ou le même cluster prend entre 30 et 45 minutes.

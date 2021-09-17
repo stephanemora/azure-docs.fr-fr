@@ -1,18 +1,19 @@
 ---
 title: Chiffrer Azure Data Factory avec une clé gérée par le client
 description: Améliorer la sécurité de Data Factory avec Bring Your Own Key (BYOK)
-author: chez-charlie
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/08/2020
-ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: a18d06e3a0324889a4cb9936fb339fd9d8f9b816
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 3580ae78497426f1399981035e861bc51c912144
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222683"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697554"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Chiffrer Azure Data Factory avec des clés gérées par le client
 
@@ -85,7 +86,7 @@ Cette section explique comment ajouter le chiffrement à clé gérée par le cli
 
 1. Lancez le portail Azure Data Factory, puis, à l’aide de la barre de navigation sur la gauche, accédez au portail de gestion Data Factory.
 
-1. Cliquez sur l’icône __Clé gérée par le client__. :::image type="content" source="media/enable-customer-managed-key/05-customer-managed-key-configuration.png" alt-text="Capture d’écran montrant comment activer une clé gérée par le client dans l’interface utilisateur de Data Factory":::
+1. Cliquez sur l’icône __Clé gérée par le client__. :::image type="content" source="media/enable-customer-managed-key/05-customer-managed-key-configuration.png" alt-text="Capture d’écran montrant comment activer une clé gérée par le client dans l’interface utilisateur de Data Factory.":::
 
 1. Entrer l’URI de la clé gérée par le client que vous avez copiée précédemment
 

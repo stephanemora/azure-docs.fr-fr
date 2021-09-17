@@ -11,20 +11,20 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: d94b3e56b3b8f70a03b6a3872b085e450043ab70
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: d2a5df40dd16ea7f996caf34b2e0cad7b0a60900
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113585948"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122195418"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutoriel : Exporter des données à partir d’Azure IoT Central et visualiser des insights dans Power BI
-
 
 Dans les deux didacticiels précédents, vous avez créé et personnalisé une application IoT Central à l’aide du modèle d’application **in-Store Analytics-Checkout**. Dans ce didacticiel, vous configurez votre application IoT Central pour exporter les données de télémétrie collectées à partir des appareils. Vous utilisez ensuite Power BI pour créer un tableau de bord personnalisé pour le responsable du magasin afin de visualiser les insights dérivés des données de télémétrie.
 
 Dans ce didacticiel, vous apprendrez à :
 > [!div class="checklist"]
+
 > * Configurer une application IoT Central pour exporter des données de télémétrie vers un Event Hub.
 > * Utiliser Logic Apps pour envoyer des données d’un Event Hub vers un jeu de données de streaming Power BI.
 > * Créer un tableau de bord Power BI pour visualiser les données dans le jeu de données de streaming.
@@ -75,7 +75,7 @@ Maintenant que vous disposez d’un espace de noms **Event Hubs**, vous pouvez c
 
 Vous disposez maintenant d’un Event Hub que vous pouvez utiliser lorsque vous configurez l’exportation de données à partir de votre application IoT Central :
 
-![Event Hub](./media/tutorial-in-store-analytics-visualize-insights/event-hub.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/event-hub.png" alt-text="Event Hub.":::
 
 ## <a name="configure-data-export"></a>Configurer une exportation de données
 
@@ -92,7 +92,7 @@ Maintenant que vous avez un Event Hub, vous pouvez configurer votre application 
 
 L’exportation de données peut prendre quelques minutes pour commencer à envoyer des données de télémétrie à votre Event Hub. Vous pouvez voir l’état de l’exportation sur la page **Exportations de données** :
 
-![Configuration de l’exportation de données continue](./media/tutorial-in-store-analytics-visualize-insights/export-configuration.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/export-configuration.png" alt-text="Configuration de l’exportation de données continue.":::
 
 ## <a name="create-the-power-bi-datasets"></a>Créer les jeux de données Power BI
 
@@ -119,7 +119,8 @@ Votre tableau de bord Power BI affiche des données de votre application de surv
 
 Vous avez maintenant deux jeux de données de streaming. L’application logique achemine les données de télémétrie à partir des deux capteurs environnementaux connectés à votre application **Analytique dans le magasin - paiement** à ces deux jeux de données :
 
-![Jeux de données de zone](./media/tutorial-in-store-analytics-visualize-insights/dataset-1.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-1.png" alt-text="Jeux de données de zone.":::
+
 
 Cette solution utilise un jeu de données de streaming pour chaque capteur, car il n’est pas possible d’appliquer des filtres pour la diffusion en continu des données dans Power BI.
 
@@ -143,7 +144,7 @@ Vous avez également besoin d’un jeu de données de streaming pour la télém�
 
 Vous disposez maintenant d’un troisième jeu de données de streaming qui stocke les valeurs du capteur d’occupation simulé. Ce capteur signale la longueur de la file d’attente lors des deux extractions du magasin, ainsi que la durée d’attente des clients dans ces files d’attente :
 
-![Jeu de données d’occupation](./media/tutorial-in-store-analytics-visualize-insights/dataset-2.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-2.png" alt-text="Jeu de données d’occupation.":::
 
 ## <a name="create-a-logic-app"></a>Créer une application logique
 
@@ -155,7 +156,7 @@ Avant de créer l’application logique, vous avez besoin des ID d’appareil de
 1. Sélectionnez **Appareils** dans le panneau de gauche. Puis sélectionnez **RuuviTag**.
 1. Prenez note des **ID de l’appareil**. Dans la capture d’écran suivante, les ID sont **f5dcf4ac32e8** et **e29ffc8d5326** :
 
-    ![ID des appareils](./media/tutorial-in-store-analytics-visualize-insights/device-ids.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/device-ids.png" alt-text="ID d’appareil.":::
 
 Les étapes suivantes montrent comment créer l’application logique à partir du portail Azure :
 
@@ -369,7 +370,7 @@ Pour ajouter la logique à la conception de votre application logique, sélectio
 
 1. Sélectionnez **Enregistrer** puis sélectionnez **Concepteur** pour afficher la version visuelle de la logique que vous avez ajoutée :
 
-    ![Conception d’application logique](./media/tutorial-in-store-analytics-visualize-insights/logic-app.png)
+    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/logic-app.png" alt-text="Conception d’application logique.":::
 
 1. Sélectionnez **Basculer par DeviceID** pour développer l’action. Sélectionnez ensuite **Environnement de zone 1**, puis sélectionnez **Ajouter une action**.
 1. Dans **Rechercher parmi les actions et les connecteurs**, entrez **Power BI**, puis appuyez sur **Entrer**.
@@ -383,7 +384,7 @@ Pour ajouter la logique à la conception de votre application logique, sélectio
     * Sélectionnez le champ **Horodateur**, puis sélectionnez **x-opt-enqueuedtime** dans la liste **Contenu dynamique**.
     * Sélectionnez le champ **Humidité**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **Humidité**.
     * Sélectionnez le champ **Température**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **Température**.
-    * Cliquez sur **Enregistrer** pour enregistrer vos modifications. L’action **Environnement de zone 1** ressemble à la capture d’écran suivante : ![Environnement de zone 1](./media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png)
+    * Cliquez sur **Enregistrer** pour enregistrer vos modifications. L’action **Environnement Zone 1** ressemble à la capture d’écran suivante : :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png" alt-text="Environnement Zone 1.":::
 1. Sélectionnez l’action **Environnement de zone 2**, puis sélectionnez **Ajouter une action**.
 1. Dans **Rechercher parmi les actions et les connecteurs**, entrez **Power BI**, puis appuyez sur **Entrer**.
 1. Sélectionnez l’action **Ajouter des lignes à un jeu de données (préversion)** .
@@ -395,7 +396,7 @@ Pour ajouter la logique à la conception de votre application logique, sélectio
     * Sélectionnez le champ **Horodateur**, puis sélectionnez **x-opt-enqueuedtime** dans la liste **Contenu dynamique**.
     * Sélectionnez le champ **Humidité**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **Humidité**.
     * Sélectionnez le champ **Température**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **Température**.
-    Cliquez sur **Enregistrer** pour enregistrer vos modifications.  L’action **Environnement de zone 2** ressemble à la capture d’écran suivante : ![Environnement de zone 2](./media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png)
+    Cliquez sur **Enregistrer** pour enregistrer vos modifications.  L’action **Environnement Zone 2** ressemble à la capture d’écran suivante : :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png" alt-text="Environnement Zone 2.":::
 1. Sélectionnez l’action **Occupation**, puis sélectionnez l’action **Basculer par ID d’interface**.
 1. Sélectionnez l’action **Interface de durée de maintien**, puis sélectionnez **Ajouter une action**.
 1. Dans **Rechercher parmi les actions et les connecteurs**, entrez **Power BI**, puis appuyez sur **Entrer**.
@@ -408,7 +409,7 @@ Pour ajouter la logique à la conception de votre application logique, sélectio
     * Sélectionnez le champ **Horodateur**, puis sélectionnez **x-opt-enqueuedtime** dans la liste **Contenu dynamique**.
     * Sélectionnez le champ **Durée de maintien 1**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **Durée de maintien 1**.
     * Sélectionnez le champ **Durée de maintien 2**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **Durée de maintien 2**.
-    * Cliquez sur **Enregistrer** pour enregistrer vos modifications. L’action **Interface de durée de maintien** ressemble à la capture d’écran suivante : ![Capture d’écran illustrant l’action « Interface de durée de maintien ».](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Cliquez sur **Enregistrer** pour enregistrer vos modifications. L’action **Interface de durée de maintien** ressemble à la capture d’écran suivante : :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png" alt-text="Interface de durée de maintien.":::
 1. Sélectionnez l’action **Interface du nombre de personnes**, puis sélectionnez **Ajouter une action**.
 1. Dans **Rechercher parmi les actions et les connecteurs**, entrez **Power BI**, puis appuyez sur **Entrer**.
 1. Sélectionnez l’action **Ajouter des lignes à un jeu de données (préversion)** .
@@ -420,7 +421,7 @@ Pour ajouter la logique à la conception de votre application logique, sélectio
     * Sélectionnez le champ **Horodateur**, puis sélectionnez **x-opt-enqueuedtime** dans la liste **Contenu dynamique**.
     * Sélectionnez le champ **Longueur de file d’attente 1**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **count1**.
     * Sélectionnez le champ **Longueur de file d’attente 2**, puis sélectionnez **Afficher plus** près de **Analyser la télémétrie**. Sélectionnez ensuite **count2**.
-    * Cliquez sur **Enregistrer** pour enregistrer vos modifications. L’action **Interface de comptage du nombre de personnes** ressemble à la capture d’écran suivante : ![Action d’occupation](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png)
+    * Cliquez sur **Enregistrer** pour enregistrer vos modifications. L’action **Interface de comptage du nombre de personnes** ressemble à la capture d’écran suivante : :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png" alt-text="Action d’occupation.":::
 
 L’application logique s’exécute automatiquement. Pour afficher l’état de chaque exécution, accédez à la page **Vue d’ensemble** de l’application logique dans la Portail Azure :
 
@@ -449,7 +450,7 @@ Ajoutez quatre vignettes de graphiques en courbes pour afficher la température 
 
 La capture d’écran suivante montre les paramètres pour le premier graphique :
 
-![Paramètres de graphique en courbes](./media/tutorial-in-store-analytics-visualize-insights/line-chart.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/line-chart.png" alt-text="Paramètres de graphique en courbes.":::
 
 ### <a name="add-cards-to-show-environmental-data"></a>Ajouter des cartes pour afficher les données environnementales
 
@@ -465,7 +466,7 @@ Ajoutez quatre vignettes de carte pour afficher les valeurs de température et d
 
 (La capture d’écran suivante montre les paramètres pour le premier graphique :
 
-![Paramètres de la carte](./media/tutorial-in-store-analytics-visualize-insights/card-settings.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/card-settings.png" alt-text="Paramètres de la carte.":::
 
 ### <a name="add-tiles-to-show-checkout-occupancy-data"></a>Ajouter des vignettes pour afficher les données de l’occupation d’extraction
 
@@ -483,11 +484,11 @@ Ajoutez quatre vignettes de carte pour afficher la longueur de la file d’atten
 
 Redimensionnez et réorganisez les vignettes de votre tableau de bord pour qu’elles ressemblent à la capture d’écran suivante :
 
-![Capture d’écran montrant le tableau de bord Power BI avec des vignettes redimensionnées et réorganisées.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png" alt-text="Capture d’écran montrant le tableau de bord Power BI avec des vignettes redimensionnées et réorganisées.":::
 
 Vous pouvez ajouter des ressources graphiques supplémentaires pour personnaliser davantage le tableau de bord :
 
-![Tableau de bord Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png)
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png" alt-text="Tableau de bord Power BI.":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

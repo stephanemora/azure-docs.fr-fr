@@ -1,25 +1,26 @@
 ---
-title: Tutoriel – Configurer des déploiements canary pour les machines virtuelles Linux Azure
-description: Dans ce tutoriel, vous allez apprendre à configurer un pipeline de déploiement continu (CD). Ce pipeline met à jour un groupe de machines virtuelles Linux Azure à l’aide de la stratégie de déploiement .
+title: Configurer des déploiements Canary pour les machines virtuelles Linux Azure
+description: Découvrez comment configurer un pipeline de déploiement continu (CD). Ce pipeline met à jour un groupe de machines virtuelles Linux Azure à l’aide de la stratégie de déploiement .
 author: moala
 tags: azure-devops-pipelines
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: bbfe6571cf075b2ce4930eea91bfd1e239470c5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f9ab4712e6419303f010d7cf1a417a8a907f9a05
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552505"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690946"
 ---
-# <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutoriel – Configurer la stratégie de déploiement Canary pour des machines virtuelles Linux Azure
+# <a name="configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Configurer la stratégie de déploiement Canary pour des machines virtuelles Linux Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux 
 
 ## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>Infrastructure en tant que service (IaaS) - Configurer CI/CD
 

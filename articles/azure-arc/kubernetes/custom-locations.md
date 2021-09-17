@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 ms.custom: references_regions, devx-track-azurecli
 description: Utiliser des emplacements personnalisés pour déployer des services PaaS Azure sur des clusters Kubernetes avec Azure Arc
-ms.openlocfilehash: 5fa255755dd0b78498203624194d081447d70a13
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: a4586f6f527bd98f0f347e51c787f2bcda7c6d8d
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730853"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768300"
 ---
 # <a name="create-and-manage-custom-locations-on-azure-arc-enabled-kubernetes"></a>Créer et gérer des emplacements personnalisés sur Kubernetes avec Azure Arc
 
@@ -57,29 +57,26 @@ Une vue d’ensemble conceptuelle de cette fonctionnalité est disponible dans l
 - Vérifiez que l’inscription du fournisseur est terminée pour `Microsoft.ExtendedLocation`.
     1. Entrez les commandes suivantes :
     
-    ```azurecli
-    az provider register --namespace Microsoft.ExtendedLocation
-    ```
+        ```azurecli
+        az provider register --namespace Microsoft.ExtendedLocation
+        ```
 
     2. Supervisez le processus d’inscription. L’inscription peut prendre jusqu’à 10 minutes.
     
-    ```azurecli
-    az provider show -n Microsoft.ExtendedLocation -o table
-    ```
+        ```azurecli
+        az provider show -n Microsoft.ExtendedLocation -o table
+        ```
+
+        Une fois l’inscription terminée, l’état `RegistrationState` aura la valeur de `Registered`.
 
 - Vérifiez que vous disposez d’un [cluster connecté Kubernetes avec Azure Arc](quickstart-connect-cluster.md).
     - [Mettez à niveau vos agents](agent-upgrade.md#manually-upgrade-agents) vers la version 1.1.0 ou une version ultérieure.
-
->[!NOTE]
->**Régions prises en charge pour les emplacements personnalisés :**
->* USA Est
->* Europe Ouest
 
 ## <a name="enable-custom-locations-on-cluster"></a>Activer les emplacements personnalisés sur le cluster
 
 Si vous êtes connecté à Azure CLI en tant qu’utilisateur Azure AD, exécutez la commande suivante pour activer cette fonctionnalité sur votre cluster :
 
-```console
+```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
@@ -87,13 +84,13 @@ Si vous êtes connecté à Azure CLI à l’aide d’un principal de service, e
 
 1. Récupérez l’ID d’objet de l’application Azure AD utilisée par le service Azure Arc :
 
-    ```console
+    ```azurecli
     az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
     ```
 
 1. Utilisez la valeur `<objectId>` de l’étape ci-dessus pour activer la fonctionnalité Emplacements personnalisés sur le cluster :
 
-    ```console
+    ```azurecli
     az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
     ```
 

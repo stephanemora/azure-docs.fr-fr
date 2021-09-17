@@ -12,12 +12,12 @@ ms.date: 04/14/2021
 ms.author: aahi
 keywords: exploration de texte, analyse de sentiments, analyse de texte
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: bf148645ebdd762b65d59c86e5453b83423201e9
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 804af634c7202fdc3f822e32e7cd1fbf827bfab1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113550603"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733967"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
@@ -52,6 +52,10 @@ La détection de la langue peut [détecter la langue dans laquelle un texte d’
 ## <a name="named-entity-recognition"></a>Reconnaissance d’entité nommée
 
 La reconnaissance d’entités nommées (NER) peut [identifier et classer les entités](how-tos/text-analytics-how-to-entity-linking.md) dans votre texte en tant que personnes, lieux, organisations, quantités ; les entités bien connues sont également reconnues et liées à des informations supplémentaires sur le web.
+
+## <a name="text-summarization"></a>Synthèse de texte
+
+La fonctionnalité [Résumé](how-tos/extractive-summarization.md) produit un récapitulatif en extrayant les phrases qui représentent collectivement les informations les plus importantes ou les plus pertinentes du contenu d’origine. Cette fonctionnalité condense des articles, des publications ou des documents en phrases clés.
 
 ## <a name="text-analytics-for-health"></a>Analyse de texte pour la santé
 

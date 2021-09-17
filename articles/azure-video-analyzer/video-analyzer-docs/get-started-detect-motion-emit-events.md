@@ -4,12 +4,12 @@ description: Ce guide de démarrage rapide vous guide tout au long des étapes d
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.openlocfilehash: 335890f4bb939123290e5dfe9cccbf9f9aef1242
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 001b1bd2e1f2f3350ad9e9cef28bb3ec682332ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605180"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748679"
 ---
 # <a name="quickstart-get-started-with-azure-video-analyzer"></a>Démarrage rapide : Bien démarrer avec Azure Video Analyzer
 
@@ -91,14 +91,14 @@ Si vous suivez ce guide de démarrage rapide, les événements sont envoyés au 
 
 ## <a name="use-direct-method-calls"></a>Utiliser des appels de méthode directe
 
-Vous pouvez maintenant analyser les flux vidéo en direct en appelant des méthodes directes exposées par le module de périphérie Video Analyzer. Lisez [Méthodes directes de Video Analyzer](direct-methods.md) pour examiner toutes les méthodes directes fournies par le module. 
+Vous pouvez maintenant analyser les flux vidéo en direct en appelant des méthodes directes exposées par le module de périphérie Video Analyzer. Lisez [Méthodes directes de Video Analyzer](direct-methods.md) pour examiner toutes les méthodes directes fournies par le module. Le schéma des méthodes directes est disponible [ici](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.0.0/AzureVideoAnalyzerSdkDefinitions.json).
 
 ### <a name="enumerate-pipeline-topologies"></a>Énumérer les topologies de pipeline
 
 Cette étape énumère toutes les [topologies de pipeline](pipeline.md) du module.
 
 1. Cliquez avec le bouton droit sur le module « avaedge », puis sélectionnez **Invoquer la méthode directe du module** dans le menu contextuel.
-1. Vous verrez une zone de modification apparaître dans la partie centrale supérieure de la fenêtre Visual Studio Code. Entrez « pipelineTopologyList » dans la zone d’édition, puis appuyez sur Entrée.
+1. Vous verrez une zone de modification apparaître dans la partie centrale supérieure de la fenêtre Visual Studio Code. Entrez `pipelineTopologyList` dans la zone d'édition et appuyez sur Entrée.
 1. Ensuite, copiez et collez la charge utile JSON ci-dessous dans la zone de modification, puis appuyez sur Entrée.
    
 ```json

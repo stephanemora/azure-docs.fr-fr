@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 06/25/2021
 ms.author: glenga
 ms.topic: tutorial
-ms.openlocfilehash: 4a017d57062e2871052305eb9bbf393c808a643d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 6b4875f028fe8645125743d04770c2fd237b4f62
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293281"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752462"
 ---
 # <a name="tutorial-get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Tutoriel : Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -246,7 +246,7 @@ L’attribut `QueueTrigger` indique au runtime d’appeler cette fonction lorsqu
     }
     ```
 
-    Lorsqu’un message est ajouté à une file d’attente nommée `queue`, la fonction s’exécute et la chaîne `message` est écrite dans les journaux. La file d’attente analysée se trouve dans le compte Stockage Azure par défaut, que vous créez ensuite.
+    Vous devez marquer la classe *Functions* comme `public static` pour que le runtime puisse accéder à la méthode et l’exécuter. Dans l’exemple de code ci-dessus, quand un message est ajouté à une file d’attente nommée `queue`, la fonction s’exécute et la chaîne `message` est écrite dans les journaux. La file d’attente analysée se trouve dans le compte Stockage Azure par défaut, que vous créez ensuite.
    
 Le paramètre `message` ne doit pas nécessairement être une chaîne. Vous pouvez également le lier à un objet JSON, un tableau d’octets ou un objet [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). Consultez la section relative à [l’utilisation des déclencheurs de file d’attente](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#usage). Chaque type de liaison (par exemple, des files d’attente, des objets blob ou des tables) dispose d’un ensemble différent de types de paramètre auquel vous pouvez lier des éléments.
 

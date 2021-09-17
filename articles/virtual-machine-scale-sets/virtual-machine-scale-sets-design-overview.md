@@ -9,14 +9,17 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6541f1a54391ca4dd991ff9ae2299cd9e337cc7b
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: a9c000d5c1ced86fd12e78b362fa437da119bf45
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985929"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690487"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considérations relatives à la conception des groupes de machines virtuelles identiques
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
+
 Cet article présente les considérations à prendre en compte pour créer des groupes de machines virtuelles identiques. Pour plus d'informations sur les groupes de machines virtuelles identiques, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](./overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Quand utiliser des groupes identiques plutôt que des machines virtuelles individuelles ?

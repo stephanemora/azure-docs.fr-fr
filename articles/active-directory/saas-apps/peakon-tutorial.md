@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a84d4d71e5190c455441d1e627381be86ef5e129
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fa227e1aa503cf17da6027da8754a6f51e7f469
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97608525"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutoriel : Intégration d’Azure Active Directory à Peakon
 
@@ -45,6 +45,7 @@ Pour configurer l’intégration d’Azure AD à Peakon, vous avez besoin des �
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Peakon prend en charge l’authentification unique lancée par le **fournisseur de services** et le **fournisseur d’identité**
+* Peakon prend en charge [**l’attribution d’utilisateurs et la suppression des privilèges d’accès** automatiques ](peakon-provisioning-tutorial.md) (recommandé).
 
 ## <a name="adding-peakon-from-the-gallery"></a>Ajout de Peakon à partir de la galerie
 

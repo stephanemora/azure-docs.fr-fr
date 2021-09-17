@@ -9,14 +9,16 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 9e995e88b80bf14f9c7784f465bcd3d89d0bed65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a32d9675de9968608da0c7faa70cc31208d666a
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92367956"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821700"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et utilisez les disques avec un groupe de machines virtuelles identiques à l’aide de Azure PowerShell
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -129,7 +131,7 @@ Add-AzVmssDataDisk `
 # Update the scale set to apply the change
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
+  -VMScaleSetName "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 ```
 
@@ -166,7 +168,7 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
 # Update the scale set and apply the Custom Script Extension to the VM instances
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
+  -VMScaleSetName "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 ```
 
@@ -294,7 +296,7 @@ Remove-AzVmssDataDisk `
 # Update the scale set and detach the disk from the VM instances
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
+  -VMScaleSetName "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 ```
 

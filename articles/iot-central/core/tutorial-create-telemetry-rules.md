@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ce10143be81da9ad797ba0ccd68837b647aeb7a7
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 6a9a7d23d4fb8f11c27f279bdef8d2b46274b21e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113301969"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743373"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutoriel : Créer une règle et configurer des notifications dans votre application Azure IoT Central
 
@@ -110,7 +110,7 @@ Les conditions définissent les critères de supervision de la règle. Dans ce t
 
     :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Capture d’écran montrant la condition d’agrégation remplie":::
 
-Vous pouvez ajouter plusieurs conditions à une règle en sélectionnant **+ Condition**. Quand plusieurs conditions sont spécifiées, toutes les conditions doivent être remplies pour que la règle se déclenche. Chaque condition est jointe par une clause `AND` implicite. Si vous utilisez une agrégation de temps avec plusieurs conditions, toutes les valeurs de télémétrie doivent être agrégées.
+Vous pouvez ajouter plusieurs conditions à une règle en sélectionnant **+ Condition**. Lorsque plusieurs conditions sont ajoutées, vous pouvez spécifier si toutes les conditions doivent être remplies ou si l’une des conditions doit être remplie pour que la règle soit déclenchée. Si vous utilisez une agrégation de temps avec plusieurs conditions, toutes les valeurs de télémétrie doivent être agrégées.
 
 ### <a name="configure-actions"></a>Configurer les actions
 

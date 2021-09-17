@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/30/2021
 ms.author: cynthn
-ms.openlocfilehash: c50e39db804a18d50f4a6fb594209cc015515a8c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e5ceb8e4db1d2b94d746303a2185bea2015467a0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754736"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691010"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Linux dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes 
 
 La synchronisation de l’heure est importante pour la sécurité et la corrélation des événements. Elle est parfois utilisée pour l’implémentation de transactions distribuées. La précision de l’heure entre plusieurs systèmes informatiques est obtenue via la synchronisation. La synchronisation peut être influencée par plusieurs facteurs, tels que les redémarrages et le trafic réseau entre la source de l’heure et l’ordinateur qui récupère l’heure. 
 

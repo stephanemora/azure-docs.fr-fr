@@ -4,18 +4,20 @@ description: Comment faire une demande d’assistance concernant Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 08/19/2021
 ms.author: v-erkel
-ms.openlocfilehash: 95247985be955b71403a5c2c78962792c6451183
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43b2189eb5c782a980db186781f64ea8a540bb3b
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87061422"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770526"
 ---
-# <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Ouvrir un ticket de support pour Azure HPC Cache
+# <a name="contact-support-for-help-with-azure-hpc-cache"></a>Contacter le support technique pour obtenir de l’aide concernant Azure HPC Cache
 
-Utiliser le portail Azure pour ouvrir un ticket de support Accédez à votre instance de cache, puis cliquez sur le lien **Nouvelle demande de support** qui s’affiche au bas de la barre latérale.
+La meilleure façon d’obtenir de l’aide concernant Azure HPC Cache consiste à utiliser le Portail Azure pour ouvrir un ticket de support.
+
+Accédez à votre instance de cache, puis cliquez sur le lien **Nouvelle demande de support** qui s’affiche au bas de la barre latérale.
 
 Pour ouvrir un ticket lorsque vous n’avez pas de cache actif, utilisez la page Aide et support depuis le Portail Azure. Ouvrez le menu du portail à partir du contrôle en haut à gauche de l’écran, puis faites défiler la page vers le bas et cliquez sur **Aide + support**.
 

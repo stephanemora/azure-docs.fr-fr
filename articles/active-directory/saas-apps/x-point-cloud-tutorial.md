@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/15/2021
+ms.date: 08/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 87516b3114e665275c5a3e2ead0caf8c49987d33
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: 77c954d5fd3541b172ec51e237443b00e7e86154
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114373317"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768546"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-x-point-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à X-point Cloud
 
@@ -77,14 +77,16 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     a. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<SUBDOMAIN>.atledcloud.jp`
 
-    b. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.atledcloud.jp/xpoint`
+    b. Dans la zone de texte **URL de réponse (URL Assertion Consumer Service)** , tapez une URL à l’aide du modèle suivant : `https://<SUBDOMAIN>.atledcloud.jp/xpoint/saml/acs`
+
+    c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.atledcloud.jp/xpoint`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de X-point Cloud](mailto:x-point@atled.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de X-point Cloud](mailto:x-point@atled.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/certificatebase64.png)
+    ![Lien Téléchargement de certificat](common/certificateraw.png)
 
 1. Dans la section **Configurer X-point Cloud**, copiez la ou les URL appropriées en fonction de vos besoins.
 
@@ -116,7 +118,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-x-point-cloud-sso"></a>Configurer l’authentification unique X-point
 
-Pour configurer l’authentification unique côté **X-point Cloud**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe de support X-point Cloud](mailto:x-point@atled.jp). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **X-point Cloud**, vous devez envoyer le **certificat (brut)** téléchargé et les URL appropriées copiées à partir du portail Azure à [l’équipe de support X-point Cloud](mailto:x-point@atled.jp). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-x-point-cloud-test-user"></a>Créer un utilisateur de test X-point
 

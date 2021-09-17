@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 5affe9f8876ef8d69a585119155d6cdd77ab46ac
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 847e80822cffe0a1a1daaf7595062b2e7a522ab5
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078726"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772197"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AlertMedia
 
@@ -39,6 +39,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * AlertMedia prend en charge l'authentification unique lancée par le **fournisseur d'identité**.
 * AlertMedia prend en charge l'approvisionnement d'utilisateurs **juste-à-temps**.
+* AlertMedia prend en charge [le provisionnement d’utilisateurs automatisé](alertmedia-provisioning-tutorial.md).
 
 ## <a name="add-alertmedia-from-the-gallery"></a>Ajouter AlertMedia à partir de la galerie
 

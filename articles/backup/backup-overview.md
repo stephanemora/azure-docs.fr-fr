@@ -2,14 +2,14 @@
 title: Qu’est-ce qu’Azure Backup ?
 description: Fournit une vue d’ensemble du service Sauvegarde Azure et de la façon de le déployer dans le cadre de votre stratégie de continuité d’activité et de reprise d’activité (BCDR).
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 07fc6ee0afb29f9d6c701c7eb2c65be988971eaf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f5e5250860b1388bd679e6167f6f9c9f2920b787
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612634"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722671"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Qu’est-ce que le service Sauvegarde Azure ?
 
@@ -26,7 +26,7 @@ Le service de sauvegarde Azure fournit des solutions simples, sécurisées et re
 - **SQL Server sur des machines virtuelles Azure** -  [Sauvegardez des bases de données SQL Server qui s’exécutent sur les machines virtuelles Azure](backup-azure-sql-database.md).
 - **Bases de données SAP HANA sur des machines virtuelles Azure** - [Sauvegardez des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure](backup-azure-sap-hana-database.md).
 - **Serveurs Azure Database pour PostgreSQL (préversion)**  -  [Sauvegarder des bases de données Azure PostgreSQL et conserver les sauvegardes pendant jusqu’à 10 ans](backup-azure-database-postgresql.md)
-- **Azure Blobs (préversion)**  - [Vue d’ensemble de la sauvegarde opérationnelle pour Azure Blobs (en préversion)](blob-backup-overview.md)
+- **Objets blob Azure** - [Vue d’ensemble de la sauvegarde opérationnelle des objets blob Azure](blob-backup-overview.md)
 
 ![Vue d’ensemble du service Sauvegarde Azure](./media/backup-overview/azure-backup-overview.png)
 

@@ -10,14 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 05b51b2edfe7d7abe99835204c8e98197ecdeba0
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: cd80a8a69d4e75ec1be31a849fe00cc3ec708e1c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591167"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692673"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Service de métadonnées Azure : événements planifiés pour les machines virtuelles Linux
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes 
 
 Événements planifiés est un service de métadonnées Azure qui permet à votre application de disposer de suffisamment de temps pour se préparer à la maintenance des machines virtuelles. Il fournit des informations sur les événements de maintenance à venir (par exemple, les redémarrages), afin que votre application puisse s’y préparer et limiter les interruptions de service. Il est disponible pour tous les types de machines virtuelles Azure, notamment PaaS et IaaS sur Windows et Linux. 
 
@@ -144,7 +146,7 @@ S’il existe des événements planifiés, la réponse contient un tableau d’�
 | NotBefore| Heure après laquelle cet événement peut démarrer. <br><br> Exemple : <br><ul><li> Lundi 19 septembre 2016 18:29:47 GMT  |
 | Description | Description de cet événement. <br><br> Exemple : <br><ul><li> Le serveur hôte est en cours de maintenance. |
 | EventSource | Initiateur de l’événement. <br><br> Exemple : <br><ul><li> `Platform`: Cet événement est déclenché par la plateforme. <li>`User`: Cet événement est déclenché par l’utilisateur. |
-| DurationInSeconds | Durée attendue de l’interruption causée par l’événement.  <br><br> Exemple : <br><ul><li> `9` : l’interruption causée par l’événement durera 9 secondes. <li>`-1` : valeur par défaut utilisée si la durée d’impact est inconnue ou non applicable. |
+| DurationInSeconds | Durée attendue de l’interruption causée par l’événement.  <br><br> Exemple : <br><ul><li> `9` : l’interruption provoquée par l’événement durera 9 secondes. <li>`-1` : valeur par défaut utilisée si la durée d’impact est inconnue ou non applicable. |
 
 ### <a name="event-scheduling"></a>Planification d’événement
 Chaque événement est planifié à un moment donné dans le futur (délai minimum), en fonction de son type. Cette heure est reflétée dans la propriété `NotBefore` d’un événement. 

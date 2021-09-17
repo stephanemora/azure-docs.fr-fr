@@ -10,14 +10,17 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6dafa400f2ce2421db6775084befc0abeab70a04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ec66c0aa34fe2a41d4bd0f450175cd884a3bae8
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563215"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692082"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Provisionnement de machines virtuelles Linux Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
+
 Lorsque vous créez une machine virtuelle à partir d’une image généralisée (Shared Image Gallery ou image managée), le plan de contrôle vous permet de créer une machine virtuelle et de lui transmettre des paramètres. Ce processus porte le nom de *provisionnement* de machines virtuelles. Pendant le provisionnement, la plateforme met les valeurs de paramètres de création de machine virtuelle nécessaires (nom d’hôte, nom d’utilisateur, mot de passe, clés SSH, customData) à la disposition de la machine virtuelle lors de son démarrage. 
 
 Un agent de provisionnement intégré à l’image interagit avec la plateforme, en se connectant à plusieurs interfaces de provisionnement indépendantes, définit les propriétés et indique à la plateforme qu’il a terminé. 

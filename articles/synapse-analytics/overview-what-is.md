@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 652f98659f96b36e3185432e50d9d36dc569bd43
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 3d0987e5203288da6c6acd8bec6c478f5762b320
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537938"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823725"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Qu’est-ce qu’Azure Synapse Analytics ?
 
@@ -28,6 +28,7 @@ ms.locfileid: "107537938"
 
 * Synapse SQL propose des modèles de ressources à la fois **serverless** et **dédiés**. Pour bénéficier de performances et de coûts prévisibles, créez des pools SQL dédiés afin de réserver de la puissance de traitement aux données stockées dans les tables SQL. Pour des charges de travail non planifiées ou en rafale, utilisez le point de terminaison SQL serverless toujours disponible.
 * Utilisez les fonctionnalités de **streaming** intégrées pour placer des données de sources de données cloud dans des tables SQL.
+* Chargez des données dans des tables managées pour obtenir les meilleures performances de requête ou interroger directement les données dans [Azure Data Lake Storage](sql/query-data-storage.md) ou [Azure Cosmos DB](sql/query-cosmos-db-analytical-store.md) sans avoir besoin d’effectuer des tâches d’importation périodiques ni de patienter jusqu’à ce qu’elles se terminent.
 * Intégrez l’IA à SQL en utilisant des modèles **Machine Learning** pour effectuer le scoring des données avec la [fonction T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="industry-standard-apache-spark"></a>Apache Spark standard
@@ -44,8 +45,9 @@ ms.locfileid: "107537938"
 Azure Synapse supprime les barrières technologiques traditionnelles qui empêchent d’utiliser conjointement SQL et Spark. Vous pouvez mélanger les fonctions de façon fluide selon vos besoins et votre expertise.
 
 * Les tables définies sur les fichiers du lac de données sont utilisées de manière transparente par Spark ou Hive.
-* SQL et Spark peuvent explorer et analyser directement des fichiers Parquet, CSV, TSV et JSON stockés dans le lac de données.
+* SQL et Spark peuvent explorer et analyser directement des fichiers Parquet, CSV, TSV, Delta Lake et JSON stockés dans le lac de données.
 * Chargement de données rapide et évolutif entre les bases de données SQL et Spark
+
 
 ## <a name="built-in-data-integration"></a>Intégration de données prédéfinie
 

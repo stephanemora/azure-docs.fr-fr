@@ -10,14 +10,17 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f2eaa92b99e286d4046b0bbb784c12f090c3903e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 68941b2253e1b4655a9e0e61da3b0a4f0db27bdf
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677733"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697584"
 ---
 # <a name="how-to-map-azure-disks-to-windows-vm-guest-disks"></a>Mapper des disques Azure à des disques invités de machine virtuelle Windows
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
+
 
 Vous devrez peut-être identifier les disques Azure qui sous-tendent les disques invités d’une machine virtuelle. Dans certains scénarios, vous pouvez comparer la taille ou le volume du disque à la taille des disques Azure attachés. Dans les scénarios où plusieurs disques Azure de la même taille sont attachés à la machine virtuelle, vous devez utiliser le numéro d’unité logique (LUN) des disques de données. 
 

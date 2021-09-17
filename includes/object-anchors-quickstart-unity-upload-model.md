@@ -2,31 +2,32 @@
 author: craigktreasure
 ms.service: azure-object-anchors
 ms.topic: include
-ms.date: 03/02/2021
+ms.date: 08/02/2021
 ms.author: crtreasu
-ms.openlocfilehash: d06a6ecd8af16da3e6df21e984fbf6a727fbc27e
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: ce942908ffa068b0502bdac7f9472543355dbbce
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105197"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254187"
 ---
-### <a name="upload-your-model"></a>Charger votre modèle
+## <a name="upload-your-model"></a>Charger votre modèle
 
+Avant d’exécuter l’application, vous devez mettre vos modèles à la disposition de l’application.
 Si vous ne disposez pas déjà d’un modèle Object Anchors, suivez les instructions de la section [Créer un modèle](../articles/object-anchors/quickstarts/get-started-model-conversion.md) pour en créer un. Ensuite, revenez ici.
 
-Une fois votre HoloLens connecté au portail d’appareil Windows, procédez comme suit pour charger un modèle que l’application pourra utiliser :
+Une fois que votre HoloLens allumé et connecté à l’appareil de développement (PC), procédez comme suit pour charger un modèle dans le dossier **Objets 3D** de votre HoloLens :
 
-1. Dans le portail d’appareil Windows, accédez à **Système > Explorateur de fichiers > LocalAppData**. Vous devriez voir votre application dans la liste des applications.
+1. Sélectionnez et copiez les modèles que vous souhaitez utiliser en appuyant sur les touches Ctrl et C en même temps (Ctrl + C).
 
-    :::image type="content" source="./media/object-anchors-quickstarts-unity/portal-localappdata.png" alt-text="Explorateur de fichiers":::
+2. Appuyez sur la touche logo Windows et E en même temps (Wi + E) pour lancer l’explorateur de fichiers. Vous devez voir votre HoloLens répertorié avec d’autres lecteurs et dossiers dans le volet gauche.
 
-2. Ouvrez votre application, puis cliquez sur le dossier `LocalState`.
+    :::image type="content" source="./media/object-anchors-quickstarts-unity/file-explorer-launch.png" alt-text="Explorateur de fichiers":::
 
-    :::image type="content" source="./media/object-anchors-quickstarts-unity/portal-localstate.png" alt-text="Ouvrir le dossier LocalState":::
+3. Appuyez sur le lien HoloLens pour afficher le stockage sur le périphérique HoloLens dans le volet de droite.
 
-3. Chargez le fichier du modèle dans le dossier `LocalState`.
+    :::image type="content" source="./media/object-anchors-quickstarts-unity/file-explorer-internal-storage.png" alt-text="ouvrir le stockage interne HoloLens":::
 
-    :::image type="content" source="./media/object-anchors-quickstarts/portal-upload-model.png" alt-text="Charger le modèle dans le portail":::
+4. Dans l’explorateur de fichiers, accédez à **Stockage interne > Objets 3D**. Vous pouvez désormais coller vos modèles dans le dossier **Objets 3D** en appuyant que les touches Ctrl et V en même temps (Ctrl + V).
 
-    Lancez à nouveau l’application à partir de l’appareil HoloLens. Vous pouvez maintenant détecter les objets correspondant au modèle.
+    :::image type="content" source="./media/object-anchors-quickstarts-unity/file-explorer-open-3d-objects.png" alt-text="coller des modèles dans le dossier Objets 3D":::

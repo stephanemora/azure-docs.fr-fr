@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a9243bdc014f3f9ac3d68a91054fbfef6b4c0840
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 49b58a46b4abc65089970982c26424a2f615bad4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669151"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693415"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Détachement d’un disque de données d’une machine virtuelle Windows
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à une machine virtuelle, vous pouvez le détacher facilement. Cela supprime le disque de la machine virtuelle, mais pas du stockage.
 

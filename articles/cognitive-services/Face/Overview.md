@@ -11,23 +11,27 @@ ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance faciale, logiciel de reconnaissance faciale, analyse faciale, correspondance de visage, application de reconnaissance faciale, recherche de visage par image, recherche de reconnaissance faciale
-ms.openlocfilehash: d135e97b4792d5c4b71d3758800223d238a6990c
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 15d8043beb32d8f3c7fa1b237e1ba25310983b86
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111810177"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822285"
 ---
 # <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
 
 > [!WARNING]
-> Le 11 juin 2020, Microsoft a annoncé qu’il ne vendra pas de technologie de reconnaissance faciale aux services de police des États-Unis tant qu’un règlement strict fondé sur les droits de l’homme n’aura pas été promulgué. Par conséquent, les clients ne doivent pas utiliser les fonctionnalités de reconnaissance faciale ni les fonctionnalités comprises dans les services Azure comme Visage ou Video Indexer, s’ils représentent, ou autorisent l’utilisation de ces services par ou pour, un service de police des États-Unis.
+> Le 11 juin 2020, Microsoft a annoncé qu’il ne vendra pas de technologie de reconnaissance faciale aux services de police des États-Unis tant qu’un règlement strict fondé sur les droits de l’homme n’aura pas été promulgué. Par conséquent, les clients ne doivent pas utiliser les fonctionnalités de reconnaissance faciale ni les fonctionnalités comprises dans les services Azure comme Visage ou Video Indexer, s’ils représentent, ou autorisent l’utilisation de ces services par ou pour, un service de police des États-Unis. Lorsque vous créez une ressource Visage, vous devez, dans le portail Azure, indiquer que vous avez compris et que vous acceptez de ne pas utiliser le service par ou pour un service de police aux États-Unis et que vous avez consulté la [documentation sur l’IA responsable (RAI)](https://go.microsoft.com/fwlink/?linkid=2164191) et que vous utiliserez ce service conformément à cette documentation.
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Le service Visage Azure fournit les algorithmes d’intelligence artificielle qui détectent, reconnaissent et analysent les visages humains dans des images. Les logiciels de reconnaissance faciale sont importants dans de nombreux domaines, notamment la sécurité, l’interface utilisateur naturelle, l’analyse et la gestion du contenu de l’image, les applications mobiles et la robotique.
+Le service Visage Azure fournit les algorithmes d’intelligence artificielle qui détectent, reconnaissent et analysent les visages humains dans des images. Le logiciel de reconnaissance faciale est important dans de nombreux scénarios, comme la vérification de l’identité, le contrôle d’accès sans contact et le floutage des visages à des fins de confidentialité.
 
-Le service Visage fournit plusieurs fonctions d’analyse faciale différentes, chacune décrite dans les sections suivantes.
+Vérification de l’identité : vérifie l’identité d’une personne sur une carte d’identité émise par un gouvernement, comme un passeport ou un permis de conduire ou toute autre image d’inscription pour accorder l’accès à des services numériques ou physiques ou récupérer un compte. Les scénarios d’accès spécifiques incluent l’ouverture d’un nouveau compte, le contrôle d’un employé ou l’administration d’une évaluation en ligne. La vérification de l’identité peut être effectuée une seule fois quand une personne est intégrée, et à plusieurs reprises quand une personne accède à un service numérique ou physique.
+
+Contrôle d’accès sans contact : par rapport aux méthodes actuelles comme les cartes ou les tickets, l’identification des visages par abonnement offre une expérience de contrôle d’accès améliorée tout en réduisant les risques liés à l’hygiène et à la sécurité, comme la perte, le vol ou le prêt d’une carte. La reconnaissance faciale aide le processus d’enregistrement incluant une personne physique pour l’enregistrement dans les aéroports, les stades, les parcs à thème ou les bâtiments, ainsi que les comptoirs d’accueil dans des bureaux, des hôpitaux, des gymnases, des clubs ou des écoles.
+
+Édition des visages : éditer ou flouter les visages détectés de personnes enregistrées dans une vidéo afin de protéger leur confidentialité.
 
 Cette documentation contient les types d’articles suivants :
 * Les [guides de démarrage rapide](./Quickstarts/client-libraries.md) sont des instructions pas à pas qui vous permettent d’effectuer des appels au service et d’obtenir des résultats en peu de temps. 
@@ -35,36 +39,44 @@ Cette documentation contient les types d’articles suivants :
 * Les [articles conceptuels](./concepts/face-detection.md) fournissent des explications approfondies sur les fonctions et fonctionnalités du service.
 * Les [tutoriels](./enrollment-overview.md) sont des guides plus longs qui montrent comment utiliser ce service en tant que composant dans des solutions métier plus larges.
 
-## <a name="face-detection"></a>Détection des visages
+## <a name="face-detection-and-analysis"></a>Détection et analyse des visages
 
-L’API Détecter détecte les visages humains dans une image et retourne les coordonnées du rectangle de leur emplacement. La détection des visages peut également permettre d’extraire un ensemble d’attributs associés au visage tels que la posture de la tête, le sexe, l’âge, l’émotion, la pilosité du visage et les lunettes. Ces attributs sont des prédictions générales, pas des classifications réelles. 
+La détection des visages est requise comme première étape dans tous les autres scénarios. L’API Détecter détecte les visages humains dans une image et retourne les coordonnées du rectangle de leur emplacement. Elle retourne également un ID unique qui représente les données de visage stockées, qui est utilisé dans les opérations ultérieures pour identifier ou vérifier les visages.
+
+La détection des visages peut également permettre d’extraire un ensemble d’attributs associés au visage tels que la posture de la tête, l’âge, l’émotion, la pilosité du visage et les lunettes. Ces attributs sont des prédictions générales, pas des classifications réelles. Certains attributs sont utiles pour s’assurer que votre application obtient des données de visage de haute qualité lorsque les utilisateurs s’ajoutent à un service Visage (par exemple, votre application peut conseiller aux utilisateurs de retirer leurs lunettes de soleil s’ils en portent).
 
 > [!NOTE]
-> La fonctionnalité de détection des visages est également disponible par le biais du [service Vision par ordinateur](../computer-vision/overview.md). Toutefois, si vous voulez effectuer d’autres opérations de Visage, comme Identifier, Vérifier, Rechercher semblables ou Regrouper, vous devez utiliser ce service Visage à la place.
+> La fonctionnalité de détection des visages est également disponible par le biais du [service Vision par ordinateur](../computer-vision/overview.md). Toutefois, si vous voulez utiliser d’autres opérations Visage, comme Identifier, Vérifier, Rechercher semblables ou Regrouper, vous devez utiliser ce service à la place.
 
-Pour plus d’informations sur la détection de visage, consultez l’article sur les concepts de la [détection des visages](concepts/face-detection.md). Consultez également la documentation de référence de l’[API de détection](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Pour plus d’informations sur la détection et l’analyse des visages, consultez l’article sur les concepts de la [détection des visages](concepts/face-detection.md). Consultez également la documentation de référence de l’[API de détection](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="face-verification"></a>Vérification faciale
 
-L’API Vérifier s’appuie sur la Détection et répond à la question « Ces deux images sont-elles la même personne ? ». La vérification est également appelée correspondance « un-à-un », car l’image de sondage est comparée à un seul modèle inscrit. Elle peut être utilisée dans les scénarios de vérification d’identité ou de contrôle d’accès pour vérifier qu’une image correspond à une image précédemment capturée (par exemple, à partir d’une photo provenant d’une carte d’identité délivrée par un gouvernement). Pour plus d’informations, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API de vérification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+## <a name="identity-verification"></a>Vérification d’identité
 
-## <a name="face-identification"></a>Identification des visages
+Les entreprises et les applications modernes peuvent utiliser les opérations d’identification des visages et de vérification des visages pour vérifier qu’un utilisateur est bien celui qu’il prétend être. 
 
-L’API Identifier commence également par la Détection et répond à la question « Le visage détecté peut-il être mis en correspondance avec un visage inscrit dans une base de données ? ». Comme il s’agit d’une recherche par reconnaissance faciale, cette opération est également appelée correspondance « un-à-plusieurs ». Les correspondances sont retournées en fonction du degré de correspondance du modèle de sondage avec le visage détecté pour chacun des modèles inscrits.
+### <a name="identification"></a>Identification
+
+L’identification des visages peut être considérée comme une correspondance de type « un-à-plusieurs ». Les candidats correspondants sont retournés en fonction de la similarité de leurs données de visage et le visage faisant l’objet de la requête. Ce scénario est utilisé pour accorder l’accès dans un bâtiment à un certain groupe de personnes ou pour vérifier l’utilisateur d’un appareil.
 
 L’image suivante est un exemple de base de données nommée `"myfriends"`. Chaque groupe peut contenir jusqu’à 1 million d’objets Personne différents. Chaque objet Personne peut avoir jusqu’à 248 visages enregistrés.
 
 ![Une grille avec 3 colonnes pour les différentes personnes, chacune avec 3 lignes d’images de visages](./Images/person.group.clare.jpg)
 
-Après avoir créé et entraîné une base de données, vous pouvez effectuer l’identification par rapport au groupe avec un nouveau visage détecté. Si le visage est identifié en tant qu’une personne du groupe, l’objet Personne est renvoyé.
+Après avoir créé et formé un groupe, vous pouvez effectuer l’identification par rapport au groupe avec un nouveau visage détecté. Si le visage est identifié en tant qu’une personne du groupe, l’objet Personne est renvoyé.
 
-Pour plus d’informations sur l’identification de personnes, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API d’identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+### <a name="verification"></a>Vérification
+
+L’opération de vérification répond à la question « Ces deux visages appartiennent-ils à la même personne ? ». La vérification est également appelée correspondance de type « un-à-un », car les données de visage de sondage sont comparées à un seul visage inscrit. La vérification est utilisée dans le scénario d’identification pour vérifier si une correspondance donnée est exacte. 
+
+Pour plus d’informations sur la vérification de l’identité, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’API [Identifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) et [Vérifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+
 
 ## <a name="find-similar-faces"></a>Rechercher des visages semblables
 
-L’API de recherche de visages semblables permet de mettre en correspondance un visage cible avec un ensemble de visages candidats, en cherchant à obtenir un plus petit ensemble de visages ressemblant au visage cible. Cette opération est utile pour effectuer une recherche de visage par image. 
+L’opération Rechercher des visages semblables permet de mettre en correspondance un visage cible avec un ensemble de visages candidats, en cherchant à obtenir un plus petit ensemble de visages ressemblant au visage cible. Cette API s’avère utile pour effectuer une recherche de visage par image. 
 
-Deux modes de travail, **matchPerson** et **matchFace**, sont pris en charge. Le mode **matchPerson** renvoie des visages semblables après avoir filtré les résultats pour la même personne à l’aide de l’[API de vérification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). Le mode **matchFace** ignore le filtre de correspondance de personne. Il renvoie la liste des visages candidats semblables susceptibles ou non d’appartenir à la même personne.
+Le service prend en charge deux modes de travail, **matchPerson** et **matchFace**. Le mode **matchPerson** renvoie des visages semblables après avoir filtré les résultats pour la même personne à l’aide de l’[API de vérification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). Le mode **matchFace** ignore le filtre de correspondance de personne. Il renvoie la liste des visages candidats semblables susceptibles ou non d’appartenir à la même personne.
 
 L’exemple suivant montre le visage cible :
 
@@ -76,16 +88,16 @@ Et ces images sont les visages candidats :
 
 Pour rechercher quatre visages semblabes, le mode **matchPerson** renvoie a et b, qui représentent le même visage que la cible. Le mode **matchFace** retourne a, b, c et d, soit exactement quatre candidats, même si certains ne sont pas la même personne que la cible ou s’ils présentent une faible similarité. Pour plus d’informations, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API de recherche de visages semblables](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
-## <a name="face-grouping"></a>Regroupement de visages
+## <a name="group-faces"></a>Regrouper les visages
 
-L’API de regroupement divise un ensemble de visages inconnus en plusieurs groupes en fonction de leurs similarités. Chaque groupe est un sous-ensemble distinct de l’ensemble de visages d’origine. Tous les visages d’un groupe sont susceptibles d’appartenir à la même personne. Une seule personne peut correspondre à plusieurs groupes différents. Les groupes sont différenciés par un autre facteur, comme l’expression. Pour plus d’informations, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API de groupe](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+L’opération Regrouper divise un ensemble de visages inconnus en plusieurs petits groupes en fonction de leurs similarités. Chaque groupe est un sous-ensemble distinct de l’ensemble de visages d’origine. Elle retourne également un seul tableau « messyGroup » qui contient les ID de visage pour lesquels aucune similarité n’a été trouvée.
 
+Tous les visages d’un groupe retourné sont susceptibles d’appartenir à la même personne, mais il peut y avoir plusieurs groupes pour une même personne. Ces groupes sont différenciés par un autre facteur, comme l’expression. Pour plus d’informations, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API de groupe](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-## <a name="sample-apps"></a>Exemples d’application
+## <a name="sample-app"></a>Exemple d'application
 
 Les exemples d’applications suivants montrent différentes façons d’utiliser le service Visage :
 
-- [API Visage : bibliothèque de client Windows et exemple](https://github.com/Microsoft/Cognitive-Face-Windows) est une application WPF qui présente plusieurs scénarios de détection, d’analyse et d’identification de visages.
 - L’[application FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes) est une application Universal Windows Platform (UWP) qui utilise l’identification des visages, ainsi que la reconnaissance vocale, Cortana, l’écriture manuscrite et la caméra dans un scénario de partage de notes en famille.
 
 ## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
