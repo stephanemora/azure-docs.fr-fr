@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 74e61f66cfd0849b5b0a4a5b8a599230294ac436
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 39f87d9f4b72c01738b22c20e18115185bbd448d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744602"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690404"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gérer un groupe de machines virtuelles identique à l’aide d’Azure PowerShell
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des applets de commande Azure PowerShell courantes qui vous permettent d’effectuer ces tâches.
 

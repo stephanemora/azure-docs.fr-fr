@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: da3370540a915694f1199e3a8965dbc8aa0450a0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a44558f6d0a1351c5f9c61fba6d6686757fd3292
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114470570"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014750"
 ---
 # <a name="introduction-to-the-sample-app"></a>Présentation de l’exemple d’application
 
@@ -26,30 +26,30 @@ L’exemple d’application est composé de deux microservices :
 
 * Le service `planet-weather-provider` retourne du texte relatif au climat en réponse à une requête HTTP qui spécifie le nom de la planète. Par exemple, il peut retourner « très chaud » pour la planète Mercure. Il obtient les données météorologiques du serveur de configuration. Le serveur de configuration obtient les données météorologiques d’un fichier YAML situé dans un dépôt Git, par exemple :
 
-  ```yaml
-  MercuryWeather: very warm
-  VenusWeather: quite unpleasant
-  MarsWeather: very cool
-  SaturnWeather: a little bit sandy
-  ```
+   ```yaml
+   MercuryWeather: very warm
+   VenusWeather: quite unpleasant
+   MarsWeather: very cool
+   SaturnWeather: a little bit sandy
+   ```
 
 * Le service `solar-system-weather` retourne des données pour quatre planètes en réponse à une requête HTTP. Il obtient les données en envoyant quatre requêtes HTTP à `planet-weather-provider`. Il utilise le service de découverte de serveur Eureka pour appeler `planet-weather-provider`. Il retourne du code JSON, par exemple :
 
-  ```json
-  [{
-      "Key": "Mercury",
-      "Value": "very warm"
-  }, {
-      "Key": "Venus",
-      "Value": "quite unpleasant"
-  }, {
-      "Key": "Mars",
-      "Value": "very cool"
-  }, {
-      "Key": "Saturn",
-      "Value": "a little bit sandy"
-  }]
-  ```
+   ```json
+   [{
+       "Key": "Mercury",
+       "Value": "very warm"
+   }, {
+       "Key": "Venus",
+       "Value": "quite unpleasant"
+   }, {
+       "Key": "Mars",
+       "Value": "very cool"
+   }, {
+       "Key": "Saturn",
+       "Value": "a little bit sandy"
+   }]
+   ```
 
 Le diagramme suivant montre l’architecture de l’exemple d’application.
 
@@ -64,7 +64,7 @@ Les instructions fournies dans les guides de démarrage rapide suivants font ré
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Dans ce guide de démarrage rapide, nous utilisons la version de microservices de l’exemple d’application [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) connu qui vous montrera comment déployer des applications sur le service Azure Spring Cloud. L’exemple **PetClinic** présente le modèle d’architecture de microservices et met en évidence la décomposition des services. Vous verrez comment les services sont déployés sur Azure avec les fonctionnalités Azure Spring Cloud, notamment la découverte de service, le serveur de configuration, les journaux, les métriques, le suivi distribué et la prise en charge d’outils conviviaux pour les développeurs. 
+Dans ce guide de démarrage rapide, nous utilisons la version de microservices de l’exemple d’application [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) connu qui vous montrera comment déployer des applications sur le service Azure Spring Cloud. L’exemple **Pet Clinic** présente le modèle d’architecture de microservices et met en évidence la décomposition des services. Vous verrez comment les services sont déployés sur Azure avec les fonctionnalités Azure Spring Cloud, notamment la découverte de service, le serveur de configuration, les journaux, les métriques, le suivi distribué et la prise en charge d’outils conviviaux pour les développeurs.
 
 Pour suivre les exemples de déploiement Azure Spring Cloud, vous avez seulement besoin de l’emplacement du code source, qui est fourni quand c’est nécessaire.
 
@@ -77,16 +77,17 @@ PetClinic est décomposée en 4 microservices principaux. Ce sont tous des appl
 * **Service clients** : contient la logique générale et la validation des entrées utilisateur, notamment les informations sur les animaux et les propriétaires (Nom, Adresse, Ville, Téléphone).
 * **Service des visites** : stocke et affiche les informations sur les visites concernant les commentaires de chaque animal.
 * **Service des vétérinaires** : stocke et affiche les informations sur les vétérinaires, notamment les noms et les spécialisations.
-* **Passerelle API** : il s’agit d’un point d’entrée unique dans le système, utilisé pour traiter les demandes et les router vers un service approprié ou pour appeler plusieurs services, puis agréger les résultats.  Les trois services principaux exposent une API externe au client. Dans les vrais systèmes, le nombre de fonctions peut grimper très rapidement avec la complexité du système. Des centaines de services peuvent être impliqués dans le rendu d’une page web complexe. 
+* **Passerelle API** : il s’agit d’un point d’entrée unique dans le système, utilisé pour traiter les demandes et les router vers un service approprié ou pour appeler plusieurs services, puis agréger les résultats.  Les trois services principaux exposent une API externe au client. Dans les vrais systèmes, le nombre de fonctions peut grimper très rapidement avec la complexité du système. Des centaines de services peuvent être impliqués dans le rendu d’une page web complexe.
 
 ## <a name="infrastructure-services-hosted-by-azure-spring-cloud"></a>Services d’infrastructure hébergés par Azure Spring Cloud
 
-Il existe plusieurs modèles courants dans les systèmes distribués qui prennent en charge les services principaux. Azure Spring Cloud fournit des outils qui améliorent les applications Spring Boot pour implémenter les modèles suivants : 
+Il existe plusieurs modèles courants dans les systèmes distribués qui prennent en charge les services principaux. Azure Spring Cloud fournit des outils qui améliorent les applications Spring Boot pour implémenter les modèles suivants :
 
 * **Service de configuration** : la configuration Azure Spring Cloud est un service de configuration centralisé avec scalabilité horizontale pour les systèmes distribués. Il utilise un dépôt enfichable qui prend actuellement en charge le stockage local, Git et Subversion.
 * **Découverte des services** : elle permet la détection automatique des emplacements réseau pour les instances de service, qui pourraient avoir des adresses affectées dynamiquement en raison de la mise à l’échelle automatique, des défaillances et des mises à niveau.
 
 ## <a name="database-configuration"></a>Configuration de la base de données
+
 Dans sa configuration par défaut, **PetClinic** utilise une base de données en mémoire (HSQLDB) qui est renseignée au démarrage avec des données. Une configuration similaire est fournie pour MySql si une configuration de base de données persistante est nécessaire. La dépendance pour le Connecteur/J, le pilote JDBC MySQL, est déjà incluse dans les fichiers pom.xml.
 
 ## <a name="sample-usage-of-petclinic"></a>Exemple d’utilisation de PetClinic

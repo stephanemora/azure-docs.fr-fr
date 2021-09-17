@@ -1,5 +1,5 @@
 ---
-title: Caractéristiques de l’interaction de locataires multiples – Azure AD | Microsoft Docs
+title: Caractéristiques de l’interaction multi-locataire – Azure AD | Microsoft Docs
 description: Compréhension de l’indépendance des données de vos organisations Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce3e4c6a7708fba15560564577c9b01722c8aec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79673341845504590d1c70f802a04c644d20b7db
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96548050"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750543"
 ---
-# <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Comprendre l’interaction entre plusieurs organisations Azure Active Directory
+# <a name="understand-how-multiple-azure-active-directory-tenant-organizations-interact"></a>Comprendre l’interaction entre plusieurs organisations locataires Azure Active Directory
 
 Dans Azure Active Directory (Azure AD), chaque organisation Azure AD est entièrement indépendante, c’est-à-dire une homologue logiquement indépendante des autres organisations Azure AD que vous gérez. Cette indépendance entre les organisations vaut pour les ressources, l’administration et la synchronisation. Il n’existe pas de relation parent-enfant entre les organisations.
 
@@ -35,7 +35,7 @@ Dans Azure Active Directory (Azure AD), chaque organisation Azure AD est entiè
 Si un utilisateur non-administrateur de l’organisation « Contoso » crée l’organisation de test « Test », alors :
 
 * Par défaut, l’utilisateur qui crée une organisation est ajouté comme utilisateur externe dans cette nouvelle organisation et se voit attribuer le rôle d’administrateur général dans cette organisation.
-* Les administrateurs de l’organisation « Contoso » n’ont pas de privilèges d’administration directs sur l’organisation « Test », à moins qu’un administrateur de « Test » leur ait spécifiquement accordé ces privilèges. Cependant, les administrateurs de « Contoso » peuvent contrôler l’accès à l’organisation « Test » s’ils contrôlent le compte d’utilisateur qui a créé « Test ».
+* Les administrateurs de l’organisation « Contoso » n’ont pas de privilèges d’administration directs sur l’organisation « Test », à moins qu’un administrateur de « Test » leur ait spécifiquement accordé ces privilèges. Cependant, les administrateurs de « Contoso » peuvent contrôler l’accès à l’organisation « Test » s’ils se connectent au compte d’utilisateur qui a créé « Test ».
 * Si vous ajoutez ou supprimez un rôle Azure AD pour un utilisateur d’une organisation, ce changement n’affecte pas les rôles attribués à l’utilisateur dans une autre organisation Azure AD.
 
 ## <a name="synchronization-independence"></a>Indépendance de la synchronisation

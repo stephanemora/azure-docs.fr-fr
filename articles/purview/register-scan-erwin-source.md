@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 7/16/2021
-ms.openlocfilehash: 55ec355cf28f08618b1c51670b876f93dee69cc8
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 2b6c9f621c4c18a172e12bc93387eb75451cb851
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393546"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736339"
 ---
 # <a name="register-and-scan-erwin-mart-server-preview"></a>Inscrire et analyser un serveur erwin Mart (préversion)
 
@@ -54,12 +54,12 @@ La seule authentification prise en charge pour une source erwin Mart est l’**
 
 Pour inscrire un nouveau serveur erwin Mart dans votre catalogue de données, procédez comme suit :
 
-1.  Accédez à votre compte Purview.
-2.  Sélectionnez **Sources** dans la barre de navigation à gauche.
-3.  Sélectionnez **Inscrire**.
-4.  Dans Inscrire des sources, sélectionnez **erwin**. Sélectionnez **Continuer**.
-    :::image type="content" source="media/register-scan-erwin-source/register-sources.png" alt-text="Inscrire la source erwin" border="true":::
-    
+1. Accédez à votre compte Purview.
+1. Sélectionnez **Data Map** dans le volet de navigation de gauche.
+1. Sélectionnez **Inscrire**.
+1. Dans Inscrire des sources, sélectionnez **erwin**. Sélectionnez **Continuer.**
+    :::image type="content" source="media/register-scan-erwin-source/register-sources.png" alt-text="register erwin source" border="true":::
+
 Sur l’écran Inscrire des sources (erwin), procédez comme suit :
 
 1.  Entrez le **Nom** sous lequel la source de données apparaîtra dans le catalogue.

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 04/28/2021
 ms.author: memildin
-ms.openlocfilehash: fcadb8879f718913d93e33f81f6ec544ce9edb80
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: cb6f81fc02245e7932222d8555774e398944f1f4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277981"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751830"
 ---
 # <a name="tutorial-investigate-the-health-of-your-resources"></a>Tutoriel : Examiner l’intégrité de vos ressources
 
@@ -26,9 +26,9 @@ La page Intégrité des ressources fournit une vue instantanée de l’état d�
 Cette page unique, actuellement en préversion dans les pages du portail Security Center, propose ceci :
 
 1. **Informations sur la ressource** : Groupe de ressources et abonnement auxquels elle est associée, lieu géographique, etc.
-1. **Fonctionnalité de sécurité appliquée** : Indique si Azure Defender est activé pour la ressource.
-1. **Nombre de recommandations et d’alertes en suspens** : Nombre de recommandations de sécurité en suspens et d’alertes Azure Defender.
-1. **Recommandations et alertes actionnables** : Deux onglets listent les recommandations et alertes qui s’appliquent à la ressource.
+1. **Fonctionnalité de sécurité appliquée** : indique si Azure Defender est activé pour la ressource.
+1. **Nombre de recommandations en suspens et d’alertes** : nombre de recommandations de sécurité en suspens et d’alertes Azure Defender.
+1. **Recommandations et alertes actionnables** : deux onglets listent les recommandations et les alertes qui s’appliquent à la ressource.
 
 :::image type="content" source="media/investigate-resource-health/resource-health-page-virtual-machine.gif" alt-text="Page Intégrité des ressources dans Azure Security Center présentant des informations sur l’intégrité d’une machine virtuelle":::
 
@@ -78,7 +78,7 @@ La page Intégrité des ressources liste les recommandations pour lesquelles vot
 
 - Pour vérifier que votre ressource est protégée conformément aux stratégies appliquées à vos abonnements, corrigez les problèmes décrits dans les recommandations :
     1. Dans le volet droit, sélectionnez une recommandation.
-    1. Procédez comme indiqué à l’écran.
+    1. Continuez comme indiqué à l’écran.
 
         > [!TIP]
         > Les instructions sur la correction des problèmes soulevés par les recommandations de sécurité diffèrent pour chacune des recommandations Security Center.

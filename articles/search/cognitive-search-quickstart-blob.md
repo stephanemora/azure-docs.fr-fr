@@ -1,21 +1,21 @@
 ---
-title: Créer un ensemble de compétences dans le portail Azure
+title: 'Démarrage rapide : créer un ensemble de compétences dans le Portail Azure'
 titleSuffix: Azure Cognitive Search
-description: Dans ce guide de démarrage rapide du portail, découvrez comment utiliser l’Assistant Importation de données pour ajouter des compétences cognitives à un pipeline d’indexation dans Recherche cognitive Azure. Les compétences incluent l’OCR (reconnaissance optique de caractères) et le traitement en langage naturel.
+description: Dans ce guide de démarrage rapide du portail, utilisez l’Assistant Importation des données pour ajouter des compétences cognitives à un pipeline d’indexation dans Recherche cognitive Azure. Les compétences incluent l’OCR (reconnaissance optique de caractères) et le traitement en langage naturel.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/21/2021
-ms.openlocfilehash: 6a0ce57af076644072545356c0b225c4d639b9d5
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/17/2021
+ms.openlocfilehash: d29f434e1ac8b5fa8b96dcf4ad4f1125c20eb4db
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559211"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451760"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Démarrage rapide : Créer un ensemble de compétences cognitives pour la Recherche cognitive Azure dans le portail Azure
+# <a name="quickstart-create-an-azure-cognitive-search-skillset-in-the-azure-portal"></a>Démarrage rapide : créer un ensemble de compétences pour la Recherche cognitive Azure dans le Portail Azure
 
 Ce démarrage rapide montre comment la prise en charge des compétences sur le portail, ainsi que la manière dont la reconnaissance optique de caractères (OCR) et la reconnaissance d’entités peuvent être utilisées pour créer des contenus textuels pouvant faire l’objet de recherches à partir d’images et de fichiers d’application.
 
@@ -31,10 +31,10 @@ Avant de commencer, vous devez disposer des prérequis suivants :
 
 + Service Recherche cognitive Azure. [Créez un service](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
-+ Un compte de stockage Azure avec un [stockage blob](../storage/blobs/index.yml).
++ Un compte de stockage Azure avec un [Stockage Blob](../storage/blobs/index.yml).
 
 > [!NOTE]
-> Ce guide de démarrage rapide utilise également [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) pour l’intelligence artificielle. Parce que la charge de travail est vraiment petite, Cognitive Services est utilisé en arrière-plan pour traiter gratuitement jusqu’à 20 transactions. Cela signifie que vous pouvez effectuer cet exercice sans avoir à créer une ressource Cognitive Services supplémentaire.
+> Ce guide de démarrage rapide utilise également [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) pour l’intelligence artificielle. Parce que la charge de travail est vraiment petite, Cognitive Services est utilisé en arrière-plan pour traiter gratuitement jusqu’à 20 transactions. Cela signifie que vous pouvez effectuer cet exercice sans avoir à créer une ressource Cognitive Services supplémentaire.
 
 ## <a name="set-up-your-data"></a>Configurer vos données
 
@@ -62,7 +62,7 @@ Vous êtes maintenant prêt à passer à l’Assistant Importation de données.
 
 1. [Recherchez votre service de recherche](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). Ensuite, dans la page Vue d’ensemble, cliquez sur **Importer des données** sur la barre de commandes pour configurer l’enrichissement cognitif en quatre étapes.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="Commande Importer des données" border="false":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Capture d’écran de la commande Importer des données" border="true":::
 
 ### <a name="step-1---create-a-data-source"></a>Étape 1 : Créer une source de données
 
@@ -108,9 +108,9 @@ Pour ce guide de démarrage rapide, l’Assistant effectue un travail de qualit�
 
 Remarquez la zone barrée et le point d’interrogation sur l’attribut **Récupérable** près du champ `content`. Pour les documents d’objets blob comportant beaucoup de texte, le champ `content` contient la majeure partie du fichier qui peut atteindre des milliers de lignes. Un champ comme celui-ci pouvant alourdir les résultats de la recherche, vous devez l’exclure de cette démonstration. 
 
-Toutefois, si vous devez transmettre le contenu du fichier au code client, assurez-vous que **Récupérable** reste sélectionné. Sinon, pensez à décocher cet attribut sur `content` si les éléments extraits (tels que `people`, `organizations`, `locations`, etc.) sont suffisants.
+Toutefois, si vous devez transmettre le contenu du fichier au code client, assurez-vous que **Récupérable** reste sélectionné pour permettre au moteur de recherche de retourner ce champ.
 
-Marquer un champ comme étant **Récupérable** ne signifie pas que le champ *doit* être présent dans les résultats de recherche. Vous pouvez contrôler avec précision la composition des résultats de recherche à l’aide du paramètre de requête **$select** pour spécifier les champs à inclure. Pour les champs comportant beaucoup de texte, tels que `content`, le paramètre **$select** constitue votre solution pour fournir aux utilisateurs humains de votre application des résultats de recherche faciles à gérer, tout en garantissant au code client l’accès à toutes les informations dont il a besoin via l’attribut **Récupérable**.
+Marquer un champ comme étant **Récupérable** ne signifie pas que le champ *doit* être présent dans les résultats de recherche. Vous pouvez contrôler avec précision la composition des résultats de recherche à l’aide du paramètre de requête **$select** pour spécifier les champs à inclure. Pour les champs comportant beaucoup de texte, tels que `content`, le paramètre **$select** constitue votre solution pour former pour les utilisateurs humains de votre application des résultats de recherche faciles à gérer, tout en garantissant au code client l’accès à toutes les informations dont il a besoin via l’attribut **Récupérable**.
   
 Passez à la page suivante.
 

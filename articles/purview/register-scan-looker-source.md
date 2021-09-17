@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 7/16/2021
-ms.openlocfilehash: 903435ff45249d0c066b386d84ce060057bac666
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: ed524382bf1fcc0c93fc61dd1c0450d69a16b74c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666575"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749409"
 ---
 # <a name="register-and-scan-lookerpreview"></a>Inscrire et analyser Looker (préversion)
 
@@ -45,7 +45,7 @@ Une clé API3 est requise pour se connecter au serveur Looker. La clé API3 se c
 Pour inscrire un nouveau serveur Looker dans votre catalogue de données, procédez comme suit :
 
 1. Accédez à votre compte Purview.
-2. Sélectionnez **Sources** dans la barre de navigation à gauche.
+2. Sélectionnez **Data Map** dans le volet de navigation de gauche.
 3. Sélectionnez **Inscrire**.
 4. Dans Inscrire des sources, sélectionnez **Looker**. Sélectionnez **Continuer.**
     :::image type="content" source="media/register-scan-looker-source/register-sources.png" alt-text="Inscrire la source Looker" border="true":::

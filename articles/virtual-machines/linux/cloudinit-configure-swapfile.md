@@ -8,14 +8,17 @@ ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: mimckitt
 ms.subservice: cloud-init
-ms.openlocfilehash: bc55bf12b766002fff7fda45af0d802164a2b503
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6ac16d84e71bbb59ee52b84f4a3e1e9fbcd80b32
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784122"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687917"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Utiliser cloud-init pour configurer une partition d'échange sur une machine virtuelle Linux
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
+
 Cet article vous explique comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour configurer la partition d'échange sur différentes distributions Linux. La partition d'échange est généralement configurée par l'Agent Linux (WALA) en fonction des distributions qui en ont besoin.  Ce document décrit le processus de création de la partition d'échange à la demande au moment de l'approvisionnement à l'aide de cloud-init.  Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md)
 
 ## <a name="create-swap-partition-for-ubuntu-based-images"></a>Créer une partition d'échange pour des images basées sur Ubuntu

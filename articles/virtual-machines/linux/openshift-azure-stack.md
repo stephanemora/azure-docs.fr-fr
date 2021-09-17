@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: decc66d2d5abd16c084aa19443dbac54e87a9560
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce24fa1e3956d1ebfe7365a89e312bf8586ce770
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667233"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695434"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Déployer OpenShift Container Platform ou OKD dans Azure Stack
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 OpenShift peut être déployé dans Azure Stack. En raison de quelques différences importantes entre Azure et Azure Stack, le déploiement et certaines fonctionnalités diffèrent légèrement.
 

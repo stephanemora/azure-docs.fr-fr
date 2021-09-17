@@ -9,15 +9,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 7788d7e7a8aa92d4c06b0895c5bea000e13e2d85
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 30246166650cddc1c89fa3a2ca377c163fb5847b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713123"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697749"
 ---
 # <a name="prepare-a-sles-or-opensuse-leap-virtual-machine-for-azure"></a>Préparation d’une machine virtuelle SLES ou openSUSE Leap pour Azure
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles **S’applique à :** :heavy_check_mark: Groupes identiques uniformes
 
 Cet article suppose que vous avez déjà installé un système d’exploitation SUSE ou openSUSE Leap Linux sur un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 

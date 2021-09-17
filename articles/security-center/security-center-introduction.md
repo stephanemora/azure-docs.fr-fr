@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: b700cd6a9b17abcd86cfb31b1d2c65fefe226d79
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: e8367f0dbbbc7a15603071efa9d7ff2828c692d6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112237407"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734863"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 
@@ -50,7 +50,7 @@ Pour vous aider à vous protéger contre ces problèmes, Security Center vous of
 
 Security Center faisant nativement partie d’Azure, les services PaaS dans Azure (notamment Service Fabric,SQL Database, SQL Managed Instance et les comptes de stockage) sont supervisés et protégés par Security Center sans qu’un déploiement ne soit nécessaire.
 
-En outre, Security Center protège les serveurs et machines virtuelles autres qu’Azure dans le cloud ou localement, pour les serveurs Windows et Linux, en installant l’agent Log Analytics sur ces derniers. Les machines virtuelles Azure sont approvisionnées automatiquement dans Security Center.
+En outre, Security Center protège les serveurs et machines virtuelles autres qu’Azure dans le cloud ou localement, pour les serveurs Windows et Linux, en installant l’agent Log Analytics sur ces derniers. Les machines virtuelles Azure sont provisionnées automatiquement dans Security Center.
 
 Les événements collectés à partir des agents et d’Azure sont corrélés dans le moteur d’analytique de sécurité pour vous fournir des recommandations personnalisées (tâches de renforcement) à suivre pour garantir que vos charges de travail sont sécurisées. Des alertes de sécurité sont également mises en place. Vous devez examiner ces alertes dès que possible pour vous assurer qu’il n’y a pas d’attaques malveillantes en cours sur vos charges de travail.
 

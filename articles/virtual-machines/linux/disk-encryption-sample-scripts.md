@@ -9,16 +9,18 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 1c428d693690d6b215552d0261dcb73547476885
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 41b449e9d4216d591a76815ba7c930b5c23fdfc6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634358"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695665"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Exemples de scripts Azure Disk Encryption pour machines virtuelles Linux
 
-Cet article fournit des exemples de scripts pour la préparation de disques durs virtuels préchiffrés et d’autres tâches.
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
+
+Cet article fournit des exemples de scripts pour la préparation de disques durs virtuels préchiffrés et d’autres tâches.  
 
 > [!NOTE]
 > Sauf mention contraire, tous les scripts font référence à la dernière version hors AAD d’ADE.

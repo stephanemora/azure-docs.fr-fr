@@ -8,14 +8,16 @@ ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 48b7fb11f3f0127358ee92ddea9262b805264500
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7f4ae0dfb8e03add64f450d98c15f85da33eaef3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524730"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696464"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 La plupart des disques managés Azure sont chiffrés avec le chiffrement de Stockage Azure, qui utilise le chiffrement côté serveur (SSE) pour protéger vos données et vous aider à répondre aux engagements de votre organisation en matière de sécurité et de conformité. Le chiffrement Stockage Azure chiffre automatiquement vos données stockées sur des disques managés Azure (système d’exploitation et disques de données) au repos par défaut lors de leur conservation dans le cloud. Toutefois, les disques sur lesquels le chiffrement est activé sur l’hôte ne sont pas chiffrés par le biais du Stockage Azure. Pour les disques sur lesquels le chiffrement est activé sur l’hôte, le serveur qui héberge votre machine virtuelle fournit le chiffrement de vos données, et les données chiffrées sont transmises dans le Stockage Azure.
 
@@ -55,7 +57,7 @@ Les clés gérées par le client sont disponibles dans toutes les régions où l
 > [!IMPORTANT]
 > Les clés managées par le client s’appuient sur des identités managées pour ressources Azure, une fonctionnalité d’Azure Active Directory (Azure AD). Quand vous configurez des clés gérées par le client, une identité managée est automatiquement affectée à vos ressources à l’arrière plan. Si par la suite vous déplacez l’abonnement, le groupe de ressources ou le disque managé d’un répertoire Azure AD à un autre, l’identité managée associée aux disques gérés n’est pas transférée vers le nouveau locataire, de sorte que les clés gérées par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez [Transfert d’un abonnement entre des répertoires Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
-Pour activer les clés gérées par le client pour les disques managés, consultez nos articles traitant de la façon de les activer à l’aide du [module Azure PowerShell](windows/disks-enable-customer-managed-keys-powershell.md), d’[Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) ou du [portail Azure](disks-enable-customer-managed-keys-portal.md). Pour savoir comment activer les clés gérées par le client avec rotation automatique des clés, consultez [Configurer un coffre de clés Azure et un jeu de chiffrement DiskEncryptionSet avec rotation automatique des clés (préversion)](windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview).
+Pour activer les clés gérées par le client pour les disques managés, consultez nos articles traitant de la façon de les activer à l’aide du [module Azure PowerShell](windows/disks-enable-customer-managed-keys-powershell.md), d’[Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) ou du [portail Azure](disks-enable-customer-managed-keys-portal.md). 
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Chiffrement à l’hôte : chiffrement de bout en bout pour vos données de machine virtuelle
 

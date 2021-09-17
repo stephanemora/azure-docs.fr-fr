@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5b522ac678c5a2ffbcf5713de79e35c00e30ba40
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 9c03280532a1296d49c26b8e7502c5cbac896f8e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672884"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687731"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Gestion de la maintenance planifiée à l’aide de PowerShell
 
-**Cet article s’applique aux machines virtuelles exécutant Linux et Windows.**
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Vous pouvez utiliser Azure PowerShell pour savoir quand la [maintenance](maintenance-notifications.md) des machines virtuelles a été planifiée. Les informations de maintenance planifiée sont disponibles à partir de la cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm) lorsque vous utilisez le paramètre `-status`.
   

@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 9c0fcd7923d03ed4086e424e3a8ec86fc74df4af
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 931a80078c4e808ac394bdd226fb972807ed4563
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111526953"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697239"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Conventions de dénomination des tailles de machines virtuelles Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Cette page met en avant les convention d’affectation de noms utilisées pour les machines virtuelles Azure. Les machines virtuelles utilisent ces conventions d’affection de noms pour désigner des fonctionnalités et des spécifications différentes.
 

@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 210213321dfba3bf734af498db6567cf1c6b4281
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: d95bfadd23e1a8e0d2db70952c81667d24dc4230
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889703"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771021"
 ---
 # <a name="achieve-nist-authenticator-assurance-level-3-by-using-azure-active-directory"></a>Atteindre le niveau d’assurance de l’authentificateur 3 NIST à l’aide d’Azure Active Directory
 
@@ -44,7 +44,7 @@ Microsoft propose des méthodes d’authentification qui vous permettent de rép
 
 Nous vous recommandons d’utiliser un authentificateur matériel de chiffrement multifacteur pour atteindre AAL3. L’authentification sans mot de passe élimine la plus grande surface d’attaque, à savoir le mot de passe, et offre aux utilisateurs une méthode d’authentification simplifiée. Si votre organisation est entièrement informatique, nous vous recommandons d’utiliser des clés de sécurité FIDO2.
 
-Notez que les clés FIDO2 et Windows Hello Entreprise n’ont pas été validés au niveau de sécurité FIPS 140 requis. Les clients fédéraux doivent donc procéder à une évaluation des risques avant d’accepter ces authentificateurs comme niveaux AAL3.
+Veuillez noter que Hello Entreprise Windows n’a pas été validé au Niveau de sécurité FIPS 140 requis et que, de fait, les clients des agences fédérales doivent procéder à l’évaluation des risques avant d’accepter cet authentificateur en tant qu’AAL3. .
 
 Pour obtenir des instructions détaillées, consultez [Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md).
 

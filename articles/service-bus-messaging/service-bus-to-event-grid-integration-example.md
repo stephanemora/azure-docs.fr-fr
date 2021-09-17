@@ -4,15 +4,15 @@ description: Cet article explique comment gérer les événements Service Bus vi
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 08/13/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36690973f441c80f71c1941c63cd40d91c1efd08
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 013468d1b6e5ba6fccb1277f715b5a42a469f4a2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114719852"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182577"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-logic-apps"></a>Tutoriel : Répondre aux événements Azure Service Bus reçus via Azure Event Grid avec Azure Logic Apps
 Dans ce tutoriel, vous allez apprendre à répondre aux événements Azure Service Bus qui sont reçus via Azure Event Grid à l’aide d’Azure Logic Apps. 
@@ -44,7 +44,7 @@ Au cours de cette étape, vous allez créer une application logique Azure qui re
     2. Pour **Type de ressource**, sélectionnez **Microsoft.ServiceBus.Namespaces**. 
     3. Pour **Nom de la ressource**, sélectionnez votre espace de noms Service Bus. 
     4. Sélectionnez **Ajouter un nouveau paramètre**, puis **Filtre de suffixe**. 
-    5. Pour **Filtre de suffixe**, entrez le nom de votre deuxième abonnement à la rubrique Service Bus. 
+    5. Pour **Filtre de suffixe**, entrez le nom de votre abonnement à la rubrique Service Bus. 
         ![Concepteur Logic Apps - Configurer un événement](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Sélectionnez **+ Nouvelle étape** dans le concepteur et procédez comme suit :
     1. Recherchez **Service Bus**.
@@ -102,7 +102,7 @@ Dans cette étape, vous allez ajouter des étapes pour envoyer le message reçu 
     1. Sélectionnez **Service Bus** dans la liste **Récent**.
     2. Sélectionnez **Compléter le message dans un abonnement à une rubrique**. 
     3. Sélectionnez votre **rubrique** Service Bus.
-    4. Sélectionnez le deuxième **abonnement** à la rubrique.
+    4. Créer un **abonnement** à la rubrique.
     5. Pour **Jeton de verrouillage du message**, sélectionnez **Jeton de verrouillage** à partir du **contenu dynamique**. 
 
         ![Concepteur Logic Apps : compléter le message](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)

@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 08/20/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1c4a006a12e9708b35ea15ff68728569822ae26d
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 37f5e0163d7c2ed57866f8c4eda49458a969ad87
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390749"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687759"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Didacticiel - Gestion des disques Azure avec l’interface de ligne de commande Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Les machines virtuelles utilisent des disques pour stocker leur système d’exploitation, leurs applications et leurs données. Lorsque vous créez une machine virtuelle, il est important de choisir une taille de disque et une configuration adaptées à la charge de travail prévue. Ce tutoriel vous montre comment déployer et gérer des disques de machine virtuelle. Vous en apprendrez davantage sur les points suivants :
 
@@ -111,7 +113,7 @@ Une fois qu’un disque a été attaché à la machine virtuelle, le système d�
 Créez une connexion SSH avec la machine virtuelle. Remplacez l’exemple d’adresse IP par l’adresse IP publique de la machine virtuelle.
 
 ```console
-ssh 10.101.10.10
+ssh azureuser@10.101.10.10
 ```
 
 Partitionnez le disque avec `parted`.

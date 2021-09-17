@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/21/2021
+ms.date: 08/03/2021
 ms.author: victorh
-ms.openlocfilehash: c5ba8ed36bc59b9b26dc854a0c1a1757f1c47266
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 9a6e6a0713179295379e758f454617484c75b9a2
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113595324"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779153"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Qu’est-ce qu’Azure Firewall Manager ?
 
@@ -87,6 +87,8 @@ Les problèmes connus d’Azure Firewall Manager sont les suivants :
 |Échec de l'ajout en bloc d'adresses IP|Le pare-feu du hub sécurisé passe en état d'échec si vous ajoutez plusieurs adresses IP publiques.|Ajoutez de plus petits incréments d'adresses IP publiques. Par exemple, ajoutez 10 adresses à la fois.|
 |Protection DDoS Standard non prise en charge avec les hubs virtuels sécurisés|La protection DDoS Standard n’est pas intégrée aux réseaux WAN virtuels.|Enquête|
 |Journaux d’activité non entièrement pris en charge|La stratégie de pare-feu ne prend pas en charge les journaux d’activité.|Enquête|
+|Description des règles non entièrement prises en charge|La stratégie de pare-feu n’affiche pas la description des règles dans une exportation ARM.|Enquête|
+|Azure Firewall Manager remplace les itinéraires statiques et personnalisés, ce qui provoque des temps d’arrêt dans le hub WAN virtuel.|Vous ne devez pas utiliser Azure Firewall Manager pour gérer vos paramètres dans les déploiements configurés avec des itinéraires personnalisés ou statiques. Les mises à jour de Firewall Manager peuvent remplacer des paramètres d’itinéraire statiques ou personnalisés.|Si vous utilisez des itinéraires statiques ou personnalisés, utilisez la page WAN virtuel pour gérer les paramètres de sécurité et éviter la configuration via Azure Firewall Manager.<br><br>Pour plus d’informations, consultez [Scénario : Pare-feu Azure - personnalisé](../virtual-wan/scenario-route-between-vnets-firewall.md).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

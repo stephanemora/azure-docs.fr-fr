@@ -10,12 +10,12 @@ ms.subservice: automanage
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: d0c319fa9579f68c7f429283327f43869c4ab2b1
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: faf51735ae6805f0ff7db98416e9b05731c08642
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113006047"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426451"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Démarrage rapide : Activer l’Autogestion Azure pour machines virtuelles dans le portail Azure
 
@@ -37,21 +37,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.micr
 
 Connectez-vous au [portail Azure](https://aka.ms/AutomanagePortal-Ignite21).
 
-## <a name="enable-automanage-for-a-single-machine"></a>Activer Automanage pour une seule machine
-
-1. Recherchez la machine virtuelle pour laquelle vous souhaitez effectuer l’activation.
-
-2. Cliquez sur l’entrée **Automanage (préversion)** dans la table des matières sous **Opérations**.
-
-3. Sélectionnez **Prise en main**.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-getstartedbutton.png" alt-text="Démarrer pour une seule machine virtuelle.":::
-
-4. Choisissez vos paramètres Automanage (environnement, préférences, compte Automanage), puis cliquez sur **Activer**.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-enablepane.png" alt-text="Activer sur une seule machine virtuelle.":::
-
-## <a name="enable-automanage-for-multiple-machines"></a>Activer Automanage pour plusieurs machines
+## <a name="enable-automanage-on-existing-machines"></a>Activer Automanage sur les machines existantes
 
 1. Dans la barre de recherche, recherchez et sélectionnez **Automanage - Azure machine best practices** (Automanage - Bonnes pratiques pour les machines virtuelles Azure).
 
@@ -64,7 +50,7 @@ Connectez-vous au [portail Azure](https://aka.ms/AutomanagePortal-Ignite21).
     1. Cochez la case des machines virtuelles que vous souhaitez intégrer.
     1. Cliquez sur le bouton **Sélectionner**.
     > [!NOTE]
-    > Vous pouvez sélectionner des machines virtuelles Azure et des avec Arc.
+    > Vous pouvez sélectionner des machines virtuelles Azure et d’autres avec Arc.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
 

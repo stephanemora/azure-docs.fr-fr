@@ -2,14 +2,15 @@
 metadata:
   title: FAQ - Sauvegarder des machines virtuelles Azure
   description: Cet article fournit des réponses à des questions courantes sur la sauvegarde des machines virtuelles Azure avec le service Sauvegarde Microsoft Azure.
-  ms.topic: conceptual
-  ms.date: 06/02/2021
-  ms.openlocfilehash: b829855ad97e702f4a005375a1e70bd0869289ad
-  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+  ms.topic: article
+  ms.service: backup
+  ms.date: 08/19/2021
+  ms.openlocfilehash: d579c304c9a345323fc57020435b4b3a41c70cbd
+  ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/22/2021
-  ms.locfileid: "112467332"
+  ms.lasthandoff: 08/20/2021
+  ms.locfileid: "122597862"
 title: Forum aux questions - Sauvegarde de machines virtuelles Azure
 summary: >
   Cet article fournit des réponses à des questions courantes sur la sauvegarde des machines virtuelles Azure avec le service [Sauvegarde Azure](./backup-overview.md).
@@ -107,6 +108,18 @@ sections:
     answer: Toutes les configurations de machines virtuelles requises pour effectuer les opérations de restauration sont stockées dans la sauvegarde de machines virtuelles. Celle-ci inclut les copies de chiffrement des clés chiffrées de machine virtuelle qui vous sont accessibles lors de la restauration. Les copies de chiffrement ne peuvent être déchiffrées qu’à l’aide du coffre de clés. Les disques temporaires et l’état de la mémoire ne sont pas capturés dans l’instantané.
   - question: Est-il possible de sauvegarder des balises à partir d’une machine virtuelle Azure ? Dans l’affirmative, combien de balises ?
     answer: Le service Sauvegarde Azure peut sauvegarder et restaurer des balises, sauf pour des cartes réseau et des adresses IP. Il respecte les limitations d’abonnement du groupe de ressources Azure et restaure jusqu’à 50 balises.<br><br>Pour plus d’informations, consultez [Limites d’abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+  - question: Puis-je effectuer une sauvegarde à la demande (ad hoc) sans planifier la sauvegarde d’une machine virtuelle Azure ?
+    answer: >
+      Non, vous ne pouvez pas déclencher de sauvegardes à la demande en désactivant la sauvegarde planifiée.
+  - question: Comment fonctionne le processus de sauvegarde Azure pour les nœuds de cluster ?
+    answer: >
+      Chaque machine virtuelle Azure dans un cluster est considérée comme une machine virtuelle Azure individuelle. Par conséquent, toutes les opérations de sauvegarde sont applicables au niveau des machines virtuelles Azure individuelles.
+  - question: La sauvegarde Azure interfère-t-elle avec les performances des applications ?
+    answer: >
+      La création d’un instantané de machine virtuelle prend quelques minutes et il y aura une interférence minime sur les performances des applications à ce stade. Toutefois, le transfert de données vers un coffre prend quelques heures. Nous vous recommandons donc de planifier les sauvegardes pendant les heures creuses. Consultez les [Bonnes pratiques pour la sauvegarde et la restauration](/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations).
+  - question: Le nouveau disque ajouté à la machine virtuelle sera-t-il sauvegardé automatiquement ?
+    answer: >
+      Oui, le nouveau disque ajouté à une machine virtuelle est sauvegardé automatiquement lors de la sauvegarde suivante.
 - name: Restaurer
   questions:
   - question: Comment déterminer si je dois restaurer des disques uniquement ou une machine virtuelle complète ?
@@ -127,7 +140,8 @@ sections:
 
       - Vous voulez ajouter tout autre paramètre devant être configuré à l’aide de PowerShell ou d’un modèle.
   - question: Puis-je restaurer des sauvegardes de disques de machine virtuelle non managés après avoir effectué une mise à niveau vers des disques managés ?
-    answer: Oui, vous pouvez utiliser des sauvegardes effectuées avant la migration des disques non managés vers des disques managés.
+    answer: >
+      Oui, vous pouvez utiliser des sauvegardes effectuées avant la migration des disques non managés vers des disques managés.
   - question: Comment restaurer une machine virtuelle à un point de restauration antérieur à la migration de la machine virtuelle vers des disques managés ?
     answer: >
       Le processus de restauration ne change pas. Si le point de récupération est un point dans le temps où la machine virtuelle avait des disques non managés, vous pouvez [restaurer les disques en tant que disques non managés](tutorial-restore-disk.md#unmanaged-disks-restore). Si la machine virtuelle avait des disques managés, vous pouvez [restaurer les disques en tant que disques managés](tutorial-restore-disk.md#managed-disk-restore). Vous pouvez ensuite [créer une machine virtuelle à partir de ces disques](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
@@ -137,7 +151,7 @@ sections:
   - question: Si la restauration ne permet pas de créer la machine virtuelle, qu’advient-il des disques inclus dans la restauration ?
     answer: Dans le cas d’une restauration de machine virtuelle managée, même si la création de la machine échoue, les disques sont toujours restaurés.
   - question: Puis-je restaurer une machine virtuelle qui a été supprimée ?
-    answer: Oui. Même si vous supprimez la machine virtuelle, vous pouvez accéder à l’élément de sauvegarde correspondant dans le coffre et effectuer une restauration à partir d’un point de récupération.
+    answer: Oui. Même si vous supprimez la machine virtuelle, vous pouvez accéder à l’élément de sauvegarde correspondant dans le coffre et effectuer une [restauration à partir d’un point de récupération](backup-azure-arm-restore-vms.md#select-a-restore-point).
   - question: Comment restaurer une machine virtuelle dans les mêmes groupes à haute disponibilité ?
     answer: Pour des machines virtuelles Azure à disque managé, la restauration dans des groupes à haute disponibilité est activée en proposant une option dans le modèle lors de la restauration en tant que disque managé. Ce modèle dispose du paramètre d’entrée appelé **Groupes à haute disponibilité**.
   - question: Comment accélérer les performances de restauration ?
@@ -162,6 +176,9 @@ sections:
 
 
       `if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
+  - question: Comment restaurer une machine virtuelle dans un état hors tension ?
+    answer: >
+      Pour restaurer une machine virtuelle dans un état hors tension, vous pouvez [créer une machine virtuelle](/azure/backup/backup-during-vm-creation#create-a-vm-with-backup-configured) ou [restaurer des disques](/azure/backup/backup-azure-arm-restore-vms#restore-disks), mais vous ne pouvez pas remplacer une machine virtuelle existante. En savoir plus sur les [options de restauration disponibles](/azure/backup/backup-azure-arm-restore-vms#restore-options).
 - name: Gérer les sauvegardes de machine virtuelle
   questions:
   - question: Que se passe-t-il si je modifie une stratégie de sauvegarde ?
@@ -214,11 +231,23 @@ sections:
   - question: Quand l’instantané est déplacé d’un compte de stockage vers un coffre, comment le chiffrement en transit est-il géré ?
     answer: La sauvegarde de machine virtuelle Azure utilise une [communication HTTPS pour le chiffrement en transit](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest). Le transfert de données utilise la structure Azure (non les points de terminaison publics) qui n’a pas besoin d’un accès Internet pour la sauvegarde de machine virtuelle.
   - question: Comment puis-je désactiver l’option de récupération de fichiers ?
-    answer: >-
-      [Cette API](/rest/api/backup/2021-02-10/item-level-recovery-connections/provision) configure un script pour appeler une **connexion iSCSI** pour la récupération de fichiers à partir du service Sauvegarde Azure.
+    answer: >
+      [Cette API](/rest/api/backup/item-level-recovery-connections/provision) configure un script pour appeler une **connexion iSCSI** pour la récupération de fichiers à partir du service Sauvegarde Azure.
 
       - Vous pouvez désactiver cette option à l’aide de **définitions de rôle personnalisées** en excluant l’action de l’API.
 
       - Vous pouvez également utiliser les [points de terminaison privés](private-endpoints.md) pour limiter l’accès au serveur iSCSI à partir du réseau privé.
 
       - Vous pouvez également désactiver cette option au sein d’une organisation à l’aide de la fonctionnalité [affectation de refus](../role-based-access-control/deny-assignments.md) .
+  - question: J’ai modifié la stratégie de rétention, quelle est la durée nécessaire à la prise d’effet de la stratégie ?
+    answer: >
+      La stratégie prend effet immédiatement après les modifications des paramètres, comme la rétention, la planification, etc. Elle s’applique à toutes les nouvelles sauvegardes effectuées à partir de la modification de la stratégie. Toutefois, le nettoyage des points de récupération (le cas échéant) selon la nouvelle stratégie prend 24 heures.
+  - question: Je ne parviens pas à sélectionner un réseau virtuel, un sous-réseau ou un compte de stockage dans la région secondaire lors de l’exécution d’une restauration inter-régions.
+    answer: >
+      Vous devez vérifier les autorisations d’abonnement dans la région secondaire. Écrivez-nous à l’adresse [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) pour l’inscription de l’abonnement.
+  - question: Comment puis-je vérifier le trafic entre le service de sauvegarde Azure et la machine virtuelle Azure ?
+    answer: >
+      Les ressources Azure gérant ce trafic, cette valeur ne peut pas être déterminée par un utilisateur externe.
+  - question: Quels sont les objectifs de point/délai de récupération (RPO/RTO) minimaux pour les sauvegardes de machines virtuelles dans la sauvegarde Azure ?
+    answer: >
+      **RPO** : le RPO minimal est de 1 jour ou 24 heures.  <br><br>  **RTO** : les instantanés sont stockés dans le compte de stockage. Par conséquent, la restauration à partir du niveau de restauration instantanée se fait immédiatement. Ces données sont ensuite transférées vers le coffre Recovery Services qui est géré par le service Sauvegarde Azure, et le transfert et la restauration prennent quelques heures.

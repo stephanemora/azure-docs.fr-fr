@@ -3,29 +3,78 @@ title: Tutoriel - Configurer le réseau pour votre cloud privé VMware dans Azur
 description: Découvrir comment créer et configurer le réseau nécessaire au déploiement de votre cloud privé dans Azure
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
-ms.date: 04/23/2021
-ms.openlocfilehash: 10326a07e5838dd5fe2264029c857f5ad49f5811
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 07/30/2021
+ms.openlocfilehash: 61a1c1c45455c9edc402aca1e5471f3ed95a8d66
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114442017"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122069551"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutoriel : Configurer le réseau pour votre cloud privé VMware dans Azure
 
-Un cloud privé Azure VMware Solution nécessite un réseau virtuel Azure. Comme Azure VMware Solution ne prend pas en charge votre vCenter local, des étapes supplémentaires sont nécessaires pour l’intégration à votre environnement local. La configuration d’un circuit ExpressRoute et d’une passerelle de réseau virtuel est également nécessaire.
+Un cloud privé Azure VMware Solution nécessite un réseau virtuel Azure. Comme Azure VMware Solution ne prend pas en charge votre vCenter local, des étapes supplémentaires sont requises pour l’intégration avec votre environnement local. La configuration d’un circuit ExpressRoute et d’une passerelle de réseau virtuel est également nécessaire.
 
 [!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
+
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Créez un réseau virtuel
+> * Créez un réseau virtuel 
 > * Créer une passerelle de réseau virtuel
 > * Connecter votre circuit ExpressRoute à la passerelle
 
+>[!NOTE]
+>Avant de créer un nouveau réseau virtuel, évaluez si vous disposez déjà d’un réseau virtuel dans Azure et envisagez de l’utiliser pour vous connecter à Azure VMware Solution, ou si vous souhaitez créer un nouveau réseau virtuel entièrement.  
+>* Pour utiliser un réseau virtuel existant, utilisez l’onglet **[Azure vNet Connect](#select-an-existing-vnet)** sous **Connectivité**. 
+>* Pour créer un réseau virtuel, utilisez l’onglet **[Azure vNet Connect](#create-a-new-vnet)** ou créez-en un [manuellement](#create-a-vnet-manually).
 
-## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+## <a name="connect-with-the-azure-vnet-connect-feature"></a>Se connecter avec la fonctionnalité Azure vNet Connect
+
+Vous pouvez utiliser la fonctionnalité **Azure vNet Connect** pour utiliser un réseau virtuel existant ou créer un nouveau réseau virtuel pour vous connecter à Azure VMware Solution.   
+
+>[!NOTE]
+>L’espace d’adressage du réseau virtuel ne peut pas se chevaucher avec le CIDR du cloud privé d’Azure VMware Solution.
+
+
+### <a name="select-an-existing-vnet"></a>Sélectionner un réseau virtuel existant
+
+Lorsque vous sélectionnez un réseau virtuel existant, le modèle Azure Resource Manager (ARM) qui crée le réseau virtuel et d’autres ressources est redéployé. Les ressources, dans ce cas, correspondent à l’adresse IP publique, la passerelle, la connexion de passerelle et la clé d’autorisation ExpressRoute. Si tout est configuré, le déploiement ne changera rien. Toutefois, si quelque chose manque, cet élément est créé automatiquement. Par exemple, si le GatewaySubnet est manquant, il est ajouté au cours du déploiement.
+
+1. Dans votre cloud privé Azure VMware Solution, sous **Gérer**, sélectionnez **Connectivité**.
+
+2. Sélectionnez l’onglet **Azure vNet Connect**, puis le réseau virtuel existant.
+
+   :::image type="content" source="media/networking/azure-vnet-connect-tab.png" alt-text="Capture d’écran montrant l’onglet Azure vNet Connect sous Connectivité avec un réseau virtuel existant sélectionné.":::
+
+3. Sélectionnez **Enregistrer**.
+
+   À ce stade, le réseau virtuel valide si des espaces d’adressage IP qui se chevauchent entre Azure VMware Solution et le réseau virtuel sont détectés. En cas de détection, modifiez l’adresse réseau du cloud privé ou du réseau virtuel pour que les adresses ne se chevauchent pas. 
+
+
+### <a name="create-a-new-vnet"></a>Créer un nouveau réseau virtuel
+
+Lorsque vous créez un réseau virtuel, les composants requis pour se connecter à Azure VMware Solution sont créés automatiquement.
+
+1. Dans votre cloud privé Azure VMware Solution, sous **Gérer**, sélectionnez **Connectivité**.
+
+2. Sélectionnez l’onglet **Azure vNet Connect**, puis **Créer**.
+
+   :::image type="content" source="media/networking/azure-vnet-connect-tab-create-new.png" alt-text="Capture d’écran montrant l’onglet Conexion au réseau virtuel Azure sous Connectivité.":::
+
+3. Fournissez ou mettez à jour les informations du nouveau réseau virtuel, puis sélectionnez **OK**.
+
+   À ce stade, le réseau virtuel valide si des espaces d’adressage IP qui se chevauchent entre Azure VMware Solution et le réseau virtuel sont détectés. En cas de détection, modifiez l’adresse du cloud privé ou du réseau virtuel pour que les adresses ne se chevauchent pas. 
+
+   :::image type="content" source="media/networking/create-new-virtual-network.png" alt-text="Capture d’écran montrant la fenêtre Créer un réseau virtuel.":::
+
+Le réseau virtuel avec la plage d’adresses et le GatewaySubnet fournis est créé dans votre abonnement et votre groupe de ressources.  
+
+
+## <a name="connect-to-the-private-cloud-manually"></a>Se connecter au cloud privé manuellement
+
+### <a name="create-a-vnet-manually"></a>Créer un réseau virtuel manuellement
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -52,7 +101,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. Vérifiez les informations et sélectionnez **Créer**. Une fois le déploiement terminé, vous voyez votre réseau virtuel dans le groupe de ressources.
 
-## <a name="create-a-virtual-network-gateway"></a>Créer une passerelle de réseau virtuel
+
+
+### <a name="create-a-virtual-network-gateway"></a>Créer une passerelle de réseau virtuel
 
 À présent que vous avez créé un réseau virtuel, vous allez créer une passerelle de réseau virtuel.
 
@@ -78,10 +129,11 @@ Dans ce tutoriel, vous allez apprendre à :
 
    :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Capture d’écran montrant les détails de la passerelle de réseau virtuel." border="true":::
 
-1. Vérifiez que les détails sont corrects, puis sélectionnez **Créer** pour démarrer le déploiement de votre passerelle de réseau virtuel. 
+1. Vérifiez que les détails sont corrects, puis sélectionnez **Créer** pour démarrer le déploiement de votre passerelle de réseau virtuel.
+
 1. Une fois le déploiement terminé, passez à la section suivante pour connecter votre connexion ExpressRoute à la passerelle de réseau virtuel contenant votre cloud privé Azure VMware Solution.
 
-## <a name="connect-expressroute-to-the-virtual-network-gateway"></a>Connecter ExpressRoute à la passerelle de réseau virtuel
+### <a name="connect-expressroute-to-the-virtual-network-gateway"></a>Connecter ExpressRoute à la passerelle de réseau virtuel
 
 À présent que vous avez déployé une passerelle de réseau virtuel, vous allez ajouter une connexion entre celle-ci et votre cloud privé Azure VMware Solution.
 
@@ -93,7 +145,8 @@ Dans ce tutoriel, vous allez apprendre à :
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Créez un réseau virtuel
+> * Créer un réseau virtuel à l’aide de la fonctionnalité vNet Connect
+> * Créer un réseau virtuel manuellement
 > * Créer une passerelle de réseau virtuel
 > * Connecter votre circuit ExpressRoute à la passerelle
 

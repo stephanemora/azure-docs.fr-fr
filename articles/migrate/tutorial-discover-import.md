@@ -6,18 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: c142cae3e96d800488b67da613181d1a91ba5b5b
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 9c36fc141dd09d3fc968116fe6a62fecc00721e9
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713315"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466138"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Tutoriel : Évaluer les serveurs à l’aide d’un fichier CSV importé
 
-Dans le cadre de votre migration vers Azure, vous devez découvrir vos charges de travail locales et réaliser votre inventaire. 
+Dans le cadre de votre migration vers Azure, vous devez découvrir vos charges de travail locales et réaliser votre inventaire.
 
-Ce tutoriel vous montre comment évaluer des machines virtuelles locales avec l’outil Azure Migrate Server Assessment, à l’aide d’un fichier CSV importé. 
+Ce tutoriel vous montre comment évaluer des machines virtuelles locales avec l’outil Azure Migrate Discovery and Assessment, à l’aide d’un fichier CSV importé. 
 
 Si vous utilisez un fichier CSV, vous n’avez pas besoin de configurer l’appliance Azure Migrate pour découvrir et évaluer les serveurs. Vous pouvez contrôler les données que vous partagez dans le fichier. En outre, la plupart des données sont facultatives. Cette méthode est utile pour :
 
@@ -38,7 +38,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Évaluer des serveurs
 
 > [!NOTE]
-> Les tutoriels indiquent le moyen le plus rapide de tester un scénario, et ils utilisent les options par défaut lorsque cela est possible. 
+> Les tutoriels indiquent le moyen le plus rapide de tester un scénario, et ils utilisent les options par défaut lorsque cela est possible.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
@@ -47,10 +47,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 - Vous pouvez ajouter jusqu’à 20 000 serveurs dans un même fichier CSV et dans un même projet Azure Migrate. 
 - Les noms de systèmes d’exploitation spécifiés dans le fichier CSV doivent correspondre aux [noms pris en charge](#supported-operating-system-names).
 
-
 ## <a name="prepare-an-azure-user-account"></a>Préparer un compte de stockage Azure
 
 Pour créer un projet Azure Migrate, vous avez besoin d’un compte avec :
+
 - Des autorisations de niveau Contributeur ou Propriétaire sur un abonnement Azure
 - Des autorisations permettant d’inscrire des applications Azure Active Directory
 
@@ -60,7 +60,7 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
     ![Zone de recherche pour rechercher l’abonnement Azure](./media/tutorial-discover-import/search-subscription.png)
 
-2. Dans la page **Abonnements**, sélectionnez l’abonnement dans lequel vous souhaitez créer un projet Azure Migrate. 
+2. Dans la page **Abonnements**, sélectionnez l’abonnement dans lequel vous souhaitez créer un projet Azure Migrate.
 3. Dans l’abonnement, sélectionnez **Contrôle d’accès (IAM)**  > **Vérifier l’accès**.
 4. Dans **Vérifier l’accès**, recherchez le compte d’utilisateur correspondant.
 5. Dans **Ajouter une attribution de rôle**, sélectionnez **Ajouter**.
@@ -75,8 +75,6 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 8. Dans **Paramètres utilisateur**, vérifiez que les utilisateurs Azure AD peuvent inscrire des applications (défini sur **Oui** par défaut).
 
     ![Vérifier dans les paramètres utilisateur que les utilisateurs peuvent inscrire des applications Active Directory](./media/tutorial-discover-import/register-apps.png)
-
-
 
 ## <a name="set-up-a-project"></a>Configuration d’un projet
 
@@ -130,7 +128,7 @@ Le tableau suivant récapitule les champs du fichier à remplir :
 **Version du SE** | Non | Version du système d’exploitation du serveur.
 **Architecture du système d’exploitation** | Non | Architecture du système d’exploitation serveur <br/> Les valeurs valides sont : x64, x86, amd64, 32 bits ou 64 bits
 **Nombre de disques** | Non | Inutile si les détails sur le disque individuel sont fournis.
-**Taille du disque 1**  | Non | Taille maximale du disque, en Go<br/>Vous pouvez ajouter les détails d’autres disques en [ajoutant des colonnes](#add-multiple-disks) dans le modèle. Vous pouvez ajouter jusqu’à huit disques.
+**Taille du disque 1**  | Non | Taille maximale du disque, en Go<br/>Vous pouvez ajouter les détails d’autres disques en [ajoutant des colonnes](#add-multiple-disks) dans le modèle. Vous pouvez ajouter jusqu’à vingt disques.
 **Opérations de lecture sur le disque 1** | Non | Opérations de lecture sur le disque par seconde.
 **Opérations d’écriture sur le disque 1** | Non | Opérations d’écriture sur le disque par seconde.
 **Débit de lecture sur le disque 1** | Non | Données lues à partir du disque par seconde, en Mo par seconde.
@@ -146,14 +144,13 @@ Le tableau suivant récapitule les champs du fichier à remplir :
 **Type de microprogramme** | Non | Microprogramme du serveur. Les valeurs peuvent être « BIOS » ou « UEFI ».
 **Adresse MAC**| Non | Adresse MAC du serveur.
 
-
 ### <a name="add-operating-systems"></a>Ajouter des systèmes d’exploitation
 
 L’évaluation reconnaît des noms de système d’exploitation spécifiques. Tout nom que vous spécifiez doit correspondre exactement à l’une des chaînes de la [liste des noms pris en charge](#supported-operating-system-names).
 
 ### <a name="add-multiple-disks"></a>Ajouter plusieurs disques
 
-Le modèle fournit des champs par défaut pour le premier disque. Vous pouvez ajouter des colonnes similaires pour un maximum de huit disques.
+Le modèle fournit des champs par défaut pour le premier disque. Vous pouvez ajouter des colonnes similaires pour un maximum de vingt disques.
 
 Par exemple, pour spécifier tous les champs pour un deuxième disque, ajoutez ces colonnes :
 
@@ -162,7 +159,6 @@ Par exemple, pour spécifier tous les champs pour un deuxième disque, ajoutez c
 - Opérations d’écriture sur le disque 2
 - Débit de lecture sur le disque 2
 - Débit d’écriture sur le disque 2
-
 
 ## <a name="import-the-server-information"></a>Importer les informations du serveur
 
@@ -176,7 +172,7 @@ Après avoir ajouté des informations au modèle CSV, importez le fichier CSV 
     - Pour afficher et corriger les avertissements, sélectionnez **Télécharger le fichier .CSV des détails de l’avertissement**. Cette opération télécharge le fichier CSV avec des avertissements inclus. Passez en revue les avertissements et résolvez les problèmes si nécessaire.
     - Si des erreurs s’affichent dans l’état et que l’état de l’importation est **Échec**, vous devez corriger ces erreurs avant de pouvoir continuer l’importation :
         1. Téléchargez le fichier CSV, qui contient désormais les détails sur l’erreur.
-        1. Examinez et corrigez les erreurs en fonction des besoins. 
+        1. Examinez et corrigez les erreurs en fonction des besoins.
         1. Rechargez le fichier modifié.
 4. Quand l’état de l’importation est **Terminé**, cela signifie que les informations sur le serveur ont été importées. Actualisez la page si le processus d’importation ne semble pas terminé.
 
@@ -192,8 +188,6 @@ Pour vérifier que les serveurs apparaissent dans le portail Azure une fois la d
 2. Dans la page **Azure Migrate - Serveurs** > **Azure Migrate : Server Assessment**, sélectionnez l’icône qui affiche le nombre de **Serveurs découverts**.
 3. Sélectionnez l’onglet **Basé sur l’importation**.
 
-
-
 ## <a name="supported-operating-system-names"></a>Noms des systèmes d’exploitation pris en charge
 
 Les noms de systèmes d’exploitation fournis dans le fichier CSV doivent correspondre aux noms pris en charge. Si ce n’est pas le cas, vous ne pourrez pas les évaluer. 
@@ -207,5 +201,6 @@ Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux
 Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
-> * Créé un projet Azure Migrate 
-> * Découvert des serveurs à l’aide d’un fichier CSV importé À présent, exécutez une évaluation pour la [migration des machines virtuelles VMware vers des machines virtuelles Azure](./tutorial-assess-vmware-azure-vm.md).
+> * Créé un projet Azure Migrate.
+> * Découvert des serveurs à l’aide d’un fichier CSV importé
+À présent, exécutez une évaluation pour la [migration des machines virtuelles VMware vers des machines virtuelles Azure](./tutorial-assess-vmware-azure-vm.md).

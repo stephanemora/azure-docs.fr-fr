@@ -6,14 +6,16 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 4427071edf237d82e8a99d44678d77d23e180fff
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 59707cfb6e54329017e36914bccf9b565ec9643c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865240"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690251"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Déplacer des ressources d’une configurations de contrôle de maintenance vers une autre région
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Suivez cet article pour déplacer des ressources associées à une configuration de contrôle de maintenance vers une autre région Azure. Vous pouvez envisager de déplacer une configuration pour plusieurs raisons. Par exemple, pour tirer parti d’une nouvelle région, pour déployer des fonctionnalités ou des services disponibles dans une région spécifique, pour répondre à des exigences de stratégie et de gouvernance internes ou pour respecter une planification de capacité.
 

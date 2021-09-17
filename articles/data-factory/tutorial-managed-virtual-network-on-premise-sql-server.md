@@ -6,12 +6,12 @@ ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: bb29c7712bdbe629ff3aa8704c0c4654404f0da3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a04371fcba573be41fd5c2275371e0c590b82c08
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971842"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736885"
 ---
 # <a name="tutorial-how-to-access-on-premises-sql-server-from-data-factory-managed-vnet-using-private-endpoint"></a>Tutoriel : Guide pratique pour accéder à un serveur SQL local à partir d’un VNet managé Data Factory en utilisant un point de terminaison privé
 
@@ -239,11 +239,9 @@ Dans cette section, vous allez créer un service Private Link derrière un équi
 4. Sélectionnez + **Nouveau** sous **Points de terminaison privés managés**.
 5. Sélectionnez la vignette **Service de liaison privée** dans la liste, puis **Continuer**.
 6. Entrez le nom du point de terminaison privé et sélectionnez **myPrivateLinkService** dans la liste des services de liaison privée.
-7. Ajoutez le nom de domaine complet de votre serveur SQL Server local cible et les adresses IP NAT de votre service de liaison privée.
-    
-    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-nat-ip.png" alt-text="Capture d’écran montrant l’adresse IP NAT dans le service lié." lightbox="./media/tutorial-managed-virtual-network/link-service-nat-ip-expanded.png":::
+7. Ajoutez le nom de domaine complet de votre instance SQL Server locale cible.
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint.png" alt-text="Capture d’écran montrant les paramètres du point de terminaison privé.":::
+    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-6.png" alt-text="Capture d’écran montrant les paramètres du point de terminaison privé.":::
 
 8. Créez le point de terminaison privé.
 

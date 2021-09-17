@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: e8650802b4add9b33664205367bb3242b32b9754
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1e37e401bd44c4e6077e9a69dbc6ad72f8eaa0d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670384"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693957"
 ---
 # <a name="deploy-openshift-container-platform-4x-in-azure"></a>Déployer OpenShift Container Platform 4.x dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Le déploiement d’OpenShift Container Platform (OCP) 4.2 est maintenant pris en charge dans Azure via le modèle IPI (infrastructure provisionnée par le programme d’installation).  La page d’accueil pour essayer OpenShift 4 est [try.openshift.com](https://try.openshift.com/). Pour installer OCP 4.2 dans Azure, visitez la page [Red Hat OpenShift Cluster Manager](https://cloud.redhat.com/openshift/install/azure/installer-provisioned).  Des informations d’identification Red Hat sont requises pour accéder à ce site.
 

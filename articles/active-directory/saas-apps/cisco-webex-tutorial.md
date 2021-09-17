@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: bb8ea637d0353e4efa0cb946f486d68639fc699d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef6a785fc1d825b0b490ec7af7d3c8128aac588b
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592487"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181659"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex Meetings
 
@@ -42,7 +42,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Cisco Webex Meetings prend en charge l’authentification unique initiée par **un fournisseur de services et un fournisseur d’identité**.
-
+* Cisco Webex Meetings prend en charge [l’attribution d’utilisateurs et la suppression des privilèges d’accès **automatiques**](cisco-webex-provisioning-tutorial.md) (recommandé).
 * Cisco Webex Meetings prend en charge l’attribution d’utilisateurs **juste-à-temps**.
 
 ## <a name="adding-cisco-webex-meetings-from-the-gallery"></a>Ajout de Cisco Webex Meetings à partir de la galerie

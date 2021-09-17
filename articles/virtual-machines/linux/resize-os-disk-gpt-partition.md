@@ -1,12 +1,9 @@
 ---
 title: Redimensionner un disque de système d’exploitation ayant une partition GPT
 description: Cet article fournit des instructions sur la procédure de redimensionnement d’un disque de système d’exploitation qui a une partition GPT (Table de partition GUID) dans Linux.
-services: virtual-machines
-ms.topic: article
+ms.topic: how-to
 author: kailashmsft
 manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: linux
@@ -15,14 +12,16 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 0db79728bbb963aa360743afc70aecc213bfb7bc
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: ca7a018accb0410c2656d7aeb4282b42f2756e39
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011679"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688222"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Redimensionner un disque de système d’exploitation ayant une partition GPT
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 > [!NOTE]
 > Cet article ne s’applique qu’aux disques de système d’exploitation ayant une partition GPT (Table de partition GUID).

@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 05/25/2021
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 098f2d63f7bfd87aed8c7c88d1ec13be684983c1
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 195ea650e15024366d3d9d9426b466cf73951bb1
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459349"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418867"
 ---
 # <a name="train-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Entraîner un modèle de classification d’images TensorFlow en utilisant l’extension Visual Studio Code d’Azure Machine Learning (préversion)
 
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
 - Abonnement Azure. Si vous n’en avez pas, inscrivez-vous ou essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/t.com/free/)
 - Installez [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), éditeur de code léger et multiplateforme
 - Extension Azure Machine Learning de Visual Studio Code. Pour obtenir des instructions d’installation, consultez le guide [Configurer l’extension Visual Studio Code d’Azure Machine Learning](./how-to-setup-vs-code.md)
-- Interface CLI 2.0 (préversion). Pour obtenir des instructions d’installation, consultez [Installer, configurer et utiliser l’interface CLI 2.0 (préversion)](how-to-configure-cli.md).
+- CLI (v2) (préversion). Pour obtenir des instructions d’installation, consultez [Installer, configurer et utiliser l’interface CLI (v2) (préversion)](how-to-configure-cli.md)
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
@@ -70,7 +70,7 @@ La première chose à faire pour générer une application dans Azure Machine Le
 
     Le fichier de spécification crée un espace de travail appelé `TeamWorkspace` dans la région `WestUS2`. Le reste des options définies dans le fichier de spécification fournissent un nom convivial, des descriptions et des étiquettes pour l’espace de travail.
 
-1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**. La création d’une ressource utilise les options de configuration définies dans le fichier de spécifications YAML et envoie un travail en utilisant l’interface CLI 2.0. À ce stade, une demande est envoyée à Azure pour créer un nouvel espace de travail et ses ressources dépendantes dans votre compte. Après quelques minutes, le nouvel espace de travail apparaît dans votre nœud d’abonnement.
+1. Cliquez avec le bouton droit sur le fichier de spécification et sélectionnez **Azure ML : Créer une ressource**. La création d’une ressource utilise les options de configuration définies dans le fichier de spécifications YAML et envoie un travail en utilisant l’interface CLI (v2). À ce stade, une demande est envoyée à Azure pour créer un nouvel espace de travail et ses ressources dépendantes dans votre compte. Après quelques minutes, le nouvel espace de travail apparaît dans votre nœud d’abonnement.
 1. Définissez `TeamWorkspace` comme votre espace de travail par défaut. Cela place les ressources et les travaux que vous créez dans l’espace de travail par défaut. Sélectionnez le bouton **Définir l’espace de travail Azure ML** dans la barre d’état de Visual Studio Code, puis suivez les invites pour définir `TeamWorkspace` comme votre espace de travail par défaut.
 
 Pour plus d’informations sur les espaces de travail, consultez [Comment gérer des ressources dans VS Code](how-to-manage-resources-vscode.md).

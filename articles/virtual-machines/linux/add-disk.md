@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: cynthn
-ms.openlocfilehash: eb207b5ece190a4398c7b9ef15472db409ac4d71
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8d518bde3dc86c871f66f64dec8f39fc8b68e763
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087793"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692265"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cet article vous explique comment attacher un disque persistant à votre machine virtuelle afin de conserver vos données, et ce, même si votre machine virtuelle est remise en service en raison d’une opération de maintenance ou de redimensionnement.
 

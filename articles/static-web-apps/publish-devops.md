@@ -5,14 +5,14 @@ services: static-web-apps
 author: scubaninja
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 03/23/2021
+ms.date: 08/17/2021
 ms.author: apedward
-ms.openlocfilehash: 17a41bd64f1bba4a5ae4d6d9d497c03afae037e7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9df037177aac3dd909795f18c6e903eedd1c98a6
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114444223"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608869"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutoriel : Publier Azure Static Web Apps avec Azure DevOps
 
@@ -34,6 +34,9 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
   > [!NOTE]
   > Si vous disposez d’une application existante dans votre dépôt, vous pouvez passer à la section suivante.
+  
+  > [!NOTE]
+  > L’application doit cibler .NET Core 3.1 pour que le pipeline réussisse.
 
 1. Accédez à votre référentiel dans Azure Repos.
 
@@ -57,15 +60,28 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 1. Sélectionnez **Create** (Créer).
 
-1. Sous _Détails du déploiement_, veillez à sélectionner **Autre**. Cela vous permet d’utiliser le code dans Azure Repos.
+1. Créez une application web statique avec les valeurs suivantes.
 
-    :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Détails du déploiement - Autre":::
+    :::image type="content" source="media/publish-devops/azure-portal-static-web-apps-devops.png" alt-text="Détails du déploiement - Autre":::
 
-1. Une fois le déploiement réussi, accédez à la nouvelle ressource Static Web Apps.
+    | Paramètre | Valeur |
+    |---|---|
+    | Abonnement | Le nom de votre abonnement Azure. |
+    | Groupe de ressources | Sélectionnez un nom de groupe existant ou créez-en un. |
+    | Nom | Entrez **myDevOpsApp**. |
+    | Type de plan d’hébergement | Sélectionnez **Gratuit**. |
+    | Région | Sélectionnez la région la plus proche de vous. |
+    | Source | Sélectionnez **Autre**. |
+
+1. Sélectionner **Vérifier + créer**
+
+1. Sélectionnez **Create** (Créer).
+
+1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
 
 1. Sélectionnez **Gérer le jeton de déploiement**.
 
-1. Copiez le **jeton de déploiement**, puis collez-le dans un éditeur de texte afin de l’utiliser dans un autre écran.
+1. Copiez le **jeton de déploiement**, puis collez sa valeur dans un éditeur de texte afin de l’utiliser dans un autre écran.
 
     > [!NOTE]
     > Cette valeur est mise de côté pour l’instant, car vous allez copier et coller d’autres valeurs dans les étapes à venir.
@@ -76,15 +92,15 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 1. Accédez au référentiel créé précédemment dans Azure Repos.
 
-1. Sélectionnez **Configurer la build**.
+2. Sélectionnez **Configurer la build**.
 
     :::image type="content" source="media/publish-devops/azdo-build.png" alt-text="Pipeline de build":::
 
-1. Dans l’écran *Configurer votre pipeline*, sélectionnez **Pipeline de démarrage**.
+3. Dans l’écran *Configurer votre pipeline*, sélectionnez **Pipeline de démarrage**.
 
     :::image type="content" source="media/publish-devops/configure-pipeline.png" alt-text="Configurer le pipeline":::
 
-1. Copiez et collez le YAML suivant dans votre pipeline.
+4. Copiez le YAML suivant et remplacez la configuration générée dans votre pipeline par ce code.
 
     ```yaml
     trigger:
@@ -98,9 +114,9 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
         submodules: true
       - task: AzureStaticWebApp@0
         inputs:
-          app_location: '/'
+          app_location: '/src'
           api_location: 'api'
-          output_location: ''
+          output_location: '/src'
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 
@@ -111,35 +127,44 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
     La valeur `azure_static_web_apps_api_token` est autogérée et est configurée manuellement.
 
-2. Sélectionnez **Variables**.
+5. Sélectionnez **Variables**.
 
-3. Créez une nouvelle variable.
+6. Sélectionnez **Nouvelle variable**.
 
-4. Nommez la variable **deployment_token** (en utilisant le nom spécifié dans le workflow).
+7. Nommez la variable **deployment_token** (en utilisant le nom spécifié dans le workflow).
 
-5. Copiez le jeton de déploiement que vous avez précédemment collé dans un éditeur de texte.
+8. Copiez le jeton de déploiement que vous avez précédemment collé dans un éditeur de texte.
 
-6. Collez le jeton de déploiement dans la zone _Valeur_.
+9. Collez le jeton de déploiement dans la zone _Valeur_.
 
     :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Jeton de variable":::
 
-7. Sélectionnez **Garder cette valeur secrète**.
+10. Sélectionnez **Garder cette valeur secrète**.
 
-8. Sélectionnez **OK**.
+11. Sélectionnez **OK**.
 
-9. Sélectionnez **Enregistrer** pour revenir au YAML de votre pipeline.
+12. Sélectionnez **Enregistrer** pour revenir au YAML de votre pipeline.
 
-10. Sélectionnez **Enregistrer et exécuter** pour ouvrir la boîte de dialogue _Enregistrer et exécuter_.
+13. Sélectionnez **Enregistrer et exécuter** pour ouvrir la boîte de dialogue _Enregistrer et exécuter_.
 
     :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
 
-11. Sélectionnez **Enregistrer et exécuter** pour exécuter le pipeline.
+14. Sélectionnez **Enregistrer et exécuter** pour exécuter le pipeline.
 
-12. Une fois le déploiement réussi, accédez à la **Vue d’ensemble** d’Azure Static Web Apps, qui comprend des liens vers la configuration du déploiement. Notez que le lien _Source_ pointe maintenant vers la branche et l’emplacement du dépôt Azure DevOps.
+15. Une fois le déploiement réussi, accédez à la **Vue d’ensemble** d’Azure Static Web Apps, qui comprend des liens vers la configuration du déploiement. Notez que le lien _Source_ pointe maintenant vers la branche et l’emplacement du dépôt Azure DevOps.
 
-13. Sélectionnez l’**URL** pour voir le site web nouvellement déployé.
+16. Sélectionnez l’**URL** pour voir le site web nouvellement déployé.
 
     :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Emplacement du déploiement":::
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Nettoyez les ressources que vous avez déployées en supprimant le groupe de ressources.
+
+1. Dans le portail Azure, sélectionnez **Groupe de ressources** dans le menu de gauche.
+2. Entrez le nom du groupe de ressources dans le champ **Filtrer par nom**.
+3. Sélectionnez le nom du groupe de ressources que vous avez utilisé dans ce tutoriel.
+4. Sélectionnez **Supprimer le groupe de ressources** dans le menu supérieur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

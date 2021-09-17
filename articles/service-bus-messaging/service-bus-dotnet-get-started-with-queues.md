@@ -3,18 +3,20 @@ title: Bien démarrer avec les files d’attente Azure Service Bus (Azure.Messag
 description: Dans ce tutoriel, vous créez une application C# .NET Core afin d’échanger des messages avec une file d’attente Service Bus.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 06/29/2021
+ms.date: 08/16/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: b2b2fc806020c665e7658226cb11c086aa816127
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: e315542d8d58a58fa4e2cea8bbab4768af0596eb
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433428"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252388"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Échanger des messages avec des files d’attente Azure Service Bus (.NET)
 Ce guide de démarrage rapide montre comment envoyer et recevoir des messages vers et depuis une file d’attente Service Bus à l’aide de la bibliothèque .NET [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/).
 
+> [!NOTE]
+> Vous trouverez d’autres échantillons .NET pour Azure Service Bus dans le [référentiel du kit de développement logiciel (SDK) Azure pour .NET sur GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -58,10 +60,10 @@ Cette section montre comment créer une application console .NET Core pour envoy
 
 1. Remplacez le contenu de **Program.cs** par le code suivant. Voici les étapes importantes du code.  
     1. Crée un objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) à l’aide de la chaîne de connexion à l’espace de noms. 
-    1. Utilise la méthode `CreateSender` sur l’objet `ServiceBusClient` pour créer un objet `ServiceBusSender` pour la file d’attente Service Bus spécifique.     
-    1. Crée un objet `ServiceBusMessageBatch` à l’aide de la méthode `ServiceBusSender.CreateMessageBatchAsync`.
-    1. Ajoutez des messages au lot à l’aide de `ServiceBusMessageBatch.TryAddMessage`. 
-    1. Envoie le lot de messages à file d’attente Service Bus à l’aide de la méthode `ServiceBusSender.SendMessagesAsync`.
+    1. Utilise la méthode [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) sur l’objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) pour créer un objet [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) pour la file d’attente Service Bus spécifique.     
+    1. Crée un objet [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) à l’aide de la méthode [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
+    1. Ajoutez des messages au lot à l’aide de [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
+    1. Envoie le lot de messages à file d’attente Service Bus à l’aide de la méthode [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync).
     
         Pour plus d'informations, consultez les commentaires du code.
     
@@ -102,7 +104,7 @@ Cette section montre comment créer une application console .NET Core pour envoy
                     // create a batch 
                     using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
         
-                    for (int i = 1; i <= 3; i++)
+                    for (int i = 1; i <= numOfMessages; i++)
                     {
                         // try adding a message to the batch
                         if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
@@ -181,10 +183,10 @@ Dans cette section, vous allez ajouter du code pour récupérer des messages à 
 1. Remplacez le contenu de **Program.cs** par le code suivant. Voici les étapes importantes du code.
     Voici les étapes importantes du code :
     1. Crée un objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) à l’aide de la chaîne de connexion à l’espace de noms. 
-    1. Appelle la méthode `CreateProcessor` sur l'objet `ServiceBusClient` pour créer un objet `ServiceBusProcessor` pour la file d’attente Service Bus spécifiée. 
-    1. Spécifie des gestionnaires pour les événements `ProcessMessageAsync` et `ProcessErrorAsync` de l’objet `ServiceBusProcessor`. 
-    1. Démarre le traitement des messages en appelant `StartProcessingAsync` sur l' objet `ServiceBusProcessor`. 
-    1. Lorsque l’utilisateur appuie sur une clé pour terminer le traitement, il appelle `StopProcessingAsync` sur l' objet `ServiceBusProcessor`. 
+    1. Appelle la méthode [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) sur l'objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) pour créer un objet [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) pour la file d’attente Service Bus spécifiée. 
+    1. Spécifie des gestionnaires pour les événements [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) et [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) de l’objet [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor). 
+    1. Démarre le traitement des messages en appelant l’objet [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) sur l'objet [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor). 
+    1. Lorsque l’utilisateur appuie sur une touche pour terminer le traitement, il appelle [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) sur l' objet [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor). 
 
         Pour plus d'informations, consultez les commentaires du code.
 

@@ -10,15 +10,16 @@ ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6db3a8b2871cad0348893ab2878904767f512988
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ee1f915045ed3272d8f93559efcf06c0c2bcc011
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677664"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689314"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Déployer des machines virtuelles Azure Spot à l’aide d’Azure PowerShell
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 L’utilisation de [machines virtuelles Azure Spot](../spot-vms.md) vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure aura besoin de récupérer la capacité, l’infrastructure Azure supprimera les machines virtuelles Azure Spot. Les machines virtuelles Azure Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 

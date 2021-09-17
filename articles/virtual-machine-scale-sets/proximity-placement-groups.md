@@ -9,14 +9,16 @@ ms.subservice: proximity-placement-groups
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 767ce9c132c7ca5f322175c54875a6870490052e
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: b5533f14a239e3e2d01c597d57ab2b2726e930b9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556043"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693263"
 ---
 # <a name="creating-and-using-proximity-placement-groups-using-powershell"></a>Création et utilisation de groupes de placements de proximité à l’aide de PowerShell
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez votre groupe identique dans un [groupe de placements de proximité](../virtual-machines/co-location.md#proximity-placement-groups).
 

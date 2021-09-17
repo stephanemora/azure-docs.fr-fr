@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 08/09/2021
 ms.author: jeedes
-ms.openlocfilehash: d4762aff046c6820a3e3a208aa9be5c4f6e23cb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3f765062895fc31ea3e8e768a025b35ca88d4a0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643879"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746074"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoho-one-china"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Zoho One China
 
@@ -33,14 +33,14 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Zoho One China pour lequel l’authentification unique est activée.
 
-> [!NOTE]
-> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
-
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Zoho One China prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**
+* Zoho One China prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**.
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="add-zoho-one-china-from-the-gallery"></a>Ajouter Zoho One China à partir de la galerie
 
@@ -76,7 +76,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://accounts.zoho.com.cn/signin/samlsp/<zoid>`
 

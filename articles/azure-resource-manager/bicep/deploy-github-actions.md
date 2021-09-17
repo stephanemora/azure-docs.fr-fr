@@ -4,14 +4,14 @@ description: Décrit comment déployer des fichiers Bicep à l’aide de GitHub 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/23/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: 69ff8bbb54a6ed495f6ccab4f1a32dd2700d74e7
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 005ad729eed380b6684ef06ddca6341dce8b16da
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633964"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695216"
 ---
 # <a name="deploy-bicep-files-by-using-github-actions"></a>Déployer des fichiers Bicep à l’aide de GitHub Actions
 
@@ -160,4 +160,4 @@ Lorsque votre groupe de ressource et référentiel ne sont plus nécessaires, ne
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Module d’apprentissage : Automatisation du déploiement de modèles ARM avec GitHub Actions](/learn/modules/deploy-templates-command-line-github-actions/)
+> [Module d’apprentissage : Créer votre premier workflow de déploiement Bicep à l’aide de GitHub Actions](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/)

@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/06/2021
-ms.openlocfilehash: 5538000573a70340b576e79b3e1dcab9367e7d89
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: 0b927f945dc7e891e93df6cd455840e6ff19a2fd
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122534730"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772442"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory
 
@@ -133,25 +133,41 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 Pour évaluer la mise à niveau d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2 en général, consultez [Mettre à niveau vos solutions d’analytique de Big Data d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). Les sections suivantes présentent les bonnes pratiques d’utilisation du service Data Factory pour effectuer une mise à niveau des données de Data Lake Storage Gen1 vers Data Lake Storage Gen2.
 
-### <a name="historical-data-copy"></a>Copie des données historiques
+### <a name="initial-snapshot-data-migration"></a>Migration initiale des données d’instantané
 
-#### <a name="performance-tuning-by-proof-of-concept"></a>Réglage des performances par preuve de concept
+#### <a name="performance"></a>Performances
 
-Utilisez une preuve de concept pour vérifier la solution de bout en bout et tester le débit de copie dans votre environnement. Principales étapes de la preuve de concept : 
+ADF offre une architecture serverless qui autorise le parallélisme à différents niveaux, ce qui permet aux développeurs de créer des pipelines pour utiliser pleinement la bande passante de votre réseau, ainsi que les IOPS et la bande passante de stockage pour maximiser le débit de déplacement de données pour votre environnement. 
 
-1. Créez un pipeline Data Factory avec une seule activité de copie pour copier plusieurs téraoctets de données de Data Lake Storage Gen1 vers Data Lake Storage Gen2. Ceci vous donne une base de référence de copie. Démarrez avec 128 [unités d’intégration de données](copy-activity-performance-features.md#data-integration-units). La [Copie en parallèle](copy-activity-performance-features.md#parallel-copy) est suggérée comme étant **vide (valeur par défaut)** .
-2. Sur la base du débit de copie obtenu à l’étape 1, calculez la durée estimée à prévoir pour migrer toutes les données. Si le débit de copie ne vous convient pas, identifiez et résolvez les goulots d’étranglement de performances en suivant les [étapes de réglage des performances](copy-activity-performance.md#performance-tuning-steps).
-3. Si vous avez maximisé les performances d’une activité de copie unique, mais que n’avez pas encore atteint les limites supérieures de débit de votre environnement, vous pouvez exécuter plusieurs activités de copie en parallèle. Chaque activité de copie peut être configurée pour copier une partition à la fois, afin que plusieurs activités de copie puissent copier des données à partir d’un seul compte Data Lake Storage Gen1 en même temps. Pour partitionner les fichiers, vous pouvez utiliser **name range- listAfter/listBefore** dans la [propriété de l’activité de copie](connector-azure-data-lake-store.md#copy-activity-properties).
+Les clients ont réussi à migrer des pétaoctets de données constitués de centaines de millions de fichiers de Data Lake Storage Gen1 vers Gen2, avec un débit soutenu de 2 Gbits/s et plus.
 
-Si vos données dans Data Lake Storage Gen1 représentent une taille totale inférieure à 30 To et sont réparties dans moins d’un million de fichiers, vous pouvez copier toutes les données en exécutant une seule activité de copie. Si vous avez une plus grande quantité de données à copier, ou si vous souhaitez pouvoir gérer la migration des données par lots et traiter chaque lot dans un laps de temps défini, il est préférable de partitionner les données. Autre avantage, le partitionnement réduit le risque de survenue de problèmes inattendus. 
+Vous pouvez obtenir des vitesses de déplacement de données exceptionnelles à travers différents niveaux de parallélisme :
+
+- Une seule activité de copie peut tirer parti des ressources de calcul évolutives. Lorsque vous utilisez Azure Integration Runtime, vous pouvez spécifier jusqu’à 256 [unités d’intégration de données (DIU)](copy-activity-performance-features.md#data-integration-units) pour chaque activité de copie serverless. Lorsque vous utilisez un Integration Runtime auto-hébergé, vous pouvez effectuer un scale-up de la machine ou un scale-out vers plusieurs machines (jusqu’à 4 nœuds), et une seule activité de copie partitionne son jeu de fichiers sur tous les nœuds.
+- Une activité de copie unique lit et écrit dans le magasin de données à l’aide de plusieurs conversations.
+- Le flux de contrôle ADF peut démarrer plusieurs activités de copie en parallèle, par exemple Pour chaque boucle.
+
+#### <a name="data-partitions"></a>Partitions de données
+
+Si vos données dans Data Lake Storage Gen1 ont une taille totale inférieure à 10 To et sont réparties dans moins d’un million de fichiers, vous pouvez copier toutes les données en exécutant une seule activité de copie. Si vous avez une plus grande quantité de données à copier, ou si vous souhaitez pouvoir gérer la migration des données par lots et traiter chaque lot dans un laps de temps défini, il est préférable de partitionner les données. Autre avantage, le partitionnement réduit le risque de survenue de problèmes inattendus. 
+
+Pour partitionner les fichiers, vous pouvez utiliser **name range- listAfter/listBefore** dans la [propriété de l’activité de copie](connector-azure-data-lake-store.md#copy-activity-properties). Chaque activité de copie peut être configurée pour copier une partition à la fois, afin que plusieurs activités de copie puissent copier des données à partir d’un seul compte Data Lake Storage Gen1 en même temps.
 
 
-#### <a name="network-bandwidth-and-storage-io"></a>Bande passante réseau et E/S de stockage 
+#### <a name="rate-limiting"></a>Limitation du débit 
 
-Si vous constatez un nombre important d’erreurs de limitation à partir de l’[analyse de l’activité de copie](copy-activity-monitoring.md#monitor-visually), cela signifie que vous avez atteint la limite de capacité de votre compte de stockage. ADF effectue automatiquement une nouvelle tentative pour surmonter chaque erreur de limitation afin de s’assurer qu’aucune donnée n’est perdue, mais un nombre excessif de tentatives a également un impact sur le débit de copie. Dans ce cas, il est recommandé de réduire le nombre d’activités de copie exécutées en même temps afin d’éviter des quantités significatives d’erreurs de limitation. Si vous avez utilisé une seule activité de copie pour copier des données, vous êtes encouragé à réduire le nombre d’[unités d’intégration de données (DIUs)](copy-activity-performance-features.md#data-integration-units).
+Il est recommandé de procéder à un examen des performances avec un exemple de jeu de données représentatif, afin de pouvoir déterminer la taille de partition appropriée.
+
+1. Commencez avec une seule partition et une seule activité de copie avec le paramètre DIU par défaut. Il est toujours recommandé de définir la [Copie en parallèle](copy-activity-performance-features.md#parallel-copy) comme **vide (valeur par défaut)** . Si le débit de copie ne vous convient pas, identifiez et résolvez les goulots d’étranglement de performances en suivant les [étapes de réglage des performances](copy-activity-performance.md#performance-tuning-steps). 
+
+2. Augmentez progressivement le paramètre DIU jusqu'à atteindre la limite de bande passante de votre réseau ou la limite IOPS/bande passante des magasins de données, ou vous avez atteint le nombre maximal de 256 DIU autorisé pour une activité de copie unique. 
+
+3. Si vous avez maximisé les performances d’une activité de copie unique, mais que n’avez pas encore atteint les limites supérieures de débit de votre environnement, vous pouvez exécuter plusieurs activités de copie en parallèle.  
+
+Si vous constatez un nombre conséquent d’erreurs de limitation à partir de l’[analyse de l’activité de copie](copy-activity-monitoring.md#monitor-visually), cela signifie que vous avez atteint la limite de capacité de votre compte de stockage. ADF effectue automatiquement une nouvelle tentative pour surmonter chaque erreur de limitation afin de s’assurer qu’aucune donnée n’est perdue, mais un nombre excessif de tentatives a également un impact sur le débit de copie. Dans ce cas, il est recommandé de réduire le nombre d’activités de copie exécutées en même temps afin d’éviter des quantités significatives d’erreurs de limitation. Si vous avez utilisé une seule activité de copie pour copier des données, vous êtes encouragé à réduire le nombre d’unités d’intégration de données (DIU).
 
 
-### <a name="incremental-copy"></a>Copie incrémentielle 
+### <a name="delta-data-migration"></a>Migration des données Delta
 
 Vous pouvez utiliser plusieurs approches pour charger uniquement les fichiers nouveaux ou mis à jour à partir de Data Lake Storage Gen1 :
 
@@ -161,10 +177,22 @@ Vous pouvez utiliser plusieurs approches pour charger uniquement les fichiers no
 
 La fréquence appropriée pour effectuer le chargement incrémentiel dépend du nombre total de fichiers dans Azure Data Lake Storage Gen1 et du volume de fichiers nouveaux ou mis à jour devant être chargés à chaque fois. 
 
+### <a name="network-security"></a>Sécurité du réseau
+
+Par défaut, ADF transfère les données d’Azure Data Lake Storage Gen1 vers Gen2 à l’aide d’une connexion chiffrée sur le protocole HTTPS. Le protocole HTTPS assure le chiffrement des données en transit et empêche les écoutes clandestines et les attaques de l’intercepteur.
+
+Sinon, si vous ne souhaitez pas que les données soient transférées via l’internet public, vous pouvez obtenir une sécurité accrue en les transférant via un réseau privé.
 
 ### <a name="preserve-acls"></a>Conserver les listes de contrôle d’accès (ACL)
 
 Si vous souhaitez répliquer les listes de contrôle d’accès ainsi que les fichiers de données quand vous migrez de Data Lake Storage Gen1 vers Data Lake Storage Gen2, consultez [Conserver les listes de contrôle d’accès à partir de Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls). 
+
+### <a name="resilience"></a>Résilience
+
+Dans une exécution d’activité de copie unique, ADF intègre un mécanisme de nouvelle tentative qui permet de gérer un certain niveau d’échecs temporaires dans les magasins de données ou dans le réseau sous-jacent. Si vous migrez plus de 10 To de données, nous vous recommandons de les partitionner afin de réduire le risque de problèmes inattendus.
+
+Vous pouvez également activer la [tolérance de panne](copy-activity-fault-tolerance.md) dans l’activité de copie afin d’ignorer les erreurs prédéfinies. Vous pouvez également activer la [vérification de la cohérence des données](copy-activity-data-consistency.md) dans l’activité de copie pour effectuer une vérification supplémentaire afin de garantir non seulement que les données sont copiées entre le magasin source et le magasin de destination, mais aussi que leur cohérence dans les deux magasins est vérifiée.
+
 
 ### <a name="permissions"></a>Autorisations 
 

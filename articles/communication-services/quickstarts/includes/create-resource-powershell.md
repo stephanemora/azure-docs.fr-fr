@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a04d7dde8b6f2a492538d2012de5222686fd7fcf
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 6f7a0d8169fed92564437166c74255743ea61a7f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762385"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122820795"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -13,7 +13,15 @@ ms.locfileid: "113762385"
 
 ## <a name="create-azure-communication-services-resource"></a>Créer une ressource Azure Communication Services
 
-Pour créer une ressource Azure Communication Services, [connectez-vous à Azure CLI](/cli/azure/authenticate-azure-cli). Pour ce faire, vous pouvez utiliser le terminal et la commande ```Connect-AzAccount```, puis fournir vos informations d’identification. Exécutez la commande suivante pour créer la ressource :
+Pour créer une ressource Azure Communication Services, [connectez-vous à Azure CLI](/cli/azure/authenticate-azure-cli). Pour ce faire, vous pouvez utiliser le terminal et la commande ```Connect-AzAccount```, puis fournir vos informations d’identification.
+
+Tout d’abord, assurez-vous d’installer le module Azure Communication Services ```Az.Communication``` à l’aide de la commande suivante.
+
+```PowerShell
+PS C:\> Install-Module Az.Communication
+```
+
+Exécutez la commande suivante pour créer la ressource :
 
 ```PowerShell
 PS C:\> New-AzCommunicationService -ResourceGroupName ContosoResourceProvider1 -Name ContosoAcsResource1 -DataLocation UnitedStates -Location Global

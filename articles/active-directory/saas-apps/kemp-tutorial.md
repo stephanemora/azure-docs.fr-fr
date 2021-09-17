@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 07/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 91f6db79b7d18dc8b34ba1712d74a92000d63528
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 362b2108fb76716b0ad8f81aa2cca4215a97a570
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953576"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746978"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Kemp LoadMaster Azure AD integration
 
@@ -33,11 +33,14 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement à Kemp LoadMaster Azure AD integration pour lequel l’authentification unique est activée.
 
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
+
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Kemp LoadMaster Azure AD integration prend en charge l’authentification unique initiée par le **fournisseur d’identité**
+* Kemp LoadMaster Azure AD Integration prend en charge l’authentification unique initiée par le **fournisseur d’identité**.
 
 ## <a name="add-kemp-loadmaster-azure-ad-integration-from-the-gallery"></a>Ajouter Kemp LoadMaster Azure AD integration à partir de la galerie
 
@@ -209,7 +212,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
  
 ### <a name="import-idp-certificate"></a>Importer un certificat de fournisseur d’identité
 
-Accédez à la console web Kemp LoadMaster Azure AD integration 
+Accédez à la console web Kemp LoadMaster Azure AD Integration. 
 
 1. Cliquez sur Intermediate Certificates (Certificats intermédiaires) sous Certificates & Authority (Certificats et autorité).
 
@@ -251,7 +254,7 @@ Accédez à Manage SSO (Gérer l’authentification unique) sous Virtual Service
 
 ### <a name="set-authentication"></a>Définir l’authentification  
  
-Dans la console web Kemp LoadMaster Azure AD integration
+Dans la console web Kemp LoadMaster Azure AD Integration.
 
 1. Cliquez sur Virtual Services (Services virtuels).
 
@@ -273,7 +276,7 @@ Dans la console web Kemp LoadMaster Azure AD integration
 
 ### <a name="verify-the-changes"></a>Vérifier les modifications 
  
-Accédez à l’URL de l’application 
+Accédez à l’URL de l’application. 
 
 Votre page de connexion avec locataire doit s’afficher à la place de l’accès non authentifié précédent. 
 

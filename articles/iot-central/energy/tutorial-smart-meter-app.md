@@ -1,66 +1,68 @@
 ---
-title: 'Tutoriel : Créer une application d’analyse des compteurs intelligents avec IoT Central'
-description: 'Tutoriel : Découvrez comment créer une application de surveillance de compteur intelligente à l’aide de modèles d’application Azure IoT Central.'
+title: 'Tutoriel : analyse de compteurs intelligents Azure IoT | Microsoft Docs'
+description: Ce tutoriel vous montre comment déployer et utiliser le modèle d’application d’analyse de compteurs intelligents pour IoT Central.
 author: op-ravi
 ms.author: omravi
-ms.date: 12/11/2020
+ms.date: 08/02/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 42e88d322bd4d2b174d7a52e4892970caf5b1a5e
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: a332ab10ce4e7c38442288165c56d1161081cd9c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112963236"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179457"
 ---
-# <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutoriel : Créer et découvrir pas à pas le modèle d’application de surveillance de compteur intelligente 
+# <a name="tutorial-deploy-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutoriel : déployer et découvrir pas à pas le modèle d’application d’analyse de compteurs intelligents 
 
-Ce didacticiel vous guide tout au long du processus de création de l’application de surveillance de compteur intelligente, qui comprend un exemple de modèle d’appareil avec des données simulées. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Utilisez le modèle d’application d’*analyse de compteurs intelligents* IOT Central et les instructions de cet article pour développer une solution d’analyse de compteurs intelligents de bout en bout.
 
-> [!div class="checklist"]
-> * Créer l’application de compteur intelligent gratuitement
-> * Découvrir l'application pas à pas
-> * Nettoyer les ressources
+  :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="architecture des compteurs intelligents.":::
 
+Cette architecture est constituée des composants suivants. Certaines solutions peuvent ne pas avoir besoin de tous les composants listés ici.
 
-Si vous n’avez pas d’abonnement, [créez un compte d’essai gratuit](https://azure.microsoft.com/free)
+### <a name="smart-meters-and-connectivity"></a>Compteurs intelligents et connectivité
+
+Un compteur intelligent est un des appareils les plus importants parmi l’ensemble des ressources énergétiques. Il enregistre et communique les données de consommation d’énergie aux services publics pour le suivi et d’autres cas d’usage, tels que la facturation et la réponse à la demande. Selon le type du compteur, il peut se connecter à IoT Central via des passerelles ou d’autres appareils ou systèmes intermédiaires, tels que des appareils de périmètre et des systèmes de tête de réseau. Créez un pont d’appareil IoT Central pour connecter les appareils qui ne peuvent pas être connectés directement. Le pont IoT Central est une solution open source ; vous pouvez trouver des informations complètes à son sujet [ici](../core/howto-build-iotc-device-bridge.md). 
+
+### <a name="iot-central-platform"></a>Plateforme IoT Central
+
+Azure IoT Central est une plateforme qui simplifie la création de votre solution IoT et contribue à réduire la charge et les coûts liés à la gestion, aux opérations et au développement IoT. Avec IoT Central, vous pouvez facilement connecter, surveiller et gérer facilement vos ressources Internet des objets (IoT) à grande échelle. Une fois que vous avez connecté vos compteurs intelligents à IoT Central, le modèle d’application utilise des fonctionnalités intégrées, comme des modèles d’appareil, des commandes et des tableaux de bord. Le modèle d’application utilise également le stockage IoT Central pour les scénarios de chemin à chaud tels que la surveillance, l’analyse, les règles et la visualisation des données de mesure en temps quasi-réel. 
+
+### <a name="extensibility-options-to-build-with-iot-central"></a>Options d’extensibilité pour créer avec IoT Central
+
+La plateforme IoT Central fournit deux options d’extensibilité : L’exportation de données continue (CDE) et des API. Les clients et partenaires peuvent choisir entre ces options pour personnaliser leurs solutions selon leurs besoins spécifiques. Par exemple, un de nos partenaires a configuré CDE avec Azure Data Lake Storage (ADLS). Ils utilisent ADLS pour la conservation à long terme des données et d’autres scénarios de stockage à froid, tels que le traitement par lots, l’audit et la création de rapports.
+
+Dans ce tutoriel, vous allez apprendre à :
+
+- Créer l’application de compteur intelligent gratuitement
+- Découvrir l'application pas à pas
+- Nettoyer les ressources
 
 ## <a name="prerequisites"></a>Prérequis
-- None
-- Pour l'essai, un abonnement Azure est recommandé, mais pas obligatoire
 
-## <a name="create-a-smart-meter-monitoring-app"></a>Créer une application intelligente de suivi de compteurs 
+* Le déploiement de cette application ne nécessite aucun prérequis.
+* Vous pouvez utiliser le plan tarifaire gratuit ou utiliser un abonnement Azure.
 
-Vous pouvez créer cette application en trois étapes simples :
+## <a name="create-a-smart-meter-monitoring-application"></a>Créer une application d’analyse de compteurs intelligents
 
-1. Ouvrez la [page d'accueil d'Azure IoT Central](https://apps.azureiotcentral.com), puis cliquez sur **Générer** pour créer une application. 
-1. Sélectionnez l’onglet **Énergie**, puis, sous la vignette d’application **Surveillance de compteur intelligente**, cliquez sur **Créer une application**.
+1. Accédez au site de [création d’applications Azure IoT Central](https://aka.ms/iotcentral). Ensuite, connectez-vous avec un compte Microsoft personnel, scolaire ou professionnel. Sélectionnez **Générer** dans la barre de navigation de gauche, puis sélectionnez l’onglet **Énergie** :
 
-    > [!div class="mx-imgBorder"]
-    > ![Créer une application](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
-    
+    :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-build.png" alt-text="Modèle de compteurs intelligents":::
 
-1. La commande **Créer une application** ouvre le formulaire **Nouvelle application**. Entrez les détails demandés, comme illustré dans la figure ci-dessous :
-    * **Nom de l'application** : choisissez un nom pour votre application IoT Central. 
-    * **URL** : choisissez une URL IoT Central. La plateforme vérifie son unicité.
-    * **Essai gratuit de 7 jours** : si vous disposez déjà d'un abonnement Azure, le paramètre par défaut est recommandé. Si vous n’avez pas d’abonnement Azure, commencez avec l’évaluation gratuite.
-    * **Informations de facturation** : l'application proprement dite est gratuite. Les champs Annuaire, Abonnement Azure et Région doivent obligatoirement être renseignés pour l'approvisionnement des ressources de votre application.
-    * Cliquez sur bouton **Créer** en bas de la page pour créer votre application. L'opération prend environ une minute.
+1. Sélectionnez **Créer une application**, sous **Analyse de compteurs intelligents**.
 
-        ![Formulaire Nouvelle application](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+Pour plus d’informations, consultez [Créer une application IoT Central](../core/howto-create-iot-central-application.md).
 
-        ![Informations de facturation du formulaire Nouvelle application](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
+## <a name="walk-through-the-application"></a>examiner l’application
 
-### <a name="verify-the-application-and-simulated-data"></a>Vérifier l'application et les données simulées
+Les sections suivantes décrivent les principales fonctionnalités de l’application :
 
-L’application de compteur intelligente nouvellement créée vous appartient. Vous pouvez la modifier à tout moment. Avant de modifier l’application, vérifions qu’elle est déployée et qu’elle fonctionne comme prévu.
+### <a name="dashboard"></a>tableau de bord
 
-Pour vérifier la création de l'application et la simulation des données, accédez au **Tableau de bord**. Si vous voyez les vignettes et les données qu'elles contiennent, cela signifie que le déploiement de votre application a abouti. Soyez patient, car la simulation des données peut prendre 1 à 2 minutes. 
-
-## <a name="application-walk-through"></a>Découvrir l'application pas à pas
-Une fois le modèle d’application correctement déployé, il comprend un exemple d’appareil de compteur intelligent, un modèle d’appareil et un tableau de bord. 
+Une fois le modèle d’application correctement déployé, il comprend un échantillon d’appareil de compteur intelligent, un modèle d’appareil et un tableau de bord. 
 
 Adatum est un fournisseur d’énergie fictif qui surveille et gère des compteurs intelligents. Le tableau de bord de surveillance de compteur intelligente, affiche des propriétés, des données et des exemples de commandes. Il permet aux opérateurs et aux équipes de support technique d'effectuer de manière proactive les activités suivantes avant l'apparition d'incidents : 
 * Examiner les dernières informations du compteur et l’[emplacement](../core/howto-use-location-data.md) où celui-ci est installé sur la carte
@@ -70,39 +72,34 @@ Adatum est un fournisseur d’énergie fictif qui surveille et gère des compteu
 * Suivre la consommation énergétique totale à des fins de planification et de facturation
 * Opérations de commande et de contrôle telles que la reconnexion du compteur et la mise à jour de la version du microprogramme. Dans le modèle, les boutons de commande affichent les fonctionnalités possibles et n'envoient pas de commandes réelles. 
 
-> [!div class="mx-imgBorder"]
-> ![Tableau de bord de surveillance de compteur intelligente](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png" alt-text="Tableau de bord d’analyse de compteurs intelligents.":::
 
 ### <a name="devices"></a>Appareils
+
 L’application est fournie avec un exemple d’appareil de compteur intelligent. Vous pouvez consulter les détails de celui-ci en cliquant sur l'onglet **Appareils**.
 
-> [!div class="mx-imgBorder"]
-> ![Appareils de compteur intelligents](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-devices.png" alt-text="Appareils de compteurs intelligents.":::
 
 Cliquez sur le lien de l’exemple d’appareil **SM0123456789** pour afficher les détails de celui-ci. Vous pouvez mettre à jour les propriétés accessibles en écriture de l’appareil dans la page **Mettre à jour les propriétés**, et visualiser les valeurs mises à jour sur le tableau de bord.
 
-> [!div class="mx-imgBorder"]
-> ![Propriétés de compteur intelligent](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png" alt-text="Propriétés de compteurs intelligents.":::
 
 ### <a name="device-template"></a>Modèle d'appareil
+
 Cliquez sur l’onglet **Modèles d’appareils** pour afficher le modèle d’appareil de compteur intelligent. Le modèle dispose d'une interface prédéfinie pour les données, les propriétés, les commandes et les affichages.
 
-> [!div class="mx-imgBorder"]
-> ![Modèles d’appareil de compteur intelligent](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
-
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-template.png" alt-text="Modèles d’appareil de compteurs intelligents.":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
+
 Si vous décidez de ne pas continuer à utiliser cette application, supprimez-la en procédant comme suit :
 
 1. Dans le volet gauche, ouvrez l'onglet Administration.
 1. Sélectionnez Paramètres de l'application, puis cliquez sur le bouton Supprimer en bas de la page. 
 
-    > [!div class="mx-imgBorder"]
-    > ![Supprimer une application](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png" alt-text="Supprimer une application.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’architecture d’application pour compteurs intelligents, consultez :
+> [Tutoriel : déployer et parcourir un modèle d’application de panneaux solaires](tutorial-solar-panel-app.md)
 
-> [!div class="nextstepaction"]
-> [Architecture d’application pour compteurs intelligents](./concept-iot-central-smart-meter-app.md)

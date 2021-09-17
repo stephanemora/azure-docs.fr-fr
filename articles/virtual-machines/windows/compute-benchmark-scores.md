@@ -9,14 +9,17 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: fd2ab3926cfe8357bdb3a28fd833bfd6e91d5da0
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: f83a2a8aab4f1daf9fe4317491b2ed3591ec227d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479557"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689708"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Windows
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
+
 Les scores suivants du point de référence CoreMark montrent les performances de calcul de certaines machines virtuelles Azure exécutant Windows Server 2019. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Linux](../linux/compute-benchmark-scores.md).
 
 | Type | Familles |

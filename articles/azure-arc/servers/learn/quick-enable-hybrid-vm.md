@@ -1,24 +1,24 @@
 ---
-title: Connecter une machine hybride avec Azure Arc enabled servers
-description: Découvrez comment connecter et inscrire votre machine hybride à l’aide d’Azure Arc enabled servers.
+title: Connecter une machine hybride avec serveurs avec Azure Arc
+description: Découvrez comment connecter et inscrire votre machine hybride auprès des serveurs avec Azure Arc.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: c52b8d1f7098a7a2a88a9770a3b768b7fea31775
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5f1699447093f148b0dadbdd23857c9e16e13a3
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646824"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772656"
 ---
-# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Démarrage rapide : Connecter des machines hybrides à l’aide de serveurs avec Azure Arc
+# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Démarrage rapide : Connecter des machines hybrides avec serveurs avec Azure Arc
 
-[Azure Arc enabled servers](../overview.md) vous permet de gérer et contrôler vos machines Windows et Linux hébergées dans des environnements locaux, périphériques et multiclouds. Dans ce guide de démarrage rapide, vous allez déployer et configurer l’agent Connected Machine sur votre machine Windows ou Linux hébergée en dehors d’Azure pour permettre la gestion par Arc enabled servers.
+[Serveurs avec Azure Arc](../overview.md) vous permet de gérer et contrôler vos machines Windows et Linux hébergées dans des environnements locaux, périphériques et multiclouds. Dans ce guide de démarrage rapide, vous allez déployer et configurer l’agent Connected Machine sur votre machine Windows ou Linux hébergée en dehors d’Azure pour permettre la gestion via des serveurs avec Azure Arc.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Pour déployer l’agent Hybrid Connected Machine d’Arc enabled servers, vous devez disposer d’autorisations d’administrateur sur la machine où installer et configurer l’agent. Vous utilisez le compte racine sous Linux et, sous Windows, un compte membre du groupe Administrateurs local.
+* Pour déployer l’agent Hybrid Connected Machine des serveurs avec Arc, vous devez disposer d’autorisations d’administrateur sur la machine où vous installez et configurez l’agent. Vous utilisez le compte racine sous Linux et, sous Windows, un compte membre du groupe Administrateurs local.
 
 * Avant de commencer, veillez à passer en revue les [conditions préalables](../agent-overview.md#prerequisites) de l’agent et à vérifier les éléments suivants :
 
@@ -28,16 +28,16 @@ ms.locfileid: "101646824"
 
     * Si la machine se connecte via un pare-feu ou un serveur proxy pour communiquer sur Internet, assurez-vous que les URL [répertoriées](../agent-overview.md#networking-configuration) ne sont pas bloquées.
 
-    * Azure Arc enabled servers prend uniquement en charge les régions spécifiées [ici](../overview.md#supported-regions).
+    * Les serveurs avec Azure Arc prennent uniquement en charge les régions spécifiées [ici](../overview.md#supported-regions).
 
 > [!WARNING]
-> Le nom d’hôte Linux ou le nom de l’ordinateur Windows ne peuvent pas contenir de mots réservés ou de marques dans le nom. Dans le cas contraire, la tentative d’inscription de la machine connectée auprès d’Azure se solde par un échec. Consultez [Résoudre les erreurs de nom de ressource réservé](../../../azure-resource-manager/templates/error-reserved-resource-name.md) pour obtenir la liste des mots réservés.
+> Le nom d’hôte Linux ou le nom de l’ordinateur Windows ne peuvent pas contenir de mots réservés ni de marques dans le nom. Dans le cas contraire, la tentative d’inscription de la machine connectée auprès d’Azure se solde par un échec. Consultez [Résoudre les erreurs de nom de ressource réservé](../../../azure-resource-manager/templates/error-reserved-resource-name.md) pour obtenir la liste des mots réservés.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="register-azure-resource-providers"></a>Inscrire des fournisseurs de ressources Azure
 
-Pour utiliser ce service, les serveurs activés par Azure Arc dépendent des fournisseurs de ressources Azure suivants dans votre abonnement :
+Pour utiliser ce service, les serveurs avec Azure Arc dépendent des fournisseurs de ressources Azure suivants dans votre abonnement :
 
 * Microsoft.HybridCompute
 * Microsoft.GuestConfiguration
@@ -56,7 +56,7 @@ Le script permettant d’automatiser le téléchargement et l’installation, ai
 
 1. Lancez le service Azure Arc dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et sélectionnant **Serveurs - Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Rechercher des serveurs avec Azure Arc dans Tous les services" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Rechercher des serveurs avec Arc dans Tous les services" border="false":::
 
 1. Dans la page **Serveurs - Azure Arc**, sélectionnez **Ajouter** en haut à gauche.
 
@@ -106,7 +106,7 @@ Le script permettant d’automatiser le téléchargement et l’installation, ai
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Vérifier la connexion avec Azure Arc
 
-Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte à Azure Arc enabled servers, accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
+Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte aux serveurs avec Azure Arc, accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
 
 :::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Une connexion de machine réussie" border="false":::
 
@@ -114,7 +114,7 @@ Une fois que vous avez installé l’agent et que vous l’avez configuré pour 
 
 Maintenant que vous avez activé votre machine hybride Linux ou Windows et que vous vous êtes connecté au service avec succès, vous pouvez activer Azure Policy pour comprendre la conformité dans Azure.
 
-Pour savoir comment identifier la machine activée Azure Arc enabled servers sur laquelle l’agent Log Analytics n’est pas installé, suivez le tutoriel :
+Pour découvrir comment identifier la machine activée pour les serveurs avec Azure Arc sur laquelle l’agent Log Analytics n’est pas installé, suivez le tutoriel :
 
 > [!div class="nextstepaction"]
 > [Créer une affectation de stratégie pour identifier les ressources non conformes](tutorial-assign-policy-portal.md)

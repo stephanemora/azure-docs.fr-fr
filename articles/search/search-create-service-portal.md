@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 713d2216029fb88716d157d9db7b2010d3f32720
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.date: 08/24/2021
+ms.openlocfilehash: 4a77ca4a3318e9ea583bd113d373815860e8d591
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111526269"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767832"
 ---
 # <a name="create-an-azure-cognitive-search-service-in-the-portal"></a>Créer un service Recherche cognitive Azure dans le portail
 
@@ -28,16 +28,20 @@ Vous pouvez créer un service de recherche en utilisant le [portail Azure](https
 Les propriétés de service suivantes sont fixes pendant la durée de vie du service et leur modification nécessite un nouveau service. Dans la mesure où elles sont fixes, songez aux implications quand vous remplissez chaque propriété :
 
 + Le nom du service fait désormais partie du point de terminaison de l’URL ([Passez en revue ces conseils](#name-the-service) pour des noms de service explicites).
-+ Le [niveau de service](search-sku-tier.md) affecte la facturation et définit une limite supérieure sur la capacité. Certaines fonctionnalités ne sont pas disponibles sur le niveau gratuit.
++ Le [niveau de service](search-sku-tier.md) (De base, Standard, etc.) détermine les caractéristiques du matériel physique sous-jacent. En tant que tel, votre choix du niveau affecte la facturation et définit une limite supérieure sur la capacité. Certaines fonctionnalités ne sont pas disponibles sur le niveau gratuit.
 + La région du service peut déterminer la disponibilité de certains scénarios. Si vous avez besoin de [fonctionnalités de haute sécurité](search-security-overview.md) ou d’[enrichissement par IA](cognitive-search-concept-intro.md), vous devez créer Recherche cognitive Azure dans la même région que les autres services ou dans des régions qui fournissent la fonctionnalité en question. 
 
 ## <a name="subscribe-free-or-paid"></a>S’abonner (payant ou gratuit)
 
-[Ouvrez un compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) et utilisez les crédits gratuits pour essayer les services payants d’Azure. Une fois les crédits épuisés, conservez le compte et continuez à utiliser les services Azure gratuits, tels que les sites Web. Votre carte de crédit n’est pas débitée tant que vous n’avez pas explicitement modifié vos paramètres pour demander à l’être.
+Pour essayer de rechercher gratuitement, vous avez deux options :
 
-Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Un abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants. 
++ [Ouvrez un compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) et utilisez les crédits gratuits pour essayer les services payants d’Azure. Une fois les crédits épuisés, conservez le compte et continuez à utiliser les services Azure gratuits, tels que les sites Web. Votre carte de crédit n’est pas débitée tant que vous n’avez pas explicitement modifié vos paramètres pour demander à l’être.
 
-## <a name="find-azure-cognitive-search"></a>Localiser la Recherche cognitive Azure
++ Vous pouvez également [activer des crédits Azure dans un abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Un abonnement Visual Studio vous donne droit chaque mois à des crédits que vous pouvez utiliser pour les services Azure payants. 
+
+La recherche payante (ou facturable) devient effective lorsque vous choisissez un niveau facturable (De base ou supérieur) et que vous créez la ressource.
+
+## <a name="find-the-azure-cognitive-search-offering"></a>Trouver l’offre Recherche cognitive Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 

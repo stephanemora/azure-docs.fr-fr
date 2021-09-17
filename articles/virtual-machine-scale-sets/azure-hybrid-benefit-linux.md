@@ -12,14 +12,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: 71d585d16f4026ac605e7a61e64af89df806fed8
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d8671cab8e81b47316d14c9cabb4b803111643be
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950025"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768480"
 ---
 # <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set"></a>Azure Hybrid Benefit pour groupe de machines virtuelles identiques Linux
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques uniformes
 
 **Azure Hybrid Benefit pour groupe de machines virtuelles identiques Linux est désormais en disponibilité générale**. L’avantage AHB peut vous aider à réduire le coût d’exécution de vos [groupes de machines virtuelles identiques](./overview.md) RHEL et SLES.
 
@@ -71,7 +73,7 @@ Pour commencer à utiliser l’avantage pour SUSE :
 1. Inscrivez vos machines virtuelles recevant l’avantage auprès d’une source de mises à jour distincte.
 
 
-## <a name="enable-and-disable-the-benefit-on-azure-portal"></a>Activer et désactiver l’avantage sur le Portail Azure 
+## <a name="enable-and-disable-the-benefit-on-azure-portal"></a>Activer et désactiver l’avantage sur le portail Azure 
 ### <a name="azure-portal-example-to-enable-the-benefit-during-creation"></a>Exemple pour activer l’avantage pendant la création via le portail Azure :
 1. Visitez le [portail Microsoft Azure](https://portal.azure.com/)
 1. Accédez à la page « Créer un groupe de machines virtuelles identiques » sur le portail.

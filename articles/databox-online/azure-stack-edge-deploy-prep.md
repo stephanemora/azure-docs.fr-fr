@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/23/2021
 ms.author: alkohli
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: eecdead171e68915430aefe9aebeb24833485789
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: d215c1cc8650eb23d1702f7ef0fd782278cfb6d8
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688976"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605203"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-fpga"></a>Tutoriel : Préparer le déploiement d'Azure Stack Edge Pro FPGA  
 
@@ -79,7 +79,7 @@ Avant de commencer, assurez-vous que :
 
 * Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
 
-* Vous n’êtes pas bloqué par une stratégie Azure configurée par votre administrateur système. Pour plus d’informations sur les stratégies, consultez [Démarrage rapide : Création d’une affectation de stratégie pour identifier les ressources non conformes](../governance/policy/assign-policy-portal.md).
+* Vous n’êtes pas bloqué par une attribution Azure Policy configurée par votre administrateur système. Pour plus d’informations sur Azure Policy, consultez [Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes](../governance/policy/assign-policy-portal.md).
 
 
 ### <a name="for-the-azure-stack-edge-pro-fpga-device"></a>Pour l'appareil Azure Stack Edge Pro FPGA

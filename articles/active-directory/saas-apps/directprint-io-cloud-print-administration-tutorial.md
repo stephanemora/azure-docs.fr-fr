@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/19/2021
+ms.date: 07/30/2021
 ms.author: jeedes
-ms.openlocfilehash: ac70d5ae65e07673ffdd68c1659ca3c342f1f29c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 13211d4b22470291fcee84a075a0305ba1e29718
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114479578"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739914"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-directprintio-cloud-print-administration"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à directprint.io Cloud Print Administration
 
@@ -38,6 +38,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * directprint.io Cloud Print Administration prend en charge l’authentification unique initiée par le **fournisseur d’identité**.
+
+* directprint.io Cloud Print Administration prend en charge l’approvisionnement d’utilisateurs **Juste-à-temps**.
 
 ## <a name="add-directprintio-cloud-print-administration-from-the-gallery"></a>Ajouter directprint.io Cloud Print Administration à partir de la galerie
 
@@ -75,9 +77,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, l’application est préconfigurée en mode Lancée par le fournisseur d’identité et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/certificatebase64.png)
+    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
 1. Dans la section **Configurer directprint.io Cloud Print Administration**, copiez les URL appropriées en fonction de vos besoins.
 
@@ -109,11 +111,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-directprintio-cloud-print-administration-sso"></a>Configurer l’authentification unique de directprint.io Cloud Print Administration
 
-Pour configurer l’authentification unique côté **directprint.io Cloud Print Administration**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de directprint.io Cloud Print Administration](mailto:support@directprint.io). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **directprint.io Cloud Print Administration**, vous devez envoyer l’**URL des métadonnées de la fédération de l’application** à l’[équipe du support technique de directprint.io Cloud Print Administration](mailto:support@directprint.io). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-directprintio-cloud-print-administration-test-user"></a>Créer un utilisateur de test directprint.io Cloud Print Administration
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans directprint.io Cloud Print Administration. Collaborez avec l’[équipe du support technique de directprint.io Cloud Print Administration](mailto:support@directprint.io) pour ajouter des utilisateurs à la plateforme directprint.io Cloud Print Administration. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, un utilisateur appelé B.Simon est créé dans directprint.io Cloud Print Administration. directprint.io Cloud Print Administration prend en charge l’approvisionnement d’utilisateurs Juste-à-temps activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si un utilisateur n’existe pas déjà dans directprint.io Cloud Print Administration, un nouveau est créé après l’authentification.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

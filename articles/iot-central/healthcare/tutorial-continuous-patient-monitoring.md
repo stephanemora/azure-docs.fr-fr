@@ -1,55 +1,65 @@
 ---
-title: Tutoriel - Créer une application de suivi continu des patients avec Azure IoT Central | Microsoft Docs
-description: Dans ce tutoriel, vous allez apprendre à créer une application de suivi continu des patients à l’aide de modèles d’application Azure IoT Central.
+title: Tutoriel – Suivi continu des patients Azure IoT | Microsoft Docs
+description: Ce tutoriel vous montre comment déployer et utiliser le modèle d’application de suivi continu des patients pour IoT Central.
 author: philmea
 ms.author: philmea
-ms.date: 09/24/2019
+ms.date: 08/02/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 07cd77eb5546143936af1fc963f0212112fc6eb7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: dc1cf6a9a250b64b84cacbcf300183b913144b45
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743360"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180170"
 ---
-# <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutoriel : Déployer et parcourir pas à pas un modèle d’application de surveillance continue des patients
+# <a name="tutorial-deploy-and-walkthrough-the-continuous-patient-monitoring-app-template"></a>Tutoriel : Déployer et découvrir pas à pas un modèle d’application de suivi continu des patients
 
-Ce tutoriel vous montre comment vous lancer en déployant un modèle d’application de surveillance continue des patients IoT Central. Vous allez apprendre à déployer et à utiliser le modèle.
+:::image type="content" source="media/cpm-architecture.png" alt-text="Architecture du suivi continu des patients":::
+
+## <a name="bluetooth-low-energy-ble-medical-devices"></a>Appareils médicaux Bluetooth basse consommation (BLE, Bluetooth Low Energy)
+
+De nombreux appareils médicaux de type wearable utilisés dans les solutions médicales IoT sont des appareils BLE. Ces appareils ne peuvent pas communiquer directement avec le cloud et doivent utiliser une passerelle pour échanger des données avec votre solution cloud. Cette architecture utilise une application de téléphone mobile comme passerelle.
+
+## <a name="mobile-phone-gateway"></a>Passerelle de téléphone portable
+
+La fonction principale de l’application de téléphone mobile est de collecter les données BLE des appareils médicaux et de les communiquer à IoT Central. L’application guide également les patients dans la configuration de l’appareil et leur permet de visualiser leurs données médicales personnelles. D’autres solutions pourraient utiliser une passerelle de tablette ou une passerelle statique dans une chambre d’hôpital. Un exemple d’application mobile open source est disponible pour Android et iOS, que vous pouvez utiliser comme point de départ pour le développement de votre application. Pour plus d’informations, consultez l’[application mobile de surveillance continue des patients IoT Central](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
+
+## <a name="export-to-azure-api-for-fhirreg"></a>Exporter vers l’API Azure pour FHIR&reg;
+
+Azure IoT Central est conforme à HIPAA et certifié HITRUST&reg;. Vous pouvez également envoyer les données médicales des patients à d’autres services en utilisant l’[API Azure pour FHIR](../../healthcare-apis/fhir/overview.md). L’API Azure pour FHIR est une API basée sur des standards pour les données médicales cliniques. Le [connecteur Azure IoT pour FHIR](../../healthcare-apis/fhir/iot-fhir-portal-quickstart.md) vous permet d’utiliser l’API Azure pour FHIR comme destination d’exportation des données en continu depuis IoT Central.
+
+## <a name="machine-learning"></a>Apprentissage automatique
+
+Utilisez des modèles Machine Learning avec vos données FHIR pour générer des insights et venir en appui des décisions prises par votre équipe soignante. Pour plus d’informations, consultez la [documentation Machine Learning](../../machine-learning/index.yml).
+
+## <a name="provider-dashboard"></a>Tableau de bord de fournisseur
+
+Utilisez les données de la l’API Azure pour FHIR pour créer un tableau de bord des insights sur les patients ou intégrez-les directement dans un dossier médical électronique utilisé par les équipes soignantes. Les équipes soignantes peuvent utiliser le tableau de bord pour assister les patients et identifier les signes précoces avertissant d’une détérioration. Pour plus d’informations, consultez le tutoriel [Créer un tableau de bord de fournisseur Power BI](tutorial-health-data-triage.md).
 
 Dans ce tutoriel, vous allez apprendre à :
 
-> [!div class="checklist"]
-> * Créer un modèle d’application
-> * Parcourir pas à pas le modèle d’application
+- Créer un modèle d’application
+- Parcourir pas à pas le modèle d’application
 
 ## <a name="prerequisites"></a>Prérequis
 
-Un abonnement Azure est recommandé. Vous pouvez également utiliser une version d’évaluation gratuite pendant 7 jours. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un sur la [page d’inscription à Azure](https://aka.ms/createazuresubscription).
+- Le déploiement de cette application ne nécessite aucun prérequis.
+- Vous pouvez utiliser le plan tarifaire gratuit ou utiliser un abonnement Azure.
 
-## <a name="create-an-application-template"></a>Créer un modèle d’application
+## <a name="create-continuous-patient-monitoring-application"></a>Créer une application de suivi continu des patients
 
-Accédez au [site web du gestionnaire d’applications Azure IoT Central](https://apps.azureiotcentral.com/). Sélectionnez **Générer** dans la barre de navigation de gauche, puis l’onglet **Santé**.
+1. Accédez au site de [création d’applications Azure IoT Central](https://aka.ms/iotcentral). Ensuite, connectez-vous avec un compte Microsoft personnel, scolaire ou professionnel. Sélectionnez **Générer** dans la barre de navigation de gauche, puis sélectionnez l’onglet **Santé** : :::image type="content" source="media/app-manager-health.png" alt-text="Modèle d’application":::
 
-:::image type="content" source="media/app-manager-health.png" alt-text="Modèle d’application Santé":::
+1. Sélectionnez **Créer une application de suivi continu des patients** sous **Suivi continu des patients**.
 
-Sélectionnez le bouton **Créer une application** pour commencer à créer votre application, puis connectez-vous avec un compte personnel, professionnel ou scolaire Microsoft. Cela vous amène la page **New application** (Nouvelle application).
+Pour plus d’informations, consultez [Créer une application IoT Central](../core/howto-create-iot-central-application.md).
 
-![Créer une application Healthcare](media/app-manager-health-create.png)
+## <a name="walk-through-the-application"></a>examiner l’application
 
-![Créer une application de santé, informations de facturation](media/app-manager-health-create-billinginfo.png)
-
-Pour créer votre application :
-
-1. Azure IoT Central suggère automatiquement un nom d’application basé sur le modèle que vous avez sélectionné. Vous pouvez accepter ce nom ou entrer le nom d’application convivial de votre choix, par exemple **Surveillance continue des patients**. Azure IoT Central génère aussi un préfixe d’URL unique basé sur le nom de l’application. Si vous le souhaitez, vous pouvez remplacer ce préfixe d’URL par une chaîne plus facile à mémoriser.
-
-2. Vous pouvez choisir de créer l’application avec le plan tarifaire *gratuit* ou avec l’un des plans tarifaires *standard*. Les applications créées avec le plan gratuit sont utilisables gratuitement pendant sept jours et sur cinq appareils avant leur expiration. Vous pouvez transférer une application du plan gratuit vers un plan tarifaire standard à tout moment avant son expiration. Si vous choisissez le plan gratuit, entrez vos coordonnées et indiquez si vous souhaitez recevoir des informations et des conseils de la part de Microsoft. Les applications créées avec un plan tarifaire standard peuvent être utilisées gratuitement sur deux appareils au maximum et nécessitent vos informations d’abonnement Azure pour la facturation.
-
-3. Sélectionnez **Create** (Créer) au bas de la page pour déployer votre application.
-
-## <a name="walk-through-the-application-template"></a>Parcourir pas à pas le modèle d’application
+Les sections suivantes passent en revue les principales fonctionnalités de l’application :
 
 ### <a name="dashboards"></a>Tableaux de bord
 
@@ -75,9 +85,9 @@ Vous pouvez aussi sélectionner **Go to remote patient dashboard** (Accéder au 
 
 Si vous sélectionnez **Modèles d’appareil**, vous voyez les deux types d’appareils dans le modèle :
 
-* **Smart Vitals Patch** : cet appareil représente un patch qui mesure différents signes vitaux. Il sert au suivi des patients à l’intérieur et à l’extérieur de l’hôpital. Si vous sélectionnez le modèle, vous constatez que le patch envoie à la fois des données sur l’appareil comme le niveau de charge de la batterie et la température de l’appareil, et des données médicales des patients comme la fréquence respiratoire et la pression artérielle.
+- **Smart Vitals Patch** : cet appareil représente un patch qui mesure différents signes vitaux. Il sert au suivi des patients à l’intérieur et à l’extérieur de l’hôpital. Si vous sélectionnez le modèle, vous constatez que le patch envoie à la fois des données sur l’appareil comme le niveau de charge de la batterie et la température de l’appareil, et des données médicales des patients comme la fréquence respiratoire et la pression artérielle.
 
-* **Smart Knee Brace** : cet appareil représente une attelle de genou que les patients utilisent à la suite d’une opération de reconstruction du genou. Si vous sélectionnez ce modèle, vous voyez des fonctionnalités comme des données sur l’appareil, l’amplitude de mouvement et la mobilité.
+- **Smart Knee Brace** : cet appareil représente une attelle de genou que les patients utilisent à la suite d’une opération de reconstruction du genou. Si vous sélectionnez ce modèle, vous voyez des fonctionnalités comme des données sur l’appareil, l’amplitude de mouvement et la mobilité.
 
 :::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modèle de patch intelligent":::
 
@@ -91,11 +101,11 @@ Si vous sélectionnez l’onglet Groupes d’appareils, vous voyez un groupe d�
 
 Si vous sélectionnez **Règles**, vous voyez les trois règles dans le modèle :
 
-* **Brace temperature high** (Température élevée de l’attelle) : cette règle se déclenche quand la température de l’attelle de genou Smart Knee Brace est supérieure à 95 &deg;F (35 °C) sur une période de 5 minutes. Utilisez cette règle pour alerter le patient et l’équipe de soins afin qu’elle refroidisse l’appareil à distance.
+- **Brace temperature high** (Température élevée de l’attelle) : cette règle se déclenche quand la température de l’attelle de genou Smart Knee Brace est supérieure à 95 &deg;F (35 °C) sur une période de 5 minutes. Utilisez cette règle pour alerter le patient et l’équipe de soins afin qu’elle refroidisse l’appareil à distance.
 
-* **Fall detected** (Chute détectée) : cette règle se déclenche si une chute de patient est détectée. Utilisez cette règle pour configurer une action d’intervention d’équipe opérationnelle afin de secourir le patient qui a chuté.
+- **Fall detected** (Chute détectée) : cette règle se déclenche si une chute de patient est détectée. Utilisez cette règle pour configurer une action d’intervention d’équipe opérationnelle afin de secourir le patient qui a chuté.
 
-* **Patch battery low** (Faible niveau de charge du patch) : cette règle se déclenche quand le niveau de charge de la batterie de l’appareil est inférieur à 10 %. Utilisez cette règle pour déclencher une notification à l’intention du patient afin qu’il charge son appareil.
+- **Patch battery low** (Faible niveau de charge du patch) : cette règle se déclenche quand le niveau de charge de la batterie de l’appareil est inférieur à 10 %. Utilisez cette règle pour déclencher une notification à l’intention du patient afin qu’il charge son appareil.
 
 :::image type="content" source="media/brace-temp-rule.png" alt-text="Règles":::
 
@@ -119,9 +129,6 @@ L’onglet **Commandes** vous permet d’exécuter des commandes sur l’apparei
 
 :::image type="content" source="media/knee-brace-dashboard.png" alt-text="Tableau de bord de l’attelle de genou":::
 
-### <a name="data-export"></a>Exportation de données
-
-L’exportation de données vous permet d’exporter les données de vos appareils en continu vers d’autres services Azure, notamment l’[API Azure pour FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

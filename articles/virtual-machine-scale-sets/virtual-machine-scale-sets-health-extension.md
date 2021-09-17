@@ -9,14 +9,17 @@ ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: f74fe9ff7173cfcc86794e66244b70db03d80f9a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1901f605bddbd7540a25156f88b09433d0bca33b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673939"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690478"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Utilisation de l’extension Intégrité de l’application avec des groupes de machines virtuelles identiques
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
+
 La surveillance de l’intégrité de votre application est un signal important pour la gestion et la mise à niveau votre déploiement. Les groupes de machines virtuelles identiques prennent en charge les [mises à niveau propagées](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model), notamment les [mises à niveau automatiques d’image de système d’exploitation](virtual-machine-scale-sets-automatic-upgrade.md), qui reposent sur l’analyse du fonctionnement des instances individuelles pour mettre à niveau votre déploiement. Vous pouvez également utiliser l’extension d’intégrité pour surveiller l’intégrité des applications de chaque instance de votre groupe identique et effectuer des réparations d’instance à l’aide de [réparations automatiques d’instances](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 Cet article décrit comment utiliser l’extension Intégrité de l’application pour analyser le fonctionnement de vos applications déployées sur des groupes de machines virtuelles identiques.

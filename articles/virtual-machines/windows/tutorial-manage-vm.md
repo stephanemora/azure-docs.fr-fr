@@ -8,14 +8,15 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: ae298562b5d3306cf6c20b4c2fb7b378ba99c986
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ca70f0cf236cf786bcc578fa96e7a81597e5c06
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561617"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690039"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutoriel : Créer et gérer des machines virtuelles Windows avec Azure PowerShell
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows 
 
 Les machines virtuelles fournissent un environnement informatique entièrement configurable et flexible. Ce tutoriel traite de tâches de déploiement de machines virtuelles Azure, telles que la sélection d’une taille de machine virtuelle, la sélection d’une image de machine virtuelle et le déploiement d’une machine virtuelle. Vous allez apprendre à effectuer les actions suivantes :
 

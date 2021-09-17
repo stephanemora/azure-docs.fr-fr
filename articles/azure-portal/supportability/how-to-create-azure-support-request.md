@@ -4,13 +4,13 @@ description: Les clients qui ont besoin d’aide peuvent utiliser le portail Azu
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 05/25/2021
-ms.openlocfilehash: 4e3f54712830406f04f6c0eec5097d693723db1c
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.date: 08/24/2021
+ms.openlocfilehash: a9a5c7aedb9278a4832f485d4bc8107cc141cc5e
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112458770"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821427"
 ---
 # <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
 
@@ -83,11 +83,11 @@ Nous recueillons ensuite des détails supplémentaires sur le problème. En four
 
 1. Si possible, indiquez-nous quand le problème a commencé et les étapes permettant de le reproduire. Vous pouvez charger un fichier, tel qu’un fichier journal ou le résultat d’un diagnostic. Pour plus d’informations sur les chargements de fichiers, consultez [Instructions de chargement de fichier](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. Une fois que vous disposez de toutes les informations sur le problème, choisissez comment obtenir de l’aide. Dans la section **Méthode de support** sous **Détails**, sélectionnez la gravité de l’impact. Le niveau de gravité maximale dépend de votre [plan de support](https://azure.microsoft.com/support/plans).
+1. Dans la section **Partager les informations de diagnostic**, sélectionnez **Oui** ou **Non**. La sélection de **Oui** permet au support Azure de collecter des [informations de diagnostic](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) à partir de vos ressources Azure. Si vous préférez ne pas partager ces informations, sélectionnez **Non**. Dans certains cas, d’autres options sont disponibles, comme celle d’autoriser l’accès à la mémoire d’une machine virtuelle.
 
-    Par défaut, l’option **Partager les informations de diagnostic** est sélectionnée. Cela permet au support Azure de collecter des [informations de diagnostic](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) à partir de vos ressources Azure. Vous pouvez désactiver cette option si vous préférez ne pas partager les informations de diagnostic. Dans certains cas, il existe une deuxième question qui n’est pas sélectionnée par défaut, par exemple une demande d’accès à la mémoire d’une machine virtuelle.
+1. Dans la section **Méthode de support** sous **Détails**, sélectionnez la gravité de l’impact. Le niveau de gravité maximale dépend de votre [plan de support](https://azure.microsoft.com/support/plans).
 
-1. Indiquez votre méthode de contact préférée, l’heure à laquelle nous pouvons vous contacter et la langue de votre support.
+1. Indiquez votre méthode de contact préférée, votre disponibilité et votre langue de support préférée.
 
 1. Ensuite, complétez la section **Informations de contact** afin que nous sachions comment vous contacter.
 

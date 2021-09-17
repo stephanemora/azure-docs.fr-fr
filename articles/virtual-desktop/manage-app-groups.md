@@ -6,22 +6,22 @@ ms.topic: tutorial
 ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 80a066aab79e3ca6ca541a82fe6b7fe023653a81
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c020e239c566accfe10f0ad298bf76f2c749309b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448787"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740152"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutoriel : Gérer des groupes d’applications avec le portail Azure
 
 >[!IMPORTANT]
->Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objet Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (Classic) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
 Le groupe d’applications par défaut créé pour un nouveau pool d’hôtes Azure Virtual Desktop publie également l’intégralité du bureau. De plus, vous pouvez créer un ou plusieurs groupes d’applications RemoteApp pour le pool d’hôtes. Suivez ce tutoriel pour créer un groupe d’applications RemoteApp et publier des applications individuelles du menu Démarrer.
 
 >[!NOTE]
->Vous pouvez joindre dynamiquement des applications MISX à des sessions utilisateur ou ajouter vos packages d’application à une image de machine virtuelle personnalisée pour publier les applications de votre organisation. Pour en savoir plus, consultez [Comment héberger des applications personnalisées avec Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
+>Vous pouvez joindre dynamiquement des applications MSIX à des sessions utilisateur ou ajouter vos packages d’application à une image de machine virtuelle personnalisée pour publier les applications de votre organisation. Pour en savoir plus, consultez [Comment héberger des applications personnalisées avec Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 
 Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 

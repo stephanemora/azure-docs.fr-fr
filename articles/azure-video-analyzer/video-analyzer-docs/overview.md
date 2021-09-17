@@ -1,15 +1,15 @@
 ---
 title: Qu’est-ce qu’Azure Video Analyzer
-description: Cette rubrique fournit une vue d’ensemble d’Azure Video Analyzer.
+description: Cette rubrique fournit une vue d’ensemble d’Azure Video Analyzer
 ms.service: azure-video-analyzer
 ms.topic: overview
 ms.date: 06/01/2021
-ms.openlocfilehash: 35f13e8cd87e7e633b6836105f2d4c16911be663
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: c32ccdbbf73d9e2dd4ee6812e49ca82eac150a31
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604799"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397717"
 ---
 # <a name="what-is-azure-video-analyzer-preview"></a>Qu’est-ce qu’Azure Video Analyzer ? (préversion)
  
@@ -44,4 +44,4 @@ Pour en savoir plus sur la conformité, la confidentialité et la sécurité dan
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Suivez l’article [Démarrage rapide : Bien démarrer avec Azure Video Analyzer](get-started-detect-motion-emit-events.md) pour voir comment exécuter la détection de mouvement sur un flux vidéo en direct.
-* Passer en revue la [terminologie](terminology.md)
+* Passer en revue la [terminologie](terminology.md).

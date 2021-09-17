@@ -1,25 +1,26 @@
 ---
-title: Tutoriel – Configurer des déploiements Canary pour les machines virtuelles Linux Azure
-description: Dans ce tutoriel, vous allez apprendre à configurer un pipeline de déploiement continu (CD). Ce pipeline met à jour un groupe de machines virtuelles Linux Azure à l’aide de la stratégie de déploiement Blue-Green.
+title: Configurer des déploiements Canary pour les machines virtuelles Linux Azure
+description: Découvrez comment configurer un pipeline de déploiement continu (CD). Ce pipeline met à jour un groupe de machines virtuelles Linux Azure à l’aide de la stratégie de déploiement Blue-Green.
 author: moala
 tags: azure-devops-pipelines
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 4545891cce926f049673cd2c2380a8309f2e71a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a455950e1637dbcef63acc52de139c5d0a9a2e10
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552585"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690964"
 ---
-# <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutoriel – Configurer une stratégie de déploiement Blue-Green pour des machines virtuelles Linux Azure
+# <a name="configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Configurer une stratégie de déploiement bleu-vert pour des machines virtuelles Linux Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux 
 
 ## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>Infrastructure en tant que service (IaaS) - Configurer CI/CD
 

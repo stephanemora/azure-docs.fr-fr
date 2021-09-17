@@ -8,14 +8,17 @@ ms.service: virtual-machine-scale-sets
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 6c3b162c0acb5c494f8d5dda1dc9b515deb517bf
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 883ff0695538d54360fc06a36ee80acb33d54afb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768442"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690386"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gérer un groupe de machines virtuelles identiques avec l’interface Azure CLI
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
+
 Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des commandes Azure CLI courantes qui vous permettent d’effectuer ces tâches.
 
 Pour effectuer ces tâches de gestion, vous devez disposer de la dernière version d’Azure CLI. Pour plus d’informations, consultez [Installer l’interface Azure CLI](/cli/azure/install-azure-cli). Si vous avez besoin de créer un groupe de machines virtuelles identiques, vous pouvez [créer un groupe identique avec l’interface Azure CLI](quick-create-cli.md).

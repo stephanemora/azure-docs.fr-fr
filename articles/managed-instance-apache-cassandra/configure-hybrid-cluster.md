@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 9f3ad2a5d5b275ff611653855eff73bd36afda9f
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: bd334201d2dd93b38959aa9c8ebf19dc3125294f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379415"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751925"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Démarrage rapide : Configurer un cluster hybride avec Azure Managed Instance pour Apache Cassandra (préversion)
 
@@ -26,7 +26,12 @@ Ce guide de démarrage rapide montre comment utiliser les commandes Azure CLI p
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
+
+
 * Pour cet article, vous avez besoin d’Azure CLI version 2.12.1 ou ultérieure. Si vous utilisez Azure Cloud Shell, sachez que la version la plus récente est déjà installée.
+
+    > [!NOTE]
+    > Vérifiez que vous disposez de la version **0.9.0** (ou supérieure) du module CLI `cosmosdb-preview` en cours d’exécution dans votre interpréteur de commandes cloud. Cela est nécessaire pour que toutes les commandes répertoriées ci-dessous fonctionnent correctement. Vous pouvez vérifier les versions d’extension en exécutant `az --version`. Si nécessaire, mettez à niveau à l’aide de `az extension update --name cosmosdb-preview`.
 
 * Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) connecté à votre environnement autohébergé ou local. Pour plus d’informations sur la connexion d’environnements locaux à Azure, consultez l’article [Connecter un réseau local à Azure](/azure/architecture/reference-architectures/hybrid-networking/).
 
@@ -40,7 +45,7 @@ Ce guide de démarrage rapide montre comment utiliser les commandes Azure CLI p
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
     > [!NOTE]
-    > Le déploiement d’une instance Azure Managed Instance pour Apache Cassandra nécessite un accès à Internet. Le déploiement échoue dans les environnements où l’accès à Internet est limité. Vérifiez que vous ne bloquez pas l’accès dans votre réseau virtuel aux services Azure essentiels qui sont nécessaires au bon fonctionnement de Managed Instance pour Apache Cassandra :
+    > Le déploiement d’une instance Azure Managed Instance pour Apache Cassandra nécessite un accès à Internet. Le déploiement échoue dans les environnements où l’accès à Internet est limité. Vérifiez que vous ne bloquez pas l’accès dans votre réseau virtuel aux services Azure suivants essentiels et nécessaires au bon fonctionnement de Managed Cassandra. Vous pouvez également trouver une liste complète des dépendances de port et d’adresse IP[ici](network-rules.md). 
     > - Stockage Azure
     > - Azure KeyVault
     > - Groupes de machines virtuelles identiques Azure
@@ -57,7 +62,15 @@ Ce guide de démarrage rapide montre comment utiliser les commandes Azure CLI p
    > [!NOTE]
    > Les valeurs `assignee` et `role` dans la commande précédente correspondent aux identificateurs fixes du principal de service et du rôle, respectivement.
 
-1. Nous allons ensuite configurer des ressources pour le cluster hybride. Dans la mesure où vous avez déjà un cluster, le nom du cluster est ici simplement une ressource logique permettant d’identifier le nom de votre cluster existant. Veillez à spécifier le nom du cluster existant quand vous définissez les variables `clusterName` et `clusterNameOverride` dans le script suivant. Vous devez également indiquer les nœuds seed, les certificats clients publics (si vous avez configuré une clé publique/privée sur votre point de terminaison Cassandra) et les certificats gossip de votre cluster existant.
+1. Nous allons ensuite configurer des ressources pour le cluster hybride. Dans la mesure où vous avez déjà un cluster, le nom du cluster est ici simplement une ressource logique permettant d’identifier le nom de votre cluster existant. Veillez à spécifier le nom du cluster existant quand vous définissez les variables `clusterName` et `clusterNameOverride` dans le script suivant. 
+ 
+    Vous avez également besoin, au minimum, des nœuds seed de votre centre de données existant et des certificats gossip requis pour le chiffrement de nœud à nœud. Azure Managed Instance pour Apache Cassandra nécessite le chiffrement de nœud à nœud pour la communication entre les centres de données. Si vous n’avez pas de chiffrement de nœud à nœud implémenté dans votre cluster existant, vous devez l’implémenter. Consultez la documentation [ici](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLNodeToNode.html). Vous devez fournir le chemin d’accès à l’emplacement des certificats. Chaque certificat doit être au format PEM, par exemple `-----BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----`. En général, il existe deux façons d’implémenter des certificats :
+
+    1. Certificats auto-signés. Cela signifie qu’il s’agit d’un certificat privé et public (sans autorité de certification) pour chaque nœud. Dans ce cas, nous avons besoin de tous les certificats publics.
+
+    1. Certificats signés par une autorité de certification. Il peut s’agir d’une autorité de certification auto-signée ou même d’une autorité de certification publique. Dans ce cas, nous avons besoin du certificat d’autorité de certification racine (reportez-vous aux instructions sur la [préparation des certificats SSL pour la production](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html)) et à tous les intermédiaires (le cas échéant).
+
+    Éventuellement, si vous avez également implémenté des certificats client à nœud (voir [ici](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLClientToNode.html)), vous devez également les fournir dans le même format lors de la création du cluster hybride. Voir l’exemple ci-dessous.
 
    > [!NOTE]
    > La valeur de la variable `delegatedManagementSubnetId` fournie ci-dessous est exactement la même que la valeur de `--scope` que vous avez fournie dans la commande ci-dessus :
@@ -78,13 +91,14 @@ Ce guide de démarrage rapide montre comment utiliser les commandes Azure CLI p
       --resource-group $resourceGroupName \
       --location $location \
       --delegated-management-subnet-id $delegatedManagementSubnetId \
-      --external-seed-nodes 10.52.221.2,10.52.221.3,10.52.221.4
-      --client-certificates 'BEGIN CERTIFICATE-----\n...PEM format..\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format...\n-----END CERTIFICATE-----' \
-      --external-gossip-certificates 'BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format 2...\n-----END CERTIFICATE-----'
+      --external-seed-nodes 10.52.221.2 10.52.221.3 10.52.221.4 \
+      --external-gossip-certificates /usr/csuser/clouddrive/rootCa.pem /usr/csuser/clouddrive/gossipKeyStore.crt_signed
+      # optional - add your existing datacenter's client-to-node certificates (if implemented):
+      # --client-certificates /usr/csuser/clouddrive/rootCa.pem /usr/csuser/clouddrive/nodeKeyStore.crt_signed 
    ```
 
     > [!NOTE]
-    > En principe, vous savez où les certificats publics et/ou gossip existants sont conservés. Si ce n’est pas le cas, essayez d’exécuter `keytool -list -keystore <keystore-path> -rfc -storepass <password>` pour lister les certificats. 
+    > Si votre cluster a déjà un chiffrement de nœud à nœud et de client à nœud, vous devez savoir où vos certificats SSL client et/ou gossip existants sont conservés. Si ce n’est pas le cas, essayez d’exécuter `keytool -list -keystore <keystore-path> -rfc -storepass <password>` pour lister les certificats. 
 
 1. Une fois la ressource cluster créée, exécutez la commande suivante pour afficher les détails de l’installation du cluster :
 
@@ -97,10 +111,30 @@ Ce guide de démarrage rapide montre comment utiliser les commandes Azure CLI p
        --resource-group $resourceGroupName \
    ```
 
-1. La commande ci-dessus retourne des informations sur l’environnement Managed Instance. Vous avez besoin des détails des certificats gossip pour pouvoir installer ces derniers sur les nœuds dans votre centre de données existant. La capture d’écran suivante montre la sortie de la commande précédente et le format des certificats :
+1. La commande ci-dessus retourne des informations sur l’environnement Managed Instance. Vous avez besoin de certificats gossip pour pouvoir installer ces derniers sur le magasin de confiance des nœuds de votre centre de données existant. La capture d’écran suivante montre la sortie de la commande précédente et le format des certificats :
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-cluster.png" alt-text="Obtenir les détails des certificats à partir du cluster." lightbox="./media/configure-hybrid-cluster/show-cluster.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-cluster.png) -->
+
+    > [!NOTE]
+    > Les certificats renvoyés à partir de la commande ci-dessus contiennent des sauts de ligne représentés sous forme de texte, par exemple `\r\n`. Vous devez copier chaque certificat dans un fichier et le mettre en forme avant de tenter de l’importer dans le magasin de confiance de votre centre de données existant.
+
+    > [!TIP]
+    > Copiez la valeur de tableau `gossipCertificates` indiquée dans la capture d’écran ci-dessus dans un fichier, puis utilisez le script bash suivant (vous devez [télécharger et installer jq](https://stedolan.github.io/jq/download/) pour votre plateforme) pour formater les certificats et créer des fichiers PEM distincts pour chacun.
+    >
+    > ```bash
+    > readarray -t cert_array < <(jq -c '.[]' gossipCertificates.txt)
+    > # iterate through the certs array, format each cert, write to a numbered file.
+    > num=0
+    > filename=""
+    > for item in "${cert_array[@]}"; do
+    >   let num=num+1
+    >   filename="cert$num.pem"
+    >   cert=$(jq '.pem' <<< $item)
+    >   echo -e $cert >> $filename
+    >   sed -e '1d' -e '$d' -i $filename
+    > done
+    > ```
 
 1. Créez maintenant un centre de données dans le cluster hybride. Veillez à remplacer les valeurs des variables par les détails de votre cluster :
 
@@ -132,23 +166,30 @@ Ce guide de démarrage rapide montre comment utiliser les commandes Azure CLI p
        --data-center-name $dataCenterName 
    ```
 
-1. La commande précédente retourne les nœuds seed du nouveau centre de données. Ajoutez ces nœuds à la configuration du centre de données existant dans le fichier *cassandra.yaml*. Installez les certificats gossip de Managed Instance que vous avez collectés précédemment :
+1. La commande précédente retourne les nœuds seed du nouveau centre de données : 
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-datacenter.png" alt-text="Obtenir les détails du centre de données." lightbox="./media/configure-hybrid-cluster/show-datacenter.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-datacenter.png) -->
 
-    > [!NOTE]
-    > Si vous souhaitez ajouter d’autres centres de données, répétez les étapes ci-dessus, mais uniquement pour les nœuds seed. 
+
+1. Ajoutez maintenant les nouveaux nœuds seed du centre de données à la [configuration des nœuds seed](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/configuration/configCassandra_yaml.html#configCassandra_yaml__seed_provider) de votre centre de données existant dans le fichier [cassandra.yaml](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/configuration/configCassandra_yaml.html). Et installez les certificats gossip des instances gérées que vous avez collectés précédemment dans le magasin de confiance pour chaque nœud de votre cluster existant, à l’aide de la commande `keytool` pour chaque certificat :
+
+    ```bash
+        keytool -importcert -keystore generic-server-truststore.jks -alias CassandraMI -file cert1.pem -noprompt -keypass myPass -storepass truststorePass
+    ```
+
+   > [!NOTE]
+   > Si vous souhaitez ajouter d’autres centres de données, répétez les étapes ci-dessus, mais uniquement pour les nœuds seed. 
 
 1. Pour finir, exécutez la requête CQL suivante pour mettre à jour la stratégie de réplication dans chaque espace de clés et inclure ainsi tous les centres de données dans le cluster :
 
    ```bash
-   ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3};
+   ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3};
    ```
    Vous devez également mettre à jour les tables de mots de passe :
 
    ```bash
-    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3}
+    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
    ```
 
 ## <a name="troubleshooting"></a>Dépannage

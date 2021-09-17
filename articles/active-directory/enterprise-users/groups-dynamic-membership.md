@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/18/2021
+ms.date: 08/06/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d93acbfa8ae89b459fafb69411d35706b18fcbb
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 9551906dc3a80a07597fc8406228a5869688d317
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982985"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750565"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -176,25 +176,25 @@ David retourne true, Da retourne false.
 
 Les valeurs utilisées dans une expression peuvent être de plusieurs types, à savoir :
 
-* Chaînes
-* Booléen : « True », « False »
-* Nombres
-* Tableaux : tableau de nombres, tableau de chaînes
+- Chaînes
+- Booléen : « True », « False »
+- Nombres
+- Tableaux : tableau de nombres, tableau de chaînes
 
 Lorsque vous spécifiez une valeur dans une expression, il est important d’utiliser la syntaxe correcte pour éviter les erreurs. Voici quelques conseils de syntaxe :
 
-* Les guillemets doubles sont facultatifs, sauf si la valeur est une chaîne.
-* Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse.
-* Quand une valeur de chaîne contient des guillemets doubles, les deux guillemets doivent être échappés à l’aide du caractère \`. Par exemple, user.department -eq \`"Sales\`" est la syntaxe appropriée quand « Sales » est la valeur.
-* Vous pouvez également effectuer des vérifications de valeur Null, en utilisant null en tant que valeur. Par exemple, `user.department -eq null`.
+- Les guillemets doubles sont facultatifs, sauf si la valeur est une chaîne.
+- Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse.
+- Quand une valeur de chaîne contient des guillemets doubles, les deux guillemets doivent être échappés à l’aide du caractère \`. Par exemple, user.department -eq \`"Sales\`" est la syntaxe appropriée quand « Sales » est la valeur. Les guillemets simples doivent être placés dans une séquence d’échappement à l’aide de deux guillemets simples.
+- Vous pouvez également effectuer des vérifications de valeur Null, en utilisant null en tant que valeur. Par exemple, `user.department -eq null`.
 
 ### <a name="use-of-null-values"></a>Utiliser des valeurs Null
 
 Pour spécifier une valeur null dans une règle, vous pouvez utiliser la valeur *null*. 
 
-* Utilisez -eq ou -ne lors de la comparaison de la valeur *null* dans une expression.
-* N’insérez des guillemets autour du mot *null* que si vous voulez qu’il soit interprété comme une valeur de chaîne littérale.
-* L’opérateur -not ne peut pas être utilisé comme un opérateur de comparaison pour la valeur null. Si vous l’utilisez, vous obtenez une erreur, que vous utilisiez une valeur null ou $null.
+- Utilisez -eq ou -ne lors de la comparaison de la valeur *null* dans une expression.
+- N’insérez des guillemets autour du mot *null* que si vous voulez qu’il soit interprété comme une valeur de chaîne littérale.
+- L’opérateur -not ne peut pas être utilisé comme un opérateur de comparaison pour la valeur null. Si vous l’utilisez, vous obtenez une erreur, que vous utilisiez une valeur null ou $null.
 
 La manière correcte de référencer la valeur null est la suivante :
 
@@ -241,9 +241,9 @@ Des parenthèses ne sont nécessaires que lorsque la priorité ne répond pas à
 
 Une règle d’appartenance peut être constituée d’expressions complexes où les propriétés, les opérateurs et les valeurs prennent des formes plus complexes. Des expressions sont considérées comme complexes quand l’une des conditions suivantes est vraie :
 
-* La propriété consiste en une collection de valeurs, plus précisément, des propriétés à valeurs multiples
-* Les expressions utilisent les opérateurs -any et -all
-* La valeur de l’expression peut être elle-même une ou plusieurs expressions
+- La propriété consiste en une collection de valeurs, plus précisément, des propriétés à valeurs multiples
+- Les expressions utilisent les opérateurs -any et -all
+- La valeur de l’expression peut être elle-même une ou plusieurs expressions
 
 ## <a name="multi-value-properties"></a>Propriétés à valeurs multiples
 
@@ -258,8 +258,8 @@ Les propriétés à valeurs multiples sont des collections d’objets du même t
 
 Vous pouvez utiliser les opérateurs -any et -all pour appliquer respectivement une condition à un ou tous les objets de la collection.
 
-* -any (respectée lorsqu’au moins un élément de la collection correspond à la condition)
-* -all (respectée lorsque tous les éléments de la collection correspondent à la condition)
+- -any (respectée lorsqu’au moins un élément de la collection correspond à la condition)
+- -all (respectée lorsque tous les éléments de la collection correspondent à la condition)
 
 #### <a name="example-1"></a>Exemple 1
 
@@ -357,8 +357,8 @@ Les attributs d’extension et les propriétés d’extension personnalisées so
 
 Les [propriétés d’extension personnalisées](../hybrid/how-to-connect-sync-feature-directory-extensions.md) sont synchronisées à partir de Windows Server AD local ou à partir d’une application SaaS connectée, et leur format est `user.extension_[GUID]_[Attribute]`, où :
 
-* [GUID] est l’identificateur unique dans Azure AD pour l’application qui a créé la propriété dans Azure AD
-* [Attribute] est le nom attribué à la propriété lors de sa création
+- [GUID] est l’identificateur unique dans Azure AD pour l’application qui a créé la propriété dans Azure AD
+- [Attribute] est le nom attribué à la propriété lors de sa création
 
 Voici un exemple de règle utilisant une propriété d’extension personnalisée :
 

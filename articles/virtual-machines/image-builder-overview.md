@@ -9,14 +9,16 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 7289d9d814385f31a71cbd598889e564958a0140
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 805b2a8bf29edfd76804aec3607acc11155edd16
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441813"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697068"
 ---
 # <a name="azure-image-builder-overview"></a>Vue d’ensemble du Générateur d’images Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence des déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. La définition de votre propre pipeline d’acquisition d’images nécessite du temps, une infrastructure et une configuration. Toutefois, avec Azure VM Image Builder, il vous suffit de fournir une configuration décrivant votre image et de l’envoyer au service, après quoi l’image est générée et distribuée.
  
@@ -28,7 +30,7 @@ Azure VM Image Builder (Azure Image Builder) vous permet de partir d’une image
 Azure Image Builder prend en charge les fonctionnalités suivantes :
 
 - Création d’images de référence, qui incluent vos configurations minimales de sécurité et d’entreprise, et qui permettent aux services d’affiner leur personnalisation.
-- Intégration des applications de base, de sorte que les machines virtuelles peuvent accepter les charges de travail après leur création, ou ajouter des configurations pour prendre en charge les images Windows Virtual Desktop.
+- Intégration des applications de base, de sorte que les machines virtuelles peuvent accepter les charges de travail après leur création, ou ajouter des configurations pour prendre en charge les images Azure Virtual Desktop.
 - En corrigeant des images existantes, le Générateur d’images vous permet de corriger en permanence des images personnalisées.
 - Connectez Image Builder à vos réseaux virtuels existants, afin de pouvoir vous connecter à des serveurs de configuration existants (DSC, Chef, Puppet, etc.), à des partages de fichiers ou à tout autre serveur/service routable.
 - L’intégration avec la Galerie d’images partagées Azure vous permet de distribuer, de contrôler les versions, et de mettre à l’échelle des images globalement, et offre un système de gestion des images.
@@ -52,6 +54,8 @@ Le Générateur d’images Azure prendra en charge les images de système d’ex
 - Windows 10 RS5 Enterprise/Enterprise multisession/Professional
 - Windows 2016
 - Windows 2019
+
+Nous avons listé les systèmes d’exploitation que nous avons testés et savons fonctionner avec Azure Image Builder. Toutefois, Azure Image Builder doit fonctionner avec n’importe quelle Image Linux ou Windows sur le marketplace.
 
 ## <a name="how-it-works"></a>Fonctionnement
 

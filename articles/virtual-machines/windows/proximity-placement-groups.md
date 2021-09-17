@@ -5,20 +5,20 @@ services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 3/8/2021
 ms.author: cynthn
 ms.reviewer: zivr
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 647f9bd509633000e5154e77aeebfea56947b45d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: cad5029c88c3444ab42a53af950d78a4167ea878
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668862"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697167"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-powershell"></a>Déployer des machines virtuelles dans des groupes de placements de proximité avec Azure PowerShell
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows 
 
 Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez-les dans un [groupe de placements de proximité](../co-location.md#proximity-placement-groups).
 

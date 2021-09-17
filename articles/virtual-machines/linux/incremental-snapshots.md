@@ -8,12 +8,15 @@ ms.workload: storage
 ms.topic: how-to
 ms.date: 09/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 39faaa94afd0cdeee32483001f3dde07e4dd7f5b
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 6d5a77bd6a17fc20c52eb83f0e9dd6d232183c72
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113360358"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691769"
 ---
 # <a name="back-up-azure-unmanaged-virtual-machine-disks-with-incremental-snapshots"></a>Sauvegarder des disques de machine virtuelle non managés Azure à l’aide d’instantanés incrémentiels
+
+**S’applique à :** :heavy_check_mark : machines virtuelles Linux
+
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

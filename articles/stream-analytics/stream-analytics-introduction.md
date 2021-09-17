@@ -1,18 +1,18 @@
 ---
 title: Présentation d’Azure Stream Analytics
 description: Découvrez Azure Stream Analytics, service managé qui vous permet d’analyser les données de streaming à partir de l’Internet des objets (IoT) en temps réel.
-author: enkrumah
-ms.author: ebnkruma
+author: jeanb
+ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q2
-ms.date: 11/12/2020
-ms.openlocfilehash: 5aea6460f3a876d63544ce8422f9f205c22f2a0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 8/20/2021
+ms.openlocfilehash: ee78ca8fee1b83ea10ea86ef180b3804279bbe91
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98015247"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687683"
 ---
 # <a name="welcome-to-azure-stream-analytics"></a>Bienvenue dans Azure Stream Analytics
 
@@ -100,7 +100,7 @@ Azure Stream Analytics suit plusieurs certifications de conformité, comme décr
 
 ## <a name="performance"></a>Performances
 
-Stream Analytics peut traiter des millions d’événements par seconde et fournir des résultats avec une latence ultra faible. Il vous permet de mettre à l’échelle vos travaux pour prendre en charge des applications volumineuses de traitement des événements complexes et en temps réel. Stream Analytics offre de meilleures performances à l’aide du partitionnement, permettant de paralléliser des requêtes complexes et de les exécuter sur plusieurs nœuds de streaming. Azure Stream Analytics repose sur [Trill](https://github.com/Microsoft/Trill), un moteur haute performance d’analyse de streaming en mémoire développé en collaboration avec Microsoft Research.
+Stream Analytics peut traiter des millions d’événements par seconde et fournir des résultats avec une latence ultra faible. Vous avez la possibilité d’effectuer un [scale-out](stream-analytics-autoscale.md) pour vous adapter à vos charges de travail. Stream Analytics offre de meilleures performances à l’aide du partitionnement, permettant de paralléliser des requêtes complexes et de les exécuter sur plusieurs nœuds de streaming. Azure Stream Analytics repose sur [Trill](https://github.com/Microsoft/Trill), un moteur haute performance d’analyse de streaming en mémoire développé en collaboration avec Microsoft Research.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

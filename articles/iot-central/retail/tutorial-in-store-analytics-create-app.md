@@ -10,13 +10,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: timlt
 author: timlt
-ms.date: 11/12/2019
-ms.openlocfilehash: 44e62418a74d40f05ab0ccc9b9da86c76bc07790
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.date: 08/17/2021
+ms.openlocfilehash: 93438e9726dca4fe74da3bbfc9bd06533115e74e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122196033"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439078"
 ---
 # <a name="tutorial-deploy-and-walk-through-the-in-store-analytics-application-template"></a>Tutoriel : déployer et découvrir un modèle d’application d’analytique en magasin
 
@@ -144,9 +144,9 @@ Pour ajouter un modèle d’appareil RuuviTag à votre application :
 
 1. Sélectionnez **+ Nouveau** pour créer un modèle d’appareil.
 
-1. Recherchez et sélectionnez le modèle d’appareil du capteur **RuuviTag** dans le catalogue d’appareils Azure IoT. 
+1. Recherchez et sélectionnez le modèle d’appareil **Multicapteur RuuviTag** dans le catalogue d’appareils Azure IoT. 
 
-1. Sélectionnez **Suivant : Personnaliser**.
+1. Sélectionnez **Suivant : Personnaliser**.
 
     :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png" alt-text="Capture d’écran mettant en évidence le bouton Suivant : Personnaliser.":::
 
@@ -204,7 +204,7 @@ Spécifiez les valeurs suivantes pour créer une propriété personnalisée et s
 
 1. Entrez la valeur *Emplacement* pour le **Nom d’affichage**. Cette valeur est copiée automatiquement dans le champ **Nom**, qui est un nom convivial pour la propriété. Vous pouvez utiliser la valeur copiée ou la modifier.
 
-1. Sélectionnez *Chaîne* dans la liste déroulante **Schéma**. Un type de chaîne vous permet d’associer une chaîne de nom d’emplacement à n’importe quel appareil basé sur le modèle. Par exemple, vous pouvez associer une zone dans un magasin à chaque appareil. Si vous le souhaitez, vous pouvez définir le **Type sémantique** de votre propriété sur *Emplacement*, ce qui définit automatiquement le **Schéma** sur *Point géographique*. Vous pouvez alors associer des coordonnées GPS à un appareil. 
+1. Sélectionnez *Chaîne* dans la liste déroulante **Schéma**. Un type de chaîne vous permet d’associer une chaîne de nom d’emplacement à n’importe quel appareil basé sur le modèle. Par exemple, vous pouvez associer une zone dans un magasin à chaque appareil.
 
 1. Définissez **Longueur minimale** sur *2*. 
 

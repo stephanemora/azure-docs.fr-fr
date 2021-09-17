@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 645402d6c6b1fe744938ef5597098f46bc80c78e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c10034e8cd38e9ca4744026f27ed49dbaadba7ec
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101672363"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693939"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Conditions préalables courantes au déploiement d’OpenShift Container Platform 3.11 dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cet article décrit les prérequis courants pour déployer OpenShift Container Platform ou OKD dans Azure.
 

@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 2f90d3698156e27780bc57e0ac9355b6811d20d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 464ffc8b5d4d04aeb7e4013f5b25d240d5ee9b06
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607413"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688962"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Réduisez les coûts avec les réservations Azure Dedicated Host
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Lorsque vous validez une instance réservée d’hôtes Azure Dedicated Host, vous pouvez économiser de l’argent. La remise de réservation est appliquée automatiquement au nombre d’hôtes dédiés en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à un hôte dédié pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles. Consultez l’article [Vue d’ensemble des hôtes Azure Dedicated Host pour machines virtuelles](./dedicated-hosts.md).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 06f4ddff9c897858eec27f97f8e45a3d656e951d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d317adf207360c7e513bbd5239f45e4955b50782
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650785"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182955"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec monday.com
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * monday.com prend en charge l’authentification unique initiée par le **fournisseur de services (SP) et le fournisseur d’identité (IDP)**
+* monday.com prend en charge [**l’attribution d’utilisateurs et la suppression des privilèges d’accès** automatiques](mondaycom-provisioning-tutorial.md) (recommandé).
 * monday.com prend en charge l’attribution d’utilisateurs **juste-à-temps**
 
 ## <a name="add-mondaycom-from-the-gallery"></a>Ajouter monday.com à partir de la galerie

@@ -9,14 +9,16 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 452d24d95fc0c43d8301e29b2304b9f0baa3cb25
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 85a4305abf1708d45627f775a583ae219db22b8e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673922"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693986"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
+
+**S’applique à :** :heavy_check_mark: Groupes identiques uniformes
 
 Lorsque vous déployez un groupe de machines virtuelles identiques Azure via le portail, certaines propriétés de réseau sont définies par défaut, comme un équilibrage de charge Azure avec des règles NAT entrantes. Cet article explique comment utiliser certaines des fonctionnalités avancées de mise en réseau, que vous pouvez configurer avec les groupes identiques.
 
@@ -516,6 +518,24 @@ L’exemple suivant montre comment ajouter une deuxième configuration IP à vo
     }
     ```
 
+
+## <a name="explicit-network-outbound-connectivity-for-flexible-scale-sets"></a>Connectivité réseau sortante explicite pour les groupes identiques Flexibles 
+
+Pour améliorer la sécurité réseau par défaut, les [groupes de machines virtuelles identiques avec une orchestration Flexible](..\virtual-machines\flexible-virtual-machine-scale-sets.md) requièrent que les instances créées implicitement via le profil de mise à l’échelle automatique disposent d’une connectivité sortante définie explicitement à l’aide de l’une des méthodes suivantes : 
+
+- Pour la plupart des scénarios, nous recommandons la [Passerelle NAT attachée au sous-réseau](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
+- Pour les scénarios assortis d’exigences de sécurité élevées ou lors de l’utilisation d’un Pare-feu Azure ou d’une Appliance virtuelle réseau (NVA), vous pouvez spécifier un Itinéraire personnalisé défini par l’utilisateur en tant que tronçon suivant via le pare-feu. 
+- Les instances se trouvent dans le pool principal d’un Équilibreur de charge Azure de Référence SKU standard. 
+- Attachez une adresse IP publique à l’interface réseau de l’instance. 
+
+Avec des machines virtuelles à instance unique et des groupes de machines virtuelles identiques avec orchestration uniforme, la connectivité sortante est fournie automatiquement. 
+
+Les scénarios courants nécessitant une connectivité sortante explicite sont les suivants : 
+
+- L’activation d’une machine virtuelle Windows nécessite que vous ayez défini une connectivité sortante à partir de l’instance de machine virtuelle vers le Service de gestion des clés d’activation Windows (KMS). Pour plus d’informations, consultez [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).  
+- Accédez aux comptes de stockage ou au Coffre de clés. La connectivité aux services Azure peut également être établie via une [Liaison privée](../private-link/private-link-overview.md). 
+
+Pour plus d’informations sur la définition de connexions sortantes sécurisées, consultez [Accès sortant par défaut dans Azure](https://aka.ms/defaultoutboundaccess).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

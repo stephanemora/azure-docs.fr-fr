@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4051f8fe4b338f223b36c3a87ebcc3e3d3e51979
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 30d7282d6f6f30b34b522991d6fd4e79b194d7dd
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472970"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771585"
 ---
 # <a name="extending-ontologies"></a>Extension d’ontologies 
 
@@ -53,7 +53,7 @@ Une fois l’interface de la salle de concentration ajoutée, la hiérarchie ét
 
 :::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Diagramme illustrant une partie de la hiérarchie des espaces RealEstateCore, y compris le nouvel ajout"::: 
 
-### <a name="add-additional-capabilities-to-existing-interfaces"></a>Ajouter des fonctionnalités supplémentaires à des interfaces existantes 
+### <a name="add-extra-capabilities-to-existing-interfaces"></a>Ajouter des fonctionnalités supplémentaires à des interfaces existantes 
 
 Dans le cas présent, vous souhaitez ajouter d’autres propriétés (relations, composants, télémétries ou commandes) aux interfaces qui font partie de l’ontologie du secteur.
 
@@ -63,7 +63,7 @@ Dans cette section, vous allez voir deux exemples :
 
 Vous pouvez implémenter les deux exemples avec de nouvelles propriétés : une propriété `drawingId` qui associe le dessin 3D au jumeau numérique, et une propriété « online » (en ligne) qui indique si la salle de conférence est en ligne ou non. 
 
-En règle générale, il est déconseillé de modifier directement l’ontologie du secteur, car vous pouvez être amené à incorporer plus tard des mises à jour dans votre solution (ce qui entraîne le remplacement de vos ajouts). À la place, vous pouvez effectuer ce genre d’ajout dans votre propre hiérarchie d’interface, laquelle est une extension de l’ontologie RealEstateCore DTDL. Chaque interface que vous créez utilise un héritage d’interface multiple pour étendre son interface RealEstateCore parente et son interface parente à partir de votre hiérarchie d’interface étendue. Cette approche vous permet d’utiliser à la fois l’ontologie du secteur et vos ajouts. 
+En règle générale, il est déconseillé de modifier directement l’ontologie du secteur, car vous pouvez être amené à incorporer plus tard des mises à jour dans votre solution (ce qui entraîne le remplacement de vos ajouts). À la place, vous pouvez effectuer ce genre d’ajout dans votre propre hiérarchie d’interface, laquelle est une extension de l’ontologie RealEstateCore DTDL. Chaque interface que vous créez utilise plusieurs héritages d’interface pour étendre son interface RealEstateCore parente et son interface parente à partir de votre hiérarchie d’interface étendue. Cette approche vous permet d’utiliser à la fois l’ontologie du secteur et vos ajouts. 
 
 Pour étendre l’ontologie du secteur, vous créez vos propres interfaces qui s’étendent à partir des interfaces de l’ontologie du secteur, et vous ajoutez les nouvelles fonctionnalités à vos interfaces étendues. Pour chaque interface à étendre, vous créez une interface. Les interfaces étendues sont écrites en DTDL (consultez la section relative au langage DTDL pour les interfaces étendues plus loin dans ce document). 
 

@@ -6,17 +6,17 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 08/10/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 3b6bc972f5c26c78ffff81f5bab8c2812cf2cb11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 898cc8dcb634ed9beab26c0a0d5de9a9fdda068c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622911"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732873"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutoriel : Effectuer un basculement manuel pour un hub IoT
 
@@ -41,35 +41,14 @@ Pour plus d’informations sur le basculement manuel et le basculement initié p
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). 
-
-2. Cliquez sur **+ Créer une ressource** et sélectionnez **Internet des objets**, puis **IoT Hub**.
-
-   ![Capture d’écran montrant la création d’un IoT hub](./media/tutorial-manual-failover/create-hub-01.png)
-
-3. Sélectionnez l’onglet **Fonctions de base**. Complétez les champs suivants.
-
-    **Abonnement** : sélectionnez l’abonnement Azure que vous souhaitez utiliser.
-
-    **Groupe de ressources** : cliquez sur **Créer nouveau**  et spécifiez **ManIFailRG** pour le nom du groupe de ressources.
-
-    **Région** : sélectionnez une région proche de vous. Ce didacticiel utilise `West US 2`. Un basculement ne peut être effectué entre des régions Azure géographiquement associées. La région géographiquement associée à USA Ouest 2 est WestCentralUS.
-    
-   **Nom de IoT Hub** : spécifiez un nom pour votre IoT Hub. Le nom du hub doit être globalement unique. 
-
-   ![Capture d’écran montrant le volet d’informations de base pour la création d’un IoT Hub](./media/tutorial-manual-failover/create-hub-02-basics.png)
-
-   Cliquez sur **Vérifier + créer**. (Il utilise les valeurs par défaut pour la taille et échelle.) 
-
-4. Passez en revue les informations, puis cliquez sur **Créer** pour créer l’IoT hub. 
-
-   ![Capture d’écran montrant l’étape finale pour la création d’un IoT Hub](./media/tutorial-manual-failover/create-hub-03-create.png)
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="perform-a-manual-failover"></a>Effectuer un basculement manuel
 
-Notez qu’il existe une limite de deux basculements et deux restaurations par jour pour un IoT Hub.
+> [!NOTE]
+> Il existe une limite de deux basculements et deux restaurations par jour pour un hub IoT.
 
-1. Cliquez sur **Groupes de ressources** et sélectionnez le groupe de ressources **ManlFailRG**. Dans la liste des ressources, cliquez sur votre IoT Hub. 
+1. Cliquez sur **Groupes de ressources**, puis sélectionnez votre groupe de ressources. Ce tutoriel utilise **ManlFailRG**. Dans la liste des ressources, cliquez sur votre IoT Hub. 
 
 1. Sous **Paramètres** dans le volet IoT Hub, cliquez sur **Basculement**.
 
@@ -99,7 +78,7 @@ Notez qu’il existe une limite de deux basculements et deux restaurations par j
 
    ![Capture d’écran montrant que le basculement est terminé](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-   La page de vue d’ensemble affiche également une bannière indiquant que le basculement est terminé et que le hub IoT s’exécute dans `West Central US`.
+   La page de vue d’ensemble affiche également une bannière indiquant que le basculement est terminé et que IoT Hub s’exécute dans `West Central US`.
 
    ![Capture d’écran montrant que le basculement est terminé dans la page de vue d’ensemble](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
 
@@ -116,7 +95,7 @@ Une restauration automatique est effectuée à l’instar d’un basculement man
 
 3. En haut du volet Basculement manuel, cliquez sur **Démarrer le basculement**. 
 
-4. Dans le volet de confirmation, spécifiez le nom de votre hub IoT pour vérifier que c’est bien celui que vous souhaitez restaurer automatiquement. Pour ensuite lancer la restauration automatique, cliquez sur OK. 
+4. Dans le volet de confirmation, spécifiez le nom de votre hub IoT pour vérifier que c’est bien celui que vous souhaitez restaurer automatiquement. Pour ensuite lancer la restauration automatique, cliquez sur **OK**. 
 
    ![Capture d’écran de la requête de restauration manuelle](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
@@ -143,7 +122,7 @@ Dans ce didacticiel, vous avez appris comment configurer et effectuer un bascule
 > * Effectuer une restauration automatique pour ramener les opérations d’IoT hub à l’emplacement principal. 
 > * Confirmer que le hub s’exécute correctement dans l’emplacement approprié.
 
-Passez au didacticiel suivant pour découvrir comment gérer l’état d’un appareil IoT. 
+Passez au tutoriel suivant pour découvrir comment configurer votre appareil à partir d’un service principal. 
 
 > [!div class="nextstepaction"]
-> [Gérer l’état d’un appareil IoT](tutorial-device-twins.md)
+> [Configurer vos appareils](tutorial-device-twins.md)

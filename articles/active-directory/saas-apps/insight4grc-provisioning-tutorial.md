@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: thwimmer
-ms.openlocfilehash: d3172f571afbcdbac83a527ef1de5e56283b7438
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: d8fbdff34ea84685366c04ee956473b4165a4cd2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766960"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444581"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Tutoriel : Configurer Insight4GRC pour l’approvisionnement automatique d’utilisateurs
 
@@ -100,11 +100,12 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 9. Dans la section **Mappages des attributs**, consultez les attributs utilisateur qui sont synchronisés entre Azure AD et Insight4GRC. Les attributs sélectionnés en tant que propriétés **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Insight4GRC pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vous assurer que l’API Insight4GRC prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-   |Attribut|Type|
-   |---|---|
-   |userName|String|
-   |externalId|String|
+   |Attribut|Type|Pris en charge pour le filtrage|
+   |---|---|--|
+   |userName|String|&check;
+   |externalId|String|&check;
    |active|Boolean|
+   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
    |title|String|
    |name.givenName|String|
    |name.familyName|String|
@@ -143,6 +144,10 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 * Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou ceux pour laquelle la procédure a échoué.
 * Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état d’avancement du cycle d’approvisionnement et le moment où il se terminera.
 * Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## <a name="change-log"></a>Journal des modifications
+
+* 19/08/2021 - L’attribut **manager** de l’extension Enterprise a été ajouté.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

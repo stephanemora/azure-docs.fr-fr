@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 804166beebf4f12e246a27122bd44c611972a488
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 03d29f6f6265c214427e208de4bc9177659bb473
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111437997"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823902"
 ---
 # <a name="tips-for-better-performance-in-azure-cognitive-search"></a>Conseils pour améliorer les performances dans Recherche cognitive Azure
 
@@ -67,7 +67,9 @@ Les types de requêtes que vous envoyez sont l’un des facteurs les plus import
 
 + **Utilisation de recherches de terme partiel.** Les [recherches de terme partiel](search-query-partial-matching.md), telles que la recherche de préfixe, la recherche approximative et la recherche d’expression régulière, sont plus gourmandes en calcul que les recherches de mot clé classiques, car elles nécessitent des analyses complètes de l’index pour produire des résultats.
 
-+ **Nombre de facettes.** L’ajout de facettes aux requêtes nécessite des agrégations pour chaque requête. En général, ajoutez uniquement les facettes que vous prévoyez d’afficher dans votre application.
++ **Nombre de facettes.** L’ajout de facettes aux requêtes nécessite des agrégations pour chaque requête. Demander un « nombre » plus élevé pour une facette exige également du service un travail supplémentaire. En général, contentez-vous d’ajouter les facettes que vous envisagez d’afficher dans votre application et évitez de demander un nombre élevé de facettes, sauf si cela est nécessaire.
+
++ **Valeurs d’omission élevées.** La définition d’une valeur élevée (par exemple, dans les milliers) pour le paramètre $skip augmente la latence de la recherche, car le moteur récupère et classe un plus grand volume de documents pour chaque requête. Pour des raisons de performances, il est préférable d’éviter les valeurs $skip élevées et d’utiliser d’autres techniques à la place, telles que le filtrage, pour récupérer un grand nombre de documents.
 
 + **Limiter les champs à cardinalité élevée.**  Un *champ à cardinalité élevée* est un champ à facettes ou filtrable qui possède un grand nombre de valeurs uniques. Ce champ consomme donc une quantité considérable de ressources lors du calcul des résultats. Par exemple, si vous définissez un champ ID produit ou Description en tant que champ à facettes ou filtrable, il s’agit d’un champ à cardinalité élevée, car la plupart des valeurs sont uniques d’un document à l’autre.
 

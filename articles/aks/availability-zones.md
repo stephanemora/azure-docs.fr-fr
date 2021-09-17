@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: fee0ded96a8f1ea9c4be0d7a1409fc3fe3f0ea85
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 1fe59e3541760eb00c1c520004a2076cfc9a2c97
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535414"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779357"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 
@@ -63,7 +63,7 @@ Kubernetes prend en charge les zones de disponibilité Azure depuis la version 
 
 Lors de la *création* d’un cluster AKS, si vous définissez explicitement une [valeur null dans un modèle][arm-template-null] avec une syntaxe telle que `"availabilityZones": null`, le modèle Resource Manager traite la propriété comme si elle n’existait pas, ce qui signifie qu’aucune zone de disponibilité n’est activée dans votre cluster. En outre, si vous créez un cluster avec un modèle Resource Manager qui omet la propriété zones de disponibilité, les zones de disponibilité sont désactivées.
 
-Il n’est pas possible de mettre à jour les paramètres des zones de disponibilité sur un cluster existant. Le comportement diffère donc lors de la mise à jour du cluster AKS avec des modèles Resource Manager.  Si vous définissez explicitement une valeur null dans votre modèle pour les zones de disponibilité et que vous *mettez à jour* votre cluster, aucune modification n’est apportée à votre cluster pour les zones de disponibilité. Toutefois, si vous omettez la propriété zones de disponibilité avec une syntaxe telle que `"availabilityZones": []`, le déploiement tente de désactiver des zones de disponibilité sur votre cluster AKS existant et **échoue**.
+Il n’est pas possible de mettre à jour les paramètres des zones de disponibilité sur un cluster existant. Le comportement diffère donc lors de la mise à jour d’un cluster AKS avec des modèles du Gestionnaire de ressource.  Si vous définissez explicitement une valeur null dans votre modèle pour les zones de disponibilité et que vous *mettez à jour* votre cluster, aucune modification n’est apportée à votre cluster pour les zones de disponibilité. Toutefois, si vous omettez la propriété zones de disponibilité avec une syntaxe telle que `"availabilityZones": []`, le déploiement tente de désactiver des zones de disponibilité sur votre cluster AKS existant et **échoue**.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Vue d’ensemble des zones de disponibilité pour les clusters AKS
 

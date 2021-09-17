@@ -8,14 +8,16 @@ ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 136207afef3fef9266fadcea1e67bb0aa6a38a32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6321058c863b6db190ec987887e61cf20ed8be50
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549751"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692682"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Prépayer les abonnements logiciels Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Quand vous prépayez votre utilisation de logiciels SUSE et RedHat dans Azure, vous pouvez faire des économies par rapport au paiement à l’utilisation. Les remises s’appliquent uniquement aux compteurs SUSE et RedHat et non à l’utilisation de machines virtuelles. Vous pouvez acheter des réservations de machines virtuelles séparément pour réaliser des économies supplémentaires.
 

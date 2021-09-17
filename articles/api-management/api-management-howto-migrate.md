@@ -1,50 +1,77 @@
 ---
-title: Migrer une instance Gestion des API Azure d'une région vers une autre
+title: Comment migrer une instance Gestion des API Azure d'une région vers une autre
 description: Apprenez à migrer une instance Gestion des API d'une région vers une autre.
 services: api-management
-documentationcenter: ''
 author: miaojiang
-manager: erikre
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/26/2019
+ms.topic: how-to
+ms.date: 08/20/2021
 ms.author: apimpm
-ms.openlocfilehash: 0eed2328aca78402c5f4691bb9b3d07d4f36472e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-moving-resources
+ms.openlocfilehash: 4958cc4684cc1ecc8ed43de987246c435b4982eb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86250224"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698605"
 ---
-# <a name="how-to-migrate-azure-api-management-across-regions"></a>Migrer une instance Gestion des API Azure d'une région vers une autre
-Pour migrer des instances Gestion des API d'une région Azure vers une autre, vous pouvez utiliser la fonctionnalité [de sauvegarde et de restauration](api-management-howto-disaster-recovery-backup-restore.md). Vous devez choisir le même niveau tarifaire Gestion des API dans les régions source et cible. 
+# <a name="how-to-move-azure-api-management-across-regions"></a>Comment migrer une instance Gestion des API Azure d'une région vers une autre
+
+Cet article explique comment déplacer une instance de Gestion Azure vers une autre région Azure. Vous aurez peut être à migrer votre instance vers une autre région pour de multiples raisons. Par exemple :
+
+* Localisez votre instance plus près de vos consommateurs d’API
+* Déployer les fonctionnalités disponibles uniquement dans des régions spécifiques
+* Respecter les exigences de gouvernance et de stratégie internes
+
+Pour migrer des instances de Gestion des API d'une région Azure vers une autre, vous pouvez utiliser les opérations [de sauvegarde et de restauration](api-management-howto-disaster-recovery-backup-restore.md) du service. Vous pouvez utiliser un autre nom d’instance de Gestion des API ou le nom existant. 
 
 > [!NOTE]
-> La sauvegarde et la restauration ne fonctionneront pas lors de la migration entre différents types de cloud. Pour cela, vous devez exporter la ressource [en tant que modèle](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates). Adaptez ensuite le modèle exporté à la région Azure cible et recréez la ressource. 
+> La Gestion des API prend également en charge le [déploiement multirégions](api-management-howto-deploy-multi-region.md), qui distribue un service de gestion des API Azure unique sur plusieurs régions Azure. Ce déploiement multirégions permet de réduire la latence de la requête telle qu’elle est perçue par les consommateurs distribués de l’API et améliore la disponibilité du service si une région est mise hors connexion.
 
-## <a name="option-1-use-a-different-api-management-instance-name"></a>Option 1 : Utiliser un nom d'instance Gestion des API différent
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-1. Dans la région cible, créez une nouvelle instance Gestion des API avec le même niveau tarifaire que l'instance source. La nouvelle instance doit porter un nom différent. 
-1. Sauvegardez l'instance Gestion des API existante sur un compte de stockage.
-1. Restaurez la sauvegarde créée à l'étape 2 sur la nouvelle instance Gestion des API créée dans la nouvelle région à l'étape 1.
+## <a name="considerations"></a>Considérations
+
+* Choisissez le même niveau tarifaire de Gestion des API dans les régions source et cible. 
+* La sauvegarde et la restauration ne fonctionneront pas lors de la migration entre différents types de cloud. Pour ce scénario, exportez la ressource [en tant que modèle](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates). Adaptez ensuite le modèle exporté à la région Azure cible et recréez la ressource. 
+
+## <a name="prerequisites"></a>Prérequis
+
+* Passez en revue les exigences et les limitations des opérations de [sauvegarde et de restauration](api-management-howto-disaster-recovery-backup-restore.md) de la Gestion des API. 
+* Consultez les [Éléments non sauvegardés](api-management-howto-disaster-recovery-backup-restore.md#what-is-not-backed-up). Enregistrez les paramètres et les données que vous devrez recréer manuellement après le déplacement de l’instance.
+* Créez un [compte de stockage](../storage/common/storage-account-create.md?tabs=azure-portal) situé dans la région source. Vous allez utiliser ce compte pour sauvegarder l’instance source. 
+
+## <a name="prepare-and-move"></a>Préparer et déplacer
+
+### <a name="option-1-use-a-different-api-management-instance-name"></a>Option 1 : Utiliser un nom d'instance Gestion des API différent
+
+1. Dans la région cible, créez une nouvelle instance Gestion des API avec le même niveau tarifaire que l'instance source. Utilisez un nom différent pour la nouvelle instance.
+1. [Sauvegardez](api-management-howto-disaster-recovery-backup-restore.md#-back-up-an-api-management-service) l'instance de Gestion des API existante sur le compte de stockage. 
+1. [Restaurez](api-management-howto-disaster-recovery-backup-restore.md#-restore-an-api-management-service) la sauvegarde de l’instance source vers la nouvelle instance de Gestion des API.
 1. Si vous disposez d'un domaine personnalisé pointant vers l'instance Gestion des API de la région source, mettez à jour l'enregistrement CNAME du domaine personnalisé pour qu'il pointe vers la nouvelle instance Gestion des API. 
 
+### <a name="option-2-use-the-same-api-management-instance-name"></a>Option n°2 : Utiliser le même nom d'instance Gestion des API
 
-## <a name="option-2-use-the-same-api-management-instance-name"></a>Option n°2 : Utiliser le même nom d'instance Gestion des API
+> [!WARNING]
+> Cette option supprime l’instance de Gestion des API d’origine et entraîne un temps d’arrêt pendant la migration. Vérifiez que vous disposez d’une sauvegarde valide avant de supprimer l’instance source.
 
-> [!NOTE]
-> Cette option entraînera un temps d'arrêt pendant la migration.
-
-1. Sauvegardez l'instance Gestion des API de la région source sur un compte de stockage.
-1. Supprimez l'instance Gestion des API de la région source. 
+1. [Sauvegardez](api-management-howto-disaster-recovery-backup-restore.md#-back-up-an-api-management-service) l'instance de Gestion des API existante sur le compte de stockage. 
+1. Supprimez l'instance de Gestion des API de la région source. 
 1. Créez une nouvelle instance Gestion des API dans la région cible en lui attribuant le même nom que celle de la région source.
-1. Restaurez la sauvegarde créée à l'étape 1 sur la nouvelle instance Gestion des API de la région cible.  
+1. [Restaurez](api-management-howto-disaster-recovery-backup-restore.md#-restore-an-api-management-service) la sauvegarde de l’instance source vers la nouvelle instance de Gestion des API dans la région cible.  
 
+## <a name="verify"></a>Vérifier
 
-## <a name="next-steps"></a><a name="next-steps"> </a>Étapes suivantes
+1. Assurez-vous que l’opération de restauration se termine correctement avant d’accéder à votre instance de Gestion des API dans la région cible.
+1. Configurez les paramètres qui ne sont pas déplacés automatiquement au cours de l’opération de restauration. Exemples : la configuration du réseau virtuel, les identités managées, le contenu du portail des développeurs et les certificats de l’autorité de certification personnalisée et du domaine personnalisé.
+1. Accédez à vos points de terminaison de Gestion des API dans la région cible. Par exemple, testez vos API ou accédez au portail des développeurs.
+
+## <a name="clean-up-source-resources"></a>Nettoyer les ressources sources
+
+Si vous avez déplacé l’instance Gestion des API à l’aide de l’Option 1, vous pouvez supprimer l’instance source après la restauration et la configuration réussies de l’instance cible.
+
+## <a name="next-steps"></a>Étapes suivantes
+
 * Pour plus d'informations sur la fonctionnalité de sauvegarde et de restauration, consultez [Implémenter la récupération d'urgence](api-management-howto-disaster-recovery-backup-restore.md).
-* Pour plus d'informations sur les ressources de migration Azure, consultez [Conseils sur la migration entre régions Azure](https://github.com/Azure/Azure-Migration-Guidance).
+* Pour plus d'informations sur la migration des ressources Azure, consultez les [instructions sur la migration entre régions Azure](https://github.com/Azure/Azure-Migration-Guidance).
 * [Optimiser et réduire les dépenses liées au cloud](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

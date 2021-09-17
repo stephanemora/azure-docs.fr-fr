@@ -3,18 +3,18 @@ title: Guide de démarrage rapide - Explorer les coûts Azure avec l’analyse d
 description: Ce guide de démarrage rapide vous aide à utiliser l’analyse du coût pour explorer et analyser les coûts Azure de votre organisation.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/10/2021
+ms.date: 07/28/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy21q2, devx-track-azurecli
-ms.openlocfilehash: 9769b6ecb04ca513c4b48ec3d0ca32bdd3c64b5f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: contperf-fy22q1
+ms.openlocfilehash: 2391fbdf586c652f7567b5c4b08757a68546314a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887106"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731974"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
@@ -151,64 +151,9 @@ Regardez la vidéo [Partager et enregistrer des vues dans Azure Cost Management]
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-Pour épingler l’analyse des coûts, sélectionnez l’icône d’épingle dans le coin supérieur droit ou juste après « <Subscription Name> | Analyse des coûts ». L’épinglage de l’analyse des coûts enregistre uniquement la vue du graphique ou du tableau principal. Partagez le tableau de bord pour permettre à d’autres utilisateurs d’accéder à la vignette. Notez que seule la configuration du tableau de bord est partagée et que les autres utilisateurs n’auront pas accès aux données sous-jacentes. Si bous n’avez pas accès aux coûts mais bien à un tableau de bord partagé, vous voyez s’afficher le message « Accès refusé ».
+Pour épingler l’analyse des coûts, sélectionnez l’icône d’épingle dans le coin supérieur droit ou juste après ***Nom d’abonnement** _ | _*Analyse des coûts**. L’épinglage de l’analyse des coûts enregistre uniquement la vue du graphique ou du tableau principal. Partagez le tableau de bord pour permettre à d’autres utilisateurs d’accéder à la vignette. Notez que seule la configuration du tableau de bord est partagée et que les autres utilisateurs n’auront pas accès aux données sous-jacentes. Si bous n’avez pas accès aux coûts mais bien à un tableau de bord partagé, vous voyez s’afficher le message « Accès refusé ».
 
 Pour partager un lien vers l’analyse des coûts, sélectionnez **Partager** en haut de la fenêtre. Une URL personnalisée s’affiche, qui permet d’ouvrir cette vue de l’étendue. Si vous n’avez pas accès aux coûts et obtenez cette URL, vous voyez s’afficher un message « accès refusé ».
-
-## <a name="download-usage-data"></a>Télécharger les données sur l’utilisation
-
-### <a name="portal"></a>[Portail](#tab/azure-portal)
-
-Il arrive que vous deviez télécharger les données pour les analyser de manière plus approfondie, pour les fusionner avec vos propres données ou pour les intégrer à vos propres systèmes. Cost Management offre quelques options. Pour commencer, si vous avez besoin d’une synthèse générale rapide, comme ce que vous obtenez dans l’analyse des coûts, créez la vue dont vous avez besoin. Ensuite, téléchargez-la en sélectionnant **Exporter**, puis **Télécharger les données au format CSV** ou **Télécharger les données vers Excel**. Le téléchargement vers Excel fournit du contexte supplémentaire sur la vue que vous avez utilisée pour générer le téléchargement, comme l’étendue, la configuration des requêtes, le total et la date de génération.
-
-Si vous avez besoin du jeu de données complet et non agrégé, téléchargez-le à partir du compte de facturation. Ensuite, dans la liste des services dans le volet de navigation gauche du portail, accédez à **Gestion des coûts + facturation**. Sélectionnez éventuellement votre compte de facturation. Accédez à **Utilisation + frais**, puis sélectionnez l’icône **Télécharger** pour une période de facturation.
-
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Commencez par préparer votre environnement pour Azure CLI :
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-Une fois connecté, utilisez la commande [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) pour interroger les informations sur l’utilisation du mois en cours pour votre abonnement :
-
-```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
-```
-
-Vous pouvez également affiner la requête à l’aide du paramètre **--dataset-filter** ou d’autres paramètres :
-
-```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
-   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
-```
-
-Le paramètre **--dataset-filter** prend une chaîne JSON ou `@json-file`.
-
-Vous avez également la possibilité d’utiliser les commandes [az costmanagement export](/cli/azure/costmanagement/export) pour exporter des données d’utilisation vers un compte Stockage Azure. Vous pouvez télécharger les données à partir de là.
-
-1. Créez un groupe de ressources ou utilisez un groupe existant. Exécutez la commande [az group create](/cli/azure/group#az_group_create) pour créer un groupe de ressources :
-
-   ```azurecli
-   az group create --name TreyNetwork --location "East US"
-   ```
-
-1. Créez un compte de stockage pour recevoir les exportations, ou utilisez un compte de stockage existant. Pour créer un compte, utilisez la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create) :
-
-   ```azurecli
-   az storage account create --resource-group TreyNetwork --name cmdemo
-   ```
-
-1. Exécutez la commande [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) pour créer l’exportation :
-
-   ```azurecli
-   az costmanagement export create --name DemoExport --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
-   --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
-   ```
-
----
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

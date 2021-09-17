@@ -5,32 +5,42 @@ description: Description des restrictions et limitations relatives au format des
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 06/23/2021
+ms.date: 08/06/2021
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: contperf-fy21q4-portal, aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: b9484973e724246db76ccc927437fccf2c4c7be1
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 96fe21b4f1df662e72ec88abc68d74db25257de1
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112966461"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662036"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitations et restrictions des URI de redirection (URL de réponse)
 
 Un URI de redirection, ou URL de réponse, correspond à l’emplacement vers lequel le serveur d’autorisation envoie l’utilisateur une fois l’application autorisée et un code d’autorisation ou un jeton d’accès attribué. Le serveur d’autorisation envoie le code ou le jeton à l’URI de redirection. Il est donc important que vous inscriviez l’emplacement qui convient dans le cadre du processus d’inscription de l’application.
 
- Les restrictions suivantes s’appliquent aux URI de redirection :
+Le modèle d’application Azure Active Directory (Azure AD) spécifie ces restrictions pour les URI de redirection :
 
-* L’URI de redirection doit commencer par le schéma `https`. Il existe des [exceptions pour les URI de redirection localhost](#localhost-exceptions).
+* Les URI de redirection doivent commencer par le schéma `https`. Il existe des [exceptions pour les URI de redirection localhost](#localhost-exceptions).
 
-* L’URI de redirection respecte la casse. Sa casse doit correspondre à celle du chemin d’URL de votre application en cours d’exécution. Par exemple, si votre application comprend `.../abc/response-oidc` dans son chemin d’accès, ne spécifiez pas `.../ABC/response-oidc` dans l’URI de redirection. Étant donné que le navigateur web considère que les chemins respectent la casse, les cookies associés à `.../abc/response-oidc` peuvent être exclus s’ils sont redirigés vers l’URL `.../ABC/response-oidc` qui ne correspond pas à la casse.
+* Les URI de redirection respectent la casse et doivent correspondre à la casse du chemin d’accès de l’URL de votre application en cours d’exécution. Par exemple, si votre application comprend `.../abc/response-oidc` dans son chemin d’accès, ne spécifiez pas `.../ABC/response-oidc` dans l’URI de redirection. Étant donné que le navigateur web considère que les chemins respectent la casse, les cookies associés à `.../abc/response-oidc` peuvent être exclus s’ils sont redirigés vers l’URL `.../ABC/response-oidc` qui ne correspond pas à la casse.
 
-* Un URI de redirection sans segment de chemin ajoute une barre oblique finale à l’URI dans la réponse. Par exemple, des URI comme https://contoso.com et http://localhost:7071 retourneront https://contoso.com/ et http://localhost:7071/ respectivement. Cela s’applique uniquement lorsque le mode de réponse est une requête ou un fragment.
+* Les URI de redirection *non* configurés avec un segment de chemin d’accès sont retournés avec une barre oblique finale (« `/` ») dans la réponse. Cela ne s’applique que lorsque le mode de réponse est `query` ou `fragment`.
 
-* Les URI de redirection contenant le segment de chemin n’ajoutent pas de barre oblique de fin. (Par ex. https://contoso.com/abc, https://contoso.com/abc/response-oidc sera utilisé comme tel quel dans la réponse)
+    Exemples :
+
+    * `https://contoso.com` est retourné comme `https://contoso.com/`
+    * `http://localhost:7071` est retourné comme `http://localhost:7071/`
+
+* Les URI de redirection qui contiennent un segment de chemin d’accès ne sont *pas* accompagnés d’une barre oblique finale dans la réponse.
+
+    Exemples :
+
+    * `https://contoso.com/abc` est retourné comme `https://contoso.com/abc`
+    * `https://contoso.com/abc/response-oidc` est retourné comme `https://contoso.com/abc/response-oidc`
 
 ## <a name="maximum-number-of-redirect-uris"></a>Nombre maximal d'URI de redirection
 
@@ -47,11 +57,20 @@ Vous pouvez utiliser un maximum de 256 caractères pour chaque URI de redirecti
 
 ## <a name="supported-schemes"></a>Schémas pris en charge
 
-Le modèle d’application Azure Active Directory (Azure AD) prend actuellement en charge les schémas HTTP et HTTPS pour les applications qui connectent des comptes professionnels ou scolaires dans tout locataire Azure AD de l’organisation. Ces types de comptes sont spécifiés par les valeurs `AzureADMyOrg` et `AzureADMultipleOrgs` dans le champ `signInAudience` du manifeste de l’application. Pour les applications qui connectent des comptes Microsoft personnels (MSA) *et* des comptes professionnels et scolaires (c’est-à-dire que `signInAudience` est défini sur `AzureADandPersonalMicrosoftAccount`), seul le schéma HTTPS est autorisé.
+**HTTPS** : le schéma HTTPS (`https://`) est pris en charge pour tous les URI de redirection basés sur HTTP.
 
-Pour ajouter des URI de redirection avec un schéma HTTP aux inscriptions d’applications qui se connectent à des comptes professionnels ou scolaires, utilisez l’éditeur de manifeste de l’application dans [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le portail Azure. Toutefois, bien qu’il soit possible de définir un URI de redirection basé sur HTTP à l’aide de l’éditeur de manifeste, nous recommandons *fortement* d’utiliser le schéma HTTPS pour vos URI de redirection.
+**HTTP** : le schéma HTTP (`http://`) est pris en charge *uniquement* pour les URI *localhost* et doit être utilisé uniquement pendant le développement et le test de l’application locale active.
 
-## <a name="localhost-exceptions"></a>Exceptions de Localhost
+| Exemple d’URI de redirection                    | Validité |
+|-----------------------------------------|----------|
+| `https://contoso.com`                   | Valide    |
+| `https://contoso.com/abc/response-oidc` | Valide    |
+| `https://localhost`                     | Valide    |
+| `http://contoso.com/abc/response-oidc`  | Non valide  |
+| `http://localhost`                      | Valide    |
+| `http://localhost/abc`                  | Valide    |
+
+### <a name="localhost-exceptions"></a>Exceptions de Localhost
 
 Selon le document [RFC 8252 : sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) et [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), les URI de redirection « loopback » ou « localhost » comportent deux aspects particuliers à prendre en considération :
 

@@ -10,14 +10,16 @@ ms.subservice: disks
 ms.date: 6/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 03cbe4eb56f3b3b99f87048b699f76b30b7937c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cf6fc21baae657b28b7d3edfb242ee1bcef407c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85373962"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690499"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Convertir un modèle de groupe identique pour utiliser modèle de jeu de mise à l’échelle de disque géré
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Les clients utilisant un modèle Resource Manager pour créer un jeu de mise à l’échelle sans utiliser de disque géré devront le modifier pour utiliser un disque géré. Cet article explique comment utiliser des disques managés en prenant l’exemple d’une demande de tirage (pull request) dans les [Modèles de démarrage rapide Microsoft Azure](https://github.com/Azure/azure-quickstart-templates), dépôt géré par la communauté contenant des exemples de modèles Resource Manager. La demande de tirage (pull request) complète se trouve ici : [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), et voici les parties pertinentes de la comparaison, ainsi que des explications :
 

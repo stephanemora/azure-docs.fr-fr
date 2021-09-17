@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 21f2aaeea730d183fa42cbde03769aeaf75297ab
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: e1c79ee87861124b669ad3cd8507085631a199a8
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356884"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825030"
 ---
 # <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Utiliser Azure CLI pour activer le chiffrement côté serveur à l'aide de clés gérées par le client pour les disques managés
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Le stockage sur disque Azure vous permet de gérer vos propres clés lors de l’utilisation du chiffrement côté serveur (SSE) pour les disques managés, si vous le souhaitez. Pour obtenir des informations conceptuelles sur SSE avec des clés gérées par le client, ainsi que d’autres types de chiffrement de disque managés, consultez la section [Customer-managed keys](../disk-encryption.md#customer-managed-keys) (Clés gérées par le client) de notre article sur le chiffrement de disque.
 
@@ -26,7 +28,7 @@ Pour le moment, les clés gérées par le client sont soumises aux restrictions 
     Pour contourner le problème, vous devez [copier toutes les données](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) sur un autre disque managé qui n’utilise pas de clés gérées par le client.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## <a name="set-up-your-azure-key-vault-and-diskencryptionset"></a>Configuration d’Azure Key Vault et de DiskEncryptionSet
+## <a name="set-up-your-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation"></a>Configurer votre coffre de clés Azure et éventuellement DiskEncryptionSet avec rotation automatique des clés
 
 Tout d’abord, vous devez configurer un Azure Key Vault et une ressource diskencryptionset.
 

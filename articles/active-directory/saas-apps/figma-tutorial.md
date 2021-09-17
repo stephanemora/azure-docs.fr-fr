@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 4dc5cf7b6a583f63e75c366c5fb2bc7857bd45dc
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ef637225d516ccaf2eaf06ace1803874299d3312
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111896051"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178491"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-figma"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Figma
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Figma prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* Figma prend en charge [l’attribution d’utilisateurs et la suppression des privilèges d’accès **automatisées** des utilisateurs](figma-provisioning-tutorial.md) (recommandé).
 * Figma prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
 ## <a name="add-figma-from-the-gallery"></a>Ajouter Figma depuis la galerie

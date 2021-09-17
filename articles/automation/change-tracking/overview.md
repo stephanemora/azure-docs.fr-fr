@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1ecf963f965fe215a510c7d24d2ecffc9027baf7
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: b2675f6633da27c12e067cf93463f6cba94b473c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608735"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769389"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -89,7 +89,7 @@ Vous pouvez activer Suivi des modifications et inventaire en procédant de l’u
 
 - À partir de votre [compte Automation](enable-from-automation-account.md) pour une ou plusieurs machines Azure et non-Azure.
 
-- Manuellement pour les machines non-Azure, notamment les machines ou les serveurs inscrits auprès de [serveurs activés par Azure Arc](../../azure-arc/servers/overview.md). Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Windows en connectant d’abord votre ordinateur à des [serveurs compatibles avec Azure Arc](../../azure-arc/servers/overview.md), puis en utilisant Azure Policy pour affecter la définition de stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc *Linux* ou *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Si vous envisagez de surveiller également les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+- Manuellement pour les machines non-Azure, notamment les machines ou les serveurs inscrits auprès de [serveurs activés par Azure Arc](../../azure-arc/servers/overview.md). Pour les machines hybrides, nous vous recommandons d’installer l’agent Log Analytics pour Windows en connectant d’abord votre ordinateur à des [serveurs compatibles avec Azure Arc](../../azure-arc/servers/overview.md), puis en utilisant Azure Policy pour affecter la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc *Linux* ou *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Si vous envisagez de surveiller également les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 - Pour une machine virtuelle Azure unique à partir de la [page Machine virtuelle](enable-from-vm.md) dans le Portail Azure. Ce scénario est disponible pour les machines virtuelles Linux et Windows.
 

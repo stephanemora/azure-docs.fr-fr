@@ -8,14 +8,16 @@ ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 9fc618480b4c00ab65f4300a66747acdc2a11f74
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 3417288a0ed765d1ff53c47282379ae6cbb85254
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359008"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694692"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utiliser le module Azure PowerShell pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
 
 Lorsque vous activez le chiffrement sur l'hôte, les données stockées sur l'hôte de machine virtuelle sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Pour obtenir des informations conceptuelles sur le chiffrement sur l'hôte ainsi que sur d'autres types de chiffrement de disques managés, consultez [Chiffrement sur l'hôte : chiffrement de bout en bout pour vos données de machine virtuelle](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 

@@ -9,14 +9,15 @@ ms.subservice: instance-protection
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurepowershell
-ms.openlocfilehash: 1b54a1be03aca62cacf6afe7361028a42ea7f84c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 60d7b1c2a869d22e3d8220e0f3537b2882ea0db4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673893"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690422"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Protection des instances pour les groupes de machines virtuelles identiques Azure
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les groupes de machines virtuelles identiques Azure offrent une meilleure élasticité en termes de charge de travail via la [mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md) pour vous permettre de configurer la mise à l'échelle de votre infrastructure. En outre, les groupes identiques vous permettent de gérer, configurer et mettre à jour un grand nombre de machines virtuelles de manière centralisée à l'aide de différents paramètres de [stratégie de mise à niveau](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model). Vous pouvez configurer une mise à jour sur le modèle de groupe identique, et la nouvelle configuration s'applique automatiquement à chaque instance de groupe identique si vous avez défini la stratégie de mise à niveau sur Automatique ou Continue.
 

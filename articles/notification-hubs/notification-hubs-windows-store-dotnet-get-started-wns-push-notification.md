@@ -11,16 +11,16 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: 'mvc, ms.custom: devx-track-csharp'
-ms.date: 12/05/2019
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 4f55b6eafe230f722979d535111ce45aa35981f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26463b85a52b05426fb0ec05c33bf44fc0fa7d90
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93125035"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772791"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications à des applications de plateforme Windows universelle avec Azure Notification Hubs
 
@@ -54,6 +54,9 @@ Procédez comme suit :
 Vous devez terminer ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications UWP.
 
 ## <a name="create-an-app-in-windows-store"></a>Créer une application dans Windows Store
+
+> [!NOTE]
+> Le Service de notifications Push Microsoft (MPNS, Microsoft Push Notification Service) est déconseillé et n’est plus pris en charge.
 
 Pour envoyer des notifications Push à des applications UWP, associez votre application au Windows Store. Ensuite, configurez votre Notification Hub pour l’intégrer à WNS.
 

@@ -1,141 +1,154 @@
 ---
-title: Comment créer des définitions de stratégie de configuration d’invité à partir de la stratégie de groupe de référence pour Windows
-description: Découvrez comment convertir la stratégie de groupe issue de la sécurité de référence du Windows Server 2019 en une définition de politique.
+title: Comment créer une stratégie de configuration invité à partir de la Stratégie de groupe
+description: Découvrez comment convertir une Stratégie de groupe en définition de stratégie
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: fa6012702bf00ee062b4d9d46f47bb673bb460ef
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 12bd1c905c254f16da170cde4a4426a2aa0cb263
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762998"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772293"
 ---
-# <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Comment créer des définitions de stratégie de configuration d’invité à partir de la stratégie de groupe de référence pour Windows
+# <a name="how-to-create-a-guest-configuration-policy-from-group-policy"></a>Comment créer une stratégie de configuration invité à partir de la Stratégie de groupe
 
-Avant de créer des définitions de stratégie personnalisées, il est judicieux de lire les informations conceptuelles de la section [Azure Policy Guest Configuration](../concepts/guest-configuration.md). Pour en savoir plus sur la création de politiques Guest Configuration personnalisées pour Linux, consultez la page [Créer des stratégies Guest Configuration pour Linux](./guest-configuration-create-linux.md). Pour en savoir plus sur la création de politiques Guest Configuration personnalisées pour Windows, consultez la page [Créer des stratégies Guest Configuration pour Windows](./guest-configuration-create.md).
-
-Lors de l’audit Windows, Guest Configuration utilise un module de ressources [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) pour créer le fichier de configuration. La configuration DSC définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration est **non conforme**, l’effet de stratégie *auditIfNotExists* est déclenché.
-L’[Azure Policy Guest Configuration](../concepts/guest-configuration.md) effectue uniquement un audit des paramètres à l’intérieur de la machine.
+Avant de commencer, il est recommandé de lire la page vue d’ensemble de la [configuration invité](../concepts/guest-configuration.md), ainsi que les informations relatives aux effets de la stratégie de configuration invité [Comment configurer les options de correction pour la configuration invité](../concepts/guest-configuration-policy-effects.md).
 
 > [!IMPORTANT]
-> L’extension Guest Configuration (Configuration d’invité) est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle sur tous les ordinateurs Windows, attribuez les définitions de stratégie suivantes :
-> - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> La Conversion de la Stratégie de groupe en configuration invité est **en version préliminaire**. Tous les types de paramètres de la Stratégie de groupe n’ont pas les ressources DSC correspondantes disponibles pour PowerShell 7.
 >
-> N’utilisez pas de secrets ni d’informations confidentielles dans les packages de contenu personnalisés.
+> Toutes les commandes de cette page doivent être exécutées dans **Windows PowerShell 5.1**.
+> Les fichiers MOF de sortie résultants doivent ensuite être empaquetés à l’aide du module `GuestConfiguration` dans PowerShell 7.1.3 ou version ultérieure.
+> 
+> Les définitions de la stratégie de configuration invité personnalisées utilisant **AuditIfNotExists** sont Généralement disponibles, mais les définitions utilisant **DeployIfNotExists** avec la configuration invité sont **en préversion**.
+> 
+> L’extension de la configuration invité est requise pour les machines virtuelles Azure. Pour déployer l’extension à l’échelle sur toutes les machines, attribuez l’initiative de stratégie suivante : `Deploy prerequisites to enable guest configuration policies on
+> virtual machines`
+>
+> N’utilisez pas de secrets ni d’informations confidentielles dans des packages de contenu personnalisés.
 
-La communauté DSC a publié le [module BaselineManagement](https://github.com/microsoft/BaselineManagement) pour convertir les modèles de stratégie de groupe exportés au format DSC. Avec la cmdlet GuestConfiguration, le module BaselineManagement crée un package Azure Policy Guest Configuration pour Windows à partir du contenu de la stratégie de groupe. Pour plus d’informations sur l’utilisation du module BaselineManagement, consultez l’article [Démarrage rapide : Convertir une stratégie de groupe en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
+La communauté open source a publié le module [BaselineManagement](https://github.com/microsoft/BaselineManagement) pour convertir les modèles de [Stratégie de groupe](/support/windows-server/group-policy/group-policy-overview) exportés au format DSC PowerShell . En même temps que le module `GuestConfiguration`, vous pouvez créer un package de configuration invité pour Windows à partir d’Objets exportés de la Stratégie de groupe. Le package de configuration invité peut ensuite être utilisé pour auditer ou configurer des serveurs à l’aide de la stratégie locale, même s’ils ne sont pas joints à un domaine.
 
-Dans ce guide, nous allons passer en revue le processus de création d’un package Azure Policy Guest Configuration à partir d’un objet de stratégie de groupe (GPO). Tandis que la procédure guidée décrit la conversion de la sécurité de référence Windows Server 2019, le même processus peut être appliqué à d’autres objets de stratégie de groupe.
+Dans ce guide, nous allons passer en revue le processus de création d’un package de configuration invité de la Stratégie Azure à partir d’un Objet de la Stratégie de groupe (GPO).
 
-## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Télécharger la sécurité de base Windows Server 2019 et installer les modules PowerShell associés
+## <a name="download-required-powershell-modules"></a>Télécharger les modules PowerShell requis
 
-Pour installer les modules **DSC**, **GuestConfiguration**, **BaselineManagement** et les modules Azure associés dans PowerShell :
+Pour installer tous les modules requis dans PowerShell :
 
-1. À partir d’une invite de commandes PowerShell, exécutez la commande suivante :
+```powershell
+Install-Module guestconfiguration
+Install-Module baselinemanagement
+```
 
-   ```azurepowershell-interactive
-   # Install the BaselineManagement module, Guest Configuration DSC resource module, and relevant Azure modules from PowerShell Gallery
-   Install-Module az.resources, az.policyinsights, az.storage, guestconfiguration, gpregistrypolicyparser, securitypolicydsc, auditpolicydsc, baselinemanagement -scope currentuser -Repository psgallery -AllowClobber
-   ```
+Pour sauvegarder des Objets de la Stratégie de groupe (GPO) à partir de l’environnement d’un Répertoire actif, vous avez besoin des commandes PowerShell disponibles dans la Boîte à outils d’administration du Serveur distant  (RSAT).
 
-1. Créez un répertoire dédié et téléchargez la sécurité de base de Windows Server 2019 à partir de la boîte à outils pour la conformité de la sécurité Windows.
+Pour activer la RSAT pour la Console de gestion de la Stratégie de groupe sur Windows 10 :
 
-   ```azurepowershell-interactive
-   # Download the 2019 Baseline files from https://docs.microsoft.com/windows/security/threat-protection/security-compliance-toolkit-10
-   New-Item -Path 'C:\git\policyfiles\downloads' -Type Directory
-   Invoke-WebRequest -Uri 'https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201909%20and%20Windows%20Server%20Version%201909%20Security%20Baseline.zip' -Out C:\git\policyfiles\downloads\Server2019Baseline.zip
-   ```
+```powerShell
+Add-WindowsCapability -Online -Name 'Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0'
+Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+```
 
-1. Débloquez et développez la référence Server 2019 téléchargée.
+## <a name="export-and-convert-group-policy-to-guest-configuration"></a>Exporter et convertir la Stratégie de groupe vers la configuration invité
 
-   ```azurepowershell-interactive
-   Unblock-File C:\git\policyfiles\downloads\Server2019Baseline.zip
-   Expand-Archive -Path C:\git\policyfiles\downloads\Server2019Baseline.zip -DestinationPath C:\git\policyfiles\downloads\
-   ```
+Il existe trois options pour exporter des fichiers de la Stratégie de groupe et les convertir en DSC afin de les utiliser dans la configuration invité.
 
-1. Vérifiez le contenu de la référence Server 2019 à l’aide de **MapGuidsToGpoNames.ps1**.
+- Exporter un Objet unique de la Stratégie de groupe
+- Exporter les Objets fusionnés de la Stratégie de groupe pour une unité d’organisation
+- Exporter les Objets fusionnés de la Stratégie de groupe à partir d’une machine
 
-   ```azurepowershell-interactive
-   # Show content details of downloaded GPOs
-   C:\git\policyfiles\downloads\Scripts\Tools\MapGuidsToGpoNames.ps1 -rootdir C:\git\policyfiles\downloads\GPOs\ -Verbose
-   ```
+### <a name="single-group-policy-object"></a>Objet unique de la Stratégie de groupe
 
-## <a name="convert-from-group-policy-to-azure-policy-guest-configuration"></a>Convertir le contenu de stratégie de groupe Windows en Azure Policy Guest Configuration
+Identifiez le GUID de l’Objet de la Stratégie de groupe à exporter à l’aide des commandes du module `Group Policy`. Dans un environnement de grande taille, envisagez de diriger la sortie vers `where-object` et de filtrer par nom.
 
-Ensuite, nous allons convertir la référence Server 2019 téléchargée en un package Guest Configuration à l’aide des modules Guest Configuration et Baseline Management.
+Exécutez ce qui suit dans un environnement **Windows PowerShell 5.1** sur une machine Windows attachée à un **domaine** :
 
-1. Convertissez le stratégie de groupe en Desired State Configuration à l’aide du module Baseline Management.
+```powershell
+# List all Group Policy Objects
+Get-GPO -all
+```
 
-   ```azurepowershell-interactive
-   ConvertFrom-GPO -Path 'C:\git\policyfiles\downloads\GPOs\{3657C7A2-3FF3-4C21-9439-8FDF549F1D68}\' -OutputPath 'C:\git\policyfiles\' -OutputConfigurationScript -Verbose
-   ```
+Sauvegardez la Stratégie de groupe dans des fichiers. La commande accepte également un paramètre « Name », mais l’utilisation du GUID de la stratégie est moins sujette aux erreurs.
 
-1. Renommez, reformatez et exécutez les scripts convertis avant de créer un package de contenu de stratégie.
+```powershell
+Backup-GPO -Guid 'f0cf623e-ae29-4768-9bb4-406cce1f3cff' -Path C:\gpobackup\
+```
 
-   ```azurepowershell-interactive
-   Rename-Item -Path C:\git\policyfiles\DSCFromGPO.ps1 -NewName C:\git\policyfiles\Server2019Baseline.ps1
-   (Get-Content -Path C:\git\policyfiles\Server2019Baseline.ps1).Replace('DSCFromGPO', 'Server2019Baseline') | Set-Content -Path C:\git\policyfiles\Server2019Baseline.ps1
-   (Get-Content -Path C:\git\policyfiles\Server2019Baseline.ps1).Replace('PSDesiredStateConfiguration', 'PSDscResources') | Set-Content -Path C:\git\policyfiles\Server2019Baseline.ps1
-   C:\git\policyfiles\Server2019Baseline.ps1
-   ```
+```
 
-1. Créez un package de contenu Azure Policy Guest Configuration.
+The output of the command returns the details of the files.
 
-   ```azurepowershell-interactive
-   New-GuestConfigurationPackage -Name Server2019Baseline -Configuration c:\git\policyfiles\localhost.mof -Verbose
-   ```
+ConfigurationScript                   Configuration                   Name
+-------------------                   -------------                   ----
+C:\convertfromgpo\myCustomPolicy1.ps1 C:\convertfromgpo\localhost.mof myCustomPolicy1
+```
 
-## <a name="create-azure-policy-guest-configuration"></a>Créez une Azure Policy Guest Configuration
+Examinez le script PowerShell exporté pour vérifier que tous les paramètres ont été remplis et qu’aucun message d’erreur n’a été écrit. Créez un nouveau package de configuration à l’aide du fichier MOF en suivant les instructions de la page [Comment créer des artefacts de package de configuration invité personnalisé](./guest-configuration-create.md).
+Les étapes de création et de test du package de configuration invité doivent être exécutées dans un environnement PowerShell 7.
 
-1. L’étape suivante consiste à publier le fichier dans Stockage Blob Azure. La commande `Publish-GuestConfigurationPackage` requiert le module `Az.Storage`.
+### <a name="merged-group-policy-objects-for-an-ou"></a>Exporter les Objets fusionnés de la Stratégie de groupe pour une unité d’organisation
 
-   ```azurepowershell-interactive
-   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
-   ```
+Exportez la combinaison fusionnée des Objets de la Stratégie de groupe (similaire à un jeu de stratégie résultant) à une Unité d’organisation spécifiée. L’opération de fusion prend en compte l’état du lien, la mise en œuvre et l’accès, mais pas les filtres WMI.
 
-1. Une fois qu’un package de stratégie personnalisée Guest Configuration a été créé et chargé, créez la définition de la stratégie Guest Configuration. Utilisez la cmdlet `New-GuestConfigurationPolicy` pour créer la Guest Configuration.
+```powershell
+Merge-GPOsFromOU -Path C:\mergedfromou\ -OUDistinguishedName 'OU=mySubOU,OU=myOU,DC=mydomain,DC=local' -OutputConfigurationScript
+```
 
-   ```azurepowershell-interactive
-   $NewGuestConfigurationPolicySplat = @{
-        ContentUri = $Uri
-        DisplayName = 'Server 2019 Configuration Baseline'
-        Description 'Validation of using a completely custom baseline configuration for Windows VMs'
-        Path = 'C:\git\policyfiles\policy'  
-        Platform = Windows
-   }
-   New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
-   ```
+La sortie de la commande retourne les informations des fichiers.
 
-1. Publiez les définitions de stratégie à l’aide de la cmdlet `Publish-GuestConfigurationPolicy`. La cmdlet ne dispose que du paramètre **Path** qui pointe vers l’emplacement des trois fichiers JSON créés par `New-GuestConfigurationPolicy`. Pour exécuter la commande Publish, vous devez avoir accès à la création de définitions de stratégies dans Azure. Les exigences spécifiques en matière d’autorisations sont documentées dans la page [vue d’ensemble d’Azure Policy](../overview.md#getting-started). Le meilleur rôle intégré est le rôle **Contributeur de la stratégie de ressource**.
+```powershell
+Configuration                                Name    ConfigurationScript
+-------------                                ----    -------------------
+C:\mergedfromou\mySubOU\output\localhost.mof mySubOU C:\mergedfromou\mySubOU\output\mySubOU.ps1
+```
 
-   ```azurepowershell-interactive
-   Publish-GuestConfigurationPolicy -Path C:\git\policyfiles\policy\ -Verbose
-   ```
+### <a name="merged-group-policy-objects-from-within-a-machine"></a>Exporter les Objets fusionnés de la Stratégie de groupe à partir d’une machine
 
-## <a name="assign-guest-configuration-policy-definition"></a>Assigner une définition à la stratégie Guest Configuration
+Vous pouvez également fusionner les stratégies appliquées à une machine spécifique, en exécutant la commande `Merge-GPOs` à partir de Windows PowerShell. Les filtres WMI sont évalués uniquement si vous effectuez une fusion à partir d’une machine.
 
-Avec la stratégie créée dans Azure, la dernière étape consiste à assigner l’initiative. Découvrez comment assigner l’initiative avec le [portail](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md) et [Azure PowerShell](../assign-policy-powershell.md).
+```powershell
+Merge-GPOs -OutputConfigurationScript -Path c:\mergedgpo
+```
 
-> [!IMPORTANT]
-> Les définitions de stratégies Guest Configuration doivent **toujours** être assignées via l’initiative qui combine les stratégies _AuditIfNotExists_ et _DeployIfNotExists_. Si seule la stratégie _AuditIfNotExists_ est assignée, les prérequis ne sont pas déployés et la stratégie montre toujours que « 0 » serveur est conforme.
+La sortie de la commande retournera les informations des fichiers.
 
-L’affectation d’une définition de stratégie avec l’effet _DeployIfNotExists_ requiert un niveau d’accès supplémentaire. Pour accorder le privilège le plus bas, vous pouvez créer une définition de rôle personnalisée qui étend le rôle **Contributeur de stratégie de ressource**. L’exemple suivant crée un rôle appelé **Contributeur de stratégie de ressource DINE** avec l’autorisation supplémentaire _Microsoft.Authorization/roleAssignments/write_.
+```powershell
+Configuration              Name                  ConfigurationScript                    PolicyDetails
+-------------              ----                  -------------------                    -------------
+C:\mergedgpo\localhost.mof MergedGroupPolicy_ws1 C:\mergedgpo\MergedGroupPolicy_ws1.ps1 {@{Name=myEnforcedPolicy; Ap...
+```
 
-   ```azurepowershell-interactive
-   $subscriptionid = '00000000-0000-0000-0000-000000000000'
-   $role = Get-AzRoleDefinition "Resource Policy Contributor"
-   $role.Id = $null
-   $role.Name = "Resource Policy Contributor DINE"
-   $role.Description = "Can assign Policies that require remediation."
-   $role.Actions.Clear()
-   $role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-   $role.AssignableScopes.Clear()
-   $role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-   New-AzRoleDefinition -Role $role
-   ```
+## <a name="optional-download-sample-group-policy-files-for-testing"></a>FACULTATIF : Téléchargez les fichiers d’exemples de la Stratégie de groupe à des fins de test
+
+Si vous n’êtes pas prêt à exporter les fichiers de la Stratégie de groupe à partir de l’environnement d’un Répertoire actif, vous pouvez télécharger la base de référence de sécurité du serveur Windows à partir de la Boîte à outils conforme et de sécurité Windows.
+
+Créez un répertoire dédié et téléchargez la sécurité de base de Windows Server 2019 à partir de la boîte à outils pour la conformité de la sécurité Windows.
+
+```azurepowershell-interactive
+# Download the 2019 Baseline files from https://docs.microsoft.com/windows/security/threat-protection/security-compliance-toolkit-10
+New-Item -Path 'C:\git\policyfiles\downloads' -Type Directory
+Invoke-WebRequest -Uri 'https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201909%20and%20Windows%20Server%20Version%201909%20Security%20Baseline.zip' -Out C:\git\policyfiles\downloads\Server2019Baseline.zip
+```
+
+Débloquez et développez la référence Server 2019 téléchargée.
+
+```azurepowershell-interactive
+Unblock-File C:\git\policyfiles\downloads\Server2019Baseline.zip
+Expand-Archive -Path C:\git\policyfiles\downloads\Server2019Baseline.zip -DestinationPath C:\git\policyfiles\downloads\
+```
+
+Vérifiez le contenu de la référence Server 2019 à l’aide de **MapGuidsToGpoNames.ps1**.
+
+```azurepowershell-interactive
+# Show content details of downloaded GPOs
+C:\git\policyfiles\downloads\Scripts\Tools\MapGuidsToGpoNames.ps1 -rootdir C:\git\policyfiles\downloads\GPOs\ -Verbose
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur l’audit des machines virtuelles avec [Guest Configuration](../concepts/guest-configuration.md).
-- Découvrez comment [créer des stratégies par programmation](./programmatically-create.md).
-- Découvrez comment [obtenir des données de conformité](./get-compliance-data.md).
+- [Créez un artefact de package](./guest-configuration-create.md) pour la configuration invité.
+- [Testez l’artefact de package](./guest-configuration-create-test.md) à partir de votre environnement de développement.
+- [Publiez l’artefact de package](./guest-configuration-create-publish.md) afin qu’il soit accessible à vos machines.
+- Utilisez le module `GuestConfiguration` afin de [créer une définition de la Stratégie Azure](./guest-configuration-create-definition.md) pour une gestion à l’échelle de votre environnement.
+- [Attribuez votre définition de stratégie personnalisée](../assign-policy-portal.md) à l’aide du portail Azure.
+- Découvrez comment visualiser les [informations relatives à la conformité pour les attributions de stratégie de configuration invité](./determine-non-compliance.md#compliance-details-for-guest-configuration).

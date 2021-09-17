@@ -9,14 +9,16 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 817c3e4a9e3c6226d25e28d1aad378813369d765
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b0c0ffdce85450900c0d4ca0da936b8675820f79
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077731"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690563"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Machines virtuelles Azure Spot et groupes de machines virtuelles identiques 
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 L’utilisation de machines virtuelles Azure Spot sur des groupes identiques vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure aura besoin de récupérer la capacité, l’infrastructure Azure supprimera les instances de machine virtuelle Azure Spot. Les instances de machine virtuelle Azure Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 

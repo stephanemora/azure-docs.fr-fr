@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 8d38e3f58de0fc4cc1e963c18b002dc1e16852ec
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1bec93d8001287c3ac57a5073b3f8b40a1a4f658
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556007"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689305"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Optimiser les performances sur les machines virtuelles Windows de la série Lsv2
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les machines virtuelles de la série Lsv2 prennent en charge diverses charges de travail qui nécessitant des E/S et des débits élevés au niveau du stockage local pour un large éventail d’applications et de secteurs d’activité.  La série Lsv2 est idéale pour le Big Data, SQL, les bases de données NoSQL, l’entreposage de données et les bases de données transactionnelles volumineuses, notamment Cassandra, MongoDB, Cloudera et Redis.
 

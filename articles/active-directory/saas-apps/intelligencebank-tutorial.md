@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2020
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 9887c435c2aa8dc7ba8cab9481cf30195c4b334e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11acc1805e163a4c1cb9f837f0320133042648b8
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92459932"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272278"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intelligencebank"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à IntelligenceBank
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer IntelligenceBank à Azure Ac
 * Contrôler dans Azure AD qui a accès à IntelligenceBank.
 * Permettre à vos utilisateurs de se connecter automatiquement à IntelligenceBank avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,25 +39,22 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * IntelligenceBank prend en charge l’authentification unique initiée par le **fournisseur de services**.
 
-* Après avoir configuré IntelligenceBank, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-## <a name="adding-intelligencebank-from-the-gallery"></a>Ajout d’IntelligenceBank à partir de la galerie
+## <a name="add-intelligencebank-from-the-gallery"></a>Ajouter IntelligenceBank à partir de la galerie
 
 Pour configurer l’intégration d’IntelligenceBank à Azure AD, vous devez ajouter IntelligenceBank à partir de la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **IntelligenceBank** dans la zone de recherche.
 1. Sélectionnez **IntelligenceBank** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-intelligencebank"></a>Configurer et tester l’authentification unique Azure AD pour IntelligenceBank
+## <a name="configure-and-test-azure-ad-sso-for-intelligencebank"></a>Configurer et tester l’authentification unique Azure AD pour IntelligenceBank
 
 Configurez et testez l’authentification unique Azure AD avec IntelligenceBank à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur IntelligenceBank associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec IntelligenceBank, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec IntelligenceBank, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -72,26 +67,28 @@ Pour configurer et tester l’authentification unique Azure AD avec Intelligence
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **IntelligenceBank**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **IntelligenceBank**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.intelligencebank.com`
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant un des modèles suivants :
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , utilisez l’un quelconque des éléments suivants :
+    | **Identificateur** |
+    |-----|
+    | `IB` |
+    | `IntelligenceBank` |
+    | `https://<SUBDOMAIN>.intelligencebank.com` |
 
-    - `IB`
-    - `IntelligenceBank`
-    - `https://<SUBDOMAIN>.intelligencebank.com`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.intelligencebank.com/auth`
 
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.intelligencebank.com/auth`
+    c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.intelligencebank.com`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support client IntelligenceBank](mailto:helpdesk@intelligencebank.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support client IntelligenceBank](mailto:helpdesk@intelligencebank.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -120,13 +117,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **IntelligenceBank**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
@@ -141,7 +132,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Procédez comme suit :
 
-    ![Capture d’écran montrant les champs dans lesquels vous entrez les informations à cette étape.](./media/intelligencebank-tutorial/urls.PNG)
+    ![Capture d’écran montrant les champs dans lesquels vous entrez les informations à cette étape.](./media/intelligencebank-tutorial/fields.PNG)
 
     a. Dans la zone de texte **Nom**, entrez le nom, par exemple `azureadsso`.
 
@@ -169,24 +160,18 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Remplissez les champs nécessaires conformément aux exigences de votre organisation, puis cliquez sur **Enregistrer**.
 
-    ![Capture d’écran montrant la page Add New User dans laquelle vous pouvez entrer des informations sur l’utilisateur.](./media/intelligencebank-tutorial/creating-user-1.PNG)
+    ![Capture d’écran montrant la page Add New User dans laquelle vous pouvez entrer des informations sur l’utilisateur.](./media/intelligencebank-tutorial/user.PNG)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette IntelligenceBank dans le volet d’accès, vous devez être connecté automatiquement à l’application IntelligenceBank pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion IntelligenceBank, à partir de laquelle vous pouvez lancer le processus de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion à IntelligenceBank et lancez le flux de connexion.
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette IntelligenceBank dans Mes applications vous redirige vers l’URL de connexion à IntelligenceBank. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer IntelligenceBank avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger IntelligenceBank avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré IntelligenceBank, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

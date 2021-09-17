@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Bien démarrer'
 description: Suivez ce guide de démarrage rapide pour vous familiariser avec le workflow de base du déploiement de Defender pour IoT.
 ms.topic: quickstart
 ms.date: 06/06/2021
-ms.openlocfilehash: c0d8406f842e182c6c129ba32f38dd11fdfbd46c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: cae5b1db400cebe341463dbc752fe5559b779380
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011206"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437658"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Démarrage rapide : Bien démarrer avec Defender pour IoT
 
@@ -32,21 +32,28 @@ Le tableau suivant décrit les autorisations d’accès utilisateur aux outils d
 | Autorisation | Lecteur de sécurité | Administrateur de sécurité | Collaborateur de l’abonnement | Propriétaire de l’abonnement |
 |--|--|--|--|--|
 | Afficher les détails et accéder aux logiciels, aux fichiers d’activation et aux packages Threat Intelligence  | ✓ | ✓ | ✓ | ✓ |
-| Intégrer un capteur  |  |  ✓ | ✓ | ✓ |
-| Mettre à jour le tarif  |  |  ✓ | ✓ | ✓ |
-| Récupérer le mot de passe  | ✓  |  ✓ | ✓ | ✓ |
+| Intégrer des capteurs  |  |  ✓ | ✓ | ✓ |
+| Intégrer des abonnements et mettre à jour des appareils validés  |  |  | ✓ | ✓ |
+| Récupérer les mots de passe  | ✓  |  ✓ | ✓ | ✓ |
 
 ## <a name="identify-the-solution-infrastructure"></a>Identification de l’infrastructure de la solution
 
 **Clarification des besoins de configuration réseau**
 
-Documentez votre architecture réseau, la bande passante analysée et d’autres informations sur le réseau. Pour plus d’informations, consultez [À propos de la configuration réseau d’Azure Defender pour IoT](how-to-set-up-your-network.md).
+Recherchez les éléments suivants :
+
+- Architecture réseau
+- Bande passante supervisée
+- Conditions requises pour la création de certificats
+- Autres informations sur le réseau
+
+Pour plus d’informations, consultez [À propos de la configuration réseau d’Azure Defender pour IoT](how-to-set-up-your-network.md).
 
 **Clarification des capteurs et des appliances de la console de gestion nécessaires pour gérer la charge réseau**
 
 Azure Defender pour IoT prend en charge les déploiements physiques et virtuels. Dans le cas des déploiements physiques, vous pouvez acheter plusieurs appliances certifiées. Pour plus d’informations, consultez [Identification des appliances requises](how-to-identify-required-appliances.md).
 
-Nous vous recommandons de calculer le nombre approximatif d’appareils qui seront analysés. Plus tard, lorsque vous enregistrerez votre abonnement Azure sur le portail, il vous sera demandé d’entrer ce nombre. Ils peuvent être ajoutés par intervalles de 1 000 secondes. Le nombre d’appareils analysés est appelé *appareils validés*.
+Nous vous recommandons de calculer le nombre approximatif d’appareils qui seront analysés. Plus tard, lorsque vous enregistrerez votre abonnement Azure sur le portail, il vous sera demandé d’entrer ce nombre. Les nombres peuvent être ajoutés par intervalles de 1 000, par exemple 1 000, 2 000, 3 000. Le nombre d’appareils analysés est appelé *appareils validés*.
 
 ## <a name="register-with-azure-defender-for-iot"></a>Inscription auprès d’Azure Defender pour IoT
 

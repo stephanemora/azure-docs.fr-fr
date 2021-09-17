@@ -7,14 +7,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: 5a62bae8881f20eb7778f179cbecce77f102f6e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0ab2da9f6e301f1a39ee1dde65e9e0cb6a5d05b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554630"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689834"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exécutant le système d’exploitation Linux uniquement lorsqu’une des [distributions approuvées](endorsed-distros.md) est utilisée. Pour ces distributions approuvées, des images Linux préconfigurées sont fournies dans la Place de marché Microsoft Azure.
 

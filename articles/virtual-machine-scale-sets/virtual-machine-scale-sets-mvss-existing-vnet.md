@@ -9,14 +9,16 @@ ms.subservice: networking
 ms.date: 03/30/2021
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: f15fddc54f4b7c5a03843da1bcc11d1991b70d02
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 13e8cf6b95394cd879c1e86e1e0b6dd7dfac7ccd
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076664"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692887"
 ---
 # <a name="reference-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Référencer un réseau virtuel existant dans un modèle de groupe identique Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Cet article explique comment modifier le [modèle de groupe identique de base ](virtual-machine-scale-sets-mvss-start.md) pour un déploiement dans un réseau virtuel existant au lieu d’en créer un.
 

@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: c251634710811820ba920b72c1759938758f5d2e
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 0db18bf162ee91ddccc070d7250a2ee35b05f5a9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802814"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689204"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Vue d’ensemble des machines virtuelles série HC
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 L’optimisation des performances des applications HPC sur les processeurs scalable Intel Xeon nécessite une approche bien pensée pour traiter le placement dans cette nouvelle architecture. Ici, nous en décrivons l’implémentation sur des machines virtuelles série HC Azure pour les applications HPC. Nous utiliserons le terme « pNUMA » pour faire référence à un domaine NUMA physique et « vNUMA » pour faire référence à un domaine NUMA virtualisé. De même, nous utiliserons le terme « pCore » pour faire référence à des cœurs de processeur physiques et « vCore » pour faire référence à des cœurs de processeur virtualisés.
 

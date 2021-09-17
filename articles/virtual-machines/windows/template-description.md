@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 167a92e9e9950245d58fd7497eb9df4c29f0fa7e
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 6a14d5a7ae7da5eff16ba57aa6bbf3459c2ad909
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112281626"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691684"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Machines virtuelles dans un modèle Azure Resource Manager
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
 
 Cet article décrit les aspects d’un modèle Azure Resource Manager qui s’appliquent à des machines virtuelles. Cet article ne décrit pas un modèle complet pour la création d’une machine virtuelle ; pour cela, vous avez besoin de définitions de ressource pour des comptes de stockage, d’interfaces réseau, d’adresses IP publiques et de réseaux virtuels. Pour plus d’informations sur la façon dont ces ressources peuvent être définies, consultez le [Guide de création d’un modèle Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 

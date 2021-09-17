@@ -3,14 +3,14 @@ title: Guide pratique pour créer des déploiements de mises à jour pour Azure 
 description: Cet article explique comment planifier des déploiements de mises à jour et vérifier leur état.
 services: automation
 ms.subservice: update-management
-ms.date: 04/19/2021
+ms.date: 06/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: c190af2532f28bd183a92b37b814210cb794501d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: de148858ba5c88e8dbbf2693dadc818b8c66e833
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748490"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768327"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Guide pratique pour déployer des mises à jour et voir les résultats
 
@@ -42,7 +42,7 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
 
    * une ou plusieurs machines, accédez à **Comptes Automation** et sélectionnez votre compte Automation avec Update Management activé dans la liste.
    * une machine virtuelle Azure, accédez à **Machines virtuelles** et sélectionnez votre machine virtuelle dans la liste.
-   * un serveur Arc, accédez à **Serveurs – Azure Arc** et sélectionnez votre serveur dans la liste.
+   * Pour un serveur Arc, accédez à **Serveurs – Azure Arc** et sélectionnez votre serveur dans la liste.
 
 2. En fonction de la ressource que vous avez sélectionnée, accédez à Update Management :
 
@@ -55,12 +55,12 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
 4. Sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
 
     > [!NOTE]
-    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Azure Arc. Le système d’exploitation est automatiquement identifié.
+    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Arc. Le système d’exploitation est automatiquement identifié.
 
 5. Dans la section **Groupes à mettre à jour**, définissez une requête qui combine un abonnement, des groupes de ressources, des emplacements et des balises pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour en savoir plus, consultez [Utiliser des groupes dynamiques avec Update Management](configure-groups.md).
 
     > [!NOTE]
-    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Azure Arc. La machine est automatiquement ciblée pour le déploiement planifié.
+    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Arc. La machine est automatiquement ciblée pour le déploiement planifié.
 
    > [!IMPORTANT]
    > Lors de la création d’un groupe dynamique de machines virtuelles Azure, Update Management prend en charge un maximum de 500 requêtes combinant des abonnements ou des groupes de ressources dans l’étendue du groupe.
@@ -68,7 +68,7 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
 6. Dans la section **Machines à mettre à jour**, sélectionnez une recherche enregistrée, un groupe importé, ou choisissez **Machines** dans la liste déroulante et sélectionnez des machines spécifiques. Avec cette option, vous pouvez voir la préparation de l’agent Log Analytics pour chaque machine. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../../azure-monitor/logs/computer-groups.md). Vous pouvez inclure jusqu’à 1000 machines dans un déploiement planifié de mises à jour.
 
     > [!NOTE]
-    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Azure Arc. La machine est automatiquement ciblée pour le déploiement planifié.
+    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Arc. La machine est automatiquement ciblée pour le déploiement planifié.
 
 7. Utilisez la section **Classifications des mises à jour** pour spécifier des [classifications des mises à jour](view-update-assessments.md#work-with-update-classifications) pour les produits. Pour chaque produit, désélectionnez toutes les classifications de mises à jour prises en charge, à l’exception de celles que vous souhaitez inclure dans votre déploiement de mises à jour.
 
@@ -78,6 +78,11 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
 
    >[!NOTE]
    > Le déploiement de mises à jour par classification ne fonctionne pas sur les versions RTM de CentOS. Pour déployer correctement les mises à jour pour CentOS, sélectionnez toutes les classifications pour garantir que les mises à jour sont appliquées. Il n’existe actuellement aucune méthode prise en charge permettant d’activer la disponibilité des données de classification natives sur CentOS. Pour plus d’informations sur les [classifications de mises à jour](overview.md#update-classifications), consultez les rubriques suivantes.
+
+   >[!NOTE]
+   > Le déploiement de mises à jour par classification des mises à jour peut ne pas fonctionner correctement pour les distributions Linux prises en charge par Update Management. Cela est dû à un problème identifié avec le schéma d’affectation de noms du fichier OVAL, qui empêche Update Management de faire correspondre correctement les classifications basées sur des règles de filtrage. En raison de la logique différente utilisée dans les évaluations des mises à jour de sécurité, les résultats peuvent différer des mises à jour de sécurité appliquées pendant le déploiement. Si vous avez défini la classification comme **Critique** et **Sécurité**, le déploiement de la mise à jour fonctionnera comme prévu. Seule la *classification des mises à jour* pendant une évaluation est affectée.
+   >
+   > Update Management pour les machines Windows Server n’est pas affecté. La classification des mises à jour et les déploiements sont inchangés.
 
 8. Utilisez la région **Inclure/exclure des mises à jour** pour ajouter ou exclure des mises à jour sélectionnées du déploiement. Dans la page **Inclure/Exclure**, vous entrez les numéros d’identification des articles de la base de connaissances à inclure ou à exclure pour les mises à jour Windows. Pour les distributions Linux prises en charge, spécifiez le nom du package.
 

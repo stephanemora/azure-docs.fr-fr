@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 62015554f7e8e17e1443cc85812b3f37ee64f0a4
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: f9cd8601ef3e59de3c11073d7ac73176367f4fc9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551701"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724265"
 ---
 # <a name="register-and-scan-sap-ecc-source"></a>Inscrire et analyser la source SAP ECC
 
@@ -55,7 +55,7 @@ La seule authentification prise en charge pour une source SAP ECC est l’**Aut
 Pour inscrire une nouvelle source SAP ECC dans votre catalogue de données, procédez comme suit :
 
 1.  Accédez à votre compte Purview.
-2.  Sélectionnez **Sources** dans la barre de navigation à gauche.
+2.  Sélectionnez **Data Map** dans le volet de navigation de gauche.
 3.  Sélectionnez **Inscrire**.
 4.  Dans Inscrire des sources, sélectionnez **SAP ECC**. Sélectionnez **Continuer.**
 

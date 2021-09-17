@@ -6,12 +6,12 @@ ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: 5c9396cdfe8296b4869f6713ff0022bc896dc733
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: faa08121bde07f82a24fad24ca49b2fe2d0ea618
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957229"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731450"
 ---
 # <a name="tutorial-how-to-access-sql-managed-instance-from-data-factory-managed-vnet-using-private-endpoint"></a>Tutoriel : Guide pratique pour accéder à une instance managée Microsoft Azure SQL à partir d’un VNET managé Data Factory en utilisant un point de terminaison privé
 
@@ -45,7 +45,7 @@ Utilisez le portail pour créer un équilibreur de charge interne standard.
 1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource > Mise en réseau > Équilibreur de charge**.
 2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     |:--- |:--- |
     |Abonnement|Sélectionnez votre abonnement.|
     |Resource group|Sélectionnez votre groupe de ressources.|
@@ -86,7 +86,7 @@ Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’i
 1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
 2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     |:--- |:--- |
     |Nom|Entrez **MyHealthProbe**.|
     |Protocol|Sélectionnez **TCP**.|
@@ -106,7 +106,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
 2. Sous **Paramètres**, sélectionnez **Règles d’équilibrage de charge**, puis **Ajouter**.
 3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
 
-    |Paramètre |Value |
+    |Paramètre |Valeur |
     |:--- |:--- |
     |Nom|Entrez **myRule**.|
     |Version de l’adresse IP|Sélectionnez **IPv4**.|
@@ -187,7 +187,7 @@ Dans cette section, vous allez créer un service Private Link derrière un équi
 3. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**.
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre |Value|
+    | Paramètre |Valeur|
     |---------|--------|
     |**Interface réseau**||
     |Réseau virtuel |Sélectionnez votre réseau virtuel.|
@@ -235,13 +235,12 @@ Dans cette section, vous allez créer un service Private Link derrière un équi
 4. Sélectionnez + **Nouveau** sous **Points de terminaison privés managés**.
 5. Sélectionnez la vignette **Service de liaison privée** dans la liste, puis **Continuer**.
 6. Entrez le nom du point de terminaison privé et sélectionnez **myPrivateLinkService** dans la liste des services de liaison privée.
-7. Ajoutez le nom de domaine complet de votre serveur instance managée SQL cible et les adresses IP NAT de votre service de liaison privée.
+7. Ajoutez le nom de domaine complet de votre instance cible SQL Managed Instance.
     
     :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Capture d’écran montrant l’hôte de l’instance managée SQL." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-nat-ip.png" alt-text="Capture d’écran montrant l’adresse IP NAT dans le service lié." lightbox="./media/tutorial-managed-virtual-network/link-service-nat-ip-expanded.png":::
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-2.png" alt-text="Capture d’écran montrant les paramètres du point de terminaison privé.":::
+    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-5.png" alt-text="Capture d’écran montrant les paramètres du point de terminaison privé.":::
 
 8. Créez le point de terminaison privé.
 

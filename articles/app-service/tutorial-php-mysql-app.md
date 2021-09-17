@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0810f023f4e2e192f2cb0d83f2a028cdded9e275
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 832f685bd53f19d4295863b922789b0c4ee85f62
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779444"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746857"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Tutoriel : Générer une application PHP et MySQL dans Azure App Service
 
@@ -71,17 +71,17 @@ Si la commande est exécutée correctement, votre serveur MySQL est en cours d�
 
 ### <a name="create-a-database-locally"></a>Créer une base de données locale
 
-À l’invite `mysql`, créez une base de données.
+1. À l’invite `mysql`, créez une base de données.
 
-```sql 
-CREATE DATABASE sampledb;
-```
+    ```sql 
+    CREATE DATABASE sampledb;
+    ```
 
-Quittez votre connexion au serveur en tapant `quit`.
+1. Quittez votre connexion au serveur en tapant `quit`.
 
-```sql
-quit
-```
+    ```sql
+    quit
+    ```
 
 <a name="step2"></a>
 
@@ -92,19 +92,27 @@ Dans cette étape, vous allez créer un exemple d’application Laravel, configu
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel :
+1. Clonez l’exemple de référentiel et passez à la racine du référentiel.
 
-```bash
-git clone https://github.com/Azure-Samples/laravel-tasks
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/laravel-tasks
+    cd laravel-tasks
+    ```
 
-`cd` vers votre répertoire cloné.
-Installez les packages requis.
+1. Assurez-vous que la branche par défaut est `main`.
 
-```bash
-cd laravel-tasks
-composer install
-```
+    ```bash
+    git branch -m main
+    ```
+    
+    > [!TIP]
+    > La modification du nom de la branche n’est pas requise par App Service. Toutefois, étant donné que de nombreux référentiels remplacent leur branche par défaut par `main`, ce tutoriel vous montre également comment déployer un référentiel à partir de `main`. Pour plus d’informations, consultez [Modifier la branche de déploiement](deploy-local-git.md#change-deployment-branch).
+
+1. Installez les packages requis.
+
+    ```bash
+    composer install
+    ```
 
 ### <a name="configure-mysql-connection"></a>Configuration de la connexion MySQL
 
@@ -126,29 +134,29 @@ Pour en savoir plus sur la manière dont Laravel utilise ce fichier _.env_, cons
 
 ### <a name="run-the-sample-locally"></a>Télécharger l’exemple localement
 
-Exécutez les [migrations de base de données Laravel](https://laravel.com/docs/5.4/migrations) pour créer les tables requises par l’application. Pour voir quelles tables sont créées dans les migrations, consultez le répertoire _database/migrations_ dans le référentiel Git.
+1. Exécutez les [migrations de base de données Laravel](https://laravel.com/docs/5.4/migrations) pour créer les tables requises par l’application. Pour voir quelles tables sont créées dans les migrations, consultez le répertoire _database/migrations_ dans le référentiel Git.
 
-```bash
-php artisan migrate
-```
+    ```bash
+    php artisan migrate
+    ```
 
-Générez une nouvelle clé d’application Laravel.
+1. Générez une nouvelle clé d’application Laravel.
 
-```bash
-php artisan key:generate
-```
+    ```bash
+    php artisan key:generate
+    ```
 
-Exécutez l'application.
+1. Exécutez l'application.
 
-```bash
-php artisan serve
-```
+    ```bash
+    php artisan serve
+    ```
 
-Dans un navigateur, accédez à `http://localhost:8000`. Ajoutez quelques tâches dans la page.
+1. Dans un navigateur, accédez à `http://localhost:8000`. Ajoutez quelques tâches dans la page.
 
-![PHP se connecte correctement à MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+    ![PHP se connecte correctement à MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
-Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
+1. Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
 
 ## <a name="create-mysql-in-azure"></a>Création de MySQL dans Azure
 
@@ -186,52 +194,48 @@ Lorsque le serveur MySQL est créé, l’interface Azure CLI affiche des inform
 
 ### <a name="configure-server-firewall"></a>Configuration d’un pare-feu de serveur
 
-Dans Cloud Shell, créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
+1. Dans Cloud Shell, créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
 
-```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
-```
+    ```azurecli-interactive
+    az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+    ```
 
-> [!TIP] 
-> Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](overview-inbound-outbound-ips.md#find-outbound-ips).
->
+    > [!TIP] 
+    > Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](overview-inbound-outbound-ips.md#find-outbound-ips).
+    >
 
-Dans Cloud Shell, réexécutez la commande pour autoriser l’accès à partir de votre ordinateur local en remplaçant *\<your-ip-address>* par [votre adresse IP IPv4 locale](https://www.whatsmyip.org/).
+1. Dans Cloud Shell, réexécutez la commande pour autoriser l’accès à partir de votre ordinateur local en remplaçant *\<your-ip-address>* par [votre adresse IP IPv4 locale](https://www.whatsmyip.org/).
 
-```azurecli-interactive
-az mysql server firewall-rule create --name AllowLocalClient --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
-```
-
-### <a name="connect-to-production-mysql-server-locally"></a>Se connecter au serveur de production MySQL localement
-
-Dans la fenêtre du terminal local, connectez-vous au serveur MySQL dans Azure. Utilisez la valeur spécifiée précédemment pour _&lt;admin-user>_ et _&lt;mysql-server-name>_ . Lorsqu’une invite de mot de passe apparaît, utilisez le mot de passe que vous avez spécifié lors de la création de la base de données dans Azure.
-
-```bash
-mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
-```
+    ```azurecli-interactive
+    az mysql server firewall-rule create --name AllowLocalClient --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
+    ```
 
 ### <a name="create-a-production-database"></a>Création d’une base de données de production
 
-À l’invite `mysql`, créez une base de données.
+1. Dans la fenêtre du terminal local, connectez-vous au serveur MySQL dans Azure. Utilisez la valeur spécifiée précédemment pour _&lt;admin-user>_ et _&lt;mysql-server-name>_ . Lorsqu’une invite de mot de passe apparaît, utilisez le mot de passe que vous avez spécifié lors de la création de la base de données dans Azure.
 
-```sql
-CREATE DATABASE sampledb;
-```
+    ```bash
+    mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
+    ```
 
-### <a name="create-a-user-with-permissions"></a>Création d’un utilisateur avec des autorisations
+1. À l’invite `mysql`, créez une base de données.
 
-Créez un utilisateur de base de données nommé _phpappuser_ et accordez-lui tous les privilèges dans la base de données `sampledb`. Par souci de simplicité, dans le cadre de ce tutoriel, utilisez _MySQLAzure2017_ comme mot de passe.
+    ```sql
+    CREATE DATABASE sampledb;
+    ```
 
-```sql
-CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
-GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
-```
+1. Créez un utilisateur de base de données nommé _phpappuser_ et accordez-lui tous les privilèges dans la base de données `sampledb`. Par souci de simplicité, dans le cadre de ce tutoriel, utilisez _MySQLAzure2017_ comme mot de passe.
 
-Quittez la connexion au serveur en tapant `quit`.
+    ```sql
+    CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
+    GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
+    ```
 
-```sql
-quit
-```
+1. Quittez la connexion au serveur en tapant `quit`.
+
+    ```sql
+    quit
+    ```
 
 ## <a name="connect-app-to-azure-mysql"></a>Connexion de l’application à Azure MySQL
 
@@ -300,31 +304,31 @@ Le certificat `BaltimoreCyberTrustRoot.crt.pem` est fourni dans le référentiel
 
 ### <a name="test-the-application-locally"></a>Tester localement l’application
 
-Exécutez les migrations de base de données Laravel avec _.env.production_ comme fichier d’environnement pour créer les tables dans votre base de données MySQL dans Azure Database pour MySQL. N’oubliez pas que _. env.production_ contient les informations de connexion à votre base de données MySQL dans Azure.
+1. Exécutez les migrations de base de données Laravel avec _.env.production_ comme fichier d’environnement pour créer les tables dans votre base de données MySQL dans Azure Database pour MySQL. N’oubliez pas que _. env.production_ contient les informations de connexion à votre base de données MySQL dans Azure.
 
-```bash
-php artisan migrate --env=production --force
-```
+    ```bash
+    php artisan migrate --env=production --force
+    ```
 
-_.env.production_ n’a pas encore de clé d’application valide. Générez-en une pour lui dans le terminal.
+1. _.env.production_ n’a pas encore de clé d’application valide. Générez-en une pour lui dans le terminal.
 
-```bash
-php artisan key:generate --env=production --force
-```
+    ```bash
+    php artisan key:generate --env=production --force
+    ```
 
-Exécutez l’exemple d’application avec _.env.production_ comme fichier d’environnement.
+1. Exécutez l’exemple d’application avec _.env.production_ comme fichier d’environnement.
 
-```bash
-php artisan serve --env=production
-```
+    ```bash
+    php artisan serve --env=production
+    ```
 
-Accédez à `http://localhost:8000`. Si la page se charge sans erreur, l’application PHP se connecte à la base de données MySQL dans Azure.
+1. Accédez à `http://localhost:8000`. Si la page se charge sans erreur, l’application PHP se connecte à la base de données MySQL dans Azure.
 
-Ajoutez quelques tâches dans la page.
+1. Ajoutez quelques tâches dans la page.
 
-![PHP se connecte correctement à Azure Database pour MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+    ![PHP se connecte correctement à Azure Database pour MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
-Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
+1. Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
 
 ### <a name="commit-your-changes"></a>Validation de vos modifications
 
@@ -401,19 +405,19 @@ Vous pouvez utiliser la méthode PHP [getenv](https://www.php.net/manual/en/func
 
 Laravel a besoin d’une clé d’application dans App Service. Vous pouvez la configurer avec les paramètres d’application.
 
-Dans la fenêtre de terminal local, utilisez `php artisan` pour générer une nouvelle clé d’application sans l’enregistrer dans _.env_.
+1. Dans la fenêtre de terminal local, utilisez `php artisan` pour générer une nouvelle clé d’application sans l’enregistrer dans _.env_.
 
-```bash
-php artisan key:generate --show
-```
+    ```bash
+    php artisan key:generate --show
+    ```
 
-Dans Cloud Shell, définissez la clé d’application dans l’application App Service en utilisant la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). Remplacez les espaces réservés _&lt;app-name>_ et _&lt;outputofphpartisankey:generate>_ .
+1. Dans Cloud Shell, définissez la clé d’application dans l’application App Service en utilisant la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). Remplacez les espaces réservés _&lt;app-name>_ et _&lt;outputofphpartisankey:generate>_ .
 
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
-```
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
+    ```
 
-`APP_DEBUG="true"` indique à Laravel de renvoyer les informations de débogage quand l’application déployée rencontre des erreurs. Lorsque vous exécutez une application de production, affectez-lui la valeur `false`, qui est plus sécurisée.
+    `APP_DEBUG="true"` indique à Laravel de renvoyer les informations de débogage quand l’application déployée rencontre des erreurs. Lorsque vous exécutez une application de production, affectez-lui la valeur `false`, qui est plus sécurisée.
 
 ### <a name="set-the-virtual-application-path"></a>Définition du chemin d’accès de l’application virtuelle
 
@@ -445,30 +449,30 @@ Pour plus d’informations, consultez [Modifier la racine du site](configure-lan
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-<pre>
-Counting objects: 3, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
-Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'main'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'a5e076db9c'.
-remote: Running custom deployment command...
-remote: Running deployment command...
-...
-&lt; Output has been truncated for readability &gt;
-</pre>
-
-> [!NOTE]
-> Vous remarquerez peut-être que le processus de déploiement installe les packages [Composer](https://getcomposer.org/) à la fin. App Service n’exécute pas ces automatisations pendant le déploiement par défaut. Cet exemple de référentiel possède donc trois fichiers supplémentaires dans son répertoire racine pour l’activer :
->
-> - `.deployment` : ce fichier indique à App Service d’exécuter `bash deploy.sh` en tant que script de déploiement personnalisé.
-> - `deploy.sh` : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `php composer.phar install` après `npm install`.
-> - `composer.phar` - Le Gestionnaire de package Composer.
->
-> Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git sur App Service. Pour plus d'informations, consultez le [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
->
+   <pre>
+   Counting objects: 3, done.
+   Delta compression using up to 8 threads.
+   Compressing objects: 100% (3/3), done.
+   Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
+   Total 3 (delta 2), reused 0 (delta 0)
+   remote: Updating branch 'main'.
+   remote: Updating submodules.
+   remote: Preparing deployment for commit id 'a5e076db9c'.
+   remote: Running custom deployment command...
+   remote: Running deployment command...
+   ...
+   &lt; Output has been truncated for readability &gt;
+   </pre>
+    
+   > [!NOTE]
+   > Vous remarquerez peut-être que le processus de déploiement installe les packages [Composer](https://getcomposer.org/) à la fin. App Service n’exécute pas ces automatisations pendant le déploiement par défaut. Cet exemple de référentiel possède donc trois fichiers supplémentaires dans son répertoire racine pour l’activer :
+   >
+   > - `.deployment` : ce fichier indique à App Service d’exécuter `bash deploy.sh` en tant que script de déploiement personnalisé.
+   > - `deploy.sh` : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `php composer.phar install` après `npm install`.
+   > - `composer.phar` - Le Gestionnaire de package Composer.
+   >
+   > Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git sur App Service. Pour plus d'informations, consultez le [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+   >
 
 ::: zone-end
 
@@ -476,21 +480,21 @@ remote: Running deployment command...
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-<pre>
-Counting objects: 3, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
-Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'main'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'a5e076db9c'.
-remote: Running custom deployment command...
-remote: Running deployment command...
-...
-&lt; Output has been truncated for readability &gt;
-</pre>
-
+   <pre>
+   Counting objects: 3, done.
+   Delta compression using up to 8 threads.
+   Compressing objects: 100% (3/3), done.
+   Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
+   Total 3 (delta 2), reused 0 (delta 0)
+   remote: Updating branch 'main'.
+   remote: Updating submodules.
+   remote: Preparing deployment for commit id 'a5e076db9c'.
+   remote: Running custom deployment command...
+   remote: Running deployment command...
+   ...
+   &lt; Output has been truncated for readability &gt;
+   </pre>
+    
 ::: zone-end
 
 ### <a name="browse-to-the-azure-app"></a>Accéder à l’application Azure
@@ -509,137 +513,137 @@ Pour le scénario des tâches, vous modifiez l’application afin de pouvoir mar
 
 ### <a name="add-a-column"></a>Ajout d’une colonne
 
-Dans la fenêtre de terminal local, accédez à la racine du référentiel Git.
+1. Dans la fenêtre de terminal local, accédez à la racine du référentiel Git.
 
-Générez une nouvelle migration de base de données pour la table `tasks` :
+1. Générez une nouvelle migration de base de données pour la table `tasks` :
 
-```bash
-php artisan make:migration add_complete_column --table=tasks
-```
+    ```bash
+    php artisan make:migration add_complete_column --table=tasks
+    ```
 
-Cette commande affiche le nom du fichier de migration qui est généré. Recherchez ce fichier dans _database/migrations_ et ouvrez-le.
+1. Cette commande affiche le nom du fichier de migration qui est généré. Recherchez ce fichier dans _database/migrations_ et ouvrez-le.
 
-Remplacez la méthode `up` par le code suivant :
+1. Remplacez la méthode `up` par le code suivant :
 
-```php
-public function up()
-{
-    Schema::table('tasks', function (Blueprint $table) {
-        $table->boolean('complete')->default(False);
-    });
-}
-```
+    ```php
+    public function up()
+    {
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->boolean('complete')->default(False);
+        });
+    }
+    ```
 
-Le code ci-dessus ajoute une colonne booléenne dans la table `tasks` nommée `complete`.
+    Le code ci-dessus ajoute une colonne booléenne dans la table `tasks` nommée `complete`.
 
-Remplacez la méthode `down` par le code suivant pour l’action de restauration :
+1. Remplacez la méthode `down` par le code suivant pour l’action de restauration :
 
-```php
-public function down()
-{
-    Schema::table('tasks', function (Blueprint $table) {
-        $table->dropColumn('complete');
-    });
-}
-```
+    ```php
+    public function down()
+    {
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropColumn('complete');
+        });
+    }
+    ```
 
-Dans la fenêtre de terminal local, exécutez les migrations de base de données Laravel pour apporter la modification dans la base de données locale.
+1. Dans la fenêtre de terminal local, exécutez les migrations de base de données Laravel pour apporter la modification dans la base de données locale.
 
-```bash
-php artisan migrate
-```
+    ```bash
+    php artisan migrate
+    ```
 
-Selon la [convention d’affectation de noms Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), le modèle `Task` (voir _app/Task.php_) est mappé à la table `tasks` par défaut.
+    Selon la [convention d’affectation de noms Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), le modèle `Task` (voir _app/Task.php_) est mappé à la table `tasks` par défaut.
 
 ### <a name="update-application-logic"></a>Mise à jour de la logique d’application
 
-Ouvrez le fichier *routes/web.php*. L’application définit ici ses itinéraires et sa logique métier.
+1. Ouvrez le fichier *routes/web.php*. L’application définit ici ses itinéraires et sa logique métier.
 
-À la fin du fichier, ajoutez un itinéraire avec le code suivant :
+1. À la fin du fichier, ajoutez un itinéraire avec le code suivant :
 
-```php
-/**
- * Toggle Task completeness
- */
-Route::post('/task/{id}', function ($id) {
-    error_log('INFO: post /task/'.$id);
-    $task = Task::findOrFail($id);
+    ```php
+    /**
+     * Toggle Task completeness
+     */
+    Route::post('/task/{id}', function ($id) {
+        error_log('INFO: post /task/'.$id);
+        $task = Task::findOrFail($id);
+    
+        $task->complete = !$task->complete;
+        $task->save();
+    
+        return redirect('/');
+    });
+    ```
 
-    $task->complete = !$task->complete;
-    $task->save();
-
-    return redirect('/');
-});
-```
-
-Le code ci-dessus effectue une simple mise à jour du modèle de données en basculant la valeur de `complete`.
+    Le code ci-dessus effectue une simple mise à jour du modèle de données en basculant la valeur de `complete`.
 
 ### <a name="update-the-view"></a>Mise à jour de la vue
 
-Ouvrez le fichier *resources/views/tasks.blade.php*. Recherchez la balise d’ouverture `<tr>` et remplacez-la par :
+1. Ouvrez le fichier *resources/views/tasks.blade.php*. Recherchez la balise d’ouverture `<tr>` et remplacez-la par :
 
-```html
-<tr class="{{ $task->complete ? 'success' : 'active' }}" >
-```
+    ```html
+    <tr class="{{ $task->complete ? 'success' : 'active' }}" >
+    ```
 
-Le code ci-dessus modifie la couleur de la ligne selon que la tâche est terminée ou non.
+    Le code ci-dessus modifie la couleur de la ligne selon que la tâche est terminée ou non.
 
-La ligne suivante contient le code suivant :
+1. La ligne suivante contient le code suivant :
 
-```html
-<td class="table-text"><div>{{ $task->name }}</div></td>
-```
+    ```html
+    <td class="table-text"><div>{{ $task->name }}</div></td>
+    ```
 
-Remplacez la ligne entière par le code suivant :
+    Remplacez la ligne entière par le code suivant :
 
-```html
-<td>
-    <form action="{{ url('task/'.$task->id) }}" method="POST">
-        {{ csrf_field() }}
+    ```html
+    <td>
+        <form action="{{ url('task/'.$task->id) }}" method="POST">
+            {{ csrf_field() }}
+    
+            <button type="submit" class="btn btn-xs">
+                <i class="fa {{$task->complete ? 'fa-check-square-o' : 'fa-square-o'}}"></i>
+            </button>
+            {{ $task->name }}
+        </form>
+    </td>
+    ```
 
-        <button type="submit" class="btn btn-xs">
-            <i class="fa {{$task->complete ? 'fa-check-square-o' : 'fa-square-o'}}"></i>
-        </button>
-        {{ $task->name }}
-    </form>
-</td>
-```
-
-Le code ci-dessus ajoute le bouton Envoyer qui fait référence à l’itinéraire défini précédemment.
+    Le code ci-dessus ajoute le bouton Envoyer qui fait référence à l’itinéraire défini précédemment.
 
 ### <a name="test-the-changes-locally"></a>Test des modifications en local
 
-Dans la fenêtre de terminal local, exécutez le serveur de développement à partir du répertoire racine du référentiel Git.
+1. Dans la fenêtre de terminal local, exécutez le serveur de développement à partir du répertoire racine du référentiel Git.
 
-```bash
-php artisan serve
-```
+    ```bash
+    php artisan serve
+    ```
 
-Pour voir l’évolution de l’état de la tâche, accédez à `http://localhost:8000` et activez la case à cocher.
+1. Pour voir l’évolution de l’état de la tâche, accédez à `http://localhost:8000` et activez la case à cocher.
 
-![Case à cocher ajoutée à la tâche](./media/tutorial-php-mysql-app/complete-checkbox.png)
+    ![Case à cocher ajoutée à la tâche](./media/tutorial-php-mysql-app/complete-checkbox.png)
 
-Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
+1. Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
 
 ### <a name="publish-changes-to-azure"></a>Publier les modifications dans Azure
 
-Dans la fenêtre de terminal local, exécutez les migrations de base de données Laravel avec la chaîne de connexion de production pour apporter la modification dans la base de données Azure.
+1. Dans la fenêtre de terminal local, exécutez les migrations de base de données Laravel avec la chaîne de connexion de production pour apporter la modification dans la base de données Azure.
 
-```bash
-php artisan migrate --env=production --force
-```
+    ```bash
+    php artisan migrate --env=production --force
+    ```
 
-Validez toutes les modifications dans Git, puis envoyez les modifications de code à Azure.
+1. Validez toutes les modifications dans Git, puis envoyez les modifications de code à Azure.
 
-```bash
-git add .
-git commit -m "added complete checkbox"
-git push azure main
-```
+    ```bash
+    git add .
+    git commit -m "added complete checkbox"
+    git push azure main
+    ```
 
-Une fois le `git push` terminé, accédez à l’application Azure et testez la nouvelle fonctionnalité.
+1. Une fois le `git push` terminé, accédez à l’application Azure et testez la nouvelle fonctionnalité.
 
-![Modifications du modèle et de la base de données publiées dans Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
+    ![Modifications du modèle et de la base de données publiées dans Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 Si vous avez ajouté des tâches, celles-ci sont conservées dans la base de données. Les mises à jour appliquées au schéma de données n’affectent pas les données existantes.
 
@@ -676,17 +680,17 @@ Pour arrêter le streaming des journaux à tout moment, appuyez sur `Ctrl`+`C`.
 
 ## <a name="manage-the-azure-app"></a>Gérer l’application Azure
 
-Accédez au [portail Azure](https://portal.azure.com) pour gérer l’application que vous avez créée.
+1. Accédez au [portail Azure](https://portal.azure.com) pour gérer l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
+1. Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
-![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-php-mysql-app/access-portal.png)
+    ![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-php-mysql-app/access-portal.png)
 
-La page Vue d’ensemble de votre application s’affiche. Ici, vous pouvez effectuer des tâches de gestion de base (arrêter, démarrer, redémarrer, parcourir et supprimer).
+    La page Vue d’ensemble de votre application s’affiche. Ici, vous pouvez effectuer des tâches de gestion de base (arrêter, démarrer, redémarrer, parcourir et supprimer).
 
-Le menu de gauche fournit des pages vous permettant de configurer votre application.
+    Le menu de gauche fournit des pages vous permettant de configurer votre application.
 
-![Page App Service du Portail Azure](./media/tutorial-php-mysql-app/web-app-blade.png)
+    ![Page App Service du Portail Azure](./media/tutorial-php-mysql-app/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

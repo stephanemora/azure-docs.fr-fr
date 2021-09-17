@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: b3ba1aefb02e8cfb139b1afc07e2c57e1d80fe94
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: cb80d5e6bc6d12dfe51420b25560f83376125a13
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080270"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693835"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle Windows à l’aide d’un modèle ARM
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows 
 
 Ce guide de démarrage rapide montre comment utiliser un modèle Azure Resource Manager (modèle ARM) pour déployer une machine virtuelle Windows dans Azure.
 

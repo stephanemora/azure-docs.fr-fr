@@ -8,13 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Cet article offre une vue d’ensemble de Kubernetes avec Azure Arc.
 keywords: Kubernetes, Arc, Azure, conteneurs
-ms.custom: references_regions
-ms.openlocfilehash: d2e71b61210baf93950cb9e8fb2270320f882404
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 80d1b741c4a3a1d60cc44e3afdeac22a61a7db4b
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967153"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768285"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>Qu’est-ce que Kubernetes avec Azure Arc ?
 
@@ -47,26 +46,11 @@ Kubernetes avec Azure Arc prend en charge les scénarios suivants :
 
 * Appliquer une protection contre les menaces à l'aide d'Azure Defender pour Kubernetes.
 
-* Appliquer des stratégies à l’aide d’Azure Policy pour Kubernetes.
+* Appliquer des définitions de stratégie à l’aide d’Azure Policy pour Kubernetes.
 
 * Créer des [emplacements personnalisés](./custom-locations.md) comme emplacements cibles où déployer Data Services avec Azure Arc, [App Services sur Azure Arc](../../app-service/overview-arc-integration.md) (y compris les applications web, de fonction et logiques) et [Event Grid sur Kubernetes](../../event-grid/kubernetes/overview.md).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
-
-## <a name="supported-regions"></a>Régions prises en charge 
-
-Kubernetes avec Azure Arc est actuellement pris en charge dans ces régions : 
-
-* USA Est
-* Europe Ouest
-* Centre-USA Ouest
-* États-Unis - partie centrale méridionale
-* Asie Sud-Est
-* Sud du Royaume-Uni
-* USA Ouest 2
-* Australie Est
-* USA Est 2
-* Europe Nord
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: thwimmer
-ms.openlocfilehash: c48f5bace8c19d2bbf64668eedf60ae811e5398d
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e3ff62f4099e4098c2ca695d0e7c07bbc5c08b0a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113726929"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746095"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutoriel : Configurer iProva pour l’approvisionnement automatique d’utilisateurs
 
-L’objectif de ce tutoriel est de présenter les étapes à effectuer dans iProva et Azure Active Directory (Azure AD) pour configurer Azure AD pour l’approvisionnement et l’annulation de l’approvisionnement automatiques d’utilisateurs et/ou de groupes sur [iProva](https://www.iProva.com/). Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
+L’objectif de ce tutoriel est de présenter les étapes à effectuer dans iProva et Azure Active Directory (Azure AD) pour configurer Azure AD pour l’approvisionnement et l’annulation de l’approvisionnement automatiques d’utilisateurs et/ou de groupes sur [iProva](https://www.iProva.com/). Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). Avant de tenter d’utiliser ce tutoriel, assurez-vous que vous connaissez et répondez à toutes les conditions requises. En cas de questions, veuillez contacter Infoland.
 
 > [!NOTE]
 > Ce connecteur est actuellement en préversion publique. Pour plus d’informations sur les conditions d’utilisation Microsoft Azure générales relatives aux fonctionnalités d’évaluation, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -29,7 +29,7 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer dans iPro
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
 > [!div class="checklist"]
 > * Créer des utilisateurs dans iProva
-> * Supprimer des utilisateurs dans iProva quand ils ne nécessitent plus d’accès
+> * Supprimer/désactiver des utilisateurs dans iProva quand ils ne nécessitent plus d’accès
 > * Conserver les attributs utilisateur synchronisés entre Azure AD et iProva
 > * Approvisionner des groupes et des appartenances aux groupes dans iProva
 > * [Authentification unique](./iprova-tutorial.md) auprès d’iProva (recommandé)
@@ -102,7 +102,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs d’**URL de base SCIM 2.0 et de Jeton permanent** récupérées précédemment respectivement dans les champs **URL de locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à iProva. Si la connexion échoue, vérifiez que votre compte iProva dispose des autorisations d’administrateur et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs d’**URL de base SCIM 2.0 et de Jeton permanent** récupérées précédemment respectivement dans les champs **URL de l’abonné** et ajouter lui /scim/. Ajoutez également le **Jeton secret**. Vous pouvez générer un jeton secret dans iProva à l’aide du bouton **jeton permanent**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à iProva. Si la connexion échoue, vérifiez que votre compte iProva dispose des autorisations d’administrateur et réessayez. 
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -120,32 +120,12 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |---|---|
    |active|Boolean|
    |displayName|String|
-   |title|String|
    |emails[type eq "work"].value|String|
    |preferredLanguage|String|
    |userName|String|
-   |addresses[type eq "work"].country|String|
-   |addresses[type eq "work"].locality|String|
-   |addresses[type eq "work"].postalCode|String|
-   |addresses[type eq "work"].formatted|String|
-   |addresses[type eq "work"].region|String|
-   |addresses[type eq "work"].streetAddress|String|
-   |addresses[type eq "other"].formatted|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |name.formatted|String|
-   |phoneNumbers[type eq "fax"].value|String|
-   |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "work"].value|String|
    |externalId|String|
-   |roles[primary eq "True"].display|String|
-   |roles[primary eq "True"].type|String|
-   |roles[primary eq "True"].value|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+
 
 
 10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory sur iProva**.
@@ -156,6 +136,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
       |---|---|
       |displayName|String|
       |membres|Informations de référence|
+      |externalID|String|
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

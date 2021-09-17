@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 7dae716944426ce21cb81bdbb36992238e4bb227
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3d6f30e3d50fa79ac394460f9b13e1127cf16168
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112298436"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740267"
 ---
 # <a name="register-and-scan-teradata-source"></a>Inscrire et analyser une source Teradata
 
@@ -48,7 +48,7 @@ La seule authentification prise en charge pour une source Teradata est l’**Aut
 Pour inscrire une nouvelle source Teradata dans votre catalogue de données, effectuez les actions suivantes :
 
 1.  Accédez à votre compte Purview.
-2.  Sélectionnez **Sources** dans la barre de navigation à gauche.
+2.  Sélectionnez **Data Map** dans le volet de navigation de gauche.
 3.  Sélectionnez **Inscrire**.
 4.  Dans Inscrire des sources, sélectionnez **Teradata**. Sélectionnez **Continue** (Continuer)
 

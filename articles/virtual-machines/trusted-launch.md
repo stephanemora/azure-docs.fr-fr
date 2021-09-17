@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 0bdc063c5820ed9ab52cf9962638cbcb56146c0d
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: 0e86c503fb016f79097d9ddde1d30f4314942870
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113508290"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695288"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Lancement fiable pour les machines virtuelles Azure (préversion)
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles
 
 Azure propose le lancement fiable pour améliorer de manière fluide la sécurité des machines virtuelles de [2e génération](generation-2.md). Le lancement fiable protège contre les techniques d’attaque avancées et persistantes. Le lancement fiable se compose de plusieurs technologies d’infrastructure coordonnées qui peuvent être activées indépendamment. Chaque technologie offre une couche de défense supplémentaire contre les menaces sophistiquées.
 

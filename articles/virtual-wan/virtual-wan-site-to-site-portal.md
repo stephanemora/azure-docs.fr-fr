@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: dbc48719f2897c22717319e1e07b5b3b3146fe84
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 544275ce4c9ab31fa65fe17351eed495895569e2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122638229"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432159"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
 
@@ -22,8 +22,8 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un WAN virtuel
-> * Créer un hub
-> * Créer une passerelle VPN de site à site
+> * Configurer les paramètres de base d’un hub
+> * Configurer les paramètres d’une passerelle VPN site à site
 > * Créer un site
 > * Connecter un site à un hub
 > * Connecter un site VPN à un hub
@@ -47,7 +47,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-## <a name="create-hub"></a><a name="hub"></a>Créer un hub
+## <a name="configure-hub-settings"></a><a name="hub"></a>Configurer les paramètres d’un hub
 
 Un hub est un réseau virtuel qui peut contenir des passerelles pour offrir des fonctionnalités de site à site, ExpressRoute ou de point à site. Pour ce didacticiel, vous commencez par remplir l’onglet **Général** pour le hub virtuel, puis continuez à remplir l’onglet de site à site dans la section suivante. Notez qu’il est possible de créer un hub vide (un hub qui ne contient pas de passerelle), puis d’ajouter des passerelles (S2S, P2S, ExpressRoute, etc.) ultérieurement. Une fois le hub créé, vous serez facturé, même si vous n’y joignez aucun site et ne créez aucune passerelle dans le hub.
 

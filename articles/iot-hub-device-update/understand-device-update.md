@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 69bc44fcffd760b0c98264c43c02f8dfffd8b853
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 3a7ed9fbb30ab770cd7069ebbd97faa41b12cd34
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448457"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606835"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Présentation de Device Update pour IoT Hub (préversion)
 
@@ -24,12 +24,12 @@ Pour tirer pleinement parti de la transformation numérique IoT, les clients ont
 ## <a name="support-for-a-wide-range-of-iot-devices"></a>Prise en charge d’un large choix d’appareils IoT
 
 
-Device Update pour IoT Hub est conçu pour offrir un déploiement de mises à jour optimisé et des opérations rationalisées grâce à son intégration avec [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). Cette intégration facilite l’adoption de Device Update sur une solution existante. Elle fournit une solution hébergée dans le cloud pour se connecter à pratiquement tout appareil. Device Update prend en charge une large gamme de systèmes d’exploitation IoT, notamment Linux et [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (système d’exploitation en temps réel). Celle-ci peut s’étendre par le biais de l’open source. Nous développons une mise à jour des appareils pour les offres IoT Hub avec nos partenaires de semi-conducteurs, dont STMicroelectronics, NXP, Renesas et Microchip. Consultez les [exemples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) de panneaux d’évaluation des semiconducteurs clés qui incluent des guides de prise en main pour apprendre à configurer, générer et déployer des mises à jour OTA sur les appareils de classe MCU. 
+Device Update pour IoT Hub est conçu pour offrir un déploiement de mises à jour optimisé et des opérations rationalisées grâce à son intégration avec [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Cette intégration facilite l’adoption de Device Update sur une solution existante. Elle fournit une solution hébergée dans le cloud pour se connecter à pratiquement tout appareil. Device Update prend en charge une large gamme de systèmes d’exploitation IoT, notamment Linux et [Azure RTOS](https://azure.microsoft.com/services/rtos/) (système d’exploitation en temps réel). Celle-ci peut s’étendre par le biais de l’open source. Nous développons une mise à jour des appareils pour les offres IoT Hub avec nos partenaires de semi-conducteurs, dont STMicroelectronics, NXP, Renesas et Microchip. Consultez les [exemples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) de panneaux d’évaluation des semiconducteurs clés qui incluent des guides de prise en main pour apprendre à configurer, générer et déployer des mises à jour OTA sur les appareils de classe MCU. 
 
 Un fichier binaire de simulateur d’agent Device Update et des images Yocto de référence Raspberry Pi sont fournis.
 Device Update pour IoT Hub prend également en charge la mise à jour des appareils Azure IoT Edge. Un agent Device Update est fourni pour la plateforme Ubuntu Server 18.04 amd64. Device Update pour IoT Hub fournit également du code open source si vous n’exécutez pas l’une des plateformes ci-dessus. Vous pouvez porter l’agent vers la distribution que vous exécutez.
 
-Device Update fonctionne avec IoT Plug-and-Play (PnP) et peut gérer tous les appareils qui prennent en charge les interfaces PnP nécessaires. Pour plus d’informations, consultez [Device Update pour IoT Hub et IoT Plug-and-Play](device-update-plug-and-play.md).
+Device Update fonctionne avec IoT Plug-and-Play et peut gérer tous les appareils qui prennent en charge les interfaces IoT Plug-and-Play nécessaires. Pour plus d’informations, consultez [Device Update pour IoT Hub et IoT Plug-and-Play](device-update-plug-and-play.md).
 
 ## <a name="support-for-a-wide-range-of-update-artifacts"></a>Prise en charge d’un large éventail d’artefacts de mise à jour
 

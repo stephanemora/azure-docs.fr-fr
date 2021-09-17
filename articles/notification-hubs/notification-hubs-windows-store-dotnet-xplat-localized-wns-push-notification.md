@@ -5,24 +5,22 @@ services: notification-hubs
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: c454f5a3-a06b-45ac-91c7-f91210889b25
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 03/22/2019
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: d91320d8f78942ca916084cbf29a88818d95f531
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cd34c85f938a6deade8316577714d836fd021df
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92314623"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769125"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push localisées vers des applications Windows à l’aide d’Azure Notification Hubs
 
@@ -31,6 +29,9 @@ ms.locfileid: "92314623"
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 ## <a name="overview"></a>Vue d’ensemble
+
+> [!NOTE]
+> Le Service de notifications Push Microsoft (MPNS, Microsoft Push Notification Service) est déconseillé et n’est plus pris en charge.
 
 Ce didacticiel vous montre comment envoyer des notifications localisées vers des appareils mobiles inscrits auprès du service Notification Hubs. Dans le didacticiel, vous mettez à jour les applications créées dans le [didacticiel : envoyer des notifications à des appareils spécifiques (plateforme Windows universelle)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) pour prendre en charge les scénarios suivants :
 

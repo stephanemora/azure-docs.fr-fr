@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d87f6a7a536f4dc9d15d87fe141f14760cab8aaa
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: f4beb002a1bfd8a885157099228747213e754253
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534867"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772356"
 ---
 # <a name="what-is-an-ontology"></a>Qu’est-ce qu’une ontologie ? 
 
@@ -20,19 +20,19 @@ Le vocabulaire d’une solution Azure Digital Twins est défini à l’aide de [
 
 Parfois, quand votre solution est liée à un secteur particulier, il est plus facile et plus efficace de démarrer avec un ensemble de modèles qui existent déjà pour ce secteur, au lieu de créer votre propre ensemble de modèles à partir de zéro. Ces ensembles de modèles préexistants sont appelés **ontologies**. 
 
-En général, une ontologie est un ensemble de modèles pour un domaine donné, par exemple une structure de bâtiment, un système IoT, une ville intelligente, un réseau électrique, un contenu web, etc. Les ontologies sont souvent utilisées sous forme de schémas pour les graphes jumeaux, car elles présentent les avantages suivants :
+En général, une ontologie est un ensemble de modèles pour un domaine donné, par exemple une structure de bâtiment, un système IoT, une ville intelligente, un réseau électrique, un contenu web, etc. Des ontologies sont souvent utilisées en tant que schémas pour des graphes de jumeaux, car elles permettent ce qui suit :
 * Harmonisation des composants logiciels, de la documentation, des bibliothèques de requêtes, etc.
 * Réduction des investissements dans la modélisation conceptuelle et le développement du système
 * Simplification de l’interopérabilité des données au niveau sémantique
 * Réutilisation des bonnes pratiques, au lieu de partir de zéro ou de « réinventer la roue »
 
-Cet article explique pourquoi et comment utiliser les ontologies pour vos modèles Azure Digital Twins. Il indique également quels sont les ontologies et outils disponibles.
+Cet article explique pourquoi utiliser des ontologies pour vos modèles Azure Digital Twins et comment procéder. Il explique également les ontologies et les outils actuellement disponibles pour ceux-ci.
 
 ## <a name="using-ontologies-for-azure-digital-twins"></a>Utilisation d’ontologies pour Azure Digital Twins
 
 Les ontologies constituent un excellent point de départ pour les solutions à base de jumeaux numériques. Elles englobent un ensemble de modèles spécifiques à un domaine et de relations entre entités, qui permettent de concevoir, de créer et d’analyser un graphe de jumeaux numériques. Les ontologies permettent aux développeurs de commencer à créer une solution à base de jumeaux numériques à partir d’un point de départ éprouvé et de se concentrer sur la résolution des problèmes métier. Les ontologies fournies par Microsoft sont également conçues pour être facilement extensibles, ce qui vous permet de les personnaliser pour votre solution. 
 
-De plus, l’utilisation de ces ontologies dans vos solutions entraîne leur intégration de manière plus transparente entre les différents partenaires et fournisseurs, car les ontologies fournissent un vocabulaire commun à toutes les solutions.
+Par ailleurs, l’utilisation de ces ontologies dans vos solutions entraîne leur intégration de manière plus transparente entre les différents partenaires et fournisseurs, car les ontologies fournissent un vocabulaire commun à toutes les solutions.
 
 Dans la mesure où les modèles dans Azure Digital Twins sont représentés en [langage DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md), les ontologies à utiliser avec Azure Digital Twins sont également écrites en DTDL. 
 
@@ -51,12 +51,12 @@ Il existe trois stratégies possibles d’intégration des ontologies conformes 
 Quelle que soit la stratégie choisie pour l’intégration d’une ontologie avec Azure Digital Twins, vous pouvez suivre la procédure complète ci-dessous afin de créer et charger votre ontologie sous forme de modèles DTDL.
 
 1. Commencez par examiner et comprendre la [modélisation DTDL dans Azure Digital Twins](concepts-models.md).
-1. Utilisez ensuite la stratégie d’intégration d’ontologie choisie ci-dessus : [adoptez](concepts-ontologies-adopt.md), [convertissez](concepts-ontologies-convert.md) ou [créez](concepts-models.md) vos modèles en fonction de votre ontologie.
+1. Continuez avec la stratégie d’intégration d’ontologie que vous avez choisie ci-dessus : [adoptez](concepts-ontologies-adopt.md), [convertissez](concepts-ontologies-convert.md) ou [créez](concepts-models.md) vos modèles en fonction de votre ontologie.
     1. Si nécessaire, [étendez](concepts-ontologies-extend.md) votre ontologie pour la personnaliser selon vos besoins.
 1. [Validez](how-to-parse-models.md) vos modèles pour vérifier qu’ils fonctionnent avec des documents DTDL.
 1. Une fois que vos modèles sont prêts, chargez-les vers Azure Digital Twins en utilisant les [API](how-to-manage-model.md#upload-models) ou un exemple d’application tel que le [chargeur de modèles Azure Digital Twins](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels).
 
-Vous devez pouvoir ensuite utiliser ces modèles dans votre instance d’Azure Digital Twins. 
+Après avoir lu cette série d’articles, vous devrez pouvoir utiliser vos modèles dans votre instance d’Azure Digital Twins. 
 
 >[!TIP]
 > Vous pouvez visualiser les modèles dans votre ontologie à l’aide d’[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) ou du [visualiseur de modèles Azure Digital Twins](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer).

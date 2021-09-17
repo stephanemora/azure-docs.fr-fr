@@ -7,14 +7,16 @@ ms.date: 06/29/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: a6e156350be0de13b6c6bfea3f8d220830c3480e
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: c57047cdaf848bc27805d8819be515636d492676
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113360772"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687550"
 ---
 # <a name="benchmark-a-disk"></a>Évaluer un disque
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Le benchmarking consiste à simuler différentes charges de travail sur votre application et à mesurer les performances de l’application pour chaque charge de travail. En suivant la procédure décrite dans l'article [Conception pour de hautes performances](premium-storage-performance.md), vous avez pu recueillir les exigences de performances de l’application. Vous pouvez utiliser des outils de benchmarking sur les machines virtuelles qui hébergent l'application afin de déterminer les niveaux de performances que votre application peut atteindre avec des disques SSD premium. Cet article contient des exemples basés sur le benchmarking d'une machine virtuelle Standard_D8ds_v4 configurée avec des disques SSD premium Azure.
 

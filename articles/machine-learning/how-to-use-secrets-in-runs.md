@@ -8,14 +8,14 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/09/2020
+ms.date: 08/24/2021
 ms.topic: how-to
-ms.openlocfilehash: b934a5b5d7781465d01b0e16927bf213f9fa23df
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 397f22711eadc38c82625a8b6a899f6485d798cf
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897033"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778232"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Utiliser les secrets d’authentification dans les exécutions d’apprentissage Azure Machine Learning
 
@@ -49,6 +49,11 @@ keyvault.set_secret(name="mysecret", value = my_secret)
 Ne placez pas la valeur du secret dans votre code Python, car il n’est pas sûr de la stocker dans un fichier en texte clair. Au lieu de cela, obtenez la valeur du secret à partir d’une variable d’environnement telle qu’un secret de la build Azure DevOps, ou à partir d’une entrée d’utilisateur interactive.
 
 Vous pouvez lister les noms des secrets à l’aide de la méthode [`list_secrets()`](/python/api/azureml-core/azureml.core.keyvault.keyvault#list-secrets--), et il existe également une version par lot, [set_secrets()](/python/api/azureml-core/azureml.core.keyvault.keyvault#set-secrets-secrets-batch-), qui vous permet de définir plusieurs secrets à la fois.
+
+> [!IMPORTANT]
+> Utiliser `list_secrets()` listera uniquement les secrets crées via `set_secret()` ou `set_secrets()` utilisant le Kit de développement logiciel (SDK) ML Azure. Les secrets créés par autre chose que le kit de développement logiciel (SDK) ne seront pas listés. Par exemple, un secret créé à l’aide du portail Azure ou Azure PowerShell ne figurera pas dans la liste.
+> 
+> Vous pouvez utiliser [`get_secret()`](#get-secrets) pour obtenir la valeur d’un secret à partir du coffre de clés, quelle que soit la façon dont il a été créé. Vous pouvez ainsi récupérer les secrets qui ne sont pas répertoriés par `list_secrets()` .
 
 ## <a name="get-secrets"></a>Get secrets (Obtenir les secrets)
 

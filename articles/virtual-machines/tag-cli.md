@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20bb4ab622a01646bcc61d0f691c514a25a06edc
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 10d5526b33b06867da267d61551cc4d6f16f1750
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502604"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695378"
 ---
 # <a name="how-to-tag-a-vm-using-the-azure-cli"></a>Guide pratique pour étiqueter une machine virtuelle avec Azure CLI
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Cet article explique comment baliser une machine virtuelle à l’aide de l’interface de ligne de commande Azure. Les balises sont des paires clé/valeur définies par l’utilisateur, qui peuvent être placées directement sur une ressource ou sur un groupe de ressources. Azure prend actuellement en charge jusqu’à 50 étiquettes par ressource et par groupe de ressources. Les balises peuvent être placées sur une ressource au moment de la création ou bien ajoutées à une ressource existante. Vous pouvez également baliser une machine virtuelle à l’aide d’Azure [PowerShell](tag-powershell.md).
 

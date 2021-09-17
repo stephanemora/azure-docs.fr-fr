@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: ee9b326a43adb9c96fe6013eeecaabf955c78d45
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 98b8b3c1de7879301d82356bbb23e2d2d19ff9cc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986387"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768429"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à 4me
 
@@ -42,6 +42,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * 4me prend en charge l’authentification unique lancée par le **fournisseur de services**.
 * 4me prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+* 4me prend en charge [l’attribution d’utilisateurs automatisée](4me-provisioning-tutorial.md).
 
 ## <a name="add-4me-from-the-gallery"></a>Ajouter 4me à partir de la galerie
 

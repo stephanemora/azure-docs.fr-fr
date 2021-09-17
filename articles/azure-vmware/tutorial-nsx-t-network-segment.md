@@ -4,16 +4,16 @@ description: Découvrez comment ajouter un segment réseau utilisable par des ma
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
 ms.date: 07/16/2021
-ms.openlocfilehash: 04681c5d55536e3ee1cc0b12d2ebc94f19b3873f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a678e29591bc3ca17a1ec6638e111ffeb8c264b0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464427"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734223"
 ---
 # <a name="tutorial-add-a-network-segment-in-azure-vmware-solution"></a>Tutoriel : Ajouter un segment réseau dans Azure VMware Solution 
 
-Après le déploiement d’Azure VMware Solution, vous pouvez configurer un segment réseau NSX-T à partir de NSX-T Manager ou du portail Azure.  Une fois configurés, les segments sont visibles dans Azure VMware Solution, NSX-T Manager et vCenter.  NSX-T est préapprovisionné par défaut avec une passerelle NSX-T de niveau 0 en mode **Actif/Actif** et une passerelle NSX-T de niveau 1 par défaut en mode **Actif/En attente**.  Ces passerelles vous permettent de connecter les segments (commutateurs logiques) et de fournir une connectivité Est-Ouest et Nord-Sud. 
+Après le déploiement d’Azure VMware Solution, vous pouvez configurer un segment réseau NSX-T à partir de NSX-T Manager ou du portail Azure. Une fois configurés, les segments sont visibles dans Azure VMware Solution, NSX-T Manager et vCenter. NSX-T est préprovisionné par défaut avec une passerelle NSX-T de niveau 0 en mode **Actif/Actif** et une passerelle NSX-T de niveau 1 par défaut en mode **Actif/En attente**.  Ces passerelles vous permettent de connecter les segments (commutateurs logiques) et de fournir une connectivité Est-Ouest et Nord-Sud. 
 
 >[!TIP]
 >Le portail Azure présente un affichage simplifié des opérations NSX-T dont un administrateur VMware a régulièrement besoin. Cet affichage s’adresse aux utilisateurs qui ne connaissent pas NSX-T Manager. 

@@ -1,5 +1,5 @@
 ---
-title: Gérer les groupes Azure AD privilégiés dans Privileged Identity Management (PIM) | Microsoft Docs
+title: Gérer les groupes d’accès privilégiés dans Privileged Identity Management (PIM) | Microsoft Docs
 description: Comment gérer les membres et propriétaires de groupes d’accès privilégié dans Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 12/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83aa5f4527885fbb0a02c70857cdd8409f0fa554
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: f2b68492dfd5c25199b00f6b5f68dc154ae767c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892721"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736142"
 ---
-# <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Fonctionnalités de gestion pour les groupes Azure AD d’accès privilégié (préversion)
+# <a name="management-capabilities-for-privileged-access-groups-preview"></a>Fonctionnalités de gestion pour les groupes d’accès privilégié (préversion)
 
-Dans Privileged Identity Management (PIM), vous pouvez désormais attribuer l’éligibilité à l’appartenance ou à la propriété de groupes d’accès privilégié. À partir de cette préversion, vous pouvez attribuer des rôles intégrés Azure AD (Azure Active Directory) à des groupes cloud et utiliser PIM pour gérer l’éligibilité à l’appartenance ou à la propriété des groupes et les activer. Pour plus d’informations sur les groupes avec attribution de rôle dans Azure AD, consultez [Utiliser des groupes cloud pour gérer les attributions de rôle dans Azure Active Directory (préversion)](../roles/groups-concept.md).
+Dans Privileged Identity Management (PIM), vous pouvez désormais attribuer l’éligibilité à l’appartenance ou à la propriété de groupes d’accès privilégié. À partir de cette préversion, vous pouvez attribuer des rôles intégrés Azure AD (Azure Active Directory) à des groupes cloud et utiliser PIM pour gérer l’éligibilité à l’appartenance ou à la propriété des groupes et les activer. Pour plus d’informations sur les groupes avec attribution de rôle dans Azure AD, consultez [Utiliser des groupes Azure AD pour gérer les attributions de rôles](../roles/groups-concept.md).
 
 >[!Important]
 > Pour affecter un groupe d’accès privilégié à un rôle pour un accès administratif à Exchange, Security and Compliance Center ou SharePoint, utilisez l’expérience **Rôles et administrateurs** du portail Azure AD, et non l’expérience Groupes d’accès privilégié, afin de rendre l’utilisateur ou le groupe éligible à l’activation dans le groupe.

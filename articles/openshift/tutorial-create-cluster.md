@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: 219ff986e88bca31912cfe8be72e9dba179b9236
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 707ee38ef71a0f3f3f09e142bd4d944bb04cff3d
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112289564"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446127"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutoriel : Créer un cluster Azure Red Hat OpenShift 4
 
@@ -27,7 +27,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 Azure Red Hat OpenShift requiert a minimum de 40 cœurs pour créer et exécuter un cluster OpenShift. Le quota de ressources Azure par défaut pour un nouvel abonnement Azure ne répond pas à cette exigence. Pour demander une augmentation de votre limite de ressources, consultez [Quota standard : augmenter les limites par série de machines virtuelles](../azure-portal/supportability/per-vm-quota-requests.md).
 
-* Par exemple, pour vérifier le quota d'abonnement actuel de la plus petite famille de machines virtuelles prises en charge, utilisez le SKU "Standard DSv3" :
+* Par exemple, pour vérifier le quota d'abonnement actuel de la plus petite référence SKU « Standard DSv3 » de la famille de machines virtuelles prises en charge :
 
     ```azurecli-interactive
     LOCATION=eastus
@@ -42,7 +42,7 @@ Le secret d’extraction ARO ne modifie pas le coût de la licence RH OpenShift 
 
 Au cours de ce tutoriel, vous allez créer un groupe de ressources qui contiendra le réseau virtuel pour le cluster. Vous devez disposer d’autorisations d’Administrateur pour l’accès Utilisateur ou Contributeur, ou d’autorisations de Propriétaire, soit directement sur le réseau virtuel, soit sur le groupe de ressources ou l’abonnement qui le contient.
 
-Vous aurez également besoin de suffisamment d’autorisations Azure Active Directory pour que les outils créent une application et un principal du service en votre nom pour le cluster.
+Vous devez également disposer de suffisamment d’autorisations d'accès Azure Active Directory (utilisateur membre de l’abonné ou utilisateur invité avec le rôle d’**administrateur d’application**) aux outils pour créer une application et un principal de service en votre nom pour le cluster. Pour plus d’informations, consultez [Utilisateurs membres et invités[ et ](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory](/azure/active-directory/fundamentals/users-default-permissions#member-and-guest-users).
 
 ### <a name="register-the-resource-providers"></a>Inscrire les fournisseurs de ressources
 
@@ -124,7 +124,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
    Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, vous devez spécifier un emplacement. Il s’agit de l’emplacement de stockage des métadonnées de groupe de ressources. C’est également là que vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création de ressources. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create).
     
    > [!NOTE] 
-   > Azure Red Hat OpenShift n’est pas disponible dans toutes les régions où un groupe de ressources Azure peut être créé. Pour savoir où Azure Red Hat OpenShift est pris en charge, consultez [Régions disponibles](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift).
+   > Azure Red Hat OpenShift n’est pas disponible dans toutes les régions où un groupe de ressources Azure peut être créé. Pour savoir où Azure Red Hat OpenShift est pris en charge, consultez [Régions disponibles](https://azure.microsoft.com/global-infrastructure/services/?products=openshift).
 
    ```azurecli-interactive
    az group create \

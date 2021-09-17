@@ -10,14 +10,16 @@ ms.subservice: scale-in-policy
 ms.date: 02/26/2020
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: af2293e9a9c5d3dcbed5dc737ad7785be9221913
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: af1aa7ceb0784b58f9878befeae7c6ee26742061
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673836"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696634"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Utiliser des stratégies de scale-in personnalisées avec des groupes de machines virtuelles identiques Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Vous pouvez effectuer un scale-out ou un scale-in du déploiement d’un groupe de machines virtuelles identiques en fonction d’un ensemble de métriques, notamment des métriques personnalisées de plateforme et définies par l’utilisateur. Alors qu’un scale-out crée des machines virtuelles basées sur le modèle de groupe identique, un scale-in affecte les machines virtuelles en cours d’exécution qui peuvent avoir des configurations et/ou des fonctions différentes à mesure que la charge de travail du groupe identique évolue. 
 

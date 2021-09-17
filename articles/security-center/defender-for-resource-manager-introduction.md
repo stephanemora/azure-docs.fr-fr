@@ -3,16 +3,16 @@ title: 'Azure Defender pour Resource Manager : Avantages et fonctionnalités'
 description: Découvrir les avantages et les fonctionnalités d’Azure Defender pour Resource Manager
 author: memildin
 ms.author: memildin
-ms.date: 07/14/2021
+ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1acf785021f83605db2f8bfe3188e0e2ac874d4e
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: fff9c94af2c74612e8c07be1f7e125787265a72d
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113761875"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541366"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Présentation d’Azure Defender pour Resource Manager
 
@@ -22,13 +22,22 @@ La couche de gestion cloud est un service essentiel, connecté à toutes vos res
 
 Azure Defender pour Resource Manager supervise automatiquement les opérations de gestion des ressources dans votre organisation, qu’elles soient effectuées via le portail Azure, les API REST Azure, Azure CLI ou d’autres clients programmatiques Azure. Azure Defender exécute une analytique de sécurité avancée pour détecter les menaces et vous avertit en cas d’activité suspecte.
 
+>[!NOTE]
+> Certaines de ces données analytiques sont alimentées par [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security). Pour tirer parti de ces analyses, vous devez activer une licence Cloud App Security. Si vous avez une licence Cloud App Security, ces alertes sont activées par défaut. Pour désactiver les alertes :
+>
+> 1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
+> 1. Sélectionnez l’abonnement que vous souhaitez modifier.
+> 1. Sélectionnez **Intégrations**.
+> 1. Décochez la case **Autoriser Microsoft Cloud App Security à accéder à mes données** et sélectionnez **Enregistrer**.
+
+
 ## <a name="availability"></a>Disponibilité
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|Disponibilité générale (GA)|
+|État de sortie :|Disponibilité générale|
 |Prix :|**Azure Defender pour Resource Manager** est facturé conformément à la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
-|Clouds :|:::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Chine|
+|Clouds :|:::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-resource-manager"></a>Quels sont les avantages d’Azure Defender pour Resource Manager ?
@@ -70,9 +79,11 @@ Pour examiner les alertes de sécurité depuis Azure Defender pour Resource Mana
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert Azure Defender pour Resource Manager. Pour des informations connexes, consultez l’article suivant : 
+Dans cet article, vous avez découvert Azure Defender pour Resource Manager. 
+
+> [!div class="nextstepaction"]
+> [Activer Azure Defender](enable-azure-defender.md)
+
+Pour des informations connexes, consultez l’article suivant : 
 
 - Les alertes de sécurité peuvent être générées par Security Center, ou reçues par Security Center depuis d’autres produits de sécurité. Pour exporter toutes ces alertes vers Azure Sentinel, un système SIEM tiers ou tout autre outil externe, suivez les instructions indiquées dans [Exportation d’alertes vers un système SIEM](continuous-export.md).
-
-- > [!div class="nextstepaction"]
-    > [Activer Azure Defender](enable-azure-defender.md)

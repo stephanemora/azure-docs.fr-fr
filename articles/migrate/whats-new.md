@@ -5,43 +5,63 @@ ms.topic: overview
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
-ms.date: 04/19/2020
+ms.date: 08/04/2021
 ms.custom: mvc
-ms.openlocfilehash: 3e6644f8d1956b69390e8bb3bb49bfbc3c7b0621
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: 720b19ff16e72fade8bcdbd1b41304b2d87d1f2d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988766"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737664"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) vous aide à découvrir, à évaluer et à migrer localement des serveurs, applications et données vers le cloud Microsoft Azure. Cet article synthétise les nouvelles versions et fonctionnalités d’Azure Migrate.
 
+## <a name="update-august-2021"></a>Mise à jour (août 2021)
+
+- La découverte et l’évaluation à l’échelle des applications web ASP.NET s’exécutant sur des serveurs IIS dans votre environnement VMware sont désormais en préversion. [En savoir plus](concepts-azure-webapps-assessment-calculation.md) Reportez-vous aux tutoriels sur la [découverte](tutorial-discover-vmware.md) et l’[évaluation](tutorial-assess-webapps.md) pour démarrer.
+- Prise en charge des [ultra disques](https://docs.microsoft.com/azure/virtual-machines/disks-types#ultra-disk) Azure dans la recommandation d’évaluation des machines virtuelles Azure.
+- Disponibilité générale de l’inventaire logiciel à l’échelle, et de l’analyse des dépendances sans agent pour les machines virtuelles VMware.
+- Mises à jour de l’appliance Azure Migrate :
+    - « Diagnostiquer et résoudre » sur l’appliance pour aider les utilisateurs à identifier et évaluer automatiquement les problèmes liés à l’appliance.
+    - Script de programme d’installation unifié : script courant dans lequel les utilisateurs doivent sélectionner le scénario, le cloud et les options de connectivité pour déployer une appliance avec la configuration souhaitée.
+    - Prise en charge de l’ajout d’un compte d’utilisateur avec l’accès « sudo » sur le gestionnaire de configuration de l’appareil pour effectuer la détection des serveurs Linux (en guise d’alternative à la fourniture d’un compte root ou à l’activation des autorisations setcap).
+    - Prise en charge de la modification des propriétés de connexion SQL Server sur le gestionnaire de configuration de l’appliance.
+
+## <a name="update-july-2021"></a>Mise à jour (juillet 2021)
+
+- Azure Migrate : l’outil Conteneurisation d’applications vous permet désormais de mettre en package des applications s’exécutant sur des serveurs dans une image conteneur et de déployer l’application en conteneurisée dans les conteneurs App Service, en plus d’Azure Kubernetes Service. Vous pouvez également intégrer automatiquement la surveillance des applications pour les applications Java avec Azure Application Insights et utiliser Azure Key Vault pour gérer des secrets d’application tels que des certificats et des configurations paramétrables. Pour plus d’informations et bien démarrer, reportez-vous au tutoriels [Conteneurisation d’applications ASP.NET et migration vers Azure App Service](tutorial-app-containerization-aspnet-app-service.md) et [Conteneurisation d’applications web Java et migration vers Azure App Service](tutorial-app-containerization-java-app-service.md).
+
 ## <a name="update-june-2021"></a>Mise à jour (juin 2021)
+
 - Azure Migrate prend désormais en charge de nouvelles régions et zones géographiques du cloud public. [En savoir plus](migrate-support-matrix.md#supported-geographies-public-cloud)
 - Azure Migrate offre la possibilité d’inscrire des serveurs SQL Server avec une machine virtuelle SQL lors de la réplication pour installer automatiquement l’extension SQL IaaS Agent. Cette fonctionnalité est disponible pour les migrations VMware sans agent, les migrations Hyper-V sans agent et les migrations avec agent.
 - L’importation d’un fichier CSV pour l’évaluation prend désormais en charge jusqu’à 20 disques. Précédemment, ce nombre était limité à huit disques par serveur.
 
 ## <a name="update-may-2021"></a>Mise à jour (mai 2021)
+
 - La migration des machines virtuelles et des serveurs physiques dont le disque de système d’exploitation ne dépasse pas 4 To est maintenant prise en charge suivant la méthode avec agent.
 
 ## <a name="update-march-2021"></a>Mise à jour (mars 2021)
+
 - Prise en charge de la fourniture d’informations d’identification de plusieurs serveurs sur l’appliance Azure Migrate pour découvrir les applications installées (inventaire des logiciels), l’analyse des dépendances sans agent et la détection des instances et bases de données SQL Server dans votre environnement VMware. [En savoir plus](tutorial-discover-vmware.md#provide-server-credentials)
 - La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. [En savoir plus](concepts-azure-sql-assessment-calculation.md) Reportez-vous aux tutoriels sur la [découverte](tutorial-discover-vmware.md) et l’[évaluation](tutorial-assess-sql.md) pour démarrer.
 - La migration VMware sans agent prend désormais en charge la réplication simultanée de 500 machines virtuelles par vCenter.
 - Azure Migrate : l’outil Conteneurisation d’applications vous permet désormais de mettre en package des applications s’exécutant sur des serveurs dans une image conteneur et de déployer l’application en conteneurisée dans le Azure Kubernetes Service.  
 Pour plus d’informations et bien démarrer, reportez-vous au tutoriels [Conteneurisation d’applications ASP.NET et migration vers Azure Kubernetes Service](tutorial-app-containerization-aspnet-kubernetes.md) et [Conteneurisation d’applications web Java et migration vers Azure Kubernetes Service](tutorial-app-containerization-java-kubernetes.md).
 
-
 ## <a name="update-january-2021"></a>Mise à jour (janvier 2021)
--  Azure Migrate : L’outil Migration de serveur permet désormais de migrer des machines virtuelles VMware, des serveurs physiques et des machines virtuelles d’autres clouds vers des machines virtuelles Azure avec des disques chiffrés à l’aide du chiffrement côté serveur et avec des clés gérées par le client (CMK).
+
+- Azure Migrate : L’outil Migration de serveur permet désormais de migrer des machines virtuelles VMware, des serveurs physiques et des machines virtuelles d’autres clouds vers des machines virtuelles Azure avec des disques chiffrés à l’aide du chiffrement côté serveur et avec des clés gérées par le client (CMK).
 
 ## <a name="update-december-2020"></a>Mise à jour (décembre 2020)
+
 - Azure Migrate installe désormais automatiquement l’agent de machine virtuelle Azure sur les machines virtuelles VMware, tout en les migrant vers Azure à l’aide de la méthode sans agent de la migration VMware. (Windows Server 2008 R2 et versions ultérieures)
 - La migration des machines virtuelles VMware vers des machines virtuelles Azure, avec des disques chiffrés à l’aide du chiffrement côté serveur (SSE) et avec des clés gérées par le client (CMK), en utilisant Azure Migrate : Migration de serveurs (réplication sans agent), est désormais disponible sur le portail Azure.
 
 ## <a name="update-september-2020"></a>Mise à jour (septembre 2020)
+
 - La migration des serveurs vers Zones de disponibilité est désormais prise en charge.
 - La migration de machines virtuelles UEFI et de serveurs physiques vers des machines virtuelles Azure de génération 2 est désormais prise en charge. Avec cette version, l’outil Migration de serveur Azure Migrate n’effectuera pas la conversion de la machine virtuelle Gen 2 en machine virtuelle Gen 1 pendant la migration.
 - Un nouveau tableau de bord d’évaluation Power BI d’Azure Migrate est disponible pour vous aider à comparer les coûts entre différents paramètres d’évaluation. Le tableau de bord est fourni avec un utilitaire PowerShell qui crée automatiquement les évaluations insérées dans le tableau de bord Power BI. [En savoir plus.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
@@ -67,7 +87,6 @@ Pour plus d’informations et bien démarrer, reportez-vous au tutoriels [Conten
 - Prise en charge de plusieurs informations d’identification sur l’appliance pour la découverte des serveurs physiques.
 - Prise en charge pour autoriser la connexion Azure à partir de l’appliance pour le locataire où la restriction du locataire a été configurée.
 
-
 ## <a name="update-april-2020"></a>Mise à jour (avril 2020)
 
 Azure Migrate prend en charge les déploiements dans Azure Government.
@@ -78,7 +97,6 @@ Azure Migrate prend en charge les déploiements dans Azure Government.
 - [Passez en revue](migrate-support-matrix.md#supported-geographies-azure-government) les zones géographiques et régions prises en charge pour Azure Government.
 - L’[analyse des dépendances basée sur les agents](concepts-dependency-visualization.md#agent-based-analysis) n’est pas prise en charge dans Azure Government.
 - Les fonctionnalités en préversion sont prises en charge dans Azure Government, à savoir l’[analyse des dépendances sans agent](concepts-dependency-visualization.md#agentless-analysis) et la [découverte d’application](how-to-discover-applications.md).
-
 
 ## <a name="update-march-2020"></a>Mise à jour (mars 2020)
 
@@ -124,8 +142,6 @@ La version actuelle d’Azure Migrate (publiée en juillet 2019) propose de nom
 ## <a name="azure-migrate-previous-version"></a>Version précédente d’Azure Migrate
 
 Si vous utilisez la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge), vous devez désormais utiliser la version actuelle. La version précédente ne permet plus de créer des projets Azure Migrate ou d’effectuer de nouvelles découvertes. Vous pouvez toujours accéder aux projets existants. Pour ce faire, dans le portail Azure > **Tous les services**, recherchez **Azure Migrate**. Les notifications Azure Migrate contiennent un lien permettant d’accéder aux anciens projets Azure Migrate.
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

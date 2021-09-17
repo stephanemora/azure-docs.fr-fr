@@ -7,12 +7,12 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: e6c2a452441b268adc52ef3d9337aa5e604fe1e6
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 29d2f44dec6a80f2512e6ef23c2627c8dd098be4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114729862"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741569"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Exécuter un conteneur personnalisé dans Azure
 
@@ -313,7 +313,7 @@ Une fois le déploiement effectué, votre application est disponible à l’adre
 
 Un **groupe de ressources** est une collection nommée de toutes les ressources de votre application dans Azure. Par exemple, un groupe de ressources peut contenir une référence à un site web, une base de données et une fonction Azure.
 
-Un **plan App Service** définit les ressources physiques qui seront utilisées pour héberger votre site web. Ce guide de démarrage rapide utilise un plan d’hébergement **De base** sur l’infrastructure **Linux**, ce qui signifie que le site sera hébergé sur une machine Linux avec d’autres sites web. Si vous commencez avec le plan **De base**, vous pouvez utiliser le portail Azure pour effectuer un scale-up afin que votre site soit le seul à s’exécuter sur un ordinateur.
+Un **plan App Service** définit les ressources physiques qui seront utilisées pour héberger votre site web. Ce guide de démarrage rapide utilise un plan d’hébergement **De base** sur l’infrastructure **Linux**, ce qui signifie que le site sera hébergé sur une machine Linux avec d’autres sites web. Si vous commencez avec le plan **De base**, vous pouvez utiliser le portail Azure pour effectuer un scale-up afin que votre site soit le seul à s’exécuter sur un ordinateur. Pour plus d’informations sur la tarification, consultez [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/linux).
 
 ## <a name="browse-the-website"></a>Parcourir le site Web
 

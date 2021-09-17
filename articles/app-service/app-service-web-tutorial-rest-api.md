@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18, devx-track-azurecli
-ms.openlocfilehash: 8317db1b7c4e71f05694ab902738dca87925a4d6
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: 43eaa0db5530483cae58ade96bb8ff65408790f1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112992186"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730714"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service
 
@@ -41,35 +41,44 @@ Cette étape consiste à configurer le projet ASP.NET Core local. App Service pr
 
 ### <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
-Dans la fenêtre de terminal, `cd` vers un répertoire de travail.  
+1. Dans la fenêtre de terminal, `cd` vers un répertoire de travail.  
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel : 
+1. Clonez l’exemple de référentiel et passez à la racine du référentiel. 
 
-```bash
-git clone https://github.com/Azure-Samples/dotnet-core-api
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/dotnet-core-api
+    cd dotnet-core-api
+    ```
 
-Ce référentiel contient une application créée en fonction du didacticiel suivant : [Pages d’aide d’API web ASP.NET Core avec Swagger/OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Elle utilise un générateur de Swagger pour traiter l’[interface utilisateur Swagger](https://swagger.io/swagger-ui/) et le point de terminaison JSON de Swagger.
+    Ce référentiel contient une application créée en fonction du didacticiel suivant : [Pages d’aide d’API web ASP.NET Core avec Swagger/OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Elle utilise un générateur de Swagger pour traiter l’[interface utilisateur Swagger](https://swagger.io/swagger-ui/) et le point de terminaison JSON de Swagger.
+
+1. Assurez-vous que la branche par défaut est `main`.
+
+    ```bash
+    git branch -m main
+    ```
+    
+    > [!TIP]
+    > La modification du nom de la branche n’est pas requise par App Service. Toutefois, étant donné que de nombreux référentiels remplacent leur branche par défaut par `main` (voir [Modifier la branche de déploiement](deploy-local-git.md#change-deployment-branch)), ce tutoriel vous montre également comment déployer un référentiel à partir de `main`.
 
 ### <a name="run-the-application"></a>Exécution de l'application
 
-Exécutez la commande suivante pour installer les packages requis, migrer les bases de données et démarrer l’application.
+1. Exécutez la commande suivante pour installer les packages requis, migrer les bases de données et démarrer l’application.
 
-```bash
-cd dotnet-core-api
-dotnet restore
-dotnet run
-```
+    ```bash
+    dotnet restore
+    dotnet run
+    ```
 
-Accédez à `http://localhost:5000/swagger` dans un navigateur pour vous familiariser avec l’interface utilisateur Swagger.
+1. Accédez à `http://localhost:5000/swagger` dans un navigateur pour vous familiariser avec l’interface utilisateur Swagger.
 
-![API ASP.NET Core exécuté en local](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
+    ![API ASP.NET Core exécuté en local](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
-Accédez à `http://localhost:5000/api/todo` pour visualiser une liste des tâches JSON.
+1. Accédez à `http://localhost:5000/api/todo` pour visualiser une liste des tâches JSON.
 
-Accédez à `http://localhost:5000` et familiarisez-vous avec l’application de navigateur. Ensuite, vous allez pointer l’application de navigateur vers une API distante dans l’App Service pour tester la fonctionnalité CORS. Le code pour l’application de navigateur se trouve dans le répertoire _wwwroot_ du référentiel.
+1. Accédez à `http://localhost:5000` et familiarisez-vous avec l’application de navigateur. Ensuite, vous allez pointer l’application de navigateur vers une API distante dans l’App Service pour tester la fonctionnalité CORS. Le code pour l’application de navigateur se trouve dans le répertoire _wwwroot_ du référentiel.
 
-Pour arrêter ASP.NET Core à tout moment, appuyez sur `Ctrl+C` dans le terminal.
+1. Pour arrêter ASP.NET Core à tout moment, appuyez sur `Ctrl+C` dans le terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -97,42 +106,42 @@ Dans cette étape, vous déployez votre application .NET Core connectée à SQL 
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-<pre>
-Enumerating objects: 83, done.
-Counting objects: 100% (83/83), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (78/78), done.
-Writing objects: 100% (83/83), 22.15 KiB | 3.69 MiB/s, done.
-Total 83 (delta 26), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id '509236e13d'.
-remote: Generating deployment script.
-remote: Project file path: .\TodoApi.csproj
-remote: Generating deployment script for ASP.NET MSBuild16 App
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
-remote: .
-remote: .
-remote: .
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Triggering recycle (preview mode disabled).
-remote: Deployment successful.
-To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
- * [new branch]      master -> master
-</pre>
+   <pre>
+   Enumerating objects: 83, done.
+   Counting objects: 100% (83/83), done.
+   Delta compression using up to 8 threads
+   Compressing objects: 100% (78/78), done.
+   Writing objects: 100% (83/83), 22.15 KiB | 3.69 MiB/s, done.
+   Total 83 (delta 26), reused 0 (delta 0)
+   remote: Updating branch 'master'.
+   remote: Updating submodules.
+   remote: Preparing deployment for commit id '509236e13d'.
+   remote: Generating deployment script.
+   remote: Project file path: .\TodoApi.csproj
+   remote: Generating deployment script for ASP.NET MSBuild16 App
+   remote: Generated deployment script files
+   remote: Running deployment command...
+   remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
+   remote: .
+   remote: .
+   remote: .
+   remote: Finished successfully.
+   remote: Running post deployment command(s)...
+   remote: Triggering recycle (preview mode disabled).
+   remote: Deployment successful.
+   To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
+   * [new branch]      master -> master
+   </pre>
 
 ### <a name="browse-to-the-azure-app"></a>Accéder à l’application Azure
 
-Accédez à `http://<app_name>.azurewebsites.net/swagger` dans un navigateur et familiarisez-vous avec l’interface utilisateur Swagger.
+1. Accédez à `http://<app_name>.azurewebsites.net/swagger` dans un navigateur et familiarisez-vous avec l’interface utilisateur Swagger.
 
-![API ASP.NET Core exécuté dans Azure App Service](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
+    ![API ASP.NET Core exécuté dans Azure App Service](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
-Accédez à `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` pour voir le _swagger.json_ de l’API déployée.
+1. Accédez à `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` pour voir le _swagger.json_ de l’API déployée.
 
-Accédez à `http://<app_name>.azurewebsites.net/api/todo` pour voir l’API déployée en fonctionnement.
+1. Accédez à `http://<app_name>.azurewebsites.net/api/todo` pour voir l’API déployée en fonctionnement.
 
 ## <a name="add-cors-functionality"></a>Ajoutez des fonctionnalités CORS
 
@@ -140,23 +149,23 @@ Ensuite, activez la prise en charge intégrée de CORS dans App Service pour vot
 
 ### <a name="test-cors-in-sample-app"></a>Testez CORS dans l’exemple d’application
 
-Dans votre référentiel local, ouvrez _wwwroot/index.html_.
+1. Dans votre référentiel local, ouvrez _wwwroot/index.html_.
 
-Dans la ligne 51, définissez la variable `apiEndpoint` sur l’URL de l’API déployée (`http://<app_name>.azurewebsites.net`). Remplacez _\<appname>_ par le nom de votre application dans App Service.
+1. Dans la ligne 51, définissez la variable `apiEndpoint` sur l’URL de l’API déployée (`http://<app_name>.azurewebsites.net`). Remplacez _\<appname>_ par le nom de votre application dans App Service.
 
-Dans la fenêtre de votre terminal local, exécutez à nouveau l’exemple d’application.
+1. Dans la fenêtre de votre terminal local, exécutez à nouveau l’exemple d’application.
 
-```bash
-dotnet run
-```
+    ```bash
+    dotnet run
+    ```
 
-Accédez à l’application de navigateur à `http://localhost:5000`. Ouvrez la fenêtre d’outils de développement dans votre navigateur (`Ctrl`+`Shift`+`i` dans Chrome pour Windows) et inspectez l’onglet **Console**. Vous devriez maintenant voir le message d’erreur, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+1. Accédez à l’application de navigateur à `http://localhost:5000`. Ouvrez la fenêtre d’outils de développement dans votre navigateur (`Ctrl`+`Shift`+`i` dans Chrome pour Windows) et inspectez l’onglet **Console**. Vous devriez maintenant voir le message d’erreur, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
-![Erreur CORS dans le navigateur client](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
+    ![Erreur CORS dans le navigateur client](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
-En raison de l’incompatibilité de domaine entre l’application de navigateur (`http://localhost:5000`) et la ressource à distance (`http://<app_name>.azurewebsites.net`), et du fait que votre API dans App Service n’envoie pas l’en-tête `Access-Control-Allow-Origin`, votre navigateur a empêché le chargement du contenu inter-domaines dans votre application de navigateur.
+    En raison de l’incompatibilité de domaine entre l’application de navigateur (`http://localhost:5000`) et la ressource à distance (`http://<app_name>.azurewebsites.net`), et du fait que votre API dans App Service n’envoie pas l’en-tête `Access-Control-Allow-Origin`, votre navigateur a empêché le chargement du contenu inter-domaines dans votre application de navigateur.
 
-En production, votre application de navigateur aurait une URL publique au lieu de l’URL de l’hôte local, mais la façon d’activer CORS est identique pour les deux types d’URL.
+    En production, votre application de navigateur aurait une URL publique au lieu de l’URL de l’hôte local, mais la façon d’activer CORS est identique pour les deux types d’URL.
 
 ### <a name="enable-cors"></a>Activez CORS 
 

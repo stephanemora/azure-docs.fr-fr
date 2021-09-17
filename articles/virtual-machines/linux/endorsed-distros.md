@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: guybo
-ms.openlocfilehash: e602909467ca155beb010c5bdd61e6f6408dd12a
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: b9262d512ed27419bab38b3ad26e1bae8cddee0d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553785"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696188"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distributions Linux approuvées sur Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes 
 
 Les partenaires fournissent des images Linux dans la Place de marché Azure. Microsoft collabore avec différentes communautés Linux pour étoffer la liste des distributions approuvée. Pour les distributions qui ne sont pas disponibles sur la Place de marché, vous pouvez toujours apporter votre propre distribution Linux en suivant les instructions fournies dans [Créer et charger un disque dur virtuel contenant le système d’exploitation Linux](./create-upload-generic.md).
 

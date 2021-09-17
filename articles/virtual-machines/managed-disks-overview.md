@@ -8,14 +8,16 @@ ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 924f7a0d678937e1d50a4ff29fb01b8b0b0580d4
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 801e9ed20c86c59d9c72043ff192a3500bae9a5f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113358243"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696132"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction aux disques managés Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les disques managés Azure sont des volumes de stockage de niveau bloc qui sont gérés par Azure et utilisés avec des machines virtuelles Azure. Les disques managés sont comme un disque physique sur un serveur local, mais virtualisé. Avec les disques managés, il vous suffit de spécifier la taille de disque ainsi que le type de disque et de provisionner le disque. Une fois que vous avez provisionné le disque, Azure s’occupe du reste.
 

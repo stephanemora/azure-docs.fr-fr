@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 06/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 270a48181e8eceb7b5e851f9bc69bb5a41428573
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 20df340df025ceada8a4b254f317fe2f5d8eecbc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964451"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768894"
 ---
 # <a name="view-update-assessments-in-update-management"></a>Afficher les évaluations de mise à jour dans Update Management
 
-Dans Update Management, vous pouvez voir des informations sur vos ordinateurs, les mises à jour manquantes, les déploiements de mises à jour et les déploiements de mises à jour planifiés. Vous pouvez afficher les informations d’évaluation relatives à la machine virtuelle Azure sélectionnée, au serveur Arc sélectionné ou au compte Automation pour l’ensemble des ordinateurs et serveurs configurés.
+Dans Update Management, vous pouvez voir des informations sur vos ordinateurs, les mises à jour manquantes, les déploiements de mises à jour et les déploiements de mises à jour planifiés. Vous pouvez afficher les informations d’évaluation relatives à la machine virtuelle Azure sélectionnée, au serveur Arc sélectionné ou au compte Automation pour l’ensemble des machines et serveurs configurés.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -32,9 +32,9 @@ Pour afficher l’évaluation des mises à jour à partir d’un serveur Arc, ac
 
 Dans Update Management, vous pouvez voir des informations sur votre ordinateur Arc, les mises à jour manquantes, les déploiements de mises à jour et les déploiements de mises à jour planifiés.
 
-[ ![Update Management assessment view for Arc enabled servers](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+[ ![Vue d’évaluation Update Management pour les serveurs Arc activés](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
 
-Pour afficher l’évaluation des mises à jour sur tous les ordinateurs, notamment les serveurs Arc à partir de votre compte Automation, accédez à **Comptes Automation** et sélectionnez dans la liste le compte Automation pour lequel Update Management est activé. Dans votre compte Automation, sélectionnez **Update Management** dans le menu de gauche.
+Pour afficher l’évaluation des mises à jour sur toutes les machines, notamment les serveurs Arc activés à partir de votre compte Automation, accédez à **Comptes Automation** et sélectionnez dans la liste le compte Automation pour lequel Update Management est activé. Dans votre compte Automation, sélectionnez **Update Management** dans le menu de gauche.
 
 Les mises à jour pour votre environnement sont listées dans la page **Gestion des mises à jour**. Si des mises à jour sont identifiées comme manquantes, une liste de celles-ci s’affiche sous l’onglet **Mises à jour manquantes**.
 

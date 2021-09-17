@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 3a950727034d4be822e0b9554424074a1aaebf33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44286f0f5a0d5f367cd3934ff61653eb4772c1fd
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649901"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182463"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-fusion-erp"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Oracle Fusion ERP
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Oracle Fusion ERP prend en charge l’authentification unique initiée par le **fournisseur de services**.
+* Oracle Fusion ERP prend en charge [l’attribution d’utilisateurs et la suppression des privilèges d’accès **automatisées**](oracle-fusion-erp-provisioning-tutorial.md) (recommandé).
 
 ## <a name="add-oracle-fusion-erp-from-the-gallery"></a>Ajouter Oracle Fusion ERP à partir de la galerie
 

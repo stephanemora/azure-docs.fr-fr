@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2021
 ms.author: jeedes
-ms.openlocfilehash: a5b14cd231998515003574e6c961989d46e50095
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7be4e58ccb7b788c98c0ab0c8b21c7d5bd9f4088
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101654032"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182933"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamviewer"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TeamViewer
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * TeamViewer prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* TeamViewer prend en charge [**l’attribution d’utilisateurs et la suppression des privilèges d’accès** automatiques ](teamviewer-provisioning-tutorial.md) (recommandé).
 
 ## <a name="add-teamviewer-from-the-gallery"></a>Ajouter TeamViewer à partir de la galerie
 

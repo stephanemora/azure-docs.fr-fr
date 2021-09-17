@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
-ms.openlocfilehash: 9e9a0a8b07c300282f26ce12b989a8510ccd1e98
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 579315379923b5ba8a16f94cff5984e6e904a5ec
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738348"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691299"
 ---
 # <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Azure Disk Encryption pour les groupes de machines virtuelles identiques
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Azure Disk Encryption fournit un chiffrement de volume pour le système d’exploitation et les disques de données de vos machines virtuelles. Cela vous aide à protéger et préserver vos données pour répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Pour en savoir plus, consultez [Azure Disk Encryption : machines virtuelles Linux](../virtual-machines/linux/disk-encryption-overview.md) et [Azure Disk Encryption : machines virtuelles Windows](../virtual-machines/windows/disk-encryption-overview.md)  
 

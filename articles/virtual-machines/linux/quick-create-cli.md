@@ -14,14 +14,16 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: 14dbf2580b8dc114ea1c2706a682541bbd0aecc9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: f6ae323dadd2f2859079899906c3ba51a12df935
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "114288203"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698157"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Démarrage rapide : Créer une machine virtuelle Linux avec Azure CLI
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux
 
 Ce guide de démarrage rapide explique comment utiliser l’interface de ligne de commande Azure (CLI) pour déployer une machine virtuelle Linux dans Azure. L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts.
 

@@ -7,14 +7,16 @@ ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 866522da162d22621bd37bf9d2f2fa6838206e17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8e13f8a8bd577e3e872d3fc59b099e34fd495d1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674696"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694210"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Superviser des événements planifiés pour vos machines virtuelles Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Des mises à jour sont appliquées à différentes parties d’Azure tous les jours, pour assurer la sécurité des services et les mettre à jour. En plus des mises à jour planifiées, des événements non planifiés peuvent également se produire. Par exemple, en cas de dégradation ou de panne du matériel, les services Azure peuvent avoir besoin d’effectuer une maintenance non planifiée. Avec la migration dynamique, les mises à jour de préservation de la mémoire et en appliquant une limite stricte sur l’impact des mises à jour, ces événements sont dans la plupart des cas presque transparents pour les clients et ils n’ont pas d’impact ou causent au maximum un blocage de quelques secondes des machines virtuelles. Toutefois, pour certaines applications, même quelques secondes de blocage des machines virtuelles peuvent avoir un impact. Il est important de connaître à l’avance sur les opérations de maintenance Azure à venir pour garantir une expérience optimale pour ces applications. Le service [Scheduled Events](scheduled-events.md) fournit une interface de programmation qui vous informe des opérations de maintenance à venir et vous permet de gérer les maintenances de manière appropriée. 
 

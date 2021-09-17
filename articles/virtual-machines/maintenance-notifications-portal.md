@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: a13d79a28ac07d736b1eaf0d0e6b7f7b1ba4a4ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ec87f5377fad1e42ad5b6e96f32a4dae241a4ca
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557707"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698789"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Gestion de notifications de maintenance planifiée à l’aide du portail
 
-**Cet article s’applique aux machines virtuelles exécutant Linux et Windows.**
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Après la [planification d’une vague de maintenance](maintenance-notifications.md), vous pouvez consulter la liste des machines virtuelles concernées. 
 

@@ -7,16 +7,16 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 05/28/2021
+ms.date: 08/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f2ad1284dcbd6bbc8ab61f700405521ec07f2e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fe1da3615d835b6a2d828fdbca989c805a9f9b17
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449517"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823077"
 ---
 # <a name="troubleshoot-ecma-connector-host-issues"></a>Résoudre les problèmes liés à l’hôte du connecteur ECMA
 
@@ -28,18 +28,18 @@ Après la configuration de l’agent de provisionnement et de l’hôte ECMA, il
 
  1. Vérifiez que l’agent et l’hôte ECMA sont en cours d’exécution :
      1. Sur le serveur où l’agent est installé, ouvrez **Services** en accédant à **Démarrer** > **Exécuter** > **Services.msc**.
-     1. Sous **Services**, vérifiez que les services **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent** et **Microsoft ECMA2Host** sont présents, et que leur état est *En cours d’exécution*.
+     2. Sous **Services**, vérifiez que les services **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent** et **Microsoft ECMA2Host** sont présents, et que leur état est *En cours d’exécution*.
     
         ![Capture d’écran montrant que le service ECMA est en cours d’exécution.](./media/on-premises-ecma-troubleshoot/tshoot-1.png)
 
- 1. Accédez au dossier où l’hôte ECMA a été installé en sélectionnant **Résolution des problèmes** > **Scripts** > **TestECMA2HostConnection**. Exécutez le script. Ce script envoie une requête SCIM GET ou POST pour vérifier que l’hôte du connecteur ECMA fonctionne et répond aux requêtes. Il doit être exécuté sur le même ordinateur que le service d’hôte du connecteur ECMA proprement dit.
- 1. Vérifiez que l’agent est actif en accédant à votre application dans le portail Azure, en sélectionnant **connectivité administrateur**, en sélectionnant la liste déroulante des agents, puis en vérifiant que votre agent est actif.
- 1. Vérifiez si le jeton secret fourni est identique au jeton secret local. Accédez à l’environnement local, fournissez à nouveau le jeton secret, puis copiez-le dans le portail Azure.
- 1. Vérifiez que vous avez attribué au moins un agent à l’application dans le portail Azure.
- 1. Après avoir attribué un agent, vous devez attendre de 10 à 20 minutes pour finaliser l’inscription. Le test de connectivité ne fonctionne pas tant que l’inscription n’est pas terminée.
- 1. Veillez à utiliser un certificat valide. Accédez à l’onglet **Paramètres** de l’hôte ECMA pour générer un nouveau certificat.
- 1. Redémarrez l’agent de provisionnement en accédant à la barre des tâches sur votre machine virtuelle, en recherchant l’agent de provisionnement Microsoft Azure AD Connect. Cliquez avec le bouton droit sur **Arrêter**, puis sélectionnez **Démarrer**.
- 1. Lorsque vous fournissez l’URL du locataire dans le portail Azure, veillez à ce qu’il respecte le modèle suivant. Vous pouvez remplacer `localhost` par votre nom d’hôte, mais cela n’est pas obligatoire. Remplacez `connectorName` par le nom du connecteur que vous avez spécifié dans l’hôte ECMA.
+ 2. Accédez au dossier où l’hôte ECMA a été installé en sélectionnant **Résolution des problèmes** > **Scripts** > **TestECMA2HostConnection**. Exécutez le script. Ce script envoie une requête SCIM GET ou POST pour vérifier que l’hôte du connecteur ECMA fonctionne et répond aux requêtes. Il doit être exécuté sur le même ordinateur que le service d’hôte du connecteur ECMA proprement dit.
+ 3. Vérifiez que l’agent est actif en accédant à votre application dans le portail Azure, en sélectionnant **connectivité administrateur**, en sélectionnant la liste déroulante des agents, puis en vérifiant que votre agent est actif.
+ 4. Vérifiez si le jeton secret fourni est identique au jeton secret local. Accédez à l’environnement local, fournissez à nouveau le jeton secret, puis copiez-le dans le portail Azure.
+ 5. Vérifiez que vous avez attribué au moins un agent à l’application dans le portail Azure.
+ 6. Après avoir attribué un agent, vous devez attendre de 10 à 20 minutes pour finaliser l’inscription. Le test de connectivité ne fonctionne pas tant que l’inscription n’est pas terminée.
+ 7. Veillez à utiliser un certificat valide. Accédez à l’onglet **Paramètres** de l’hôte ECMA pour générer un nouveau certificat.
+ 8. Redémarrez l’agent de provisionnement en accédant à la barre des tâches sur votre machine virtuelle, en recherchant l’agent de provisionnement Microsoft Azure AD Connect. Cliquez avec le bouton droit sur **Arrêter**, puis sélectionnez **Démarrer**.
+ 9. Lorsque vous fournissez l’URL du locataire dans le portail Azure, veillez à ce qu’il respecte le modèle suivant. Vous pouvez remplacer `localhost` par votre nom d’hôte, mais cela n’est pas obligatoire. Remplacez `connectorName` par le nom du connecteur que vous avez spécifié dans l’hôte ECMA. Le message d’erreur « ressource non valide » indique généralement que l’URL ne respecte pas le format attendu.
  
     ```
     https://localhost:8585/ecma2host_connectorName/scim
@@ -125,6 +125,13 @@ Une fois le mappage du schéma d’hôte de connecteur ECMA configuré, démarre
   1. Dans l’**Observateur d’événements**, développez les journaux **Applications et services**, puis sélectionnez **Journaux Microsoft ECMA2Host**. 
   1. À mesure que les modifications sont reçues par l’hôte du connecteur, les événements sont écrits dans le journal des applications. 
 
+### <a name="common-errors"></a>Erreurs courantes
+
+| Error      | Résolution |
+| ----------- | ----------- |
+| Impossible de charger le fichier ou l’assembly « 'file:///C:\Program Files\Microsoft ECMA2Host\Service\ECMA\Cache\8b514472-c18a-4641-9a44-732c296534e8\Microsoft.IAM.Connector.GenericSql.dll » ou l’une de ses dépendances. L’accès est refusé.      | Assurez-vous que le compte de service réseau dispose des autorisations « contrôle total » sur le dossier du cache. |
+| Style LDAP non valide du DN de l’objet. DN : username@domain.com »   | Vérifiez que la case « DN est une ancre » n’est pas cochée dans la page « Connectivité » de l’hôte ECMA. Vérifiez que la case « généré automatiquement » est cochée dans la page « Types d’objets » de l’hôte ECMA.  Consultez [À propos des attributs d’ancre et des noms uniques](on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names) pour plus d’informations.|
+
 ## <a name="understand-incoming-scim-requests"></a>Comprendre les requêtes SCIM entrantes
 
 Les requêtes effectuées par Azure AD à l’agent d’approvisionnement et à l’hôte du connecteur utilisent le protocole SCIM. Les requêtes effectuées de l’hôte vers des applications utilisent le protocole pris en charge par l’application. Les requêtes de l’hôte à l’agent pour Azure AD s’appuient sur SCIM. Pour en savoir plus sur l’implémentation de SCIM, consultez [Tutoriel : Développer et planifier le provisionnement d’un point de terminaison SCIM dans Azure Active Directory](use-scim-to-provision-users-and-groups.md).
@@ -145,10 +152,10 @@ Ce problème est généralement dû à une stratégie de groupe qui a empêché 
 
 Pour résoudre ce problème :
 
-1. Connectez-vous au serveur avec un compte Administrateur.
-1. Ouvrez **Services** en y accédant ou en accédant à **Démarrer** > **Exécuter** > **Services.msc**.
-1. Sous **Services**, double-cliquez sur **Agent de provisionnement Microsoft Azure AD Connect**.
-1. Sous l’onglet **Ouvrir une session**, remplacez **ce compte** par celui d’un administrateur de domaine. Ensuite, redémarrez le service. 
+ 1. Connectez-vous au serveur avec un compte Administrateur.
+ 2. Ouvrez **Services** en y accédant ou en accédant à **Démarrer** > **Exécuter** > **Services.msc**.
+ 3. Sous **Services**, double-cliquez sur **Agent de provisionnement Microsoft Azure AD Connect**.
+ 4. Sous l’onglet **Ouvrir une session**, remplacez **ce compte** par celui d’un administrateur de domaine. Ensuite, redémarrez le service. 
 
 Ce test vérifie que vos agents peuvent communiquer avec Azure via le port 443. Ouvrez un navigateur et accédez à l’URL précédents à partir du serveur sur lequel l’agent est installé.
 
@@ -188,8 +195,8 @@ Par défaut, l’agent émet peu de messages d’erreur et d’informations sur 
 
 Pour recueillir davantage d’informations afin de résoudre les problèmes liés à l’agent :
 
-1. Installez le module PowerShell AADCloudSyncTools comme décrit dans [Module PowerShell AADCloudSyncTools pour la synchronisation cloud Azure AD Connect](../../active-directory/cloud-sync/reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
-1. Utilisez l’applet de commande PowerShell `Export-AADCloudSyncToolsLogs` pour capturer les informations. Utilisez les commutateurs suivants pour affiner votre collecte de données. Utilisez :
+ 1. Installez le module PowerShell AADCloudSyncTools comme décrit dans [Module PowerShell AADCloudSyncTools pour la synchronisation cloud Azure AD Connect](../../active-directory/cloud-sync/reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
+ 2. Utilisez l’applet de commande PowerShell `Export-AADCloudSyncToolsLogs` pour capturer les informations. Utilisez les commutateurs suivants pour affiner votre collecte de données. Utilisez :
 
       - **SkipVerboseTrace** pour exporter uniquement les journaux actuels sans capturer les journaux détaillés (par défaut = false).
       - **TracingDurationMins** pour spécifier une durée de capture différente (par défaut = 3 minutes).
@@ -211,6 +218,12 @@ Azure AD vous permet de superviser le service de provisionnement dans le cloud 
 
   ```
 
+### <a name="i-am-getting-an-invalid-ldap-style-dn-error-when-trying-to-configure-the-ecma-connector-host-with-sql"></a>J’obtiens une erreur de DN de style LDAP non valide lors de la tentative de configuration de l’hôte connecteur ECMA avec SQL
+Par défaut, le connecteur genericSQL s’attend à ce que le DN soit rempli à l’aide du style LDAP (lorsque l’attribut « DN est une ancre » n’est pas activé dans la première page de connectivité). Dans le message d’erreur ci-dessus, vous pouvez voir que le DN est un UPN, plutôt qu’un DN de style LDAP attendu par le connecteur. 
+
+Pour résoudre cette erreur, vérifiez que **généré automatiquement** est sélectionné sur la page Types d’objets lorsque vous configurez le connecteur.
+
+Consultez [À propos des attributs d’ancre et des noms uniques](on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names) pour plus d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

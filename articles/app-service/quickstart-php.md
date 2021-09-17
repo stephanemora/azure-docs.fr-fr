@@ -3,14 +3,14 @@ title: 'Démarrage rapide : Créer une application web PHP'
 description: Déployez votre premier programme Hello World PHP dans Azure App Service en quelques minutes. Vous effectuez le déploiement avec Git, qui figure parmi les nombreuses façons de déployer vers App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
-ms.date: 08/01/2020
+ms.date: 05/02/2021
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c04e1b33233abebde746fd7fb1ef8d761dba7e4e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 94d863dfcc3b6fd8b1d316994541ea61fd32c080
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788202"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121784872"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Créer une application web PHP dans Azure App Service
 
@@ -39,28 +39,37 @@ Pour suivre ce guide de démarrage rapide :
 
 ## <a name="download-the-sample-locally"></a>Téléchargez l’exemple localement
 
-Exécutez les commandes suivantes dans une fenêtre de terminal. Cette action va cloner l’exemple d’application sur votre ordinateur local et vous faire accéder au répertoire contenant l’exemple de code. 
+1. Exécutez les commandes suivantes dans une fenêtre de terminal. Cette action va cloner l’exemple d’application sur votre ordinateur local et vous faire accéder au répertoire contenant l’exemple de code. 
 
-```bash
-git clone https://github.com/Azure-Samples/php-docs-hello-world
-cd php-docs-hello-world
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/php-docs-hello-world
+    cd php-docs-hello-world
+    ```
+    
+1. Assurez-vous que la branche par défaut est `main`.
 
+    ```bash
+    git branch -m main
+    ```
+    
+    > [!TIP]
+    > La modification du nom de la branche n’est pas requise par App Service. Toutefois, étant donné que de nombreux référentiels remplacent leur branche par défaut par `main`, ce guide de démarrage rapide vous montre également comment déployer un référentiel à partir de `main`.
+    
 ## <a name="run-the-app-locally"></a>Exécutez l’application localement.
 
-Exécutez l’application localement pour voir à quoi elle devrait ressembler lorsque vous la déploierez sur Azure. Ouvrez une fenêtre de terminal et utilisez la commande `php` pour lancer le serveur web PHP intégré.
+1. Exécutez l’application localement pour voir à quoi elle devrait ressembler lorsque vous la déploierez sur Azure. Ouvrez une fenêtre de terminal et utilisez la commande `php` pour lancer le serveur web PHP intégré.
 
-```bash
-php -S localhost:8080
-```
+    ```bash
+    php -S localhost:8080
+    ```
+    
+1. Ouvrez un navigateur web et accédez à l’application exemple à l’adresse `http://localhost:8080`.
 
-Ouvrez un navigateur web et accédez à l’application exemple à l’adresse `http://localhost:8080`.
-
-Vous voyez apparaître sur la page le message **Hello World !** de l’exemple d’application.
-
-![Exemple d’application s’exécutant localement](media/quickstart-php/localhost-hello-world-in-browser.png)
-
-Dans la fenêtre de terminal, appuyez sur **Ctrl + C** pour quitter le serveur web.
+    Vous voyez apparaître sur la page le message **Hello World !** de l’exemple d’application.
+    
+    ![Exemple d’application s’exécutant localement](media/quickstart-php/localhost-hello-world-in-browser.png)
+    
+1. Dans la fenêtre de terminal, appuyez sur **Ctrl + C** pour quitter le serveur web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -74,84 +83,77 @@ Dans la fenêtre de terminal, appuyez sur **Ctrl + C** pour quitter le serveur
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
 ::: zone-end
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## <a name="create-a-web-app"></a>Créer une application web
 
-Dans Cloud Shell, créez une application web dans le plan App Service `myAppServicePlan` avec la commande [`az webapp create`](/cli/azure/webapp#az_webapp_create). 
+1. Dans Cloud Shell, créez une application web dans le plan App Service `myAppServicePlan` avec la commande [`az webapp create`](/cli/azure/webapp#az_webapp_create). 
 
-Dans l’exemple suivant, remplacez `<app-name>` par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Le runtime est défini sur `PHP|7.4`. Pour voir tous les runtimes, exécutez [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes). 
+    Dans l’exemple suivant, remplacez `<app-name>` par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Le runtime est défini sur `PHP|7.4`. Pour voir tous les runtimes, exécutez [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes). 
 
-```azurecli-interactive
-# Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
-```
+    ```azurecli-interactive
+    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'PHP|7.4' --deployment-local-git
+    ```
+    
+    Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :
 
-> [!NOTE]
-> Le symbole d’arrêt de l’analyse `(--%)`, introduit dans PowerShell 3.0, indique à PowerShell de s’abstenir d’interpréter l’entrée comme des commandes ou des expressions PowerShell.
->
+    <pre>
+    Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
+    {
+      "availabilityState": "Normal",
+      "clientAffinityEnabled": true,
+      "clientCertEnabled": false,
+      "cloningInfo": null,
+      "containerSize": 0,
+      "dailyMemoryTimeQuota": 0,
+      "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+      "enabled": true,
+      &lt; JSON data removed for brevity. &gt;
+    }
+    </pre>
+    
+    Vous avez créé une application web vide, avec le déploiement Git activé.
 
-Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :
+    > [!NOTE]
+    > L’URL du Git distant est indiquée dans la propriété `deploymentLocalGitUrl`, avec le format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Enregistrez cette URL, car vous en aurez besoin ultérieurement.
+    >
 
-<pre>
-Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
-  "enabled": true,
-  &lt; JSON data removed for brevity. &gt;
-}
-</pre>
+1. Accédez à votre nouvelle application web. Remplacez _&lt;app-name>_ par votre nom d’application unique créé à l’étape précédente.
 
-Vous avez créé une application web vide, avec le déploiement Git activé.
+    ```bash
+    http://<app-name>.azurewebsites.net
+    ```
 
-> [!NOTE]
-> L’URL du Git distant est indiquée dans la propriété `deploymentLocalGitUrl`, avec le format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Enregistrez cette URL, car vous en aurez besoin ultérieurement.
->
+    Voici à quoi doit ressembler votre nouvelle application web :
 
-Accédez à votre nouvelle application web. Remplacez _&lt;app-name>_ par votre nom d’application unique créé à l’étape précédente.
-
-```bash
-http://<app-name>.azurewebsites.net
-```
-
-Voici à quoi doit ressembler votre nouvelle application web :
-
-![Page d’application web vide](media/quickstart-php/app-service-web-service-created.png)
+    ![Page d’application web vide](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
-<pre>
-Counting objects: 2, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
-remote: Updating branch 'main'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.php'
-remote: Ignoring: .git
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
-   cc39b1e..25f1805  main -> main
-</pre>
+  <pre>
+  Counting objects: 2, done.
+  Delta compression using up to 4 threads.
+  Compressing objects: 100% (2/2), done.
+  Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
+  Total 2 (delta 1), reused 0 (delta 0)
+  remote: Updating branch 'main'.
+  remote: Updating submodules.
+  remote: Preparing deployment for commit id '25f18051e9'.
+  remote: Generating deployment script.
+  remote: Running deployment command...
+  remote: Handling Basic Web Site deployment.
+  remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+  remote: Copying file: '.gitignore'
+  remote: Copying file: 'LICENSE'
+  remote: Copying file: 'README.md'
+  remote: Copying file: 'index.php'
+  remote: Ignoring: .git
+  remote: Finished successfully.
+  remote: Running post deployment command(s)...
+  remote: Deployment successful.
+  To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+      cc39b1e..25f1805  main -> main
+  </pre>
 
 ## <a name="browse-to-the-app"></a>Accéder à l’application
 
@@ -169,22 +171,22 @@ L’exemple de code PHP s’exécute dans une application web Azure App Service.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Mettre à jour localement et redéployer le code
 
-À l’aide d’un éditeur de texte local, ouvrez le fichier `index.php` dans l’application PHP et modifiez une petite partie du texte contenu dans la chaîne en regard de l’élément `echo` :
+1. À l’aide d’un éditeur de texte local, ouvrez le fichier `index.php` dans l’application PHP et modifiez une petite partie du texte contenu dans la chaîne en regard de l’élément `echo` :
 
-```php
-echo "Hello Azure!";
-```
+    ```php
+    echo "Hello Azure!";
+    ```
 
-Dans la fenêtre du terminal local, validez vos modifications dans Git, puis envoyez les modifications de code à Azure.
+1. Dans la fenêtre du terminal local, validez vos modifications dans Git, puis envoyez les modifications de code à Azure.
 
-```bash
-git commit -am "updated output"
-git push azure main
-```
+    ```bash
+    git commit -am "updated output"
+    git push azure main
+    ```
 
-Une fois le déploiement terminé, revenez à la fenêtre du navigateur que vous avez ouverte à l’étape **Accéder à l’application**, puis actualisez la page.
+1. Une fois le déploiement terminé, revenez à la fenêtre du navigateur que vous avez ouverte à l’étape **Accéder à l’application**, puis actualisez la page.
 
-![Mise à jour de l’exemple d’application s’exécutant dans Azure](media/quickstart-php/hello-azure-in-browser.png)
+    ![Mise à jour de l’exemple d’application s’exécutant dans Azure](media/quickstart-php/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-app"></a>Gérer votre nouvelle application Azure
 

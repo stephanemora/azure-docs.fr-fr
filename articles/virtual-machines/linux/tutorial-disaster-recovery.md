@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b5e83f883b5e1e35842ab128e4732e993fb937a0
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: ff3c4dc893a6760c317b39b4a76f4de2e24da96e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383648"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690902"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-linux-virtual-machines"></a>Tutoriel : Configurer la reprise d’activité après sinistre pour les machines virtuelles Linux
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 Ce tutoriel explique comment configurer la reprise d’activité après sinistre pour les machines virtuelles Azure qui exécutent Linux. Dans cet article, découvrez comment :
 

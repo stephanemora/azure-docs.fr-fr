@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: a0c0c04d33c994279fe15a8fe7f677b2c25a55de
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 034acde1f99409ef7d541d7705bb995e0db00d3b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166034"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689101"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Attestation FPGA pour les machines virtuelles de la série Azure NP (préversion)
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Le service d’attestation FPGA effectue une série de validations sur un fichier de point de contrôle de conception (appelé « netlist ») généré par l’ensemble d’outils Xilinx et produit un fichier qui contient l’image validée (appelée « flux binaire ») qui peut être chargée sur la carte FPGA Xilinx U250 dans une machine virtuelle de série NP.  
 

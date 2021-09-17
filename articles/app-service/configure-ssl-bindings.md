@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c67dfe6295a62a464d1a7a5eeb7a9ba7afd88ced
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: 717c9595a9fbda39583be0be5bc6565d2938dc63
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113128765"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823365"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service
 
@@ -154,6 +154,17 @@ Une fois l’opération terminée, votre application rejette toutes les connexio
 Dans App Service, un [arrêt TLS](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit vérifier si les requêtes utilisateur sont chiffrées ou non, inspectez l’en-tête `X-Forwarded-Proto`.
 
 Des guides de configuration spécifiques au langage tels que le [guide de configuration Linux Node.js](configure-language-nodejs.md#detect-https-session) vous montrent comment détecter une session HTTPS dans le code de votre application.
+
+## <a name="renew-certificate-binding"></a>Renouveler la liaison de certificats
+
+> [!NOTE]
+> Pour renouveler un [certificat App Service acheté](configure-ssl-certificate.md#import-an-app-service-certificate), consultez [Exporter un certificat (App Service)](configure-ssl-certificate.md#export-certificate). Les certificats App Service peuvent être automatiquement renouvelés et la liaison peut être automatiquement synchronisée.
+
+Pour remplacer un certificat arrivant à expiration, la façon dont vous mettez à jour la liaison de certificat avec le nouveau certificat peut nuire à l’expérience utilisateur. Par exemple, votre adresse IP entrante peut être modifiée lorsque vous supprimez une liaison, même si cette liaison repose sur une adresse IP. Cela est particulièrement important lorsque vous renouvelez un certificat qui se trouve déjà dans une liaison reposant sur une adresse IP. Pour éviter une modification de l’adresse IP de votre application et éviter les temps d’arrêt de votre application, procédez comme suit dans l’ordre :
+
+1. Chargez le nouveau certificat.
+2. Liez le nouveau certificat au même domaine personnalisé sans supprimer le certificat existant (arrivant à expiration). Cette action remplace la liaison plutôt que de supprimer le certificat existant.
+3. Supprimez le certificat existant.
 
 ## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
 

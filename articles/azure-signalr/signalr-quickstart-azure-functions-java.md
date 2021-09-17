@@ -10,12 +10,12 @@ ms.devlang: java
 ms.custom:
 - devx-track-java
 - mode-api
-ms.openlocfilehash: fdcc8b9355556804b2f13fccd206eb13ac7c0cb6
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: c5f363ce78724ed569ec3ab24cd6c1fa640954e2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462052"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444429"
 ---
 # <a name="quickstart-use-java-to-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service"></a>Démarrage rapide : Utiliser Java pour créer une application qui indique le nombre d’étoiles GitHub avec Azure Functions et SignalR Service
 
@@ -140,7 +140,7 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
             HttpResponse<String> res = client.send(req, BodyHandlers.ofString());
             Gson gson = new Gson();
             GitResult result = gson.fromJson(res.body(), GitResult.class);
-            return new SignalRMessage("newMessage", "Current start count of https://github.com/Azure/azure-signalr is:".concat(result.stargazers_count));
+            return new SignalRMessage("newMessage", "Current star count of https://github.com/Azure/azure-signalr is:".concat(result.stargazers_count));
         }
     
         class GitResult {
@@ -228,9 +228,9 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
     1. Copiez la chaîne de connexion principale. Puis exécutez la commande ci-dessous.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         # Also we need to set AzureWebJobsStorage as Azure Function's requirement
-        func settings add AzureWebJobsStorage 'UseDevelopmentStorage=true'
+        func settings add AzureWebJobsStorage "UseDevelopmentStorage=true"
         ```
     
 6. Exécutez la fonction Azure en local :
@@ -240,7 +240,7 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
     mvn azure-functions:run
     ```
 
-    Après l’exécution locale de la fonction Azure, utilisez votre navigateur pour accéder à l’adresse `http://localhost:7071/api/index` et voir le nombre actuel d’étoiles. Si vous ajoutez ou supprimez une étoile sur le site GitHub, le nombre d’étoiles sera actualisé toutes les quelques secondes.
+    Après l’exécution locale de la fonction Azure, Utilisez votre navigateur pour accéder à l’adresse `http://localhost:7071/api/index` et voir le nombre actuel d’étoiles. Si vous ajoutez ou supprimez une étoile sur le site GitHub, le nombre d’étoiles est actualisé régulièrement au bout de quelques secondes.
 
     > [!NOTE]
     > La liaison SignalR nécessite Stockage Azure, mais vous pouvez utiliser l’émulateur de stockage local lorsque la fonction est exécutée localement.

@@ -1,20 +1,22 @@
 ---
-title: Configurer la reprise d’activité après sinistre des machines virtuelles VMware sur Azure à l’aide d’Azure Site Recovery
-description: Découvrez comment configurer la récupération d’urgence de machines virtuelles VMware locales vers Azure avec Azure Site Recovery.
+title: Configurer la reprise d’activité après sinistre des machines virtuelles VMware sur Azure à l’aide d’Azure Site Recovery – Classique
+description: Découvrez comment configurer la récupération d’urgence de machines virtuelles VMware locales vers Azure avec Azure Site Recovery – Classique.
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.custom: MVC
-ms.openlocfilehash: 6044de81253b9069631ff3cdae687d90a0287fea
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 8f53f7598b58e46e8020275cdf96e339c69c857a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580580"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446439"
 ---
-# <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
+# <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms---classic"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales – Classique
 
-Cet article explique comment activer la réplication des machines virtuelles VMware locales pour permettre la reprise d’activité sur Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
+Cet article explique comment activer la réplication des machines virtuelles VMware locales pour permettre la reprise d’activité sur Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md) – Classique.
+
+Pour plus d’informations sur la récupération d’urgence dans Azure Site Recovery Préversion, consultez [cet article](vmware-azure-set-up-replication-tutorial-preview.md)
 
 Il s’agit du troisième tutoriel d’une série qui montre comment configurer la reprise d’activité sur Azure pour des machines virtuelles VMware locales. Dans le tutoriel précédent, nous avons [préparé l’environnement VMware local](vmware-azure-tutorial-prepare-on-premises.md) à la reprise d’activité sur Azure.
 

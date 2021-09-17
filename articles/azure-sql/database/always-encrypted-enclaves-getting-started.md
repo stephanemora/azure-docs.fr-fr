@@ -10,12 +10,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 07/14/2021
-ms.openlocfilehash: dd8fc18b8f24a6164830dda6044c1b03151eb180
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 31c9f128c1e98ce3b5a3e6a50f11e4afea33ecbc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727343"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747666"
 ---
 # <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>Tutoriel : Bien démarrer avec Always Encrypted avec enclaves sécurisées dans Azure SQL Database
 
@@ -125,7 +125,7 @@ Au cours de cette étape, vous allez créer un nouveau serveur logique Azure SQL
    ```PowerShell
    Connect-AzAccount
    $subscriptionId = "<your subscription ID>"
-   Set-AzContext -Subscription $subscriptionId
+   $context = Set-AzContext -Subscription $subscriptionId
    ```
 
 1. Créer un groupe de ressources
@@ -253,8 +253,17 @@ Dans cette étape, vous allez créer et configurer un fournisseur d’attestatio
    $attestationProviderName = "<your attestation provider name>" 
    New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
    ```
+1. Attribuez-vous au rôle Contributeur d’attestation pour le fournisseur l’attestation, pour vous assurer que vous disposez des autorisations nécessaires pour configurer une stratégie d’attestation.
 
-1. Configurez la stratégie d’attestation.
+   ```powershell
+   New-AzRoleAssignment -SignInName $context.Account.Id `
+    -RoleDefinitionName "Attestation Contributor" `
+    -ResourceName $attestationProviderName `
+    -ResourceType "Microsoft.Attestation/attestationProviders" `
+    -ResourceGroupName $resourceGroupName
+   ```
+   
+3. Configurez la stratégie d’attestation.
   
    ```powershell
    $policyFile = "<the pathname of the file from step 1 in this section>"

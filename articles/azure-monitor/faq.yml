@@ -3,16 +3,17 @@ metadata:
   title: FAQ Azure Monitor | Microsoft Docs
   description: Réponses aux questions fréquemment posées sur Azure Monitor.
   services: azure-monitor
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: azure-monitor
   author: bwren
   ms.author: bwren
   ms.date: 10/08/2020
-  ms.openlocfilehash: 8493312bcb15e2358191fb0aa6f0c0236961a446
-  ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
+  ms.openlocfilehash: 280a020b66ce20f8efdf124b92afa24bab0c9c13
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/12/2021
-  ms.locfileid: "113616364"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252825"
 title: Questions fréquemment posées sur Azure Monitor
 summary: >
   Cette FAQ Microsoft est une liste de questions fréquemment posées sur Azure Monitor. Si vous avez d’autres questions, rendez-vous sur le [forum de discussion](/answers/questions/topics/single/24223.html) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -106,7 +107,7 @@ sections:
   - question: >
       Le stockage Log Analytics est-il immuable ?
     answer: >
-      Les données du stockage de base de données ne sont pas modifiables une fois ingérées, mais sont supprimables par le [chemin de l’API *purge* pour la suppression de données privées](./logs/personal-data-mgmt.md#delete). Bien que les données ne soient pas modifiables, certaines certifications exigent qu’elles soient immuables et ne puissent être ni modifiées ni supprimées dans le stockage. L’immuabilité des données peut être obtenue à l’aide de [l’exportation de données](./logs/logs-data-export.md) dans un compte de stockage configuré comme [stockage immuable](../storage/blobs/storage-blob-immutability-policies-manage.md).
+      Les données du stockage de base de données ne sont pas modifiables une fois ingérées, mais sont supprimables par le [chemin de l’API *purge* pour la suppression de données privées](./logs/personal-data-mgmt.md#delete). Bien que les données ne soient pas modifiables, certaines certifications exigent qu’elles soient immuables et ne puissent être ni modifiées ni supprimées dans le stockage. L’immuabilité des données peut être obtenue à l’aide de [l’exportation de données](./logs/logs-data-export.md) dans un compte de stockage configuré comme [stockage immuable](../storage/blobs/immutable-policy-configure-version-scope.md).
   - question: >
       Qu'est-ce qu'un espace de travail Log Analytics ?
     answer: >
@@ -207,20 +208,21 @@ sections:
 
       Spécifiez un [groupe d’actions](alerts/action-groups.md) nouveau ou existant afin que l’alerte de journal corresponde aux critères, vous êtes informé si vous disposez d’une pulsation manquante pendant plus de 15 minutes.
   - question: >
-      Quelles sont les exigences en matière de pare-feu des agents Azure Monitor ?
+      Quelles sont les exigences en matière de pare-feu des agents Log Analytics ?
     answer: >
       Pour plus d'informations sur les exigences liées au pare-feu, consultez [Configuration requise du pare-feu réseau](agents/log-analytics-agent.md#network-requirements).
 - name: Agent Azure Monitor
   questions:
   - question: >
       Quel est le chemin de mise à niveau à partir des agents Log Analytics vers l’agent Azure Monitor ? Comment effectuer la migration ?
-    answer: "Il n’existe actuellement aucun chemin de « mise à jour automatique », car cela implique la désinstallation complète des agents existants sur vos ordinateurs et l’installation du nouvel agent. Les clients doivent donc planifier la migration au moment le plus approprié en fonction de la parité des fonctionnalités.\nLa raison la plus importante est qu’avec le nouvel agent, la configuration de la collecte de données est beaucoup plus simple, centralisée et configurable pour les sous-ensembles d’ordinateurs connectés à la même ou à plusieurs destinations **à l’aide de la puissance des règles de collecte des données, ce qui dépasse de nombreuses limites liées à la configuration de l’agent Log Analytics existant**.\n\n**Par conséquent, nous vous recommandons d’examiner vos besoins en matière de collecte des données de manière holistique et de créer des règles de collecte des données appropriées, puis d’effectuer la mise à jour de l’agent pour accéder à cette nouvelle configuration**. Pour ce faire, vous pouvez suivre les instructions relatives au déploiement à grande échelle. \n"
+    answer: >
+      Consultez [Migration à partir de l’agent Log Analytics](./agents/azure-monitor-agent-migration.md)
   - question: >
-      Quel est le chemin de mise à niveau à partir de l’agent Log Analytics (MMA) vers l’agent Azure Monitor (AMA) pour le monitoring SCOM ? Pouvons-nous utiliser AMA pour les scénarios SCOM ?
-    answer: "Voici l’impact d’AMA sur les deux scénarios de supervision associés à SCOM :\n- **Scénario 1** : pour superviser le système d’exploitation Windows de SCOM, le chemin de mise à niveau est identique à celui de tout autre ordinateur, où vous pouvez migrer à partir de MMA (versions 2016, 2019) vers AMA dès que vos fonctionnalités de parité requises sont disponibles sur AMA.\n- **Scénario 2** : pour l’intégration/la connexion de SCOM aux espaces de travail Log Analytics, étant donné que cette option est activée via un connecteur SCOM pour Log Analytics/Azure Monitor, ni MMA, ni AMA ne doit être installé sur le serveur d’administration SCOM. De ce fait, il n’y a aucun impact sur ce cas d’usage du point de vue d’AMA.  \n\n> [!NOTE] \n> Vous pouvez exécuter les deux scénarios ci-dessus avec MMA et AMA côte à côte sans aucun impact.\n"
+      Quel est le chemin de mise à niveau à partir de l’agent Log Analytics (MMA) vers l’agent Azure Monitor (AMA) pour le monitoring System Center Operations Manager (SCOM) ? Pouvons-nous utiliser AMA pour les scénarios SCOM ?
+    answer: "Voici comment l’agent Azure Monitor affecte les deux scénarios de surveillance associés à System Center Operations Manager (SCOM) :\n- **Scénario 1** : pour superviser le système d’exploitation Windows de SCOM, le chemin de mise à niveau est identique à celui de tout autre ordinateur, où vous pouvez migrer à partir de MMA (versions 2016, 2019) vers AMA dès que vos fonctionnalités de parité requises sont disponibles sur AMA.\n- **Scénario 2** : pour l’intégration/la connexion de SCOM aux espaces de travail Log Analytics, étant donné que cette option est activée via un connecteur SCOM pour Log Analytics/Azure Monitor, ni MMA, ni AMA ne doit être installé sur le serveur d’administration SCOM. De ce fait, il n’y a aucun impact sur ce cas d’usage du point de vue d’AMA.  \n\n> [!NOTE] \n> Vous pouvez exécuter les deux scénarios ci-dessus avec MMA et AMA côte à côte sans aucun impact.\n"
   - question: >
-      Le nouvel agent Azure Monitor prend-il en charge la collecte des données pour les diverses solutions Log Analytics ?
-    answer: "Ce que vous connaissez en tant que solutions ou packs d’administration sont maintenant des extensions de machine virtuelle qui utilisent l’extension de l’agent Azure Monitor pour envoyer des données à Azure Monitor. Lorsque vous activez une solution sur AMA, vous voyez une extension de machine virtuelle supplémentaire installée, si applicable.\nAu fil du temps, AMA sera le seul agent qui charge des données vers Azure Monitor (ou des destinations supplémentaires prises en charge). Les extensions de machine virtuelle spécifiques à la solution existent pour collecter des données spécifiques au scénario ou effectuer la transformation/le traitement selon les besoins, puis utilisent AMA pour acheminer les données finales vers Azure Monitor. \n\nVoici un diagramme expliquant la **nouvelle architecture d’extensibilité** :\n\n![Architecture des extensions](agents/media/azure-monitor-agent/extensibility-arch-new.png)\n"
+      Le nouvel agent Azure Monitor prend-il en charge la collecte de données pour les différentes solutions Log Analytics et les services Azure tels que Security Center, Sentinel, etc. ?
+    answer: "Consultez la liste des [extensions AMA actuellement disponibles en préversion](./agents/azure-monitor-agent-overview.md#supported-services-and-features). Il s’agit des mêmes solutions et services que ceux qui sont désormais disponibles avec le nouvel agent Azure Monitor. Des extensions supplémentaires peuvent être installées pour la solution/le service. Il s’agit de collecter des données supplémentaires ou d’effectuer la transformation/le traitement requis pour la solution/le service, puis d’utiliser AMA pour acheminer les données finales vers Azure Monitor. \n\nVoici un diagramme expliquant la **nouvelle architecture d’extensibilité** :\n\n![Architecture des extensions](agents/media/azure-monitor-agent/extensibility-arch-new.png)\n"
   - question: >
       Quelles solutions Log Analytics sont prises en charge sur le nouvel agent Azure Monitor ?
     answer: >
@@ -239,14 +241,14 @@ sections:
       Oui, c’est possible, mais en observant certaines considérations. En savoir plus [ici](agents/azure-monitor-agent-overview.md#coexistence-with-other-agents).
   - question: >
       Le nouvel agent Azure Monitor est-il équivalent aux agents existants ?
-    answer: "Il n’a pas encore atteint la parité complète avec les agents existants. Voici quelques lacunes principales :\n\n- **Comparaison avec les agents Log Analytics (MMA/OMS)**\n    -   Toutes les solutions Log Analytics ne sont pas prises en charge actuellement. Voir le tableau ci-dessus\n    -   Pas de prise en charge de Private Links \n    -   Pas de prise en charge des serveurs proxy ou de la passerelle Log Analytics (OMS)\n    -   Pas de prise en charge de la collecte des journaux personnalisés ou des journaux IIS\n    -   Pas de prise en charge des Runbook Workers hybrides\n\n- **Comparaison avec les extensions Azure Diagnostics (WAD/LAD)**\n    -   Pas de prise en charge d’Event Hubs et des comptes de stockage en tant que destinations\n"
+    answer: "Il n’a pas encore atteint la parité complète avec les agents existants. Voici quelques lacunes principales :\n\n- **Comparaison avec les agents Log Analytics (MMA/OMS)**\n    -   Toutes les solutions Log Analytics ne sont pas prises en charge actuellement. Voyez [ce qui est pris en charge](agents/azure-monitor-agent-overview.md#supported-services-and-features)\n    -   Pas de prise en charge de Private Links \n    -   Pas de prise en charge de la collecte des journaux personnalisés ou des journaux IIS\n\n- **Comparaison avec les extensions Azure Diagnostics (WAD/LAD)**\n    -   Pas de prise en charge d’Event Hubs et des comptes de stockage en tant que destinations\n"
   - question: >
       Le nouvel agent Azure Monitor prend-il en charge les environnements non-Azure (autres clouds, locaux) ?
     answer: >
-      Les machines locales et les machines connectées à d’autres clouds sont actuellement pris en charge pour les serveurs, une fois que l’agent Azure ARC est installé. Dans le cadre de l’exécution d’AMA et des DCR, l’exigence ARC **n’entraîne aucuns frais ou consommation de ressources supplémentaires**, puisque l’agent ARC n’est utilisé que comme mécanisme d’installation et n’effectue aucune opération, sauf si vous les activez
+      Les machines locales et les machines connectées à d’autres clouds sont actuellement prises en charge pour les serveurs, une fois que l’agent Azure Arc est installé. Dans le cadre de l’exécution d’AMA et des DCR, l’exigence ARC **n’entraîne aucuns frais ou consommation de ressources supplémentaires**, puisque l’agent ARC n’est utilisé que comme mécanisme d’installation et n’effectue aucune opération, sauf si vous les activez
   - question: >
       Quels sont les types de machines prises en charge par le nouvel agent Azure Monitor ?
-    answer: "Vous pouvez l’installer directement sur des machines virtuelles, des groupes de machines virtuelles identiques et des serveurs ARC uniquement. \n"
+    answer: "Vous pouvez l’installer directement sur des machines virtuelles, des groupes de machines virtuelles identiques et des serveurs Arc uniquement. \n"
   - question: >
       Est-il possible de filtrer les événements à l’aide de l’ID d’événement, c’est-à-dire un filtrage des événements plus granulaire à l’aide du nouvel agent Azure Monitor ?
     answer: "Oui. Vous pouvez utiliser des **requêtes Xpath** pour filtrer les événements sur les ordinateurs Windows. [En savoir plus](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)  \nPour les compteurs de performances, vous pouvez spécifier des compteurs spécifiques que vous souhaitez collecter et exclure ceux dont vous n’avez pas besoin.\nPour syslog sur Linux, vous pouvez choisir des installations et le niveau de journalisation pour chaque installation à collecter.\n"

@@ -8,14 +8,16 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: 0234d011b424f3a910c67947d524401a415cd313
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: e6ea151e7f8449a8dc3e86944fff4bcf55932784
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113593794"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770400"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Utiliser Azure Image Builder pour les machines virtuelles Linux autorisant l’accès à un réseau virtuel Azure existant
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cet article explique comment utiliser Azure Image Builder pour créer une image Linux personnalisée de base qui a accès aux ressources existantes sur un réseau virtuel. La machine virtuelle de build créée est déployée vers un réseau virtuel nouveau ou existant spécifié dans votre abonnement. Lorsque vous utilisez un réseau virtuel Azure existant, le service Azure Image Builder ne nécessite pas de connectivité de réseau public.
 
@@ -36,7 +38,7 @@ location=WestUS2
 
 # your subscription
 # get the current subID : 'az account show | grep id'
-subscriptionID=$(az account show | grep id | tr -d '",' | cut -c7-)
+subscriptionID=$(az account show --query id --output tsv)
 
 # name of the image to be created
 imageName=aibCustomLinuxImg01
@@ -159,7 +161,7 @@ idenityName=aibBuiUserId$(date +'%s')
 az identity create -g $imageResourceGroup -n $idenityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 05/24/2021
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 0c577a316e5034e4a21599b0806be534c5f6888a
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: ab994a49ed81a13eeb018d39d2f1d8be7eaee733
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697783"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741615"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutoriel : Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)
 
@@ -101,14 +101,21 @@ Kubernetes prend en charge la [mise à l’échelle automatique des pods horizon
 > kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
-Pour utiliser la mise à l’échelle automatique, tous les conteneurs de vos pods et vos pods doivent avoir des demandes et limites de processeur définies. Dans le déploiement `azure-vote-front`, le conteneur front-end demande déjà 0,25 processeur, avec une limite de 0,5 processeur. Ces demandes et limites de ressources sont définies comme indiqué dans l’exemple d’extrait suivant :
+Pour utiliser la mise à l’échelle automatique, tous les conteneurs de vos pods et vos pods doivent avoir des demandes et limites de processeur définies. Dans le déploiement `azure-vote-front`, le conteneur front-end demande déjà 0,25 processeur, avec une limite de 0,5 processeur.
+
+Ces limites et demandes de ressources sont définies pour chaque conteneur comme indiqué dans l’exemple d’extrait suivant :
 
 ```yaml
-resources:
-  requests:
-     cpu: 250m
-  limits:
-     cpu: 500m
+  containers:
+  - name: azure-vote-front
+    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+    ports:
+    - containerPort: 80
+    resources:
+      requests:
+        cpu: 250m
+      limits:
+        cpu: 500m
 ```
 
 L’exemple suivant utilise la commande [kubectl autoscale][kubectl-autoscale] pour effectuer un scaling automatique du nombre de pods dans le déploiement *azure-vote-front*. Si l’utilisation moyenne du processeur sur tous les pods dépasse 50 % de l’utilisation demandée, l’outil de mise à l’échelle automatique (ou « autoscaler ») fait passer le nombre de pods à *10* instances, au maximum. Un minimum de *3* instances est ensuite défini pour le déploiement :

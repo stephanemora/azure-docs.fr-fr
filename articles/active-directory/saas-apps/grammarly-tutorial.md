@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 8d947fa0d9566eae712a4b41c1c7280f6f5f22c3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e65399c363fe5afc3c233e32b3a1e606ff272f61
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145918"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182980"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grammarly"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Grammarly
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Grammarly prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
+* Slack prend en charge [l’attribution d’utilisateurs et la suppression des privilèges d’accès **automatisées** des utilisateurs](grammarly-provisioning-tutorial.md) (recommandé).
 * Grammarly prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
 > [!NOTE]

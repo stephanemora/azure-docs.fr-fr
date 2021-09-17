@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 29bd42bedb9c7aa70769236d95339a510ae9dfe9
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 4380b52489a483faf8063516cf2d3fd6af6b061d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487486"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726234"
 ---
 # <a name="quickstart-create-an-azure-migrate-project-using-an-arm-template"></a>Démarrage rapide : Créer un projet Azure Migrate à l’aide d’un modèle ARM
 
@@ -37,8 +37,6 @@ Si vous n’avez pas d’abonnement Azure actif, créez un [compte gratuit](http
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/migrate-project-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.migrate/migrate-project-create/azuredeploy.json":::
-
-
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -66,7 +64,7 @@ Pour vérifier que le projet Azure Migrate a été créé, utilisez le portail 
 
 
 1. Accédez à Azure Migrate en recherchant **Azure Migrate** dans la barre de recherche du portail Azure.
-2. Cliquez sur le bouton **Découvrir,** **Évaluer** et **Migrer** sous la vignette Windows, Linux et SQL Server.
+2. Cliquez sur le bouton **Découvrir,** **Évaluer** et **Migrer** sous la vignette Serveurs, bases de données et applications web.
 3. Sous **Abonnement Azure** et **Projet**, sélectionnez les valeurs spécifiées dans le déploiement.
 
 

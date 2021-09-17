@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : utiliser des règles d’automatisation dans Azure Sentinel'
+title: Utiliser des playbooks avec des règles d’automatisation dans Azure Sentinel
 description: Utilisez ce didacticiel pour vous aider à utiliser des playbooks en association avec des règles d’automatisation dans Azure Sentinel pour automatiser votre réponse aux incidents et corriger les menaces de sécurité.
 services: sentinel
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: a9411d044a8c176387d8b9900ca56a7512c4a0de
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 152b034fe5fd5571ec58c001a8befc98c84f4107
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112458323"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737550"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>Didacticiel : utiliser des règles d’automatisation dans Azure Sentinel
 
@@ -33,6 +33,10 @@ Ce didacticiel vous explique comment utiliser des playbooks en association avec 
 > * Créer un playbook
 > * Ajouter des actions à un playbook
 > * Joindre un playbook à une règle d’automatisation ou une règle d’analyse pour automatiser la réponse aux menaces
+
+> [!NOTE]
+> Ce tutoriel fournit des conseils de base pour une principale tâche client : la création d’une automatisation pour le triage des incidents. Pour plus d’informations, consultez la section **Guide pratique**, comme [Automatiser la réponse aux menaces à l’aide de playbooks dans Azure Sentinel](automate-responses-with-playbooks.md) et [Utilisation de déclencheurs et d’actions dans les playbooks Azure Sentinel](playbook-triggers-actions.md).
+>
 
 ## <a name="what-are-automation-rules-and-playbooks"></a>Que sont les règles d’automatisation et les playbooks ?
 
@@ -124,7 +128,7 @@ Chaque playbook doit démarrer avec un déclencheur. Le déclencheur définit l�
    Choisissez le déclencheur qui correspond au type de playbook que vous êtes en train de créer.
 
     > [!NOTE]
-    > N’oubliez pas que seuls les playbooks basés sur le **déclencheur d’incident** peuvent être appelés par des règles d’automatisation. Les playbooks basés sur le **déclencheur d’alerte** doivent être définis pour s’exécuter directement dans les [règles analytiques](tutorial-detect-threats-custom.md#set-automated-responses-and-create-the-rule). Ils peuvent également être exécutés manuellement.
+    > N’oubliez pas que seuls les playbooks basés sur le **déclencheur d’incident** peuvent être appelés par des règles d’automatisation. Les playbooks basés sur le **déclencheur d’alerte** doivent être définis pour s’exécuter directement dans les [règles analytiques](detect-threats-custom.md#set-automated-responses-and-create-the-rule). Ils peuvent également être exécutés manuellement.
     > 
     > Pour plus d’informations sur le déclencheur à utiliser, consultez [**Utiliser des déclencheurs et actions dans les playbooks Azure Sentinel**](playbook-triggers-actions.md)
 
@@ -205,7 +209,7 @@ Pour créer une tâche d'automatisation :
 
 ### <a name="respond-to-alerts"></a>Répondre aux alertes
 
-Vous utilisez un playbook pour répondre à une **alerte** en créant une **règle d’analyse** ou en modifiant une règle existante, qui s’exécute lors de la génération de l’alerte et en sélectionnant votre playbook en tant que réponse automatisée dans l' [Assistant règle d’analyse](tutorial-detect-threats-custom.md).
+Vous utilisez un playbook pour répondre à une **alerte** en créant une **règle d’analyse** ou en modifiant une règle existante, qui s’exécute lors de la génération de l’alerte et en sélectionnant votre playbook en tant que réponse automatisée dans l' [Assistant règle d’analyse](detect-threats-custom.md).
 
 1. À partir du panneau **Analytics** dans le menu de navigation Azure Sentinel, sélectionnez la règle d’analyse pour laquelle vous souhaitez automatiser la réponse, puis cliquez sur **Modifier** dans le volet d’informations.
 

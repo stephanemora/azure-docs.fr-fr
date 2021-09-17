@@ -11,17 +11,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f8f9357fff4773467dd93046ece8533514eb444
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01d6d1cffaa0ae9928c24015570f882036b1e783
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92313899"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771435"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Envoi de notifications multiplateformes avec Azure Notification Hubs
 
@@ -36,6 +36,9 @@ Cet article montre comment exploiter les modèles pour envoyer une notification 
 > Avec Notification Hubs, un appareil peut inscrire plusieurs modèles en utilisant la même balise. Dans ce cas, un message entrant qui cible cette balise déclenche l’envoi de plusieurs notifications à destination de l’appareil (une pour chaque modèle). Ce processus vous permet d’afficher un même message dans plusieurs notifications visuelles, par exemple, sous la forme d’un badge et d’une notification toast dans une application du Windows Store.
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>Envoyer des notifications multiplateformes à l’aide de modèles
+
+> [!NOTE]
+> Le Service de notifications push Microsoft (MPNS) est obsolète et n’est plus pris en charge.
 
 Cette section utilise l’exemple de code que vous avez créé dans le tutoriel [Envoyer des notifications à des utilisateurs spécifiques à l’aide d’Azure Notification Hubs]. Vous pouvez télécharger l’exemple complet sur [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 

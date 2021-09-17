@@ -10,14 +10,16 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ae5fddf35136046fae6d1dff9938700740bee01
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: cb089d643953848e1441bc3b1d6707e7e5f9d6fa
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113594694"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690673"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Utiliser Azure Image Builder pour les machines virtuelles Windows autorisant l’accès à un réseau virtuel Azure existant
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
 
 Cet article explique comment vous pouvez utiliser Azure Image Builder pour créer une image Windows personnalisée de base qui a accès aux ressources existantes sur un réseau virtuel. La machine virtuelle de build créée est déployée vers un réseau virtuel nouveau ou existant spécifié dans votre abonnement. Lorsque vous utilisez un réseau virtuel Azure existant, le service Azure Image Builder ne nécessite pas de connectivité de réseau public.
 

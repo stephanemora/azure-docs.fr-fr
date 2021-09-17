@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 04ee9f19f23d16af9070d3366981b0690ba9ef27
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 4aad194e1bfbd31cb31795ec4b6d21737800e06d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113093"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722566"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment rejoindre une conversation dans une réunion Teams à l’aide du kit SDK Conversation Azure Communication Services pour JavaScript.
 
@@ -22,15 +22,9 @@ Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub]
 *  [Déploiement Teams](/deployoffice/teams-install). 
 * [Application de conversation](../get-started.md) opérationnelle. 
 
-## <a name="enable-teams-interoperability"></a>Activer l’interopérabilité de Teams 
-
-Un utilisateur Communication Services qui rejoint une réunion Teams en tant qu’utilisateur invité ne peut accéder à la conversation de la réunion qu’après avoir rejoint l’appel de réunion Teams. Consultez la documentation [Interopérabilité de Teams](../../voice-video-calling/get-started-teams-interop.md) pour savoir comment ajouter un utilisateur Communication Services à un appel de réunion Teams.
-
-Vous devez être membre de l’organisation propriétaire des deux entités pour pouvoir utiliser cette fonctionnalité.
-
 ## <a name="joining-the-meeting-chat"></a>Participation à la conversation d’une réunion 
 
-Une fois l’interopérabilité de Teams activée, un utilisateur de Communication Services peut rejoindre l’appel Teams en tant qu’utilisateur externe à l’aide du kit de développement logiciel (SDK) Calling. En rejoignant l’appel, il est également ajouté comme participant à la conversation de la réunion, où il peut échanger des messages avec d’autres utilisateurs lors de l’appel. L’utilisateur n’aura pas accès aux messages de conversation qui ont été envoyés avant qu’il ne rejoigne l’appel. Pour participer à la réunion et commencer à converser, vous pouvez suivre les étapes suivantes.
+Un utilisateur de Communication Services peut participer à une réunion Teams en tant qu’utilisateur anonyme à l’aide du kit SDK Calling. En rejoignant la réunion, il est également ajouté comme participant à la conversation de la réunion, où il peut échanger des messages avec d’autres utilisateurs lors de la réunion. L’utilisateur n’aura pas accès aux messages de conversation envoyés avant qu’il rejoigne la réunion. Il ne pourra pas non plus envoyer ni recevoir des messages une fois la réunion terminée. Pour participer à la réunion et commencer à converser, vous pouvez suivre les étapes suivantes.
 
 ## <a name="create-a-new-nodejs-application"></a>Création d’une application Node.js
 

@@ -1,6 +1,6 @@
 ---
 title: Utiliser le portail pour déployer des machines virtuelles Azure Spot
-description: Découvrez comment utiliser Azure PowerShell pour déployer des machines virtuelles Spot et réaliser des économies sur les coûts.
+description: Comment utiliser le Portail pour déployer des machines virtuelles Spot
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: spot
@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 09/14/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 879a3e9b3d3f651a1dea17e76dba503cd2816b9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a80356cf7045fc079e71d429f89f3b4b0fff31ba
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098568"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694374"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-portal"></a>Déployer des machines virtuelles Azure Spot à l’aide du portail Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 L’utilisation de [machines virtuelles Azure Spot](spot-vms.md) vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure aura besoin de récupérer la capacité, l’infrastructure Azure supprimera les machines virtuelles Azure Spot. Les machines virtuelles Azure Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 

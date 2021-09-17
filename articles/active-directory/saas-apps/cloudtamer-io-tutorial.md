@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 07/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 407a6284c46eb6eef4057d98cef0f5e86a38bcea
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 6e19b051378bb068172d6356397ee16761611bae
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601819"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732231"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudtamerio"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec cloudtamer.io
 
@@ -74,6 +74,8 @@ Pour configurer et tester l'authentification SSO Azure AD auprès de cloudtamer
 
     ![Capture d’écran de la création d’IDMS.](./media/cloudtamer-io-tutorial/idms-creation.png)
 
+1. Sélectionnez **SAML 2.0** comme type d’IDMS.
+
 1. Laissez cet écran ouvert et copiez les valeurs de cet écran dans la configuration d’Azure AD.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -88,16 +90,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, collez l'**émetteur du fournisseur d’identité (ID d’entité)** de cloudtamer.io dans cette zone.
+    a. Dans la zone de texte **Identificateur**, collez **ÉMETTEUR DU FOURNISSEUR DE SERVICES (ID D’ENTITÉ)** de cloudtamer.io dans cette zone.
 
     b. Dans la zone de texte **URL de réponse**, collez l'**URL ACS du fournisseur de services** de cloudtamer.io dans cette zone.
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<CUSTOMERDOMAIN>.<EXTENSION>/login`
-
-    > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Vous pouvez consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    Dans la zone de texte **URL de connexion**, collez **l’URL ACS du fournisseur de services** de cloudtamer.io dans cette zone.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -137,19 +136,17 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Capture d’écran de l’ajout d’IDMS.](./media/cloudtamer-io-tutorial/configuration.png)
 
-    a. Sélectionnez **SAML 2.0** comme **type d’IDMS** dans la liste déroulante.
+    a. Dans le **Nom IDMS**, donnez un nom que les utilisateurs reconnaîtront sur l’écran de connexion.
 
-    b. Dans le **Nom IDMS**, donnez un nom que les utilisateurs reconnaîtront sur l’écran de connexion.
+    b. Dans la zone de texte **Émetteur de fournisseur d’identité (ID d’entité)** , collez la valeur d'**identificateur** que vous avez copiée à partir du portail Azure.
 
-    c. Dans la zone de texte **Émetteur de fournisseur d’identité (ID d’entité)** , collez la valeur d'**identificateur** que vous avez copiée à partir du portail Azure.
+    c. Ouvrez le fichier **XML de métadonnées de Fédération** à partir du portail Azure dans le Bloc-notes et collez le contenu dans la zone de texte **Métadonnées du fournisseur d'identité**.
 
-    d. Ouvrez le fichier **XML de métadonnées de Fédération** à partir du portail Azure dans le Bloc-notes et collez le contenu dans la zone de texte **Métadonnées du fournisseur d'identité**.
+    d. Copiez la valeur du champ **Émetteur de fournisseur de service (ID d'entité)** et collez-la dans la zone de texte **Identificateur** de la section Configuration SAML de base sur le portail Azure.
 
-    e. Copiez la valeur du champ **Émetteur de fournisseur de service (ID d'entité)** et collez-la dans la zone de texte **Identificateur** de la section Configuration SAML de base sur le portail Azure.
+    e. Copiez la valeur du champ **URL de redirection du fournisseur de services**, puis collez-la dans la zone de texte **URL de réponse** de la section Configuration SAML de base du portail Azure.
 
-    f. Copiez la valeur du champ **URL de redirection du fournisseur de services**, puis collez-la dans la zone de texte **URL de réponse** de la section Configuration SAML de base du portail Azure.
-
-    g. Sous Mappage d’assertion, entrez les valeurs suivantes :
+    f. Sous Mappage d’assertion, entrez les valeurs suivantes :
 
     | Champ | Valeur |
     |-----------|-------|

@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: 7bef7a0cbc81f4d72a28d74feb5a526789c0ff59
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: 87780dbc3a7d492f0fd0fec8839ef26bb092b2eb
+  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114469715"
+  ms.lasthandoff: 08/24/2021
+  ms.locfileid: "122777551"
 title: Forum aux questions sur Application Gateway
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -64,7 +64,7 @@ sections:
   - question: L’adresse IP ou le nom DNS changent-ils pendant la durée de vie d’Application Gateway ?
     answer: Dans la référence SKU Application Gateway V1, l’adresse IP virtuelle peut changer si vous arrêtez et démarrez la passerelle d’application. Le nom DNS associé à la passerelle d’application, quant à lui, ne change pas pendant toute la durée de vie de la passerelle. Le nom DNS ne changeant pas, vous devez utiliser un alias CNAME et le faire pointer vers l’adresse DNS de la passerelle d’application. Dans la référence SKU Application Gateway V2, vous pouvez définir l’adresse IP comme étant statique, de sorte que l’adresse IP et le nom DNS ne changent pas pendant la durée de vie de la passerelle d’application.
   - question: Application Gateway prend-il en charge les adresses IP statiques ?
-    answer: Oui. La référence SKU v2 d’Application Gateway prend en charge les adresses IP publiques statiques. La référence SKU v1 quant à elle prend en charge les adresses IP internes statiques.
+    answer: Oui. La référence SKU v2 d’Application Gateway prend en charge les adresses IP publiques statiques et les adresses IP internes statiques. La référence SKU v1 quant à elle prend en charge les adresses IP internes statiques.
   - question: Application Gateway prend-il en charge plusieurs adresses IP publiques sur la passerelle ?
     answer: Une seule adresse IP publique est prise en charge sur une passerelle d’application.
   - question: Quelle taille mon sous-réseau pour Application Gateway doit-il avoir ?

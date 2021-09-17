@@ -9,15 +9,16 @@ ms.subservice: maintenance-control
 ms.date: 04/26/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: e23630fb0d102c10194d85d3beff1ce626fbf898
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1f20b83d89258de2d557fc230edd57810fc13806
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673894"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697410"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilité, les performances et la sécurité de l’infrastructure hôte des machines virtuelles. Les mises à jour peuvent inclure la mise à jour corrective de l’environnement d’hébergement ou la mise à niveau et la désactivation de matériel. La plupart des mises à jour n’affectent pas les machines virtuelles hébergées. Toutefois, les mises à jour affectent les machines virtuelles dans les scénarios suivants :
 

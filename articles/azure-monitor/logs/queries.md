@@ -6,12 +6,12 @@ ms.topic: article
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2021
-ms.openlocfilehash: 552e79a11da001d7834cb9640bb77c08f9491f99
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 004196117512282ee960ed275dd970b472cde918
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482743"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662316"
 ---
 # <a name="using-queries-in-azure-monitor-log-analytics"></a>Utilisation des requêtes dans Azure Monitor Log Analytics
 Quand vous ouvrez Log Analytics, vous avez accès à des requêtes de journal existantes. Vous pouvez soit utiliser ces requêtes sans les modifier, soit vous en servir comme point de départ pour créer vos propres requêtes. Les requêtes disponibles comprennent des exemples fournis par Azure Monitor et des requêtes enregistrées par votre organisation. Cet article décrit les requêtes disponibles et la façon dont vous pouvez les découvrir et les utiliser.
@@ -69,6 +69,7 @@ Chaque requête a plusieurs propriétés qui vous aident à les regrouper et à 
 - **Catégorie** : type d’informations telles que *Sécurité* ou *Audit*. Les catégories sont identiques à celles définies dans le volet latéral Tables. Pour obtenir la liste complète des catégories, consultez la [référence des tables Azure Monitor](/azure/azure-monitor/reference/tables/tables-category).  
 - **Solution** : solution Azure Monitor associée aux requêtes.
 - **Rubrique** : rubrique de l’exemple de requête, telle que *Journaux d’activité* ou *Journaux d’application*. La propriété Rubrique est unique aux exemples de requêtes et peut différer selon le type de ressource spécifique.
+- - **Type de requête** : définit le type de la requête. Le type de requête peut être Exemples de requêtes, Requêtes de packs de requêtes ou Requêtes héritées.
 - **Étiquettes** : étiquettes personnalisées que vous pouvez définir et attribuer quand vous [enregistrez votre propre requête](save-query.md).
 - **Balises** : propriétés personnalisées qui peuvent être définies quand vous [créez un pack de requêtes](query-packs.md). Les balises permettent à votre organisation de créer ses propres taxonomies pour organiser les requêtes.
 
@@ -83,6 +84,8 @@ L’interface de requête est remplie avec les types de requêtes suivants :
 **Packs de requêtes :** un [pack de requêtes](query-packs.md) contient une collection de requêtes de journal, notamment des requêtes que vous enregistrez vous-même. Cela comprend le [pack de requête par défaut](query-packs.md#default-query-pack) et tous les autres packs de requêtes que votre organisation a pu créer dans l’abonnement.
 
 **Requêtes héritées :** requêtes précédemment enregistrées dans l’explorateur de requêtes et requêtes que les solutions Azure ont installées dans l’espace de travail. Celles-ci sont répertoriées dans la boîte de dialogue des requêtes sous **Requêtes héritées**.
+>[!TIP]
+> Les requêtes héritées sont uniquement disponibles dans un espace de travail Log Analytics.
 
 ## <a name="effect-of-query-scope"></a>Effet de l’étendue de la requête
 Les requêtes qui sont disponibles quand vous ouvrez Log Analytics sont déterminées par la [requête actuelle](scope.md).

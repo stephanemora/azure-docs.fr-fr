@@ -9,14 +9,16 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1833b25554df53a480af9a8fc643755dbc2bbdb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 916f1b268e8fc8a3b765e4362190a2db78ec306a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564677"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698481"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Linux dans Azure avec Azure PowerShell
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande PowerShell ou dans des scripts. Ce guide de démarrage rapide vous montre comment utiliser le module Azure PowerShell pour créer une machine virtuelle Linux, créer un coffre de clés pour le stockage des clés de chiffrement, et chiffrer la machine virtuelle. Ce démarrage rapide utilise l’image du marketplace Ubuntu 16.04 LTS fournie par Canonical et une taille de machine virtuelle Standard_D2S_V3. 
 

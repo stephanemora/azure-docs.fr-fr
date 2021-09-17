@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 06/16/2021
 ms.author: cshoe
-ms.openlocfilehash: 3ec36a06dafb8622f97ded317f8ab2617e96662a
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
+ms.openlocfilehash: b543831ceead6d386de0617b02db93a99d9507a6
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112428836"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609126"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Démarrage rapide : Création de votre premier site statique avec Azure Static Web Apps
 
@@ -46,6 +46,9 @@ Ensuite, ouvrez Visual Studio Code et accédez à **Fichier > Ouvrir le dossier
 1. Sous l'étiquette _Static Web Apps_, sélectionnez le **signe plus**.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Nom de l’application":::
+    
+    > [!NOTE]
+    > L’extension Azure Static Web Apps de Visual Studio Code simplifie le processus de création à l’aide d’une série de valeurs par défaut. Si vous souhaitez un contrôle affiné du processus de création, ouvrez la palette de commande, puis sélectionnez **Azure Static Web Apps : Créer une application web statique (avancé)** .
 
 1. La palette de commandes s’ouvre en haut de l’éditeur et vous invite à sélectionner un nom pour votre abonnement.
 
@@ -65,11 +68,11 @@ Ensuite, ouvrez Visual Studio Code et accédez à **Fichier > Ouvrir le dossier
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Présélections d'application : Pas de framework":::
 
-    Entrez **./** comme emplacement pour les fichiers de l’application, puis appuyez sur <kbd>Entrée</kbd>.
+    Entrez **./src** comme emplacement pour les fichiers de l’application, puis appuyez sur <kbd>Entrée</kbd>.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Emplacement de sortie de la build d'application":::
 
-    Entrez **./** pour l’emplacement de sortie de la build et appuyez sur <kbd>Entrée</kbd>.
+    Entrez **./src** comme emplacement de sortie de la build et appuyez sur <kbd>Entrée</kbd>.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 62cd714fc20cb7620def8a1aaa3cbccba0b13d57
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6ca4bda03a5696406682898eef62da9825c65214
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144078"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen-one"></a>Tutoriel : Intégration d’Azure Active Directory à Clarizen One
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Clarizen One prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
+* Clarizen One prend en charge [**l’attribution d’utilisateurs et la suppression des privilèges d’accès** automatiques](clarizen-one-provisioning-tutorial.md) (recommandé).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.

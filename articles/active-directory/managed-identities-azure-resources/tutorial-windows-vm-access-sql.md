@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 07/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4f56ce9fa86dc27b77ad6b463479d13c8e4e7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bb5bc57ea387695ed77193c4b642b615186a7a3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91856510"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749106"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure SQL
 
@@ -153,6 +153,9 @@ if (accessToken != null) {
 }
 ```
 
+>[!NOTE]
+>Vous pouvez utiliser des identités managées lors de l’utilisation d’autres options de programmation à l’aide de nos [kits SDK](qs-configure-sdk-windows-vm.md).
+
 Un autre moyen rapide de tester la configuration de bout en bout sans devoir écrire et déployer une application sur la machine virtuelle consiste à utiliser PowerShell.
 
 1. Dans le portail, accédez à **Machines virtuelles** et accédez à votre machine virtuelle Windows. Puis, dans **Vue d’ensemble**, cliquez sur **Connecter**.
@@ -209,3 +212,4 @@ Dans ce tutoriel, vous avez appris à utiliser une identité managée attribuée
 
 > [!div class="nextstepaction"]
 > [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)
+

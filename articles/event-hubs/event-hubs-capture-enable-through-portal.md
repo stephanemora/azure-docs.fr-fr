@@ -3,12 +3,12 @@ title: Event Hubs – Capturer des événements de streaming avec le portail Azu
 description: Cet article décrit comment activer la capture d’événements diffusés en continu par le biais d’Azure Event Hubs à l’aide du portail Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 8c89a6e56c2d0bc7b7ff09d5fd63737009239eb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b603af17ca4e46b8004b7b2550cddd87164da157
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653949"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253635"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Activer la capture d’événements diffusés en continu par le biais d’Azure Event Hubs
 
@@ -34,7 +34,7 @@ La fenêtre temporelle par défaut est de cinq minutes. La valeur minimum est 1,
 
 ## <a name="capture-data-to-azure-data-lake-storage-gen-2"></a>Capturer des données dans Azure Data Lake Storage Gen2 
 
-1. Pour créer un compte Stockage Azure, consultez [Créer un compte de stockage](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account). Affectez la valeur **Activé** à **Espace de noms hiérarchique** sous l’onglet **Avancé** pour en faire un compte Azure Data Lake Storage Gen2.
+1. Pour créer un compte Stockage Azure, consultez [Créer un compte de stockage](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account). Affectez la valeur **Activé** à **Espace de noms hiérarchique** sous l’onglet **Avancé** pour en faire un compte Azure Data Lake Storage Gen2. Le compte Stockage Azure doit être situé dans le même abonnement que votre hub d’événement.
 2. Lors de la création d’un hub d’événements, effectuez les étapes suivantes : 
 
     1. Sélectionnez **Activé** pour **Capture**. 

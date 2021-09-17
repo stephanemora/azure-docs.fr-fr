@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 08243fd06de289941d8e6a9197ccb349614af056
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7756029d4b3ed43f55c86fa12128e1943c99b6bb
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104675955"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778385"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>Préparer des applications mobiles pour la production
 
@@ -39,4 +39,4 @@ Pour chaque type de Bibliothèque d’authentification Microsoft (MSAL), vous po
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour essayer des exemples supplémentaires, voir [Applications clientes publiques mobiles et de bureau](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+Pour essayer des exemples supplémentaires, voir [Applications clientes publiques mobiles](sample-v2-code.md#mobile).

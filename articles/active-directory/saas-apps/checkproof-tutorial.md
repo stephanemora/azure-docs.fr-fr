@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 08/06/2021
 ms.author: jeedes
-ms.openlocfilehash: b0afcf00a95b46472c902b24c6d4b287c1c6a482
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d6e1c99bd70cedd678cbf3dcef4ef66a594d969
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181014"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728423"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-checkproof"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à CheckProof
 
@@ -37,9 +37,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* CheckProof prend en charge l’authentification unique initiée par le **fournisseur d’identité**
+* CheckProof prend en charge l’authentification unique initiée par le **fournisseur d’identité**.
 
-## <a name="adding-checkproof-from-the-gallery"></a>Ajout de CheckProof à partir de la galerie
+## <a name="add-checkproof-from-the-gallery"></a>Ajouter CheckProof à partir de la galerie
 
 Pour configurer l’intégration de CheckProof à Azure AD, vous devez ajouter CheckProof à votre liste d’applications SaaS gérées à partir de la galerie.
 
@@ -49,7 +49,6 @@ Pour configurer l’intégration de CheckProof à Azure AD, vous devez ajouter C
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **CheckProof** dans la zone de recherche.
 1. Sélectionnez **CheckProof** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-checkproof"></a>Configurer et tester l’authentification unique Azure AD pour CheckProof
 
@@ -70,11 +69,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Sur le portail Azure, accédez à la page d’intégration de l’application **CheckProof**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
+1. Dans la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.checkproof.com/api/v1/saml/<ID>/metadata`
 
@@ -120,7 +119,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Accédez à la page **Settings (Paramètres) > Company Settings (Paramètres de la société) > SAML SETTINGS (Paramètres SAML)** , puis cliquez sur Upload pour charger le **XML de métadonnées de fédération** dans la zone de texte **Federation XML** (XML de fédération).
 
-    ![pages de paramètres saml](./media/checkproof-tutorial/saml-settings.png)
+    ![Page de paramètres SAML.](./media/checkproof-tutorial/settings.png)
 
 ### <a name="create-checkproof-test-user"></a>Créer un utilisateur de test CheckProof
 
@@ -128,23 +127,22 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **Profile** et sélectionnez **My profile**.
 
-    ![Page d’utilisateur de test CheckProof](./media/checkproof-tutorial/create-user.png)
+    ![Page d’utilisateur de test CheckProof.](./media/checkproof-tutorial/create-user.png)
 
 1. Cliquez sur **CREATE USER**.
 
 1. Dans la page **CREATE USER**, complétez les champs obligatoires, puis cliquez sur **SAVE**.
 
-    ![Page d’utilisateur de test1 CheckProof](./media/checkproof-tutorial/create-user-2.png)
+    ![Page de création d’utilisateur CheckProof.](./media/checkproof-tutorial/user.png)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-1. Sur le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à CheckProof pour lequel vous avez configuré l’authentification unique
+* Dans le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance CheckProof pour laquelle vous avez configuré l’authentification unique.
 
-1. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette CheckProof dans le volet d’accès doit vous connecter automatiquement à CheckProof pour lequel vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
-
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette CheckProof dans Mes applications, vous devez être connecté automatiquement à l’application CheckProof pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré CheckProof, vous pouvez appliquer le contrôle de session qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré CheckProof, vous pouvez appliquer le contrôle de session qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

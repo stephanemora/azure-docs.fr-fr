@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: f833f3eb9e3d94da6178a0a9a9cf4f95ec0682e7
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: ad0f4905e5e6f404ef9eb86d42d729e1559bef90
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865366"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698037"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Déplacer une configuration de contrôle de maintenance vers une autre région
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Suivez cet article pour déplacer une configuration de contrôle de maintenance vers une autre région Azure. Vous pouvez envisager de déplacer une configuration pour plusieurs raisons. Par exemple, pour tirer parti d’une nouvelle région, pour déployer des fonctionnalités ou des services disponibles dans une région spécifique, pour répondre à des exigences de stratégie et de gouvernance internes ou pour respecter une planification de capacité.
 

@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 1fd639d1050490c03d269422d2d6eabad972ce10
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 284b4bc69446e12f70c3f0310fa494723aff1f1d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738176"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696345"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Le support des machines virtuelles de 2e génération est désormais disponible dans Azure. Vous ne pouvez pas modifier la génération d’une machine virtuelle après l’avoir créée. Passez bien en revue les considérations relatives sur cette page avant de choisir une génération.
 

@@ -9,39 +9,38 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 08/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 45d7939840f1fd3055f29d3aee677e105890a94d
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 88336401fa7e351791ecddbaf0b9caf5b3a54bd3
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802087"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Didacticiel : intégration d’Azure Active Directory à Andromeda
 
-Dans ce didacticiel, vous apprenez à intégrer Andromeda à Azure Active Directory (Azure AD).
-L’intégration d’Andromeda à Azure AD vous offre les avantages suivants :
+Dans ce didacticiel, vous apprenez à intégrer Andromeda à Azure Active Directory (Azure AD). Quand vous intégrez Andromeda à Azure AD, vous pouvez :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Andromeda.
-- Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Andromeda (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Contrôler dans Azure AD qui a accès à Andromeda.
+* Permettre à vos utilisateurs de se connecter automatiquement à Andromeda avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Andromeda, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
-- Abonnement Andromeda pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
+* Abonnement Andromeda pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-- Andromeda prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**
-- Andromeda prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* Andromeda prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
+* Andromeda prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
-## <a name="adding-andromeda-from-the-gallery"></a>Ajout d’Andromeda à partir de la galerie
+## <a name="add-andromeda-from-the-gallery"></a>Ajouter Andromeda à partir de la galerie
 
 Pour configurer l’intégration d’Andromeda à Azure AD, vous devez ajouter Andromeda, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
@@ -75,15 +74,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes : 
 
    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<tenantURL>.ngcxpress.com/`
 
    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
-
-   ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`.
 
@@ -92,9 +89,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. L’application Andromeda attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
-   ![Capture d’écran montrant des attributs utilisateur tels que givenname user.givenname et emailaddress user.mail.](common/edit-attribute.png)
+   ![Capture d’écran montrant les attributs utilisateur.](common/edit-attribute.png)
 
-   > [!Important]
+   > [!NOTE]
    > Effacez les définitions NameSpace lorsque vous configurez celles-ci.
 
 1. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
@@ -164,15 +161,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. En haut de la barre de menus, cliquez sur **Admin** et accédez à **Administration**.
 
-   ![Administrateur Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_admin.png)
+   ![Administrateur Andromeda.](./media/andromedascm-tutorial/admin.png)
 
 3. Sur le côté gauche de la barre d’outils, dans la section **Interfaces**, cliquez sur **SAML Configuration** (Configuration SAML).
 
-   ![SAML Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_saml.png)
+   ![SAML Andromeda.](./media/andromedascm-tutorial/interface.png)
 
 4. Dans la section **SAML Configuration** (Configuration SAML), procédez comme suit :
 
-   ![Configuration d’Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
+   ![Configuration d’Andromeda.](./media/andromedascm-tutorial/configure.png)
 
    a. Cochez **Enable SSO with SAML** (Activer l’authentification unique avec SAML).
 
@@ -188,9 +185,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
    g. Ouvrez le **certificat codé en base 64** téléchargé à partir du portail Azure dans le bloc-notes et collez-le dans la zone de texte **Certificat X.509**.
 
-   h. Mappez les attributs suivants avec la valeur correspondante pour faciliter la connexion avec authentification unique à partir d’Azure AD. L’attribut **ID utilisateur** est requis pour la connexion. Pour l’approvisionnement, **E-mail**, **Société**, **Type d’utilisateur** et **Rôle** sont requis. Dans cette section, nous définissons le mappage des attributs (nom et valeurs) qui correspondent à ceux définis dans le portail Azure
+   h. Mappez les attributs suivants avec la valeur correspondante pour faciliter la connexion avec authentification unique à partir d’Azure AD. L’attribut **ID utilisateur** est requis pour la connexion. Pour l’approvisionnement, **E-mail**, **Société**, **Type d’utilisateur** et **Rôle** sont requis. Dans cette section, nous définissons le mappage des attributs (nom et valeurs) qui correspondent à ceux définis dans le portail Azure.
 
-   ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+   ![Attributs Andromeda.](./media/andromedascm-tutorial/mapping.png)
 
    i. Cliquez sur **Enregistrer**.
 
@@ -204,15 +201,15 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-- Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Andromeda, où vous pouvez lancer le flux de connexion.
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Andromeda, où vous pouvez lancer le flux de connexion.
 
-- Accédez directement à l’URL de connexion à Andromeda pour y lancer le flux de connexion.
+* Accédez directement à l’URL de connexion à Andromeda pour y lancer le flux de connexion.
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- Cliquez sur **Tester cette application** dans le portail Azure ; vous devez être connecté automatiquement à l’instance d’Andromeda pour laquelle vous avez configuré l’authentification unique.
+* Cliquez sur **Tester cette application** dans le portail Azure ; vous devez être connecté automatiquement à l’instance d’Andromeda pour laquelle vous avez configuré l’authentification unique.
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Andromeda dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’Andromeda pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Andromeda dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’Andromeda pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

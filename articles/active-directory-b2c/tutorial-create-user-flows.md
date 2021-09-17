@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 26bd2a4e39f2698f47a27a08716dc3049c7b70f8
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: ce49a0a6fc249f3cea6bfdac613beade5322142f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113106818"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323885"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>Tutoriel : créer des flux d’utilisateurs et des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Les [stratégies personnalisées](custom-policy-overview.md) sont des fichiers d
 
 ::: zone pivot="b2c-user-flow"
 > [!IMPORTANT]
-> Nous avons modifié la manière dont nous référençons les versions de flux utilisateur. Auparavant, nous proposions des versions V1 (prêtes pour la production) et des versions V1.1 et V2 (préversions). À présent, nous avons regroupé les flux utilisateur en deux versions : les flux utilisateur **recommandés** avec les dernières fonctionnalités et les flux utilisateur **standard (hérités)** . Dans le cloud public, tous les flux utilisateur en préversion hérités (V1.1 et V2) sont dépréciés depuis le **1er août 2021**. Pour plus d’informations, consultez [Versions de flux utilisateur dans Azure AD B2C](user-flow-versions.md). *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).* 
+> Nous avons modifié la manière dont nous référençons les versions de flux utilisateur. Auparavant, nous proposions des versions V1 (prêtes pour la production) et des versions V1.1 et V2 (préversions). À présent, nous avons regroupé les flux utilisateur en deux versions : les flux utilisateur **recommandés** avec les dernières fonctionnalités et les flux utilisateur **standard (hérités)** . Tous les flux d’utilisateurs en préversion hérités (v1.1 et v2) sont déconseillés. Pour plus d’informations, consultez [Versions de flux utilisateur dans Azure AD B2C](user-flow-versions.md). *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).* 
 ::: zone-end
 
 ## <a name="prerequisites"></a>Prérequis
@@ -70,7 +70,7 @@ Le flux d’utilisateur Inscription et connexion gère les expériences d’insc
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Stratégies**, sélectionnez **Flux d’utilisateurs**, puis sélectionnez **Nouveau flux d’utilisateur**.
 
-    ![Page Flux d'utilisateur du portail avec bouton Nouveau flux d'utilisateur en surbrillance](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![Page Flux d'utilisateur du portail avec bouton Nouveau flux d'utilisateur en surbrillance](./media/tutorial-create-user-flows/sign-up-sign-in-user-flow.png)
 
 1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Inscription et connexion**.
 
@@ -339,9 +339,17 @@ Dans cet article, vous avez appris à effectuer les opérations suivantes :
 > * Créer un flux d’utilisateur de modification de profil
 > * Créer un flux d’utilisateur de réinitialisation du mot de passe
 
-Ensuite, découvrez comment utiliser Azure AD B2C pour connecter et inscrire des utilisateurs dans une application. Suivez l’application web ASP.NET liée ci-dessous ou accédez à une autre application dans la table des matières, sous **Authentifier les utilisateurs**.
+Ensuite, découvrez comment utiliser Azure AD B2C pour connecter et inscrire des utilisateurs dans une application. Suivez les échantillons d’applications liés ci-dessous :
 
-> [!div class="nextstepaction"]
-> [Tutoriel : Activer l’authentification dans une application web à l’aide d’Azure AD B2C >](tutorial-web-app-dotnet.md)
+- [Configurer un échantillon d’application web ASP.NET Core](configure-authentication-sample-web-app.md)
+- [Configurer un échantillon d’application web ASP.NET Core qui appelle une API web](configure-authentication-sample-web-app-with-api.md)
+- [Configurer l’authentification dans un échantillon d’application web Python](configure-authentication-sample-python-web-app.md)
+- [Configurer un échantillon d’application monopage (SPA)](configure-authentication-sample-spa-app.md)
+- [Configurer un échantillon d’application monopage angulaire](configure-authentication-sample-angular-spa-app.md)
+- [Configurer un échantillon d’application mobile Android](configure-authentication-sample-android-app.md)
+- [Configurer un échantillon d’application mobile iOS](configure-authentication-sample-ios-app.md)
+- [Configurer l’authentification dans un échantillon d’application de bureau WPF](configure-authentication-sample-wpf-desktop-app.md)
+- [Activer l’authentification dans votre API web](enable-authentication-web-api.md)
+- [Configurer une application SAML](saml-service-provider.md) 
 
 Vous pouvez également en savoir plus dans la [série de présentation approfondie de l’architecture Azure AD B2C](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm).

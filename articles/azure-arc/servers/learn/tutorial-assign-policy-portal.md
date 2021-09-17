@@ -3,16 +3,16 @@ title: 'Tutoriel : Nouvelle affectation de stratégie avec le portail Azure'
 description: Dans ce tutoriel, vous allez utiliser le portail Azure pour créer une attribution Azure Policy afin d’identifier les ressources non conformes.
 ms.topic: tutorial
 ms.date: 04/21/2021
-ms.openlocfilehash: 20cb8125a157a3ce97c88278c99f90936b449b65
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: be7752b5ccf73269b1e4715fc05c85162b4ea546
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831651"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770340"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutoriel : Créer une affectation de stratégie pour identifier les ressources non conformes
 
-La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Azure Policy prend en charge l’audit de l’état de votre serveur activé pour Arc avec des stratégies de configuration d’invité. Les stratégies de configuration d’invité ne s’appliquent pas aux configurations : elles auditent seulement les paramètres à l’intérieur de la machine. Ce tutoriel vous guide tout au long du processus de création et d’affectation d’une stratégie, en identifiant les serveurs activés pour Arc où l’agent Log Analytics n’est pas installé.
+La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Azure Policy prend en charge l’audit de l’état de votre serveur activé pour Arc avec des stratégies de configuration d’invité. Les définitions de configuration d’invité d’Azure Policy peuvent vérifier ou appliquer des paramètres à l’intérieur de la machine. Ce tutoriel vous guide tout au long du processus de création et d’affectation d’une stratégie, en identifiant les serveurs activés pour Arc où l’agent Log Analytics n’est pas installé.
 
 À la fin de ce processus, vous identifierez correctement les machines sur lesquelles l’agent Log Analytics pour Windows ou Linux n’est pas installé. Elles sont _non conformes_ à l’attribution de stratégie.
 
@@ -63,7 +63,7 @@ Dans ce tutoriel, vous créez une affectation de stratégie et vous affectez la 
 
 Vous êtes maintenant prêt à identifier les ressources non conformes pour comprendre l’état de conformité de votre environnement.
 
-## <a name="identify-non-compliant-resources"></a>Identifier des ressources non conformes
+## <a name="identify-non-compliant-resources"></a>Identifier les ressources non conformes
 
 Sélectionnez **Conformité** dans la partie gauche de la page. Recherchez ensuite l’affectation de stratégie **\[Préversion] : L’agent Log Analytics doit être installé sur vos machines Azure Arc Windows** ou **\[Préversion] : L’agent Log Analytics doit être installé sur vos machines Azure Arc Linux** que vous avez créée.
 

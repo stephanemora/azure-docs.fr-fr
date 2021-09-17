@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: andster
 keywords: visualstudio
-ms.openlocfilehash: b37c8bde959822dfcb1b3db2ec96b377217d2bfc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: de2c782b7b311256e287f49f931ed6ab1de09c55
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138208"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688535"
 ---
 # <a name="visual-studio-images-on-azure"></a>Images de Visual Studio sur Azure
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
 L’exécution de Visual Studio sur une machine virtuelle Azure préconfigurée est un moyen simple et rapide de créer un environnement de développement opérationnel à partir de rien. Des images système avec différentes configurations de Visual Studio sont disponibles sur la [Place de Marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
 
 Vous êtes un nouvel utilisateur d’Azure ? [Créer un compte Azure gratuit](https://azure.microsoft.com/free).

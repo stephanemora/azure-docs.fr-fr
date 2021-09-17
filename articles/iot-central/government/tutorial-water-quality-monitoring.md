@@ -1,27 +1,55 @@
 ---
-title: 'Tutoriel : Créer une application de suivi de la qualité de l’eau avec Azure IoT Central'
-description: 'Tutoriel : Découvrez comment créer une application de suivi de la qualité de l’eau à l’aide de modèles d’application Azure IoT Central.'
+title: 'Tutoriel : analyse de la qualité de l’eau Azure IoT | Microsoft Docs'
+description: Ce tutoriel vous montre comment déployer et utiliser le modèle d’application d’analyse de la qualité de l’eau pour IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 12/11/2020
+ms.date: 08/02/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: fdab861cc122fe738cce4da049154ecb4039ca65
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 481a085b1fd5fec55cd34f885dfcda40fec6f5e7
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588972"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179081"
 ---
-# <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutoriel : Créer une application de suivi de la qualité de l’eau dans Azure IoT Central
+# <a name="tutorial-deploy-and-walk-through-the-water-quality-monitoring-application"></a>Tutoriel : déployer et parcourir l’application d’analyse de la qualité de l’eau
 
-Ce tutoriel vous guide tout au long de la création d’une application de suivi de la qualité de l’eau dans Azure IoT Central. Vous créez l’application à partir du modèle d’application Azure IoT Central **Water quality monitoring** (Suivi de la qualité de l’eau).
+Utilisez le modèle d’application d’*analyse de la qualité de l’eau* IOT Central et les instructions de cet article pour développer une solution d’analyse de la qualité de l’eau de bout en bout.
+
+
+![Architecture du suivi de la qualité de l’eau](./media/tutorial-waterqualitymonitoring/concepts-water-quality-monitoring-architecture1.png)
+
+### <a name="devices-and-connectivity"></a>Appareils et connectivité
+
+Les solutions de gestion de l’eau utilisent des systèmes d’eau intelligents tels que des débitmètres, des analyses de la qualité de l’eau, des vannes intelligentes, des détecteurs de fuite.
+
+Les appareils des solutions d’eau intelligentes peuvent se connecter via des réseaux longue distance à faible puissance (LPWAN) ou via un opérateur réseau tiers. Pour ces types d’appareils, utilisez [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) pour envoyer les données de votre appareil à votre application IoT dans Azure IoT Central. Vous pouvez également utiliser des passerelles d’appareil qui sont compatibles IP et capables de se connecter directement à IoT Central.
+
+### <a name="iot-central"></a>IoT Central
+
+Azure IoT Central est une plateforme d’applications IoT qui vous permet de générer et de déployer rapidement une solution IoT. Vous pouvez personnaliser et intégrer votre solution à des services tiers.
+
+Lorsque vous connectez vos systèmes d’eau intelligents à IoT Central, l’application permet de contrôler les appareils, d’effectuer le suivi et de déclencher des alertes, d’accéder à l’interface utilisateur à laquelle est intégré RBAC et d’accéder aux tableaux de bord configurables, ainsi qu’aux options d’extensibilité.
+
+### <a name="extensibility-and-integrations"></a>Extensibilité et intégrations
+
+Vous pouvez étendre votre application IoT dans IoT Central et si vous le souhaitez :
+
+* Transformer et intégrer vos données IoT en vue d’une analyse avancée, par exemple en effectuant l'apprentissage de modèles Machine Learning via l’exportation continue de données à partir d’une application IoT Central.
+* Automatiser des workflows dans d’autres systèmes en déclenchant des actions via Power Automate ou des webhooks à partir d’une application IoT Central.
+* Accéder programmatiquement à votre application IoT dans IoT Central via des API IoT Central.
+
+### <a name="business-applications"></a>Applications métier
+
+Vous pouvez utiliser des données IoT pour alimenter diverses applications métier au sein d’une solution pour l’eau. Dans votre [application d’analyse de la consommation d’eau IoT Central](tutorial-water-consumption-monitoring.md), vous pouvez configurer des règles et des actions et les définir pour créer des alertes dans le [Service de terrain connecté](/dynamics365/field-service/connected-field-service). Configurez Power Automate dans les règles d’IoT Central pour automatiser les workflows entre des applications et des services. Par ailleurs, selon les activités de service dans le service de terrain connecté, des informations peuvent être renvoyées à Azure IoT Central.
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
+
 > * Utiliser le modèle **Water quality monitoring** (Suivi de la qualité de l’eau) pour créer une application de suivi de la qualité de l’eau.
 > * Explorer et personnaliser un tableau de bord.
 > * Explorer un modèle d’appareil de suivi de la qualité de l’eau.
@@ -32,55 +60,28 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Nous vous recommandons d’avoir un abonnement Azure pour suivre ce tutoriel. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un sur la [page d’inscription à Azure](https://aka.ms/createazuresubscription).
+* Le déploiement de cette application ne nécessite aucun prérequis.
+* Vous pouvez utiliser le plan tarifaire gratuit ou utiliser un abonnement Azure.
 
-## <a name="create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Créer une application de suivi de la qualité de l’eau dans Azure IoT Central
+## <a name="create-water-quality-monitoring-application"></a>Créer une application d’analyse de la qualité de l’eau
 
-Dans cette section, vous utilisez le modèle Azure IoT Central **Water quality monitoring** (Suivi de la qualité de l’eau) pour créer une application de suivi de la qualité de l’eau.
+Créez une application à l’aide de la procédure suivante :
 
-1. Accédez à la [page d’accueil d’Azure IoT Central](https://aka.ms/iotcentral).
+1. Accédez au site de [création d’applications Azure IoT Central](https://aka.ms/iotcentral). Ensuite, connectez-vous avec un compte Microsoft personnel, scolaire ou professionnel. Sélectionnez **Générer** dans la barre de navigation de gauche, puis sélectionnez l’onglet **Gouvernement** : :::image type="content" source="media/tutorial-waterqualitymonitoring/iot-central-government-tab-overview1.png" alt-text="Modèle d’application":::
 
-    Si vous disposez d’un abonnement Azure, connectez-vous avec les informations d’identification que vous utilisez pour y accéder. Sinon, connectez-vous à l’aide d’un compte Microsoft :
+1. Sélectionnez **Créer une application** sous **Analyse de la qualité de l’eau**.
 
-    ![Connexion au compte de votre organisation](./media/tutorial-waterqualitymonitoring/sign-in.png)
+Pour plus d’informations, consultez [Créer une application IoT Central](../core/howto-create-iot-central-application.md).
 
-1. Sélectionnez **Build** (Créer) dans le volet le plus à gauche d’Azure IoT Central et sélectionnez l’onglet **Government** (Service public). Le volet relatif au secteur public affiche plusieurs modèles d’application pour le secteur public.
+## <a name="walk-through-the-application"></a>examiner l’application
 
-    ![Modèles d’application pour le secteur public](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
+Les sections suivantes décrivent les principales fonctionnalités de l’application :
 
-1. Sélectionnez le modèle d’application **Water quality monitoring** (Suivi de la qualité de l’eau). Ce modèle d’application comprend un modèle d’appareil pour la qualité de l’eau, des appareils simulés, un tableau de bord et des règles de supervision préconfigurées.
-
-1. Sélectionnez **Créer une application**. Le volet **New application** (Nouvelle application) s’ouvre et affiche les éléments suivants :
-
-    * **Nom de l'application** : Par défaut, le nom de l’application est **Water quality monitoring** suivi d’une chaîne d’ID unique générée par Azure IoT Central. Si vous le souhaitez, vous pouvez entrer un nom d’affichage ou modifier ultérieurement le nom de l’application.
-    * **URL** : Vous pouvez entrer l’URL de votre choix ou modifier ultérieurement la valeur de l’URL.
-    * Si vous avez un abonnement Azure, entrez vos valeurs pour **Annuaire**, **Abonnement Azure** et **Région**. Si vous n’avez pas d’abonnement, vous pouvez activer **7-day free trial** (Version d’évaluation gratuite de 7 jours) et renseigner les coordonnées requises.
-
-1. Sélectionnez le bouton **Create** (Créer) en bas à gauche de la page.
-
-    ![Page de création d’une application Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
-
-    ![Informations de facturation d’une nouvelle application Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1-billinginfo.png)
-
-Vous avez désormais créé une application de suivi de la qualité de l’eau à l’aide du modèle Azure IoT Central **Water quality monitoring** (Suivi de la qualité de l’eau).
-
-Votre nouvelle application est accompagnée des composants préconfigurés suivants :
-
-* Tableaux de bord
-* Modèles d’appareil de suivi de la qualité de l’eau
-* Appareils simulés de suivi de la qualité de l’eau
-* Règles et travaux
-* Marquage à l’aide d’une étiquette blanche
-
-Vous pouvez modifier votre application à tout moment.
-
-Nous allons maintenant explorer l’application et effectuer certaines personnalisations.
-
-## <a name="explore-and-customize-the-dashboard"></a>Explorer et personnaliser le tableau de bord
+### <a name="dashboard"></a>tableau de bord
 
 Une fois l’application créée, le volet **Wide World water quality dashboard** (Tableau de bord de qualité de l’eau dans le monde) s’ouvre.
 
-   ![Tableau de bord de suivi de la qualité de l’eau](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard1.png)
+:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-dashboard1.png" alt-text="Tableau de bord d’analyse de la qualité de l’eau.":::
 
 En tant que créateur, vous pouvez créer et personnaliser des vues sur le tableau de bord, que les opérateurs pourront utiliser. Avant d’essayer de le personnaliser, commençons par explorer le tableau de bord.
 
@@ -110,7 +111,7 @@ En tant que créateur, vous pouvez personnaliser les vues figurant sur le tablea
 
 1. Sélectionnez **Edit** (Modifier) pour personnaliser le volet du **Wide World water quality dashboard** (Tableau de bord de qualité de l’eau dans le monde). Vous pouvez personnaliser ce tableau de bord en sélectionnant des commandes dans le menu **Edit** (Modifier). Une fois le tableau de bord en mode d’édition, vous pouvez ajouter de nouvelles vignettes ou configurer les vignettes existantes.
 
-    ![Modification de votre tableau de bord](./media/tutorial-waterqualitymonitoring/edit-dashboard.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/edit-dashboard.png" alt-text="Modifiez votre tableau de bord.":::
 
 1. Sélectionnez **+ New** (Nouveau) pour créer un tableau de bord et le configurer. Vous pouvez avoir plusieurs tableaux de bord et naviguer entre eux via le menu Dashboard (Tableau de bord).
 
@@ -125,7 +126,7 @@ Pour afficher ce modèle d’appareil :
 1. Sélectionnez **Device templates** (Modèles d’appareil) dans le volet le plus à gauche de votre application dans Azure IoT Central.
 1. Dans la liste des modèles d’appareil, sélectionnez **Water Quality Monitor** (Contrôleur de qualité de l’eau) pour ouvrir ce modèle d’appareil.
 
-    ![Modèle d’appareil](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
+:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-device-template.png" alt-text="Le modèle d’appareil.":::
 
 ### <a name="customize-the-device-template"></a>Personnaliser le modèle d’appareil
 
@@ -148,7 +149,7 @@ Exercez-vous à personnaliser les paramètres de modèle d’appareil suivants 
 
 Le modèle d’appareil de suivi de la qualité de l’eau est fourni avec des vues prédéfinies. Les vues définissent la façon dont les opérateurs verront les données de l’appareil et définiront les propriétés cloud. Explorez les vues et exercez-vous à apporter des modifications.
 
-  ![Vues du modèle d’appareil](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate-views.png)
+:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-device-template-views.png" alt-text="Affichages du modèle d’appareil.":::
 
 ### <a name="publish-the-device-template"></a>Publier le modèle d’appareil
 
@@ -167,11 +168,11 @@ L’application de suivi de la qualité de l’eau que vous avez créée à part
 
 1. Sélectionnez **Devices** (Appareils) dans le volet le plus à gauche de votre application.
 
-   ![Appareils](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devices.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-devices.png" alt-text="Appareils":::
 
 1. Sélectionnez un appareil simulé.
 
-    ![Sélection de l’appareil 1](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitor-device1.png" alt-text="Sélection de l’appareil 1":::
 
 1. Sous l’onglet **Cloud Properties** (Propriétés cloud), modifiez la valeur **Acidity (pH) threshold** (Seuil d’acidité (pH)) en remplaçant **8** par **9**, puis sélectionnez **Save**.
 1. Explorez l’onglet **Device Properties** (Propriétés de l’appareil) et l’onglet **Device Dashboard** (Tableau de bord de l’appareil).
@@ -197,11 +198,11 @@ L’application de suivi de la qualité de l’eau que vous avez créée comport
 
 1. Sélectionnez **Rules** (Règles) dans le volet le plus à gauche de votre application.
 
-   ![Règles](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-rules.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-rules.png" alt-text="Règles":::
 
 1. Sélectionnez **High pH alert** (Alerte de pH élevé), qui est l’une des règles préconfigurées dans l’application.
 
-   ![Règle d’alerte de pH élevé](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-highphalert.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-high-ph-alert.png" alt-text="Règle d’alerte de pH élevé.":::
 
    La règle **High pH alert** (Alerte de pH élevé) est configurée pour vérifier si la condition d’acidité (pH) est supérieure à 8.
 
@@ -237,7 +238,7 @@ En tant que réalisateur de logiciel, vous pouvez modifier plusieurs paramètres
 1. Sous **Icône du navigateur**, sélectionnez **Modifier** pour choisir l’image qui apparaîtra dans les onglets du navigateur.
 1. Sous **Couleurs du navigateur**, vous pouvez remplacer les valeurs par défaut par des codes couleur hexadécimaux HTML.
 
-   ![Personnaliser votre application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-customize-your-application1.png" alt-text="Personnaliser votre application":::
 
 ### <a name="update-the-application-image"></a>Mettre à jour l’image de l’application
 
@@ -252,11 +253,4 @@ Si vous ne pensez pas continuer à utiliser cette application, supprimez l’app
 1. Ouvrez l’onglet **Administration** dans le volet le plus à gauche de votre application.
 1. Sélectionnez **Votre application**, puis le bouton **Supprimer**.
 
-    ![Suppression de votre application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)
-
-## <a name="next-steps"></a>Étapes suivantes
-
-* En savoir plus sur 
-
-> [!div class="nextstepaction"]
-> [concepts du suivi de la qualité de l’eau](./concepts-waterqualitymonitoring-architecture.md).
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-application-settings-delete-app1.png" alt-text="Supprimer votre application.":::

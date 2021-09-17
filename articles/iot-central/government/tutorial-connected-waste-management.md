@@ -1,26 +1,58 @@
 ---
-title: 'Tutoriel : Créer une application de gestion connectée des déchets avec Azure IoT Central'
-description: 'Tutoriel : Découvrez comment générer une application de gestion connectée des déchets à l’aide de modèles d’application Azure IoT Central'
+title: 'Tutoriel : Gestion des déchets connectée Azure IoT | Microsoft Docs'
+description: Ce tutoriel vous montre comment déployer et utiliser le modèle d’application de gestion des déchets connectée pour IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 12/11/2020
+ms.date: 08/02/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: bc83af43fab3871bf693635ddbdd446c2f4bb2e2
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 1ed898b02f2c30c3dcb043903bd3c3261d088539
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586506"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183230"
 ---
-# <a name="tutorial-create-a-connected-waste-management-app"></a>Tutoriel : Créer une application connectée de gestion des déchets
+# <a name="tutorial-deploy-and-walk-through-the-connected-waste-management-application-template"></a>Tutoriel : Déployer et découvrir un modèle d’application de gestion des déchets connectée
 
-Ce tutoriel vous montre comment utiliser Azure IoT Central pour créer une application de gestion connectée des déchets. 
+Utilisez le modèle d’application de *gestion des déchets connecté* IOT central et les conseils de cet article pour développer une solution de gestion des déchets connectée de bout en bout.
 
-Plus précisément, vous apprenez à : 
+:::image type="content" source="media/tutorial-connectedwastemanagement/concepts-connected-waste-management-architecture-1.png" alt-text="Architecture de gestion des déchets connectée.":::
+
+### <a name="devices-and-connectivity"></a>Appareils et connectivité
+
+Les appareils, tels que les poubelles, qui sont utilisés dans les environnements ouverts peuvent généralement être connectés via des réseaux longue distance à faible puissance LPWAN ou via un opérateur réseau tiers. Pour ces types d’appareils, utilisez [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) pour envoyer les données de votre appareil à votre application IoT dans Azure IoT Central. Vous pouvez également utiliser des passerelles d’appareil qui sont compatibles IP et capables de se connecter directement à IoT Central.
+
+### <a name="iot-central"></a>IoT Central
+
+Azure IoT Central est une plateforme d’applications IoT qui vous permet de générer et de déployer rapidement une solution IoT. Vous pouvez personnaliser et intégrer votre solution à des services tiers.
+
+Lorsque vous connectez vos systèmes de déchets intelligents à IoT Central, l’application permet de contrôler les appareils, d’effectuer le suivi et de déclencher des alertes, d’accéder à l’interface utilisateur à laquelle est intégré RBAC et d’accéder aux tableaux de bord configurables, ainsi qu’aux options d’extensibilité.
+
+### <a name="extensibility-and-integrations"></a>Extensibilité et intégrations
+
+Vous pouvez étendre votre application IoT dans IoT Central et si vous le souhaitez :
+
+* Transformer et intégrer vos données IoT en vue d’une analyse avancée, par exemple en effectuant l'apprentissage de modèles Machine Learning via l’exportation continue de données à partir d’une application IoT Central.
+* Automatiser des workflows dans d’autres systèmes en déclenchant des actions via Power Automate ou des webhooks à partir d’une application IoT Central.
+* Accéder programmatiquement à votre application IoT dans IoT Central via des API IoT Central.
+
+### <a name="business-applications"></a>Applications métier
+
+Vous pouvez utiliser des données IoT pour alimenter diverses applications métier au sein d’un utilitaire de gestion des déchets. Par exemple, dans une solution de gestion des déchets connectée, vous pouvez optimiser l’envoi de camions de ramassage d’ordures. L’optimisation peut être effectuée en fonction des données de capteurs IoT à partir de poubelles connectées. Dans votre [application de gestion des déchets IoT Central connectée](./tutorial-connected-waste-management.md), vous pouvez configurer des règles et des actions et les paramétrer pour créer des alertes dans le [Service de terrain connecté](/dynamics365/field-service/connected-field-service). Configurez Power Automate dans les règles d’IoT Central pour automatiser les workflows entre des applications et des services. Par ailleurs, selon les activités de service dans le service de terrain connecté, des informations peuvent être renvoyées à Azure IoT Central.
+
+Vous pouvez facilement configurer les processus d’intégration suivants avec IoT Central et le service de terrain connecté :
+
+* Azure IoT Central peut envoyer des informations relatives à des anomalies de périphériques à un service de terrain connecté à des fins de diagnostic.
+* Ce service de terrain connecté peut créer des cas de support ou des ordres de travail déclenchés à partir d’anomalies de périphériques.
+* Il peut également planifier des techniciens pour l’inspection afin d’éviter les temps d’arrêt.
+* Le tableau de bord d’appareil Azure IoT Central peut être mis à jour avec les informations de planification et de service appropriées.
+
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+
 > * Utiliser le modèle de *gestion connectée des déchets* Azure IoT Central pour créer votre application.
 > * Explorer et personnaliser le tableau de bord. 
 > * Explorer le modèle d’appareil pour conteneur connecté de déchets.
@@ -31,50 +63,27 @@ Plus précisément, vous apprenez à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Un abonnement Azure est recommandé. Vous pouvez également utiliser une version d’évaluation gratuite pendant 7 jours. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un sur la [page d’inscription à Azure](https://aka.ms/createazuresubscription).
+* Le déploiement de cette application ne nécessite aucun prérequis.
+* Vous pouvez utiliser le plan tarifaire gratuit ou utiliser un abonnement Azure.
 
-## <a name="create-your-app-in-azure-iot-central"></a>Créer votre application dans Azure IoT Central
+## <a name="create-connected-waste-management-application"></a>Créer une application de gestion des déchets connectée
 
-Dans cette section, vous utilisez le modèle de gestion connectée des déchets pour créer votre application dans Azure IoT Central. Voici comment procéder :
+1. Accédez au site de [création d’applications Azure IoT Central](https://aka.ms/iotcentral). Ensuite, connectez-vous avec un compte Microsoft personnel, scolaire ou professionnel. Sélectionnez **Build** dans la barre de navigation de gauche et sélectionnez l’onglet **Gouvernement** : :::image type="content" source="media/tutorial-connectedwastemanagement/iot-central-government-tab-overview.png" alt-text="Modèle de gestion des déchets connectée":::
 
-1. Accédez à [Azure IoT Central](https://aka.ms/iotcentral).
+1. Sélectionnez **Créer une application** sous **Gestion des déchets connectée**.
 
-    Si vous disposez d’un abonnement Azure, connectez-vous avec les informations d’identification que vous utilisez pour y accéder. Sinon, connectez-vous à l’aide d’un compte Microsoft :
+Pour plus d’informations, consultez [Créer une application IoT Central](../core/howto-create-iot-central-application.md).
 
-    ![Capture d’écran de la connexion Microsoft.](./media/tutorial-connectedwastemanagement/sign-in.png)
+## <a name="walk-through-the-application"></a>examiner l’application
 
-1. Dans le volet gauche, sélectionnez **Générer**. Sélectionnez ensuite l’onglet **Administration**. La page relative au secteur public affiche plusieurs modèles d’application pour le secteur public.
+Les sections suivantes décrivent les principales fonctionnalités de l’application :
 
-    ![Capture d’écran de la page de création Azure IoT Central.](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
+### <a name="dashboard"></a>tableau de bord 
 
-1. Sélectionnez le modèle d’application **Gestion connectée des déchets**. Ce modèle comprend un exemple de modèle d’appareil pour conteneur connecté de déchets, un appareil simulé, un tableau de bord et des règles de supervision préconfigurées.    
+Une fois que vous avez déployé le modèle d’application, votre tableau de bord par défaut est le **Tableau de bord de gestion des déchets du monde entier**.
 
-1. Sélectionnez **Créer une application**, ce qui ouvre la boîte de dialogue **Nouvelle application**. Renseignez les champs suivants :
-    * **Application name** (Nom de l’application). Par défaut, le nom de l’application est **Gestion connectée des déchets** suivi d’une chaîne d’ID unique générée par IoT Central. Si vous le souhaitez, vous pouvez choisir un nom d’application convivial. Vous pouvez également modifier le nom de l’application.
-    * **URL**. Si vous le souhaitez, vous pouvez spécifier l’URL de votre choix. Vous pourrez la changer plus tard. 
-    * **Plan tarifaire**. Si vous avez un abonnement Azure, entrez votre annuaire, votre abonnement Azure et votre région dans les champs appropriés de la boîte de dialogue **Informations de facturation**. Si vous n’avez pas d’abonnement, sélectionnez **Gratuit** pour activer l’essai de 7 jours, puis indiquez les coordonnées nécessaires.  
+:::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-dashboard-1.png" alt-text="Capture d’écran du tableau de bord de gestion des déchets Wide World.":::
 
-1. Au bas de la page, sélectionnez **Créer**. 
-
-    ![Capture d’écran du dialogue Créer une application dans Azure IoT Central.](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
-    
-    ![Capture d’écran du dialogue Informations de facturation dans Azure IoT Central.](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
-
- 
-Dans l’application que vous venez de créer, les éléments suivants sont préconfigurés :
-* Exemples de tableaux de bord.
-* Exemples de modèles d’appareil préconfigurés pour conteneur connecté de déchets.
-* Appareils simulés pour conteneur connecté de déchets.
-* Règles et travaux
-* Exemple de personnalisation. 
-
-Cette application est la vôtre et vous pouvez la modifier à tout moment. Nous allons maintenant explorer l’application et effectuer certaines personnalisations.  
-
-## <a name="explore-and-customize-the-dashboard"></a>Explorer et personnaliser le tableau de bord 
-
-Jetez un coup d’œil sur le **tableau de bord de gestion des déchets Wide World**, qui s’affiche une fois que vous avez créé votre application.
-
-   ![Capture d’écran du tableau de bord de gestion des déchets Wide World.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard1.png)
 
 En tant que créateur, vous pouvez créer et personnaliser des vues dans le tableau de bord pour les opérateurs. Commençons par explorer le tableau de bord. 
 
@@ -91,26 +100,27 @@ Le tableau de bord est constitué de différentes vignettes :
 
 * **Carte de la zone de supervision des déchets** : Cette vignette utilise Azure Maps, que vous pouvez configurer directement dans Azure IoT Central. La vignette de la carte présente l’[emplacement](../core/howto-use-location-data.md) des appareils. Essayez de survoler la carte et d’en tester les contrôles, comme le zoom avant, le zoom arrière ou l’agrandissement.
 
-     ![Capture d’écran de la carte du tableau de bord du modèle de gestion connectée des déchets.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-dashboard-map.png" alt-text="Capture d’écran de la carte du tableau de bord du modèle de gestion connectée des déchets.":::
+
 
 
 * **Histogramme du niveau de remplissage, de la mesure des odeurs et du poids** : Vous pouvez visualiser un ou plusieurs types de données de télémétrie d’appareil dans un histogramme. Vous pouvez également développer le graphique à barres.  
 
-  ![Capture d’écran de l’histogramme du tableau de bord du modèle de gestion connectée des déchets.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-dashboard-bar-chart.png" alt-text="Capture d’écran de l’histogramme du tableau de bord du modèle de gestion des déchets connectée.":::
 
 
 * **Services de terrain** : Le tableau de bord inclut un lien pour l’intégration à des services de terrain Dynamics 365 à partir de votre application Azure IoT Central. Par exemple, vous pouvez utiliser des services de terrain pour créer des tickets d’affectation des services de ramassage des ordures. 
-
 
 ### <a name="customize-the-dashboard"></a>Personnaliser le tableau de bord 
 
 Vous pouvez personnaliser ce tableau de bord en sélectionnant le menu **Edit** (Modifier). Vous pouvez ensuite ajouter de nouvelles vignettes ou configurer des vignettes existantes. Voici à quoi ressemble le tableau de bord en mode d’édition : 
 
-![Capture d’écran du tableau de bord du modèle de gestion connectée des déchets en mode d’édition.](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
+:::image type="content" source="media/tutorial-connectedwastemanagement/edit-dashboard.png" alt-text="Capture d’écran du tableau de bord du modèle de gestion connectée des déchets en mode d’édition.":::
+
 
 Vous pouvez également sélectionner **+ Nouveau** pour créer un tableau de bord et le configurer à partir de zéro. Vous pouvez avoir plusieurs tableaux de bord et basculer de l’un à l’autre par le biais du menu Tableau de bord. 
 
-## <a name="explore-the-device-template"></a>Explorer le modèle d’appareil
+### <a name="explore-the-device-template"></a>Explorer le modèle d’appareil
 
 Un modèle d’appareil dans Azure IoT Central définit les fonctionnalités d’un appareil, qui peuvent être des données de télémétrie, des propriétés ou des commandes. En tant que créateur, vous pouvez définir des modèles d’appareil qui représenteront les fonctionnalités des appareils que vous connecterez. 
 
@@ -120,18 +130,20 @@ Pour afficher ce modèle d’appareil :
 
 1. Dans Azure IoT Central, dans le volet gauche de votre application, sélectionnez **Modèles d’appareil**. 
 
-    ![Capture d’écran montrant la liste des modèles d’appareil dans l’application.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-device-template.png" alt-text="Capture d’écran montrant la liste des modèles d’appareil dans l’application.":::
+
 
 1. Dans la liste **Modèles d’appareil**, sélectionnez **Connected Waste Bin** (Conteneur de déchets connecté).
 
 1. Examinez les fonctionnalités du modèle d’appareil. Vous pouvez voir qu’il définit des capteurs comme le **niveau de remplissage**, la **mesure des odeurs**, le **poids**, l’**emplacement**, etc.
 
-   ![Capture d’écran montrant les détails du modèle d’appareil de conteneur connecté de déchets.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-device-template-connected-bin.png" alt-text="Capture d’écran montrant les détails du modèle d’appareil de poubelles connectées.":::
 
 
 ### <a name="customize-the-device-template"></a>Personnaliser le modèle d’appareil
 
 Essayez de personnaliser les éléments suivants :
+
 1. Dans le menu du modèle d’appareil, sélectionnez **Customize** (Personnaliser).
 1. Recherchez le type de données de télémétrie **Odor meter** (mesure des odeurs).
 1. Mettez à jour le **nom d’affichage** de **Odor meter** en le remplaçant par **Niveau d’odeur**.
@@ -141,14 +153,17 @@ Essayez de personnaliser les éléments suivants :
 ### <a name="add-a-cloud-property"></a>Ajouter une propriété cloud 
 
 Voici comment procéder :
+
 1. Dans le menu du modèle d’appareil, sélectionnez **Cloud properties** (Propriétés cloud).
 1. Sélectionnez **+ Ajouter une propriété cloud**. Dans Azure IoT Central, vous pouvez ajouter une propriété qui s’applique à l’appareil, mais qui n’est pas censée être envoyée par un appareil. Par exemple, une propriété cloud peut être un seuil d’alerte propre à la zone d’installation, aux informations sur les ressources ou aux informations de maintenance. 
 1. Sélectionnez **Enregistrer**. 
  
 ### <a name="views"></a>Les vues 
+
 Le modèle d’appareil de conteneur connecté de déchets est fourni avec des vues prédéfinies. Explorez les vues et mettez-les à jour si vous le souhaitez. Les vues définissent la façon dont les opérateurs voient les données d’appareil et entrent les propriétés cloud. 
 
-  ![Capture d’écran des vues de modèles d’appareil de gestion connectée des déchets.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
+:::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-device-template-views.png" alt-text="Capture d’écran des vues de modèles d’appareil du modèle de gestion des déchets connectée.":::
+
 
 ### <a name="publish"></a>Publish 
 
@@ -158,7 +173,7 @@ Si vous avez apporté des modifications, n’oubliez pas de publier le modèle d
 
 Pour créer un modèle d’appareil, sélectionnez **+ Nouveau** et suivez les étapes. Vous pouvez créer un modèle d’appareil personnalisé à partir de zéro ou choisir un modèle d’appareil dans le catalogue d’appareils Azure. 
 
-## <a name="explore-simulated-devices"></a>Explorer les appareils simulés
+### <a name="explore-simulated-devices"></a>Explorer les appareils simulés
 
 Dans Azure IoT Central, vous pouvez créer des appareils simulés pour tester votre modèle d’appareil et votre application. 
 
@@ -168,11 +183,13 @@ L’application Connected waste management (Gestion connectée des déchets) a d
 
 1. Dans le volet gauche d’Azure IoT Central, sélectionnez **Appareil**. 
 
-   ![Capture d’écran des appareils du modèle de gestion connectée des déchets.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-devices.png" alt-text="Capture d’écran des appareils du modèle de gestion connectée des déchets.":::
+
 
 1. Sélectionnez l’appareil **Connected Waste Bin** (Conteneur connecté).  
 
-     ![Capture d’écran des propriétés d’appareil du modèle de gestion connectée des déchets.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices-bin1.png)
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-devices-bin-1.png" alt-text="Capture d’écran des propriétés d’appareil du modèle de gestion connectée des déchets.":::
+
 
 1. Accédez à l’onglet **Cloud Properties** (Cloud Properties). Mettez à jour la valeur **Bin full alert threshold** (Seuil d’alerte de conteneur rempli) en la faisant passer de **95** à **100**. 
 
@@ -192,13 +209,16 @@ Dans Azure IoT Central, vous pouvez créer des règles pour superviser automatiq
 L’application Connected Waste Management (Gestion connectée des déchets) possède quatre exemples de règles.
 
 ### <a name="view-rules"></a>Afficher les règles
+
 1. Dans le volet gauche d’Azure IoT Central, sélectionnez **Règles**.
 
-   ![Capture d’écran des règles du modèle de gestion connectée des déchets.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-rules.png" alt-text="Capture d’écran des règles du modèle de gestion connectée des déchets.":::
+
 
 1. Sélectionnez **Bin full alert** (Alerte de conteneur plein).
 
-     ![Capture d’écran de l’alerte de conteneur plein.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-binfullalert.png)
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-bin-full-alert.png" alt-text="Capture d’écran de l’alerte de conteneur plein.":::
+
 
  1. L’**alerte de conteneur plein** vérifie la condition suivante : **Le niveau de remplissage est supérieur ou égal au seuil d’alerte de conteneur plein**.
 
@@ -241,7 +261,8 @@ Voici comment procéder :
 1. Sélectionnez **Modifier** pour choisir une image à charger pour l’**icône du navigateur** (une image qui s’affiche sous les onglets du navigateur).
 1. Vous pouvez également remplacer les couleurs du navigateur par défaut en ajoutant des codes couleur hexadécimaux HTML. Pour ce faire, utilisez les champs **En-tête** et **Accent**.
 
-   ![Capture d’écran de la personnalisation de votre application utilisant le modèle de gestion connectée des déchets.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-customize-your-application.png)
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-customize-your-application.png" alt-text="Capture d’écran de la personnalisation de votre application utilisant le modèle de gestion connectée des déchets.":::
+
 
 1. Vous pouvez également changer les images d’application. Sélectionnez **Administration** > **Paramètres d’application** > **Sélectionner une image** pour choisir une image à charger en tant qu’image de l’application.
 1. Enfin, vous pouvez également changer le thème en sélectionnant **Paramètres** sur le titre de l’application.
@@ -256,4 +277,4 @@ Si vous ne pensez pas continuer à utiliser cette application, supprimez votre a
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [concepts de la gestion connectée des déchets](./concepts-connectedwastemanagement-architecture.md)
+> [Concepts de la consommation des déchets connectée](./tutorial-water-consumption-monitoring.md)

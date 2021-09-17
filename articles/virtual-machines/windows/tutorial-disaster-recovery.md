@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e76245c9ad08a9a826e1d0431c2dd01b61a6b860
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a79a3d87fb7937c01896a30076385e86c65ad4bc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077569"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691721"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Tutoriel : Activer la reprise d’activité pour les machines virtuelles Windows
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 Ce tutoriel explique comment configurer la reprise d’activité après sinistre pour les machines virtuelles Azure qui exécutent Windows. Dans cet article, découvrez comment :
 

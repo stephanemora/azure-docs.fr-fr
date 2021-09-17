@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 83bb3b8e2f6704c595b6398a15f620be6927f3d5
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 97691d3b9c2d94a42e3ff434a5bbaef1bd281975
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846623"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698834"
 ---
 # <a name="m-series"></a>Série M
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 La série M propose un nombre élevé de processeurs virtuels (jusqu’à 128 processeurs virtuels) et une grande quantité de mémoire (jusqu’à 3,8 Tio). Elle est également idéale pour les très grandes bases de données ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire. Les tailles de la série M sont prises en charge à la fois sur le processeur Intel&reg; Xeon&reg; E7-8890 v3 à 2,50 GHz et sur le processeur Intel&reg; Xeon&reg; Platinum 8280M (Cascade Lake).
 

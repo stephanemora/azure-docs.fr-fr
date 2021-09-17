@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 06/30/2021
-ms.openlocfilehash: a5edf1b85d97798e5ed159433961c4c0d76cfcca
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: ed3a0abc6bdd99e5c86e67a410d7c9ecadf7a718
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114208205"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737649"
 ---
 # <a name="register-and-scan-an-azure-mysql-database"></a>Inscrire et analyser une base de données Azure MySQL Database
 
@@ -53,7 +53,7 @@ Pour inscrire une nouvelle base de données Azure MySQL Database dans votre cata
 
 1. Accédez à votre compte Purview.
 
-1. Sélectionnez **Sources** dans la barre de navigation à gauche.
+1. Sélectionnez **Data Map** dans le volet de navigation de gauche.
 
 1. Sélectionnez **Inscription**.
 

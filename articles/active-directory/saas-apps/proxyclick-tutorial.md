@@ -9,33 +9,28 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 07/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 23ae1a2c1371cda9435ea76f02cebc79c141c904
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31f4390541020a7315d9168369898dff1cd854f7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522238"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Didacticiel : Intégration d’Azure Active Directory à Proxyclick
 
-Ce didacticiel vous montrera comment intégrer Proxyclick à Azure Active Directory (Azure AD).
-Cette intégration offre les avantages suivants :
+Ce didacticiel vous montrera comment intégrer Proxyclick à Azure Active Directory (Azure AD). Quand vous intégrez Proxyclick à Azure AD, vous pouvez :
 
-* Vous pouvez utiliser Azure AD pour contrôler qui a accès à Proxyclick.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Proxyclick (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
-
-Pour en savoir plus sur l’intégration d’applications SaaS à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Contrôler dans Azure AD qui a accès à Proxyclick.
+* Permettre à vos utilisateurs de se connecter automatiquement à Proxyclick avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à Proxyclick, vous devez disposer de ce qui suit :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [essai gratuit d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/)
 * Un abonnement Proxyclick pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -48,73 +43,45 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 Pour configurer l’intégration de Proxyclick à Azure AD, vous devez ajouter Proxyclick, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-1. Dans le [portail Azure](https://portal.azure.com), dans le volet de gauche, sélectionnez **Azure Active Directory** :
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Proxyclick** dans la zone de recherche.
+1. Sélectionnez **Proxyclick** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-    ![Sélectionnez Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-proxyclick"></a>Configurer et tester l’authentification unique Azure AD pour Proxyclick
 
-2. Accédez à **Applications d’entreprise** > **Toutes les applications** :
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-3. Pour ajouter une application, sélectionnez **Nouvelle application** en haut de la fenêtre :
-
-    ![Sélectionner la nouvelle application](common/add-new-app.png)
-
-4. Dans la zone de recherche, entrez **Proxyclick**. Dans les résultats de la recherche, sélectionnez **Proxyclick**, puis **Ajouter**.
-
-     ![Résultats de la recherche](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
-
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Proxyclick pour un utilisateur de test appelé Britta Simon.
-Pour activer l’authentification unique, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur correspondant dans Proxyclick.
+Configurez et testez l’authentification unique Azure AD avec Proxyclick pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Proxyclick associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Proxyclick, procédez comme suit :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser la fonctionnalité.
-2. **[Configurer l’authentification unique Proxyclick](#configure-proxyclick-single-sign-on)** côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour lui permettre d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Proxyclick](#create-a-proxyclick-test-user)** qui est lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier que la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique Proxyclick](#configure-proxyclick-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Proxyclick](#create-proxyclick-test-user)** pour avoir un équivalent de B.Simon dans Proxyclick lié à la représentation Azure AD associée.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-Pour configurer l’authentification unique Azure AD avec Proxyclick, procédez comme suit :
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Proxyclick**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application Proxyclick, sélectionnez **Authentification unique** :
-
-    ![Sélectionner l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** pour activer l’authentification unique :
-
-    ![Sélectionner une méthode d’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** :
-
-    ![Icône Modifier](common/edit-urls.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 4. Dans la boîte de dialogue **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le fournisseur d’identité, procédez comme suit.
-
-    ![Boîte de dialogue Configuration SAML de base](common/idp-intiated.png)
-
-    1. Dans la zone **Identificateur**, entrez une URL au format suivant :
-   
-       `https://saml.proxyclick.com/init/<companyId>`
-
-    1. Dans la zone **URL de réponse**, entrez une URL au format suivant :
-
-       `https://saml.proxyclick.com/consume/<companyId>`
-
-5. Si vous voulez configurer l’application en mode lancé par le fournisseur de services, sélectionnez **Définir des URL supplémentaires**. Dans la zone **URL de connexion**, entrez une URL au format suivant :
-   
-   `https://saml.proxyclick.com/init/<companyId>`
-
-    ![Informations d’authentification unique dans Domaine et URL Proxyclick](common/metadata-upload-additional-signon.png)
-
     
+    a. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://saml.proxyclick.com/init/<COMPANY_ID>`
+
+    b. Dans la zone **URL de réponse**, tapez une URL au format suivant : `https://saml.proxyclick.com/consume/<COMPANY_ID>`
+
+5. Si vous voulez configurer l’application en mode lancé par le fournisseur de services, sélectionnez **Définir des URL supplémentaires**. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+   
+   `https://saml.proxyclick.com/init/<COMPANY_ID>`
 
     > [!NOTE]
     > Ces valeurs sont des espaces réservés. Vous devez utiliser l’identificateur, l’URL de réponse et l’URL de connexion exacts. Vous trouverez plus loin dans ce tutoriel les étapes permettant d’obtenir ces valeurs.
@@ -127,27 +94,45 @@ Pour configurer l’authentification unique Azure AD avec Proxyclick, procédez 
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    1. **URL de connexion**.
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-    1. **Identificateur Azure AD**.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-    1. **URL de déconnexion**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
-### <a name="configure-proxyclick-single-sign-on"></a>Configurer l’authentification unique Proxyclick
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Proxyclick.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Proxyclick**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-proxyclick-sso"></a>Configurer l’authentification unique Proxyclick
 
 1. Dans une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Proxyclick en tant qu’administrateur.
 
-2. Sélectionnez **Compte et paramètres** :
+2. Sélectionnez **Compte et paramètres**.
 
-    ![Sélectionner Compte et paramètres](./media/proxyclick-tutorial/configure1.png)
+    ![Sélectionnez Compte et paramètres.](./media/proxyclick-tutorial/account.png)
 
-3. Faites défiler jusqu'à la section **Intégrations**, puis sélectionnez **SAML** :
+3. Faites défiler jusqu’à la section **Intégrations**, puis sélectionnez **SAML**.
 
-    ![Sélectionner SAML](./media/proxyclick-tutorial/configure2.png)
+    ![Sélectionnez SAML.](./media/proxyclick-tutorial/settings.png)
 
 4. Dans la section **SAML**, procédez comme suit.
 
-    ![Section SAML](./media/proxyclick-tutorial/configure3.png)
+    ![Section SAML](./media/proxyclick-tutorial/configuration.png)
 
     1. Copiez la valeur de l’**URL de consommateur SAML**, puis collez-la dans la zone **URL de réponse** de la boîte de dialogue **Configuration SAML de base** du portail Azure.
 
@@ -163,57 +148,7 @@ Pour configurer l’authentification unique Azure AD avec Proxyclick, procédez 
 
     1. Sélectionnez **Enregistrer les modifications**.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
-
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Azure.
-
-1. Dans le volet de gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs** :
-
-    ![Sélectionner Tous les utilisateurs](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran :
-
-    ![Sélectionner Nouvel utilisateur](common/new-user.png)
-
-3. Dans la boîte de dialogue **Utilisateur**, procédez comme suit.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    1. Dans la zone **Nom**, entrez **BrittaSimon**.
-  
-    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon@\<yourcompanydomain>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
-
-    1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
-
-    1. Sélectionnez **Create** (Créer).
-
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Proxyclick.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Proxyclick**.
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-2. Dans la liste des applications, sélectionnez **Proxyclick**.
-
-    ![Liste des applications](common/all-applications.png)
-
-3. Dans le volet gauche, sélectionnez **Utilisateurs et groupes** :
-
-    ![Sélectionner Utilisateurs et groupes](common/users-groups-blade.png)
-
-4. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Sélectionnez Ajouter un utilisateur](common/add-assign-user.png)
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de la fenêtre.
-
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Cliquez sur le bouton **Sélectionner** en bas de la fenêtre.
-
-7. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
-
-### <a name="create-a-proxyclick-test-user"></a>Créer un utilisateur de test Proxyclick
+### <a name="create-proxyclick-test-user"></a>Créer un utilisateur de test Proxyclick
 
 Pour autoriser les utilisateurs Azure AD à se connecter à Proxyclick, vous devez les ajouter dans Proxyclick. Vous devez les ajouter manuellement.
 
@@ -221,17 +156,17 @@ Pour créer un compte d’utilisateur, procédez comme suit :
 
 1. Connectez-vous à votre site d’entreprise Proxyclick en tant qu’administrateur.
 
-1. Sélectionnez **Collègues** en haut de la fenêtre :
+1. Sélectionnez **Collègues** en haut de la fenêtre.
 
-    ![Sélectionner Collègues](./media/proxyclick-tutorial/user1.png)
+    ![Sélectionner Collègues.](./media/proxyclick-tutorial/user.png)
 
-1. Sélectionnez **Ajouter un collègue** :
+1. Sélectionnez **Ajouter un collègue**.
 
-    ![Sélectionner Ajouter un collègue](./media/proxyclick-tutorial/user2.png)
+    ![Sélectionnez Ajouter un collègue.](./media/proxyclick-tutorial/add-user.png)
 
 1. Dans la section **Ajouter un collègue**, procédez comme suit.
 
-    ![Section Ajouter un collègue](./media/proxyclick-tutorial/user3.png)
+    ![Section Ajouter un collègue.](./media/proxyclick-tutorial/create-user.png)
 
     1. Dans la zone **E-mail**, entrez l’adresse e-mail de l’utilisateur. Dans ce cas, **brittasimon\@contoso.com**.
 
@@ -241,16 +176,22 @@ Pour créer un compte d’utilisateur, procédez comme suit :
 
     1. Sélectionnez **Add User** (Ajouter un utilisateur).
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Vous devez maintenant tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous sélectionnez la vignette Proxyclick dans le volet d’accès, vous devez être connecté automatiquement à l’instance Proxyclick pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le volet d’accès, consultez [Accéder aux applications du portail Mes applications et les utiliser](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion Proxyclick, à partir de laquelle vous pouvez lancer le flux de connexion.  
 
-- [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Accédez directement à l’URL de connexion à Proxyclick et lancez le flux de connexion.
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+* Sur le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance de Proxyclick pour laquelle vous avez configuré l’authentification unique. 
+
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Proxyclick dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Proxyclick pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Une fois que vous avez configuré Proxyclick, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

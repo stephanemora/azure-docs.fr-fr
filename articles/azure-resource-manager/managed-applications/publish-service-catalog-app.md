@@ -3,15 +3,15 @@ title: Publier une application managée du catalogue de services
 description: Montre comment créer une application managée Azure destinée aux membres de votre organisation.
 author: tfitzmac
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 04/14/2020
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.date: 08/16/2021
 ms.author: tomfitz
-ms.openlocfilehash: b5306b40688974b17fb268a31c2d095de264df6d
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 7722017e2cbe9c0f195ce24ee5452674ad0fd344
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314694"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253745"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Démarrage rapide : Créer et publier une définition d’application gérée
 
@@ -309,14 +309,9 @@ Copiez l’ID de ressource du compte de stockage. Il sera utilisé plus tard lor
 
 ### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Définir l’attribution de rôle pour « Fournisseur de ressources d’appliance » dans votre compte de stockage
 
-Pour que votre définition de l’application managée puisse être déployée sur votre compte de stockage, vous devez accorder des autorisations de contributeur au rôle **Fournisseur de ressources d’appliance** afin qu’il puisse écrire les fichiers de définition dans le conteneur de votre compte de stockage.
+Pour que votre définition d’application gérée puisse être déployée sur votre compte de stockage, attribuez le rôle **Contributeur** à l’utilisateur **Fournisseur de ressources de l’appliance** dans l’étendue du compte de stockage. Cette attribution permet à l’identité d’écrire les fichiers de définition dans le conteneur de votre compte de stockage.
 
-1. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
-1. Sélectionnez **Contrôle d’accès (IAM)** pour afficher les paramètres de contrôle d’accès du compte de stockage. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles.
-1. Dans la fenêtre **Ajouter une attribution de rôle**, sélectionnez le rôle **Contributeur**.
-1. Dans le champ **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou principal du service Azure AD**.
-1. Sous **Sélectionner**, recherchez le rôle **Fournisseur de ressources d’appliance**, puis sélectionnez-le.
-1. Enregistrez l’attribution de rôle.
+Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Déployer la définition de l’application managée avec un modèle ARM
 

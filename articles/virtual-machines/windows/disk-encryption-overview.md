@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e283ff2de003146c8228d36843f00ca8e4faced9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: fc3c40e9f4bad9a15b94ee7aa529438f45b97498
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748568"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692608"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption pour les machines virtuelles Windows
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 Azure Disk Encryption vous aide à protéger et à préserver vos données de façon à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Il utilise la fonctionnalité [BitLocker](https://en.wikipedia.org/wiki/BitLocker) de Windows pour assurer le chiffrement de volume des disques de système d’exploitation et de données des machines virtuelles Azure. Il s’intègre à [Azure Key Vault](../../key-vault/index.yml) pour vous aider à contrôler et à gérer les secrets et les clés de chiffrement de disque.
 
@@ -38,12 +40,13 @@ Vous pouvez découvrir les notions de base d’Azure Disk Encryption pour Window
 
 Les machines virtuelles Windows sont disponibles dans une [gamme de tailles](../sizes-general.md). Azure Disk Encryption est pris en charge sur les machines virtuelles de 1re génération et de 2e génération. Azure Disk Encryption est également disponible pour les machines virtuelles avec stockage premium.
 
-Azure Disk Encryption n’est pas disponible sur les [machines virtuelles De base et de série A](https://azure.microsoft.com/pricing/details/virtual-machines/series/), ni sur celles disposant de moins de 2 Go de mémoire.  Azure Disk Encryption n’est pas disponible non plus sur les images de machine virtuelle sans disque temporaire (Dv4, Dsv4, Ev4 et Esv4).  Voir [Tailles de machine virtuelle Azure sans disque temporaire local](../azure-vms-no-temp-disk.md).  Pour plus d’exceptions, consultez [Azure Disk Encryption : Scénarios non pris en charge](disk-encryption-windows.md#unsupported-scenarios).
+Azure Disk Encryption n’est pas disponible sur les [machines virtuelles De base et de série A](https://azure.microsoft.com/pricing/details/virtual-machines/series/), ni sur celles disposant de moins de 2 Go de mémoire.  Pour plus d’exceptions, consultez [Azure Disk Encryption : Scénarios non pris en charge](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
 - Client Windows : Windows 8 et ultérieur.
-- Serveur Windows : Windows Server 2008 R2 et ultérieur.  
+- Serveur Windows : Windows Server 2008 R2 et ultérieur.
+- Windows 10 Entreprise multisession  
  
 > [!NOTE]
 > Windows Server 2008 R2 nécessite l’installation de .NET Framework 4.5 pour le chiffrement. Installez-le à partir de Windows Update avec la mise à jour facultative Microsoft .NET Framework 4.5.2 pour les systèmes Windows Server 2008 R2 x64 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
@@ -58,12 +61,13 @@ L’activation d’Azure Disk Encryption nécessite que les machines virtuelles 
   - La machine virtuelle Windows doit être en mesure de se connecter au point de terminaison de stockage Azure qui héberge le référentiel d’extensions Azure et au compte de stockage Azure qui héberge les fichiers de disque dur virtuel.
   -  Si votre stratégie de sécurité limite l’accès à Internet à partir des machines virtuelles Azure, vous pouvez résoudre l’URI ci-dessus et configurer une règle spécifique pour autoriser les connexions sortantes vers les adresses IP. Pour plus d’informations, consultez l’article [Azure Key Vault derrière un pare-feu](../../key-vault/general/access-behind-firewall.md).    
 
-
 ## <a name="group-policy-requirements"></a>Exigences de stratégies de groupe
 
 Azure Disk Encryption utilise le protecteur de clé externe BitLocker pour les machines virtuelles Windows. Pour les machines virtuelles jointes à un domaine, n’envoyez (push) pas de stratégies de groupe qui appliquent des protecteurs de Module de plateforme sécurisée (TPM). Pour en savoir plus sur la stratégie de groupe pour « Autoriser BitLocker sans un module de plateforme sécurisée », consultez [Informations de référence sur la stratégie de groupe BitLocker](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
-La stratégie BitLocker sur les machines virtuelles jointes à un domaine avec stratégie de groupe personnalisée doit inclure le paramètre suivant : [Configurer le stockage par les utilisateurs des informations de récupération BitLocker -> Autoriser une clé de récupération de 256 bits](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). En cas d'incompatibilité des paramètres de la stratégie de groupe personnalisée de BitLocker, Azure Disk Encryption échouera. Sur les machines dont le paramètre de stratégie était incorrect, il peut être nécessaire d’appliquer la nouvelle stratégie, de forcer la mise à jour de cette dernière (gpupdate.exe /force), puis de procéder à un redémarrage.
+La stratégie BitLocker sur les machines virtuelles jointes à un domaine avec stratégie de groupe personnalisée doit inclure le paramètre suivant : [Configurer le stockage par les utilisateurs des informations de récupération BitLocker -> Autoriser une clé de récupération de 256 bits](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). En cas d'incompatibilité des paramètres de la stratégie de groupe personnalisée de BitLocker, Azure Disk Encryption échouera. Sur les machines dont le paramètre de stratégie était incorrect, appliquez la nouvelle stratégie et forcez la mise à jour de cette dernière (gpupdate.exe /force).  Un redémarrage peut être nécessaire.
+
+Les fonctionnalités de stratégie de groupe Microsoft BitLocker Administration and Monitoring (MBAM) ne sont pas compatibles avec Azure Disk Encryption.
 
 > [!WARNING]
 > Azure Disk Encryption **ne stocke pas de clés de récupération**. Si le paramètre de sécurité [Ouverture de session interactive : seuil de verrouillage du compte d’ordinateur](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) est activé, vous ne pouvez récupérer les machines qu’en fournissant une clé de récupération via la console série. Vous trouverez des instructions pour vous assurer que les stratégies de récupération appropriées sont activées dans le [plan du guide de récupération BitLocker](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan).

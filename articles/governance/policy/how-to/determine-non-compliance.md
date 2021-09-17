@@ -3,12 +3,12 @@ title: Déterminer les causes de non-conformité
 description: De nombreuses raisons peuvent expliquer une ressource non conforme. Découvrez comment identifier l'origine d'une non-conformité.
 ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: e09bdaee974e77a3afecaaa35a37c56ed3cd56ec
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 886ef03e0170f5605f047cdde08384e1bc2786f0
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527734"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769830"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Déterminer les causes de non-conformité
 
@@ -110,7 +110,7 @@ Pour les affectations avec un [mode Fournisseur de ressources](../concepts/defin
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Capture d’écran de l’onglet Conformité des composants et des détails de conformité pour une affectation de mode de fournisseur de ressources." border="false":::
 
-## <a name="compliance-details-for-guest-configuration"></a>Détails de conformité pour Guest Configuration
+## <a name="compliance-details-for-guest-configuration"></a>Détails de conformité pour la configuration invité
 
 Pour les stratégies _auditIfNotExists_ de la catégorie _Guest Configuration_, plusieurs paramètres peuvent être évalués dans la machine virtuelle et vous devez examiner les détails par paramètre. Par exemple, si vous effectuez un audit pour obtenir la liste des stratégies de mot de passe et qu’une seule d’entre-elles a l’état _Non conforme_, vous devez connaître les stratégies de mot de passe spécifiques qui ne sont pas conformes et pourquoi.
 

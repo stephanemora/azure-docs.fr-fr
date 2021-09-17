@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 81a7efea268600e661981b35f79149fe814ef084
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3de204c960a6369589ee0c52bb6f5770a2cee407
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180674"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179947"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à 8x8
 
@@ -41,6 +41,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * 8x8 prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
+* 8x8 prend en charge [**l’attribution d’utilisateurs et la suppression des privilèges d’accès** automatiques ](8x8-provisioning-tutorial.md) (recommandé).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.

@@ -3,12 +3,12 @@ title: Obtenir les données de conformité de la stratégie
 description: Les évaluations et les effets d’Azure Policy déterminent la conformité. Découvrez comment obtenir des détails sur la conformité de vos ressources Azure.
 ms.date: 06/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 547128d56eb2577a416ad2dae419d58ffe8b645b
-ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
+ms.openlocfilehash: 38811d67c54bf87476d1015ab6b45497094d12ca
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113038369"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767841"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 

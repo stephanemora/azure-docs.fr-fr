@@ -3,18 +3,18 @@ title: 'Tutoriel : Créer et gérer des données exportées depuis Azure Cost M
 description: Cet article vous montre comment créer et gérer des données Azure Cost Management exportées pour les utiliser dans des systèmes externes.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/26/2021
+ms.date: 08/05/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 592ef54b359c84309da350bf53da6bb0a4152374
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: f6d640d40b586e435e1484fce8d6560a961ba6ac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708636"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731944"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -259,11 +259,11 @@ Les exportations pour les groupes d’administration d’autres types d’abonne
 
 ### <a name="file-partitioning-for-large-datasets"></a>Partitionnement de fichiers pour les jeux de données volumineux
 
-Si vous disposez d’un Contrat client Microsoft ou d’un Contrat Partenaire Microsoft, vous pouvez activer les exportations pour diviser votre fichier en plusieurs partitions de fichiers plus petites et ainsi faciliter l’ingestion des données. Lors de la phase initiale de configuration de l’exportation, définissez le paramètre **Partitionnement de fichiers** sur **Activé**. Ce paramètre est défini sur **Désactivé** par défaut.
+Si vous disposez d’un Contrat client Microsoft, d’un Contrat Partenaire Microsoft ou d’un Contrat Entreprise, vous pouvez activer les exportations pour fragmenter votre fichier en plusieurs partitions de fichiers plus petites en vue de faciliter l’ingestion des données. Lors de la phase initiale de configuration de l’exportation, définissez le paramètre **Partitionnement de fichiers** sur **Activé**. Ce paramètre est défini sur **Désactivé** par défaut.
 
 :::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="Capture d’écran montrant l’option Partitionnement de fichiers." lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
 
-Si vous n’avez pas de contrat client Microsoft ni de contrat Partenaire Microsoft, vous ne verrez pas l’option **Partitionnement de fichiers**.
+Si vous ne disposez pas d’un Contrat client Microsoft, d’un Contrat Partenaire Microsoft ni d’un Contrat Entreprise, l’option **Partitionnement de fichiers** ne s’affiche pas.
 
 #### <a name="update-existing-exports-to-use-file-partitioning"></a>Mettre à jour les exportations existantes pour utiliser le partitionnement de fichiers
 

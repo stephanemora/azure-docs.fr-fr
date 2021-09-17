@@ -7,18 +7,21 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 53878384f4eb056f0cb23ec9005043ac26c8fad2
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 42b25599bfd1ef40f8bb0bc1a954677f68dbf668
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492569"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862881"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Démarrage rapide : Utiliser le portail Azure pour créer un serveur flexible Azure Database pour MySQL
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+
 Le serveur flexible Azure Database pour MySQL est un service managé qui vous permet d’exécuter, de gérer et de mettre à l’échelle des serveurs MySQL hautement disponibles dans le cloud. Ce guide de démarrage rapide explique comment créer un serveur flexible à l’aide du portail Azure.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Le serveur flexible Azure Database pour MySQL est actuellement en préversion publique.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -36,7 +39,7 @@ Pour créer un serveur flexible, procédez comme suit :
     
     > :::image type="content" source="./media/quickstart-create-server-portal/find-mysql-portal.png" alt-text="Capture d’écran montrant une recherche de serveurs Azure Database pour MySQL.":::
 
-2. Sélectionnez **Ajouter**. 
+2. Sélectionnez **Create** (Créer). 
 
 3. Dans la page **Sélectionner une option de déploiement Azure Database pour MySQL**, sélectionnez **Serveur flexible** comme option de déploiement :
      
@@ -54,12 +57,16 @@ Pour créer un serveur flexible, procédez comme suit :
     Region|La région la plus proche de vos utilisateurs| L’emplacement géographique le plus proche de vos utilisateurs.|
     Type de charge de travail| Développement | Pour une charge de travail de production, vous pouvez choisir Petite/moyenne taille ou Grande taille en fonction des exigences de [max_connections](concepts-server-parameters.md#max_connections).|
     Zone de disponibilité| Aucune préférence | Si votre application exécutée sur des machines virtuelles Azure, dans des groupes de machines virtuelles identiques ou sur une instance d'AKS est approvisionnée dans une zone de disponibilité spécifique, vous pouvez spécifier votre serveur flexible dans la même zone de disponibilité afin de colocaliser l'application et la base de données de manière à améliorer les performances en réduisant la latence du réseau entre les zones.|
-    Haute disponibilité| Default | Pour les serveurs de production, il est vivement recommandé d'activer la haute disponibilité redondante interzone afin d'assurer la continuité de l'activité et la protection contre les défaillances de zone.|
+    Haute disponibilité| Désactivé | Pour les serveurs de production, choisissez entre [haute disponibilité d’une zone redondante](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-high-availability#zone-redundant-high-availability) et [haute disponibilité dans la même zone](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-high-availability#same-zone-high-availability). Cela est fortement recommandé pour la continuité des activités et la protection contre les défaillances de machines virtuelles|
+    |Zone de disponibilité en attente| Aucune préférence| Choisissez l’emplacement de la zone du serveur de secours et colocalisez-le avec le serveur de secours de l’application en cas de défaillance de la zone |
     Version de MySQL|**5.7**| Version principale MySQL.|
     Nom d’utilisateur administrateur |**mydemouser**| Votre compte de connexion à utiliser lorsque vous vous connectez au serveur. Le nom d’utilisateur administrateur ne peut pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.|
     Mot de passe |Votre mot de passe| Un nouveau mot de passe pour le compte Administrateur du serveur. Il doit contenir entre 8 et 128 caractères. Il doit également contenir des caractères de trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres (0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).|
     Calcul + stockage | **Burstable**, **Standard_B1ms**, **10 Gio**, **100 iops**, **7 jours** | Les configurations de calcul, de stockage, d'IOPS et de sauvegarde de votre nouveau serveur. Sélectionnez **Configurer le serveur**. **Burstable**, **Standard_B1ms**, **10 Gio**, **100 iops**, et **7 jours** sont les valeurs par défaut des paramètres **Niveau de calcul**, **Taille de calcul**, **Taille du stockage**, **IOPS** et **Période de conservation** des sauvegardes. Vous pouvez laisser ces valeurs en l’état ou les ajuster. Pour accélérer le chargement des données pendant la migration, il est recommandé de définir le nombre d'IOPS par seconde sur la taille maximale prise en charge par la taille de calcul et de le remettre ultérieurement à l'échelle pour réduire les coûts. Pour enregistrer cette sélection de calcul et de stockage, sélectionnez **Enregistrer** afin de poursuivre la configuration. La capture d’écran ci-dessous montre les options de calcul et de stockage.|
-    
+
+ 
+    > :::image type="content" source="./media/quickstart-create-server-portal/high-availability.png" alt-text="Capture d’écran montrant des options haute disponibilité.":::
+
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Capture d’écran montrant les options de calcul et de stockage.":::
 
 5. Configurez les options de mise en réseau.
@@ -68,7 +75,9 @@ Pour créer un serveur flexible, procédez comme suit :
    - Accès public (adresses IP autorisées)
    - Accès privé (intégration au réseau virtuel) 
    
-   Lorsque vous utilisez l’accès public, l’accès à votre serveur est limité aux adresses IP autorisées que vous ajoutez à une règle de pare-feu. Cette méthode empêche les applications et les outils externes de se connecter à ce serveur et à toute base de données sur ce serveur, sauf si vous créez une règle pour ouvrir le pare-feu pour une adresse IP ou une plage d’adresses IP spécifique. Lorsque vous utilisez l’accès privé (intégration au réseau virtuel), l’accès à votre serveur est limité à votre réseau virtuel. Dans ce guide de démarrage rapide, vous découvrirez comment activer l’accès public pour vous connecter au serveur. [Pour en savoir plus sur les méthodes de connectivité, consultez l’article consacré aux concepts.](./concepts-networking.md)
+   Lorsque vous utilisez l’accès public, l’accès à votre serveur est limité aux adresses IP autorisées que vous ajoutez à une règle de pare-feu. Cette méthode empêche les applications et les outils externes de se connecter à ce serveur et à toute base de données sur ce serveur, sauf si vous créez une règle pour ouvrir le pare-feu pour une adresse IP ou une plage d’adresses IP spécifique. Lorsque vous utilisez l’accès privé (intégration au réseau virtuel), l’accès à votre serveur est limité à votre réseau virtuel. [Pour en savoir plus sur les méthodes de connectivité, consultez l’article consacré aux concepts.](./concepts-networking.md)
+    
+     Dans ce guide de démarrage rapide, vous découvrirez comment activer l’accès public pour vous connecter au serveur. Sous l’**onglet Mise en réseau**, pour **Méthode de connectivité**, sélectionnez **Accès public**. Pour configurer les **Règles de pare-feu**, sélectionnez **Ajouter l’adresse IP actuelle du client**. 
 
     > [!NOTE]
     > Vous ne pouvez pas modifier la méthode de connectivité après avoir créé le serveur. Par exemple, si vous sélectionnez **Accès public (adresses IP autorisées)** quand vous créez le serveur, vous ne pouvez pas passer à **Accès privé (intégration au réseau virtuel)** une fois le serveur créé. Nous vous recommandons vivement de créer votre serveur avec un accès privé pour contribuer à sécuriser l’accès à votre serveur via l’intégration au réseau virtuel. [Pour en savoir plus sur l’accès privé, consultez l’article consacré aux concepts.](./concepts-networking.md)
@@ -118,7 +127,7 @@ wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA
 mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 > [!IMPORTANT]
-> Lorsque vous vous connectez à votre serveur flexible à l'aide d'Azure Cloud Shell, vous devez utiliser le paramètre --ssl=true et non --ssl-mode=REQUIRED.
+>Lorsque vous vous connectez à votre serveur flexible à l'aide d'Azure Cloud Shell, vous devez utiliser le paramètre --ssl=true et non --ssl-mode=REQUIRED.
 > Ceci est principalement dû au fait que le client mysql.exe de la distribution MariaDB est préinstallé sur Azure Cloud Shell et que celui-ci requiert le paramètre --ssl, alors que le client mysql de la distribution Oracle requiert le paramètre --ssl-mode.
 
 Si le message d’erreur suivant s’affiche lors de la connexion à votre serveur flexible à la suite de la commande précédente, c’est que vous n’avez pas défini la règle de pare-feu en utilisant l’option « Autoriser l’accès public à partir de n’importe quel service Azure dans Azure à ce serveur » mentionnée précédemment ou que cette option n’est pas enregistrée. Reconfigurez le pare-feu, puis réessayez.

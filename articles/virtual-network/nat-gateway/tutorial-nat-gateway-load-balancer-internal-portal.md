@@ -7,14 +7,14 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
-ms.date: 03/19/2021
+ms.date: 08/04/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: f25266f5a969514ca515e8cbbec959404428d6fb
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 4f523c41a38fa458d8d29cc6b644cdaaa4e9676f
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438776"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122201676"
 ---
 # <a name="tutorial-integrate-a-nat-gateway-with-an-internal-load-balancer-using-the-azure-portal"></a>Tutoriel : Intégrer une passerelle NAT à un équilibreur de charge interne à l’aide du portail Azure
 
@@ -57,7 +57,7 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
     | Groupe de ressources   | Sélectionnez **Créer nouveau**. Entrez **TutorIntLBNAT-rg**. </br> Sélectionnez **OK**. |
     | **Détails de l’instance** |                                                                 |
     | Nom             | Entrez **myVNet**                                    |
-    | Région           | Sélectionnez **USA Est**. |
+    | Région           | Sélectionnez **(États-Unis) USA Est** |
 
 4. Sélectionnez l’onglet **Adresses IP**, ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
 
@@ -95,110 +95,86 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
 
 ## <a name="create-load-balancer"></a>Créer un équilibreur de charge
 
-Dans cette section, vous allez créer un Standard Load Balancer Azure : 
+Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles.
 
-1. Sélectionnez **Créer une ressource**. 
+Lors de la création de l’équilibreur de charge, vous allez configurer les éléments suivants :
 
-2. Dans la zone de recherche, entrez **Équilibreur de charge**. Sélectionnez **Équilibreur de charge** dans les résultats de recherche.
+* Adresse IP du serveur frontal
+* Pool de back-ends
+* Règles d’équilibrage de la charge de trafic entrant
 
-3. Dans la page **Équilibreur de charge**, sélectionnez **Créer**.
-4. Sur la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
+1. Dans la zone de recherche située en haut du portail, entrez **Équilibreur de charge**. Sélectionnez **Équilibreurs de charge** dans les résultats de la recherche.
+
+2. Dans la page **Équilibreur de charge**, sélectionnez **Créer**.
+
+3. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | **Détails du projet** |   |
     | Abonnement               | Sélectionnez votre abonnement.    |    
-    | Resource group         | Sélectionnez **TutorIntLBNAT-rg**.|
-    | **Détails de l’instance** |    |
+    | Resource group         | Sélectionnez **TutorIntLBNAT-rg**. |
+    | **Détails de l’instance** |   |
     | Nom                   | Entrez **myLoadBalancer**                                   |
     | Région         | Sélectionnez **(États-Unis) USA Est**.                                        |
     | Type          | sélectionnez **Interne**.                                        |
     | SKU           | Conservez la valeur par défaut **Standard**. |
-    | **Configurer un réseau virtuel** |    |
-    | Réseau virtuel | Sélectionnez **myVNet**. |
-    | Subnet | Sélectionnez **myBackendSubnet**. |
-    | Affectation d’adresses IP | Sélectionnez **Dynamique**. |
-    | Zone de disponibilité | Sélectionnez **Redondant interzone** pour créer un équilibreur de charge résilient. </br> Pour créer un équilibreur de charge zonal, sélectionnez une zone spécifique parmi 1, 2 ou 3 |
-    
 
-5. Acceptez les valeurs par défaut pour les paramètres restants, puis sélectionnez **Vérifier + créer**.
+4. Sélectionnez **Suivant : configuration de l’adresse IP front-end** au bas de la page.
 
-6. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.
+5. Dans **Configuration de l’adresse IP front-end**, sélectionnez **+ Ajouter une adresse IP front-end**.
 
-## <a name="create-load-balancer-resources"></a>Créer les ressources d’équilibreur de charge
+6. Entrez **LoadBalancerFrontend** dans **Nom**.
 
-Dans cette section, vous configurez :
+7. Sélectionnez **myBackendSubnet** dans **Sous-réseau**.
 
-* Les paramètres d’équilibreur de charge d’un pool d’adresses de back-ends
-* Une sonde d’intégrité
-* Une règle d’équilibreur de charge
+8. Sélectionnez **Dynamique** comme **Attribution**.
 
-### <a name="create-a-backend-pool"></a>Créer un pool principal
+9. Sélectionnez **Zone-redondante** dans la **Zone de disponibilité**.
 
-Un pool d’adresses de back-ends contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. 
+    > [!NOTE]
+    > Dans les régions avec des [zones de disponibilité](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), vous avez la possibilité de sélectionner aucune zone (option par défaut), une zone spécifique ou redondant dans une zone. Le choix dépendra de vos exigences spécifiques en matière de défaillance de domaine. Dans les régions sans Zones de disponibilité, ce champ n’apparaît pas. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../../availability-zones/az-overview.md).
 
-Créez le pool d’adresses principal **myBackendPool** afin d’inclure des machines virtuelles pour l’équilibrage de charge du trafic Internet.
+10. Sélectionnez **Ajouter**.
 
-1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
+11. Sélectionnez **Suivant : Pools de back-ends** au bas de la page.
 
-2. Sous **Paramètres**, sélectionnez **Pools principaux**, puis **Ajouter**.
+12. Sous l’onglet **Pools de back-end**, sélectionnez **+ Ajouter un pool de back-end**.
 
-3. Dans la page **Ajouter un pool de backends**, entrez **myBackendPool** comme nom de votre pool de back-ends, puis sélectionnez **Ajouter**.
+13. Entrez **myBackendPool** comme **Nom** dans **Ajouter un pool de back-end**.
 
-### <a name="create-a-health-probe"></a>Créer une sonde d’intégrité
+14. Sélectionnez **Carte d’interface réseau** ou **Adresse IP** pour la **Configuration du pool de back-end**.
 
-L’équilibreur de charge supervise l’état de votre application avec une sonde d’intégrité. 
+15. Sélectionnez **IPv4** ou **IPv6** pour la **Version IP**.
 
-La sonde d’intégrité ajoute ou supprime des machines virtuelles dans l’équilibreur de charge en fonction de leur réponse aux contrôles d’intégrité. 
+16. Sélectionnez **Ajouter**.
 
-Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’intégrité des machines virtuelles.
+17. Sélectionnez le bouton **Suivant : Règles de trafic entrant** au bas de la page.
 
-1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
+18. Dans **Règle d’équilibrage de la charge** sous l’onglet **Règles de trafic entrant**, sélectionnez **+ Ajouter une règle d’équilibrage de charge**.
 
-2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
-    
+19. Dans **Ajouter une règle d’équilibrage de charge**, entrez ou sélectionnez les informations suivantes :
+
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez **MyHealthProbe**. |
+    | Nom | Entrez **myHTTPRule** |
+    | Version de l’adresse IP | Sélectionnez **IPv4** ou **IPv6** en fonction de vos besoins. |
+    | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontend**. |
     | Protocol | Sélectionnez **TCP**. |
-    | Port | Entrez **80**.|
-    | Intervalle | Entrez **15** pour **l’intervalle** en secondes entre les tentatives de la sonde. |
-    | Seuil de défaillance sur le plan de l’intégrité | Sélectionnez **2** pour le **Seuil de défaillance sur le plan de l’intégrité**, soit le nombre d’échecs de sonde consécutifs qui peuvent se produire avant qu’une machine virtuelle soit considérée comme non saine.|
-   
-3. Laissez les autres valeurs par défaut et sélectionnez **Ajouter**.
-
-### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
-
-Une règle d’équilibrage de charge est utilisée pour définir la distribution du trafic vers les machines virtuelles. Vous définissez la configuration IP front-end pour le trafic entrant et le pool d’adresses IP de back-ends pour la réception du trafic. Les ports source et de destination sont définis dans la règle. 
-
-Dans cette section, vous allez créer une règle d’équilibreur de charge :
-
-* A pour nom **myHTTPRule**.
-* Se trouve dans le front-end nommé **LoadBalancerFrontEnd**.
-* Écoute sur le **Port 80**.
-* Dirige le trafic à charge équilibrée vers le back-end nommé **myBackendPool** sur le **Port 80**.
-
-1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
-
-2. Sous **Paramètres**, sélectionnez **Règles d’équilibrage de charge**, puis **Ajouter**.
-
-3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
-    
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Nom | Entrez **MyHTTPRule**. |
-    | Version de l’adresse IP | Sélectionnez **IPv4** |
-    | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontEnd** |
-    | Protocol | Sélectionnez **TCP**. |
-    | Port | Entrez **80**.|
+    | Port | Entrez **80**. |
     | Port principal | Entrez **80**. |
-    | Pool principal | Sélectionnez **MyBackendPool**.|
-    | Sonde d’intégrité | Sélectionnez **myHealthProbe**. |
-    | Délai d’inactivité (minutes) | Entrez **15** minutes. |
+    | Pool principal | Sélectionnez **MyBackendPool**. |
+    | Sonde d’intégrité | Sélectionnez **Créer nouveau**. </br> Dans **Nom**, entrez **myHealthProbe**. </br> Sélectionnez **HTTP** dans **Protocole**. </br> Laissez les autres valeurs par défaut et sélectionnez **OK**. |
+    | Persistance de session | Sélectionnez **Aucun**. |
+    | Délai d’inactivité (minutes) | Entrez ou sélectionnez **15**. |
     | Réinitialisation du protocole TCP | Sélectionnez **Enabled**. |
+    | IP flottante | Sélectionnez **Désactivé**. |
 
-4. Laissez les autres valeurs par défaut, puis sélectionnez **OK**.
+20. Sélectionnez **Ajouter**.
 
+21. Sélectionnez le bouton bleu **Vérifier + créer** au bas de la page.
+
+22. Sélectionnez **Create** (Créer).
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
@@ -217,7 +193,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Groupe de ressources | Sélectionnez **TutorIntLBNAT-rg**. |
     | **Détails de l’instance** |  |
     | Nom de la machine virtuelle | Entrez **myVM1** |
-    | Région | Sélectionnez **USA Est**. |
+    | Région | Sélectionnez **(États-Unis) USA Est** |
     | Options de disponibilité | Sélectionnez **Zones de disponibilité** |
     | Zone de disponibilité | Sélectionnez **1** |
     | Image | Sélectionnez **Windows Server 2019 Datacenter** |
@@ -241,7 +217,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Subnet | **myBackendSubnet** |
     | Adresse IP publique | Sélectionnez **Aucun**. |
     | Groupe de sécurité réseau de la carte réseau | Sélectionnez **Avancé**|
-    | Configurer un groupe de sécurité réseau | Sélectionnez **Créer nouveau**. </br> Dans **Créer un groupe de sécurité réseau**, entrez **myNSG** dans **Nom**. </br> Sous **Règles de trafic entrant**, sélectionnez **+Ajouter une règle de trafic entrant**. </br> Sous **Plages de ports de destination**, entrez **80**. </br> Sous **Priorité**, entrez **100**. </br> Dans **Nom**, entrez **myHTTPRule** </br> Sélectionnez **Ajouter** </br> Sélectionnez **OK**. |
+    | Configurer un groupe de sécurité réseau | Sélectionnez **Créer nouveau**. </br> Dans **Créer un groupe de sécurité réseau**, entrez **myNSG** dans **Nom**. </br> Sous **Règles de trafic entrant**, sélectionnez **+Ajouter une règle de trafic entrant**. </br> Sous **Plages de ports de destination**, entrez **80**. </br> Sous **Priorité**, entrez **100**. </br> Dans **Nom**, entrez **myNSGRule** </br> Sélectionnez **Ajouter** </br> Sélectionnez **OK**. |
     | **Équilibrage de charge**  |
     | Placer cette machine virtuelle derrière une solution d’équilibrage de charge existante ? | Activez la case à cocher. |
     | **Paramètres d’équilibrage de charge** |
@@ -253,7 +229,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
   
 6. Passez en revue les paramètres, puis sélectionnez **Créer**.
 
-7. Suivez les étapes 1 à 7 pour créer une machine virtuelle avec les valeurs suivantes et tous les autres paramètres identiques à ceux de **myVM1** :
+7. Effectuez les étapes 1 à 6 pour créer une machine virtuelle avec les valeurs suivantes, avec tous les autres paramètres identiques à ceux de **myVM1** :
 
     | Paramètre | Machine virtuelle 2 |
     | ------- | ----- |
@@ -288,7 +264,7 @@ Dans cette section, vous allez créer une passerelle NAT et l’affecter au sous
 
     | **Paramètre** | **Valeur** |
     | ----------- | --------- |
-    | Adresses IP publiques | Sélectionnez **Créer une adresse IP publique**. </br> Dans **Nom**, entrez **myPublicIP-NAT**. </br> Sélectionnez **OK**. |
+    | Adresses IP publiques | Sélectionnez **Créer une adresse IP publique**. </br> Dans **Nom**, entrez **myNATgatewayIP**. </br> Sélectionnez **OK**. |
 
 6. Sélectionnez l’onglet **Sous-réseau**, ou sélectionnez le bouton **Suivant : Sous-réseau** situé au bas de la page.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 5/17/2021
-ms.openlocfilehash: c289ab60973c0e907deb97c0e8520f8b608099eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0a7d8a22cf8f9dcdaac9d3fe07bd6ab006e61818
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467078"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751905"
 ---
 # <a name="register-and-scan-hive-metastore-database"></a>Inscrire et analyser une base de données de metastore Hive
 
@@ -36,7 +36,7 @@ La source metastore Hive prend en charge une analyse complète pour extraire les
     > [!Note]
     > Le pilote doit être accessible à tous les comptes de la machine virtuelle. Ne l’installez pas dans un compte d’utilisateur.
 
-5.  Les versions de Hive prises en charge sont 2.x à 3.x.
+5.  Les versions de Hive prises en charge sont 2.x à 3.x. Les versions de Databricks prises en charge sont 8.0 et versions ultérieures. 
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuration de l’authentification pour une analyse
 
@@ -48,7 +48,7 @@ Pour inscrire une nouvelle base de données de metastore Hive dans votre catalog
 
 1.  Accédez à votre compte Purview.
 
-2.  Sélectionnez **Sources** dans la barre de navigation à gauche.
+2.  Sélectionnez **Data Map** dans le volet de navigation de gauche.
 
 3.  Sélectionnez **Inscrire**.
 

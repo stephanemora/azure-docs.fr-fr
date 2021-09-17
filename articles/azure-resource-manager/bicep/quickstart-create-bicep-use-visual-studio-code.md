@@ -1,15 +1,15 @@
 ---
 title: Créer des fichiers Bicep - Visual Studio Code
 description: Utiliser Visual Studio Code et l’extension Bicep avec des fichiers Bicep pour déployer des ressources Azure
-ms.date: 06/25/2021
+ms.date: 07/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8167516a41943ea17fdeb47bce84767178593e85
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 4f76d18c756855798651e0c129fd4f0caec15984
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112970100"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750151"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Démarrage rapide : Créer des fichiers Bicep avec Visual Studio Code
 
@@ -61,7 +61,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
 }
 ```
 
-Cet extrait de code contient toutes les valeurs dont vous avez besoin pour définir le réseau virtuel. Cela étant, vous pouvez modifier ce code pour répondre à vos besoins. Par exemple, `name` n’est pas un nom très adapté pour le réseau virtuel. Remplacez la propriété `name` par `examplevnet`.
+Cet extrait de code contient toutes les valeurs dont vous avez besoin pour définir un réseau virtuel. Cela étant, vous pouvez modifier ce code pour répondre à vos besoins. Par exemple, `name` n’est pas un nom très adapté pour le réseau virtuel. Remplacez la propriété `name` par `examplevnet`.
 
 ```bicep
 name: 'examplevnet'
@@ -118,13 +118,13 @@ Votre paramètre est maintenant prêt à être utilisé.
 
 Plutôt que d’utiliser un extrait de code afin de définir le compte de stockage, nous allons utiliser IntelliSense pour définir les valeurs. IntelliSense facilite cette étape en vous évitant de devoir entrer manuellement les valeurs.
 
-Vous définissez une ressource avec le mot clé `resource`.  Sous votre réseau virtuel, entrez **ressource exampleStorage** :
+Pour définir une ressource, utilisez le mot clé `resource`.  Sous votre réseau virtuel, entrez **ressource exampleStorage** :
 
 ```bicep
 resource exampleStorage
 ```
 
-**exampleStorage** est un nom symbolique pour la ressource que vous déployez. Elle permet de faire facilement référence à la ressource dans d’autres parties de votre fichier Bicep.
+**exampleStorage** est un nom symbolique pour la ressource que vous déployez. Vous pouvez utiliser ce nom pour référencer la ressource dans d’autres parties de votre fichier Bicep.
 
 Lorsque vous ajoutez un espace après le nom symbolique, une liste de types de ressources s’affiche. Continuez d’entrer **storage** jusqu’à ce que vous puissiez le sélectionner dans les options disponibles.
 
@@ -154,7 +154,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 Vous avez presque terminé. Fournissez simplement des valeurs pour ces propriétés.
 
-Encore une fois, IntelliSense peut vous y aider. Pour `name`, fournissez le paramètre qui contient un nom pour le compte de stockage. Pour `location` , affectez-lui la valeur `eastus`. Lors de l’ajout d’un nom et d’un type de référence SKU, IntelliSense présente les options valides.
+Encore une fois, IntelliSense peut vous y aider. Définissez `name` sur `storageName`. Il s’agit du paramètre qui contient un nom pour le compte de stockage. Pour `location` , affectez-lui la valeur `eastus`. Lors de l’ajout d’un nom et d’un type de référence SKU, IntelliSense présente les options valides.
 
 Lorsque vous avez terminé, vous disposez des éléments suivants :
 
@@ -234,7 +234,7 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.
 ---
 
 > [!NOTE]
-> Remplacez **{your-unique-name}** (y compris les accolades) par un nom de compte de stockage unique.
+> Remplacez **{your-unique-name}** , y compris les accolades, par un nom de compte de stockage unique.
 
 Une fois le déploiement terminé, un message doit s’afficher pour indiquer que le déploiement a réussi. Si vous recevez un message d’erreur indiquant que le compte de stockage est déjà utilisé, cela signifie que nom de stockage que vous avez fourni est déjà utilisé. Fournissez un nom plus susceptible d’être unique.
 

@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.date: 04/26/2018
 ms.reviewer: mimckitt
-ms.openlocfilehash: 56e27c7978ef95ad49e6db7592fe3c755af2b0ab
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6508935cc104f2eac46f8e61b50850c45e6856cc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756140"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697392"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Ajout d’une image personnalisée à un modèle de groupe identique Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
 
 Cet article montre comment modifier le [modèle de groupe identique de base](virtual-machine-scale-sets-mvss-start.md) afin de déployer avec une image personnalisée.
 

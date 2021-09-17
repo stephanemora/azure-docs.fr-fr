@@ -8,14 +8,16 @@ ms.custom: REST
 ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: a7237bfc82a932b774b4b6ef293c242a84fd75af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 536a3040bda2fec6aa5139949d31ef47bd2bbd9e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591221"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694919"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obtenir les métriques d’utilisation d’une machine virtuelle à l’aide de l’API REST
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Cet exemple montre comment récupérer l’utilisation du processeur pour une machine virtuelle Linux à l’aide de [l’API REST Azure](/rest/api/azure/).
 

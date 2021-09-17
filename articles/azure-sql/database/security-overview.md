@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
-ms.date: 10/26/2020
-ms.openlocfilehash: 084f9aae16cfbf495f05c90c8244b2b9b71cf624
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 08/23/2021
+ms.openlocfilehash: 9326797e16190b3570ed6faca4d724bec432bc86
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812932"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767913"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Vue d’ensemble des capacités de sécurité d’Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -69,9 +69,9 @@ L’authentification est le processus consistant à prouver que l’utilisateur 
 
 ## <a name="authorization"></a>Autorisation
 
-L’autorisation fait référence aux autorisations accordées à un utilisateur au sein d’une base de données dans Azure SQL Database ou Azure SQL Managed Instance, et détermine ce que l’utilisateur est autorisé à faire. Les autorisations sont contrôlées en ajoutant des comptes d’utilisateurs aux [rôles de base de données](/sql/relational-databases/security/authentication-access/database-level-roles) et en attribuant des autorisations au niveau de la base de données à ces rôles ou en octroyant aux utilisateurs certaines [autorisations au niveau des objets](/sql/relational-databases/security/permissions-database-engine). Pour plus d’informations, consultez [Connexions et utilisateurs](logins-create-manage.md).
+L’autorisation consiste à contrôler l’accès aux ressources et aux commandes dans une base de données. Pour ce faire, on attribue des autorisations à un utilisateur dans une base de données dans Azure SQL Database ou Azure SQL Managed Instance. Idéalement, les autorisations sont gérées en ajoutant des comptes d’utilisateurs aux [rôles de base de données](/sql/relational-databases/security/authentication-access/database-level-roles) et en attribuant des autorisations au niveau de la base de données à ces rôles. Il est également possible d’octroyer à un utilisateur spécifique certaines [autorisations de niveau objet](/sql/relational-databases/security/permissions-database-engine). Pour plus d’informations, consultez [Connexions et utilisateurs](logins-create-manage.md).
 
-Il est recommandé de créer des rôles personnalisés si nécessaire. Ajoutez des utilisateurs au rôle doté du niveau de privilèges le moins élevé pour qu’ils remplissent leur fonction. N’attribuez pas d’autorisations directement aux utilisateurs. Le compte d’administrateur de serveur est un membre du rôle db_owner intégré. Il est doté d’autorisations étendues et ne doit être octroyé qu’à quelques utilisateurs ayant des charges administratives. Pour les applications, utilisez la clause [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) pour spécifier le contexte d’exécution du module appelé ou utilisez des [rôles d’application](/sql/relational-databases/security/authentication-access/application-roles) avec des autorisations limitées. Cette pratique permet de s’assurer que l’application qui se connecte à la base de données dispose du moins de privilèges possible. L’application de ces meilleures pratiques favorise également la séparation des tâches.
+Il est recommandé de créer des rôles personnalisés si nécessaire. Ajoutez des utilisateurs au rôle doté du niveau de privilèges le moins élevé pour qu’ils remplissent leur fonction. N’attribuez pas d’autorisations directement aux utilisateurs. Le compte d’administrateur de serveur est un membre du rôle db_owner intégré. Il est doté d’autorisations étendues et ne doit être octroyé qu’à quelques utilisateurs ayant des charges administratives. Pour limiter davantage l’étendue des possibilités d’action d’un utilisateur, l'instruction [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) peut être utilisée pour spécifier le contexte d’exécution du module appelé. Le respect de ces meilleures pratiques est également une étape fondamentale vers la séparation des tâches.
 
 ### <a name="row-level-security"></a>Sécurité au niveau des lignes
 
@@ -140,7 +140,7 @@ Le masquage dynamique des données limite l’exposition des données sensibles 
 
 ### <a name="data-discovery-and-classification"></a>Découverte et classification des données
 
-La découverte et classification des données (actuellement en préversion) offre des capacités avancées intégrées à Azure SQL Database et SQL Managed Instance pour la découverte, la classification, l’étiquetage et la protection des données sensibles dans vos bases de données. La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, données personnelles, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
+La découverte et classification des données (actuellement en préversion) offre des capacités basiques intégrées à Azure SQL Database et SQL Managed Instance pour la découverte, la classification et l’étiquetage des données sensibles dans vos bases de données. La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, données personnelles, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
 
 - Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles.
 - Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.

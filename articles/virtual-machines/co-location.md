@@ -8,14 +8,16 @@ ms.subservice: proximity-placement-groups
 ms.topic: conceptual
 ms.date: 3/07/2021
 ms.reviewer: zivr
-ms.openlocfilehash: 15da7300018d563ed9919c145ca3e7f08a07f619
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 7693bc23e68880346c09d3c55c84858283c735ba
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190639"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696596"
 ---
 # <a name="proximity-placement-groups"></a>Groupes de placements de proximité
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Le fait de placer les machines virtuelles dans une seule région réduit la distance physique entre les instances. Le fait de les placer dans une zone de disponibilité unique les rapproche également physiquement. Cependant, à mesure que l’empreinte Azure augmente, une seule zone de disponibilité peut s’étendre sur plusieurs centres de données physiques, ce qui peut entraîner une latence réseau qui peut affecter votre application. 
 

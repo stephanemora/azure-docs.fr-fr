@@ -7,14 +7,17 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: d9d53b4e6b7237c93c6203351463515bb2b34d26
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: dda6b0c5d2087b588e69e6d5507eea4cdcbc1caf
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125298"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690854"
 ---
 # <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages de machine virtuelle - Maintenance et temps d’arrêt
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
 
 ## <a name="unplanned-hardware-maintenance-event"></a>Événement de maintenance matérielle non planifiée

@@ -12,12 +12,12 @@ ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f359595a136a356938194f2df728935c80059008
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a0f5376574dd0329641ebc68b906bc5342437be8
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742874"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777701"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la modification du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -148,13 +148,14 @@ Dans Azure Active Directory B2C (Azure AD B2C), vous pouvez permettre aux utili
 ## <a name="upload-and-test-the-policy"></a>Chargez et testez la stratégie.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Sélectionnez **Infrastructure d’expérience d’identité**.
-5. Dans la page Stratégies personnalisées, cliquez sur **Charger une stratégie**.
-6. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustframeworkExtensions.xml*.
-7. Cliquez sur **Télécharger**.
-8. Répétez les étapes 5 à 7 pour le fichier de la partie de confiance (par exemple, *ProfileEditPasswordChange.xml*).
+1. Veillez à utiliser le répertoire qui contient votre locataire Azure AD B2C en sélectionnant l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Infrastructure d’expérience d’identité**.
+1. Dans la page Stratégies personnalisées, cliquez sur **Charger une stratégie**.
+1. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustframeworkExtensions.xml*.
+1. Cliquez sur **Télécharger**.
+1. Répétez les étapes 5 à 7 pour le fichier de la partie de confiance (par exemple, *ProfileEditPasswordChange.xml*).
 
 ### <a name="run-the-policy"></a>Exécuter la stratégie
 

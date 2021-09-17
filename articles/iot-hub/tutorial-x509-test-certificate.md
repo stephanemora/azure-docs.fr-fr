@@ -2,7 +2,6 @@
 title: Tutoriel - Tester la capacité des certificats X.509 à authentifier les appareils auprès d’un hub Azure IoT | Microsoft Docs
 description: 'Tutoriel : Tester la capacité d’authentification de vos certificats X.509 auprès d’un hub Azure IoT'
 author: v-gpettibone
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 7d1900782fce6b84ed79014e985393f3626d171b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8e5e7efcf5b09c8b8785e32f6fb4b459531d5567
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379432"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444938"
 ---
 # <a name="tutorial-testing-certificate-authentication"></a>Tutoriel : Test de l’authentification par certificat
 
@@ -28,6 +27,9 @@ Vous pouvez utiliser l’exemple de code C# suivant pour vérifier que votre cer
 * Prouver que vous êtes en possession du certificat d’autorité de certification
 * Ajouter un appareil à votre hub IoT
 * Créer un certificat d’appareil avec le même ID d’appareil que celui de votre appareil
+
+>[!IMPORTANT]
+>Le processus d’authentification vérifie que votre appareil est associé au nom de l’IoT Hub correct. 
 
 ## <a name="code-example"></a>Exemple de code
 

@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 02/23/2021
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: 63a902d57c8a3ec5d9876e0682674cdbea70a4cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8aae65432ad904b4964febb2e69774597c9b5ae1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524196"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688448"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Quelles sont les solutions permettant d’exécuter Oracle WebLogic Server sur Azure Kubernetes Service ?
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Linux 
 
 Cette page décrit les solutions permettant d’exécuter Oracle WebLogic Server (WLS) sur Azure Kubernetes Service (AKS). Ces solutions sont le fruit d’un développement et bénéficient d’un support conjoints d’Oracle et de Microsoft.
 

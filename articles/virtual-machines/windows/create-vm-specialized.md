@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ccd1383349f4e009cc5ce5728eda25587e95a831
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2a10d58dc36304afdbd37c3fd1c3c41dd819d022
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669219"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693453"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé à l’aide de PowerShell
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
 
 Créez une machine virtuelle en attachant un disque managé spécialisé en tant que disque du système d’exploitation. Un disque spécialisé est une copie d’un disque dur virtuel d’une machine virtuelle existante qui contient les comptes d’utilisateurs, applications et autres données d’état de votre machine virtuelle d’origine. 
 

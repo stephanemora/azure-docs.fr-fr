@@ -7,18 +7,20 @@ ms.date: 09/25/2019
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: aba38411be9502fd8592e293580a3c816fc9b55b
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 1ef24210e033c5e0af623dfa6f3cd79146732640
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113362266"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692292"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Utiliser l’Explorateur Stockage Azure pour gérer des disques managés Azure
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
 Explorateur Stockage 1.10.0 permet aux utilisateurs de charger, télécharger et copier des disques managés, et créer des instantanés. En raison de ces fonctionnalités supplémentaires, vous pouvez utiliser Explorateur Stockage pour migrer des données locales vers Azure et migrer des données entre des régions Azure.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 - Abonnement Azure

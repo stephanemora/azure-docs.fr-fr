@@ -9,14 +9,17 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: ffa2a3a921e988b92ad90831041a6fb4d321bc42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3171b9ffd15fe7dd9e13b3fdde1a3394efb6327
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92747810"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697374"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Utilisation de grands groupes de machines virtuelles identiques
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
+
 Vous pouvez désormais créer des [groupes de machines virtuelles identiques](./index.yml) Azure d’une capacité maximum de 1 000 machines virtuelles. Dans ce document, un _grand groupe de machines virtuelles identiques_ est défini comme un groupe identique pouvant contenir plus de 100 machines virtuelles. Cette fonctionnalité est définie par une propriété de groupe identique (_singlePlacementGroup=False_). 
 
 Certains aspects des grands groupes identiques, tels que les domaines d’erreur et l’équilibrage de charge se comportent différemment d’un groupe identique standard. Ce document explique les caractéristiques des grands groupes identiques et décrit ce que vous devez savoir pour les utiliser correctement dans vos applications. 

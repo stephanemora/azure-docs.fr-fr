@@ -8,17 +8,19 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: d0b35b0976b46dd22bbf7f15ebb1def3ec721b5d
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: mimckitt
+ms.openlocfilehash: 904a78d9c8fcdc83b7fa837d744cf955ceda8d2b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891461"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691385"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Créer et configurer un coffre de clés pour Azure Disk Encryption
 
-Azure Disk Encryption utilise Azure Key Vault pour contrôler et gérer les clés et les secrets de chiffrement de disque.  Pour plus d’informations sur les coffres de clés, consultez [Bien démarrer avec Azure Key Vault](../key-vault/general/overview.md) et [Fonctionnalités de sécurité d’Azure Key Vault](../key-vault/general/security-features.md).
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques uniformes
+
+Azure Disk Encryption utilise Azure Key Vault pour contrôler et gérer les clés et les secrets de chiffrement de disque.  Pour plus d’informations sur les coffres de clés, consultez les articles [Prise en main du coffre de clés Azure](../key-vault/general/overview.md) et [Sécuriser votre coffre de clés](../key-vault/general/secure-your-key-vault.md).
 
 La création et la configuration d’un coffre de clés à utiliser avec Azure Disk Encryption impliquent trois étapes :
 
@@ -53,3 +55,4 @@ Connect-AzAccount
 - [Vue d’ensemble d’Azure Disk Encryption](disk-encryption-overview.md)
 - [Chiffrer un groupe de machines virtuelles identiques à l’aide d’Azure CLI](disk-encryption-cli.md)
 - [Chiffrer un groupe de machines virtuelles identiques à l’aide d’Azure PowerShell](disk-encryption-powershell.md)
+

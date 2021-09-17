@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: f7df0bcedc5601001ba92326d95db2fa12a76d60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9933a11f9d358380dafbf4f1573ab53d4ff189dc
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649357"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Tutoriel : Intégration d’Azure Active Directory à Infor CloudSuite
 
@@ -38,6 +38,7 @@ Pour configurer l’intégration d’Azure AD à Infor CloudSuite, vous avez be
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Infor CloudSuite prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**
+* Infor CloudSuite prend en charge [**l’attribution d’utilisateurs et la suppression des privilèges d’accès** automatiques](infor-cloudsuite-provisioning-tutorial.md) (recommandé).
 * Infor CloudSuite prend en charge l’attribution d’utilisateurs **Juste-à-temps**
 
 ## <a name="add-infor-cloudsuite-from-the-gallery"></a>Ajouter Infor CloudSuite à partir de la galerie

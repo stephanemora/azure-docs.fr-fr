@@ -11,14 +11,16 @@ ms.workload: infrastructure
 ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 191eb1338533cf1a5f81f4d04c5dfc6fd5cc569c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 33be1136005d6a8e54906372056bed0a96978453
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818743"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698977"
 ---
 # <a name="tutorial-load-balance-vms-for-high-availability"></a>Tutoriel : Équilibrer la charge des machines virtuelles pour une haute disponibilité
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants de l’équilibreur de charge Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
 

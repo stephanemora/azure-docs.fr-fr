@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2019
 ms.author: vikancha
-ms.openlocfilehash: dd9461e30138ee1a59a93db45aa5f739bfe88f94
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 83ca43ccf726e27fb2c661c1072c725a78748f0f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565302"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695499"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Linux 
 
 Pour tirer parti des fonctionnalités GPU de machines virtuelles de la série N Azure reposant sur les GPU NVIDIA, vous devez installer des pilotes GPU NVIDIA. [L’extension du pilote GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) installe les pilotes CUDA ou GRID NVIDIA appropriés sur une machine virtuelle de série N. Installez ou gérez l’extension à l’aide du portail Azure ou d’outils tels qu’Azure CLI ou les modèles Azure Resource Manager. Consultez la [documentation sur l’extension du pilote GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) pour connaître les distributions prises en charge et les étapes de déploiement.
 
@@ -140,7 +142,7 @@ Par exemple, CentOS 8 et RHEL 8 nécessitent les étapes suivantes.
    sudo yum install dkms
    
    CUDA_REPO_PKG=cuda-repo-rhel8-10.2.89-1.x86_64.rpm
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
    sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
    rm -f /tmp/${CUDA_REPO_PKG}

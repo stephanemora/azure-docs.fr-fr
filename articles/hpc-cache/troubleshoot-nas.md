@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: ed31a2202a0eacbdc257e127e111d21215c27de4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: a8fb169db79281240e2aab854bc6079a60054625
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258195"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771444"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Résolution des problèmes de configuration NAS et des cibles de stockage NFS
 
@@ -146,4 +146,4 @@ Dans le cas des systèmes qui utilisent des listes de contrôle d’accès, Azur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous rencontrez un problème non traité dans cet article, [ouvrez un ticket de support](hpc-cache-support-ticket.md) pour obtenir l’aide d’experts.
+Si vous rencontrez un problème non traité dans cet article, [contactez le support](hpc-cache-support-ticket.md) pour obtenir l’aide d’experts.

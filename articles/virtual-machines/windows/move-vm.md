@@ -9,14 +9,17 @@ ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f07d11e1760cb7f2a3535a15a5fccf166b8536c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 855045625467963d03e2aca57317b51ff20cc1aa
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677767"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697911"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Déplacement d’une machine virtuelle Windows vers un autre abonnement ou groupe de ressources Azure
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows
+
 Cet article vous explique comment déplacer une machine virtuelle Windows entre des groupes de ressources ou des abonnements. Le déplacement entre abonnements peut être pratique si, à l’origine, vous avez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise afin de poursuivre votre travail. Vous n’avez pas besoin d’arrêter la machine virtuelle afin de la déplacer, et elle doit continuer de fonctionner pendant le déplacement.
 
 > [!IMPORTANT]

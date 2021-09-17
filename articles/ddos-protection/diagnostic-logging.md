@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: b8ae9365199edfde078cad39783458fc3f86ebd6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ea85ca0cf1160b4ad738ea45ce33e72d07dc5fbf
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061495"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681393"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Afficher et configurer la journalisation des diagnostics DDoS
 
@@ -60,6 +60,39 @@ Si vous souhaitez activer automatiquement la journalisation des diagnostics sur 
     - **Archiver dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de ressources](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
     - **Diffuser vers un hub d’événements** : permet à un récepteur de journal d’activité de sélectionner les journaux d’activité à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de ressources sur un hub d’événements](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
     - **Envoyer à Log Analytics** : écrit les journaux d’activité dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [Collecte des journaux d’activité et des métriques des services Azure dans l’espace de travail Log Analytics d’Azure Monitor](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
+
+### <a name="query-ddos-protection-logs-in-log-analytics-workspace"></a>Interroger les journaux de protection DDOS dans l’espace de travail log analytics
+
+#### <a name="ddosprotectionnotifications-logs"></a>Journaux DDoSProtectionNotifications
+
+1. Sous le panneau **Espace de travail Log Analytics**, sélectionnez votre espace de travail log analytics.
+
+4. Sous **Généralités**, cliquez sur **Journaux**
+
+5. Dans l’Explorateur de requêtes, tapez la Requête Kusto suivante et remplacez l’intervalle de temps par Personnalisée et définissez l’intervalle de temps sur les 3 derniers mois. Appuyez ensuite sur Exécuter.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSProtectionNotifications"
+    ```
+
+#### <a name="ddosmitigationflowlogs"></a>DDoSMitigationFlowLogs
+
+1. Maintenant, remplacez la requête par ce qui suit et conservez la même intervalle de temps, puis appuyez sur Exécuter.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationFlowLogs"
+    ```
+
+#### <a name="ddosmitigationreports"></a>DDoSMitigationReports
+
+1. Maintenant, remplacez la requête par ce qui suit et conservez la même intervalle de temps, puis appuyez sur Exécuter.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationReports"
+    ```
 
 ### <a name="log-schemas"></a>Schémas des journaux
 
@@ -106,7 +139,7 @@ Le tableau ci-après répertorie les noms de champ et leurs descriptions :
 | --- | --- |
 | **TimeGenerated** | Date et heure UTC de création du rapport. |
 | **ResourceId** | L’ID de ressource de votre adresse IP publique. |
-| **Catégorie** | Pour les notifications, ce sera `DDoSProtectionNotifications`.|
+| **Catégorie** | Pour les notifications, ce sera `DDoSMitigationReports`.|
 | **ResourceGroup** | Le groupe de ressources qui contient votre adresse IP publique et votre réseau virtuel. |
 | **SubscriptionId** | ID d’abonnement du plan de protection DDoS. |
 | **Ressource** | Le nom de votre adresse IP publique. |

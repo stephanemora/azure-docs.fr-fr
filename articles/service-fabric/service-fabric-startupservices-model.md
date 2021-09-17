@@ -3,15 +3,17 @@ title: Définir la configuration du service dans StartupServices.xml pour une ap
 description: Découvrez comment utiliser StartupServices.xml pour séparer la configuration du niveau de service d’ApplicationManifest.xml.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 2b11e1dfdfec357d48ee95cabb35c87e71123bc8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 69ec795bab910f8f2b030ab5758698d3fdbae824
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482149"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681376"
 ---
 # <a name="introducing-startupservicesxml-in-service-fabric-application"></a>Présentation de StartupServices.xml dans l’application Service Fabric
 Cette fonctionnalité introduit le fichier StartupServices.xml dans une conception d’application Service Fabric. Ce fichier héberge la section DefaultServices d’ApplicationManifest.xml. Avec cette implémentation, les paramètres relatifs à la définition de DefaultServices et de Service sont déplacés du fichier ApplicationManifest.xml existant vers ce nouveau fichier appelé StartupServices.xml. Ce fichier est utilisé dans chaque fonctionnalité (Compiler/Régénérer/F5/Ctrl+F5/Publier) dans Visual Studio.
+
+Remarque : StartupServices.xml est destiné uniquement aux déploiements de Visual Studio. Cette configuration consiste à s’assurer que les packages déployés avec Visual Studio (avec StartupServices.xml) n’ont pas de conflits avec les services ARM déployés. StartupServices.xml n’est pas empaqueté dans le cadre du package d’application. Il n’est pas pris en charge dans le pipeline DevOps et le client doit déployer des services individuels dans l’Application via ARM ou via des applets de commande avec la configuration souhaitée.
 
 ## <a name="existing-service-fabric-application-design"></a>Conception d’application Service Fabric existante
 Pour chaque application Service Fabric, ApplicationManifest.xml est la source de toutes les informations relatives au service pour l’application. ApplicationManifest.xml se compose de Parameters, de ServiceManifestImport et de DefaultServices. Les paramètres de configuration sont mentionnés dans les fichiers Cloud.xml/Local1Node.xml/Local5Node.xml sous ApplicationParameters.

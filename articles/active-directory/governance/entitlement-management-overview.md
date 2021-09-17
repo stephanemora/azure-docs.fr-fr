@@ -17,12 +17,12 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a0e4bb393e522d54bb259e1a85c645fe7f3f5e48
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: dcbc2f726d4c7c935462743578f863efc8762f79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786354"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749203"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Présentation de la gestion des droits d’utilisation Azure AD
 
@@ -159,7 +159,7 @@ Les licences Azure AD Premium P2 ne sont **pas** nécessaires pour les tâches
 
 - Aucune licence n’est requise pour les utilisateurs ayant le rôle d’administrateur général qui configurent les catalogues initiaux, les packages d’accès et les stratégies et délèguent des tâches d’administration à d’autres utilisateurs.
 - Aucune licence n’est requise pour les utilisateurs auxquels ont été délégués des tâches administratives, telles que le créateur du catalogue, le propriétaire du catalogue et le gestionnaire de package d’accès.
-- Aucune licence n’est requise pour les invités qui **peuvent** demander des packages d’accès, mais ne demandent **pas** de package d’accès.
+- Aucune licence n’est requise pour les invités qui ont **un privilège pour demander des packages d’accès**, mais ils **ne choisissent pas** de les demander.
 
 Pour plus d’informations sur les licences, consultez [Attribuer ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 12666d69f6dcab043e909dbb2b49276644a70d76
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5030b0fb4e714be221e28e590c463186ec81ad04
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069559"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515583"
 ---
 # <a name="quotas-in-azure-static-web-apps"></a>Quotas dans Azure Static Web Apps
 
@@ -24,6 +24,7 @@ Les quotas suivants sont disponibles pour Azure Static Web Apps.
 | Dépassement de bande passante           | Non disponible      | 0,20 $ par Go |
 | Applications par abonnement Azure | 10               | Illimité |
 | Taille de l’application                    | 250 Mo           | 500 Mo |
+| Taille du plan                   | Taille d’application maximale de 500 Mo pour un déploiement unique et 0,50 Go max pour tous les environnements intermédiaire et de production  | Taille d’application maximale de 500 Mo pour un déploiement unique et 2,00 Go max combiné pour tous les environnements intermédiaire et de production |
 | Environnements de pré-production | 3                | 10 |
 | Domaines personnalisés              | 2 par application        | 5 par application |
 | Autorisation (avec des rôles personnalisés et des règles de routage) | Jusqu’à 25 utilisateurs finaux pouvant appartenir à des rôles personnalisés | Jusqu’à 25 utilisateurs finaux pouvant appartenir à des rôles personnalisés |

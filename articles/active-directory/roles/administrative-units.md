@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0cdaefcc92a1a690ae3e3e222053976c3aa3178
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 26b91b216c6a813270cf3b30cde0d8450f964668
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730799"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734478"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unités administratives dans Azure Active Directory
 
@@ -33,9 +33,9 @@ Il peut être utile de restreindre l’étendue d’administration à l’aide d
 
 Un administrateur central peut :
 
-- Créer un rôle avec des autorisations d’administration seulement sur les utilisateurs Azure AD de l’unité administrative de l’école de commerce.
 - Créer une unité administrative pour l’école de commerce.
-- Affecter à l’unité administrative seulement les étudiants et le personnel de l’école de commerce.
+- Remplissez l’unité administrative avec uniquement les élèves et le personnel de l’école de commerce.
+- Créer un rôle avec des autorisations d’administration seulement sur les utilisateurs Azure AD de l’unité administrative de l’école de commerce.
 - Ajouter l’équipe informatique de l’école de commerce au rôle avec son étendue.
 
 ## <a name="license-requirements"></a>Conditions de licence :
@@ -81,26 +81,26 @@ Les sections suivantes abordent la prise en charge des scénarios d’unité adm
 
 | Autorisations |   Graph/PowerShell   | Portail Azure | Centre d’administration Microsoft 365 |
 | --- | --- | --- | --- |
-| Création et suppression des unités administratives   |    Prise en charge    |   Prise en charge   |    Non pris en charge |
-| Ajout et suppression de membres individuels d’une unité administrative    |   Prise en charge    |   Prise en charge   |    Non pris en charge |
+| Création et suppression des unités administratives   |    Prise en charge    |   Pris en charge   |    Non pris en charge |
+| Ajout et suppression de membres individuels d’une unité administrative    |   Prise en charge    |   Pris en charge   |    Non pris en charge |
 | Ajout et suppression en bloc de membres d’unité administrative avec des fichiers CSV   |    Non pris en charge     |  Prise en charge   |    Pas de prise en charge prévue |
-| Affectation d’administrateurs limités à une unité administrative  |     Prise en charge    |   Prise en charge    |   Non pris en charge |
-| Ajout et suppression de manière dynamique de membres d’unité administrative en fonction d’attributs | Non pris en charge | Non pris en charge | Non pris en charge
+| Affectation d’administrateurs limités à une unité administrative  |     Prise en charge    |   Pris en charge    |   Non pris en charge |
+| Ajout et suppression de manière dynamique de membres d’unité administrative en fonction d’attributs | Non pris en charge | Non prise en charge | Non pris en charge
 
 ### <a name="user-management"></a>User Management
 
 | Autorisations |   Graph/PowerShell   | Portail Azure | Centre d’administration Microsoft 365 |
 | --- | --- | --- | --- |
-| Gestion limitée à une unité administrative des propriétés, des mots de passe et des licences utilisateur   |    Prise en charge     |  Prise en charge   |   Prise en charge |
-| Blocage et déblocage des connexions utilisateur limités à une unité administrative    |   Prise en charge   |    Prise en charge   |    Prise en charge |
-| Gestion limitée à une unité administrative des informations d’identification d’authentification multifacteur des utilisateurs   |    Prise en charge   |   Prise en charge   |   Non pris en charge |
+| Gestion limitée à une unité administrative des propriétés, des mots de passe et des licences utilisateur   |    Prise en charge     |  Pris en charge   |   Prise en charge |
+| Blocage et déblocage des connexions utilisateur limités à une unité administrative    |   Prise en charge   |    Pris en charge   |    Prise en charge |
+| Gestion limitée à une unité administrative des informations d’identification d’authentification multifacteur des utilisateurs   |    Prise en charge   |   Pris en charge   |   Non pris en charge |
 
 ### <a name="group-management"></a>Gestion des groupes
 
 | Autorisations |   Graph/PowerShell   | Portail Azure | Centre d’administration Microsoft 365 |
 | --- | --- | --- | --- |
-| Gestion limitée à une unité administrative des propriétés et des membres des groupes     |  Prise en charge   |    Prise en charge    |  Non pris en charge |
-| Gestion limitée à une unité administrative des licences de groupe   |    Prise en charge  |    Prise en charge   |   Non pris en charge |
+| Gestion limitée à une unité administrative des propriétés et des membres des groupes     |  Prise en charge   |    Pris en charge    |  Non pris en charge |
+| Gestion limitée à une unité administrative des licences de groupe   |    Prise en charge  |    Pris en charge   |   Non pris en charge |
 
 Les unités administratives appliquent l’étendue seulement aux autorisations de gestion. Elles n’empêchent pas les membres ni les administrateurs d’utiliser leurs [autorisations utilisateur par défaut](../fundamentals/users-default-permissions.md) pour parcourir d’autres utilisateurs, groupes ou ressources en dehors de l’unité administrative. Dans le centre d’administration Microsoft 365, les utilisateurs en dehors des unités administratives d’un administrateur limité sont filtrés. Toutefois, vous pouvez parcourir d’autres utilisateurs dans le portail Azure, PowerShell et d’autres services Microsoft.
 

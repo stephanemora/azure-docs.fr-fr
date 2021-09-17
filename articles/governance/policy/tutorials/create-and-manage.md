@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Générer des stratégies pour appliquer la conformité'
 description: Dans ce tutoriel, vous utilisez des stratégies pour appliquer des normes, maîtriser les coûts, garantir la sécurité et imposer des principes de conception à l’échelle de l’entreprise.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
-ms.openlocfilehash: 8f5b68190691651855bae31bae2885f80a16111f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f7c8b2c84f2aa0c4186fbdf69d5a579033904bca
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752234"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324728"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutoriel : Créer et gérer des stratégies pour appliquer la conformité
 

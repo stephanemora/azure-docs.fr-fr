@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.openlocfilehash: 4b15d683a54f665e948dc31b51df039d20c58f7a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2854cb45f83e46fc556f57247ab4aa28bd7f74c0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081368"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696910"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Créer une base de données Oracle dans une machine virtuelle Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux 
 
 Ce guide explique comment utiliser Azure CLI pour déployer une machine virtuelle Azure depuis l’[image Oracle de la galerie de la Place de marché](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) afin de créer une base de données Oracle 19c. Une fois que le serveur est déployé, vous vous connectez par le biais d’une connexion SSH pour configurer la base de données Oracle. 
 
@@ -270,8 +272,8 @@ Le logiciel Oracle est déjà installé sur l’image Place de marché. Créer u
     dbca -silent \
        -createDatabase \
        -templateName General_Purpose.dbc \
-       -gdbname test \
-       -sid test \
+       -gdbname oratest1 \
+       -sid oratest1 \
        -responseFile NO_VALUE \
        -characterSet AL32UTF8 \
        -sysPassword OraPasswd1 \
@@ -305,11 +307,11 @@ Le logiciel Oracle est déjà installé sur l’image Place de marché. Créer u
        70% complete
        Executing Post Configuration Actions
        100% complete
-       Database creation complete. For details check the logfiles at: /u01/app/oracle/cfgtoollogs/dbca/test.
+       Database creation complete. For details check the logfiles at: /u01/app/oracle/cfgtoollogs/dbca/oratest1.
        Database Information:
-       Global Database Name:test
-       System Identifier(SID):test
-       Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/test/test.log" for further details.
+       Global Database Name:oratest1
+       System Identifier(SID):oratest1
+       Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/oratest1/oratest1.log" for further details.
     ```
 
 4. Fixer les variables oracle
@@ -317,13 +319,13 @@ Le logiciel Oracle est déjà installé sur l’image Place de marché. Créer u
     Avant de vous connecter, vous devez définir la variable d’environnement *ORACLE_SID* :
 
     ```bash
-        export ORACLE_SID=test
+        export ORACLE_SID=oratest1
     ```
 
     Vous devez également ajouter la variable ORACLE_SID au fichier `.bashrc` des utilisateurs `oracle` pour les prochaines connexions à l’aide de la commande suivante :
 
     ```bash
-    echo "export ORACLE_SID=test" >> ~oracle/.bashrc
+    echo "export ORACLE_SID=oratest1" >> ~oracle/.bashrc
     ```
 
 ## <a name="oracle-em-express-connectivity"></a>Connectivité à Oracle EM Express

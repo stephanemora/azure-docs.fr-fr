@@ -7,15 +7,19 @@ ms.collection: linux
 ms.topic: conceptual
 ms.date: 04/08/2021
 ms.reviewer: davberg
-ms.openlocfilehash: 2a00c966d7a1ba40d0ba27dc4f4ca3b386a44601
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 41a2f377629b8cce647adecb21e395c60bf15a7c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587856"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770778"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Linux
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
+
 Les scores de point de référence CoreMark suivants montrent les performances de calcul pour la gamme de machines virtuelles hautes performances d’Azure exécutant Ubuntu 18.04. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Windows](../windows/compute-benchmark-scores.md).
+
 
 ## <a name="azure-coremark-toc"></a>Table des matières Azure (Coremark)
 | Type | Familles |

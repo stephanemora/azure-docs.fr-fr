@@ -12,12 +12,12 @@ ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2cde44ddb49ede8002b8a25ab47ae92ccd602a9d
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: a296babaafdee7939d462a356b9a3087e5e8990f
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226368"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777773"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Suivre le comportement des utilisateurs dans Azure AD B2C à l’aide d’Application Insights
 
@@ -58,7 +58,8 @@ Quand vous utilisez Application Insights, tenez compte des éléments suivants�
 Quand vous utilisez Application Insights avec Azure AD B2C, vous devez uniquement créer une ressource et obtenir la clé d’instrumentation. Pour plus d’informations, consultez [Création d’une ressource Application Insights dans Azure](../azure-monitor/app/create-new-resource.md).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Veillez à bien utiliser l’annuaire qui contient votre abonnement Azure. Sélectionnez le filtre **Annuaire + abonnement** dans le menu supérieur et sélectionnez l’annuaire qui contient votre abonnement Azure. Ce locataire n’est pas votre locataire Azure AD B2C.
+1. Vérifiez que vous utilisez le répertoire qui contient votre abonnement Azure AD, et non votre répertoire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez le répertoire Azure AD qui contient votre abonnement dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**
 1. Choisissez **Créer une ressource** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Application Insights**.
 1. Sélectionnez **Create** (Créer).
 1. Sous **Nom**, entrez un nom pour la ressource.

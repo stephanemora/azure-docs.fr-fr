@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 1be0904cc640eff5af7a77bba3abd6aa062991a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccd3e58babc6627a384636dbea28ef82969be9fc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676068"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696743"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Mises à niveau sur place de Red Hat Enterprise Linux
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Linux 
 
 Cet article donne des instructions pour effectuer une mise à niveau sur place de Red Hat Enterprise Linux (RHEL) 7 vers Red Hat Enterprise Linux 8. Elles passent par l’outil `leapp` dans Azure. Au cours de la mise à niveau sur place, le système d’exploitation RHEL 7 existant est remplacé par la version RHEL 8.
 

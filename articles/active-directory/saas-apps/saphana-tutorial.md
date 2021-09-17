@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 08/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 1a1e155974b66dce9a036a20cdebe19ded81fed5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dac7582f772beaf62a60661869f829018770538b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98727079"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751627"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Didacticiel : Intégration d’Azure Active Directory à SAP HANA
 
@@ -47,8 +47,8 @@ Pour tester la procédure de ce didacticiel, suivez les recommandations ci-desso
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* SAP HANA prend en charge l’authentification unique initiée par **IDP**
-* SAP HANA prend en charge l’attribution d’utilisateurs **juste-à-temps**
+* SAP HANA prend en charge l’authentification unique initiée par le **fournisseur d’identité**.
+* SAP HANA prend en charge l’approvisionnement d’utilisateurs **juste-à-temps**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -192,10 +192,10 @@ Si vous avez besoin de créer un utilisateur manuellement, effectuez les étapes
 
 3. Sélectionnez **Ajouter** pour ajouter le fournisseur d’identité SAML.  Sélectionnez le fournisseur d’identité SAML approprié, puis sélectionnez **OK**.
 
-4. Ajouter **l’identité externe** (dans ce cas, BrittaSimon) ou choisissez **Quelconque**. Sélectionnez ensuite **OK**.
+4. Ajouter **l’identité externe** (dans ce cas, BrittaSimon). Sélectionnez ensuite **OK**.
 
    > [!Note]
-   > Si la case **Quelconque** n’est pas cochée, le nom d’utilisateur dans HANA doit correspondre exactement au nom de l’utilisateur dans le nom d’utilisateur principal avant le suffixe de domaine. (Par exemple, BrittaSimon@contoso.com deviendrait BrittaSimon dans HANA.)
+   > Vous devez renseigner le champ **Identité externe** pour l’utilisateur qui doit correspondre au champ **ID nom** dans le jeton SAML d’Azure AD. **Toutes** les cases ne doivent pas être cochées, car cette option requiert que le fournisseur d’identité (IDP) envoie la propriété SPProvderID dans le champ ID nom qui n’est pas pris en charge par Azure AD. Consultez [ce](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/db6db355bb571014b56eb25057daec5f.html) document pour plus d’informations.
 
 5. À des fins de test, affectez tous les rôles **XS** à l’utilisateur.
 

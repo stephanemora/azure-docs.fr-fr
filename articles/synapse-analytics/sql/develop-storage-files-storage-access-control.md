@@ -10,12 +10,12 @@ ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca738136984941b050c0ae3a7c2408273724b1cd
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: d3a1fe8f4b06601ed6b3e77ffa5743506e923ec4
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112379273"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771747"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
@@ -46,7 +46,7 @@ Un utilisateur qui s’est connecté à un pool SQL serverless doit être autori
 L’**identité de l’utilisateur** (également appelée « pass-through Azure AD ») est un type d’autorisation où l’identité de l’utilisateur Azure AD qui s’est connecté au pool SQL serverless est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD. Comme indiqué dans le tableau ci-dessous, elle n’est pas prise en charge pour le type d’utilisateur SQL.
 
 > [!IMPORTANT]
-> Le jeton d'authentification AAD peut être mis en cache par les applications clientes. Par exemple, PowerBI met en cache le jeton AAD et réutilise le même jeton pendant une heure. Les requêtes longues peuvent échouer si le jeton expire au milieu de l'exécution de celles-ci. Si des requêtes échouent parce que le jeton d'accès AAD expire au milieu de celles-ci, envisagez de passer à l'[identité managée](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou à la [signature d'accès partagé](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+> Le jeton d'authentification AAD peut être mis en cache par les applications clientes. Par exemple, PowerBI met en cache le jeton AAD et réutilise le même jeton pendant une heure. Les requêtes durables peuvent échouer si le jeton expire pendant leur exécution. Si des requêtes échouent parce que le jeton d'accès AAD expire au milieu de celles-ci, envisagez de passer à l'[identité managée](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou à la [signature d'accès partagé](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
 
 Pour utiliser votre identité afin d’accéder aux données, vous devez disposer d’un rôle de propriétaire, de contributeur ou de lecteur pour les données blob de stockage. Vous pouvez également spécifier des règles ACL affinées pour accéder aux fichiers et aux dossiers. Même si vous êtes propriétaire d’un compte de stockage, vous devez vous ajouter à l’un des rôles de données blob de stockage.
 Pour plus d’informations sur le contrôle d’accès dans Azure Data Lake Store Gen2, consultez l’article [Contrôle d’accès dans Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
@@ -98,8 +98,8 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 | Type d’autorisation  | Stockage Blob   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Prise en charge      | Non pris en charge   | Prise en charge     |
-| [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge      | Prise en charge        | Prise en charge     |
-| [Identité de l’utilisateur](?tabs=user-identity#supported-storage-authorization-types)    | Prise en charge      | Prise en charge        | Prise en charge     |
+| [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge      | Pris en charge        | Prise en charge     |
+| [Identité de l’utilisateur](?tabs=user-identity#supported-storage-authorization-types)    | Pris en charge      | Pris en charge        | Pris en charge     |
 
 ## <a name="firewall-protected-storage"></a>Stockage protégé par un pare-feu
 
@@ -195,7 +195,7 @@ Les signatures d’accès partagé ne peuvent pas être utilisées pour accéder
 
 ### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
 
-Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
+Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle Azure](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
 
 ### <a name="anonymous-access"></a>[Accès anonyme](#tab/public-access)
 

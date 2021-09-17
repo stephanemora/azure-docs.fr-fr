@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 04654672cc5806465ec9f75b695772dcb2037eab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6808d7dc2c2addcf6639c75dfd870ac7fe62d262
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564133"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696967"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Vérifier l’état du chiffrement pour Linux 
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 L’objectif de cet article est de vérifier l’état du chiffrement d’une machine virtuelle en utilisant différentes méthodes : le portail Azure, PowerShell, Azure CLI ou le système d’exploitation de la machine virtuelle. 
 

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: fd8806a02e48481042eb756a0a077d801583cd2e
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: b67239a973f3ba435aeeb7021d8d4f2faea9c98f
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870770"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015633"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -23,9 +23,9 @@ Azure Migrate fournit un hub centralisé pour évaluer et migrer les serveurs, l
 - **Plateforme de migration unifiée** : un portail unique pour démarrer, exécuter et effectuer le suivi de votre migration vers Azure.
 - **Panoplie d’outils** : Panoplie d’outils d’évaluation et de migration. Les outils Azure Migrate incluent Azure Migrate : découverte et évaluation et Azure Migrate : migration de serveur. Azure Migrate s’intègre aussi avec d’autres services et outils Azure, et avec des offres d’éditeur de logiciels indépendant.
 - **Évaluation et migration** : dans le hub Azure Migrate, vous pouvez évaluer et migrer les éléments suivants :
-    - **Windows, Linux et SQL Server** : Évaluez les serveurs locaux, notamment les instances SQL Server, et migrez-les vers des machines virtuelles Azure ou vers Azure VMware Solution (AVS) (préversion).
+    - **Serveurs, bases de données et applications web** : évaluez les serveurs locaux, notamment les applications web et les instances SQL et migrez-les vers des machines virtuelles Azure ou vers Azure VMware Solution (AVS) (préversion).
     - **Bases de données** : Évaluez vos bases de données locales et migrez-les vers Azure SQL Database ou SQL Managed Instance.
-    - **Applications web** : évaluez les applications web locales et migrez-les vers Azure App Service à l’aide d’Azure App Service Migration Assistant.
+    - **Applications web** : évaluez les applications web locales et migrez-les vers Azure App service.
     - **Bureaux virtuels** : évaluez votre infrastructure VDI (infrastructure de bureau virtuel) locale et migrez-la vers Windows Virtual Desktop dans Azure.
     - **Données** : migrez rapidement et à moindre coût de grandes quantités de données vers Azure à l’aide des produits Azure Data Box.
 
@@ -35,12 +35,12 @@ Le hub Azure Migrate comprend ces outils :
 
 **Outil** | **Évaluer et migrer** | **Détails**
 --- | --- | ---
-**Azure Migrate : découverte et évaluation** | Découvrir et évaluer des serveurs, notamment SQL | Découvrez et évaluez les machines virtuelles VMware, les machines virtuelles Hyper-V et les serveurs physiques locaux pour les préparer à une migration vers Azure.
+**Azure Migrate : découverte et évaluation** | Découvrir et évaluer des serveurs, notamment SQL et applications web | Découvrez et évaluez des serveurs locaux s’exécutant sur VMware, Hyper-V et les serveurs physiques pour les préparer à une migration vers Azure.
 **Azure Migrate : Server Migration** | Migrer des serveurs | Migrez des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques, d’autres serveurs virtualisés, ainsi que des machines virtuelles de cloud public vers Azure.
-**Assistant de migration des données** | Évaluez les bases de données SQL Server pour la migration vers Azure SQL Database, Azure SQL Managed Instance ou des machines virtuelles Azure exécutant SQL Server. | Assistant Migration de données est un outil autonome pour évaluer les serveurs SQL, ce qui permet d’identifier les problèmes potentiels de migration. Il identifie les fonctionnalités non prises en charge, les nouvelles fonctionnalités dont vous pouvez bénéficier après la migration, et le chemin approprié pour la migration de base de données. [Plus d’informations](/sql/dma/dma-overview)
+**Assistant de migration des données** | Évaluez les bases de données SQL Server pour la migration vers Azure SQL Database, Azure SQL Managed Instance ou des machines virtuelles Azure exécutant SQL Server. | Assistant Migration de données est un outil autonome pour évaluer les serveurs SQL. Il aide à identifier les problèmes potentiels bloquant la migration. Il identifie les fonctionnalités non prises en charge, les nouvelles fonctionnalités dont vous pouvez bénéficier après la migration, et le chemin approprié pour la migration de base de données. [Plus d’informations](/sql/dma/dma-overview)
 **Azure Database Migration Service** | Migrer des bases de données locales vers des machines virtuelles Azure exécutant SQL Server, Azure SQL Database ou des SQL Managed Instances | [En savoir plus](../dms/dms-overview.md) sur Database Migration Service.
 **Movere** | Évaluer des serveurs | [En savoir plus](#movere) sur Movere.
-**Assistant Migration d’applications web** | Évaluez les applications web locales et migrez-les vers Azure. |  utilisez l’Assistant Migration Azure App Service pour évaluer les sites web locaux en vue de leur migration vers Azure App Service.<br/><br/> Utilisez Migration Assistant pour migrer des applications web .NET et PHP vers Azure. [En savoir plus](https://appmigration.microsoft.com/) sur Azure App Service Migration Assistant.
+**Assistant Migration d’applications web** | Évaluez les applications web locales et migrez-les vers Azure. |  Assistant Migration Azure App Service est un outil pour évaluer des sites web locaux en vue de leur migration vers Azure App Service.<br/><br/> Utilisez Migration Assistant pour migrer des applications web .NET et PHP vers Azure. [En savoir plus](https://appmigration.microsoft.com/) sur Azure App Service Migration Assistant.
 **Azure Data Box** | Migrer des données hors connexion | Pour déplacer de grandes quantités de données hors connexion vers Azure, utilisez la gamme de produits Azure Data Box. [Plus d’informations](../databox/index.yml)
 
 > [!NOTE]
@@ -64,22 +64,21 @@ Azure Migrate s’intègre à plusieurs offres d’éditeurs de logiciels indép
 
 ## <a name="azure-migrate-discovery-and-assessment-tool"></a>Outil Azure Migrate : découverte et évaluation
 
-L’outil Azure Migrate : découverte et évaluation découvre et évalue les machines virtuelles VMware locales, les machines virtuelles Hyper-V et les serveurs physiques pour une migration vers Azure. 
+L’outil Azure Migrate : découverte et évaluation découvre et évalue les machines virtuelles VMware locales, les machines virtuelles Hyper-V et les serveurs physiques pour une migration vers Azure.
 
 Voici ce que fait l’outil :
 
-- **Préparé pour Azure** : vous permet d’évaluer si les serveurs locaux sont prêts pour une migration vers Azure.
+- **Préparé pour Azure** : vous permet d’évaluer si les serveurs locaux, serveurs SQL et applications web sont prêts pour une migration vers Azure.
 - **Dimensionnement d’Azure** : vous permet d’estimer la taille des machines virtuelles Azure, la configuration Azure SQL et le nombre de nœuds Azure VMware Solution après la migration.
 - **Estimation des coûts Azure** : estimez les coûts liés à l’exécution de serveurs locaux dans Azure.
 - **Analyse des dépendances** : identifie les dépendances entre serveurs et les stratégies d’optimisation pour déplacer les serveurs interdépendants vers Azure. En savoir plus sur l’outil de découverte et d’évaluation avec l’[analyse des dépendances](concepts-dependency-visualization.md).
 
-Cet outil utilise une [appliance Azure Migrate](migrate-appliance.md) légère que vous déployez localement.
+La découverte et l’évaluation utilisent une [appliance Azure Migrate](migrate-appliance.md) légère que vous déployez localement.
 
 - L’appliance s’exécute sur une machine virtuelle ou un serveur physique. Vous pouvez l’installer facilement à l’aide d’un modèle téléchargé.
 - L’appliance découvre des serveurs locaux. Elle envoie aussi continuellement des métadonnées de serveurs et des données de performances vers Azure Migrate.
 - La découverte de l’appliance se fait sans agent. Rien n’est installé sur les serveurs découverts.
 - Une fois la découverte d’appliance effectuée, vous pouvez regrouper les serveurs découverts et exécuter des évaluations pour chaque groupe.
-
 
 ## <a name="azure-migrate-server-migration-tool"></a>Azure Migrate : Outil Server Migration
 
@@ -87,10 +86,9 @@ Azure Migrate : l’outil de migration de serveurs vous aide à migrer des serv
 
 **Migrer** | **Détails**
 --- | ---
-Machines virtuelles VMware locales | Migrez des machines virtuelles vers Azure à l’aide d’une migration sans agent ou basée sur un agent.<br/><br/> Pour la migration sans agent, l’outil utilise la même appliance Azure Migrate que celle qui peut également être utilisée par l’outil de découverte et d’évaluation pour la découverte et l’évaluation des machines virtuelles VMware.<br/><br/> Pour la migration basée sur un agent, Server Migration utilise une appliance de réplication.
+Machines virtuelles VMware locales | Migrez des machines virtuelles vers Azure à l’aide d’une migration sans agent ou basée sur un agent.<br/><br/> Pour une migration sans agent, la migration de serveurs utilise la même appliance que celle utilisée par l’outil de découverte et d’évaluation pour la découverte et l’évaluation des serveurs.<br/><br/> Pour la migration basée sur un agent, Server Migration utilise une appliance de réplication.
 Machines virtuelles Hyper-V en local | Migrez des machines virtuelles vers Azure.<br/><br/> Server Migration utilise des agents de fournisseur installés sur l’hôte Hyper-V pour la migration.
 Serveurs physiques ou serveurs locaux hébergés sur d’autres clouds | Vous pouvez migrer des serveurs physiques vers Azure. Vous pouvez également migrer d’autres serveurs virtualisés et des machines virtuelles à partir d’autres clouds publics, en les traitant comme des serveurs physiques à des fins de migration. Server Migration utilise une appliance de réplication pour la migration.
-
 
 ## <a name="selecting-assessment-and-migration-tools"></a>Sélection des outils d’évaluation et de migration
 
@@ -116,14 +114,14 @@ Grâce aux outils d’ISV partenaires et Azure intégrés, Azure Migrate offre u
 - Évaluations basée sur l’importation
 - Analyse des dépendances des applications sans agent
 
-Si vous recherchez des conseils d’experts pour démarrer, laissez-vous guider par le programme [Fournisseurs de services managés Azure Expert](https://azure.microsoft.com/partners) de Microsoft. Consultez le [site web Azure Migrate](https://azure.microsoft.com/services/azure-migrate/). 
+Si vous recherchez des conseils d’experts pour démarrer, laissez-vous guider par le programme [Fournisseurs de services managés Azure Expert](https://azure.microsoft.com/partners) de Microsoft. Consultez le [site web Azure Migrate](https://azure.microsoft.com/services/azure-migrate/).
 
 ## <a name="azure-migrate-versions"></a>Versions d’Azure Migrate
 
 Il existe deux versions du service Azure Migrate.
 
 - **Version actuelle** : utilisez cette version pour créer des projets, découvrir des serveurs locaux et orchestrer des évaluations et migrations. [Apprenez-en davantage](whats-new.md) sur les nouveautés de cette version.
-- **Version précédente** : La version précédente d’Azure Migrate, également appelée Azure Migrate classique, prend en charge seulement l’évaluation des machines virtuelles VMware locales. Azure Migrate classique sera mis hors service en février 2024. Après février 2024, la version classique d’Azure Migrate ne sera plus prise en charge et les métadonnées d’inventaire dans les projets classiques seront supprimées. Vous ne pouvez pas mettre à niveau des projets ou composants de la version précédente vers la nouvelle version. Vous devez [créer un nouveau projet](create-manage-projects.md), et y [ajouter des outils d’évaluation et de migration](./create-manage-projects.md). Consultez les tutoriels pour comprendre comment utiliser les outils d’évaluation et de migration disponibles. Si vous aviez un espace de travail Log Analytics attaché à un projet classique, vous pouvez l’attacher à un projet de la version actuelle après avoir supprimé le projet classique.
+- **Version précédente** : la version précédente d’Azure Migrate, également appelée Azure Migrate classique, prend en charge seulement l’évaluation des serveurs locaux s’exécutant sur VMware. Azure Migrate classique sera mis hors service en février 2024. Après février 2024, la version classique d’Azure Migrate ne sera plus prise en charge et les métadonnées d’inventaire dans les projets classiques seront supprimées. Vous ne pouvez pas mettre à niveau des projets ou composants de la version précédente vers la nouvelle version. Vous devez [créer un nouveau projet](create-manage-projects.md), et y [ajouter des outils d’évaluation et de migration](./create-manage-projects.md). Consultez les tutoriels pour comprendre comment utiliser les outils d’évaluation et de migration disponibles. Si vous aviez un espace de travail Log Analytics attaché à un projet classique, vous pouvez l’attacher à un projet de la version actuelle après avoir supprimé le projet classique.
 
     Pour accéder à des projets existants dans le portail Azure, recherchez et sélectionnez **Azure Migrate**. Le tableau de bord **Azure Migrate** affiche une notification et un lien permettant d’accéder aux anciens projets.
 

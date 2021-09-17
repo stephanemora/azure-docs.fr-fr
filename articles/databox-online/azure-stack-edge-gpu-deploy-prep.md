@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 08/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 81c11665db1ee1f7c73e8abee95f01b8ea62d2fe
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: b223d428daf1a7080478f4f80b6a997fb97cd7a0
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113504888"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322530"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Préparer le déploiement d'Azure Stack Edge Pro avec GPU 
 
@@ -63,18 +63,20 @@ Voici les prérequis relatifs à la configuration de votre ressource Azure Stack
 
 ### <a name="for-the-azure-stack-edge-resource"></a>Pour la ressource Azure Stack Edge
 
+<!--Why isn't the include file used, as for the Pro R and Mini R SKUs? Check for differences. Also, the presentation of requirements is organized a bit differently; standard presentation would be more usable, even if the GPU requirements are different.-->
+
 Avant de commencer, assurez-vous que :
 
 - Votre abonnement Microsoft Azure est activé pour une ressource Azure Stack Edge. Vérifiez que vous avez utilisé un abonnement pris en charge tel que [Contrat Entreprise (EA) Microsoft](https://azure.microsoft.com/overview/sales-number/), [Fournisseur de solutions cloud (CSP)](/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Les abonnements de type Paiement à l’utilisation ne sont pas pris en charge. Pour identifier le type d’abonnement Azure dont vous disposez, consultez [Qu'est-ce qu'une offre Azure ?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
-- Vous disposez d'un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Azure Stack Edge Pro/Data Box Gateway, IoT Hub et Stockage Azure.
+- Vous disposez d’un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Azure Stack Edge Pro, IoT Hub et Stockage Azure.
 
-    - Pour créer une ressource Azure Stack Edge / Data Box Gateway, vous devez disposer d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. 
+    - Pour créer une ressource Azure Stack Edge, vous devez disposer d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. 
     - Vous devez aussi vérifier que les fournisseurs de ressources `Microsoft.DataBoxEdge` et `MicrosoftKeyVault` sont inscrits. Pour créer une ressource IoT Hub, le fournisseur `Microsoft.Devices` doit être inscrit. 
         - Pour inscrire un fournisseur de ressources, dans le portail Azure, accédez à **Accueil > Abonnements -> votre-abonnement -> Fournisseurs de ressources**. 
         - Recherchez le fournisseur de ressources spécifique, par exemple, `Microsoft.DataBoxEdge`, puis inscrivez-le. 
     - Pour créer une ressource de compte de stockage, là encore, vous avez besoin d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Par défaut, le stockage Azure est un fournisseur de ressources inscrit.
+- Pour créer une commande dans Azure Edge Hardware Center, vous devez vous assurer que le fournisseur `Microsoft.EdgeOrder` est inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#register-resource-providers).
 - Vous disposez d’un accès administrateur ou utilisateur à l’API Graph Azure Active Directory pour générer des opérations de clé d’activation ou d’informations d’identification telles que la création d’un partage utilisant un compte de stockage. Pour plus d’informations, consultez [API Graph Azure Active Directory](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>Pour l'appareil Azure Stack Edge Pro
 
@@ -102,67 +104,91 @@ Avant de commencer, assurez-vous que :
 
 Si vous disposez d’une ressource Azure Stack Edge existante pour gérer votre appareil physique, ignorez cette étape et passez à la section [Obtenir la clé d’activation](#get-the-activation-key).
 
-### <a name="portal"></a>[Portail](#tab/azure-portal)
+---
 
-Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail Azure.
+### <a name="azure-edge-hardware-center-preview"></a>[Azure Edge Hardware Center (préversion)](#tab/azure-edge-hardware-center)
+
+Azure Edge Hardware Center (préversion) est un nouveau service qui vous permet d’explorer et de commander une variété de matériel à partir du portefeuille hybride Azure, notamment les appareils Azure Stack Edge Pro.
+
+Lorsque vous passez une commande par le biais d’Azure Edge Hardware Center, vous pouvez commander plusieurs appareils, à envoyer à plusieurs adresses, et vous pouvez réutiliser les adresses d’expédition à partir d’autres commandes.
+
+Toute commande par le biais d’Azure Edge Hardware Center crée une ressource Azure qui contient toutes les informations relatives à votre commande. Une seule ressource est créée pour chaque unité commandée. Vous devrez créer une ressource Azure Stack Edge après avoir reçu l’appareil pour l’activer et le gérer.
+
+[!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
+
+#### <a name="create-a-management-resource-for-each-device"></a>Créer une ressource d’administration pour chaque appareil
+
+[!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
+
+### <a name="portal-classic"></a>[Portail (classique)](#tab/azure-portal)
+
+Pour créer une ressource Azure Stack Edge via le service Azure Stack Edge, suivez ces étapes dans le portail Azure.
 
 1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter au portail Azure en suivant cette URL : [https://portal.azure.com](https://portal.azure.com).
 
-2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez et sélectionnez **Azure Stack Edge / Data Box Gateway**. Sélectionnez **Create** (Créer). 
+2. Dans **Services Azure**, recherchez et sélectionnez **Azure Stack Edge**. Sélectionnez ensuite **+ Créer**. 
 
-3. Sélectionnez l'abonnement que vous souhaitez utiliser pour l'appareil Azure Stack Edge Pro. Sélectionnez le pays où vous souhaitez expédier cet appareil physique. Sélectionnez **Afficher les appareils**.
+3. Dans **Gérer les appareils Azure Stack Edge**, sélectionnez le lien **Essayer Azure Hardware Center**.
 
-    ![Créer une ressource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
+    ![Capture de l’écran « Gérer les appareils Azure Stack Edge », ouvert avec le bouton + Créer. Le lien « Essayer Azure Edge Hardware Center » est mis en surbrillance.](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-1.png)
 
-4. Sélectionnez le type d'appareil. Sous **Azure Stack Edge Pro**, choisissez **Azure Stack Edge Pro avec GPU**, puis **Sélectionner**. Si vous rencontrez des problèmes ou si vous ne parvenez pas à sélectionner le type d'appareil, accédez à [Résoudre les problèmes de commandes](azure-stack-edge-troubleshoot-ordering.md).
+4. Si vous ne souhaitez pas commander via Azure Edge Hardware Center, sur l’écran **Prise en main**, sélectionnez **Commander via l’expérience de classement classique**.
 
-    ![Créer une ressource 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
+   ![Capture de l’écran Prise en main écran dans Azure Stack Edge. Le lien « Commander via l’expérience de commande classique » est mis en surbrillance.](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-2.png)
 
-5. En fonction des besoins de votre entreprise, vous pouvez sélectionner Azure Stack Edge Pro avec 1 ou 2 unités de traitement graphique (GPU) à partir de Nvidia. 
+5. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil GPU Azure Stack Edge Pro. Sélectionnez le pays ou la région où envoyer l’appareil physique. Sélectionnez ensuite **Afficher les appareils**.
 
-    ![Créer une ressource 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
+    ![Capture de l’écran « Sélectionner le type d’appareil » pour sélectionner un abonnement et une région d’expédition pour une ressource Azure Stack Edge. Le bouton Afficher les appareils est mis en surbrillance.](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-6. Sous l’onglet **Bases**, entrez ou sélectionnez les **détails du projet** suivants.
+6. Sélectionnez le type d’appareil. Sous **Azure Stack Edge Pro**, choisissez **Azure Stack Edge Pro avec GPU**, puis **Sélectionner**. Si vous rencontrez des problèmes ou si vous ne parvenez pas à sélectionner le type d'appareil, accédez à [Résoudre les problèmes de commandes](azure-stack-edge-troubleshoot-ordering.md).
+
+    ![Capture de l’écran « Sélectionner le type d’appareil » pour sélectionner un type d’appareil pour une ressource Azure Stack Edge. Le bouton Sélectionner pour un type d’appareil est mis en surbrillance.](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
+
+7. En fonction des besoins de votre entreprise, vous pouvez sélectionner Azure Stack Edge Pro avec 1 ou 2 unités de traitement graphique (GPU) à partir de Nvidia. 
+
+    ![Capture de l’écran de sélection d’une configuration pour un appareil GPU Azure Stack Edge Pro pour une ressource Azure Stack Edge. Une configuration matérielle et le bouton Sélectionner sont mis en surbrillance.](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
+
+8. Sous l’onglet **Bases**, entrez ou sélectionnez les **détails du projet** suivants.
     
     |Paramètre  |Valeur  |
     |---------|---------|
     |Abonnement    |L’abonnement est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
     |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
 
-7. Entrez ou sélectionnez les **détails de l’instance** suivants.
+9. Entrez ou sélectionnez les **détails de l’instance** suivants.
 
     |Paramètre  |Valeur  |
     |---------|---------|
     |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom peut comporter entre 2 et 50 caractères, dont des lettres, des chiffres et des traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
     |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
 
-    ![Créer une ressource 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
+    ![Capture d’écran de l’onglet Bases de l’Assistant Création d’une ressource et commande d’un appareil pour Azure Stack Edge. L’onglet Bases et le bouton Suivant : adresse d’expédition sont mis en surbrillance.](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
-8. Sélectionnez **Suivant : Adresse de livraison**.
+10. Sélectionnez **Suivant : Adresse de livraison**.
 
     - Si vous disposez déjà d’un appareil, cochez la case **J’ai déjà un appareil**.
 
-        ![Créer une ressource 6](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
+        ![Capture d’écran de l’onglet « Adresse d’expédition » avec l’option « J’ai déjà une adresse d’expédition pour l’appareil » sélectionnée dans l’Assistant Création d’une ressource pour Azure Stack Edge.](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
     - Si vous commandez un nouvel appareil, entrez le nom du contact, la société, l’adresse de livraison de l’appareil et les coordonnées.
 
-        ![Créer une ressource 7](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
+        ![Capture d’écran de l’onglet « Adresse d’expédition » dans l’Assistant Création d’une ressource lors de la création d’une ressource Azure Stack Edge.](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
 
-9. Sélectionnez **Suivant : Balises**. Si vous le souhaitez, vous pouvez fournir des balises pour catégoriser les ressources et centraliser la facturation. Sélectionnez **Suivant : Vérifier + créer**.
+11. Sélectionnez **Suivant : Balises**. Si vous le souhaitez, vous pouvez fournir des balises pour catégoriser les ressources et centraliser la facturation. Sélectionnez **Suivant : Vérifier + créer**.
 
-10. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
+12. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
 
-    ![Créer une ressource 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
+    ![Capture d’écran de l’onglet Vérifier + créer pour une commande Azure Stack Edge.](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
     Vous êtes également informé qu’une identité managée est activée pendant la création de la ressource qui vous permet de vous authentifier auprès des services cloud. Cette identité existe aussi longtemps que la ressource existe.
 
-11. Sélectionnez **Create** (Créer).
+13. Sélectionnez **Create** (Créer).
 
     La création de la ressource prend quelques minutes. Une identité managée est également créée pour permettre à l’appareil Azure Stack Edge de communiquer avec le fournisseur de ressources dans Azure.
 
     Un message vous informe que la ressource a été créée et déployée. Sélectionnez **Accéder à la ressource**.
 
-    ![Accéder à la ressource Azure Stack Edge Pro](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Capture de l’écran indiquant que le déploiement d’une nouvelle ressource Azure Stack Edge est terminé. Le bouton Accéder à la ressource est mis en surbrillance.](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
 Une fois la commande passée, Microsoft l’examine et vous communique (par e-mail) les détails de l’expédition.
 
@@ -230,7 +256,7 @@ Une fois que la ressource Azure Stack Edge est active et en cours d’exécution
 
    Une fois que vous avez spécifié un nom de coffre de clés, sélectionnez **Générer la clé** pour créer une clé d’activation. 
 
-   ![Obtenir une clé d’activation](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+   ![Capture d’écran du volet Vue d’ensemble pour une ressource Azure Stack Edge nouvellement créée. Le bouton Générer la clé d’activation est mis en surbrillance.](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
 
    Attendez quelques minutes le temps que le coffre de clés et la clé d’activation soient créés. Sélectionnez l’icône de copie pour copier la clé et l’enregistrer pour une utilisation ultérieure.<!--Verify that the new screen has a copy icon.-->
 

@@ -8,16 +8,18 @@ ms.date: 07/22/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bd1c2d9a9d428a765a9b621652aa23fdec94f212
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 1fd010e645370389a657f70aeb2e821b69477ef1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456400"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687568"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilisez le portail Azure pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
 
-Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’hôte de machine virtuelle sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Pour obtenir des informations conceptuelles sur le chiffrement sur l'hôte et sur d'autres types de chiffrement de disques managés, consultez : [Chiffrement sur l'hôte : chiffrement de bout en bout pour vos données de machine virtuelle](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows
+
+Lorsque vous activez le chiffrement sur l'hôte, les données stockées sur l'hôte de machine virtuelle sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Pour obtenir des informations conceptuelles sur le chiffrement sur l'hôte et sur d'autres types de chiffrement de disques managés, consultez : [Chiffrement sur l'hôte : chiffrement de bout en bout pour vos données de machine virtuelle](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 Les disques temporaires et disques de système d’exploitation éphémères sont chiffrés au repos avec des clés gérées par la plateforme lorsque vous activez le chiffrement de bout en bout. Les caches du système d’exploitation et du disque de données sont chiffrés au repos avec des clés gérées par le client ou par la plateforme, selon le type de chiffrement de disque que vous avez sélectionné. Par exemple, si un disque est chiffré avec des clés gérées par le client, le cache du disque est chiffré avec les clés gérées par le client et, si un disque est chiffré à l’aide de clés gérées par la plateforme, le cache du disque est chiffré avec les clés gérées par la plateforme.
 

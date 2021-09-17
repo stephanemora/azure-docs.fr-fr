@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: kegorman
-ms.openlocfilehash: 862bb886c7ec5dfd40c7acdbae2f70f6698a711b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac9c699addf996178b1d6aabdf010267bda75964
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669932"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690067"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Architectures pour déployer des applications Oracle sur Azure
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Linux 
 
 Microsoft et Oracle ont travaillé ensemble pour permettre à leurs clients de déployer des applications Oracle comme Oracle E-Business Suite, JD Edwards EnterpriseOne et PeopleSoft dans le cloud. Avec l'introduction de la préversion de [l'interconnectivité des réseaux privés](configure-azure-oci-networking.md) entre Microsoft Azure et Oracle Cloud Infrastructure (OCI), les applications Oracle peuvent maintenant être déployées sur Azure avec leurs bases de données back-end dans Azure ou OCI. Les applications Oracle peuvent également être intégrées à Azure Active Directory, ce qui vous permet de configurer une authentification unique afin que les utilisateurs se connectent à l'application Oracle à l’aide de leurs identifiants Azure Active Directory (Azure AD).
 

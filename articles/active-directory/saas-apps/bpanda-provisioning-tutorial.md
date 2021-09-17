@@ -3,8 +3,8 @@ title: 'Didacticiel : Configurer Bpanda pour l’approvisionnement automatique d
 description: Découvrez comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers Bpanda.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 57e424f8-6fbc-4701-a312-899b562589ea
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/05/2021
-ms.author: Zhchia
-ms.openlocfilehash: 7e11f60fee0565b86fe62008f418175bce21be03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 90e2b260e59caceaca059b524c34233603959ef3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585177"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122326934"
 ---
 # <a name="tutorial-configure-bpanda-for-automatic-user-provisioning"></a>Didacticiel : Configurer Bpanda pour l’approvisionnement automatique d’utilisateurs
 
@@ -51,7 +51,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 ## <a name="step-2-configure-bpanda-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer Bpanda pour prendre en charge le provisionnement avec Azure AD
 1. Contactez support@mid.de pour plus d’informations sur l’URL de votre locataire d’authentification.
 
-2. Clé secrète client pour la génération de jetons d’accès. Celle-ci doit vous avoir été transmise de manière sécurisée. Contactez support@mid.de pour plus d’informations.
+2. Clé secrète client pour la génération de jetons d’accès. Ce secret doit vous avoir été transmis de manière sécurisée. Contactez support@mid.de pour plus d’informations.
 
 3. Pour établir une connexion entre Azure AD et Bpanda, un jeton d’accès doit être récupéré de l’une des manières suivantes.
 
@@ -83,7 +83,7 @@ Ajoutez Bpanda à partir de la galerie d’applications Azure AD pour commencer 
 
 Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Lorsque vous attribuez des utilisateurs et des groupes à Bpanda, vous devez sélectionner un rôle différent du rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+* Lorsque vous attribuez des utilisateurs et des groupes à Bpanda, vous devez sélectionner un rôle différent du rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible sur l’application est le rôle Accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter d’autres rôles. 
 
 * Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -136,6 +136,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |phoneNumbers[type eq "mobile"].value|String|
    |externalId|String|
    |title|String|
+   |preferredLanguage|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|

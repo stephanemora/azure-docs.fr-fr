@@ -10,12 +10,12 @@ ms.devlang: python
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: 46c15f932f55883be66745d415820767089ae0f1
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 99d2f7a67ede762f84e5f6d9abf5af78c5751d22
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461998"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444966"
 ---
 # <a name="quickstart-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service-using-python"></a>Démarrage rapide : Créer une application qui indique le nombre d’étoiles GitHub avec Azure Functions and SignalR Service en utilisant Python
 
@@ -51,21 +51,44 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
 
 ## <a name="setup-and-run-the-azure-function-locally"></a>Configurer et exécuter la fonction Azure localement
 
-1. Vérifiez qu’Azure Functions Core Tools est installé. Ensuite, créez un répertoire vide et accédez-y depuis la ligne de commande.
+1. Vérifiez qu’Azure Functions Core Tools est installé. Ensuite, créez un répertoire vide et accédez-y depuis la ligne de commande.
 
     ```bash
     # Initialize a function project
     func init --worker-runtime python
     ```
 
-2. Après avoir initialisé un projet, vous devez créer des fonctions. Dans cet exemple, nous devons créer 3 fonctions.
+2. Après avoir initialisé un projet, vous devez créer des fonctions. Dans cet exemple, nous devons créer trois fonctions.
 
     1. Exécutez la commande suivante pour créer une fonction `index`, destinée à héberger une page web pour le client.
 
         ```bash
         func new -n index -t HttpTrigger
         ```
-        
+        Ouvrez `index/function.json` et copiez les codes json suivants :
+
+        ```json
+        {
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ]
+        }
+        ```
+
         Ouvrez `index/__init__.py` et copiez les codes suivants.
 
         ```javascript
@@ -79,7 +102,7 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
             return func.HttpResponse(f.read(), mimetype='text/html')
         ```
     
-    2. Créez une fonction `negotiate`pour que les clients obtiennent un jeton d’accès.
+    2. Créez une fonction `negotiate` pour que les clients obtiennent un jeton d’accès.
     
         ```bash
         func new -n negotiate -t SignalRNegotiateHTTPTrigger
@@ -92,7 +115,7 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
           "scriptFile": "__init__.py",
           "bindings": [
             {
-              "authLevel": "function",
+              "authLevel": "anonymous",
               "type": "httpTrigger",
               "direction": "in",
               "name": "req",
@@ -126,16 +149,16 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
             return func.HttpResponse(connectionInfo)
         ```
     
-    3. Créez une fonction `broadcast` pour diffuser des messages à tous les clients. Dans l’exemple, nous utilisons un déclencheur de temps pour diffuser des messages régulièrement.
+    3. Créez une fonction `broadcast` pour diffuser des messages à tous les clients. Dans l’exemple, nous utilisons un déclencheur temporel pour diffuser des messages régulièrement.
     
         ```bash
         func new -n broadcast -t TimerTrigger
         # install requests
         pip install requests
         ```
-    
+
         Ouvrez `broadcast/function.json` et copiez les codes suivants.
-    
+
         ```json
         {
           "scriptFile": "__init__.py",
@@ -177,7 +200,7 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
             }))
         ```
 
-3. L’interface cliente de cet exemple est une page web. Comme nous avons lu le contenu HTML de `content/index.html` dans la fonction `index`, créez un fichier `index.html` dans le répertoire `content`. Ensuite, copiez le contenu suivant.
+3. L’interface client de cet exemple est une page web. En considérant que nous lisons le contenu HTML de `content/index.html` dans la fonction `index`, créez un nouveau fichier `index.html` dans le répertoire `content` dans le dossier racine de votre projet. Ensuite, copiez le contenu suivant.
 
     ```html
     <html>
@@ -205,20 +228,20 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
     </html>
     ```
     
-4. C’est presque terminé. La dernière étape consiste à définir une chaîne de connexion de SignalR Service sur les paramètres de fonction Azure.
+4. C’est presque terminé. La dernière étape consiste à définir une chaîne de connexion de SignalR Service dans les paramètres d’Azure Functions.
 
     1. Dans le navigateur dans lequel le portail Azure est ouvert, vérifiez que l’instance du service SignalR que vous avez déployée précédemment a bien été créée en recherchant son nom dans la zone de recherche en haut du portail. Sélectionnez l’instance pour l’ouvrir.
 
         ![Rechercher l’instance du service SignalR](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-    1. Sélectionnez **Clés** pour afficher les chaînes de connexion de l’instance du service SignalR.
+    2. Sélectionnez **Clés** pour afficher les chaînes de connexion de l’instance du service SignalR.
     
         ![Capture d’écran qui met en évidence la chaîne de connexion principale.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copiez la chaîne de connexion principale. Ensuite, exécutez la commande ci-dessous.
+    3. Copiez la chaîne de connexion principale. Puis exécutez la commande ci-dessous.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
 5. Exécutez la fonction Azure en local :
@@ -227,10 +250,10 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
     func start
     ```
 
-    Une fois que la fonction Azure s’exécute localement, utilisez votre navigateur pour accéder à l’adresse `http://localhost:7071/api/index` et voir le nombre d’étoiles actuel. Si vous attribuez ou retirez des étoiles dans GitHub, le nombre d’étoiles est actualisé toutes les quelques secondes.
+    Après l’exécution locale de la fonction Azure, Utilisez votre navigateur pour accéder à l’adresse `http://localhost:7071/api/index` et voir le nombre actuel d’étoiles. Si vous ajoutez ou supprimez une étoile sur le site GitHub, le nombre d’étoiles est actualisé régulièrement au bout de quelques secondes.
 
     > [!NOTE]
-    > La liaison SignalR a besoin du Stockage Azure, mais vous pouvez utiliser l’émulateur de stockage local quand la fonction est exécutée localement.
+    > La liaison SignalR nécessite Stockage Azure, mais vous pouvez utiliser l’émulateur de stockage local lorsque la fonction est exécutée localement.
     > Si vous rencontrez des erreurs telles que `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`, vous devez télécharger et activer l’[émulateur de stockage](../storage/common/storage-use-emulator.md).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
@@ -239,14 +262,14 @@ Vous rencontrez des problèmes ? Essayez le [guide de résolution des problème
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez généré et exécuté une application serverless en temps réel en local. Découvrez comment utiliser les liaisons SignalR Service pour Azure Functions.
+Dans ce démarrage rapide, vous avez généré et exécuté une application serverless en temps réel en local. Découvrez comment utiliser les liaisons SignalR Service pour Azure Functions.
 Ensuite, découvrez comment permettre une communication bidirectionnelle entre les clients et Azure Function grâce à SignalR Service.
 
 > [!div class="nextstepaction"]
 > [Liaisons de service SignalR pour Azure Functions](../azure-functions/functions-bindings-signalr-service.md)
 
 > [!div class="nextstepaction"]
-> [Communication bidirectionnelle dans un scénario serverless](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
+> [Communication bidirectionnelle dans Serverless](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
 
 > [!div class="nextstepaction"]
 > [Déployer Azure Functions avec VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)

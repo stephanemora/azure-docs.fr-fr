@@ -7,15 +7,15 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.topic: tutorial
 ms.custom: tutorial, devplatv2
-ms.openlocfilehash: 78cbec0c8f4805794062b6fd525567f8aebcb2b6
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 681d78d07ac27cb8796f4dad5920d91d9efcb94a
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448833"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418878"
 ---
 # <a name="tutorial-access-resources-with-managed-online-endpoints-and-identity-preview"></a>Tutoriel : Accéder aux ressources avec points de terminaison en ligne et identité managés (préversion)
 
@@ -37,7 +37,7 @@ Ce tutoriel montre comment effectuer les actions suivantes avec Azure CLI et son
 
 * Pour utiliser Azure Machine Learning, vous devez avoir un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/) dès aujourd’hui.
 
-* Vous devez installer et configurer Azure CLI et l’extension ML. Pour plus d’informations, consultez [Installer, configurer et utiliser l’interface CLI 2.0 (préversion)](how-to-configure-cli.md). 
+* Vous devez installer et configurer Azure CLI et l’extension ML. Pour plus d’informations, consultez [Installer, configurer et utiliser l’interface CLI (v2) (préversion)](how-to-configure-cli.md). 
 
 * Vous devez avoir un groupe de ressources Azure dans lequel vous (ou le principal de service que vous utilisez) devez disposer d’un accès `Contributor`. Vous disposez d’un tel groupe de ressources si vous avez configuré votre extension ML conformément à l’article ci-dessus. 
 
@@ -72,7 +72,7 @@ L’exemple de code suivant crée un point de terminaison managé, qui
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
 
-Pour des informations de référence sur YAML, consultez [Informations de référence YAML sur les points de terminaison en ligne managés (préversion)](reference-online-endpoint-yaml.md).
+Pour des informations de référence sur YAML, consultez [Informations de référence YAML sur les points de terminaison en ligne managés (préversion)](reference-yaml-endpoint-managed-online.md).
 
 ## <a name="configure-variables-for-your-deployment"></a>Configurer des variables pour votre déploiement
 
@@ -193,7 +193,7 @@ Dans ce tutoriel sur Azure Machine Learning, vous avez utilisé l’interface CL
 
 * Pour plus d’informations sur l’utilisation de l’interface CLI, consultez [Utiliser l’extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Pour affiner les requêtes JSON afin de retourner uniquement des données spécifiques, consultez [Interroger la sortie de commande Azure CLI](/cli/azure/query-azure-cli).
-* Pour plus d’informations sur le schéma YAML, consultez le document [Référence YAML sur les points de terminaison en ligne](reference-online-endpoint-yaml.md).
+* Pour plus d’informations sur le schéma YAML, consultez le document [Référence YAML sur les points de terminaison en ligne](reference-yaml-endpoint-managed-online.md).
 * Pour connaître les ressources de calcul que vous pouvez utiliser, consultez [Liste des références SKU pour les points de terminaison en ligne managés (préversion)](reference-managed-online-endpoints-vm-sku-list.md).
 * Pour plus d’informations sur les coûts, consultez [Afficher les coûts d’un point de terminaison en ligne managé Azure Machine Learning (préversion)](how-to-view-online-endpoints-costs.md).
 * Pour plus d’informations sur les déploiements, consultez [Déploiement sécurisé pour les points de terminaison en ligne (préversion)](how-to-safely-rollout-managed-endpoints.md).

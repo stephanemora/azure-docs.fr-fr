@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: c1c53da8c62acc1b4aacd2b0fa79dd968c65c13a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61b8a15e4e765113455be0e8b37ba22b98e6e4ad
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645635"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271106"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à KnowledgeOwl
 
@@ -156,13 +156,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise KnowledgeOwl en tant qu’administrateur.
 
-1. Cliquez sur **Paramètres**, puis sélectionnez **Sécurité**.
+1. Cliquez sur **Paramètres**, puis sélectionnez **Authentification unique**.
 
-    ![Capture d’écran montrant l’élément Security sélectionné dans le menu Settings.](./media/knowledgeowl-tutorial/configure-1.png)
+    ![Capture d’écran montrant l’authentification unique sélectionnée dans le menu Paramètres.](./media/knowledgeowl-tutorial/settings-sso-dropdown.png)
 
-1. Faites défiler jusqu’à **Intégration de l'authentification unique SAML** et effectuez les étapes suivantes :
+1. Dans le menu déroulant jusqu’à l’onglet **Paramètres SAML**, procédez comme suit :
 
-    ![Capture d’écran montrant la zone d’intégration de l’authentification unique SAML dans laquelle vous pouvez apporter les modifications décrites ici.](./media/knowledgeowl-tutorial/configure-2.png)
+    ![Capture d’écran montrant la zone d’intégration de l’authentification unique SAML dans laquelle vous pouvez apporter les modifications décrites ici.](./media/knowledgeowl-tutorial/sso-settings-required-fields.png)
 
     a. Sélectionnez **Enable SAML SSO** (Activer l’authentification unique SAML).
 
@@ -176,21 +176,24 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     f. Dans la zone de texte **IdP Logout URL** (URL de déconnexion du fournisseur d’identité), collez la valeur de l’**URL de déconnexion** que vous avez copiée dans le portail Azure.
 
-    g. Chargez le certificat téléchargé à partir du portail Azure en cliquant sur **Upload IdP Certificate (Charger un certificat IdP)** .
+    g. Chargez le certificat téléchargé à partir du Portail Azure en cliquant sur le lien **Charger** sous **Certificat IdP**.
 
-    h. Cliquez sur **Map SAML Attributes (Mapper les attributs SAML)** pour mapper les attributs, puis procédez comme suit :
+    h. Cliquez sur **Enregistrer** au bas de la page.
 
-    ![Capture d’écran montrant l’élément Map SAML Attributes, dans lequel vous pouvez apporter les modifications décrites ici.](./media/knowledgeowl-tutorial/configure-3.png)
+    ![Capture d’écran montrant le bouton Save.](./media/knowledgeowl-tutorial/sso-settings-saml-save.png)
 
-    * Dans la zone de texte **SSO ID** (ID d’authentification unique), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid`.
+    i. Ouvrez l’onglet **Mappage d’attributs SAML** pour mapper les attributs, puis procédez comme suit :
+
+    ![Capture d’écran montrant l’élément Map SAML Attributes, dans lequel vous pouvez apporter les modifications décrites ici.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-fields.png)
+
+    * Saisissez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` dans la zone de texte **ID de l’authentification unique**.
     * Dans la zone de texte **Username/Email** (Nom d’utilisateur/E-mail), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
     * Dans la zone de texte **First Name** (Prénom), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
     * Dans la zone de texte **Last Name** (Prénom), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
-    * Cliquez sur **Enregistrer**.
 
-    i. Cliquez sur **Enregistrer** au bas de la page.
+    j. Cliquez sur **Enregistrer** au bas de la page.
 
-    ![Capture d’écran montrant le bouton Save.](./media/knowledgeowl-tutorial/configure-4.png)
+    ![Capture d’écran montrant le bouton1 Enregistrer.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-save.png)
 
 ### <a name="create-knowledgeowl-test-user"></a>Créer un utilisateur de test KnowledgeOwl
 
@@ -203,17 +206,17 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans KnowledgeOwl.
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services
 
 * Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion à KnowledgeOwl, d’où vous pouvez lancer le flux de connexion.  
 
 * Accédez directement à l’URL de connexion KnowledgeOwl et lancez le flux de connexion.
 
-#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité
 
-* Un clic sur **Tester cette application** dans le portail Azure doit vous connecter automatiquement à l’instance de KnowledgeOwl pour laquelle vous avez configuré l’authentification unique. 
+* Cliquez sur **Tester cette application** dans le Portail Azure pour vous connecter automatiquement à l’application KnowledgeOwl pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette KnowledgeOwl dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de KnowledgeOwl pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser le portail Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la mosaïque KnowledgeOwl dans le portail Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’application KnowledgeOwl pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Introduction à Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

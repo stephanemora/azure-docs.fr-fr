@@ -6,16 +6,16 @@ ms.subservice: update-management
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 089d5d70d8ad8060455e5c1bee45e0bee4a12fae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc17b875c8f16304d5292f7ed852909373b8c5d9
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575843"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768309"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Activer Update Management à partir d’un compte Automation
 
-Cet article explique comment utiliser votre compte Automation pour activer la fonctionnalité [Update Management](overview.md) pour les machines virtuelles de votre environnement, notamment les machines et serveurs inscrits auprès de [serveurs avec Azure Arc](../../azure-arc/servers/overview.md). Pour activer des machines virtuelles Azure à grande échelle, vous devez activer une machine virtuelle Azure existante en utilisant Update Management.
+Cet article explique comment utiliser votre compte Automation pour activer la fonctionnalité [Gestion de la mise à jour](overview.md) pour les machines virtuelles de votre environnement, notamment les machines et serveurs inscrits auprès de [serveurs avec Azure Arc](../../azure-arc/servers/overview.md). Pour activer des machines virtuelles Azure à grande échelle, vous devez activer une machine virtuelle Azure existante en utilisant Update Management.
 
 > [!NOTE]
 > Lors de l’activation d’Update Management, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation. Pour obtenir la liste des paires de mappages prises en charge, consultez [Mappage de régions pour un compte Automation et un espace de travail Log Analytics](../how-to/region-mappings.md).
@@ -24,7 +24,7 @@ Cet article explique comment utiliser votre compte Automation pour activer la fo
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Compte Automation](../automation-security-overview.md) pour gérer les machines.
-* Une [machine virtuelle Azure](../../virtual-machines/windows/quick-create-portal.md), une machine virtuelle ou un serveur inscrit avec des serveurs dotés d’Azure Arc. Les machines virtuelles ou les serveurs non Azure doivent disposer de l’[agent Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) pour Windows ou Linux et de l’envoi de rapports à l’espace de travail lié au compte Automation sur lequel Update Management est activé. Nous vous recommandons d’installer l’agent Log Analytics pour Windows ou Linux en connectant d’abord votre machine à des [serveurs avec Azure Arc](../../azure-arc/servers/overview.md), puis d’utiliser Azure Policy pour attribuer la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc *Linux* ou *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Autrement, si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
+* Une [machine virtuelle Azure](../../virtual-machines/windows/quick-create-portal.md), une machine virtuelle ou un serveur inscrit avec des serveurs dotés d’Azure Arc. Les machines virtuelles ou les serveurs non Azure doivent disposer de l’[agent Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) pour Windows ou Linux et de l’envoi de rapports à l’espace de travail lié au compte Automation sur lequel Update Management est activé. Nous vous recommandons d’installer l’agent Log Analytics pour Windows ou Linux en connectant d’abord votre machine à des [serveurs avec Azure Arc](../../azure-arc/servers/overview.md), puis d’utiliser la Stratégie Azure pour affecter la stratégie intégrée [Déployer l’agent Log Analytics sur des *machines Azure Arc* Linux *ou* Windows](../../governance/policy/samples/built-in-policies.md#monitoring). Autrement, si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
@@ -51,7 +51,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="enable-non-azure-vms"></a>Activer les machines virtuelles non-Azure
 
-Pour des ordinateurs ou serveurs hébergés en dehors d’Azure, y compris ceux inscrits auprès de serveurs avec Azure Arc, procédez comme suit pour les activer avec Update Management.  
+Pour des machines ou serveurs hébergés en dehors d’Azure, y compris ceux inscrits auprès de serveurs avec Azure Arc, procédez comme suit pour les activer avec la Gestion de la mise à jour.  
 
 1. Dans votre compte Automation, sélectionnez **Update Management** sous **Gestion des mises à jour**.
 

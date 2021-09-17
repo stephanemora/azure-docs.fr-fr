@@ -3,12 +3,15 @@ title: Ajouter un segment réseau NSX-T à l’aide d’Azure VMware Solution
 description: Étapes à suivre pour ajouter un segment réseau NSX-T pour Azure VMware Solution dans le portail Azure.
 ms.topic: include
 ms.date: 07/16/2021
-ms.openlocfilehash: 7744884da7e1e6d46428bb00b52f88772c866760
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
+ms.openlocfilehash: 4b153d95ad339d3a71d5b227e0f794675014a28c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114229305"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734214"
 ---
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
@@ -26,7 +29,7 @@ ms.locfileid: "114229305"
 
    - **Passerelle de sous-réseau** : adresse IP de la passerelle pour le sous-réseau du segment avec un masque de sous-réseau. Les machines virtuelles sont attachées à un segment, et toutes les machines virtuelles qui se connectent à ce segment appartiennent au même sous-réseau.  De plus, toutes les machines virtuelles attachées à ce segment logique doivent contenir une adresse IP du même segment.
 
-   - **DHCP** (facultatif) : plages DHCP pour un segment logique. Un [serveur DHCP ou relais DHCP](../configure-dhcp-azure-vmware-solution.md) doit être configuré pour consommer DHCP sur des segments.  
+   - **DHCP** (facultatif) : plages DHCP pour un segment logique. Vous devez configurer un [serveur DHCP ou relais DHCP](../configure-dhcp-azure-vmware-solution.md) pour utiliser le protocole DHCP sur des segments.    
 
    >[!NOTE]
    >La **passerelle connectée** est sélectionnée par défaut et est en lecture seule.  Elle indique la passerelle de niveau 1 et des informations relatives au type de segment. 

@@ -8,14 +8,16 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: e29d1de976a027e32564a258fd5669b1e54c60f3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4cd05aa5d9d1846dd30c171b4ed19f3506121b10
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564439"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698298"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Windows à l’aide du portail Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows 
 
 Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Le Portail Azure est une interface utilisateur basée sur un navigateur permettant de créer des machines virtuelles et leurs ressources associées. Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour déployer une machine virtuelle Windows, créer un coffre de clés pour le stockage des clés de chiffrement et chiffrer la machine virtuelle.
 

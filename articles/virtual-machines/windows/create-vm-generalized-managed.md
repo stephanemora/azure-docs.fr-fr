@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bc87b0ec9cf41b2ddc5746a9734463f544b0cc2a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c785bec3fc403a1090d5604d0954271992aea1f3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550686"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689645"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Créer une machine virtuelle à partir d’une image gérée
+
+**S’applique à :** :heavy_check_mark : Machines virtuelles Windows 
 
 Vous pouvez créer plusieurs machines virtuelles à partir d’une image de machine virtuelle managée Azure à l’aide de PowerShell ou du portail Azure. Une image de machine virtuelle managée contient les informations nécessaires pour créer une machine virtuelle, y compris le disque du système d’exploitation et les disques de données. Les disques durs virtuels qui composent l’image, dont les disques du système d’exploitation et les disques de données, sont stockés en tant que disques managés. 
 

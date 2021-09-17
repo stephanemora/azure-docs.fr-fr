@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/27/2021
+ms.date: 08/18/2021
 ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
-ms.openlocfilehash: c96936635898f9173b7eb8e60502ea059420cf0b
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: f8ff5e9d5a7b35bcc4ada9fd600d28b54ead57a9
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113758860"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634348"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-2-of-3"></a>Tutoriel : Entraîner votre premier modèle Machine Learning (partie 2 sur 3)
 
@@ -77,7 +77,7 @@ Le code d’entraînement est tiré de [cet exemple d’introduction](https://py
 
     Créez un script *train.py* dans le sous-dossier **src** :
 
-     ```python
+    ```python
     import torch
     import torch.optim as optim
     import torchvision
@@ -200,16 +200,18 @@ if __name__ == "__main__":
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Soumettre l’exécution à Azure Machine Learning
 
-Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script *run-pytorch.py*.
+1. Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script *run-pytorch.py*.
 
->[!NOTE] 
-> La première fois que vous exécutez ce script, Azure Machine Learning va générer une nouvelle image Docker à partir de votre environnement PyTorch. La totalité de l’exécution peut prendre 3 à 4 minutes. 
->
-> Vous pouvez visualiser les journaux de la génération Docker dans Azure Machine Learning Studio. Suivez le lien vers le studio, sélectionnez l’onglet **Sorties + journaux**, puis sélectionnez `20_image_build_log.txt`.
->
-> Cette image sera réutilisée dans les prochaines exécutions, ce qui les rendra plus rapides.
+1. Vous verrez un lien dans la fenêtre du terminal qui s’ouvre. Sélectionnez le lien pour afficher l’exécution.
 
-Une fois votre image générée, sélectionnez `70_driver_log.txt` pour visualiser la sortie de votre script d’entraînement.
+    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+
+### <a name="view-the-output"></a>Affichage du résultat
+
+1. Dans la page qui s’ouvre, vous verrez l’état d’exécution. La première fois que vous exécutez ce script, Azure Machine Learning va générer une nouvelle image Docker à partir de votre environnement PyTorch. La totalité de l’exécution peut prendre 3 à 4 minutes.  Cette image sera réutilisée dans les prochaines exécutions, ce qui les rendra plus rapides.
+1. Vous pouvez voir les journaux de la génération Docker dans Azure Machine Learning Studio. Sélectionnez l’onglet **Sorties + journaux**, puis **20_image_build_log.txt**.
+1. Lorsque l’état de l’exécution est **Terminé**, sélectionnez **Sortie + journaux**.
+1. Sélectionnez **70_driver_log.txt** pour afficher le résultat de votre exécution.
 
 ```txt
 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
@@ -230,10 +232,11 @@ epoch=2, batch=12000: loss 1.27
 Finished Training
 ```
 
-> [!WARNING]
-> Si vous voyez une erreur `Your total snapshot size exceeds the limit`, cela signifie que le dossier **data** se trouve dans la valeur `source_directory` utilisée dans `ScriptRunConfig`.
->
-> Sélectionnez **...** à la fin du dossier, puis sélectionnez **Déplacer** pour déplacer **data** vers le dossier **get-started**.  
+Si vous voyez une erreur `Your total snapshot size exceeds the limit`, cela signifie que le dossier **data** se trouve dans la valeur `source_directory` utilisée dans `ScriptRunConfig`.
+
+Sélectionnez **...** à la fin du dossier, puis sélectionnez **Déplacer** pour déplacer **data** vers le dossier **get-started**.  
+
+
 
 ## <a name="log-training-metrics"></a><a name="log"></a> Journaliser les métriques d’entraînement
 

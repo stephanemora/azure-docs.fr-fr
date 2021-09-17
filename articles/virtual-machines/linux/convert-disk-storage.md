@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.date: 02/13/2021
 ms.author: albecker
 ms.subservice: disks
-ms.openlocfilehash: 35ba681ae35e60d7cd275c9e649b2463d2dc30a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 385d801d43a41bb836e04398427fff6c01b1e357
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558455"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692128"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Convertir un stockage sur disques managés Azure de Standard en Premium, et vice versa
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Il existe quatre types de disques managés Azure : Disques Ultra, SSD Premium, SSD Standard et HDD Standard Azure. Vous pouvez basculer vers des disques SSD Premium, SSD Standard et HDD Standard, selon vos besoins en performances. Il n'est pas encore possible de passer d'un disque Ultra à un autre type de disque ou l'inverse : vous devez en déployer un nouveau.
 

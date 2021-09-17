@@ -8,26 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/19/2020
+ms.date: 04/07/2021
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 9ba9fe7ca73e874fb55c228e22b884a86de736cf
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: b583caa4fdb2a1e72833d4e24c317282be041513
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661457"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822132"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de données et de débit pour l’API Analyse de texte
 <a name="data-limits"></a>
 
-Découvrez dans cet article les limites de taille et de débit auxquelles vous êtes soumis pour l’envoi de données à l’API Analyse de texte. Notez que les prix ne sont pas affectés par les limites de données ou les limites du taux de transfert. Les prix sont soumis aux [détails des prix](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) de votre ressource Analyse de texte.
+Découvrez dans cet article les limites de taille et de débit auxquelles vous êtes soumis pour l’envoi de données à l’API Analyse de texte.
 
 ## <a name="data-limits"></a>Limites de données
 
 > [!NOTE]
-> * Si vous avez besoin d’analyser des documents plus volumineux que la limite autorisée, vous pouvez scinder le texte en blocs de texte plus petits avant de les envoyer à l’API. 
-> * Un document est une chaîne unique de caractères de texte.  
+> * Les limites de données et de débit n’ont aucune incidence sur la tarification. Celle-ci dépend du nombre d’enregistrements texte envoyés à l’API. Elle est soumise aux [informations tarifaires](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) de la ressource Analyse de texte.
+>   * Un enregistrement texte correspond à 1 000 caractères. 
+> * Les limites de données et de débit dépendent du nombre de documents envoyés à l’API. Si vous avez besoin d’analyser des documents plus volumineux que la limite autorisée, vous pouvez scinder le texte en blocs de texte plus petits avant de les envoyer à l’API. 
+>   * Un document est une chaîne unique de caractères de texte.  
 
 | Limite | Valeur |
 |------------------------|---------------|
@@ -88,6 +90,8 @@ Votre limite de débit varie en fonction de votre [niveau tarifaire](https://azu
 
 Les débits en demandes sont mesurées séparément pour chaque fonctionnalité d’Analyse de texte. Vous pouvez envoyer le nombre maximal de demandes correspondant à votre niveau tarifaire pour chaque fonctionnalité en même temps. Par exemple, si vous êtes dans le niveau `S` et que vous envoyez 1 000 demandes à la fois, vous ne pouvez pas envoyer une autre demande pendant 59 secondes.
 
+
+Les niveaux S0-S4 sont déconseillés. Nous vous recommandons de basculer vers le niveau S.
 
 ## <a name="see-also"></a>Voir aussi
 

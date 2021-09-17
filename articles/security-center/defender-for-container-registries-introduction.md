@@ -3,16 +3,16 @@ title: 'Azure Defender pour les registres de conteneurs : avantages et fonction
 description: Découvrez les avantages et les fonctionnalités d’Azure Defender pour les registres de conteneurs.
 author: memildin
 ms.author: memildin
-ms.date: 07/05/2021
+ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d448d0b0a67987ced1caec04557773c2f8ab33d7
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 5c9407e33cefc9c604192252a119db5a42851949
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113651817"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541402"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduction à Azure Defender pour des registres de conteneurs
 
@@ -20,7 +20,17 @@ Azure Container Registry (ACR) est un service de registre Docker privé et gér�
 
 Pour protéger les registres basés sur Azure Resource Manager de votre abonnement, activez **Azure Defender pour les registres de conteneurs** au niveau de l’abonnement. Security Defender analysera ensuite toutes les images envoyées au registre, importées dans le registre, ou les images extraites au cours des 30 derniers jours. Vous serez facturé pour chaque image analysée, une fois par image.
 
-[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
+## <a name="availability"></a>Disponibilité
+
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|Disponibilité générale (GA)|
+|Prix :|**Azure Defender pour les registres de conteneurs** est facturé conformément aux indications de la [page des tarifs](security-center-pricing.md).|
+|Registres et images pris en charge :|Images Linux dans des registres ACR accessibles depuis l’Internet public grâce à l’accès shell<br>[Registres ACR protégés par Azure Private Link](../container-registry/container-registry-private-link.md)|
+|Registres et images pris en charge :|Images Windows<br>Registres « privés » (sauf si l’accès est accordé aux [Services approuvés](../container-registry/allow-access-trusted-services.md#trusted-services))<br>Images super-minimalistes, telles que les images de [base Docker](https://hub.docker.com/_/scratch/) ou « Distroless » qui contiennent uniquement une application et ses dépendances de runtime sans gestionnaire de packages, interpréteur de commandes ni système d’exploitation<br>Images avec [Spécification du format d’image Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md)|
+|Rôles et autorisations obligatoires :|**Lecteur de sécurité** et [autorisations et rôles Azure Container Registry](../container-registry/container-registry-roles.md)|
+|Clouds :|:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: US Gov et China Gov : seule la fonctionnalité d’analyse à l’envoi est actuellement prise en charge. En savoir plus dans [Quand les images sont-elles analysées ?](#when-are-images-scanned)|
+|||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>Quels sont les avantages d’Azure Defender pour les registres de conteneurs ?
 

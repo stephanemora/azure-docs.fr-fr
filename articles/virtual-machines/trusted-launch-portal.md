@@ -9,14 +9,16 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 15386baa369b18678ef84ebed8144d358fa8177f
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: bcc91283c29aaef251c2a18422e90090c56a6298
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839362"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688917"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Déployer une machine virtuelle avec le lancement fiable activé (préversion)
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles
 
 Le [lancement fiable](trusted-launch.md) est un moyen d’améliorer la sécurité des machines virtuelles de [génération 2](generation-2.md). Le lancement fiable protège contre les techniques d’attaque avancées et persistantes en combinant des technologies d’infrastructure comme vTPM et l’amorçage sécurisé.
 

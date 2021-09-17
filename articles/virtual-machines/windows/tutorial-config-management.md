@@ -9,14 +9,15 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 2b624f43a892c3b3fc07a7128a18dc9cc66736f8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c31c77fee8f4a9706f4c7d2ad0c39d89d1327d78
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668108"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689286"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutoriel : Superviser les changements et mettre à jour une machine virtuelle Windows dans Azure
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles 
 
 Avec Azure [Change Tracking](../../automation/change-tracking/overview.md) et [Update Management](../../automation/update-management/overview.md), vous pouvez facilement identifier les modifications apportées à vos machines virtuelles Windows dans Azure, et gérer les mises à jour du système d’exploitation pour ces machines virtuelles.
 

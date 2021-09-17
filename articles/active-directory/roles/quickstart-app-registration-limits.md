@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6710273438b291c1547688b2213b0c57ac766b99
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b018dead90b593276a9cb92696dd964473057407
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796372"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732314"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Démarrage rapide : Accorder l’autorisation de créer un nombre illimité d’inscriptions d’applications
 
@@ -29,18 +29,19 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 ## <a name="prerequisites"></a>Prérequis
 
 - Licence Azure AD Premium P1 ou P2
-- Administrateur de rôle privilégié ou administrateur général
-- Module AzureADPreview lors de l’utilisation de PowerShell
-- Consentement de l’administrateur lors de l’utilisation de l’Explorateur graphique pour l’API Microsoft Graph
+- Administrateur de rôle privilégié ou Administrateur général
+- Module AzureADPreview (avec PowerShell)
+- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
 
-Pour plus d’informations, consultez [Configuration requise pour l’utilisation de PowerShell ou de l’Explorateur graphique](prerequisites.md).
+Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
 
 ## <a name="azure-portal"></a>Portail Azure
 
 ### <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com).
-1. Sélectionnez **Azure Active Directory**, **Rôles et administrateurs**, puis **Nouveau rôle personnalisé**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure AD](https://aad.portal.azure.com).
+
+1. Sélectionnez **Azure Active Directory** > **Rôles et administrateurs**, puis **Nouveau rôle personnalisé**.
 
     ![Créer ou modifier des rôles à partir de la page Rôles et administrateurs](./media/quickstart-app-registration-limits/new-custom-role.png)
 
@@ -56,9 +57,12 @@ Pour plus d’informations, consultez [Configuration requise pour l’utilisatio
 
 ### <a name="assign-the-role"></a>Attribuer le rôle
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com).
-1. Sélectionnez **Azure Active Directory**, puis **Rôles et administrateurs**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure AD](https://aad.portal.azure.com).
+
+1. Sélectionnez **Azure Active Directory** > **Rôles et administrateurs**.
+
 1. Sélectionnez le rôle Créateur d’inscription d’application et sélectionnez **Ajouter une attribution**.
+
 1. Sélectionnez l’utilisateur souhaité, puis cliquez sur **Sélectionner** pour ajouter l’utilisateur au rôle.
 
 Vous avez terminé. Dans ce guide de démarrage rapide, vous allez créer avec succès un rôle personnalisé avec l’autorisation de créer un nombre illimité d’inscriptions d’applications, puis attribuer ce rôle à un utilisateur.

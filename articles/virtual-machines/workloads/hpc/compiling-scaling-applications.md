@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 8012702e9004361c8b19797bf0ca66553d307dce
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c6396eab9cb7a2224d660e0e034f8592a879510d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138190"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688457"
 ---
 # <a name="scaling-hpc-applications"></a>Mise à l’échelle d’applications HPC
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Pour bénéficier de performances de scale-out et de montée en puissance optimales pour les applications HPC sur Azure, vous devez régler les performances et effectuer différentes tentatives d’optimisation en fonction d’une charge de travail spécifique. Cette section et les pages spécifiques à la série de machines virtuelles offrent des conseils généraux pour la mise à l’échelle de vos applications.
 

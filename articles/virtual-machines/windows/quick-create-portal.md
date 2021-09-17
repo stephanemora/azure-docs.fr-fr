@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 03/15/2021
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c37017269eb8989102353b079f61c104f5061749
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 87d3518b59bd5297bed4af25b11d7a47b7021a58
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074923"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692459"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows dans le portail Azure
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows 
 
 Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Cette méthode fournit une interface utilisateur sur navigateur permettant de créer les machines virtuelles et les ressources associées. Ce guide de démarrage rapide explique comment utiliser le portail Azure pour déployer dans Azure une machine virtuelle qui fonctionne avec Windows Server 2019. Pour voir votre machine virtuelle en action, vous établirez une connexion RDP à la machine virtuelle et installerez le serveur web IIS.
 
@@ -30,7 +32,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 1. Tapez **machines virtuelles** dans la zone de recherche.
 1. Sous **Services**, sélectionnez **Machines virtuelles**.
-1. Sur la page **Machines virtuelles**, sélectionnez **Ajouter**, puis **Machine virtuelle**. 
+1. Sur la page **Machines virtuelles**, sélectionnez **Créer**, puis **Machine virtuelle**. 
 1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer** pour créer un groupe de ressources. Tapez *myResourceGroup* comme nom. 
 
     ![Capture d’écran de la section Détails du projet montrant où vous sélectionnez l’abonnement Azure et le groupe de ressources pour la machine virtuelle](./media/quick-create-portal/project-details.png)

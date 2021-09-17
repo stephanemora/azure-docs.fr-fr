@@ -7,18 +7,16 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: overview
-ms.openlocfilehash: c1c72ea44dc392e169f505c4820f99affdc82615
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 6ac96cb0420ecdba934b364c185bedf01f9f4321
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602515"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822645"
 ---
 #  <a name="create-azure-arc-data-controller-from-azure-portal---direct-connectivity-mode"></a>Créer le contrôleur de données Azure Arc à partir du portail Azure - Mode de connectivité directe
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 Cet article décrit comment déployer le contrôleur de données Azure Arc en mode de connexion directe pendant la préversion actuelle de cette fonctionnalité. 
 
@@ -26,21 +24,13 @@ Cet article décrit comment déployer le contrôleur de données Azure Arc en mo
 
 Avant de commencer, vérifiez que vous répondez aux prérequis dans [Déployer le contrôleur de données – Mode de connexion directe – Prérequis](create-data-controller-direct-prerequisites.md).
 
->[!NOTE]
->Vous devez d’abord déployer une extension Kubernetes Data Services avec Arc activé utilisant l’Azure CLI.
->
->```azurecli
->az k8s-extension create -c "{connected_cluster_name}" -g "{resource_group_name}" --name "arcdataservices" --cluster-type "connectedClusters" --extension-type "microsoft.arcdataservices" --scope "cluster" --release-namespace {namespace} --config "Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper"
->```
-
-
 ## <a name="deploy-azure-arc-data-controller"></a>Déployer un contrôleur de données Azure Arc
 
 Vous pouvez lancer le processus de création d’un contrôleur Azure Arc à partir du Portail Azure de l’une des manières suivantes :
 
 - Dans la barre de recherche du Portail Azure, recherchez « Contrôleurs de données Azure Arc », puis sélectionnez « + Créer ».
 - À partir de la page Vue d’ensemble de votre cluster Kubernetes compatible avec Azure Arc,
-  - sélectionnez « Extensions (préversion) » sous Paramètres.
+  - Sélectionnez « Extensions » sous Paramètres.
   - Sélectionnez « Ajouter » dans la page Vue d’ensemble des extensions, puis sélectionnez « Contrôleur de données Azure Arc »
   - Sélectionnez Créer à partir de la galerie du Marketplace de contrôleur de données Azure Arc
   

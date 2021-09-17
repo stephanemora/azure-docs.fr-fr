@@ -4,12 +4,12 @@ description: Résidence des données et informations sur les serveurs avec Azure
 ms.topic: reference
 ms.date: 08/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1b32cb56658020f4464522db621155ebe03c5583
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 05dbea8ce3d91e46bbb566f9d9989dec648c9853
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524532"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770967"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Serveurs avec Azure Arc : résidence des données
 
@@ -32,7 +32,7 @@ Les informations de métadonnées relatives à la machine connectée sont égale
 * Pulsation de l'agent Connected Machine
 * Version de l’agent Machine connectée
 * Clé publique pour l’identité managée
-* État de conformité de la stratégie et détails (si vous utilisez des stratégies de configuration invitées Azure Policy)
+* État de conformité de la stratégie et détails (si vous utilisez des stratégies de configuration invitées)
 
 Les serveurs avec Arc vous permettent de spécifier la région où vos données seront stockées. Microsoft peut répliquer vers d’autres régions à des fins de résilience des données, mais Microsoft ne réplique pas ou ne déplace pas les données en dehors de la zone géographique. Ces données sont stockées dans la région où la ressource de machine Azure Arc est configurée. Par exemple, si la machine est inscrite auprès d’Arc dans la région USA Est, ces données sont stockées dans la région USA.
 

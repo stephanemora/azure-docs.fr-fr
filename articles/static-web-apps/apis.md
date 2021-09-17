@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 8d9654ce534bea9a6f1a10ffc9605278b1c598e9
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: 168c187c4e573193b439e790fb94290aadec046a
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372518"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778871"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Prise en charge des API dans Azure Static Web Apps avec Azure Functions
 
@@ -37,10 +37,11 @@ Le tableau suivant compare les différences entre l’utilisation de fonctions g
 | Prise en charge des [plans d’hébergement](../azure-functions/functions-scale.md) Azure Functions | Consommation | Consommation<br>Premium<br>Dédié |
 | [Sécurité intégrée](user-information.md) avec accès direct aux données d’authentification des utilisateurs et d’autorisation basées sur les rôles | ✔ | ✔ |
 | [Intégration du routage](./configuration.md?#routes) qui met l’itinéraire _api_ à la disposition de l’application web en toute sécurité sans nécessiter de règles CORS personnalisées | ✔ | ✔ |
-| Modèle de programmation [Durable Functions](../azure-functions/durable/durable-functions-overview.md) | | ✔ |
-| [Identité gérée](../app-service/overview-managed-identity.md) | | ✔ |
-| Gestion des jetons [d’authentification et d’autorisation Azure App Service](../app-service/configure-authentication-provider-aad.md) | | ✔ |
-| Fonctions d’API disponibles en dehors d’Azure Static Web Apps |  | ✔ |
+| Modèle de programmation [Durable Functions](../azure-functions/durable/durable-functions-overview.md) | ✕ | ✔ |
+| [Identité gérée](../app-service/overview-managed-identity.md) | ✕ | ✔ |
+| Gestion des jetons [d’authentification et d’autorisation Azure App Service](../app-service/configure-authentication-provider-aad.md) | ✕ | ✔ |
+| Fonctions d’API disponibles en dehors d’Azure Static Web Apps | ✕ | ✔ |
+| Paramètres d’application stockés dans Azure Key Vault | ✕ | ✔ |
 
 ## <a name="configuration"></a>Configuration
 

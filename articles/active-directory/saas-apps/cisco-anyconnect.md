@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 36740e7b135309524b70a74e0f92ceb7e2ac1238
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 5e655177f37ecafea407899c4512d803ba2295ad
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461800"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252800"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-anyconnect"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco AnyConnect
 
@@ -37,7 +37,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Cisco AnyConnect prend en charge l’authentification unique initiée par le **fournisseur d’identité**
+* Cisco AnyConnect prend en charge l’authentification unique initiée par le **fournisseur d’identité**.
 
 ## <a name="adding-cisco-anyconnect-from-the-gallery"></a>Ajout de Cisco AnyConnect à partir de la galerie
 
@@ -76,10 +76,10 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Sur la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants (notez que ces valeurs respectent la casse) :
 
    1. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :  
-      `https://*.YourCiscoServer.com/saml/sp/metadata/TGTGroup`
+      `https://<SUBDOMAIN>.YourCiscoServer.com/saml/sp/metadata/<Tunnel_Group_Name>`
 
    1. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :  
-      `https://YOUR_CISCO_ANYCONNECT_FQDN/+CSCOE+/saml/sp/acs?tgname=TGTGroup`
+      `https://<YOUR_CISCO_ANYCONNECT_FQDN>/+CSCOE+/saml/sp/acs?tgname=<Tunnel_Group_Name>`
 
     > [!NOTE]
     > Pour plus d’informations sur ces valeurs, contactez le support de Cisco TAC. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels fournis par Cisco TAC. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Cisco AnyConnect](https://www.cisco.com/c/en/us/support/index.html). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -170,7 +170,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     ```
 
     > [!NOTE]
-    > La configuration du fournisseur d’identité SAML s’accompagne d’une fonctionnalité ; si vous apportez des modifications à la configuration du fournisseur d’identité, vous devez supprimer la configuration du fournisseur d’identité SAML de votre groupe de tunnels et la réappliquer pour que les modifications prennent effet.
+    > Il existe une solution de contournement avec la configuration IdP SAML. Si vous apportez des modifications à la configuration du fournisseur d’identité, vous devez supprimer la configuration du fournisseur d’identité SAML de votre groupe de tunnels et la réappliquer pour que les modifications prennent effet.
 
 ### <a name="create-cisco-anyconnect-test-user"></a>Créer un utilisateur de test Cisco AnyConnect
 

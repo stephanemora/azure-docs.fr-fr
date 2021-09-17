@@ -2,13 +2,14 @@
 title: Configurer un compte de laboratoire avec Azure Lab Services | Microsoft Docs
 description: Découvrez comment configurer un compte de laboratoire avec Azure Lab Services, comment ajouter un créateur de laboratoire et comment spécifier les images de la Place de marché utilisées par les laboratoires dans le compte de laboratoire.
 ms.topic: tutorial
-ms.date: 06/26/2020
-ms.openlocfilehash: fba4dbc5386407bd796606d86a5b7bdc7c10fd61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/26/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: d6107c1a70b22682636b63c0fb0f7374a0d96873
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445064"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634012"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutoriel : Configurer un compte lab avec Azure Lab Services
 Dans Azure Lab Services, un compte de laboratoire sert de compte central, dans lequel sont gérés tous les laboratoires de votre entreprise. Dans votre compte lab, accordez l’autorisation à d’autres personnes pour créer des laboratoires et définissez des stratégies qui s’appliquent à tous les laboratoires du compte de laboratoire. Dans ce tutoriel, découvrez comment créer un compte de laboratoire. 
@@ -50,17 +51,25 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
     ![Page Lab account (Compte de laboratoire)](./media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Ajouter un utilisateur au rôle Créateur de laboratoire
-Pour configurer un laboratoire de classe dans un compte de laboratoire, l’utilisateur doit être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Pour donner aux formateurs l’autorisation de créer des laboratoires pour leurs classes, ajoutez-les au rôle **Créateur de laboratoire** :
+Pour configurer un laboratoire de classe dans un compte de laboratoire, l’utilisateur doit être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Pour donner aux formateurs l’autorisation de créer des laboratoires pour leurs classes, attribuez-leur le rôle **Créateur de laboratoire**. Pour en savoir plus sur cette opération, consultez la page [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!NOTE]
 > Le compte utilisé pour créer le compte de laboratoire est automatiquement ajouté à ce rôle. Si vous envisagez d’utiliser le même compte d’utilisateur pour créer un laboratoire de classe dans ce tutoriel, ignorez cette étape. 
 
-1. Dans la page **Compte Lab**, sélectionnez **Contrôle d’accès (IAM)** , puis **+ Ajouter** et **+ Ajouter une attribution de rôle** dans la barre d’outils. 
 
-    ![Contrôle d’accès -> bouton Ajouter une attribution de rôle](./media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. Dans la page **Ajouter une attribution de rôle**, sélectionnez **Créateur lab** pour **Rôle**, sélectionnez l’utilisateur à ajouter au rôle Créateur lab, puis sélectionnez **Enregistrer**. 
+1. Sur la page **Compte Lab**, sélectionnez **Contrôle d’accès (IAM)**
 
-    ![Ajouter un créateur lab](./media/tutorial-setup-lab-account/add-lab-creator.png)
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle (préversion)** .
+
+    ![Page Contrôle d’accès (IAM) avec le menu Ajouter une attribution de rôle ouvert.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. Dans l’onglet **Rôle**, sélectionnez le rôle **Créateur de laboratoire**.
+
+    ![Page Ajouter une attribution de rôle avec l’onglet Rôle sélectionné.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. Sous l’onglet **Membres**, sélectionnez l’utilisateur auquel vous souhaitez ajouter le rôle Créateur de laboratoire
+
+1. Dans l’onglet **Passer en revue + affecter**, sélectionnez **Passer en revue + affecter** pour affecter le rôle.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

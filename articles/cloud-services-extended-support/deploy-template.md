@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 10ebb60caed4bb42bb8e8d8351b465d692eaaf0a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: de46eb9fca550d95caa8aa5d42449ab10d1bb9a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114445090"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741122"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Déployer un service cloud (support étendu) à l’aide de modèles ARM
 
@@ -109,7 +109,30 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
           ] 
     ```
  
-3. Créez un objet de profil réseau et associez l’adresse IP publique au serveur front-end de l’équilibreur de charge. Un équilibreur de charge est automatiquement créé par la plateforme.
+3. Créez un objet Service cloud (support étendu), en ajoutant les références `dependsOn` appropriées si vous déployez des réseaux virtuels ou une adresse IP publique dans votre modèle. 
+
+    ```json
+    {
+      "apiVersion": "2021-03-01",
+      "type": "Microsoft.Compute/cloudServices",
+      "name": "[variables('cloudServiceName')]",
+      "location": "[parameters('location')]",
+      "tags": {
+        "DeploymentLabel": "[parameters('deploymentLabel')]",
+        "DeployFromVisualStudio": "true"
+      },
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]",
+        "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPName'))]"
+      ],
+      "properties": {
+        "packageUrl": "[parameters('packageSasUri')]",
+        "configurationUrl": "[parameters('configurationSasUri')]",
+        "upgradeMode": "[parameters('upgradeMode')]"
+      }
+    }
+    ```
+4. Créez un objet Profil réseau pour votre service cloud et associez l’adresse IP publique au serveur front-end de l’équilibreur de charge. Un équilibreur de charge est automatiquement créé par la plateforme. 
 
     ```json
     "networkProfile": { 
@@ -135,7 +158,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
     ```
  
 
-4. Ajoutez votre référence de coffre de clés dans la section `OsProfile` du modèle ARM. Key Vault est utilisé pour stocker les certificats associés à Cloud Services (support étendu). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes numériques dans le fichier de configuration de service (.cscfg). Vous devez également activer les « Stratégies d’accès » Key Vault pour « Machines virtuelles Azure pour le déploiement » (dans le portail) afin que la ressource Cloud Services (support étendu) puisse récupérer les certificats stockés sous forme de secrets à partir de Key Vault. Le coffre de clés doit se trouver dans la même région et le même abonnement que le service cloud et avoir un nom unique. Pour plus d’informations, consultez l’[utilisation de certificats avec Cloud Services (support étendu)](certificates-and-key-vault.md).
+5. Ajoutez votre référence de coffre de clés dans la section `OsProfile` du modèle ARM. Key Vault est utilisé pour stocker les certificats associés à Cloud Services (support étendu). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes numériques dans le fichier de configuration de service (.cscfg). Vous devez également activer les « Stratégies d’accès » Key Vault pour « Machines virtuelles Azure pour le déploiement » (dans le portail) afin que la ressource Cloud Services (support étendu) puisse récupérer les certificats stockés sous forme de secrets à partir de Key Vault. Le coffre de clés doit se trouver dans la même région et le même abonnement que le service cloud et avoir un nom unique. Pour plus d’informations, consultez l’[utilisation de certificats avec Cloud Services (support étendu)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -159,7 +182,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
     > - certificateUrl est accessible en accédant au certificat dans le coffre de clés intitulé **Identificateur de secret**.  
    >  - certificateUrl doit se présenter sous la forme https://{keyvault-endpoint}/secrets/{secretname}/{secret-id}
 
-5. Créez un profil de rôle. Vérifiez que le nombre de rôles, le nom des rôles, le nombre d’instances dans chaque rôle et les tailles sont identiques dans la configuration de service (.cscfg), la définition de service (.csdef) et la section de profil de rôle du modèle ARM.
+6. Créez un profil de rôle. Vérifiez que le nombre de rôles, le nom des rôles, le nombre d’instances dans chaque rôle et les tailles sont identiques dans la configuration de service (.cscfg), la définition de service (.csdef) et la section de profil de rôle du modèle ARM.
     
     ```json
     "roleProfile": {
@@ -184,7 +207,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
     }   
     ```
 
-6. (Facultatif) Créez un profil d’extension pour ajouter des extensions à votre service cloud. Pour cet exemple, nous ajoutons l’extension de diagnostic Windows Azure et de bureau à distance.
+7. (Facultatif) Créez un profil d’extension pour ajouter des extensions à votre service cloud. Pour cet exemple, nous ajoutons l’extension de diagnostic Windows Azure et de bureau à distance.
    > [!Note] 
    > Le mot de passe pour le bureau à distance doit comprendre entre 8 et 123 caractères, et doit remplir au moins trois critères de complexité de mot de passe parmi les suivants : 1) Contenir un caractère majuscule 2) Contenir un caractère minuscule 3) Contenir un chiffre 4) Contenir un caractère spécial 5) Les caractères de contrôle ne sont pas autorisés
 
@@ -220,7 +243,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
         }
     ```
 
-7. Passez en revue l’ensemble du modèle.
+8. Passez en revue l’ensemble du modèle.
 
     ```json
     {
@@ -448,7 +471,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
     }
     ```
 
-8. Déployez le fichier de modèle et de paramètres (définition des paramètres dans le fichier de modèle) pour créer le déploiement de service cloud (prise en charge étendue). Veuillez vous reporter à ces [exemples de modèles](https://github.com/Azure-Samples/cloud-services-extended-support) si nécessaire.
+9. Déployez le fichier de modèle et de paramètres (définition des paramètres dans le fichier de modèle) pour créer le déploiement de service cloud (prise en charge étendue). Veuillez vous reporter à ces [exemples de modèles](https://github.com/Azure-Samples/cloud-services-extended-support) si nécessaire.
 
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"

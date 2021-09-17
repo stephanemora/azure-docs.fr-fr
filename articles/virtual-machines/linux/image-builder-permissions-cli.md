@@ -8,14 +8,16 @@ ms.date: 04/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: d71e4ae9325faf8dd180bda52f31c223ee654a88
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 05195eb10355184fd2b8f8a44472099d85295406
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113596386"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769083"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configurer des autorisations de service Azure Image Builder à l’aide d’Azure CLI
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Lorsque vous vous inscrivez à AIB, cela permet au service AIB de créer, de gérer et de supprimer un groupe de ressources intermédiaire (IT_ *), et d’y ajouter des ressources requise pour la génération d’image. Cette opération est effectuée par un nom de principal du service AIB rendu disponible dans votre abonnement lors d’une inscription réussie.
 
@@ -119,7 +121,7 @@ Pour simplifier le remplacement de valeurs dans l’exemple, définissez les var
 
 ```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 # Resource group - image builder will only support creating custom images in the same Resource Group as the source managed image.
 imageResourceGroup=<Resource group>
 identityName="aibIdentity"
@@ -139,7 +141,7 @@ sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g
 az role definition create --role-definition ./aibRoleImageCreation.json
 
 # Get the user-assigned managed identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 az role assignment create \
@@ -161,7 +163,7 @@ Pour simplifier le remplacement de valeurs dans l’exemple, définissez les var
 
 ```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 VnetResourceGroup=<Resource group>
 identityName="aibIdentity"
 
@@ -180,7 +182,7 @@ sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibR
 az role definition create --role-definition ./aibRoleNetworking.json
 
 # Get the user-assigned managed identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 az role assignment create \

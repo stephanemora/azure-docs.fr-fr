@@ -1,15 +1,14 @@
 ---
 title: Organiser vos ressources avec des groupes d’administration - Azure Governance
 description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
-ms.date: 04/28/2021
+ms.date: 08/17/2021
 ms.topic: overview
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: b3624500632d0f02d4b255aef6b836ee0491ff83
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 541ac526ba7105322cb00a7fd26f1c7075af0a60
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733617"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323000"
 ---
 # <a name="what-are-azure-management-groups"></a>Présentation des groupes d’administration Azure
 
@@ -190,6 +189,10 @@ Pour effectuer le déplacement, vous devez avoir :
 **Exception** : Si le groupe d'administration parent cible ou existant correspond au groupe d'administration racine, les exigences en matière d'autorisations ne s'appliquent pas. Le groupe d’administration racine correspondant à l'emplacement de destination de tous les nouveaux groupes d’administration et abonnements, vous ne devez pas disposer d'autorisations sur ce dernier pour déplacer un élément.
 
 Si le rôle Propriétaire de l'abonnement est hérité du groupe d’administration actuel, vos cibles de déplacement sont limitées. Vous pouvez uniquement déplacer l’abonnement vers un autre groupe d’administration pour lequel vous détenez le rôle Propriétaire. Vous ne pouvez pas le déplacer vers un groupe d’administration pour lequel vous détenez un rôle Contributeur si vous perdez la propriété de l’abonnement. Si vous vous voyez attribuer directement le rôle Propriétaire de l'abonnement (non hérité du groupe d’administration), vous pouvez le déplacer vers un groupe d’administration au sein duquel vous détenez un rôle Contributeur.
+
+> [!IMPORTANT]
+> Azure Resource Manager met en cache les détails de hiérarchie de groupe d’administration pendant 30 minutes maximum.
+> Par conséquent, il est possible que le déplacement d’un groupe d’administration ne soit pas visible immédiatement dans le portail Azure. 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditer les groupes d’administration à l’aide des journaux d’activité
 

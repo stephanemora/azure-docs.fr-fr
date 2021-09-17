@@ -3,28 +3,30 @@ title: Introduction
 description: Découvrez les fonctionnalités et les avantages d’Azure VMware Solution pour déployer et gérer des charges de travail VMware dans Azure. Le Contrat de niveau de service d’Azure VMware Solution garantit que les outils de gestion Azure VMware (vCenter Server et NSX Manager) seront disponibles au moins 99,9 % du temps.
 ms.topic: overview
 ms.date: 04/20/2021
-ms.openlocfilehash: 79739f230b057b030da7a90501e9fb3fb2630eba
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 10362ef88f572a40771fa6ab3e61b04220c79249
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433577"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122070718"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Présentation d’Azure VMware Solution
 
-Azure VMware Solution fournit des clouds privés qui contiennent des clusters vSphere, créés à partir d’une infrastructure Azure complète dédiée. Le déploiement initial doit comprendre au minimum trois hôtes. Toutefois, vous pouvez ajouter d’autres hôtes, un après l’autre, jusqu’à un maximum de 16 hôtes par cluster.  Tous les clouds privés provisionnés disposent de vCenter Server, vSAN, vSphere et NSX-T. Vous pouvez effectuer la migration de charges de travail à partir de vos environnements locaux, déployer de nouvelles machines virtuelles et consommer des services Azure à partir de vos clouds privés.  Les outils de gestion Azure VMware (vCenter Server et NSX Manager) seront disponibles au moins 99,9 % du temps. Pour plus d’informations, consultez [Contrat SLA Azure VMware Solution](https://aka.ms/avs/sla).
+Azure VMware Solution fournit des clouds privés qui contiennent des clusters vSphere, créés à partir d’une infrastructure Azure complète dédiée. Le déploiement initial doit comprendre au minimum trois hôtes. Toutefois, vous pouvez ajouter d’autres hôtes, un après l’autre, jusqu’à un maximum de 16 hôtes par cluster. Tous les clouds privés provisionnés disposent de vCenter Server, vSAN, vSphere et NSX-T. Ainsi, vous pouvez effectuer la migration de charges de travail à partir de vos environnements locaux, déployer de nouvelles machines virtuelles et consommer des services Azure à partir de vos clouds privés. Par ailleurs, les outils de gestion Azure VMware Solution (vCenter Server et NSX Manager) sont disponibles au moins 99,9 % du temps. Pour plus d’informations, consultez [Contrat SLA Azure VMware Solution](https://aka.ms/avs/sla).
 
-Azure VMware Solution est une solution validée par VMware, qui teste et valide constamment les améliorations et les mises à niveau. Microsoft gère les logiciels et l’infrastructure de cloud privé. Cela vous permet de vous concentrer sur le développement et l’exécution des charges de travail dans vos clouds privés. 
+Azure VMware Solution est une solution validée par VMware, qui teste et valide constamment les améliorations et les mises à niveau. Microsoft gère les logiciels et l’infrastructure de cloud privé. Cela vous permet de vous concentrer sur le développement et l’exécution des charges de travail dans vos clouds privés.
 
-Le diagramme illustre la contiguïté entre les clouds privés et les réseaux virtuels dans Azure, les services Azure et les environnements locaux. L’accès réseau des clouds privés vers les services Azure ou les réseaux virtuels fournit une intégration pilotée par SLA des points de terminaison de service Azure. ExpressRoute Global Reach connecte votre environnement local à votre cloud privé Azure VMware Solution. 
+Le diagramme illustre la contiguïté entre les clouds privés et les réseaux virtuels dans Azure, les services Azure et les environnements locaux. L’accès réseau des clouds privés vers les services Azure ou les réseaux virtuels fournit une intégration pilotée par SLA des points de terminaison de service Azure. ExpressRoute Global Reach connecte votre environnement local à votre cloud privé Azure VMware Solution.
+ 
 
 :::image type="content" source="media/adjacency-overview-drawing-final.png" alt-text="Diagramme de la contiguïté du cloud privé Azure VMware Solution avec Azure et les environnements locaux." border="false":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Hôtes, clusters et clouds privés
 
-Les clusters et clouds privés Azure VMware Solution reposent sur un hôte d’infrastructure Azure nu et hyper-convergé. Les hôtes haut de gamme ont une RAM de 576 Go et deux processeurs Intel 18 cœurs de 2,3 GHz. Ils bénéficient en outre de deux groupes de disques vSAN avec un niveau de capacité brut vSAN de 15,36 To (SSD) et un niveau de cache vSAN de 3,2 To (NVMe).
+Les clusters et clouds privés Azure VMware Solution reposent sur un hôte d’infrastructure Azure nu et hyper-convergé. Les hôtes haut de gamme ont une RAM de 576 Go et deux processeurs Intel 18 cœurs de 2,3 GHz. Par ailleurs, ils bénéficient en outre de deux groupes de disques vSAN avec un niveau de capacité brut vSAN de 15,36 To (SSD) et un niveau de cache vSAN de 3,2 To (NVMe).
 
-Les nouveaux clouds privés sont déployés par le biais du portail Azure ou d’Azure CLI.
+Vous pouvez déployer de nouveaux clouds privés par le biais du portail Azure ou d’Azure CLI.
+
 
 ## <a name="networking"></a>Mise en réseau
 

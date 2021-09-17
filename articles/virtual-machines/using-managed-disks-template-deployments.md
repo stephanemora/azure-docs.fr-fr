@@ -10,16 +10,19 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 38ac40f8d6d56bce4862f2e861a6568b3eefd15a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 68f8e78f2c08c86a176d3254de5e32fe2534cc1f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087505"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690845"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Utilisation de disques dans les modèles Azure Resource Manager
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+
 Ce document décrit les différences entre les disques managés et les disques non managés lorsque vous utilisez des modèles Azure Resource Manager pour configurer des machines virtuelles. Ces exemples vous permettent de mettre à jour les modèles existants qui utilisent des disques non managés en les remplaçant par des disques managés. Pour référence, nous utilisons le modèle [vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows) comme guide. Vous pouvez consulter le modèle utilisant des [disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json) et une version antérieure utilisant des [disques non managés](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) si vous voulez les comparer directement.
+
 
 ## <a name="unmanaged-disks-template-formatting"></a>Mise en forme de modèle de disques non managés
 

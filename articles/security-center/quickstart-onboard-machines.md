@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 3bda35f3973a5125a3e780448b651425bc054cce
-ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
+ms.openlocfilehash: fc844a3f0f13db3520f0a8302a98392301030d19
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113641446"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122228738"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Connecter vos machines non-Azure à Security Center
 
@@ -21,7 +21,7 @@ Le Centre de sécurité peut surveiller la posture de sécurité de vos ordinate
 
 Vous pouvez connecter vos ordinateurs autres qu’Azure de l’une des manières suivantes :
 
-- Utilisation d’Azure Arc enabled servers (**recommandée**)
+- Utilisation de serveurs avec Azure Arc (**recommandé**)
 - À partir des pages Security Center du portail Azure (**Prise en main** et **Inventaire**)
 
 Les deux méthodes sont décrites dans cette page.
@@ -30,11 +30,11 @@ Les deux méthodes sont décrites dans cette page.
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Ajouter des machines autres qu’Azure avec Azure Arc
 
-Le meilleur moyen d’ajouter vos ordinateurs non Azure à Azure Security Center est d’utiliser des [serveurs Azure Arc](../azure-arc/servers/overview.md).
+Le meilleur moyen d’ajouter vos ordinateurs non Azure à Azure Security Center est d’utiliser des [serveurs avec Azure Arc](../azure-arc/servers/overview.md).
 
-Un ordinateur avec des serveurs Azure Arc devient une ressource Azure et lorsque vous avez installé l’agent Log Analytics sur celui-ci, il apparaît dans Security Center avec des recommandations comme vos autres ressources Azure.
+Une machine avec des serveurs avec Azure Arc devient une ressource Azure. Quand vous avez installé l’agent Log Analytics sur celle-ci, elle apparaît dans Security Center avec des recommandations comme vos autres ressources Azure.
 
-De plus, Azure Arc enabled servers offre des fonctionnalités améliorées, notamment l’option permettant d’activer des stratégies Guest Configuration sur la machine, de simplifier le déploiement avec d’autres services Azure et plus encore. Pour une présentation des avantages, consultez [Scénarios pris en charge](../azure-arc/servers/overview.md#supported-scenarios).
+De plus, les serveurs avec Azure Arc offrent des fonctionnalités améliorées, comme l’option permettant d’activer des stratégies de configuration des invités sur la machine, de simplifier le déploiement avec d’autres services Azure et plus encore. Pour une présentation des avantages, consultez [Scénarios pris en charge](../azure-arc/servers/overview.md#supported-cloud-operations).
 
 > [!NOTE]
 > Les outils de déploiement automatique de Security Center pour le déploiement de l’agent Log Analytics ne prennent pas en charge les machines qui exécutent Azure Arc. Une fois que vous avez connecté vos machines à l’aide d’Azure Arc, utilisez la recommandation de Security Center appropriée pour déployer l’agent et tirer parti de l’ensemble des protections offertes par Security Center :
@@ -42,12 +42,12 @@ De plus, Azure Arc enabled servers offre des fonctionnalités améliorées, nota
 > - [L’agent Log Analytics doit être installé sur vos machines Azure Arc Linux](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)
 > - [L’agent Log Analytics doit être installé sur vos machines Azure Arc Windows](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
 
-Découvrez-en plus sur [Azure Arc enabled servers](../azure-arc/servers/overview.md).
+Découvrez-en plus sur les [serveurs avec Azure Arc](../azure-arc/servers/overview.md).
 
 **Pour déployer Azure Arc :**
 
 - Pour une machine, suivez les instructions fournies dans [Démarrage rapide : Connecter des machines hybrides à l’aide de serveurs avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-- Pour connecter plusieurs ordinateurs à grande échelle à Azure Arc enabled servers, consultez [Connecter des machines hybrides à Azure à grande échelle](../azure-arc/servers/onboard-service-principal.md)
+- Pour connecter à grande échelle plusieurs machines à des serveurs avec Azure Arc, consultez [Connecter des machines hybrides à Azure à grande échelle](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]
 > Si vous intégrez des machines exécutées sur Amazon Web Services (AWS), le connecteur de Security Center pour AWS gère de façon transparente le déploiement d’Azure Arc pour vous. Apprenez-en davantage dans [Connecter vos comptes AWS à Azure Security Center](quickstart-onboard-aws.md).

@@ -9,14 +9,16 @@ ms.collection: windows
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4aed2ce182e535ebb60eae0007353c9c7bddef78
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 689a871a656aa03eea50faee5bbc48a3786f87f4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555259"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692589"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-in-azure-with-powershell"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Windows dans Azure avec PowerShell
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Windows 
 
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande PowerShell ou dans des scripts. Ce guide de démarrage rapide vous montre comment utiliser le module Azure PowerShell pour créer une machine virtuelle Windows, créer un coffre de clés pour le stockage des clés de chiffrement, et chiffrer la machine virtuelle. 
 

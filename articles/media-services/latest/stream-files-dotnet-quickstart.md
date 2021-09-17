@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/23/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9b45671496f114eaf708aad92def220a3b81349e
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 079575148585c508224b6767b2eba61a16463fa0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690207"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732739"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - .NET
 
@@ -38,7 +38,7 @@ Dans cette rubrique, l’exemple encode du contenu que vous mettez à dispositio
 - Installez [Visual Studio Code pour Windows/macOS/Linux](https://code.visualstudio.com/) ou [Visual Studio 2019 pour Windows ou Mac](https://visualstudio.microsoft.com/).
 - Installer le [Kit de développement logiciel (SDK) .NET 5.0](https://dotnet.microsoft.com/download)
 - [Créer un compte Media Services](./account-create-how-to.md). Veillez à copier les détails de l’**accès à l’API** au format JSON ou à stocker les valeurs nécessaires pour se connecter au compte Media Services dans le format de fichier *.env* utilisé dans cet exemple.
-- Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](./access-api-howto.md) et enregistrez les informations d’identification. Vous devez les utiliser pour accéder à l’API dans cet exemple ou les entrer dans le format de fichier *.env*.
+- Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](./access-api-howto.md). Assurez-vous d’*enregistrer les informations d’identification*. Vous devez les utiliser pour accéder à l’API dans cet exemple ou les entrer dans le format de fichier *.env*.
 
 ## <a name="download-and-configure-the-sample"></a>Télécharger et configurer l’exemple
 
@@ -48,7 +48,7 @@ Clonez un référentiel GitHub qui contient l’exemple .NET de diffusion en con
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
-L’exemple se trouve dans le dossier [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
+L’exemple se trouve dans le dossier [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) sous AMSV3Quickstarts.
 
 [!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
@@ -68,8 +68,9 @@ Pour obtenir des explications sur chaque fonction dans l’exemple, examinez le 
 
 Lorsque vous exécutez l’application, les URL qui peuvent être utilisées pour lire la vidéo à l’aide de différents protocoles s’affichent. 
 
-1. Appuyez sur Ctrl + F5 pour exécuter l’application *EncodeAndStreamFiles*.
-2. Choisissez le protocole **HLS** d’Apple (se termine par *manifest(format=m3u8-aapl)* ), puis copiez l’URL de diffusion en continu à partir de la console.
+1. Ouvrez AMSV3Quickstarts dans VSCode.
+2. Appuyez sur Ctrl + F5 pour exécuter l’application *EncodeAndStreamFiles* avec .NET. Cela peut prendre quelques minutes.
+3. L’application génèrera trois URL. Vous allez utiliser ces URL pour tester le flux à l’étape suivante.
 
 ![Capture d’écran de la sortie de l’application EncodeAndStreamFiles dans Visual Studio montrant trois URL de streaming à utiliser dans le Lecteur multimédia Azure.](./media/stream-files-tutorial-with-api/output.png)
 
@@ -86,7 +87,7 @@ Pour tester la diffusion en continu, cet article utilise le lecteur multimédia 
 2. Dans le champ **URL :** , collez l’une des valeurs d’URL de diffusion en continu que vous avez obtenues lors de l’exécution de l’application. 
  
      Vous pouvez coller l’URL dans le format HLS, Dash ou Smooth : le lecteur multimédia Azure passe automatiquement à un protocole de streaming approprié pour la lecture sur votre appareil.
-3. Appuyez sur **Mise à jour du Lecteur Windows Media**.
+3. Appuyez sur **Mise à jour du Lecteur Windows Media**. Ce fichier vidéo doit commencer à être lu dans le référentiel.
 
 Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais ne doit pas être utilisé dans un environnement de production. 
 

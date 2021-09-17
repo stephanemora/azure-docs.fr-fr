@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 914858471432979e5516a1f075ed4fcbb8061a5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02ba974aa430bd75848c3fcf2b762453d99e27fe
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181847"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183604"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutoriel : Intégrer Oracle Cloud Infrastructure Console à Azure Active Directory
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Oracle Cloud Infrastructure Console prend en charge l’authentification unique initiée par le **fournisseur de services**.
+* Oracle Cloud Infrastructure Console prend en charge [l’attribution d’utilisateurs et la suppression des privilèges d’accès **automatisées**](oracle-cloud-infrastructure-console-provisioning-tutorial.md) (recommandé).
 
 ## <a name="adding-oracle-cloud-infrastructure-console-from-the-gallery"></a>Ajout d’Oracle Cloud Infrastructure Console à partir de la galerie
 

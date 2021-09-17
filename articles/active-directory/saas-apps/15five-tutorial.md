@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/27/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: b463460fe649034d4e0175e46154e41cd401689d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 9d39d65ca7ec64587bd619cecbeebdfdf58a42a8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555248"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Didacticiel : Intégration d’Azure Active Directory à 15Five
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * 15Five prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* 15Five prend en charge [l’attribution d’utilisateurs automatisée](15five-provisioning-tutorial.md).
 
 ## <a name="add-15five-from-the-gallery"></a>Ajouter 15Five à partir de la galerie
 

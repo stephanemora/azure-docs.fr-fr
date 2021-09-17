@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Créer une définition de stratégie personnalisée'
 description: Dans ce tutoriel, vous créez une définition de stratégie personnalisée pour Azure Policy afin d’appliquer des règles métier personnalisées sur vos ressources Azure.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
-ms.openlocfilehash: 51b1f71985bde3a405b56514078e905042340321
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: ee7939461c6d655447ebbd32079ec2e1345a89ad
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114362149"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323615"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutoriel : Créer une définition de stratégie personnalisée
 
@@ -44,7 +44,7 @@ Avant de créer la définition de stratégie, vous devez bien définir l’inten
 
 Vos exigences doivent identifier clairement les deux états de ressource « être » et « ne pas être ».
 
-Nous avons défini l’état attendu de la ressource, mais nous n’avons pas encore défini ce que nous voulons faire avec les ressources non conformes. Azure Policy prend en charge un certain nombre d’[effets](../concepts/effects.md). Dans ce tutoriel, nous définissons l’exigence métier de sorte à empêcher la création des ressources qui sont non conformes aux règles métier. Pour atteindre cet objectif, nous utilisons l’effet [Refuser](../concepts/effects.md#deny). Nous voulons aussi pouvoir suspendre la stratégie pour des attributions spécifiques. Par conséquent, nous utilisons l’effet [Désactivé](../concepts/effects.md#disabled) en le définissant comme [paramètre](../concepts/definition-structure.md#parameters) dans la définition de stratégie.
+Nous avons défini l’état attendu de la ressource, mais nous n’avons pas encore défini ce que nous voulons faire avec les ressources non conformes. Azure Policy prend en charge de nombreux [effets](../concepts/effects.md). Dans ce tutoriel, nous définissons l’exigence métier de sorte à empêcher la création des ressources qui sont non conformes aux règles métier. Pour atteindre cet objectif, nous utilisons l’effet [Refuser](../concepts/effects.md#deny). Nous voulons aussi pouvoir suspendre la stratégie pour des attributions spécifiques. Par conséquent, nous utilisons l’effet [Désactivé](../concepts/effects.md#disabled) en le définissant comme [paramètre](../concepts/definition-structure.md#parameters) dans la définition de stratégie.
 
 ## <a name="determine-resource-properties"></a>Déterminer les propriétés de ressource
 

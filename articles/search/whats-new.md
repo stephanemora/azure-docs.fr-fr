@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3c44db5c17d1179df03985515acc9133feca198e
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: b3c84a46e19e4cf24459424458340233869ea683
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114711061"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736300"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
@@ -111,7 +111,7 @@ Découvrir les nouveautés du service. Marquez cette page pour rester au fait de
 |Novembre | [Compétence Extraction de document (préversion)](cognitive-search-skill-document-extraction.md) | Compétence cognitive pour extraire le contenu d’un fichier à partir d’un ensemble de compétences.|
 |Novembre | [Compétence Traduction de texte](cognitive-search-skill-text-translation.md) | Compétence cognitive utilisée pendant l’indexation, qui évalue et traduit le texte. En disponibilité générale.|
 |Novembre | [Modèles Power BI](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Modèle pour la visualisation de contenu dans une base de connaissances |
-|Novembre | [Azure Data Lake Storage Gen2 (préversion)](search-howto-index-azure-data-lake-storage.md), [API Gremlin de Cosmos DB (préversion)](search-howto-index-cosmosdb.md) et [API Cassandra de Cosmos DB (préversion)](search-howto-index-cosmosdb.md) | Nouvelles sources de données d’indexeur en préversion publique. |
+|Novembre | [Azure Data Lake Storage Gen2 (préversion)](search-howto-index-azure-data-lake-storage.md) et [API Gremlin Cosmos DB (préversion)](search-howto-index-cosmosdb.md) | Nouvelles sources de données d’indexeur en préversion publique. |
 |Juillet | [Prise en charge du cloud Azure Government](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | En disponibilité générale.|
 
 <a name="new-service-name"></a>

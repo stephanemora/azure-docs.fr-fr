@@ -11,14 +11,16 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible, devx-track-azurecli
-ms.openlocfilehash: c3f9aaa15a697202aa76c563ed62bf37443d69ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9370fcbe4955c1163d8f533dac43039bff9f5989
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669390"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688261"
 ---
 # <a name="post-deployment-tasks"></a>Tâches de post-déploiement
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
 Une fois que vous avez déployé un cluster OpenShift, vous pouvez configurer d’autres éléments. Cet article couvre les points suivants :
 

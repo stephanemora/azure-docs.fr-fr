@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f37f0bb14cf29551e85c0e592c327b86048f18e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2545c04074d60d72b0c21877dae3393d6e34fa0f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721258"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691464"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Tailles des machines virtuelles de la série HB
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Différents tests de performances ont été effectués sur les machines de série HB de différentes tailles. Voici certains des résultats obtenus.
 

@@ -1,17 +1,17 @@
 ---
 title: 'Démarrage rapide : Créer une requête partagée avec des modèles'
 description: Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager (modèle ARM) pour créer une requête partagée Resource Graph qui compte les machines virtuelles par système d’exploitation.
-ms.date: 05/11/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 970c8633c0b7d5cb62520ad3778626d1423857b5
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 509de954d7d2b3c66148264e2e76524ac5f367ad
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750858"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322423"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Démarrage rapide : Créer une requête partagée à l’aide d’un modèle ARM
 
@@ -62,7 +62,7 @@ La ressource définie dans le modèle est :
 
 1. Sélectionnez **Achat**.
 
-Ressources supplémentaires :
+Autres ressources :
 
 - Pour trouver des exemples de modèles supplémentaires, consultez [Modèle de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Pour obtenir des informations de référence sur les modèles, accédez au [document de référence des modèles Azure](/azure/templates/microsoft.resourcegraph/allversions).

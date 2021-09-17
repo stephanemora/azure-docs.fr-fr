@@ -3,17 +3,18 @@ title: Créer une fabrique de données Azure en utilisant l’API REST
 description: Créez un pipeline Azure Data Factory pour copier les données d’un emplacement dans le stockage Blob Azure vers un autre emplacement.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 05/31/2021
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: afd00c9dbcc9be259ec9e64342ff11d988d45faa
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 1fb0686d975c2342bcd562e75f739d83ee0a51f6
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416413"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681533"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Démarrage rapide : Créer une fabrique de données Azure et un pipeline à l’aide de l’API REST
 
@@ -37,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 * **Compte Stockage Azure**. Vous utilisez le stockage Blob comme magasins de données **source** et **récepteur**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-account-create.md) pour découvrir comment en créer un.
 * Créez un **conteneur d’objets blob** dans le stockage Blob, créez un **dossier** d’entrée dans le conteneur et chargez des fichiers sur le dossier. Vous pouvez utiliser des outils tels que l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vous connecter au stockage Blob Azure, créer un conteneur d’objets blob, charger le fichier d’entrée et vérifier le fichier de sortie.
 * Installez **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-Az-ps). Ce guide de démarrage rapide utilise PowerShell pour appeler les API REST.
-* **Créez une application dans Azure Active Directory** en suivant [cette instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Notez les valeurs suivantes à utiliser au cours des prochaines étapes : **ID d’application**, **clientSecrets** et **ID de locataire**. Affectez l’application au rôle « **Contributeur**  ».
+* **Créez une application dans Azure Active Directory** en suivant [cette instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Notez les valeurs suivantes à utiliser au cours des prochaines étapes : **ID d’application**, **clientSecrets** et **ID de locataire**. Attribuez l’application au rôle « **Contributeur** » au niveau de l’abonnement ou du groupe de ressources.
 >[!NOTE]
 >   Concernant les clouds souverains, vous devez utiliser les points de terminaison spécifiques au cloud appropriés pour ActiveDirectoryAuthority et ResourceManagerUrl (BaseUri). Vous pouvez utiliser Powershell pour obtenir facilement les URL des points de terminaison de différents clouds en exécutant « Get-AzEnvironment | Format-List », qui renverra une liste de points de terminaison pour chaque environnement cloud.  
 >    
@@ -77,14 +78,17 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 Exécutez les commandes suivantes pour vous authentifier auprès d’AAD (Azure Active Directory) :
 
 ```powershell
-$AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]"https://login.microsoftonline.com/${tenantId}"
-$cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($appId, $clientSecrets)
-$result = $AuthContext.AcquireTokenAsync("https://management.core.windows.net/", $cred).GetAwaiter().GetResult()
-$authHeader = @{
-'Content-Type'='application/json'
-'Accept'='application/json'
-'Authorization'=$result.CreateAuthorizationHeader()
-}
+$credentials = Get-Credential -UserName $appId
+Connect-AzAccount -ServicePrincipal  -Credential $credentials -Tenant $tenantID
+```
+Vous serez invité à entrer le mot de passe, utilisez la valeur dans la variable clientSecrets.
+
+Si vous devez obtenir le jeton d’accès 
+
+```powershell
+
+GetToken
+
 ```
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
@@ -92,10 +96,8 @@ $authHeader = @{
 Exécutez les commandes suivantes pour créer une fabrique de données :
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}?api-version=${apiVersion}"
 $body = @"
 {
-    "name": "$factoryName",
     "location": "East US",
     "properties": {},
     "identity": {
@@ -103,8 +105,10 @@ $body = @"
     }
 }
 "@
-$response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Body $body
-$response | ConvertTo-Json
+
+$response =   Invoke-AzRestMethod -SubscriptionId ${subscriptionId}  -ResourceGroupName ${resourceGroupName} -ResourceProviderName  Microsoft.DataFactory -ResourceType "factories" -Name  ${factoryName} -ApiVersion ${apiVersion} -Method PUT -Payload ${body}
+$response.Content  
+
 ```
 
 Notez les points suivants :
@@ -116,9 +120,10 @@ Notez les points suivants :
     ```
 * Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 
-Voici l’exemple de réponse :
+Voici le contenu de l’échantillon de la réponse :
 
 ```json
+
 {  
     "name":"<dataFactoryName>",
     "identity":{  
@@ -149,7 +154,8 @@ Exécutez les commandes suivantes pour créer un service lié nommé **AzureStor
 Remplacez &lt;accountName&gt; et &lt;accountKey&gt; par le nom et la clé de votre compte de stockage Azure avant d’exécuter les commandes.
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/linkedservices/AzureStorageLinkedService?api-version=${apiVersion}"
+$path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/linkedservices/AzureStorageLinkedService?api-version=${apiVersion}"
+
 $body = @"
 {  
     "name":"AzureStorageLinkedService",
@@ -165,7 +171,7 @@ $body = @"
 }
 "@
 $response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Body $body
-$response | ConvertTo-Json
+$response.content
 ```
 
 Voici l'exemple de sortie :
@@ -194,7 +200,9 @@ Vous définissez un jeu de données qui représente les données à copier d’u
 **Créer InputDataset**
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/InputDataset?api-version=${apiVersion}"
+
+$path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/InputDataset?api-version=${apiVersion}"
+
 $body = @"
 {  
     "name":"InputDataset",
@@ -218,8 +226,10 @@ $body = @"
     }
 }
 "@
-$response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Body $body
-$response | ConvertTo-Json
+
+$response =  Invoke-AzRestMethod  -Path ${path}  -Method PUT -Payload $body
+$response  
+
 ```
 
 Voici l'exemple de sortie :
@@ -248,7 +258,8 @@ Voici l'exemple de sortie :
 **Créer OutputDataset**
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/OutputDataset?api-version=${apiVersion}"
+$path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/OutputDataset?api-version=${apiVersion}"
+
 $body = @"
 {  
     "name":"OutputDataset",
@@ -271,8 +282,9 @@ $body = @"
     }
 }
 "@
-$response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Body $body
-$response | ConvertTo-Json
+
+$response =  Invoke-AzRestMethod  -Path ${path}  -Method PUT -Payload $body
+$response.content
 ```
 
 Voici l'exemple de sortie :
@@ -298,12 +310,13 @@ Voici l'exemple de sortie :
     "etag":"07013257-0000-0100-0000-5d6e18920000"
 }
 ```
-## <a name="create-pipeline"></a>Création d’un pipeline
+## <a name="create-a-pipeline"></a>Créer un pipeline
 
 Dans cet exemple, ce pipeline contient une activité de copie. L’activité de copie fait référence aux jeux de données « InputDataset » et « OutputDataset » créés à l’étape précédente comme entrée et sortie.
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
+$path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
+
 $body = @"
 {
     "name": "Adfv2QuickStartPipeline",
@@ -355,8 +368,8 @@ $body = @"
     }
 }
 "@
-$response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Body $body
-$response | ConvertTo-Json
+$response =  Invoke-AzRestMethod  -Path ${path}  -Method PUT -Payload $body
+$response.content
 ```
 
 Voici l'exemple de sortie :
@@ -383,10 +396,10 @@ Voici l'exemple de sortie :
 À cette étape, vous déclenchez une exécution du pipeline. L’ID d’exécution du pipeline retourné dans le corps de la réponse est utilisé dans l’API de surveillance ultérieure.
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline/createRun?api-version=${apiVersion}"
-$response = Invoke-RestMethod -Method POST -Uri $request -Header $authHeader -Body $body
-$response | ConvertTo-Json
-$runId = $response.runId
+$path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline/createRun?api-version=${apiVersion}"
+
+$response =  Invoke-AzRestMethod  -Path ${path}  -Method POST 
+$response.content 
 ```
 
 Voici l'exemple de sortie :
@@ -397,93 +410,522 @@ Voici l'exemple de sortie :
 }
 ```
 
+Vous pouvez aussi obtenir le runid à l’aide de la commande suivante 
+```powershell
+
+($response.content | ConvertFrom-Json).runId
+
+```
+
+## <a name="parameterize-your-pipeline"></a>Paramétriser votre pipeline 
+
+Vous pouvez créer un pipeline avec des paramètres. Dans l’exemple suivant, nous allons créer un jeu de données d’entrée et un jeu de données de sortie qui peuvent prendre des noms de fichiers d’entrée et de sortie en tant que paramètres donnés au pipeline. 
+
+
+## <a name="create-parameterized-input-dataset"></a>Créer un jeu de données d’entrées paramétrisées 
+
+Définissez un paramètre appelé strInputFileName et utilisez-le comme nom de fichier du jeu de données. 
+
+```powershell
+
+$path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/ParamInputDataset?api-version=${apiVersion}"
+
+$body = @"
+{
+    "name": "ParamInputDataset",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "strInputFileName": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": {
+                    "value": "@dataset().strInputFileName",
+                    "type": "Expression"
+                },
+                "folderPath": "input",
+                "container": "adftutorial"
+            }
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
+"@
+
+$response =  Invoke-AzRestMethod  -Path ${path}  -Method PUT -Payload $body
+$response.content
+
+```
+
+Voici l'exemple de sortie : 
+
+```json
+{
+    "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/datasets/ParamInputDataset",
+    "name": "ParamInputDataset",
+    "type": "Microsoft.DataFactory/factories/datasets",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "strInputFileName": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": {
+                    "value": "@dataset().strInputFileName",
+                    "type": "Expression"
+                },
+                "folderPath": "input",
+                "container": "adftutorial"
+            }
+        }
+    },
+    "etag": "00000000-0000-0000-0000-000000000000"
+}
+
+```
+
+
+## <a name="create-parameterized-output-dataset"></a>Créer un jeu de données de sorties paramétrisées 
+
+
+Définissez un paramètre appelé strOutputFileName et utilisez-le comme nom de fichier du jeu de données. 
+
+```powershell
+
+
+$path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/ParamOutputDataset?api-version=${apiVersion}"
+$body = @"
+{
+    "name": "ParamOutputDataset",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "strOutPutFileName": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": {
+                    "value": "@dataset().strOutPutFileName",
+                    "type": "Expression"
+                },
+                "folderPath": "output",
+                "container": "adftutorial"
+            }
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
+
+"@
+
+$response =  Invoke-AzRestMethod  -Path ${path}  -Method PUT -Payload $body
+$response.content
+
+```
+
+Voici l'exemple de sortie : 
+
+```json
+{
+    "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/datasets/ParamOutputDataset",
+    "name": "ParamOutputDataset",
+    "type": "Microsoft.DataFactory/factories/datasets",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "strOutPutFileName": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": {
+                    "value": "@dataset().strOutPutFileName",
+                    "type": "Expression"
+                },
+                "folderPath": "output",
+                "container": "adftutorial"
+            }
+        }
+    },
+    "etag": "00000000-0000-0000-0000-000000000000"
+}
+```
+
+## <a name="create-parameterized-pipeline"></a>Créer un pipeline paramétrisé 
+
+Définissez un pipeline avec deux paramètres de niveau de pipeline : strParamInputFileName et strParamOutputFileName. Liez ensuite ces deux paramètres aux paramètres strInputFileName et strOutputFileName des jeux de données. 
+
+```powershell
+
+$path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartParamPipeline?api-version=${apiVersion}"
+
+$body = @"
+{
+    "name": "Adfv2QuickStartParamPipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyFromBlobToBlob",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "BinarySource",
+                        "storeSettings": {
+                            "type": "AzureBlobStorageReadSettings",
+                            "recursive": true
+                        }
+                    },
+                    "sink": {
+                        "type": "BinarySink",
+                        "storeSettings": {
+                            "type": "AzureBlobStorageWriteSettings"
+                        }
+                    },
+                    "enableStaging": false
+                },
+                "inputs": [
+                    {
+                        "referenceName": "ParamInputDataset",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "strInputFileName": {
+                                "value": "@pipeline().parameters.strParamInputFileName",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "ParamOutputDataset",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "strOutPutFileName": {
+                                "value": "@pipeline().parameters.strParamOutputFileName",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],   
+
+        "parameters": {
+            "strParamInputFileName": {
+              "type": "String"
+            },
+            "strParamOutputFileName": {
+              "type": "String"
+            }
+          }
+    }
+}
+"@
+
+$response =  Invoke-AzRestMethod  -Path ${path}  -Method PUT -Payload $body
+$response.content
+
+
+```
+
+Voici l'exemple de sortie : 
+
+```json
+
+{
+    "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelines/Adfv2QuickStartParamPipeline",
+    "name": "Adfv2QuickStartParamPipeline",
+    "type": "Microsoft.DataFactory/factories/pipelines",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyFromBlobToBlob",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "BinarySource",
+                        "storeSettings": {
+                            "type": "AzureBlobStorageReadSettings",
+                            "recursive": true
+                        }
+                    },
+                    "sink": {
+                        "type": "BinarySink",
+                        "storeSettings": {
+                            "type": "AzureBlobStorageWriteSettings"
+                        }
+                    },
+                    "enableStaging": false
+                },
+                "inputs": [
+                    {
+                        "referenceName": "ParamInputDataset",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "strInputFileName": {
+                                "value": "@pipeline().parameters.strParamInputFileName",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "ParamOutputDataset",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "strOutPutFileName": {
+                                "value": "@pipeline().parameters.strParamOutputFileName",
+                                "type": "Expression"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "parameters": {
+            "strParamInputFileName": {
+                "type": "String"
+            },
+            "strParamOutputFileName": {
+                "type": "String"
+            }
+        }
+    },
+    "etag": "5e01918d-0000-0100-0000-60d569a90000"
+}
+
+```
+
+## <a name="create-pipeline-run-with-parameters"></a>Créer une exécution de pipeline avec des paramètres 
+
+Vous pouvez maintenant spécifier les valeurs du paramètre au moment de la création de l’exécution de pipeline. 
+
+```powershell
+
+$path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartParamPipeline/createRun?api-version=${apiVersion}"
+
+$body = @"
+{  
+        "strParamInputFileName": "emp2.txt",
+        "strParamOutputFileName": "aloha.txt"
+}
+"@
+
+$response =  Invoke-AzRestMethod  -Path ${path}  -Method POST -Payload $body
+$response.content
+$runId  = ($response.content | ConvertFrom-Json).runId
+
+```
+Voici l'exemple de sortie : 
+
+```json
+{"runId":"ffc9c2a8-d86a-46d5-9208-28b3551007d8"}
+```
+
+
 ## <a name="monitor-pipeline"></a>Surveillance d’un pipeline
 
 1. Exécutez le script suivant afin de vérifier en permanence l’état de l’exécution du pipeline jusqu’à la fin de la copie des données.
 
     ```powershell
-    $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelineruns/${runId}?api-version=${apiVersion}"
-    while ($True) {
-        $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
-        Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
-
-        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
-            Start-Sleep -Seconds 15
+        $path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelineruns/${runId}?api-version=${apiVersion}"
+        
+        
+        while ($True) {
+        
+            $response =  Invoke-AzRestMethod  -Path ${path}  -Method GET 
+            $response = $response.content | ConvertFrom-Json
+        
+            Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
+        
+            if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") -or ($response.Status -eq "In Progress") ) {
+                Start-Sleep -Seconds 10
+            }
+            else {
+                $response | ConvertTo-Json
+                break
+            }
         }
-        else {
-            $response | ConvertTo-Json
-            break
-        }
-    }
     ```
 
     Voici l'exemple de sortie :
 
     ```json
-    {  
-        "runId":"04a2bb9a-71ea-4c31-b46e-75276b61bafc",
-        "debugRunId":null,
-        "runGroupId":"04a2bb9a-71ea-4c31-b46e-75276b61bafc",
-        "pipelineName":"Adfv2QuickStartPipeline",
-        "parameters":{  
-
-        },
-        "invokedBy":{  
-            "id":"2bb3938176ee43439752475aa12b2251",
-            "name":"Manual",
-            "invokedByType":"Manual"
-        },
-        "runStart":"2019-09-03T07:22:47.0075159Z",
-        "runEnd":"2019-09-03T07:22:57.8862692Z",
-        "durationInMs":10878,
-        "status":"Succeeded",
-        "message":"",
-        "lastUpdated":"2019-09-03T07:22:57.8862692Z",
-        "annotations":[  
-
-        ],
-        "runDimension":{  
-
-        },
-        "isLatest":true
-    }
+        {
+          "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelineruns/ffc9c2a8-d86a-46d5-9208-28b3551007d8",
+          "runId": "ffc9c2a8-d86a-46d5-9208-28b3551007d8",
+          "debugRunId": null,
+          "runGroupId": "ffc9c2a8-d86a-46d5-9208-28b3551007d8",
+          "pipelineName": "Adfv2QuickStartParamPipeline",
+          "parameters": {
+            "strParamInputFileName": "emp2.txt",
+            "strParamOutputFileName": "aloha.txt"
+          },
+          "invokedBy": {
+            "id": "9c0275ed99994c18932317a325276544",
+            "name": "Manual",
+            "invokedByType": "Manual"
+          },
+          "runStart": "2021-06-25T05:34:06.8424413Z",
+          "runEnd": "2021-06-25T05:34:13.2936585Z",
+          "durationInMs": 6451,
+          "status": "Succeeded",
+          "message": "",
+          "lastUpdated": "2021-06-25T05:34:13.2936585Z",
+          "annotations": [],
+          "runDimension": {},
+          "isLatest": true
+        }
     ```
 
 2. Exécutez le script suivant pour récupérer les détails de l’exécution de l’activité de copie, par exemple la taille des données lues/écrites.
 
     ```powershell
-    $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelineruns/${runId}/queryActivityruns?api-version=${apiVersion}&startTime="+(Get-Date).ToString('yyyy-MM-dd')+"&endTime="+(Get-Date).AddDays(1).ToString('yyyy-MM-dd')+"&pipelineName=Adfv2QuickStartPipeline"
-    $response = Invoke-RestMethod -Method POST -Uri $request -Header $authHeader
-    $response | ConvertTo-Json
+         $path = "/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelineruns/${runId}/queryActivityruns?api-version=${apiVersion}"
+        
+        
+        while ($True) {
+        
+            $response =  Invoke-AzRestMethod  -Path ${path}  -Method POST 
+            $responseContent = $response.content | ConvertFrom-Json
+            $responseContentValue = $responseContent.value
+        
+            Write-Host  "Activity run status: " $responseContentValue.Status -foregroundcolor "Yellow"
+        
+            if ( ($responseContentValue.Status -eq "InProgress") -or ($responseContentValue.Status -eq "Queued") -or ($responseContentValue.Status -eq "In Progress") ) {
+                Start-Sleep -Seconds 10
+            }
+            else {
+                $responseContentValue | ConvertTo-Json
+                break
+            }
+        }
     ```
     Voici l'exemple de sortie :
 
     ```json
-    {  
-        "value":[  
-            {  
-                "activityRunEnd":"2019-09-03T07:22:56.6498704Z",
-                "activityName":"CopyFromBlobToBlob",
-                "activityRunStart":"2019-09-03T07:22:49.0719311Z",
-                "activityType":"Copy",
-                "durationInMs":7577,
-                "retryAttempt":null,
-                "error":"@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}",
-                "activityRunId":"32951886-814a-4d6b-b82b-505936e227cc",
-                "iterationHash":"",
-                "input":"@{source=; sink=; enableStaging=False}",
-                "linkedServiceName":"",
-                "output":"@{dataRead=20; dataWritten=20; filesRead=1; filesWritten=1; sourcePeakConnections=1; sinkPeakConnections=1; copyDuration=4; throughput=0.01; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (Central US); usedDataIntegrationUnits=4; usedParallelCopies=1; executionDetails=System.Object[]}",
-                "userProperties":"",
-                "pipelineName":"Adfv2QuickStartPipeline",
-                "pipelineRunId":"04a2bb9a-71ea-4c31-b46e-75276b61bafc",
-                "status":"Succeeded",
-                "recoveryStatus":"None",
-                "integrationRuntimeNames":"defaultintegrationruntime",
-                "executionDetails":"@{integrationRuntime=System.Object[]}"
+        {
+          "activityRunEnd": "2021-06-25T05:34:11.9536764Z",
+          "activityName": "CopyFromBlobToBlob",
+          "activityRunStart": "2021-06-25T05:34:07.5161151Z",
+          "activityType": "Copy",
+          "durationInMs": 4437,
+          "retryAttempt": null,
+          "error": {
+            "errorCode": "",
+            "message": "",
+            "failureType": "",
+            "target": "CopyFromBlobToBlob",
+            "details": ""
+          },
+          "activityRunId": "40bab243-9bbf-4538-9336-b797a2f98e2b",
+          "iterationHash": "",
+          "input": {
+            "source": {
+              "type": "BinarySource",
+              "storeSettings": "@{type=AzureBlobStorageReadSettings; recursive=True}"
+            },
+            "sink": {
+              "type": "BinarySink",
+              "storeSettings": "@{type=AzureBlobStorageWriteSettings}"
+            },
+            "enableStaging": false
+          },
+          "linkedServiceName": "",
+          "output": {
+            "dataRead": 134,
+            "dataWritten": 134,
+            "filesRead": 1,
+            "filesWritten": 1,
+            "sourcePeakConnections": 1,
+            "sinkPeakConnections": 1,
+            "copyDuration": 3,
+            "throughput": 0.044,
+            "errors": [],
+            "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
+            "usedDataIntegrationUnits": 4,
+            "billingReference": {
+              "activityType": "DataMovement",
+              "billableDuration": ""
+            },
+            "usedParallelCopies": 1,
+            "executionDetails": [
+              "@{source=; sink=; status=Succeeded; start=06/25/2021 05:34:07; duration=3; usedDataIntegrationUnits=4; usedParallelCopies=1; profile=; detailedDurations=}"
+            ],
+            "dataConsistencyVerification": {
+              "VerificationResult": "NotVerified"
+            },
+            "durationInQueue": {
+              "integrationRuntimeQueue": 0
             }
-        ]
-    }
+          },
+          "userProperties": {},
+          "pipelineName": "Adfv2QuickStartParamPipeline",
+          "pipelineRunId": "ffc9c2a8-d86a-46d5-9208-28b3551007d8",
+          "status": "Succeeded",
+          "recoveryStatus": "None",
+          "integrationRuntimeNames": [
+            "defaultintegrationruntime"
+          ],
+          "executionDetails": {
+            "integrationRuntime": [
+              "@{name=DefaultIntegrationRuntime; type=Managed; location=East US; nodes=}"
+            ]
+          },
+          "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelineruns/ffc9c2a8-d86a-46d5-9208-28b3551007d8/activityruns/40bab243-9bbf-4538-9336-b797a2f98e2b"
+        }
     ```
 ## <a name="verify-the-output"></a>Vérifier la sortie
 

@@ -5,26 +5,27 @@ services: notification-hubs
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 09/30/2019
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 2c77eba69fd914e8ecc7d08a1b16f61ceefe101b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ee33accf751184636d7a345c5bba527a2525a72
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92320568"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768177"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Tutoriel : Envoyer des notifications vers des appareils spécifiques exécutant des applications de plateforme Windows universelle
+
+> [!NOTE]
+> Le Service de notifications Push Microsoft (MPNS, Microsoft Push Notification Service) est déconseillé et n’est plus pris en charge.
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -239,6 +240,8 @@ L’application est maintenant terminée. Elle peut stocker un ensemble de caté
     ![Bascules de catégories et bouton S’abonner](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast.png)
 
 ## <a name="create-a-console-app-to-send-tagged-notifications"></a>Créer une application console pour envoyer des notifications étiquetées
+
+
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 

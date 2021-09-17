@@ -7,14 +7,16 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: c53d875e35e77d782ac2897bbe2a1a356f8ac5a2
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 55799d15ef0ebe8af0f4a79b583143394540f48b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359584"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697965"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3-series 
+
+**S'applique à :** :heavy_check_mark : VM Linux :heavy_check_mark : Windows VMs :heavy_check_mark : Barèmes flexibles :heavy_check_mark : Jeux d'échelles uniformes
 
 Les machines virtuelles de la série NCasT4_v3 sont alimentées par [processeurs graphiques NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) et des processeurs AMD EPYC 7V12(Rome). Les machines virtuelles comportent jusqu’à 4 processeurs graphiques NVIDIA T4 avec 16 Go de mémoire chacun, jusqu’à 64 cœurs de processeur AMD EPYC 7V12 (Rome) non multithread (fréquence de base de 2,45 GHz, fréquence maximale de toutes les cœurs de 3,1 GHz et fréquence maximale de 3,3 GHz) et 440 Gio de mémoire système. Ces machines virtuelles sont parfaites pour le déploiement de services d’intelligence artificielle, tels que l’inférence en temps réel des demandes générées par l’utilisateur, ou pour les charges de travail graphiques et de visualisation interactives à l’aide du pilote de grille NVIDIA et de la technologie GPU virtuelle. Les charges de travail de calcul standard GPU basées sur CUDA, TensorRT, Caffe, ONNX et d’autres infrastructures, ou sur des applications graphiques à accélération GPU basées sur OpenGL et DirectX peuvent être déployées de manière économique, avec une proximité étroite pour les utilisateurs, sur la série NCasT4_v3.
 

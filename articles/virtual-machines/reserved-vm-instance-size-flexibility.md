@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/06/2021
 ms.author: yashar
-ms.openlocfilehash: a6ddcef1493f15442a723bcc93850e6197db84d8
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 5576ee62f1945266dfb4bc2d9e41124a88ab17f5
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285596"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694228"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Quand vous achetez une instance de machine virtuelle réservée, vous pouvez choisir d’optimiser la flexibilité de la taille ou la priorité de capacité de l’instance. Pour plus d’informations sur la définition ou la modification du paramètre d’optimisation pour des instances de machine virtuelle réservées, consultez [Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
