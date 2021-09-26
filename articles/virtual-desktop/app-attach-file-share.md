@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 80de8767d96cacc5fdec95f26efec88c55e2ceb3
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b568b11b7e0e630dcceef53e4c0f513dc0a7732c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745688"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547554"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Configurer un partage de fichiers pour l’attachement d’application MSIX
 
@@ -44,12 +44,12 @@ Voici d’autres recommandations pour optimiser les performances de l’attachem
 - La solution de stockage que vous utilisez pour l’attachement d’application MSIX doit se trouver dans le même emplacement de centre de données que les hôtes de session.
 - Pour éviter les goulots d’étranglement des performances, excluez les fichiers VHD, VHDX et CIM suivants des analyses antivirus :
    
-    - <MSIXAppAttachFileShare\>\*.VHD
-    - <MSIXAppAttachFileShare\>\*.VHDX
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.VHD
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.VHDX
-    - <MSIXAppAttachFileShare>.CIM
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.CIM
+    - `<MSIXAppAttachFileShare\>\*.VHD`
+    - `<MSIXAppAttachFileShare\>\*.VHDX`
+    - `\\storageaccount.file.core.windows.net\share*.VHD`
+    - `\\storageaccount.file.core.windows.net\share*.VHDX`
+    - `<MSIXAppAttachFileShare>.CIM`
+    - `\\storageaccount.file.core.windows.net\share**.CIM`
 
 - Séparez l’infrastructure de stockage pour l’attachement d’application MSIX des conteneurs de profils FSLogix.
 - Tous les comptes système de machines virtuelles et les comptes d’utilisateur doivent disposer d’autorisations en lecture seule pour accéder au partage de fichiers.
@@ -107,4 +107,4 @@ Une fois que vous avez terminé, vous trouverez peut-être utiles certaines des 
 - Posez vos questions concernant cette fonctionnalité à la [communauté technique d’Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 - Vous pouvez également formuler vos commentaires concernant Azure Virtual Desktop sur le [Hub de commentaires Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 - [Glossaire Attachement d’application MSIX](app-attach-glossary.md)
-- [FAS sur l’attachement d’application MSIX](app-attach-faq.md)
+- [FAS sur l’attachement d’application MSIX](app-attach-faq.yml)

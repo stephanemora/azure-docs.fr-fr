@@ -78,12 +78,6 @@
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Provisionnement d’applications local
       items:
-        - name: Prérequis de l’Hôte de connecteur ECMA
-          href: on-premises-ecma-prerequisites.md
-        - name: Installation de l’Hôte de connecteur ECMA
-          href: on-premises-ecma-install.md
-        - name: Configuration de l’Hôte de connecteur ECMA
-          href: on-premises-ecma-configure.md
         - name: "Configuration du connecteur\_SQL générique"
           href: on-premises-sql-connector-configure.md
         - name: Provisionnement d’applications local sur des applications compatibles SCIM

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 10/09/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 6525d809805da3a19a0efe423306f18d8e67a646
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2532b02247a85d180d7b1cccd504838b83a8f93f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026599"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591840"
 ---
 # <a name="troubleshoot-csp-billing-issues-with-usage-file-pivot-tables"></a>Résoudre les problèmes de facturation CSP à l’aide de tableaux croisés dynamiques créés à partir de fichiers d’utilisation
 
@@ -40,9 +40,9 @@ Seuls les administrateurs de facturation et les administrateurs généraux peuve
 1. Sélectionnez le premier champ de la table : **PartnerID**.
 1. Appuyez sur Ctrl+Maj+Flèche bas, puis sur Ctrl+Maj+Flèche droite pour sélectionner toutes les informations de la table.
 1. Dans le menu supérieur, sélectionnez **Insérer** > **Table**. Dans la zone Créer une table, sélectionnez **Ma table comporte des en-têtes**, puis sélectionnez **OK**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Exemple montrant des données non mises en forme dans Excel" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Exemple montrant la boîte de dialogue Créer une table" :::
 1. Dans le menu supérieur, sélectionnez **Insérer** > **Tableau croisé dynamique**, puis sélectionnez **OK**. Cette action crée une nouvelle feuille dans le fichier et affiche la zone Champs de tableau croisé dynamique située sur le côté droit de la feuille.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" alt-text="Exemple montrant la zone Champs de tableau croisé dynamique" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" :::
 
 La zone Champs de tableau croisé dynamique est une zone de glisser-déposer. Passez à la section suivante pour créer le tableau croisé dynamique.
 
@@ -51,13 +51,13 @@ La zone Champs de tableau croisé dynamique est une zone de glisser-déposer. Pa
 Dans cette section, vous allez créer un tableau croisé dynamique dans lequel vous pourrez résoudre les problèmes d’utilisation générale d’Azure. Cet exemple de table peut vous aider à identifier le service qui consomme le plus de ressources. Vous pouvez voir quelles sont les ressources les plus coûteuses et voir la façon dont un service est facturé.
 
 1. Dans la zone Champs de tableau croisé dynamique, faites glisser **Nom du service** et **Ressource** vers la zone **Lignes**. Placez **Ressource** sous **Nom du service**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" alt-text="Exemple montrant Nom du service et Ressource sous Lignes" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/rows-section.png" :::
 1. Ensuite, placez **Total après impôts** dans la zone **Valeurs**. Vous pouvez également utiliser la colonne Quantité consommée pour obtenir des informations sur les unités de consommation et les transactions. Par exemple, le nombre de gigaoctets et le nombre d’heures, ou les transactions au lieu des coûts dans différentes devises comme USD, EUR et INR.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" alt-text="Exemple montrant des colonnes ajoutées aux champs de tableau croisé dynamique" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" :::
 1. Vous disposez maintenant d’un tableau de bord pour l’investigation de la consommation générale. Vous pouvez choisir d’afficher les données d’un seul service à l’aide des options de filtrage du tableau croisé dynamique.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" alt-text="Exemple montrant l’option de filtrage par étiquette de ligne dans le tableau croisé dynamique" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" :::
     Pour filtrer à un deuxième niveau dans un tableau croisé dynamique, par exemple au niveau d’une ressource, sélectionnez un élément de deuxième niveau dans la table.
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" alt-text="Exemple montrant les options de filtrage pour Sélectionner un champ" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-select-field.png" :::
 1. Pour appliquer des filtres supplémentaires, vous pouvez ajouter **SubscriptionID** et **Nom de l’entreprise du client** dans la zone **Filtres**, puis sélectionner l’étendue souhaitée.
 
 ## <a name="create-a-pivot-table-to-view-azure-usage-by-date"></a>Créer un tableau croisé dynamique pour afficher l’utilisation d’Azure par date
@@ -66,12 +66,12 @@ Dans cette section, vous allez créer un tableau croisé dynamique dans lequel v
 
 Votre fichier de rapprochement comporte deux tables. L’une se trouve en haut du document (la table principale) et l’autre se trouve en bas. Cette deuxième table présente plus ou moins les mêmes informations, mais elle ne contient pas les détails concernant les tarifs ou les coûts. Elle contient les dates d’utilisation et la quantité consommée.
 
-:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" :::
+:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" alt-text="Exemple montrant des fichiers de rapprochement avec deux tables de données" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/reconciliation-file-two-tables.png" :::
 
 1. Utilisez les étapes de la section [Récupérer les données et les mettre en forme](#get-the-data-and-format-it) pour créer un tableau Excel avec les informations situées au bas du fichier de rapprochement.
 1. Lorsque la table est prête et que vous disposez d’une feuille de tableau croisé dynamique, utilisez les étapes de la section Créer un tableau croisé dynamique afin d’afficher les coûts Azure pour chaque ressource pour préparer le tableau de bord. Au lieu d’utiliser le Total après impôts, placez **Quantité consommée** dans la zone **Valeurs**.
 1. Ajoutez **Date d’utilisation** à la section Colonnes. Le tableau croisé dynamique doit ressembler à l’exemple qui suit.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" alt-text="Exemple montrant la version finale du tableau croisé dynamique" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/final-pivot-table-fields.png" :::
 1. Vous disposez maintenant d’un tableau de bord qui affiche l’utilisation par date. Vous pouvez développer chaque mois en sélectionnant le symbole **+** .
 
 Le tableau de bord affiche la quantité consommée dans différentes unités telles que les gigaoctets, les heures ou les transferts.
@@ -86,7 +86,7 @@ Une même ressource peut entraîner différents frais pour différents services.
 
 Les fichiers de rapprochement ne contiennent pas de détails concernant les ressources. Par conséquent, vous devez utiliser le fichier d’utilisation agrégé. Contactez le [support Facturation Azure](https://go.microsoft.com/fwlink/?linkid=2083458) pour obtenir le fichier d’utilisation agrégé de votre abonnement. Les fichiers agrégés sont générés au niveau de l’abonnement. Les données non mises en forme ressemblent à l’exemple suivant.
 
-:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" :::
+:::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" alt-text="Exemple d’un fichier d’utilisation agrégé non mis en forme" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/raw-aggregated-usage-file.png" :::
 
 Le fichier contient les colonnes suivantes.
 
@@ -98,11 +98,11 @@ Le fichier contient les colonnes suivantes.
 1. Sélectionnez le premier champ de la table : **PartnerID**.  
 1. Appuyez sur Ctrl+Maj+Flèche bas, puis sur Ctrl+Maj+Flèche droite pour sélectionner toutes les informations de la table.
 1. Dans le menu supérieur, sélectionnez **Insérer** > **Table**. Dans la zone Créer une table, sélectionnez **Ma table comporte des en-têtes**, puis sélectionnez **OK**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Exemple montrant des données non mises en forme dans Excel" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/create-table-dialog.png" alt-text="Exemple montrant la boîte de dialogue Créer une table" :::
 1. Dans le menu supérieur, sélectionnez **Insérer** > **Tableau croisé dynamique**, puis sélectionnez **OK**. Cette action crée une nouvelle feuille dans le fichier et affiche la zone Champs de tableau croisé dynamique située sur le côté droit de la feuille.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" alt-text="Exemple montrant la zone Champs de tableau croisé dynamique pour le fichier de rapprochement" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields-reconciliation.png" :::
 1. Ensuite, ajoutez **MeteredResourceID** à la zone **Lignes**, et **Quantité** à la zone **Valeurs**. Les résultats affichent les informations d’utilisation générale. Pour plus d’informations, placez **UsageEndDateTime** dans la zone **Colonnes**.  
-    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" alt-text="Exemple montrant des données non mises en forme dans Excel" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" :::
+    :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" alt-text="Exemple d’informations sur l’utilisation générale" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/overall-usage.png" :::
 1. Pour afficher un rapport global, ajoutez des **Propriétés** à **Lignes** sous **MeteredResourceID**. Vous verrez ainsi un tableau de bord complet sur votre utilisation.
 1. Pour afficher uniquement les données concernant une ressource, ajoutez des **Propriétés** à la zone **Filtres** et sélectionnez l’utilisation souhaitée. Vous pouvez utiliser la recherche pour rechercher un nom de ressource.
     Pour afficher le coût de la ressource, recherchez la quantité consommée totale et multipliez cette valeur par le tarif. Le tarif est propre à chaque GUID de ressource (MeteredResourceID). Si une ressource utilise plusieurs MeteredResourceID, vous devez noter la valeur totale de chaque ID.

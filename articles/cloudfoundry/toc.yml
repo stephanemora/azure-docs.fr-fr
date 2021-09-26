@@ -1,10 +1,5 @@
 - name: Documentation Cloud Foundry
   href: index.yml
-- name: Démarrages rapides
-  expanded: true
-  items:
-    - name: Modèle Marketplace
-      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
 - name: Tutoriels
   items:
     - name: Créer une application CF sur Azure

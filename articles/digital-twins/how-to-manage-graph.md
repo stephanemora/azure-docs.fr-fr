@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Consultez la procédure de gestion d’un graphique de jumeaux numériques via la connexion de ceux-ci à des relations.
 author: baanders
 ms.author: baanders
-ms.date: 11/03/2020
+ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e43617a2874a7a6817dc8126bca8e1af79436eb2
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 5c02ad72ace0568f7be1062993adaf154bb31cbf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689965"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624308"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 

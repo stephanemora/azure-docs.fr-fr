@@ -6,12 +6,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/22/2020
-ms.openlocfilehash: 1813fb222bca74f355fec52252ce3d77fef06e5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d5787268cd5f7d25b54f8c7bc63f59c20a8495b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98013921"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606985"
 ---
 # <a name="create-custom-net-deserializers-for-azure-stream-analytics-in-visual-studio-code"></a>Créer des désérialiseurs .NET personnalisés pour Azure Stream Analytics dans Visual Studio Code
 
@@ -114,7 +114,7 @@ Vous pouvez déboguer votre désérialiseur .NET localement de la même façon 
    Sélectionnez **ProtobufCloudDeserializer**, puis **Azure Stream Analytics** dans la liste déroulante.
    :::image type="content" source="./media/custom-deserializer/create-launch-file-vscode-2.png" alt-text="Créer un fichier de démarrage 2.":::
 
-   Modifiez le fichier **launch.json** en remplaçant <ASAScript>.asaql par ProtobufCloudDeserializer.asaql.
+   Modifiez le fichier **launch.json** en remplaçant \<ASAScript\>.asaql par ProtobufCloudDeserializer.asaql.
    :::image type="content" source="./media/custom-deserializer/configure-launch-file-vscode.png" alt-text="Configurer le fichier de démarrage.":::
 
 3. Appuyez sur **F5** pour démarrer le débogage. Le programme s’arrête sur vos points d’arrêt comme prévu. Cela fonctionne pour les données d’entrée locale et les données d’entrée dynamiques.

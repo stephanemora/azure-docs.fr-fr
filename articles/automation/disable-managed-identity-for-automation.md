@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7c0d2d1f64d0d931c670b87438a032c646c45f9d
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 178da223b5d5f14cc27034c39bd4cc3a05f82631
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114673917"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606586"
 ---
 # <a name="disable-system-assigned-managed-identity-for-azure-automation-account-preview"></a>Désactiver une identité managée affectée par le système pour un compte Azure Automation (préversion)
 
@@ -78,7 +78,7 @@ Procédez comme suit.
     $sub = Get-AzSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Connect-AzAccount -Subscription
+        Connect-AzAccount
     }
     
     # If you have multiple subscriptions, set the one to use

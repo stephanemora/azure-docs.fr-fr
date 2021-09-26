@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/22/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e17f6933695755a86c5d1e2fbcb7a14c183d0c4
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 99363e4f9f67e6ceca0d163131a2f2ff64b09857
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602843"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546970"
 ---
 # <a name="mitigate-credential-attacks-in-azure-ad-b2c"></a>Atténuer les attaques d’informations d’identification dans Azure AD B2C
 
@@ -36,7 +36,8 @@ Les 10 premiers verrouillages durent une minute. Les 10 verrouillages suivants d
 Pour gérer les paramètres de protection par mot de passe, y compris le seuil de verrouillage :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com)
-1. Utilisez le filtre **Annuaire + abonnement** dans le menu du haut pour sélectionner l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Sécurité**, sélectionnez **Méthodes d’authentification (préversion)**, puis **Protection par mot de passe**.
 1. Sous **Verrouillage intelligent personnalisé**, entrez les paramètres de protection de mot de passe de votre choix :

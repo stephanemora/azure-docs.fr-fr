@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9accd34601ed900ff7600485b1b3007054c4202a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2aeedab7e8ec7204137ec12fdcc049c0ad01881f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562322"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606282"
 ---
 # <a name="configure-immutability-policies-for-containers"></a>Configurer des stratégies d’immuabilité pour les conteneurs
 
-Le stockage immuable pour le Stockage Blob Azure permet aux utilisateurs de stocker des données critiques pour l’entreprise dans un état WORM (écriture unique, lectures multiples). Dans l’état WORM, les données ne peuvent pas être modifiées ou supprimées pendant un intervalle spécifié par l’utilisateur. En configurant des stratégies d’immuabilité pour les données blob, vous pouvez protéger vos données contre les remplacements et les suppressions. Les stratégies d’immuabilité comprennent des stratégies de rétention temporelles et la conservation légale. Pour plus d’informations sur les stratégies de stockage immuable, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](immutable-storage-overview.md).
+Le stockage immuable pour le Stockage Blob Azure permet aux utilisateurs de stocker des données critiques pour l’entreprise dans un état WORM (écriture unique, lectures multiples). Dans l’état WORM, les données ne peuvent pas être modifiées ou supprimées pendant un intervalle spécifié par l’utilisateur. En configurant des stratégies d’immuabilité pour les données blob, vous pouvez protéger vos données contre les remplacements et les suppressions. Les stratégies d’immuabilité comprennent des stratégies de rétention limitées dans le temps et la conservation légale. Pour plus d’informations sur les stratégies de stockage immuable, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](immutable-storage-overview.md).
 
 Une stratégie d’immuabilité peut être étendue à une version d’objet blob individuelle (préversion) ou à un conteneur. Cet article explique comment configurer une stratégie d’immuabilité au niveau du conteneur. Pour savoir comment configurer des stratégies d’immuabilité au niveau de la version, consultez [Configurer des stratégies d’immuabilité pour les versions d’objets blob (préversion)](immutable-policy-configure-version-scope.md).
 
@@ -112,7 +112,7 @@ Pour supprimer une stratégie déverrouillée, appelez la commande [Remove-AzRmS
 ```azurepowershell
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
     -AccountName <storage-account> `
-    -ContainerName <container> 
+    -ContainerName <container>
     -Etag $policy.Etag
 ```
 
@@ -125,7 +125,7 @@ $etag=$(az storage container immutability-policy show /
         --account-name <storage-account> /
         --container-name <container> /
         --query etag /
-        --output tsv) 
+        --output tsv)
 
 az storage container immutability-policy \
     --resource-group <resource-group>
@@ -133,7 +133,7 @@ az storage container immutability-policy \
     --container-name <container> \
     --period 21 \
     --if-match $etag \
-    --allow-protected-append-writes true 
+    --allow-protected-append-writes true
 ```
 
 Pour supprimer une stratégie déverrouillée, appelez la commande [az storage container immutability-policy delete](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_delete).
@@ -142,7 +142,7 @@ Pour supprimer une stratégie déverrouillée, appelez la commande [az storage c
 
 ## <a name="lock-a-time-based-retention-policy"></a>Verrouiller une stratégie de rétention temporelle
 
-Une fois que vous avez fini de tester une stratégie de rétention temporelle, vous pouvez verrouiller la stratégie. Les stratégies verrouillées sont conformes à la norme SEC 17A-4 (f) et à toute les autres conformités réglementaires. Vous pouvez augmenter jusqu’à cinq fois l’intervalle de rétention pour une stratégie verrouillée, mais vous ne pouvez pas le raccourcir.
+Une fois que vous avez fini de tester une stratégie de rétention limitée dans le temps, vous pouvez verrouiller la stratégie. Les stratégies verrouillées sont conformes à la norme SEC 17A-4 (f) et à toute les autres conformités réglementaires. Vous pouvez augmenter l’intervalle de rétention pour une stratégie verrouillée jusqu’à cinq fois, mais vous ne pouvez pas raccourcir cet intervalle.
 
 Une fois qu’une stratégie est verrouillée, vous ne pouvez pas la supprimer. Toutefois, vous pouvez supprimer l’objet blob après l’expiration de l’intervalle de rétention.
 
@@ -180,7 +180,7 @@ $etag=$(az storage container immutability-policy show /
         --account-name <storage-account> /
         --container-name <container> /
         --query etag /
-        --output tsv) 
+        --output tsv)
 
 az storage container immutability-policy lock /
     --resource-group <resource-group> /
@@ -193,7 +193,7 @@ az storage container immutability-policy lock /
 
 ## <a name="configure-or-clear-a-legal-hold"></a>Configurer ou effacer une conservation légale
 
-La conservation légale stocke des données immuables jusqu’à ce que la conservation légale soit explicitement désactivée. Pour en savoir plus sur les stratégies de conservation légale, consultez [Conservation légale pour les données d’objets blob immuables](immutable-legal-hold-overview.md).
+La conservation légale stocke des données immuables jusqu’à ce qu’elle soit explicitement désactivée. Pour en savoir plus sur les stratégies de conservation légale, consultez [Conservation légale pour les données d’objets blob immuables](immutable-legal-hold-overview.md).
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -226,7 +226,7 @@ Pour supprimer une conservation légale, appelez la commande [Remove-AzRmStorage
 ```azurepowershell
 Remove-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
-    -Name <container> ` 
+    -Name <container> `
     -Tag <tag1>,<tag2>,...
 ```
 
@@ -257,6 +257,6 @@ az storage container legal-hold clear /
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](immutable-storage-overview.md)
-- [Stratégies de rétention temporelle pour les données d’objets blob immuables](immutable-time-based-retention-policy-overview.md)
+- [Stratégies de rétention limitées dans le temps pour les données d’objets blob immuables](immutable-time-based-retention-policy-overview.md)
 - [Conservation légale des données d’objets blob immuables](immutable-legal-hold-overview.md)
 - [Configurer des stratégies d’immuabilité pour les versions d’objets BLOB (version préliminaire)](immutable-policy-configure-version-scope.md)

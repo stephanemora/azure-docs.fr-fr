@@ -1,15 +1,16 @@
 ---
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 79f3d2cf2e9b966d8486560efc7ec67b09c7ed4b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 850333ff1d0a2668dcd0553f2d03562fb2c046a8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397679"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624409"
 ---
 Azure Data Factory prend en charge les activités de transformation suivantes, qui peuvent être ajoutées à des pipelines, soit individuellement soit de façon chaînée avec une autre activité.
 
@@ -20,7 +21,7 @@ Azure Data Factory prend en charge les activités de transformation suivantes, q
 | [MapReduce](../data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Diffusion en continu Hadoop](../data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Spark](../data-factory-spark.md) | HDInsight [Hadoop] |
-| [Activités de ML Studio (classique) : exécution par lot et mise à jour de ressource](../data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [Activités ML Studio (classique) : Batch Execution et Update Resource](../data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [Procédure stockée](../data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics ou SQL Server |
 | [Langage U-SQL du service Analytique Data Lake](../data-factory-usql-activity.md) |Service Analytique Azure Data Lake |
 | [DotNet](../data-factory-use-custom-activities.md) |HDInsight [Hadoop] ou Azure Batch |

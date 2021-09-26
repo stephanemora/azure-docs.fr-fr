@@ -2,7 +2,6 @@
 title: Cartes d’identité – Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Découvrez les concepts liés à l’extraction de données à partir de documents d’identité à l’aide de l’API Pre-built IDs de Form Recognizer.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: bfa6cb13533a92c65369b8016971e0c1e37cdb61
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 81ee4dda78fd4444f5e297abacbd2e08f07eaaa8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534986"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546531"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modèle de document d’identification (ID) prédéfini de Form Recognizer
 
@@ -67,7 +66,7 @@ Le service des identités extrait les valeurs clés des passeports internationau
 |  MachineReadableZone | object | MRZ du passeport extraite, y compris 2 lignes de 44 caractères chacun | « P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816 » |
 |  DocumentType ; | string | Type de document, par exemple, passeport ou permis de conduire | « passeport » |
 |  Adresse | string | Adresse extraite (permis de conduire uniquement) | « 123 STREET ADDRESS YOUR CITY WA 99999-1234 »|
-|  Région | string | Région, État, province et autres informations extraites (permis de conduire uniquement) | « Washington » |
+|  Region | string | Région, État, province et autres informations extraites (permis de conduire uniquement) | « Washington » |
 
 ### <a name="additional-features"></a>Fonctionnalités supplémentaires
 

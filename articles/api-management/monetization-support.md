@@ -1,17 +1,17 @@
 ---
 title: Prise en charge de la Gestion des API Azure pour la monétisation
 description: Découvrez comment la Gestion des API Azure prend en charge les stratégies de monétisation pour vos produits API.
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.date: 08/23/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 88323145b9b6bb66babe77b19d6b834afc2831ab
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: ad6e4358ebd312c498504da6650045d9019fadbe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825288"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548710"
 ---
 # <a name="how-api-management-supports-monetization"></a>Prise en charge de la monétisation par la Gestion des API
 
@@ -132,7 +132,7 @@ Les exemples de projets utilisent l’API pour réaliser par programmation ce qu
 - Récupérer les produits et les stratégies de la Gestion des API pour activer la configuration synchronisée de concepts similaires dans les fournisseurs de paiement, tels que Stripe.
 - Interroger régulièrement la gestion des API pour récupérer les métriques d’utilisation des API pour chaque abonnement et piloter le processus de facturation.
 
-Pour plus d’informations, consultez la vue d’ensemble [ REST API de la Gestion des API Azure ](https://docs.microsoft.com/rest/api/apimanagement/#rest-operation-groups).
+Pour plus d’informations, consultez la vue d’ensemble [ REST API de la Gestion des API Azure ](/rest/api/apimanagement/#rest-operation-groups).
 
 ## <a name="devops"></a>DevOps
 

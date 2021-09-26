@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: justinha
-ms.openlocfilehash: f2f421d95dfc376aed373c718198db33a870d9dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78a9db37a83c9e53ee336c0b1760b111a78dbcbf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619604"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547008"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Joindre une machine virtuelle SUSE Linux Enterprise à un domaine managé par Azure Active Directory Domain Services
 
@@ -34,6 +34,7 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
     * Si nécessaire, le premier tutoriel [crée et configure un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Un compte d’utilisateur membre du domaine managé.
+* Des noms de machine virtuelle Linux uniques d’un maximum de 15 caractères pour éviter les noms tronqués susceptibles de générer des conflits dans Active Directory.
 
 ## <a name="create-and-connect-to-a-sle-linux-vm"></a>Créer une machine virtuelle Linux SLE et s’y connecter
 

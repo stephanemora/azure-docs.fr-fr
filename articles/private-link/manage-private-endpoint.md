@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d9e402b2015370eca5782ec91dd6afb8f7c6d962
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: f4d5de43786952b3581067c69e2b8840d3aa7296
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701267"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553333"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Gérer une connexion de point de terminaison privé
 Azure Private Link fonctionne sur un modèle de flux d’appel d’approbation, dans lequel l’utilisateur du service Private Link peut demander une connexion au fournisseur de services pour utiliser le service. Le fournisseur de services peut alors décider s’il faut autoriser l’utilisateur à se connecter. Azure Private Link permet aux fournisseurs de services de gérer la connexion des points de terminaison privés dans leurs ressources. Cet article fournit des instructions sur la gestion des connexions de points de terminaison privés.
@@ -36,7 +36,8 @@ Le tableau ci-dessous présente les différentes actions que peut effectuer le f
 |   |         |         |
    
 ## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Gérer les connexions de point de terminaison privé dans les ressources PaaS Azure
-Il est recommandé d’utiliser le portail pour gérer les connexions de point de terminaison privé dans les ressources Azure PaaS. Ni PowerShell ni Azure CLI ne sont pris en charge pour la gestion des connexions dans les ressources Azure PaaS.
+Il est recommandé d’utiliser le portail pour gérer les connexions de point de terminaison privé dans les ressources Azure PaaS. 
+
 1. Connectez-vous au portail Azure sur https://portal.azure.com.
 2. Accédez au centre Private Link.
 3. Sous **Ressources**, sélectionnez le type de ressource pour lequel vous souhaitez gérer les connexions de point de terminaison privé.
@@ -46,7 +47,7 @@ Il est recommandé d’utiliser le portail pour gérer les connexions de point d
 
 ## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>Gérer les connexions de point de terminaison privé dans un service Private Link détenu par un client ou un partenaire
 
-Azure PowerShell et Azure CLI sont recommandés pour la gestion des connexions de point de terminaison privé dans les services des partenaires Microsoft ou ceux appartenant aux clients. Le portail n’est pas pris en charge pour la gestion des connexions dans un service Private Link.  
+Azure PowerShell et Azure CLI sont recommandés pour la gestion des connexions de point de terminaison privé dans les services des partenaires Microsoft ou ceux appartenant aux clients. 
  
 ### <a name="powershell"></a>PowerShell 
   

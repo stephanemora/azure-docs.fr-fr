@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a99d41f5f9fc9538aaf563bd3ae56075d269c94a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae5f9409811e182bcc64dd9a6ea3ec12d46cfefd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97584644"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128574008"
 ---
 # <a name="pass-an-identity-provider-access-token-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès de fournisseur d’identité à votre application dans Azure Active Directory B2C
 
@@ -51,23 +51,24 @@ Le diagramme suivant montre comment un jeton de fournisseur d’identité est re
 ## <a name="enable-the-claim"></a>Activer la revendication
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
-2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
-4. Sélectionnez **Flux utilisateur (stratégies)** , puis votre flux utilisateur. Par exemple, **B2C_1_signupsignin1**.
-5. Cliquez sur **Revendications de l’application**.
-6. Activez la revendication **Jeton d’accès du fournisseur d’identité**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
+1. Sélectionnez **Flux utilisateur (stratégies)** , puis votre flux utilisateur. Par exemple, **B2C_1_signupsignin1**.
+1. Cliquez sur **Revendications de l’application**.
+1. Activez la revendication **Jeton d’accès du fournisseur d’identité**.
 
     ![Activer la revendication Jeton d’accès du fournisseur d’identité](./media/idp-pass-through-user-flow/identity-provider-pass-through-app-claim.png)
 
-7. Cliquez sur **Enregistrer** pour enregistrer le flux utilisateur.
+1. Cliquez sur **Enregistrer** pour enregistrer le flux utilisateur.
 
 ## <a name="test-the-user-flow"></a>Tester le flux utilisateur
 
 Quand vous testez vos applications dans Azure AD B2C, il peut être utile de retourner le jeton Azure AD B2C à `https://jwt.ms` pour passer en revue les revendications qu’il contient.
 
 1. Dans la page Vue d’ensemble du flux utilisateur, sélectionnez **Exécuter le flux d’utilisateur**.
-2. Pour **Application**, sélectionnez l’application que vous avez précédemment inscrite. Pour voir le jeton dans l’exemple ci-dessous, l’**URL de réponse** doit indiquer `https://jwt.ms`.
-3. Cliquez sur **Exécuter le flux d’utilisateur**, puis connectez-vous avec les informations d’identification de votre compte. Vous devez voir le jeton d’accès du fournisseur d’identité dans la revendication **idp_access_token**.
+1. Pour **Application**, sélectionnez l’application que vous avez précédemment inscrite. Pour voir le jeton dans l’exemple ci-dessous, l’**URL de réponse** doit indiquer `https://jwt.ms`.
+1. Cliquez sur **Exécuter le flux d’utilisateur**, puis connectez-vous avec les informations d’identification de votre compte. Vous devez voir le jeton d’accès du fournisseur d’identité dans la revendication **idp_access_token**.
 
     Vous devriez voir quelque chose de similaire à l’exemple suivant :
 
@@ -94,7 +95,7 @@ Quand vous testez vos applications dans Azure AD B2C, il peut être utile de re
     </BuildingBlocks>
     ```
 
-2. Ajoutez l’élément **OutputClaim** à l’élément **TechnicalProfile** pour chaque fournisseur d’identité OAuth 2.0 dont vous souhaitez avoir le jeton d’accès. L’exemple suivant montre l’élément ajouté au profil technique de Facebook :
+1. Ajoutez l’élément **OutputClaim** à l’élément **TechnicalProfile** pour chaque fournisseur d’identité OAuth 2.0 dont vous souhaitez avoir le jeton d’accès. L’exemple suivant montre l’élément ajouté au profil technique de Facebook :
 
     ```xml
     <ClaimsProvider>
@@ -110,8 +111,8 @@ Quand vous testez vos applications dans Azure AD B2C, il peut être utile de re
     </ClaimsProvider>
     ```
 
-3. Enregistrez le fichier *TrustframeworkExtensions.xml*.
-4. Ouvrez le fichier de stratégie de votre partie de confiance, par exemple *SignUpOrSignIn.xml*, puis ajoutez l’élément **OutputClaim** à **TechnicalProfile** :
+1. Enregistrez le fichier *TrustframeworkExtensions.xml*.
+1. Ouvrez le fichier de stratégie de votre partie de confiance, par exemple *SignUpOrSignIn.xml*, puis ajoutez l’élément **OutputClaim** à **TechnicalProfile** :
 
     ```xml
     <RelyingParty>
@@ -125,7 +126,7 @@ Quand vous testez vos applications dans Azure AD B2C, il peut être utile de re
     </RelyingParty>
     ```
 
-5. Enregistrez le fichier de stratégie.
+1. Enregistrez le fichier de stratégie.
 
 ## <a name="test-your-policy"></a>Tester votre stratégie
 
@@ -134,19 +135,20 @@ Quand vous testez vos applications dans Azure AD B2C, il peut être utile de re
 ### <a name="upload-the-files"></a>Téléchargement des fichiers
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le filtre **Répertoire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Sélectionnez **Infrastructure d’expérience d’identité**.
-5. Dans la page Stratégies personnalisées, cliquez sur **Charger une stratégie**.
-6. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustframeworkExtensions.xml*.
-7. Sélectionnez **Télécharger**.
-8. Répétez les étapes 5 à 7 pour le fichier de la partie de confiance (par exemple, *SignUpOrSignIn.xml*).
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Infrastructure d’expérience d’identité**.
+1. Dans la page Stratégies personnalisées, cliquez sur **Charger une stratégie**.
+1. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustframeworkExtensions.xml*.
+1. Sélectionnez **Télécharger**.
+1. Répétez les étapes 5 à 7 pour le fichier de la partie de confiance (par exemple, *SignUpOrSignIn.xml*).
 
 ### <a name="run-the-policy"></a>Exécuter la stratégie
 
 1. Ouvrez la stratégie que vous avez changée. Par exemple, *B2C_1A_signup_signin*.
-2. Pour **Application**, sélectionnez l’application que vous avez précédemment inscrite. Pour voir le jeton dans l’exemple ci-dessous, l’**URL de réponse** doit indiquer `https://jwt.ms`.
-3. Sélectionnez **Exécuter maintenant**.
+1. Pour **Application**, sélectionnez l’application que vous avez précédemment inscrite. Pour voir le jeton dans l’exemple ci-dessous, l’**URL de réponse** doit indiquer `https://jwt.ms`.
+1. Sélectionnez **Exécuter maintenant**.
 
     Vous devriez voir quelque chose de similaire à l’exemple suivant :
 

@@ -3,17 +3,17 @@ title: Stratégies dans Gestion des API Azure | Microsoft Docs
 description: Découvrez les stratégies disponibles dans Gestion des API Azure. Les stratégies permettent à l’éditeur de modifier le comportement de l’API via la configuration.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 07/19/2021
-ms.author: apimpm
-ms.openlocfilehash: c6856226c1eda0e8d5fde7df6d2b251007a47fa2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.author: danlep
+ms.openlocfilehash: c593d9d9f2d957564eed5be98f3f92f29ce79a27
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468515"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551096"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
 Cette section est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).

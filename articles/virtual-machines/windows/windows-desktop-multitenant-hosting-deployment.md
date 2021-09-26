@@ -9,19 +9,19 @@ ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 08193cc933bfd7c1d183df119b1602270ecf6f74
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 96cd1c079a4d3705dbddaffcaf23c44191e38543
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688504"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622414"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Guide pratique pour déployer Windows 10 sur Azure avec des droits d’hébergement multilocataire 
 **S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles
 
 Pour les clients avec Windows 10 Entreprise E3/E5 par utilisateur ou Windows Virtual Desktop Access par utilisateur (licences d’abonnement utilisateur ou licences d’abonnement utilisateur de composant additionnel), les droits d’hébergement multilocataire pour Windows 10 permettent de placer les licences Windows 10 sur le cloud et d’exécuter des machines virtuelles Windows 10 sur Azure sans acheter de licence supplémentaire. Les droits d’hébergement multilocataire sont disponibles uniquement pour Windows 10 (version 1703 ou ultérieure).
 
-Pour plus d’informations, consultez [Hébergement multilocataire pour Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
+Pour plus d’informations, consultez [Hébergement multilocataire pour Windows 10](https://www.microsoft.com/en-us/CloudandHosting).
 
 > [!NOTE]
 > - Pour utiliser les images Windows 7, 8.1 et 10 pour le développement ou le test, consultez [Client Windows dans Azure pour les scénarios de dev/test](client-images.md).
@@ -132,4 +132,4 @@ Azure approvisionne toutes les machines virtuelles Windows avec un compte Admini
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez plus en détail la [configuration de VDA pour Windows 10](/windows/deployment/vda-subscription-activation).
-- Découvrez plus en détail [l’hébergement multilocataire pour Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
+- Découvrez plus en détail [l’hébergement multilocataire pour Windows 10](https://www.microsoft.com/en-us/CloudandHosting).

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1de783a3e6696e9ca8a8f618ce3744a91e774692
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: f5f72fa4dc126074177b96a484c10ade06724f83
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112198851"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128574440"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configurer le fournisseur d’identité d’un compte local
 
@@ -47,7 +47,8 @@ Vous pouvez choisir les méthodes de connexion au compte local (e-mail, nom d’
 Pour définir les options de connexion de votre compte local au niveau du locataire : 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Veillez à utiliser le répertoire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Répertoire + abonnement** dans le menu supérieur et en choisissant le répertoire qui contient votre locataire Azure AD.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Fournisseurs d’identité**.
 1. Dans la liste des fournisseurs d’identité, sélectionnez **Compte local**.
@@ -71,7 +72,8 @@ Pour définir les options de connexion de votre compte local au niveau du locata
 Si vous choisissez l’option **Inscription par téléphone** ou **Inscription par téléphone/adresse e-mail**, activez l’invite de récupération par e-mail.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Dans Azure AD B2C, sélectionnez **Flux d’utilisateurs** sous **Stratégies**.
 1. Sélectionnez le flux d’utilisateur dans la liste.

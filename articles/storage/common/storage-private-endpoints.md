@@ -10,12 +10,12 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 3fcc58f626622bcc728265e782906226859e1bf9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a52460db452d519c51fb7a1b191766b21da67f88
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600460"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592277"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Utiliser des points de terminaison privés pour Stockage Azure
 
@@ -47,7 +47,7 @@ Les propriétaires de comptes de stockage peuvent gérer les demandes de consent
 Vous pouvez sécuriser votre compte de stockage pour accepter uniquement les connexions à partir de votre réseau virtuel, en [configurant le pare-feu de stockage](storage-network-security.md#change-the-default-network-access-rule) afin de refuser l’accès via son point de terminaison public par défaut. Vous n’avez pas besoin d’une règle de pare-feu pour autoriser le trafic à partir d’un réseau virtuel doté d’un point de terminaison privé, puisque le pare-feu de stockage contrôle uniquement l’accès via le point de terminaison public. Les points de terminaison privés reposent plutôt sur le flux de consentement pour accorder l’accès aux sous-réseaux au service de stockage.
 
 > [!NOTE]
-> Lors de la copie d’objets blob entre des comptes de stockage, votre client doit disposer d’un accès réseau aux deux comptes. Par conséquent, si vous choisissez d’utiliser une liaison privée pour un seul compte (la source ou la destination), assurez-vous que votre client dispose d’un accès réseau à l’autre compte. Pour en savoir plus sur les autres méthodes de configuration de l’accès réseau, consultez [Configurer des réseaux virtuels et des pare-feu de stockage Azure](storage-network-security.md?toc=/azure/storage/blobs/toc.json). 
+> Lors de la copie d’objets blob entre des comptes de stockage, votre client doit disposer d’un accès réseau aux deux comptes. Par conséquent, si vous choisissez d’utiliser une liaison privée pour un seul compte (la source ou la destination), assurez-vous que votre client dispose d’un accès réseau à l’autre compte. Pour en savoir plus sur les autres méthodes de configuration de l’accès réseau, consultez [Configurer des réseaux virtuels et des pare-feu de stockage Azure](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
 <a id="private-endpoints-for-azure-storage"></a>
 
@@ -61,11 +61,9 @@ Pour créer un point de terminaison privé à l’aide de PowerShell ou d’Azur
 
 - [Créer un point de terminaison privé à l’aide d’Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
+Lorsque vous créez un point de terminaison privé, vous devez spécifier le compte de stockage et le service de stockage auxquels il se connecte.
 
-
-Lorsque vous créez un point de terminaison privé, vous devez spécifier le compte de stockage et le service de stockage auxquels il se connecte. 
-
-Vous avez besoin d’un point de terminaison privé distinct pour chacune des ressources de stockage auxquelles vous devez accéder, à savoir [Objets Blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Fichiers](../files/storage-files-introduction.md), [Files d’attente](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) et [Sites web statiques](../blobs/storage-blob-static-website.md). Sur le point de terminaison privé, ces services de stockage sont définis en tant que **sous-ressource cible** du compte de stockage associé. 
+Vous avez besoin d’un point de terminaison privé distinct pour chacune des ressources de stockage auxquelles vous devez accéder, à savoir [Objets Blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Fichiers](../files/storage-files-introduction.md), [Files d’attente](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) et [Sites web statiques](../blobs/storage-blob-static-website.md). Sur le point de terminaison privé, ces services de stockage sont définis en tant que **sous-ressource cible** du compte de stockage associé.
 
 Si vous créez un point de terminaison privé pour la ressource de stockage Data Lake Storage Gen2, vous devez également en créer un pour la ressource de stockage Objets Blob. En effet, les opérations qui ciblent le point de terminaison Data Lake Storage Gen2 peuvent être redirigées vers le point de terminaison d’objet blob. En créant un point de terminaison privé pour les deux ressources, vous vous assurez que les opérations réussissent.
 
@@ -96,22 +94,22 @@ Pour l’exemple illustré ci-dessus, les enregistrements de ressources DNS pour
 
 | Nom                                                  | Type  | Valeur                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| `StorageAccountA.blob.core.windows.net`             | CNAME | `StorageAccountA.privatelink.blob.core.windows.net` |
+| `StorageAccountA.privatelink.blob.core.windows.net` | CNAME | \<storage service public endpoint\>                   |
 | \<storage service public endpoint\>                   | Un     | \<storage service public IP address\>                 |
 
 Comme mentionné précédemment, vous pouvez refuser ou contrôler l’accès pour les clients en dehors du réseau virtuel via le point de terminaison public à l’aide du pare-feu de stockage.
 
 Les enregistrements de ressources DNS pour StorageAccountA, lorsqu’ils sont résolus par un client dans le réseau virtuel hébergeant le point de terminaison privé, sont les suivants :
 
-| Nom                                                  | Type  | Valeur                                                 |
-| :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | Un     | 10.1.1.5                                              |
+| Nom  | Type | Valeur |
+| :--- | :---: | :--- |
+| `StorageAccountA.blob.core.windows.net` | CNAME | `StorageAccountA.privatelink.blob.core.windows.net` |
+| `StorageAccountA.privatelink.blob.core.windows.net` | Un | `10.1.1.5` |
 
 Cette approche permet d’accéder au compte de stockage **avec la même chaîne de connexion** pour les clients sur le réseau virtuel hébergeant les points de terminaison privés, ainsi que des clients en dehors du réseau virtuel.
 
-Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet du point de terminaison du compte de stockage vers l’adresse IP du point de terminaison privé. Vous devez configurer votre serveur DNS pour déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel, ou configurer les enregistrements A pour « *StorageAccountA.privatelink.blob.core.windows.net* » avec l’adresse IP du point de terminaison privé.
+Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet du point de terminaison du compte de stockage vers l’adresse IP du point de terminaison privé. Vous devez configurer votre serveur DNS de manière à déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel, ou configurer les enregistrements A pour `StorageAccountA.privatelink.blob.core.windows.net` avec l'adresse IP du point de terminaison privé.
 
 > [!TIP]
 > Lorsque vous utilisez un serveur DNS personnalisé ou local, configurez votre serveur DNS de façon à résoudre le nom du compte de stockage dans le sous-domaine `privatelink` vers l’adresse IP du point de terminaison privé. Pour ce faire, vous pouvez déléguer le sous-domaine `privatelink` à la zone DNS privée du réseau virtuel, ou configurer la zone DNS sur votre serveur DNS et ajouter les enregistrements A DNS.
@@ -152,9 +150,9 @@ Actuellement, vous ne pouvez pas configurer de règles de [groupe de sécurité 
 
 ### <a name="copying-blobs-between-storage-accounts"></a>Copie des objets blob entre des comptes de stockage
 
-Vous pouvez copier des objets blob entre des comptes de stockage à l’aide de points de terminaison privés uniquement si vous utilisez l’API REST Azure ou des outils utilisant l’API REST. Ces outils incluent AzCopy, Explorateur Stockage, Azure PowerShell, Azure CLI et les kits de développement logiciel (SDK) Stockage Blob Azure. 
+Vous pouvez copier des objets blob entre des comptes de stockage à l’aide de points de terminaison privés uniquement si vous utilisez l’API REST Azure ou des outils utilisant l’API REST. Ces outils incluent AzCopy, Explorateur Stockage, Azure PowerShell, Azure CLI et les kits de développement logiciel (SDK) Stockage Blob Azure.
 
-Seuls les points de terminaison privés ciblant la ressource de stockage Blob sont pris en charge. Les points de terminaison privés ciblant Data Lake Storage Gen2 ou la ressource de fichier ne sont pas pris en charge pour le moment. De même, la copie entre comptes de stockage à l’aide du protocole NFS (Network File System) n’est pas encore prise en charge. 
+Seuls les points de terminaison privés ciblant la ressource de stockage Blob sont pris en charge. Les points de terminaison privés ciblant Data Lake Storage Gen2 ou la ressource de fichier ne sont pas pris en charge pour le moment. De même, la copie entre comptes de stockage à l’aide du protocole NFS (Network File System) n’est pas encore prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

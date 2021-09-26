@@ -1,14 +1,14 @@
 ---
-title: Créer une fabrique d’images dans Azure DevTest Labs | Microsoft Docs
+title: Créer une fabrique d’images
 description: Cet article vous montre comment créer une fabrique d’images personnalisées à l’aide d’exemples de scripts disponibles dans le dépôt Git (Azure DevTest Labs).
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 14c8338d6a5ae21847da3a9c774ea6dcdac33ae4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0e4ed8444475d1cd396dfa6c54083858b7671d5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85482069"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623586"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Créer une fabrique d’images personnalisées dans Azure DevTest Labs
 Cet article vous montre comment créer une fabrique d’images personnalisées à l’aide d’exemples de scripts disponibles dans le [dépôt Git](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).

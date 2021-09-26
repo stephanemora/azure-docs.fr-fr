@@ -1,14 +1,14 @@
 ---
 title: Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure Pipelines
 description: Découvrez comment utiliser Azure DevTest Labs dans les pipelines de build et de mise en production Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df9e496aa930c328832d59901aa8165e61cd076f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88080332"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552620"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure Pipelines
 Cet article fournit des informations sur la façon dont DevTest Labs peut être utilisé dans les pipelines de build et de mise en production Azure. 

@@ -2,21 +2,19 @@
 title: Créer un script d’entrée pour les scénarios avancés
 titleSuffix: Azure Machine Learning entry script authoring
 description: Découvrez comment écrire des scripts d’entrée Azure Machine Learning à des fins de pré-traitement et de post-traitement au cours du déploiement.
-author: gvashishtha
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 09/17/2020
-ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 920dd7a885570df4cd7c5529bcc00f2345c3d81d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: acdb9a371a6a49bc8d4c5475748f60d9c589d80e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114287131"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591536"
 ---
 # <a name="advanced-entry-script-authoring"></a>Création de scripts d’entrée avancés
 

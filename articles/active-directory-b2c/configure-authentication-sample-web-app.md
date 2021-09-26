@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/23/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: f8d27d30ace8ac29a59df9b77de4b56b5e138f63
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 60f3383c58ab297fd5c2199d532591b1d3a38b8f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185738"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572489"
 ---
 # <a name="configure-authentication-in-a-sample-web-app-by-using-azure-ad-b2c"></a>Configuration de l’authentification dans un exemple d’application web à l’aide d’Azure AD B2C
 
@@ -31,7 +31,7 @@ OpenID Connect (OIDC) est un protocole d’authentification basé sur OAuth 2.0
 
 Le flux de connexion implique les étapes suivantes :
 
-1. Les utilisateurs accèdent à l’application web et sélectionne **Connexion**. 
+1. L’utilisateur accède à l’application web et sélectionne **Connexion**. 
 1. L’application lance une requête d’authentification et redirige les utilisateurs vers Azure AD B2C.
 1. Les utilisateurs [s’inscrivent ou se connectent](add-sign-up-and-sign-in-policy.md) et [réinitialisent le mot de passe](add-password-reset-policy.md). Ils peuvent également se connecter avec un [compte social](add-identity-provider.md).
 1. Une fois la connexion établie, Azure AD B2C renvoie un jeton d’ID à l’application.
@@ -75,8 +75,9 @@ Pendant l’inscription de l’application, vous spécifiez l’*URI de redirect
 Pour créer l’inscription de l’application web, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
-1. Recherchez et sélectionnez **Azure AD B2C**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Sous **Nom**, entrez un nom pour l’application (par exemple, *webapp1*).
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un fournisseur d’identité ou annuaire organisationnel (pour authentifier les utilisateurs avec des flux d’utilisateurs)** . 
@@ -135,7 +136,7 @@ Votre fichier config final doit ressembler au JSON suivant :
 ## <a name="step-5-run-the-sample-web-app"></a>Étape 5 : Exécuter l’exemple d’application web
 
 1. Générez et exécutez le projet.
-1. Accédez à [https://localhost:5001](https://localhost:5001). 
+1. Atteindre `https://localhost:5001`. 
 1. Sélectionnez **S’inscrire/Se connecter**.
 
     ![Capture d’écran du bouton « S’inscrire/Se connecter » sur la page d’accueil du projet.](./media/configure-authentication-sample-web-app/web-app-sign-in.png)

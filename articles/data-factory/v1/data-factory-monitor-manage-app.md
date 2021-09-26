@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3a9eb73aab381f90ae51300bff1250348916c2ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 76acbba66ccbeb18637ce0f181a702f8696148d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779594"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591897"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion
 > [!div class="op_single_selector"]
@@ -35,11 +36,11 @@ Cet article explique comment utiliser l’application de surveillance et gestion
 ## <a name="launch-the-monitoring-and-management-app"></a>Lancement de l’application de surveillance et gestion
 Pour lancer l’application de surveillance et gestion, cliquez sur la vignette **Surveiller et gérer** dans le panneau **Data Factory** de votre fabrique de données.
 
-![Mosaïque Surveillance sur la page d’accueil de Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/MonitoringAppTile.png" alt-text="Mosaïque Surveillance sur la page d’accueil de Data Factory":::
 
 L’application de surveillance et gestion devrait s’ouvrir dans une nouvelle fenêtre.  
 
-![Application de surveillance et gestion](./media/data-factory-monitor-manage-app/AppLaunched.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/AppLaunched.png" alt-text="Application de surveillance et gestion":::
 
 > [!NOTE]
 > Si vous voyez que le navigateur web est bloqué au niveau « Autorisation ... », désactivez la case à cocher **Bloquer les cookies et les données de site tiers** ou laissez cette option sélectionnée, créez une exception pour **login.microsoftonline.com**, puis réessayez d’ouvrir l’application.
@@ -70,7 +71,7 @@ Dans l’explorateur de ressources, vous pouvez voir toutes les ressources (pipe
 * Les propriétés de l’objet sélectionné s’affichent dans la fenêtre Propriétés du volet droit.
 * La définition JSON de l’objet sélectionné apparaît, le cas échéant. Par exemple : un service lié, un jeu de données ou un pipeline.
 
-![Explorateur de ressources](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ResourceExplorer.png" alt-text="Explorateur de ressources":::
 
 Consultez l’article [Planification et exécution](data-factory-scheduling-and-execution.md) pour obtenir des informations conceptuelles détaillées sur les fenêtres d’activité.
 
@@ -83,51 +84,51 @@ La vue schématique d'une fabrique de données est un point unique de surveillan
 
 Lorsque le pipeline est activé (il n’est alors pas en pause), la barre de sa mosaïque est verte :
 
-![Pipeline en cours d’exécution](./media/data-factory-monitor-manage-app/PipelineRunning.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/PipelineRunning.png" alt-text="Pipeline en cours d’exécution":::
 
 Vous pouvez suspendre, reprendre ou arrêter un pipeline en le sélectionnant dans la vue schématique et en utilisant les boutons de la barre de commandes.
 
-![Mettre en pause/relancer depuis la barre de commandes](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png" alt-text="Mettre en pause/relancer depuis la barre de commandes":::
  
 La vue schématique comporte trois boutons de barre de commandes dédiés au pipeline. Vous pouvez utiliser le deuxième bouton pour mettre en pause le pipeline. La mise en pause n’interrompt pas les activités en cours et les laisse se terminer. Le troisième bouton permet de mettre en pause le pipeline et d’interrompre ses activités en cours. Le premier bouton permet de relancer le pipeline. Lorsque votre pipeline est suspendu, il change de couleur. Par exemple, un pipeline suspendu se présente comme illustré ci-après : 
 
-![Pipeline suspendu](./media/data-factory-monitor-manage-app/PipelinePaused.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/PipelinePaused.png" alt-text="Pipeline suspendu":::
 
 Vous pouvez sélectionner deux pipelines ou plus en maintenant la touche Ctrl enfoncée. Pour mettre en pause/relancer plusieurs pipelines simultanément, utilisez les boutons de la barre de commandes.
 
 Vous pouvez également cliquer sur un pipeline avec le bouton droit et sélectionner les options appropriées pour le suspendre, le reprendre ou l’arrêter. 
 
-![Menu contextuel pour un pipeline](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png" alt-text="Menu contextuel pour un pipeline":::
 
 Cliquez sur l’option **Ouvrir le pipeline** pour afficher toutes les activités dans le pipeline. 
 
-![Menu Ouvrir un pipeline](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/OpenPipelineMenu.png" alt-text="Menu Ouvrir un pipeline":::
 
 Dans la vue du pipeline ouvert, vous voyez toutes les activités dans le pipeline. Dans cet exemple, le pipeline ne contient qu’une seule activité : une activité de copie. 
 
-![Pipeline ouvert](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/OpenedPipeline.png" alt-text="Pipeline ouvert":::
 
 Pour revenir à la vue précédente, cliquez sur le nom de la fabrique de données dans le menu de navigation en haut de la page.
 
 Dans la vue du pipeline, lorsque vous sélectionnez un jeu de données de sortie ou que vous le survolez avec la souris, la fenêtre contextuelle d’activité correspondante s’affiche.
 
-![Fenêtre contextuelle d’activité Windows](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png" alt-text="Fenêtre contextuelle d’activité Windows":::
 
 Vous pouvez cliquer sur une fenêtre d’activité pour afficher ses détails dans la fenêtre **Propriétés** du volet droit.
 
-![Propriétés des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowProperties.png" alt-text="Propriétés des fenêtres d’activité":::
 
 Dans le volet droit, affichez l’onglet **Explorateur de fenêtres d’activité** pour afficher plus de détails.
 
-![Capture d’écran montrant comment accéder à l’onglet Explorateur de la fenêtre d’activité.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png" alt-text="Capture d’écran montrant comment accéder à l’onglet Explorateur de la fenêtre d’activité.":::
 
 Vous voyez également les **variables résolues** pour chaque tentative d’exécution d’une activité dans la section **Tentatives**.
 
-![Variables résolues](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ResolvedVariables.PNG" alt-text="Variables résolues":::
 
 Affichez l’onglet **Script** pour afficher la définition du script JSON pour l’objet sélectionné.   
 
-![Onglet Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ScriptTab.png" alt-text="Onglet Script":::
 
 Les fenêtres d’activité s’affichent à trois emplacements différents :
 
@@ -137,16 +138,16 @@ Les fenêtres d’activité s’affichent à trois emplacements différents :
 
 Dans la fenêtre contextuelle et l’Explorateur de fenêtres d’activité, vous pouvez passer à la semaine précédente ou suivante à l’aide des flèches gauche et droite.
 
-![Flèches gauche/droite de l’Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png" alt-text="Flèches gauche/droite de l’Explorateur de fenêtres d’activité":::
 
 En bas de la vue schématique, vous trouverez des boutons pour effectuer un zoom avant ou arrière, zoomer pour ajuster, effectuer un Zoom à 100 % et verrouiller la disposition. Le bouton **Verrouiller la disposition** vous empêche de déplacer accidentellement des tables et des pipelines dans la vue schématique. L’option est activée par défaut. Vous pouvez la désactiver et déplacer des entités dans la vue schématique. Lorsque vous la désactivez, vous pouvez utiliser le dernier bouton pour positionner automatiquement les tables et les pipelines. Vous pouvez également effectuer des zooms avant et arrière à l’aide de la roulette de la souris.
 
-![Commandes de zoom de la vue schématique](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png" alt-text="Commandes de zoom de la vue schématique":::
 
 ### <a name="activity-windows-list"></a>Liste des fenêtres d’activité
 La liste des fenêtres d’activité dans la partie inférieure du volet central affiche toutes les fenêtres d’activité du jeu de données que vous avez sélectionné dans l’Explorateur de ressources ou la vue schématique. Par défaut, la liste est en ordre décroissant, ce qui signifie que la fenêtre d’activité la plus récente s’affiche en premier.
 
-![Liste des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowsList.png" alt-text="Liste des fenêtres d’activité":::
 
 Cette liste ne s’actualise pas automatiquement. Pour l’actualiser manuellement, utilisez le bouton d’actualisation de la barre d’outils.  
 
@@ -212,7 +213,7 @@ Les fenêtres d’activité peuvent avoir l’un des statuts suivants :
 
 Quand vous cliquez sur une fenêtre d’activité dans la liste, les détails la concernant s’affichent dans **l’Explorateur de fenêtres d’activité** ou dans la fenêtre **Propriétés** sur la droite.
 
-![Capture d’écran montrant comment afficher des détails à propos d’une fenêtre d’activité.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png" alt-text="Capture d’écran montrant comment afficher des détails à propos d’une fenêtre d’activité.":::
 
 ### <a name="refresh-activity-windows"></a>Actualiser les fenêtres d’activité
 Les détails ne sont pas automatiquement actualisés. Pour actualiser manuellement la liste des fenêtres d’activité, utilisez le bouton Actualiser (le deuxième) dans la barre de commandes.  
@@ -220,14 +221,14 @@ Les détails ne sont pas automatiquement actualisés. Pour actualiser manuelleme
 ### <a name="properties-window"></a>Fenêtre Propriétés
 La fenêtre Propriétés se trouve dans le volet situé tout à droite de l’application de surveillance et gestion.
 
-![Fenêtre Propriétés](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/PropertiesWindow.png" alt-text="Fenêtre Propriétés":::
 
 Elle affiche les propriétés de l’élément que vous avez sélectionné dans l’Explorateur de ressources (arborescence), la vue schématique ou la liste des fenêtres d’activité.
 
 ### <a name="activity-window-explorer"></a>Explorateur de fenêtres d’activité
 L **’Explorateur de fenêtres d’activité** se trouve dans le volet situé tout à droite de l’application de surveillance et gestion. Il affiche des détails sur la fenêtre d’activité que vous avez sélectionnée dans la fenêtre contextuelle ou la liste des fenêtres d’activité.
 
-![Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png" alt-text="Explorateur de fenêtres d’activité":::
 
 Vous pouvez passer à une autre fenêtre d’activité en cliquant dessus dans la vue calendaire en haut de l’écran. Vous pouvez également utiliser les boutons flèche gauche/flèche droite en haut de l’écran pour afficher les fenêtres d’activité de la semaine précédente ou suivante.
 
@@ -236,14 +237,14 @@ Vous pouvez utiliser les boutons de la barre d’outils dans le volet inférieur
 ### <a name="script"></a>Script
 Vous pouvez utiliser l’onglet **Script** pour afficher la définition JSON de l’entité Data Factory sélectionnée (service lié, jeu de données et pipeline).
 
-![Onglet Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ScriptTab.png" alt-text="Onglet Script":::
 
 ## <a name="use-system-views"></a>Utiliser les vues système
 L’application de surveillance et gestion inclut des vues système intégrées (**Fenêtres d’activité récentes**, **Fenêtres d’activité ayant échoué**, **Fenêtres d’activité en cours**), qui vous permettent d’afficher les fenêtres d’activité (récentes, ayant échoué et en cours) de votre fabrique de données.
 
 Affichez l’onglet **Vues de surveillance** sur la gauche en cliquant dessus.
 
-![Onglet Vues de surveillance](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/MonitoringViewsTab.png" alt-text="Onglet Vues de surveillance":::
 
 Actuellement, trois vues système sont prises en charge. Sélectionnez une option pour afficher les fenêtres d’activité récentes, ayant échoué, ou en cours dans la liste des fenêtres d’activité (en bas du volet central).
 
@@ -254,7 +255,7 @@ Vous pouvez utiliser la vue **Fenêtres d’activité ayant échoué** pour affi
 ## <a name="sort-and-filter-activity-windows"></a>Trier et filtrer les fenêtres d’activité
 Pour filtrer les fenêtres d’activité, modifiez les paramètres **d’heure de début** et **d’heure de fin** dans la barre de commandes. Après avoir modifié les heures de début et de fin, cliquez sur le bouton en regard de l’heure de fin pour actualiser la liste des fenêtres d’activité.
 
-![Heures de début et de fin](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/StartAndEndTimes.png" alt-text="Heures de début et de fin":::
 
 > [!NOTE]
 > Pour l’instant, toutes les heures de l’application de surveillance et gestion sont au format UTC.
@@ -263,7 +264,7 @@ Pour filtrer les fenêtres d’activité, modifiez les paramètres **d’heure d
 
 Dans la **liste des fenêtres d’activité**, cliquez sur le nom d’une colonne (par exemple, Statut).
 
-![Menu déroulant de la liste des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png" alt-text="Menu déroulant de la liste des fenêtres d’activité":::
 
 Vous pouvez effectuer les opérations suivantes :
 
@@ -273,20 +274,20 @@ Vous pouvez effectuer les opérations suivantes :
 
 Lorsque vous spécifiez un filtre sur une colonne, vous voyez que le bouton de filtrage est activé pour cette colonne afin d’indiquer que les valeurs filtrées sont celles de cette colonne.
 
-![Filtrer sur une colonne de la liste des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png" alt-text="Filtrer sur une colonne de la liste des fenêtres d’activité":::
 
 Vous pouvez utiliser la même fenêtre contextuelle pour effacer les filtres. Pour effacer tous les filtres de la liste des fenêtres d’activité, cliquez sur le bouton Effacer le filtre dans la barre de commandes.
 
-![Effacer tous les filtres de la liste des fenêtres d’activité](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png" alt-text="Effacer tous les filtres de la liste des fenêtres d’activité":::
 
 ## <a name="perform-batch-actions"></a>Exécuter des opérations de traitement par lot
 ### <a name="rerun-selected-activity-windows"></a>Réexécuter les fenêtres d’activité sélectionnées
 Sélectionnez une fenêtre d’activité, cliquez sur la flèche vers le bas du premier bouton de la barre de commandes et sélectionnez **Réexécuter** / **Réexécuter avec les fenêtres en amont dans le pipeline**. L’option **Réexécuter avec les fenêtres en amont dans le pipeline** permet de réexécuter également toutes les fenêtres d’activité en amont.
-    ![Réexécuter une fenêtre d’activité](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-app/ReRunSlice.png" alt-text="Réexécuter une fenêtre d’activité":::
 
 Vous pouvez également sélectionner plusieurs fenêtres d’activité dans la liste et les réexécuter simultanément. Vous pouvez filtrer les fenêtres d’activité en fonction de leur statut (par exemple, **Échec**), puis réexécuter celles qui ont échoué après avoir corrigé le problème à l’origine de cet échec. Pour en savoir plus sur le filtrage des fenêtres d’activité dans la liste, consultez la section suivante.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Mettre en pause/relancer plusieurs pipelines
 Vous pouvez sélectionner 2 pipelines ou plus en maintenant la touche Ctrl enfoncée. Pour les mettre en pause/les relancer, utilisez les boutons de la barre de commandes (mis en évidence dans le rectangle rouge de l’image suivante).
 
-![Mettre en pause/relancer depuis la barre de commandes](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+:::image type="content" source="./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png" alt-text="Mettre en pause/relancer depuis la barre de commandes":::

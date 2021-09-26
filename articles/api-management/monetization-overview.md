@@ -1,17 +1,17 @@
 ---
 title: Monétisation avec Gestion des API Azure
 description: Découvrez comment configurer votre stratégie de monétisation pour la Gestion des API Azure en six étapes simples.
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.date: 08/23/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 3e969ad51232007a04f3391090e122bf865aec20
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 222a253d35775bd89e6042181937d6c7a7ff624c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825298"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594158"
 ---
 # <a name="monetization-with-azure-api-management"></a>Monétisation avec Gestion des API Azure
 

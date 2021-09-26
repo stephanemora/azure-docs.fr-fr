@@ -10,20 +10,20 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 435f5376a0a84cf2d9d706e4391142814b0f0141
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92783876"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593075"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuration des chaînes de connexion Stockage Azure
 
 Une chaîne de connexion inclut les informations d’authentification nécessaires pour que l’application accède aux données dans un compte de stockage Azure, à l’aide de l’autorisation Clé partagée pendant l’exécution. Vous pouvez configurer les chaînes de connexion pour effectuer les opérations suivantes :
 
-* Connectez-vous à l’émulateur de stockage Azure.
-* Accès à un compte de stockage dans Azure
-* Accès aux ressources spécifiées dans Azure via une signature d’accès partagé (SAS).
+- Connectez-vous à l’émulateur de stockage Azure.
+- Accès à un compte de stockage dans Azure
+- Accès aux ressources spécifiées dans Azure via une signature d’accès partagé (SAS).
 
 Pour savoir comment afficher les clés d’accès de votre compte et copier une chaîne de connexion, consultez [Gérer les clés d’accès au compte de stockage](storage-account-keys-manage.md).
 
@@ -33,9 +33,9 @@ Pour savoir comment afficher les clés d’accès de votre compte et copier une 
 
 Votre application doit accéder à la chaîne de connexion pendant l’exécution pour autoriser les requêtes transmises au stockage Azure. Plusieurs options vous permettant de stocker votre chaîne de connexion s’offrent à vous :
 
-* Vous pouvez stocker votre chaîne de connexion dans une variable d’environnement.
-* Une application s’exécutant sur le bureau ou sur un appareil peut stocker la chaîne de connexion dans un fichier **app.config** ou **web.config**. Ajoutez la chaîne de connexion dans la section **AppSettings** de ces fichiers.
-* Une application s’exécutant dans un service cloud Azure peut stocker la chaîne de connexion dans le [schéma de configuration du service Azure (fichier .cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)). Ajoutez la chaîne de connexion à la section **ConfigurationSettings** du fichier de configuration du service.
+- Vous pouvez stocker votre chaîne de connexion dans une variable d’environnement.
+- Une application s’exécutant sur le bureau ou sur un appareil peut stocker la chaîne de connexion dans un fichier **app.config** ou **web.config**. Ajoutez la chaîne de connexion dans la section **AppSettings** de ces fichiers.
+- Une application s’exécutant dans un service cloud Azure peut stocker la chaîne de connexion dans le [schéma de configuration du service Azure (fichier .cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)). Ajoutez la chaîne de connexion à la section **ConfigurationSettings** du fichier de configuration du service.
 
 Le stockage de votre chaîne de connexion dans un fichier config facilite la mise à jour de la chaîne de connexion qui vous permet de basculer entre l’[émulateur de stockage Azure](../common/storage-use-azurite.md) et un compte de stockage Azure dans le cloud. Il vous suffit de modifier la chaîne de connexion pour la faire pointer vers votre environnement cible.
 
@@ -141,6 +141,6 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utiliser l’émulateur Azurite à des fins de développement local pour Stockage Azure](../common/storage-use-azurite.md)
-* [Explorateurs du stockage Azure](storage-explorers.md)
-* [Utilisation des signatures d’accès partagé (SAP)](storage-sas-overview.md)
+- [Utiliser l’émulateur Azurite à des fins de développement local pour Stockage Azure](../common/storage-use-azurite.md)
+- [Explorateurs du stockage Azure](storage-explorers.md)
+- [Utilisation des signatures d’accès partagé (SAP)](storage-sas-overview.md)

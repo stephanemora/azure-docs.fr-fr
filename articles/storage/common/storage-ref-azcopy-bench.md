@@ -8,18 +8,18 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1e49e787854069c2fcea30df7a43c3aacdd21b9e
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6bd80367ab407be3d6b43750c6525b2d2ae30200
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502026"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605864"
 ---
 # <a name="azcopy-benchmark"></a>référence azcopy
 
 Exécute un test d’évaluation des performances en chargeant ou téléchargeant les données de test vers ou depuis une destination spécifiée. Pour les chargements, les données de test sont générées automatiquement.
 
-La commande benchmark exécute le même processus que « copy », à ceci près que : 
+La commande benchmark exécute le même processus que « copy », à ceci près que :
 
   - Au lieu de demander des paramètres source et de destination, benchmark n’en prend qu’un. Il s’agit du conteneur d’objets blob, du partage Azure Files ou du système de fichiers Azure Data Lake Storage Gen2 à partir duquel vous souhaitez charger ou télécharger.
 
@@ -28,14 +28,14 @@ La commande benchmark exécute le même processus que « copy », à ceci prè
   - Pour les tests d’évaluation de chargement, la charge utile est décrite par les paramètres de ligne de commande qui contrôlent le nombre de fichiers générés automatiquement et l’importance de leur taille. Le processus de génération s’effectue entièrement en mémoire. Le disque n’est pas utilisé.
 
   - Pour les téléchargements, la charge utile est constituée par des fichiers qui existent déjà à la source. (Voir l’exemple ci-dessous illustrant la façon de générer des fichiers de test, si nécessaire).
-  
+
   - Seuls quelques-uns des paramètres facultatifs qui sont disponibles pour la commande copy sont pris en charge.
-  
+
   - Des diagnostics supplémentaires sont mesurés et signalés.
-  
+
   - Pour les chargements, le comportement par défaut consiste à supprimer les données transférées à la fin de la série de tests.  Pour les téléchargements, les données ne sont jamais enregistrées localement.
 
-Le mode « test d’évaluation » se règle automatiquement en fonction du nombre de connexions TCP parallèles qui fournit le débit maximal. Il affiche ce nombre à la fin. Pour empêcher le réglage automatique, affectez un nombre spécifique de connexions à la variable d’environnement AZCOPY_CONCURRENCY_VALUE. 
+Le mode « test d’évaluation » se règle automatiquement en fonction du nombre de connexions TCP parallèles qui fournit le débit maximal. Il affiche ce nombre à la fin. Pour empêcher le réglage automatique, affectez un nombre spécifique de connexions à la variable d’environnement AZCOPY_CONCURRENCY_VALUE.
 
 Tous les types d’authentification habituels sont pris en charge. Toutefois, l’approche la plus pratique pour le test d’évaluation de chargement vise généralement à créer un conteneur vide avec un jeton SAS, et à utiliser l’authentification SAS. (Le mode de téléchargement demande la présence d’un ensemble de données de test dans le conteneur cible.)
 
@@ -43,7 +43,6 @@ Tous les types d’authentification habituels sont pris en charge. Toutefois, l�
 
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
 - [Optimiser les performances d’AzCopy v10 avec Stockage Azure](storage-use-azcopy-optimize.md)
-
 
 ## <a name="examples"></a>Exemples
 
@@ -56,11 +55,13 @@ Exécuter un test d’évaluation avec les paramètres par défaut (adapté aux 
 ```azcopy
 azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"
 ```
+
 Exécuter un test d’évaluation qui charge 100 fichiers, chacun d’une taille de 2 Gio : (adapté à l’évaluation sur un réseau rapide, par exemple 10 Gbits/s) :’
 
 ```azcopy
 azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"--file-count 100 --size-per-file 2G
 ```
+
 Exécutez un test de référence, mais utiliser 50 000 fichiers, chacun d’une taille de 8 Mio, et calculer leurs hachages MD5 (de la même façon qu’effectué par l’indicateur `--put-md5` dans la commande copy). L’objectif de `--put-md5` lors des tests d’évaluation est de tester si le calcul MD5 affecte le débit pour le nombre de fichiers et la taille sélectionnés :
 
 ```azcopy
@@ -110,7 +111,6 @@ azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-
 **--output-type** string   Met en forme la sortie de la commande. Les formats possibles sont « text » et « JSON ». La valeur par défaut est « text ». (par défaut : « text »).
 
 La chaîne **--trusted-microsoft-suffixes** spécifie des suffixes de domaine supplémentaires où des jetons de connexion Azure Active Directory peuvent être envoyés.  La valeur par défaut est «  *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net ». Tous les éléments répertoriés ici sont ajoutés à la valeur par défaut. Pour la sécurité, vous devez placer uniquement des domaines Microsoft Azure ici. Séparez plusieurs entrées par des points-virgules.
-
 
 ## <a name="see-also"></a>Voir aussi
 

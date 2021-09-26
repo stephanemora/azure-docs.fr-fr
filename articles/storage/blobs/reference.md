@@ -1,18 +1,18 @@
 ---
 title: Informations de référence sur les API Stockage Blob Azure
 description: Retrouvez des informations de référence sur l’API Stockage Blob Azure, des fichiers Lisez-moi et des packages de bibliothèques de client.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: reference
-ms.openlocfilehash: 738081a8f31e50accee17f66272b278e72544916
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 998c8ae6424d170fb0b7cf1b4556ba35da990db5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215348"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622471"
 ---
 # <a name="azure-blob-storage-api-reference"></a>Informations de référence sur les API Stockage Blob Azure
 
