@@ -10,18 +10,16 @@ ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1742679fbca38b878325bd56fa01fc2efebf4f82
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 1feb78c381a189ae2db1d2aa658f8d0782769f99
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733697"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664786"
 ---
 # <a name="blob-versioning"></a>Contrôle de version des objets blob
 
 Vous pouvez activer le contrôle de version du stockage d’objets blob pour gérer automatiquement les versions précédentes d’un objet. Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="recommended-data-protection-configuration"></a>Configuration recommandée de la protection des données
 
@@ -47,7 +45,7 @@ Le diagramme suivant montre la façon dont les versions sont créées lors d’o
 
 Les versions d’objets blob sont immuables. Vous ne pouvez pas modifier le contenu ou les métadonnées d’une version existante de l’objet blob.
 
-Le fait de disposer d’un grand nombre de versions par blob peut augmenter la latence des opérations de listage des blobs. Microsoft recommande de conserver moins de 1000 versions par blob. Vous pouvez utiliser la gestion de cycle de vie pour supprimer automatiquement les anciennes versions. Pour plus d’informations sur la gestion de cycle de vie, consultez [Optimiser les coûts en automatisant les niveaux d’accès de Stockage Blob Azure](storage-lifecycle-management-concepts.md).
+Le fait de disposer d’un grand nombre de versions par blob peut augmenter la latence des opérations de listage des blobs. Microsoft recommande de conserver moins de 1000 versions par blob. Vous pouvez utiliser la gestion de cycle de vie pour supprimer automatiquement les anciennes versions. Pour plus d’informations sur la gestion de cycle de vie, consultez [Optimiser les coûts en automatisant les niveaux d’accès de Stockage Blob Azure](./lifecycle-management-overview.md).
 
 Le contrôle de version des blobs est disponible pour les comptes de stockage Blob hérités, les comptes d’objets blobs de blocs Premium et les comptes v2 universels Standard. Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 ne sont actuellement pas pris en charge.
 
@@ -113,7 +111,7 @@ L’écriture de nouvelles données dans le blob crée une nouvelle version actu
 
 Vous pouvez déplacer n’importe quelle version d’un objet blob de blocs, y compris la version actuelle, vers un autre niveau d’accès en appelant l’opération [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Vous pouvez tirer parti d’une tarification de capacité inférieure en déplaçant les anciennes versions d’un objet blob vers le niveau de stockage froid ou le niveau de stockage archive. Pour plus d’informations, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md).
 
-Pour automatiser le processus de déplacement d’objets blob de blocs vers le niveau approprié, utilisez la gestion du cycle de vie des objets blob. Pour plus d’informations sur la gestion du cycle de vie, consultez [Gérer le cycle de vie du stockage d’objets blob Azure](storage-lifecycle-management-concepts.md).
+Pour automatiser le processus de déplacement d’objets blob de blocs vers le niveau approprié, utilisez la gestion du cycle de vie des objets blob. Pour plus d’informations sur la gestion du cycle de vie, consultez [Gérer le cycle de vie du stockage d’objets blob Azure](./lifecycle-management-overview.md).
 
 ## <a name="enable-or-disable-blob-versioning"></a>Activer/désactiver le contrôle de version des objets blob
 
@@ -297,6 +295,17 @@ Le tableau suivant décrit le comportement de facturation d’un objet blob supp
 |-|-|
 | Si la suppression réversible et le contrôle de version d’objet blob sont tous deux activés | Toutes les versions existantes pour la longueur totale du contenu, quel que soit le niveau. |
 | Si la suppression réversible d’objet blob est activée alors que le contrôle de version est désactivé | Tous les captures instantanées de suppression réversible existantes pour la longueur totale du contenu, quel que soit le niveau. |
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
 ## <a name="see-also"></a>Voir aussi
 

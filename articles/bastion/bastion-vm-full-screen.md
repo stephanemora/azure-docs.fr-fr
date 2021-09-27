@@ -5,18 +5,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 34bc70fa88aa3c108a946b4e040bf60f56ec95e1
-ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
+ms.openlocfilehash: 82c763647911037985dc3395a2176e8c43f34114
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113644326"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629575"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Passez en plein écran pour une session d’une machine virtuelle : Azure Bastion
 
-Cet article vous permet de passer l’affichage de la machine virtuelle en plein écran dans votre navigateur. Avant d’utiliser une machine virtuelle, assurez-vous d’avoir suivi les étapes de [Créer un hôte Bastion](./tutorial-create-host-portal.md). Connectez-vous ensuite à la machine virtuelle que vous souhaitez utiliser à l’aide de [RDP](bastion-connect-vm-rdp.md) ou de [SSH](bastion-connect-vm-ssh.md).
+Cet article vous permet de passer l’affichage de la machine virtuelle en plein écran dans votre navigateur. Avant d’utiliser une machine virtuelle, assurez-vous d’avoir suivi les étapes de [Créer un hôte Bastion](./tutorial-create-host-portal.md). Connectez-vous ensuite à la machine virtuelle que vous souhaitez utiliser à l’aide de [RDP](bastion-connect-vm-rdp-windows.md) ou de [SSH](bastion-connect-vm-ssh-linux.md).
 
 ## <a name="launch-the-clipboard-tool"></a>Démarrer l’outil presse-papiers
 

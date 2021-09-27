@@ -3,20 +3,18 @@ title: Ajouter une analytique à l’API Recherche Web Bing
 titleSuffix: Azure Cognitive Services
 description: Bing Statistiques fournit une analytique pour l’API Recherche d’images Bing. L’analytique inclut le volume d’appels, les principales chaînes de requête, la répartition géographique, et bien plus encore.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 02fea02cca5950ef8467377a866e9a765af9e2e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 878a6fd49a46b47c3243b168469a15909102a019
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96349552"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587059"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Ajouter une analytique à l’API Recherche Bing
 

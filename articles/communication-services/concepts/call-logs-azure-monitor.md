@@ -8,12 +8,13 @@ ms.author: timmitchell
 ms.date: 07/22/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 3844fcab3f9830bbaca60042aedbfb75bf7f09e4
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.subservice: calling
+ms.openlocfilehash: 8a8b50b23c1a52d89efbb98825338833a466d689
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114676105"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672272"
 ---
 # <a name="call-summary-and-call-diagnostic-logs"></a>Résumé des appels et appels des journaux de diagnostic
 
@@ -409,4 +410,4 @@ Journal de diagnostic pour le flux audio du point de terminaison de serveur vers
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur la [journalisation et les diagnostics](./logging-and-diagnostics.md)
+- Apprenez-en davantage sur la [journalisation et les diagnostics](./logging-and-diagnostics.md)

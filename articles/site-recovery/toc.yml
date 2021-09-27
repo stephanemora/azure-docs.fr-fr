@@ -200,6 +200,8 @@
       items:
         - name: Base de référence de la sécurité
           href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
+        - name: Protocole Transport Layer Security (TLS)
+          href: transport-layer-security.md
 - name: Guides pratiques
   items:
     - name: Récupération d’urgence depuis Azure vers Azure

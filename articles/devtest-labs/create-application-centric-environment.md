@@ -1,14 +1,14 @@
 ---
-title: Créer un environnement orienté applications - Azure
+title: Créer un environnement axé sur les applications
 description: Cet article explique comment créer un environnement orienté applications avec Cloud Shell Colony et Microsoft Azure.
 ms.topic: how-to
 ms.date: 11/26/2020
-ms.openlocfilehash: 88244f268d5ed038e9bb7082d3d5cc1179e5ec4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b56a39996aa93e10ede28de91ae20857a8eefc0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94917981"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627574"
 ---
 # <a name="create-an-application-centric-environment"></a>Créer un environnement axé sur les applications
 

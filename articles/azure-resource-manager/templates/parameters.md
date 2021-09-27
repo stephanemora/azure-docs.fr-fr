@@ -3,12 +3,12 @@ title: Paramètres dans les modèles
 description: Explique comment définir des paramètres dans un modèle Azure Resource Manager (ARM).
 ms.topic: conceptual
 ms.date: 05/14/2021
-ms.openlocfilehash: 4fa624763b3a0eaa0277882fcb8493e96e24e7a5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 5c94dc3f4d37fa6c08e29e03e88dd3ba54e68271
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960204"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625522"
 ---
 # <a name="parameters-in-arm-templates"></a>Paramètres dans les modèles ARM
 
@@ -199,7 +199,7 @@ Pour référencer la valeur d’un paramètre, utilisez la fonction [parameters]
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2019-09-01",
+      "apiVersion": "2021-06-01-preview",
       "name": "[parameters('vaultName')]",
       ...
     }
@@ -245,7 +245,7 @@ L’exemple suivant illustre un paramètre qui est un objet. La valeur par défa
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2021-02-01",
       "name": "[parameters('vNetSettings').name]",
       "location": "[parameters('vNetSettings').location]",
       "properties": {

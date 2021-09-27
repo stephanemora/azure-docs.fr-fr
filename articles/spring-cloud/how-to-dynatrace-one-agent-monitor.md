@@ -7,14 +7,14 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/31/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: cb4b82a37aef2f5e14be1445aa1fcb247ed37e15
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: ea4ce0946239dd6355174674f443a1f29c2b9d06
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123354523"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438873"
 ---
-# <a name="how-to-monitor-azure-spring-cloud-applications-with-dynatrace-java-oneagent-preview"></a>Comment surveiller des applications Azure Spring Cloud avec Dynatrace Java OneAgent (version préliminaire)
+# <a name="how-to-monitor-azure-spring-cloud-applications-with-dynatrace-java-oneagent"></a>Comment surveiller des applications Azure Spring Cloud avec Dynatrace Java OneAgent
 
 Cet article explique comment utiliser Dynatrace OneAgent pour surveiller les applications Azure Spring Cloud.
 

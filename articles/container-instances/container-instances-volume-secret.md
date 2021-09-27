@@ -3,12 +3,12 @@ title: Monter le volume secret pour le groupe de conteneurs
 description: Découvrez comment monter un volume secret pour stocker des informations sensibles et y accéder à partir de vos instances de conteneur
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: cd8bd4d59b5e53a0db2455bdfbaf56c05c93d65f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 63fb5ded667ce2d46d97ed51c6b16754c46f2a7b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770996"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676273"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Monter un volume secret dans Azure Container Instances
 
@@ -110,7 +110,7 @@ Ensuite, pour chaque conteneur du groupe de conteneurs dans lequel vous souhaite
 Le modèle Resource Manager suivant définit un groupe de conteneurs avec un conteneur montant un volume *secret* sur `/mnt/secrets`. Le volume secret possède deux secrets, « mysecret1 » et « mysecret2 ».
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
-[!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
+[!code-json[volume-secret](~/resourcemanager-templates/container-instances/aci-deploy-volume-secret.json)]
 
 Pour effectuer un déploiement avec le modèle Resource Manager, enregistrez le JSON précédent dans un fichier nommé `deploy-aci.json`, puis exécutez la commande [az deployment group create][az-deployment-group-create] avec le paramètre `--template-file` :
 

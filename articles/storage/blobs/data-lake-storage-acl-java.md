@@ -9,18 +9,18 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 75f65c87d47232aa0809475d38a82ffe68203df6
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 6414db11bac11cb9b6faab59e67980b8ee8a2a78
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633696"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555505"
 ---
 # <a name="use-java-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Utiliser Java pour gérer les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
-Cet article explique comment utiliser Java pour récupérer, définir et mettre à jour les listes de contrôle d’accès des répertoires et des fichiers. 
+Cet article explique comment utiliser Java pour récupérer, définir et mettre à jour les listes de contrôle d’accès des répertoires et des fichiers.
 
-L’héritage des listes ACL est déjà disponible pour les nouveaux éléments enfants créés sous un répertoire parent. Toutefois, vous pouvez également ajouter, mettre à jour et supprimer des listes de contrôle d’accès de manière récursive au niveau des éléments enfants existants d’un répertoire parent sans avoir à apporter ces modifications individuellement à chaque élément enfant. 
+L’héritage des listes ACL est déjà disponible pour les nouveaux éléments enfants créés sous un répertoire parent. Toutefois, vous pouvez également ajouter, mettre à jour et supprimer des listes de contrôle d’accès de manière récursive au niveau des éléments enfants existants d’un répertoire parent sans avoir à apporter ces modifications individuellement à chaque élément enfant.
 
 [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Exemples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [Référence de l’API](/java/api/overview/azure/storage-file-datalake-readme) | [Mappage de Gen1 à Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Envoyer des commentaires](https://github.com/Azure/azure-sdk-for-java/issues)
 
@@ -34,10 +34,10 @@ L’héritage des listes ACL est déjà disponible pour les nouveaux éléments 
 
 - Une des autorisations de sécurité suivantes :
 
-  - Un [principal de sécurité](../../role-based-access-control/overview.md#security-principal) Azure Active Directory (AD) provisionné qui a reçu le rôle [Propriétaire des données Blob de stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) dans l’étendue du conteneur cible, du groupe de ressources parent ou de l’abonnement.  
+  - Un [principal de sécurité](../../role-based-access-control/overview.md#security-principal) Azure Active Directory (AD) provisionné qui a reçu le rôle [Propriétaire des données Blob de stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) dans l’étendue du conteneur cible, du groupe de ressources parent ou de l’abonnement.
 
   - Utilisateur propriétaire du conteneur ou du répertoire cible auquel vous envisagez d’appliquer les paramètres ACL. Pour définir des listes de contrôle d’accès de façon récursive, cela inclut tous les éléments enfants du conteneur ou du répertoire cible.
-  
+
   - Clé du compte de stockage.
 
 ## <a name="set-up-your-project"></a>Configuration de votre projet
@@ -70,20 +70,20 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 ## <a name="connect-to-the-account"></a>Se connecter au compte
 
-Pour utiliser les extraits de code de cet article, vous devez créer une instance **DataLakeServiceClient** qui représente le compte de stockage. 
+Pour utiliser les extraits de code de cet article, vous devez créer une instance **DataLakeServiceClient** qui représente le compte de stockage.
 
 ### <a name="connect-by-using-azure-active-directory-azure-ad"></a>Se connecter avec Azure Active Directory (Azure AD)
 
 Vous pouvez utiliser la [bibliothèque de client Azure Identity pour Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) afin d’authentifier votre application auprès d’Azure AD.
 
-Obtenez un ID client, un secret client et un ID de locataire. Pour ce faire, consultez [Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente](../common/storage-auth-aad-app.md). Dans le cadre de ce processus, vous devrez attribuer l’un des rôles [Azure RBAC (contrôle d’accès en fonction du rôle Azure)](../../role-based-access-control/overview.md) suivants à votre principal de sécurité. 
+Obtenez un ID client, un secret client et un ID de locataire. Pour ce faire, consultez [Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente](../common/storage-auth-aad-app.md). Dans le cadre de ce processus, vous devrez attribuer l’un des rôles [Azure RBAC (contrôle d’accès en fonction du rôle Azure)](../../role-based-access-control/overview.md) suivants à votre principal de sécurité.
 
 |Role|Capacité de paramétrage ACL|
 |--|--|
 |[Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Tous les répertoires et fichiers du compte.|
 |[Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Seuls les répertoires et les fichiers appartenant au principal de sécurité.|
 
-Cet exemple crée une instance de **DataLakeServiceClient** à l’aide d’un ID client, d’une clé secrète client et d’un ID locataire.  
+Cet exemple crée une instance de **DataLakeServiceClient** à l’aide d’un ID client, d’une clé secrète client et d’un ID locataire.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithAzureAD":::
 
@@ -92,7 +92,7 @@ Cet exemple crée une instance de **DataLakeServiceClient** à l’aide d’un I
 
 ### <a name="connect-by-using-an-account-key"></a>Connexion avec une clé de compte
 
-Il s’agit du moyen le plus simple de se connecter à un compte. 
+Il s’agit du moyen le plus simple de se connecter à un compte.
 
 Cet exemple crée une instance de **DataLakeServiceClient** à l’aide d’une clé de compte.
 
@@ -100,7 +100,7 @@ Cet exemple crée une instance de **DataLakeServiceClient** à l’aide d’une 
 
 ## <a name="set-acls"></a>Définir les listes de contrôle d’accès
 
-Lorsque vous *définissez* une liste de contrôle d’accès (ACL), vous **remplacez** l’ensemble de l’ACL, y compris toutes ses entrées. Si vous souhaitez modifier le niveau d’autorisation d’un principal de sécurité ou ajouter un nouveau principal de sécurité à la liste de contrôle d’accès sans affecter d’autres entrées existantes, vous devez *mettre à jour* l’ACL à la place. Pour mettre à jour une liste de contrôle d’accès au lieu de la remplacer, consultez la section [Mettre à jour une liste de contrôle d’accès](#update-acls) de cet article.  
+Lorsque vous *définissez* une liste de contrôle d’accès (ACL), vous **remplacez** l’ensemble de l’ACL, y compris toutes ses entrées. Si vous souhaitez modifier le niveau d’autorisation d’un principal de sécurité ou ajouter un nouveau principal de sécurité à la liste de contrôle d’accès sans affecter d’autres entrées existantes, vous devez *mettre à jour* l’ACL à la place. Pour mettre à jour une liste de contrôle d’accès au lieu de la remplacer, consultez la section [Mettre à jour une liste de contrôle d’accès](#update-acls) de cet article.
 
 Si vous choisissez de *définir* la liste de contrôle d’accès, vous devez ajouter une entrée pour l’utilisateur propriétaire, une entrée pour le groupe propriétaire et une entrée pour tous les autres utilisateurs. Pour en savoir plus sur l’utilisateur propriétaire, le groupe propriétaire et tous les autres utilisateurs, consultez [Utilisateurs et identités](data-lake-storage-access-control.md#users-and-identities).
 
@@ -108,7 +108,7 @@ Cette section vous montre comment :
 
 - Définir la liste de contrôle d’accès d’un répertoire
 - Définir la liste de contrôle d’accès d’un fichier
-- Définir des listes de contrôle d’accès de façon récursive 
+- Définir des listes de contrôle d’accès de façon récursive
 
 ### <a name="set-the-acl-of-a-directory"></a>Définir la liste de contrôle d’accès d’un répertoire
 
@@ -128,7 +128,7 @@ Cet exemple obtient puis définit l’ACL d’un fichier nommé `upload-file.txt
 
 Définissez les listes de contrôle d’accès de manière récursive en appelant la méthode **DataLakeDirectoryClient.setAccessControlRecursive**. Transmettez à cette méthode une [Liste](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) d’objets [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). Chaque [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) définit une entrée de liste de contrôle d’accès.
 
-Si vous souhaitez définir une entrée de contrôle d’accès **par défaut**, vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**. 
+Si vous souhaitez définir une entrée de contrôle d’accès **par défaut**, vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**.
 
 Cet exemple définit la liste ACL d’un répertoire nommé `my-parent-directory`. Cette méthode accepte un paramètre booléen nommé `isDefaultScope` qui spécifie s’il faut définir la liste de contrôle d’accès par défaut. Ce paramètre est utilisé chaque fois que la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) est appelée. Ces entrées de la liste de contrôle d'accès donnent à l’utilisateur propriétaire des autorisations de lecture, d’écriture et d’exécution et donnent uniquement au groupe propriétaire des autorisations de lecture et d’exécution. Les autres groupes ne reçoivent aucun accès. La dernière entrée de la liste de contrôle d’accès dans cet exemple donne à un utilisateur spécifique avec l’ID d’objet « xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx » des autorisations de lecture et d’exécution.
 
@@ -147,7 +147,7 @@ Cette section vous montre comment :
 
 Tout d’abord, récupérez la liste de contrôle d’accès d’un répertoire en appelant la méthode [PathAccessControl.getAccessControlList](/java/api/com.azure.storage.file.datalake.models.pathaccesscontrol.getaccesscontrollist). Copiez la liste des entrées ACL dans un nouvel objet **List** de type [PathAccessControlListEntry](/java/api/com.azure.storage.file.datalake.models.pathaccesscontrolentry). Recherchez ensuite l’entrée que vous souhaitez mettre à jour et remplacez-la dans la liste. Définissez la liste de contrôle d’accès en appelant la méthode [DataLakeDirectoryClient.setAccessControlList](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.setaccesscontrollist).
 
-Cet exemple met à jour la liste de contrôle d’accès d’un répertoire nommé `my-parent-directory` en remplaçant l’entrée pour tous les autres utilisateurs. 
+Cet exemple met à jour la liste de contrôle d’accès d’un répertoire nommé `my-parent-directory` en remplaçant l’entrée pour tous les autres utilisateurs.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/ACL_DataLake.java" id="Snippet_UpdateACL":::
 
@@ -157,11 +157,11 @@ Vous pouvez également obtenir et définir la liste de contrôle d’accès du r
 
 Pour mettre à jour une liste de contrôle d’accès de manière récursive, créez un objet ACL avec l’entrée ACL à mettre à jour, puis utilisez cet objet dans l’opération de mise à jour de l’ACL. Ne récupérez pas la liste de contrôle d’accès existante, il vous suffit de fournir les entrées ACL à mettre à jour.
 
-Mettez à jour des listes de contrôle d’accès de manière récursive en appelant la méthode **DataLakeDirectoryClient.updateAccessControlRecursive**.  Transmettez à cette méthode une [Liste](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) d’objets [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). Chaque [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) définit une entrée de liste de contrôle d’accès. 
+Mettez à jour des listes de contrôle d’accès de manière récursive en appelant la méthode **DataLakeDirectoryClient.updateAccessControlRecursive**.  Transmettez à cette méthode une [Liste](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) d’objets [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). Chaque [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) définit une entrée de liste de contrôle d’accès.
 
-Si vous souhaitez mettre à jour une entrée de contrôle d’accès **par défaut**, vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**. 
+Si vous souhaitez mettre à jour une entrée de contrôle d’accès **par défaut**, vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**.
 
-Cet exemple met à jour une entrée de liste de contrôle d’accès avec l’autorisation d’écriture. Cette méthode accepte un paramètre booléen nommé `isDefaultScope` qui spécifie s’il faut mettre à jour la liste de contrôle d’accès par défaut. Ce paramètre est utilisé à chaque appel de la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). 
+Cet exemple met à jour une entrée de liste de contrôle d’accès avec l’autorisation d’écriture. Cette méthode accepte un paramètre booléen nommé `isDefaultScope` qui spécifie s’il faut mettre à jour la liste de contrôle d’accès par défaut. Ce paramètre est utilisé à chaque appel de la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html).
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/ACL_DataLake.java" id="Snippet_UpdateACLRecursively":::
 
@@ -182,9 +182,9 @@ Tout d’abord, récupérez la liste de contrôle d’accès d’un répertoire 
 
 Pour supprimer des entrées ACL de manière récursive, créez un objet ACL pour l’entrée ACL à supprimer, puis utilisez cet objet dans l’opération de suppression de l’ACL. Ne récupérez pas la liste de contrôle d’accès existante, il vous suffit de fournir les entrées ACL à supprimer.
 
-Supprimez des entrées de liste de contrôle d’accès en appelant la méthode **DataLakeDirectoryClient.removeAccessControlRecursive**. Transmettez à cette méthode une [Liste](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) d’objets [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). Chaque [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) définit une entrée de liste de contrôle d’accès. 
+Supprimez des entrées de liste de contrôle d’accès en appelant la méthode **DataLakeDirectoryClient.removeAccessControlRecursive**. Transmettez à cette méthode une [Liste](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) d’objets [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). Chaque [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) définit une entrée de liste de contrôle d’accès.
 
-Si vous souhaitez supprimer une entrée de contrôle d’accès **par défaut**, vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**.  
+Si vous souhaitez supprimer une entrée de contrôle d’accès **par défaut**, vous pouvez appeler la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) et y transmettre la valeur **true**.
 
 Cet exemple supprimer une entrée de liste de contrôle d’accès dans la liste ACL du répertoire nommé `my-parent-directory`. Cette méthode accepte un paramètre booléen nommé `isDefaultScope` qui spécifie s’il faut supprimer l’entrée de la liste de contrôle d’accès par défaut. Ce paramètre est utilisé à chaque appel de la méthode **setDefaultScope** de [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html).
 

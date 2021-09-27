@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/16/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8f74b21e2c40b441c48cc3a2837f396252408224
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: be6bc9166ffc0bddae5433734d3213b53e6f6f0e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532027"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673651"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Créer des cibles de calcul pour l’entraînement et le déploiement de modèle dans Azure Machine Learning Studio
 
@@ -198,10 +198,10 @@ Si vous avez créé une instance de calcul ou un cluster de calcul avec l’acc�
 
 1. Copiez la chaîne de connexion.
 1. Pour Windows, ouvrez PowerShell ou une invite de commandes :
-    1. Accédez au répertoire ou au dossier où votre clé est stockée.
-    1. Ajoutez l’indicateur -i à la chaîne de connexion pour rechercher la clé privée et pointer vers l’emplacement où elle est stockée :
+   1. Accédez au répertoire ou au dossier où votre clé est stockée.
+   1. Ajoutez l’indicateur -i à la chaîne de connexion pour rechercher la clé privée et pointer vers l’emplacement où elle est stockée :
     
-        ```ssh -i <keyname.pem> azureuser@... (rest of connection string)```
+      `ssh -i <keyname.pem> azureuser@... (rest of connection string)`
 
 1. Pour les utilisateurs Linux, suivez les étapes de la section [Créer et utiliser une paire de clés SSH pour les machines virtuelles Linux dans Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 

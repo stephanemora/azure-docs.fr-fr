@@ -1,20 +1,20 @@
 ---
 title: Ajout d’une couche de polygones à des cartes Android | Microsoft Azure Maps
 description: Découvrez comment ajouter des polygones ou des cercles aux cartes. Découvrez comment utiliser Azure Maps Android SDK pour personnaliser les formes géométriques et les rendre plus faciles à mettre à jour et à gérer.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 68d68424e71bcf60bf504ae174b84b9c361b8637
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5659e366fd5c949ea374768bf848313d747896d2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097259"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425828"
 ---
 # <a name="add-a-polygon-layer-to-the-map-android-sdk"></a>Ajout d’une couche de polygones à la carte (Android SDK)
 

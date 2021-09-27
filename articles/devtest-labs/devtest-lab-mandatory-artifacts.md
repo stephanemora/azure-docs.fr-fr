@@ -1,14 +1,14 @@
 ---
-title: Spécifier des artefacts obligatoires pour une instance Azure DevTest Labs | Microsoft Docs
+title: Spécifier des artefacts obligatoires
 description: Découvrez comment spécifier les artefacts à installer obligatoirement avant d’installer les artefacts sélectionnés par l’utilisateur sur les machines virtuelles (VM) de l’instance lab.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0677f8bea35cb34735fdcf34e717eea349fad8bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8963db2f99cc893937365a4eac0a656e1ba90613
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85480301"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678494"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Spécifier des artefacts obligatoires pour une instance Azure DevTest Labs
 En tant que propriétaire d’un labo, vous pouvez spécifier des artefacts obligatoires qui sont appliqués à chaque machine créée dans le labo. Supposons que vous souhaitez qu’elles soient toutes connectées à votre réseau d’entreprise. Dans ce cas, chaque utilisateur lab devra ajouter un artefact de jonction de domaine lors de la création de la machine virtuelle pour respecter cette exigence. En d’autres termes, il devra pour ainsi dire recréer une machine si jamais il oublie d’y appliquer les artefacts obligatoires. En tant que propriétaire d’une instance lab, c’est vous qui rendez obligatoire l’artefact de jonction de domaine. L’objectif est de faire en sorte que chaque machine soit connectée au réseau d’entreprise et de faire gagner du temps aux utilisateurs.
@@ -76,4 +76,3 @@ Les utilisateurs de l’instance lab peuvent maintenant afficher la liste des ar
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).
-

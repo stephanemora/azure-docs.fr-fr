@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4c50c7de84f92f1050b88a9c5c7179c69211bb42
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 78e0973cd4e187f819332e23ead056f57d4cd378
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766930"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653056"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Jeux de données dans Azure Data Factory (version 1)
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -38,7 +39,7 @@ Voici un exemple de scénario. Pour copier des données du stockage Blob vers un
 
 Le diagramme suivant montre la relation entre le pipeline, l’activité, le jeu de données et le service lié dans la fabrique de données :
 
-![Relation entre le pipeline, l’activité, le jeu de données et les services liés](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/data-factory-create-datasets/relationship-between-data-factory-entities.png" alt-text="Relation entre le pipeline, l’activité, le jeu de données et les services liés":::
 
 ## <a name="dataset-json"></a>Jeu de données JSON
 Un jeu de données dans la fabrique de données est défini au format JSON comme suit :

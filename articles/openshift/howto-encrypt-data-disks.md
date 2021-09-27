@@ -7,12 +7,12 @@ author: stuartatmicrosoft
 ms.author: stkirk
 ms.service: azure-redhat-openshift
 keywords: chiffrement, byok, aro, cmk, openshift, red hat
-ms.openlocfilehash: 12920f45528911c755035dacd9b9bc0dfa5908ba
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: d5251188dfef87363846d4a19cd7ccc0d5d2976f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231410"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665109"
 ---
 # <a name="encrypt-persistent-volume-claims-with-a-customer-managed-key-cmk-on-azure-red-hat-openshift-aro-preview"></a>Chiffrer des revendications de volume persistant avec une clé gérée par le client (CMK) sur Azure Red Hat OpenShift (ARO) (préversion)
 
@@ -208,7 +208,7 @@ metadata:
 spec:
   containers:
   - name: mypod-with-cmk-encryption
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 87fd5de90896a1a5b97cf9fa07a880ebcea1f35b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: f5928815b6559c257319eb625587135cbf99df0d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535119"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645737"
 ---
 # <a name="best-practices-for-disaster-recovery-with-azure-file-sync"></a>Meilleures pratiques pour la récupération d’urgence avec Azure File Sync
 
@@ -30,7 +30,6 @@ En raison de leur nature hybride, certaines stratégies de récupération d’ur
 - Clonage du système d’exploitation d’un serveur vers un autre serveur
 - Rétablissement d’un point de contrôle de machine virtuelle précédent
 - Restauration de fichiers à partir d’une sauvegarde locale si la hiérarchisation cloud est activée
-
 
 ## <a name="high-availability"></a>Haute disponibilité
 
@@ -67,7 +66,7 @@ Dans la version 9 et les versions ultérieures de l’agent Azure File Sync, le
 Pour garantir la robustesse de la solution de récupération d’urgence, ajoutez une forme de redondance des données à votre infrastructure. Il existe 4 offres de redondance pour Azure Files : le [stockage localement redondant (LRS)](../common/storage-redundancy.md#locally-redundant-storage), le [stockage redondant interzone (ZRS)](../common/storage-redundancy.md#zone-redundant-storage), le [stockage géoredondant (GRS)](../common/storage-redundancy.md#geo-redundant-storage) et le [stockage géoredondant interzone (GZRS)](../common/storage-redundancy.md#geo-zone-redundant-storage).
 
 - [Stockage localement redondant (LRS)](../common/storage-redundancy.md#locally-redundant-storage) : avec LRS, chaque fichier est stocké trois fois au sein d’un cluster de stockage Azure. Cela le protège de la perte de données due à des défaillances matérielles, telles qu’un lecteur de disque défectueux. Toutefois, si un sinistre tel qu’un incendie ou une inondation se produit à l’intérieur du centre de données, tous les réplicas d’un compte de stockage utilisant un stockage localement redondant risquent d’être perdus ou irrécupérables.
-- [Stockage redondant dans une zone (ZRS)](../common/storage-redundancy.md#zone-redundant-storage) : avec ZRS, trois copies de chaque fichier stocké, mais ces copies sont physiquement isolées dans trois clusters de stockage distincts dans différentes *zones de disponibilité* Azure. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d'un ou de plusieurs centres de données équipés d'une alimentation, d'un système de refroidissement et d'un réseau indépendants. Une écriture sur le stockage n’est pas acceptée tant qu’elle n’est pas écrite dans les clusters de stockage dans les trois zones de disponibilité. 
+- [Stockage redondant dans une zone (ZRS)](../common/storage-redundancy.md#zone-redundant-storage) : avec ZRS, trois copies de chaque fichier stocké, mais ces copies sont physiquement isolées dans trois clusters de stockage distincts dans différentes *zones de disponibilité* Azure. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d'un ou de plusieurs centres de données équipés d'une alimentation, d'un système de refroidissement et d'un réseau indépendants. Une écriture sur le stockage n’est pas acceptée tant qu’elle n’est pas écrite dans les clusters de stockage dans les trois zones de disponibilité.
 - [Stockage géoredondant (GRS)](../common/storage-redundancy.md#geo-redundant-storage) : avec GRS, vous avez deux régions, une région primaire et une région secondaire. Les fichiers sont stockés trois fois au sein d’un cluster de stockage Azure dans la région primaire. Les écritures sont répliquées de façon asynchrone dans une région secondaire définie par Microsoft. Le stockage GRS fournit six copies de vos données réparties entre deux régions Azure.
 - [Stockage géoredondant interzone (GZRS)](../common/storage-redundancy.md#geo-zone-redundant-storage) : vous pouvez considérer GZRS comme s’il s’agissait de ZRS, mais avec la géoredondance. Avec GZRS, les fichiers sont stockés trois fois sur trois clusters de stockage distincts dans la région primaire. Toutes les écritures sont ensuite répliquées de façon asynchrone dans une région secondaire définie par Microsoft.
 

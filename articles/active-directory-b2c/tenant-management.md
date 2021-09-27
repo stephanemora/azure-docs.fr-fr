@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8aeb818104e1424d96374bf535d4c02a870f4705
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 3851f9893799902c9cdcda71db67a9152de028ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112453877"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595804"
 ---
 # <a name="manage-your-azure-active-directory-b2c-tenant"></a>Gérer votre locataire Azure Active Directory B2C
 
@@ -76,7 +76,8 @@ Lors de la planification de votre stratégie de contrôle d’accès, il est pr�
 Pour créer un compte d’administration, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec des autorisations d’administrateur général ou d’administrateur de rôle privilégié.
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur**.
@@ -101,7 +102,8 @@ Vous pouvez également inviter un nouvel utilisateur invité à gérer votre loc
 Pour inviter un utilisateur, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec des autorisations d’administrateur général ou d’administrateur de rôle privilégié.
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Utilisateurs**.
 1. Sélectionnez **Nouveau compte Invité**.
@@ -123,13 +125,13 @@ Un e-mail d’invitation est envoyé à l’utilisateur. L’utilisateur doit ac
 Si l’invité n’a pas reçu l’e-mail d’invitation ou si l’invitation a expiré, vous pouvez renvoyer l’invitation. Comme alternative à l’e-mail d’invitation, vous pouvez donner un lien direct à un invité pour qu’il accepte l’invitation. Pour renvoyer l’invitation et recevoir le lien direct :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Utilisateurs**.
 1. Recherchez et sélectionnez l’utilisateur auquel vous souhaitez renvoyer l’invitation.
 1. Sur la page **Utilisateur | Profil**, sous **Identité**, sélectionnez **(Gérer)** .
-    
-    ![Capture d’écran montrant comment renvoyer un e-mail d’invitation à un compte Invité.](./media/tenant-management/guest-account-resend-invite.png)
+        ![Capture d’écran montrant comment renvoyer un e-mail d’invitation à un compte Invité.](./media/tenant-management/guest-account-resend-invite.png)
 
 1. Pour **Renvoyer une invitation ?** , sélectionnez **Oui**. Lorsque **Voulez-vous vraiment renvoyer une invitation ?** s’affiche, sélectionnez **Oui**.
 1. Azure AD B2C envoie l’invitation. Vous pouvez également copier l’URL de l’invitation et la fournir directement à l’invité.
@@ -141,7 +143,8 @@ Si l’invité n’a pas reçu l’e-mail d’invitation ou si l’invitation a 
 Vous pouvez attribuer un rôle lorsque vous [créez un utilisateur](#add-an-administrator-work-account) ou que vous [invitez un utilisateur invité](#invite-an-administrator-guest-account). Vous pouvez ajouter, modifier ou supprimer un rôle pour un utilisateur :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec des autorisations d’administrateur général ou d’administrateur de rôle privilégié.
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Utilisateurs**.
 1. Sélectionnez l’utilisateur dont vous souhaitez modifier les rôles. Ensuite, sélectionnez **Rôles affectés**.
@@ -159,7 +162,8 @@ Si vous devez supprimer une attribution de rôle d’un utilisateur, procédez c
 Dans le cadre d’un processus d’audit, vous examinez généralement les utilisateurs qui sont attribués à des rôles spécifiques dans le répertoire Azure AD B2C. Procédez comme suit pour vérifier quels utilisateurs sont actuellement affectés à des rôles privilégiés.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec des autorisations d’administrateur général ou d’administrateur de rôle privilégié.
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Rôles et administrateurs**.
 1. Sélectionnez un rôle, comme **Administrateur général**. La page de **Rôle | Affectations** répertorie les utilisateurs disposant de ce rôle.
@@ -186,7 +190,8 @@ Vous pouvez activer des [paramètres de sécurité par défaut Azure AD](../acti
 Pour récupérer votre nom de locataire Azure AD B2C, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Dans la **Vue d’ensemble**, copiez le **Nom de domaine**.
 
@@ -197,7 +202,8 @@ Pour récupérer votre nom de locataire Azure AD B2C, procédez comme suit :
 Pour récupérer votre ID de locataire Azure AD B2C, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le Portail Azure, recherchez et sélectionnez **Azure Active Directory**.
 1. Dans la **vue d’ensemble**, copiez l’**ID de locataire**.
 

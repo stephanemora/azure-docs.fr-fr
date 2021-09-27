@@ -8,12 +8,12 @@ ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 4e12f578fe8bd2eff97deec7b23656086e80475c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 9a76298b829df96ca6fcf7c483eeec98e1f5b36d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525441"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673214"
 ---
 # <a name="nfs-file-shares-in-azure-files-preview"></a>Partages de fichiers NFS dans Azure Files (préversion)
 Azure Files offre deux protocoles standard pour le montage d’un partage de fichiers Azure : le protocole [SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) et le protocole [NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) en préversion. Azure Files vous permet de choisir le protocole de système de fichiers le mieux adapté à votre charge de travail. Les partages de fichiers Azure ne prennent pas en charge l’accès à un partage de fichiers Azure individuel avec les protocoles SMB et NFS, même si vous pouvez créer des partages de fichiers SMB et NFS au sein du même compte de stockage. Pour tous les partages de fichiers, Azure Files propose des partages de fichiers d’entreprise qui peuvent être mis à l’échelle pour répondre à vos besoins de stockage et accessibles simultanément par des milliers de clients.
@@ -99,7 +99,6 @@ Les partages de fichiers Azure NFS sont uniquement proposés sur des partages de
 La préversion de NFS a été validée pour fonctionner avec des charges de travail comme les répertoires de base pour les serveurs de fichiers à usage général et les référentiels de contenu pour les charges de travail d’application.
 
 Les charges de travail suivantes présentent des problèmes connus. Pour obtenir la liste des problèmes connus, consultez [Résoudre les problèmes liés aux partages de fichiers Azure NFS](storage-troubleshooting-files-nfs.md) :
-- IBM MQ présente des problèmes de verrouillage.
 - Oracle Database présente une incompatibilité avec sa fonctionnalité dNFS.
 - La couche d’application SAP présente un comportement incohérent en raison d’un [problème actif connu avec ls -l](storage-troubleshooting-files-nfs.md#ls-la-throws-io-error).
 

@@ -4,13 +4,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
-ms.date: 08/25/2021
-ms.openlocfilehash: 61f0dc4bf556c992721b5cd7cd2859ef30d8cbb9
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/15/2021
+ms.openlocfilehash: cb10d36bd426655db6a059dad3bda70cf21cf123
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123355380"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909859"
 ---
 ### <a name="copy-activity-support"></a>Prise en charge de l’activité de copie
 
@@ -47,7 +47,6 @@ Si vous utilisez les fonctionnalités suivantes de l’activité Copy, la traça
 - Copie de données dans Azure Synapse Analytics avec PolyBase ou l’instruction COPY
 - Paramètre de compression pour les fichiers binaires, texte délimité, Excel, JSON et XML
 - Options de partition source pour Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server et la table SAP
-- Option de détection de partition source pour les magasins basés sur des fichiers
 - Copie de données dans un récepteur basé sur des fichiers avec paramètre de nombre maximal de lignes par fichier
 
 En plus de la traçabilité des données, le schéma de la ressource de données (affiché sous l’onglet Ressource -> Schéma) est signalé pour les connecteurs suivants :

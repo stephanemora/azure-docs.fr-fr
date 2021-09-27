@@ -3,19 +3,19 @@ title: Guide pratique sur la préparation des données pour Custom Voice - Servi
 titleSuffix: Azure Cognitive Services
 description: Créez une voix personnalisée pour votre marque avec le service Speech. Vous fournissez des enregistrements en studio et les scripts associés et le service génère un modèle de voix unique à partir de la voix enregistrée. Cette voix assure alors la synthèse vocale dans vos produits, outils et applications.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: lajanuar
-ms.openlocfilehash: 74f23dd6a7629e98189f73ebc305755d70f3c7a1
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 3736e0a1200367e3f0e39bffc213cf369d3983b5
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525544"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536460"
 ---
 # <a name="prepare-training-data"></a>Préparer des données d’entraînement
 

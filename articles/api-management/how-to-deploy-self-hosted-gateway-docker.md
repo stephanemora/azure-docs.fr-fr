@@ -1,21 +1,18 @@
 ---
-title: Déployer une passerelle auto-hébergée sur Docker | Microsoft Docs
+title: Déployer une passerelle auto-hébergée sur Docker
 description: Découvrez comment déployer la passerelle auto-hébergée de la Gestion des API Azure sur Docker.
-services: api-management
-documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: gwallace
-editor: ''
 ms.service: api-management
 ms.topic: article
 ms.date: 04/19/2021
-ms.author: apimpm
-ms.openlocfilehash: 531421726bc1e081d85eca9d535267520d3fea5f
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.author: danlep
+ms.openlocfilehash: 3ef8e0316b6df0b95f2163b6df8ae139ebb8fe6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725600"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580943"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Déployer une passerelle auto-hébergée de gestion des API Azure sur Docker
 
@@ -43,9 +40,11 @@ Cet article explique comment déployer la passerelle auto-hébergée de la Gesti
 6. Sélectionnez le lien de fichier **env. conf** en regard de l’**Environnement** pour télécharger le fichier.
 7. Sélectionnez l’icône **Copier** située à l’extrémité droite de la zone de texte **Exécuter** pour copier la commande Docker dans le Presse-papiers.
 8. Collez la commande dans la fenêtre (ou la commande) du terminal. Ajustez les mappages de port et le nom de conteneur si nécessaire. Notez que la commande s’attend à ce que le fichier d’environnement téléchargé soit présent dans le répertoire actif.
+
    ```
-       docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
+   docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
    ```
+
 9. Exécutez la commande. La commande demande à votre environnement Docker d’exécuter le conteneur à l’aide de l’[image conteneur](https://aka.ms/apim/sputnik/dhub) téléchargée à partir de Microsoft Container Registry, et de mapper les ports HTTP (8080) et HTTPS (8081) du conteneur aux ports 80 et 443 de l’hôte.
 10. Exécutez la commande ci-dessous pour vérifier que le conteneur de la passerelle est en cours d’exécution :
     ```console
@@ -58,9 +57,9 @@ Cet article explique comment déployer la passerelle auto-hébergée de la Gesti
     ![état de la passerelle](media/how-to-deploy-self-hosted-gateway-docker/status.png)
 
 > [!TIP]
-> Utilisez la commande <code>console docker container logs <gateway-name></code> pour afficher un instantané du journal de la passerelle auto-hébergée.
+> Utilisez la commande `console docker container logs <gateway-name>` pour afficher un instantané du journal de la passerelle auto-hébergée.
 >
-> Utilisez la commande <code>docker container logs --help</code> pour voir toutes les options d’affichage des journaux.
+> Utilisez la commande `docker container logs --help` pour voir toutes les options d’affichage des journaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

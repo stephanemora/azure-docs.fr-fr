@@ -1,19 +1,17 @@
 ---
 title: Ajouter une grille d'alignement à la carte | Microsoft Azure Maps
 description: Apprenez à ajouter une grille d'alignement à une carte à l'aide du kit de développement logiciel (SDK) web Azure Maps
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/20/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: cpendle
-ms.openlocfilehash: 0236128925362bf2736489f2dbf97ab936183c93
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 3202461de662e0f789b6c3a6187dcfbe2fa58764
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114670038"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439611"
 ---
 # <a name="add-a-snap-grid-to-the-map"></a>Ajouter une grille d'alignement à la carte
 
@@ -29,7 +27,7 @@ L'exemple suivant permet d'aligner un marqueur HTML sur une grille. Les outils d
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Utiliser une grille d'alignement" src="https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Utiliser une grille d'alignement" src="https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consultez l'extrait <a href="https://codepen.io/azuremaps/pen/rNmzvXO">Utiliser une carte d'alignement</a> d'Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>) sur <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
@@ -40,7 +38,7 @@ L'exemple suivant illustre les différentes options de personnalisation disponib
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Options de grille d'alignement" src="https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" scrolling="no" title="Options de grille d'alignement" src="https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consultez l'extrait <a href="https://codepen.io/azuremaps/pen/RwVZJry">Options de ligne d'alignement</a> d'Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>) sur <a href="https://codepen.io">CodePen</a>.
 </iframe>
 

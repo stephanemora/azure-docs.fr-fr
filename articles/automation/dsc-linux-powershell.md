@@ -5,16 +5,17 @@ ms.topic: conceptual
 services: automation
 ms.subservice: dsc
 ms.date: 08/31/2021
-ms.openlocfilehash: e4352c5c2cca0391e4e795b537af16c28ded6f6e
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 600fdfafa64e0827ac023ae01810ec54bdaa95fe
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123354517"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438495"
 ---
 # <a name="configure-linux-desired-state-with-azure-automation-state-configuration-using-powershell"></a>Configurer l’état souhaité Linux avec Azure Automation State Configuration à l’aide de PowerShell
 
 Dans ce tutoriel, vous allez appliquer une configuration d’état Azure Automation avec PowerShell à une machine virtuelle Linux Azure pour vérifier si elle est conforme à l’état souhaité. L’état souhaité consiste à déterminer si le service apache2 est présent sur le nœud.
+
 Azure Automation State Configuration vous permet de spécifier des configurations pour vos ordinateurs et de vérifier que leur état ainsi défini perdure dans le temps. Pour plus d’informations sur la fonctionnalité State Configuration, consultez [Vue d’ensemble d’Azure Automation State Configuration](./automation-dsc-overview.md).
 
 Dans ce tutoriel, vous apprenez à effectuer les opérations suivantes :

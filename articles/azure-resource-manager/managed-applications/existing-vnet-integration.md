@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: tomfitz
-ms.openlocfilehash: fa5e59b96aada06c2dd486094d9be6a52c79e43e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f35e12b62b0efd9f79f83a1832c317d7eabe99b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84260682"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648332"
 ---
 # <a name="use-existing-virtual-network-with-azure-managed-applications"></a>Utiliser un réseau virtuel existant avec des applications managées Azure
 
@@ -18,7 +18,7 @@ Cet article vous montre comment définir une application managée Azure qui s’
 
 ## <a name="main-template"></a>Modèle principal
 
-Examinons pour commencer le fichier **mainTemplate.json**. Le modèle complet de déploiement d’une machine virtuelle et des ressources associées est présenté ci-dessous. Plus loin, nous examinerons en détail les parties du modèle liées à l’utilisation d’un réseau virtuel existant.
+Examinons pour commencer le fichier _mainTemplate.json_. Le modèle complet de déploiement d’une machine virtuelle et des ressources associées est présenté ci-dessous. Plus loin, nous examinerons en détail les parties du modèle liées à l’utilisation d’un réseau virtuel existant.
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/mainTemplate.json":::
 
@@ -38,7 +38,7 @@ L’interface réseau est définie avec la variable de l’ID de sous-réseau.
 
 ## <a name="ui-definition"></a>Définition de l’interface utilisateur
 
-Examinons à présent le fichier **createUiDefinition.json**. Voici le fichier complet :
+Examinons à présent le fichier _createUiDefinition.json_. Voici le fichier complet :
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/createUiDefinition.json":::
 

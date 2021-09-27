@@ -609,8 +609,8 @@
       items:
         - name: "Qu’est-ce qu’Hyperscale (Citus)\_?"
           href: hyperscale-overview.md
-        - name: Fonctionnalités de la version préliminaire
-          href: hyperscale-preview-features.md
+        - name: Mises à jour produit
+          href: hyperscale-product-updates.md
     - name: Démarrage rapide
       items:
         - name: Créer un groupe de serveurs

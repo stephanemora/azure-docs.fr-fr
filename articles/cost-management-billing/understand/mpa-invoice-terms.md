@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 9ff151071d42308137bdb8e9064f9b27ed194cae
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 63295e27791252e3b978fb83801182b7b8814f82
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688842"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559822"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Termes de votre facture de Contrat Partenaire Microsoft
 
@@ -42,7 +42,7 @@ Le **récapitulatif de la facture** se trouve en haut de la première page et af
 | Numéro de bon de commande nombre |Numéro de commande facultatif, attribué par vous pour le suivi |
 | Numéro de facture |Numéro de facture unique généré par Microsoft, utilisé à des fins de suivi. |
 | Date de facture |Date à laquelle la facture a été générée, généralement cinq à douze jours après la fin du cycle de facturation. Vous pouvez vérifier la date de votre facture dans les propriétés du profil de facturation.|
-| Conditions de paiement |Mode de paiement de votre facture Microsoft. La mention *60 jours nets* signifie que le règlement doit être effectué dans les 60 jours suivant la date de facturation. |
+| Modalités de paiement |Mode de paiement de votre facture Microsoft. La mention *60 jours nets* signifie que le règlement doit être effectué dans les 60 jours suivant la date de facturation. |
 
 ## <a name="billing-summary"></a>Récapitulatif de facturation
 
@@ -82,6 +82,6 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Comprendre les frais indiqués sur la facture de votre profil de facturation](review-customer-agreement-bill.md)
-- [Obtention de votre facture Azure et de vos données d’utilisation quotidienne](../manage/download-azure-invoice-daily-usage-date.md)
+- [Comment obtenir votre facture Azure et vos données d’utilisation quotidienne](../manage/download-azure-invoice-daily-usage-date.md)
 - [Afficher les tarifs Azure de votre organisation](../manage/ea-pricing.md)
 - [Afficher les documents de taxe de votre contrat de client de Microsoft](mca-download-tax-document.md)

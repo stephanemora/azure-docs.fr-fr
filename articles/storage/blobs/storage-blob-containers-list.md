@@ -9,16 +9,16 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40dade86882cdfa8f85015bebc8769430fbf3f1a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b6caf7170130b75689de2915e5d15c8484ba231a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477617"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680202"
 ---
 # <a name="list-blob-containers-with-net"></a>Répertoriez les conteneurs d’objets BLOB avec .NET
 
-Lorsque vous répertoriez les conteneurs dans un compte de stockage Azure à partir de votre code, vous pouvez spécifier un certain nombre d’options pour gérer la façon dont les résultats sont retournés à partir du stockage Azure. Cet article explique comment répertorier les conteneurs à l’aide de la [bibliothèque de client de stockage Azure pour .NET](/dotnet/api/overview/azure/storage).  
+Lorsque vous répertoriez les conteneurs dans un compte de stockage Azure à partir de votre code, vous pouvez spécifier un certain nombre d’options pour gérer la façon dont les résultats sont retournés à partir du stockage Azure. Cet article explique comment répertorier les conteneurs à l’aide de la [bibliothèque de client de stockage Azure pour .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="understand-container-listing-options"></a>Comprenez les options de la liste des conteneurs
 

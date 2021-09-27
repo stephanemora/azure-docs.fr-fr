@@ -1,20 +1,20 @@
 ---
 title: Ajouter des contrôles à une carte Android | Microsoft Azure Maps
 description: Comment ajouter un contrôle de zoom, un contrôle de tonalité, un contrôle de rotation et un sélecteur de styles à une carte dans l’Android SDK Microsoft Azure Maps.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: b84150196467606800df737ba9c9d50c69346e30
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 5599efb61c02c05ea3908d660ca0f1c11bea1ca7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093586"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425299"
 ---
 # <a name="add-controls-to-a-map-android-sdk"></a>Ajouter des contrôles à une carte (Android SDK)
 

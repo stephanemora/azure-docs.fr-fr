@@ -12,12 +12,12 @@ ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 594b04c96ddbc166c7c3f95b7b04ebc1b1a3784b
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 301a386c9c9a21cf1f988ee62c19ca7cc60e7a39
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223446"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429997"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0
 
@@ -58,7 +58,7 @@ Ce type d’autorisation est courant pour les démons et les comptes de service 
 
 Pour activer ce modèle d’autorisation par listes ACL, Azure AD n’impose pas que les applications soient autorisées à obtenir des jetons pour une autre application. Les jetons de type application uniquement peuvent ainsi être émis sans revendication `roles`. Les applications qui exposent des API doivent implémenter des vérifications d’autorisation afin d’accepter les jetons.
 
-Si vous souhaitez empêcher les applications d’obtenir des jetons d’accès de type application uniquement sans rôle pour votre application, [veillez à ce que les exigences d’affectation d’utilisateurs soient activées pour votre application](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). Ainsi, les utilisateurs et les applications dépourvus de rôles ne pourront pas récupérer de jeton pour cette application. 
+Si vous souhaitez empêcher les applications d’obtenir des jetons d’accès de type application uniquement sans rôle pour votre application, [veillez à ce que les exigences d’affectation d’utilisateurs soient activées pour votre application](../manage-apps/add-application-portal-configure.md#configure-app-properties). Ainsi, les utilisateurs et les applications dépourvus de rôles ne pourront pas récupérer de jeton pour cette application.
 
 ### <a name="application-permissions"></a>Autorisations de l’application
 
@@ -114,7 +114,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 Si l’administrateur approuve les autorisations pour votre application, la réponse correcte sera :
 
 ```HTTP
-GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=12345&admin_consent=True
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
 | Paramètre | Description |

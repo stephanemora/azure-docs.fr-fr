@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3765114c73be73beba6d898385077b83d46e3bc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92784046"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638289"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Choisir une solution Azure pour le transfert de données
 
@@ -33,10 +33,10 @@ Il existe plusieurs types de déplacement des données :
 
 - **Transfert par réseau** : vous transférez vos données vers Azure via votre connexion réseau. Il existe plusieurs manières de procéder :
 
-    - **Interface graphique** : si vous transférez occasionnellement quelques fichiers et que vous n’avez pas besoin d’automatiser le transfert de données, vous pouvez choisir un outil d’interface graphique tel que l’Explorateur Stockage Azure ou un outil web d’exploration dans le portail Azure.
-    - **Transfert scripté ou programmatique** : vous pouvez utiliser les outils logiciels optimisés que nous fournissons ou appeler directement nos SDK et API REST. Les outils scriptables disponibles sont les suivants : AzCopy, Azure PowerShell et Azure CLI. Pour l’interface de programmation, utilisez l’un des SDK pour .NET, Java, Python, Node/JS, C++, Go, PHP ou Ruby.
-    - **Périphériques locaux** : nous vous fournissons un périphérique physique ou virtuel qui se trouve dans votre centre de données et qui optimise le transfert de données sur le réseau. Ces périphériques offrent également un cache local contenant les fichiers fréquemment utilisés. L’appareil physique correspond à Azure Stack Edge et l’appareil virtuel correspond à Data Box Gateway. Les deux appareils sont exécutés sur site en permanence et sont connectés à Azure grâce au réseau.
-    - **Pipeline de données managées** : vous pouvez configurer un pipeline cloud qui transfère régulièrement des fichiers entre plusieurs services Azure, en local ou les deux. Utilisez Azure Data Factory pour configurer et gérer les pipelines de données et déplacer et transformer des données pour les analyser.
+  - **Interface graphique** : si vous transférez occasionnellement quelques fichiers et que vous n’avez pas besoin d’automatiser le transfert de données, vous pouvez choisir un outil d’interface graphique tel que l’Explorateur Stockage Azure ou un outil web d’exploration dans le portail Azure.
+  - **Transfert scripté ou programmatique** : vous pouvez utiliser les outils logiciels optimisés que nous fournissons ou appeler directement nos SDK et API REST. Les outils scriptables disponibles sont les suivants : AzCopy, Azure PowerShell et Azure CLI. Pour l’interface de programmation, utilisez l’un des SDK pour .NET, Java, Python, Node/JS, C++, Go, PHP ou Ruby.
+  - **Périphériques locaux** : nous vous fournissons un périphérique physique ou virtuel qui se trouve dans votre centre de données et qui optimise le transfert de données sur le réseau. Ces périphériques offrent également un cache local contenant les fichiers fréquemment utilisés. L’appareil physique correspond à Azure Stack Edge et l’appareil virtuel correspond à Data Box Gateway. Les deux appareils sont exécutés sur site en permanence et sont connectés à Azure grâce au réseau.
+  - **Pipeline de données managées** : vous pouvez configurer un pipeline cloud qui transfère régulièrement des fichiers entre plusieurs services Azure, en local ou les deux. Utilisez Azure Data Factory pour configurer et gérer les pipelines de données et déplacer et transformer des données pour les analyser.
 
 L’image suivante illustre les recommandations permettant de choisir parmi les différents outils de transfert de données Azure en fonction de la bande passante réseau disponible pour le transfert, de la taille des données à transférer et de la fréquence du transfert.
 
@@ -49,7 +49,7 @@ L’image suivante illustre les recommandations permettant de choisir parmi les 
 Répondez aux questions suivantes pour sélectionner une solution de transfert de données :
 
 - Votre bande passante réseau disponible est-elle limitée ou inexistante et voulez-vous transférer des jeux de données volumineux ?
-  
+
     Si oui, reportez-vous au [Scénario 1 : Transférer des jeux de données volumineux avec peu ou pas de bande passante réseau](storage-solution-large-dataset-low-network.md).
 - Souhaitez-vous transférer des jeux de données volumineux via le réseau et disposez-vous d’une bande passante réseau modérée ou élevée ?
 
@@ -66,7 +66,7 @@ Répondez aux questions suivantes pour sélectionner une solution de transfert d
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Fonctionnalité de transfert de données dans le Portail Microsoft Azure
 
-Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Portail Microsoft Azure et sélectionner la fonctionnalité **Transfert de données**. Indiquez la bande passante réseau dans votre environnement, la taille des données que vous souhaitez transférer et la fréquence du transfert de données. Vous verrez les solutions optimales de transfert de données correspondant aux informations que vous avez fournies. 
+Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Portail Microsoft Azure et sélectionner la fonctionnalité **Transfert de données**. Indiquez la bande passante réseau dans votre environnement, la taille des données que vous souhaitez transférer et la fréquence du transfert de données. Vous verrez les solutions optimales de transfert de données correspondant aux informations que vous avez fournies.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -76,10 +76,10 @@ Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Porta
 - [Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Vous en saurez plus sur :
 
-    - [Azure Data Box, Azure Data Box Disk et Azure Data Box Heavy pour les transferts hors connexion](../../databox/index.yml).
-    - [Azure Data Box Gateway et Azure Stack Edge pour les transferts en ligne](../../databox-online/index.yml).
+  - [Azure Data Box, Azure Data Box Disk et Azure Data Box Heavy pour les transferts hors connexion](../../databox/index.yml).
+  - [Azure Data Box Gateway et Azure Stack Edge pour les transferts en ligne](../../databox-online/index.yml).
 - [Qu'est-ce qu'Azure Data Factory ?](../../data-factory/copy-activity-overview.md)
 - Utiliser les API REST pour transférer des données
 
-    - [Dans .NET](/dotnet/api/overview/azure/storage)
-    - [Dans Java](/java/api/overview/azure/storage)
+  - [Dans .NET](/dotnet/api/overview/azure/storage)
+  - [Dans Java](/java/api/overview/azure/storage)

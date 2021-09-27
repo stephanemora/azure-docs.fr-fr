@@ -2,14 +2,14 @@
 title: Azure Service Bus – Nombre de messages
 description: Récupérez le nombre de messages contenus dans les files d’attente et les abonnements à l’aide d’Azure Resource Manager et des API NamespaceManager d’Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb559f6dbd492d1c35a15f9f30cbc0ad02620a01
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 74038f38f1faca90e4fab7a0d4f94229a1b44429
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670685"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576058"
 ---
 # <a name="get-message-counters"></a>Obtenir des compteurs de messages
 Cet article vous montre différentes façons d’obtenir les nombres de messages suivants pour une file d’attente ou un abonnement. Le fait de connaître le nombre de messages actifs permet de déterminer si une file d’attente génère un backlog dont le traitement nécessite davantage de ressources que celles déployées actuellement. 

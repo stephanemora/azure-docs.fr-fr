@@ -3,16 +3,16 @@ title: Utiliser les widgets de la ommunauté sur le portail des développeurs
 titleSuffix: Azure API Management
 description: En savoir plus sur les widgets de la communauté du portail des développeurs Gestion des API et sur la manière de les injecter et de les utiliser dans votre code.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: de6160aa2e556297287ae9e9ecd58a93e54d863f
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 3fe751483ea22ff3464cc1fd505b313a5a48ade7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741091"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656319"
 ---
 # <a name="use-community-widgets-in-the-developer-portal"></a>Utiliser les widgets de la ommunauté sur le portail des développeurs
 

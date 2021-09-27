@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f613a14f84999fced888ae72de11328bc7c90811
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cce6dfcda5c506f27c3527c5a417cbe712ebcca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104780002"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661048"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Planification et exécution avec Data Factory
 > [!NOTE]
@@ -48,7 +49,7 @@ Ce n’est pas le pipeline qui est exécuté. Ce sont les activités dans le pip
 
 Comme illustré dans le diagramme suivant, la définition d’une planification pour une activité crée une série de fenêtres récurrentes dans les heures de début et de fin du pipeline. Les fenêtres récurrentes sont une série d’intervalles de temps fixes contigus, qui ne se chevauchent pas. Ces fenêtres récurrentes logiques pour une activité sont appelées des **fenêtres d’activité**.
 
-![Exemple de planificateur d’activité](media/data-factory-scheduling-and-execution/scheduler-example.png)
+:::image type="content" source="media/data-factory-scheduling-and-execution/scheduler-example.png" alt-text="Exemple de planificateur d’activité":::
 
 La propriété **scheduler** (planificateur) d’une activité est facultative. Si vous définissez cette propriété, elle doit correspondre à la cadence que vous spécifiez dans la définition du jeu de données de sortie pour l’activité. Le jeu de données de sortie pilote actuellement la planification. Vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. 
 
@@ -162,7 +163,7 @@ Dans cet exemple, l’activité s’exécute toutes les heures entre les heures 
 
 Chaque unité de données consommée ou produite pendant l’exécution d’une activité est appelée **tranche de données**. Le diagramme suivant illustre un exemple d’une activité avec un jeu de données d’entrée et un jeu de données de sortie : 
 
-![Planificateur de disponibilité](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/availability-scheduler.png" alt-text="Planificateur de disponibilité":::
 
 Les tranches de données recueillies toutes les heures pour le jeu de données d’entrée et de sortie sont affichées dans le diagramme. Le diagramme illustre trois tranches d’entrée qui sont prêtes pour le traitement. L’activité de 10 à 11 h est en cours, et produit la tranche de sortie de 10 à 11 h. 
 
@@ -284,7 +285,7 @@ Lorsqu’une erreur se produit pendant le traitement d’une tranche de données
 
 Prenons l’exemple suivant, il montre les deux activités. Activity1 et Activity2. Activity1 utilise une tranche de Dataset1 et génère une tranche de Dataset2, qui est utilisé en entrée par Activity2 pour produire une tranche du jeu de données final.
 
-![Tranche de données ayant échoué](./media/data-factory-scheduling-and-execution/failed-slice.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/failed-slice.png" alt-text="Tranche de données ayant échoué":::
 
 Le diagramme montre que, parmi les trois tranches récentes, il y a eu un échec, ce qui a généré une tranche 9 à 10 h pour Dataset2. Data Factory effectue automatiquement le suivi de la dépendance du jeu de données. Par conséquent, il ne lance pas l’activité sur la tranche 9 à 10 h en aval.
 
@@ -292,7 +293,7 @@ Les outils de supervision et de gestion Data Factory vous permettent d’examine
 
 Une fois que vous avez relancé l’exécution de la tranche de 9-10 h pour **Dataset2**, Data Factory lance l’exécution de la tranche dépendante 9 à 10 h sur un jeu de données final.
 
-![Réexécuter une tranche de données ayant échoué](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/rerun-failed-slice.png" alt-text="Réexécuter une tranche de données ayant échoué":::
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Plusieurs activités à l’intérieur d’un pipeline
 Un pipeline peut toutefois contenir plusieurs activités. Si vous avez plusieurs activités dans un pipeline et que la sortie d’une activité n’est pas une entrée dans une autre activité, les activités peuvent s’exécuter en parallèle si les tranches de données d’entrée pour les activités sont prêtes.
@@ -308,11 +309,11 @@ Dans ce scénario, les activités A1 et A2 sont dans le même pipeline. L’acti
 
 La vue de diagramme avec les deux activités dans le même pipeline se présente comme dans le diagramme suivant :
 
-![Chaînage des activités dans le même pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png" alt-text="Chaînage des activités dans le même pipeline":::
 
 Comme mentionné plus tôt, les activités peuvent être dans des pipelines différents. Dans ce scénario, la vue de diagramme se présente comme dans le diagramme suivant :
 
-![Chaînage des activités dans deux pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png" alt-text="Chaînage des activités dans deux pipelines":::
 
 Consultez la section Copier de manière séquentielle de l'annexe pour obtenir un exemple.
 
@@ -435,7 +436,7 @@ Le script Hive reçoit les informations de *DateTime* en tant que paramètres qu
 
 Le diagramme suivant illustre le scénario du point de vue de la dépendance des données.
 
-![Dépendance des données](./media/data-factory-scheduling-and-execution/data-dependency.png)
+:::image type="content" source="./media/data-factory-scheduling-and-execution/data-dependency.png" alt-text="Dépendance des données":::
 
 La tranche de sortie dépend des 24 tranches horaires depuis l’ensemble de données en entrée. Data Factory calcule automatiquement ces dépendances en déterminant les tranches de données d’entrée qui tombent dans la même période que la tranche de données à générer. Si une des 24 tranches d’entrée n’est pas disponible, Data Factory attend que la tranche d’entrée soit prête avant de lancer l’exécution d’activité quotidienne.
 

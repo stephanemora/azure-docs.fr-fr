@@ -1,4 +1,4 @@
-- name: Documentation sur DevTest Labs
+- name: Documentation sur Azure DevTest Labs
   href: index.yml
 - name: Vue d’ensemble
   items:
