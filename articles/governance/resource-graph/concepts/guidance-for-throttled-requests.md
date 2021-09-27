@@ -1,15 +1,15 @@
 ---
 title: Instructions pour les requêtes limitées
 description: Apprenez à regrouper, échelonner, paginer et interroger en parallèle pour éviter que les demandes soient limitées par Azure Resource Graph.
-ms.date: 08/17/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 745f90fd82c4ee0bd233f6b074c7c3a637820609
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: eece1d35cdabcca957e4ce1e72e32f243a1747e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563921"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589736"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Conseils pour les requêtes limitées dans Azure Resource Graph
 
@@ -200,7 +200,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
   var results = new List<object>();
   var queryRequest = new QueryRequest(
       subscriptions: new[] { mySubscriptionId },
-      query: "Resources | project id, name, type | top 5000");
+      query: "Resources | project id, name, type");
   var azureOperationResponse = await this.resourceGraphClient
       .ResourcesWithHttpMessagesAsync(queryRequest, header)
       .ConfigureAwait(false);
@@ -215,18 +215,6 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
       // Inspect throttling headers in query response and delay the next call if needed.
   }
-  ```
-
-- Azure CLI / Azure PowerShell
-
-  Quand vous utilisez Azure CLI ou Azure PowerShell, les requêtes envoyées à Azure Resource Graph sont automatiquement paginées afin d’extraire au maximum 5 000 entrées. Les résultats de requête retournent une liste combinée d’entrées à partir de tous les appels paginés. Dans ce cas, en fonction du nombre d’entrées dans le résultat de requête, une requête paginée peut consommer plus d’un quota de requête. Dans les exemples suivants, une seule exécution de la requête peut consommer jusqu’à cinq quotas de requête :
-
-  ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' --first 5000
-  ```
-
-  ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## <a name="still-get-throttled"></a>Vous êtes toujours limité ?

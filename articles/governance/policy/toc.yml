@@ -98,8 +98,6 @@
               href: ./samples/australia-ism.md
             - name: Benchmark de sécurité Azure
               href: ./samples/azure-security-benchmark.md
-            - name: "Azure Security Benchmark\_v1"
-              href: ./samples/azure-security-benchmarkv1.md
             - name: PBMM fédéral du Canada
               href: ./samples/canada-federal-pbmm.md
             - name: "CIS Microsoft Azure Foundations Benchmark\_1.3.0"

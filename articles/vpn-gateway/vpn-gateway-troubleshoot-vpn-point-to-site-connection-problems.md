@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 136ea5fcb8dd446cfff6400616df058722fa2827
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: c30dc859a7cfc139d1402eadc3b4e0ae812125c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075370"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603464"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
@@ -341,9 +341,9 @@ Mettre à jour le pilote de carte d’interface réseau :
 4. Si Windows ne trouve pas de nouveau pilote, recherchez-en un sur le site Web du fabricant de l’appareil et suivez ses instructions.
 5. Redémarrez l’ordinateur et réessayez de vous connecter.
 
-## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Erreur du client VPN : Numérotation de la connexion VPN <VPN Connection Name>, Status = La plateforme VPN n’a pas déclenché la connexion
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Erreur du client VPN : Numérotation de la connexion VPN \<VPN Connection Name\>, Status = La plateforme VPN n’a pas déclenché la connexion
 
-Vous pouvez également voir l’erreur suivante dans l’observateur d’événements à partir de RasClient : « L’utilisateur <User> a composé le numéro de la connexion <VPN Connection Name>. La connexion a échoué. Code d’erreur retourné : 1460. »
+Vous pouvez également voir l’erreur suivante dans l’observateur d’événements à partir de RasClient : « L’utilisateur \<User\> a composé le numéro de la connexion \<VPN Connection Name\>. La connexion a échoué. Code d’erreur retourné : 1460. »
 
 ### <a name="cause"></a>Cause
 

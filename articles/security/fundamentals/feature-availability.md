@@ -5,13 +5,13 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 08/15/2021
-ms.openlocfilehash: f8e860cb93930c8e412fe102cf52fbf0c8b78e41
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.date: 09/13/2021
+ms.openlocfilehash: d535cff28e87de0f2dcf4afb90ab452303a6d0e0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535115"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609210"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilité des fonctionnalités cloud pour les clients du secteur public américain
 
@@ -74,7 +74,7 @@ Le tableau suivant présente la disponibilité actuelle des fonctionnalités Sec
 | **Plans et extensions Azure Defender**                                                                                                                                       |                |                                | 
 | - [Azure Defender pour les serveurs](../../security-center/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | 
 | - [Azure Defender pour App Service](../../security-center/defender-for-app-service-introduction.md)                                                                            | GA             | Non disponible                  | 
-| - [Azure Defender pour DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | Non disponible                  | 
+| - [Azure Defender pour DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | 
 | - [Azure Defender pour les registres de conteneurs](../../security-center/defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | 
 | - [Azure Defender pour les registres de conteneurs analyse des images dans les flux de travail CI/CD](../../security-center/defender-for-container-registries-cicd.md) <sup> [3](#footnote3)</sup> | Version préliminaire publique | Non disponible                  | 
 | - [Azure Defender pour Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | 
@@ -87,7 +87,7 @@ Le tableau suivant présente la disponibilité actuelle des fonctionnalités Sec
 | - [Azure Defender pour Stockage](../../security-center/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
 | - [Protection contre les menaces pour Cosmos DB](../../security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Version préliminaire publique | Non disponible                  |
 | - [Protection de charge de travail Kubernetes](../../security-center/kubernetes-workload-protections.md)                                                                                  | GA             | GA                             |
-| - [Synchronisation d’alerte bidirectionnelle avec Sentinel](../../sentinel/connect-azure-security-center.md)                                                                          | Version préliminaire publique | Non disponible                  | 
+| - [Synchronisation d’alerte bidirectionnelle avec Sentinel](../../sentinel/connect-azure-security-center.md)                                                                       | Version préliminaire publique | Non disponible                  | 
 | **Fonctionnalités Azure Defender pour les serveurs** <sup>[7](#footnote7)</sup>                                                                                                            |                |                                |
 | - [Accès juste-à-temps aux machines virtuelles](../../security-center/security-center-just-in-time.md)                                                                                             | GA             | GA                             |
 | - [Supervision de l’intégrité des fichiers](../../security-center/security-center-file-integrity-monitoring.md)                                                                             | GA             | GA                             |
@@ -148,96 +148,96 @@ Les tableaux suivants indiquent la disponibilité actuelle des fonctionnalités 
 | - [Détection de connexions RDP anormales](../../sentinel/connect-windows-security-events.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Détection ML intégrée | Version préliminaire publique | Non disponible |
 | - [Détection de connexions SSH anormales](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Détection ML intégrée | Version préliminaire publique | Non disponible |
 | **Connecteurs de service Azure** |  |  |
-| - [Journaux d'activité Azure](../../sentinel/connect-azure-activity.md) | GA | GA |
+| - [Journaux d'activité Azure](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
-| - [Azure ADIP](../../sentinel/connect-azure-ad-identity-protection.md) | GA | GA |
-| - [Azure DDoS Protection](../../sentinel/connect-azure-ddos-protection.md) | GA | GA |
+| - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
+| - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
 | - [Azure Defender](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Azure Defender pour IoT](../../sentinel/connect-asc-iot.md) | Version préliminaire publique | Non disponible |
-| - [Pare-feu Azure ](../../sentinel/connect-azure-firewall.md) | GA | GA |
-| - [Azure Information Protection](../../sentinel/connect-azure-information-protection.md) | Version préliminaire publique | Non disponible |
-| - [Azure Key Vault ](../../sentinel/connect-azure-key-vault.md) | Version préliminaire publique | Non disponible |
-| - [Azure Kubernetes Services (AKS)](../../sentinel/connect-azure-kubernetes-service.md) | Version préliminaire publique | Non disponible |
-| - [Azure SQL Databases](../../sentinel/connect-azure-sql-logs.md) | GA | GA |
-| - [Pare-feu d'applications web Azure](../../sentinel/connect-azure-waf.md) | GA | GA |
+| - [Azure Defender pour IoT](../../sentinel/data-connectors-reference.md#azure-defender-for-iot) | Version préliminaire publique | Non disponible |
+| - [Pare-feu Azure ](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
+| - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection) | Version préliminaire publique | Non disponible |
+| - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | Version préliminaire publique | Non disponible |
+| - [Azure Kubernetes Services (AKS)](../../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks) | Version préliminaire publique | Non disponible |
+| - [Azure SQL Databases](../../sentinel/data-connectors-reference.md#azure-sql-databases) | GA | GA |
+| - [Pare-feu d'applications web Azure](../../sentinel/data-connectors-reference.md#azure-web-application-firewall-waf) | GA | GA |
 | **Connecteurs Windows** |  |  |
-| - [Pare-feu Windows](../../sentinel/connect-windows-firewall.md) | GA | GA |
+| - [Pare-feu Windows](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
 | - [Événements de sécurité Windows](../../sentinel/connect-windows-security-events.md) | GA | GA |
 | **Connecteurs externes** |  |  |
-| - [Agari Phishing Defense and Brand Protection](../../sentinel/connect-agari-phishing-defense.md) | Version préliminaire publique | Version préliminaire publique |
+| - [Agari Phishing Defense and Brand Protection](../../sentinel/data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) | Version préliminaire publique | Version préliminaire publique |
 | - [AI Analyst Darktrace](../../sentinel/connect-data-sources.md) | Version préliminaire publique | Version préliminaire publique |
-| - [AI Vectra Detect](../../sentinel/connect-ai-vectra-detect.md) | Version préliminaire publique | Version préliminaire publique |
-| - [Akamai Security Events](../../sentinel/connect-akamai-security-events.md) | Version préliminaire publique | Version préliminaire publique |
-| - [Alcide kAudit](../../sentinel/connect-alcide-kaudit.md) | Version préliminaire publique | Non disponible |
-| - [Alsid pour Active Directory](../../sentinel/connect-alsid-active-directory.md) | Version préliminaire publique | Non disponible |
-| - [Apache HTTP Server](../../sentinel/connect-apache-http-server.md) | Version préliminaire publique | Non disponible |
-| - [Aruba ClearPass](../../sentinel/connect-aruba-clearpass.md) | Version préliminaire publique | Version préliminaire publique |
+| - [AI Vectra Detect](../../sentinel/data-connectors-reference.md#ai-vectra-detect-preview) | Version préliminaire publique | Version préliminaire publique |
+| - [Akamai Security Events](../../sentinel/data-connectors-reference.md#akamai-security-events-preview) | Version préliminaire publique | Version préliminaire publique |
+| - [Alcide kAudit](../../sentinel/data-connectors-reference.md#alcide-kaudit) | Version préliminaire publique | Non disponible |
+| - [Alsid pour Active Directory](../../sentinel/data-connectors-reference.md#alsid-for-active-directory) | Version préliminaire publique | Non disponible |
+| - [Apache HTTP Server](../../sentinel/data-connectors-reference.md#apache-http-server) | Version préliminaire publique | Non disponible |
+| - [Aruba ClearPass](../../sentinel/data-connectors-reference.md#aruba-clearpass-preview) | Version préliminaire publique | Version préliminaire publique |
 | - [AWS](../../sentinel/connect-data-sources.md) | GA | GA |
-| - [Barracuda CloudGen Firewall](../../sentinel/connect-barracuda-cloudgen-firewall.md) | GA | GA |
-| - [Barracuda Web App Firewall](../../sentinel/connect-barracuda.md) | GA | GA |
-| - [BETTER Mobile Threat Defense MTD](../../sentinel/connect-better-mtd.md) | Version préliminaire publique | Non disponible |
-| - [Beyond Security beSECURE](../../sentinel/connect-besecure.md) | Version préliminaire publique | Non disponible |
+| - [Barracuda CloudGen Firewall](../../sentinel/data-connectors-reference.md#barracuda-cloudgen-firewall) | GA | GA |
+| - [Barracuda Web App Firewall](../../sentinel/data-connectors-reference.md#barracuda-waf) | GA | GA |
+| - [BETTER Mobile Threat Defense MTD](../../sentinel/data-connectors-reference.md#better-mobile-threat-defense-mtd-preview) | Version préliminaire publique | Non disponible |
+| - [Beyond Security beSECURE](../../sentinel/data-connectors-reference.md#beyond-security-besecure) | Version préliminaire publique | Non disponible |
 | - [Blackberry CylancePROTECT](../../sentinel/connect-data-sources.md) | Version préliminaire publique | Version préliminaire publique |
-| - [Broadcom Symantec DLP](../../sentinel/connect-broadcom-symantec-dlp.md) | Version préliminaire publique | Version préliminaire publique |
-| - [Check Point](../../sentinel/connect-checkpoint.md) | GA | GA |
-| - [Cisco ASA](../../sentinel/connect-cisco.md) | GA | GA |
-| - [Cisco Meraki](../../sentinel/connect-cisco-meraki.md) | Version préliminaire publique | Version préliminaire publique |
-| - [Cisco Umbrella](../../sentinel/connect-cisco-umbrella.md) | Version préliminaire publique | Version préliminaire publique |
-| - [Cisco UCS](../../sentinel/connect-cisco-ucs.md) | Version préliminaire publique | Version préliminaire publique |
+| - [Broadcom Symantec DLP](../../sentinel/data-connectors-reference.md#broadcom-symantec-data-loss-prevention-dlp-preview) | Version préliminaire publique | Version préliminaire publique |
+| - [Check Point](../../sentinel/data-connectors-reference.md#check-point) | GA | GA |
+| - [Cisco ASA](../../sentinel/data-connectors-reference.md#cisco-asa) | GA | GA |
+| - [Cisco Meraki](../../sentinel/data-connectors-reference.md#cisco-meraki-preview) | Version préliminaire publique | Version préliminaire publique |
+| - [Cisco Umbrella](../../sentinel/data-connectors-reference.md#cisco-umbrella-preview) | Version préliminaire publique | Version préliminaire publique |
+| - [Cisco UCS](../../sentinel/data-connectors-reference.md#cisco-unified-computing-system-ucs-preview) | Version préliminaire publique | Version préliminaire publique |
 | - [Cisco Firepower EStreamer](../../sentinel/connect-data-sources.md) | Version préliminaire publique | Version préliminaire publique |
-| - [Citrix Analytics WAF](../../sentinel/connect-citrix-waf.md) | GA | GA |
+| - [Citrix Analytics WAF](../../sentinel/data-connectors-reference.md#citrix-web-app-firewall-waf-preview) | GA | GA |
 | - [Common Event Format (CEF)](../../sentinel/connect-common-event-format.md) | GA | GA |
-| - [CyberArk Enterprise Password Vault (EPV) Events](../../sentinel/connect-cyberark.md) | Version préliminaire publique | Version préliminaire publique |
+| - [CyberArk Enterprise Password Vault (EPV) Events](../../sentinel/data-connectors-reference.md#cyberark-enterprise-password-vault-epv-events-preview) | Version préliminaire publique | Version préliminaire publique |
 | - [ESET Enterprise Inspector](../../sentinel/connect-data-sources.md)                       | Version préliminaire publique | Non disponible      |
 | - [Eset Security Management Center](../../sentinel/connect-data-sources.md)                  | Version préliminaire publique | Non disponible      |
-| - [ExtraHop Reveal(x)](../../sentinel/connect-extrahop.md)                               | GA             | GA             |
-| - [F5 BIG-IP ](../../sentinel/connect-f5-big-ip.md)                                       | GA             | GA             |
-| - [F5 Networks](../../sentinel/connect-f5.md)                                     | GA             | GA             |
-| - [Forcepoint NGFW](../../sentinel/connect-forcepoint-casb-ngfw.md)                                  | Version préliminaire publique | Version préliminaire publique |
-| - [Forcepoint CASB](../../sentinel/connect-forcepoint-casb-ngfw.md)                                  | Version préliminaire publique | Version préliminaire publique |
-| - [Forcepoint DLP ](../../sentinel/connect-forcepoint-dlp.md)                                   | Version préliminaire publique | Non disponible      |
+| - [ExtraHop Reveal(x)](../../sentinel/data-connectors-reference.md#extrahop-revealx)                               | GA             | GA             |
+| - [F5 BIG-IP ](../../sentinel/data-connectors-reference.md#f5-big-ip)                                       | GA             | GA             |
+| - [F5 Networks](../../sentinel/data-connectors-reference.md#f5-networks-asm)                                     | GA             | GA             |
+| - [Forcepoint NGFW](../../sentinel/data-connectors-reference.md#forcepoint-cloud-access-security-broker-casb-preview)                                  | Version préliminaire publique | Version préliminaire publique |
+| - [Forcepoint CASB](../../sentinel/data-connectors-reference.md#forcepoint-cloud-access-security-broker-casb-preview)                                  | Version préliminaire publique | Version préliminaire publique |
+| - [Forcepoint DLP ](../../sentinel/data-connectors-reference.md#forcepoint-data-loss-prevention-dlp-preview)                                   | Version préliminaire publique | Non disponible      |
 | - [ForgeRock Common Audit for CEF](../../sentinel/connect-data-sources.md)                  | Version préliminaire publique | Version préliminaire publique |
-| - [Fortinet](../../sentinel/connect-fortinet.md)                                         | GA             | GA             |
-| - [Google Workspace (G Suite) ](../../sentinel/connect-google-workspace.md)                      | Version préliminaire publique | Non disponible      |
-| - [Illusive Attack Management System](../../sentinel/connect-illusive-attack-management-system.md)                | Version préliminaire publique | Version préliminaire publique |
-| - [Imperva WAF Gateway](../../sentinel/connect-imperva-waf-gateway.md)                             | Version préliminaire publique | Version préliminaire publique |
-| - [Infoblox NIOS](../../sentinel/connect-infoblox.md)                                    | Version préliminaire publique | Version préliminaire publique |
-| - [Juniper SRX](../../sentinel/connect-juniper-srx.md)                                      | Version préliminaire publique | Version préliminaire publique |
+| - [Fortinet](../../sentinel/data-connectors-reference.md#fortinet)                                         | GA             | GA             |
+| - [Google Workspace (G Suite) ](../../sentinel/data-connectors-reference.md#google-workspace-g-suite-preview)                      | Version préliminaire publique | Non disponible      |
+| - [Illusive Attack Management System](../../sentinel/data-connectors-reference.md#illusive-attack-management-system-ams-preview)                | Version préliminaire publique | Version préliminaire publique |
+| - [Imperva WAF Gateway](../../sentinel/data-connectors-reference.md#imperva-waf-gateway-preview)                             | Version préliminaire publique | Version préliminaire publique |
+| - [Infoblox NIOS](../../sentinel/data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview)                                    | Version préliminaire publique | Version préliminaire publique |
+| - [Juniper SRX](../../sentinel/data-connectors-reference.md#juniper-srx-preview)                                      | Version préliminaire publique | Version préliminaire publique |
 | - [Morphisec UTPP](../../sentinel/connect-data-sources.md)                                   | Version préliminaire publique | Version préliminaire publique |
 | - [Netskope](../../sentinel/connect-data-sources.md)                                         | Version préliminaire publique | Version préliminaire publique |
-| - [NXLog Windows DNS](../../sentinel/connect-nxlog-dns.md)                                             | Version préliminaire publique | Non disponible      |
-| - [NXLog LinuxAudit](../../sentinel/connect-nxlog-linuxaudit.md)                                 | Version préliminaire publique | Non disponible      |
-| - [Okta Single Sign On](../../sentinel/connect-okta-single-sign-on.md)                              | Version préliminaire publique | Version préliminaire publique |
+| - [NXLog Windows DNS](../../sentinel/data-connectors-reference.md#nxlog-dns-logs-preview)                                             | Version préliminaire publique | Non disponible      |
+| - [NXLog LinuxAudit](../../sentinel/data-connectors-reference.md#nxlog-linuxaudit-preview)                                 | Version préliminaire publique | Non disponible      |
+| - [Okta Single Sign On](../../sentinel/data-connectors-reference.md#okta-single-sign-on-preview)                              | Version préliminaire publique | Version préliminaire publique |
 | - [Onapsis Platform](../../sentinel/connect-data-sources.md)                                 | Version préliminaire publique | Version préliminaire publique |
-| - [One Identity Safeguard](../../sentinel/connect-one-identity.md)                          | GA             | GA             |
-| - [Orca Security Alerts](../../sentinel/connect-orca-security-alerts.md)                            | Version préliminaire publique | Non disponible      |
-| - [Palo Alto Networks](../../sentinel/connect-paloalto.md)                               | GA             | GA             |
-| - [Perimeter 81 Activity Logs](../../sentinel/connect-perimeter-81-logs.md)                      | GA             | Non disponible      |
-| - [Proofpoint On Demand Email Security](../../sentinel/connect-proofpoint-pod.md)             | Version préliminaire publique | Non disponible      |
-| - [Proofpoint TAP](../../sentinel/connect-proofpoint-tap.md)                                   | Version préliminaire publique | Version préliminaire publique |
-| - [Pulse Connect Secure](../../sentinel/connect-proofpoint-tap.md)                             | Version préliminaire publique | Version préliminaire publique |
-| - [Qualys Vulnerability Management](../../sentinel/connect-qualys-vm.md)                  | Version préliminaire publique | Version préliminaire publique |
-| - [Salesforce Service Cloud](../../sentinel/connect-salesforce-service-cloud.md)                         | Version préliminaire publique | Non disponible      |
-| - [SonicWall Firewall ](../../sentinel/connect-sophos-cloud-optix.md)                              | Version préliminaire publique | Version préliminaire publique |
-| - [Sophos Cloud Optix](../../sentinel/connect-sophos-cloud-optix.md)                               | Version préliminaire publique | Non disponible      |
-| - [Sophos XG Firewall](../../sentinel/connect-sophos-xg-firewall.md)                               | Version préliminaire publique | Version préliminaire publique |
-| - [Squadra Technologies secRMM](../../sentinel/connect-squadra-secrmm.md)               | GA             | GA             |
-| - [Squid Proxy](../../sentinel/connect-squid-proxy.md)                                      | Version préliminaire publique | Non disponible      |
-| - [Symantec Integrated Cyber Defense Exchange](../../sentinel/connect-symantec.md)       | GA             | GA             |
-| - [Symantec ProxySG](../../sentinel/connect-symantec-proxy-sg.md)                                | Version préliminaire publique | Version préliminaire publique |
-| - [Symantec VIP](../../sentinel/connect-symantec-vip.md)                                     | Version préliminaire publique | Version préliminaire publique |
+| - [One Identity Safeguard](../../sentinel/data-connectors-reference.md#one-identity-safeguard-preview)                          | GA             | GA             |
+| - [Orca Security Alerts](../../sentinel/data-connectors-reference.md#orca-security-preview)                            | Version préliminaire publique | Non disponible      |
+| - [Palo Alto Networks](../../sentinel/data-connectors-reference.md#palo-alto-networks)                               | GA             | GA             |
+| - [Perimeter 81 Activity Logs](../../sentinel/data-connectors-reference.md#perimeter-81-activity-logs-preview)                      | GA             | Non disponible      |
+| - [Proofpoint On Demand Email Security](../../sentinel/data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview)             | Version préliminaire publique | Non disponible      |
+| - [Proofpoint TAP](../../sentinel/data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)                                   | Version préliminaire publique | Version préliminaire publique |
+| - [Pulse Connect Secure](../../sentinel/data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)                             | Version préliminaire publique | Version préliminaire publique |
+| - [Qualys Vulnerability Management](../../sentinel/data-connectors-reference.md#qualys-vulnerability-management-vm-preview)                  | Version préliminaire publique | Version préliminaire publique |
+| - [Salesforce Service Cloud](../../sentinel/data-connectors-reference.md#salesforce-service-cloud-preview)                         | Version préliminaire publique | Non disponible      |
+| - [SonicWall Firewall ](../../sentinel/data-connectors-reference.md#sophos-cloud-optix-preview)                              | Version préliminaire publique | Version préliminaire publique |
+| - [Sophos Cloud Optix](../../sentinel/data-connectors-reference.md#sophos-cloud-optix-preview)                               | Version préliminaire publique | Non disponible      |
+| - [Sophos XG Firewall](../../sentinel/data-connectors-reference.md#sophos-xg-firewall-preview)                               | Version préliminaire publique | Version préliminaire publique |
+| - [Squadra Technologies secRMM](../../sentinel/data-connectors-reference.md#squadra-technologies-secrmm)               | GA             | GA             |
+| - [Squid Proxy](../../sentinel/data-connectors-reference.md#squid-proxy-preview)                                      | Version préliminaire publique | Non disponible      |
+| - [Symantec Integrated Cyber Defense Exchange](../../sentinel/data-connectors-reference.md#symantec-integrated-cyber-defense-exchange-icdx)       | GA             | GA             |
+| - [Symantec ProxySG](../../sentinel/data-connectors-reference.md#symantec-proxysg-preview)                                | Version préliminaire publique | Version préliminaire publique |
+| - [Symantec VIP](../../sentinel/data-connectors-reference.md#symantec-vip-preview)                                     | Version préliminaire publique | Version préliminaire publique |
 | - [Syslog](../../sentinel/connect-syslog.md)                                           | GA             | GA             |
 | - [Threat Intelligence Platform](../../sentinel/connect-threat-intelligence-tip.md)s                   | Version préliminaire publique | Non disponible      |
 | - [Threat Intelligence TAXII](../../sentinel/connect-threat-intelligence-tip.md)                       | Version préliminaire publique | Non disponible      |
-| - [Thycotic Secret Server](../../sentinel/connect-thycotic-secret-server.md)                          | Version préliminaire publique | Version préliminaire publique |
-| - [Trend Micro Deep Security](../../sentinel/connect-trend-micro.md)                       | GA             | GA             |
-| - [Trend Micro TippingPoint](../../sentinel/connect-trend-micro-tippingpoint.md)                         | Version préliminaire publique | Version préliminaire publique |
+| - [Thycotic Secret Server](../../sentinel/data-connectors-reference.md#thycotic-secret-server-preview)                          | Version préliminaire publique | Version préliminaire publique |
+| - [Trend Micro Deep Security](../../sentinel/data-connectors-reference.md#trend-micro-deep-security)                       | GA             | GA             |
+| - [Trend Micro TippingPoint](../../sentinel/data-connectors-reference.md#trend-micro-tippingpoint-preview)                         | Version préliminaire publique | Version préliminaire publique |
 | - [Trend Micro XDR](../../sentinel/connect-data-sources.md)                                  | Version préliminaire publique | Non disponible      |
-| - [VMware Carbon Black Endpoint Standard](../../sentinel/connect-vmware-carbon-black.md)           | Version préliminaire publique | Version préliminaire publique |
-| - [VMware ESXi](../../sentinel/connect-vmware-esxi.md)                                      | Version préliminaire publique | Version préliminaire publique |
-| - [WireX Network Forensics Platform](../../sentinel/connect-wirex-systems.md)                | Version préliminaire publique | Version préliminaire publique |
-| - [Zimperium Mobile Threat Defense](../../sentinel/connect-zimperium-mtd.md)                  | Version préliminaire publique | Non disponible      |
-| - [Zscaler](../../sentinel/connect-zscaler.md)                                         | GA             | GA             |
+| - [VMware Carbon Black Endpoint Standard](../../sentinel/data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)           | Version préliminaire publique | Version préliminaire publique |
+| - [VMware ESXi](../../sentinel/data-connectors-reference.md#vmware-esxi-preview)                                      | Version préliminaire publique | Version préliminaire publique |
+| - [WireX Network Forensics Platform](../../sentinel/data-connectors-reference.md#wirex-network-forensics-platform-preview)                | Version préliminaire publique | Version préliminaire publique |
+| - [Zimperium Mobile Threat Defense](../../sentinel/data-connectors-reference.md#zimperium-mobile-thread-defense-preview)                  | Version préliminaire publique | Non disponible      |
+| - [Zscaler](../../sentinel/data-connectors-reference.md#zscaler)                                         | GA             | GA             |
 | | | |
 
 
@@ -253,7 +253,7 @@ Office 365 GCC est associé à Azure Active Directory (Azure AD) dans Azure. Of
 
 | Connecteur | Azure | Azure Government |
 |--|--|--|
-| **[Dynamics365](../../sentinel/connect-dynamics-365.md)** |  |  |
+| **[Dynamics365](../../sentinel/data-connectors-reference.md#dynamics-365)** |  |  |
 | - Office 365 GCC | Version préliminaire publique | - |
 | - Office 365 GCC High | - | Non disponible |
 | - Office 365 DoD | - | Non disponible |
@@ -261,31 +261,31 @@ Office 365 GCC est associé à Azure Active Directory (Azure AD) dans Azure. Of
 | - Office 365 GCC | Version préliminaire publique | - |
 | - Office 365 GCC High | - | Non disponible |
 | - Office 365 DoD | - | Non disponible |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md)** |  |  |
+| **[Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md)** <br>Journaux d'informatique fantôme |  |  |
+| **[Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)** <br>Journaux d'informatique fantôme |  |  |
 | - Office 365 GCC | Version préliminaire publique | - |
 | - Office 365 GCC High | - | Version préliminaire publique |
 | - Office 365 DoD | - | Version préliminaire publique |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md)**                  <br>Alertes |  |  |
+| **[Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)**                  <br>Alertes |  |  |
 | - Office 365 GCC | Version préliminaire publique | - |
 | - Office 365 GCC High | - | Version préliminaire publique |
 | - Office 365 DoD | - | Version préliminaire publique |
-| **[Microsoft Defender for Endpoint](../../sentinel/connect-microsoft-defender-advanced-threat-protection.md)** |  |  |
+| **[Microsoft Defender for Endpoint](../../sentinel/data-connectors-reference.md#microsoft-defender-for-endpoint)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Defender pour Identity](../../sentinel/connect-azure-atp.md)** |  |  |
+| **[Microsoft Defender pour Identity](../../sentinel/data-connectors-reference.md#microsoft-defender-for-identity)** |  |  |
 | - Office 365 GCC | Version préliminaire publique | - |
 | - Office 365 GCC High | - | Non disponible |
 | - Office 365 DoD | - | Non disponible |
-| **[Microsoft Defender pour Office 365](../../sentinel/connect-office-365-advanced-threat-protection.md)** |  |  |
+| **[Microsoft Defender pour Office 365](../../sentinel/data-connectors-reference.md#microsoft-defender-for-office-365)** |  |  |
 | - Office 365 GCC | Version préliminaire publique | - |
 | - Office 365 GCC High | - | Non disponible |
 | - Office 365 DoD | - | Non disponible |
-| **[Office 365](../../sentinel/connect-office-365.md)** |  |  |
+| **[Office 365](../../sentinel/data-connectors-reference.md#microsoft-office-365)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
@@ -307,7 +307,7 @@ Le tableau suivant présente la disponibilité actuelle des fonctionnalités Azu
 | [Mises à jour automatiques de Threat Intelligence](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **Unifier la sécurité OT et IT avec SIEM, SOAR et XDR** |  |  |
 | - [Transférer les informations d’alerte](../../defender-for-iot/how-to-forward-alert-information-to-partners.md) | GA | GA |
-| - [Configurer Sentinel avec Azure Defender pour IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | Non disponible |
+| - [Configurer Sentinel avec Azure Defender pour IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Préversion publique | Non disponible |
 | - [Systèmes SOC](../../defender-for-iot/integration-splunk.md) | GA | GA |
 | - [Système de tickets et CMDB (Service Now)](../../defender-for-iot/integration-servicenow.md) | GA | GA |
 | - [Provisionnement de capteur](../../defender-for-iot/how-to-manage-sensors-on-the-cloud.md) | GA | GA |

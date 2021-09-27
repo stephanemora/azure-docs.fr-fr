@@ -5,18 +5,18 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 08/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1e0af1080a2d56fc01bdeb4bfb5f6475c477b685
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 288cffbaa90db2725d2aa2985c003474b2c7eb7b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777737"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570726"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Ajouter un connecteur d’API à un workflow d’utilisateur d’inscription
 
@@ -45,18 +45,18 @@ Vous pouvez aussi concevoir l’interaction comme une étape d’orchestration. 
 Pour utiliser un [connecteur d’API](api-connectors-overview.md), vous devez d’abord créer le connecteur d’API, puis l’activer dans un workflow utilisateur.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sous **Services Azure**, sélectionnez **Azure AD B2C**.
-4. Sélectionnez **Connecteurs d’API**, puis **Nouveau connecteur d’API**.
+1. Sous **Services Azure**, sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Connecteurs d’API**, puis **Nouveau connecteur d’API**.
 
    ![Capture d’écran de la configuration de base d’un connecteur d’API](media/add-api-connector/api-connector-new.png)
 
-5. Indiquez un nom d’affichage pour l’appel. Par exemple, **Valider les informations utilisateur**.
-6. Indiquez l’**URL du point de terminaison** pour l’appel d’API.
-7. Choisissez le **Type d'authentification** et configurez les informations d'authentification pour appeler votre API. Découvrez comment [sécuriser votre connecteur d’API](secure-rest-api.md).
+1. Indiquez un nom d’affichage pour l’appel. Par exemple, **Valider les informations utilisateur**.
+1. Indiquez l’**URL du point de terminaison** pour l’appel d’API.
+1. Choisissez le **Type d'authentification** et configurez les informations d'authentification pour appeler votre API. Découvrez comment [sécuriser votre connecteur d’API](secure-rest-api.md).
 
    ![Capture d’écran de la configuration de l’authentification pour un connecteur d’API](media/add-api-connector/api-connector-config.png)
 
-8. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="the-request-sent-to-your-api"></a>Demande envoyée à votre API
 Un connecteur d’API est matérialisé en tant que requête **HTTP POST**, en envoyant les attributs utilisateur (« revendications ») en tant que paires clé-valeur dans un corps JSON. Les attributs sont sérialisés de la même façon que les propriétés utilisateur [Microsoft Graph](/graph/api/resources/user#properties). 
@@ -103,7 +103,7 @@ De plus, ces revendications sont généralement envoyées dans toutes les demand
   - `PostAttributeCollection` – Correspond à « Avant la création de l’utilisateur ».
   - `PreTokenIssuance` – Correspond à « Avant l’envoi du jeton (préversion) ». [Plus d’informations sur cette tâche](add-api-connector-token-enrichment.md)
 - **ID client (« client_id »)** – Valeur `appId` de l’application auprès de laquelle un utilisateur final s’authentifie dans un flux d’utilisateur. Il *ne s’agit pas* du paramètre `appId` de l’application de ressource dans les jetons d’accès.
-- **Adresse e-mail (« e-mail »)** ou [**identités (« identities »)** ](/graph/api/resources/objectidentity) – Ces revendications peuvent être utilisées par votre API pour identifier l’utilisateur final qui s’authentifie auprès de l’application.
+- **Adresse e-mail (« e-mail »)** ou [**identités (« identities »)**](/graph/api/resources/objectidentity) – Ces revendications peuvent être utilisées par votre API pour identifier l’utilisateur final qui s’authentifie auprès de l’application.
   
 > [!IMPORTANT]
 > Si une revendication n’a pas de valeur au moment où le point de terminaison de l’API est appelé, la revendication n’est pas envoyée à l’API. Votre API doit être conçue pour vérifier et gérer explicitement le cas où une revendication ne figure pas dans la requête.
@@ -113,9 +113,9 @@ De plus, ces revendications sont généralement envoyées dans toutes les demand
 Procédez comme suit pour ajouter un connecteur d’API à un workflow d’utilisateur d’inscription.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sous **Services Azure**, sélectionnez **Azure AD B2C**.
-4. Sélectionnez **Flux d’utilisateurs**, puis sélectionnez le flux utilisateur auquel vous souhaitez ajouter le connecteur d’API.
-5. Sélectionnez **Connecteurs d’API**, puis sélectionnez les points de terminaison d’API que vous souhaitez appeler aux étapes suivantes dans le workflow d’utilisateur :
+1. Sous **Services Azure**, sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Flux d’utilisateurs**, puis sélectionnez le flux utilisateur auquel vous souhaitez ajouter le connecteur d’API.
+1. Sélectionnez **Connecteurs d’API**, puis sélectionnez les points de terminaison d’API que vous souhaitez appeler aux étapes suivantes dans le workflow d’utilisateur :
 
    - **Après la fédération avec un fournisseur d’identité lors de l’inscription**
    - **Avant de créer l’utilisateur**
@@ -123,7 +123,7 @@ Procédez comme suit pour ajouter un connecteur d’API à un workflow d’utili
 
    ![Sélection d’un connecteur d’API pour une étape dans le flux d’utilisateur](media/add-api-connector/api-connectors-user-flow-select.png)
 
-6. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 Ces étapes existent uniquement pour les flux d’utilisateur **S’inscrire et se connecter (recommandé)** et **S’inscrire (recommandé)** , mais s’appliquent uniquement à la partie inscription de l’expérience.
 

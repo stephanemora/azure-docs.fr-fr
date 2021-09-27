@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 1/17/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 006bcc6c0cffe6f7c08b16057325a499e44f06be
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: bc8bc67ca2fd7a023b68f6aa2e21527e26281dd3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257906"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588425"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Keyless avec Azure Active Directory B2C
 
@@ -65,23 +65,19 @@ Le diagramme d’architecture suivant illustre l’implémentation.
 Pour ajouter un fournisseur d’identité, procédez comme suit :
 
 1. Connectez-vous au **[portail Azure](https://portal.azure.com/#home)** en tant qu’administrateur général de votre locataire Azure AD B2C.
-
-2. Veillez à utiliser l’annuaire contenant votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire contenant votre locataire.
-
-3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
-
-4. Accédez à **Tableau de bord** > **Azure Active Directory B2C** >  **Fournisseurs d’identité**.
-
-5. Sélectionnez **Fournisseurs d’identité**.
-
-6. Sélectionnez **Ajouter**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
+1. Accédez à **Tableau de bord** > **Azure Active Directory B2C** >  **Fournisseurs d’identité**.
+1. Sélectionnez **Fournisseurs d’identité**.
+1. Sélectionnez **Ajouter**.
 
 ### <a name="configure-an-identity-provider"></a>Configurer un fournisseur d’identité
 
 Pour configurer un fournisseur d'identité, procédez comme suit :
 
 1. Sélectionnez **Type de fournisseur d’identité** > **OpenID Connect (préversion)** .
-2. Remplissez le formulaire pour configurer le fournisseur d’identité :
+1. Remplissez le formulaire pour configurer le fournisseur d’identité :
 
    |Propriété | Valeur |
    |:-----| :-----------|
@@ -93,11 +89,11 @@ Pour configurer un fournisseur d'identité, procédez comme suit :
    | Type de réponse | id_token |
    | Mode de réponse | form_post|
 
-3. Sélectionnez **OK**.
+1. Sélectionnez **OK**.
 
-4. Sélectionnez **Mapper les revendications de ce fournisseur d’identité**.
+1. Sélectionnez **Mapper les revendications de ce fournisseur d’identité**.
 
-5. Remplissez le formulaire pour mapper le fournisseur d’identité :
+1. Remplissez le formulaire pour mapper le fournisseur d’identité :
 
    |Propriété | Valeur |
    |:-----| :-----------|
@@ -105,7 +101,7 @@ Pour configurer un fournisseur d'identité, procédez comme suit :
    | Nom complet | De l’abonnement |
    | Mode de réponse | De l’abonnement |
 
-6. Sélectionnez **Enregistrer** pour achever la configuration de votre nouveau fournisseur d’identité Open ID Connect (OIDC).
+1. Sélectionnez **Enregistrer** pour achever la configuration de votre nouveau fournisseur d’identité Open ID Connect (OIDC).
 
 ### <a name="create-a-user-flow-policy"></a>Créer une stratégie de flux utilisateur
 

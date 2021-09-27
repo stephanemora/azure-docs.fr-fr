@@ -1,14 +1,14 @@
 ---
-title: Créer un laboratoire dans Azure DevTest Labs | Microsoft Docs
+title: Création d’un laboratoire
 description: Cet article vous guide dans le processus de création d’un laboratoire à l’aide du portail Azure et d'Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/12/2020
-ms.openlocfilehash: 9fa33a59dd35bfe3469f30f2349f8a08c45bd5e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68b560125a4cacceee613b5c7c9bfaafc5c95c06
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92058339"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602894"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Créer un laboratoire dans Azure DevTest Labs
 
@@ -98,4 +98,3 @@ Une fois que vous avez créé votre laboratoire, voici quelques étapes à prend
 * [Créer un modèle de laboratoire](devtest-lab-create-template.md)
 * [Créer des artefacts personnalisés pour vos machines virtuelles](devtest-lab-artifact-author.md)
 * [Ajouter une machine virtuelle à un laboratoire](devtest-lab-add-vm.md)
-

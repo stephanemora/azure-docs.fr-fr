@@ -3,17 +3,17 @@ title: Autoriser des comptes de développeurs avec Azure Active Directory B2C
 titleSuffix: Azure API Management
 description: Découvrez comment autoriser les utilisateurs du portail des développeurs dans gestion des API Azure à l’aide d’Azure Active Directory B2C
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 07/07/2021
-ms.author: apimpm
-ms.openlocfilehash: 6385f87eec00820d535845df21a44965e1708a55
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.author: danlep
+ms.openlocfilehash: 23547515a44fff56bab668ed0206670b5f6ea342
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568152"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548837"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory B2C dans Gestion des API Azure
 

@@ -10,12 +10,12 @@ ms.date: 8/05/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 6a604c4e2a3b1f12fa5d296558023be9bc31cd96
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 3aa47a247ead1a388ce9fda030f348ac9a6b75c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532981"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588596"
 ---
 # <a name="how-to-set-up-access-control-for-your-azure-synapse-workspace"></a>Guide pratique pour configurer le contrôle d’accès pour votre espace de travail Azure Synapse 
 
@@ -139,7 +139,7 @@ Pour exécuter des pipelines et effectuer des tâches système, Azure Synapse e
     
     | Paramètre | Valeur |
     | --- | --- |
-    | Role | Contributeur du Stockage Blob |
+    | Role | Contributeur aux données Blob du stockage |
     | Attribuer l’accès à | MANAGEDIDENTITY |
     | Membres | Nom de l’identité managée  |
 

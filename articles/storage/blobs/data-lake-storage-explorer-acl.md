@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3f5bd22619e49246583d8b9fc4e62ad8ab266993
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97df947309f9ccc9886e45878cfc91ea6423b23
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100656311"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590363"
 ---
 # <a name="use-azure-storage-explorer-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Utiliser l’Explorateur Stockage Azure pour gérer les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
 Cet article explique comment utiliser [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour gérer les listes de contrôle d’accès (ACL, Access Control List) sur les comptes de stockage pour lesquels un espace de noms hiérarchique (HNS) est activé.
 
-Vous pouvez utiliser l’Explorateur Stockage pour afficher, puis mettre à jour les ACL des répertoires et des fichiers. L’héritage des listes ACL est déjà disponible pour les nouveaux éléments enfants créés sous un répertoire parent. Vous pouvez tout aussi bien appliquer de manière récursive les paramètres ACL au niveau des éléments enfants existants d’un répertoire parent, sans avoir à apporter ces modifications individuellement à chaque élément enfant. 
+Vous pouvez utiliser l’Explorateur Stockage pour afficher, puis mettre à jour les ACL des répertoires et des fichiers. L’héritage des listes ACL est déjà disponible pour les nouveaux éléments enfants créés sous un répertoire parent. Vous pouvez tout aussi bien appliquer de manière récursive les paramètres ACL au niveau des éléments enfants existants d’un répertoire parent, sans avoir à apporter ces modifications individuellement à chaque élément enfant.
 
 Cet article explique comment modifier la liste ACL d’un fichier ou d’un répertoire, et comment appliquer les paramètres ACL de manière récursive aux répertoires enfants.
 
@@ -46,11 +46,11 @@ Lors du premier démarrage de l’Explorateur Stockage, la fenêtre **Microsoft 
 
 Sélectionnez **Ajouter un compte Azure**, puis cliquez sur **Connexion..** . Suivez les instructions de connexion à votre compte Azure qui s’affichent à l’écran.
 
-![Capture d’écran montrant l’Explorateur Stockage Microsoft Azure, avec l’option Ajouter un compte Azure et le bouton Se connecter en évidence.](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Capture d’écran montrant l’Explorateur Stockage Microsoft Azure, avec l’option Ajouter un compte Azure et le bouton Se connecter en évidence.](media/quickstart-storage-explorer/storage-explorer-connect.png)
 
 Une fois que la connexion est établie, l’Explorateur Stockage Azure se charge avec l’onglet **Explorateur** affiché. Cette vue vous donne accès à l’ensemble de vos comptes Stockage Azure, ainsi qu’au stockage local configuré via les comptes de l’[émulateur de stockage Azure](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou les environnements [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-![Fenêtre de connexion à l’Explorateur Stockage Microsoft Azure](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
+![Fenêtre de connexion à l’Explorateur Stockage Microsoft Azure](media/quickstart-storage-explorer/storage-explorer-main-page.png)
 
 ## <a name="manage-an-acl"></a>Gérer une liste de contrôle d’accès
 

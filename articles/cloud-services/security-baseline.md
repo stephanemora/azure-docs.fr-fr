@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 12b6e3d0202de03c6378438457900601e4d091b8
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: 814514ede598d0de435c767ee29ef6aa4564d003
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113129371"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616571"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Ligne de base de sécurité Azure pour Azure Cloud Services
 
@@ -193,7 +193,7 @@ Créez un paramètre de diagnostic pour envoyer le journal d’activité à Azur
 
 **Conseils** : Microsoft gère les sources de temps des ressources Azure pour Azure Cloud Services. Les clients peuvent créer une règle de réseau pour autoriser l’accès à un serveur de temps utilisé dans leur environnement, sur le port 123 avec le protocole UDP.
 
-- [Accès au serveur NTP](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
+- [Accès au serveur NTP](../firewall/protect-azure-virtual-desktop.md#additional-considerations)
 
 **Responsabilité** : Partagé
 

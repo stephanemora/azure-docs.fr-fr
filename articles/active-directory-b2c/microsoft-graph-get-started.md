@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 28e7a6be84a260c26b27b9e6042a6c323d4167ec
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 62b1f81f0e2a1582e78dff044a3109c3b1525939
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128754"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588957"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Inscrire une application Microsoft Graph
 
@@ -47,7 +47,8 @@ Bien que le flux d’octroi d’informations d’identification du client OAuth�
 Pour permettre à vos scripts et applications d'interagir avec l’[API Microsoft Graph][ms-graph-api] afin de gérer les ressources Azure AD B2C, vous devez créer une inscription d’application dans votre locataire Azure AD B2C, qui octroie les autorisations d’API requises.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Entrez un **Nom** pour l’application. Par exemple, *managementapp1*.
@@ -74,7 +75,9 @@ Si votre application ou script doit mettre à jour les mots de passe des utilisa
 
 Pour ajouter le rôle *Administrateur d’utilisateurs*, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et utilisez le filtre **Répertoire + abonnement** pour basculer vers votre locataire Azure AD B2C.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Rôles et administrateurs**.
 1. Sélectionnez le rôle **Administrateur d’utilisateurs**. 

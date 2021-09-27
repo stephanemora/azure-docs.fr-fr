@@ -8,14 +8,15 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 42ca317d4838513bb23bed9f5aa1028cb964d382
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 75e8b7482e9d810caf0afb0818d53df141908708
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768576"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609267"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
+
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Nous vous recommandons fortement de lire les articles [Planification d’un déploiement Azure Files](../files/storage-files-planning.md) et [Planification d’un déploiement de synchronisation de fichiers Azure](file-sync-planning.md) avant d’effectuer les étapes décrites dans cet article.
@@ -42,24 +43,24 @@ Nous vous recommandons fortement de lire les articles [Planification d’un dép
     $PSVersionTable.PSVersion
     ```
 
-    Si la valeur **PSVersion** est inférieure à 5.1.\*, comme avec la plupart des nouvelles installations de Windows Server 2012 R2, vous pouvez facilement effectuer la mise à niveau en téléchargeant et en installant [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Le package correct à télécharger et à installer pour Windows Server 2012 R2 est **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
+    Si la valeur **PSVersion** est inférieure à 5.1.\*, comme avec la plupart des nouvelles installations de Windows Server 2012 R2, vous pouvez facilement effectuer la mise à niveau en téléchargeant et en installant [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Le package correct à télécharger et à installer pour Windows Server 2012 R2 est **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
-    PowerShell 6+ peut être utilisé avec n’importe quel système pris en charge, et peut être téléchargé via sa page [GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
+    PowerShell 6+ peut être utilisé avec n’importe quel système pris en charge, et peut être téléchargé via sa page [GitHub](https://github.com/PowerShell/PowerShell#get-powershell).
 
-    > [!Important]  
+    > [!IMPORTANT]
     > Si vous prévoyez d’utiliser l’interface d’enregistrement du serveur, plutôt que de vous enregistrer directement depuis PowerShell, vous devez utiliser PowerShell 5.1.
 
 1. Si vous avez choisi d’utiliser PowerShell 5.1, assurez-vous qu’au moins .NET 4.7.2 est installé. En savoir plus sur les [Versions et dépendances .NET Framework](/dotnet/framework/migration-guide/versions-and-dependencies) sur votre système.
 
-    > [!Important]  
+    > [!IMPORTANT]
     > Si vous installez .NET 4.7.2+ sur Windows Server Core, vous devez effectuer l’installation avec les indicateurs `quiet` et `norestart` ; sinon, l’installation échoue. Par exemple, si vous installez .NET 4.8, la commande se présente comme ceci :
     > ```PowerShell
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
 1. Le module Az PowerShell, qui peut être installé en suivant les instructions ici : [Installez et configurez Azure PowerShell](/powershell/azure/install-Az-ps).
-     
-    > [!Note]  
+
+    > [!NOTE]
     > Le module Az.StorageSync est maintenant installé automatiquement quand vous installez le module Az PowerShell.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -104,10 +105,12 @@ Nous vous recommandons fortement de lire les articles [Planification d’un dép
 ---
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Préparer Windows Server pour une utilisation avec Azure File Sync
+
 Pour chaque serveur que vous souhaitez utiliser avec Azure File Sync, y compris chaque nœud de serveur dans un cluster de basculement, vous devez désactiver **Configuration de sécurité renforcée d’Internet Explorer**. Cela est nécessaire uniquement pour l’inscription initiale du serveur. Vous pouvez réactiver cette configuration une fois que le serveur a été inscrit.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
-> [!Note]  
+
+> [!NOTE]
 > Vous pouvez ignorer cette étape si vous déployez Azure File Sync sur Windows Server Core.
 
 1. Ouvrez le Gestionnaire de serveurs.
@@ -119,6 +122,7 @@ Pour chaque serveur que vous souhaitez utiliser avec Azure File Sync, y compris 
     ![Fenêtre indépendante Configuration de sécurité renforcée d’Internet Explorer avec l’option « Désactivé » sélectionnée](media/storage-sync-files-deployment-guide/prepare-server-disable-ieesc-part-3.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Pour désactiver la configuration de sécurité renforcée d’Internet Explorer, exécutez la commande suivante à partir d’une session PowerShell avec élévation de privilèges :
 
 ```powershell
@@ -129,17 +133,17 @@ if ($installType -ne "Server Core") {
     # Disable Internet Explorer Enhanced Security Configuration 
     # for Administrators
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-    
+
     # Disable Internet Explorer Enhanced Security Configuration 
     # for Users
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-    
+
     # Force Internet Explorer closed, if open. This is required to fully apply the setting.
     # Save any work you have open in the IE browser. This will not affect other browsers,
     # including Microsoft Edge.
     Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 }
-``` 
+```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -147,13 +151,15 @@ Suivez les instructions pour le portail Azure ou PowerShell.
 
 ---
 
-## <a name="deploy-the-storage-sync-service"></a>Déployer le service de synchronisation de stockage 
+## <a name="deploy-the-storage-sync-service"></a>Déployer le service de synchronisation de stockage
+
 Le déploiement de Azure File Sync commence par le placement d’une ressource **Service de synchronisation de stockage** dans un groupe de ressources de votre abonnement sélectionné. Nous vous recommandons d’en approvisionner le plus petit nombre possible. Vous allez créer une relation d’approbation entre vos serveurs et cette ressource et un serveur ne peut être inscrit qu’auprès d’un seul service de synchronisation de stockage. Par conséquent, il est recommandé de déployer des services de synchronisation de stockage autant que nécessaire pour séparer les groupes de serveurs. Gardez à l’esprit que les serveurs de services de synchronisation de stockage différents ne peuvent pas être synchronisés entre eux.
 
-> [!Note]
+> [!NOTE]
 > Le service de synchronisation de stockage hérite des autorisations d’accès de l’abonnement et du groupe de ressources dans lequel il a été déployé. Nous vous recommandons de vérifier soigneusement les personnes qui y ont accès. Les entités avec un accès en écriture peuvent démarrer la synchronisation de nouveaux ensembles de fichiers à partir des serveurs inscrits dans ce service de synchronisation de stockage et permettre le flux de données vers le stockage Azure qui leur est accessible.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
+
 Pour déployer un service de synchronisation de stockage, accédez au [Portail Microsoft Azure](https://portal.azure.com/), cliquez sur *Créer une ressource*, puis recherchez Azure File Sync. Dans les résultats de la recherche, sélectionnez **Azure File Sync**, puis sélectionnez **Créer** pour ouvrir l’onglet **Déployer la synchronisation du stockage**.
 
 Dans le volet qui s’ouvre, entrez les informations suivantes :
@@ -166,6 +172,7 @@ Dans le volet qui s’ouvre, entrez les informations suivantes :
 Quand vous avez terminé, sélectionnez **Créer** pour déployer le service de synchronisation de stockage.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Remplacez `<Az_Region>`, `<RG_Name>` et `<my_storage_sync_service>` par vos propres valeurs, puis utilisez les commandes suivantes pour créer et déployer un service Synchronisation de stockage :
 
 ```powershell
@@ -219,12 +226,14 @@ Suivez les instructions pour le portail Azure ou PowerShell.
 ---
 
 ## <a name="install-the-azure-file-sync-agent"></a>Installer l’agent Azure File Sync
-L’agent Azure File Sync est un package téléchargeable qui permet à Windows Server de rester synchronisé avec un partage de fichiers Azure. 
+
+L’agent Azure File Sync est un package téléchargeable qui permet à Windows Server de rester synchronisé avec un partage de fichiers Azure.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
+
 Vous pouvez télécharger l’agent à partir du [Centre de téléchargement Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). À la fin du téléchargement, double-cliquez sur le package MSI pour démarrer l’installation de l’agent Azure File Sync.
 
-> [!Important]  
+> [!IMPORTANT]
 > Si vous comptez utiliser Azure File Sync avec un cluster de basculement, l’agent Azure File Sync doit être installé sur chaque nœud du cluster. Chaque nœud du cluster doit être inscrit pour fonctionner avec Azure File Sync.
 
 Nous vous recommandons de procéder comme suit :
@@ -234,9 +243,10 @@ Nous vous recommandons de procéder comme suit :
 Au terme de l’installation de l’agent Azure File Sync, l’interface utilisateur d’inscription du serveur s’ouvre automatiquement. Vous devez disposer d’un service de synchronisation de stockage avant de procéder à l’inscription. Consultez la section suivante sur la création d’un service de synchronisation de stockage.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Exécutez le code PowerShell suivant pour télécharger la version appropriée de l’agent Azure File Sync pour votre système d’exploitation et l’installer sur votre système.
 
-> [!Important]  
+> [!IMPORTANT]
 > Si vous comptez utiliser Azure File Sync avec un cluster de basculement, l’agent Azure File Sync doit être installé sur chaque nœud du cluster. Chaque nœud du cluster doit être inscrit pour fonctionner avec Azure File Sync.
 
 ```powershell
@@ -268,6 +278,8 @@ Start-Process -FilePath "StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
 # You may remove the temp folder containing the MSI and the EXE installer
 Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 ```
+
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Suivez les instructions pour le portail Azure ou PowerShell.
@@ -275,37 +287,43 @@ Suivez les instructions pour le portail Azure ou PowerShell.
 ---
 
 ## <a name="register-windows-server-with-storage-sync-service"></a>Inscrire un serveur Windows Server au service de synchronisation de stockage
+
 L’inscription de votre serveur Windows Server à un service de synchronisation de stockage établit une relation d’approbation entre votre serveur (ou cluster) et le service de synchronisation de stockage. Un serveur ne peut être inscrit qu’auprès d’un seul service de synchronisation du stockage et peut se synchroniser avec d’autres serveurs et avec des partages de fichiers Azure associés avec le même service de synchronisation de stockage.
 
-> [!Note]
+> [!NOTE]
 > L’inscription du serveur utilise vos informations d’identification Azure pour créer une relation d’approbation entre le service de synchronisation du stockage et votre serveur Windows, toutefois par la suite le serveur crée et utilise sa propre identité qui est valide tant que le serveur reste inscrit et le jeton de signature d’accès partagé actuel (stockage SAS) est valide. Un nouveau jeton SAS ne peut pas être émis sur le serveur une fois le serveur désinscrit, retirant ainsi la capacité du serveur à accéder à vos partages de fichiers Azure, arrêtant toute synchronisation.
 
 L’administrateur qui inscrit le serveur doit être membre du rôle de gestion **Propriétaire** ou **Collaborateur** pour le service de synchronisation du stockage en question. Ce paramètre peut être configuré sous **Access Control (IAM)** sur le Portail Azure pour le service de synchronisation du stockage.
 
 Il est également possible de différencier les administrateurs qui peuvent inscrire des serveurs de ceux qui sont également autorisés à configurer la synchronisation dans un service de synchronisation du stockage. Pour cela, vous devez créer un rôle personnalisé dans lequel vous listez les administrateurs qui ne sont autorisés qu’à inscrire des serveurs et auquel vous attribuez les autorisations suivantes :
 
-* "Microsoft.StorageSync/storageSyncServices/registeredServers/write"
-* "Microsoft.StorageSync/storageSyncServices/read"
-* "Microsoft.StorageSync/storageSyncServices/workflows/read"
-* "Microsoft.StorageSync/storageSyncServices/workflows/operations/read"
+- "Microsoft.StorageSync/storageSyncServices/registeredServers/write"
+- "Microsoft.StorageSync/storageSyncServices/read"
+- "Microsoft.StorageSync/storageSyncServices/workflows/read"
+- "Microsoft.StorageSync/storageSyncServices/workflows/operations/read"
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
+
 L’interface utilisateur d’inscription du serveur s’ouvre normalement automatiquement après l’installation de l’agent Azure File Sync. Si ce n’est pas le cas, vous pouvez l’ouvrir manuellement à partir de son emplacement de fichier : C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Quand l’interface utilisateur d’inscription du serveur est ouverte, sélectionnez **Se connecter** pour commencer.
 
 Une fois que vous êtes connecté, vous êtes invité à fournir les informations suivantes :
 
 ![Capture d’écran de l’interface utilisateur d’inscription de serveur](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
-- **Abonnement Azure** : abonnement qui contient le service de synchronisation de stockage (consultez [Déployer le service de synchronisation de stockage](#deploy-the-storage-sync-service)). 
+- **Abonnement Azure** : abonnement qui contient le service de synchronisation de stockage (consultez [Déployer le service de synchronisation de stockage](#deploy-the-storage-sync-service)).
 - **Groupe de ressources** : groupe de ressources qui contient le service de synchronisation de stockage.
 - **Service de synchronisation de stockage** : nom du service de synchronisation de stockage auquel vous souhaitez vous inscrire.
 
 Après avoir sélectionné les informations appropriées, sélectionnez **S’inscrire** pour effectuer l’inscription du serveur. Dans le cadre du processus d’inscription, vous êtes invité à effectuer une nouvelle connexion.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+
 ```powershell
 $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ```
+
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Suivez les instructions pour le portail Azure ou PowerShell.
@@ -313,16 +331,18 @@ Suivez les instructions pour le portail Azure ou PowerShell.
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Créer un groupe de synchronisation et un point de terminaison du cloud
+
 Un groupe de synchronisation définit la topologie de synchronisation d’un ensemble de fichiers. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Un groupe de synchronisation doit contenir un seul point de terminaison cloud, qui représente un partage de fichiers Azure, et un ou plusieurs points de terminaison de serveur. Un point de terminaison de serveur représente un chemin d’accès vers un serveur inscrit. Un serveur peut avoir des points de terminaison de serveur dans plusieurs groupes de synchronisation. Vous pouvez créer autant de groupes de synchronisation que nécessaire pour décrire de manière appropriée votre topologie de synchronisation.
 
 Un point de terminaison cloud est un pointeur vers un partage de fichiers Azure. Tous les points de terminaison de serveur seront synchronisés avec un point de terminaison cloud, en faisant ainsi un concentrateur. Le compte de stockage pour le partage de fichiers Azure doit se trouver dans la même région que le service de synchronisation de stockage. L’intégralité du partage de fichiers Azure est synchronisée, à une exception près : un dossier spécial, comparable au dossier « System Volume Information » masqué sur un volume NTFS, peut être configuré. Ce répertoire est appelé «.SystemShareInformation». Il contient des métadonnées de synchronisation importantes qui ne seront pas synchronisées avec d’autres points de terminaison. Ne pas l’utiliser ni le supprimer !
 
-> [!Important]  
+> [!IMPORTANT]
 > Vous pouvez apporter des modifications à un point de terminaison cloud ou un point de terminaison de serveur dans le groupe de synchronisation, et synchroniser vos fichiers avec les autres points de terminaison du groupe de synchronisation. Si vous apportez une modification au point de terminaison cloud (partage de fichiers Azure) directement, cette modification doit être détectée au préalable par un travail de détection des modifications Azure File Sync. Un travail de détection des modifications est lancé pour un point de terminaison cloud toutes les 24 heures uniquement. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure Files](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-change-detection).
 
 L’administrateur qui crée le point de terminaison cloud doit être membre du rôle de gestion **Propriétaire** pour le compte de stockage contenant le partage de fichiers Azure sur lequel pointe le point de terminaison cloud. Ce paramètre peut être configuré sous **Access Control (IAM)** sur le Portail Azure pour le compte de stockage.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
+
 Pour créer un groupe de synchronisation, dans le [portail Azure](https://portal.azure.com/), accédez à votre service de synchronisation de stockage, puis sélectionnez **+ Groupe de synchronisation** :
 
 ![Créer un groupe de synchronisation dans le portail Azure](media/storage-sync-files-deployment-guide/create-sync-group-part-1.png)
@@ -335,6 +355,7 @@ Dans le volet qui s’ouvre, entrez les informations suivantes pour créer un gr
 - **Partage de fichiers Azure** : nom du partage de fichiers Azure avec lequel vous voulez effectuer la synchronisation.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Pour créer le groupe de synchronisation, exécutez la commande PowerShell suivante. N’oubliez pas de remplacer `<my-sync-group>` par le nom du groupe de synchronisation.
 
 ```powershell
@@ -403,6 +424,7 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 ---
 
 ## <a name="create-a-server-endpoint"></a>Créer un point de terminaison de serveur
+
 Un point de terminaison de serveur représente un emplacement spécifique sur un serveur inscrit, comme un dossier sur un volume de serveur. Un point de terminaison de serveur est soumis aux conditions suivantes :
 
 - Un point de terminaison de serveur doit être un chemin d'accès sur un serveur inscrit (plutôt que sur un partage monté). Le stockage attaché au réseau (NAS) n’est pas pris en charge.
@@ -415,6 +437,7 @@ Un point de terminaison de serveur représente un emplacement spécifique sur un
 ## <a name="configure-firewall-and-virtual-network-settings"></a>Configurer les paramètres de pare-feu et de réseau virtuel
 
 ### <a name="portal"></a>Portail
+
 Si vous voulez configurer Azure File Sync pour qu’il fonctionne avec des paramètres de pare-feu et de réseau virtuel, procédez comme suit :
 
 1. Dans le portail Azure, accédez au compte de stockage que vous voulez sécuriser.
@@ -427,31 +450,32 @@ Si vous voulez configurer Azure File Sync pour qu’il fonctionne avec des param
     ![Configuration des paramètres de pare-feu et de réseau virtuel pour un fonctionnement avec Azure File Sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## <a name="onboarding-with-azure-file-sync"></a>Intégrer Azure File Sync
+
 Voici les étapes recommandées pour intégrer Azure File Sync pour la première fois et sans aucun temps d’arrêt, tout en préservant toute la fidélité du fichier et la liste de contrôle d’accès (ACL, access-control list) :
- 
+
 1. Déployez un service de synchronisation du stockage.
 1. Créez un groupe de synchronisation.
 1. Installez l’agent Azure File Sync sur le serveur comportant le jeu de données complet.
-1. Inscrivez ce serveur et créez un point de terminaison de serveur sur le partage. 
-1. Laissez la synchronisation effectuer la totalité du chargement sur le partage de fichiers Azure (point de terminaison cloud).  
+1. Inscrivez ce serveur et créez un point de terminaison de serveur sur le partage.
+1. Laissez la synchronisation effectuer la totalité du chargement sur le partage de fichiers Azure (point de terminaison cloud).
 1. Une fois le chargement initial terminé, installez l’agent Azure File Sync sur chacun des serveurs restants.
 1. Créez de nouveaux partages de fichiers sur tous les serveurs restants.
 1. Créez des points de terminaison de serveur sur les nouveaux partages de fichiers avec une stratégie de hiérarchisation cloud, si vous le souhaitez. (Cette étape requiert du stockage supplémentaire disponible pour la configuration initiale.)
-1. Laissez l’agent Azure File Sync effectuer une restauration rapide de l’espace de noms complet sans transfert de données réel. Après la synchronisation de l’espace de noms complet, le moteur de synchronisation remplira l’espace disque local en fonction de la stratégie de hiérarchisation cloud du point de terminaison de serveur. 
-1. Vérifiez la synchronisation est terminée et testez votre topologie comme vous le souhaitez. 
+1. Laissez l’agent Azure File Sync effectuer une restauration rapide de l’espace de noms complet sans transfert de données réel. Après la synchronisation de l’espace de noms complet, le moteur de synchronisation remplira l’espace disque local en fonction de la stratégie de hiérarchisation cloud du point de terminaison de serveur.
+1. Vérifiez la synchronisation est terminée et testez votre topologie comme vous le souhaitez.
 1. Redirigez les utilisateurs et les applications vers ce nouveau partage.
 1. Il est possible quoique non obligatoire de supprimer les partages en double sur les serveurs.
- 
-Si vous n’avez pas de stockage supplémentaire pour l’intégration initiale et que vous souhaitez utiliser les partages existants, vous pouvez préamorcer les données dans les partages de fichiers Azure. Cette approche est proposée si et seulement si vous êtes en mesure d’accepter des temps d’arrêt et de garantir l’absence totale de modification des données sur les partages du serveur pendant le processus d’intégration initial. 
- 
+
+Si vous n’avez pas de stockage supplémentaire pour l’intégration initiale et que vous souhaitez utiliser les partages existants, vous pouvez préamorcer les données dans les partages de fichiers Azure. Cette approche est proposée si et seulement si vous êtes en mesure d’accepter des temps d’arrêt et de garantir l’absence totale de modification des données sur les partages du serveur pendant le processus d’intégration initial.
+
 1. Vérifiez que les données des différents serveurs ne changent pas pendant le processus d’intégration.
 1. Préamorcez les partages de fichiers Azure avec les données du serveur à l’aide d’un outil de transfert de données sur le protocole SMB. Par exemple, Robocopy. Vous pouvez également utiliser AzCopy sur REST. Veillez à utiliser AzCopy avec les commutateurs appropriés pour préserver les horodatages et les attributs des listes de contrôle d’accès.
 1. Créez une topologie Azure File Sync avec les points de terminaison de serveur souhaités pointant sur les partages existants.
-1. Laissez la synchronisation terminer le processus de rapprochement sur tous les points de terminaison. 
+1. Laissez la synchronisation terminer le processus de rapprochement sur tous les points de terminaison.
 1. Une fois le rapprochement terminé, vous pourrez ouvrir les partages pour les modifier.
- 
-L’approche par préamorçage a actuellement quelques limitations. 
-- Les modifications de données effectuées sur le serveur avant que la topologie de synchronisation soit entièrement opérationnelle risquent de provoquer des conflits sur les points de terminaison de serveur.  
+
+L’approche par préamorçage a actuellement quelques limitations.
+- Les modifications de données effectuées sur le serveur avant que la topologie de synchronisation soit entièrement opérationnelle risquent de provoquer des conflits sur les points de terminaison de serveur.
 - Une fois le point de terminaison cloud créé, Azure File Sync exécute un processus de détection des fichiers dans le cloud avant de démarrer la synchronisation initiale. Le temps nécessaire à ce processus varie en fonction de différents facteurs, comme la vitesse du réseau, la bande passante disponible et le nombre de fichiers et de dossiers. Pour donner une estimation approximative dans la préversion, le processus de détection s’exécute approximativement à une vitesse de 10 fichiers/s. Par conséquent, même si le préamorçage est rapide, le délai global nécessaire pour obtenir un système entièrement opérationnel peut se révéler beaucoup plus long lorsque les données sont préamorcées dans le cloud.
 
 ## <a name="self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>Restauration libre-service via Versions précédentes et VSS (Volume Shadow Copy Service)
@@ -470,13 +494,13 @@ Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]]
 ```
 
 Les instantanés VSS portent sur un volume entier. Par défaut, jusqu’à 64 instantanés peuvent être présents pour un volume donné, sous réserve d'espace suffisant pour stocker ces instantanés. VSS gère cela automatiquement. Par défaut, deux instantanés sont prévus quotidiennement, du lundi au vendredi. Cette planification peut être configurée à l’aide d’une tâche planifiée Windows. La cmdlet PowerShell ci-dessus effectue deux opérations :
-1. Elle configure la hiérarchisation cloud Azure file Sync sur le volume spécifié à des fins de compatibilité avec les versions précédentes et garantit la restauration d'un fichier à partir d’une version précédente, même si celui-ci faisait l'objet d'une hiérarchisation cloud sur le serveur. 
-1. Elle active la planification VSS par défaut. Vous pouvez cependant la modifier ultérieurement. 
+1. Elle configure la hiérarchisation cloud Azure file Sync sur le volume spécifié à des fins de compatibilité avec les versions précédentes et garantit la restauration d'un fichier à partir d’une version précédente, même si celui-ci faisait l'objet d'une hiérarchisation cloud sur le serveur.
+1. Elle active la planification VSS par défaut. Vous pouvez cependant la modifier ultérieurement.
 
-> [!Note]  
+> [!NOTE]
 > Deux points importants sont à prendre en considération :
->- Si vous utilisez le paramètre -Force et que VSS est activé, il remplace la planification d'instantanés VSS par la planification par défaut. Veillez à enregistrer votre configuration personnalisée avant d’exécuter la cmdlet.
-> - Si vous utilisez cette cmdlet sur un nœud de cluster, vous devez également l’exécuter sur tous les autres nœuds du cluster. 
+> - Si vous utilisez le paramètre -Force et que VSS est activé, il remplace la planification d'instantanés VSS par la planification par défaut. Veillez à enregistrer votre configuration personnalisée avant d’exécuter la cmdlet.
+> - Si vous utilisez cette cmdlet sur un nœud de cluster, vous devez également l’exécuter sur tous les autres nœuds du cluster.
 
 Pour savoir si la compatibilité de la restauration libre-service est activée, exécutez la cmdlet suivante.
 
@@ -487,10 +511,10 @@ Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 Elle répertorie tous les volumes présents sur le serveur, ainsi que le nombre de jours compatibles avec la hiérarchisation cloud de chacun. Ce nombre est automatiquement calculé en fonction du nombre maximal d’instantanés possibles par volume et de la planification d'instantanés par défaut. Ainsi, par défaut, toutes les versions précédentes présentées à un professionnel de l’information peuvent être utilisées à des fins de restauration. Il en va de même si vous modifiez la planification par défaut afin de permettre plus d'instantanés.
 Cela étant, si vous modifiez la planification de manière à obtenir un instantané disponible sur le volume antérieur à la valeur de jours compatibles, les utilisateurs ne pourront pas utiliser cet instantané antérieur (version précédente) à des fins de restauration.
 
-> [!Note]
+> [!NOTE]
 > L’activation de la restauration libre-service peut avoir un impact sur votre consommation de stockage Azure et votre facture. Cet impact est limité aux fichiers actuellement hiérarchisés sur le serveur. L’activation de cette fonctionnalité permet de s’assurer qu’une version de fichier disponible dans le cloud peut être référencée via une entrée de versions précédentes (instantané VSS).
 >
-> Si vous désactivez la fonctionnalité, la consommation du stockage Azure diminue progressivement jusqu'au terme de la fenêtre de jours compatibles. Il n'existe aucun moyen de l'accélérer. 
+> Si vous désactivez la fonctionnalité, la consommation du stockage Azure diminue progressivement jusqu'au terme de la fenêtre de jours compatibles. Il n'existe aucun moyen de l'accélérer.
 
 Le nombre maximal d'instantanés VSS par volume par défaut (64), ainsi que leur planification par défaut, se traduisent par un maximum de 45 jours de versions précédentes pouvant être restaurées par un professionnel de l’information et ce, en fonction du nombre d'instantanés VSS que vous pouvez stocker sur votre volume.
 
@@ -498,6 +522,7 @@ Si le maximum de 64 instantanés VSS par volume ne vous convient pas, vous pouv
 Pour que la nouvelle limite prenne effet, vous devez réexécuter la cmdlet de manière à activer la compatibilité des versions précédentes sur chaque volume sur lequel elle était précédemment activée, avec l'indicateur -Force afin de prendre en compte le nouveau nombre maximal d'instantanés VSS par volume. Un nouveau nombre de jours compatibles est alors calculé. Notez que cette modification prend uniquement effet sur les fichiers nouvellement hiérarchisés et remplace les personnalisations apportées à la planification VSS que vous avez peut-être établie.
 
 <a id="proactive-recall"></a>
+
 ## <a name="proactively-recall-new-and-changed-files-from-an-azure-file-share"></a>Rappeler de manière proactive les fichiers nouveaux et modifiés à partir d’un partage de fichiers Azure
 
 Avec la version 11 de l’agent, un nouveau mode devient disponible sur un point de terminaison de serveur. Ce mode permet aux entreprises distribuées à l’échelle globale d’avoir le cache serveur dans une région distante préremplie même avant même que les utilisateurs locaux accèdent à un fichier. Lorsqu’il est activé sur un point de terminaison de serveur, ce mode fait en sorte que ce serveur rappelle les fichiers qui ont été créés ou modifiés dans le partage de fichiers Azure.
@@ -532,6 +557,7 @@ Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode 
 ---
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrer un déploiement de la réplication DFS (DFS-R) vers Azure File Sync
+
 Pour migrer un déploiement de DFS-R vers Azure File Sync :
 
 1. Créez un groupe de synchronisation pour représenter la topologie DFS-R que vous remplacez.
@@ -539,7 +565,7 @@ Pour migrer un déploiement de DFS-R vers Azure File Sync :
 1. Inscrivez ce serveur et créez un point de terminaison de serveur pour le premier serveur à migrer. N’activez pas la hiérarchisation cloud.
 1. Laissez l’ensemble de la synchronisation des données sur votre partage de fichiers Azure (point de terminaison de cloud).
 1. Installez et inscrivez l’agent Azure File Sync sur tous les autres serveurs DFS-R.
-1. Désactivez DFS-R. 
+1. Désactivez DFS-R.
 1. Créez un point de terminaison de serveur sur tous les serveurs DFS-R. N’activez pas la hiérarchisation cloud.
 1. Vérifiez la synchronisation est terminée et testez votre topologie comme vous le souhaitez.
 1. Mettez DFS-R hors service.
@@ -548,6 +574,7 @@ Pour migrer un déploiement de DFS-R vers Azure File Sync :
 Pour plus d’informations, consultez [Interopérabilité d’Azure File Sync avec le système de fichiers DFS](file-sync-planning.md#distributed-file-system-dfs).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - [Créer un point de terminaison de serveur de synchronisation de fichiers Azure](file-sync-server-endpoint-create.md)
 - [Inscrire ou désinscrire un serveur auprès d’Azure File Sync](file-sync-server-registration.md)
 - [Superviser Azure File Sync](file-sync-monitoring.md)

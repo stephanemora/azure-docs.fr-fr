@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/5/2021
-ms.openlocfilehash: 6ebdbe250862ccd462259900ba56d007f002a52f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10426baece6b14984dc10a6eadc1d5fc19db382c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97937466"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631890"
 ---
 # <a name="determine-table-and-relation-size"></a>Déterminer la taille des tables et des relations
 
@@ -21,8 +21,8 @@ Sur un groupe de serveurs Hyperscale (Citus), cette fonctionnalité affiche la t
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 59%" />
+<col width="40%" />
+<col width="59%" />
 </colgroup>
 <thead>
 <tr class="header">

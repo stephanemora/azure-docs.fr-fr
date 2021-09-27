@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 97980d07d7dc597b5bfb4b093495b2cb74c4569e
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 5b0197f52d09e3a05c4bcc74e66bdf0c7bd05b38
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777912"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590382"
 ---
 # <a name="set-up-an-appliance-for-azure-government-cloud"></a>Configurer une appliance pour Azure Government Cloud
 
@@ -67,34 +67,34 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 ### <a name="run-the-script"></a>Exécuter le script
 
 1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
+
 2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
+
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
+
 4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
 5. Sélectionnez parmi les options de scénario, de cloud et de connectivité pour déployer une appliance avec la configuration souhaitée. Par exemple, la sélection présentée ci-dessous configure une appliance pour la détection, l’évaluation et la migration de **serveurs exécutés sur votre environnement VMware** dans un projet Azure Migrate doté d’une **connectivité _(point de terminaison public)_ par défaut** sur **Azure Government Cloud**.
 
-    :::image type="content" source="./media/deploy-appliance-script-government/script-vmware-gov-inline.png" alt-text="Capture d’écran montrant comment configurer l’appliance avec la configuration souhaitée pour Vmware." lightbox="./media/deploy-appliance-script-government/script-vmware-gov-expanded.png":::
+   :::image type="content" source="./media/deploy-appliance-script-government/script-vmware-gov-inline.png" alt-text="Capture d’écran montrant comment configurer l’appliance avec la configuration souhaitée pour Vmware." lightbox="./media/deploy-appliance-script-government/script-vmware-gov-expanded.png":::
 
 6. Le script du programme d’installation effectue les opérations suivantes :
 
-- Installe les agents et une application web.
-- Installe des rôles Windows, notamment le service d’activation Windows, IIS et PowerShell ISE.
-- Télécharge et installe un module réinscriptible IIS.
-- Met à jour une clé de Registre (HKLM) avec les détails de paramètres persistants pour Azure Migrate.
-- Crée les fichiers suivants sous le chemin :
-    - **Fichiers de configuration** : %Programdata%\Microsoft Azure\Config
-    - **Fichiers journaux** : %Programdata%\Microsoft Azure\Logs
+   - Installe les agents et une application web.
+   - Installe des rôles Windows, notamment le service d’activation Windows, IIS et PowerShell ISE.
+   - Télécharge et installe un module réinscriptible IIS.
+   - Met à jour une clé de Registre (HKLM) avec les détails de paramètres persistants pour Azure Migrate.
+   - Crée les fichiers suivants sous le chemin :
+     - **Fichiers de configuration** : %Programdata%\Microsoft Azure\Config
+     - **Fichiers journaux** : %Programdata%\Microsoft Azure\Logs
 
 Une fois que le script a été exécuté avec succès, le gestionnaire de configuration de l’appliance est lancé automatiquement.
-
 
 ### <a name="verify-access"></a>Vérifier l'accès
 
 Vérifiez que l'appliance peut se connecter aux URL Azure des [clouds du secteur public](migrate-appliance.md#government-cloud-urls).
-
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Configurer l'appliance pour Hyper-V
 
@@ -127,12 +127,14 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 ### <a name="run-the-script"></a>Exécuter le script
 
 1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
+
 2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
+
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
+
 4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Sélectionnez parmi les options de scénario, de cloud et de connectivité pour déployer une appliance avec la configuration souhaitée. Par exemple, la sélection présentée ci-dessous configure une appliance pour la détection et l’évaluation de **serveurs exécutés sur votre environnement Hyper-V** dans un projet Azure Migrate doté d’une **connectivité _(point de terminaison public)_ par défaut** sur **Azure Government Cloud**.
 
@@ -188,12 +190,14 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 ### <a name="run-the-script"></a>Exécuter le script
 
 1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
+
 2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
+
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
+
 4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
 5. Sélectionnez parmi les options de scénario, de cloud et de connectivité pour déployer une appliance avec la configuration souhaitée. Par exemple, la sélection présentée ci-dessous configure une appliance pour découvrir et évaluer des **serveurs physiques** _(ou des serveurs qui s’exécutent sur d’autres clouds comme AWS, GCP, Xen, etc.)_ dans un projet Azure Migrate avec une **connectivité par défaut _(point de terminaison public)_** sur **Azure Government Cloud**.
 

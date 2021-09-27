@@ -7,12 +7,12 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.date: 07/06/2021
 ms.author: radeltch
-ms.openlocfilehash: e6d5ad24176c779055fbde2c2ec6e6506cea3285
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 5061ee2131ee708c38a68dca02c18a21085b5430
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114392167"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616856"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Fournisseurs Azure Monitor pour SAP Solutions (préversion)
 
@@ -118,7 +118,7 @@ Pour configurer un fournisseur de cluster haute disponibilité, deux étapes pri
    Pour configurer le fournisseur de cluster haute disponibilité, vous devez fournir les informations suivantes :
    
    - **Nom**. Nom de ce fournisseur. Il doit être unique pour cette instance de solutions Azure Monitor pour SAP.
-   - **Point de terminaison Prometheus**. http\://\<servername or ip address\>:9664/metrics.
+   - **Point de terminaison Prometheus**. `http://<servername or ip address>:9664/metrics`.
    - **SID**. Pour les systèmes SAP, utilisez le SID SAP. Pour les autres systèmes (par exemple, les clusters NFS), utilisez un nom à trois caractères pour le cluster. Le SID doit être différent des autres clusters qui sont surveillés.   
    - **Nom du cluster**. Nom du rôle utilisé lors de la création du cluster. Le nom du cluster se trouve dans la propriété du cluster `cluster-name`.
    - **Hostname**. Nom d’hôte Linux de la machine virtuelle.  
@@ -141,7 +141,7 @@ La configuration d’un fournisseur de système d’exploitation (Linux) passe p
 2. Configurez un fournisseur de système d’exploitation (Linux) pour chaque nœud BareMetal ou VM dans votre environnement. 
    Les informations suivantes sont nécessaires pour configurer le fournisseur de système d’exploitation (Linux) : 
       - Nom. Nom de ce fournisseur. Il doit être unique pour cette instance Azure Monitor pour SAP Solutions. 
-      - Point de terminaison de l’exportateur de nœuds. Généralement http://<servername or ip address>:9100/metrics. 
+      - Point de terminaison de l’exportateur de nœuds. Habituellement `http://<servername or ip address>:9100/metrics`. 
 
 > [!NOTE]
 > 9100 est un port exposé au point de terminaison Node_Exporter.

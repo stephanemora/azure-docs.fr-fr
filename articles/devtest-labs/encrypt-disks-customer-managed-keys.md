@@ -1,14 +1,14 @@
 ---
-title: Chiffrer des disques de système d’exploitation avec des clés gérées par le client dans Azure DevTest Labs
+title: Chiffrer des disques de système d’exploitation avec des clés gérées par le client
 description: Découvrez la procédure de chiffrement de disques de système d’exploitation avec des clés gérées par le client dans Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 26ef4ff1529483da9956c6dcc43807af0ffd6463
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2da0e89c5a3f34d9ba967088ea3881f6a30bc1e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96341205"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632345"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Chiffrer des disques de système d’exploitation avec des clés gérées par le client dans Azure DevTest Labs
 Le chiffrement côté serveur protège vos données et vous aide à honorer les engagements de votre entreprise en matière de sécurité et de conformité. SSE chiffre automatiquement vos données stockées sur des disques managés dans Azure (système d’exploitation et disques de données) au repos par défaut lors de leur conservation dans le cloud. En savoir plus sur le [chiffrement de disque](../virtual-machines/disk-encryption.md) dans Azure. 

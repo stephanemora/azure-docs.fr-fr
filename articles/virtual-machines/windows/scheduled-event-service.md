@@ -7,12 +7,12 @@ ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: b8e13f8a8bd577e3e872d3fc59b099e34fd495d1
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 678c59f8a2ca9a3d9f1030597d84ed9986bce8d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694210"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588520"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Superviser des événements planifiés pour vos machines virtuelles Azure
 
@@ -158,7 +158,7 @@ Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [r
 
 1. Sélectionnez **Nouvelle règle d’alerte**. 
 1. Dans la page **Créer une règle**, laissez `collectorworkspace` comme **Ressource**.
-1. Sous **Condition**, sélectionnez l’entrée *Chaque fois que la recherche dans les journaux client est <login undefined>* . La page **Configurer la logique du signal** s’ouvre.
+1. Sous **Condition**, sélectionnez l’entrée *Chaque fois que la recherche dans les journaux client est \<login undefined\>* . La page **Configurer la logique du signal** s’ouvre.
 1. Sous **Valeur de seuil**, entrez *0*, puis sélectionnez **Terminé**.
 1. Sous **Actions**, sélectionnez **Créer un groupe d’actions**. La page **Ajouter un groupe d’actions** s’ouvre.
 1. Dans **Nom du groupe d’actions**, tapez *myActionGroup*.

@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cf79bc16ed717a71820b7226c0c97cfd263c7fef
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 5fd9fd2e2077ceeccc4fed0d63e759b7c8ec2e67
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693742"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128608144"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 
@@ -356,7 +356,7 @@ La capacité à modifier certaines propriétés peut dépendre de la valeur actu
 ### <a name="properties-that-require-deallocation-to-change"></a>Propriétés qui nécessitent une désallocation pour être modifiées
 La valeur de certaines propriétés peut uniquement être modifiée si les machines virtuelles du groupe identique sont libérées. Ces propriétés sont les suivantes :
 
-- **SKU Name** : si la nouvelle référence (SKU) de machine virtuelle n’est pas prise en charge sur l’appareil sur lequel se trouve le groupe identique, vous devez libérer les machines virtuelles du groupe identique avant de modifier le nom de la référence (SKU). Pour plus d’informations, voir [comment redimensionner une machine virtuelle Azure](../virtual-machines/windows/resize-vm.md). 
+- **SKU Name** : si la nouvelle référence (SKU) de machine virtuelle n’est pas prise en charge sur l’appareil sur lequel se trouve le groupe identique, vous devez libérer les machines virtuelles du groupe identique avant de modifier le nom de la référence (SKU). Pour plus d’informations, voir [comment redimensionner une machine virtuelle Azure](../virtual-machines/resize-vm.md). 
 
 ## <a name="vm-specific-updates"></a>Mises à jour relatives à certaines machines virtuelles
 Certaines modifications peuvent être appliquées uniquement à certaines machines virtuelles, et non aux propriétés globales du groupe identique. Pour le moment, la seule mise à jour applicable à certaines machines virtuelles qui est prise en charge est celle qui permet de joindre et de détacher des disques de données au niveau des machines virtuelles du groupe identique. Cette fonctionnalité est en préversion. Pour plus d’informations, consultez la [documentation relative à la préversion](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).

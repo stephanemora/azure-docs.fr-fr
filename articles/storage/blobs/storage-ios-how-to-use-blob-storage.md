@@ -1,18 +1,18 @@
 ---
 title: Utilisation du stockage d’objets (blob) à partir d’iOS - Azure | Microsoft Docs
 description: Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets).
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 1b0653c997930c60950da335e79b0388edd43897
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 999b9d5b700dc807255b695b3254cf11e7d37f80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278352"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603958"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Utilisation du stockage d’objets blob à partir d’iOS
 
@@ -39,7 +39,7 @@ Pour utiliser cette bibliothèque, les éléments suivants sont nécessaires :
     sudo gem install cocoapods
     ```
 
-2. Puis, dans le répertoire du projet (le répertoire contenant votre fichier .xcodeproj), créez un fichier nommé _Podfile_ (sans extension de fichier). Ajoutez l’élément suivant à _Podfile_ puis enregistrez.
+2. Puis, dans le répertoire du projet (le répertoire contenant votre fichier .xcodeproj), créez un fichier nommé *Podfile* (sans extension de fichier). Ajoutez l’élément suivant à *Podfile* puis enregistrez.
 
     ```ruby
     platform :ios, '8.0'
@@ -224,12 +224,12 @@ L’exemple suivant montre comment répertorier tous les objets blob dans un con
 - **prefix** : vous pouvez spécifier le préfixe à utiliser pour la liste d’objets blob. Seuls les objets blob qui commencent par ce préfixe sont répertoriés.
 - **useFlatBlobListing** : comme indiqué dans la section [Désignation et référencement des conteneurs et des objets blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) , bien que le service BLOB soit un schéma de stockage plat, vous pouvez créer une hiérarchie virtuelle en nommant les objets blob avec des informations de chemin d’accès. Toutefois, les listes de stockage non plat ne sont actuellement pas prises en charge. Cette fonctionnalité sera bientôt disponible. Pour le moment, cette valeur doit être **YES**.
 - **blobListingDetails** : vous pouvez spécifier les éléments à inclure lors de la création de la liste d’objets blob.
-  - _AZSBlobListingDetailsNone_ : liste uniquement les objets blob validés et ne retourne pas de métadonnées d’objets blob.
-  - _AZSBlobListingDetailsSnapshots_ : liste les objets blob validés et les instantanés d’objets blob.
-  - _AZSBlobListingDetailsMetadata_ : récupère les métadonnées d’objets blob pour chaque objet blob retourné dans la liste.
-  - _AZSBlobListingDetailsUncommittedBlobs_ : liste les objets blob validés et non validés.
-  - _AZSBlobListingDetailsCopy_ : inclut des propriétés de copie dans la liste.
-  - _AZSBlobListingDetailsAll_ : liste tous les objets blob validés, les objets blob non validés et les instantanés disponibles, et retourne l’état de toutes les métadonnées et de la copie pour ces objets blob.
+  - *AZSBlobListingDetailsNone* : liste uniquement les objets blob validés et ne retourne pas de métadonnées d’objets blob.
+  - *AZSBlobListingDetailsSnapshots* : liste les objets blob validés et les instantanés d’objets blob.
+  - *AZSBlobListingDetailsMetadata* : récupère les métadonnées d’objets blob pour chaque objet blob retourné dans la liste.
+  - *AZSBlobListingDetailsUncommittedBlobs* : liste les objets blob validés et non validés.
+  - *AZSBlobListingDetailsCopy* : inclut des propriétés de copie dans la liste.
+  - *AZSBlobListingDetailsAll* : liste tous les objets blob validés, les objets blob non validés et les instantanés disponibles, et retourne l’état de toutes les métadonnées et de la copie pour ces objets blob.
 - **maxResults** : nombre maximal de résultats à renvoyer pour cette opération. Utilisez -1 pour ne pas définir une limite.
 - **completionHandler** : bloc de code à exécuter avec les résultats de l’opération de génération de liste.
 

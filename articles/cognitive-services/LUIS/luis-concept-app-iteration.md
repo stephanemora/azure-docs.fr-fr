@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.openlocfilehash: 753d214b520affb59722bc29dbabc50c6e5968f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92991ef4b9889b0be2e887884ed46086b87ff9f3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91538719"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588881"
 ---
 # <a name="iterative-app-design-for-luis"></a>Conception d’application itérative pour LUIS
 
@@ -52,8 +52,6 @@ Ce type de schéma d’intention peut avoir des entités si cela permet à LUIS 
 Un schéma d’entité se concentre sur les entités, qui sont les données extraites des énoncés utilisateur. Par exemple, si un utilisateur dit « Je souhaite commander trois pizzas ». Deux entités sont extraites : _trois_ et _pizzas_. Celles-ci sont utilisées pour aider à réaliser l’intention, qui consistait à passer une commande.
 
 Pour un schéma d’entité, l’intention de l’énoncé est moins important pour l’application cliente.
-
-Une méthode courante d’organisation d’un schéma d’entité consiste à ajouter tous les exemples d’énoncés à l’intention **None**.
 
 ### <a name="example-of-a-mixed-schema"></a>Exemple de schéma mixte
 

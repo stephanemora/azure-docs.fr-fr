@@ -4,12 +4,12 @@ ms.service: api-management
 ms.topic: include
 ms.date: 01/26/2021
 ms.author: danlep
-ms.openlocfilehash: a9dbedd8516f3a3a592c7fd4f4f5563011d6c6db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86b5a62d7aaf16009e59637ebe9a967fce1e0358
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491007"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569588"
 ---
 #### <a name="requirements-for-key-vault-firewall"></a>Exigences pour le pare-feu Key Vault
 
@@ -25,4 +25,4 @@ Si l’instance Gestion des API est déployée dans un réseau virtuel, configur
 * Activez un [point de terminaison de service](../articles/key-vault/general/overview-vnet-service-endpoints.md) pour Azure Key Vault sur le sous-réseau Gestion des API.
 * Configurez une règle de groupe de sécurité réseau (NSG) pour autoriser le trafic sortant vers les [balises de service](../articles/virtual-network/service-tags-overview.md) AzureKeyVault et AzureActiveDirectory. 
 
-Pour plus d’informations, consultez les détails de la configuration réseau dans la section [Se connecter à un réseau virtuel](../articles/api-management/api-management-using-with-vnet.md#-common-network-configuration-issues).
+Pour plus d’informations, consultez les détails de la configuration réseau dans la section [Se connecter à un réseau virtuel](../articles/api-management/api-management-using-with-vnet.md#network-configuration-issues).
