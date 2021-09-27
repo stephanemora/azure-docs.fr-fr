@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/21/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5add931f71dfdb5034e614b3d6c3ddc8703293a2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6e37ab692b1e8f4a498d4b279ef3e45940e7d7f2
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461569"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708317"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architecture réseau de SAP HANA (grandes instances)
 
@@ -201,7 +201,7 @@ Pour la récupération d’urgence, vous devez disposer d’unités de Grande in
  - Copie des sauvegardes entre les unités de grande instance HANA dans des régions différentes pour effectuer des copies du système ou des actualisations du système.
 
 
-![Réseau virtuel connecté aux tampons de grande instance Azure dans différentes régions Azure](./media/hana-overview-architecture/image8-multiple-regions.png)
+[![Réseau virtuel connecté aux tampons de grande instance Azure dans différentes régions Azure](./media/hana-overview-architecture/image8-multiple-regions.png)](./media/hana-overview-architecture/image8-multiple-regions.png#lightbox)
 
 La figure précédente illustre la connexion des réseaux virtuels des deux régions à deux circuits ExpressRoute. Les circuits sont utilisés pour se connecter à SAP HANA sur Azure (Grandes instances) dans les deux régions Azure (lignes grises). Ces deux interconnexions ont pour but d’offrir une protection contre les pannes de routeur de périphérie d’entreprise Microsoft (MSEE) de chaque côté. Le flux de communication entre les deux réseaux virtuels dans les deux régions Azure est censé être géré via le [peering mondial](/archive/blogs/azureedu/how-to-setup-global-vnet-peering-in-azure) des deux réseaux virtuels dans les deux régions (ligne pointillée bleue). La ligne rouge épaisse décrit la connexion de Global Reach ExpressRoute. Cette connexion permet aux unités de Grande instance HANA de vos locataires situés dans différentes régions de communiquer entre elles. 
 

@@ -1,21 +1,16 @@
 ---
 title: Incorporer les widgets Azure Video Analyzer for Media (anciennement Video Indexer) dans vos applications
-titleSuffix: Azure Video Analyzer for Media
 description: Découvrez comment incorporer les widgets Azure Video Analyzer for Media (anciennement Video Indexer) dans vos applications.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 3be899a7be2d007f52eb895bd26befcbb12e316d
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 7ab396292a1fe7d44391f9f6ba75d69a57e57dd3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115236"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615944"
 ---
 # <a name="embed-video-analyzer-for-media-widgets-in-your-apps"></a>Incorporer les widgets Video Analyzer for Media dans vos applications
 
@@ -227,8 +222,8 @@ Si vous utilisez un lecteur vidéo autre que le lecteur multimédia Azure, vous 
         function jumpTo(evt) {
           var origin = evt.origin || evt.originalEvent.origin;
         
-          // Validate that the event comes from the videobreakdown domain.
-          if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
+          // Validate that the event comes from the videoindexer domain.
+          if ((origin === "https://www.videoindexer.ai") && evt.data.time !== undefined){
                 
             // Call your player's "jumpTo" implementation.
             playerInstance.currentTime = evt.data.time;

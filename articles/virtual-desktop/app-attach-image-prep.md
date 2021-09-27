@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b3e33fecc1df930cf4fb01808b2a8400a210fce8
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: e804168d56092b6e5451aa26c7a2106b96672865
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707151"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587344"
 ---
 # <a name="prepare-an-msix-image-for-azure-virtual-desktop"></a>Préparer une image MSIX pour Azure Virtual Desktop
 
@@ -86,7 +86,7 @@ Pour étendre l’image MSIX :
 
     Le message suivant doit apparaître une fois la décompression terminée :
 
-    > Listes de contrôle d’accès décompressées et appliquées pour le package : <package name>.msix
+    > Listes de contrôle d’accès décompressées et appliquées pour le package : \<package name\>.msix
 
     >[!NOTE]
     > Si vous utilisez des packages du Microsoft Store pour Entreprises ou Éducation au sein de votre réseau ou sur des appareils qui ne sont pas connectés à Internet, vous devez télécharger et installer les licences de package à partir du Microsoft Store pour exécuter les applications. Pour obtenir les licences, consultez [Utiliser des packages hors connexion](app-attach.md#use-packages-offline).

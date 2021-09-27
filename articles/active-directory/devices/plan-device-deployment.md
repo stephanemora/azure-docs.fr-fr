@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2ae8a38305b74f2bccba55b02d98626b5afc1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7f8198b7f4bbb7c710e899349766d0345655d7f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524129"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633428"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planifier le déploiement de votre appareil Azure Active Directory
 
@@ -48,7 +48,7 @@ Voici les principaux avantages d’attribuer à vos appareils une identité Azur
 
 * Améliorer l’expérience utilisateur : avec les identités des appareils dans Azure AD, vous pouvez fournir à vos utilisateurs un accès facile aux ressources cloud de votre organisation à partir d’appareils personnels et d’entreprise. Les administrateurs peuvent activer [Enterprise State Roaming](enterprise-state-roaming-overview.md) pour une expérience unifiée sur tous les appareils Windows.
 
-* Simplifier le déploiement et la gestion : la gestion des identités des appareils simplifie le processus d’intégration d’appareils à Azure AD avec [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), le [provisionnement en bloc](/mem/intune/enrollment/windows-bulk-enroll) et le [libre-service : OOBE (out-of-box experience)](../user-help/user-help-join-device-on-network.md). Vous pouvez gérer ces appareils avec des outils de gestion des périphériques mobiles, comme [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) et leurs identités dans le [portail Azure](https://portal.azure.com/).
+* Simplifier le déploiement et la gestion : la gestion des identités des appareils simplifie le processus d’intégration d’appareils à Azure AD avec [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), le [provisionnement en bloc](/mem/intune/enrollment/windows-bulk-enroll) et le [libre-service : OOBE (out-of-box experience)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). Vous pouvez gérer ces appareils avec des outils de gestion des périphériques mobiles, comme [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) et leurs identités dans le [portail Azure](https://portal.azure.com/).
 
 ### <a name="training-resources"></a>Ressources de formation
 
@@ -149,7 +149,7 @@ Si l’inscription de vos appareils est la meilleure option pour votre organisat
 
 * Cette vue d’ensemble des [appareils inscrits à Azure AD](concept-azure-ad-register.md).
 
-* Cette documentation pour l’utilisateur final expliquant comment [Inscrire votre appareil personnel au réseau de votre organisation](../user-help/user-help-register-device-on-network.md).
+* Cette documentation pour l’utilisateur final expliquant comment [Inscrire votre appareil personnel au réseau de votre organisation](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8).
 
 ## <a name="azure-ad-join"></a>jointure Azure AD ;
 
@@ -171,7 +171,7 @@ Vous pouvez provisionner la jonction Azure AD en utilisant les approches suivant
 
 Si Windows 10 Professionnel ou Windows 10 Entreprise est installé sur un appareil, le processus exécuté par défaut est l’installation pour les appareils d’entreprise.
 
-* [Expérience OOBE Windows ou à partir des Paramètres Windows](../user-help/user-help-join-device-on-network.md)
+* [Expérience OOBE Windows ou à partir des Paramètres Windows](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
 
 * [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot)
 

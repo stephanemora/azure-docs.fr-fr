@@ -7,8 +7,8 @@ metadata:
   description: 'Page du hub de documentation sur le stockage Azure. Dirige vers la documentation relative aux services pour les solutions de stockage hybride, ainsi qu’aux services permettant de transférer, partager et sauvegarder des données.'
   ms.service: storage
   ms.topic: hub-page
-  author: twooley
-  ms.author: twooley
+  author: tamram
+  ms.author: tamram
   ms.date: 04/14/2021
 highlightedContent:
   items:

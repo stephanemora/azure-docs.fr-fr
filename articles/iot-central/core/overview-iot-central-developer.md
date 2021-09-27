@@ -3,19 +3,19 @@ title: Développement d’appareils pour Azure IoT Central | Microsoft Docs
 description: Azure IoT Central est une plateforme d’applications IoT qui simplifie la création de solutions IoT. Cet article fournit une vue d’ensemble du développement d’appareils pour se connecter à votre application IoT Central. Les appareils utilisent la télémétrie pour envoyer des données de streaming et des propriétés pour signaler leur état. IOT Central peut définir l’état d’un appareil à l’aide de propriétés accessibles en écriture et appeler des commandes sur un appareil.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/05/2020
+ms.date: 08/30/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 6aab9cbb91f2a419b9c6be5378bd8238b0d841d8
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: f2131ec5a0b939172097494dcd457b9d661614ad
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609274"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473493"
 ---
 # <a name="iot-central-device-development-guide"></a>Guide de développement d’appareils IoT Central
 

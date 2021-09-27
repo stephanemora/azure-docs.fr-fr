@@ -2,14 +2,14 @@
 title: Registre redondant interzone pour la haute disponibilité
 description: Découvrez comment activer la redondance de zone dans Azure Container Registry. Créez un registre de conteneurs ou une réplication dans une zone de disponibilité Azure. La redondance de zone est une fonctionnalité du niveau de service Premium.
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 09/13/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 69714f25263b0b26fe4854b0303c3c9106b18f9a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ca475f61c3164f54682a22f459e1f8f768073f1f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524806"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586814"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Activer la redondance de zone dans Azure Container Registry à des fins de résilience et de haute disponibilité
 
@@ -21,7 +21,12 @@ La redondance de zone est une fonctionnalité **d’évaluation** du niveau de s
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
-* Actuellement pris en charge dans les régions suivantes : USA Est, USA Est 2, USA Ouest 2, Europe Nord, Europe Ouest, Japon Est.
+* Actuellement pris en charge dans les régions suivantes : 
+  
+    |Amérique  |Europe  |Afrique  |Asie-Pacifique  |
+    |---------|---------|---------|---------|
+    |Brésil Sud<br/>Centre du Canada<br/>USA Centre<br/>USA Est<br/>USA Est 2<br/>États-Unis - partie centrale méridionale<br/>Virginie du gouvernement des États-Unis<br/>USA Ouest 2<br/>USA Ouest 3     |France Centre<br/>Allemagne Centre-Ouest<br/>Europe Nord<br/>Norvège Est<br/>Europe Ouest<br/>Sud du Royaume-Uni      |Afrique du Sud Nord<br/>        |Australie Est<br/>Inde centrale<br/>Japon Est<br/>Centre de la Corée<br/>  |
+
 * Les conversions de région en zones de disponibilité ne sont pas prises en charge actuellement. Pour activer la prise en charge des zones de disponibilité dans une région, le registre doit être créé dans la région souhaitée, avec la prise en charge des zones de disponibilité activée, ou une région répliquée doit être ajoutée avec la prise en charge des zones de disponibilité activée.
 * La redondance de zone ne peut pas être désactivée dans une région.
 * [ACR Tasks](container-registry-tasks-overview.md) ne prend pas encore en charge les zones de disponibilité.

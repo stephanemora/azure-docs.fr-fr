@@ -2,17 +2,18 @@
 title: Activité de procédure stockée SQL Server
 description: Découvrez comment utiliser l’activité de procédure stockée SQL Server pour appeler une procédure stockée dans Azure SQL Database ou Azure Synapse Analytics à partir d’un pipeline Data Factory.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 88a4281d564b7061e831a66b35e768e6377a0115
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: bc69be48f172267c2d8894eb2a82f32a4970386f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122563954"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559337"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Activité de procédure stockée SQL Server
 > [!div class="op_single_selector" title1="Activités de transformation"]
@@ -64,7 +65,7 @@ La procédure pas à pas suivante utilise l’activité de procédure stockée d
     ```
     `Id` correspond à l’identifiant unique et la colonne `datetimestamp` affiche la date et l’heure auxquelles l’ID correspondant est généré.
     
-    ![Exemples de données](./media/data-factory-stored-proc-activity/sample-data.png)
+    :::image type="content" source="./media/data-factory-stored-proc-activity/sample-data.png" alt-text="Exemples de données":::
 
     Dans cet exemple, la procédure stockée est dans Azure SQL Database. Si la procédure stockée est dans Azure Synapse Analytics et SQL Server Database, l’approche est similaire. Pour une base de données SQL Server, vous devez installer une [passerelle de gestion des données](data-factory-data-management-gateway.md).
     
@@ -87,10 +88,10 @@ La procédure pas à pas suivante utilise l’activité de procédure stockée d
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **NOUVEAU** dans le menu de gauche, puis sur **Intelligence + analyse** et sur **Data Factory**.
 
-    ![Nouvelle fabrique de données 1](media/data-factory-stored-proc-activity/new-data-factory.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/new-data-factory.png" alt-text="Nouvelle fabrique de données 1":::
 3. Dans le panneau **Nouvelle fabrique de données**, entrez **SProcDF** dans le champ Nom. Les noms Azure Data Factory sont **globalement uniques**. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique.
 
-   ![Nouvelle fabrique de données 2](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/new-data-factory-blade.png" alt-text="Nouvelle fabrique de données 2":::
 4. Sélectionnez votre **abonnement Azure**.
 5. Pour **Groupe de ressources**, effectuez l’une des opérations suivantes :
    1. Cliquez sur **Créer un nouveau** et entrez un nom pour le groupe de ressources.
@@ -100,7 +101,7 @@ La procédure pas à pas suivante utilise l’activité de procédure stockée d
 8. Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
 9. La fabrique de données apparaît comme étant en cours de création dans le **tableau de bord** du portail Azure. Une fois la fabrique de données créée, la page correspondante s’affiche et indique son contenu.
 
-   ![Page d’accueil Data Factory](media/data-factory-stored-proc-activity/data-factory-home-page.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-home-page.png" alt-text="Page d’accueil Data Factory":::
 
 ### <a name="create-an-azure-sql-linked-service"></a>Créer un service lié Azure SQL
 Après avoir créé la fabrique de données, vous créez un service lié Azure SQL reliant votre base de données dans Azure SQL Database, qui contient la table sampletable et la procédure stockée usp_sample, à votre fabrique de données.
@@ -108,7 +109,7 @@ Après avoir créé la fabrique de données, vous créez un service lié Azure S
 1. Dans le panneau **Fabrique de données**, cliquez sur **Créer et déployer** pour que **SProcDF** lance l’éditeur de la fabrique de données.
 2. Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **Azure SQL Database**. Le script JSON de création d’un service lié Azure SQL doit apparaître dans l’éditeur.
 
-   ![Nouveau magasin de données 1](media/data-factory-stored-proc-activity/new-data-store.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/new-data-store.png" alt-text="Nouveau magasin de données 1":::
 3. Dans le script JSON, apportez les modifications suivantes :
 
    1. Remplacez `<servername>` par le nom de votre serveur.
@@ -116,17 +117,17 @@ Après avoir créé la fabrique de données, vous créez un service lié Azure S
    3. Remplacez `<username@servername>` par le compte d’utilisateur qui a accès à la base de données.
    4. Remplacez `<password>` par le mot de passe du compte d’utilisateur.
 
-      ![Nouveau magasin de données 2](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
+      :::image type="content" source="media/data-factory-stored-proc-activity/azure-sql-linked-service.png" alt-text="Nouveau magasin de données 2":::
 4. Pour déployer le service lié, cliquez sur **Déployer** dans la barre de commandes. Vérifiez que AzureSqlLinkedService apparaît dans l’arborescence à gauche.
 
-    ![arborescence avec service lié 1](media/data-factory-stored-proc-activity/tree-view.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/tree-view.png" alt-text="arborescence avec service lié 1":::
 
 ### <a name="create-an-output-dataset"></a>Créer un jeu de données de sortie
 Vous devez spécifier un jeu de données de sortie pour une activité de procédure stockée même si la procédure stockée ne génère aucune donnée. C’est parce qu’il s’agit du jeu de données de sortie qui pilote le calendrier de l’activité (fréquence d’exécution de l’activité : horaire, quotidienne, etc.). Le jeu de données de sortie doit utiliser un **service lié** qui fait référence à une base de données Azure SQL Database, Azure Synapse Analytics ou SQL Server dans laquelle vous souhaitez que la procédure stockée soit exécutée. Le jeu de données de sortie peut être un moyen de passer le résultat de la procédure stockée pour traitement ultérieur par une autre activité ([chaînage des activités](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) dans le pipeline. Toutefois, Data Factory n’écrit pas automatiquement la sortie d’une procédure stockée pour ce jeu de données. C’est la procédure stockée qui écrit dans une table SQL vers laquelle le jeu de données de sortie pointe. Dans certains cas, le jeu de données de sortie peut être un **jeu de données factice** (un jeu de données qui pointe vers une table qui ne possède pas vraiment de sortie de la procédure stockée). Ce jeu de données factice est utilisé uniquement pour spécifier le calendrier d’exécution de l’activité de procédure stockée.
 
 1. Si ce bouton n'est pas affiché dans la barre d'outils, cliquez sur **... Plus** dans la barre d’outils, sur **Nouveau jeu de données**, puis sur **SQL Azure**. Cliquez sur **Nouveau jeu de données** dans la barre de commandes et sélectionnez **SQL Azure**.
 
-    ![arborescence avec service lié 2](media/data-factory-stored-proc-activity/new-dataset.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/new-dataset.png" alt-text="arborescence avec service lié 2":::
 2. Copiez-collez le script JSON suivant dans l’éditeur JSON.
 
     ```JSON
@@ -147,7 +148,7 @@ Vous devez spécifier un jeu de données de sortie pour une activité de procéd
     ```
 3. Pour déployer le jeu de données, cliquez sur **Déployer** dans la barre de commandes. Vérifiez que le jeu de données apparaît dans l’arborescence.
 
-    ![arborescence avec services liés](media/data-factory-stored-proc-activity/tree-view-2.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/tree-view-2.png" alt-text="arborescence avec services liés":::
 
 ### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>Créer un pipeline avec une activité SqlServerStoredProcedure
 Nous allons maintenant créer un pipeline avec une activité de procédure stockée.
@@ -197,16 +198,16 @@ Notez les propriétés suivantes :
 ### <a name="monitor-the-pipeline"></a>Surveiller le pipeline
 1. Cliquez sur **X** pour fermer les panneaux de Data Factory Editor et revenir au panneau Data Factory, puis cliquez sur **Diagramme**.
 
-    ![vignette de diagramme 1](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-diagram-tile.png" alt-text="vignette de diagramme 1":::
 2. Dans la **Vue de diagramme**, une vue d’ensemble des pipelines et des jeux de données utilisés dans ce didacticiel s’affiche.
 
-    ![vignette de diagramme 2](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-diagram-view.png" alt-text="vignette de diagramme 2":::
 3. Dans la vue de diagramme, double-cliquez sur le jeu de données `sprocsampleout`. Les tranches s’affichent avec l’état Prêt. Il doit y avoir cinq tranches, car une tranche est produite pour chaque heure entre l’heure de début et l’heure de fin dans le JSON.
 
-    ![vignette de diagramme 3](media/data-factory-stored-proc-activity/data-factory-slices.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-slices.png" alt-text="vignette de diagramme 3":::
 4. Quand une tranche est à l’état **Prêt**, exécutez une requête `select * from sampletable` sur la base de données pour vérifier que les données ont été insérées dans la table par la procédure stockée.
 
-   ![Données de sortie](./media/data-factory-stored-proc-activity/output.png)
+   :::image type="content" source="./media/data-factory-stored-proc-activity/output.png" alt-text="Données de sortie":::
 
    Consultez [Surveiller le pipeline](data-factory-monitor-manage-pipelines.md) pour plus d’informations sur la surveillance des pipelines Azure Data Factory.
 
@@ -313,7 +314,7 @@ Le tableau suivant décrit ces paramètres JSON :
 ## <a name="passing-a-static-value"></a>Transmission d’une valeur statique
 À présent, ajoutons une autre colonne nommée « Scénario » dans la table contenant une valeur statique appelée « Exemple de document ».
 
-![Exemple de données 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
+:::image type="content" source="./media/data-factory-stored-proc-activity/sample-data-2.png" alt-text="Exemple de données 2":::
 
 **Table :**
 

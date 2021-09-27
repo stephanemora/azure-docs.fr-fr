@@ -3,15 +3,16 @@ title: Créer des pipelines de copie de données à grande échelle avec une app
 description: Fournit des informations sur l’approche pilotée par les métadonnées dans l’outil de copie de données ADF
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 06/19/2021
 ms.author: yexu
-ms.openlocfilehash: e2263db67214fb6fea91c8a8cefa65a981475ec3
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 02d7b741ec0c3fb9547d10bde759900ce3a69dd6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681596"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663342"
 ---
 # <a name="build-large-scale-data-copy-pipelines-with-metadata-driven-approach-in-copy-data-tool-preview"></a>Créer des pipelines de copie de données à grande échelle avec une approche pilotée par les métadonnées dans l’outil Copier les données (préversion)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,15 +27,15 @@ L’outil ADF Copier les données facilite la création de ces pipelines de copi
 
    Vous devez saisir la connexion et le nom de la table de contrôle, afin que le pipeline généré puisse lire les métadonnées de cette table.
 
-   ![Sélectionner le type de tâche](./media/copy-data-tool-metadata-driven/select-task-type.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-task-type.png" alt-text="Sélectionner le type de tâche":::
 
 2. Entrez la **connexion de votre base de données source**. Vous pouvez également utiliser le [service lié paramétré](parameterize-linked-services.md).
 
-   ![Sélectionner le service lié paramétré](./media/copy-data-tool-metadata-driven/select-parameterized-linked-service.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-parameterized-linked-service.png" alt-text="Sélectionner le service lié paramétré":::
 
 3. Sélectionnez le **nom de table** à copier.
 
-   ![Sélectionner une table](./media/copy-data-tool-metadata-driven/select-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-table.png" alt-text="Sélectionner une table":::
 
    > [!NOTE]
    > Si vous sélectionnez le magasin de données tabulaires, vous aurez la possibilité de sélectionner la charge complète ou le chargement incrémentiel dans la page suivante. Si vous sélectionnez le magasin de stockage, vous pouvez sélectionner la charge complète uniquement dans la page suivante. Le chargement incrémentiel de nouveaux fichiers uniquement à partir du magasin de stockage n’est actuellement pas pris en charge.  
@@ -47,11 +48,11 @@ L’outil ADF Copier les données facilite la création de ces pipelines de copi
 
 6. Dans la page **Paramètres**, vous pouvez choisir le nombre maximal d’activités de copie afin de copier des données à partir de votre magasin source simultanément via le **nombre de tâches de copie simultanément**. La valeur par défaut est 20. 
 
-   ![Page Paramètres](./media/copy-data-tool-metadata-driven/settings.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/settings.png" alt-text="Page de paramètres":::
 
 7. Après le déploiement du pipeline, vous pouvez copier ou télécharger les scripts SQL à partir de l’interface utilisateur pour créer la table de contrôle et la procédure stockée. 
 
-   ![Télécharger les scripts](./media/copy-data-tool-metadata-driven/download-scripts.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/download-scripts.png" alt-text="Télécharger les scripts":::
 
    Deux scripts SQL s’affichent.
    
@@ -60,15 +61,15 @@ L’outil ADF Copier les données facilite la création de ces pipelines de copi
 
 8. Ouvrez **SSMS** pour vous connecter à votre serveur de tables de contrôle, puis exécutez les deux scripts SQL pour créer des tables de contrôle et une procédure de stockage.
 
-   ![Créer un script de table de contrôle](./media/copy-data-tool-metadata-driven/create-control-table-script.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/create-control-table-script.png" alt-text="Créer un script de table de contrôle":::
 
 9. Interrogez la table de contrôle principale et la table de contrôle de connexion pour examiner les métadonnées qu’elle contient.
 
    **Table de contrôle principale**
-   ![Table de contrôle de requête script1](./media/copy-data-tool-metadata-driven/query-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/query-control-table.png" alt-text="Table de contrôle de requête script1":::
 
    **Table de contrôle de connexion**
-   ![Table de contrôle de requête script2](./media/copy-data-tool-metadata-driven/query-connection-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/query-connection-control-table.png" alt-text="Table de contrôle de requête script2":::
 
 10. Revenez au portail ADF pour afficher et déboguer les pipelines. Vous verrez un dossier créé en nommant « MetadataDrivenCopyTask_### _###### ». **Cliquez** sur le nom du pipeline avec « MetadataDrivenCopyTask_###_TopLevel », puis cliquez sur **debug run**. 
 
@@ -85,7 +86,7 @@ L’outil ADF Copier les données facilite la création de ces pipelines de copi
 
 11. Activez le déclencheur pour rendre les pipelines opérationnels.
 
-    ![Activez le déclencheur](./media/copy-data-tool-metadata-driven/enable-trigger.png)
+    :::image type="content" source="./media/copy-data-tool-metadata-driven/enable-trigger.png" alt-text="Activez le déclencheur":::
 
 
 ## <a name="update-control-table-by-copy-data-tool"></a>Mettre à jour la table de contrôle par l’outil Copier des données
@@ -93,15 +94,15 @@ Vous pouvez toujours mettre à jour directement la table de contrôle en ajoutan
 
 1. Cliquez avec le bouton droit sur le pipeline de niveau supérieur : **MetadataDrivenCopyTask_xxx_TopLevel**, puis sélectionnez **Modifier la table de contrôle**.
 
-   ![Modifier le contrôle table1](./media/copy-data-tool-metadata-driven/edit-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table.png" alt-text="Modifier le contrôle table1":::
 
 2. Sélectionnez des lignes dans la table de contrôle à modifier.
 
-   ![Modifier le contrôle table2](./media/copy-data-tool-metadata-driven/edit-control-table-select-tables.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table-select-tables.png" alt-text="Modifier le contrôle table2":::
 
 3. Passez par l’outil Copier les données, qui vous proposera un nouveau script SQL. Réexécutez le script SQL pour mettre à jour votre table de contrôle.
 
-   ![Modifier le contrôle table3](./media/copy-data-tool-metadata-driven/edit-control-table-create-script.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table-create-script.png" alt-text="Modifier le contrôle table3":::
 
    > [!NOTE]
    > Le pipeline ne sera pas redéployé. Le nouveau script SQL créé vous aide à mettre à jour la table de contrôle uniquement. 

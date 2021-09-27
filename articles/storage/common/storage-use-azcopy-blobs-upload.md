@@ -8,16 +8,16 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 352497f0f4d23250abe9f84121f358589664002b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: c1171ada070131477c06292628da6eca9ee9c2ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502910"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590985"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy"></a>Charger des fichiers sur Stockage Blob Azure avec AzCopy
 
-Vous pouvez charger des fichiers et des répertoires vers le stockage d’objets blob à l’aide de l’utilitaire en ligne de commande AzCopy v10. 
+Vous pouvez charger des fichiers et des répertoires vers le stockage d’objets blob à l’aide de l’utilitaire en ligne de commande AzCopy v10.
 
 Pour obtenir des exemples d’autres types de tâches, telles que le téléchargement d’objets blob, la synchronisation avec le stockage d’objets blob ou la copie d’objets blob entre des comptes, consultez les liens présentés dans la section [Étapes suivantes](#next-steps) de cet article.
 
@@ -25,7 +25,7 @@ Pour obtenir des exemples d’autres types de tâches, telles que le télécharg
 
 Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour télécharger AzCopy, et découvrez comment vous pouvez fournir des informations d’identification au service de stockage.
 
-> [!NOTE] 
+> [!NOTE]
 > Les exemples de cet article partent du principe que vous avez fourni des informations d’identification d’autorisation en utilisant Azure AD (Azure Active Directory).
 >
 > Si vous préférez utiliser un jeton SAS pour autoriser l’accès aux données d’objets blob, vous pouvez ajouter ce jeton à l’URL de ressource dans chaque commande AzCopy. Par exemple : `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -84,7 +84,7 @@ Vous pouvez également charger un fichier en plaçant un caractère générique 
 
 ## <a name="upload-a-directory"></a>Charger un annuaire
 
-Chargez un répertoire à l’aide de la commande [azcopy copy](storage-ref-azcopy-copy.md). 
+Chargez un répertoire à l’aide de la commande [azcopy copy](storage-ref-azcopy-copy.md).
 
 Cet exemple copie un répertoire (et tous les fichiers qu’il contient) dans un conteneur d’objets blob. Le conteneur contient alors un répertoire du même nom.
 
@@ -132,7 +132,7 @@ Chargez le contenu d’un répertoire à l’aide de la commande [azcopy copy](s
 
 **Syntaxe**
 
-`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'`
 
 **Exemple**
 
@@ -159,9 +159,9 @@ Vous pouvez charger des fichiers spécifiques en utilisant des noms de fichiers 
 
 Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-path`. Séparez les noms de fichiers à l’aide d’un point-virgule (`;`).
 
-**Syntaxe** 
+**Syntaxe**
 
-`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` 
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>`
 
 **Exemple**
 
@@ -181,11 +181,11 @@ Vous pouvez également exclure des fichiers à l’aide de l’option `--exclude
 
 ### <a name="use-wildcard-characters"></a>Utiliser des caractères génériques
 
-Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-pattern`. Spécifiez des noms partiels qui incluent les caractères génériques. Séparez les noms à l’aide d’un point-virgule (`;`). 
+Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-pattern`. Spécifiez des noms partiels qui incluent les caractères génériques. Séparez les noms à l’aide d’un point-virgule (`;`).
 
 **Syntaxe**
 
-`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` 
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>`
 
 **Exemple**
 
@@ -203,15 +203,15 @@ Vous pouvez également exclure des fichiers à l’aide de l’option `--exclude
 
 Les options `--include-pattern` et `--exclude-pattern` s’appliquent uniquement aux noms de fichiers, et non au chemin.  Si vous souhaitez copier tous les fichiers texte qui existent dans une arborescence de répertoires, utilisez l’option `–recursive` pour obtenir la totalité de l’arborescence de répertoires, puis utilisez `–include-pattern` et spécifiez `*.txt` pour obtenir tous les fichiers texte.
 
-### <a name="upload-files-that-were-modified-before-or-after-a-date-and-time"></a>Charger les fichiers qui ont été modifiés avant ou après une date et une heure 
+### <a name="upload-files-that-were-modified-before-or-after-a-date-and-time"></a>Charger les fichiers qui ont été modifiés avant ou après une date et une heure
 
-Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-before` ou `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`). 
+Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-before` ou `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`).
 
 Les exemples suivants chargent les fichiers qui ont été modifiés à la date spécifiée ou après celle-ci.
 
 **Syntaxe**
 
-`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>`
 
 **Exemple**
 
@@ -229,11 +229,11 @@ Pour obtenir des informations de référence détaillées, consultez les documen
 
 ## <a name="upload-with-index-tags"></a>Charger avec des balises d’index
 
-Vous pouvez charger un fichier et ajouter des [balises d’index d’objet blob (préversion)](../blobs/storage-manage-find-blobs.md) à l’objet blob cible.  
+Vous pouvez charger un fichier et ajouter des [balises d’index d’objet blob (préversion)](../blobs/storage-manage-find-blobs.md) à l’objet blob cible.
 
 Si vous utilisez l’autorisation Azure AD, votre principal de sécurité doit détenir le rôle [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner), ou l’autorisation d’accès à l’[opération du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` doit lui être accordée par le biais d’un rôle Azure personnalisé. Si vous utilisez un jeton de signature d’accès partagé (SAS), ce jeton doit fournir l’accès aux balises de l’objet blob par le biais de l’autorisation SAS `t`.
 
-Pour ajouter des balises, utilisez l’option `--blob-tags` avec une paire clé-valeur encodée en URL. Par exemple, pour ajouter la clé `my tag` et une valeur `my tag value`, vous devez ajouter `--blob-tags='my%20tag=my%20tag%20value'` au paramètre de destination. 
+Pour ajouter des balises, utilisez l’option `--blob-tags` avec une paire clé-valeur encodée en URL. Par exemple, pour ajouter la clé `my tag` et une valeur `my tag value`, vous devez ajouter `--blob-tags='my%20tag=my%20tag%20value'` au paramètre de destination.
 
 Séparez plusieurs balises d’index à l’aide d’une esperluette (`&`).  Par exemple, si vous souhaitez ajouter une clé `my second tag` et une valeur `my second tag value`, la chaîne d’option complète est `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
 
@@ -281,7 +281,7 @@ Vous trouverez plus d’exemples dans ces articles :
 - [Exemples : Téléchargement](storage-use-azcopy-blobs-download.md)
 - [Exemples : Copier entre comptes](storage-use-azcopy-blobs-copy.md)
 - [Exemples : Synchroniser](storage-use-azcopy-blobs-synchronize.md)
-- [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
+- [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
 - [Exemples : Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Exemples : Azure Files](storage-use-azcopy-files.md)
 - [Tutoriel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
@@ -290,4 +290,4 @@ Consultez les articles suivants pour configurer les paramètres, optimiser les p
 
 - [Paramètres de configuration d’AzCopy](storage-ref-azcopy-configuration-settings.md)
 - [Optimiser les performances d’AzCopy](storage-use-azcopy-optimize.md)
-- [Résoudre les problèmes d’AzCopy v10 dans Stockage Azure en utilisant des fichiers journaux](storage-use-azcopy-configure.md)
+- [Résoudre les problèmes d’AzCopy V10 dans le stockage Azure à l’aide de fichiers journaux](storage-use-azcopy-configure.md)

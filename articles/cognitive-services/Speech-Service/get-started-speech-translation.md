@@ -3,22 +3,22 @@ title: Démarrage rapide sur la traduction vocale – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser le kit SDK Speech pour convertir la parole. Dans ce démarrage rapide, vous allez découvrir la construction d’objet, les formats d’entrée audio pris en charge et les options de configuration de la traduction vocale.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: traduction vocale
-ms.openlocfilehash: 05a71ed2a72c6df673b530468551ea03fcce63bf
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: d8975ace10d21be7e8520c7d554652cfe09e740c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563470"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542682"
 ---
 # <a name="get-started-with-speech-translation"></a>Démarrer avec la traduction vocale
 

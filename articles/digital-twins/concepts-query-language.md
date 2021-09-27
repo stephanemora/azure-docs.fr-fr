@@ -8,12 +8,12 @@ ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 00bc85b06bd734a075ff9a9ca2baf3fe58e95623
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: c5779f827177907d3bf3378fde8a35157723b5f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122525977"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631112"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>À propos du langage de requête pour Azure Digital Twins
 
@@ -43,7 +43,7 @@ Quand vous écrivez des requêtes pour Azure Digital Twins, gardez à l’esprit
 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
 
-* **Prévoir une latence éventuelle** : quand vous apportez des modifications aux données de votre graphe, leur répercussion dans les requêtes peut faire l’objet d’une latence jusqu’à 10 secondes. Il n’y a pas ce délai avec l’[API GetDigitalTwin](how-to-manage-twin.md#get-data-for-a-digital-twin) : si vous avez besoin d’une réponse instantanée, utilisez l’appel d’API au lieu d’une requête pour que vos modifications se répercutent immédiatement.
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

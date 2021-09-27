@@ -1,14 +1,14 @@
 ---
-title: Comprendre les adresses IP partagées dans Azure DevTest Labs | Microsoft Docs
+title: Comprendre les adresses IP partagées
 description: Découvrez comment Azure DevTest Labs utilise les adresses IP partagées afin de limiter les adresses IP publiques requises pour accéder aux machines virtuelles de votre laboratoire.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 36a5da1b2b6252d0adb480a622c461b33425e675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3d5afd69b898a4f17440a81fc41a065c1c79a3e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85484092"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659775"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Comprendre les adresses IP partagées dans Azure DevTest Labs
 
@@ -44,8 +44,3 @@ Chaque fois qu’une machine virtuelle dotée une adresse IP partagée activée 
 
 * [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 * [Configuration d’un réseau virtuel dans Azure DevTest Labs](devtest-lab-configure-vnet.md)
-
-
-
-
-

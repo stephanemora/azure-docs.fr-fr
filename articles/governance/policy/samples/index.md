@@ -1,14 +1,14 @@
 ---
 title: Index des exemples de stratégie
 description: Index des définitions intégrées pour Azure Policy. Étiquettes de catégories, conformité à la réglementation, Key Vault, Kubernetes, Guest configuration et plus encore.
-ms.date: 08/13/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: ca5c973b8efe6ec97eb5d4e6dada5418d7433c0f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 2c8dbaa1496d8f67c30cc3021697760d67206b8f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180080"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650474"
 ---
 # <a name="azure-policy-samples"></a>Exemples Azure Policy
 
@@ -38,8 +38,7 @@ Voici quelques exemples de modèles différents utilisant le langage et les opé
 Voici les éléments intégrés de la [Conformité réglementaire](../concepts/regulatory-compliance.md) dans Azure :
 
 - [Australian Government ISM PROTECTED](./australia-ism.md)
-- [Azure Security Benchmark v2](./azure-security-benchmark.md)
-- [Azure Security Benchmark v1](./azure-security-benchmarkv1.md)
+- [Benchmark de sécurité Azure](./azure-security-benchmark.md)
 - [PBMM fédéral du Canada](./canada-federal-pbmm.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.3.0](./cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
@@ -57,7 +56,7 @@ Voici les éléments intégrés de la [Conformité réglementaire](../concepts/r
 
 Voici les éléments intégrés de la [Conformité réglementaire](../concepts/regulatory-compliance.md) dans Azure Government :
 
-- [Azure Security Benchmark v2](./gov-azure-security-benchmark.md)
+- [Benchmark de sécurité Azure](./gov-azure-security-benchmark.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.3.0](./gov-cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./gov-cis-azure-1-1-0.md)
 - [CMMC niveau 3](./gov-cmmc-l3.md)

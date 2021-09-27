@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 4ed2458b09d200542ce8789d90250027a07a970d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7670430d112482addea26c9fc1bc97c2434bc2e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735469"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555338"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Storage Gen2 pour le Big Data
 
 Il existe quatre étapes principales dans traitement des données Big Data :
 
 > [!div class="checklist"]
-> * Réception de grandes quantités de données dans un magasin de données, en temps réel ou par lots
-> * Traitement des données
-> * Téléchargement des données
-> * Visualisation des données
+> - Réception de grandes quantités de données dans un magasin de données, en temps réel ou par lots
+> - Traitement des données
+> - Téléchargement des données
+> - Visualisation des données
 
 Cet article présente les options et outils pour chaque phase de traitement.
 
@@ -37,7 +37,7 @@ Cette section présente les différentes sources de données et les différentes
 
 ### <a name="ad-hoc-data"></a>Données ad hoc
 
-Ceci représente les petits jeux de données qui sont utilisés pour créer un prototype d’une application de Big Data. Il existe différentes façons de recevoir des données ad hoc en fonction de la source de données. 
+Ceci représente les petits jeux de données qui sont utilisés pour créer un prototype d’une application de Big Data. Il existe différentes façons de recevoir des données ad hoc en fonction de la source de données.
 
 Voici une liste d'outils que vous pouvez utiliser pour ingérer des données ad hoc.
 
@@ -104,13 +104,13 @@ De grandes quantités de données peuvent être stockées dans des clusters Hado
 
 ### <a name="really-large-datasets"></a>Jeux de données très volumineux
 
-Pour télécharger des jeux de données qui comptent plusieurs téraoctets, l’utilisation des méthodes décrites ci-dessus peut parfois être lente et coûteuse. Dans ce cas, vous pouvez utiliser Azure ExpressRoute.  
+Pour télécharger des jeux de données qui comptent plusieurs téraoctets, l’utilisation des méthodes décrites ci-dessus peut parfois être lente et coûteuse. Dans ce cas, vous pouvez utiliser Azure ExpressRoute.
 
 Azure ExpressRoute vous permet de créer des connexions privées entre les infrastructures et les centres de données Azure dans votre environnement local. Ceci constitue une option fiable pour le transfert de grandes quantités de données. Pour en savoir plus, consultez la [Documentation Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 ## <a name="process-the-data"></a>Traiter les données
 
-Une fois que les données sont disponibles dans Data Lake Storage Gen2, vous pouvez exécuter une analyse sur ces données à l’aide des applications de Big Data prises en charge. 
+Une fois que les données sont disponibles dans Data Lake Storage Gen2, vous pouvez exécuter une analyse sur ces données à l’aide des applications de Big Data prises en charge.
 
 ![Analyser des données dans Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Analyser des données dans Data Lake Storage Gen2")
 
@@ -129,9 +129,9 @@ Utilisez le connecteur Power BI pour créer des représentations visuelles des d
 
 Vous pouvez également être amené à télécharger ou à déplacer les données à partir d’Azure Data Lake Storage Gen2 dans certains cas, tels que :
 
-* Déplacer des données vers d’autres référentiels pour créer une interface avec vos pipelines de traitement des données existantes. Par exemple, vous pourriez vouloir déplacer des données de Data Lake Storage Gen2 vers Azure SQL Database ou une instance SQL Server.
+- Déplacer des données vers d’autres référentiels pour créer une interface avec vos pipelines de traitement des données existantes. Par exemple, vous pourriez vouloir déplacer des données de Data Lake Storage Gen2 vers Azure SQL Database ou une instance SQL Server.
 
-* Télécharger des données sur votre ordinateur local pour le traitement dans des environnements IDE lors de la création de prototypes d’applications.
+- Télécharger des données sur votre ordinateur local pour le traitement dans des environnements IDE lors de la création de prototypes d’applications.
 
 ![Extraire des données de Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Extraire des données de Data Lake Storage Gen2")
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 7319e0bf5a1c382d6a6f0b2984d5428be6131c5e
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 479fe6c4f30c8272d73c9d1d085f541beeefe229
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113088599"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579656"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Créer des bases de données et des utilisateurs dans Azure Database pour MySQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "113088599"
 Cet article explique comment créer des utilisateurs dans Azure Database pour MySQL.
 
 > [!NOTE]
-> Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 Quand vous avez créé votre serveur Azure Database pour MySQL, vous avez fourni un nom d’utilisateur et un mot de passe d’administrateur de serveur. Pour plus d’informations, consultez ce [démarrage rapide](quickstart-create-mysql-server-database-using-azure-portal.md). Vous pouvez déterminer le nom d’utilisateur de l’administrateur de serveur dans le portail Azure.
 

@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b3b4f7737320cc0359192f947271a0f4beb3c478
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 7153eb1ee29ea63a17e614f49f287945869c7a7e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502995"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680145"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -37,7 +37,7 @@ Pour signaler des problèmes ou pour en savoir plus sur l’outil, consultez [ht
 **--cap-mbps** (float)  Limite la vitesse de transfert, en mégabits par seconde. Par moment, le débit peut dépasser légèrement cette limite. Si cette option est définie sur zéro ou si elle est omise, le débit n’est pas limité.
 
 **--help** Aide pour azcopy
-      
+
 **--output-type**  (string) Met en forme la sortie de la commande. Les formats possibles sont « text » et « JSON ». La valeur par défaut est `text`. (valeur par défaut `text`)
 
 **--trusted-microsoft-suffixes** (string) spécifie des suffixes de domaine supplémentaires où des jetons de connexion Azure Active Directory peuvent être envoyés.  La valeur par défaut est «  *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net ». Tous les éléments répertoriés ici sont ajoutés à la valeur par défaut. Pour la sécurité, vous devez placer uniquement des domaines Microsoft Azure ici. Séparez plusieurs entrées par des points-virgules.

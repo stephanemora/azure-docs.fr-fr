@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: a0f3e3b927f5f3aed0a29473af4046fb5c09cf4f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a24675bb1dc0977165dfe891f36f2f83476198f7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114465070"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615127"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
@@ -247,7 +247,7 @@ Pour installer l’agent sur une machine Linux :
 1. Transférez le groupe approprié (x86 ou x64) sur votre ordinateur Linux à l’aide de scp/sftp.
 2. Installez le bundle avec l’argument --install.
 
-    ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
+    `sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>`
 
 [Découvrez plus en détail](../azure-monitor/agents/agents-overview.md#supported-operating-systems) la liste des systèmes d’exploitation Linux pris en charge par MMA.
 
@@ -260,7 +260,7 @@ Pour les machines surveillées par System Center Operations Manager 2012 R2 ou
 1. Pour installer l’agent de dépendances sur une machine Windows, double-cliquez sur le fichier d’installation et suivez l’Assistant.
 2. Pour installer l’agent de dépendances sur une machine Linux en tant que racine, exécutez la commande suivante :
 
-    ```sh InstallDependencyAgent-Linux64.bin```
+    `sh InstallDependencyAgent-Linux64.bin`
 
 - Apprenez-en davantage sur la [prise en charge de l’agent de dépendances](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) pour les systèmes d’exploitation Windows et Linux.
 - [En savoir plus](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) sur la façon dont vous pouvez utiliser des scripts pour installer l’agent de dépendances.

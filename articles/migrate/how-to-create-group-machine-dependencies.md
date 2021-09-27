@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 235dc8fa484212a8322b24d32f7516af5441978a
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: 757a10473c2f6776ef3a84310b42209ddd12ed45
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652921"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643647"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurer la visualisation des dépendances
 
@@ -96,18 +96,20 @@ Vous pouvez installer l’agent à partir de la ligne de commande ou en utilisan
 Pour installer MMA sur un serveur Linux :
 
 1. Transférez le groupe approprié (x86 ou x64) sur votre ordinateur Linux à l’aide de scp/sftp.
+
 2. Installez le bundle avec l’argument --install.
 
-    ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
+   `sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>`
 
 [Découvrez plus en détail](../azure-monitor/agents/agents-overview.md#supported-operating-systems) la liste des systèmes d’exploitation Linux pris en charge par MMA. 
 
 ## <a name="install-the-dependency-agent"></a>Installer l’agent de dépendances
 
 1. Pour installer le Dependency Agent sur un serveur Windows, double-cliquez sur le fichier d’installation, puis suivez l’Assistant.
+
 2. Pour installer le Dependency Agent sur un serveur Linux, en tant que racine, exécutez la commande suivante :
 
-    ```sh InstallDependencyAgent-Linux64.bin```
+   `sh InstallDependencyAgent-Linux64.bin`
 
 - [En savoir plus](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) sur la façon dont vous pouvez utiliser des scripts pour installer l’agent de dépendances.
 - [En savoir plus](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) sur les systèmes d’exploitation pris en charge par l’agent de dépendances.

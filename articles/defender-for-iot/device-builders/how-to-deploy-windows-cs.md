@@ -3,12 +3,12 @@ title: Installer l'agent C# sur un appareil Windows
 description: Découvrez comment installer l’agent Defender pour IoT sur les appareils Windows 32 bits ou 64 bits.
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.openlocfilehash: f76d9122b4f50d475efbbac465096022261a9ef4
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 1a9bab1f9e24fba6a2b04b6d0bb5d9f2560dcc1d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113015020"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643970"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Déploiement d’un agent de sécurité C# Defender pour IoT pour Windows
 
@@ -73,7 +73,7 @@ Exemple de commande Get-Help :    ```Get-Help .\InstallSecurityAgent.ps1```
 
 Vérifiez l’état du déploiement de l’agent en exécutant la commande suivante :
 
-```sc.exe query "ASC IoT Agent"```
+`sc.exe query "ASC IoT Agent"`
 
 ### <a name="uninstall-the-agent"></a>Désinstaller l’agent
 
@@ -129,7 +129,7 @@ Pour activer la journalisation :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Lire la [vue d’ensemble](overview.md) du service Defender pour IoT
-* En apprendre plus sur Defender pour IoT dans [Qu’est-ce qu’une solution basée sur agent pour les générateurs d’appareils](architecture-agent-based.md)
+* Pour en savoir plus sur Defender pour IoT, consultez [Présentation de la solution basée sur un agent pour les fabricants d’appareils](architecture-agent-based.md)
 * Activer le [service](quickstart-onboard-iot-hub.md)
 * Consulter le [Forum aux questions sur Azure Defender pour IoT](resources-agent-frequently-asked-questions.md)
 * Comprendre les [alertes](concept-security-alerts.md)

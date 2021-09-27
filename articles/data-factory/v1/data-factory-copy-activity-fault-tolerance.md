@@ -3,16 +3,17 @@ title: Ajouter une tolérance de panne de l’activité de copie dans Azure Data
 description: Découvrez comment ajouter une tolérance de panne de l’activité de copie dans Azure Data Factory en ignorant les lignes incompatibles durant la copie
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 10e4bedae5b7c429152a3503fff2cb2769d66eb5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81e92c73c27d70e2f21ede7d732e5cda4f03289b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377174"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629443"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Ajouter une tolérance de panne de l’activité de copie en ignorant les lignes incompatibles
 
@@ -75,7 +76,7 @@ L’exemple suivant fournit une définition JSON pour configurer la manière d�
 ## <a name="monitoring"></a>Surveillance
 Une fois l’exécution de l’activité de copie terminée, vous pouvez voir le nombre de lignes ignorées dans la section Surveillance :
 
-![Le système de surveillance a ignoré les lignes incompatibles](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
+:::image type="content" source="./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png" alt-text="Le système de surveillance a ignoré les lignes incompatibles":::
 
 Si vous configurez la journalisation des lignes incompatibles, le chemin d’accès du fichier journal est le suivant : `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. Vous pourrez y vérifier les lignes qui ont été ignorées et la cause racine de l’incompatibilité.
 

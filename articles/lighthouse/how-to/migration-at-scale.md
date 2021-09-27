@@ -1,14 +1,14 @@
 ---
 title: Gérer des projets Azure Migrate à grande échelle
 description: Azure Lighthouse vous aide à utiliser efficacement Azure Migrate sur des ressources client déléguées.
-ms.date: 05/11/2021
+ms.date: 09/13/2021
 ms.topic: how-to
-ms.openlocfilehash: d93bc9127f59d5ff67424fc967e9126d06a989b2
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: afca0cedb8a79d5eaf3365ded5985f3b1f38052e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082043"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652298"
 ---
 # <a name="manage-azure-migrate-projects-at-scale-with-azure-lighthouse"></a>Gérer des projets Azure Migrate à grande échelle avec Azure Migrate
 

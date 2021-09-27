@@ -99,7 +99,7 @@
     - name: Créer des groupes IP
       href: create-ip-group.md
     - name: Protéger Windows Virtual Desktop
-      href: protect-windows-virtual-desktop.md
+      href: protect-azure-virtual-desktop.md
     - name: Protéger Azure Kubernetes Service (AKS)
       href: protect-azure-kubernetes-service.md
     - name: Paramètres DNS

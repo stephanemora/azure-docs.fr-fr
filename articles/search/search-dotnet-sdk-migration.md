@@ -8,14 +8,14 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0e9f4602582a8c24f74d6603b732e7b91d97fa8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5d0bc4ea9f3fbc2995b148c327309a38a858aeb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89002689"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648389"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Effectuer une mise à niveau vers la version 3 du SDK .NET Recherche Azure
 
@@ -76,7 +76,7 @@ Il n’y a qu’un petit nombre de modifications dans la version 3 qui soient su
 ### <a name="indexesgetclient-return-type"></a>Type de retour Indexes.GetClient
 La méthode `Indexes.GetClient` a un nouveau type de retour. Auparavant, elle renvoyait `SearchIndexClient`, mais elle a été remplacée par `ISearchIndexClient` dans la version 2.0-preview et cette modification a été répercutée dans la version 3. L’objectif est de prendre en charge les clients qui souhaitent simuler la méthode `GetClient` pour les tests unitaires en retournant une implémentation fictive de `ISearchIndexClient`.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a> Exemple
 Si votre code ressemble à ce qui suit :
 
 ```csharp
@@ -92,7 +92,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ### <a name="analyzername-datatype-and-others-are-no-longer-implicitly-convertible-to-strings"></a>Les éléments AnalyzerName et DataType, entre autres, ne sont plus implicitement convertibles en chaînes
 Il existe de nombreux types dans le SDK .NET Azure Search qui dérivent de `ExtensibleEnum`. Précédemment, ces types étaient tous implicitement convertibles en type `string`. Toutefois, un bogue a été découvert dans l'implémentation `Object.Equals` de ces classes et la résolution de ce bogue a nécessité la désactivation de cette conversion implicite. Une conversion explicite vers `string` reste autorisée.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a> Exemple
 Si votre code ressemble à ce qui suit :
 
 ```csharp

@@ -2,17 +2,17 @@
 title: CI/CD pour Gestion des API Azure à l’aide de modèles Resource Manager
 description: Introduction à l’API DevOps avec gestion des API Azure, à l’aide de modèles de Azure Resource Manager pour gérer les déploiements d’API dans un pipeline CI/CD
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.author: apimpm
-ms.openlocfilehash: e7d0515262fc06d850b61f257e7cd577797bcf39
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.author: danlep
+ms.openlocfilehash: 7e1ea1b11304e43a74659221c352f207856369c8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532379"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665755"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD pour la gestion des API à l’aide de modèles de Azure Resource Manager
 

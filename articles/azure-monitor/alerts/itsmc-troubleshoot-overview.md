@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 16b6675a7b9796405376540b87efbaaa2a991890
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d6e41cd80e27fe673d04592c61e590c09645619e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081115"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430357"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>Résoudre les problèmes liés à Connecteur de gestion des services informatiques
 
@@ -100,7 +100,7 @@ Les sections suivantes identifient les symptômes courants, les causes possibles
 **Cause** : Il peut y avoir plusieurs raisons à l’apparition de ce symptôme :
 
 * Les modèles ne sont pas affichés dans la liste déroulante de définition d’action. Un message d’erreur s’affiche : « Impossible de récupérer la configuration du modèle. Consultez les journaux du connecteur pour plus d’informations ».
-* Les valeurs ne sont pas affichées dans les listes déroulantes des champs par défaut dans le cadre de la définition de l’action. Un message d’erreur s’affiche : « Aucune valeur trouvée pour les champs suivants : <field names> ».
+* Les valeurs ne sont pas affichées dans les listes déroulantes des champs par défaut dans le cadre de la définition de l’action. Un message d’erreur s’affiche : « Aucune valeur trouvée pour les champs suivants : \<field names\> ».
 * Aucun incident/événement n’est créé dans ServiceNow.
 
 **Résolution** : 

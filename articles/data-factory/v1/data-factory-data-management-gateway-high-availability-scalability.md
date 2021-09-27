@@ -3,16 +3,17 @@ title: Haute disponibilité avec la passerelle de gestion des données dans Azur
 description: Cet article explique comment effectuer un scale-out d’une passerelle de gestion des données en ajoutant des nœuds et comment effectuer un scale-up en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a76479a358366591d1c4edef0755dd26ce23cd81
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 5274c7fe926b1766d0b7767b2b44718a33139b97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112289870"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658523"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -40,7 +41,7 @@ Vous pouvez également configurer le nombre de **travaux de déplacement de donn
 ## <a name="architecture"></a>Architecture 
 Le diagramme suivant offre une vue d’ensemble architecturale de la fonctionnalité Haute disponibilité et scalabilité de la passerelle de gestion des données : 
 
-![Passerelle de gestion des données - Haute disponibilité et scalabilité](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png" alt-text="Passerelle de gestion des données - Haute disponibilité et scalabilité":::
 
 Une **passerelle logique** est une passerelle que vous ajoutez à une fabrique de données dans le portail Azure. Avant, vous ne pouviez associer qu’un seul ordinateur Windows local doté d’une passerelle de gestion des données installée avec une passerelle logique. Cet ordinateur passerelle local est appelé nœud. Maintenant, vous pouvez associer jusqu’à **quatre nœuds physiques** avec une passerelle logique. Une passerelle logique dotée de plusieurs nœuds est appelée **passerelle à plusieurs nœuds**.  
 
@@ -61,31 +62,31 @@ Cette section part du principe que vous avez parcouru les deux articles suivants
 
 1. Dans la [procédure pas à pas](data-factory-move-data-between-onprem-and-cloud.md#create-gateway), quand vous créez une passerelle logique, activez la fonctionnalité **Haute disponibilité et scalabilité**. 
 
-    ![Passerelle de gestion des données - Haute disponibilité et scalabilité](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-enable-high-availability-scalability.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-enable-high-availability-scalability.png" alt-text="Passerelle de gestion des données - Haute disponibilité et scalabilité":::
 2. Dans la page **Configurer**, utilisez le lien **Installation rapide** ou **Installation manuelle** pour installer une passerelle sur le premier nœud (un ordinateur Windows local).
 
-    ![Passerelle de gestion des données - Installation rapide ou manuelle](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-express-manual-setup.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-express-manual-setup.png" alt-text="Passerelle de gestion des données - Installation rapide ou manuelle":::
 
     > [!NOTE]
     > Si vous utilisez l’option d’installation rapide, la communication nœud à nœud s’effectue sans chiffrement. Le nom du nœud est identique à celui de l’ordinateur. Utilisez l’installation manuelle si la communication nœud à nœud doit être chiffrée ou si vous voulez indiquer un nom de nœud particulier. Il n’est pas possible de modifier les noms de nœuds ultérieurement.
 3. Si vous choisissez **Installation rapide** :
     1. Le message suivant s’affiche une fois que la passerelle est correctement installée :
 
-        ![Passerelle de gestion des données - Installation rapide terminée](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png" alt-text="Passerelle de gestion des données - Installation rapide terminée":::
     2. Lancez le Gestionnaire de configuration de passerelle de gestion des données en suivant [ces instructions](data-factory-data-management-gateway.md#configuration-manager). Le nom de la passerelle, le nom du nœud, l’état, etc. s’affichent.
 
-        ![Capture d’écran montrant l’endroit où sont affichés le nom de la passerelle, le nom du nœud et l’état.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png" alt-text="Capture d’écran montrant l’endroit où sont affichés le nom de la passerelle, le nom du nœud et l’état.":::
 4. Si vous choisissez **Installation manuelle** :
     1. Téléchargez le package d’installation à partir du Centre de téléchargement Microsoft, puis exécutez-le pour installer la passerelle sur votre ordinateur.
     2. Utilisez la **clé d’authentification** indiquée dans la page **Configurer** pour inscrire la passerelle.
     
-        ![Capture d’écran montrant l’endroit où utiliser la clé d’authentification.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png" alt-text="Capture d’écran montrant l’endroit où utiliser la clé d’authentification.":::
     3. Dans la page **Nouveau nœud de passerelle**, vous pouvez indiquer un **nom** personnalisé pour le nœud de passerelle. Par défaut, un nom de nœud est identique à celui de l’ordinateur.    
 
-        ![Passerelle de gestion des données - Spécifier un nom](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png" alt-text="Passerelle de gestion des données - Spécifier un nom":::
     4. Dans la page suivante, vous pouvez choisir d’**activer ou non le chiffrement pour la communication nœud à nœud**. Cliquez sur **Ignorer** pour désactiver le chiffrement (par défaut).
 
-        ![Passerelle de gestion des données - Activer le chiffrement](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png)  
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png" alt-text="Passerelle de gestion des données - Activer le chiffrement":::  
     
         > [!NOTE]
         > Le changement de mode de chiffrement est uniquement pris en charge quand vous avez un seul nœud de passerelle dans la passerelle logique. Pour changer de mode de chiffrement quand une passerelle a plusieurs nœuds, procédez comme suit : supprimez tous les nœuds à l’exception d’un seul, changez le mode de chiffrement, puis ajoutez de nouveau les nœuds.
@@ -93,35 +94,35 @@ Cette section part du principe que vous avez parcouru les deux articles suivants
         > Consultez la section [Configuration requise des certificats TSL/SSL](#tlsssl-certificate-requirements) pour obtenir la liste des conditions préalables à l’utilisation d’un certificat TLS/SSL. 
     5. Une fois que la passerelle est correctement installée, cliquez sur Lancer le Gestionnaire de configuration :
     
-        ![Installation manuelle - Lancer le Gestionnaire de configuration](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)     
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png" alt-text="Installation manuelle - Lancer le Gestionnaire de configuration":::     
     6. Le Gestionnaire de configuration de passerelle de gestion des données (ordinateur Windows local) apparaît et indique l’état de la connectivité, le **nom de la passerelle** et le **nom du nœud**.  
 
-        ![Passerelle de gestion des données - Installation terminée](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png" alt-text="Passerelle de gestion des données - Installation terminée":::
 
         > [!NOTE]
         > Si vous approvisionnez la passerelle sur une machine virtuelle Azure, vous pouvez utiliser [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/mutiple-vms-with-data-management-gateway). Ce script crée une passerelle logique, installe le logiciel de la passerelle de gestion des données sur les machines virtuelles et les inscrit auprès de la passerelle logique. 
 6. Dans le portail Azure, lancez la page **Passerelle** : 
     1. Dans la page d’accueil de la fabrique de données dans le portail, cliquez sur **Services liés**.
     
-        ![Capture d’écran mettant en évidence la vignette des service liés.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png" alt-text="Capture d’écran mettant en évidence la vignette des service liés.":::
     2. Sélectionnez la **passerelle** pour afficher la page **Passerelle** :
     
-        ![Page d’accueil Data Factory](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png" alt-text="Page d’accueil Data Factory":::
     4. La page **Passerelle** s’affiche :   
 
-        ![Affichage de la passerelle à nœud unique](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png" alt-text="Affichage de la passerelle à nœud unique"::: 
 7. Cliquez sur **Ajouter un nœud** dans la barre d’outils pour ajouter un nœud à la passerelle logique. Si vous envisagez d’utiliser l’installation rapide, effectuez cette étape à partir de l’ordinateur local qui sera ajouté en tant que nœud à la passerelle. 
 
-    ![Passerelle de gestion des données - Menu Ajouter un nœud](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png" alt-text="Passerelle de gestion des données - Menu Ajouter un nœud":::
 8. Les étapes sont similaires à celles de la configuration du premier nœud. L’interface utilisateur du Gestionnaire de configuration vous permet de définir le nom du nœud, si vous choisissez l’option d’installation manuelle : 
 
-    ![Gestionnaire de configuration - Installer une deuxième passerelle](media/data-factory-data-management-gateway-high-availability-scalability/install-second-gateway.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/install-second-gateway.png" alt-text="Gestionnaire de configuration - Installer une deuxième passerelle":::
 9. Une fois que la passerelle est correctement installée sur le nœud, l’outil Gestionnaire de configuration affiche l’écran suivant :  
 
-    ![Gestionnaire de configuration - Installation de la deuxième passerelle terminée](media/data-factory-data-management-gateway-high-availability-scalability/second-gateway-installation-successful.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/second-gateway-installation-successful.png" alt-text="Gestionnaire de configuration - Installation de la deuxième passerelle terminée":::
 10. Si vous ouvrez la page **Passerelle** dans le portail, vous voyez maintenant deux nœuds de passerelle : 
 
-    ![Passerelle à deux nœuds dans le portail](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png" alt-text="Passerelle à deux nœuds dans le portail":::
 11. Pour supprimer un nœud de passerelle, cliquez sur **Supprimer un nœud** dans la barre d’outils, sélectionnez le nœud à supprimer, puis cliquez sur **Supprimer** dans la barre d’outils. Cette action supprime le nœud sélectionné du groupe. Notez que cette action ne désinstalle pas du nœud (ordinateur Windows local) le logiciel de la passerelle de gestion des données. Utilisez **Ajouter ou supprimer des programmes** dans le Panneau de configuration de l’ordinateur local pour désinstaller la passerelle. Quand vous désinstallez la passerelle du nœud, elle est automatiquement supprimée dans le portail.   
 
 ## <a name="upgrade-an-existing-gateway"></a>Mettre à niveau une passerelle existante
@@ -130,18 +131,18 @@ Vous pouvez mettre à niveau une passerelle existante pour utiliser la fonctionn
 1. Pour mettre à jour la passerelle sur l’ordinateur local en lui appliquant la version la plus récente, téléchargez et exécutez un package d’installation MSI à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consultez la section [Installation](data-factory-data-management-gateway.md#installation) pour plus d’informations.  
 2. Accédez au portail Azure. Lancez la **page Data Factory** de votre fabrique de données. Cliquez sur la vignette Services liés pour lancer la **page Services liés**. Sélectionnez la passerelle pour lancer la **page Passerelle**. Cliquez sur **Fonctionnalité en préversion** pour l’activer comme indiqué dans l’image suivante : 
 
-    ![Passerelle de gestion des données - Activer la fonctionnalité en préversion](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png" alt-text="Passerelle de gestion des données - Activer la fonctionnalité en préversion":::   
 2. Une fois que la fonctionnalité en préversion est activée dans le portail, fermez toutes les pages. Rouvrez la **page Passerelle** pour afficher la nouvelle interface utilisateur (IU) en préversion.
  
-    ![Passerelle de gestion des données - Activation de la fonctionnalité en préversion terminée](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview-success.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview-success.png" alt-text="Passerelle de gestion des données - Activation de la fonctionnalité en préversion terminée":::
 
-    ![Passerelle de gestion des données - Interface utilisateur en préversion](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview.png" alt-text="Passerelle de gestion des données - Interface utilisateur en préversion":::
 
     > [!NOTE]
     > Pendant la mise à niveau, le nom du premier nœud correspond au nom de l’ordinateur. 
 3. Maintenant, ajoutez un nœud. Dans la page **Passerelle**, cliquez sur **Ajouter un nœud**.  
 
-    ![Passerelle de gestion des données - Menu Ajouter un nœud](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png" alt-text="Passerelle de gestion des données - Menu Ajouter un nœud":::
 
     Suivez les instructions de la section précédente pour configurer le nœud. 
 
@@ -174,7 +175,7 @@ L’activation du chiffrement peut ajouter certains coûts à votre infrastructu
 ### <a name="multi-node-gateway-monitoring"></a>Surveillance d’une passerelle à plusieurs nœuds
 Dans le portail Azure, vous pouvez afficher un instantané en quasi temps réel de l’utilisation des ressources (processeur, mémoire, réseau (entrée/sortie), etc.) sur chaque nœud, ainsi que les états des nœuds de passerelle. 
 
-![Passerelle de gestion des données - Surveillance de plusieurs nœuds](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png" alt-text="Passerelle de gestion des données - Surveillance de plusieurs nœuds":::
 
 Vous pouvez activer l’option **Paramètres avancés** dans la page **Passerelle** pour afficher des métriques avancées telles que **Réseau**(entrée/sortie), **État du rôle et des informations d’identification**, ce qui s’avère utile pour résoudre les problèmes liés à la passerelle, ainsi que **Tâches simultanées** (en cours d’exécution/limite) que vous pouvez modifier en conséquence lors du réglage des performances. Le tableau suivant fournit les descriptions des colonnes utilisées dans la liste **Nœuds de passerelle** :  
 
@@ -189,7 +190,7 @@ Réseau (entrée/sortie) | Utilisation du réseau d’un nœud de passerelle. Ce
 Tâches simultanées (en cours d’exécution/limite) | Nombre de travaux ou tâches qui s’exécutent sur chaque nœud. Cette valeur est un instantané en quasi temps réel. La limite correspond au nombre maximal de travaux simultanés pour chaque nœud. Cette valeur est définie selon la taille de l’ordinateur. Vous pouvez augmenter la limite pour monter en puissance l’exécution de tâches simultanées dans les scénarios avancés, où le processeur/la mémoire /le réseau sont sous-utilisés, alors que les activités expirent. Cette fonctionnalité est également disponible avec une passerelle à nœud unique (même quand la fonctionnalité Haute disponibilité et scalabilité n’est pas activée). Pour plus d’informations, consultez la section [Considérations d’échelle](#scale-considerations). 
 Role | Il existe deux types de rôles : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur, utilisé pour extraire des tâches/travaux auprès de services cloud et les répartir entre les différents nœuds rôles de travail (y compris lui-même). 
 
-![Passerelle de gestion des données - Surveillance avancée de plusieurs nœuds](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png" alt-text="Passerelle de gestion des données - Surveillance avancée de plusieurs nœuds":::
 
 ### <a name="gateway-status"></a>État de la passerelle
 
@@ -216,9 +217,9 @@ Limité | Tous les nœuds inclus dans cette passerelle ne sont pas dans un état
 ### <a name="pipeline-activities-monitoring"></a>Surveillance de pipeline/des activités
 Le portail Azure propose une expérience de surveillance de pipeline avec des détails précis au niveau du nœud. Par exemple, il indique quelles activités se sont exécutées sur quel nœud. Ces informations peuvent s’avérer utiles pour comprendre les problèmes de performances sur un nœud particulier, par exemple en raison d’une limitation du réseau. 
 
-![Passerelle de gestion des données - Surveillance de plusieurs nœuds pour les pipelines](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-pipelines.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-pipelines.png" alt-text="Passerelle de gestion des données - Surveillance de plusieurs nœuds pour les pipelines":::
 
-![Passerelle de gestion des données - Détails de pipeline](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-pipeline-details.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-pipeline-details.png" alt-text="Passerelle de gestion des données - Détails de pipeline":::
 
 ## <a name="scale-considerations"></a>Considérations d’échelle
 
@@ -228,7 +229,7 @@ Quand la **mémoire disponible est faible** et l’**utilisation du processeur e
 ### <a name="scale-up"></a>Monter en puissance
 Quand la mémoire disponible et le processeur ne sont pas correctement utilisés, mais que la capacité inactive s’élève à 0, vous devez augmenter la taille des instances en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud. Vous pouvez également augmenter la taille des instances quand les activités expirent parce que la passerelle est surchargée. Comme le montre l’image suivante, vous pouvez augmenter la capacité maximale pour un nœud. Nous vous suggérons de la doubler dans un premier temps.  
 
-![Passerelle de gestion des données - Considérations d’échelle](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-scale-considerations.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-scale-considerations.png" alt-text="Passerelle de gestion des données - Considérations d’échelle":::
 
 
 ## <a name="known-issuesbreaking-changes"></a>Problèmes connus/nouveautés

@@ -10,12 +10,12 @@ ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d98c239da9c415da0a87f0eecad20af147802aca
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: cecfd917146cd11399276ca706ddfa52c12b2c86
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122563694"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596996"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauration dans le temps pour les objets blob de blocs
 
@@ -89,6 +89,17 @@ La restauration jusqu’à une date et heure pour les objets blob de blocs prés
 
 > [!IMPORTANT]
 > Si vous restaurez des objets blob de blocs à un point antérieur au 22 septembre 2020, les limitations de la restauration jusqu’à une date et heure seront appliquées. Microsoft vous recommande de choisir un point de restauration égal ou postérieur au 22 septembre 2020 pour tirer parti de la fonctionnalité de restauration jusqu’à une date et heure généralement disponible.
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Non](../media/icons/no-icon.png)|![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 

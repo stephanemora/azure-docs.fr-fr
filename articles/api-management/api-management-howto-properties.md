@@ -3,17 +3,17 @@ title: Guide pratique pour utiliser des valeurs nommées dans les stratégies Ge
 description: Découvrez comment utiliser des valeurs nommées dans les stratégies Gestion des API Azure. Les valeurs nommées peuvent contenir des chaînes littérales, des expressions de stratégie et des secrets stockés dans Azure Key Vault.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
-ms.author: apimpm
-ms.openlocfilehash: a970eb23c171522907b6066454d9ca15d85f0835
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.author: danlep
+ms.openlocfilehash: 65f45758ab00d9e549ac0e52287a198bf5734acd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812261"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671200"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f70b876bd76eaf2fb7f8ca18cf3dabb7e66bf9b5
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 55e3f464f4494f6afa52b90eb50a1c1c66e6756f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733826"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674620"
 ---
 # <a name="authorize-access-to-blobs-using-azure-active-directory"></a>Autoriser l’accès aux blobs avec Azure Active Directory
 
@@ -100,6 +100,17 @@ Azure CLI et PowerShell prennent en charge la connexion avec des informations d�
 
 - [Choisir comment autoriser l’accès à des données blob avec Azure CLI](authorize-data-operations-cli.md)
 - [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob](authorize-data-operations-powershell.md)
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)| ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

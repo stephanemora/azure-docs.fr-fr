@@ -1,17 +1,15 @@
 ---
 title: Résoudre des problèmes d’applications de fonction Python dans Azure Functions
 description: Découvrez comment résoudre des problèmes de fonctions Python.
-author: Hazhzeng
 ms.topic: article
 ms.date: 07/29/2020
-ms.author: hazeng
 ms.custom: devx-track-python
-ms.openlocfilehash: 56da006dc5a0eef46d5b13984983ca680359b968
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 3d6be539763e655405a1e46b628e68cb5690e4f2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168091"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654344"
 ---
 # <a name="troubleshoot-python-errors-in-azure-functions"></a>Résoudre des erreurs Python dans Azure Functions
 
@@ -171,14 +169,14 @@ Sur Windows dans PowerShell : `py -c 'import platform; print(platform.architect
 
 Sur un interpréteur de commandes de type Unix : `python3 -c 'import platform; print(platform.architecture()[0])'`
 
-En cas d’incompatibilité entre le nombre de bits de l’interpréteur Python et l’architecture du système d’exploitation, téléchargez un interpréteur python approprié à partir de [Python Software Foundation](https://python.org/downloads/release).
+En cas d’incompatibilité entre le nombre de bits de l’interpréteur Python et l’architecture du système d’exploitation, téléchargez un interpréteur python approprié à partir de [Python Software Foundation](https://www.python.org/downloads).
 
 #### <a name="the-python-interpreter-is-not-supported-by-azure-functions-python-worker"></a>L’interpréteur Python n’est pas pris en charge par le Worker Python Azure Functions
 
 Le Worker Python Azure Functions prend uniquement en charge Python 3.6, 3.7 et 3.8.
 Vérifiez si votre interpréteur Python correspond à notre version attendue en utilisant `py --version` sous Windows ou `python3 --version` dans des systèmes de type Unix. Assurez-vous que le résultat retourné est Python 3.6.x, Python 3.7.x ou Python 3.8.x.
 
-Si votre version de l’interpréteur Python ne répond pas à notre attente, téléchargez l’interpréteur Python 3.6, 3.7 ou 3.8 à partir de [Python Software Foundation](https://python.org/downloads/release).
+Si votre version de l’interpréteur Python ne répond pas à notre attente, téléchargez l’interpréteur Python 3.6, 3.7 ou 3.8 à partir de [Python Software Foundation](https://www.python.org/downloads).
 
 ---
 

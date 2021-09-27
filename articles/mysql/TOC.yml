@@ -384,6 +384,8 @@
                   displayName: 'debug, slow query log , performance'
     - name: Exemples
       items:
+        - name: Exemples d’interface de ligne de commande Azure
+          href: sample-scripts-azure-cli.md
         - name: Configurer le regroupement de connexions Java
           href: sample-scripts-java-connection-pooling.md
 - name: Serveur flexible (préversion)
@@ -590,6 +592,10 @@
               href: flexible-server/how-to-troubleshoot-common-connection-issues.md
             - name: Résoudre les erreurs CLI
               href: flexible-server/how-to-troubleshoot-cli-errors.md
+    - name: Exemples
+      items:
+        - name: Exemples d’interface de ligne de commande Azure
+          href: flexible-server/sample-scripts-azure-cli.md
 - name: Migration
   items:
     - name: Migrer des données de MySQL local vers Azure Database pour MySQL >

@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 09/05/2019
-  ms.openlocfilehash: d94f01abdf3b2853e892925d5a19ec5468fd26f0
-  ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+  ms.openlocfilehash: 165cedba9688270971afdbc67f72aec21bc4ac76
+  ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/07/2021
-  ms.locfileid: "97964471"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128708184"
 landingContent:
 - title: À propos d’Azure Blockchain Workbench
   linkLists:
@@ -27,10 +27,6 @@ landingContent:
     links:
     - text: Architecture
       url: architecture.md
-  - linkListType: video
-    links:
-    - text: Introduction à Azure Blockchain Workbench
-      url: https://channel9.msdn.com/Shows/Blocktalk/Introduction-to-Azure-Blockchain-Workbench
 - title: Bien démarrer
   linkLists:
   - linkListType: learn
@@ -49,10 +45,6 @@ landingContent:
       url: create-app.md
     - text: Utiliser une application Blockchain Workbench
       url: use.md
-  - linkListType: video
-    links:
-    - text: Créer votre première application Azure Blockchain Workbench
-      url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
 - title: Exemples de contrats
   linkLists:
   - linkListType: download

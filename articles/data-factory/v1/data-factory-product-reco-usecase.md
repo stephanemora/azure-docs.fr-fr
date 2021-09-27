@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 44c66f5fa89e7293667c930bfd1720d72dc26bf4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9a194fb1f1db5723643f9f73a6c2018f5daa59f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785068"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665337"
 ---
 # <a name="use-case---product-recommendations"></a>Cas d’utilisation - Recommandations de produits
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Consultez la page [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) pour plus de détails. Dans ce document, nous décrivons un cas d’utilisation courant que les utilisateurs Azure ont déjà résolu et implémenté à l’aide d’Azure Data Factory et d’autres services Cortana Intelligence.
@@ -40,7 +41,7 @@ Le détaillant en ligne utilise un magasin d’objets blob Azure, un serveur SQL
 
 Toutes les données sont combinées et chargées dans un système de recommandations de produit pour fournir des recommandations personnalisées selon les intérêts et les actions du client à mesure que l'utilisateur parcourt le catalogue de produits sur le site web. Le client peut également voir des produits liés à celui qu'il recherche, selon des modèles d'utilisation du site web qui ne sont spécifiques à aucun utilisateur.
 
-![diagramme de cas d'utilisation](./media/data-factory-product-reco-usecase/diagram-1.png)
+:::image type="content" source="./media/data-factory-product-reco-usecase/diagram-1.png" alt-text="diagramme de cas d'utilisation":::
 
 Des gigaoctets de fichiers journaux web bruts sont générés chaque jour sous forme de fichiers semi-structurés, à partir du site web du détaillant en ligne. Les fichiers journaux web bruts et les informations sur les clients et le catalogue de produits sont transmises régulièrement à un stockage d'objets blob Azure en utilisant le déplacement de données déployées globalement Data Factory comme service. Les fichiers journaux bruts de la journée sont partitionnés (par année et mois) dans le stockage d’objets blob pour un stockage à long terme.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) sert à partitionner les fichiers journaux bruts dans le magasin d’objets blob et à traiter les journaux d’activité ingérés à l’échelle à l’aide de scripts Hive et Pig. Les données de journal d’activité web partitionnées sont alors traitées pour extraire les entrées nécessaires pour un système de recommandation, afin de générer les recommandations de produits personnalisées.
 

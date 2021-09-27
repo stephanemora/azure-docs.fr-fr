@@ -9,12 +9,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 04/29/2021
-ms.openlocfilehash: 13da66fbe5b79026028dc6c525283e40f1d55dad
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3e071ad5f86d13270144ec8eb7839f31601b5c39
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524874"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432303"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plateformes de données prises en charge sur la machine virtuelle DSVM
 
@@ -39,7 +39,7 @@ Les outils de plateforme de données pris en charge sur DSVM sont les suivants.
 > La prise en charge de Machine Learning Server autonome prendra fin le 1er juillet 2021. Nous allons le supprimer des images DSVM après le 30 juin. Les déploiements existants continueront d’avoir accès au logiciel, mais en raison de la date de fin du support, il n’y aura pas de prise en charge après le 1er juillet 2021.
 
 > [!NOTE]
-> Nous supprimerons SQL Server Developer Edition des images DSVM avant fin novembre 2021. SQL Server Developer Edition sera toujours installé sur les déploiements existants. Dans les nouveaux déploiements, si vous souhaitez avoir accès à SQL Server Developer Edition, vous pouvez l’installer et l’utiliser via la prise en charge de Docker. Consultez [Démarrage rapide : Exécuter des images de conteneur SQL Server avec Docker](/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-).
+> Nous supprimerons SQL Server Developer Edition des images DSVM avant fin novembre 2021. SQL Server Developer Edition sera toujours installé sur les déploiements existants. Dans les nouveaux déploiements, si vous souhaitez avoir accès à SQL Server Developer Edition, vous pouvez l’installer et l’utiliser via la prise en charge de Docker. Consultez [Démarrage rapide : Exécuter des images de conteneur SQL Server avec Docker](/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash&preserve-view=true).
 
 ### <a name="windows"></a>Windows
 

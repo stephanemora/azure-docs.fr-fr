@@ -4,18 +4,18 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 06/02/2021
-ms.openlocfilehash: 6170c6e00d232e65125963680c522610cb5239ec
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d3afc24f11400a5d2e7e099690ba9312e9b25ae7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531393"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599864"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations ci-dessous :
 
-## <a name="backup"></a>Sauvegarde
+## <a name="backup"></a>Backup
 
 Cette section traite de l’échec d’opération de sauvegarde d’une machine virtuelle Azure.
 
@@ -257,7 +257,7 @@ Cela garantira que les captures instantanées soient effectuées via l’hôte p
 
 **Étape 2** : Essayer de modifier la planification de la sauvegarde en la définissant sur une heure à laquelle la machine virtuelle est moins chargée (moins de charge pour le processeur ou moins d'IOPS)
 
-**Étape 3** : Essayer d’[augmenter la taille de machine virtuelle](../virtual-machines/windows/resize-vm.md), puis réessayez l’opération
+**Étape 3** : Essayer d’[augmenter la taille de machine virtuelle](../virtual-machines/resize-vm.md), puis réessayez l’opération
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound – Impossible d’effectuer l’opération, car la machine virtuelle n’existe plus / 400094, BCMV2VMNotFound – La machine virtuelle n’existe pas / Machine virtuelle Azure introuvable
 

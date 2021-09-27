@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 07/09/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6931f33c303e1e42af75b34cb7a72d7a37c702cd
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: d13b76e406398dcad37abb170b1f43439ab8bad4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598186"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662898"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Mettre à jour des offres existantes dans le marketplace commercial
 
@@ -32,12 +32,12 @@ Procédez comme suit pour mettre à jour une offre qui a été publiée en prév
     - **Caractère incomplet** : les mises à jour de la section ont entraîné des erreurs qui doivent être corrigées, ou qui nécessitent plus d’informations.
 2. Sélectionnez **Publier** pour envoyer l’offre mise à jour en vue de sa publication. Votre offre passera ensuite par les [étapes standard de validation et de publication](review-publish-offer.md#validation-and-publishing-steps).
 
+> [!IMPORTANT]
+> Vous devez examiner votre préversion de l’offre une fois qu’elle est disponible et sélectionner **Démarrer** pour publier votre offre mise à jour à l’attention de votre audience ciblée (publique ou privée).
+
 ## <a name="changing-offer-type"></a>Modification du type d’offre
 
 [!INCLUDE [change-offer-type](includes/change-offer-type.md)]
-
-> [!IMPORTANT]
-> Vous devez examiner votre préversion de l’offre une fois qu’elle est disponible et sélectionner **Démarrer** pour publier votre offre mise à jour à l’attention de votre audience ciblée (publique ou privée).
 
 ## <a name="add-a-plan-to-an-existing-offer"></a>Ajouter un plan à une offre existante
 
@@ -57,6 +57,9 @@ Procédez comme suit pour apporter des modifications au plan d’une offre que v
 1. Sélectionnez **Enregistrer le brouillon** après avoir apporté les modifications nécessaires au nom du plan, à sa description ou à sa disponibilité pour l’audience.
 1. Si vous êtes prêt à publier vos mises à jour, sélectionnez **Passer en revue et publier**. La page **[Examiner et publier](review-publish-offer.md)** s’ouvre et fournit un état d’achèvement pour vos mises à jour.
 1. Sélectionnez **Publier** pour envoyer le plan mis à jour en vue de sa publication. Nous vous enverrons un e-mail quand une préversion de l’offre mise à jour sera disponible pour examen et approbation.
+
+> [!NOTE]
+> Si vous publiez un plan privé, vous pouvez modifier sa visibilité sur public ultérieurement. Toutefois, une fois que vous avez publié un plan public, vous ne pouvez pas changer sa visibilité sur privé.
 
 ## <a name="update-image-versions-for-an-existing-vm-offer"></a>Mettre à jour les versions d'images pour une offre de machine virtuelle existante
 

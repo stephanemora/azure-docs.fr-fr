@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
-ms.openlocfilehash: e7b92b2b9c4885e09bc2a700fbf3a8f1a37dbfa4
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 67bd943028ba321aa4fa3a5acca30e80cfc36a32
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527654"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615564"
 ---
 # <a name="enable-azure-storage-blob-inventory-reports"></a>Activer les rapports d’inventaire des objets blob du Stockage Azure
 
-La fonctionnalité d’inventaire des objets blob du Stockage Azure offre une vue d’ensemble de vos conteneurs, objets blob, instantanés et versions d’objets blob dans un compte de stockage. Utilisez le rapport d’inventaire pour connaître les différents attributs des objets blob et des conteneurs, tels que la taille totale des données, leur âge, l’état du chiffrement, la stratégie d’immuabilité, la conservation légale, etc. Il vous fournit une synthèse de vos données pour les besoins de l’entreprise et ses exigences de conformité. 
+La fonctionnalité d’inventaire des objets blob du Stockage Azure offre une vue d’ensemble de vos conteneurs, objets blob, instantanés et versions d’objets blob dans un compte de stockage. Utilisez le rapport d’inventaire pour comprendre divers attributs des blobs et des conteneurs, tels que la taille totale de vos données, leur ancienneté, l’état du chiffrement, la stratégie d’immuabilité et la conservation légale, etc. Il vous fournit une synthèse de vos données pour les besoins de l’entreprise et ses exigences de conformité.
 
 Pour en savoir plus sur les rapports d’inventaire d’objets blob, consultez [Inventaire des objets blob du Stockage Azure](blob-inventory.md).
 
@@ -44,7 +44,7 @@ Activez les rapports d’inventaire des objets blob en ajoutant une stratégie c
 
 7. Sous **Type d’objet à inventorier**, choisissez si vous souhaitez créer un rapport pour les objets blob ou pour les conteneurs.
 
-   Si vous sélectionnez **Objet blob**, sous **Sous-type de l’objet blob**, choisissez les types d’objets blob que vous souhaitez inclure dans votre rapport, et si vous souhaitez inclure des versions d’objets blob et/ou des instantanés dans votre rapport d’inventaire. 
+   Si vous sélectionnez **Objet blob**, sous **Sous-type de l’objet blob**, choisissez les types d’objets blob que vous souhaitez inclure dans votre rapport, et si vous souhaitez inclure des versions d’objets blob et/ou des instantanés dans votre rapport d’inventaire.
 
    > [!NOTE]
    > Vous devez activer les versions et les instantanés sur le compte pour pouvoir enregistrer une nouvelle règle avec l’option correspondante activée.
@@ -91,30 +91,30 @@ Vous pouvez activer l’hébergement de site web statique à l’aide du module 
    $ctx = $storageAccount.Context
    ```
 
-   * Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
+   - Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
 
-   * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
+   - Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
 6. Créez des règles d’inventaire à l’aide de la commande [New-AzStorageBlobInventoryPolicyRule](/powershell/module/az.storage/new-azstorageblobinventorypolicyrule). Chaque règle liste des champs de rapport. Pour obtenir la liste complète des champs de rapport, consultez [Inventaire des objets blob du Stockage Azure](blob-inventory.md).
 
-   ```Powershell
+   ```powershell
     $containerName = "my-container"
 
     $rule1 = New-AzStorageBlobInventoryPolicyRule -Name Test1 -Destination $containerName -Disabled -Format Csv -Schedule Daily -PrefixMatch con1,con2 `
-                -ContainerSchemaField Name,Metadata,PublicAccess,Last-modified,LeaseStatus,LeaseState,LeaseDuration,HasImmutabilityPolicy,HasLegalHold 
+                -ContainerSchemaField Name,Metadata,PublicAccess,Last-modified,LeaseStatus,LeaseState,LeaseDuration,HasImmutabilityPolicy,HasLegalHold
 
     $rule2 = New-AzStorageBlobInventoryPolicyRule -Name test2 -Destination $containerName -Format Parquet -Schedule Weekly  -BlobType blockBlob,appendBlob -PrefixMatch aaa,bbb `
                 -BlobSchemaField name,Last-Modified,Metadata,LastAccessTime
 
     $rule3 = New-AzStorageBlobInventoryPolicyRule -Name Test3 -Destination $containerName -Format Parquet -Schedule Weekly -IncludeBlobVersion -IncludeSnapshot -BlobType blockBlob,appendBlob -PrefixMatch aaa,bbb `
-                -BlobSchemaField name,Creation-Time,Last-Modified,Content-Length,Content-MD5,BlobType,AccessTier,AccessTierChangeTime,Expiry-Time,hdi_isfolder,Owner,Group,Permissions,Acl,Metadata,LastAccessTime 
+                -BlobSchemaField name,Creation-Time,Last-Modified,Content-Length,Content-MD5,BlobType,AccessTier,AccessTierChangeTime,Expiry-Time,hdi_isfolder,Owner,Group,Permissions,Acl,Metadata,LastAccessTime
 
     $rule4 = New-AzStorageBlobInventoryPolicyRule -Name test4 -Destination $containerName -Format Csv -Schedule Weekly -BlobType blockBlob -BlobSchemaField Name,BlobType,Content-Length,Creation-Time
 
    ```
 
-7. Utilisez [Set-AzStorageBlobInventoryPolicy](/powershell/module/az.storage/set-azstorageblobinventorypolicy) pour créer une stratégie d’inventaire d’objets blob. Passez les règles dans cette commande à l’aide du paramètre `-Rule`. 
-  
+7. Utilisez [Set-AzStorageBlobInventoryPolicy](/powershell/module/az.storage/set-azstorageblobinventorypolicy) pour créer une stratégie d’inventaire d’objets blob. Passez les règles dans cette commande à l’aide du paramètre `-Rule`.
+
    ```powershell
    $policy = Set-AzStorageBlobInventoryPolicy -StorageAccount $storageAccount -Rule $rule1,$rule2,$rule3,$rule4  
    ```
@@ -132,9 +132,10 @@ Vous pouvez activer l’hébergement de site web statique à l’aide de l’[in
    ```azurecli
       az account set --subscription <subscription-id>
    ```
+
    Remplacez la valeur d’espace réservé `<subscription-id>` par l’ID de votre abonnement.
 
-3. Définissez les règles de votre stratégie dans un document JSON. L’exemple suivant montre le contenu d’un exemple de fichier JSON nommé `policy.json`. 
+3. Définissez les règles de votre stratégie dans un document JSON. L’exemple suivant montre le contenu d’un exemple de fichier JSON nommé `policy.json`.
 
     ```json
     {
@@ -178,7 +179,8 @@ Vous pouvez activer l’hébergement de site web statique à l’aide de l’[in
       }
      ]
    }
-   ``` 
+
+   ```
 
 4. Créez une stratégie d’inventaire d’objets blob à l’aide de la commande [az storage account blob-inventory-policy create](/cli/azure/storage/account/blob-inventory-policy#az_storage_account_blob_inventory_policy_create). Indiquez le nom de votre document JSON à l’aide du paramètre `--policy`.
 
@@ -191,4 +193,4 @@ Vous pouvez activer l’hébergement de site web statique à l’aide de l’[in
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Calculer le nombre et la taille totale des objets blob par conteneur](calculate-blob-count-size.md)
-- [Gérer le cycle de vie de Stockage Blob Azure](storage-lifecycle-management-concepts.md)
+- [Gérer le cycle de vie de Stockage Blob Azure](./lifecycle-management-overview.md)

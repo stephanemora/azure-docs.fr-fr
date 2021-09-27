@@ -3,12 +3,12 @@ title: Créer des définitions de stratégie personnalisées Configuration invit
 description: Découvrez comment créer une stratégie Configuration invité.
 ms.date: 07/22/2021
 ms.topic: how-to
-ms.openlocfilehash: 28ad60284912261510a55438919924138d4e2b5e
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 1dd1620d0ef41bf28a276cfe2412ca4bdc09d183
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122773096"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644901"
 ---
 # <a name="how-to-create-custom-guest-configuration-policy-definitions"></a>Créer des définitions de stratégie personnalisées Configuration invité
 
@@ -18,7 +18,7 @@ Avant de commencer, il est recommandé de lire la page Vue d’ensemble présent
 > L’extension de configuration invité est requise pour les machines virtuelles Azure. Pour déployer l’extension à grande échelle sur toutes les machines, attribuez l’initiative de stratégie suivante : `Deploy prerequisites to enable guest configuration policies on
 > virtual machines`
 > 
-> Pour utiliser les packages de configuration invité qui appliquent des configurations, l’extension de configuration invité de machine virtuelle Azure version **1.29.24** ou ultérieure, ou l’agent Arc version **1.10.0** ou version ultérieure, sont requis.
+> Pour utiliser les packages de configuration d’invité qui appliquent des configurations, l’extension de configuration d’invité de machine virtuelle Azure version **1.29.24** ou ultérieure, ou l’agent Arc version **1.10.0** ou version ultérieure, sont requis.
 >
 > Les définitions de stratégie de configuration invité personnalisées utilisant **AuditIfNotExists** sont généralement disponibles, mais les définitions utilisant **DeployIfNotExists** avec la configuration invité sont **en préversion**.
 
@@ -80,7 +80,7 @@ Créer une définition de stratégie qui audite à l’aide d’un package de co
 
 ```powershell
 New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID'
+  -PolicyId 'My GUID' `
   -ContentUri '<paste the ContentUri output from the Publish command>' `
   -DisplayName 'My audit policy.' `
   -Description 'Details about my policy.' `
@@ -94,7 +94,7 @@ Créer une définition de stratégie qui déploie une configuration à l’aide 
 
 ```powershell
 New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID'
+  -PolicyId 'My GUID' `
   -ContentUri '<paste the ContentUri output from the Publish command>' `
   -DisplayName 'My audit policy.' `
   -Description 'Details about my policy.' `
@@ -166,8 +166,8 @@ $PolicyParameterInfo = @(
   }
 )
 
-New-GuestConfigurationPolicy
-  -PolicyId 'My GUID'
+New-GuestConfigurationPolicy `
+  -PolicyId 'My GUID' `
   -ContentUri '<paste the ContentUri output from the Publish command>' `
   -DisplayName 'Audit Windows Service.' `
   -Description 'Audit if a Windows Service isn't enabled on Windows machine.' `

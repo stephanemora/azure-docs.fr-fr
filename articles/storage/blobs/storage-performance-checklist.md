@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 249d2e266c0f72336091133a52426602491b3c68
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 5f0cbf0c83d8ea7caba84f681c71659cef119f17
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900734"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643609"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Liste de contrôle des performances et de la scalabilité pour le stockage Blob
 
@@ -71,7 +71,7 @@ Si vous atteignez le nombre maximal de comptes de stockage autorisés pour une c
 
 ### <a name="capacity-and-transaction-targets"></a>Objectifs de capacité et de transaction
 
-Si votre application s’approche des objectifs d’extensibilité d’un seul compte de stockage, pensez à appliquer l’une des méthodes suivantes :  
+Si votre application s’approche des objectifs d’extensibilité d’un seul compte de stockage, pensez à appliquer l’une des méthodes suivantes :
 
 - Si votre application atteint la cible de la transaction, envisagez d’utiliser des comptes de stockage d’objets blob de blocs, qui sont optimisés pour des taux de transactions élevés et une latence faible et cohérente. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 - Réexaminez la charge de travail à cause de laquelle votre application s’approche de l’objectif d’extensibilité ou le dépasse. Est-il possible de la concevoir différemment pour qu’elle utilise moins de bande passante ou de capacité, ou moins de transactions ?
@@ -92,7 +92,7 @@ Dans d’autres scénarios tels que les simulations scientifiques où les donné
 
 Un seul objet blob prend en charge plus de 500 requêtes par seconde. Si vous risquez de dépasser ces limites lorsque plusieurs clients doivent lire le même objet blob, il est conseillé d’utiliser un compte de stockage d’objet blob de blocs. Un compte de stockage d’objets blob de blocs fournit un débit de requêtes plus élevé ou un nombre supérieur opérations d’E/S par seconde (IOPS).
 
-Vous pouvez utiliser un réseau de distribution de contenu (CDN, Content Delivery Network) tel que le CDN Azure pour distribuer les opérations sur le blob. Pour plus d’informations sur le CDN Azure, consultez [Vue d’ensemble sur le CDN Azure](../../cdn/cdn-overview.md).  
+Vous pouvez utiliser un réseau de distribution de contenu (CDN, Content Delivery Network) tel que le CDN Azure pour distribuer les opérations sur le blob. Pour plus d’informations sur le CDN Azure, consultez [Vue d’ensemble sur le CDN Azure](../../cdn/cdn-overview.md).
 
 ## <a name="partitioning"></a>Partitionnement
 
@@ -106,19 +106,19 @@ Par exemple, tous les objets blob d’un conteneur peuvent être fournis par un 
 
 Chaque opération d’équilibrage de charge peut affecter la latence des appels de stockage lors de l’opération. La capacité du service à gérer une hausse soudaine du trafic vers une partition est limitée par la scalabilité d’un serveur à partition unique jusqu’à ce que l’opération d’équilibrage de charge intervienne et rééquilibre la plage clé de la partition.
 
-Vous pouvez suivre quelques bonnes pratiques pour réduire la fréquence de ces opérations.  
+Vous pouvez suivre quelques bonnes pratiques pour réduire la fréquence de ces opérations.
 
 - Si possible, utilisez des tailles d’objet blob ou de bloc supérieures à 4 Mio pour les comptes de stockage standard et supérieures à 256 Kio pour les comptes de stockage Premium. Les tailles d’objet blob ou de bloc supérieures activent automatiquement les objets blob de blocs à haut débit. L’objet blob de blocs à haut débit fournit une ingestion haute performance qui n’est pas affectée par l’affectation de noms aux partitions.
 - Examinez la convention de nommage que vous utilisez pour les comptes, conteneurs, objets blob, tables et files d’attente. Vous pouvez ajouter un préfixe aux noms de comptes, de conteneurs ou d’objets blob avec un hachage à trois chiffres à l’aide d’une fonction de hachage qui correspond le mieux à vos besoins.
 - Si vous organisez vos données à l'aide d'horodatages ou d’identificateurs numériques, veillez à ne pas utiliser un modèle de trafic « Ajouter après uniquement » ou « Ajouter avant uniquement ». Ces modèles ne conviennent pas à un système de partitionnement basé sur une plage. Ces modèles peuvent entraîner tout le trafic vers une partition unique et limiter l’équilibrage de charge du système.
 
     Par exemple, si vos opérations quotidiennes utilisent un objet blob avec un horodatage comme *aaaammjj*, tout le trafic pour cette opération quotidienne est alors dirigé vers un objet blob unique pris en charge par un serveur à partition unique. Vérifiez si les limites par objet blob et par partition répondent à vos besoins, et pensez à diviser cette opération en plusieurs objets blob si nécessaire. De même, si vous stockez des données chronologiques dans vos tables, tout le trafic peut être dirigé vers la dernière partie de l’espace de noms de clé. Si vous utilisez des ID numériques, préfixez l’ID avec un hachage à trois chiffres. Si vous utilisez des horodatages, préfixez l’horodatage avec la valeur en secondes, par exemple *ssaaaammjj* . Si votre application effectue régulièrement des opérations de listage et d’interrogation, choisissez une fonction de hachage qui limite le nombre de vos requêtes. Dans certains cas, un préfixe aléatoire peut être suffisant.
-  
+
 - Pour plus d’informations sur le schéma de partitionnement utilisé dans le Stockage Azure, consultez [Stockage Azure : un service de stockage cloud hautement disponible à cohérence forte](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ## <a name="networking"></a>Mise en réseau
 
-Les contraintes de réseau physiques de l’application peuvent avoir un impact majeur sur les performances. Les sections suivantes abordent certaines des limitations auxquelles les utilisateurs peuvent être confrontés.  
+Les contraintes de réseau physiques de l’application peuvent avoir un impact majeur sur les performances. Les sections suivantes abordent certaines des limitations auxquelles les utilisateurs peuvent être confrontés.
 
 ### <a name="client-network-capability"></a>Fonctionnalités réseau du client
 
@@ -130,27 +130,27 @@ Dans le cas de la bande passante, le problème est souvent dû aux capacités du
 
 #### <a name="link-quality"></a>Qualité du lien
 
-Comme c’est le cas pour toute utilisation du réseau, n’oubliez pas que les conditions réseau qui génèrent des erreurs et une perte de paquets ralentissent le débit effectif.  L’utilisation de WireShark ou de NetMon peut vous aider à diagnostiquer ce problème.  
+Comme c’est le cas pour toute utilisation du réseau, n’oubliez pas que les conditions réseau qui génèrent des erreurs et une perte de paquets ralentissent le débit effectif.  L’utilisation de WireShark ou de NetMon peut vous aider à diagnostiquer ce problème.
 
 ### <a name="location"></a>Emplacement
 
-Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, si vous disposez d’un site web Azure qui utilise le stockage Azure, tous deux doivent se trouver dans la même région (USA Ouest ou Asie Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts, puisque l’utilisation de la bande passante dans une seule région était gratuite.  
+Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, si vous disposez d’un site web Azure qui utilise le stockage Azure, tous deux doivent se trouver dans la même région (USA Ouest ou Asie Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts, puisque l’utilisation de la bande passante dans une seule région était gratuite.
 
 Si des applications clientes accèdent au stockage Azure sans être hébergées dans Azure (c’est le cas, par exemple, des applications pour appareil mobile ou des services d’entreprise locaux), le fait de placer le compte de stockage dans une région proche de ces appareils peut réduire la latence. Si vos clients sont distribués à grande échelle (par exemple, certains en Amérique du Nord et d’autres en Europe), il est conseillé d’utiliser un compte de stockage pour chaque région. Cette méthode est plus facile à implémenter si les données stockées par l’application sont propres à certains utilisateurs, et elle ne nécessite pas de réplication des données entre différents comptes de stockage.
 
-Pour une distribution étendue de contenu d’objets blob, utilisez un réseau de diffusion de contenu tel que le CDN Azure. Pour plus d’informations sur le CDN Azure, voir la page [CDN Azure](../../cdn/cdn-overview.md).  
+Pour une distribution étendue de contenu d’objets blob, utilisez un réseau de diffusion de contenu tel que le CDN Azure. Pour plus d’informations sur le CDN Azure, voir la page [CDN Azure](../../cdn/cdn-overview.md).
 
 ## <a name="sas-and-cors"></a>SAP et CORS
 
 Supposons que vous deviez autoriser du code, tel que du code JavaScript qui s’exécute dans le navigateur web d’un utilisateur ou dans une application de téléphone mobile, à accéder aux données du stockage Azure. L’une des méthodes possibles consiste à créer une application de service qui serve de proxy. L’appareil de l’utilisateur s’authentifie auprès du service, qui à son tour autorise l’accès aux ressources du stockage Azure. Vous évitez ainsi d’exposer vos clés de compte de stockage sur des appareils non sécurisés. Cependant, cette méthode entraîne une surcharge importante pour l’application du service, dans la mesure où toutes les données transférées entre l’appareil de l’utilisateur et le stockage Azure doivent transiter par l’application du service.
 
-Vous pouvez éviter d’utiliser une application de service en tant que proxy pour le stockage Azure en utilisant des signatures d’accès partagé (SAS). Avec les signatures d’accès partagé, vous pouvez autoriser l’appareil de votre utilisateur à adresser directement des requêtes au stockage Azure par le biais d’un jeton à accès limité. Par exemple, si un utilisateur souhaite charger une photo vers votre application, votre application de service peut générer une signature d’accès partagé et l’envoyer à l’appareil de l’utilisateur. Le jeton SAS peut accorder l’autorisation d’écrire dans une ressource du stockage Azure pendant un intervalle de temps spécifié, au bout duquel le jeton SAS expire. Pour plus d’informations sur les SAS, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](../common/storage-sas-overview.md).  
+Vous pouvez éviter d’utiliser une application de service en tant que proxy pour le stockage Azure en utilisant des signatures d’accès partagé (SAS). Avec les signatures d’accès partagé, vous pouvez autoriser l’appareil de votre utilisateur à adresser directement des requêtes au stockage Azure par le biais d’un jeton à accès limité. Par exemple, si un utilisateur souhaite charger une photo vers votre application, votre application de service peut générer une signature d’accès partagé et l’envoyer à l’appareil de l’utilisateur. Le jeton SAS peut accorder l’autorisation d’écrire dans une ressource du stockage Azure pendant un intervalle de temps spécifié, au bout duquel le jeton SAS expire. Pour plus d’informations sur les SAS, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](../common/storage-sas-overview.md).
 
 En règle générale, un navigateur web n’autorise pas le code JavaScript d’une page hébergée par un site web d’un domaine à effectuer certaines opérations, telles que les opérations d’écriture, sur un autre domaine. Connue sous le nom de stratégie de même origine, cette stratégie empêche un script malveillant d’une page d’obtenir l’accès aux données d’une autre page web. Toutefois, la stratégie de même origine peut représenter un obstacle lorsque vous créez une solution dans le cloud. Le partage des ressources cross-origin (CORS) est une fonctionnalité de navigateur qui autorise le domaine cible à indiquer au navigateur que vous approuvez les requêtes en provenance du domaine source.
 
-Supposons, par exemple, qu’une application web exécutée dans Azure envoie une requête pour une ressource à un compte de stockage Azure. L’application web est le domaine source, et le compte de stockage est le domaine cible. Vous pouvez configurer le partage des ressources cross-origin pour l’un des services du stockage Azure afin d’indiquer au navigateur web que les requêtes provenant du domaine source sont approuvées par le stockage Azure. Pour plus d’informations sur le partage des ressources cross-origin, consultez [Prise en charge du partage des ressources cross-origin (CORS) pour le stockage Azure](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
-  
-Les signatures d’accès partagé et le partage des ressources cross-origin vous aident à éviter une charge inutile sur votre application web.  
+Supposons, par exemple, qu’une application web exécutée dans Azure envoie une requête pour une ressource à un compte de stockage Azure. L’application web est le domaine source, et le compte de stockage est le domaine cible. Vous pouvez configurer le partage des ressources cross-origin pour l’un des services du stockage Azure afin d’indiquer au navigateur web que les requêtes provenant du domaine source sont approuvées par le stockage Azure. Pour plus d’informations sur le partage des ressources cross-origin, consultez [Prise en charge du partage des ressources cross-origin (CORS) pour le stockage Azure](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).
+
+Les signatures d’accès partagé et le partage des ressources cross-origin vous aident à éviter une charge inutile sur votre application web.
 
 ## <a name="caching"></a>Mise en cache
 
@@ -164,9 +164,9 @@ Un moyen d’éviter de récupérer un blob s’il n'a pas été modifié depuis
 
 Vous pouvez également décider de concevoir votre application pour qu’elle suppose que l’objet blob reste inchangé pendant une brève période après récupération. Dans ce cas, l’application n’a pas besoin de vérifier si l’objet blob a été modifié au cours de cet intervalle.
 
-Les données de configuration, les données de recherche et d’autres données fréquemment utilisées par l’application constituent de parfaits candidats pour la mise en cache.  
+Les données de configuration, les données de recherche et d’autres données fréquemment utilisées par l’application constituent de parfaits candidats pour la mise en cache.
 
-Pour plus d’informations sur les en-têtes conditionnels, consultez [Spécification des en-têtes conditionnels pour les opérations du service Blob](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
+Pour plus d’informations sur les en-têtes conditionnels, consultez [Spécification des en-têtes conditionnels pour les opérations du service Blob](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
 
 ### <a name="uploading-data-in-batches"></a>Chargement de données par lots
 
@@ -174,7 +174,7 @@ Dans certains scénarios, vous pouvez agréger des données en local, puis les c
 
 ## <a name="net-configuration"></a>Configuration .NET
 
-Si vous utilisez .NET Framework, vous trouverez dans cette section plusieurs paramètres de configuration rapide que vous pouvez appliquer pour améliorer sensiblement les performances.  Si vous utilisez un autre langage, vérifiez si des concepts similaires y sont associés.  
+Si vous utilisez .NET Framework, vous trouverez dans cette section plusieurs paramètres de configuration rapide que vous pouvez appliquer pour améliorer sensiblement les performances.  Si vous utilisez un autre langage, vérifiez si des concepts similaires y sont associés.
 
 ### <a name="use-net-core"></a>Utiliser .NET Core
 
@@ -193,9 +193,9 @@ Dans .NET, le code suivant augmente la limite de connexions par défaut (qui est
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-Pour les autres langages de programmation, voir la documentation pour savoir comment définir la limite de connexions.  
+Pour les autres langages de programmation, voir la documentation pour savoir comment définir la limite de connexions.
 
-Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](/archive/blogs/darrenj/web-services-concurrent-connections).  
+Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](/archive/blogs/darrenj/web-services-concurrent-connections).
 
 ### <a name="increase-minimum-number-of-threads"></a>Augmenter le nombre minimal de threads
 
@@ -205,11 +205,11 @@ Si vous utilisez des appels synchrones avec des tâches asynchrones, vous aurez 
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Pour plus d’informations, consultez la méthode [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).  
+Pour plus d’informations, consultez la méthode [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).
 
 ## <a name="unbounded-parallelism"></a>Parallélisme illimité
 
-Même si le parallélisme peut être très utile pour les performances, soyez prudent lorsque vous utilisez le parallélisme illimité, car il n’existe aucune limite concernant le nombre de threads ou de requêtes parallèles. Veillez à limiter les requêtes parallèles pour charger ou télécharger des données, pour accéder à plusieurs partitions dans un même compte de stockage ou pour accéder à plusieurs éléments d’une même partition. Si vous optez pour un parallélisme illimité, votre application peut dépasser les capacités de l’appareil client ou les objectifs de scalabilité du compte de stockage, ce qui se traduit par des temps de latence plus importants et par une limitation.  
+Même si le parallélisme peut être très utile pour les performances, soyez prudent lorsque vous utilisez le parallélisme illimité, car il n’existe aucune limite concernant le nombre de threads ou de requêtes parallèles. Veillez à limiter les requêtes parallèles pour charger ou télécharger des données, pour accéder à plusieurs partitions dans un même compte de stockage ou pour accéder à plusieurs éléments d’une même partition. Si vous optez pour un parallélisme illimité, votre application peut dépasser les capacités de l’appareil client ou les objectifs de scalabilité du compte de stockage, ce qui se traduit par des temps de latence plus importants et par une limitation.
 
 ## <a name="client-libraries-and-tools"></a>Outils et bibliothèques clientes
 
@@ -221,9 +221,9 @@ Le stockage Azure retourne une erreur lorsque le service ne peut pas traiter une
 
 ### <a name="timeout-and-server-busy-errors"></a>Erreurs d’expiration de délai et de serveur occupé
 
-Le stockage Azure peut limiter votre application si celle-ci s’approche des limites de scalabilité. Dans certains cas, le stockage Azure peut ne pas être en mesure de traiter une requête en raison d’un problème temporaire. Dans les deux cas, le service peut retourner une erreur 503 (Serveur occupé) ou une erreur 500 (Délai expiré). Ces erreurs peuvent également se produire si le service rééquilibre les partitions de données pour permettre un débit plus élevé. L’application cliente doit généralement retenter l’opération qui provoque l’une de ces erreurs. Cependant, si le stockage Azure limite votre application en raison d’un dépassement des objectifs de scalabilité, ou si le service n’a pas été en mesure de répondre à la requête pour une autre raison, le fait d’effectuer des nouvelles tentatives agressives ne fait généralement qu’aggraver le problème. Il est recommandé d’utiliser une stratégie de nouvelle tentative de type backoff exponentiel. Les bibliothèques clientes adopteront par défaut ce comportement. Votre application peut, par exemple, effectuer une nouvelle tentative après 2 secondes, puis 4 secondes, 10 secondes, 30 secondes avant d’abandonner complètement. De cette façon, votre application réduit considérablement la charge sur le service, au lieu d’aggraver un comportement susceptible d’entraîner une limitation.  
+Le stockage Azure peut limiter votre application si celle-ci s’approche des limites de scalabilité. Dans certains cas, le stockage Azure peut ne pas être en mesure de traiter une requête en raison d’un problème temporaire. Dans les deux cas, le service peut retourner une erreur 503 (Serveur occupé) ou une erreur 500 (Délai expiré). Ces erreurs peuvent également se produire si le service rééquilibre les partitions de données pour permettre un débit plus élevé. L’application cliente doit généralement retenter l’opération qui provoque l’une de ces erreurs. Cependant, si le stockage Azure limite votre application en raison d’un dépassement des objectifs de scalabilité, ou si le service n’a pas été en mesure de répondre à la requête pour une autre raison, le fait d’effectuer des nouvelles tentatives agressives ne fait généralement qu’aggraver le problème. Il est recommandé d’utiliser une stratégie de nouvelle tentative de type backoff exponentiel. Les bibliothèques clientes adopteront par défaut ce comportement. Votre application peut, par exemple, effectuer une nouvelle tentative après 2 secondes, puis 4 secondes, 10 secondes, 30 secondes avant d’abandonner complètement. De cette façon, votre application réduit considérablement la charge sur le service, au lieu d’aggraver un comportement susceptible d’entraîner une limitation.
 
-Les erreurs de connectivité ne sont pas dues à une limitation et sont généralement temporaires. Dès lors, de nouvelles tentatives peuvent être effectuées immédiatement.  
+Les erreurs de connectivité ne sont pas dues à une limitation et sont généralement temporaires. Dès lors, de nouvelles tentatives peuvent être effectuées immédiatement.
 
 ### <a name="non-retryable-errors"></a>Erreurs non renouvelables
 
@@ -239,11 +239,11 @@ Le stockage Azure fournit un certain nombre de solutions pour copier et déplace
 
 Pour copier des objets blob entre des comptes de stockage, utilisez l’opération [Put Block from URL](/rest/api/storageservices/put-block-from-url) (Placer un bloc à partir d’une URL). Cette opération copie les données de façon synchrone à partir de n’importe quelle source d’URL dans un objet blob de blocs. L’opération `Put Block from URL` permet de réduire considérablement la bande passante requise lorsque vous migrez des données entre des comptes de stockage. Étant donné que l’opération de copie a lieu côté service, vous n’avez pas besoin de télécharger et de charger à nouveau les données.
 
-Pour copier des données dans le même compte de stockage, utilisez l’opération [Copier l’objet blob](/rest/api/storageservices/Copy-Blob). Les copies de données effectuées au sein du même compte de stockage sont généralement plus rapides.  
+Pour copier des données dans le même compte de stockage, utilisez l’opération [Copier l’objet blob](/rest/api/storageservices/Copy-Blob). Les copies de données effectuées au sein du même compte de stockage sont généralement plus rapides.
 
 ### <a name="use-azcopy"></a>Utiliser AzCopy
 
-L’utilitaire de ligne de commande AzCopy est une option simple et efficace pour le transfert en bloc d’objets blob vers, à partir de et entre les comptes de stockage. AzCopy est optimisé pour ce scénario et peut générer des taux de transfert élevés. AzCopy version 10 utilise l’opération `Put Block From URL` pour copier des données d’objets blob entre des comptes de stockage. Pour plus d’informations, consultez [Copier ou déplacer des données vers Stockage Azure avec AzCopy v10](../common/storage-use-azcopy-v10.md).  
+L’utilitaire de ligne de commande AzCopy est une option simple et efficace pour le transfert en bloc d’objets blob vers, à partir de et entre les comptes de stockage. AzCopy est optimisé pour ce scénario et peut générer des taux de transfert élevés. AzCopy version 10 utilise l’opération `Put Block From URL` pour copier des données d’objets blob entre des comptes de stockage. Pour plus d’informations, consultez [Copier ou déplacer des données vers Stockage Azure avec AzCopy v10](../common/storage-use-azcopy-v10.md).
 
 ### <a name="use-azure-data-box"></a>Utiliser Azure Data Box
 
@@ -251,17 +251,17 @@ Pour importer des volumes importants de données dans le stockage d’objets blo
 
 ## <a name="content-distribution"></a>Distribution de contenu
 
-Il arrive qu’une application doive diffuser le même contenu vers plusieurs utilisateurs situés au sein d’une même région ou dans des régions différentes. Il peut s’agir, par exemple, d’une vidéo de démonstration d’un produit utilisée sur la page d’accueil d’un site web. Dans ce scénario, utilisez un réseau de distribution de contenu (CDN, Content Delivery Network) comme le CDN Azure pour distribuer le contenu d’objets blob au niveau géographique. Contrairement à un compte Azure Storage qui existe dans une seule région et qui ne peut pas diffuser de contenu avec une faible latence vers d’autres régions, le CDN Azure utilise des serveurs dans plusieurs centres de données répartis dans le monde entier. De plus, un CDN peut généralement prendre en charge des limites de sortie bien plus élevées qu’un compte de stockage unique.  
+Il arrive qu’une application doive diffuser le même contenu vers plusieurs utilisateurs situés au sein d’une même région ou dans des régions différentes. Il peut s’agir, par exemple, d’une vidéo de démonstration d’un produit utilisée sur la page d’accueil d’un site web. Dans ce scénario, utilisez un réseau de distribution de contenu (CDN, Content Delivery Network) comme le CDN Azure pour distribuer le contenu d’objets blob au niveau géographique. Contrairement à un compte Azure Storage qui existe dans une seule région et qui ne peut pas diffuser de contenu avec une faible latence vers d’autres régions, le CDN Azure utilise des serveurs dans plusieurs centres de données répartis dans le monde entier. De plus, un CDN peut généralement prendre en charge des limites de sortie bien plus élevées qu’un compte de stockage unique.
 
 Pour plus d’informations sur le CDN Azure, voir la page [CDN Azure](../../cdn/cdn-overview.md).
 
 ## <a name="use-metadata"></a>Utiliser les métadonnées
 
-Le service BLOB prend en charge les requêtes HEAD, qui peuvent inclure des métadonnées ou des propriétés d’objet blob. Par exemple, si votre application a besoin de données EXIF (format d’image modifiable) d’une photo, elle peut récupérer la photo et l’extraire. Pour économiser de la bande passante et améliorer les performances, votre application peut stocker les données EXIF dans les métadonnées de l’objet BLOB lorsque l’application charge la photo. Vous pouvez ensuite récupérer les données EXIF dans les métadonnées à l’aide d’une requête HEAD uniquement. L’extraction des métadonnées uniquement et non du contenu total de l’objet BLOB permet d’économiser de la bande passante et de réduire le temps de traitement requis pour extraire les données EXIF. Gardez à l’esprit que chaque objet blob peut stocker 8 Kio de métadonnées.  
+Le service BLOB prend en charge les requêtes HEAD, qui peuvent inclure des métadonnées ou des propriétés d’objet blob. Par exemple, si votre application a besoin de données EXIF (format d’image modifiable) d’une photo, elle peut récupérer la photo et l’extraire. Pour économiser de la bande passante et améliorer les performances, votre application peut stocker les données EXIF dans les métadonnées de l’objet BLOB lorsque l’application charge la photo. Vous pouvez ensuite récupérer les données EXIF dans les métadonnées à l’aide d’une requête HEAD uniquement. L’extraction des métadonnées uniquement et non du contenu total de l’objet BLOB permet d’économiser de la bande passante et de réduire le temps de traitement requis pour extraire les données EXIF. Gardez à l’esprit que chaque objet blob peut stocker 8 Kio de métadonnées.
 
 ## <a name="upload-blobs-quickly"></a>Charger des objets blob rapidement
 
-Pour charger des objets blob rapidement, commencez par déterminer si vous chargez un ou plusieurs objets blob. Utilisez les instructions ci-dessous pour déterminer la méthode correcte en fonction de votre scénario.  
+Pour charger des objets blob rapidement, commencez par déterminer si vous chargez un ou plusieurs objets blob. Utilisez les instructions ci-dessous pour déterminer la méthode correcte en fonction de votre scénario.
 
 ### <a name="upload-one-large-blob-quickly"></a>Charger rapidement un objet blob volumineux
 
@@ -272,7 +272,7 @@ Pour télécharger rapidement un seul objet blob de grande taille, une applicati
 
 ### <a name="upload-many-blobs-quickly"></a>Charger rapidement de nombreux objets BLOB
 
-Pour télécharger rapidement de nombreux objets blob, effectuez cette opération en parallèle. Le chargement parallèle s’avère plus rapide que le chargement d’objets blob individuels avec des chargements de blocs parallèles, dans la mesure où le transfert est réparti entre plusieurs partitions du service de stockage. AzCopy effectue des téléchargements en parallèle et son utilisation est recommandée pour ce scénario. Pour plus d’informations, consultez [Bien démarrer avec AzCopy](../common/storage-use-azcopy-v10.md).  
+Pour télécharger rapidement de nombreux objets blob, effectuez cette opération en parallèle. Le chargement parallèle s’avère plus rapide que le chargement d’objets blob individuels avec des chargements de blocs parallèles, dans la mesure où le transfert est réparti entre plusieurs partitions du service de stockage. AzCopy effectue des téléchargements en parallèle et son utilisation est recommandée pour ce scénario. Pour plus d’informations, consultez [Bien démarrer avec AzCopy](../common/storage-use-azcopy-v10.md).
 
 ## <a name="choose-the-correct-type-of-blob"></a>Choisir le type d’objet blob approprié
 
@@ -282,7 +282,7 @@ Les objets blob de blocs sont appropriés lorsque vous souhaitez charger efficac
 
 Les objets blob d’ajout sont similaires aux objets blob de blocs, car ils sont composés de blocs. Lorsque vous modifiez un objet blob d’ajout, les blocs sont ajoutés à la fin de l’objet blob uniquement. Les objets blob d’ajout sont utiles dans des scénarios tels que la journalisation, lorsqu’une application doit ajouter des données à un objet blob existant.
 
-Les objets blob de pages sont appropriées si l’application doit effectuer des écritures aléatoires sur les données. Par exemple, les disques durs virtuels d’Azure sont stockés en tant qu’objets blob de pages. Pour plus d’informations, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
+Les objets blob de pages sont appropriées si l’application doit effectuer des écritures aléatoires sur les données. Par exemple, les disques durs virtuels d’Azure sont stockés en tant qu’objets blob de pages. Pour plus d’informations, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6754ac10f614082f09a460b55dc712f5bc0c27be
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 2b4db3701ee5d66616d6e3888a12cb73232f62b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702612"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603084"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Journaux de diagnostic – Azure Content Delivery Network
 
@@ -196,12 +196,11 @@ Pour télécharger l’outil, consultez [Explorateur de stockage Azure](https://
 6.  Chaque fichier d’objet blob *PT1H.json* représente les journaux d’activité d’analyse pendant une heure pour un point de terminaison CDN spécifique ou son domaine personnalisé.
 7.  Le schéma du contenu de ce fichier JSON est décrit dans la section Schéma des journaux d’activité Core Analytics.
 
-
 #### <a name="blob-path-format"></a>Format du chemin des objets blob
 
-Les journaux d’activité Core Analytics sont générés toutes les heures et les données sont collectées et stockées dans un objet blob Azure unique sous forme de charge utile JSON. L’outil Explorateur de stockage interprète '/' comme un séparateur de répertoire et affiche la hiérarchie. Le chemin de l’objet blob Azure apparaît comme s’il existait une structure hiérarchique et représente le nom de l’objet blob. Ce nom d’objet blob suit la convention d’affectation de noms suivante :    
+Les journaux d’activité Core Analytics sont générés toutes les heures et les données sont collectées et stockées dans un objet blob Azure unique sous forme de charge utile JSON. L’outil Explorateur de stockage interprète '/' comme un séparateur de répertoire et affiche la hiérarchie. Le chemin de l’objet blob Azure apparaît comme s’il existait une structure hiérarchique et représente le nom de l’objet blob. Ce nom d’objet blob suit la convention d’affectation de noms suivante :
 
-```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
+`resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y=/m=/d=/h=/m=/PT1H.json`
 
 **Description des champs :**
 

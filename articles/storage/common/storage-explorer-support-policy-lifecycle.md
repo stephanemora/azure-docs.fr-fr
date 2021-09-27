@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: 87520d26ac4f83297d076ff7539a7731ddbd09fd
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 37486f22aba1be1ac987238d38e69b95553a8629
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708818"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638213"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Politique et cycle de vie de support de l’Explorateur Stockage Azure
 
@@ -39,7 +39,7 @@ L’Explorateur Stockage est régie par la [Politique de cycle de vie moderne](h
 
 Ce tableau décrit la date de publication et la date de fin de prise en charge pour chaque version de l’Explorateur Stockage Azure.
 
-| Version de l’Explorateur Stockage Azure  | Date de publication       | Date de fin de prise en charge |
+| Version de l’Explorateur Stockage Azure  | Date de publication         | Date de fin de prise en charge |
 |:-------------------------:|:------------------:|:-------------------:|
 | v1.20.1                   | 23 juillet 2021      | 23 juillet 2022       |
 | v1.20.0                   | 25 juin 2021      | 25 juin 2022       |
@@ -56,7 +56,7 @@ Ce tableau décrit la date de publication et la date de fin de prise en charge p
 | v1.14.0                   | 24 juin 2020      | 14 juillet 2021       |
 | v1.13.1                   | 18 mai 2020       | 14 juillet 2021       |
 | v1.13.0                   | 1 mai 2020        | 14 juillet 2021       |
-| v1.12.0                   | 16 janvier 2020   | 14 juillet 2021       |
+| v1.12.0                   | 16 janvier 2020     | 14 juillet 2021       |
 | v1.11.2                   | 17 décembre 2019  | 14 juillet 2021       |
 | v1.11.1                   | 20 novembre 2019  | 14 juillet 2021       |
 | v1.11.0                   | 4 novembre 2019   | 14 juillet 2021       |
@@ -69,7 +69,7 @@ Ce tableau décrit la date de publication et la date de fin de prise en charge p
 | v1.6.2                    | 8 janvier 2019    | 14 juillet 2021       |
 | v1.6.1                    | 18 décembre 2018  | 14 juillet 2021       |
 | v1.6.0                    | 4 décembre 2018   | 14 juillet 2021       |
-| v1.5.0                    | 29 octobre 2018   | 14 juillet 2021       |
+| v1.5.0                    | 29 octobre 2018     | 14 juillet 2021       |
 | v1.4.4                    | 15 octobre 2018   | 14 juillet 2021       |
 | v1.4.2                    | 24 septembre 2018 | 14 juillet 2021       |
 | v1.4.1                    | 28 Août 2018    | 14 juillet 2021       |

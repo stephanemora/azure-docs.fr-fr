@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: ad91260eac0f638d339baf64071cad6475ac19a7
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 1fbf8052a3852e010fc002116cab131ea4f371b8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929810"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438099"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool"></a>Récupération d’urgence avec l’outil Azure Application Consistent Snapshot Tool
 
@@ -122,7 +122,7 @@ tmpfs 76G 0 76G 0% /run/user/0
 
 Si vous effectuez un basculement complet des charges de travail de production, et s’il est possible de se connecter au site de production principal, arrêtez la ou les instances de SAP HANA dont le basculement est effectué vers le site DR.
 
-Ainsi, si vous êtes connecté en tant qu’utilisateur root, l’exemple suivant montre comment arrêter SAP HANA.  Remplacez <sid> par votre SID SAP HANA.
+Ainsi, si vous êtes connecté en tant qu’utilisateur root, l’exemple suivant montre comment arrêter SAP HANA.  Remplacez \<sid\> par votre SID SAP HANA.
 
 ```bash
 su - <sid>adm
@@ -133,7 +133,7 @@ HDB stop
 
 Il est important d’arrêter SAP HANA sur le site DR avant de restaurer les volumes.
 
-Ainsi, si vous êtes connecté en tant qu’utilisateur root, l’exemple suivant montre comment arrêter SAP HANA.  Remplacez <sid> par votre SID SAP HANA.
+Ainsi, si vous êtes connecté en tant qu’utilisateur root, l’exemple suivant montre comment arrêter SAP HANA.  Remplacez \<sid\> par votre SID SAP HANA.
 
 ```bash
 su - <sid>adm

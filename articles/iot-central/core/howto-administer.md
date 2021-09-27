@@ -3,17 +3,17 @@ title: Modifier les paramètres d’application Azure IoT Central | Microsoft Do
 description: Apprenez à gérer votre application Azure IoT Central en changeant son nom et son URL, à charger une image et à supprimer une application
 author: viv-liu
 ms.author: viviali
-ms.date: 12/19/2020
+ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7b72fd3c47e6f3013c0f9eb39707a1e55c78cac0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 02c7058e51ac1d1fc19d6d38183695e885d8da47
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789000"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480783"
 ---
 # <a name="change-iot-central-application-settings"></a>Modifier les paramètres d’application IoT Central
 

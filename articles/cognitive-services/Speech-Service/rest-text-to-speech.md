@@ -3,20 +3,20 @@ title: Informations de référence sur l’API Synthèse vocale (REST) – Servi
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser les API REST Synthèse vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2021
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: references_regions
-ms.openlocfilehash: 7acde9107787715ffd2e88bf55833dd759083cd9
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: ba1a9e24be1a4be6c545ad52821f0c91f808522f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535130"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538686"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: article
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.author: memildin
-ms.openlocfilehash: a3dc221ff4fa1caebad9dea601e208280b928558
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 4bfacebc9961cdbac89252783f47267002a69a66
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527686"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597243"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
@@ -100,14 +100,8 @@ Nous recommandons à chaque organisation d’examiner attentivement les initiati
 > Pour plus d’informations sur l’examen et la modification de vos initiatives, consultez [Utilisation de stratégies de sécurité](tutorial-security-policy.md). 
 
 Bien que l’initiative de sécurité par défaut de Security Center soit basée sur les bonnes pratiques et les standards du secteur, il existe des scénarios dans lesquels les recommandations intégrées listées ci-dessous ne sont pas tout à fait adaptées à votre organisation. Il est donc parfois nécessaire de modifier l’initiative par défaut (sans compromettre la sécurité) pour garantir son alignement sur les propres stratégies, points de référence, normes et réglementations du secteur d’activité de votre organisation que vous êtes tenu de respecter.<br><br>
-<div class="foo">
-
-<style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
-
-</div>
-
 
 
 
