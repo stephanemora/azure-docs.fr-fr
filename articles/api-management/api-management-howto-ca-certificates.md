@@ -3,18 +3,18 @@ title: Ajouter un certificat d’autorité de certification personnalisé - Gest
 description: Découvrez comment ajouter un certificat d’autorité de certification personnalisé dans la Gestion des API Azure. Vous pouvez également consulter les instructions pour supprimer un certificat.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e1cb09f24f12d8c4480833995a95e1e08b5e7bbe
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 7e92d4a6c81376a9dbd004ac7fee978fa4d67e9a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812216"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628816"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Guide pratique pour ajouter un certificat d’autorité de certification personnalisé dans la Gestion des API Azure
 

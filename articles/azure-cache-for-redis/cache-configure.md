@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1d49d222ff26198be0b9b07df900fa4dfac6c07d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: a182d86485a8ca934b3ed94b5251e12b456edabd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294111"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558672"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 
@@ -25,7 +25,7 @@ Cet article décrit les configurations disponibles pour vos instances de cache A
 
 ## <a name="configure-azure-cache-for-redis-settings"></a>Configurer les paramètres du cache Azure pour Redis
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-browse.md)]
 
 Les paramètres du cache Azure pour Redis sont affichés et configurés dans le panneau du **cache Azure pour Redis** à gauche avec le **menu des ressources**.
 
@@ -70,7 +70,7 @@ La **Vue d’ensemble** fournit des informations de base sur votre cache, notamm
 
 ### <a name="activity-log"></a>Journal d’activité
 
-Sélectionnez **Journal d’activité** pour afficher les actions effectuées dans votre cache. Vous pouvez également utiliser le filtrage pour développer cette vue afin d’inclure d’autres ressources. Pour en savoir plus sur l’utilisation des journaux d’audit, voir [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md). Pour plus d’informations sur la surveillance des événements du cache Azure pour Redis, consultez la page [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
+Sélectionnez **Journal d’activité** pour afficher les actions effectuées dans votre cache. Vous pouvez également utiliser le filtrage pour développer cette vue afin d’inclure d’autres ressources. Pour en savoir plus sur l’utilisation des journaux d’audit, voir [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-monitor/essentials/activity-log.md). Pour plus d’informations sur la surveillance des événements du cache Azure pour Redis, consultez la page [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Contrôle d’accès (IAM)
 
@@ -498,7 +498,7 @@ Lors de l’utilisation de la Console Redis avec un cache en cluster premium, vo
 
 Si vous tentez d’accéder à une clé stockée dans une autre partition que la partition connectée, un message d’erreur semblable au message suivant s’affiche :
 
-```
+```console
 shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```

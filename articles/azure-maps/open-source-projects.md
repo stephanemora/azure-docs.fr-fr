@@ -1,20 +1,20 @@
 ---
 title: Projets open source de la communauté Azure Maps | Microsoft Azure Maps
 description: Projets open source coordonnés pour la plateforme Microsoft Azure Maps.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 245979140b2d5214dcbb9ba8456cc90d8b8fd864
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: df126e2c2b0903fd23eeea45930e4e1e5eaffb6f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669331"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429529"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Projets open source de la communauté Azure Maps
 

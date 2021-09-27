@@ -2,13 +2,13 @@
 title: Webhooks en tant que gestionnaires d’événements pour les événements Azure Event Grid
 description: Décrit comment utiliser des webhooks en tant que gestionnaires d’événements pour des événements Azure Event Grid. Les runbooks et applications logiques Azure Automation sont pris en charge en tant que gestionnaires d’événements via des webhooks.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/15/2021
+ms.openlocfilehash: 4f790c6a4ced30d0a0e34cb594581aae09ed1004
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91875799"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550471"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhooks, runbooks Automation, applications logiques en tant que gestionnaires d’événements pour les événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer les événements. Vous pouvez également utiliser n’importe quel webhook pour la gestion des événements. À cette fin, il n’est pas nécessaire que le webhook soit hébergé dans Azure. Event Grid ne prend en charge que les points de terminaison Webhook HTTPS.

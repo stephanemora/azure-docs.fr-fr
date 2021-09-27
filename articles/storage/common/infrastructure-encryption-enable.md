@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5c87ed5222b5bb95660b6e63e259a2b5e14b7b47
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: c4dca05b855666a04d1def09228c596eb931bbf5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372671"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607004"
 ---
 # <a name="enable-infrastructure-encryption-for-double-encryption-of-data"></a>Activer le chiffrement d’infrastructure pour le chiffrement double des données
 
@@ -142,7 +142,6 @@ L’exemple JSON suivant crée un compte de stockage à usage général v2 confi
 ---
 
 Azure Policy fournit une stratégie intégrée pour exiger que le chiffrement de l’infrastructure soit activé pour un compte de stockage. Pour plus d’informations, consultez la section **Stockage** dans [définitions de stratégies intégrées Azure Policy](../../governance/policy/samples/built-in-policies.md#storage).
-
 
 ## <a name="create-an-encryption-scope-with-infrastructure-encryption-enabled"></a>Créer une étendue de chiffrement avec le chiffrement d’infrastructure activé
 

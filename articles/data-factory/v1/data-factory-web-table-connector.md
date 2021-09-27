@@ -3,16 +3,17 @@ title: Déplacer des données à partir d’une table web avec Azure Data Factor
 description: Découvrez comment transférer des données à partir d’une table dans une page web à l’aide d’Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7663848bd06244de7efb169a576e11a5c78204c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e3472393587fe117e342bbc1dce5d990520760d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392899"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651215"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Déplacer des données depuis une source de table web à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -282,24 +283,24 @@ Pour obtenir la liste des propriétés prises en charge par WebSource, consultez
 1. Lancez **Excel 2016** et basculez vers l’onglet **Données**.  
 2. Cliquez sur **Nouvelle requête** dans la barre d’outils, pointez sur **À partir d’autres sources** et cliquez sur **À partir du web**.
 
-    ![Menu Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/PowerQuery-Menu.png" alt-text="Menu Power Query":::
 3. Dans la boîte de dialogue **À partir du web**, entrez l’**URL** que vous utiliseriez dans le service lié JSON (par exemple https://en.wikipedia.org/wiki/), ainsi que le chemin à spécifier pour le jeu de données (par exemple : AFI%27s_100_Years...100_Movies), puis cliquez sur **OK**.
 
-    ![Boîte de dialogue À partir du web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/FromWeb-DialogBox.png" alt-text="Boîte de dialogue À partir du web":::
 
     URL utilisée dans cet exemple : https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. Si la boîte de dialogue **Accéder au contenu web** apparaît, sélectionnez **l’URL** et **l’authentification** adéquates, puis cliquez sur **Se connecter**.
 
-   ![Boîte de dialogue Accéder au contenu web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
+   :::image type="content" source="./media/data-factory-web-table-connector/AccessWebContentDialog.png" alt-text="Boîte de dialogue Accéder au contenu web":::
 5. Cliquez sur un élément de **table** dans l’arborescence pour afficher le contenu de la table, puis sur le bouton **Modifier** du bas.  
 
-   ![Boîte de dialogue Navigateur](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
+   :::image type="content" source="./media/data-factory-web-table-connector/Navigator-DialogBox.png" alt-text="Boîte de dialogue Navigateur":::
 6. Dans la fenêtre **Éditeur de requête**, cliquez sur **Éditeur avancé** dans la barre d’outils.
 
-    ![Bouton Éditeur avancé](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png" alt-text="Bouton Éditeur avancé":::
 7. Dans la boîte de dialogue Éditeur avancé, le numéro en regard de « Source » est l’index.
 
-    ![Éditeur avancé - Index](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/AdvancedEditor-Index.png" alt-text="Éditeur avancé - Index":::
 
 Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https://www.microsoft.com/download/details.aspx?id=39379) pour obtenir l’index. Pour plus d’informations, consultez l’article [Se connecter à une page web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) . Les étapes sont identiques si vous utilisez [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 

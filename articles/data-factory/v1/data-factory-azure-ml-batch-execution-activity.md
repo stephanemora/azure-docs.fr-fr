@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: d4a930677f4760ae5f2d77dd4f148097ae67f465
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: fd666c51042811a8008657d965d629d1b17848f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598013"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571270"
 ---
 # <a name="create-predictive-pipelines-using-machine-learning-studio-classic-and-azure-data-factory"></a>Créer des pipelines prédictifs à l’aide de Machine Learning Studio (classique) et d’Azure Data Factory
 
@@ -23,7 +24,7 @@ ms.locfileid: "122598013"
 > * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Activité Spark](data-factory-spark.md)
 > * [Activité Batch Execution ML Studio (classique)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Activité de mise à jour des ressources ML Studio (classique)](data-factory-azure-ml-update-resource-activity.md)
+> * [Activité des ressources de mise à jour ML Studio (classique)](data-factory-azure-ml-update-resource-activity.md)
 > * [Activité de procédure stockée](data-factory-stored-proc-activity.md)
 > * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
@@ -65,9 +66,9 @@ Vous devez utiliser Azure Data Factory pour orchestrer le déplacement et le tra
    2. **Clé d’API** pour le service web Studio (classique) publié. Vous trouverez la clé API en cliquant sur le service web que vous avez publié.
    3. L’activité **AzureMLBatchExecution** .
 
-      ![Tableau de bord de Machine Learning Studio (classique)](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
+      :::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png" alt-text="Tableau de bord de Machine Learning Studio (classique)":::
 
-      ![URI de lot](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
+      :::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png" alt-text="URI de lot":::
 
 ### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scénario : Expériences qui utilisent des entrées/sorties de service web qui font référence à des données dans Stockage Blob Azure
 Dans ce scénario, le service web Studio (classique) effectue des prédictions à l’aide des données d’un fichier dans un stockage d’objets blob Azure et stocke les résultats des prédictions dans le stockage d’objets blob. Le code JSON suivant définit un pipeline Data Factory avec une activité AzureMLBatchExecution. L’activité a le jeu de données **DecisionTreeInputBlob** en tant qu’entrée, et le jeu de données **DecisionTreeResultBlob** en tant que sortie. Le jeu de données **DecisionTreeInputBlob** est transmis en tant qu’entrée au service web à l’aide de la propriété JSON **webServiceInput**. Le jeu de données **DecisionTreeResultBlob** est transmis en tant que sortie au service web à l’aide de la propriété JSON **webServiceOutputs**.
@@ -349,7 +350,7 @@ Les pipelines Big Data avec des activités telles que Pig et Hive peuvent produi
 
 Lorsque vous utilisez le module lecteur dans une expérience Studio (classique), vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers dans le stockage blob Azure peuvent être les fichiers de sortie (exemple : 000000_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module lecteur vous permet de lire des fichiers (sans extension) en configurant le **chemin d’accès au conteneur et le répertoire/l’objet blob**. Le **chemin d’accès au conteneur** pointe vers le conteneur et le **répertoire/objet blob** pointe vers le dossier qui contient les fichiers, comme illustré dans l’image suivante. L’astérisque \*) **spécifie que tous les fichiers du conteneur/dossier (c’est-à-dire, data/aggregateddata/year=2014/month-6/\*)** sont lus dans le cadre de l’expérience.
 
-![Propriétés des objets blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
+:::image type="content" source="./media/data-factory-create-predictive-pipelines/azure-blob-properties.png" alt-text="Propriétés des objets blob Azure":::
 
 ### <a name="example"></a>Exemple
 #### <a name="pipeline-with-azuremlbatchexecution-activity-with-web-service-parameters"></a>Pipeline avec l’activité AzureMLBatchExecution avec les paramètres de service web

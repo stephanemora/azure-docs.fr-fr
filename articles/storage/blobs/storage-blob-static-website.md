@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: c03634d6a8083b186a53b05e5f122169bdd29a27
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 388b84dc831984cf03b91ff16e4cfb8962b88c73
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768741"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662720"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 
@@ -41,12 +41,12 @@ Les fichiers présents dans le conteneur **$web** respectent la casse ; ils son
 Vous pouvez utiliser un de ces outils pour charger du contenu sur le conteneur **$web** :
 
 > [!div class="checklist"]
-> * [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
-> * [Module Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
-> * [AZCopy](../common/storage-use-azcopy-v10.md)
-> * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-> * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Extension Visual Studio Code](- https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
+> - [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
+> - [Module Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
+> - [AZCopy](../common/storage-use-azcopy-v10.md)
+> - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+> - [Extension Visual Studio Code](- https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
 ## <a name="viewing-content"></a>Affichage du contenu
 
@@ -102,7 +102,7 @@ Si vous envisagez d’héberger un site web dans plusieurs zones géographiques,
 
 ## <a name="permissions"></a>Autorisations
 
-L’autorisation permettant d’activer le site web statique est Microsoft.Storage/storageAccounts/blobServices/clé en écriture ou partagée.  Les rôles intégrés qui fournissent cet accès incluent le Contributeur de compte de stockage.  
+L’autorisation permettant d’activer le site web statique est Microsoft.Storage/storageAccounts/blobServices/clé en écriture ou partagée.  Les rôles intégrés qui fournissent cet accès incluent le Contributeur de compte de stockage.
 
 ## <a name="pricing"></a>Tarifs
 
@@ -113,6 +113,17 @@ L’activation de l’hébergement de site web statique est gratuite. Vous êtes
 Vous pouvez activer les métriques sur des pages de site web statique. Une fois les métriques activées, les statistiques de trafic relatives aux fichiers du conteneur **$web** sont signalées dans le tableau de bord des métriques.
 
 Pour activer les métriques sur les pages de votre site web statique, consultez [Activer les métriques sur des pages de site web statique](storage-blob-static-website-how-to.md#metrics).
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)              | ![Oui](../media/icons/yes-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png)|![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
 ## <a name="faq"></a>Forum aux questions
 
@@ -126,7 +137,7 @@ Non. Les sites web statiques ne prennent en charge l’accès en lecture public 
 
 ##### <a name="how-do-i-use-a-custom-domain-with-a-static-website"></a>Comment utiliser un domaine personnalisé avec un site web statique ?
 
-Vous pouvez configurer un [domaine personnalisé](./static-website-content-delivery-network.md) avec un site web statique en utilisant [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN fournit une latence faible et cohérente à votre site web partout dans le monde. 
+Vous pouvez configurer un [domaine personnalisé](./static-website-content-delivery-network.md) avec un site web statique en utilisant [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN fournit une latence faible et cohérente à votre site web partout dans le monde.
 
 ##### <a name="how-do-i-use-a-custom-ssl-certificate-with-a-static-website"></a>Comment utiliser un certificat SSL personnalisé avec un site web statique ?
 
@@ -142,13 +153,13 @@ Cela peut se produire si vous faites référence à un nom de fichier à l’aid
 
 ##### <a name="why-isnt-the-root-directory-of-the-website-not-redirecting-to-the-default-index-page"></a>Pourquoi le répertoire racine du site web n’est-il pas redirigé vers la page d’index par défaut ?
 
-Dans le portail Azure, ouvrez la page de configuration du site web statique de votre compte et recherchez le nom et l’extension définis dans le champ **Nom du document d’index**. Assurez-vous que ce nom est exactement le même que le nom du fichier situé dans le conteneur **$web** du compte de stockage. Les noms de fichiers et les extensions de l’URL d’un site web statique respectent la casse, même s’ils sont traités sur HTTP. 
+Dans le portail Azure, ouvrez la page de configuration du site web statique de votre compte et recherchez le nom et l’extension définis dans le champ **Nom du document d’index**. Assurez-vous que ce nom est exactement le même que le nom du fichier situé dans le conteneur **$web** du compte de stockage. Les noms de fichiers et les extensions de l’URL d’un site web statique respectent la casse, même s’ils sont traités sur HTTP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Héberger un site web statique dans le stockage Azure](storage-blob-static-website-how-to.md)
-* [Mapper un domaine personnalisé à un point de terminaison du Stockage Blob Azure](storage-custom-domain-name.md)
-* [Azure Functions](../../azure-functions/functions-overview.md)
-* [Azure App Service](../../app-service/overview.md)
-* [Générer votre première application web sans serveur](/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutoriel : Héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+- [Héberger un site web statique dans le stockage Azure](storage-blob-static-website-how-to.md)
+- [Mapper un domaine personnalisé à un point de terminaison du Stockage Blob Azure](storage-custom-domain-name.md)
+- [Azure Functions](../../azure-functions/functions-overview.md)
+- [Azure App Service](../../app-service/overview.md)
+- [Générer votre première application web sans serveur](/azure/functions/tutorial-static-website-serverless-api-with-database)
+- [Tutoriel : Héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

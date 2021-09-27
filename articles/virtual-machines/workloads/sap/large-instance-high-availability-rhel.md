@@ -6,12 +6,12 @@ ms.author: jaawasth
 ms.service: virtual-machines-sap
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 3da8c2a0147136ad5da90489e4f8db511cad7378
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 7f5f554f6563c2d0275bca7b6db48f2521379b11
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217446"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626605"
 ---
 # <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>Haute disponibilité d’Azure (grandes instances) pour SAP sur RHEL
 
@@ -19,7 +19,7 @@ ms.locfileid: "113217446"
 > Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque ce terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 > [!NOTE]
-> Cet article contient des références au terme esclave, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 Dans cet article, vous allez apprendre à configurer le cluster Pacemaker dans RHEL 7 pour automatiser un basculement de base de données SAP HANA. Vous devez avoir une bonne compréhension de Linux, de SAP HANA et de Pacemaker pour suivre les étapes de ce guide.
 
@@ -1226,10 +1226,12 @@ Vérifiez que les prérequis suivants sont remplis :
 
 
 Pour tester le déplacement de la ressource SAPHana d’un nœud à un autre, utilisez la commande ci-dessous. Notez que l’option `--primary` ne doit pas être utilisée lors de l’exécution de la commande suivante en raison du mode de fonctionnement de la ressource SAPHana en interne.
-```pcs resource move SAPHana_HR2_00-primary```
+
+`pcs resource move SAPHana_HR2_00-primary`
 
 Après chaque appel de commande de déplacement de ressource pcs, le cluster crée des contraintes d’emplacement pour effectuer le déplacement de la ressource. Ces contraintes doivent être supprimées pour permettre le basculement automatique à l’avenir.
 Pour les supprimer, vous pouvez utiliser la commande suivante.
+
 ```
 pcs resource clear SAPHana_HR2_00-primary
 crm_mon -A1

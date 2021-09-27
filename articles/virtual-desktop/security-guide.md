@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5c9421397b6e5fbfe8688e5ceeff6056de25674a
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 771674a3c8d4023b307982f8460f956dd422eb04
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563391"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567142"
 ---
 # <a name="security-best-practices"></a>Bonnes pratiques de sécurité
 
@@ -208,27 +208,6 @@ Les systèmes d’exploitation suivants prennent en charge l’utilisation de Wi
 
 >[!NOTE]
 >Lorsque vous utilisez Windows Defender Access Control, nous vous recommandons de cibler uniquement les stratégies au niveau de l’appareil. Bien qu’il soit possible de cibler des stratégies pour des utilisateurs individuels, une fois la stratégie appliquée, elle affecte également tous les utilisateurs sur l’appareil.
-
-## <a name="ip-virtualization"></a>Virtualisation IP
-
-Si vous souhaitez utiliser la virtualisation IP sur Windows Server 2019, procédez comme suit :
-
-1. À partir d’une fenêtre de Windows PowerShell administrateur, renommez la clé suivante : 
-```powershell
-Rename-Item HKLM:\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1 Backup_2C69D9F1
-```
->[!NOTE]
->La suppression de la clé offre le même résultat, mais le changement de nom permet de revenir plus facilement en arrière, si beosin. Les données présentes par défaut sont les suivantes :
->       
->HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1\
->AppFullPath: C:\Windows\System32\svchost.exe\
->PermittedLspCategories: 0x40000000
-
-2. Redémarrez la machine virtuelle.
-
-3. Activez la fonctionnalité de virtualisation IP en ouvrant **gpedit.msc**, puis en accédant à **Configuration de l’ordinateur** > **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Compatibilité des applications**. Activez la stratégie **Activer la virtualisation IP du bureau à distance**, puis spécifiez l’adresse IP que vous souhaitez que la stratégie utilise.
-
-4. Redémarrez la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dd63a04616848acfb3971a97f8363498e6ba4e55
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 4e9bfa2dc340f567a6c2b7c4ab5d45cfeaa41e6c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835741"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661010"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins
 
@@ -77,7 +77,7 @@ Pour créer un point de terminaison, accédez à la page de votre instance dans 
 1. Entrez le **nom** de votre point de terminaison, puis choisissez le **type de point de terminaison**.
 
 1. Spécifiez les autres informations requises pour votre type de point de terminaison, y compris votre abonnement et les ressources du point de terminaison décrites [ci-dessus](#prerequisite-create-endpoint-resources).
-    1. Pour les points de terminaison Event Hub et Service Bus uniquement, vous devez sélectionner un **type d’authentification**. Vous pouvez utiliser l’authentification basée sur une clé avec une règle d’autorisation pré-créée ou une authentification basée sur l’identité si vous utilisez le point de terminaison avec une [identité managée](concepts-security.md#managed-identity-for-accessing-other-resources-preview) pour votre instance Azure Digital Twins. 
+    1. Pour les points de terminaison Event Hub et Service Bus uniquement, vous devez sélectionner un **type d’authentification**. Vous pouvez utiliser l’authentification basée sur une clé avec une règle d’autorisation pré-créée ou une authentification basée sur l’identité si vous utilisez le point de terminaison avec une [identité managée](concepts-security.md#managed-identity-for-accessing-other-resources) pour votre instance Azure Digital Twins. 
 
     :::row:::
         :::column:::
@@ -132,7 +132,7 @@ Une fois ces commandes exécutées avec succès, la rubrique Event Grid, Event H
 
 #### <a name="create-an-endpoint-with-identity-based-authentication"></a>Créer un point de terminaison avec une authentification basée sur l’identité
 
-Vous pouvez également créer un point de terminaison avec une authentification basée sur l’identité pour utiliser le point de terminaison avec une [identité managée](concepts-security.md#managed-identity-for-accessing-other-resources-preview). Cette option est uniquement disponible pour les points de terminaison de type Event Hub et Service Bus (elle n’est pas prise en charge pour Event Grid).
+Vous pouvez également créer un point de terminaison avec une authentification basée sur l’identité pour utiliser le point de terminaison avec une [identité managée](concepts-security.md#managed-identity-for-accessing-other-resources). Cette option est uniquement disponible pour les points de terminaison de type Event Hub et Service Bus (elle n’est pas prise en charge pour Event Grid).
 
 La commande CLI pour créer ce type de point de terminaison est indiquée ci-dessous. Vous aurez besoin des valeurs suivantes pour intégrer les espaces réservés dans la commande :
 * ID de ressource Azure de votre instance Azure Digital Twins
@@ -235,7 +235,7 @@ Vous pouvez également créer des points de terminaison de lettres mortes à l�
 
 #### <a name="create-a-dead-letter-endpoint-with-identity-based-authentication"></a>Créer un point de terminaison de lettres mortes avec une authentification basée sur l’identité
 
-Vous pouvez également créer un point de terminaison de lettres mortes avec une authentification basée sur l’identité pour utiliser le point de terminaison avec une [identité managée](concepts-security.md#managed-identity-for-accessing-other-resources-preview). Cette option est uniquement disponible pour les points de terminaison de type Event Hub et Service Bus (elle n’est pas prise en charge pour Event Grid).
+Vous pouvez également créer un point de terminaison de lettres mortes avec une authentification basée sur l’identité pour utiliser le point de terminaison avec une [identité managée](concepts-security.md#managed-identity-for-accessing-other-resources). Cette option est uniquement disponible pour les points de terminaison de type Event Hub et Service Bus (elle n’est pas prise en charge pour Event Grid).
 
 Pour créer ce type de point de terminaison, utilisez la même commande CLI que précédemment pour [créer un point de terminaison avec une authentification basée sur l’identité](#create-an-endpoint-with-identity-based-authentication), avec un champ supplémentaire dans la charge utile JSON pour un élément `deadLetterUri`.
 

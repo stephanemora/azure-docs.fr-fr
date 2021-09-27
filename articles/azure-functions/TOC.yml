@@ -158,8 +158,10 @@
   items:
     - name: Meilleures pratiques
       items:
-        - name: Performances et fiabilité
+        - name: Bonnes pratiques générales
           href: functions-best-practices.md
+        - name: Performances et fiabilité
+          href: performance-reliability.md
           displayName: best practices
         - name: Gérer des connexions
           href: manage-connections.md
@@ -184,12 +186,12 @@
           href: functions-premium-plan.md
         - name: Plan dédié
           href: dedicated-plan.md
-        - name: Mise à l’échelle pilotée par les événements
-          href: event-driven-scaling.md
     - name: Déploiements
       href: functions-deployment-technologies.md
     - name: Événements et messagerie
       items:
+        - name: Mise à l’échelle pilotée par les événements
+          href: event-driven-scaling.md
         - name: Traitement des événements fiables
           href: functions-reliable-event-processing.md
         - name: Conception pour une entrée identique
@@ -259,6 +261,8 @@
       href: ip-addresses.md
     - name: Gestionnaires personnalisés
       href: functions-custom-handlers.md
+    - name: Haute disponibilité
+      href: azure-functions-az-redundancy.md
 - name: Guides pratiques
   items:
     - name: Développer

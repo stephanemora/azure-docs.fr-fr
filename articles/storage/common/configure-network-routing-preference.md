@@ -10,22 +10,22 @@ ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e9d1f7f520a7613abde520c35fbacc7355973021
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c871a1ec4feec89cc3250f1fbfefefa69ed927bb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208218"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589318"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Configuration d’une préférence de routage réseau pour le Stockage Azure
 
-Cet article explique comment configurer la préférence de routage réseau et les points de terminaison propres à l’itinéraire pour un compte de stockage. 
+Cet article explique comment configurer la préférence de routage réseau et les points de terminaison propres à l’itinéraire pour un compte de stockage.
 
 La préférence de routage réseau spécifie la façon dont le trafic réseau est acheminé vers votre compte à partir de clients sur Internet. Les points de terminaison propres à l’itinéraire constituent de nouveaux points de terminaison créés par le Stockage Azure pour le compte de stockage. Ils acheminent le trafic sur l’itinéraire souhaité sans modifier vos préférences de routage par défaut. Pour plus d’informations, consultez [Configuration d’une préférence de routage réseau pour le Stockage Azure](network-routing-preference.md).
 
 ## <a name="configure-the-routing-preference-for-the-default-public-endpoint"></a>Configuration de la préférence de routage pour le point de terminaison public par défaut
 
-Par défaut, la préférence de routage pour le point de terminaison public du compte de stockage est définie sur le réseau global Microsoft. Vous pouvez choisir entre le routage réseau Microsoft mondial et le routage Internet comme préférence de routage par défaut pour le point de terminaison public de votre compte de stockage. Pour plus d’informations sur la différence entre ces deux types de routage, consultez [Préférence de routage réseau pour le Stockage Azure](network-routing-preference.md). 
+Par défaut, la préférence de routage pour le point de terminaison public du compte de stockage est définie sur le réseau global Microsoft. Vous pouvez choisir entre le routage réseau Microsoft mondial et le routage Internet comme préférence de routage par défaut pour le point de terminaison public de votre compte de stockage. Pour plus d’informations sur la différence entre ces deux types de routage, consultez [Préférence de routage réseau pour le Stockage Azure](network-routing-preference.md).
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -40,9 +40,9 @@ Pour faire du routage Internet votre préférence de routage, procédez comme su
     > [!div class="mx-imgBorder"]
     > ![Option de menu Mise en réseau](./media/configure-network-routing-preference/networking-option.png)
 
-4.  Dans l’onglet **Pare-feu et réseaux virtuels**, sous **Routage réseau**, changez le paramètre **Préférence de routage** en **Routage Internet**.
+4. Dans l’onglet **Pare-feu et réseaux virtuels**, sous **Routage réseau**, changez le paramètre **Préférence de routage** en **Routage Internet**.
 
-5.  Cliquez sur **Enregistrer**.
+5. Cliquez sur **Enregistrer**.
 
     > [!div class="mx-imgBorder"]
     > ![Option de routage Internet](./media/configure-network-routing-preference/internet-routing-option.png)
@@ -87,6 +87,7 @@ Pour faire du routage Internet votre préférence de routage, procédez comme su
      ```azurecli
      az login
      ```
+
 2. Si votre identité est associée à plusieurs abonnements, définissez comme abonnement actif l’abonnement du compte de stockage qui doit héberger votre site web statique.
 
    ```azurecli
@@ -109,15 +110,15 @@ Pour faire du routage Internet votre préférence de routage, procédez comme su
 
 Vous pouvez également configurer un point de terminaison propre à l’itinéraire. Par exemple, vous pouvez définir la préférence de routage du point de terminaison par défaut sur *Routage Internet*, puis publier un point de terminaison propre à l’itinéraire qui autorise le trafic entre les clients sur Internet et votre compte de stockage à être acheminé sur le réseau global Microsoft.
 
-Cette préférence n’a une incidence que sur le point de terminaison propre à l’itinéraire. Elle n’affecte pas la préférence de routage par défaut.  
+Cette préférence n’a une incidence que sur le point de terminaison propre à l’itinéraire. Elle n’affecte pas la préférence de routage par défaut.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1.  Accédez à votre compte de stockage dans le portail.
+1. Accédez à votre compte de stockage dans le portail.
 
-2.  Sous **Paramètres**, choisissez **Mise en réseau**.
+2. Sous **Paramètres**, choisissez **Mise en réseau**.
 
-3.  Dans l’onglet **Pare-feu et réseaux virtuels**, sous **Publier des points de terminaison propres à l’itinéraire**, choisissez la préférence de routage de votre point de terminaison propre à l’itinéraire, puis cliquez sur **Enregistrer**.
+3. Dans l’onglet **Pare-feu et réseaux virtuels**, sous **Publier des points de terminaison propres à l’itinéraire**, choisissez la préférence de routage de votre point de terminaison propre à l’itinéraire, puis cliquez sur **Enregistrer**.
 
     L’illustration suivante montre l’option **Routage réseau Microsoft** sélectionnée.
 
@@ -126,11 +127,11 @@ Cette préférence n’a une incidence que sur le point de terminaison propre à
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Pour configurer un point de terminaison propre à l’itinéraire, utilisez la commande [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). 
+1. Pour configurer un point de terminaison propre à l’itinéraire, utilisez la commande [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount).
 
-   - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage réseau Microsoft, définissez le paramètre `-PublishMicrosoftEndpoint` sur `true`. 
+   - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage réseau Microsoft, définissez le paramètre `-PublishMicrosoftEndpoint` sur `true`.
 
-   - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage Internet, définissez le paramètre `-PublishInternetEndpointTo` sur `true`.  
+   - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage Internet, définissez le paramètre `-PublishInternetEndpointTo` sur `true`.
 
    L’exemple suivant crée un point de terminaison propre à l’itinéraire qui utilise la préférence de routage réseau Microsoft.
 
@@ -146,11 +147,11 @@ Cette préférence n’a une incidence que sur le point de terminaison propre à
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Pour configurer un point de terminaison propre à l’itinéraire, utilisez la commande [az storage account update](/cli/azure/storage/account#az_storage_account_update). 
+1. Pour configurer un point de terminaison propre à l’itinéraire, utilisez la commande [az storage account update](/cli/azure/storage/account#az_storage_account_update).
 
-   - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage réseau Microsoft, définissez le paramètre `--publish-microsoft-endpoints` sur `true`. 
+   - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage réseau Microsoft, définissez le paramètre `--publish-microsoft-endpoints` sur `true`.
 
-   - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage Internet, définissez le paramètre `--publish-internet-endpoints` sur `true`.  
+   - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage Internet, définissez le paramètre `--publish-internet-endpoints` sur `true`.
 
    L’exemple suivant crée un point de terminaison propre à l’itinéraire qui utilise la préférence de routage réseau Microsoft.
 
@@ -168,12 +169,12 @@ Si vous avez configuré un point de terminaison propre à l’itinéraire, vous 
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1.  Sous **Paramètres**, choisissez **Propriétés**.
+1. Sous **Paramètres**, choisissez **Propriétés**.
 
     > [!div class="mx-imgBorder"]
     > ![Option de menu Propriétés](./media/configure-network-routing-preference/properties.png)
 
-2.  Le point de terminaison **Routage réseau Microsoft** est affiché pour chacun des services qui prennent en charge les préférences de routage. Cette image montre le point de terminaison des services Blob et Fichier.
+2. Le point de terminaison **Routage réseau Microsoft** est affiché pour chacun des services qui prennent en charge les préférences de routage. Cette image montre le point de terminaison des services Blob et Fichier.
 
     > [!div class="mx-imgBorder"]
     > ![Option de routage réseau Microsoft pour les points de terminaison propres à l’itinéraire](./media/configure-network-routing-preference/routing-url.png)

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 3ccd5cf9ebc1c5183571dcdfbe3beeabe1b28a63
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 01283dd9607dbe3f9b5b0c2103345cb73d56e093
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448114"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579512"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -34,8 +34,8 @@ Toutes les données de métriques sont écrites par les services d'un compte de 
 
 Les actions suivantes effectuées par Storage Analytics sont facturables :
 
-* Demandes de création d'objets blob pour la journalisation.
-* Demandes de création d'entités de table pour les métriques.
+- Demandes de création d'objets blob pour la journalisation.
+- Demandes de création d'entités de table pour les métriques.
 
 Si vous avez configuré une stratégie de rétention des données, vous pouvez réduire les dépenses en supprimant les anciennes données de journalisation et de mesures. Pour plus d'informations sur les stratégies de rétention, consultez [Définition d'une stratégie de rétention des données Storage Analytics](/rest/api/storageservices/Setting-a-Storage-Analytics-Data-Retention-Policy).
 
@@ -46,6 +46,7 @@ Chaque demande adressée à un service de stockage d’un compte est facturable 
 Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les tables de la rubrique [Opérations et messages d'état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) pour identifier les demandes facturables. Vous pouvez ensuite comparer vos données de journaux d’activité et de métriques aux messages d’état pour déterminer si vous avez été facturé pour une demande spécifique. Vous pouvez également utiliser les tables de la rubrique précédente pour examiner la disponibilité d'un service de stockage ou d'une opération individuelle de l'API.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Surveiller un compte de stockage dans le portail Azure](./manage-storage-analytics-logs.md)
-* [Métriques de Storage Analytics](storage-analytics-metrics.md)
-* [Journalisation Storage Analytics](storage-analytics-logging.md)
+
+- [Surveiller un compte de stockage dans le portail Azure](./manage-storage-analytics-logs.md)
+- [Métriques de Storage Analytics](storage-analytics-metrics.md)
+- [Journalisation Storage Analytics](storage-analytics-logging.md)

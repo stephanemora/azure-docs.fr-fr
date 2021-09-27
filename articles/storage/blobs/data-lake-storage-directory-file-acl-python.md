@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: a2db4734650f4af2f0ed67040c7f94eeda5f7c69
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f6374d502a292fc25ecf2a0f7fadc2dc26157f7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453099"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667879"
 ---
 # <a name="use-python-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Utiliser Python pour gérer les répertoires et les fichiers dans Azure Data Lake Storage Gen2
 
@@ -49,11 +49,11 @@ from azure.storage.filedatalake._models import ContentSettings
 
 ## <a name="connect-to-the-account"></a>Se connecter au compte
 
-Pour utiliser les extraits de code de cet article, vous devez créer une instance **DataLakeServiceClient** qui représente le compte de stockage. 
+Pour utiliser les extraits de code de cet article, vous devez créer une instance **DataLakeServiceClient** qui représente le compte de stockage.
 
 ### <a name="connect-by-using-an-account-key"></a>Connexion avec une clé de compte
 
-Il s’agit du moyen le plus simple de se connecter à un compte. 
+Il s’agit du moyen le plus simple de se connecter à un compte.
 
 Cet exemple crée une instance de **DataLakeServiceClient** à l’aide d’une clé de compte.
 
@@ -86,13 +86,13 @@ Cet exemple crée un conteneur nommé `my-file-system`.
 
 Créez une référence de répertoire en appelant la méthode **FileSystemClient.create_directory**.
 
-Cet exemple ajoute un répertoire nommé `my-directory` à un conteneur. 
+Cet exemple ajoute un répertoire nommé `my-directory` à un conteneur.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_CreateDirectory":::
 
 ## <a name="rename-or-move-a-directory"></a>Renommer ou déplacer un répertoire
 
-Renommez ou déplacez un répertoire en appelant la méthode **DataLakeDirectoryClient.rename_directory**. Transmettez un paramètre au chemin d’accès du répertoire souhaité. 
+Renommez ou déplacez un répertoire en appelant la méthode **DataLakeDirectoryClient.rename_directory**. Transmettez un paramètre au chemin d’accès du répertoire souhaité.
 
 Cet exemple renomme un sous-répertoire avec le nom `my-directory-renamed`.
 
@@ -102,7 +102,7 @@ Cet exemple renomme un sous-répertoire avec le nom `my-directory-renamed`.
 
 Supprimez un répertoire en appelant la méthode **DataLakeDirectoryClient.delete_directory**.
 
-Cet exemple supprime un répertoire nommé `my-directory`.  
+Cet exemple supprime un répertoire nommé `my-directory`.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_DeleteDirectory":::
 
@@ -110,12 +110,12 @@ Cet exemple supprime un répertoire nommé `my-directory`.
 
 Tout d’abord, créez une référence de fichier dans le répertoire cible en créant une instance de la classe **DataLakeFileClient**. Téléchargez un fichier en appelant la méthode **DataLakeFileClient.append_data**. Veillez à effectuer le chargement en appelant la méthode **DataLakeFileClient.flush_data**.
 
-Cet exemple charge un fichier texte dans un répertoire nommé `my-directory`.   
+Cet exemple charge un fichier texte dans un répertoire nommé `my-directory`.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_UploadFile":::
 
 > [!TIP]
-> Si la taille de votre fichier est importante, votre code devra effectuer plusieurs appels à **DataLakeFileClient.append_data**. Utilisez plutôt la méthode **DataLakeFileClient.upload_data**. Vous pourrez ainsi charger la totalité du fichier en un seul appel. 
+> Si la taille de votre fichier est importante, votre code devra effectuer plusieurs appels à **DataLakeFileClient.append_data**. Utilisez plutôt la méthode **DataLakeFileClient.upload_data**. Vous pourrez ainsi charger la totalité du fichier en un seul appel.
 
 ## <a name="upload-a-large-file-to-a-directory"></a>Charger un fichier volumineux dans un répertoire
 
@@ -123,9 +123,9 @@ Utilisez la méthode **DataLakeFileClient.upload_data** pour charger des fichier
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_UploadFileBulk":::
 
-## <a name="download-from-a-directory"></a>Télécharger à partir d’un répertoire 
+## <a name="download-from-a-directory"></a>Télécharger à partir d’un répertoire
 
-Ouvrez un fichier local en écriture. Ensuite, créez une instance **DataLakeFileClient** qui représente le fichier que vous souhaitez télécharger. Appelez **DataLakeFileClient.read_file** pour lire les octets à partir du fichier, puis écrivez ces octets dans le fichier local. 
+Ouvrez un fichier local en écriture. Ensuite, créez une instance **DataLakeFileClient** qui représente le fichier que vous souhaitez télécharger. Appelez **DataLakeFileClient.read_file** pour lire les octets à partir du fichier, puis écrivez ces octets dans le fichier local.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_DownloadFromDirectory":::
 

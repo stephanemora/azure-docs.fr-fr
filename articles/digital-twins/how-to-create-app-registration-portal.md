@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment créer une inscription d’application Azure AD en tant qu’option d’authentification pour les applications clientes en utilisant le portail Azure.
 author: baanders
 ms.author: baanders
-ms.date: 8/27/2021
+ms.date: 9/8/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: da935038599b86d9c86a1f55071d4b4d1ea4ce16
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8350ff149b54ef8cf8f4061abd64df73dc688962
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223060"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653105"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-portal"></a>Créer une inscription d’application à utiliser avec Azure Digital Twins (portail)
 
@@ -64,7 +64,7 @@ Les sections suivantes décrivent comment trouver les autres valeurs.
 
 Vous pouvez collecter les valeurs de l’**ID client** et de l’**ID locataire** à partir de la page de détails de l’inscription d’application dans le portail Azure :
 
-:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Capture d’écran du portail Azure montrant les valeurs importantes pour l’inscription d’application.":::
+:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Capture d’écran du portail Azure montrant les valeurs importantes pour l’inscription d’application."  lightbox="media/how-to-create-app-registration/client-id-tenant-id.png":::
 
 Prenez note de **l’ID d’application (client)** et de **l’ID de répertoire (locataire)** affichés sur **votre** page.
 
@@ -78,7 +78,13 @@ Pour configurer un **secret client** pour votre inscription d’application, acc
 
 1. Entrez les valeurs de votre choix pour Description et Expire le, puis sélectionnez **Ajouter**.
 
-    :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Capture d’écran du portail Azure lors de l’ajout d’un secret client.":::
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Capture d’écran du portail Azure lors de l’ajout d’un secret client.":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
 1. Vérifiez que le secret client est visible dans la page **Certificats et secrets** avec les champs Expire et Valeur. 
 

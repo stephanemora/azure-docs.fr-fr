@@ -7,23 +7,27 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3456ecb1de4b6197b274f09a0d25c31c51f43ca0
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 55c5b16ed01542fa756dd7ae72bde31de8245636
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028840"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128574421"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte QQ à l’aide d’Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
+::: zone pivot="b2c-user-flow"
+
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+::: zone-end
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -58,7 +62,8 @@ Pour autoriser la connexion des utilisateurs avec un compte QQ dans Azure Active
 ## <a name="configure-qq-as-an-identity-provider"></a>Configuration de QQ en tant que fournisseur d'identité
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **QQ (Préversion)**.
 1. Saisissez un **Nom**. Par exemple, *QQ*.
@@ -89,15 +94,16 @@ Si le processus de connexion réussit, votre navigateur est redirigé vers `http
 Vous devez stocker la clé secrète client que vous avez enregistrée dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
-5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
-6. Pour **Options**, choisissez `Manual`.
-7. Entrez un **nom** pour la clé de stratégie. Par exemple : `QQSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
-8. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
-9. Pour **Utilisation de la clé**, sélectionnez `Signature`.
-10. Cliquez sur **Créer**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Pour **Options**, choisissez `Manual`.
+1. Entrez un **nom** pour la clé de stratégie. Par exemple : `QQSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
+1. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
+1. Pour **Utilisation de la clé**, sélectionnez `Signature`.
+1. Cliquez sur **Créer**.
 
 ## <a name="configure-qq-as-an-identity-provider"></a>Configuration de QQ en tant que fournisseur d'identité
 

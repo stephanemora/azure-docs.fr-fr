@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 98814ce9fbf1171ff57b9e82e5cb1af33f9756ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79b03705f82902b465a643d6722c25e130ca12e4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779696"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668739"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory : Études de cas client
 Data Factory est un service de gestion des informations dans le cloud qui automatise le déplacement et la transformation des données. Des clients répartis dans plusieurs secteurs utilisent Data Factory et d’autres services Azure pour générer leurs pipelines d’analyse et résoudre des problèmes commerciaux.  Découvrez directement auprès de nos clients comment et pourquoi ils utilisent Data Factory.

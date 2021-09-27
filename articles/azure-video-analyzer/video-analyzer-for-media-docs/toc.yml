@@ -115,8 +115,8 @@
     - name: Régions
       displayName: location
       href: regions.md
-    - name: FAQ
-      href: faq.md
+    - name: Forum aux questions
+      href: faq.yml
     - name: Conformité
       href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
     - name: Notes de publication

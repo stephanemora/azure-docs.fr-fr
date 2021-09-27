@@ -60,8 +60,6 @@
           href: howto-find-activity-reports.md
         - name: Résoudre les erreurs de connexion pour un utilisateur
           href: howto-troubleshoot-sign-in-errors.md
-        - name: Corriger les problèmes d’utilisateurs avec indicateur de risque
-          href: howto-remediate-users-flagged-for-risk.md
         - name: Configurer les composants requis pour l’API de création de rapports
           href: howto-configure-prerequisites-for-reporting-api.md
         - name: Guide pratique pour utiliser des classeurs Azure AD

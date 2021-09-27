@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ad970076449bbd74ed22f2688b314b6a5a3aba98
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 75ca22459a05ec1d3ccdb0846ecb0536e38f712a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527757"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665356"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Pig dans Azure Data Factory
 > [!div class="op_single_selector" title1="Activités de transformation"]
@@ -21,8 +22,8 @@ ms.locfileid: "122527757"
 > * [Activité MapReduce](data-factory-map-reduce.md)
 > * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Activité Spark](data-factory-spark.md)
-> * [Activité Batch Execution dans ML Studio (classique)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Activité Update Resource dans ML Studio (classique)](data-factory-azure-ml-update-resource-activity.md)
+> * [Activité Batch Execution ML Studio (classique)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Activité des ressources de mise à jour ML Studio (classique)](data-factory-azure-ml-update-resource-activity.md)
 > * [Activité de procédure stockée](data-factory-stored-proc-activity.md)
 > * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
