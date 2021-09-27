@@ -9,12 +9,12 @@ ms.author: prakulka
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 2281dac86281d01ec6f033062b87236a780d3bc7
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 8bd683be329572189daedc74f089ef89d9f015ea
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259750"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609666"
 ---
 # <a name="azure-communication-services-messaging-policy"></a>Stratégie de messagerie d’Azure Communication Services
 
@@ -101,7 +101,6 @@ Bien que le consentement exprès préalable soit normalement requis avant d’en
  
 Aucun de ces messages ne peut inclure des sollicitations ou des publicités.
 
-
 ## <a name="opt-out"></a>Annulation
 
 Les destinataires des messages peuvent révoquer leur consentement et choisir de ne plus recevoir de messages par tout moyen raisonnable. Vous ne pouvez pas offrir aux destinataires des messages un seul moyen leur permettant de révoquer leur consentement. 
@@ -115,7 +114,6 @@ L’un des mécanismes d’annulation les plus courants consiste à inclure un m
 ### <a name="opt-out-best-practices"></a>Bonnes pratiques d’annulation :
 
 Aux mots clés viennent s’ajouter d’autres mécanismes d’annulation courants. Vous pouvez notamment fournir aux clients une adresse e-mail spécifique à l’annulation, le numéro de téléphone du support technique ou un lien pour se désabonner sur votre page web. 
-
 
 ### <a name="how-we-handle-opt-out-requests"></a>Comment gérer les demandes d’annulation :
 

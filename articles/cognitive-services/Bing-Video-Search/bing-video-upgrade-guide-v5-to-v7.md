@@ -3,19 +3,17 @@ title: Mettre à niveau l’API Recherche de vidéos Bing de la version 5 à la 
 titleSuffix: Azure Cognitive Services
 description: Identifie les parties de votre application Recherche de vidéos Bing que vous devez mettre à jour pour utiliser la version 7.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: scottwhi
-ms.openlocfilehash: e47691c82d43a35a7235eb5c3fd3cf7bca081aee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c76c2247e92a5ebc70797cdb6794eb727280e4b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96351910"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600720"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guide de mise à niveau de l’API Recherche de vidéos Bing
 

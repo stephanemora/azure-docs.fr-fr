@@ -7,18 +7,18 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: ab19b62ff4aaca1b3357d586e3bba4252e8a5d9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 07e663b7b631cbc083916e48924d740255e46e37
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524687"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638764"
 ---
-# <a name="power-query-activity-in-data-factory"></a>Activité Power Query dans une fabrique de données
+# <a name="power-query-activity-in-azure-data-factory"></a>Activité Power Query dans Azure Data Factory
 
 L’activité Power Query vous permet de créer et d’exécuter des agrégateurs Power Query pour exécuter du data wrangling à grande échelle dans un pipeline Data Factory. Vous pouvez créer un agrégateur Power Query à partir de l’option de menu Nouvelles ressources ou en ajoutant une activité Power Query à votre pipeline.
 
-![Capture d’écran montrant Power Query dans le volet de ressources de la fabrique.](media/data-flow/power-query-wrangling.png)
+:::image type="content" source="media/data-flow/power-query-wrangling.png" alt-text="Capture d’écran montrant Power Query dans le volet de ressources de la fabrique.":::
 
 Auparavant, le data wrangling dans Azure Data Factory était créé à partir de l’option de menu Data Flow. Cela a été modifié pour créer à partir d’une nouvelle activité Power Query. Vous pouvez travailler directement dans l’éditeur d’agrégation Power Query pour effectuer une exploration interactive des données, puis enregistrer votre travail. Une fois l’opération terminée, vous pouvez prendre votre activité Power Query et l’ajouter à un pipeline. Azure Data Factory effectuera automatiquement un scale-out et rendra opérationnel votre data wrangling à l’aide de l’environnement Spark de flux de données d’Azure Data Factory.
 

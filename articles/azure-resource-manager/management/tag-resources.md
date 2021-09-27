@@ -4,12 +4,12 @@ description: Indique comment appliquer des étiquettes afin d'organiser des ress
 ms.topic: conceptual
 ms.date: 07/29/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9dc4b87713d5b397b900f19e83c297130a10be3c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cf8b4ceb70eec2ac6dbb79b8193276997f8e06f1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563290"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664520"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
@@ -468,7 +468,7 @@ L’exemple suivant déploie un compte de stockage avec trois étiquettes. Deux 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -492,7 +492,7 @@ L’exemple suivant déploie un compte de stockage avec trois étiquettes. Deux 
 param location string = resourceGroup().location
 param utcShort string = utcNow('d')
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -535,7 +535,7 @@ Vous pouvez définir un paramètre d’objet qui stocke plusieurs balises et app
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -558,7 +558,7 @@ param tagValues object = {
   Environment: 'Production'
 }
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -590,7 +590,7 @@ Pour stocker plusieurs valeurs dans une seule balise, appliquez une chaîne JSON
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -611,7 +611,7 @@ Pour stocker plusieurs valeurs dans une seule balise, appliquez une chaîne JSON
 ```Bicep
 param location string = resourceGroup().location
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -645,7 +645,7 @@ Pour appliquer des balises d’un groupe de ressources à une ressource, utilise
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -667,7 +667,7 @@ Pour appliquer des balises d’un groupe de ressources à une ressource, utilise
 ```Bicep
 param location string = resourceGroup().location
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -843,7 +843,7 @@ Les limites suivantes s’appliquent aux balises :
 * Chaque ressource, groupe de ressources et abonnement peuvent inclure un maximum de 50 paires nom/valeur d’étiquette. Si vous devez appliquer plus de balises que le nombre maximal autorisé, utilisez une chaîne JSON comme valeur de balise. La chaîne JSON peut contenir plusieurs valeurs appliquées à un seul nom de balise. Un groupe de ressources ou un abonnement peut contenir de nombreuses ressources qui ont chacune 50 paires nom/valeur d’étiquette.
 * Le nom de balise est limité à 512 caractères, et la valeur de balise à 256 caractères. Pour les comptes de stockage, le nom de balise est limité à 128 caractères, et la valeur de balise à 256 caractères.
 * Les balises ne peuvent pas être appliquées à des ressources classiques comme les Services cloud.
-* Les groupes d’adresses IP Azure et les stratégies du Pare-feu Azure ne prennent pas en charge les opérations de correction, ce qui signifie qu’ils ne prennent pas en charge la mise à jour des balises via le Portail. Préférez les commandes de mise à jour pour ces ressources. Par exemple, vous pouvez mettre à jour les balises d’un groupe d’adresses IP à l’aide de la commande [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update). 
+* Les groupes d’adresses IP Azure et les stratégies du Pare-feu Azure ne prennent pas en charge les opérations de correction, ce qui signifie qu’ils ne prennent pas en charge la mise à jour des balises via le Portail. Préférez les commandes de mise à jour pour ces ressources. Par exemple, vous pouvez mettre à jour les balises d’un groupe d’adresses IP à l’aide de la commande [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update).
 * Les noms de balise ne peuvent pas contenir ces caractères : `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
@@ -852,7 +852,7 @@ Les limites suivantes s’appliquent aux balises :
    > * Azure Front Door ne prend pas en charge l’utilisation de `#` ou `:` dans le nom de la balise.
    >
    > * Les ressources Azure suivantes prennent uniquement en charge 15 balises :
-   >     * Azure Automation 
+   >     * Azure Automation
    >     * Azure CDN
    >     * Azure DNS (Zone et enregistrements A)
    >     * DNS privé Azure (Zone, enregistrements A et liaison de réseau virtuel)

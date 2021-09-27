@@ -1,17 +1,17 @@
 ---
 title: Résolution des problèmes liés aux délais d’expiration et aux erreurs des réponses client à l’aide de Gestion des API
 description: Résoudre les erreurs de connexion intermittente et les problèmes de latence connexes dans Gestion des API
-author: vladvino
+author: dlepow
 ms.topic: troubleshooting
 ms.date: 12/04/2020
-ms.author: apimpm
+ms.author: danlep
 ms.service: api-management
-ms.openlocfilehash: 6cace4a02c8d45cacbbc34e9778b5c4a78ada27f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7b6f8ed20f1af7b4a6f512b9aa4611936f784fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576514"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623909"
 ---
 # <a name="troubleshooting-client-response-timeouts-and-errors-with-api-management"></a>Résolution des problèmes liés aux délais d’expiration et aux erreurs des réponses client à l’aide de Gestion des API
 

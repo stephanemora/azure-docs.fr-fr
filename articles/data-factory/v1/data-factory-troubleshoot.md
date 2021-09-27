@@ -2,6 +2,7 @@
 title: Résolution des problèmes liés à Azure Data Factory
 description: Découvrez comment résoudre les problèmes liés à l'utilisation de Azure Data Factory.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: dcstwh
@@ -9,12 +10,12 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: fbc21ea65e410c71641d81794cbfe2ff256e18af
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e3a2eed5dea712d7309955dbf14b18b5ab9587f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110674917"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654220"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Résolution des problèmes liés à Data Factory
 > [!NOTE]
@@ -128,7 +129,7 @@ Consultez la page [Surveiller les pipelines Data Factory à l’aide d’Azure P
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
-[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[cmdlet-reference]: /powershell/resourcemanager/Azurerm.DataFactories/v2.2.0/Azurerm.DataFactories
 [json-scripting-reference]: /previous-versions/azure/dn835050(v=azure.100)
 
 [azure-portal]: https://portal.azure.com/

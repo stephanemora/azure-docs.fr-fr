@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: d2ccfcb26c66d936d474cd5bd4f830d03a8b0002
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f1666d0bf02a10c2c5e1f87f68d4365782de683d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682911"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648712"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Pourquoi mon abonnement Azure pour les étudiants est-il désactivé et comment puis-je le réactiver ?
 
@@ -36,9 +36,9 @@ Vous pouvez voir votre crédit restant sur le[portail Microsoft Azure Sponsorshi
 
 Le tableau contient les colonnes suivantes :
 
-* **Nom du service :** service qui consomme votre crédit Azure.
-* **Ressource de service :** unité de mesure pour le service utilisé.
-* **Dépense :** montant du crédit en USD ($) consommé pour le service.
+* **Nom du service :** service qui consomme votre crédit Azure.
+* **Ressource de service :** unité de mesure pour le service utilisé.
+* **Dépense :** montant du crédit en USD ($) consommé pour le service.
 
 ## <a name="your-credit-has-expired"></a>Votre crédit a expiré.
 

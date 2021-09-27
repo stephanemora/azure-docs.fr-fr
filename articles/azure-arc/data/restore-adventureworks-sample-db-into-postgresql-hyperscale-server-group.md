@@ -1,7 +1,6 @@
 ---
 title: Importer l’exemple de base de données AdventureWorks dans PostgreSQL Hyperscale activé par Azure Arc
 description: Restaurer l’exemple de base de données AdventureWorks avec PostgreSQL Hyperscale activé par Azure Arc
-services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
@@ -9,12 +8,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: f802bb5d681e9e77d258d6071def53d4c5e4958f
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: f3174e0980470f9ad23a53810767d75ba375bd9e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113731087"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650170"
 ---
 # <a name="import-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Importer l’exemple de base de données AdventureWorks dans PostgreSQL Hyperscale activé par Azure Arc
 
@@ -38,7 +37,7 @@ Exécutez une commande comme celle-ci pour télécharger le fichier en remplaça
 >  Pour télécharger le fichier à partir de GitHub, votre conteneur doit disposer d’une connexion Internet sur le port 443.
 
 > [!NOTE]
->  Utilisez le nom pod du nœud coordinateur du groupe de serveurs Postgres Hyperscale. Son nom est <server group name>c-0 (par exemple, postgres01c-0, où c représente le nœud coordinateur).  Si vous n’êtes pas sûr du nom de pod, exécutez la commande `kubectl get pod`
+>  Utilisez le nom pod du nœud coordinateur du groupe de serveurs Postgres Hyperscale. Son nom est \<server group name\>c-0 (par exemple, postgres01c-0, où c représente le nœud coordinateur).  Si vous n’êtes pas sûr du nom de pod, exécutez la commande `kubectl get pod`
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
@@ -82,6 +81,6 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
     * [Concevoir une base de données multilocataire](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Concevoir un tableau de bord d’analytique en temps réel](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-   > \* Dans les documents ci-dessus, ignorez les sections **Se connecter au portail Azure** et **Créer un serveur Azure Database pour PostgreSQL - Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre instance PostgreSQL Hyperscale activé par Azure Arc.
+   > \* Dans les documents ci-dessus, ignorez les sections **Se connecter au portail Azure** et **Créer un serveur Azure Database pour PostgreSQL - Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre instance PostgreSQL Hyperscale avec Azure Arc.
 
 - [Effectuer un scale-out de votre groupe de serveurs Azure Database pour PostgreSQL Hyperscale](scale-out-in-postgresql-hyperscale-server-group.md)

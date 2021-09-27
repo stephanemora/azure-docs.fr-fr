@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/13/2021
-ms.openlocfilehash: 776068748b9cd7e90b9d9418bdf9a31fe36ff180
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.date: 09/13/2021
+ms.openlocfilehash: 960ade1209b6473884e75c660d658abaf6e73af7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733751"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609951"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Créer un flux de travail d’intégration avec Azure Logic Apps monolocataire (standard) dans Visual Studio Code
 
@@ -213,6 +213,8 @@ Avant de pouvoir créer votre application logique, créez un projet local afin d
    Le volet de l’Explorateur affiche votre projet, qui comprend désormais les fichiers de projet générés automatiquement. Par exemple, le projet contient un dossier qui affiche le nom de votre workflow. À l’intérieur de ce dossier, le fichier **workflow.json** contient la définition JSON sous-jacente de votre workflow.
 
    ![Capture d’écran montrant le volet de l’Explorateur avec le dossier de projet, le dossier de workflow et le fichier « workflow.json ».](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
+
+   [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
 <a name="enable-built-in-connector-authoring"></a>
 

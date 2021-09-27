@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 7dd40b52cbc74e62a6dbb8ed83d19c968e48d9c4
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: 6a21299d505d0132bab432223095850b3006b05e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822813"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651272"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Générer des expressions dans un flux de données de mappage
 
@@ -29,25 +29,25 @@ Dans un flux de données de mappage, de nombreuses propriétés de transformatio
 
 Il existe plusieurs points d’entrée pour ouvrir le générateur d’expressions. Ils dépendent tous du contexte spécifique de la transformation du flux de données. Le cas d’utilisation le plus courant est celui des transformations telles que [colonne dérivée](data-flow-derived-column.md) et [agrégation](data-flow-aggregate.md), où les utilisateurs créent ou mettent à jour des colonnes à l’aide du langage d’expression de flux de données. Vous pouvez ouvrir le générateur d’expressions en sélectionnant **Ouvrir le générateur d’expressions** au-dessus de la liste de colonnes. Vous pouvez également cliquer sur un contexte de colonne et ouvrir le générateur d’expressions directement avec cette expression.
 
-![Dérivation du générateur d’expressions ouvert](media/data-flow/open-expression-builder-derive.png "Dérivation du générateur d’expressions ouvert")
+:::image type="content" source="media/data-flow/open-expression-builder-derive.png" alt-text="Dérivation du générateur d’expressions ouvert":::
 
 Dans certaines transformations comme les [filtres](data-flow-filter.md), un clic sur une zone de texte d’expression bleue ouvre le générateur d’expressions. 
 
-![Zone d’expression bleue](media/data-flow/expressionbox.png "Zone d’expression bleue")
+:::image type="content" source="media/data-flow/expressionbox.png" alt-text="Zone d’expression bleue":::
 
 Lorsque vous référencez des colonnes dans une correspondance ou un groupe par condition, une expression peut extraire des valeurs des colonnes. Pour créer une expression, sélectionnez **Colonne calculée**.
 
-![Option de colonne calculée](media/data-flow/computedcolumn.png "Option de colonne calculée")
+:::image type="content" source="media/data-flow/computedcolumn.png" alt-text="Option de colonne calculée":::
 
 Pour les cas où une expression ou une valeur littérale sont des entrées valides, sélectionnez **Ajout de contenu dynamique** pour générer une expression qui renvoie une valeur littérale.
 
-![Option d’ajout de contenu dynamique](media/data-flow/add-dynamic-content.png "Option d’ajout de contenu dynamique")
+:::image type="content" source="media/data-flow/add-dynamic-content.png" alt-text="Option d’ajout de contenu dynamique":::
 
 ## <a name="expression-elements"></a>Éléments d’expression
 
 Dans le mappage des flux de données, les expressions peuvent être composées de valeurs de colonne, de paramètres, de fonctions, de variables locales, d’opérateurs et de littéraux. Ces expressions doivent correspondre à un type de données Spark, par exemple une chaîne, une valeur booléenne ou un entier.
 
-![Éléments d’expression](media/data-flow/expression-elements.png "Éléments d’expression")
+:::image type="content" source="media/data-flow/expression-elements.png" alt-text="Éléments d’expression":::
 
 ### <a name="functions"></a>Fonctions
 
@@ -57,7 +57,7 @@ Les flux de données de mappage comportent des fonctions et opérateurs intégr�
 
 Lorsque vous traitez des colonnes ou des fonctions qui retournent des types tableau, utilisez des crochets ([]) pour accéder à un élément spécifique. Si l’index n’existe pas, l’expression prend la valeur NULL.
 
-![Générateur d’expressions - tableau](media/data-flow/expression-array.png "Aperçu des données d’expression")
+:::image type="content" source="media/data-flow/expression-array.png" alt-text="Générateur d’expressions - tableau":::
 
 > [!IMPORTANT]
 > Dans le mappage des flux de données, les tableaux sont basés sur un, ce qui signifie que le premier élément est référencé par l’index 1. Par exemple, myArray[1] accède au premier élément d’un tableau appelé « myArray ».
@@ -70,7 +70,7 @@ Si votre flux de données utilise un schéma défini dans l’une de ses sources
 
 Quand vous avez des noms de colonnes qui comportent des espaces ou des caractères spéciaux, placez-les entre accolades pour les référencer dans une expression.
 
-```{[dbo].this_is my complex name$$$}```
+`{[dbo].this_is my complex name$$$}`
 
 ### <a name="parameters"></a>Paramètres
 
@@ -84,7 +84,7 @@ Une recherche mise en cache vous permet d’effectuer une recherche instantanée
 
 `outputs()` n’accepte aucun paramètre et retourne l’intégralité du récepteur de cache sous la forme d’un tableau de colonnes complexes. Cet appel ne peut pas être effectué si des colonnes clés sont spécifiées dans le récepteur et que leur utilisation n’est possible qu’en présence d’un petit nombre de lignes dans le récepteur de cache. Un cas d’usage courant consiste à ajouter la valeur maximale d’une clé d’incrémentation. Si une ligne unique agrégée en cache `CacheMaxKey` contient une colonne `MaxKey`, vous pouvez référencer la première valeur en appelant `CacheMaxKey#outputs()[1].MaxKey`.
 
-![Recherche mise en cache](media/data-flow/cached-lookup-example.png "Recherche mise en cache")
+:::image type="content" source="media/data-flow/cached-lookup-example.png" alt-text="Recherche mise en cache":::
 
 ### <a name="locals"></a>Locals
 
@@ -94,7 +94,7 @@ Si vous partagez la logique entre plusieurs colonnes ou si vous souhaitez compar
 
 Si le [mode débogage](concepts-data-flow-debug-mode.md) est activé, vous pouvez utiliser le cluster de débogage de manière interactive pour afficher un aperçu de ce sur quoi votre expression est évaluée. Sélectionnez **Actualiser** en regard de l’aperçu des données pour mettre à jour les résultats de l’aperçu des données. Vous pouvez voir la sortie de chaque ligne en fonction des colonnes d’entrée.
 
-![Aperçu en cours](media/data-flow/preview-expression.png "Aperçu des données d’expression")
+:::image type="content" source="media/data-flow/preview-expression.png" alt-text="Aperçu en cours":::
 
 ## <a name="string-interpolation"></a>Interpolation de chaîne
 
@@ -126,7 +126,7 @@ Les exemples suivants sont des commentaires valides :
 
 Si vous placez un commentaire en haut de votre expression, il apparaît dans la zone de texte de transformation afin de documenter vos expressions de transformation.
 
-![Commentaire dans la zone de texte de transformation](media/data-flow/comment-expression.png "Commentaires")
+:::image type="content" source="media/data-flow/comment-expression.png" alt-text="Commentaire dans la zone de texte de transformation":::
 
 ## <a name="regular-expressions"></a>Expressions régulières
 
@@ -159,13 +159,13 @@ Vous trouverez ci-dessous une liste des raccourcis disponibles dans le générat
 
 ### <a name="convert-to-dates-or-timestamps"></a>Convertir en dates ou en timestamps
 
-Pour inclure des littéraux de chaîne dans votre sortie d’horodatage, wrappez votre conversion dans ```toString()```.
+Pour inclure des littéraux de chaîne dans votre sortie d’horodatage, wrappez votre conversion dans `toString()`.
 
-```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+`toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')`
 
 Pour convertir des millisecondes issues de l’époque en date ou en horodatage, utilisez `toTimestamp(<number of milliseconds>)`. Si le temps s’écoule en secondes, multipliez par 1 000.
 
-```toTimestamp(1574127407*1000l)```
+`toTimestamp(1574127407*1000l)`
 
 Le « l » situé à la fin de l’expression précédente signifie la conversion en type long comme la syntaxe en ligne.
 

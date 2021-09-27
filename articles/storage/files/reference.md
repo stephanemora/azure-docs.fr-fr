@@ -1,17 +1,17 @@
 ---
 title: Informations de référence sur l’API Azure Files
 description: Recherchez les informations de référence sur l’API Azure Files, les fichiers Lisez-moi et les packages de bibliothèque de client.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 08/05/2021
 ms.service: storage
 ms.topic: reference
-ms.openlocfilehash: d98d100261d91f46b9e9de57c8e2a1f478d73888
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0092c1317e7274bdac5f7e2b2caf999aaf7040a1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532663"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648978"
 ---
 # <a name="azure-files-api-reference"></a>Informations de référence sur l’API Azure Files
 
@@ -28,7 +28,7 @@ Le tableau suivant liste des informations de référence sur les API .NET Azure 
 
 ### <a name="storage-management-net-apis"></a>API .NET de gestion du stockage
 
-Le tableau suivant liste des informations de référence sur les API .NET de gestion du stockage Azure.
+Le tableau suivant liste des informations de référence sur les API .NET de gestion du Stockage Azure.
 
 |  Version  | Documentation de référence | Package |
 | :-------: | ----------------------- | ------- |
@@ -36,7 +36,7 @@ Le tableau suivant liste des informations de référence sur les API .NET de ges
 
 ### <a name="data-movement-net-apis"></a>API .NET de déplacement des données
 
-Le tableau suivant liste des informations de référence sur les API .NET de déplacement de données de stockage Azure.
+Le tableau suivant liste des informations de référence sur les API .NET de déplacement de données du Stockage Azure.
 
 |  Version  | Documentation de référence | Package |
 | :-------: | ----------------------- | ------- |
@@ -53,7 +53,7 @@ Le tableau suivant liste des informations de référence sur les API Java Azure 
 
 ### <a name="storage-management-java-apis"></a>API Java de gestion du stockage
 
-Le tableau suivant liste des informations de référence sur les API Java de gestion du stockage Azure.
+Le tableau suivant liste des informations de référence sur les API Java de gestion du Stockage Azure.
 
 |  Version  | Documentation de référence | Package |
 | :-------: | ----------------------- | ------- |

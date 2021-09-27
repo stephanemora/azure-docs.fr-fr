@@ -1,26 +1,19 @@
 ---
 title: Informations de référence sur les enrichissements UEBA Azure Sentinel | Microsoft Docs
 description: Cet article présente les enrichissements d’entité générés par l’analyse du comportement des entités d’Azure Sentinel.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 05/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 3253a399015e533fc299bc7a338ce091769f4c65
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 6420ef1345e20c2aec511a0a0284753a78895020
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721687"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627346"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Informations de référence sur les enrichissements UEBA Azure Sentinel
 
@@ -199,7 +192,7 @@ Les tableaux suivants décrivent les enrichissements qui figurent dans le champ 
 
 | Nom d’enrichissement | [Ligne de base](#baseline-explained) (jours) | Description | Exemple de valeur |
 | --- | --- | --- | --- |
-| **Action effectuée pour la dernière fois par l’utilisateur**<br>*(LastTimeUserPerformedAction)* | 180 | Dernière fois que l’utilisateur a effectué la même action. | <Timestamp> |
+| **Action effectuée pour la dernière fois par l’utilisateur**<br>*(LastTimeUserPerformedAction)* | 180 | Dernière fois que l’utilisateur a effectué la même action. | \<Timestamp\> |
 | **Une action similaire n’a pas été effectuée dans le passé**<br>*(SimilarActionWasn’tPerformedInThePast)* | 30 | Aucune action dans le même fournisseur de ressources n’a été effectuée par l’utilisateur. | True, False |
 | **Emplacement IP source**<br>*(SourceIPLocation)* | *N/A* | Pays résolu à partir de l’adresse IP source de l’action. | [Surrey, Royaume-Uni] |
 | **Volume d’opérations inhabituellement élevé**<br>*(UncommonHighVolumeOfOperations)* | 7 | Un utilisateur a effectué une rafale d’opérations similaires au sein du même fournisseur. | True, False |

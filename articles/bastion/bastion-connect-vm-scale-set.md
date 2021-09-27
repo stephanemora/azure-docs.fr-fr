@@ -2,17 +2,17 @@
 title: Se connecter à un groupe de machines virtuelles Windows identiques à l’aide d’Azure Bastion
 description: Découvrez comment se connecter à un groupe de machines virtuelles identiques à l’aide d’Azure Bastion.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/14/2020
-ms.author: charwen
-ms.openlocfilehash: 361bb52ffd9762a49a549fe3fc5ac5cd652416ca
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.date: 09/20/2021
+ms.author: cherylmc
+ms.openlocfilehash: e57ee80fa7727a6f5e7e1ec59857746cb4b8d590
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534152"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620652"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Se connecter à un groupe de machines virtuelles identiques à l’aide d’Azure Bastion
 
@@ -20,7 +20,7 @@ Cet article explique comment se connecter de manière fluide et sécurisée via 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Assurez-vous que vous avez configuré un hôte Azure Bastion pour le réseau virtuel dans lequel réside le groupe de machines virtuelles identiques. Pour plus d’informations, consultez [Créer un hôte Azure Bastion](./tutorial-create-host-portal.md). Une fois que le service Bastion est provisionné et déployé dans votre réseau virtuel, vous pouvez l’utiliser pour vous connecter à une instance de groupe de machines virtuelles identiques dans ce réseau virtuel. Bastion part du principe que vous utilisez le protocole RDP pour vous connecter à un groupe de machines virtuelles Windows identiques, et le protocole SSH pour vous connecter à votre groupe de machines virtuelles Linux identiques. Pour plus d’informations sur la connexion à une machine virtuelle Linux, consultez [Connexion à une machine virtuelle - Linux](bastion-connect-vm-ssh.md).
+Assurez-vous que vous avez configuré un hôte Azure Bastion pour le réseau virtuel dans lequel réside le groupe de machines virtuelles identiques. Pour plus d’informations, consultez [Créer un hôte Azure Bastion](./tutorial-create-host-portal.md). Une fois que le service Bastion est provisionné et déployé dans votre réseau virtuel, vous pouvez l’utiliser pour vous connecter à une instance de groupe de machines virtuelles identiques dans ce réseau virtuel. Bastion part du principe que vous utilisez le protocole RDP pour vous connecter à un groupe de machines virtuelles Windows identiques, et le protocole SSH pour vous connecter à votre groupe de machines virtuelles Linux identiques. Pour plus d’informations sur la connexion à une machine virtuelle Linux, consultez [Connexion à une machine virtuelle - Linux](bastion-connect-vm-ssh-linux.md).
 
 ## <a name="connect-using-rdp"></a><a name="rdp"></a>Connexion RDP
 

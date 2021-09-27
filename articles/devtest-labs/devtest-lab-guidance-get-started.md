@@ -1,15 +1,15 @@
 ---
 title: Scénarios courants d’utilisation d’Azure DevTest Labs
 description: Cet article décrit les principaux scénarios d’utilisation d’Azure DevTest Labs et deux cheminements généraux pour commencer à utiliser le service dans votre organisation.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: d6508bc4fdcb5f6dfae877fcdb8d407350f1047f
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: fc4c7ca1cdbc8e503ad6c0d94fcec2d9697baae4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293565"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657478"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Scénarios courants d’utilisation d’Azure DevTest Labs
 Selon les besoins d’une entreprise, DevTest Labs peut être configuré pour répondre à différentes exigences.  Cet article présente les scénarios courants. Chaque scénario expose les avantages apportés par l’utilisation de DevTest Labs et les ressources à utiliser pour implémenter ces scénarios.  

@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 09/16/2021
 ms.reviewer: sngun
-ms.openlocfilehash: e859e244e41b6bbd065244a285653b2d9d3988e9
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 800ac96aee933791d0507e21ec5623ce47e82efb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116011"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623738"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durée de vie (TTL) dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -22,6 +22,7 @@ Avec la **Durée de vie** (TTL, Time to Live), Azure Cosmos DB permet de supprim
 
 La suppression des éléments expirés est une tâche en arrière-plan qui utilise des [unités de requête](../request-units.md) restantes, qui sont des unités de requête qui n’ont pas été utilisées par les demandes de l’utilisateur. Même après l’expiration de la durée de vie, si le conteneur est surchargé avec les demandes et si le nombre d’unités réservées est insuffisant, la suppression des données est retardée. Les données sont supprimées une fois que le nombre d’unités de requête disponibles est suffisant pour effectuer l’opération de suppression. Bien que la suppression des données soit différée, les données ne sont renvoyées par aucune requête (quelle que soit l’API) après l’expiration de la durée de vie.
 
+> [!NOTE]
 > Ce contenu concerne la TTL des magasins transactionnels d’Azure Cosmos DB. Si vous recherchez la TTL des magasins analytiques, qui permet des scénarios de HTAP NoETL via [Azure Synapse Link](../synapse-link.md), cliquez [ici](../analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Durée de vie pour les conteneurs et éléments

@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: e638c7051aab49887b3391644c3e947beea04927
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 1ab1bd7c5c4dee610485c556eb3dc0e62ee6d9cb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116293"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657706"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrer de Couchbase vers l’API SQL Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -166,13 +166,13 @@ Voici les extraits de code pour les opérations CRUD :
 
 Où *_repo* est l’objet de dépôt et *doc* est l’objet de la classe POJO. Vous pouvez utiliser `.save` pour effectuer une insertion ou un upsert (si le document avec l’ID spécifié est trouvé). L’extrait de code suivant montre comment insérer ou mettre à jour un objet doc :
 
-```_repo.save(doc);```
+`_repo.save(doc);`
 
 ### <a name="delete-operation"></a>Opération de suppression
 
 Examinez l’extrait de code suivant, où l’objet doc a un ID et une clé de partition indispensables à sa localisation et à sa suppression :
 
-```_repo.delete(doc);```
+`_repo.delete(doc);`
 
 ### <a name="read-operation"></a>Opération de lecture
 

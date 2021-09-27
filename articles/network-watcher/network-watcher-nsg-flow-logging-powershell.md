@@ -2,23 +2,19 @@
 title: Gérer des journaux de flux NSG - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: Cette page explique comment gérer les journaux d’activité des flux de groupe de sécurité réseau dans Azure Network Watcher avec PowerShell
-services: network-watcher
-documentationcenter: na
 author: damendo
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 79a48f479bedfbe7ecbe5199c7af08a3321badd7
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 94a604c687326d7fb43b4b9e44aaad682d7e5ee4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123100408"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585811"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec PowerShell
 
@@ -35,7 +31,7 @@ Vous trouverez [ici](/powershell/module/az.network/#network-watcher) la spécifi
 > [!NOTE]
 > - Les commandes [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus) et [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) utilisées dans ce document, nécessitent une autorisation de « lecteur » supplémentaire dans le groupe de ressources de l’observateur réseau. En outre, ces commandes sont obsolètes et peuvent bientôt être dépréciées.
 > - Il est recommandé d’utiliser à la place les nouvelles commandes [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) et [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog).
-> - La nouvelle commande [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) propose quatre variantes de flexibilité. Si vous utilisez la variante « Emplacement <String> » de cette commande, il se peut qu’une autorisation de « lecteur » supplémentaire dans le groupe de ressources de l’observateur réseau soit requise. Pour les autres variantes, aucune autorisation supplémentaire n’est requise. 
+> - La nouvelle commande [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) propose quatre variantes de flexibilité. Si vous utilisez la variante « Emplacement \<String\> » de cette commande, il se peut qu’une autorisation de « lecteur » supplémentaire dans le groupe de ressources de l’observateur réseau soit requise. Pour les autres variantes, aucune autorisation supplémentaire n’est requise. 
 
 ## <a name="register-insights-provider"></a>Inscription du fournisseur Insights
 

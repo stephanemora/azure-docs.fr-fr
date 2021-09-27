@@ -1,19 +1,19 @@
 ---
 title: Utilisation du Stockage File d’attente (C++) - Stockage Azure
 description: Découvrez comment utiliser le service Stockage File d’attente Azure. Les exemples sont écrits en C++.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 07/16/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 0e8274378ed321dc7c3d6ddcfb85f5bb0a2f7993
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: f83d10b59ae2af24ddf690e773ca63e71bff02b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276278"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128564994"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Utilisation du stockage de files d'attente à partir de C++
 
@@ -258,7 +258,7 @@ std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::e
 
 ## <a name="how-to-delete-a-queue"></a>Procédure : Suppression d'une file d'attente
 
-Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode `delete_queue_if_exists` sur l’objet file d’attente.
+Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode `delete_queue_if_exists` sur l'objet file d'attente.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -278,7 +278,7 @@ queue.delete_queue_if_exists();
 
 Maintenant que vous connaissez les bases du Stockage File d’attente, consultez les liens suivants pour en savoir plus sur le Stockage Azure.
 
-- [Utilisation du stockage d'objets blob à partir de C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+- [Utilisation du stockage d'objets blob à partir de C++](../blobs/quickstart-blobs-c-plus-plus.md)
 - [Utilisation du stockage de tables à partir de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 - [Listage des ressources Azure Storage en C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Référence de la bibliothèque de client Stockage Azure pour C++](https://azure.github.io/azure-storage-cpp)

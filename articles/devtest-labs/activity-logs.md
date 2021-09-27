@@ -1,14 +1,14 @@
 ---
-title: Journaux d'activité dans Azure DevTest Labs | Microsoft Docs
+title: Journaux d’activité
 description: Cet article fournit la procédure d’affichage des journaux d’activité pour Azure DevTest Labs.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 51bdfc6c3857a3e59d75094b4c847c80c58de045
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e5c7453a1cc4959f6517050ed4c1896890b2610b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582772"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654266"
 ---
 # <a name="view-activity-logs-for-labs-in-azure-devtest-labs"></a>Afficher les journaux d’activité pour les laboratoires dans Azure DevTest Labs 
 Une fois que vous avez créé un ou plusieurs laboratoires, vous voulez probablement contrôler qui accède à ces derniers, les modifie ou les gère, par quel moyen et quand. Azure DevTest Labs utilise Azure Monitor, en particulier les **journaux d’activité**, pour fournir des informations à ces opérations par rapport aux laboratoires. 
@@ -47,4 +47,3 @@ Pour plus d’informations à propos des Journaux d’activité, consultez [Jour
 
 - Pour en savoir plus sur la définition d’**alertes** sur les journaux d’activité, consultez [Créer des alertes](create-alerts.md).
 - Pour en savoir plus sur les journaux d’activité, consultez [Journal d’activité Azure](../azure-monitor/essentials/activity-log.md).
-

@@ -10,18 +10,16 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: fcc5c02c4a37e205622470260d3c620ad76d07d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d50bca64be1bce5ef4039cf7aa62c9861cf1a8cf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97694699"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591061"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Fournir une clé de chiffrement lors d’une requête au stockage d’objets blob
 
 Les clients effectuant des requêtes auprès du stockage d’objets blob Azure ont la possibilité de fournir une clé de chiffrement AES-256 lors de chaque requête. L’inclusion de la clé de chiffrement dans la requête offre un contrôle précis des paramètres de chiffrement pour les opérations de stockage d’objets blob. Les clés fournies par le client peuvent être stockées dans Azure Key Vault ou dans un autre magasin de clés.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="encrypting-read-and-write-operations"></a>Chiffrement des opérations de lecture et d’écriture
 
@@ -75,6 +73,17 @@ Pour permuter une clé de chiffrement qui a été utilisée pour chiffrer un obj
 > Vous ne pouvez pas utiliser le portail Azure pour lire ou écrire dans un conteneur ou un objet blob chiffré avec une clé fournie dans la requête.
 >
 > Veillez à protéger la clé de chiffrement que vous fournissez dans une requête au stockage d’objets blob dans un magasin de clés sécurisé comme Azure Key Vault. Si vous tentez d’effectuer une opération d’écriture sur un conteneur ou un objet blob sans clé de chiffrement, l’opération échoue et vous perdez l’accès à l’objet.
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

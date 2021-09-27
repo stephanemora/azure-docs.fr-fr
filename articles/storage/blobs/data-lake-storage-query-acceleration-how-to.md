@@ -1,5 +1,5 @@
 ---
-title: Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage | Microsoft Docs
+title: Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage
 description: Utilisez l’accélération des requêtes pour récupérer un sous-ensemble de données à partir de votre compte de stockage.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,16 +9,16 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: f5feda40d775964aec52c8f5b12b54e6329b0048
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 840c31dc8110405eee02745f773f14f33ab059df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664842"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636778"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage
 
-Cet article explique comment utiliser l’accélération des requêtes pour récupérer un sous-ensemble de données à partir de votre compte de stockage. 
+Cet article explique comment utiliser l’accélération des requêtes pour récupérer un sous-ensemble de données à partir de votre compte de stockage.
 
 L’accélération des requêtes est une nouvelle capacité d’Azure Data Lake Storage qui permet aux applications et aux infrastructures d’analytique d’optimiser considérablement le traitement des données en extrayant uniquement les données requises pour effectuer une opération donnée. Pour en savoir plus, consultez [Accélération des requêtes Azure Data Lake Storage](data-lake-storage-query-acceleration.md).
 
@@ -36,17 +36,17 @@ L’accélération des requêtes est une nouvelle capacité d’Azure Data Lake 
 
   ### <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
-  [Kit de développement logiciel (SDK) .NET](https://dotnet.microsoft.com/download) 
+  [Kit de développement logiciel (SDK) .NET](https://dotnet.microsoft.com/download)
 
   ### <a name="java-v12-sdk"></a>[Kit de développement logiciel (SDK) Java v12](#tab/java)
 
   - [Kit de développement Java (JDK)](/java/azure/jdk/), version 8 ou ultérieure
 
-  - [Apache Maven](https://maven.apache.org/download.cgi) 
+  - [Apache Maven](https://maven.apache.org/download.cgi)
 
-    > [!NOTE] 
+    > [!NOTE]
     > Cet article suppose que vous avez créé un projet Java à l’aide d’Apache Maven. Pour obtenir un exemple de création de projet à l’aide d’Apache Maven, consultez [Configuration](storage-quickstart-blobs-java.md#setting-up).
-  
+
   ### <a name="python-v12-sdk"></a>[Kit de développement logiciel (SDK) Python v12](#tab/python)
 
   [Python](https://www.python.org/downloads/) 3.8 ou version ultérieure.
@@ -59,11 +59,11 @@ L’accélération des requêtes est une nouvelle capacité d’Azure Data Lake 
 
 ## <a name="enable-query-acceleration"></a>Activer l’accélération des requêtes
 
-Pour utiliser l’accélération des requêtes, vous devez inscrire la fonctionnalité d’accélération des requêtes sur votre abonnement. Une fois que vous avez vérifié que la fonctionnalité est inscrite, vous devez inscrire le fournisseur de ressources Stockage Azure. 
+Pour utiliser l’accélération des requêtes, vous devez inscrire la fonctionnalité d’accélération des requêtes sur votre abonnement. Une fois que vous avez vérifié que la fonctionnalité est inscrite, vous devez inscrire le fournisseur de ressources Stockage Azure.
 
 ### <a name="step-1-register-the-query-acceleration-feature"></a>Étape 1 : Inscrire la fonctionnalité d’accélération des requêtes
 
-Pour utiliser l’accélération des requêtes, vous devez d’abord inscrire la fonctionnalité d’accélération des requêtes sur votre abonnement. 
+Pour utiliser l’accélération des requêtes, vous devez d’abord inscrire la fonctionnalité d’accélération des requêtes sur votre abonnement.
 
 #### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -132,7 +132,7 @@ az feature show --namespace Microsoft.Storage --name BlobQuery
 
 ### <a name="step-3-register-the-azure-storage-resource-provider"></a>Étape 3 : Réinscrire le fournisseur de ressources Stockage Azure
 
-Une fois votre inscription approuvée, vous devez réinscrire le fournisseur de ressources Stockage Azure. 
+Une fois votre inscription approuvée, vous devez réinscrire le fournisseur de ressources Stockage Azure.
 
 #### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -154,7 +154,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 ## <a name="set-up-your-environment"></a>Configurer votre environnement
 
-### <a name="step-1-install-packages"></a>Étape 1 : Installer des packages 
+### <a name="step-1-install-packages"></a>Étape 1 : Installer des packages
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -178,7 +178,7 @@ Update-Module -Name Az
    cd myProject
    ```
 
-2. Installez la version `12.5.0-preview.6` ou ultérieure du package de la bibliothèque de client Stockage Blob Azure pour .NET en utilisant la commande `dotnet add package`. 
+2. Installez la version `12.5.0-preview.6` ou ultérieure du package de la bibliothèque de client Stockage Blob Azure pour .NET en utilisant la commande `dotnet add package`.
 
    ```console
    dotnet add package Azure.Storage.Blobs -v 12.8.0
@@ -192,7 +192,7 @@ Update-Module -Name Az
 
 #### <a name="java-v12-sdk"></a>[Kit de développement logiciel (SDK) Java v12](#tab/java)
 
-1. Ouvrez le fichier *pom.xml* de votre projet dans un éditeur de texte. Ajoutez les éléments de dépendance suivants au groupe de dépendances. 
+1. Ouvrez le fichier *pom.xml* de votre projet dans un éditeur de texte. Ajoutez les éléments de dépendance suivants au groupe de dépendances.
 
    ```xml
    <!-- Request static dependencies from Maven -->
@@ -205,7 +205,7 @@ Update-Module -Name Az
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-csv</artifactId>
         <version>1.8</version>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-storage-blob</artifactId>
@@ -288,7 +288,7 @@ from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, D
 
 ### <a name="nodejs-v12-sdk"></a>[Kit de développement logiciel (SDK) Node.js v12](#tab/nodejs)
 
-Incluez le module `storage-blob` en plaçant cette instruction en haut de votre fichier de code. 
+Incluez le module `storage-blob` en plaçant cette instruction en haut de votre fichier de code.
 
 ```javascript
 const { BlobServiceClient } = require("@azure/storage-blob");
@@ -304,11 +304,11 @@ const csv = require('@fast-csv/parse');
 
 ## <a name="retrieve-data-by-using-a-filter"></a>Récupérer des données à l’aide d’un filtre
 
-Vous pouvez utiliser SQL pour spécifier les prédicats de filtrage de lignes et les projections de colonne dans une demande d’accélération des requêtes. Le code suivant interroge un fichier CSV dans le stockage et retourne toutes les lignes de données où la troisième colonne correspond à la valeur `Hemingway, Ernest`. 
+Vous pouvez utiliser SQL pour spécifier les prédicats de filtrage de lignes et les projections de colonne dans une demande d’accélération des requêtes. Le code suivant interroge un fichier CSV dans le stockage et retourne toutes les lignes de données où la troisième colonne correspond à la valeur `Hemingway, Ernest`.
 
 - Dans la requête SQL, le mot clé `BlobStorage` est utilisé pour indiquer le fichier qui est interrogé.
 
-- Les références de colonnes sont spécifiées par `_N` où la première colonne est `_1`. Si le fichier source contient une ligne d’en-tête, vous pouvez faire référence aux colonnes par le nom spécifié dans la ligne d’en-tête. 
+- Les références de colonnes sont spécifiées par `_N` où la première colonne est `_1`. Si le fichier source contient une ligne d’en-tête, vous pouvez faire référence aux colonnes par le nom spécifié dans la ligne d’en-tête.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -403,7 +403,7 @@ static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
             .setInputSerialization(input)
             .setOutputSerialization(output)
             .setErrorConsumer(errorConsumer)
-            .setProgressConsumer(progressConsumer);            
+            .setProgressConsumer(progressConsumer);
 
         /* Open the query input stream. */
         InputStream stream = blobClient.openQueryInputStream(queryOptions).getValue();
@@ -478,10 +478,10 @@ async function dumpQueryCsv(blob, query, headers)
 
 ## <a name="retrieve-specific-columns"></a>Récupérer des colonnes spécifiques
 
-Vous pouvez étendre vos résultats à un sous-ensemble de colonnes. De cette façon, vous récupérez uniquement les colonnes nécessaires pour effectuer un calcul donné. Cela permet d’améliorer les performances de l’application et de réduire les coûts, car moins de données sont transférées via le réseau. 
+Vous pouvez étendre vos résultats à un sous-ensemble de colonnes. De cette façon, vous récupérez uniquement les colonnes nécessaires pour effectuer un calcul donné. Cela permet d’améliorer les performances de l’application et de réduire les coûts, car moins de données sont transférées via le réseau.
 
 > [!NOTE]
-> Le nombre maximal de colonnes auxquelles vous pouvez étendre les résultats est de 49. Si vous avez besoin que vos résultats contiennent plus de 49 colonnes, utilisez un caractère générique (`*`) pour l’expression SELECT (par exemple : `SELECT *`). 
+> Le nombre maximal de colonnes auxquelles vous pouvez étendre les résultats est de 49. Si vous avez besoin que vos résultats contiennent plus de 49 colonnes, utilisez un caractère générique (`*`) pour l’expression SELECT (par exemple : `SELECT *`).
 
 Ce code récupère uniquement la colonne `BibNum` pour tous les livres du jeu de données. Il utilise également les informations de la ligne d’en-tête dans le fichier source pour référencer des colonnes dans la requête.
 
@@ -541,7 +541,7 @@ async function queryBibNum(blob)
 
 ---
 
-Le code suivant combine le filtrage de lignes et les projections de colonnes dans la même requête. 
+Le code suivant combine le filtrage de lignes et les projections de colonnes dans la même requête.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -556,9 +556,9 @@ Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
 }
 
 $container = "data"
-$query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType 
-            FROM BlobStorage 
-            WHERE ItemType IN 
+$query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType
+            FROM BlobStorage
+            WHERE ItemType IN
                 ('acdvd', 'cadvd', 'cadvdnf', 'calndvd', 'ccdvd', 'ccdvdnf', 'jcdvd', 'nadvd', 'nadvdnf', 'nalndvd', 'ncdvd', 'ncdvdnf')"
 
 ```
@@ -568,9 +568,9 @@ $query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType
 ```cs
 static async Task QueryDvds(BlockBlobClient blob)
 {
-    string query = @"SELECT BibNum, Title, Author, ISBN, Publisher, ItemType 
-        FROM BlobStorage 
-        WHERE ItemType IN 
+    string query = @"SELECT BibNum, Title, Author, ISBN, Publisher, ItemType
+        FROM BlobStorage
+        WHERE ItemType IN
             ('acdvd', 'cadvd', 'cadvdnf', 'calndvd', 'ccdvd', 'ccdvdnf', 'jcdvd', 'nadvd', 'nadvdnf', 'nalndvd', 'ncdvd', 'ncdvdnf')";
     await DumpQueryCsv(blob, query, true);
 }
@@ -607,7 +607,7 @@ async function queryDvds(blob)
 {
     const query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType " +
                   "FROM BlobStorage " +
-                  "WHERE ItemType IN " + 
+                  "WHERE ItemType IN " +
                   " ('acdvd', 'cadvd', 'cadvdnf', 'calndvd', 'ccdvd', 'ccdvdnf', 'jcdvd', 'nadvd', 'nadvdnf', 'nalndvd', 'ncdvd', 'ncdvdnf')";
     await dumpQueryCsv(blob, query, true);
 }

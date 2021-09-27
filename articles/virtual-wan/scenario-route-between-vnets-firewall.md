@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ebe1f337e2799e2ebeafc0f4a051ed7c3d81e434
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: f6581638379154675f1d93213ecaecf8b1ccb012
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162002"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648997"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Scénario : Pare-feu Azure - personnalisé
 
@@ -68,8 +68,6 @@ Cela entraîne des modifications de configuration de routage, comme l’illustre
 
 :::image type="content" source="./media/routing-scenarios/between-vnets-firewall/routing.png" alt-text="Figure 1":::
 
-> [!NOTE]
-> Les hubs Virtual WAN et les réseaux virtuels connectés doivent se trouver dans la même région Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

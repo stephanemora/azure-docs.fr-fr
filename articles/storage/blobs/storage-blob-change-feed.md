@@ -9,18 +9,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 37367cc4608c1bfbf9c621388bcbc6ecaabd8aa4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 67ecaac43885b76071a6bc71268edb811db7cbbd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679319"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680278"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Prise en charge du flux de modification dans Stockage Blob Azure
 
 L’objectif du flux de modification est de fournir des journaux des transactions de toutes les modifications apportées aux objets blob et aux métadonnées d’objets blob dans votre compte de stockage. Le flux de modification fournit un journal **ordonné**, **garanti**, **durable**, **immuable** et **en lecture seule** de ces changements. Les applications clientes peuvent lire ces journaux à tout moment, soit en diffusion en continu, soit en mode de traitement par lot. Le flux de modification vous permet de créer des solutions efficaces et évolutives qui traitent les événements de modification qui se produisent dans votre compte Stockage Blob à moindre coût.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-the-change-feed-works"></a>Comment fonctionne le flux de modification
 
@@ -43,7 +41,7 @@ La prise en charge des flux de modification convient parfaitement aux scénarios
 Le flux de modification est une fonctionnalité prérequise pour la [réplication d’objets](object-replication-overview.md) et la [restauration dans le temps pour les objets blob de blocs](point-in-time-restore-overview.md).
 
 > [!NOTE]
-> Le flux de modification fournit un modèle de journal durable et ordonné des modifications apportées à un objet blob. Les modifications sont écrites et mises à disposition dans votre journal de flux de modification quelques minutes après la modification. Si votre application doit réagir aux événements plus rapidement que cela, envisagez d’utiliser des [événements Stockage Blob](storage-blob-event-overview.md) à la place. Les [événements Stockage Blob](storage-blob-event-overview.md) sont des événements uniques en temps réel qui permettent à vos fonctions ou applications Azure de réagir rapidement aux modifications apportées à un objet blob. 
+> Le flux de modification fournit un modèle de journal durable et ordonné des modifications apportées à un objet blob. Les modifications sont écrites et mises à disposition dans votre journal de flux de modification quelques minutes après la modification. Si votre application doit réagir aux événements plus rapidement que cela, envisagez d’utiliser des [événements Stockage Blob](storage-blob-event-overview.md) à la place. Les [événements Stockage Blob](storage-blob-event-overview.md) sont des événements uniques en temps réel qui permettent à vos fonctions ou applications Azure de réagir rapidement aux modifications apportées à un objet blob.
 
 ## <a name="enable-and-disable-the-change-feed"></a>Activer et désactiver le flux de modification
 
@@ -101,6 +99,7 @@ Activez le flux de modification à l’aide de PowerShell :
    ```
 
 ### <a name="template"></a>[Modèle](#tab/template)
+
 Utilisez un modèle Azure Resource Manager pour activer le flux de modification sur votre compte de stockage existant par le biais du portail Azure :
 
 1. Dans le Portail Azure, choisissez **Créer une ressource**.
@@ -155,7 +154,7 @@ Le flux de changements est un journal de changements qui sont organisés en *seg
 
 Un segment horaire disponible du flux de modification est décrit dans un fichier manifeste qui spécifie les chemins d’accès aux fichiers de flux de modification pour ce segment. La liste du répertoire virtuel `$blobchangefeed/idx/segments/` montre ces segments dans l’ordre chronologique. Le chemin d’accès du segment décrit le début de l’intervalle horaire représenté par le segment. Vous pouvez utiliser cette liste pour filtrer les segments de journaux qui vous intéressent.
 
-```text
+```output
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
 ----------------------------------------------------------------------  -----------  -----------  --------  ----------------
 $blobchangefeed/idx/segments/1601/01/01/0000/meta.json                  BlockBlob                      584  application/json
@@ -165,7 +164,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> Le fichier `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` est automatiquement créé lorsque vous activez le flux de modification. Vous pouvez ignorer sans risque ce fichier. Il s’agit d’un fichier d’initialisation toujours vide. 
+> Le fichier `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` est automatiquement créé lorsque vous activez le flux de modification. Vous pouvez ignorer sans risque ce fichier. Il s’agit d’un fichier d’initialisation toujours vide.
 
 Le fichier manifeste de segment (`meta.json`) affiche le chemin d’accès des fichiers de flux de modification pour ce segment dans la propriété `chunkFilePaths`. Voici un exemple d’un fichier manifeste de segment.
 
@@ -198,7 +197,7 @@ Le fichier manifeste de segment (`meta.json`) affiche le chemin d’accès des f
 ```
 
 > [!NOTE]
-> Le conteneur `$blobchangefeed` s’affiche uniquement une fois que vous avez activé la fonctionnalité du flux de modification sur votre compte. Vous devrez patienter quelques minutes après avoir activé le flux de modification pour pouvoir énumérer les objets blob du conteneur. 
+> Le conteneur `$blobchangefeed` s’affiche uniquement une fois que vous avez activé la fonctionnalité du flux de modification sur votre compte. Vous devrez patienter quelques minutes après avoir activé le flux de modification pour pouvoir énumérer les objets blob du conteneur.
 
 <a id="log-files"></a>
 
@@ -290,7 +289,7 @@ Pour obtenir une description de chaque propriété, consultez [Schéma d’évé
 
 ## <a name="conditions-and-known-issues"></a>Conditions et problèmes connus
 
-Cette section décrit les problèmes connus et les conditions de la version actuelle du flux de modification. 
+Cette section décrit les problèmes connus et les conditions de la version actuelle du flux de modification.
 
 - Les enregistrements d’événements de modification d’une modification unique peuvent apparaître plusieurs fois dans votre flux de modification.
 - Vous ne pouvez pas encore gérer la durée de vie des fichiers journaux du flux de modification en définissant une stratégie de rétention basée sur la durée et vous ne pouvez pas supprimer les objets Blob.
@@ -298,6 +297,17 @@ Cette section décrit les problèmes connus et les conditions de la version actu
 - La propriété `LastConsumable` du fichier segments.json ne répertorie pas le tout premier segment que le flux de modification finalise. Ce problème se produit uniquement après la finalisation du premier segment. Tous les segments suivants après la première heure sont capturés avec précision dans la propriété `LastConsumable`.
 - Actuellement, vous ne pouvez pas voir le conteneur **$blobchangefeed** quand vous appelez l’API ListContainers, et le conteneur n’apparaît pas dans le Portail Azure ou l’Explorateur Stockage. Vous pouvez afficher le contenu en appelant l’API ListBlobs directement sur le conteneur $blobchangefeed.
 - Les comptes de stockage qui ont lancé précédemment un [basculement de compte](../common/storage-disaster-recovery-guidance.md) peuvent rencontrer des problèmes de non-affichage du fichier journal. Tout basculement de compte ultérieur peut également avoir un impact sur le fichier journal.
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Non](../media/icons/no-icon.png)|![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

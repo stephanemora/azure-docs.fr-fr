@@ -3,12 +3,12 @@ title: Protection de la récupération de l’état du système et complète
 description: Utilisez le serveur de sauvegarde Azure pour sauvegarder l’état de votre système et fournir une protection de récupération complète.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 864a20ce806d1bf8e9e728c77a9c8f17adeed18b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021620"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656186"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète à l’aide du serveur de sauvegarde Azure
 
@@ -251,11 +251,11 @@ Vous pouvez également exécuter la restauration de l’état du système depuis
 
 1. Pour obtenir l’identificateur de version, depuis une invite de commandes, entrez ce qui suit :
 
-   ```wbadmin get versions -backuptarget \<servername\sharename\>```
+   `wbadmin get versions -backuptarget \<servername\sharename\>`
 
 1. Utilisez l’identificateur de version pour démarrer la restauration de l’état du système. À l’invite de commandes, tapez :
 
-    ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
+   `wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>`
 
 1. Confirmez que vous souhaitez démarrer la récupération. Vous pouvez voir le processus dans la fenêtre d’invite de commandes. Un journal de restauration est créé.
 

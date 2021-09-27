@@ -3,21 +3,21 @@ title: Migrer une application monopage JavaScript de l’octroi implicite vers l
 titleSuffix: Microsoft identity platform
 description: Explique comment mettre à jour une application monopage JavaScript utilisant MSAL.js 1.x et le flux d’octroi implicite vers MSAL.js 2.x et le flux de code d’autorisation avec prise en charge de PKCE et CORS.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/17/2020
-ms.author: hahamil
+ms.author: marsma
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 3c11334fe1b4d77be6e64febfc1d3de6efa302c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a38063e8b5311422ece4bafc9c22355262d631d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365938"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636208"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrer une application monopage JavaScript de l’octroi implicite vers le flux de code d’autorisation
 
