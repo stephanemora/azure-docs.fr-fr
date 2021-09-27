@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: d5b5470b30848fd31be63f25c85c23f88cdaf0c6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f7a6f02a3ac37a1b19558fece7e710f5df6767aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732222"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670421"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Authentification HMAC – Informations de référence sur l’API REST
 
@@ -66,7 +66,7 @@ Noms d’en-têtes de requête HTTP, séparés par des points-virgules, requis p
 
 ### <a name="required-http-request-headers"></a>En-têtes de requête HTTP pris en charge
 
-```x-ms-date```[ou ```Date```];```host```;```x-ms-content-sha256```
+`x-ms-date`[ou `Date`];`host`;`x-ms-content-sha256`
 
 D’autres en-têtes de requête HTTP peuvent également être ajoutés à la signature. Ajoutez-les simplement à l’argument ```SignedHeaders```.
 
@@ -76,8 +76,7 @@ x-ms-date;host;x-ms-content-sha256;```Content-Type```;```Accept```
 
 ### <a name="signature"></a>Signature
 
-Hachage HMACSHA256 encodé en base64 de la chaîne de signature String-To-Sign. Il utilise la clé d’accès identifiée par `Credential`.
-```base64_encode(HMACSHA256(String-To-Sign, Secret))```
+Hachage HMACSHA256 encodé en base64 de la chaîne de signature String-To-Sign. Il utilise la clé d’accès identifiée par `Credential`. `base64_encode(HMACSHA256(String-To-Sign, Secret))`
 
 ### <a name="string-to-sign"></a>String-To-Sign
 
@@ -237,7 +236,7 @@ using (var client = new HttpClient())
 
 static class HttpRequestMessageExtensions
 {
-    public static HttpRequestMessage Sign(this HttpRequestMessage request, string credential, byte[] secret)
+    public static HttpRequestMessage Sign(this HttpRequestMessage request, string credential, string secret)
     {
         string host = request.RequestUri.Authority;
         string verb = request.Method.ToString().ToUpper();
@@ -256,7 +255,7 @@ static class HttpRequestMessageExtensions
         // Signature
         string signature;
 
-        using (var hmac = new HMACSHA256(secret))
+        using (var hmac = new HMACSHA256(Convert.FromBase64String(secret)))
         {
             signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.ASCII.GetBytes(stringToSign)));
         }

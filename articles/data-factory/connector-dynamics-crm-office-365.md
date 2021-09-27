@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 483ad9dbceb134188ee8a5e2fdce3469226c579b
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 6f95e117865ccf9d242d595ec98b66d7cd344a85
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123312934"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597656"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-microsoft-dataverse-or-dynamics-crm"></a>Copier des données depuis et vers Dynamics 365 (Microsoft Dataverse) ou Dynamics CRM
 
@@ -80,7 +80,7 @@ Utilisez les étapes suivantes pour créer un service lié à Dynamics 365 dans 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -88,11 +88,11 @@ Utilisez les étapes suivantes pour créer un service lié à Dynamics 365 dans 
 
 2. Recherchez Dynamics et sélectionnez le connecteur Dynamics 365.
 
-    :::image type="content" source="media/connector-azure-blob-storage/azure-blob-storage-connector.png" alt-text="Capture d’écran du connecteur Dynamics 365.":::    
+    :::image type="content" source="media/connector-dynamics-crm-office-365/dynamics-crm-office-365-connector.png" alt-text="Capture d’écran du connecteur Dynamics 365.":::    
 
 1. Configurez les informations du service, testez la connexion et créez le nouveau service lié.
 
-    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour Dynamics 365.":::
+    :::image type="content" source="media/connector-dynamics-crm-office-365/configure-dynamics-crm-office-365-linked-service.png" alt-text="Capture d’écran de la configuration du service lié pour Dynamics 365.":::
 
 ## <a name="connector-configuration-details"></a>Informations de configuration des connecteurs
 
@@ -477,11 +477,11 @@ Dans le mappage de colonne de copie-activité, mappez les deux colonnes comme su
 - **CustomerField** pour **CustomerField**. Ce mappage est le mappage de champs normal.
 - **Target** pour **CustomerField\@EntityReference**. La colonne du récepteur est une colonne virtuelle représentant la référence d’entité. Saisissez les noms de champs dans un mappage, car ils ne s’affichent pas en important des schémas.
 
-![Mappage de colonnes de recherche Dynamics](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
+:::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png" alt-text="Mappage de colonnes de recherche Dynamics":::
 
 Si tous vos enregistrements sources sont mappés à la même entité cible et que vos données sources ne contiennent pas le nom de l’entité cible, voici un raccourci : dans la source de l’activité de copie, ajoutez une colonne supplémentaire. Nommez la nouvelle colonne à l’aide du modèle `{lookup_field_name}@EntityReference`, définissez la valeur sur le nom de l’entité cible, puis poursuivez le mappage de colonne comme d’habitude. Si vos noms de colonne source et récepteur sont identiques, vous pouvez également ignorer le mappage de colonnes explicite, car l’activité de copie par défaut mappe les colonnes par nom.
 
-![Champ de recherche Dynamics pour ajouter une colonne de référence d’entité](./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png)
+:::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png" alt-text="Champ de recherche Dynamics pour ajouter une colonne de référence d’entité":::
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 

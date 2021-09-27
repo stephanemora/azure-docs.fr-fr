@@ -3,16 +3,17 @@ title: Déplacer des données à partir d’un HDFS local
 description: Découvrez comment transférer des données à partir d’un HDFS en local à l’aide d’Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 52e176e0fed85b649d482614667d695db539e5d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e514903a3c89790a6b0bb85d37a530e13b07d8c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383073"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580905"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Transfert de données à partir d’un HDFS local à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -467,7 +468,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
    3. Sélectionnez l’algorithme de chiffrement à utiliser pour vous connecter à KDC. En règle générale, vous pouvez simplement sélectionner toutes les options.
 
-      ![Configuration des types de chiffrement pour Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
+      :::image type="content" source="media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png" alt-text="Configuration des types de chiffrement pour Kerberos":::
 
    4. Utilisez la commande **Ksetup** pour spécifier l’algorithme de chiffrement à utiliser dans le domaine spécifique.
 
@@ -485,7 +486,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
    4. Ajoutez un principal provenant du domaine.
 
-      ![Mappage des identités de sécurité](media/data-factory-hdfs-connector/map-security-identity.png)
+      :::image type="content" source="media/data-factory-hdfs-connector/map-security-identity.png" alt-text="Mappage des identités de sécurité":::
 
 **Sur l’ordinateur de la passerelle :**
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 96e055205c5c016504cd6246b9c1b6d1533ad6ac
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f8a8e5785af1bd74fb958a315de379facdc87171
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524599"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575969"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Vue d’ensemble des stratégies réseau Azure Kubernetes
 
@@ -134,7 +134,9 @@ La première étape consiste à activer Azure Monitor pour conteneurs sur votre 
 
 Après avoir modifié l’objet ConfigMap, enregistrez-le localement et appliquez-le à votre cluster comme suit.
 
-```kubectl apply -f container-azm-ms-agentconfig.yaml``` Vous trouverez ci-dessous un extrait de code de l’[objet ConfigMap Azure Monitor pour conteneurs](https://aka.ms/container-azm-ms-agentconfig), qui montre l’intégration NPM activée avec la collecte des métriques avancées.
+`kubectl apply -f container-azm-ms-agentconfig.yaml`
+
+ Vous trouverez ci-dessous un extrait de code de l’[objet ConfigMap Azure Monitor pour conteneurs](https://aka.ms/container-azm-ms-agentconfig), qui montre l’intégration NPM activée avec la collecte des métriques avancées.
 ```
 integrations: |-
     [integrations.azure_network_policy_manager]
@@ -265,4 +267,3 @@ Voici quelques exemples de tableau de bord pour les métriques NPM dans Containe
 - Découvrez en détail [Azure Kubernetes Service](../aks/intro-kubernetes.md).
 -  Découvrez en détail la [mise en réseau de conteneurs](container-networking-overview.md).
 - [Déployez le plug-in](deploy-container-networking.md) pour des clusters Kubernetes ou des conteneurs Docker.
-

@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: 062be43bda26169d27740777bdb60d335c9923e6
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a04c205370ee07900b649ed0a3f6f4bf3a892685
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489679"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577821"
 ---
 # <a name="example-azure-role-assignment-conditions-preview"></a>Exemples de conditions d’attribution de rôle Azure (préversion)
 
@@ -35,7 +35,7 @@ Pour plus d’informations sur les prérequis à l’ajout ou à la modification
 Cette condition permet aux utilisateurs de lire des blobs dont la clé de balise d’index est Project et la valeur de balise est Cascade. Les tentatives d’accès aux blobs sans cette balise clé-valeur ne sont pas autorisées.
 
 > [!TIP]
-> Les blobs prennent également en charge la possibilité de stocker des métadonnées clé-valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux balises d’index de blob, vous devez utiliser des balises d’index de blob avec les conditions. Pour plus d’informations, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](../blobs/storage-manage-find-blobs.md).
+> Les blobs prennent également en charge la possibilité de stocker des métadonnées clé-valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions. Pour plus d’informations, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](../blobs/storage-manage-find-blobs.md).
 
 ![Diagramme de la condition de l’exemple 1 montrant un accès en lecture à un blob avec une balise.](./media/storage-auth-abac-examples/example-1.png)
 
@@ -92,11 +92,11 @@ Get-AzStorageBlob -Container <containerName> -Blob <blobName> -Context $bearerCt
 Cette condition implique que tout nouveau blob doit inclure la clé de balise d’index de blob Project et la valeur de balise Cascade.
 
 > [!TIP]
-> Les blobs prennent également en charge la possibilité de stocker des métadonnées clé-valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux balises d’index de blob, vous devez utiliser des balises d’index de blob avec les conditions. Pour plus d’informations, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](../blobs/storage-manage-find-blobs.md).
+> Les blobs prennent également en charge la possibilité de stocker des métadonnées clé-valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions. Pour plus d’informations, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](../blobs/storage-manage-find-blobs.md).
 
 Deux autorisations vous permettent de créer de nouveaux blobs, vous devez donc cibler les deux. Vous devez ajouter cette condition à toutes les attributions de rôles qui incluent l’une des autorisations suivantes.
 
-- /blobs/write (créer ou mettre à jour) 
+- /blobs/write (créer ou mettre à jour)
 - /blobs/add/action (créer)
 
 ![Diagramme de la condition de l’exemple 2 montrant les nouveaux blobs qui doivent inclure une balise.](./media/storage-auth-abac-examples/example-2.png)
@@ -161,7 +161,7 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example2 -Blo
 Cette condition exige que tous les blobs existants soient marqués avec au moins l’une des clés de balise d’index de blob autorisées, Project ou Program. Cette condition est utile pour ajouter la gouvernance aux blobs existants.
 
 > [!TIP]
-> Les blobs prennent également en charge la possibilité de stocker des métadonnées clé-valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux balises d’index de blob, vous devez utiliser des balises d’index de blob avec les conditions. Pour plus d’informations, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](../blobs/storage-manage-find-blobs.md).
+> Les blobs prennent également en charge la possibilité de stocker des métadonnées clé-valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions. Pour plus d’informations, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](../blobs/storage-manage-find-blobs.md).
 
 Deux autorisations vous permettent de mettre à jour les balises sur les blobs existants, vous devez donc cibler les deux. Vous devez ajouter cette condition à toutes les attributions de rôles qui incluent l’une des autorisations suivantes.
 
@@ -229,7 +229,7 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example3 -Blo
 Cette condition exige que tous les blobs existants aient la clé de balise d’index de blob Project et les valeurs de balise Cascade, Baker ou Skagit. Cette condition est utile pour ajouter la gouvernance aux blobs existants.
 
 > [!TIP]
-> Les blobs prennent également en charge la possibilité de stocker des métadonnées clé-valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux balises d’index de blob, vous devez utiliser des balises d’index de blob avec les conditions. Pour plus d’informations, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](../blobs/storage-manage-find-blobs.md).
+> Les blobs prennent également en charge la possibilité de stocker des métadonnées clé-valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions. Pour plus d’informations, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](../blobs/storage-manage-find-blobs.md).
 
 Deux autorisations vous permettent de mettre à jour les balises sur les blobs existants, vous devez donc cibler les deux. Vous devez ajouter cette condition à toutes les attributions de rôles qui incluent l’une des autorisations suivantes.
 
@@ -526,7 +526,7 @@ $content = Set-AzStorageBlobContent -Container $grantedContainer -Blob "uploads/
 Cette condition permet à un utilisateur de lire des blobs dont la clé de balise d’index de blob est Program, dont la valeur de balise est Alpine et dont le chemin d’accès au blob est logs *. Le chemin d’accès au blob logs* comprend également le nom du blob.
 
 > [!TIP]
-> Les blobs prennent également en charge la possibilité de stocker des métadonnées clé-valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux balises d’index de blob, vous devez utiliser des balises d’index de blob avec les conditions. Pour plus d’informations, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](../blobs/storage-manage-find-blobs.md).
+> Les blobs prennent également en charge la possibilité de stocker des métadonnées clé-valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions. Pour plus d’informations, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](../blobs/storage-manage-find-blobs.md).
 
 Vous devez ajouter cette condition à toutes les attributions de rôles qui incluent l’autorisation suivante.
 

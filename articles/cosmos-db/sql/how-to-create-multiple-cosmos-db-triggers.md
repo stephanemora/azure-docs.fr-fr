@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3570256d74fa2da96b4b8335659b5274e492515
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 4d4f602d430a7e71db56f8d5babf78741fc4b88d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116110"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666644"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Créer plusieurs déclencheurs Azure Functions pour Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ Cet article explique comment configurer plusieurs déclencheurs Azure Functions 
 
 ## <a name="event-based-architecture-requirements"></a>Exigences de l’architecture basée sur les événements
 
-Quand il s’agit de créer des architectures serverless avec [Azure Functions](../../azure-functions/functions-overview.md), il est [recommandé](../../azure-functions/functions-best-practices.md#avoid-long-running-functions) de créer un ensemble de petites fonctions qui fonctionnent bien ensemble plutôt que des fonctions volumineuses et durables.
+Quand il s’agit de créer des architectures serverless avec [Azure Functions](../../azure-functions/functions-overview.md), il est [recommandé](../../azure-functions/performance-reliability.md#avoid-long-running-functions) de créer un ensemble de petites fonctions qui fonctionnent bien ensemble plutôt que des fonctions volumineuses et durables.
 
 À mesure que vous créerez des flux serverless basés sur les événements à l’aide du [déclencheur Azure Functions pour Cosmos DB](./change-feed-functions.md), le cas se présentera où vous voudrez faire plusieurs choses chaque fois qu’un nouvel événement se produit dans un [conteneur Azure Cosmos](../account-databases-containers-items.md#azure-cosmos-containers) déterminé. Si les actions que vous souhaitez déclencher sont indépendantes les unes des autres, la solution idéale consiste à **créer un déclencheur Azure Functions pour Cosmos DB par action**, chacun étant à l’écoute des modifications se produisant dans le même conteneur Azure Cosmos.
 

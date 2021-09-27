@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 08/03/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
-ms.openlocfilehash: 3ed8a3623163ef5f596508cd7073a68eec3fe297
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 74c8fd2c096d8a4b236d9f26bdd27737fac897ca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562704"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632991"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Utilisation de votre espace de travail avec un serveur DNS personnalisé
 
@@ -285,14 +285,17 @@ Les étapes suivantes décrivent le fonctionnement de cette topologie :
     **Régions publiques Azure** :
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
+    - ```instances.ml.azure.us```
     
     **Régions Azure Chine** :
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
+    - ```instances.ml.azure.cn```
     
     **Régions Azure US Government** :
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
+    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > Les étapes de configuration du serveur DNS ne sont pas abordées ici, car de nombreuses solutions DNS peuvent être utilisées comme serveur DNS personnalisé. Reportez-vous à la documentation de votre solution DNS pour savoir comment configurer correctement la redirection conditionnelle.
@@ -351,7 +354,7 @@ Si vous ne pouvez pas accéder à l’espace de travail à partir d’une machin
 
     Ouvrez une invite de commandes, l’interpréteur de commandes ou PowerShell. Ensuite, pour chacun des FQDN de l’espace de travail, exécutez la commande suivante :
 
-    ```nslookup <workspace FQDN>```
+    `nslookup <workspace FQDN>`
         
     Chaque commande nslookup doit retourner l’une des deux adresses IP privées sur le point de terminaison privé vers l’espace de travail Azure Machine Learning. Si ce n’est pas le cas, cela signifie que la solution DNS personnalisée est configurée de façon incorrecte.
 
@@ -415,14 +418,17 @@ Les étapes suivantes décrivent le fonctionnement de cette topologie :
     **Régions publiques Azure** :
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
+    - ```instances.ml.azure.us```     
     
     **Régions Azure Chine** :
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
-    
+    - ```instances.ml.azure.cn```
+
     **Régions Azure US Government** :
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
+    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > Les étapes de configuration du serveur DNS ne sont pas abordées ici, car de nombreuses solutions DNS peuvent être utilisées comme serveur DNS personnalisé. Reportez-vous à la documentation de votre solution DNS pour savoir comment configurer correctement la redirection conditionnelle.
@@ -436,14 +442,17 @@ Les étapes suivantes décrivent le fonctionnement de cette topologie :
     **Régions publiques Azure** :
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
+    - ```instances.ml.azure.us```
     
     **Régions Azure Chine** :
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
+    - ```instances.ml.azure.cn```
     
     **Régions Azure US Government** :
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
+    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > Les étapes de configuration du serveur DNS ne sont pas abordées ici, car de nombreuses solutions DNS peuvent être utilisées comme serveur DNS personnalisé. Reportez-vous à la documentation de votre solution DNS pour savoir comment configurer correctement la redirection conditionnelle.
@@ -544,7 +553,7 @@ Si, après avoir effectué les étapes ci-dessus, vous ne parvenez pas à accéd
 
     Ouvrez une invite de commandes, l’interpréteur de commandes ou PowerShell. Ensuite, pour chacun des FQDN de l’espace de travail, exécutez la commande suivante :
 
-    ```nslookup <workspace FQDN>```
+    `nslookup <workspace FQDN>`
         
     Chaque commande nslookup doit retourner l’une des deux adresses IP privées sur le point de terminaison privé vers l’espace de travail Azure Machine Learning. Si ce n’est pas le cas, cela signifie que la solution DNS personnalisée est configurée de façon incorrecte.
 

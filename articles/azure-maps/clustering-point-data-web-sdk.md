@@ -1,20 +1,20 @@
 ---
 title: Clustering de données de point dans le kit Web SDK | Microsoft Azure Maps
 description: Découvrez comment mettre en cluster des données de point sur des cartes. Découvrez comment utiliser le Kit de développement logiciel (SDK) web Azure Maps pour mettre en cluster des données, réagir aux événements de souris en cluster et afficher les agrégats de cluster.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 70b1ac01c2019b4ce74895b67cb79f5e93226b64
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0510d729f42c0c9c80e228b9da298af70b7fcf21
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091858"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437793"
 ---
 # <a name="clustering-point-data-in-the-web-sdk"></a>Clustering de données de point dans le kit Web SDK
 
@@ -62,7 +62,7 @@ Pour afficher la taille du cluster en haut de la bulle, utilisez un calque de sy
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Clustering en couche de bulles de base" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Clustering en couche de bulles de base" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>Clustering en couche de bulles de base</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -74,7 +74,7 @@ Utilisez le clustering pour montrer la densité des points de données tout en c
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Couche de symboles en cluster" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Couche de symboles en cluster" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>Couche de symboles en cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -84,7 +84,7 @@ Les cartes thermiques sont un excellent moyen pour afficher la densité des donn
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Carte thermique pondérée en fonction du cluster" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Carte thermique pondérée en fonction du cluster" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Carte thermique pondérée en fonction du cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -103,7 +103,7 @@ Cet exemple prend un calque de bulles qui affiche des points de cluster et ajout
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Méthode getClusterExpansionZoom du cluster" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Méthode getClusterExpansionZoom du cluster" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/moZWeV/'>Méthode getClusterExpansionZoom du cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -113,7 +113,7 @@ Les données de point représentées par un cluster sont réparties sur une zone
 
 <br/>
 
- <iframe height="500" style="width: 100%;" scrolling="no" title="Enveloppe convexe de la zone du cluster" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+ <iframe height="500" scrolling="no" title="Enveloppe convexe de la zone du cluster" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Enveloppe convexe de la zone du cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -123,7 +123,7 @@ Souvent, les clusters sont représentés à l’aide d’un symbole avec le nomb
 
 L’exemple suivant utilise une expression d’agrégation. Le code calcule un nombre basé sur la propriété du type d’entité de chaque point de données dans un cluster. Quand un utilisateur clique sur un cluster, une fenêtre contextuelle s’affiche avec des informations supplémentaires sur le cluster.
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Agrégats de cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Agrégats de cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>Agrégats de cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

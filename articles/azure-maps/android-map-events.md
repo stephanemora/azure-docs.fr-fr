@@ -1,20 +1,20 @@
 ---
 title: Gérer les événements cartographiques sur les cartes Android | Microsoft Azure Maps
 description: Découvrez les événements qui sont déclenchés lorsque les utilisateurs interagissent avec des cartes. Affichez une liste de tous les événements cartographiques pris en charge. Découvrez comment utiliser le kit de développement logiciel (SDK) Android Azure Maps pour gérer les événements.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ebe61e5956dc0f35794211a336eb7d884ee18d76
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 49a06fdd2c8025515fd42124aa7d00f27d8c5978
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608899"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425713"
 ---
 # <a name="interact-with-the-map-android-sdk"></a>Interagir avec la carte (SDK Android)
 

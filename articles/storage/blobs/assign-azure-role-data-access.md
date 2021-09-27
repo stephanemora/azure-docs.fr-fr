@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 34c3f19ebb48bef3ece00b6413af2c1d7e585cf5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b30bb21369e75b76c5aba299d38b2ccfc3259803
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562742"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651595"
 ---
 # <a name="assign-an-azure-role-for-access-to-blob-data"></a>Attribuer un rôle Azure pour l’accès aux données d’objet blob
 
@@ -65,7 +65,7 @@ Pour affecter un rôle limité à un conteneur, spécifiez une chaîne contenant
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-L’exemple suivant affecte le rôle **Contributeur aux données Blob du stockage** à un utilisateur, limité à un conteneur nommé *sample-container*. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
+L’exemple suivant affecte le rôle **Contributeur aux données Blob du stockage** à un utilisateur, limité à un conteneur nommé *sample-container*. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs :
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `

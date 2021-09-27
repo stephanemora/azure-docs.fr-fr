@@ -8,46 +8,46 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 980c4da25e681b8bb2fb7a608481160a2c0857f2
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 1effb888e1210b431817be2ccf05ddc7d521362d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854555"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636718"
 ---
 # <a name="copy-blobs-between-azure-storage-accounts-by-using-azcopy"></a>Copier des objets blob entre des comptes de stockage Azure à l’aide d’AzCopy
 
-Vous pouvez copier des objets blob, des répertoires et des conteneurs d’un compte de stockage à un autre à l’aide de l’utilitaire en ligne de commande AzCopy v10. 
+Vous pouvez copier des objets blob, des répertoires et des conteneurs d’un compte de stockage à un autre à l’aide de l’utilitaire en ligne de commande AzCopy v10.
 
 Pour obtenir des exemples d’autres types de tâches, telles que le chargement de fichiers, le téléchargement d’objets blob et la synchronisation avec le stockage d’objets blob, consultez les liens présentés dans la section [Étapes suivantes](#next-steps) de cet article.
 
 AzCopy utilise des [API](/rest/api/storageservices/put-page-from-url) [serveur à serveur](/rest/api/storageservices/put-block-from-url), de sorte que les données sont copiées directement entre les serveurs de stockage. Ces opérations de copie n’utilisent pas la bande passante réseau de votre ordinateur.
 
-Pour télécharger AzCopy et découvrir comment fournir des informations d’identification d’autorisation au service de stockage, consultez [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md). 
+Pour télécharger AzCopy et découvrir comment fournir des informations d’identification d’autorisation au service de stockage, consultez [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md).
 
 ## <a name="guidelines"></a>Consignes
 
-Respectez les consignes suivantes lors de l’exécution de commandes AzCopy. 
+Respectez les consignes suivantes lors de l’exécution de commandes AzCopy.
 
 - Votre client doit disposer d’un accès réseau à la fois au compte de stockage source et au compte de stockage de destination. Pour savoir comment configurer les paramètres réseau de chaque compte de stockage, consultez [Configurer des pare-feux et des réseaux virtuels dans Stockage Azure](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
-- Ajoutez un jeton SAS à chaque URL source. 
+- Ajoutez un jeton SAS à chaque URL source.
 
-  Si vous fournissez des informations d’identification d’autorisation à l’aide d’Azure AD (Azure Active Directory), vous pouvez omettre le jeton SAS uniquement dans l’URL de destination. Assurez-vous que vous avez configuré les rôles appropriés dans votre compte de destination. Voir [Option 1 : Utiliser Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory). 
+  Si vous fournissez des informations d’identification d’autorisation à l’aide d’Azure AD (Azure Active Directory), vous pouvez omettre le jeton SAS uniquement dans l’URL de destination. Assurez-vous que vous avez configuré les rôles appropriés dans votre compte de destination. Voir [Option 1 : Utiliser Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
   Les exemples de cet article partent du principe que vous avez authentifié votre identité à l’aide d’Azure AD ; ils omettent par conséquent les jetons SAS de l’URL de destination.
 
--  Si vous effectuez une copie vers un compte de stockage d’objets blob de blocs Premium, omettez le niveau d’accès d’un objet blob de l’opération de copie en affectant la valeur `false` à `s2s-preserve-access-tier` (par exemple : `--s2s-preserve-access-tier=false`). Les comptes de stockage d’objet blob de blocs Premium ne prennent pas en charge les niveaux d’accès. 
+-  Si vous effectuez une copie vers un compte de stockage d’objets blob de blocs Premium, omettez le niveau d’accès d’un objet blob de l’opération de copie en affectant la valeur `false` à `s2s-preserve-access-tier` (par exemple : `--s2s-preserve-access-tier=false`). Les comptes de stockage d’objet blob de blocs Premium ne prennent pas en charge les niveaux d’accès.
 
-- Si vous copiez vers ou à partir d’un compte ayant un espace de noms hiérarchique, utilisez `blob.core.windows.net` au lieu de `dfs.core.windows.net` dans la syntaxe de l’URL. L’[accès multi-protocole pour Azure Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) vous permet d’utiliser `blob.core.windows.net`, et il s’agit de la seule syntaxe prise en charge pour les scénarios de copie de compte à compte. 
+- Si vous copiez vers ou à partir d’un compte ayant un espace de noms hiérarchique, utilisez `blob.core.windows.net` au lieu de `dfs.core.windows.net` dans la syntaxe de l’URL. L’[accès multi-protocole pour Azure Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) vous permet d’utiliser `blob.core.windows.net`, et il s’agit de la seule syntaxe prise en charge pour les scénarios de copie de compte à compte.
 
-- Vous pouvez augmenter le débit des opérations de copie en définissant la valeur de la variable d’environnement `AZCOPY_CONCURRENCY_VALUE`. Pour plus d’informations, consultez [Augmenter la concurrence](storage-use-azcopy-optimize.md#increase-concurrency). 
+- Vous pouvez augmenter le débit des opérations de copie en définissant la valeur de la variable d’environnement `AZCOPY_CONCURRENCY_VALUE`. Pour plus d’informations, consultez [Augmenter la concurrence](storage-use-azcopy-optimize.md#increase-concurrency).
 
 - Si les objets blob sources contiennent des balises d’index et que vous souhaitez conserver ces balises, vous devez les réappliquer aux objets blob de destination. Pour plus d’informations sur la façon de définir des balises d’index, consultez la section [Copier des objets blob vers un autre compte de stockage avec des balises d’index](#copy-between-accounts-and-add-index-tags) de cet article.
 
 ## <a name="copy-a-blob"></a>Copier un objet blob
 
-Copiez un objet blob vers un autre compte de stockage à l’aide de la commande [azcopy copy](storage-ref-azcopy-copy.md). 
+Copiez un objet blob vers un autre compte de stockage à l’aide de la commande [azcopy copy](storage-ref-azcopy-copy.md).
 
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
@@ -62,11 +62,11 @@ Copiez un objet blob vers un autre compte de stockage à l’aide de la commande
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-L’opération de copie étant synchrone, lorsque la commande retourne un résultat, cela indique que tous les fichiers ont été copiés. 
+L’opération de copie étant synchrone, lorsque la commande retourne un résultat, cela indique que tous les fichiers ont été copiés.
 
 ## <a name="copy-a-directory"></a>Copier un répertoire
 
-Copiez un répertoire vers un autre compte de stockage à l’aide de la commande [azcopy copy](storage-ref-azcopy-copy.md). 
+Copiez un répertoire vers un autre compte de stockage à l’aide de la commande [azcopy copy](storage-ref-azcopy-copy.md).
 
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
@@ -129,9 +129,9 @@ Copiez des objets blob vers un autre compte de stockage et ajouter des [balises 
 
 Si vous utilisez l’autorisation Azure AD, votre principal de sécurité doit détenir le rôle [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner), ou l’autorisation d’accès à l’[opération du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` doit lui être accordée par le biais d’un rôle Azure personnalisé. Si vous utilisez un jeton de signature d’accès partagé (SAS), ce jeton doit fournir l’accès aux balises de l’objet blob par le biais de l’autorisation SAS `t`.
 
-Pour ajouter des balises, utilisez l’option `--blob-tags` avec une paire clé-valeur encodée en URL. 
+Pour ajouter des balises, utilisez l’option `--blob-tags` avec une paire clé-valeur encodée en URL.
 
-Par exemple, pour ajouter la clé `my tag` et une valeur `my tag value`, vous devez ajouter `--blob-tags='my%20tag=my%20tag%20value'` au paramètre de destination. 
+Par exemple, pour ajouter la clé `my tag` et une valeur `my tag value`, vous devez ajouter `--blob-tags='my%20tag=my%20tag%20value'` au paramètre de destination.
 
 Séparez plusieurs balises d’index à l’aide d’une esperluette (`&`).  Par exemple, si vous souhaitez ajouter une clé `my second tag` et une valeur `my second tag value`, la chaîne d’option complète est `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
 
@@ -180,7 +180,7 @@ Vous pouvez ajuster votre opération de copie à l’aide d’indicateurs facult
 |Effectuer une copie vers un niveau d’accès spécifique (tel que le niveau Archive)|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 |Décompresser automatiquement les fichiers|**--decompress**=\[gzip\|deflate\]|
 
-Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#options). 
+Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#options).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -198,4 +198,4 @@ Consultez les articles suivants pour configurer les paramètres, optimiser les p
 
 - [Paramètres de configuration d’AzCopy](storage-ref-azcopy-configuration-settings.md)
 - [Optimiser les performances d’AzCopy](storage-use-azcopy-optimize.md)
-- [Résoudre les problèmes d’AzCopy v10 dans Stockage Azure en utilisant des fichiers journaux](storage-use-azcopy-configure.md)
+- [Résoudre les problèmes d’AzCopy V10 dans le stockage Azure à l’aide de fichiers journaux](storage-use-azcopy-configure.md)

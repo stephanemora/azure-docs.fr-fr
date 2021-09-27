@@ -10,17 +10,17 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: a1b9c8f81de706fb53839a241115947d6cf8d0bc
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 1ea3f9181e1ebbbe4ae71c3e2505490361f066a8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113726911"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560268"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)
 
 Une signature d’accès partagé (SAS) fournit un accès délégué sécurisé aux ressources de votre compte de stockage. Avec une SAP, vous avez un contrôle granulaire sur la manière dont un client peut accéder à vos données. Par exemple :
- 
+
 - Les ressources auxquelles le client peut accéder.
 
 - Les autorisations dont les clients disposent pour ces ressources.
@@ -51,13 +51,13 @@ Pour plus d’informations sur la SAP de service, consultez [Créer une SAP de s
 
 ### <a name="account-sas"></a>SAP de compte
 
-Une SAP de compte est sécurisée à l’aide de la clé de compte de stockage. Une SAP de compte délègue l’accès aux ressources d’un ou plusieurs des services de stockage. Toutes les opérations disponibles via une SAP de service ou de délégation d’utilisateur sont également disponibles via une SAP de compte. 
+Une SAP de compte est sécurisée à l’aide de la clé de compte de stockage. Une SAP de compte délègue l’accès aux ressources d’un ou plusieurs des services de stockage. Toutes les opérations disponibles via une SAP de service ou de délégation d’utilisateur sont également disponibles via une SAP de compte.
 
 Vous pouvez également déléguer l’accès aux éléments suivants :
 
-- Les opérations de niveau de service (par exemple, les opérations **Get/Set Service Properties** et **Get Service Stats**). 
+- Les opérations de niveau de service (par exemple, les opérations **Get/Set Service Properties** et **Get Service Stats**).
 
-- Les opérations de lecture, d’écriture et de suppression qui ne sont pas autorisées avec une SAS de service. 
+- Les opérations de lecture, d’écriture et de suppression qui ne sont pas autorisées avec une SAS de service.
 
 Pour plus d’informations sur la SAP de compte, [Créez une SAP de compte (API REST)](/rest/api/storageservices/create-account-sas).
 
@@ -82,7 +82,7 @@ Une signature d’accès partagé est un URI signé qui pointe vers une ou plusi
 
 ### <a name="sas-signature-and-authorization"></a>Signature SAP et autorisation
 
-Vous pouvez signer un jeton SAS à l’aide d’une clé de délégation d’utilisateur ou d’une clé de compte de stockage (clé partagée). 
+Vous pouvez signer un jeton SAS à l’aide d’une clé de délégation d’utilisateur ou d’une clé de compte de stockage (clé partagée).
 
 #### <a name="signing-a-sas-token-with-a-user-delegation-key"></a>Signature d’un jeton SAS avec une clé de délégation d’utilisateur
 
@@ -134,15 +134,15 @@ De nombreux services réels peuvent utiliser un mélange de ces deux approches. 
 
 En outre, une SAP est requise pour autoriser l’accès à l’objet source d’une opération de copie dans certains cas de figure :
 
-- Lorsque vous copiez un objet blob dans un autre objet blob qui réside dans un autre compte de stockage. 
-  
+- Lorsque vous copiez un objet blob dans un autre objet blob qui réside dans un autre compte de stockage.
+
   Vous pouvez éventuellement utiliser une SAP pour autoriser également l’accès à l’objet blob de destination.
 
-- Lorsque vous copiez un fichier dans un autre fichier qui réside dans un autre compte de stockage. 
+- Lorsque vous copiez un fichier dans un autre fichier qui réside dans un autre compte de stockage.
 
   Vous pouvez éventuellement utiliser une SAP pour autoriser également l’accès au fichier de destination.
 
-- Lorsque vous copiez un objet blob dans un fichier ou un fichier dans un objet blob. 
+- Lorsque vous copiez un objet blob dans un fichier ou un fichier dans un objet blob.
 
   Vous devez utiliser une signature d’accès partagé même si les objets source et de destination résident dans le même compte de stockage.
 
@@ -166,11 +166,11 @@ Les recommandations suivantes relatives à l’utilisation des signatures d’ac
 
 - **Utilisez des heures d'expiration avec une échéance à court terme sur une SAP de service ou une SAP de compte ad hoc.** De cette manière, même si une signature d’accès partagé est compromise, elle n’est valide que pendant une courte durée. Cette pratique est particulièrement importante si vous ne pouvez pas référencer une stratégie d'accès stockée. Des heures d’expiration avec une échéance à court terme permettent également de limiter la quantité de données pouvant être écrites dans un objet blob en limitant le temps disponible pour le chargement vers ce dernier.
 
-- **Faites en sorte que les clients renouvellent automatiquement la signature d'accès partagé si nécessaire.** Les clients doivent renouveler la signature d’accès partagé bien avant l’heure d’expiration afin de laisser suffisamment de temps pour de nouvelles tentatives, si le service qui fournit la signature est indisponible. Cela peut ne pas être nécessaire dans certains cas. Par exemple, vous voulez peut-être utiliser la SAS pour un petit nombre d’opérations immédiates de courte durée. Ces opérations sont censées être terminées pendant la période d’expiration. Par conséquent, vous n’attendez pas que la SAS soit renouvelée. Toutefois, si vous avez un client qui effectue régulièrement des demandes par le biais de signatures d’accès partagé, le risque d’expiration est à prendre en compte. 
+- **Faites en sorte que les clients renouvellent automatiquement la signature d'accès partagé si nécessaire.** Les clients doivent renouveler la signature d’accès partagé bien avant l’heure d’expiration afin de laisser suffisamment de temps pour de nouvelles tentatives, si le service qui fournit la signature est indisponible. Cela peut ne pas être nécessaire dans certains cas. Par exemple, vous voulez peut-être utiliser la SAS pour un petit nombre d’opérations immédiates de courte durée. Ces opérations sont censées être terminées pendant la période d’expiration. Par conséquent, vous n’attendez pas que la SAS soit renouvelée. Toutefois, si vous avez un client qui effectue régulièrement des demandes par le biais de signatures d’accès partagé, le risque d’expiration est à prendre en compte.
 
 - **Faites attention à la date de début de la signature d’accès partagé.** Si vous définissez l’heure de début d’une signature d’accès partagé sur l’heure actuelle, des échecs peuvent se produire par intermittence pendant les premières minutes. Cela est dû au fait que des machines différentes ont des heures actuelles légèrement différents (phénomène appelé décalage de l’horloge). En règle générale, définissez une heure de début située au moins 15 minutes avant l’heure courante ou ne la définissez pas du tout, et elle sera alors valide immédiatement dans tous les cas. Cela vaut également d’une manière générale pour l’heure d’expiration. Souvenez-vous que vous pouvez observer jusqu’à 15 minutes de décalage d’horloge (dans l’une ou l’autre direction) sur une demande. Pour les clients qui utilisent une version de REST antérieure à la version 2012-02-12, la durée maximale pour une signature d’accès partagé qui ne renvoie pas à une stratégie d’accès stockée est de 1 heure. Toutes les stratégies spécifiant une période plus longue échouent.
 
-- **Soyez vigilant avec le format DateHeure SAP.** Pour certains utilitaires (tels que AzCopy), les formats DateTime doivent être : « +%Y-%m-%dT%H:%M:%SZ ». Ce format comprend spécifiquement les secondes. 
+- **Soyez vigilant avec le format DateHeure SAP.** Pour certains utilitaires (tels que AzCopy), les formats DateTime doivent être : « +%Y-%m-%dT%H:%M:%SZ ». Ce format comprend spécifiquement les secondes.
 
 - **Soyez précis quant à la ressource pour laquelle vous voulez configurer l'accès.** Une bonne pratique en matière de sécurité consiste à fournir à l’utilisateur les privilèges minimaux requis. Si un utilisateur a besoin d'un accès en lecture à une seule entité, accordez-lui un accès en lecture à cette seule entité, plutôt qu'un accès en lecture/écriture/suppression à toutes les entités. Cela permet également d’atténuer les dégâts si une signature d’accès partagé est compromise, car son pouvoir est moindre entre les mains d’une personne malveillante.
 

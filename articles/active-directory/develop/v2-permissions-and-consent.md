@@ -12,12 +12,12 @@ ms.date: 07/06/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
-ms.openlocfilehash: fca6234742958f363d45c02780c2d01246ac58a9
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 292bca70ae9ebb8b864e95d9f5eda125a90a597d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535180"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632972"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Autorisations et consentement dans la plateforme d’identités Microsoft
 
@@ -182,6 +182,9 @@ Certaines autorisations à privilèges élevés dans les ressources Microsoft pe
 * Lire les profils complets de tous les utilisateurs à l’aide de `User.Read.All`
 * Écrire des données dans le répertoire d’une organisation à l’aide de `Directory.ReadWrite.All`
 * Lire tous les groupes dans le répertoire d’une organisation à l’aide de `Groups.Read.All`
+
+> [!NOTE]
+>Dans les requêtes adressées aux points de terminaison d’autorisation, de jeton ou de consentement pour la plateforme d’identités Microsoft, si l’identificateur de ressource est omis dans le paramètre d’étendue, la ressource est censée être Microsoft Graph. Par exemple, `scope=User.Read` équivaut à `https://graph.microsoft.com/User.Read`.
 
 Si un utilisateur consommateur peut accorder à une application l’accès à ce type de données, les utilisateurs de l’organisation ne peuvent pas accorder l’accès au même jeu de données d’entreprise sensibles. Si votre application requiert l’accès à l’une de ces autorisations d’un utilisateur de l’organisation, ce dernier recevra un message d’erreur indiquant qu’il n’est pas autorisé à donner son consentement pour les permissions de votre application.
 
