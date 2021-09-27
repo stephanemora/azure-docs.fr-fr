@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c44336e41c173cffad28a52bed3c29ec13df497f
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: 65d877bce0bdcab35248d4b9a41b92f46c132903
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112323157"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630714"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Exiger un transfert sécurisé pour garantir des connexions sécurisées
 
@@ -30,8 +30,8 @@ La connexion à un partage de fichiers Azure via SMB sans chiffrement échoue lo
 
 > [!NOTE]
 > Étant donné que Stockage Azure ne prend pas en charge le protocole HTTPS pour les noms de domaine personnalisés, cette option n’est pas appliquée lorsque vous utilisez un nom de domaine personnalisé.
-> 
-> Ce paramètre de transfert sécurisé ne s’applique pas au protocole TCP. Les connexions effectuées via le protocole NFS 3.0 dans le Stockage Blob Azure avec le protocole TCP (qui n’est pas sécurisé) aboutiront.  
+>
+> Ce paramètre de transfert sécurisé ne s’applique pas au protocole TCP. Les connexions effectuées via le protocole NFS 3.0 dans le Stockage Blob Azure avec le protocole TCP (qui n’est pas sécurisé) aboutiront.
 
 ## <a name="require-secure-transfer-in-the-azure-portal"></a>Exiger un transfert sécurisé dans le portail Azure
 
@@ -54,15 +54,15 @@ Vous pouvez activer la propriété **Transfert sécurisé requis** lorsque vous 
 
 ## <a name="require-secure-transfer-from-code"></a>Exiger un transfert sécurisé à partir du code
 
-Pour exiger un transfert sécurisé par programme, définissez la propriété _enableHttpsTrafficOnly_ sur _True_ sur le compte de stockage. Vous pouvez définir cette propriété à l’aide de l’API REST du fournisseur de ressources de stockage, de bibliothèques clientes ou d’outils :
+Pour exiger un transfert sécurisé par programme, définissez la propriété *enableHttpsTrafficOnly* sur *True* sur le compte de stockage. Vous pouvez définir cette propriété à l’aide de l’API REST du fournisseur de ressources de stockage, de bibliothèques clientes ou d’outils :
 
-* [REST API](/rest/api/storagerp/storageaccounts)
-* [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
-* [INTERFACE DE LIGNE DE COMMANDE](/cli/azure/storage/account)
-* [NodeJS](https://www.npmjs.com/package/@azure/arm-storage/)
-* [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
-* [Kit de développement logiciel (SDK) Python](https://pypi.org/project/azure-mgmt-storage)
-* [Kit de développement logiciel (SDK) Ruby](https://rubygems.org/gems/azure_mgmt_storage)
+- [REST API](/rest/api/storagerp/storageaccounts)
+- [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
+- [INTERFACE DE LIGNE DE COMMANDE](/cli/azure/storage/account)
+- [NodeJS](https://www.npmjs.com/package/@azure/arm-storage/)
+- [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
+- [Kit de développement logiciel (SDK) Python](https://pypi.org/project/azure-mgmt-storage)
+- [Kit de développement logiciel (SDK) Ruby](https://rubygems.org/gems/azure_mgmt_storage)
 
 ## <a name="require-secure-transfer-with-powershell"></a>Exiger un transfert sécurisé avec PowerShell
 

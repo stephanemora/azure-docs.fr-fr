@@ -196,8 +196,12 @@
           href: manage-monitor-sql-database-backup.md
     - name: Sauvegarde d’Azure Database pour PostgreSQL
       items:
-        - name: Backup
+        - name: Vue d’ensemble
+          href: backup-azure-database-postgresql-overview.md
+        - name: Sauvegarde
           href: backup-azure-database-postgresql.md
+        - name: Restaurer
+          href: restore-azure-database-postgresql.md
         - name: Gérer
           href: manage-azure-database-postgresql.md
     - name: Sauvegarde Windows avec l’agent MARS
@@ -210,7 +214,7 @@
               href: install-mars-agent.md
             - name: Mettre à niveau l’agent MARS
               href: upgrade-mars-agent.md
-        - name: Sauvegarde
+        - name: Backup
           items:
             - name: Sauvegarder les fichiers et dossiers de Windows Server
               href: backup-windows-with-mars-agent.md
@@ -234,7 +238,7 @@
           href: disk-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-managed-disks.md
             - name: Restaurer
               href: restore-managed-disks.md
@@ -296,7 +300,7 @@
               href: manage-afs-backup.md
         - name: Avec l’interface de ligne de commande Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-afs-cli.md
             - name: Restaurer
               href: restore-afs-cli.md
@@ -312,7 +316,7 @@
               href: manage-afs-powershell.md
         - name: Avec l’API REST
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-azure-file-share-rest-api.md
             - name: Restaurer
               href: restore-azure-file-share-rest-api.md
@@ -322,7 +326,7 @@
       items:
         - name: Vue d’ensemble
           href: sap-hana-db-about.md
-        - name: Sauvegarde
+        - name: Backup
           href: backup-azure-sap-hana-database.md
         - name: Restaurer
           href: sap-hana-db-restore.md
@@ -416,6 +420,8 @@
           href: offline-backup-server-previous-versions.md
     - name: Supervision et alertes
       items:
+        - name: Vue d’ensemble
+          href: monitoring-and-alerts-overview.md
         - name: Utilisation de l’Explorateur de sauvegarde
           href: monitor-azure-backup-with-backup-explorer.md
         - name: Utilisation du portail Azure
@@ -543,6 +549,8 @@
           href: disk-backup-troubleshoot.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Azure Database pour PostgreSQL
+          href: backup-azure-database-postgresql-troubleshoot.md
         - name: Sauvegarde SAP HANA sur des machines virtuelles Azure
           href: backup-azure-sap-hana-database-troubleshoot.md
         - name: État du système

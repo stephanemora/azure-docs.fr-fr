@@ -10,20 +10,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a44666d8378b13f7ac8498ae4256507705ffc42b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 283fd9dc199f86992be9f3952cf3a82b916ae56c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524070"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570908"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>Créer et gérer des étendues de chiffrement
 
 Les étendues de chiffrement vous permettent de gérer le chiffrement au niveau d’un objet blob ou d’un conteneur individuel. Vous pouvez utiliser des étendues de chiffrement pour créer des limites sécurisées entre les données qui résident dans le même compte de stockage mais qui appartiennent à des clients différents. Pour plus d’informations sur les étendues de chiffrement, consultez [Étendues de chiffrement pour le stockage d’objets blob](encryption-scope-overview.md).
 
 Cet article montre comment créer une étendue de chiffrement. Il montre également comment spécifier une étendue de chiffrement lorsque vous créez un objet blob ou un conteneur.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-an-encryption-scope"></a>Créer une étendue de chiffrement
 

@@ -4,12 +4,12 @@ description: Obtenir les nombres de sessions et d’affichage de page, les donn�
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 2d2cf6f53b295d5ac138f86deb765892fd34d907
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 4ce6481a35b8a214a2203a165161183d384b4ea0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234570"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662169"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -237,7 +237,7 @@ La gestion des cookies basée sur une instance remplace également les fonctions
 
 Configuration de cookie pour la gestion des cookies basée sur une instance ajoutée dans la version 2.6.0.
 
-| Name | Description | Type et valeur par défaut |
+| Nom | Description | Type et valeur par défaut |
 |------|-------------|------------------|
 | enabled | Une valeur booléenne indique si l’utilisation de cookies par le kit de développement logiciel (SDK) est activée par l’instance actuelle. Si la valeur est false, l’instance du kit de développement logiciel (SDK) initialisée par cette configuration ne stocke pas ou ne lit pas les données des cookies | boolean<br/> true |
 | domaine | Domaine de cookie personnalisé. Cela est utile si vous souhaitez partager des cookies Application Insights entre les sous-domaines. S’il n’est pas fourni, utilise la valeur de la valeur racine `cookieDomain`. | string<br/>null |
@@ -279,7 +279,7 @@ cfg: { // Application Insights Configuration
 
 ``` 
 
-Si l’un de vos serveurs tiers avec lequel le client communique ne peut pas accepter les en-têtes `Request-Id` et `Request-Context`, et que vous ne pouvez pas mettre à jour leur configuration, vous devez les placer dans une liste d’exclusion via la propriété de configuration `correlationHeaderExcludeDomains`. Cette propriété prend en charge les caractères génériques.
+Si l’un de vos serveurs tiers avec lequel le client communique ne peut pas accepter les en-têtes `Request-Id` et `Request-Context`, et que vous ne pouvez pas mettre à jour leur configuration, vous devez les placer dans une liste d’exclusion via la propriété de configuration `correlationHeaderExcludedDomains`. Cette propriété prend en charge les caractères génériques.
 
 Le côté serveur doit être en mesure d’accepter les connexions avec ces en-têtes présents. Selon la configuration de `Access-Control-Allow-Headers` côté serveur, il est souvent nécessaire d’étendre la liste côté serveur en ajoutant manuellement `Request-Id` et `Request-Context`.
 

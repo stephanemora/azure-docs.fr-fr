@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: mathoma,vanto
 ms.date: 08/20/2021
-ms.openlocfilehash: 1e656227387bebc9806ad06574084bd01fcc0b35
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: f9c5df5bf086e5d80c8f506aa8bb718427755d7a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122603796"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680677"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Résolution des problèmes de connectivité et autres erreurs avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -70,15 +70,15 @@ Pour le résoudre, suivez la procédure pas-à-pas de la section intitulée [Ét
 
 ### <a name="error-26-error-locating-server-specified"></a>Erreur 26 : Erreur lors de la localisation du serveur spécifié
 
-``System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.(provider: SQL Network Interfaces, error: 26 – Error Locating Server/Instance Specified)``
+`System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.(provider: SQL Network Interfaces, error: 26 – Error Locating Server/Instance Specified)`
 
 #### <a name="error-40-could-not-open-a-connection-to-the-server"></a>Erreur 40 : Impossible d’ouvrir une connexion au serveur
 
-``A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)``
+`A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)`
 
 #### <a name="error-10053-a-transport-level-error-has-occurred-when-receiving-results-from-the-server"></a>Erreur 10053 : Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur.
 
-``10053: A transport-level error has occurred when receiving results from the server. (Provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine)``
+`10053: A transport-level error has occurred when receiving results from the server. (Provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine)`
 
 Ces problèmes se produisent si l’application ne peut pas se connecter au serveur.
 
@@ -98,7 +98,7 @@ Pour résoudre ce problème, vérifiez que le port 1433 est ouvert pour les con
 
 ### <a name="login-failed-for-user--user-name-"></a>Échec de la connexion pour l’utilisateur '<nom_utilisateur>'
 
-``Login failed for user '<User name>'.This session has been assigned a tracing ID of '<Tracing ID>'. Provide this tracing ID to customer support when you need assistance. (Microsoft SQL Server, Error: 18456)``
+`Login failed for user '<User name>'.This session has been assigned a tracing ID of '<Tracing ID>'. Provide this tracing ID to customer support when you need assistance. (Microsoft SQL Server, Error: 18456)`
 
 Pour résoudre ce problème, contactez votre administrateur de service afin d’obtenir un nom d’utilisateur et un mot de passe valides.
 
@@ -152,19 +152,19 @@ Pour en savoir plus, consultez [Gestion des bases de données et des connexions 
 
 ### <a name="systemdatasqlclientsqlexception-0x80131904-connection-timeout-expired"></a>System.Data.SqlClient.SqlException (0x80131904) : Délai d’expiration de la connexion dépassé
 
-``System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired. The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement. This could be because the pre-login handshake failed or the server was unable to respond back in time. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=29995;``
+`System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired. The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement. This could be because the pre-login handshake failed or the server was unable to respond back in time. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=29995;`
 
 ### <a name="systemdatasqlclientsqlexception-0x80131904-timeout-expired"></a>System.Data.SqlClient.SqlException (0x80131904) : Délai expiré
 
-``System.Data.SqlClient.SqlException (0x80131904): Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.``
+`System.Data.SqlClient.SqlException (0x80131904): Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.`
 
 ### <a name="systemdataentitycoreentityexception-the-underlying-provider-failed-on-open"></a>System.Data.Entity.Core.EntityException: Échec du fournisseur sous-jacent sur Ouverture
 
-``System.Data.Entity.Core.EntityException: The underlying provider failed on Open. -> System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding. -> System.ComponentModel.Win32Exception: The wait operation timed out``
+`System.Data.Entity.Core.EntityException: The underlying provider failed on Open. -> System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding. -> System.ComponentModel.Win32Exception: The wait operation timed out`
 
 ### <a name="cannot-connect-to--server-name-"></a>Impossible de se connecter à <nom_serveur>
 
-``Cannot connect to <server name>.ADDITIONAL INFORMATION:Connection Timeout Expired. The timeout period elapsed during the post-login phase. The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=231; handshake=983; [Login] initialization=0; authentication=0; [Post-Login] complete=13000; (Microsoft SQL Server, Error: -2) For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&EvtSrc=MSSQLServer&EvtID=-2&LinkId=20476 The wait operation timed out``
+`Cannot connect to <server name>.ADDITIONAL INFORMATION:Connection Timeout Expired. The timeout period elapsed during the post-login phase. The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=231; handshake=983; [Login] initialization=0; authentication=0; [Post-Login] complete=13000; (Microsoft SQL Server, Error: -2) For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&EvtSrc=MSSQLServer&EvtID=-2&LinkId=20476 The wait operation timed out`
 
 Ces exceptions peuvent se produire en raison de problèmes de connexion ou de requête. Pour confirmer que cette erreur est due à des problèmes de connectivité, consultez la section [Vérifier si une erreur est due à un problème de connectivité](#confirm-whether-an-error-is-caused-by-a-connectivity-issue).
 
@@ -174,7 +174,7 @@ Des expirations de délai de connexion se produisent car l’application ne peut
 
 ### <a name="error-10928-resource-id-d"></a>Erreur 10928 : ID de la ressource : %d
 
-``10928: Resource ID: %d. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. The Resource ID value in error message indicates the resource for which limit has been reached. For sessions, Resource ID = 2.``
+`10928: Resource ID: %d. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. The Resource ID value in error message indicates the resource for which limit has been reached. For sessions, Resource ID = 2.`
 
 Pour contourner ce problème, essayez d’appliquer l’une des méthodes suivantes :
 
@@ -203,11 +203,11 @@ Pour plus d’informations sur les limites de base de données, consultez [Limit
 
 ### <a name="error-10929-resource-id-1"></a>Erreur 10929 : ID de ressource : 1
 
-``10929: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later.``
+`10929: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later.`
 
 ### <a name="error-40501-the-service-is-currently-busy"></a>Erreur 40501 : Le service est actuellement occupé.
 
-``40501: The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.``
+`40501: The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.`
 
 Il s’agit d’une erreur de limitation du moteur, indiquant que les limites de ressources sont dépassées.
 
@@ -215,7 +215,7 @@ Pour plus d’informations sur les limites de ressources, consultez [Limites de 
 
 ### <a name="error-40544-the-database-has-reached-its-size-quota"></a>Erreur 40544 : La base de données a atteint son quota de taille.
 
-``40544: The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. Incident ID: <ID>. Code: <code>.``
+`40544: The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. Incident ID: <ID>. Code: <code>.`
 
 Cette erreur se produit quand la base de données a atteint son quota de taille.
 
@@ -245,7 +245,7 @@ La procédure suivante peut vous aider à contourner le problème ou vous fourni
 
 ### <a name="error-40549-session-is-terminated-because-you-have-a-long-running-transaction"></a>Erreur 40549 : La session est arrêtée, car l’une des transactions est de longue durée.
 
-``40549: Session is terminated because you have a long-running transaction. Try shortening your transaction.``
+`40549: Session is terminated because you have a long-running transaction. Try shortening your transaction.`
 
 Si cette erreur survient à plusieurs reprises, vous pouvez essayer de la résoudre en procédant ainsi :
 
@@ -270,7 +270,7 @@ Vous pouvez également traiter vos requêtes par lot. Pour plus d’informations
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Erreur 40551 : La session a été arrêtée en raison d’une utilisation excessive de TEMPDB
 
-``40551: The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.``
+`40551: The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.`
 
 Pour contourner ce problème, effectuez les étapes suivantes :
 
@@ -280,7 +280,7 @@ Pour contourner ce problème, effectuez les étapes suivantes :
 
 ### <a name="error-40552-the-session-has-been-terminated-because-of-excessive-transaction-log-space-usage"></a>Erreur 40552 : La session a été arrêtée en raison de l’utilisation excessive de l’espace réservé au journal des transactions
 
-``40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.``
+`40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.`
 
 Pour corriger ce problème, essayez les méthodes suivantes :
 
@@ -297,7 +297,7 @@ Essayez de réduire le nombre de lignes qui sont sollicitées immédiatement en 
 
 ### <a name="error-40553-the-session-has-been-terminated-because-of-excessive-memory-usage"></a>Erreur 40553 : La session a été arrêtée en raison d’une utilisation excessive de la mémoire
 
-``40553 : The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.``
+`40553: The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.`
 
 Pour contourner ce problème, essayez d’optimiser la requête.
 

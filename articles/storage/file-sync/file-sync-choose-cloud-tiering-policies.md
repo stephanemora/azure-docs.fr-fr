@@ -7,21 +7,22 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 40715f8076ac112ea6479fb4a134933d90b3dbf9
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 8cd8b51531fa28e3d698de47358c3b69e4f88ec2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252273"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665831"
 ---
 # <a name="choose-cloud-tiering-policies"></a>Choisir des stratégies de hiérarchisation Cloud
 
 Cet article fournit des conseils pour les utilisateurs qui sélectionnent et ajustent leurs stratégies de hiérarchisation Cloud. Avant de lire, assurez-vous de bien comprendre le fonctionnement de la hiérarchisation Cloud. Pour des notions de base sur la hiérarchisation Cloud, consultez l’article[Comprendre la hiérarchisation Cloud Azure File Sync](file-sync-cloud-tiering-overview.md). Pour obtenir une explication détaillée des stratégies de hiérarchisation Cloud et des exemples, consultez [Stratégies de hiérarchisation Cloud Azure File Sync](file-sync-cloud-tiering-policy.md).
 
 ## <a name="limitations"></a>Limites
+
 - La hiérarchisation cloud n’est pas prise en charge sur le volume système Windows.
 
-- Vous pouvez toujours activer la hiérarchisation Cloud si vous disposez d’un quota FSRM au niveau du volume. Une fois qu’un quota FSRM est défini, les API de requête d’espace libre appelées signalent automatiquement l’espace libre sur le volume en fonction du quota paramétré. 
+- Vous pouvez toujours activer la hiérarchisation Cloud si vous disposez d’un quota FSRM au niveau du volume. Une fois qu’un quota FSRM est défini, les API de requête d’espace libre appelées signalent automatiquement l’espace libre sur le volume en fonction du quota paramétré.
 
 ### <a name="minimum-file-size-for-a-file-to-tier"></a>Taille de fichier minimum pour un fichier à hiérarchiser
 
@@ -54,7 +55,7 @@ Azure File Sync est pris en charge sur les volumes NTFS avec Windows Server 201
 
 Lors de la création du volume, il est possible que vous ayez mis en forme manuellement le volume avec une taille de cluster différente. Si votre volume provient d’une version antérieure de Windows, les tailles de cluster par défaut peuvent également être différentes. [Cet article contient des informations supplémentaires sur les tailles de cluster par défaut.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Même si vous choisissez une taille de cluster inférieure à 4 Kio, la limite de 8 Kio comme plus petite taille de fichier pouvant être hiérarchisée s’applique toujours. (Même si, techniquement, le double de la taille du cluster équivaut à moins de 8 Kio.)
 
-Ce minimum absolu est dû à la manière dont NTFS stocke les fichiers très petits, de 1 Kio à 4 Kio. En fonction d’autres paramètres du volume, il est possible que les petits fichiers ne soient pas du tout stockés dans un cluster sur le disque. Il est peut-être plus efficace de stocker ces fichiers directement dans la table de fichiers maîtres ou l’« enregistrement de la table MFT » du volume. Le point d’analyse de la hiérarchisation cloud est toujours stocké sur le disque et occupe exactement un cluster. Hiérarchiser de si petits fichiers pourrait ne pas représenter un gain de place. Les cas extrêmes peuvent même finir par utiliser plus d’espace lorsque la hiérarchisation cloud est activée. Pour éviter cela, la plus petite taille d’un fichier que la hiérarchisation cloud organisera est de 8 Kio sur une taille de cluster de 4 Kio ou moins. 
+Ce minimum absolu est dû à la manière dont NTFS stocke les fichiers très petits, de 1 Kio à 4 Kio. En fonction d’autres paramètres du volume, il est possible que les petits fichiers ne soient pas du tout stockés dans un cluster sur le disque. Il est peut-être plus efficace de stocker ces fichiers directement dans la table de fichiers maîtres ou l’« enregistrement de la table MFT » du volume. Le point d’analyse de la hiérarchisation cloud est toujours stocké sur le disque et occupe exactement un cluster. Hiérarchiser de si petits fichiers pourrait ne pas représenter un gain de place. Les cas extrêmes peuvent même finir par utiliser plus d’espace lorsque la hiérarchisation cloud est activée. Pour éviter cela, la plus petite taille d’un fichier que la hiérarchisation cloud organisera est de 8 Kio sur une taille de cluster de 4 Kio ou moins.
 
 ## <a name="selecting-your-initial-policies"></a>Sélection de vos stratégies initiales
 
@@ -68,7 +69,7 @@ Après avoir défini vos stratégies, surveillez la sortie et ajustez les deux s
 
 Si la quantité de fichiers rappelés en continu à partir d’Azure est supérieure à celle que vous souhaitez, vous aurez peut-être plus de fichiers à chaud que d’espace pour les enregistrer sur le volume du serveur local. Augmentez la taille du volume local si possible, et/ou diminuez le pourcentage de votre stratégie d’espace libre du volume par petits incréments. Une diminution trop importante du pourcentage d’espace libre du volume peut avoir des conséquences négatives. Une plus grande attrition de votre jeu de données nécessite plus d’espace libre : pour les nouveaux fichiers et le rappel des fichiers « à froid ». La hiérarchisation commence par un délai pouvant atteindre une heure, puis nécessite du temps de traitement. c’est pourquoi vous devez toujours disposer de suffisamment d’espace libre sur votre volume.
 
-La conservation de davantage de données localement implique une baisse des coûts de sortie car moins de fichiers sont rappelés à partir d’Azure, mais requiert davantage de stockage local, ce qui a un coût. 
+La conservation de davantage de données localement implique une baisse des coûts de sortie car moins de fichiers sont rappelés à partir d’Azure, mais requiert davantage de stockage local, ce qui a un coût.
 
 Lorsque vous ajustez votre stratégie d’espace libre du volume, la quantité de données à conserver en local est déterminée par les facteurs suivants : votre bande passante, le modèle d’accès du jeu de données et le budget. Avec une faible connexion de bande passante, vous pourriez avoir besoin de plus de données locales afin réduire au maximum le décalage pour les utilisateurs. Autrement, vous pouvez baser la quantité d’espace libre du volume sur le taux de variation sur une période donnée. Par exemple, si vous savez que 10 % de votre jeu de données de 1 Tio changent ou sont activement utilisés chaque mois, vous pouvez conserver 100 Gio localement de façon à ne pas rappeler fréquemment des fichiers. Si votre volume est de 2 Tio, vous pouvez conserver 5 % (soit 100 Gio) localement, de sorte que les 95 % restants constituent votre pourcentage d’espace libre du volume. Toutefois, vous devriez ajouter une mémoire tampon pour les périodes de variations plus importantes, c’est-à-dire en commençant par un pourcentage d’espace libre du volume supérieur, puis en l’ajustant si nécessaire par la suite.
 
@@ -76,9 +77,9 @@ Lorsque vous ajustez votre stratégie d’espace libre du volume, la quantité d
 
 - Lors de la migration initiale vers Azure Files via Azure File Sync, la hiérarchisation Cloud dépend du chargement initial
 - La hiérarchisation Cloud vérifie la conformité avec les stratégies d’espace libre du volume et de date toutes les soixante minutes
-- L’utilisation du commutateur /LFSM sur Robocopy lors de la migration de fichiers permet de synchroniser les fichiers et la hiérarchisation Cloud pour libérer de l’espace pendant le chargement initial 
+- L’utilisation du commutateur /LFSM sur Robocopy lors de la migration de fichiers permet de synchroniser les fichiers et la hiérarchisation Cloud pour libérer de l’espace pendant le chargement initial
 - Si la hiérarchisation se produit avant qu’une carte thermique ne soit formé, les fichiers sont hiérarchisés par timestamp de la dernière modification
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Planification d’un déploiement de synchronisation de fichiers Azure](file-sync-planning.md)
+- [Planification d’un déploiement de synchronisation de fichiers Azure](file-sync-planning.md)

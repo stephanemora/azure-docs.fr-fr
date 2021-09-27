@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b8193039edd21db5a52eabca37c1e61880e49cfe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f763c2ca499d68808c70318d2e3651c99b5b09af
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779747"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664204"
 ---
 # <a name="use-case---customer-profiling"></a>Cas d’utilisation - Profilage des utilisateurs
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Pour plus d’informations sur Cortana Intelligence, consultez [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Dans ce document, nous décrivons un cas d'utilisation simple pour vous aider à comprendre comment Azure Data Factory permet de résoudre les problèmes d'analyse courants.
@@ -30,26 +31,26 @@ Pour accéder à ce cas d’utilisation simple et l’essayer, il vous suffit d�
 1. Créez une fabrique de données ou ouvrez une fabrique de données existante. Pour connaître les étapes de création d’une fabrique de données, consultez [Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 2. Dans le panneau **DATA FACTORY** de la fabrique de données, cliquez sur la vignette **Exemples de pipelines**.
 
-    ![Vignette Exemples de pipelines](./media/data-factory-samples/SamplePipelinesTile.png)
+    :::image type="content" source="./media/data-factory-samples/SamplePipelinesTile.png" alt-text="Vignette Exemples de pipelines":::
 3. Dans le panneau **Exemples de pipelines**, cliquez sur le **Profilage des utilisateurs** que vous souhaitez déployer.
 
-    ![Panneau Exemples de pipelines](./media/data-factory-samples/SampleTile.png)
+    :::image type="content" source="./media/data-factory-samples/SampleTile.png" alt-text="Panneau Exemples de pipelines":::
 4. Spécifiez les paramètres de configuration de l’exemple. Par exemple, votre clé et votre nom de compte de stockage Azure, le nom du serveur SQL logique, la base de données, l’ID d’utilisateur et le mot de passe.
 
-    ![Panneau Exemple](./media/data-factory-samples/SampleBlade.png)
+    :::image type="content" source="./media/data-factory-samples/SampleBlade.png" alt-text="Panneau Exemple":::
 5. Une fois que vous avez fini de spécifier les paramètres de configuration, cliquez sur **Créer** pour créer/déployer les exemples de pipelines et les tables/services liés utilisés par les pipelines.
 6. L’état du déploiement s’affiche sur l’exemple de mosaïque sur laquelle vous avez cliqué dans le panneau **Exemples de pipelines**.
 
-    ![état du déploiement](./media/data-factory-samples/DeploymentStatus.png)
+    :::image type="content" source="./media/data-factory-samples/DeploymentStatus.png" alt-text="État du déploiement":::
 7. Lorsque vous voyez le message **Déploiement réussi** sur la mosaïque de l’exemple, fermez le panneau **Exemples de pipelines**.  
 8. Dans le panneau **DATA FACTORY**, vous pouvez voir que les services liés, les jeux de données et les pipelines sont ajoutés à votre fabrique de données.  
 
-    ![Panneau Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
+    :::image type="content" source="./media/data-factory-samples/DataFactoryBladeAfter.png" alt-text="Panneau Data Factory":::
 
 ## <a name="solution-overview"></a>Vue d'ensemble de la solution
 Ce cas d'utilisation simple peut servir d’exemple montrant comment utiliser Azure Data Factory pour recevoir, préparer, transformer, analyser et publier des données.
 
-![Workflow de bout en bout](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
+:::image type="content" source="./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png" alt-text="Workflow de bout en bout":::
 
 Cette figure montre comment les pipelines de données apparaissent dans l’interface utilisateur du portail Azure après leur déploiement.
 

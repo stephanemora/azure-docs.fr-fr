@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 91e771554c5ce1940243eaec4a0ea3cf965c3f8f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 3e60815b2361f4ba14b6a40ded2734c748f8d4ae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468567"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633694"
 ---
-# <a name="transfer-data-with-azcopy-and-file-storage"></a>Transférer des données avec AzCopy et le stockage de fichiers 
+# <a name="transfer-data-with-azcopy-and-file-storage"></a>Transférer des données avec AzCopy et le stockage de fichiers
 
 AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des fichiers vers ou depuis un compte de stockage. Cet article contient des exemples de commandes qui fonctionnent avec Azure Files.
 
@@ -46,10 +46,10 @@ Vous pouvez utiliser la commande [azcopy copy](storage-ref-azcopy-copy.md) pour 
 Cette section contient les exemples suivants :
 
 > [!div class="checklist"]
-> * Charger un fichier
-> * Charger un annuaire
-> * Charger le contenu d’un annuaire
-> * Charger un fichier spécifique
+> - Charger un fichier
+> - Charger un annuaire
+> - Charger le contenu d’un annuaire
+> - Charger un fichier spécifique
 
 > [!TIP]
 > Vous pouvez ajuster votre opération de chargement à l’aide d’indicateurs facultatifs. Voici quelques exemples.  
@@ -58,7 +58,7 @@ Cette section contient les exemples suivants :
 > |---|---|
 > |Copier des listes de contrôle d’accès (ACL) avec les fichiers|**--preserve-smb-permissions**=\[true\|false\]|
 > |Copier des informations de propriété SMB avec les fichiers|**--preserve-smb-info**=\[true\|false\]|
-> 
+>
 > Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
@@ -159,9 +159,9 @@ Vous pouvez également exclure des fichiers à l’aide de l’option `--exclude
 
 Les options `--include-pattern` et `--exclude-pattern` s’appliquent uniquement aux noms de fichiers, et non au chemin.  Si vous souhaitez copier tous les fichiers texte qui existent dans une arborescence de répertoires, utilisez l’option `--recursive` pour obtenir la totalité de l’arborescence de répertoires, puis utilisez `--include-pattern` et spécifiez `*.txt` pour obtenir tous les fichiers texte.
 
-#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Charger les fichiers qui ont été modifiés après une date et une heure 
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Charger les fichiers qui ont été modifiés après une date et une heure
 
-Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`). 
+Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`).
 
 **Syntaxe**
 
@@ -182,10 +182,10 @@ Vous pouvez utiliser la commande [azcopy copy](storage-ref-azcopy-copy.md) pour 
 Cette section contient les exemples suivants :
 
 > [!div class="checklist"]
-> * Téléchargement d’un fichier
-> * Télécharger un annuaire
-> * Télécharger le contenu d’un annuaire
-> * Télécharger des fichiers spécifiques
+> - Téléchargement d’un fichier
+> - Télécharger un annuaire
+> - Télécharger le contenu d’un annuaire
+> - Télécharger des fichiers spécifiques
 
 > [!TIP]
 > Vous pouvez ajuster votre opération de téléchargement à l’aide d’indicateurs facultatifs. Voici quelques exemples.
@@ -195,7 +195,7 @@ Cette section contient les exemples suivants :
 > |Copier des listes de contrôle d’accès (ACL) avec les fichiers|**--preserve-smb-permissions**=\[true\|false\]|
 > |Copier des informations de propriété SMB avec les fichiers|**--preserve-smb-info**=\[true\|false\]|
 > |Décompresser automatiquement les fichiers|**DECOMPRESS**|
-> 
+>
 > Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
@@ -284,9 +284,9 @@ Vous pouvez également exclure des fichiers à l’aide de l’option `--exclude
 
 Les options `--include-pattern` et `--exclude-pattern` s’appliquent uniquement aux noms de fichiers, et non au chemin.  Si vous souhaitez copier tous les fichiers texte qui existent dans une arborescence de répertoires, utilisez l’option `--recursive` pour obtenir la totalité de l’arborescence de répertoires, puis utilisez `--include-pattern` et spécifiez `*.txt` pour obtenir tous les fichiers texte.
 
-#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Télécharger les fichiers qui ont été modifiés après une date et une heure 
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Télécharger les fichiers qui ont été modifiés après une date et une heure
 
-Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`). 
+Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`).
 
 **Syntaxe**
 
@@ -302,7 +302,7 @@ Pour obtenir des informations de référence détaillées, consultez les documen
 
 #### <a name="download-from-a-share-snapshot"></a>Télécharger à partir d’un instantané de partage
 
-Vous pouvez télécharger une version spécifique d’un fichier ou d’un répertoire en référençant la valeur **DateHeure** d’un instantané de partage. Pour en savoir plus sur les instantanés de partage, consultez [Vue d’ensemble des instantanés de partage pour Azure Files](../files/storage-snapshots-files.md). 
+Vous pouvez télécharger une version spécifique d’un fichier ou d’un répertoire en référençant la valeur **DateHeure** d’un instantané de partage. Pour en savoir plus sur les instantanés de partage, consultez [Vue d’ensemble des instantanés de partage pour Azure Files](../files/storage-snapshots-files.md).
 
 **Syntaxe**
 
@@ -326,15 +326,15 @@ Vous pouvez utiliser AzCopy pour copier des fichiers vers d’autres comptes de 
 
 AzCopy utilise des [API](/rest/api/storageservices/put-page-from-url) [serveur à serveur](/rest/api/storageservices/put-block-from-url), de sorte que les données sont copiées directement entre les serveurs de stockage. Ces opérations de copie n’utilisent pas la bande passante réseau de votre ordinateur. Vous pouvez augmenter le débit de ces opérations en définissant la valeur de la variable d’environnement `AZCOPY_CONCURRENCY_VALUE`. Pour plus d’informations, consultez [Augmenter la concurrence](storage-use-azcopy-optimize.md#increase-concurrency).
 
-Vous pouvez également copier des versions spécifiques d’un fichier en référençant la valeur **DateHeure** d’un instantané de partage. Pour en savoir plus sur les instantanés de partage, consultez [Vue d’ensemble des instantanés de partage pour Azure Files](../files/storage-snapshots-files.md). 
+Vous pouvez également copier des versions spécifiques d’un fichier en référençant la valeur **DateHeure** d’un instantané de partage. Pour en savoir plus sur les instantanés de partage, consultez [Vue d’ensemble des instantanés de partage pour Azure Files](../files/storage-snapshots-files.md).
 
 Cette section contient les exemples suivants :
 
 > [!div class="checklist"]
-> * Copier un fichier vers un autre compte de stockage
-> * Copier un répertoire vers un autre compte de stockage
-> * Copier un partage de fichiers vers un autre compte de stockage
-> * Copier tous les partages de fichiers, répertoires et fichiers vers un autre compte de stockage
+> - Copier un fichier vers un autre compte de stockage
+> - Copier un répertoire vers un autre compte de stockage
+> - Copier un partage de fichiers vers un autre compte de stockage
+> - Copier tous les partages de fichiers, répertoires et fichiers vers un autre compte de stockage
 
 > [!TIP]
 > Vous pouvez ajuster votre opération de copie à l’aide d’indicateurs facultatifs. Voici quelques exemples.
@@ -343,7 +343,7 @@ Cette section contient les exemples suivants :
 > |---|---|
 > |Copier des listes de contrôle d’accès (ACL) avec les fichiers|**--preserve-smb-permissions**=\[true\|false\]|
 > |Copier des informations de propriété SMB avec les fichiers|**--preserve-smb-info**=\[true\|false\]|
-> 
+>
 > Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#options).
 
 ### <a name="copy-a-file-to-another-storage-account"></a>Copier un fichier vers un autre compte de stockage
@@ -431,7 +431,7 @@ Vous pouvez synchroniser le contenu d’un système de fichiers local avec un pa
 
 - Si vous affectez la valeur `true` à l’indicateur `--delete-destination`, AzCopy supprime les fichiers sans invite. Si vous souhaitez qu’une invite s’affiche avant que l’utilitaire AzCopy ne supprime un fichier, définissez l’indicateur `--delete-destination` sur `prompt`.
 
-- Si vous envisagez de définir l'indicateur `--delete-destination` sur `prompt` ou `false`, pensez à utiliser la commande [copy](storage-ref-azcopy-copy.md) au lieu de la commande [sync](storage-ref-azcopy-sync.md) et à définir le paramètre `--overwrite` sur `ifSourceNewer`. La commande [copy](storage-ref-azcopy-copy.md) consomme moins de mémoire et génère des coûts de facturation inférieurs, car une opération de copie ne doit pas indexer la source ou la destination avant de déplacer des fichiers. 
+- Si vous envisagez de définir l'indicateur `--delete-destination` sur `prompt` ou `false`, pensez à utiliser la commande [copy](storage-ref-azcopy-copy.md) au lieu de la commande [sync](storage-ref-azcopy-sync.md) et à définir le paramètre `--overwrite` sur `ifSourceNewer`. La commande [copy](storage-ref-azcopy-copy.md) consomme moins de mémoire et génère des coûts de facturation inférieurs, car une opération de copie ne doit pas indexer la source ou la destination avant de déplacer des fichiers.
 
 - L’ordinateur sur lequel vous exécutez la commande de synchronisation doit avoir une horloge système précise, car les heures de la dernière modification sont essentielles pour déterminer si un fichier doit être transféré. Si votre système connaît des décalages d’horloge significatifs, évitez de modifier les fichiers de la destination à un moment trop proche de celui où vous envisagez d’exécuter une commande de synchronisation.
 
@@ -444,12 +444,12 @@ Vous pouvez synchroniser le contenu d’un système de fichiers local avec un pa
 > |Copier des informations de propriété SMB avec les fichiers|**--preserve-smb-info**=\[true\|false\]|
 > |Exclure des fichiers en fonction d’un modèle|**--exclude-path**|
 > |Spécifier le niveau de détail des entrées de journal liées à la synchronisation|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
-> 
+>
 > Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-sync.md#options).
 
 ### <a name="update-a-file-share-with-changes-to-a-local-file-system"></a>Mettre à jour un partage de fichiers avec les modifications apportées à un système de fichiers local
 
-Dans ce cas, le partage de fichiers est la destination et le système de fichiers local est la source. 
+Dans ce cas, le partage de fichiers est la destination et le système de fichiers local est la source.
 
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
@@ -521,7 +521,7 @@ Le premier partage de fichiers qui s’affiche dans cette commande est la source
 
 ```azcopy
 azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-smb-permissions=true --preserve-smb-info=true
-``` 
+```
 
 Pour en savoir plus sur les instantanés de partage, consultez [Vue d’ensemble des instantanés de partage pour Azure Files](../files/storage-snapshots-files.md).
 
@@ -536,5 +536,4 @@ Consultez les articles suivants pour configurer les paramètres, optimiser les p
 
 - [Paramètres de configuration d’AzCopy](storage-ref-azcopy-configuration-settings.md)
 - [Optimiser les performances d’AzCopy](storage-use-azcopy-optimize.md)
-- [Résoudre les problèmes d’AzCopy v10 dans Stockage Azure en utilisant des fichiers journaux](storage-use-azcopy-configure.md)
-
+- [Résoudre les problèmes d’AzCopy V10 dans le stockage Azure à l’aide de fichiers journaux](storage-use-azcopy-configure.md)

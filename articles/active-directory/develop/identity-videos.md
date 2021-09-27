@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.author: marsma
 ms.custom: aaddev, has-adal-ref
 ms.reviewer: celested
-ms.openlocfilehash: f9fac943ee19334eb241a6e0ee8601a8a0fc797c
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 18a097e0677aa97a6af56d1ed1930355354c276c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122563994"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615336"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Vidéos sur la plateforme d’identités Microsoft
 
@@ -208,122 +208,122 @@ ___
         >[!Video https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=apbbx2n4tnU" target="_blank">Microsoft Graph et Microsoft Authentication Library (MSAL)</a> [vidéo en anglais]
-    :::column-end:::
-    :::column:::
-        >[!Video https://www.youtube.com/embed/apbbx2n4tnU]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
         <a href="https://www.youtube.com/watch?v=yLVEBU9Z96Q" target="_blank">Qu'est-ce que la famille de bibliothèques MSAL ?</a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/yLVEBU9Z96Q]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=eiPHOoLmGJs" target="_blank">Explication des étendues</a> (vidéo en anglais)
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/eiPHOoLmGJs]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=Zd_Uubnu0U0" target="_blank">Que sont les répartiteurs ?</a> (vidéo en anglais)
     :::column-end:::
     :::column:::
-        >[!Video https://www.youtube.com/embed/Zd_Uubnu0U0]
+       >[!Video https://www.youtube.com/embed/Zd_Uubnu0U0]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=znSN_3JAuoU" target="_blank">Que font les URI de redirection ?</a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=mDhT4Zv1fZU" target="_blank">Explication des locataires</a> (vidéo en anglais)
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/mDhT4Zv1fZU]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=zDEC7A5ZS2Q" target="_blank">Rôle d’Azure AD</a> (vidéo en anglais)
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=HEpq_YSmuWw" target="_blank">Rôle des objets d'application Azure AD</a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/HEpq_YSmuWw]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=E2OUluQQKSk" target="_blank">Différences entre un compte Microsoft d'organisation et un compte Microsoft personnel</a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=ZJirt7eTVw8" target="_blank">Différences entre SPA et une application web</a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/ZJirt7eTVw8]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank">Quelle est la différence entre les autorisations d'application et les autorisations déléguées ?</a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/6R3W9T01gdE]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank">Qu'est-ce qu'une plateforme d'identités Microsoft certifiée OpenID Connect ?</a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/Gm6sALdXtpg]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">Quels sont les différents types d'applications Azure Active Directory et en quoi se différencient-elles ?</a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/NrydwrckYaw]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">Si vous utilisez MSAL, quels concepts essentiels relatifs aux protocoles devez-vous connaître ? </a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/cZKgTqF4o88]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">Quelle est la différence entre les jetons d'ID, les jetons d'accès, les jetons d'actualisation et les jetons de session ? </a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/41vmzPdbfXM]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">Quelle est la relation entre une demande d'autorisation et des jetons ? </a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/jEEwN7XAtUo]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">Quels aspects de l'utilisation des protocoles sont facilités par les bibliothèques MSAL ? </a> [vidéo en anglais]
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/4pwuRYcZbz4]
+    :::column-end:::
+    :::column:::
+
+    :::column-end:::
+    :::column:::
+
     :::column-end:::
 :::row-end:::
 

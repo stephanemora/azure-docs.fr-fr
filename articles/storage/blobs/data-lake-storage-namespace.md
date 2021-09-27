@@ -8,12 +8,12 @@ ms.date: 04/01/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: de7f62dd4d4205e819278e6dc90d905e825580f2
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 4eaee714d079836e0919621b2d2e5661d07dfe80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220502"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664843"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espace de noms hiérarchique d’Azure Data Lake Storage Gen2
 
@@ -35,9 +35,9 @@ Auparavant, les magasins d’objets ne prenaient pas en charge les espaces de no
 
 Une fois que vous avez activé un espace de noms hiérarchique sur votre compte, vous ne pouvez pas revenir à un espace de noms plat. Par conséquent, déterminez s’il est judicieux d’activer un espace de noms hiérarchique basé sur la nature de vos charges de travail de magasin d’objets.
 
-Certaines charges de travail peuvent ne pas tirer profit de l’activation d’un espace de noms hiérarchique. Ces charges de travail sont, par exemple, les sauvegardes, le stockage d’images et d’autres applications où l’organisation des objets est stockées séparément des objets eux-mêmes (dans une base de données distincte, par exemple). 
+Certaines charges de travail peuvent ne pas tirer profit de l’activation d’un espace de noms hiérarchique. Ces charges de travail sont, par exemple, les sauvegardes, le stockage d’images et d’autres applications où l’organisation des objets est stockées séparément des objets eux-mêmes (dans une base de données distincte, par exemple).
 
-En outre, bien que la prise en charge des fonctionnalités de stockage d’objets blob et de l’écosystème de service Azure continue de croître, certaines fonctionnalités et certains services Azure ne sont toujours pas encore pris en charge dans les comptes dotés d’un espace de noms hiérarchique. Voir [Problèmes connus](data-lake-storage-known-issues.md). 
+En outre, bien que la prise en charge des fonctionnalités de stockage d’objets blob et de l’écosystème de service Azure continue de croître, certaines fonctionnalités et certains services Azure ne sont toujours pas encore pris en charge dans les comptes dotés d’un espace de noms hiérarchique. Voir [Problèmes connus](data-lake-storage-known-issues.md).
 
 En règle générale, nous vous conseillons d’activer un espace de noms hiérarchique pour les charges de travail de stockage conçues pour des systèmes de fichiers qui manipulent des répertoires. Il s’agit de toutes les charges de travail destinées principalement au traitement analytique. Les jeux de données qui nécessitent un degré élevé d’organisation peuvent aussi tirer profit de l’activation d’un espace de noms hiérarchique.
 
