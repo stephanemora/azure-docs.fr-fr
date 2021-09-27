@@ -1,19 +1,17 @@
 ---
 title: Chiffrement dans Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Le chiffrement dans Azure Data Lake Storage Gen1 vous permet de protéger vos données, de mettre en œuvre des stratégies de sécurité d’entreprise et de répondre aux exigences de conformité réglementaire. Cet article fournit une vue d’ensemble de la conception et présente certains aspects techniques de la mise en œuvre.
-services: data-lake-store
-documentationcenter: ''
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: twooley
-ms.openlocfilehash: dda173278f2bb788b0768fc891b951793224bf77
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.author: normesta
+ms.openlocfilehash: f0b24fd25a0fa95d6ed8561349987f9cb5fc5ee3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113006155"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596122"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Chiffrement des données dans Azure Data Lake Storage Gen1
 

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/16/2021
-ms.openlocfilehash: 2e5fead1f110be10e806292a67c208b275959a83
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 9b378b4cfb9bb35f1fb2a555afed195ac6b84dc3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641377"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678684"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory-and-azure-synapse-analytics"></a>Expressions et fonctions dans Azure Data Factory et Azure Synapse Analytics
 
@@ -210,11 +210,35 @@ Cela [tutoriel](https://azure.microsoft.com/mediahandler/files/resourcefiles/azu
 ## <a name="functions"></a>Fonctions
 
 Vous pouvez appeler des fonctions dans des expressions. Les sections suivantes fournissent des informations sur les fonctions qui peut être utilisées dans une expression.  
+  
+## <a name="date-functions"></a>Fonctions de date  
+
+| Fonction de date ou heure | Tâche |
+| --------------------- | ---- |
+| [addDays](control-flow-expression-language-functions.md#addDays) | Ajoute un nombre de jours à un horodatage. |
+| [addHours](control-flow-expression-language-functions.md#addHours) | Ajoute un nombre d’heures à un horodatage. |
+| [addMinutes](control-flow-expression-language-functions.md#addMinutes) | Ajoute un nombre de minutes à un horodatage. |
+| [addSeconds](control-flow-expression-language-functions.md#addSeconds) | Ajoute un nombre de secondes à un horodatage. |
+| [addToTime](control-flow-expression-language-functions.md#addToTime) | Ajoute un nombre d’unités de temps à un horodatage. Voir aussi [getFutureTime](control-flow-expression-language-functions.md#getFutureTime). |
+| [convertFromUtc](control-flow-expression-language-functions.md#convertFromUtc) | Convertit un horodatage du temps universel coordonné (UTC) au fuseau horaire cible. |
+| [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | Convertit un horodatage du fuseau horaire source au fuseau horaire cible. |
+| [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | Convertit un horodatage du fuseau horaire source en temps universel coordonné (UTC). |
+| [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Renvoyer le jour du composant mois d’un timestamp. |
+| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Renvoyer le jour du composant semaine d’un timestamp. |
+| [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Renvoyer le jour du composant année d’un timestamp. |
+| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Retourner l’horodatage sous forme de chaîne dans un format facultatif. |
+| [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Retourne l’horodatage actuel plus les unités de temps spécifiées. Voir aussi [addToTime](control-flow-expression-language-functions.md#addToTime). |
+| [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Retourne l’horodatage actuel moins les unités de temps spécifiées. Voir aussi [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
+| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Retourne le début du jour d’un horodatage. |
+| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | Retourne le début de l’heure d’un horodatage. |
+| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | Retourne le début du mois pour un horodatage. |
+| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | Soustrait un nombre d’unités de temps d’un horodatage. Voir aussi [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
+| [ticks](control-flow-expression-language-functions.md#ticks) | Retourne la valeur de la propriété `ticks` pour un horodatage spécifique. |
+| [utcNow](control-flow-expression-language-functions.md#utcNow) | Renvoyer le timestamp actuel sous forme de chaîne. |
 
 ## <a name="string-functions"></a>Fonctions de chaînes  
 
-Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne, ainsi que certaines [fonctions de collection](#collection-functions).
-Les fonctions de chaîne sont uniquement utilisables sur des chaînes.
+Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne, ainsi que certaines [fonctions de collection](#collection-functions).  Les fonctions de chaîne sont uniquement utilisables sur des chaînes.
 
 | Fonction de chaîne | Tâche |
 | --------------- | ---- |
@@ -315,31 +339,6 @@ Ces fonctions sont utiles à l’intérieur de conditions, et permettent d’év
 | [rand](control-flow-expression-language-functions.md#rand) | Renvoyer un entier aléatoire à partir d’une plage spécifique. |
 | [range](control-flow-expression-language-functions.md#range) | Retourne un tableau d’entiers qui commence par un entier spécifique. |
 | [sub](control-flow-expression-language-functions.md#sub) | Retourne le résultat de la soustraction du second nombre du premier. |
-  
-## <a name="date-functions"></a>Fonctions de date  
-
-| Fonction de date ou heure | Tâche |
-| --------------------- | ---- |
-| [addDays](control-flow-expression-language-functions.md#addDays) | Ajoute un nombre de jours à un horodatage. |
-| [addHours](control-flow-expression-language-functions.md#addHours) | Ajoute un nombre d’heures à un horodatage. |
-| [addMinutes](control-flow-expression-language-functions.md#addMinutes) | Ajoute un nombre de minutes à un horodatage. |
-| [addSeconds](control-flow-expression-language-functions.md#addSeconds) | Ajoute un nombre de secondes à un horodatage. |
-| [addToTime](control-flow-expression-language-functions.md#addToTime) | Ajoute un nombre d’unités de temps à un horodatage. Voir aussi [getFutureTime](control-flow-expression-language-functions.md#getFutureTime). |
-| [convertFromUtc](control-flow-expression-language-functions.md#convertFromUtc) | Convertit un horodatage du temps universel coordonné (UTC) au fuseau horaire cible. |
-| [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | Convertit un horodatage du fuseau horaire source au fuseau horaire cible. |
-| [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | Convertit un horodatage du fuseau horaire source en temps universel coordonné (UTC). |
-| [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Renvoyer le jour du composant mois d’un timestamp. |
-| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Renvoyer le jour du composant semaine d’un timestamp. |
-| [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Renvoyer le jour du composant année d’un timestamp. |
-| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Retourner l’horodatage sous forme de chaîne dans un format facultatif. |
-| [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Retourne l’horodatage actuel plus les unités de temps spécifiées. Voir aussi [addToTime](control-flow-expression-language-functions.md#addToTime). |
-| [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Retourne l’horodatage actuel moins les unités de temps spécifiées. Voir aussi [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
-| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Retourne le début du jour d’un horodatage. |
-| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | Retourne le début de l’heure d’un horodatage. |
-| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | Retourne le début du mois pour un horodatage. |
-| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | Soustrait un nombre d’unités de temps d’un horodatage. Voir aussi [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
-| [ticks](control-flow-expression-language-functions.md#ticks) | Retourne la valeur de la propriété `ticks` pour un horodatage spécifique. |
-| [utcNow](control-flow-expression-language-functions.md#utcNow) | Renvoyer le timestamp actuel sous forme de chaîne. |
 
 ## <a name="function-reference"></a>Référence des fonctions
 

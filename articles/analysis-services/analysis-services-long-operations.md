@@ -6,19 +6,19 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: owend
-ms.openlocfilehash: e5b5f61900f3ca82509718e765f2a62ccd163ecf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 65d1b6cbee1040846fec2d8e1dd8153eedf9eabc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145876"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580962"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Meilleures pratiques en matière d'opérations de longue durée
 
 Dans Azure Analysis Services, un *nœud* représente une machine virtuelle hôte sur laquelle une ressource de serveur s'exécute. Certaines opérations, telles que les requêtes longues, les opérations d’actualisation et la synchronisation de la montée en puissance des requêtes, peuvent échouer si une ressource de serveur est déplacée vers un autre nœud. Dans ce scénario, les messages d’erreur courants sont les suivants :
 
 - « Une erreur s’est produite lors de la tentative de localisation d’une requête XMLA longue. La requête a peut-être été interrompue en raison d'une mise à niveau du service ou d'un redémarrage du serveur. »
-- « La tâche portant l'ID <guid>pour le modèle <database> a été annulée en raison d’une erreur du service (inactivité) avec le message « Annulation de la demande d’actualisation, car celle-ci était bloquée sans mise à jour. Il s'agit d'un problème de service interne. Soumettez à nouveau le travail ou envoyez un ticket pour obtenir de l’aide si ce problème se produit de façon répétée. »
+- « La tâche portant l'ID \<guid\>pour le modèle \<database\> a été annulée en raison d’une erreur du service (inactivité) avec le message « Annulation de la demande d’actualisation, car celle-ci était bloquée sans mise à jour. Il s'agit d'un problème de service interne. Soumettez à nouveau le travail ou envoyez un ticket pour obtenir de l’aide si ce problème se produit de façon répétée. »
 
 Les opérations de longue durée peuvent être interrompues pour de nombreuses raisons. Par exemple, les mises à jour dans Azure, telles que : 
 - Correctifs de système d'exploitation. 

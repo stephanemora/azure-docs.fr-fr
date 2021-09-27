@@ -1,19 +1,17 @@
 ---
 title: Créer une applicationde carte accessible avec Azure Maps | Microsoft Azure Maps
 description: En savoir plus sur les considérations relatives à l’accessibilité dans Azure Maps. Découvrez les fonctionnalités disponibles pour rendre les applications cartographiques accessibles et affichez des conseils sur l’accessibilité.
-services: azure-maps
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
-manager: cpendleton
-ms.openlocfilehash: 954dd8ad65d0a9c90e19530d541c19b5034bc175
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 7f0aa739df4b58435f0caebacdab3865dce284e2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208110"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432789"
 ---
 # <a name="building-an-accessible-application"></a>Création d’une application accessible
 
@@ -127,7 +125,7 @@ L’exemple suivant charge des points d’intérêt sur la carte à l’aide d�
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Créer une application accessible' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Créer une application accessible</a> d’Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) sur <a href='https://codepen.io'>CodePen</a>. </iframe>
+<iframe height='500' scrolling='no' title='Créer une application accessible' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez la page <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Créer une application accessible</a> d’Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) sur <a href='https://codepen.io'>CodePen</a>. </iframe>
 
 <br/>
 

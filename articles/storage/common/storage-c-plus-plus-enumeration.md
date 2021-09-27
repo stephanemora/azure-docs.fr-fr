@@ -1,19 +1,19 @@
 ---
 title: Répertorier les ressources Stockage Azure avec la bibliothèque de client C++
 description: Apprenez à utiliser les API de listage de la bibliothèque cliente Microsoft Azure Storage pour C++ pour énumérer conteneurs, objets blob, files d'attente, tables et autres entités.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 01/23/2017
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 72b08a79ead90207c48c4fa682b708a0627b5df3
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c034f8df787d60ab8d260fb9f99c0938d4fb55af
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279627"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560427"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listage des ressources Azure Storage en C++
 
@@ -24,11 +24,11 @@ Les opérations de listage sont essentielles dans de nombreux scénarios de dév
 
 La bibliothèque cliente Storage propose diverses méthodes pour lister ou interroger les objets présents dans Azure Storage. Cet article traite les scénarios suivants :
 
-* liste les conteneurs présents dans un compte ;
-* lister les objets blob présents dans un conteneur ou un répertoire d'objets blob virtuel ;
-* lister les files d'attente contenues dans un compte ;
-* lister les tables contenues dans un compte ;
-* interroger les entités d’une table.
+- liste les conteneurs présents dans un compte ;
+- lister les objets blob présents dans un conteneur ou un répertoire d'objets blob virtuel ;
+- lister les files d'attente contenues dans un compte ;
+- lister les tables contenues dans un compte ;
+- interroger les entités d’une table.
 
 Chacune de ces méthodes est présentée en utilisant différentes surcharges qui varient en fonction des scénarios.
 
@@ -59,8 +59,8 @@ Il est donc impossible de lister tous les objets dans une même réponse. En rev
 
 La réponse à une opération de listage segmenté comporte les éléments suivants :
 
-* *_segment*, qui contient le jeu de résultats retourné pour un seul appel à l'API de listage ;
-* *continuation_token* (jeton de liaison), qui est transmis à l’appel suivant pour obtenir la page de résultats suivante. Quand il n’y a plus de résultats à retourner, le jeton de liaison prend la valeur null.
+- *_segment*, qui contient le jeu de résultats retourné pour un seul appel à l'API de listage ;
+- *continuation_token* (jeton de liaison), qui est transmis à l’appel suivant pour obtenir la page de résultats suivante. Quand il n’y a plus de résultats à retourner, le jeton de liaison prend la valeur null.
 
 Par exemple, un appel type destiné à lister tous les objets blob présents dans un conteneur peut ressembler à l'extrait de code suivant. Le code est disponible dans nos [exemples](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
@@ -187,18 +187,18 @@ Les API de listage paresseux sont incluses dans la bibliothèque cliente Storage
 
 Dans cet article, nous nous sommes intéressés à différentes surcharges pour API de listage pour divers objets de la bibliothèque cliente Storage pour C++. Pour résumer :
 
-* Les API asynchrones sont vivement recommandées dans divers scénarios de threading.
-* Le listage segmenté est recommandé dans la plupart des scénarios.
-* Le listage paresseux est fourni dans la bibliothèque sous forme de wrapper, qui s’avère pratique dans les scénarios synchrones.
-* Le listage vorace est déconseillé et a été retiré de la bibliothèque.
+- Les API asynchrones sont vivement recommandées dans divers scénarios de threading.
+- Le listage segmenté est recommandé dans la plupart des scénarios.
+- Le listage paresseux est fourni dans la bibliothèque sous forme de wrapper, qui s’avère pratique dans les scénarios synchrones.
+- Le listage vorace est déconseillé et a été retiré de la bibliothèque.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations sur Azure Storage et la bibliothèque cliente pour C++, consultez les ressources suivantes :
 
-* [Utilisation du stockage d'objets blob à partir de C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Utilisation du stockage de tables à partir de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Utilisation du service de stockage de files d'attente à partir de C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
-* [Documentation sur les API de la bibliothèque cliente Azure Storage pour C++.](https://azure.github.io/azure-storage-cpp/)
-* [Blog de l'équipe Azure Storage](/archive/blogs/windowsazurestorage/)
-* [Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+- [Utilisation du stockage d'objets blob à partir de C++](../blobs/quickstart-blobs-c-plus-plus.md)
+- [Utilisation du stockage de tables à partir de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+- [Utilisation du service de stockage de files d'attente à partir de C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
+- [Documentation sur les API de la bibliothèque cliente Azure Storage pour C++.](https://azure.github.io/azure-storage-cpp/)
+- [Blog de l'équipe Azure Storage](/archive/blogs/windowsazurestorage/)
+- [Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

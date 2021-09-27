@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 39dc20f240ba051dd5b49ddbbcc99a20b732ec77
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: fe9b445a1eccb6c897a1fd7f383e487714c23966
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273383"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575931"
 ---
 # <a name="associate-a-virtual-machine-scale-set-to-a-capacity-reservation-group-preview"></a>Associer un groupe de machines virtuelles identiques à un groupe de réservations de capacité (version préliminaire)
 
@@ -31,10 +31,6 @@ Pour en savoir plus sur ces modes, consultez [Modes d’orchestration des groupe
 ## <a name="register-for-capacity-reservation"></a>S’inscrire à la réservation de capacité 
 
 Avant de pouvoir utiliser la fonctionnalité Réservation de capacité, vous devez [inscrire votre abonnement pour la préversion](capacity-reservation-overview.md#register-for-capacity-reservation). L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour finaliser l’inscription de la fonctionnalité.
-
-> [!NOTE]
-> La réservation de capacité à la demande est disponible pour les groupes de machines virtuelles identiques en mode d’orchestration uniforme uniquement dans les régions sélectionnées. Pour vérifier si votre région est prise en charge, accédez au [Traqueur de déploiement de groupe de machines virtuelles identiques uniformes](https://aka.ms/vmssuniformdeploymenttracker).
-
 
 ## <a name="limitations-of-scale-sets-in-uniform-orchestration"></a>Limitations des groupes identiques dans l’orchestration uniforme 
 
@@ -109,7 +105,7 @@ Pour en savoir plus, allez voir la commande Azure PowerShell [New-AzVmss](/power
 
 ### <a name="arm-template"></a>[Modèle ARM](#tab/arm1)
 
-Un  [modèle ARM](/azure/azure-resource-manager/templates/overview)  est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative. Dans la syntaxe déclarative, vous décrivez le déploiement souhaité sans écrire la séquence de commandes de programmation pour créer le déploiement. 
+Un  [modèle ARM](../azure-resource-manager/templates/overview.md)  est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative. Dans la syntaxe déclarative, vous décrivez le déploiement souhaité sans écrire la séquence de commandes de programmation pour créer le déploiement. 
 
 Les modèles ARM vous permettent de déployer des groupes de ressources associées. Dans un modèle unique, vous pouvez créer un groupe de réservations de capacité et des réservations de capacité. Vous pouvez déployer des modèles via le Portail Azure, Azure CLI ou Azure PowerShell, ou à partir de pipelines d’intégration continue/de livraison continue. 
 

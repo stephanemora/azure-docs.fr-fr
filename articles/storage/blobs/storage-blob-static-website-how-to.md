@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurepowershell
-ms.openlocfilehash: b4279d296c9948d9fbb06174c7c379cd067666dc
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 46c22fe3033a9fc9cda90bf9901f10f20355838e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677298"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645889"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Héberger un site web statique dans Stockage Azure
 
@@ -35,15 +35,15 @@ L’hébergement de site web statique est une fonctionnalité que vous devez act
 
 4. Sélectionnez **Activé** pour activer l’hébergement de site web statique pour le compte de stockage.
 
-5. Dans le champ **Nom du document d’index**, spécifiez une page d’index par défaut (par exemple, *index.html*). 
+5. Dans le champ **Nom du document d’index**, spécifiez une page d’index par défaut (par exemple, *index.html*).
 
-   La page d’index par défaut s’affiche quand un utilisateur accède à la racine de votre site web statique.  
+   La page d’index par défaut s’affiche quand un utilisateur accède à la racine de votre site web statique.
 
-6. Dans le champ **Chemin du document d’erreur**, spécifiez une page d’erreur par défaut (par exemple, *404.html*). 
+6. Dans le champ **Chemin du document d’erreur**, spécifiez une page d’erreur par défaut (par exemple, *404.html*).
 
    La page d’erreur par défaut s’affiche quand un utilisateur tente d’accéder à une page qui n’existe pas dans votre site web statique.
 
-7. Cliquez sur **Enregistrer**. Le portail Azure affiche maintenant le point de terminaison de votre site web statique. 
+7. Cliquez sur **Enregistrer**. Le portail Azure affiche maintenant le point de terminaison de votre site web statique.
 
     ![Activer l’hébergement de site web statique pour un compte de stockage](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -69,11 +69,11 @@ Vous pouvez activer l’hébergement de site web statique à l’aide de l’[in
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
    ```
 
-   * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
+   - Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
-   * Remplacez l’espace réservé `<error-document-name>` par le nom du document d’erreur qui s’affiche quand un navigateur demande sur votre site une page inexistante.
+   - Remplacez l’espace réservé `<error-document-name>` par le nom du document d’erreur qui s’affiche quand un navigateur demande sur votre site une page inexistante.
 
-   * Remplacez la valeur d’espace réservé `<index-document-name>` par le nom du document d’index. Ce document est généralement « index.html ».
+   - Remplacez la valeur d’espace réservé `<index-document-name>` par le nom du document d’index. Ce document est généralement « index.html ».
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -113,9 +113,9 @@ Vous pouvez activer l’hébergement de site web statique à l’aide du module 
    $ctx = $storageAccount.Context
    ```
 
-   * Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
+   - Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
 
-   * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
+   - Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
 6. Activez l’hébergement de site web statique.
 
@@ -123,13 +123,13 @@ Vous pouvez activer l’hébergement de site web statique à l’aide du module 
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * Remplacez l’espace réservé `<error-document-name>` par le nom du document d’erreur qui s’affiche quand un navigateur demande sur votre site une page inexistante.
+   - Remplacez l’espace réservé `<error-document-name>` par le nom du document d’erreur qui s’affiche quand un navigateur demande sur votre site une page inexistante.
 
-   * Remplacez la valeur d’espace réservé `<index-document-name>` par le nom du document d’index. Ce document est généralement « index.html ».
+   - Remplacez la valeur d’espace réservé `<index-document-name>` par le nom du document d’index. Ce document est généralement « index.html ».
 
 ---
 
-## <a name="upload-files"></a>Charger des fichiers 
+## <a name="upload-files"></a>Charger des fichiers
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -143,11 +143,11 @@ Ces instructions vous indiquent comment charger des fichiers à l’aide de la v
 
    ![Charger des fichiers](media/storage-blob-static-website/storage-blob-static-website-upload.png)
 
-4. Si vous souhaitez que le navigateur affiche le contenu du fichier, vérifiez que le type de contenu de ce fichier est défini sur `text/html`. 
+4. Si vous souhaitez que le navigateur affiche le contenu du fichier, vérifiez que le type de contenu de ce fichier est défini sur `text/html`.
 
    ![Vérifier le type du contenu](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
-   >[!NOTE]
+   > [!NOTE]
    > L’Explorateur Stockage définit automatiquement cette propriété sur `text/html` pour les extensions courantes comme `.html`. Toutefois, dans certains cas, vous devrez la définir vous-même. Si vous ne définissez pas cette propriété sur `text/html`, le navigateur invitera les utilisateurs à télécharger le fichier au lieu d’afficher son contenu. Pour définir cette propriété, cliquez avec le bouton droit sur le fichier, puis cliquez sur **Propriétés**.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -160,12 +160,12 @@ Cet exemple part du principe que vous exécutez des commandes à partir d’une 
 az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
-> [!NOTE] 
-> Si le navigateur invite les utilisateurs à télécharger le fichier au lieu de restituer le contenu, vous pouvez ajouter `--content-type 'text/html; charset=utf-8'` à la commande. 
+> [!NOTE]
+> Si le navigateur invite les utilisateurs à télécharger le fichier au lieu de restituer le contenu, vous pouvez ajouter `--content-type 'text/html; charset=utf-8'` à la commande.
 
-* Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
+- Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
-* Remplacez la valeur d’espace réservé `<source-path>` par le chemin d’accès de l’emplacement où se trouvent les fichiers que vous voulez charger.
+- Remplacez la valeur d’espace réservé `<source-path>` par le chemin d’accès de l’emplacement où se trouvent les fichiers que vous voulez charger.
 
 > [!NOTE]
 > Si vous utilisez l’emplacement d’installation d’Azure CLI, vous pouvez utiliser le chemin d’accès de tout emplacement sur votre ordinateur local. Par exemple : `C:\myFolder`.
@@ -184,12 +184,12 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 -Context $ctx
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Si le navigateur invite les utilisateurs à télécharger le fichier au lieu de restituer le contenu, vous pouvez ajouter `-Properties @{ ContentType = "text/html; charset=utf-8";}` à la commande.
 
-* Remplacez la valeur d’espace réservé `<path-to-file>` par le chemin d’accès complet du fichier que vous souhaitez charger (par exemple, `C:\temp\index.html`).
+- Remplacez la valeur d’espace réservé `<path-to-file>` par le chemin d’accès complet du fichier que vous souhaitez charger (par exemple, `C:\temp\index.html`).
 
-* Remplacez la valeur d’espace réservé `<blob-name>` par le nom que vous souhaitez attribuer à l’objet blob obtenu (par exemple, `index.html`).
+- Remplacez la valeur d’espace réservé `<blob-name>` par le nom que vous souhaitez attribuer à l’objet blob obtenu (par exemple, `index.html`).
 
 ---
 
@@ -213,9 +213,9 @@ Recherchez l’URL publique de votre site web statique à l’aide de la command
 az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
 ```
 
-* Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
+- Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
-* Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
+- Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -226,9 +226,9 @@ Recherchez l’URL publique de votre site web statique à l’aide de la command
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-* Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
+- Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
 
-* Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
+- Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
 ---
 
@@ -270,9 +270,9 @@ Une fois les métriques activées, les statistiques de trafic relatives aux fich
 
    ![Valeur GetWebContent des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-   >[!NOTE]
+   > [!NOTE]
    > La case à cocher **GetWebContent** s’affiche uniquement si ce membre d’API a été utilisé dans un délai d'exécution donné. Le portail affiche uniquement les membres d’API utilisés dans un délai d’exécution donné afin de se focaliser exclusivement sur les membres qui renvoient des données. Si vous ne trouvez pas un membre d’API spécifique dans cette liste, développez le délai d’exécution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Apprenez à configurer un domaine personnalisé avec votre site web statique. Consultez [Mapper un domaine personnalisé à un point de terminaison de Stockage Blob Azure](storage-custom-domain-name.md).
+- Apprenez à configurer un domaine personnalisé avec votre site web statique. Consultez [Mapper un domaine personnalisé à un point de terminaison de Stockage Blob Azure](storage-custom-domain-name.md).

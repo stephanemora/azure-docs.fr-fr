@@ -3,21 +3,21 @@ title: Vue d’ensemble de la traduction vocale – service Speech
 titleSuffix: Azure Cognitive Services
 description: La traduction vocale vous permet d’ajouter à vos applications, outils et appareils la traduction entière, en temps réel et en plusieurs langues d’un contenu oral. La même API peut être utilisée pour la traduction de parole en parole et de parole en texte. Cet article est une vue d’ensemble des avantages et des capacités du service de traduction vocale.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traduction vocale
-ms.openlocfilehash: 75dc95239533df96c2864d0cb08b06ebfac389e5
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 0d58185b5df333ca8066648294f43a81209fbf2e
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533104"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537442"
 ---
 # <a name="what-is-speech-translation"></a>Qu’est-ce que la traduction vocale ?
 

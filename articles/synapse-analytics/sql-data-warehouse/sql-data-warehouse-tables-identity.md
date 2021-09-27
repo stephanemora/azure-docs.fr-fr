@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9ee0108e4567199b7bbf1b52222c1ab14e2837be
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: f4ae68478bf1e964fe2539f25e11ed27645f7a62
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113005327"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541924"
 ---
 # <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>Utilisation d’IDENTITY pour créer des clés de substitution à l’aide d’un pool SQL dédié dans AzureSynapse Analytics
 
@@ -164,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Il n’est pas possible d’utiliser `CREATE TABLE AS SELECT` actuellement lors du chargement des données dans une table comportant une colonne IDENTITY.
 >
 
-Pour plus d’informations sur le chargement de données, consultez [Conception du processus ELT pour le pool SQL dédié](design-elt-data-loading.md) et [Meilleures pratiques de chargement](guidance-for-loading-data.md).
+Pour plus d’informations sur le chargement de données, consultez [Conception du processus ELT pour le pool SQL dédié](design-elt-data-loading.md) et [Meilleures pratiques de chargement](../sql/data-loading-best-practices.md).
 
 ## <a name="system-views"></a>Vues système
 

@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 857e5ba3c4251e49dd84726697164f87e0a96bc6
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 9d43b91fcebff017d6d18ee736cfddc858650fc7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653175"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620195"
 ---
 # <a name="process-change-feed-in-azure-blob-storage"></a>Traiter le flux de modification dans Stockage Blob Azure
 
@@ -31,13 +31,15 @@ Pour en savoir plus sur le flux de modification, consultez [Flux de modification
 dotnet add package Azure.Storage.Blobs --version 12.5.1
 dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
+
+
 ## <a name="read-records"></a>Lire les enregistrements
 
 > [!NOTE]
 > Le flux de modification est une entité immuable et en lecture seule dans votre compte de stockage. Un nombre quelconque d’applications peut lire et traiter le flux de modification simultanément et de manière indépendante. Les enregistrements ne sont pas supprimés du flux de modification quand une application les lit. L’état de lecture ou d’itération de chaque lecteur de consommation est indépendant et géré uniquement par votre application.
 
 Cet exemple procède à l'itération de tous les enregistrements du flux de modification, les ajoute à une liste, puis renvoie cette liste à l'appelant.
- 
+
 ```csharp
 public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionString)
 {
@@ -59,7 +61,7 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionSt
 }
 ```
 
-Cet exemple imprime sur la console quelques valeurs de chaque enregistrement de la liste. 
+Cet exemple imprime sur la console quelques valeurs de chaque enregistrement de la liste.
 
 ```csharp
 public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
@@ -81,7 +83,7 @@ public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
 
 Vous pouvez choisir d'enregistrer votre position de lecture dans le flux de modification, puis de reprendre ultérieurement l'itération des enregistrements. Vous pouvez enregistrer la position de lecture en obtenant le curseur du flux de modification. Le curseur est une **chaîne** et votre application peut enregistrer cette chaîne de la manière qui convient le mieux à la conception de votre application (par exemple : dans un fichier ou une base de données).
 
-Cet exemple procède à l'itération de tous les enregistrements du flux de modification, les ajoute à une liste et enregistre le curseur. La liste et le curseur sont renvoyés à l'appelant. 
+Cet exemple procède à l'itération de tous les enregistrements du flux de modification, les ajoute à une liste et enregistre le curseur. La liste et le curseur sont renvoyés à l'appelant.
 
 ```csharp
 public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCursorAsync
@@ -103,10 +105,10 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
     foreach (BlobChangeFeedEvent changeFeedEvent in enumerator.Current.Values)
     {
-    
+
         changeFeedEvents.Add(changeFeedEvent);             
     }
-    
+
     // Update the change feed cursor.  The cursor is not required to get each page of events,
     // it is intended to be saved and used to resume iterating at a later date.
     cursor = enumerator.Current.ContinuationToken;
@@ -118,7 +120,7 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 Vous pouvez choisir de traiter les enregistrements du flux de modification à mesure qu'ils sont validés dans le flux de modification. Voir [Spécifications](storage-blob-change-feed.md#specifications). Les événements de modification sont publiés dans le flux de modification à une fréquence de 60 secondes en moyenne. Nous vous recommandons d'interroger les nouvelles modifications en tenant compte de cette fréquence lorsque vous spécifiez votre intervalle d'interrogation.
 
-Cet exemple interroge périodiquement les modifications.  S'il existe des enregistrements de modification, ce code les traite et enregistre le curseur du flux de modification. Ainsi, si le processus est arrêté puis redémarré, l'application peut utiliser le curseur pour reprendre le traitement des enregistrements là où il s'était interrompu. Cet exemple enregistre le curseur dans le fichier de configuration d'une application locale, mais votre application peut l'enregistrer sous la forme qui convient le mieux à votre scénario. 
+Cet exemple interroge périodiquement les modifications.  S'il existe des enregistrements de modification, ce code les traite et enregistre le curseur du flux de modification. Ainsi, si le processus est arrêté puis redémarré, l'application peut utiliser le curseur pour reprendre le traitement des enregistrements là où il s'était interrompu. Cet exemple enregistre le curseur dans le fichier de configuration d'une application locale, mais votre application peut l'enregistrer sous la forme qui convient le mieux à votre scénario.
 
 ```csharp
 public async Task ChangeFeedStreamAsync
@@ -151,7 +153,7 @@ public async Task ChangeFeedStreamAsync
                         "Event Type: " + eventType + "\n" +
                         "Api: " + api);
                 }
-            
+
                 // helper method to save cursor. 
                 SaveCursor(enumerator.Current.ContinuationToken);
             }

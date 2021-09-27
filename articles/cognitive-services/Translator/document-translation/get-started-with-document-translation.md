@@ -1,17 +1,21 @@
 ---
 title: Bien démarrer avec la traduction de documents
 description: Comment créer un service Traduction de documentation avec les plateformes et les langages de programmation C#, Go, Java, Node.js ou Python
-ms.topic: how-to
-manager: nitinme
-ms.author: lajanuar
+services: cognitive-services
 author: laujan
-ms.date: 08/09/2021
-ms.openlocfilehash: 82070e6b10a1b0bffddb511545f54d369f6f99b8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: translator-text
+ms.topic: quickstart
+ms.date: 09/16/2021
+ms.author: lajanuar
+recommendations: false
+ms.openlocfilehash: 0e1192e310c658e93c4cfe5738e9ad4d36984113
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525037"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580869"
 ---
 # <a name="get-started-with-document-translation"></a>Bien démarrer avec la traduction de documents
 
@@ -29,7 +33,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 * Un [**compte Azure**](https://azure.microsoft.com/free/cognitive-services/) actif.  Si vous n’en avez pas, vous pouvez [**créer un compte gratuit**](https://azure.microsoft.com/free/).
 
-* Une [**ressource Translator du service unique**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (et **pas** une ressource multiservice Cognitive Services).
+* Une [**ressource Translator de service unique**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (et **pas** une ressource Cognitive Services multiservice).
 
 * Un [**compte de stockage Blob Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Vous allez créer des conteneurs pour stocker et organiser vos données de blob dans votre compte de stockage.
 
@@ -1280,7 +1284,7 @@ La Traduction de documentation ne peut pas être utilisée pour traduire des doc
 
 ### <a name="common-http-status-codes"></a>Codes d'état HTTP courants
 
-| Code d’état HTTP | Description | Raison possible |
+| Code d'état HTTP | Description | Raison possible |
 |------------------|-------------|-----------------|
 | 200 | OK | La demande a abouti. |
 | 400 | Demande incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |

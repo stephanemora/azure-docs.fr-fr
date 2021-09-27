@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/23/2021
 ms.author: b-juche
-ms.openlocfilehash: 0b05b934b4dc57b4db941755cfcfb2f8d21fc2c6
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: bae0f764df3951150d438c790c326429b5adb5a2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824964"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614160"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -50,7 +50,7 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 |  Nombre maximal de règles de stratégie d’exportation par volume     |    5  |    Non    | 
 |  Débit minimum attribué pour un volume avec Qualité de service manuelle     |    1 Mio/s   |    Non    |    
 |  Débit maximum attribué pour un volume avec Qualité de service manuelle     |    4 500 Mio/s    |    Non    |    
-|  Nombre de volumes de protection des données de réplication inter-région (volumes de destination)     |    5    |    Oui    |     
+|  Nombre de volumes de protection des données de réplication inter-région (volumes de destination)     |    10    |    Oui    |     
 
 Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la gestion de la capacité](azure-netapp-files-faqs.md#capacity-management-faqs).
 

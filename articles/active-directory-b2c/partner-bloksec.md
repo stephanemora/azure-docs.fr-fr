@@ -8,16 +8,16 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 7/15/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 80d2ad6d011633a3db6a63a37f04db5d22f517ba
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: a983da4159f41ae6dfe261b7f42ce20c2d2fa3a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533196"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594742"
 ---
 # <a name="tutorial-configure-azure-active-directory-b2c-with-bloksec-for-passwordless-authentication"></a>Tutoriel : configurer Azure Active Directory B2C avec BlokSec pour une authentification sans mot de passe
 
@@ -114,22 +114,18 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 ### <a name="part-2---add-a-new-identity-provider-in-azure-ad-b2c"></a>Partie 2 : Ajouter un nouveau fournisseur d’identité dans Azure AD B2C
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/#home) en tant qu’administrateur général de votre locataire Azure AD B2C.
-
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, recherchez et sélectionnez **Azure AD B2C**. 
-
-4. Accédez à **Tableau de bord > Azure Active Directory B2C > Fournisseurs d’identité**.
-
-5. Sélectionnez **Nouveau fournisseur OpenID Connect**.
-
-6. Sélectionnez **Ajouter**
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, recherchez et sélectionnez **Azure AD B2C**. 
+1. Accédez à **Tableau de bord > Azure Active Directory B2C > Fournisseurs d’identité**.
+1. Sélectionnez **Nouveau fournisseur OpenID Connect**.
+1. Sélectionnez **Ajouter**
 
 ### <a name="part-3---configure-an-identity-provider"></a>Partie 3 : Configurer un fournisseur d’identité
 
 1. Sélectionnez **Type de fournisseur d’identité > OpenID Connect**.
 
-2. Remplissez le formulaire pour configurer le fournisseur d’identité :
+1. Remplissez le formulaire pour configurer le fournisseur d’identité :
 
 |Propriété  |Valeur  |
 |:---------|:---------|
@@ -141,11 +137,11 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 |Type de réponse|Code|
 |Indication du domaine|yuID|
 
-3. Sélectionnez **OK**.
+1. Sélectionnez **OK**.
 
-4. Sélectionnez **Mapper les revendications de ce fournisseur d’identité**.
+1. Sélectionnez **Mapper les revendications de ce fournisseur d’identité**.
 
-5. Remplissez le formulaire pour mapper le fournisseur d’identité :
+1. Remplissez le formulaire pour mapper le fournisseur d’identité :
 
 |Propriété  |Value  |
 |:---------|:---------|
@@ -155,15 +151,15 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 |Surname|family_name|
 |E-mail|email|
 
-6. Sélectionnez **Enregistrer** pour terminer la configuration de votre nouveau fournisseur d’identité OIDC.  
+1. Sélectionnez **Enregistrer** pour terminer la configuration de votre nouveau fournisseur d’identité OIDC.  
 
 ### <a name="part-4---user-registration"></a>Partie 4 : Inscription de l’utilisateur
 
 1. Connectez-vous à la console d’administration BlokSec avec les informations d’identification fournies précédemment.
 
-2. Accédez à l’application Azure AD B2C créée précédemment. Sélectionnez l’icône d’engrenage en haut à droite, puis sélectionnez **Créer un compte**.  
+1. Accédez à l’application Azure AD B2C créée précédemment. Sélectionnez l’icône d’engrenage en haut à droite, puis sélectionnez **Créer un compte**.  
 
-3. Entrez les informations de l’utilisateur dans le formulaire de création de compte, en prenant note du nom du compte, puis sélectionnez **Soumettre**.  
+1. Entrez les informations de l’utilisateur dans le formulaire de création de compte, en prenant note du nom du compte, puis sélectionnez **Soumettre**.  
 
 L’utilisateur recevra un **e-mail d’inscription de compte** à l’adresse e-mail indiquée. Demandez à l’utilisateur de suivre le lien d’inscription sur l’appareil mobile sur lequel l’application BlokSec yuID est installée,
 
@@ -173,23 +169,23 @@ Vous devriez maintenant voir BlokSec répertorié comme nouveau fournisseur d’
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateurs** sous **Stratégies**.  
 
-2. Sélectionnez **Nouveau flux d’utilisateur**.
+1. Sélectionnez **Nouveau flux d’utilisateur**.
 
-3. Sélectionnez **Inscription et connexion** > **Version** > **Créer**.
+1. Sélectionnez **Inscription et connexion** > **Version** > **Créer**.
 
-4. Sous **Nom**, spécifiez un nom pour votre stratégie.
+1. Sous **Nom**, spécifiez un nom pour votre stratégie.
 
-5. Dans la section Fournisseurs d’identité, sélectionnez le fournisseur d’identité BlokSec que vous venez de créer.  
+1. Dans la section Fournisseurs d’identité, sélectionnez le fournisseur d’identité BlokSec que vous venez de créer.  
 
-6. Sélectionnez **Aucun** pour les comptes locaux afin de désactiver l’authentification basée sur un e-mail et un mot de passe.
+1. Sélectionnez **Aucun** pour les comptes locaux afin de désactiver l’authentification basée sur un e-mail et un mot de passe.
 
-7. Sélectionnez **Exécuter le flux d’utilisateur**.
+1. Sélectionnez **Exécuter le flux d’utilisateur**.
 
-8. Dans le formulaire, entrez l’URL de réponse. Par exemple : https://jwt.ms
+1. Dans le formulaire, entrez l’URL de réponse. Par exemple : https://jwt.ms
 
-9. Le navigateur est redirigé vers la page de connexion BlokSec. Entrez le nom du compte inscrit lors de l’inscription de l’utilisateur. L’utilisateur recevra une notification push sur son appareil mobile sur lequel l’application BlokSec yuID est installée. Lors de l’ouverture de la notification, l’utilisateur recevra une demande d’authentification.
+1. Le navigateur est redirigé vers la page de connexion BlokSec. Entrez le nom du compte inscrit lors de l’inscription de l’utilisateur. L’utilisateur recevra une notification push sur son appareil mobile sur lequel l’application BlokSec yuID est installée. Lors de l’ouverture de la notification, l’utilisateur recevra une demande d’authentification.
 
-10. Une fois la demande d’authentification acceptée, le navigateur redirige l’utilisateur vers l’URL de réponse.  
+1. Une fois la demande d’authentification acceptée, le navigateur redirige l’utilisateur vers l’URL de réponse.  
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
@@ -211,24 +207,16 @@ Pour plus d’informations, consultez les articles suivants :
 Stockez la clé secrète client que vous avez enregistrée dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-
-2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
-
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-
-4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
-
-5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
-
-6. Pour **Options**, choisissez `Manual`.
-
-7. Entrez un **nom** pour la clé de stratégie. Par exemple : `BlokSecAppSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
-
-8. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
-
-9. Pour **Utilisation de la clé**, sélectionnez `Signature`.
-
-10. Sélectionnez **Create** (Créer).
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Pour **Options**, choisissez `Manual`.
+1. Entrez un **nom** pour la clé de stratégie. Par exemple : `BlokSecAppSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
+1. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
+1. Pour **Utilisation de la clé**, sélectionnez `Signature`.
+1. Sélectionnez **Create** (Créer).
 
 ### <a name="part-3---configure-bloksec-as-an-identity-provider"></a>Partie 3 : Configurer BlokSec en tant que fournisseur d’identité
 
@@ -347,23 +335,18 @@ Dans l’exemple suivant, pour le parcours utilisateur `CustomSignUpOrSignIn`, l
 ### <a name="part-7---upload-the-custom-policy"></a>Partie 7 : Charger la stratégie personnalisée
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/#home).
-
-2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
-
-3. Dans le [portail Azure](https://portal.azure.com/#home), recherchez et sélectionnez **Azure AD B2C**.
-
-4. Sous Stratégies, sélectionnez **Identity Experience Framework**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Dans le [portail Azure](https://portal.azure.com/#home), recherchez et sélectionnez **Azure AD B2C**.
+1. Sous Stratégies, sélectionnez **Identity Experience Framework**.
 Sélectionnez **Charger une stratégie personnalisée**, puis chargez les deux fichiers de stratégie que vous avez modifiés, dans l’ordre suivant : la stratégie d’extension, par exemple `TrustFrameworkExtensions.xml`, puis la stratégie de la partie de confiance, par exemple `SignUpSignIn.xml`.
 
 ### <a name="part-8---test-your-custom-policy"></a>Partie 8 : Tester votre stratégie personnalisée
 
 1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
-
-2. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](./tutorial-register-applications.md). L’**URL de réponse** doit être `https://jwt.ms`.
-
-3. Sélectionnez le bouton **Exécuter maintenant**.
-
-4. Dans la page d’inscription ou de connexion, sélectionnez **Google** pour vous connecter avec un compte Google.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](./tutorial-register-applications.md). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Sélectionnez le bouton **Exécuter maintenant**.
+1. Dans la page d’inscription ou de connexion, sélectionnez **Google** pour vous connecter avec un compte Google.
 
 Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 

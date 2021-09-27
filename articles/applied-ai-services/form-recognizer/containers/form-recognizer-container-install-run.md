@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: lajanuar
 keywords: local, Docker, conteneur, identifier
-ms.openlocfilehash: 5f8e0c17fd7f76ddb28072e292bbe4ae39dab64c
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 700e49f1fb635cc93797c5b39463dc3d76018c7e
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527749"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480963"
 ---
 # <a name="install-and-run-form-recognizer-v21-preview-containers"></a>Installer et exécuter des conteneurs Form Recognizer v2.1 en préversion
 
@@ -625,5 +625,3 @@ Et voilà ! Dans cet article, vous avez découvert les concepts et les workflow
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Paramètres de configuration des conteneurs Form Recognizer](form-recognizer-container-configuration.md) 
-* [Étiquettes des images conteneur Form Recognizer](../../../cognitive-services/containers/container-image-tags.md?tabs=current#form-recognizer)
-* [Page de prise en charge et notes de publication des conteneurs Cognitive Services](../../../cognitive-services/containers/container-image-tags.md?tabs=current#form-recognizer)

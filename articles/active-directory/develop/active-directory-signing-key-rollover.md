@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 8/16/2021
+ms.date: 09/03/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7277f3751abd528862021a72e77a631f4bb0d5da
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: f6073ac0da9163756be353c2ed695dfb20430160
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534823"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469389"
 ---
 # <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Substitution de clé de signature dans la plateforme d’identités Microsoft
 Cet article explique ce que vous devez savoir sur les clés publiques utilisées par la plateforme d’identités Microsoft pour la signature des jetons de sécurité. Il est important de noter que ces clés sont substituées régulièrement, voire immédiatement en cas d’urgence. Toutes les applications qui utilisent la plateforme d’identités Microsoft doivent être en mesure de gérer par programme le processus de substitution de clé. En lisant cet article, vous allez comprendre le fonctionnement des clés, savoir comment évaluer l’impact de la substitution de votre application et comment mettre à jour votre application ou établir un processus périodique de substitution manuelle de clé pour gérer la substitution de clé si nécessaire.
@@ -44,7 +44,6 @@ La manière dont votre application gère la substitution de la clé dépend de v
 * [Applications web protégeant les ressources et créées avec Visual Studio 2013](#vs2013)
 * API web protégeant les ressources et créées avec Visual Studio 2013
 * [Applications web protégeant les ressources et créées avec Visual Studio 2012](#vs2012)
-* [Applications web protégeant les ressources et créées avec Visual Studio 2010, 2008 ou avec Windows Identity Foundation](#vs2010)
 * [Applications web/API protégeant les ressources avec d’autres bibliothèques ou implémentant manuellement l’un des protocoles pris en charge](#other)
 
 Ce guide n’est **pas** applicable aux :
@@ -287,20 +286,6 @@ Suivez les étapes ci-dessous pour vérifier que la logique de substitution de c
    ```
 2. La table **\<add thumbprint="">** , modifiez la valeur de l’empreinte en remplaçant l’un des caractères par un caractère différent. Enregistrez le fichier **Web.config** .
 3. Générez puis exécutez l’application. Si vous pouvez terminer le processus de connexion, votre application mettra correctement à jour la clé en téléchargeant les informations requises à partir du document de métadonnées de fédération de votre répertoire. Si vous rencontrez des problèmes de connexion, vérifiez que les modifications apportées à votre application sont correctes. Pour cela, consultez l’article [Ajout de l’authentification à votre application web à l’aide de la plateforme d’identités Microsoft](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect), ou téléchargez et examinez l’exemple de code suivant : [Application cloud multilocataire pour Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
-
-### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Applications web protégeant les ressources et créées avec Visual Studio 2008 ou 2010 et avec Windows Identity Foundation (WIF) version 1.0 pour .NET 3.5
-Si vous avez créé une application sur WIF v1.0, aucun mécanisme n’est prévu pour actualiser automatiquement la configuration de votre application afin de permettre l’utilisation d’une nouvelle clé.
-
-* *Moyen le plus simple* Utilisez les outils FedUtil inclus dans le SDK WIF, qui permettent de récupérer le dernier document de métadonnées et de mettre à jour votre configuration.
-* Mettez à jour votre application vers .NET 4.5, qui inclut la dernière version de WIF contenue dans l’espace de noms système. Vous pouvez ensuite utiliser le [registre de validation de nom d’émetteur (VINR)](/previous-versions/dotnet/framework/windows-identity-foundation/validating-issuer-name-registry) pour mettre à jour automatiquement la configuration de l’application.
-* Effectuez une substitution manuelle en suivant les instructions indiquées à la fin de ce document.
-
-Instructions d’utilisation de FedUtil pour mettre à jour votre configuration :
-
-1. Vérifiez que le SDK WIF v1.0 est  installé sur votre ordinateur de développement pour Visual Studio 2008 ou 2010. Dans le cas contraire, vous pouvez [le télécharger ici](https://www.microsoft.com/download/details.aspx?id=17331).
-2. Dans Visual Studio, ouvrez la solution, puis cliquez avec le bouton droit sur le projet applicable et sélectionnez **Update federation metadata**(Mettre à jour les métadonnées de fédération). Si cette option n’est pas disponible, cela signifie que l’outil FedUtil et/ou le SDK WIF v1.0 n’a pas été installé.
-3. À l’invite, sélectionnez **Mettre à jour** pour mettre à jour vos métadonnées de fédération. Si vous avez accès à l’environnement serveur sur lequel l’application est hébergée, vous pouvez éventuellement utiliser le [planificateur de mise à jour automatique des métadonnées](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))de FedUtil.
-4. Cliquez sur **Terminer** pour terminer le processus de mise à jour.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Applications web/API protégeant les ressources avec d’autres bibliothèques ou implémentant manuellement l’un des protocoles pris en charge
 Si vous utilisez une autre bibliothèque ou si vous avez implémenté manuellement l’un des protocoles pris en charge, vous devez examiner la bibliothèque ou votre implémentation afin de vous assurer que la clé est récupérée à partir du document de découverte OpenID Connect ou du document de métadonnées de fédération. Pour le vérifier, vous pouvez rechercher dans votre code ou dans le code de la bibliothèque les appels vers le document de découverte OpenID ou le document de métadonnées de fédération.

@@ -7,16 +7,16 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 1c17fceb267018901975f942f7cfc804f450ead9
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: fcc79c6b1828d4feb33a73f04e98f92abbf7384e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867641"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597015"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Intégrer un site web statique avec Azure CDN
 
-Vous pouvez activer [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) pour mettre en cache le contenu d’un [site web statique](storage-blob-static-website.md) hébergé dans un compte de stockage Azure. Vous pouvez utiliser Azure CDN pour configurer le point de terminaison de domaine personnalisé pour votre site web statique, provisionner des certificats TLS/SSL personnalisés et configurer des règles de réécriture personnalisées. La configuration d’Azure CDN entraîne des frais supplémentaires, mais procure une faible latence à votre site web de n’importe où dans le monde. Azure CDN fournit également le chiffrement TLS avec votre propre certificat. 
+Vous pouvez activer [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) pour mettre en cache le contenu d’un [site web statique](storage-blob-static-website.md) hébergé dans un compte de stockage Azure. Vous pouvez utiliser Azure CDN pour configurer le point de terminaison de domaine personnalisé pour votre site web statique, provisionner des certificats TLS/SSL personnalisés et configurer des règles de réécriture personnalisées. La configuration d’Azure CDN entraîne des frais supplémentaires, mais procure une faible latence à votre site web de n’importe où dans le monde. Azure CDN fournit également le chiffrement TLS avec votre propre certificat.
 
 Pour plus d’informations sur les prix d’Azure CDN, consultez [Tarification Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
@@ -36,7 +36,7 @@ Vous pouvez activer Azure CDN pour votre compte de stockage directement à parti
 
 1. Dans le champ **Nom du point de terminaison CDN**, spécifiez un nom pour votre point de terminaison CDN. Le point de terminaison CDN doit être unique dans Azure et fournit la première partie de l’URL du point de terminaison. Le formulaire valide l’unicité du nom du point de terminaison.
 
-1. Spécifiez le point de terminaison de votre site web statique dans le champ **Nom d’hôte d’origine**. 
+1. Spécifiez le point de terminaison de votre site web statique dans le champ **Nom d’hôte d’origine**.
 
    Pour trouver votre point de terminaison de site web statique, accédez aux paramètres **Site web statique** de votre compte de stockage.  Copiez le point de terminaison principal et collez-le dans la configuration CDN.
 
@@ -63,9 +63,9 @@ Vous pouvez activer Azure CDN pour votre compte de stockage directement à parti
 
 Si vous ne voulez plus mettre en cache un objet dans Azure CDN, vous pouvez procéder comme suit :
 
-* Changez le statut du conteneur de public à privé. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](./anonymous-read-access-configure.md).
-* Désactivez ou supprimez le point de terminaison CDN à l’aide du portail Azure.
-* Modifiez votre service hébergé pour qu’il ne réponde plus aux demandes de l’objet.
+- Changez le statut du conteneur de public à privé. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](./anonymous-read-access-configure.md).
+- Désactivez ou supprimez le point de terminaison CDN à l’aide du portail Azure.
+- Modifiez votre service hébergé pour qu’il ne réponde plus aux demandes de l’objet.
 
 Un objet déjà mis en cache dans Azure CDN y reste jusqu’à ce que sa durée de vie expire ou que le point de terminaison soit [purgé](../../cdn/cdn-purge-endpoint.md). Après expiration de la durée de vie, Azure CDN vérifie si le point de terminaison CDN est encore valide et si l’objet est encore accessible de manière anonyme. Si ce n’est pas le cas, l’objet n’est plus mis en cache.
 

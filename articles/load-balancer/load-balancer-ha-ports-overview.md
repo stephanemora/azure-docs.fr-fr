@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 6f089af71e4d32023e9cebd6613872f7db0eed7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec8431c7f84431702a60ef85e32d47c604289b3a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94694957"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678210"
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
@@ -46,7 +46,7 @@ Les ports haute disponibilité présentent les avantages suivants pour les scén
 
 Le diagramme suivant présente un déploiement de réseau virtuel hub-and-spoke. Les spokes forcent le tunneling de leur trafic vers le réseau virtuel du hub et via l’appliance virtuelle réseau avant de quitter l’espace de confiance. Les appliances virtuelles réseau se trouvent derrière un équilibreur de charge standard interne avec une configuration de ports haute disponibilité. Tout le trafic peut être traité et transféré en conséquence. Quand elle présente la configuration indiquée dans le diagramme suivant, une règle d’équilibrage de charge des ports haute disponibilité fournit également une symétrie des flux pour le trafic d’entrée et de sortie.
 
-<a node="diagram"></a>
+<a name="diagram"></a>
 ![Diagramme d’un réseau virtuel hub-and-spoke avec des appliances virtuelles réseau déployées en mode de haute disponibilité](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]

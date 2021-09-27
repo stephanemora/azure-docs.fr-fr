@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 08/03/2021
-ms.openlocfilehash: 74c9df5ee9eb6cd6a61104b4c9cce91b284dbb29
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 45867bc93b90c76d971fc4b7d8e4d8cc094929d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524213"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629006"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---hyperscale-citus-from-the-azure-portal"></a>Créez et gérez les réplicas en lecture dans Azure Database pour PostgreSQL - Hyperscale (Citus) depuis le portail Azure.
 
@@ -47,13 +47,7 @@ Une fois le réplica en lecture créé, vous pouvez le voir dans la fenêtre **R
 
 ## <a name="delete-a-primary-server-group"></a>Supprimer un groupe de serveurs principal
 
-Pour supprimer un groupe de serveurs principal, suivez les mêmes étapes que celles qui permettent de supprimer un groupe de serveurs autonomes Hyperscale (Citus). 
-
-> [!IMPORTANT]
->
-> Quand vous supprimez un groupe de serveurs principal, la réplication est arrêtée sur tous les réplicas en lecture. Les réplicas en lecture deviennent des groupes de serveurs autonomes qui prennent désormais en charge les lectures et les écritures.
-
-Pour supprimer un groupe de serveurs du portail Azure, effectuez les étapes suivantes :
+Pour supprimer un groupe de serveurs principal, suivez les mêmes étapes que celles qui permettent de supprimer un groupe de serveurs autonomes Hyperscale (Citus). Sur le portail Azure, procédez comme suit :
 
 1. Dans le portail Azure, sélectionnez votre groupe de serveurs Azure Database pour PostgreSQL principal.
 

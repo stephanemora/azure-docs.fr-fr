@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdaef1c746ca23f2badf657e6e72e6e3988bcfa4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f3eb56d9de903fc6013600908e3b44e8e0f547ed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562200"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618112"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
@@ -199,7 +199,7 @@ Actuellement, les appareils avec jointure Azure AD ne prennent pas en charge l�
 
 Vous pouvez provisionner la jonction Azure AD en utilisant les approches suivantes :
 
-- **Libre-service dans OOBE/Paramètres** : dans le mode libre-service, les utilisateurs sont soumis au processus de jonction Azure AD pendant l’expérience OOBE Windows ou depuis Paramètres Windows. Pour plus d’informations, consultez [Joindre votre appareil professionnel au réseau de votre organisation](../user-help/user-help-join-device-on-network.md). 
+- **Libre-service dans OOBE/Paramètres** : dans le mode libre-service, les utilisateurs sont soumis au processus de jonction Azure AD pendant l’expérience OOBE Windows ou depuis Paramètres Windows. Pour plus d’informations, consultez [Joindre votre appareil professionnel au réseau de votre organisation](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). 
 - **Windows Autopilot** : Windows Autopilot permet la préconfiguration des appareils pour une meilleure expérience dans OOBE pour effectuer une jonction Azure AD. Pour plus d’informations, consultez [Vue d’ensemble de Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Inscription en bloc** : l’inscription en bloc permet une jonction Azure AD pilotée par l’administrateur avec un outil de provisionnement en bloc pour configurer les appareils. Pour plus d’informations, consultez [Inscription en bloc pour les appareils Windows](/intune/windows-bulk-enroll).
  
@@ -209,7 +209,7 @@ Voici une comparaison de ces trois approches
 | --- | --- | --- | --- |
 | Nécessite une interaction utilisateur pour la configuration | Oui | Oui | Non |
 | Nécessite du travail de la part du département informatique | Non | Oui | Oui |
-| Flux applicables | OOBE et Paramètres | OOBE uniquement | OOBE uniquement |
+| Flux applicables | OOBE et Paramètres | OOBE uniquement | OOBE seul |
 | Droits d’administrateur local pour l’utilisateur principal | Oui, par défaut | Configurable | Non |
 | Nécessite une prise en charge OEM | Non | Oui | Non |
 | Versions prises en charge | 1511+ | 1709+ | 1703+ |
@@ -308,7 +308,7 @@ Vous pouvez utiliser cette implémentation pour [exiger des appareils gérés po
 
 > [!div class="nextstepaction"]
 > [Joindre un nouvel appareil Windows 10 à Azure AD lors d’une première exécution](azuread-joined-devices-frx.md)
-> [Joindre votre appareil professionnel au réseau de votre organisation](../user-help/user-help-join-device-on-network.md)
+> [Joindre votre appareil professionnel au réseau de votre organisation](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

@@ -4,19 +4,18 @@ summary: Azure Form Recognizer, qui fait partie d’Azure Applied AI Services, u
 metadata:
   title: Documentation Form Recognizer - Guides de démarrage rapide, tutoriels, informations de référence sur les API - Azure Applied AI Services | Microsoft Docs
   description: Azure Form Recognizer, qui fait partie d’Azure Applied AI Services, utilise la technologie de machine learning pour identifier et extraire des données de paires clé-valeur et de tables à partir de documents de formulaire. Il restitue ensuite des données structurées qui incluent les relations du fichier d’origine. L’apprentissage non supervisé permet au modèle de comprendre les données de disposition et de champ sans étiquetage manuel des données ni code intensif. Vous pouvez aussi utiliser l’apprentissage supervisé avec des données étiquetées manuellement. Les modèles entraînés avec des données étiquetées peuvent être plus performants et fonctionner avec des documents plus complexes.
-  services: cognitive-services
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: landing-page
   author: laujan
   ms.author: lajanuar
   ms.date: 09/05/2019
-  ms.openlocfilehash: 66c0369aa188c32c3e0ad9f4da7ca0899921dbb7
-  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+  ms.openlocfilehash: 0119e4a8f0c3437953b7941e22fb4b6a2586c70d
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122326165"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128645243"
 landingContent:
 - title: À propos d’Azure Form Recognizer
   linkLists:

@@ -1,20 +1,20 @@
 ---
 title: Ajouter une couche de symboles à des cartes Android | Microsoft Azure Maps
 description: Découvrez comment ajouter un marqueur à une carte. Consultez un exemple qui utilise l’Android SDK Azure Maps pour ajouter une couche de symboles qui contient des données basées sur des points à partir d’une source de données.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: f2aaf03f4314386615fabfe65ca47132543577fa
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 5d0b2e3f04f56b8a379ddbf36c2d9d20dad09d83
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091696"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429763"
 ---
 # <a name="add-a-symbol-layer-android-sdk"></a>Ajout d’une couche de symboles (Android SDK)
 
@@ -228,7 +228,7 @@ La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, d
 
 L’Android SDK Azure Maps est fourni avec un ensemble de variations de couleurs prédéfinies de l’icône de marqueur par défaut. Par exemple, `marker-red` peut être transmis dans l’option `iconImage` d’un calque de symbole pour afficher une version rouge de l’icône de marqueur dans cette couche.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
 SymbolLayer layer = new SymbolLayer(source,

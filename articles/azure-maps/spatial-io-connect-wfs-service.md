@@ -6,14 +6,13 @@ ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: f50685a2e25d33f7caa614480817ea0040191cf8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c870767c63c265c13e18f527d20954f8e72abae5
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532651"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437703"
 ---
 # <a name="connect-to-a-wfs-service"></a>Se connecter à un service WFS
 
@@ -40,7 +39,7 @@ Le code suivant interroge un service WFS et restitue les caractéristiques retou
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Exemple de WFS simple' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’<a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>exemple de WFS simple</a> Pen d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Exemple de WFS simple' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’<a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>exemple de WFS simple</a> Pen d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="supported-filters"></a>Filtres pris en charge
@@ -82,7 +81,7 @@ Le code suivant illustre l’utilisation de différents filtres avec le client W
 
 <br/>
 
-<iframe height='500' scrolling='no' title= 'Exemples de filtres WFS' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez les <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>exemples de filtres WFS</a> Pen d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title= 'Exemples de filtres WFS' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez les <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>exemples de filtres WFS</a> Pen d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="wfs-service-explorer"></a>Explorateur de service WFS
@@ -91,7 +90,7 @@ Le code suivant utilise le client WFS pour explorer les services WFS. Sélection
 
 <br/>
 
-<iframe height='700' style='width: 100%;' scrolling='no' title= 'Explorateur de service WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’<a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>Explorateur de service WFS</a> Pen d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title= 'Explorateur de service WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’<a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>Explorateur de service WFS</a> Pen d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Pour accéder à des services WFS hébergés sur des points de terminaison non-CORS, un service proxy CORS peut être passé dans l’option `proxyService` du client WFS, comme indiqué ci-dessous. 

@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 10f46f5788cd2f17be4b46c2f655fb4e05fed1d9
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 5c0c9a44126ed5bd16544e8f5819eeb3add4a789
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965942"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678304"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>Utiliser Azure Migrate avec des points de terminaison privés
 
@@ -53,7 +53,7 @@ Pour activer l’accès au réseau public pour le projet Azure Migrate,connecte
 
 ![Capture d’écran montrant la procédure de modification d’un mode d’accès au réseau.](./media/how-to-use-azure-migrate-with-private-endpoints/migration-project-properties.png)
 
-### <a name="other-considerations"></a>Autres considérations
+### <a name="other-considerations"></a>Autres éléments à prendre en compte
 
 **Considérations** | **Détails**
 --- | ---
@@ -131,16 +131,18 @@ Assurez-vous que le serveur répond aux [exigences matérielles](./migrate-appli
 #### <a name="run-the-azure-migrate-installer-script"></a>Exécuter le script du programme d’installation Azure Migrate
 
 1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
-2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
-3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
-4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
+
+3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
+
+4. Exécutez le script nommé `AzureMigrateInstaller.ps1` via la commande suivante :
+
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Sélectionnez parmi les options de scénario, de cloud et de connectivité pour déployer une appliance avec la configuration souhaitée. Par exemple, la sélection présentée ci-dessous configure une appliance pour la détection et l’évaluation de **serveurs exécutés sur votre environnement VMware** dans un projet Azure Migrate doté d’une **connectivité de point de terminaison privé** sur le **cloud public Azure**.
 
-    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-inline.png" alt-text="Capture d’écran montrant comment configurer l’appliance avec la configuration souhaitée pour le point de terminaison privé." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-expanded.png":::
+   :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-inline.png" alt-text="Capture d’écran montrant comment configurer l’appliance avec la configuration souhaitée pour le point de terminaison privé." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-expanded.png":::
 
 Une fois que le script a été exécuté avec succès, le gestionnaire de configuration de l’appliance est lancé automatiquement.
 
@@ -302,7 +304,7 @@ Assurez-vous que l’appliance de réplication locale dispose d’une connectivi
 
 Ensuite, suivez les instructions pour [évaluer et démarrer la réplication](./tutorial-migrate-physical-virtual-machines.md#replicate-machines) et [effectuer des migrations](./tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).
 
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Terminez le [processus de migration](./tutorial-migrate-physical-virtual-machines.md#complete-the-migration).
 - Passez en revue les [meilleures pratiques post-migration](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).

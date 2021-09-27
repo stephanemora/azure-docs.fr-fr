@@ -1,20 +1,20 @@
 ---
 title: Guide pratique pour utiliser Stockage File d’attente à partir de PowerShell - Stockage Azure
 description: Effectuez des opérations dans un Stockage File d’attente Azure avec PowerShell. Grâce au Stockage File d’attente Azure, vous pouvez stocker un grand nombre de messages accessibles par HTTP/HTTPS.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/15/2019
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1436114a070dff7120a7de10937cbfa58644d305
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: a607d1c494aee2881e623e01e6cd9637cb94dc9d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276244"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582285"
 ---
 # <a name="how-to-use-azure-queue-storage-from-powershell"></a>Guide pratique pour utiliser Stockage File d’attente à partir de PowerShell
 

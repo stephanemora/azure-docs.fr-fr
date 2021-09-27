@@ -3,12 +3,12 @@ title: Journalisation d’Application Insights avec .NET
 description: Découvrez comment utiliser Application Insights avec l’interface ILogger dans .NET.
 ms.topic: conceptual
 ms.date: 05/20/2021
-ms.openlocfilehash: 0457656ae06d4a86c8a4151ce8b89d3e42978d74
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 274fa5a9ab3fef94f892ed75fd69bc6cca6cccc9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525716"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617789"
 ---
 # <a name="application-insights-logging-with-net"></a>Journalisation d’Application Insights avec .NET
 
@@ -34,7 +34,7 @@ Selon le package de journalisation Application Insights que vous utilisez, vous 
 
 Pour ajouter la télémétrie Application Insights à des applications ASP.NET Core, utilisez le package NuGet `Microsoft.ApplicationInsights.AspNetCore`. Vous pouvez le configurer via [Visual Studio en tant que service connecté](/visualstudio/azure/azure-app-insights-add-connected-service) ou manuellement.
 
-Par défaut, les applications ASP.NET Core disposent d’un fournisseur de journalisation Application Insights inscrit lorsqu’elles sont configurées selon l’approche [avec code](./asp-net-core.md) ou [sans code](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring). Le fournisseur inscrit est configuré pour capturer automatiquement les événements de journal dont la gravité est <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> ou plus. Vous pouvez personnaliser la gravité et les catégories. Pour plus d’informations, reportez-vous à [Niveau de journalisation](#logging-level).
+Par défaut, les applications ASP.NET Core disposent d’un fournisseur de journalisation Application Insights inscrit lorsqu’elles sont configurées selon l’approche [avec code](./asp-net-core.md) ou [sans code](./azure-web-apps-net-core.md#enable-agent-based-monitoring). Le fournisseur inscrit est configuré pour capturer automatiquement les événements de journal dont la gravité est <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> ou plus. Vous pouvez personnaliser la gravité et les catégories. Pour plus d’informations, reportez-vous à [Niveau de journalisation](#logging-level).
 
 1. Vérifiez que le package NuGet est installé :
 
@@ -67,11 +67,8 @@ Par défaut, les applications ASP.NET Core disposent d’un fournisseur de journ
 
             public void ConfigureServices(IServiceCollection services)
             {
-                services.AddApplicationInsightsTelemetry(
-                    Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
-
-                // An alternative overload, when not using appsettings.json or user secrets.
-                // services.AddApplicationInsightsTelemetry();
+                services.AddApplicationInsightsTelemetry();
+                // Configure the Connection String/Instrumentation key in appsettings.json
             }
 
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -202,8 +199,8 @@ namespace WebApplication
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplicationInsightsTelemetry(
-                Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
+            services.AddApplicationInsightsTelemetry();
+            // Configure the Connection String/Instrumentation key in appsettings.json
         }
 
         // The ILogger<Startup> is resolved by dependency injection

@@ -3,7 +3,7 @@ title: Stratégies de transformation de la Gestion des API Azure | Microsoft Doc
 description: Découvrez les stratégies de transformation disponibles dans la Gestion des API Azure.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: apimpm
-ms.openlocfilehash: 48f8445e30bd186681d1a4384d16f228a3382473
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.author: danlep
+ms.openlocfilehash: 8cbef3416230d087b7ca627e877e0030f0ace9b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012435"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647097"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).

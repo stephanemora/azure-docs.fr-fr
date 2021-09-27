@@ -1,20 +1,20 @@
 ---
 title: Créer une source de données pour les cartes Android | Microsoft Azure Maps
 description: 'Découvrez comment créer une source de données pour une carte. En savoir plus sur les sources de données utilisées par le kit de développement logiciel (SDK) Android Azure Maps : Sources GeoJSON et mosaïques vectorielles.'
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 9ea96613425ec3802080277da9ac674af4e87c52
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: e66d1aeaa87ac170cf692360e614335a98802e5a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669086"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430663"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Créer une source de données (SDK Android)
 

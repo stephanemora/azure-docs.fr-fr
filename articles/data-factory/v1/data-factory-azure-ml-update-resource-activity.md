@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 42a1318ffb4c0063875939c8d3633ea513818ba4
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 2d1cd9053f5be915015653e1b522e82eff7b978c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535078"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571232"
 ---
 # <a name="updating-ml-studio-classic-models-using-update-resource-activity"></a>Mettre à jour des modèles ML Studio (classique) à l’aide d’une Activité des ressources de mise à jour
 
@@ -23,7 +24,7 @@ ms.locfileid: "122535078"
 > * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Activité Spark](data-factory-spark.md)
 > * [Activité Batch Execution ML Studio (classique)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Activité de mise à jour des ressources ML Studio (classique)](data-factory-azure-ml-update-resource-activity.md)
+> * [Activité des ressources de mise à jour ML Studio (classique)](data-factory-azure-ml-update-resource-activity.md)
 > * [Activité de procédure stockée](data-factory-stored-proc-activity.md)
 > * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
@@ -47,7 +48,7 @@ Le tableau suivant décrit les services web utilisés dans cet exemple.  Pour pl
 
 L’image suivante illustre la relation entre les points de terminaison d’apprentissage et de notation dans ML Studio (classique).
 
-![Services web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/web-services.png" alt-text="Services web":::
 
 Pour appeler le **service web d’apprentissage**, vous pouvez utiliser l’**Activité Batch Execution d’Azure Machine Learning Studio (classique)** . L’appel d’un service web d’apprentissage est similaire à l’appel d’un service web ML Studio (classique) (service web de notation) pour le scoring de données. Les sections précédentes expliquent de manière détaillée comment appeler un service web ML Studio (classique) à partir d’un pipeline Azure Data Factory. 
 
@@ -59,7 +60,7 @@ Si le service web de notation est un **service classique web**, créez le deuxi�
 * Cliquez sur **EXÉCUTION PAR LOT** pour obtenir la valeur d’URI pour la propriété JSON **mlEndpoint**.
 * Cliquez sur le lien **RESSOURCE DE MISE À JOUR** pour obtenir la valeur d’URI pour la propriété JSON **updateResourceEndpoint**. La clé API est sur la page du point de terminaison même (dans le coin inférieur droit).
 
-![point de terminaison pouvant être mis à jour](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png" alt-text="point de terminaison pouvant être mis à jour":::
 
 L’exemple suivant présente un exemple de définition JSON pour le service lié AzureML. Le service lié utilise apiKey pour l’authentification.  
 
@@ -111,7 +112,7 @@ Cette section fournit un exemple de pipeline qui utilise l’**Activité Batch 
 
 Voici la vue schématique de l’exemple de pipeline. Comme vous pouvez le voir, l’activité Exécution par lots studio (classique) prend l’entrée d’apprentissage et génère une sortie d’apprentissage (fichier iLearner). L’activité Mettre à jour une ressource studio (classique) récupère cette sortie d’apprentissage et met à jour le modèle dans le point de terminaison de service web de scoring. L’activité des ressources de mise à jour ne génère aucune sortie. placeholderBlob est simplement un jeu de données de sortie factice requis par le service Azure Data Factory pour exécuter le pipeline.
 
-![schéma du pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png" alt-text="schéma du pipeline":::
 
 ### <a name="azure-blob-storage-linked-service"></a>Service lié Azure Blob Storage :
 Azure Storage contient les données suivantes :
@@ -258,7 +259,7 @@ L’activité Mettre à jour une ressource studio (classique) ne génère aucune
 ### <a name="pipeline"></a>Pipeline
 Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateResource**. L’Activité Batch Execution ML Studio (classique) prend les données d’apprentissage en entrée et génère un fichier iLearner en sortie. L’activité appelle le service web de formation (expérience de formation exposée comme un service web) avec les données de formation d’entrée et reçoit le fichier iLearner du service web. placeholderBlob est simplement un jeu de données de sortie factice requis par le service Azure Data Factory pour exécuter le pipeline.
 
-![schéma du pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png" alt-text="schéma du pipeline":::
 
 ```JSON
 {

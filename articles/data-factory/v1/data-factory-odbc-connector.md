@@ -3,17 +3,18 @@ title: Déplacer des données à partir de magasins de données ODBC
 description: Apprenez à transférer des données à partir de magasins de données ODBC à l’aide d’Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 43987b333279675204179a90f01f2aa668abb2c1
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 269d0d0bb1d9fb61dada1640a4a5c63106654abd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665655"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619549"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Transfert de données à partir de magasins de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -355,10 +356,10 @@ Pour résoudre les problèmes de connexion, utilisez l’onglet **Diagnostics** 
 
 1. Lancez le **Gestionnaire de configuration de la passerelle de gestion des données**. Vous pouvez exécuter directement « C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe » (ou) rechercher **Passerelle** pour trouver un lien vers l’application **Passerelle de gestion des données de Microsoft**, comme l’illustre l’image suivante.
 
-    ![Rechercher la passerelle](./media/data-factory-odbc-connector/search-gateway.png)
+    :::image type="content" source="./media/data-factory-odbc-connector/search-gateway.png" alt-text="Rechercher la passerelle":::
 2. Basculez vers l’onglet **Diagnostics** .
 
-    ![Diagnostics de la passerelle](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+    :::image type="content" source="./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png" alt-text="Diagnostics de la passerelle":::
 3. Sélectionnez le **type** de magasin de données (service lié).
 4. Spécifiez **l’authentification** et entrez les **informations d’identification** (ou) entrez la **chaîne de connexion** utilisée pour vous connecter au magasin de données.
 5. Cliquez sur **Tester la connexion** pour tester la connexion au magasin de données.

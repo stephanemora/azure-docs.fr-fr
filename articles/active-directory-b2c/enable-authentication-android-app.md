@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/06/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support, has-adal-ref
-ms.openlocfilehash: 1e21be821a495dae95b0bc45b47aef4345802f38
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 4dca649048a393adaba58614ab8f63dec5db29e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186188"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575168"
 ---
 # <a name="enable-authentication-in-your-own-android-app-by-using-azure-ad-b2c"></a>Activer l’authentification dans votre propre application Android avec Azure AD B2C
 
@@ -142,7 +142,8 @@ Configurez l’emplacement où votre application écoute la réponse de jeton Az
 Procédez comme suit pour mettre à jour l’inscription de l’application mobile avec l’URI de redirection de votre application :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez l’application que vous avez inscrite à l’[Étape 2.3 : Inscrire l’application mobile](configure-authentication-sample-android-app.md#step-23-register-the-mobile-app).
 1. Sélectionnez **Authentification**.
@@ -466,7 +467,7 @@ private AuthenticationCallback getAuthInteractiveCallback() {
 Pour appeler une [API web d’autorisation basée sur les jetons](enable-authentication-web-api.md), l’application doit disposer d’un jeton d’accès valide. L’application effectue les opérations suivantes :
 
 
-1. Elle obtient un jeton d’accès avec les autorisations requises (étendues) pour le point de terminaison de l’API web.
+1. Elle obtient un jeton d'accès avec les autorisations (étendues) requises pour le point de terminaison de l'API web.
 1. Elle transmet le jeton d’accès en tant que porteur dans l’en-tête d’autorisation de la requête HTTP en utilisant le format suivant :
 
 ```http

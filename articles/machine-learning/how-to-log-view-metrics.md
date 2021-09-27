@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: 4cb94dab1576e6fdb422fc640ae6edfdcdaad119
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 81f05686954e35d68d93c598978e9676652fe71f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446218"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593474"
 ---
 # <a name="log--view-metrics-and-log-files"></a>Journaliser et afficher les métriques et les fichiers journaux
 
@@ -79,9 +79,9 @@ mlflow_run = mlflow.start_run()
 
 |Valeur connectée|Exemple de code| Notes|
 |----|----|----|
-|Journaliser une valeur numérique (int ou float) | `mlfow.log_metric('my_metric', 1)`| |
-|Journaliser une valeur booléenne | `mlfow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
-|Journaliser une chaîne | `mlfow.log_text('foo', 'my_string')`| Journalisé en tant qu’artefact|
+|Journaliser une valeur numérique (int ou float) | `mlflow.log_metric('my_metric', 1)`| |
+|Journaliser une valeur booléenne | `mlflow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
+|Journaliser une chaîne | `mlflow.log_text('foo', 'my_string')`| Journalisé en tant qu’artefact|
 |Journaliser les métriques numpy ou les objets d’image PIL|`mlflow.log_image(img, 'figure.png')`||
 |Journaliser un fichier image ou un tracé matlotlib|` mlflow.log_figure(fig, "figure.png")`||
 

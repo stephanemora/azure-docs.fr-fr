@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 6af0f2b5221a737687578e939c14cecf3be14509
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 88387bbe51d71a2530d25608fee962e926cd6511
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88932914"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449150"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Présentation des filtres de collection OData dans Recherche cognitive Azure
 
@@ -108,9 +108,6 @@ Façon dont `Rooms/Description` est stocké pour la recherche en texte intégral
 | vue | 1 |
 
 Par conséquent, contrairement au filtre ci-dessus, qui dit : « Trouver une correspondance avec les documents où une chambre a un `Type` égal à « Deluxe Room » (Chambre de luxe) et où **cette même chambre** a un `BaseRate` (Tarif de base) inférieur à 100 », la requête de recherche indique « Trouver une correspondance avec les documents où `Rooms/Type` (Chambres/Type) contient le terme « deluxe » (de luxe) et où `Rooms/Description` (Chambres/Description) contient l’expression « city view » (vue sur la ville). Il n’existe aucun concept de chambres individuelles dont les champs peuvent être mis en corrélation dans ce dernier cas.
-
-> [!NOTE]
-> Si vous voulez voir la prise en charge de la recherche corrélée ajoutée à Recherche cognitive Azure, votez pour [cet élément User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
 
 ## <a name="inverted-indexes-and-collections"></a>Index inversés et collections
 

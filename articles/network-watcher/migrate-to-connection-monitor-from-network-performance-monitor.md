@@ -2,22 +2,18 @@
 title: Migration de Network Performance Monitor vers Moniteur de connexion
 titleSuffix: Azure Network Watcher
 description: Découvrez comment migrer de Network Performance Monitor vers Moniteur de connexion.
-services: network-watcher
-documentationcenter: na
 author: vinynigam
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 0ec16b16c8e71d764fb0fe21520eb407493ed8d7
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 84daa5527617584d420db02b012bec28760a146c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105360"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614559"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migration de Network Performance Monitor vers Moniteur de connexion
 
@@ -58,7 +54,7 @@ Pour migrer les tests de Network Performance Monitor vers Moniteur de connexion,
 1. Dans les listes déroulantes, sélectionnez votre abonnement et votre espace de travail, puis la fonctionnalité NPM que vous souhaitez migrer. 
 1. Sélectionnez **Importer** pour migrer les tests.
 * Si NPM n’est pas activé sur l’espace de travail, vous verrez une erreur indiquant « Aucune configuration NPM valide n’a été trouvée ». 
-* Si aucun test n’existe dans la fonctionnalité que vous avez choisie à l’étape 2, vous verrez une erreur indiquant « L’espace de travail sélectionné n’a pas de configuration <feature> ».
+* Si aucun test n’existe dans la fonctionnalité que vous avez choisie à l’étape 2, vous verrez une erreur indiquant « L’espace de travail sélectionné n’a pas de configuration \<feature\> ».
 * S’il n’y a pas de tests valides, vous verrez une erreur indiquant « L’espace de travail sélectionné n’a pas de tests valides »
 * Vos tests peuvent contenir des agents qui ne sont plus actifs, mais qui ont peut-être été actifs dans le passé. Une erreur s’affiche indiquant que « Certains tests contiennent des agents qui ne sont plus actifs. Liste des agents inactifs : {0}. Ces agents ont peut-être été exécutés par le passé, mais ils sont arrêtés/ne sont plus en cours d’exécution. Activez les agents et migrez vers le moniteur de connexion. Cliquez sur Continuer pour migrer les tests qui ne contiennent pas d’agents qui ne sont pas actifs. »
 

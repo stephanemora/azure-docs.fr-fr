@@ -10,20 +10,18 @@ ms.date: 06/07/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: 3437d7711aa2959754fcce84a0bbe30ac384898b
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: bcf69aba20a53e101cf85cf8ad9e249ca72d3a93
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378544"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470487"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Activer et gérer le contrôle de version des objets blob
 
 Vous pouvez activer le contrôle de version du stockage d’objets blob pour gérer automatiquement les versions précédentes d’un objet blob lorsqu’il est modifié ou supprimé. Lorsque le contrôle de version est activé, vous pouvez alors restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
 
 Cet article explique comment activer ou désactiver le contrôle de version des blobs pour le compte de stockage à l’aide du portail Azure ou d’un modèle de Resource Manager. Pour en savoir plus sur le contrôle de version des blobs, consultez [Contrôle de version des objets blob](versioning-overview.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="enable-blob-versioning"></a>Activer la gestion des versions des objets blob
 

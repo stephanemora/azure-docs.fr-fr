@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 682f855232ef021b10d148b3ede71a35dbaee760
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: d4743a529649c7223449b35092b1505ee534eeaf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867650"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615664"
 ---
 # <a name="use-blob-index-tags-to-manage-and-find-data-on-azure-blob-storage"></a>Utiliser des balises d’index de blob pour gérer et rechercher des données sur Stockage Blob Azure
 
@@ -57,7 +57,7 @@ Cette tâche peut être effectuée par un [Propriétaire des données Blob du st
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage.
 
 2. Sous **Stockage de données**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
 
@@ -199,7 +199,7 @@ Cette tâche peut être effectuée par un [Propriétaire des données Blob du st
 
 Dans le portail Azure, le filtre des balises d’index de blobs applique automatiquement le paramètre `@container` pour définir l’étendue de votre conteneur sélectionné. Si vous souhaitez filtrer et rechercher des données balisées dans votre compte de stockage, utilisez nos API REST, nos Kits de développement logiciel (SDK) ou nos outils.
 
-1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage.
 
 2. Sous **Stockage de données**, accédez à l’option **Conteneurs**, sélectionnez votre conteneur.
 
@@ -241,7 +241,7 @@ static async Task FindBlobsByTagsExample()
           AppendBlobClient appendBlobWithTags3 = container2.GetAppendBlobClient("myAppendBlob03.logs");
           AppendBlobClient appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
           AppendBlobClient appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
-           
+
           // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
@@ -250,7 +250,7 @@ static async Task FindBlobsByTagsExample()
               { "Priority", "01" },
               { "Date", "2020-04-20" }
           };
-          
+
           CreateAppendBlobOptions appendOptions2 = new CreateAppendBlobOptions();
           appendOptions2.Tags = new Dictionary<string, string>
           {
@@ -295,7 +295,7 @@ static async Task FindBlobsByTagsExample()
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage.
 
 2. Sous **Service blob**, accédez à l’option **Gestion du cycle de vie**.
 
@@ -313,11 +313,11 @@ static async Task FindBlobsByTagsExample()
 
 # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/net)
 
-Des stratégies de [gestion du cycle de vie](storage-lifecycle-management-concepts.md) sont appliquées pour chaque compte de stockage au niveau du plan de contrôle. Pour .NET, installez la [bibliothèque de stockage de gestion Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 ou ultérieure.
+Des stratégies de [gestion du cycle de vie](./lifecycle-management-overview.md) sont appliquées pour chaque compte de stockage au niveau du plan de contrôle. Pour .NET, installez la [bibliothèque de stockage de gestion Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 ou ultérieure.
 
 ---
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- - Pour en savoir plus sur les balises d’index de blob, consultez [Gérer et rechercher des données blob Azure avec des balises d’index de blob](storage-manage-find-blobs.md ).
- - Pour en savoir plus sur la gestion de cycle de vie, consultez [Gérer le cycle de vie de Stockage Blob Azure](storage-lifecycle-management-concepts.md).
+- Pour en savoir plus sur les balises d’index de blob, consultez [Gérer et rechercher des données blob Azure avec des balises d’index de blob](storage-manage-find-blobs.md ).
+- Pour en savoir plus sur la gestion de cycle de vie, consultez [Gérer le cycle de vie de Stockage Blob Azure](./lifecycle-management-overview.md).

@@ -4,12 +4,12 @@ description: Découvrez comment configurer SnapCenter pour Oracle sur BareMetal 
 ms.topic: how-to
 ms.subservice: baremetal-oracle
 ms.date: 05/05/2021
-ms.openlocfilehash: cd3163b90d65f3e33fa56a190ed854069afd6703
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: edc75bd8d5fb2a64e22b2dd8f53fceda092161c3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579205"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676102"
 ---
 # <a name="configure-snapcenter-for-oracle-on-baremetal-infrastructure"></a>Configurer SnapCenter pour Oracle sur BareMetal Infrastructure
 
@@ -82,7 +82,7 @@ Une fois le test ping vérifié, répétez les étapes que vous avez utilisées 
     - **Nom des informations d’identification** : Fournissez un nom identifiant le nom d’utilisateur et le fichier sudoers.
     - **Authentification** : Linux.
     - **Nom d’utilisateur** : Fournissez le nom d’utilisateur nouvellement créé.
-    - **Mot de passe** : <Enter Password>
+    - **Mot de passe** : \<enter password\>
     - Cochez la case **Use sudo privileges** (Utiliser les privilèges sudo).
     
 7. Sélectionnez **OK**.

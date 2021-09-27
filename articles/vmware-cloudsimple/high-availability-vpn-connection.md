@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0dda4f6bbc5f9942522fb19031091b76105acf64
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: f2ea74aa319bd3cf736a50542e2e8d0285a13646
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390991"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577748"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurer une connexion haute disponibilité entre un site local et une passerelle VPN CloudSimple
 
@@ -40,7 +40,7 @@ Pour que le réseau VPN de site à site fonctionne, vous devez autoriser les pro
 
 Pour activer la phase 1 (IKEv1) sur l’interface externe, entrez la commande CLI suivante dans le pare-feu Cisco ASA.
 
-```crypto ikev1 enable outside```
+`crypto ikev1 enable outside`
 
 ### <a name="2-create-an-ikev1-policy"></a>2. Créer une stratégie IKEv1
 
@@ -121,13 +121,13 @@ crypto map mymap 1 set ikev1 transform-set devtest39
 
 Appliquer le mappage de chiffrement sur l’interface externe :
 
-```crypto map mymap interface outside```
+`crypto map mymap interface outside`
 
 ### <a name="8-confirm-applicable-nat-rules"></a>8. Confirmer les règles NAT applicables
 
 Voici la règle NAT utilisée. Assurez-vous que le trafic VPN n’est soumis à aucune autre règle NAT.
 
-```nat (inside,outside) source static AZ_inside AZ_inside destination static CS_inside CS_inside```
+`nat (inside,outside) source static AZ_inside AZ_inside destination static CS_inside CS_inside`
 
 ### <a name="sample-ipsec-site-to-site-vpn-established-output-from-cisco-asa"></a>Exemple de sortie établie de VPN de site à site IPsec à partir de Cisco ASA
 

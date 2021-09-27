@@ -4,16 +4,16 @@ description: Découvrez comment modifier le niveau de performance de nouveaux di
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 09/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: dd7d024b542feb2e15aefb79f2467e7033c180f9
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 1320ec212a94245e42c63f583d37b33eaa76224e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123106609"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433293"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Modification du niveau de performance avec le Portail Azure
 
@@ -66,7 +66,6 @@ Maintenant que la fonctionnalité a été inscrite, vous pouvez modifier les niv
 
 1. Connectez-vous au portail Azure à partir du lien suivant : [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview).
 1. Accédez à la machine virtuelle contenant le disque que vous souhaitez modifier.
-1. Libérez la machine virtuelle ou détachez le disque.
 1. Sélectionnez votre disque.
 1. Sélectionnez **Taille + performances**.
 1. Dans la liste déroulante **Niveau de performance**, sélectionnez un niveau différent du niveau de performance actuel du disque.
