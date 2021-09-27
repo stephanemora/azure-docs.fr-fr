@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 3e7780f2214cd603bbf4bd7955a8be7bc7128b89
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: fd3a0f34567467036ff605adedc944e30e9940a1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777620"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587798"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurer une appliance pour les serveurs physiques
 
@@ -74,8 +74,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
 4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Sélectionnez parmi les options de scénario, de cloud et de connectivité pour déployer une appliance avec la configuration souhaitée. Par exemple, la sélection présentée ci-dessous configure une appliance pour découvrir et évaluer des **serveurs physiques** _(ou des serveurs qui s’exécutent sur d’autres clouds comme AWS, GCP, Xen, etc.)_ dans un projet Azure Migrate avec une **connectivité par défaut _(point de terminaison public)_** sur le **cloud public Azure**.
 

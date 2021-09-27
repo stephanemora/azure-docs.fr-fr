@@ -3,16 +3,17 @@ title: Guide sur les performances et le réglage de l’activité de copie
 description: En savoir plus sur les facteurs clés ayant des répercussions sur les performances du déplacement de données dans Azure Data Factory lorsque vous utilisez l’activité de copie.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 145d93cc073664ed1260170a9c1f7031c9831b7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377208"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559318"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
@@ -45,7 +46,7 @@ Cet article aborde les points suivants :
 
 À titre de référence, le tableau ci-dessous décrit la valeur de débit de copie en Mbits/s pour les paires de source et de récepteur données à partir de tests internes. À des fins de comparaison, il montre également comment les différents paramètres [d’unités de déplacement des données cloud](#cloud-data-movement-units) ou [d’évolutivité de la passerelle de gestion des données](data-factory-data-management-gateway-high-availability-scalability.md) (plusieurs nœuds de passerelle) peuvent améliorer les performances de copie.
 
-![Matrice des performances](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/CopyPerfRef.png" alt-text="Matrice des performances":::
 
 >[!IMPORTANT]
 >Dans Azure Data Factory version 1, le minimum d’unités de déplacement de données cloud pour la copie de cloud-cloud est de deux. Si ce minimum n’est pas spécifié, consultez les unités de déplacement de données par défaut utilisées dans les [unités de déplacement de données cloud](#cloud-data-movement-units).
@@ -187,11 +188,11 @@ Lorsque vous activez la fonctionnalité intermédiaire, tout d’abord les donn�
 
 Dans le scénario de copie cloud (les banques de données sources et réceptrices de données sont dans le cloud), la passerelle n’est pas utilisée. Le service Data Factory effectue les opérations de copie.
 
-![Copie intermédiaire : scénario cloud](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
+:::image type="content" source="media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png" alt-text="Copie intermédiaire : scénario cloud":::
 
 Dans le scénario de copie hybride, (la source existe en local et le récepteur dans le cloud), la passerelle déplace les données de la banque de données source vers une banque de données intermédiaire. Le service Data Factory déplace les données de la banque de données intermédiaire vers la banque de données réceptrice. La copie de données à partir d’une banque de données cloud vers une banque de données locale à l’aide d’une banque intermédiaire est également prise en charge avec un flux inversé.
 
-![Copie intermédiaire : scénario hybride](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
+:::image type="content" source="media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png" alt-text="Copie intermédiaire : scénario hybride":::
 
 Lorsque vous activez le déplacement de données à l’aide d’une banque de données intermédiaire, vous pouvez indiquer si vous souhaitez compresser les données avant de les déplacer de la banque de données source vers une banque de données intermédiaire, et les décompresser avant leur transfert d’une banque de données intermédiaire vers une banque de données réceptrice.
 
@@ -247,7 +248,7 @@ Nous vous recommandons d’effectuer cette procédure pour régler les performan
 
    Collectez les temps d’exécution et les caractéristiques de performances à l’aide de **l’application de surveillance et gestion**. Choisissez **Surveiller et gérer** sur votre page d’accueil Data Factory. Dans l’arborescence, sélectionnez le **jeu de données de sortie**. Dans la liste des **fenêtres d’activité** , sélectionnez l’exécution de l’activité de copie. **fenêtres d’activité** répertorient la durée de l’activité de copie et la taille des données qui sont copiées. Le débit est répertorié dans **l’Explorateur de fenêtres d’activité**. Pour en savoir plus sur l’application, consultez [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md).
 
-   ![Détails de l'exécution d'activité](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
+   :::image type="content" source="./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png" alt-text="Détails de l'exécution d'activité":::
 
    Plus loin dans cet article, vous pouvez comparer les performances et la configuration de votre scénario aux [performances de référence](#performance-reference) de l’activité de copie de nos tests.
 2. **Diagnostiquer et optimiser les performances**. Si les performances que vous observez ne répondent pas à vos attentes, vous devez identifier les goulots d’étranglement. Ensuite, optimisez les performances pour supprimer ou réduire l’effet des goulots d’étranglement. Une description complète du diagnostic des performances dépasserait la portée de cet article, mais voici quelques considérations d’ordre général :
@@ -374,7 +375,7 @@ Faites attention au nombre de jeux de données et d’activités de copie néces
 
 Comme vous pouvez le voir, les données sont traitées et déplacées de manière séquentielle en continu : SQL Server > LAN > Passerelle > WAN > Stockage Blob. **Les performances globales sont contrôlées par le débit minimum sur le pipeline**.
 
-![Flux de données](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/case-study-pic-1.png" alt-text="Data flow"::: (Flux de données)
 
 Un ou plusieurs des facteurs suivants peuvent entraîner un goulot d’étranglement des performances :
 
@@ -394,19 +395,19 @@ Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du 
 
 **Analyse des performances et réglage** : par exemple, si vous avez installé la passerelle sur un ordinateur à quatre cœurs, Data Factory utilise 16 copies en parallèle pour déplacer simultanément les fichiers du système de fichiers vers le Stockage Blob. Cette exécution parallèle doit aboutir à un débit élevé. Vous pouvez également spécifier explicitement le nombre de copies parallèles. Lorsque vous copiez plusieurs petits fichiers, les copies parallèles aident considérablement le débit en utilisant les ressources plus efficacement.
 
-![Scénario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-1.png" alt-text="Scénario 1":::
 
 **Scénario II :** copier 20 blobs de 500 Mo chacun du Stockage Blob vers Data Lake Store Analytics, puis régler les performances.
 
 **Analyse des performances et réglage** : dans ce scénario, Data Factory copie les données du Stockage Blob vers Data Lake Store en utilisant des unités de déplacement de données à copie unique (valeur **parallelCopies** définie sur 1) et à cloud unique. Le débit que vous constatez est proche de la description figurant dans la [section relative aux performances de référence](#performance-reference).
 
-![Scénario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-2.png" alt-text="Scénario 2":::
 
 **Scénario III** : la taille des fichiers est supérieure à des dizaines de mégaoctets et le volume total est important.
 
 **Analyse des performances et réglage** : l’augmentation de la valeur **parallelCopies** ne donne pas de meilleures performances de copie, en raison des limitations de ressource d’une unité de déplacement de données à cloud unique. Vous avez plutôt intérêt à spécifier plus d’unités de déplacement de données cloud pour obtenir davantage de ressources pour le déplacement de données. Ne spécifiez pas de valeur pour la propriété **parallelCopies** . Data Factory gère le parallélisme pour vous. Dans ce cas, si vous définissez **cloudDataMovementUnits** sur 4, un débit quatre fois supérieur se produit.
 
-![Scénario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-3.png" alt-text="Scénario 3":::
 
 ## <a name="reference"></a>Informations de référence
 Voici des références relatives à la surveillance et au réglage des performances pour quelques banques de données prises en charge :

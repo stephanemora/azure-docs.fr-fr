@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/06/2021
 ms.author: b-juche
-ms.openlocfilehash: ed67984dac9d1beb7106c78a8ffa35d778f69d59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e9d3f2443d73f75e96e0036d5c546d00238a58d8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531522"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614369"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
 
@@ -96,7 +96,7 @@ Cet article explique comment créer un volume NFS. Pour les volumes SMB, consul
 
     * Si vous souhaitez appliquer une stratégie d’instantané existante au volume, cliquez sur **Afficher la section avancée** pour la développer, indiquez si vous souhaitez masquer le chemin d'accès de l’instantané, puis sélectionnez une stratégie d’instantané dans le menu déroulant. 
 
-        Pour plus d’informations sur la création d’une stratégie d’instantané, consultez [Gérer les stratégies d’instantané](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+        Pour plus d’informations sur la création d’une stratégie d’instantané, consultez [Gérer les stratégies d’instantané](snapshots-manage-policy.md).
 
         ![Afficher la sélection avancée](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

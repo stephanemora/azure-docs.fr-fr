@@ -3,16 +3,17 @@ title: Appeler un package SSIS à l’aide d’Azure Data Factory – Activité 
 description: Cet article décrit comment appeler un package SQL Server Integration Services (SSIS) à partir d’un pipeline Azure Data Factory à l’aide de l’activité de procédure stockée.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 6c831fa1c6351840693f2b10a22f59c5cc424d0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 718ca020577a33e5225d46579ee62d8a9859b18a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392882"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641386"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 

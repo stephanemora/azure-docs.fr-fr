@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/06/2021
+ms.date: 09/16/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: fc202359e90024ee73c3041013eef9c2da814045
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: ce5f1e0057f3ed6146ab942aa94302a96c503c19
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835828"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646736"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurer ExpressRoute des connexions coexistantes de site à site en utilisant PowerShell
 > [!div class="op_single_selector"]
@@ -62,10 +62,7 @@ Vous pouvez configurer votre réseau là où certains sites se connectent direct
 
 ![Coexister](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
 
-> [!NOTE]
-> Vous ne pouvez pas configurer un réseau virtuel comme un routeur de transit.
-> 
-> 
+
 
 ## <a name="selecting-the-steps-to-use"></a>Sélection des étapes à suivre
 Vous avez le choix entre deux ensembles de procédures. La procédure de configuration que vous sélectionnez varie selon que vous disposez déjà d’un réseau virtuel auquel vous connecter ou que vous voulez créer un réseau virtuel.

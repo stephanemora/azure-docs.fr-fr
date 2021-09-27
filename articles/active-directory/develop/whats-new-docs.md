@@ -5,23 +5,39 @@ description: Nouvelle documentation mise à jour pour la plateforme d’identit�
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 07/01/2021
+ms.date: 09/01/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
 ms.custom: has-adal-ref
-ms.openlocfilehash: 952126148b9c115803d9a535da287586de771861
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 1e639cfe0b3c86e2a2f422250979a292020e7fbf
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527853"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433122"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentation relative à la plateforme d’identités Microsoft : Nouveautés
 
 Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative à la plateforme d’identités Microsoft. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois.
+
+## <a name="august-2021"></a>Août 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Notions de base des autorisations](authorization-basics.md)
+- [Créer un certificat public auto-signé pour authentifier votre application](howto-create-self-signed-certificate.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Obtenir une liste complète des applications qui utilisent ADAL dans votre locataire](howto-get-list-of-all-active-directory-auth-library-apps.md)
+- [Plug-in Microsoft Enterprise Single Sign-On pour appareils Apple (préversion)](apple-sso-plugin.md)
+- [Exemples de code pour la plateforme d’identités Microsoft](sample-v2-code.md)
+- [Migration d’applications vers la Bibliothèque d’authentification Microsoft (MSAL)](msal-migration.md)
+- [Limitations et restrictions des URI de redirection (URL de réponse)](reply-url.md)
+- [Sérialisation du cache de jetons dans MSAL.NET](msal-net-token-cache-serialization.md)
 
 ## <a name="july-2021"></a>Juillet 2021
 
@@ -38,7 +54,6 @@ Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative
 - [Autorisations et consentement dans la plateforme d’identités Microsoft](v2-permissions-and-consent.md)
 - [API web protégée : Vérifier les étendues et les rôles d’application](scenario-protected-web-api-verification-scope-app-roles.md)
 - [Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core](quickstart-v2-aspnet-core-webapp.md)
-
 
 ## <a name="june-2021"></a>Juin 2021
 
@@ -58,25 +73,3 @@ Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative
 - [Migration d’applications vers MSAL.NET ou Microsoft.Identity.Web](msal-net-migration.md)
 - [Sérialisation du cache de jetons dans MSAL.NET](msal-net-token-cache-serialization.md)
 - [Quelles sont les nouveautés en matière d’authentification ?](reference-breaking-changes.md)
-
-## <a name="may-2021"></a>Mai 2021
-
-### <a name="new-articles"></a>Nouveaux articles
-
-- [Contestations liées aux revendications, demandes de revendications, et fonctionnalités clientes](claims-challenge.md)
-- [Guide du développeur pour le contexte d'authentification de l'accès conditionnel](developer-guide-conditional-access-authentication-context.md)
-- [Jetons d'actualisation de la Plateforme d'identités Microsoft](refresh-tokens.md)
-- [Plateforme d’identité Microsoft et flux d’assertion du porteur SAML OAuth 2.0](v2-saml-bearer-assertion.md)
-- [Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) React à l’aide du flux de code d’authentification](tutorial-v2-react.md)
-- [Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) Angular à l’aide du flux de code d’authentification](tutorial-v2-angular-auth-code.md)
-
-### <a name="updated-articles"></a>Articles mis à jour
-
-- [Guide du développeur pour le contexte d'authentification de l'accès conditionnel](developer-guide-conditional-access-authentication-context.md)
-- [Procédure : ajouter des rôles d’application dans votre application et les recevoir dans le jeton](howto-add-app-roles-in-azure-ad-apps.md)
-- [Migration d’une application Node.js d’ADAL vers MSAL](msal-node-migration.md)
-- [Jetons d’ID de la plateforme d’identités Microsoft](id-tokens.md)
-- [Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android](quickstart-v2-android.md)
-- [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
-- [Démarrage rapide : Appeler une API web ASP.NET qui est protégée par la plateforme d’identités Microsoft](quickstart-v2-dotnet-native-aspnet.md)
-- [Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android](tutorial-v2-android.md)

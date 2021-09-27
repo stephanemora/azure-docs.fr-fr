@@ -11,16 +11,16 @@ ms.date: 12/01/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 53005bffde698030221751ec0638a6cc6cbd98c7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 20f6e4b02e75686d98456a97490ef261ee929a1b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478931"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600301"
 ---
 # <a name="managing-concurrency-in-blob-storage"></a>Gestion de l’accès concurrentiel dans Blob Storage
 
-Dans les applications modernes, les données sont souvent consultées et mises à jour par plusieurs utilisateurs à la fois. Les développeurs d'applications doivent donc bien réfléchir à la manière de proposer une expérience prévisible à leurs utilisateurs finaux, notamment lorsque plusieurs utilisateurs peuvent mettre à jour les mêmes données. Les développeurs prennent généralement en compte trois grandes stratégies d’accès concurrentiel aux données :  
+Dans les applications modernes, les données sont souvent consultées et mises à jour par plusieurs utilisateurs à la fois. Les développeurs d'applications doivent donc bien réfléchir à la manière de proposer une expérience prévisible à leurs utilisateurs finaux, notamment lorsque plusieurs utilisateurs peuvent mettre à jour les mêmes données. Les développeurs prennent généralement en compte trois grandes stratégies d’accès concurrentiel aux données :
 
 - **Accès concurrentiel optimiste** : Une application procédant à une mise à jour vérifie, dans le cadre de la mise à jour, si les données n'ont pas été modifiées depuis la dernière lecture. Par exemple, si deux utilisateurs qui consultent une page wiki procèdent à une mise à jour de cette page, la plateforme wiki doit veiller à ce que la deuxième mise à jour n'écrase pas la première. Ils doivent également veiller à ce que les deux utilisateurs sachent si leur mise à jour a fonctionné ou non. Cette stratégie est la plus souvent utilisée dans les applications web.
 
@@ -32,7 +32,7 @@ Stockage Azure prend en charge les trois stratégies, bien qu’il se distingue 
 
 Parallèlement à la sélection d'une stratégie d'accès concurrentiel adaptée, les développeurs doivent savoir comment la plateforme de stockage isole les changements, notamment ceux apportés à un même objet au fil des transactions. Stockage Azure utilise l’isolement de capture instantanée pour permettre l’exécution simultanée des opérations de lecture et d’écriture au sein d’une même partition. L’isolement d’instantané garantit que toutes les opérations de lecture retournent un instantané cohérent des données, même pendant les mises à jour.
 
-Vous pouvez choisir d’utiliser des modèles d’accès concurrentiel optimiste ou pessimiste pour gérer l’accès aux objets blob et aux conteneurs. Si vous ne spécifiez pas une stratégie de manière explicite, la dernière écriture prévaut par défaut.  
+Vous pouvez choisir d’utiliser des modèles d’accès concurrentiel optimiste ou pessimiste pour gérer l’accès aux objets blob et aux conteneurs. Si vous ne spécifiez pas une stratégie de manière explicite, la dernière écriture prévaut par défaut.
 
 ## <a name="optimistic-concurrency"></a>Accès concurrentiel optimiste
 
@@ -40,14 +40,14 @@ Stockage Azure attribue un identificateur à chaque objet stocké. Cet identific
 
 Un client qui effectue une mise à jour peut envoyer la valeur ETag d’origine avec un en-tête conditionnel pour s’assurer qu’une mise à jour se produira uniquement si une certaine condition est remplie. Par exemple, si l’en-tête **If-Match** est spécifié, Stockage Azure vérifie que la valeur ETag spécifiée dans la demande de mise à jour est identique à la valeur ETag de l’objet en cours de mise à jour. Pour plus d’informations sur les en-têtes conditionnels, consultez [Spécification des en-têtes conditionnels pour les opérations du service Blob](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
 
-Ce processus se déroule comme suit :  
+Ce processus se déroule comme suit :
 
 1. Récupérez un objet blob à partir de Stockage Azure. La réponse inclut une valeur d'en-tête ETag HTTP qui identifie la version actuelle de l'objet.
 1. Lorsque vous mettez l'objet blob à jour, incluez la valeur ETag reçue à l'étape 1 dans l'en-tête conditionnel **If-Match** de la demande d’écriture. Stockage Azure compare la valeur ETag de la demande à la valeur ETag de l'objet blob.
 1. Si la valeur ETag actuelle de l’objet blob diffère de celle spécifiée dans l’en-tête conditionnel **If-Match** fourni dans la demande, Stockage Azure retourne le code d’état HTTP 412 (échec de la précondition). Cette erreur indique au client que l’objet blob a été mis à jour par un autre processus depuis la première récupération par le client.
-1. Si la valeur ETag actuelle de l'objet blob est la même que la balise ETag dans l'en-tête conditionnel **If-Match** de la demande, Stockage Azure effectue l'opération demandée et met la valeur ETag de l'objet blob à jour.  
+1. Si la valeur ETag actuelle de l'objet blob est la même que la balise ETag dans l'en-tête conditionnel **If-Match** de la demande, Stockage Azure effectue l'opération demandée et met la valeur ETag de l'objet blob à jour.
 
-Les exemples de code suivants montrent comment construire une condition **If-Match** sur la demande d’écriture qui vérifie la valeur ETag pour un objet blob. Stockage Azure évalue si la valeur ETag actuelle de l’objet blob est identique à la valeur ETag fournie dans la demande, puis exécute l’opération d’écriture uniquement si les deux valeurs ETag correspondent. Si l’objet blob a été mis à jour entre-temps par un autre processus, Stockage Azure retourne un message d’état HTTP 412 (Échec de la condition préalable).  
+Les exemples de code suivants montrent comment construire une condition **If-Match** sur la demande d’écriture qui vérifie la valeur ETag pour un objet blob. Stockage Azure évalue si la valeur ETag actuelle de l’objet blob est identique à la valeur ETag fournie dans la demande, puis exécute l’opération d’écriture uniquement si les deux valeurs ETag correspondent. Si l’objet blob a été mis à jour entre-temps par un autre processus, Stockage Azure retourne un message d’état HTTP 412 (Échec de la condition préalable).
 
 # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
@@ -106,15 +106,15 @@ public void DemonstrateOptimisticConcurrencyBlob(string containerName, string bl
 
 ---
 
-Stockage Azure prend également en charge d’autres en-têtes conditionnels, notamment **If-Modified-Since**, **If-Unmodified-Since** et **If-None-Match**. Pour plus d’informations, consultez [Spécification des en-têtes conditionnels pour les opérations du service Blob](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
+Stockage Azure prend également en charge d’autres en-têtes conditionnels, notamment **If-Modified-Since**, **If-Unmodified-Since** et **If-None-Match**. Pour plus d’informations, consultez [Spécification des en-têtes conditionnels pour les opérations du service Blob](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
 
 ## <a name="pessimistic-concurrency-for-blobs"></a>Accès concurrentiel pessimiste pour les objets blob
 
-Pour verrouiller un objet blob de manière à l'utiliser de manière exclusive, vous pouvez obtenir un bail pour l'objet blob. Lorsque vous acquérez le bail, vous spécifiez sa durée. Un bail fini peut être compris entre 15 et 60 secondes. Un bail peut également être infini, ce qui correspond à un verrou exclusif. Vous pouvez renouveler un bail à durée limitée et vous pouvez libérer le bail lorsque vous n'en avez plus besoin. Azure Stockage libère automatiquement les baux à durée limitée quand ils expirent.  
+Pour verrouiller un objet blob de manière à l'utiliser de manière exclusive, vous pouvez obtenir un bail pour l'objet blob. Lorsque vous acquérez le bail, vous spécifiez sa durée. Un bail fini peut être compris entre 15 et 60 secondes. Un bail peut également être infini, ce qui correspond à un verrou exclusif. Vous pouvez renouveler un bail à durée limitée et vous pouvez libérer le bail lorsque vous n'en avez plus besoin. Azure Stockage libère automatiquement les baux à durée limitée quand ils expirent.
 
-Les baux permettent la prise en charge de différentes stratégies de synchronisation, dont des opérations d'écriture exclusive/de lecture partagée, d'écriture exclusive/de lecture exclusive et d'écriture partagée/de lecture exclusive. Si un bail existe, Stockage Azure applique l’accès exclusif aux opérations d’écriture pour le titulaire de ce bail. Cependant, pour garantir l’exclusivité des opérations de lecture, le développeur doit veiller à ce que toutes les applications clientes utilisent un identificateur de bail et à ce que seul un client à la fois dispose d’un identificateur de bail valable. Les opérations de lecture sans identificateur de bail entraînent l’application d’une stratégie de lecture partagée.  
+Les baux permettent la prise en charge de différentes stratégies de synchronisation, dont des opérations d'écriture exclusive/de lecture partagée, d'écriture exclusive/de lecture exclusive et d'écriture partagée/de lecture exclusive. Si un bail existe, Stockage Azure applique l’accès exclusif aux opérations d’écriture pour le titulaire de ce bail. Cependant, pour garantir l’exclusivité des opérations de lecture, le développeur doit veiller à ce que toutes les applications clientes utilisent un identificateur de bail et à ce que seul un client à la fois dispose d’un identificateur de bail valable. Les opérations de lecture sans identificateur de bail entraînent l’application d’une stratégie de lecture partagée.
 
-Les exemples de code suivants montrent comment acquérir un bail exclusif sur un objet blob, mettre à jour le contenu de cet objet blob en fournissant l’ID de bail, puis libérer le bail. Si le bail est actif et que l’ID de bail n’est pas fourni dans une demande d’écriture, l’opération d’écriture échoue avec le code d’erreur 412 (échec de la précondition).  
+Les exemples de code suivants montrent comment acquérir un bail exclusif sur un objet blob, mettre à jour le contenu de cet objet blob en fournissant l’ID de bail, puis libérer le bail. Si le bail est actif et que l’ID de bail n’est pas fourni dans une demande d’écriture, l’opération d’écriture échoue avec le code d’erreur 412 (échec de la précondition).
 
 # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
@@ -177,10 +177,10 @@ public void DemonstratePessimisticConcurrencyBlob(string containerName, string b
 
 ## <a name="pessimistic-concurrency-for-containers"></a>Accès concurrentiel pessimiste pour les conteneurs
 
-Les baux sur des conteneurs permettent les mêmes stratégies de synchronisation prises en charge pour les objets blob, dont des stratégies d'écriture exclusive/de lecture partagée, d'écriture exclusive/de lecture exclusive et d'écriture partagée/de lecture exclusive. Pour les conteneurs, toutefois, le verrou exclusif est appliqué uniquement aux opérations de suppression. Pour supprimer un conteneur avec un bail actif, le client doit inclure l'identificateur du bail actif dans la demande de suppression. Toutes les autres opérations de conteneur réussiront sur un conteneur loué sans ID de bail.  
+Les baux sur des conteneurs permettent les mêmes stratégies de synchronisation prises en charge pour les objets blob, dont des stratégies d'écriture exclusive/de lecture partagée, d'écriture exclusive/de lecture exclusive et d'écriture partagée/de lecture exclusive. Pour les conteneurs, toutefois, le verrou exclusif est appliqué uniquement aux opérations de suppression. Pour supprimer un conteneur avec un bail actif, le client doit inclure l'identificateur du bail actif dans la demande de suppression. Toutes les autres opérations de conteneur réussiront sur un conteneur loué sans ID de bail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Spécification des en-têtes conditionnels pour les opérations du service BLOB](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations)
-* [Lease Container](/rest/api/storageservices/lease-container)
-* [Bail Blob](/rest/api/storageservices/lease-blob)
+- [Spécification des en-têtes conditionnels pour les opérations du service BLOB](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations)
+- [Lease Container](/rest/api/storageservices/lease-container)
+- [Bail Blob](/rest/api/storageservices/lease-blob)

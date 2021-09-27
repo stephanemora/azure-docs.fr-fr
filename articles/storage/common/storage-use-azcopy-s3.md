@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: ac73d0e57377a8922691ea06c8de3df5ef577680
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 68aaa447aef65a109105f870b805dd485f322643
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502434"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639980"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copier des données depuis Amazon S3 vers le Stockage Azure avec AzCopy
 
@@ -21,9 +21,9 @@ AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copi
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Choisissez comment vous allez fournir des informations d’identification d’autorisation.
 
-* Pour autoriser avec Stockage Azure, utilisez Azure Active Directory (AD) ou un jeton SAS (signature d’accès partagé).
+- Pour autoriser avec Stockage Azure, utilisez Azure Active Directory (AD) ou un jeton SAS (signature d’accès partagé).
 
-* Pour autoriser avec AWS S3, utilisez une clé d’accès AWS et une clé d’accès secrète.
+- Pour autoriser avec AWS S3, utilisez une clé d’accès AWS et une clé d’accès secrète.
 
 ### <a name="authorize-with-azure-storage"></a>Autoriser avec Stockage Azure
 
@@ -53,7 +53,7 @@ AzCopy utilise l’API [Placer un bloc à partir d’une URL](/rest/api/storages
 > [!TIP]
 > Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
- Ces exemples fonctionnent également avec les comptes qui ont un espace de noms hiérarchique. [L’accès multiprotocole sur Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) vous permet d’utiliser la même syntaxe d’URL (`blob.core.windows.net`) sur ces comptes. 
+ Ces exemples fonctionnent également avec les comptes qui ont un espace de noms hiérarchique. [L’accès multiprotocole sur Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) vous permet d’utiliser la même syntaxe d’URL (`blob.core.windows.net`) sur ces comptes.
 
 ### <a name="copy-an-object"></a>Copier un objet
 
@@ -153,7 +153,7 @@ azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.
 
 AWS S3 possède un ensemble de conventions d’attribution de noms aux compartiments différent des conteneurs d’objets blob Azure. Vous pouvez les découvrir [ici](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules). Si vous choisissez de copier un groupe de compartiments dans un compte de stockage Azure, l’opération de copie peut échouer en raison des différences en matière d’attributions de noms.
 
-AzCopy gère deux des problèmes les plus communs : les compartiments contenant des points et ceux contenant plusieurs traits d’union à la suite. Les noms de compartiment AWS S3 peuvent contenir des points et des traits d’union consécutifs, ce qui n’est pas le cas d’un conteneur dans Azure. AzCopy remplace les points par des traits d’union et les traits d’union consécutifs par un nombre qui représente le nombre de traits d’union consécutifs (par exemple, un compartiment nommé `my----bucket` devient `my-4-bucket`. 
+AzCopy gère deux des problèmes les plus communs : les compartiments contenant des points et ceux contenant plusieurs traits d’union à la suite. Les noms de compartiment AWS S3 peuvent contenir des points et des traits d’union consécutifs, ce qui n’est pas le cas d’un conteneur dans Azure. AzCopy remplace les points par des traits d’union et les traits d’union consécutifs par un nombre qui représente le nombre de traits d’union consécutifs (par exemple, un compartiment nommé `my----bucket` devient `my-4-bucket`.
 
 En outre, comme AzCopy copie les fichiers, il vérifie les collisions de noms et tente de les résoudre. Par exemple, s’il y a des compartiments nommés `bucket-name` et `bucket.name`, AzCopy résout d’abord un compartiment nommé `bucket.name` en `bucket-name` puis en `bucket-name-2`.
 
@@ -201,4 +201,4 @@ Consultez les articles suivants pour configurer les paramètres, optimiser les p
 
 - [Paramètres de configuration d’AzCopy](storage-ref-azcopy-configuration-settings.md)
 - [Optimiser les performances d’AzCopy](storage-use-azcopy-optimize.md)
-- [Résoudre les problèmes d’AzCopy v10 dans Stockage Azure en utilisant des fichiers journaux](storage-use-azcopy-configure.md)
+- [Résoudre les problèmes d’AzCopy V10 dans le stockage Azure à l’aide de fichiers journaux](storage-use-azcopy-configure.md)

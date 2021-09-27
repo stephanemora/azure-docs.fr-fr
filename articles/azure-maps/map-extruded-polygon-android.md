@@ -1,20 +1,20 @@
 ---
 title: Ajouter une couche d’extrusion de polygone à une carte Android | Microsoft Azure Maps
 description: Comment ajouter une couche d’extrusion de polygone à l’Android SDK Microsoft Azure Maps.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: a5d5fb3419a3bdaaef9480c3979cb83e806a97c2
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 85e8f7e2d4d6dad05484131cc7c0cf0932fee407
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093532"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432699"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map-android-sdk"></a>Ajouter une couche d’extrusion de polygone à la carte (Android SDK)
 

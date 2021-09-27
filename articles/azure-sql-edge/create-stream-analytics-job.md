@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 97189fd7a232c2467981b23dc20da51ebef08252
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f5059352793adf7cd3e8635d270ba85a3014758
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656340"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434211"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Créer une tâche de diffusion en continu de données dans Azure SQL Edge 
 
@@ -104,7 +104,7 @@ L’exemple suivant crée un objet de flux externe dans la base de données loca
 3. Créez une source de données externe avec CREATE EXTERNAL DATA SOURCE. L’exemple suivant :
 
     * Crée une source de données externe pour nommée *LocalSQLOutput*.
-    * Identifie la source de données externe (LOCATION = '<vendor>://<server>[:<port>]'). Dans l’exemple, elle pointe vers une instance locale d’Azure SQL Edge.
+    * Identifie la source de données externe (`LOCATION = '<vendor>://<server>[:<port>]'`). Dans l’exemple, elle pointe vers une instance locale d’Azure SQL Edge.
     * Elle utilise les informations d’identification créées précédemment.
 
     ```sql

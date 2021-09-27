@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
-ms.openlocfilehash: 3c0e2033ee559af38a6816bdfa611eea86b14dea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5112cf06952754eb1313166b82a9cf14876c797f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94658313"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598267"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Prise en charge du travail à distance par le pare-feu Azure
 
@@ -24,7 +24,7 @@ Les politiques de télétravail obligent de nombreuses organisations informatiqu
 
 ## <a name="azure-windows-virtual-desktop-support"></a>Prise en charge d’Azure Windows Virtual Desktop
 
-Windows Virtual Desktop est un service complet de virtualisation de bureau et d’application s’exécutant dans Azure. Il s’agit de la seule infrastructure de bureau virtuel (VDI,Virtual Desktop Infrastructure) qui offre une gestion simplifiée, la fonctionnalité multisession de Windows 10, des optimisations des applications Microsoft 365 Entreprise et la prise en charge des environnements de Services Bureau à distance (RDS, Remote Desktop Services). Vous pouvez déployer et mettre à l’échelle vos applications et postes de travail Windows sur Azure en quelques minutes et bénéficier de fonctionnalités de sécurité et de conformité intégrées. Windows Virtual Desktop ne vous oblige pas à ouvrir un accès entrant à votre réseau virtuel. Toutefois, vous devez autoriser un ensemble de connexions réseau sortantes pour les machines virtuelles Windows Virtual Desktop qui s’exécutent dans votre réseau virtuel. Pour plus d’informations, consultez [Utiliser le pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop](protect-windows-virtual-desktop.md).
+Windows Virtual Desktop est un service complet de virtualisation de bureau et d’application s’exécutant dans Azure. Il s’agit de la seule infrastructure de bureau virtuel (VDI,Virtual Desktop Infrastructure) qui offre une gestion simplifiée, la fonctionnalité multisession de Windows 10, des optimisations des applications Microsoft 365 Entreprise et la prise en charge des environnements de Services Bureau à distance (RDS, Remote Desktop Services). Vous pouvez déployer et mettre à l’échelle vos applications et postes de travail Windows sur Azure en quelques minutes et bénéficier de fonctionnalités de sécurité et de conformité intégrées. Windows Virtual Desktop ne vous oblige pas à ouvrir un accès entrant à votre réseau virtuel. Toutefois, vous devez autoriser un ensemble de connexions réseau sortantes pour les machines virtuelles Windows Virtual Desktop qui s’exécutent dans votre réseau virtuel. Pour plus d’informations, consultez [Utiliser le pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop](protect-azure-virtual-desktop.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

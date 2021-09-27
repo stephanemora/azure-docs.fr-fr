@@ -1,14 +1,14 @@
 ---
-title: Utiliser les fonctionnalités de revendication dans Azure DevTest Labs | Microsoft Docs
+title: Utiliser les fonctionnalités de revendication
 description: En savoir plus sur les différents scénarios d'utilisation des fonctionnalités de revendication/cessation de revendication d'Azure DevTest Labs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 73ed3c0b94a66f5d17b5c8e2561c65bb48579aa1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d50ab660433ac9b2616a897e1110d466eb143a9a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85476527"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559282"
 ---
 # <a name="use-claim-capabilities-in-azure-devtest-labs"></a>Utiliser les fonctionnalités de revendication dans Azure DevTest Labs
 Le service Azure DevTest Labs améliore l'efficacité et l'efficience des développeurs et des testeurs. Cet article met l'accent sur la possibilité de revendiquer ou de cesser de revendiquer des machines virtuelles dans Azure DevTest Labs. Il énumère également les différentes façons dont cette fonctionnalité améliore l'expérience de l'utilisateur. Avant d'étudier les différents cas d’utilisation de cette fonctionnalité, examinons ce qu'est la **revendication** et comment elle fonctionne.

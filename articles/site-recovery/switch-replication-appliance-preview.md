@@ -3,13 +3,13 @@ title: Basculer une appliance de réplication vers Azure Site Recovery - Préver
 description: Cet article explique comment basculer entre différentes appliances de réplication lors de la réplication de machines virtuelles VMware vers Azure Site Recovery - Préversion
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
-ms.openlocfilehash: f95ed991833a9f6ed1b0635a8678e393f152cb56
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 09/01/2021
+ms.openlocfilehash: 3cf8fa8c761419a73e6bca5dac34d8b1e63cbd04
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535327"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537892"
 ---
 # <a name="switch-azure-site-recovery-replication-appliance"></a>Basculer une appliance de réplication Azure Site Recovery
 
@@ -78,4 +78,4 @@ Par exemple, voici le scénario dans lequel l’appliance de réplication 1 (RA1
    Une fois la resynchronisation terminée, l’état de la réplication devient intègre pour les machines virtuelles qui sont déplacées vers une nouvelle appliance.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Configurez la récupération d’urgence des [machines virtuelles VMware](vmware-azure-tutorial.md) vers Azure.
+Configurez la récupération d’urgence des [machines virtuelles VMware](vmware-azure-set-up-replication-tutorial-preview.md) vers Azure.

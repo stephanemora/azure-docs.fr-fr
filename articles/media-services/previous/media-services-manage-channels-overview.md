@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 243c3dcf9c76bcedffb6e1f531dfd85ea479edcf
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: fa80ff7a418b0f1d49285aad872cfd411037b721
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114706289"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430177"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services
 
@@ -163,7 +163,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Rubriques connexes
-[Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](../media-services-fmp4-live-ingest-overview.md)
+[Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 
 [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
 

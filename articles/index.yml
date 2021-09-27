@@ -340,12 +340,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: hdinsight/r-server/r-server-overview.md
-    - title: Azure Blockchain Service (Préversion)
-      summary: 'Créez, gouvernez et développez des réseaux blockchain de consortium'
-      imageSrc: 'https://static.docs.com/ui/media/product/azure/blockchain-service.svg'
-      azureCategories:
-        - blockchain
-      url: blockchain/service/index.yml
     - title: Azure Blockchain Workbench (préversion)
       summary: Prototypez facilement des applications de blockchain dans le cloud
       imageSrc: 'https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg'

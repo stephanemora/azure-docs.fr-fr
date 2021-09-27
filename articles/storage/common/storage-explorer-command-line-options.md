@@ -2,23 +2,24 @@
 title: Options de ligne de commande de l’Explorateur Stockage Azure | Microsoft Docs
 description: Documentation des options de ligne de commande de démarrage de l’Explorateur Stockage Azure
 services: storage
-author: chuye
+author: JasonYeMSFT
 ms.service: storage
 ms.topic: article
 ms.date: 02/24/2021
 ms.author: chuye
-ms.openlocfilehash: 0d588d85852f798542c5d52658e8dae3b9e57949
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69b5eb294bf33a56e89052752cb8473189f34eac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743119"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626643"
 ---
 # <a name="azure-storage-explorer-command-line-options"></a>Options de ligne de commande de l’Explorateur Stockage Azure
 
 L’Explorateur Stockage Microsoft Azure possède un ensemble d’options de ligne de commande qui peuvent être ajoutées au démarrage de l’application. La plupart des options de ligne de commande sont destinées au débogage ou à la résolution des problèmes.
 
 ## <a name="command-line-options"></a>Options de ligne de commande
+
 Option  | Description
 :------- | :-----------
 `--debug`/`--prod`  | Démarrez l’application en mode débogage ou de production. En mode débogage, les données des pièces jointes locales sont stockées dans le stockage local de l’application et ne sont pas chiffrées. Les propriétés masquées s’affichent dans le panneau Propriétés pour les nœuds de ressource sélectionnés. Le niveau de détail du journal sera défini pour imprimer les messages de débogage révélant la logique d’installation interne de l’Explorateur Stockage. La valeur par défaut est `--prod`.
@@ -39,6 +40,6 @@ Exemple de démarrage de l’Explorateur Stockage avec des options de ligne de c
 
 ## <a name="when-to-use-command-line-options"></a>Quand utiliser les options de ligne de commande
 
-Certaines options de ligne de commande peuvent être utilisées pour personnaliser l’Explorateur Stockage. Pour les options avec des paramètres utilisateur correspondants, tels que `--lang`. Nous vous recommandons d’utiliser les paramètres utilisateur au lieu de l’option de ligne de commande. 
+Certaines options de ligne de commande peuvent être utilisées pour personnaliser l’Explorateur Stockage. Pour les options avec des paramètres utilisateur correspondants, tels que `--lang`. Nous vous recommandons d’utiliser les paramètres utilisateur au lieu de l’option de ligne de commande.
 
 Les autres options de ligne de commande peuvent être utiles pour le débogage et la résolution des problèmes. Si vous rencontrez un problème dans l’Explorateur Stockage, reproduire le problème en mode débogage peut nous aider à des informations plus détaillées à examiner.

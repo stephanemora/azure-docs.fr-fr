@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/07/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 383757cf20c7ac508aa396b947640c3a1221052d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 18f6be8421d424b8eefe04c5cb2e3f8026858ec7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563207"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626719"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Reprise d’activité après sinistre et basculement de compte de stockage
 
@@ -30,7 +30,7 @@ Cet article décrit les concepts et les processus impliqués dans un basculement
 
 ## <a name="choose-the-right-redundancy-option"></a>Choisir l’option de redondance appropriée
 
-Stockage Azure conserve plusieurs copies de votre compte de stockage afin de garantir la durabilité et la haute disponibilité. L’option de redondance que vous choisirez pour votre compte dépendra du degré de résilience dont vous avez besoin. Pour la protection contre les pannes régionales, configurez votre compte pour le stockage géoredondant, avec ou sans l’option d’accès en lecture à partir de la région secondaire :  
+Stockage Azure conserve plusieurs copies de votre compte de stockage afin de garantir la durabilité et la haute disponibilité. L’option de redondance que vous choisirez pour votre compte dépendra du degré de résilience dont vous avez besoin. Pour la protection contre les pannes régionales, configurez votre compte pour le stockage géoredondant, avec ou sans l’option d’accès en lecture à partir de la région secondaire :
 
 Le **stockage géoredondant (GRS) ou stockage géoredondant interzone (GZRS)** copie vos données de façon asynchrone dans deux régions géographiques distantes d’au moins plusieurs centaines de kilomètres. Si la région primaire subit une panne, la région secondaire sert de source redondante pour vos données. Vous pouvez lancer un basculement pour transformer le point de terminaison secondaire en point de terminaison principal.
 
@@ -48,7 +48,7 @@ Il est important de concevoir votre application à des fins de haute disponibili
 - [Conception d’applications résilientes pour Azure](/azure/architecture/framework/resiliency/app-design) : vue d’ensemble des concepts clés de l’architecture des applications hautement disponibles dans Azure.
 - [Liste de vérification de résilience](/azure/architecture/checklist/resiliency-per-service) : liste de contrôle pour vérifier que votre application implémente les bonnes pratiques de conception pour la haute disponibilité.
 - [Utilisez la géo-redondance pour concevoir des applications hautement disponibles](geo-redundant-design.md) : guide de conception pour créer des applications tirant parti du stockage géoredondant.
-- [Tutoriel : Générer une application hautement disponible avec le stockage d’objets Blob](../blobs/storage-create-geo-redundant-storage.md) : tutoriel qui montre comment créer une application hautement disponible qui bascule automatiquement entre des points de terminaison lors de la simulation de pannes et de récupérations. 
+- [Tutoriel : Générer une application hautement disponible avec le stockage d’objets Blob](../blobs/storage-create-geo-redundant-storage.md) : tutoriel qui montre comment créer une application hautement disponible qui bascule automatiquement entre des points de terminaison lors de la simulation de pannes et de récupérations.
 
 Gardez également à l’esprit ces bonnes pratiques pour maintenir une haute disponibilité pour vos données de Stockage Azure :
 
@@ -67,7 +67,8 @@ Microsoft vous recommande également de concevoir votre application pour l’év
 
 Le basculement de compte géré par le client vous permet de basculer votre compte de stockage entier vers la région secondaire si la région primaire devient indisponible pour une raison quelconque. Quand vous forcez un basculement vers la région secondaire, les clients peuvent commencer à écrire des données sur le point de terminaison secondaire une fois le basculement terminé. Le basculement prend généralement environ une heure.
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+> [!NOTE]
+> Cette fonctionnalité n’est pas encore prise en charge dans les comptes dotés d’un espace de noms hiérarchique (Azure Data Lake Storage Gen2). Pour en savoir plus, consultez [Fonctionnalités de stockage blob disponibles dans Azure Data Lake Storage Gen2](../blobs/storage-feature-support-in-storage-accounts.md).
 
 ### <a name="how-an-account-failover-works"></a>Fonctionnement d’un basculement de compte
 
@@ -93,7 +94,7 @@ L’accès en écriture est restauré pour les comptes géoredondants une fois q
 ### <a name="anticipate-data-loss"></a>Anticiper la perte de données
 
 > [!CAUTION]
-> Un basculement de compte entraîne généralement une certaine perte de données. Il est important de bien comprendre les implications d’un basculement de compte.  
+> Un basculement de compte entraîne généralement une certaine perte de données. Il est important de bien comprendre les implications d’un basculement de compte.
 
 Les données étant écrites de façon asynchrone de la région primaire vers la région secondaire, il y a toujours un délai avant qu’une écriture dans la région primaire soit copiée vers la région secondaire. Si la région primaire devient indisponible, il se peut que les écritures les plus récentes n’aient pas encore été copiées vers la région secondaire.
 

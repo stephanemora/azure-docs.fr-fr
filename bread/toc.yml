@@ -533,7 +533,7 @@
     - name: Module HSM dédié
       tocHref: /azure/dedicated-hsm/
       topicHref: /azure/dedicated-hsm/
-    - name: Devtest Labs
+    - name: Azure DevTest Labs
       tocHref: /azure/devtest-labs/
       topicHref: /azure/devtest-labs/
     - name: FXT Edge Filer
@@ -552,7 +552,7 @@
         - name: Groupes d'administration
           tocHref: /azure/governance/management-groups/
           topicHref: /azure/governance/management-groups/
-        - name: Policy
+        - name: Stratégie
           tocHref: /azure/governance/policy/
           topicHref: /azure/governance/policy/
         - name: Resource Graph

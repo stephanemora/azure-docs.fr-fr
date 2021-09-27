@@ -8,12 +8,12 @@ ms.date: 8/24/2021
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a09af98e613a7e57cc9a8060192e0e54c073cf95
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 14dac03b3e94eb77a6683271bc55283da1da114c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256206"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596882"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -1149,7 +1149,7 @@ Il existe deux chemins d’accès dédiés aux défaillances dans la hiérarchis
 Il existe deux classes principales de défaillances pouvant se produire par le biais des deux chemins d’accès dédiés :
 
 - Défaillances de stockage cloud
-    - *Problèmes de disponibilité du service de stockage temporaire*. Pour plus d’informations, consultez [Contrat de niveau de service (SLA) pour le stockage Azure](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+    - *Problèmes de disponibilité du service de stockage temporaire*. Pour plus d’informations, consultez [Contrat de niveau de service (SLA) pour le stockage Azure](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
     - *Inaccessibilité du partage de fichiers Azure*. Cet échec se produit généralement lorsque vous supprimez un partage de fichiers Azure qui est toujours un point de terminaison de cloud d’un groupe de synchronisation.
     - *Inaccessibilité d’un compte de stockage*. Cet échec se produit généralement lorsque vous supprimez un compte de stockage comportant un partage de fichiers Azure qui est un point de terminaison cloud dans un groupe de synchronisation. 
 - Défaillances de serveur 

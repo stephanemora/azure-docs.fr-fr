@@ -3,19 +3,19 @@ title: 'Procédure : Développer des applications de commandes personnalisées 
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment développer et personnaliser des applications de commandes. Ces applications de commandes vocales sont les plus adaptées à la réalisation de tâches ou aux scénarios de commande et de contrôle.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.author: lajanuar
-ms.openlocfilehash: 62f8c726a4ba8cec07ef2898d132f9aa3d526785
-ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
+ms.author: pafarley
+ms.openlocfilehash: 7b5f32e50e4bcb256d5580edccaf083dad39b98c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535354"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542626"
 ---
 # <a name="develop-custom-commands-applications"></a>Développer des applications de commandes personnalisées
 

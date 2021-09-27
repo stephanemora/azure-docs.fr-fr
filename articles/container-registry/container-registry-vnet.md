@@ -3,18 +3,20 @@ title: Restreindre l’accès avec un point de terminaison de service
 description: Restreignez l’accès à un registre de conteneurs Azure à l’aide d’un point de terminaison de service dans un réseau virtuel Azure. L’accès au point de terminaison de service est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 8a67a011c75a192df9ad3460458fd766b5ec1ec1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0fa721a4a4cf59c93123c98c500b693f05667054
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773461"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641614"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restreindre l’accès à un registre de conteneurs à l’aide d’un point de terminaison de service dans un réseau virtuel Azure
 
 Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) fournit un accès réseau privé et sécurisé à vos ressources Azure et locales. Un [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) vous permet de sécuriser l’adresse IP publique de votre registre de conteneurs uniquement pour votre réseau virtuel. Ce point de terminaison donne au trafic une route optimale vers la ressource via le réseau principal Azure. Les identités du réseau virtuel et du sous-réseau sont également transmises avec chaque demande.
 
 Cet article explique comment configurer un point de terminaison de service de registre de conteneurs (préversion) dans un réseau virtuel. 
+
+Chaque registre prend en charge un maximum de 100 règles de réseau virtuel.
 
 > [!IMPORTANT]
 > Azure Container Registry prend désormais en charge [Azure Private Link](container-registry-private-link.md), ce qui permet de placer des points de terminaison privés d’un réseau virtuel sur un registre. Les points de terminaison privés sont accessibles à partir du réseau virtuel, à l’aide d’adresses IP privées. Nous vous recommandons d’utiliser des points de terminaison privés plutôt que des points de terminaison de service dans la plupart des scénarios réseau.

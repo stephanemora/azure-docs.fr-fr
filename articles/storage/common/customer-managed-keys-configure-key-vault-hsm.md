@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 09f62865c80c05fd0860fa39b18d99c583cf3e56
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d8e4610ee7fc6690f3d0784415cea09259dd99ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461620"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645718"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm"></a>Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault Managed HSM
 
@@ -45,7 +45,7 @@ az storage account update \
 Ensuite, attribuez le rôle **Utilisateur de chiffrement du service cryptographique du module HSM géré** à l'identité managée du compte de stockage afin que celui-ci dispose d'autorisations sur le module HSM géré. Microsoft vous recommande d'étendre l'attribution de rôle au niveau de la clé individuelle afin d'octroyer le moins de privilèges possible à l'identité managée.
 
 Pour créer l'attribution de rôle du compte de stockage, appelez [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create). N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
-  
+
 ```azurecli
 storage_account_principal = $(az storage account show \
     --name <storage-account> \

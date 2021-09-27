@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: v-erkel
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb7d88424a04754612f981d58e8e1d6cb85ce0fb
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: b7789af76572eeaa3dfdfe4c6ff379889341033e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770589"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557457"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Créer un cache Azure HPC Cache
 
@@ -163,7 +163,7 @@ Fournissez ces valeurs :
 * Région Azure
 * Sous-réseau de cache, au format suivant :
 
-  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"``
+  `--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"`
 
   Le sous-réseau de cache a besoin d’au moins 64 adresses IP (/24), et il ne peut pas héberger d’autres ressources.
 
@@ -179,9 +179,9 @@ Fournissez ces valeurs :
   | Taille du cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 Go    | oui         | non          | Non          |
-  | 6144 Go    | Oui         | Oui         | Non          |
-  | 12288 Go   | oui         | Oui         | oui         |
-  | 24576 Go   | Non          | Oui         | oui         |
+  | 6144 Go    | oui         | oui         | Non          |
+  | 12288 Go   | oui         | oui         | oui         |
+  | 24576 Go   | Non          | oui         | oui         |
   | <49152 Go   | Non          | non          | Oui         |
 
   Si vous souhaitez utiliser plus de 10 cibles de stockage avec votre cache, choisissez la valeur de taille de cache la plus élevée disponible pour votre SKU. Ces configurations prennent en charge jusqu’à 20 cibles de stockage.
@@ -283,9 +283,9 @@ Remplacez les valeurs suivantes :
   | Taille du cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 Go    | oui         | non          | Non          |
-  | 6144 Go    | Oui         | Oui         | non          |
-  | 12 288 Go   | Oui         | Oui         | Oui         |
-  | 24 576 Go   | non          | Oui         | Oui         |
+  | 6144 Go    | oui         | oui         | non          |
+  | 12 288 Go   | Oui         | oui         | Oui         |
+  | 24 576 Go   | non          | oui         | Oui         |
   | 49 152 Go   | non          | non          | oui         |
 
   Pour obtenir des informations importantes sur la tarification, le débit et la taille de votre cache en fonction de votre flux de travail, consultez la section **Définir la capacité du cache** sous l’onglet Instructions du portail.

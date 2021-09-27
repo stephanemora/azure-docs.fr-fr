@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure HDInsight
 description: Répertorie les définitions de stratégie intégrées d’Azure Policy pour Azure HDInsight. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 08/27/2021
+ms.date: 09/17/2021
 ms.topic: reference
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 1552740a14491d20a295e64e5b8141bb094b4dd3
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 9daa740e0716cf386fc11615e9607f7a119a2973
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123106584"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566142"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-hdinsight"></a>Définitions intégrées d’Azure Policy pour Azure HDInsight
 

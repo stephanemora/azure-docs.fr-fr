@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c6b3802add796184714f389b813765945a8d20a4
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: d090d6c97a26b78799adf8c5927e6e680c43938a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525826"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596502"
 ---
 # <a name="tutorial-configure-biocatch-with-azure-active-directory-b2c"></a>Tutoriel : Configurer BioCatch avec Azure Active Directory B2C
 
@@ -352,24 +352,18 @@ document.getElementById("clientSessionId").style.display = 'none';
 Procédez comme suit pour ajouter les fichiers de stratégie à Azure AD B2C
 
 1. Connectez-vous au  [**portail Azure**](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
-
-2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement**  dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
-
-3. Choisissez  **Tous les services**  dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez Azure Active Directory B2C.
-
-4. Accédez à  **Azure AD B2C** > **Identity Experience Framework**
-
-3. Chargez tous les fichiers de stratégie sur votre locataire.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez  **Tous les services**  dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez Azure Active Directory B2C.
+1. Accédez à  **Azure AD B2C** > **Identity Experience Framework**
+1. Chargez tous les fichiers de stratégie sur votre locataire.
 
 ## <a name="test-the-solution"></a>Test de la solution
 
 1. [Inscrire une application factice, qui redirige vers JWT.MS](./tutorial-register-applications.md?tabs=app-reg-ga)  
-
-2. Sous l’**Identity Experience Framework**, sélectionnez la stratégie que vous avez créée
-
-3. Dans la fenêtre de stratégie, sélectionnez l’application factice JWT.MS, puis **Exécuter maintenant**
-
-4. Suivez le processus d’inscription et créez un compte. Le jeton renvoyé à JWT.MS doit avoir 2 revendications pour riskLevel et score. Suivez l’exemple.  
+1. Sous l’**Identity Experience Framework**, sélectionnez la stratégie que vous avez créée
+1. Dans la fenêtre de stratégie, sélectionnez l’application factice JWT.MS, puis **Exécuter maintenant**
+1. Suivez le processus d’inscription et créez un compte. Le jeton renvoyé à JWT.MS doit avoir 2 revendications pour riskLevel et score. Suivez l’exemple.  
 
     ```JavaScript
     { 

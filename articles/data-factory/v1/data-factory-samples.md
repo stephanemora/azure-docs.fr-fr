@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4fc4cea51494333bed90cd6c277469a58e2c6a3f
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 5985c653d02a041e648f306847b5bcfd93783302
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527778"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615222"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemples
 > [!NOTE]
@@ -54,21 +55,21 @@ Vous pouvez utiliser la vignette **Exemples de pipelines** figurant dans la page
 1. Créez une fabrique de données ou ouvrez une fabrique de données existante. Pour connaître les étapes de création d’une fabrique de données, consultez [Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 2. Dans le panneau **DATA FACTORY** de la fabrique de données, cliquez sur la vignette **Exemples de pipelines**.
 
-    ![Vignette Exemples de pipelines](./media/data-factory-samples/SamplePipelinesTile.png)
+    :::image type="content" source="./media/data-factory-samples/SamplePipelinesTile.png" alt-text="Vignette Exemples de pipelines":::
 3. Dans le panneau **Exemples de pipelines**, cliquez sur **l’exemple** que vous souhaitez déployer.
 
-    ![Panneau Exemples de pipelines](./media/data-factory-samples/SampleTile.png)
+    :::image type="content" source="./media/data-factory-samples/SampleTile.png" alt-text="Panneau Exemples de pipelines":::
 4. Spécifiez les paramètres de configuration de l’exemple. Par exemple, votre clé de compte et votre nom de compte de stockage Azure, le nom du serveur SQL logique, la base de données, l’ID d’utilisateur, le mot de passe, etc.
 
-    ![Panneau Exemple](./media/data-factory-samples/SampleBlade.png)
+    :::image type="content" source="./media/data-factory-samples/SampleBlade.png" alt-text="Panneau Exemple":::
 5. Une fois que vous avez fini de spécifier les paramètres de configuration, cliquez sur **Créer** pour créer/déployer les exemples de pipelines et les tables/services liés utilisés par les pipelines.
 6. L’état du déploiement s’affiche sur l’exemple de mosaïque sur laquelle vous avez cliqué dans le panneau **Exemples de pipelines**.
 
-    ![état du déploiement](./media/data-factory-samples/DeploymentStatus.png)
+    :::image type="content" source="./media/data-factory-samples/DeploymentStatus.png" alt-text="État du déploiement":::
 7. Lorsque vous voyez le message **Déploiement réussi** sur la mosaïque de l’exemple, fermez le panneau **Exemples de pipelines**.  
 8. Dans le panneau **DATA FACTORY**, vous pouvez voir que les services liés, les jeux de données et les pipelines sont ajoutés à votre fabrique de données.  
 
-    ![Panneau Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
+    :::image type="content" source="./media/data-factory-samples/DataFactoryBladeAfter.png" alt-text="Panneau Data Factory":::
 
 ## <a name="samples-in-visual-studio"></a>Exemples dans Visual Studio
 ### <a name="prerequisites"></a>Prérequis
@@ -88,10 +89,10 @@ Les composants suivants doivent être installés sur votre ordinateur :
    4. Sélectionnez un **emplacement** pour le projet.
    5. Cliquez sur **OK**.
 
-      ![Boîte de dialogue Nouveau projet](./media/data-factory-samples/vs-new-project-adf-templates.png)
+      :::image type="content" source="./media/data-factory-samples/vs-new-project-adf-templates.png" alt-text="Boîte de dialogue Nouveau projet":::
 3. Dans la boîte de dialogue **Modèles de fabrique de données**, sélectionnez l’exemple de modèle dans la section **Modèles de cas d’utilisation**, puis cliquez sur **Suivant**. La procédure suivante décrit l’utilisation du modèle **Analyse des profils des clients** . Les étapes sont similaires pour les autres exemples.
 
-    ![Boîte de dialogue Modèles de fabrique de données](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
+    :::image type="content" source="./media/data-factory-samples/vs-data-factory-templates-dialog.png" alt-text="Boîte de dialogue Modèles de fabrique de données":::
 4. Dans la boîte de dialogue **Configuration de Data Factory**, cliquez sur **Suivant** dans la page **Principes de base de Data Factory**.
 5. Dans la page **Configurer une fabrique de données**, procédez comme suit :
    1. Sélectionnez **Créer une fabrique de données** . Vous pouvez également sélectionner **Utiliser une fabrique de données existante**.
@@ -108,7 +109,7 @@ Les composants suivants doivent être installés sur votre ordinateur :
 11. Si la boîte de dialogue **Connectez-vous à votre compte Microsoft** s’affiche, saisissez vos informations d’identification pour le compte associé à l’abonnement Azure, puis cliquez sur **Se connecter**.
 12. La boîte de dialogue suivante doit s’afficher :
 
-    ![Boîte de dialogue Publier](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/publish.png" alt-text="Boîte de dialogue Publier":::
 13. Dans la page **Configurer une fabrique de données**, procédez comme suit :
 
     1. Confirmez l’option **Utiliser une fabrique de données existante** .

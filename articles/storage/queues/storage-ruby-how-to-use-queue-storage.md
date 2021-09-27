@@ -1,19 +1,19 @@
 ---
 title: Utilisation du stockage de files d’attente à partir de Ruby - Stockage Azure
 description: Découvrez comment utiliser le Stockage File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Ruby.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 7850e7fef034fd618c86400e17ddaa319c45005a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: fd09a951bbc6380a583ec2fec4194b216cca2db1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080990"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553257"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Utilisation du stockage de files d'attente à partir de Ruby
 
@@ -158,7 +158,7 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
 
 ## <a name="how-to-delete-a-queue"></a>Procédure : Suppression d'une file d'attente
 
-Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode `delete_queue()` sur l’objet file d’attente.
+Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode `delete_queue()` sur l'objet file d'attente.
 
 ```ruby
 azure_queue_service.delete_queue("test-queue")

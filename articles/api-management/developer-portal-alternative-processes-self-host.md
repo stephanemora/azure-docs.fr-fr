@@ -3,16 +3,16 @@ title: Alternatives pour le portail des développeurs auto-hébergé
 titleSuffix: Azure API Management
 description: Découvrez les autres approches que vous pouvez utiliser lorsque vous auto-hébergez un portail des développeurs dans Gestion des API Azure.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: 207f5cbfb0e8f6d9d52920f7e4c72d7e663489fc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fb8514423bf4efd42373ad2f111aa3a96c5c0969
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459347"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582894"
 ---
 # <a name="alternative-approaches-to-self-host-developer-portal"></a>Autres approches du portail des développeurs auto-hébergés
 

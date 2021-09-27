@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/10/2021
 ms.author: lajanuar
-ms.openlocfilehash: 2b0c4676ca7d085e5fbe042dd2a23fe0ae42db9c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f3188f303d7e2945341267c9ea4598682e4d7964
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524114"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426244"
 ---
 # <a name="text-translation-rest-api"></a>API REST de traduction de texte
 
@@ -32,7 +32,7 @@ La traduction de texte est une fonctionnalité basée sur le cloud du service Az
 | [**dictionnaire/exemples**](v3-0-dictionary-lookup.md) | **POST** | Retourne la manière dont un terme est utilisé en contexte. |
 
 > [!div class="nextstepaction"]
-> [Créer une ressource Traducteur dans le Portail Azure.](/translator-how-to-signup.md)
+> [Créer une ressource Traducteur dans le Portail Azure.](../translator-how-to-signup.md)
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide : API REST et votre langue de programmation](../quickstart-translator.md)

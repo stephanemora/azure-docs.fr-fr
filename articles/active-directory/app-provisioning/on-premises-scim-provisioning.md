@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/16/2021
 ms.author: billmath
 ms.reviewer: arvinh
-ms.openlocfilehash: 11bd751ebc95b1a9486534b34c771fde64eced21
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0bc74d9c9bab1337638249900de92bee39a40a68
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437346"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571679"
 ---
 # <a name="azure-ad-on-premises-application-provisioning-to-scim-enabled-apps"></a>Approvisionnement d’applications locales Azure AD vers des applications prenant en charge SCIM
 
@@ -66,7 +66,5 @@ Pour approvisionner des utilisateurs sur des applications SCIM :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Provisionnement d’applications](user-provisioning.md)
-- [Installation de l’hôte du connecteur Azure AD ECMA](on-premises-ecma-install.md)
-- [Configuration de l’hôte du connecteur Azure AD ECMA](on-premises-ecma-configure.md)
 - [Connecteur SQL générique](on-premises-sql-connector-configure.md)
 - [Tutoriel : Connecteur SQL générique pour l’Hôte de connecteur ECMA](tutorial-ecma-sql-connector.md)

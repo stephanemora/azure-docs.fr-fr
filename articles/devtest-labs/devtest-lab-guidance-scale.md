@@ -1,15 +1,15 @@
 ---
 title: Scale up de votre infrastructure Azure DevTest Labs
 description: Cet article fournit des conseils concernant la scalabilité de votre infrastructure Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 50bf08678a12a1a0499abd08c52a264d03f4a401
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ceba7023df2a704d43a47f3804c18fd6c0bb113d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85478788"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550744"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Scale up de votre infrastructure Azure DevTest Labs
 Avant d’implémenter DevTest Labs à l’échelle de l’entreprise, plusieurs points de décision clés sont à examiner. La compréhension de ces points de décision à un niveau hiérarchique élevé éclaire les décisions de conception à venir de l’organisation. Toutefois, ces points ne doivent pas retenir une organisation de démarrer une preuve de concept. Les trois domaines les plus importants en matière de planification initiale de scale-up sont :

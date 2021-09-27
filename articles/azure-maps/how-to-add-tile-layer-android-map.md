@@ -1,20 +1,20 @@
 ---
 title: Ajouter un calque de mosaïques à des cartes Android | Microsoft Azure Maps
 description: Découvrez comment ajouter une couche de mosaïques à une carte. Consultez un exemple qui utilise l’Android SDK Azure Maps pour ajouter un calque de radar météo à une carte.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 3/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ac37a4e6d68decdf6780560963a0c534689e8dbb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d35b1201d0f60c517f419186d01f493efa9fbeba
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608977"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435237"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>Ajout d’une couche de mosaïques à une carte (Android SDK)
 
@@ -85,7 +85,7 @@ La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, d
 
 ## <a name="add-an-ogc-web-mapping-service-wms"></a>Ajouter un service de cartographie web (WMS) OGC
 
-Un service de cartographie web (WMTS) est une norme de l’Open Geospatial Consortium (OGC), qui permet de proposer des images de données cartographiques. Il existe de nombreux jeux de données ouverts disponibles dans ce format, que vous pouvez utiliser avec Azure Maps. Ce type de service peut être utilisé avec une couche de mosaïques si le service prend en charge le système de référence de coordonnées (CRS) `EPSG:3857`. Quand vous utilisez un service de cartographie web, définissez les paramètres de largeur et de hauteur en utilisant les mêmes valeurs que celles prises en charge par le service. Veillez à définir ces mêmes valeurs dans l’option `tileSize`. Dans l’URL mise en forme, définissez le paramètre `BBOX` du service avec l’espace réservé `{bbox-epsg-3857}`.
+Un service de cartographie web (WMS) est une norme de l’Open Geospatial Consortium (OGC), qui permet de proposer des images de données cartographiques. Il existe de nombreux jeux de données ouverts disponibles dans ce format, que vous pouvez utiliser avec Azure Maps. Ce type de service peut être utilisé avec un calque de vignette, si le service prend en charge le système de référence de coordonnées (CRS) `EPSG:3857`. Quand vous utilisez un service de cartographie web, définissez les paramètres de largeur et de hauteur en utilisant les mêmes valeurs que celles prises en charge par le service. Veillez à définir ces mêmes valeurs dans l’option `tileSize`. Dans l’URL mise en forme, définissez le paramètre `BBOX` du service avec l’espace réservé `{bbox-epsg-3857}`.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -119,7 +119,7 @@ La capture d’écran suivante montre le code ci-dessus superposé sur un servic
 
 ## <a name="add-an-ogc-web-mapping-tile-service-wmts"></a>Ajouter un service de mosaïques de cartographie web (WMTS) OGC
 
-Un service de mosaïques de cartographie web (WMTS) est une norme de l’Open Geospatial Consortium (OGC), qui permet de proposer des superpositions de mosaïques sur des cartes. Il existe de nombreux jeux de données ouverts disponibles dans ce format, que vous pouvez utiliser avec Azure Maps. Ce type de service peut être utilisé avec une couche de mosaïques si le service prend en charge le système de référence de coordonnées (CRS) `EPSG:3857` ou `GoogleMapsCompatible`. Quand vous utilisez un service WMTS, définissez les paramètres de largeur et de hauteur en utilisant les mêmes valeurs que celles prises en charge par le service. Veillez à définir ces mêmes valeurs dans l’option `tileSize`. Dans l’URL mise en forme, remplacez les espaces réservés suivants de manière appropriée :
+Un service de calque de cartographie web (WMTS) est une norme de l’Open Geospatial Consortium (OGC), qui permet de proposer des superpositions de vignettes sur des cartes. Il existe de nombreux jeux de données ouverts disponibles dans ce format, que vous pouvez utiliser avec Azure Maps. Ce type de service peut être utilisé avec un calque de vignette, si le service prend en charge le système de référence de coordonnées (CRS) `EPSG:3857` ou `GoogleMapsCompatible`. Quand vous utilisez un service de calque de cartographie web, définissez les paramètres de largeur et de hauteur en utilisant les mêmes valeurs que celles prises en charge par le service. Veillez à définir ces mêmes valeurs dans l’option `tileSize`. Dans l’URL mise en forme, remplacez les espaces réservés suivants de manière appropriée :
 
 * `{TileMatrix}` => `{z}`
 * `{TileRow}` => `{y}`

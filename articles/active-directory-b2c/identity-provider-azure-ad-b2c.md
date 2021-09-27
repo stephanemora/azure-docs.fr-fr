@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6ad2014b8fce21eada9ced1e63a3511daa5e1891
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 5757b2e875253ac21c64cd3fbd0b7ade42085e8b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525590"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571914"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configurer l’inscription et la connexion avec un compte Azure AD B2C d’un autre locataire Azure AD B2C
 
@@ -90,7 +90,8 @@ Pour créer une application :
 ## <a name="configure-azure-ad-b2c-as-an-identity-provider"></a>Configurer Azure AD B2C en tant que fournisseur d’identité
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Assurez-vous que vous utilisez le répertoire qui contient le locataire Azure AD B2C pour lequel vous souhaitez configurer la fédération (par exemple Contoso). Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut et choisissez l’annuaire qui contient votre locataire Azure AD B2C (par exemple Contoso).
+1. Assurez-vous que vous utilisez le répertoire qui contient le locataire Azure AD B2C pour lequel vous souhaitez configurer la fédération (par exemple Contoso). Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Fournisseurs d’identité**, puis **Nouveau fournisseur OpenID Connect**.
 1. Saisissez un **Nom**. Par exemple, entrez *Fabrikam*.
@@ -138,7 +139,8 @@ Si le processus de connexion réussit, votre navigateur est redirigé vers `http
 
 Vous devez stocker la clé d’application que vous avez créée auparavant dans votre locataire Azure AD B2C.
 
-1. Assurez-vous que vous utilisez le répertoire qui contient le locataire Azure AD B2C pour lequel vous souhaitez configurer la fédération (par exemple Contoso). Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut et choisissez l’annuaire qui contient votre locataire Azure AD B2C (par exemple Contoso).
+1. Assurez-vous que vous utilisez le répertoire qui contient le locataire Azure AD B2C pour lequel vous souhaitez configurer la fédération (par exemple Contoso). Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Stratégies**, sélectionnez **Identity Experience Framework**.
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.

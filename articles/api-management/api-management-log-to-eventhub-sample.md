@@ -15,13 +15,13 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 01/23/2018
-ms.author: apimpm
-ms.openlocfilehash: abb9cbb73f8957cec2cb3240bbf186623b9b2ef9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 31bcc5ddbe60975fed373100e7b815a4b814bc31
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88205500"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565585"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitor vos API avec Gestion des API Azure, Event Hubs et Moesif
 Le [service de gestion des API](api-management-key-concepts.md) fournit de nombreuses fonctionnalités pour améliorer le traitement des requêtes HTTP envoyées à votre API HTTP. Toutefois, l’existence des demandes et réponses est temporaire. La demande est effectuée et elle transite par le service de gestion des API vers le serveur principal de votre API. Votre API traite la requête et une réponse retourne vers le consommateur d’API. Le service Gestion des API conserve certaines statistiques importantes sur les API à des fins d’affichage dans le tableau de bord du portail Azure, mais au-delà, les détails disparaissent.
