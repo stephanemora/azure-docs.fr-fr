@@ -3,17 +3,17 @@ title: Présentation des modèles d’appareils dans Azure IoT Central | Microso
 description: Les modèles d’appareils Azure IoT Central vous permettent de spécifier le comportement des appareils connectés à votre application. Un modèle d’appareil spécifie les données de télémétrie, les propriétés et les commandes que l’appareil doit implémenter. Un modèle d’appareil définit également l’interface utilisateur pour l’appareil dans IoT Central, comme les formulaires et les affichages utilisés par un opérateur.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/19/2020
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: b2122dc50b265c31c1c21c2758e343ec88384a8b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d0e5f563e61cec96e67dd998e969a34a8da3615f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114474053"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123481233"
 ---
 # <a name="what-are-device-templates"></a>Que sont les modèles d’appareils ?
 

@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Cet article présente les processus d’exportation et de suppression de données personnelles dans Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 05/05/2020
+ms.date: 9/14/2021
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: c50ff2e1a8e63fd775b7b09863ffcd9d832d8683
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ef68e552d57df0fc202b9d75ae76065e3119ccff
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205716"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642792"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Fonctionnalités de demande de données client Azure Digital Twins
 
@@ -31,7 +31,7 @@ Pour afficher, exporter et supprimer les données personnelles qui peuvent être
 
 Azure Digital Twins considère les *données personnelles* comme des données associées à ses administrateurs et à ses utilisateurs. 
 
-Azure Digital Twins stocke l’*ID d’objet* [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) d’utilisateurs ayant accès à l’environnement. Azure Digital Twins dans le portail Azure affiche les adresses e-mail des utilisateurs, mais ces adresses e-mail ne sont pas stockées dans Azure Digital Twins. Elles sont recherchées dynamiquement dans Azure Active Directory à l’aide de l’ID d’objet Azure Active Directory.
+Azure Digital Twins stocke l’**ID d’objet** [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) d’utilisateurs ayant accès à l’environnement. Azure Digital Twins dans le portail Azure affiche les adresses e-mail des utilisateurs, mais ces adresses e-mail ne sont pas stockées dans Azure Digital Twins. Elles sont recherchées dynamiquement dans Azure Active Directory à l’aide de l’ID d’objet Azure Active Directory.
 
 ## <a name="deleting-customer-data"></a>Suppression des données client
 

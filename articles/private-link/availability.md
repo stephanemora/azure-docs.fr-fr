@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: 052a59ede2acc751d6847646ca1b103de0c1b78a
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: aaa013a25e9131ec55f002db089de0d353f13f7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535340"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585763"
 ---
 # <a name="azure-private-link-availability"></a>Disponibilité d’Azure Private Link
 
@@ -82,7 +82,7 @@ Les tableaux suivants listent les services Private Link et les régions où ils 
 
 | Services pris en charge | Régions disponibles | Autres considérations | État  |
 | ------------ | ----------------| ------------| ----------------|
-| Azure Automation  | Toutes les régions publiques<br/> Toutes les régions administratives |  | PRÉVERSION </br> [Découvrez comment créer un point de terminaison privé pour Azure Automation.](../automation/how-to/private-link-security.md)|
+| Azure Automation  | Toutes les régions publiques<br/> Toutes les régions administratives |  | GA </br> [Découvrez comment créer un point de terminaison privé pour Azure Automation.](../automation/how-to/private-link-security.md)|
 |Sauvegarde Azure | Toutes les régions publiques<br/> Toutes les régions administratives   |  | GA <br/> [Découvrez comment créer un point de terminaison privé pour Sauvegarde Azure.](../backup/private-endpoints.md)   |
 
 ### <a name="security"></a>Sécurité

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
-ms.openlocfilehash: acd1b6c8e5c1be76b29c93fddc57c799aef0a526
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 282df705e8a98a7c236cfff549447cdd36017df8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046701"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431437"
 ---
 # <a name="how-to-upgrade-the-vm-insights-dependency-agent"></a>Comment mettre à niveau l’agent de dépendances VM Insights
 
@@ -47,7 +47,7 @@ Vous pouvez télécharger la dernière version de l’agent Windows [ici](https:
 
 2. Exécutez la commande suivante :
 
-    ```dos
+    ```cmd
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
     ```
 
@@ -63,7 +63,11 @@ La dernière version de l’agent Linux est téléchargeable [ici](https://aka.m
 
 1. Connectez-vous à la machine avec un compte disposant des droits d’administration.
 
-2. Exécutez la commande suivante en tant que racine`sh InstallDependencyAgent-Linux64.bin -s`. 
+2. Exécutez la commande suivante en tant que racine.
+
+    ```bash
+    InstallDependencyAgent-Linux64.bin -s
+    ```
 
 Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Sur les agents Linux, le répertoire des journaux est */var/opt/microsoft/dependency-agent/log*. 
 

@@ -4,15 +4,16 @@ description: Découvrez comment mapper des colonnes source sur des colonnes de d
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
-ms.openlocfilehash: fef2c6f120ae25e6aa1846d4971ff707da9bab92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac8da7dcfcc95a57606b9590e897a66bfab1675e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371122"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602951"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapper des colonnes d’un jeu de données source sur des colonnes d’un jeu de données de destination
 > [!NOTE]
@@ -133,7 +134,7 @@ Le JSON suivant définit une activité de copie dans un pipeline. Les colonnes d
 ```
 **Flux du mappage de colonnes :**
 
-![Flux du mappage de colonnes](./media/data-factory-map-columns/column-mapping-flow.png)
+:::image type="content" source="./media/data-factory-map-columns/column-mapping-flow.png" alt-text="Flux du mappage de colonnes":::
 
 ## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Exemple 2 : mappage de colonnes à l’aide d’une requête SQL depuis SQL Azure vers un objet blob Azure
 Dans cet exemple, une requête SQL est utilisée pour extraire des données d’Azure SQL au lieu de simplement spécifier le nom de la table et le nom des colonnes dans la section « structure ». 
@@ -172,7 +173,7 @@ Dans ce cas, les résultats de la requête sont d’abord mappés aux colonnes s
 
 **Flux du mappage de colonnes**
 
-![Flux du mappage de colonnes 2](./media/data-factory-map-columns/column-mapping-flow-2.png)
+:::image type="content" source="./media/data-factory-map-columns/column-mapping-flow-2.png" alt-text="Flux du mappage de colonnes 2":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 Suivez le didacticiel sur l’activité de copie dans l’article suivant : 

@@ -8,14 +8,14 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4860918fc4f995ad267fc35b142d3fcb460ce177
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f4ed4bd29a10226b776789d81b907b9bb91cdd8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89002825"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664995"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Effectuer une mise à niveau vers la version 1.1 du SDK .NET Recherche Azure
 
@@ -58,7 +58,7 @@ La liste qui suit est classée selon la probabilité que la modification affecte
 
 `IndexAction` ne contient plus de constructeurs publics et ses propriétés sont immuables. Vous devez utiliser les nouvelles méthodes statiques pour la création d’actions à des fins différentes : `Delete`, `Merge`, `MergeOrUpload` et `Upload`. `IndexAction.Create` a été supprimé. Si vous avez utilisé la surcharge qui accepte uniquement un document, veillez à utiliser `Upload` à la place.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a> Exemple
 Si votre code ressemble à ce qui suit :
 
 ```csharp
@@ -83,7 +83,7 @@ indexClient.Documents.Index(batch);
 ### <a name="indexbatchexception-changes"></a>Modifications IndexBatchException
 La propriété `IndexBatchException.IndexResponse` a été renommée `IndexingResults`, et son type est désormais `IList<IndexingResult>`.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a> Exemple
 Si votre code ressemble à ce qui suit :
 
 ```csharp
@@ -175,7 +175,7 @@ public static IndexGetStatisticsResult GetStatistics(
 ### <a name="scoringparameters-changes"></a>Modifications ScoringParameters
 Une nouvelle classe nommée `ScoringParameter` a été ajoutée à la dernière version du Kit de développement logiciel (SDK) pour faciliter la fourniture de paramètres de profils de score dans une requête de recherche. Précédemment, la propriété `ScoringProfiles` de la classe `SearchParameters` était de type `IList<string>`. À présent, elle est de type `IList<ScoringParameter>`.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a> Exemple
 Si votre code ressemble à ce qui suit :
 
 ```csharp
@@ -209,7 +209,7 @@ En raison des modifications de signature décrites dans [Modifications des méth
 
 Pour résumer, les classes dérivées de `OperationResponse`qui servaient uniquement à encapsuler un objet de modèle ont été supprimées. Les classes restantes ont vu leur suffixe passer de `Response` à `Result`.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a> Exemple
 Si votre code ressemble à ce qui suit :
 
 ```csharp
@@ -340,7 +340,7 @@ Dans les versions antérieures du Kit de développement logiciel (SDK), vous pou
 > 
 > 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 Si vous avez un code qui ressemble à ce qui suit :
 
 ```csharp

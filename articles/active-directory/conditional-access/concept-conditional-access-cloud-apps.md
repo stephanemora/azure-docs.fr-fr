@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/15/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adb0073ca5d8bfb822d7ac47d7e7f770d18423ca
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: d1e409fa879f4a541f1f3da7b1c68c06d01e1f8d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535387"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587116"
 ---
 # <a name="conditional-access-cloud-apps-actions-and-authentication-context"></a>Accès conditionnel : applications, actions et contexte d’authentification cloud
 
@@ -40,7 +40,7 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 - Azure Event Hubs
 - Azure Service Bus
 - [Azure SQL Database et Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
-- Dynamics CRM en ligne
+- Common Data Service
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Gestion Microsoft Azure](#microsoft-azure-management)
@@ -48,12 +48,12 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 - Microsoft Cloud App Security
 - Portail de contrôle des accès aux outils de Microsoft Commerce
 - Service d’authentification des outils Microsoft Commerce
-- Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
 - [Inscription à Microsoft Intune](/intune/enrollment/multi-factor-authentication)
 - Planificateur Microsoft
-- Microsoft PowerApps
+- Microsoft Power Apps
+- Microsoft Power Automate
 - Recherche Microsoft Bing
 - Microsoft StaffHub
 - Microsoft Stream
@@ -85,7 +85,6 @@ S’ils le souhaitent, les administrateurs peuvent exclure des applications spé
 
 Les applications de clé suivantes sont incluses dans l’application cliente Office 365 :
 
-   - Microsoft Flow
    - Microsoft Forms
    - Microsoft Stream
    - Microsoft To-Do
@@ -98,7 +97,8 @@ Les applications de clé suivantes sont incluses dans l’application cliente Of
    - Office Online
    - Office.com
    - OneDrive
-   - PowerApps
+   - Power Automate
+   - Power Apps
    - Skype Entreprise Online
    - Sway
 
@@ -175,7 +175,7 @@ Les administrateurs peuvent sélectionner des contextes d’authentification pub
 
 Pour plus d’informations sur l’utilisation d’un contexte d’authentification dans des applications, consultez les articles suivants.
 
-- [Étiquettes de confidentialité Microsoft Information Protection pour protéger des sites SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option&preserve-view=true)
+- [Étiquettes de confidentialité Microsoft Information Protection pour protéger des sites SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [Applications personnalisées](../develop/developer-guide-conditional-access-authentication-context.md)
 

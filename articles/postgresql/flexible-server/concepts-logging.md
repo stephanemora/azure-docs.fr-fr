@@ -6,17 +6,16 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: e09c01fcfb9c4725ac169151e85c8b030d8bb18c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7c269c26710711c23dd200f688bf1eb55d3925fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606383"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597965"
 ---
 # <a name="logs-in-azure-database-for-postgresql---flexible-server"></a>Journaux dans Azure Database pour PostgreSQL - Serveur flexible
 
-> [!IMPORTANT]
-> Azure Database pour PostgreSQL - Serveur flexible est en préversion
+
 
 Azure Database pour PostgreSQL vous permet de configurer et d’accéder aux journaux standard de Postgres. Les journaux d’activité peuvent servir à identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. Les informations de journalisation que vous pouvez configurer et auxquelles vous pouvez accéder incluent les erreurs, les informations de requête, les enregistrements de nettoyage automatique, les connexions et les points de contrôle. (L’accès aux journaux d’activité des transactions n’est pas disponible).
 

@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 72220b33ea0d10b16ec5be94da6a26d91b9bfc1e
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 4b59b7d42b162a369862974c0599d972fa1957ee
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161840"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636683"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Résoudre les problèmes de latence avec les journaux Storage Analytics
 
@@ -80,18 +80,18 @@ Les étapes suivantes montrent comment identifier et résoudre les problèmes de
 
 5. Au moment où le problème s’est produit, les valeurs suivantes sont importantes :
 
-   * Operation-type = GetBlob
-   * request-status = SASNetworkError
-   * End-to-End-Latency-In-Ms = 8453
-   * Server-Latency-In-Ms = 391
+   - Operation-type = GetBlob
+   - request-status = SASNetworkError
+   - End-to-End-Latency-In-Ms = 8453
+   - Server-Latency-In-Ms = 391
 
    La latence de bout en bout se calcule à partir de l’équation suivante :
 
-   * Latence de bout en bout = Latence du serveur + Latence du client
+   - Latence de bout en bout = Latence du serveur + Latence du client
 
    Calculez la latence du client à l’aide de l’entrée du journal :
 
-   * Latence du client = Latence de bout en bout - Latence du serveur
+   - Latence du client = Latence de bout en bout - Latence du serveur
 
         Exemple : 8453 – 391 = 8062 ms
 
@@ -110,58 +110,58 @@ Les étapes suivantes montrent comment identifier et résoudre les problèmes de
 
 Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section « Étapes recommandées » :
 
-* Latence de bout en bout
-* Latence du serveur
-* Latence du client
+- Latence de bout en bout
+- Latence du serveur
+- Latence du client
 
 Dans une **opération GetBlob** avec **RequestStatus = Success**, si le **Temps maximal** est consacré à la **Latence du client**, c’est le signe que le Stockage Azure passe beaucoup de temps à écrire des données sur le client. Ce délai indique un problème côté client.
 
 **Recommandation :**
 
-* Examinez le code de votre client.
-* Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
+- Examinez le code de votre client.
+- Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
 
 ### <a name="getblob-operation-requeststatus--sasnetworkerror"></a>Opération GetBlob : RequestStatus = (SAS)NetworkError
 
 Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section « Étapes recommandées » :
 
-* Latence de bout en bout
-* Latence du serveur
-* Latence du client
+- Latence de bout en bout
+- Latence du serveur
+- Latence du client
 
 Dans une **opération GetBlob** avec **RequestStatus = (SAS)NetworkError**, si le **Temps maximal** est consacré à la **Latence du client**, le problème le plus courant est que le client se déconnecte avant l’expiration du délai dans le service de stockage.
 
 **Recommandation :**
 
-* Examinez le code dans votre client afin de comprendre pourquoi et quand le client se déconnecte du service de stockage.
-* Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
+- Examinez le code dans votre client afin de comprendre pourquoi et quand le client se déconnecte du service de stockage.
+- Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
 
 ### <a name="put-operation-requeststatus--success"></a>Opération Put : RequestStatus = Success
 
 Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section « Étapes recommandées » :
 
-* Latence de bout en bout
-* Latence du serveur
-* Latence du client
+- Latence de bout en bout
+- Latence du serveur
+- Latence du client
 
 Dans une **opération Put** avec **RequestStatus = Success**, si le **Temps maximal** est consacré à la **Latence du client**, c’est le signe que le client prend plus de temps à envoyer des données au Stockage Azure. Ce délai indique un problème côté client.
 
 **Recommandation :**
 
-* Examinez le code de votre client.
-* Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
+- Examinez le code de votre client.
+- Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
 
 ### <a name="put-operation-requeststatus--sasnetworkerror"></a>Opération Put : RequestStatus = (SAS)NetworkError
 
 Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section « Étapes recommandées » :
 
-* Latence de bout en bout
-* Latence du serveur
-* Latence du client
+- Latence de bout en bout
+- Latence du serveur
+- Latence du client
 
 Dans une **opération PutBlob** avec **RequestStatus = (SAS)NetworkError**, si le **Temps maximal** est consacré à la **Latence du client**, le problème le plus courant est que le client se déconnecte avant l’expiration du délai dans le service de stockage.
 
 **Recommandation :**
 
-* Examinez le code dans votre client afin de comprendre pourquoi et quand le client se déconnecte du service de stockage.
-* Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
+- Examinez le code dans votre client afin de comprendre pourquoi et quand le client se déconnecte du service de stockage.
+- Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.

@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: d8aa5f6bf955bcc3ee3fa86c17375d47402628ee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 89cfaadb7d490c1d6ebf9cac21c08a402c9d8997
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524151"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565756"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -587,18 +587,27 @@ Pour vérifier dans le Panneau de configuration :
 Si vous utilisez une ancienne version pour l’un des services, vous devez désinstaller le service puis effectuer une mise à jour manuelle avec la dernière version.
 
 1. Pour vérifier les dernières versions d’un service d’appliance, [téléchargez](https://aka.ms/latestapplianceservices) le fichier LatestComponents.json.
+
 2. Après le téléchargement, ouvrez le fichier LatestComponents.json dans le Bloc-notes.
+
 3. Vous trouverez dans ce fichier la dernière version du service ainsi que le lien de téléchargement correspondant. Par exemple :
 
-    "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+   `"Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"`
 
 4. Téléchargez la dernière version d'un service obsolète en utilisant le lien de téléchargement figurant dans le fichier.
+
 5. Après le téléchargement, exécutez la commande suivante dans une fenêtre de commande d'administrateur pour vérifier l'intégrité du fichier msi téléchargé.
 
-    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ``` Par exemple :  C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+   `C:\> Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]`
+
+    Par exemple :
+
+    `C:\> CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5`
 
 5. Vérifiez que la sortie de la commande correspond à l'entrée de la valeur de hachage pour le service dans le fichier (par exemple, la valeur de hachage MD5 ci-dessus).
+
 6. Exécutez maintenant le fichier msi pour installer le service. L’installation est silencieuse et la fenêtre d'installation se ferme une fois l’opération terminée.
+
 7. Une fois l'installation terminée, vérifiez la version du service dans **Panneau de configuration** > **Programmes et fonctionnalités**. La version du service devrait maintenant être mise à jour avec la dernière version indiquée dans le fichier json.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 7/16/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cfd57400eb50651dd7d908dad4c50ab94760286a
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 37eff4049973c208ebe70ef452f121109f0c92ed
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114404960"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435831"
 ---
 # <a name="install-and-configure-sap-hana-large-instances-on-azure"></a>Installer et configurer SAP HANA (grandes instances) sur Azure
 
@@ -150,7 +150,7 @@ Pour plus d’informations sur les détails d’Ethernet pour votre architecture
 
 ## <a name="storage"></a>Stockage
 
-La disposition de stockage pour SAP HANA (grandes instances) est configurée par SAP HANA sur le management des services Azure via les recommandations de SAP. Ces instructions sont documentées dans [Exigences de stockage SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
+La disposition de stockage pour SAP HANA (grandes instances) est configurée par SAP HANA sur le management des services Azure via les recommandations de SAP. Ces instructions sont documentées dans [Exigences de stockage SAP HANA](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf). 
 
 La taille approximative des divers volumes avec les différentes références SKU de grandes instances HANA est documentée dans [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](hana-overview-architecture.md).
 

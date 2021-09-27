@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 06be168ff9dfd55a56578b3afcdab8d984416756
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39f5e15bc0300981f2dc504a9eecd8039d6ec237
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89078008"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643685"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Démarrage rapide : Router des événements de stockage vers un point de terminaison web avec PowerShell
 
-Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure PowerShell pour vous abonner à des événements de stockage Blob, déclencher un événement et afficher le résultat. 
+Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure PowerShell pour vous abonner à des événements de stockage Blob, déclencher un événement et afficher le résultat.
 
 En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
 
@@ -52,7 +52,7 @@ Les rubriques Event Grid sont des ressources Azure et doivent être placées dan
 
 Créez un groupe de ressources avec la commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
-L’exemple suivant crée un groupe de ressources nommé **gridResourceGroup** à l’emplacement **westus2**.  
+L’exemple suivant crée un groupe de ressources nommé **gridResourceGroup** à l’emplacement **westus2**.
 
 ```powershell
 $resourceGroup = "gridResourceGroup"
@@ -63,7 +63,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 Les événements de stockage d’objets blob sont disponibles dans les comptes de stockage v2 à usage général et dans les comptes de stockage d’objets blob. Les comptes de stockage **v2 à usage général** prennent en charge l’ensemble des fonctionnalités contenues dans tous les services de stockage, notamment Objets blob, Fichiers, Files d’attente et Tables. Un **compte de stockage d’objets blob** est un compte de stockage spécialisé pour le stockage des données non structurées en tant qu’objets blob dans Stockage Azure. Les comptes de stockage d’objets blob sont comme vos comptes de stockage à usage général existants et offrent les excellents niveaux de durabilité, disponibilité, évolutivité et performances dont vous bénéficiez aujourd’hui. Ils assurent notamment la cohérence d’API à 100 % pour les objets blob de blocs et d’ajout. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
-Créez un compte de stockage d’objets blob avec la réplication LRS à l’aide de [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), puis récupérez le contexte du compte de stockage qui définit le compte de stockage à utiliser. Si un compte de stockage est utilisé, référencez le contexte au lieu d’entrer les informations d’identification à plusieurs reprises. Cet exemple crée un compte de stockage nommé **gridstorage** avec les options de stockage localement redondant (LRS). 
+Créez un compte de stockage d’objets blob avec la réplication LRS à l’aide de [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), puis récupérez le contexte du compte de stockage qui définit le compte de stockage à utiliser. Si un compte de stockage est utilisé, référencez le contexte au lieu d’entrer les informations d’identification à plusieurs reprises. Cet exemple crée un compte de stockage nommé **gridstorage** avec les options de stockage localement redondant (LRS).
 
 > [!NOTE]
 > Les noms des comptes de stockage étant dans un espace de noms global, vous devez ajouter certains caractères aléatoires au nom fourni dans ce script.
@@ -163,6 +163,7 @@ Vous avez déclenché l’événement, et Event Grid a envoyé le message au poi
 ```
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
+
 Si vous envisagez de continuer à utiliser ce compte de stockage et l’abonnement à un événement, ne supprimez pas les ressources créées dans cet article. Sinon, utilisez la commande suivante pour supprimer les ressources créées avec cet article.
 
 ```powershell

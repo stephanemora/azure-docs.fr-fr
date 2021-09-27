@@ -5,18 +5,16 @@ description: Apprenez à déployer votre modèle à l’aide du logiciel NVIDIA 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: 559ef637f6deebaad8cc5c57d7503930cde73c08
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: b6bccf2dd24e557c2d5cdbb5fa6134f8c0dc904d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967379"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598134"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Haute performance avec un serveur Triton Inference (préversion) 
 
@@ -203,7 +201,7 @@ az ml service delete -n triton-densenet-onnx
 
 ## <a name="how-to-use-azure-machine-learning-triton-inference-server-container-image"></a>Comment utiliser une image conteneur de serveur d’inférence Triton Azure Machine Learning
 
-Découvrez comment utiliser une image conteneur de serveur d’inférence Triton Azure Machine Learning avec la nouvelle [Interface CLI (v2)](https://docs.microsoft.com/cli/azure/ml?view=azure-cli-latest). Les exemples ci-dessous utilisent les concepts de [point de terminaison et déploiements en ligne](concept-endpoints.md#what-are-online-endpoints-preview). 
+Découvrez comment utiliser une image conteneur de serveur d’inférence Triton Azure Machine Learning avec la nouvelle [Interface CLI (v2)](/cli/azure/ml?view=azure-cli-latest&preserve-view=true). Les exemples ci-dessous utilisent les concepts de [point de terminaison et déploiements en ligne](concept-endpoints.md#what-are-online-endpoints-preview). 
 
 1. [Déployer un modèle Triton unique](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-managed-online-endpoint.sh).
 1. [Déployer plusieurs modèles Triton](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-multiple-models-online-endpoint.sh).

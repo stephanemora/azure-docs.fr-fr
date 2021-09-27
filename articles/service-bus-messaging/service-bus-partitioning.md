@@ -2,14 +2,14 @@
 title: Créer des rubriques et des files d’attente Azure Service Bus partitionnées | Microsoft Docs
 description: Décrit comment partitionner des files d’attente et des rubriques Service Bus à l’aide de plusieurs courtiers de messages.
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 09/21/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4eba3a911eb5522a1d6ae46f597e99c34d56ef0d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b6e0c0473ea5bf50ed64bf7abee2c66ab5789840
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743216"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616077"
 ---
 # <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
 
@@ -69,9 +69,9 @@ Les messages envoyés dans le cadre d’une transaction doivent spécifier une c
 CommittableTransaction committableTransaction = new CommittableTransaction();
 using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
-    Message msg = new Message("This is a message");
+    ServiceBusMessage msg = new ServiceBusMessage("This is a message");
     msg.PartitionKey = "myPartitionKey";
-    await messageSender.SendAsync(msg); 
+    await sender.SendMessageAsync(msg); 
     await ts.CompleteAsync();
 }
 committableTransaction.Commit();
@@ -89,9 +89,9 @@ Contrairement aux files d’attente ou rubriques standard (non partitionnées), 
 CommittableTransaction committableTransaction = new CommittableTransaction();
 using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
-    Message msg = new Message("This is a message");
+    ServiceBusMessage msg = new ServiceBusMessage("This is a message");
     msg.SessionId = "mySession";
-    await messageSender.SendAsync(msg); 
+    await sender.SendMessageAsync(msg); 
     await ts.CompleteAsync();
 }
 committableTransaction.Commit();

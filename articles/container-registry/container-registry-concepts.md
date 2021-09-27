@@ -3,12 +3,12 @@ title: À propos des registres, des référentiels, des images et des artefacts
 description: Introduction aux concepts clés des registres de conteneurs Azure, des référentiels et images conteneur et d’autres artefacts.
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 64ab3812b3f23a7b3a480d3530c82bd39f2d29a5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: add8c20de07a2d520095f257dac0356d1c21af57
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784080"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596141"
 ---
 # <a name="about-registries-repositories-and-artifacts"></a>À propos des registres, des référentiels et des artefacts
 
@@ -68,7 +68,7 @@ Pour fournir une isolation sécurisée et une protection contre la manipulation 
 
 ### <a name="manifest"></a>Manifeste
 
-Chaque image conteneur (ou artefact) envoyée (push) à un registre de conteneurs est associée à un *manifeste*. Le manifeste, qui est généré par le registre quand l’image est tirée, identifie les artefacts de façon univoque et spécifie les couches. Vous pouvez lister les manifestes d’un référentiel avec la commande Azure CLI [az acr repository show-manifests][az-acr-repository-show-manifests]. 
+Chaque image conteneur (ou artefact) envoyée (push) à un registre de conteneurs est associée à un *manifeste*. Le manifeste, qui est généré par le registre quand l’image est tirée, identifie les artefacts de façon univoque et spécifie les couches.
 
 Un manifeste de base pour une image `hello-world` Linux se présente comme suit :
 

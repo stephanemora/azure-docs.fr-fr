@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: e701ac76672712f98930d0a2d87e3da5b2afdc51
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 222a0f3c327c476ef372117ff0734b6739faf9db
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122563581"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588691"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveaux de performance du stockage d’objets blob de blocs
 
@@ -57,7 +57,7 @@ Le niveau de performance Standard prend en charge différents [niveaux d'accès]
 
 - **Jeux de données de sauvegarde et reprise d’activité après sinistre**. Le stockage de performances standard offre des niveaux à coûts réduits, ce qui en fait un cas d’utilisation parfait pour les jeux de données de reprise d’activité à court terme et à long terme, les sauvegardes secondaires et l’archivage des données de conformité.
 
-- **Contenu multimédia**. Souvent, les images et les vidéos font l’objet d’accès fréquents lorsqu’elles sont créées et stockées, puis ce type de contenu est de moins en moins utilisé au fil du temps. Le stockage de performances standard offre des niveaux adaptés aux besoins en contenus multimédia. 
+- **Contenu multimédia**. Souvent, les images et les vidéos font l’objet d’accès fréquents lorsqu’elles sont créées et stockées, puis ce type de contenu est de moins en moins utilisé au fil du temps. Le stockage de performances standard offre des niveaux adaptés aux besoins en contenus multimédia.
 
 - **Traitement des données en bloc**. Ces types de charges de travail conviennent pour le stockage standard, car elles requièrent un stockage à haut débit et à coûts réduits plutôt qu’une faible latence constante. De grands ensembles de données brutes sont conservés pour traitement et peuvent être migrés vers des niveaux de stockage plus froids.
 
@@ -74,7 +74,7 @@ La gestion du cycle de vie du stockage de blobs propose une stratégie élaboré
 - **Premium** : les données expirent à la fin de leur cycle de vie.
 - **Standard** : les données passent au meilleur niveau d’accès et expirent à la fin de leur cycle de vie.
 
-Pour plus d'informations, consultez [Gérer le cycle de vie du service Stockage Blob Azure](storage-lifecycle-management-concepts.md).
+Pour plus d'informations, consultez [Gérer le cycle de vie du service Stockage Blob Azure](./lifecycle-management-overview.md).
 
 Vous ne pouvez pas déplacer les données stockées dans un compte de stockage d’objets blob de blocs Premium entre les niveaux chaud, froid et archive. Toutefois, vous pouvez copier des objets blob d'un compte de stockage d'objets blob de blocs vers le niveau d'accès chaud d'un *autre* compte. Pour copier des données vers un autre compte, utilisez l’API [Put Block From URL](/rest/api/storageservices/put-block-from-url) ou [AzCopy v10](../common/storage-use-azcopy-v10.md). L'API **Put Block From URL** copie les données sur le serveur de manière synchrone. L'appel ne se termine qu'une fois toutes les données déplacées de l'emplacement du serveur d'origine vers l'emplacement de destination.
 

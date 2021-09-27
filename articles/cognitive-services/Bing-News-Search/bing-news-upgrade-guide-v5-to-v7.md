@@ -3,19 +3,17 @@ title: Mise à niveau de l’API Recherche d’actualités Bing version 5 vers v
 titleSuffix: Azure Cognitive Services
 description: Identifie les parties de votre application Recherche d’actualités Bing que vous devez mettre à jour pour utiliser la version 7.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: scottwhi
-ms.openlocfilehash: a114cb24d79189f9e370fae1962f60ca97241d90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f9688d0c952925fa17867ecd8599d84eee40e71
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96351365"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587040"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guide de mise à niveau de l’API Recherche d'actualités Bing
 

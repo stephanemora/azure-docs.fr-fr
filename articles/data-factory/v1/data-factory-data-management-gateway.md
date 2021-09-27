@@ -3,17 +3,18 @@ title: Passerelle de gestion des données pour Data Factory
 description: Utilisez la passerelle de gestion des données dans Azure Data Factory pour déplacer vos données.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 50e9dbddd0a84f104aed9275f985f444990dbc30
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 14f3a838fb5c2893e25828234121f053ee951afc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677161"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661989"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -47,7 +48,7 @@ La passerelle de gestion des données offre les fonctionnalités suivantes :
 ### <a name="command-flow-and-data-flow"></a>Flux de commandes et flux de données
 Lorsque vous utilisez une activité de copie pour copier des données entre des machines locales et cloud, l’activité utilise une passerelle pour transférer les données à partir de la source de données locale vers le cloud et vice versa.
 
-Voici le flux de données global et un résumé des étapes pour la copie à l’aide de la passerelle de données : ![Flux de données à l’aide de la passerelle](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+Voici le flux de données global et un résumé des étapes pour la copie à l’aide de la passerelle de données : :::image type="content" source="./media/data-factory-data-management-gateway/data-flow-using-gateway.png" alt-text="Flux de données à l’aide de la passerelle":::
 
 1. Le développeur des données crée une passerelle pour une fabrique de données Azure à l’aide du [portail Azure](https://portal.azure.com)ou d’une [applet de commande PowerShell](/powershell/module/az.datafactory/).
 2. Le développeur de données crée un service lié pour un magasin de données local en spécifiant la passerelle. Dans le cadre de la configuration du service lié, le développeur des données utilise l’application de configuration des informations d’identification pour spécifier les types d’authentification et les informations d’identification. La boîte de dialogue de l’application de configuration des informations d’identification communique avec le magasin de données pour tester la connexion et la passerelle afin d’enregistrer les informations d’identification.
@@ -108,31 +109,31 @@ Pour créer une passerelle dans le portail et obtenir la clé à partir de la pa
 #### <a name="if-you-have-already-created-the-logical-gateway-in-the-portal"></a>Si vous avez déjà créé la passerelle logique dans le portail
 1. Dans le portail Azure, accédez à la page **Data Factory**, puis cliquez sur la vignette **Services liés**.
 
-    ![Page Data Factory](media/data-factory-data-management-gateway/data-factory-blade.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/data-factory-blade.png" alt-text="Page Data Factory":::
 2. Dans la page **Services liés**, sélectionnez la **passerelle** logique que vous avez créée dans le portail.
 
-    ![passerelle logique](media/data-factory-data-management-gateway/data-factory-select-gateway.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/data-factory-select-gateway.png" alt-text="passerelle logique":::
 3. Dans la page **Passerelle de données**, cliquez sur **Télécharger et installer la passerelle de données**.
 
-    ![Lien de téléchargement dans le portail](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/download-and-install-link-on-portal.png" alt-text="Lien de téléchargement dans le portail":::
 4. Dans la page **Configurer**, cliquez sur **Recréer une clé**. Dans le message d’avertissement, cliquez sur Oui après l’avoir lu attentivement.
 
-    ![Bouton Recréer une clé](media/data-factory-data-management-gateway/recreate-key-button.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/recreate-key-button.png" alt-text="Bouton Recréer une clé":::
 5. Cliquez sur le bouton Copier en regard de la clé. La clé est copiée dans le Presse-papiers.
 
-    ![Copier la clé](media/data-factory-data-management-gateway/copy-gateway-key.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/copy-gateway-key.png" alt-text="Copier la clé":::
 
 ### <a name="system-tray-icons-notifications"></a>Icônes de la barre d’état système/notifications
 L’illustration suivante représente certaines des icônes de barre d’état qui s’affichent.
 
-![Icônes de la barre d’état système](./media/data-factory-data-management-gateway/gateway-tray-icons.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-tray-icons.png" alt-text="Icônes de la barre d’état système":::
 
 Si vous déplacez le curseur sur les icônes/messages de notification de la barre d’état système, vous afficherez des informations supplémentaires sur l’état d’opération de la passerelle/la progression de la mise à jour dans une fenêtre contextuelle.
 
 ### <a name="ports-and-firewall"></a>Ports et pare-feu
 Vous devez porter votre attention sur deux pare-feu : le **pare-feu d’entreprise**, exécuté sur le routeur central de l’organisation et le **Pare-feu Windows**, configuré en tant que démon sur l’ordinateur local sur lequel la passerelle est installée.
 
-![Pare-feu](./media/data-factory-data-management-gateway/firewalls2.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/firewalls2.png" alt-text="Pare-feu":::
 
 Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et ports de sortie suivants :
 
@@ -167,11 +168,11 @@ Par exemple, pour copier à partir d’une **banque de données locale vers un r
 ### <a name="proxy-server-considerations"></a>Considérations relatives aux serveurs proxy
 Si votre environnement de réseau d’entreprise utilise un serveur proxy pour accéder à Internet, configurez la passerelle de gestion des données pour utiliser les bons paramètres de proxy. Vous pouvez définir le proxy lors de la phase initiale de l’enregistrement.
 
-![Définir le serveur proxy lors de l’inscription](media/data-factory-data-management-gateway/SetProxyDuringRegistration.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxyDuringRegistration.png" alt-text="Définir le serveur proxy lors de l’inscription":::
 
 La passerelle utilise le serveur proxy pour se connecter au service cloud. Cliquez sur le lien **Modifier** pendant l’installation initiale. La boîte de dialogue **Paramètre proxy** s’affiche.
 
-![Définir le proxy avec le gestionnaire de configuration 1](media/data-factory-data-management-gateway/SetProxySettings.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxySettings.png" alt-text="Définir le proxy avec le gestionnaire de configuration 1":::
 
 Il existe trois options de configuration :
 
@@ -190,7 +191,7 @@ Une fois la passerelle enregistrée avec succès, si vous souhaitez afficher ou 
 
 Vous pouvez afficher et mettre à jour le proxy HTTP à l’aide de l’outil Gestionnaire de Configuration.
 
-![Définir le proxy avec le gestionnaire de configuration 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxyConfigManager.png" alt-text="Définir le proxy avec le gestionnaire de configuration 2":::
 
 > [!NOTE]
 > Si vous configurez un serveur proxy avec l’authentification NTLM, le service hôte de la passerelle s’exécute sous le compte du domaine. Si vous modifiez le mot de passe du compte du domaine ultérieurement, veillez à mettre à jour les paramètres de configuration pour le service et à redémarrer ce dernier en conséquence. En raison de cette exigence, nous vous conseillons d’utiliser un compte de domaine dédié qui ne nécessite pas de mettre à jour le mot de passe fréquemment pour accéder au serveur proxy.
@@ -260,15 +261,15 @@ L’heure de mise à jour planifiée s’affiche aux emplacements suivants :
 
 L’onglet Accueil du Gestionnaire de configuration de passerelle de gestion des données affiche la planification de la mise à jour, ainsi que la date de la dernière mise à jour/installation de la passerelle.
 
-![Planifier les mises à jour](media/data-factory-data-management-gateway/UpdateSection.png)
+:::image type="content" source="media/data-factory-data-management-gateway/UpdateSection.png" alt-text="Planification de mises à jour":::
 
 Vous pouvez installer la mise à jour immédiatement ou attendre que la passerelle soit mise à jour automatiquement à l’heure planifiée. Par exemple, l’image suivante montre le message de notification affiché dans le Gestionnaire de configuration de passerelle, ainsi que le bouton de mise à jour qui vous permet d’installer cette dernière immédiatement.
 
-![Mise à jour dans DMG Configuration Manager](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png" alt-text="Mise à jour dans DMG Configuration Manager":::
 
 Le message de notification dans la barre d’état système se présenterait comme l’image suivante :
 
-![Message de barre d’état système](./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png" alt-text="Message de barre d’état système":::
 
 Vous voyez s’afficher la progression de l’opération de mise à jour (manuelle ou automatique) dans la barre d’état système. À la prochaine ouverture du Gestionnaire de configuration de passerelle, un message s’affiche dans la barre de notification, vous indiquant que la passerelle a été mise à jour, et contenant un lien vers la rubrique relative aux [nouveautés](data-factory-gateway-release-notes.md).
 
@@ -347,16 +348,16 @@ Dans le portail Azure, vous pouvez afficher un instantané en quasi temps réel 
 
 1. Dans le portail Azure, accédez à la page d’accueil de votre fabrique de données, puis cliquez sur la vignette **Services liés**.
 
-    ![Page d’accueil Data Factory](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png" alt-text="Page d’accueil Data Factory":::
 2. Sélectionnez la **passerelle** dans la page **Services liés**.
 
-    ![Page Services liés](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/monitor-linked-services-blade.png" alt-text="Page Services liés":::
 3. Dans la page **Passerelle**, vous pouvez consulter l’utilisation de la mémoire et du processeur de la passerelle.
 
-    ![Utilisation du processeur et de la mémoire de la passerelle](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/gateway-simple-monitoring.png" alt-text="Utilisation du processeur et de la mémoire de la passerelle":::
 4. Activez **Paramètres avancés** pour plus d’informations, notamment sur l’utilisation du réseau.
     
-    ![Surveillance avancée de la passerelle](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png" alt-text="Surveillance avancée de la passerelle":::
 
 Le tableau suivant fournit les descriptions des colonnes utilisées dans la liste **Nœuds de passerelle** :
 
@@ -406,29 +407,29 @@ Cette section décrit les opérations pour déplacer une passerelle client d’u
 
 1. Dans le portail, accédez à la **page d’accueil de Data Factory**, puis cliquez sur la vignette **Services liés**.
 
-    ![Lien de passerelles de données](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/DataGatewaysLink.png" alt-text="Lien de passerelles de données":::
 2. Sélectionnez votre passerelle dans la section **PASSERELLES DE DONNÉES** de la page **Services liés**.
 
-    ![Page Services liés avec une passerelle sélectionnée](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png" alt-text="Page Services liés avec une passerelle sélectionnée":::
 3. Dans la page **Passerelle de données**, cliquez sur **Télécharger et installer la passerelle de données**.
 
-    ![Télécharger le lien de passerelle](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/DownloadGatewayLink.png" alt-text="Télécharger le lien de passerelle":::
 4. Dans la page **Configurer**, cliquez sur **Télécharger et installer la passerelle de données**, puis suivez les instructions pour installer la passerelle de données sur la machine.
 
-    ![Page Configurer](./media/data-factory-data-management-gateway/ConfigureBlade.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/ConfigureBlade.png" alt-text="Page Configurer":::
 5. Laissez le **Gestionnaire de configuration de la passerelle de gestion des données** ouvert.
 
-    ![Gestionnaire de configuration](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/ConfigurationManager.png" alt-text="Configuration Manager":::
 6. Dans la page **Configurer** du portail, cliquez sur **Recréer une clé** dans la barre de commandes, puis, dans le message d’avertissement, cliquez sur **Oui**. Cliquez sur le **bouton de copie** en regard du texte de la clé qui copie la clé dans le presse-papiers. La passerelle de l’ancienne machine cesse de fonctionner dès que vous recréez la clé.
 
-    ![Recréer une clé 2](./media/data-factory-data-management-gateway/RecreateKey.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/RecreateKey.png" alt-text="Recréer une clé 2":::
 7. Collez la **clé** dans la zone de texte sur la page **Inscrire la passerelle** du **Gestionnaire de configuration de passerelle de gestion des données** sur votre machine. (Facultatif) Cochez la case **Afficher la clé de passerelle** pour afficher le texte de la clé.
 
-    ![Copier la clé et s’inscrire](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/CopyKeyAndRegister.png" alt-text="Copier la clé et s’inscrire":::
 8. Cliquez sur **S’inscrire** pour enregistrer la passerelle auprès du service cloud.
 9. Dans l’onglet **Paramètres**, cliquez sur **Modifier** pour sélectionner le certificat utilisé avec l’ancienne passerelle, entrez le **mot de passe**, puis cliquez sur **Terminer**.
 
-   ![Spécifier le certificat](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
+   :::image type="content" source="./media/data-factory-data-management-gateway/SpecifyCertificate.png" alt-text="Spécifier le certificat":::
 
    Vous pouvez exporter un certificat à partir de l’ancienne passerelle en procédant comme suit : lancez le Gestionnaire de configuration de passerelle de gestion des données sur l’ancien panneau, basculez vers l’onglet **Certificat**, cliquez sur le bouton **Exporter** et suivez les instructions.
 10. Une fois l’inscription de la passerelle terminée, vous devez voir **Inscription** définie sur **Inscrit** et **État** défini sur la valeur **Démarré** sur la page d’accueil du Gestionnaire de configuration de passerelle.
@@ -443,7 +444,7 @@ Pour chiffrer les informations d’identification dans Data Factory Editor, proc
 5. Entrez le nom de la base de données pour la propriété **Initial Catalog** dans **connectionString**.
 6. Cliquez sur le bouton **Chiffrer** dans la barre de commandes qui lance l’application ClickOnce **Gestionnaire d’informations d’identification**. La boîte de dialogue **Définition des informations d’identification** doit s’afficher.
 
-    ![Boîte de dialogue de définition des informations d’identification](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/setting-credentials-dialog.png" alt-text="Boîte de dialogue de définition des informations d’identification":::
 7. Dans la boîte de dialogue **Configuration des informations d’identification** , procédez comme suit :
    1. Sélectionnez l’ **authentification** que le service de Data Factory doit utiliser pour se connecter à la base de données.
    2. Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME** .

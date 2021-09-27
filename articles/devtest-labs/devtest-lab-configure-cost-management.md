@@ -1,14 +1,14 @@
 ---
-title: Affichage des tendances de coût de laboratoire mensuelles estimées dans Azure DevTest Labs
+title: Afficher les tendances de coût mensuelles estimées du laboratoire
 description: Cet article fournit des informations sur le suivi du coût de votre laboratoire (graphique de tendance des coûts mensuels estimés) dans Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 6a2a9bef9e54ef7deda123aad34cf0c576fd158f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b202479fd7f3b42cb6f4f2dd284ef8981705790
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98892335"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645034"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Suivre les coûts associés à un laboratoire dans Azure DevTest Labs
 Cet article fournit des informations sur la façon de suivre le coût de votre laboratoire. Il explique la procédure d’affichaeg de la tendance des coûts estimés du labo pour le mois en cours. L’article vous montre également comment afficher le coût du mois en cours par ressource du laboratoire.

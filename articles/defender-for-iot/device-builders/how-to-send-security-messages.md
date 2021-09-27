@@ -4,12 +4,12 @@ description: Découvrez comment envoyer vos messages de sécurité à l’aide d
 ms.topic: how-to
 ms.date: 2/8/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 2f5c6581772599c5527f037987e34bca643781bd
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 791e49c4e8f0e503c67f24e440fc229998b7b9da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113015196"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680493"
 ---
 # <a name="send-security-messages-sdk"></a>Envoyer des messages de sécurité à l’aide du SDK
 
@@ -26,14 +26,14 @@ Dans ce guide, vous apprendrez comment :
 
 ## <a name="defender-for-iot-capabilities"></a>Fonctionnalités de Defender pour IoT
 
-Defender pour IoT peut traiter et analyser tous types de messages de sécurité, à condition que les données envoyées soient conformes au [schéma de Defender pour IoT](https://aka.ms/iot-security-schemas) et qu’il s’agisse de messages de sécurité.
+Defender pour IoT peut traiter et analyser tous types de messages de sécurité, à condition que les données envoyées soient conformes au schéma de Defender pour IoT et qu’il s’agisse de messages de sécurité.
 
 ## <a name="security-message"></a>Message de sécurité
 
 Defender pour IoT définit un message de sécurité selon les critères suivants :
 
 - Le message a été envoyé avec un SDK Azure IoT.
-- Le message est conforme au [schéma des messages de sécurité](https://aka.ms/iot-security-schemas).
+- Le message est conforme au schéma des messages de sécurité.
 - Le message a été défini comme message de sécurité avant l’envoi.
 
 Chaque message de sécurité comporte les métadonnées de l’expéditeur, par exemple `AgentId`, `AgentVersion` et `MessageSchemaVersion`, et une liste d’événements de sécurité.
@@ -85,7 +85,7 @@ Envoyez des messages de sécurité *sans* utiliser l’agent Defender pour IoT �
 
 Pour envoyer les données à partir de vos appareils en vue de leur traitement par Defender pour IoT, utilisez une des API suivantes pour marquer les messages avec le bon routage vers le pipeline de traitement Defender pour IoT.
 
-Toutes les données envoyées, même si elles sont marquées avec l’en-tête approprié, doivent également respecter le [schéma de message de Defender pour IoT](https://aka.ms/iot-security-schemas).
+Toutes les données envoyées, même si elles sont marquées avec l’en-tête approprié, doivent également respecter le schéma de message de Defender pour IoT.
 
 ### <a name="send-security-message-api"></a>API d’envoi de message de sécurité
 

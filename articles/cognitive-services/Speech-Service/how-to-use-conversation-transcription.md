@@ -3,20 +3,20 @@ title: Démarrage rapide sur la transcription de conversation en temps réel - S
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser la transcription de conversation en temps réel avec le SDK Speech. La fonctionnalité de transcription de conversation vous permet de transcrire des réunions et d’autres conversations avec la possibilité d’ajouter, de supprimer et d’identifier des participants en diffusant en streaming du contenu audio vers le service Speech.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: lajanuar
+ms.author: pafarley
 zone_pivot_groups: acs-js-csharp
-ms.openlocfilehash: e42c457f042c43b109055c8445690412d87a7700
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: b3057bc9ee058ece0fd4a005c26ef8b95ec6a4b0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533072"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539056"
 ---
 # <a name="get-started-with-real-time-conversation-transcription"></a>Bien démarrer avec la transcription de conversation en temps réel
 

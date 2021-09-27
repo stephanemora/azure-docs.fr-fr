@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 316372f091833519f0479d07355d2845c82743b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7939384efc92baf41eaf485937e38f7ba675f674
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014840"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437451"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Utilisation des canaux recevant un stream multidébit en direct d’encodeurs locaux
 
@@ -234,7 +234,7 @@ Voici d’autres considérations liées à l’utilisation des canaux et des com
 ## <a name="related-topics"></a>Rubriques connexes
 [Encodeurs locaux recommandés](media-services-recommended-encoders.md)
 
-[Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](../media-services-fmp4-live-ingest-overview.md)
+[Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 
 [Vue d’ensemble d’Azure Media Services et scénarios courants](media-services-overview.md)
 

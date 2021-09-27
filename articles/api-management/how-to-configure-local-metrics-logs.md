@@ -3,7 +3,7 @@ title: Configurer des métriques et journaux locaux pour la passerelle auto-héb
 description: Découvrez comment configurer des métriques et journaux locaux pour la passerelle auto-hébergée de Gestion des API Azure sur un cluster Kubernetes.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/11/2021
-ms.author: apimpm
-ms.openlocfilehash: f17d271315bc537f916cb4d9addfa7ea1eaec995
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.author: danlep
+ms.openlocfilehash: 94dde4e35a072431fbcc5a30b3257b7a70b59e44
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115836"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551115"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurer des métriques et journaux locaux pour la passerelle auto-hébergée de Gestion des API Azure
 

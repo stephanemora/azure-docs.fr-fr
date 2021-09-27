@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Automation
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Automation. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 08/27/2021
+ms.date: 09/17/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 00c698cf0cc589580daea683f1f7bf98983ff360
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: d5d45a805c91ec92c3b4843b8058744feb462d0c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108228"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675329"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-automation"></a>Définitions intégrées d’Azure Policy pour Azure Automation
 

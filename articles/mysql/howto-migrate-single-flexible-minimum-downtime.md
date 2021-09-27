@@ -6,19 +6,19 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/18/2021
-ms.openlocfilehash: cbabc94f1aa8a2dcd8d8022ab81b7d772006b574
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 0197d3c4a76158663d721604cdd8e033b3d78153
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114203472"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589641"
 ---
 # <a name="tutorial-migrate-azure-database-for-mysql--single-server-to-azure-database-for-mysql--flexible-server-with-minimal-downtime"></a>Tutoriel : Migration d’une base de données Azure Database pour MySQL - Serveur unique vers Azure Database pour MySQL - Serveur flexible avec un temps d’arrêt minimal
 
 Vous pouvez migrer une instance d’Azure Database pour MySQL, un serveur unique vers Azure Database pour MySQL, un serveur flexible avec un temps d’arrêt minimal pour vos applications à l’aide d’une combinaison d’outils open source tels que mydumper/myLoader et la réplication de données.
 
 > [!NOTE]
-> Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 La réplication de données est une technique qui réplique les modifications de données du serveur source vers le serveur de destination en fonction de la méthode de position de fichier journal binaire. Dans ce scénario, l’instance MySQL fonctionnant comme source (sur laquelle les modifications sont apportées à la base de données) écrit des mises à jour et des modifications en tant que « événements » dans le journal binaire. Les informations contenues dans le journal binaire sont stockées dans différents formats de journalisation en fonction des modifications de la base de données en cours d’enregistrement. Les réplicas sont configurés pour lire le journal binaire à partir de la source et pour exécuter les événements dans le journal binaire sur la base de données locale du réplica.
 

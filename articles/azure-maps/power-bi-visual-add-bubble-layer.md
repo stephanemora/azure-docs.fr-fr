@@ -1,20 +1,20 @@
 ---
 title: Ajouter un calque de bulles au visuel Power BI Azure Maps | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à utiliser le calque de bulles dans le visuel Microsoft Azure Maps pour Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc463a69dc0823e14b08e9fd056f3876e1ba9984
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896223"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430447"
 ---
 # <a name="add-a-bubble-layer"></a>Ajouter un calque de bulles
 

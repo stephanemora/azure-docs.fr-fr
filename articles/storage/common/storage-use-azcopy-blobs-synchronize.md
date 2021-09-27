@@ -8,18 +8,18 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 4dc2dd06128c373439229b5e649c37caa25b727e
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 84c8c1e0eeb402185b7451ce953581d23b39c860
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715013"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624820"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy"></a>Synchroniser avec Stockage Blob Azure à l’aide d’AzCopy
 
-Vous pouvez synchroniser le stockage local avec Stockage Blob Azure à l’aide de l’utilitaire en ligne de commande AzCopy v10. 
+Vous pouvez synchroniser le stockage local avec Stockage Blob Azure à l’aide de l’utilitaire en ligne de commande AzCopy v10.
 
-Vous pouvez synchroniser le contenu d’un système de fichiers local avec un conteneur d’objets blob. Vous pouvez également synchroniser des conteneurs et des répertoires virtuels les uns avec les autres. La synchronisation est unidirectionnelle. En d’autres termes, vous choisissez lequel de ces deux points de terminaison est la source et lequel est la destination. La synchronisation utilise également un serveur pour les API de serveur. Les exemples présentés dans cette section fonctionnent également avec les comptes qui ont un espace de noms hiérarchique. 
+Vous pouvez synchroniser le contenu d’un système de fichiers local avec un conteneur d’objets blob. Vous pouvez également synchroniser des conteneurs et des répertoires virtuels les uns avec les autres. La synchronisation est unidirectionnelle. En d’autres termes, vous choisissez lequel de ces deux points de terminaison est la source et lequel est la destination. La synchronisation utilise également un serveur pour les API de serveur. Les exemples présentés dans cette section fonctionnent également avec les comptes qui ont un espace de noms hiérarchique.
 
 > [!NOTE]
 > La version actuelle de l’utilitaire AzCopy n’effectue pas de synchronisation entre d’autres sources et destinations (exemple : stockage de fichiers ou compartiments Amazon Web Services (AWS) S3).
@@ -30,7 +30,7 @@ Pour obtenir des exemples d’autres types de tâches, telles que le chargement 
 
 Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour télécharger AzCopy, et découvrez comment vous pouvez fournir des informations d’identification au service de stockage.
 
-> [!NOTE] 
+> [!NOTE]
 > Les exemples de cet article partent du principe que vous avez fourni des informations d’identification d’autorisation en utilisant Azure AD (Azure Active Directory).
 >
 > Si vous préférez utiliser un jeton SAS pour autoriser l’accès aux données d’objets blob, vous pouvez ajouter ce jeton à l’URL de ressource dans chaque commande AzCopy. Par exemple : `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -41,7 +41,7 @@ Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour
 
 - Si vous affectez la valeur `true` à l’indicateur `--delete-destination`, AzCopy supprime les fichiers sans invite. Si vous souhaitez qu’une invite s’affiche avant que l’utilitaire AzCopy ne supprime un fichier, définissez l’indicateur `--delete-destination` sur `prompt`.
 
-- Si vous envisagez de définir l'indicateur `--delete-destination` sur `prompt` ou `false`, pensez à utiliser la commande [copy](storage-ref-azcopy-copy.md) au lieu de la commande [sync](storage-ref-azcopy-sync.md) et à définir le paramètre `--overwrite` sur `ifSourceNewer`. La commande [copy](storage-ref-azcopy-copy.md) consomme moins de mémoire et génère des coûts de facturation inférieurs, car une opération de copie ne doit pas indexer la source ou la destination avant de déplacer des fichiers. 
+- Si vous envisagez de définir l'indicateur `--delete-destination` sur `prompt` ou `false`, pensez à utiliser la commande [copy](storage-ref-azcopy-copy.md) au lieu de la commande [sync](storage-ref-azcopy-sync.md) et à définir le paramètre `--overwrite` sur `ifSourceNewer`. La commande [copy](storage-ref-azcopy-copy.md) consomme moins de mémoire et génère des coûts de facturation inférieurs, car une opération de copie ne doit pas indexer la source ou la destination avant de déplacer des fichiers.
 
 - Pour empêcher les suppressions accidentelles, veillez à activer la fonctionnalité de [suppression réversible](../blobs/soft-delete-blob-overview.md) avant d’utiliser l’indicateur `--delete-destination=prompt|true`.
 
@@ -49,7 +49,7 @@ Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour
 
 ## <a name="update-a-container-with-changes-to-a-local-file-system"></a>Mettre à jour un conteneur avec les modifications apportées à un système de fichiers local
 
-Dans ce cas, le conteneur est la destination, et le système de fichiers local est la source. 
+Dans ce cas, le conteneur est la destination, et le système de fichiers local est la source.
 
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
@@ -83,7 +83,7 @@ azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myD
 
 ## <a name="update-a-container-with-changes-in-another-container"></a>Mettre à jour un conteneur avec les modifications d’un autre conteneur
 
-Le premier conteneur qui s’affiche dans cette commande est la source. Le deuxième est la destination. Veillez à ajouter un jeton SAP à chaque URL source.  
+Le premier conteneur qui s’affiche dans cette commande est la source. Le deuxième est la destination. Veillez à ajouter un jeton SAP à chaque URL source.
 
 Si vous fournissez des informations d’identification d’autorisation à l’aide d’Azure AD (Azure Active Directory), vous pouvez omettre le jeton SAS uniquement dans l’URL de destination. Assurez-vous que vous avez configuré les rôles appropriés dans votre compte de destination. Voir [Option 1 : Utiliser Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
@@ -102,7 +102,7 @@ azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-0
 
 ## <a name="update-a-directory-with-changes-to-a-directory-in-another-container"></a>Mettre à jour un répertoire avec les modifications apportées à un répertoire dans un autre conteneur
 
-Le premier répertoire qui s’affiche dans cette commande est la source. Le deuxième est la destination. Veillez à ajouter un jeton SAP à chaque URL source.  
+Le premier répertoire qui s’affiche dans cette commande est la source. Le deuxième est la destination. Veillez à ajouter un jeton SAP à chaque URL source.
 
 Si vous fournissez des informations d’identification d’autorisation à l’aide d’Azure AD (Azure Active Directory), vous pouvez omettre le jeton SAS uniquement dans l’URL de destination. Assurez-vous que vous avez configuré les rôles appropriés dans votre compte de destination. Voir [Option 1 : Utiliser Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
@@ -132,7 +132,7 @@ Vous pouvez ajuster votre opération de synchronisation à l’aide d’indicate
 Pour obtenir la liste complète des indicateurs, consultez [Options](storage-ref-azcopy-sync.md#options).
 
 > [!NOTE]
-> Par défaut, l'indicateur `--recursive` est défini sur `true`. Les indicateurs `--exclude-pattern` et `--include-pattern` ne s’appliquent qu’à des noms de fichier et non à d’autres parties du chemin d’accès de fichier. 
+> Par défaut, l'indicateur `--recursive` est défini sur `true`. Les indicateurs `--exclude-pattern` et `--include-pattern` ne s’appliquent qu’à des noms de fichier et non à d’autres parties du chemin d’accès de fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -150,5 +150,4 @@ Consultez les articles suivants pour configurer les paramètres, optimiser les p
 
 - [Paramètres de configuration d’AzCopy](storage-ref-azcopy-configuration-settings.md)
 - [Optimiser les performances d’AzCopy](storage-use-azcopy-optimize.md)
-- [Résoudre les problèmes d’AzCopy v10 dans Stockage Azure en utilisant des fichiers journaux](storage-use-azcopy-configure.md)
-
+- [Résoudre les problèmes d’AzCopy V10 dans le stockage Azure à l’aide de fichiers journaux](storage-use-azcopy-configure.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 469e7005d1def5bd2f76347fc934577eca54b435
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e55653b5a5b3ac52c0952d5a70e835646247664e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532504"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673708"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Comprendre Azure IoT Edge utilise les certificats
 
@@ -22,7 +22,7 @@ ms.locfileid: "122532504"
 Les certificats IoT Edge sont utilisés par les modules et les appareils IoT en aval afin de vérifier l’identité et la légitimité du module d’exécution du [hub IoT Edge](iot-edge-runtime.md#iot-edge-hub). Ces vérifications permettent une connexion sécurisée TLS entre le runtime, les modules et les appareils IoT. Tout comme IoT Hub, IoT Edge nécessite une connexion sécurisée et chiffrée à partir d’appareils IoT en aval (ou feuilles) et de modules IoT Edge. Pour établir une connexion TLS sécurisée, le module du hub IoT Edge présente une chaîne d’approbation de serveur aux clients qui se connectent pour que ces derniers puissent vérifier son identité.
 
 >[!NOTE]
->Cet article présente les certificats utilisés pour sécuriser les connexions entre les différents composants d’un appareil IoT Edge ou entre un appareil IoT Edge et des appareils de nœuds terminaux. Vous pouvez également utiliser des certificats pour authentifier votre appareil IoT Edge pour IoT Hub. Ces certificats d’authentification sont différents et ne sont pas abordés dans cet article. Pour plus d’informations sur l’authentification de votre appareil avec des certificats, consultez [Créer et provisionner un appareil IoT Edge à l’aide de certificats X.509](how-to-auto-provision-x509-certs.md).
+>Cet article présente les certificats utilisés pour sécuriser les connexions entre les différents composants d’un appareil IoT Edge ou entre un appareil IoT Edge et des appareils de nœuds terminaux. Vous pouvez également utiliser des certificats pour authentifier votre appareil IoT Edge pour IoT Hub. Ces certificats d’authentification sont différents et ne sont pas abordés dans cet article. Pour plus d’informations sur l’authentification de votre appareil avec des certificats, consultez [Créer et provisionner un appareil IoT Edge à l’aide de certificats X.509](how-to-provision-devices-at-scale-linux-x509.md).
 
 Cet article explique comment les certificats IoT Edge fonctionnent dans un environnement de production, de développement et de test.
 

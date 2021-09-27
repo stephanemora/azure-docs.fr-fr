@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/07/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 94b00fb293913e5501bd70ecb782304c56314ed9
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 209d2aafbecc81a3c06866569f66edec6e3f43a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113430121"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566574"
 ---
 # <a name="userinfo-endpoint"></a>Point de terminaison UserInfo
 
@@ -218,7 +218,8 @@ L’élément terminé de la partie de confiance est le suivant :
 ### <a name="4-upload-the-files"></a>4. Téléchargement des fichiers
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Infrastructure d’expérience d’identité**.
 1. Dans la page **Stratégies personnalisées**, sélectionnez **Télécharger la stratégie personnalisée**.

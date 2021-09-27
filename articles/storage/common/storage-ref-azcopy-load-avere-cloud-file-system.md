@@ -9,12 +9,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 910d6196228315fa8bcb86ef2be113e542a2bf8e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b678b2830ede076169f82c4a3280845edd7db90b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478720"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624915"
 ---
 # <a name="azcopy-load-clfs"></a>azcopy load clfs
 
@@ -26,16 +26,16 @@ La commande load copie des données dans des conteneurs de stockage Blob Azure, 
 
 Pour tirer parti de cette commande, installez l’extension nécessaire à l’aide de : pip3 install clfsload~=1.0.23. Vérifiez que CLFSLoad.py se trouve dans votre chemin. Pour plus d’informations sur cette étape, consultez [https://aka.ms/azcopy/clfs](https://aka.ms/azcopy/clfs).
 
-Cette commande est une option simple permettant de déplacer des données existantes vers le stockage cloud en vue de les utiliser avec des produits de cache informatique haute performances Microsoft spécifiques. 
+Cette commande est une option simple permettant de déplacer des données existantes vers le stockage cloud en vue de les utiliser avec des produits de cache informatique haute performances Microsoft spécifiques.
 
-Étant donné que ces produits utilisent un format de système de fichiers cloud propriétaire pour gérer les données, ces données ne peuvent pas être chargées par le biais de la commande de copie native. 
+Étant donné que ces produits utilisent un format de système de fichiers cloud propriétaire pour gérer les données, ces données ne peuvent pas être chargées par le biais de la commande de copie native.
 
 Au lieu de cela, les données doivent être chargées par le biais du produit de cache lui-même ou à l’aide de cette commande de chargement, qui utilise le bon format propriétaire.
 Cette commande vous permet de transférer des données sans utiliser le cache, par exemple pour préremplir le stockage ou ajouter des fichiers à une plage de travail sans augmenter la charge du cache.
 
 La destination est un conteneur de stockage Azure vide. Une fois le transfert terminé, le conteneur de destination peut être utilisé avec une instance Azure HPC Cache ou un cluster Avere vFXT pour Azure.
 
-> [!NOTE] 
+> [!NOTE]
 > Il s’agit d’une préversion de la commande load. N’hésitez pas à signaler tout problème dans le dépôt GitHub AzCopy.
 
 ```

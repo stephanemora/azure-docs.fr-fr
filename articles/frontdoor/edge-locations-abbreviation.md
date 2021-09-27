@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 70fc52bf0cb2eb74e115601da713e706b9d690a1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: df85a123fa6b3700e71d2d05ae99f4c4ecec5074
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482245"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560931"
 ---
 # <a name="microsoft-edge-locations-by-abbreviation-for-azure-front-door"></a>Emplacements périphériques Microsoft par abréviation pour Azure Front Door
 > [!div class="op_single_selector"]
@@ -31,5 +31,5 @@ Cet article répertorie les emplacements périphériques Microsoft, triés par a
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez [Emplacements périphériques Azure Front Door par métro](edge-locations-by-region.md).
-* Pour obtenir la liste la plus récente des nœuds de périphérie pour Azure Front Door, consultez [Liste des nœuds de périphérie - API REST](/rest/api/cdn/cdn/edgenodes/list).
+* Pour obtenir la liste la plus récente des nœuds de périphérie pour Azure Front Door, consultez [Liste des nœuds de périphérie - API REST](/rest/api/cdn/edge-nodes/list).
 * Découvrez comment [Créer un profil Azure Front Door](quickstart-create-front-door.md).

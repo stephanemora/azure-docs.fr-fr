@@ -6,14 +6,13 @@ ms.author: v-stharr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: 51b301a7b98c4662c22a966343748d9b0e7752ad
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dfd5da016732d0424935e72e00b38cf597dd5a6e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525133"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430393"
 ---
 # <a name="read-and-write-spatial-data"></a>Lire et écrire des données spatiales
 
@@ -56,14 +55,14 @@ Le code suivant montre comment lire un jeu de données spatiales et le restituer
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Charger des données spatiales simples' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>Load Spatial Data Simple</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Charger des données spatiales simples' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>Load Spatial Data Simple</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 La démonstration de code suivante montre comment lire et charger un fichier KML ou KMZ sur la carte. Un fichier KML peut contenir des superpositions de sol, qui se présentent sous la forme `ImageLyaer` ou `OgcMapLayer`. Ces superpositions doivent être ajoutées à la carte séparément des fonctionnalités. En outre, si le jeu de données a des icônes personnalisées, ces icônes doivent être chargées dans les ressources de cartes avant le chargement des fonctionnalités.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Charger un fichier KML sur la carte' src='//codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>Load KML Onto Map</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Charger un fichier KML sur la carte' src='//codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>Load KML Onto Map</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Vous pouvez éventuellement fournir un service proxy pour accéder aux ressources interdomaines pour lesquelles CORS n’est pas activé. La fonction de lecture essaiera d’abord d’accéder aux fichiers d’un autre domaine à l’aide de CORS. Après l’échec de la première tentative d’accès à une ressource d’un autre domaine à l’aide de CORS, elle ne demandera des fichiers supplémentaires que si un service proxy a été fourni. La fonction de lecture ajoute l’URL du fichier à la fin de l’URL de proxy fournie. Cet extrait de code indique comment passer un service proxy à la fonction de lecture :
@@ -85,7 +84,7 @@ La démonstration ci-dessous montre comment lire un fichier délimité et l’af
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Ajouter un fichier délimité' src='//codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/ExjXBEb/'>Add a Delimited File</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ajouter un fichier délimité' src='//codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/ExjXBEb/'>Add a Delimited File</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="write-spatial-data"></a>Écrire des données spatiales
@@ -96,7 +95,7 @@ L’outil ci-dessous illustre la majorité des options d’écriture qui peuvent
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Options d’écriture de données spatiales' src='//codepen.io/azuremaps/embed/YzXxXPG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/YzXxXPG/'>Spatial data write options</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Options d’écriture de données spatiales' src='//codepen.io/azuremaps/embed/YzXxXPG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/YzXxXPG/'>Spatial data write options</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="example-of-writing-spatial-data"></a>Exemple d’écriture de données spatiales
@@ -105,7 +104,7 @@ L’exemple suivant vous permet de glisser-déplacer, puis de charger des fichie
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Glisser-déplacer des fichiers spatiaux sur la carte' src='//codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/zYGdGoO/'>Drag and drop spatial files onto map</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Glisser-déplacer des fichiers spatiaux sur la carte' src='//codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/zYGdGoO/'>Drag and drop spatial files onto map</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Vous pouvez éventuellement fournir un service proxy pour accéder aux ressources interdomaines pour lesquelles CORS n’est pas activé. Cet extrait de code montre que vous pouvez incorporer un service proxy :
@@ -134,14 +133,14 @@ Le code suivant montre comment lire la chaîne Well-known text `POINT(-122.34009
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Lire au format Well-Known Text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>Read Well-Known Text</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Lire au format Well-Known Text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>Read Well-Known Text</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Le code suivant illustre la lecture et l’écriture de Well-known text dans les deux sens.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Lire et écrire au format Well-Known Text' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>Read and write Well-Known Text</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Lire et écrire au format Well-Known Text' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>Read and write Well-Known Text</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="read-and-write-gml"></a>Lire et écrire un fichier GML

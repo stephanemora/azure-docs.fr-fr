@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: b73e79c2f7bbd37b640d3e83d98be68d85ed3b5e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8861255cb81c1200108dff22354be7636c1bd2d5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735367"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633789"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilisation de l’interface CLI HDFS avec Data Lake Storage Gen2
 
@@ -24,8 +24,8 @@ HDInsight permet d’accéder au conteneur distribué connecté localement aux n
 
 Pour plus d’informations sur l’interface de ligne de commande HDFS, voir la [documentation officielle](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) et le [Guide des autorisations HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
->[!NOTE]
->Si vous utilisez Azure Databricks au lieu de HDInsight, et souhaitez interagir avec vos données à l’aide d’une interface de ligne de commande, vous pouvez utiliser celle de Databricks pour interagir avec le système de fichiers Databricks. Voir [Interface de ligne de commande Databricks](/azure/databricks/dev-tools/cli/).
+> [!NOTE]
+> Si vous utilisez Azure Databricks au lieu de HDInsight, et souhaitez interagir avec vos données à l’aide d’une interface de ligne de commande, vous pouvez utiliser celle de Databricks pour interagir avec le système de fichiers Databricks. Voir [Interface de ligne de commande Databricks](/azure/databricks/dev-tools/cli/).
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Utiliser l’interface CLI HDFS avec un cluster HDInsight Hadoop sur Linux
 
@@ -39,18 +39,19 @@ hdfs dfs -ls /
 #Create a sample directory.
 hdfs dfs -mkdir /samplefolder
 ```
+
 La chaîne de connexion se trouve dans la section « Connexion SSH + Cluster » du panneau du cluster HDInsight dans le portail Azure. Les informations d’identification SSH ont été spécifiées au moment de la création du cluster.
 
->[!IMPORTANT]
->La facturation du cluster HDInsight démarre après la création du cluster et s’arrête à sa suppression. La facturation est effectuée au prorata des minutes écoulées. Par conséquent, vous devez toujours supprimer votre cluster lorsqu’il n’est plus utilisé. Pour découvrir comment supprimer un cluster, consultez notre [article à ce sujet](../../hdinsight/hdinsight-delete-cluster.md). Toutefois, les données stockées dans un compte de stockage avec Azure Data Lake Storage Gen2 persistent même après la suppression du cluster HDInsight.
+> [!IMPORTANT]
+> La facturation du cluster HDInsight démarre après la création du cluster et s’arrête à sa suppression. La facturation est effectuée au prorata des minutes écoulées. Par conséquent, vous devez toujours supprimer votre cluster lorsqu’il n’est plus utilisé. Pour découvrir comment supprimer un cluster, consultez notre [article à ce sujet](../../hdinsight/hdinsight-delete-cluster.md). Toutefois, les données stockées dans un compte de stockage avec Azure Data Lake Storage Gen2 persistent même après la suppression du cluster HDInsight.
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
 `hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/`
 
-* Remplacez l’espace réservé `<container-name>` par le nom que vous souhaitez donner à votre conteneur.
+- Remplacez l’espace réservé `<container-name>` par le nom que vous souhaitez donner à votre conteneur.
 
-* Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
+- Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
 ## <a name="get-a-list-of-files-or-directories"></a>Obtenir la liste des fichiers ou répertoires
 
@@ -118,6 +119,6 @@ Vous pouvez voir la liste complète des commandes en accédant au site web [Apac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utiliser un compte Azure Data Lake Storage Gen2 dans Azure Databricks](./data-lake-storage-use-databricks-spark.md)
+- [Utiliser un compte Azure Data Lake Storage Gen2 dans Azure Databricks](./data-lake-storage-use-databricks-spark.md)
 
-* [En savoir plus sur les listes de contrôle d’accès sur les fichiers et répertoires](./data-lake-storage-access-control.md)
+- [En savoir plus sur les listes de contrôle d’accès sur les fichiers et répertoires](./data-lake-storage-access-control.md)

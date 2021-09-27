@@ -9,16 +9,16 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: 98164c20af2a5d6ae7ccac43331a2876c23ccfb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7988f8b72a6621897c656e12595a3fe68665535
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500170"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429835"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Remédier aux serveurs Azure Automation State Configuration non conformes
 
-Quand des serveurs sont inscrits auprès d’Azure Automation State Configuration, le mode de configuration est défini sur `ApplyOnly`, `ApplyandMonitor` ou `ApplyAndAutoCorrect`. Si le mode n’est pas défini sur `ApplyAndAutoCorrect`, les serveurs qui quittent un état conforme pour une raison quelconque restent non conformes jusqu’à ce qu’ils soient corrigés manuellement.
+Quand des serveurs sont inscrits auprès d’Azure Automation State Configuration, le mode de configuration est défini sur `ApplyOnly`, `ApplyAndMonitor` ou `ApplyAndAutoCorrect`. Si le mode n’est pas défini sur `ApplyAndAutoCorrect`, les serveurs qui quittent un état conforme pour une raison quelconque restent non conformes jusqu’à ce qu’ils soient corrigés manuellement.
 
 Azure Compute offre une fonctionnalité nommée Run Command qui permet aux clients d’exécuter des scripts dans des machines virtuelles.
 Ce document fournit des exemples de scripts pour cette fonctionnalité lors de la correction manuelle de dérives de configuration.

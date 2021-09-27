@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 9896cdaf82ca508c5e6a1a444564403ef0f7e1eb
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 490b0b109e4b89b01b748d2d6aa71b4477f8a8ef
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765454"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560586"
 ---
 # <a name="authorize-access-to-data-in-azure-storage"></a>Autorisation de l’accès aux données dans le stockage Azure
 
@@ -26,7 +26,7 @@ Le tableau suivant décrit les options offertes par Stockage Azure pour autorise
 |--|--|--|--|--|--|
 | Objets blob Azure | [Pris en charge](/rest/api/storageservices/authorize-with-shared-key/) | [Pris en charge](storage-sas-overview.md) | [Pris en charge](authorize-data-access.md) | Non pris en charge | [Pris en charge](../blobs/anonymous-read-access-configure.md) |
 | Azure Files (SMB) | [Pris en charge](/rest/api/storageservices/authorize-with-shared-key/) | Non pris en charge | [Pris en charge, uniquement avec les services de domaine AAD](../files/storage-files-active-directory-overview.md) | [Pris en charge, les informations d'identification doivent être synchronisées avec Azure AD](../files/storage-files-active-directory-overview.md) | Non pris en charge |
-| Azure Files (REST) | [Pris en charge](/rest/api/storageservices/authorize-with-shared-key/) | [Pris en charge](storage-sas-overview.md) | Non pris en charge | Non prise en charge | Non prise en charge |
+| Azure Files (REST) | [Pris en charge](/rest/api/storageservices/authorize-with-shared-key/) | [Pris en charge](storage-sas-overview.md) | Non pris en charge | Non pris en charge | Non pris en charge |
 | Files d'attente Azure | [Pris en charge](/rest/api/storageservices/authorize-with-shared-key/) | [Pris en charge](storage-sas-overview.md) | [Pris en charge](authorize-data-access.md) | Non pris en charge | Non pris en charge |
 | Tables Azure | [Pris en charge](/rest/api/storageservices/authorize-with-shared-key/) | [Pris en charge](storage-sas-overview.md) | [Prise en charge](../tables/authorize-access-azure-active-directory.md) (préversion) | Non prise en charge | Non pris en charge |
 
@@ -41,7 +41,7 @@ Chaque option d’autorisation est décrite brièvement ci-dessous :
 - **Autorisation de clé partagée** pour les objets blob, les fichiers, les files d’attente et les tables. Un client qui utilise une clé partagée transmet avec chaque demande un en-tête signé à l’aide de la clé d’accès au compte de stockage. Pour plus d’informations, consultez [Autoriser avec une clé partagée](/rest/api/storageservices/authorize-with-shared-key/).
 
 - **Signatures d’accès partagé** pour les objets blob, les fichiers, les files d’attente et les tables. Les signatures d’accès partagé (SAP) fournissent un accès délégué limité aux ressources de votre compte de stockage. L’ajout de contraintes à la période de validité de la signature ou aux autorisations qu’elle accorde garantit la souplesse de la gestion de l’accès. Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAP)](storage-sas-overview.md).
-- **Accès en lecture public anonyme** pour les conteneurs et les objets blob. L’autorisation n’est pas obligatoire. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/anonymous-read-access-configure.md).  
+- **Accès en lecture public anonyme** pour les conteneurs et les objets blob. L’autorisation n’est pas obligatoire. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/anonymous-read-access-configure.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

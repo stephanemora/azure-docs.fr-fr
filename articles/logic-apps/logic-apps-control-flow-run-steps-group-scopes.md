@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b8e4395cd2ac46acb94abced52aa28eccf4f3d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92314840"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615982"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Exécuter des actions en fonction de l’état du groupe à l’aide d’étendues dans Azure Logic Apps
 
@@ -111,13 +111,13 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
    1. Dans le champ **Sujet**, entrez ce texte :
 
-      ```Time to leave: Traffic more than 10 minutes```
+     `Time to leave: Traffic more than 10 minutes`
 
    1. Dans le champ **Corps**, entrez ce texte avec un espace de fin : 
 
-      ```Travel time:```
+     `Travel time:`
 
-      Alors que le curseur s’affiche dans le champ **Corps**, la liste de contenu dynamique reste ouverte afin que vous puissiez sélectionner tous les paramètres qui sont disponibles à ce stade.
+     Alors que le curseur s’affiche dans le champ **Corps**, la liste de contenu dynamique reste ouverte afin que vous puissiez sélectionner tous les paramètres qui sont disponibles à ce stade.
 
    1. Dans la liste de contenu dynamique, choisissez **Expression**.
 

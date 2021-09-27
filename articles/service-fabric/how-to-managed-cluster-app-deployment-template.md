@@ -4,12 +4,12 @@ description: Découvrez comment déployer, mettre à niveau ou supprimer une app
 ms.topic: how-to
 ms.date: 8/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f2f2f47e9cdcef54be9c78513fbb57cd20ddde5f
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 4e981e58cd5efb1430ab35772ab84428f7482977
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864775"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434517"
 ---
 # <a name="manage-application-lifecycle-on-a-managed-cluster-using-azure-resource-manager"></a>Gérer le cycle de vie des applications sur un cluster géré à l’aide de Azure Resource Manager
 
@@ -84,7 +84,7 @@ La copie intermédiaire de l’application est désormais réalisée et vous pou
 
 ### <a name="create-the-resource-manager-template"></a>Créer le modèle Resource Manager
 
-L’exemple d’application contient des [modèles Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) que vous pouvez utiliser pour déployer l’application. Les noms des fichiers modèles sont *UserApp.json* et *UserApp.Parameters.json*.
+L’exemple d’application contient des [modèles Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM-Managed-Cluster) que vous pouvez utiliser pour déployer l’application. Les noms des fichiers modèles sont *UserApp.json* et *UserApp.Parameters.json*.
 
 > [!NOTE]
 > Le fichier *UserApp.Parameters.json* doit être mis à jour avec le nom de votre cluster.
@@ -143,7 +143,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 Vous pouvez mettre à niveau une application qui est déjà déployée sur un cluster Service Fabric pour l’une des raisons suivantes :
 
-* Un nouveau service est ajouté à l’application. Une définition de service doit être ajoutée aux fichiers *service-manifest.xml* et *application-manifest.xml* quand un service est ajouté à l’application. Pour refléter une nouvelle version d’une application, vous devez également modifier la version du type d’application de 1.0.0 à 1.0.1 dans [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json) :
+* Un nouveau service est ajouté à l’application. Une définition de service doit être ajoutée aux fichiers *service-manifest.xml* et *application-manifest.xml* quand un service est ajouté à l’application. Pour refléter une nouvelle version d’une application, vous devez également modifier la version du type d’application de 1.0.0 à 1.0.1 dans [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM-Managed-Cluster/UserApp.Parameters.json) :
 
     ```json
     "applicationTypeVersion": {

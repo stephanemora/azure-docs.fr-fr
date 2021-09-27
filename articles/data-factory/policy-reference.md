@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 08/27/2021
-ms.openlocfilehash: 8fc88f0de0cb6be5d4d719e1a5a763a1acff2a24
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 09/17/2021
+ms.openlocfilehash: 6d5b92f3a52ef3e84e888756660522d670ce3042
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123100508"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664280"
 ---
 # <a name="azure-policy-built-in-definitions-for-data-factory-preview"></a>Définitions intégrées d'Azure Policy pour Data Factory (préversion)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

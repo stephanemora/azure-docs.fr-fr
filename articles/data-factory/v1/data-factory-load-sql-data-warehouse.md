@@ -3,16 +3,17 @@ title: Charger des téraoctets de données dans Azure Synapse Analytics
 description: Montre comment 1 To de données peut être chargé dans Azure Synapse Analytics en moins de 15 minutes avec Azure Data Factory
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f6aa32cd5408c6a82716096d855203157f729f48
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d773c25059f1d5767df735ff89bd7701d4733c4b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123606"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601593"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Charger 1 To dans Azure Synapse Analytics en moins de 15 minutes avec Data Factory
 > [!NOTE]
@@ -62,15 +63,15 @@ Cet article fournit des instructions détaillées pour déplacer les données da
 
     Pour créer un pool SQL dédié avec 6 000 DWU, déplacez le curseur du niveau de performance tout à droite :
 
-    ![Curseur Performance](media/data-factory-load-sql-data-warehouse/performance-slider.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/performance-slider.png" alt-text="Curseur Performance":::
 
     Pour une base de données existante qui n’est pas configurée avec 6 000 DWU, vous pouvez la mettre à l’échelle à l’aide du portail Azure.  Accédez à la base de données dans le portail Azure. Il existe un bouton **Mise à l’échelle** situé dans le panneau **Présentation** illustré dans l’image suivante :
 
-    ![Bouton Mise à l’échelle](media/data-factory-load-sql-data-warehouse/scale-button.png)    
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/scale-button.png" alt-text="Bouton Mise à l’échelle":::    
 
     Cliquez sur le bouton **Mise à l’échelle** pour ouvrir le panneau suivant, déplacez le curseur sur la valeur maximale, puis cliquez sur le bouton **Enregistrer**.
 
-    ![Boîte de dialogue de mise à l’échelle](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/scale-dialog.png" alt-text="Boîte de dialogue de mise à l’échelle":::
 
     Cette expérience charge des données dans Azure Synapse Analytics à l’aide de la classe de ressources `xlargerc`.
 
@@ -121,7 +122,7 @@ Cet article fournit des instructions détaillées pour déplacer les données da
    6. Cliquez sur **Créer**.
 4. Une fois la création terminée, le panneau **Data Factory** s’affiche comme sur l’image suivante :
 
-   ![Page d’accueil Data Factory](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
+   :::image type="content" source="media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png" alt-text="Page d’accueil Data Factory":::
 5. Dans la page d’accueil Fabrique de données, cliquez sur la vignette **Copier les données** pour lancer l’**Assistant de copie**.
 
    > [!NOTE]
@@ -138,41 +139,41 @@ Dans la page **Propriétés** :
 2. Sélectionnez l’option **Exécuter une fois**.   
 3. Cliquez sur **Suivant**.  
 
-    ![Assistant Copie - Page Propriétés](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png" alt-text="Assistant Copie - Page Propriétés":::
 
 ## <a name="step-2-configure-source"></a>Étape 2 : Configurer la source
 Cette section décrit les étapes pour configurer la source : Azure Blob contenant les fichiers d’éléments de ligne TPC-H 1 To.
 
 1. Sélectionnez **Stockage Blob Azure** comme magasin de données et cliquez sur **Suivant**.
 
-    ![Assistant Copie - Page Sélectionner la source](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-source-connection.png" alt-text="Assistant Copie - Page Sélectionner la source":::
 
 2. Renseignez les informations de connexion pour le compte Stockage Blob Azure, puis cliquez sur **Suivant**.
 
-    ![Assistant Copie - Informations de connexion à la source](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/source-connection-info.png" alt-text="Assistant Copie - Informations de connexion à la source":::
 
 3. Choisissez le **dossier** contenant les fichiers d’éléments de ligne TPC-H et cliquez sur **Suivant**.
 
-    ![Assistant Copie - Sélectionner le dossier d’entrée](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-input-folder.png" alt-text="Assistant Copie - Sélectionner le dossier d’entrée":::
 
 4. Lorsque vous cliquez sur **Suivant**, les paramètres de format de fichier sont détectés automatiquement.  Vérifiez que le délimiteur de colonne est défini sur « | » et non sur la virgule « , » par défaut.  Cliquez sur **Suivant** une fois que vous avez affiché un aperçu des données.
 
-    ![Assistant Copie - Paramètres de format de fichier](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/file-format-settings.png" alt-text="Assistant Copie - Paramètres de format de fichier":::
 
 ## <a name="step-3-configure-destination"></a>Étape 3 : Configurer la destination
 Cette section vous montre comment configurer la destination : la table `lineitem` dans la base de données Azure Synapse Analytics.
 
 1. Choisissez **Azure Synapse Analytics** comme magasin de destination, puis cliquez sur **Suivant**.
 
-    ![Assistant Copie - Sélectionner le magasin de données de destination](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-destination-data-store.png" alt-text="Assistant Copie - Sélectionner le magasin de données de destination":::
 
 2. Renseignez les informations de connexion pour Azure Synapse Analytics.  Veillez à spécifier l’utilisateur qui est membre du rôle `xlargerc` (voir les **conditions préalables** pour obtenir des instructions détaillées), puis cliquez sur **Suivant**.
 
-    ![Assistant Copie - Informations de connexion à la destination](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/destination-connection-info.png" alt-text="Assistant Copie - Informations de connexion à la destination":::
 
 3. Choisissez la table de destination et cliquez sur **Suivant**.
 
-    ![Assistant Copie - Page Mappage de table](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/table-mapping-page.png" alt-text="Assistant Copie - Page Mappage de table":::
 
 4. Dans la page Mappage de schéma, laissez l’option « Appliquer le mappage de colonnes » décochée et cliquez sur **Suivant**.
 
@@ -180,22 +181,22 @@ Cette section vous montre comment configurer la destination : la table `lineite
 
 La case **Autoriser Polybase** est cochée par défaut.  Cliquez sur **Suivant**.
 
-![Assistant Copie - Page Mappage de schéma](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
+:::image type="content" source="media/data-factory-load-sql-data-warehouse/performance-settings-page.png" alt-text="Assistant Copie - Page Mappage de schéma":::
 
 ## <a name="step-5-deploy-and-monitor-load-results"></a>Étape 5 : Déployer et surveiller les résultats du chargement
 1. Cliquez sur le bouton **Terminer** pour déployer.
 
-    ![Assistant Copie - Page Résumé 1](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/summary-page.png" alt-text="Assistant Copie - Page Résumé 1":::
 
 2. Une fois le déploiement terminé, cliquez sur `Click here to monitor copy pipeline` pour surveiller la progression de l’exécution de la copie. Sélectionner le pipeline de copie que vous avez créé dans la liste **Fenêtres d’activité**.
 
-    ![Assistant Copie - Page Résumé 2](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png" alt-text="Assistant Copie - Page Résumé 2":::
 
     Vous pouvez afficher les détails de l’exécution de la copie dans **l’Explorateur de fenêtres d’activité** dans le panneau de droite, notamment le volume de données lu à partir de la source et écrit dans la destination, la durée et le débit moyen de l’exécution.
 
     Comme le montre la capture d’écran suivante, la copie de 1 To du Stockage Blob Azure vers Azure Synapse Analytics a pris 14 minutes, soit un débit de 1,22 Gbits/s !
 
-    ![Assistant Copie - Boîte de dialogue Succès](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/succeeded-info.png" alt-text="Assistant Copie - Boîte de dialogue Succès":::
 
 ## <a name="best-practices"></a>Meilleures pratiques
 Voici les bonnes pratiques à suivre pour l’exécution de votre base de données Azure Synapse Analytics :

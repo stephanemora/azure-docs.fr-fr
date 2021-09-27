@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 7/1/2021
 ms.author: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 69e3fa87d55dcedc95ac4fec7fa92f53449ece46
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 46fe21c47db436f1abedb60b3468b8a2e69cd432
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768714"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583489"
 ---
-# <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Aperçu : Utiliser des clés gérées par le client pour le chiffrement d’images
+# <a name="use-customer-managed-keys-for-encrypting-images"></a>Utiliser des clés gérées par le client pour le chiffrement d’images
 
 **S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
@@ -100,7 +100,7 @@ New-AzGalleryImageVersion `
 
 ### <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Vous pouvez créer une machine virtuelle à partir d’une galerie d’images partagées et utiliser des clés gérées par le client pour chiffrer les disques. La syntaxe est la même que celle utilisée pour créer une machine virtuelle [généralisée](vm-generalized-image-version-powershell.md) ou [spécialisée](vm-specialized-image-version-powershell.md) à partir d’une image. Utilisez le jeu de paramètres étendu et ajoutez `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` à la configuration de la machine virtuelle.
+Vous pouvez créer une machine virtuelle à partir d’une galerie d’images partagées et utiliser des clés gérées par le client pour chiffrer les disques. La syntaxe est la même que celle utilisée pour créer une machine virtuelle [généralisée](vm-generalized-image-version.md) ou [spécialisée](vm-specialized-image-version.md) à partir d’une image. Utilisez le jeu de paramètres étendu et ajoutez `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage` à la configuration de la machine virtuelle.
 
 Pour les disques de données, ajoutez le paramètre `-DiskEncryptionSetId $setID` quand vous utilisez [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk).
 
@@ -144,7 +144,7 @@ az sig image-version create \
 
 ### <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Vous pouvez créer une machine virtuelle à partir d’une galerie d’images partagées et utiliser des clés gérées par le client pour chiffrer les disques. La syntaxe est la même que celle utilisée pour créer une machine virtuelle [généralisée](vm-generalized-image-version-cli.md) ou [spécialisée](vm-specialized-image-version-cli.md) à partir d’une image. Ajoutez simplement le paramètre `--os-disk-encryption-set` avec l’ID du jeu de chiffrement. Pour les disques de données, ajoutez `--data-disk-encryption-sets` avec une liste délimitée par des espaces des jeux de chiffrement de disque.
+Vous pouvez créer une machine virtuelle à partir d’une galerie d’images partagées et utiliser des clés gérées par le client pour chiffrer les disques. La syntaxe est la même que celle utilisée pour créer une machine virtuelle [généralisée](vm-generalized-image-version.md) ou [spécialisée](vm-specialized-image-version.md) à partir d’une image. Ajoutez simplement le paramètre `--os-disk-encryption-set` avec l’ID du jeu de chiffrement. Pour les disques de données, ajoutez `--data-disk-encryption-sets` avec une liste délimitée par des espaces des jeux de chiffrement de disque.
 
 
 ## <a name="portal"></a>Portail

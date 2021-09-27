@@ -1,20 +1,20 @@
 ---
 title: Ajouter un calque de référence au visuel Power BI Azure Maps | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à utiliser le calque de référence dans le visuel Microsoft Azure Maps pour Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: eb6c9fed42f263ca6cfaa1ea975d31cb8f4a75cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1488584f025edc9e8b3e098b283efbb56b449d4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86261406"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430429"
 ---
 # <a name="add-a-reference-layer"></a>Ajouter une couche de référence
 

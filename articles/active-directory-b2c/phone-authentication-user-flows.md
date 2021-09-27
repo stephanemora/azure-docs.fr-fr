@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b0d0c77ffbf6e8c8493abe2f9356aaa0e171f1f2
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 76d9010bed698dfe49650675bdb15abe7eb1dfe7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967292"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596483"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>Configurer l’inscription et la connexion par téléphone pour les flux d’utilisateurs
 
@@ -39,14 +39,11 @@ L’authentification multifacteur (MFA) est désactivée par défaut lorsque vou
 L’inscription par e-mail est activée par défaut dans les paramètres du fournisseur d’identité de votre compte local. Vous pouvez modifier les types d’identité que vous prendrez en charge dans votre locataire en sélectionnant ou en désélectionnant l’inscription par e-mail, le nom d’utilisateur ou le numéro de téléphone.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-
-2. Veillez à utiliser le répertoire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Répertoire + abonnement** dans le menu supérieur et en choisissant le répertoire qui contient votre locataire Azure AD.
-
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-
-4. Sous **Gérer**, sélectionnez **Fournisseurs d’identité**.
-
-5. Dans la liste des fournisseurs d’identité, sélectionnez **Compte local**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sous **Gérer**, sélectionnez **Fournisseurs d’identité**.
+1. Dans la liste des fournisseurs d’identité, sélectionnez **Compte local**.
 
    ![Fournisseurs d’identité – sélectionner Compte local](media/phone-authentication-user-flows/identity-provider-local-account.png)
 
@@ -63,29 +60,27 @@ Une fois que vous avez ajouté l’inscription par téléphone comme option d’
 Voici un exemple montrant comment ajouter l’inscription par téléphone à un nouveau flux d’utilisateur.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
-
-    ![Volet client B2C, répertoire et abonnement, Portail Azure](./media/phone-authentication-user-flows/directory-subscription-pane.png)
-
-3. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
-4. Sous **Stratégies**, sélectionnez **Flux d’utilisateurs**, puis sélectionnez **Nouveau flux d’utilisateur**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Sous **Stratégies**, sélectionnez **Flux d’utilisateurs**, puis sélectionnez **Nouveau flux d’utilisateur**.
 
     ![Page Flux d'utilisateur du portail avec bouton Nouveau flux d'utilisateur en surbrillance](./media/phone-authentication-user-flows/sign-up-sign-in-user-flow.png)
 
-5. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Inscription et connexion**.
+1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Inscription et connexion**.
 
     ![Page Sélectionner un flux d’utilisateur avec Inscription et connexion en évidence](./media/phone-authentication-user-flows/select-user-flow-type.png)
 
-6. Sous **Sélectionner une version**, sélectionnez **Recommandé**, puis **Créer**. ([Apprenez-en davantage](user-flow-versions.md) sur les version de flux utilisateur.)
+1. Sous **Sélectionner une version**, sélectionnez **Recommandé**, puis **Créer**. ([Apprenez-en davantage](user-flow-versions.md) sur les version de flux utilisateur.)
 
     ![Bouton Créer un flux d’utilisateur](./media/phone-authentication-user-flows/select-version.png)
 
-7. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *signupsignin1*.
-8. Dans la section **Fournisseurs d’identité**, sous **Comptes locaux**, sélectionnez **Inscription par téléphone**.
+1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *signupsignin1*.
+1. Dans la section **Fournisseurs d’identité**, sous **Comptes locaux**, sélectionnez **Inscription par téléphone**.
 
    ![Option Inscription par téléphone du flux d’utilisateur sélectionnée](media/phone-authentication-user-flows/user-flow-phone-signup.png)
 
-9. Sous **Fournisseurs d’identité sociaux**, sélectionnez tout autre fournisseur d’identité que vous souhaitez autoriser pour ce flux d’utilisateur.
+1. Sous **Fournisseurs d’identité sociaux**, sélectionnez tout autre fournisseur d’identité que vous souhaitez autoriser pour ce flux d’utilisateur.
 
    > [!NOTE]
    > L’authentification multifacteur (MFA) est désactivée par défaut pour les flux d’utilisateurs d’inscription. Vous pouvez activer la MFA pour un flux d’utilisateur avec inscription par téléphone, mais, comme un numéro de téléphone est utilisé comme identificateur principal, l’envoi par e-mail d’un code secret à usage unique est la seule option disponible pour le deuxième facteur d’authentification.
@@ -110,19 +105,20 @@ Vous pouvez activer l’invite de récupération par e-mail dans les propriété
 ### <a name="to-enable-the-recovery-email-prompt"></a>Pour activer l’invite de récupération par e-mail
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
-3. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
-4. Dans Azure AD B2C, sélectionnez **Flux d’utilisateurs** sous **Stratégies**.
-5. Sélectionnez le flux d’utilisateur dans la liste.
-6. Sous **Paramètres**, sélectionnez **Propriétés**.
-7. À côté de l’option **Activer l’invite de récupération par e-mail pour l’inscription et la connexion par numéro de téléphone (préversion)** , sélectionnez :
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Dans Azure AD B2C, sélectionnez **Flux d’utilisateurs** sous **Stratégies**.
+1. Sélectionnez le flux d’utilisateur dans la liste.
+1. Sous **Paramètres**, sélectionnez **Propriétés**.
+1. À côté de l’option **Activer l’invite de récupération par e-mail pour l’inscription et la connexion par numéro de téléphone (préversion)** , sélectionnez :
 
    - **Activé** pour afficher l’invite de récupération par e-mail lors de l’inscription et de la connexion.
    - **Désactivé** pour masquer l’invite de récupération par e-mail.
 
     ![Propriétés des flux d’utilisateurs avec l’option Activer la récupération par e-mail activée](./media/phone-authentication-user-flows/recovery-email-settings.png)
 
-8. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 ### <a name="to-test-the-recovery-email-prompt"></a>Pour tester l’invite de récupération par e-mail
 
@@ -130,14 +126,14 @@ Une fois que vous avez activé l’inscription et la connexion par téléphone e
 
 1. Sélectionnez **Stratégies** > **Flux d’utilisateurs**, puis sélectionnez le flux d’utilisateur que vous avez créé. Dans la page de vue d’ensemble du flux utilisateur, sélectionnez **Exécuter le flux d’utilisateur**.
 
-2. Pour **Application**, sélectionnez l’application web que vous avez inscrite à l’étape 1. L’**URL de réponse** doit être `https://jwt.ms`.
+1. Pour **Application**, sélectionnez l’application web que vous avez inscrite à l’étape 1. L’**URL de réponse** doit être `https://jwt.ms`.
 
-3. Sélectionnez **Exécuter le flux d’utilisateur** et vérifiez le comportement suivant :
+1. Sélectionnez **Exécuter le flux d’utilisateur** et vérifiez le comportement suivant :
 
    - Un utilisateur qui s’inscrit pour la première fois est invité à fournir un e-mail de récupération. 
    - Un utilisateur qui s’est déjà inscrit, mais qui n’a pas fourni d’e-mail de récupération est invité à en fournir un lors de la connexion.
 
-4. Entrez une adresse e-mail, puis sélectionnez **Envoyer le code de vérification**. Vérifiez la réception du code dans la boîte de réception de l’adresse e-mail que vous avez fournie. Récupérez le code et entrez-le dans la zone **Code de vérification**. Ensuite, sélectionnez **Vérifier le code**.
+1. Entrez une adresse e-mail, puis sélectionnez **Envoyer le code de vérification**. Vérifiez la réception du code dans la boîte de réception de l’adresse e-mail que vous avez fournie. Récupérez le code et entrez-le dans la zone **Code de vérification**. Ensuite, sélectionnez **Vérifier le code**.
 
 ## <a name="enable-consent-information"></a>Activer les informations relatives au consentement
 
@@ -150,22 +146,23 @@ Nous vous suggérons vivement d’inclure des informations relatives au consente
 Pour activer les informations relatives au consentement
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
-3. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
-4. Dans Azure AD B2C, sélectionnez **Flux d’utilisateurs** sous **Stratégies**.
-5. Sélectionnez le flux d’utilisateur dans la liste.
-6. Sous **Personnaliser**, sélectionnez **Langues**.
-7. Pour afficher le texte de consentement, sélectionnez **Activer la personnalisation de la langue**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Dans Azure AD B2C, sélectionnez **Flux d’utilisateurs** sous **Stratégies**.
+1. Sélectionnez le flux d’utilisateur dans la liste.
+1. Sous **Personnaliser**, sélectionnez **Langues**.
+1. Pour afficher le texte de consentement, sélectionnez **Activer la personnalisation de la langue**.
   
     ![Activer la personnalisation de la langue](./media/phone-authentication-user-flows/enable-language-customization.png)
 
-8. Pour personnaliser les informations relatives au consentement, sélectionnez une langue dans la liste.
-9. Dans le panneau de langue, sélectionnez  **Page de connexion par téléphone**.
-10. Sélectionnez Télécharger les paramètres par défaut.
+1. Pour personnaliser les informations relatives au consentement, sélectionnez une langue dans la liste.
+1. Dans le panneau de langue, sélectionnez  **Page de connexion par téléphone**.
+1. Sélectionnez Télécharger les paramètres par défaut.
 
     ![Télécharger les paramètres par défaut](./media/phone-authentication-user-flows/phone-sign-in-language-override.png)
 
-11. Ouvrez le fichier JSON téléchargé. Recherchez le texte suivant et personnalisez-le :
+1. Ouvrez le fichier JSON téléchargé. Recherchez le texte suivant et personnalisez-le :
 
     - **disclaimer_link_1_url** : Remplacez **écraser** par « true » et ajoutez l’URL de vos informations de confidentialité.
 
@@ -173,9 +170,8 @@ Pour activer les informations relatives au consentement
 
     - **disclaimer_msg_intro** : Remplacez **écraser** par « true » et **valeur** par les clause d’exclusion de responsabilité souhaitées.  
 
-12. Enregistrez le fichier . Sous **Charger de nouveaux remplacements**, recherchez le fichier et sélectionnez-le. Vérifiez que la notification « Chargement réussi des remplacements » s’affiche.
-
-13. Sélectionnez **Page d’inscription par téléphone**, puis répétez les étapes 10 à 12. 
+1. Enregistrez le fichier . Sous **Charger de nouveaux remplacements**, recherchez le fichier et sélectionnez-le. Vérifiez que la notification « Chargement réussi des remplacements » s’affiche.
+1. Sélectionnez **Page d’inscription par téléphone**, puis répétez les étapes 10 à 12. 
 
 
 ## <a name="get-a-users-phone-number-in-your-directory"></a>Obtenez le numéro de téléphone d’un utilisateur dans votre répertoire

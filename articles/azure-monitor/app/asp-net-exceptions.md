@@ -4,12 +4,12 @@ description: Capturez des exceptions à partir d’applications ASP.NET, ainsi q
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/19/2021
-ms.openlocfilehash: d81881318f6bbfa5c44b9cd947cf408cefa766ae
-ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
+ms.openlocfilehash: 5ad103890d481db18c3df9633bf3b58186136e93
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113616241"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431547"
 ---
 # <a name="diagnose-exceptions-in-web-apps-with-application-insights"></a>Diagnostic des exceptions dans les applications web avec Application Insights
 
@@ -77,11 +77,11 @@ Sinon, au lieu de rechercher les exceptions relatives à une opération défaill
 
 Pour obtenir des données de diagnostic propres à votre application, vous pouvez insérer le code pour envoyer vos propres données de télémétrie. Vos données de télémétrie ou de journal personnalisées sont affichées dans la recherche de diagnostic en même temps que la requête, la vue de page et d’autres données collectées automatiquement.
 
-À l’aide de <xref:Microsoft.ApplicationInsights.TelemetryClient?displayProperty=fullName>, vous avez plusieurs API disponibles :
+À l’aide de <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient?displayProperty=fullName>, vous avez plusieurs API disponibles :
 
-* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackEvent%2A?displayProperty=nameWithType> sert généralement à surveiller les modèles d’utilisation, mais les données qu’il envoie apparaissent également sous **Événements personnalisés** dans Recherche de diagnostic. Les événements sont nommés et peuvent contenir des propriétés de type chaîne et des métriques numériques sur lesquels vous pouvez [filtrer vos recherches de diagnostic](./diagnostic-search.md).
-* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackTrace%2A?displayProperty=nameWithType> vous permet d’envoyer des données plus longues telles que des informations POST.
-* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackException%2A?displayProperty=nameWithType> envoie les détails de l’exception, tels que les arborescences des appels de procédure, à Application Insights.
+* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackEvent%2A?displayProperty=nameWithType> sert généralement à surveiller les modèles d’utilisation, mais les données qu’il envoie apparaissent également sous **Événements personnalisés** dans Recherche de diagnostic. Les événements sont nommés et peuvent contenir des propriétés de type chaîne et des métriques numériques sur lesquels vous pouvez [filtrer vos recherches de diagnostic](./diagnostic-search.md).
+* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackTrace%2A?displayProperty=nameWithType> vous permet d’envoyer des données plus longues telles que des informations POST.
+* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackException%2A?displayProperty=nameWithType> envoie les détails de l’exception, tels que les arborescences des appels de procédure, à Application Insights.
 
 Pour voir ces événements, ouvrez [Recherche](./diagnostic-search.md) dans le menu de gauche, sélectionnez le menu déroulant **Types d’événements**, puis choisissez **Événement personnalisé**, **Trace** ou **Exception**.
 
@@ -180,7 +180,7 @@ Si votre page web inclut des fichiers de script à partir de réseaux de distrib
 > [!NOTE]
 > Le `TelemetryClient` est destiné à être instancié une seule fois et réutilisé tout au long de la durée de vie d’une application.
 
-Avec [l'injection de dépendances (DI) dans .NET](/dotnet/core/extensions/dependency-injection), le kit de développement logiciel (SDK) .NET approprié et la configuration correcte d’Application Insights pour l’injection de dépendance, vous pouvez exiger le <xref:Microsoft.ApplicationInsights.TelemetryClient> comme paramètre de constructeur.
+Avec [l'injection de dépendances (DI) dans .NET](/dotnet/core/extensions/dependency-injection), le kit de développement logiciel (SDK) .NET approprié et la configuration correcte d’Application Insights pour l’injection de dépendance, vous pouvez exiger le <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient> comme paramètre de constructeur.
 
 ```csharp
 public class ExampleController : ApiController
@@ -211,7 +211,7 @@ void Application_Error(object sender, EventArgs e)
 }
 ```
 
-Dans l’exemple précédent, `_telemetryClient` est une variable de portée de classe de type <xref:Microsoft.ApplicationInsights.TelemetryClient>.
+Dans l’exemple précédent, `_telemetryClient` est une variable de portée de classe de type <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient>.
 
 ## <a name="mvc"></a>MVC
 

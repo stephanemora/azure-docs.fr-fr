@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 04/23/2021
 ms.author: jocorte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6afce8903c5fe821e080983ab50a444f9f508554
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 591f2882e6886f208a5452ac547a5bb1e4024906
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532029"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610158"
 ---
 # <a name="scale-snat-ports-with-azure-nat-gateway"></a>Mettre à l’échelle les ports SNAT avec Azure NAT Gateway
 
-Pare-feu Azure fournit 2 048 ports SNAT par IP publique configurée, et vous pouvez y associer jusqu’à [250 IP publiques](./deploy-multi-public-ip-powershell.md). Selon votre architecture et vos modèles de trafic, vous pouvez avoir besoin de plus de 512 000 ports SNAT disponibles avec cette configuration. Par exemple, lorsque vous les utilisez pour protéger des [déploiements de Windows Virtual Desktop](./protect-windows-virtual-desktop.md) volumineux qui s’intègrent à Microsoft 365 Apps.
+Pare-feu Azure fournit 2 048 ports SNAT par IP publique configurée, et vous pouvez y associer jusqu’à [250 IP publiques](./deploy-multi-public-ip-powershell.md). Selon votre architecture et vos modèles de trafic, vous pouvez avoir besoin de plus de 512 000 ports SNAT disponibles avec cette configuration. Par exemple, lorsque vous les utilisez pour protéger des [déploiements de Windows Virtual Desktop](./protect-azure-virtual-desktop.md) volumineux qui s’intègrent à Microsoft 365 Apps.
 
 L’utilisation d’un grand nombre d’IP publiques pose un autre problème lorsqu’il existe des exigences de filtrage des adresses IP en aval. Pare-feu Azure sélectionne de manière aléatoire l’IP publique source à utiliser pour une connexion. Vous devez donc autoriser toutes les IP publiques qui lui sont associées. Même si vous utilisez des [préfixes d’IP publiques](../virtual-network/public-ip-address-prefix.md) et que vous devez associer 250 IP publiques pour répondre à vos exigences en matière de ports SNAT sortants, vous devez toujours créer et autoriser 16 préfixes d’IP publiques.
 
