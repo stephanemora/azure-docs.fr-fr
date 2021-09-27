@@ -1,20 +1,20 @@
 ---
 title: Utilisation du Stockage File d’attente à partir de Java - Stockage Azure
 description: Apprenez à utiliser le Stockage File d’attente pour créer et supprimer des files d’attente. Apprenez à insérer, consulter, obtenir et supprimer des messages à l'aide de la bibliothèque de client Stockage Azure pour Java.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 08/19/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-java
-ms.openlocfilehash: ddcc256630633b2394d017ee7409ebffbdebe0e9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 25734b7f4073895da832b3d020679c6f7b36a080
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477341"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665850"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Utilisation du Stockage File d’attente à partir de Java
 

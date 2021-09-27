@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 05/10/2021
-ms.openlocfilehash: 2058fcade3375f680f616374ba8dee73a4e72dbc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6612ded8cdc5e5e1a5ef38c18cc854fde41f2733
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641406"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641424"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>Transformation d’analyse dans un flux de données de mappage
 
@@ -26,7 +26,7 @@ Utilisez la transformation Analyse pour analyser les colonnes de vos données qu
 
 Dans le panneau de configuration de la transformation d’analyse, vous devez d’abord choisir le type de données contenu dans les colonnes que vous souhaitez analyser inlined. La transformation d’analyse contient également les paramètres de configuration suivants.
 
-![Paramètres d’analyse](media/data-flow/data-flow-parse-1.png "Analyser")
+:::image type="content" source="media/data-flow/data-flow-parse-1.png" alt-text="Paramètres d’analyse":::
 
 ### <a name="column"></a>Colonne
 
@@ -51,11 +51,11 @@ Utilisez le générateur d’expressions pour définir la source de votre analys
 
 Ici, vous allez configurer le schéma de sortie cible à partir de l’analyse qui sera écrite dans une seule colonne.
 
-![Exemple d’analyse](media/data-flow/data-flow-parse-2.png "Exemple d’analyse")
+:::image type="content" source="media/data-flow/data-flow-parse-2.png" alt-text="Exemple d’analyse":::
 
 Dans cet exemple, nous avons défini l’analyse du champ entrant « jsonString », qui est du texte brut, mais formaté selon une structure JSON. Nous allons stocker les résultats analysés au format JSON dans une nouvelle colonne appelée « json » suivant ce schéma :
 
-```(trade as boolean, customers as string[])```
+`(trade as boolean, customers as string[])`
 
 Pour vérifier que votre sortie est correctement mappée, reportez-vous à l’onglet Inspection et à l’aperçu des données.
 

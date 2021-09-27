@@ -3,17 +3,17 @@ title: Stratégies de restriction des accès de la Gestion des API Azure | Micro
 description: Découvrez les stratégies de restriction des accès disponibles dans la Gestion des API Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 08/20/2021
-ms.author: apimpm
-ms.openlocfilehash: 8d3370558e8dde2227834fa8f67577ca393b9564
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.author: danlep
+ms.openlocfilehash: 13c62c36eb532ab7073165e382f8b52772a99acc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687722"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669167"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -97,7 +97,7 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number" renewal-period="seconds">
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
         retry-after-header-name="header name" 
         retry-after-variable-name="policy expression variable name"

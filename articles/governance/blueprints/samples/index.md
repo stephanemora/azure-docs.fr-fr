@@ -3,12 +3,12 @@ title: Index des exemples de blueprint
 description: Index d’exemples de conformité et standard pour le déploiement d’environnements, de stratégies et de bases du Framework d’adoption du cloud avec Azure Blueprints.
 ms.date: 08/17/2021
 ms.topic: sample
-ms.openlocfilehash: 22c6e1382fdfbd7cafb423e99239fe2480d3b088
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 31cf137577301402cd9e26d96a1204f427331daf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322129"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658295"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -19,16 +19,11 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 | Exemple | Description |
 |---------|---------|
 | [Australian Government ISM PROTECTED](./ism-protected/index.md) | Fournit des garde-fous pour la conformité à la norme Australian Government ISM PROTECTED. |
-| [Benchmark de sécurité Azure](./azure-security-benchmark.md) | Propose des garde-fous pour la conformité au [benchmark de sécurité Azure](../../../security/benchmarks/overview.md). |
 | [Azure Security Benchmark Foundation](./azure-security-benchmark-foundation/index.md) | Déploie et configure Azure Security Benchmark Foundation. |
 | [PBMM fédéral du Canada](./canada-federal-pbmm.md) | Propose des garde-fous pour la conformité au profil PBMN (Protected B, Medium Integrity, Medium Availability) fédéral du Canada. |
 | [CIS Microsoft Azure Foundations Benchmark v1.3.0](./cis-azure-1-3-0.md) | Fournit un ensemble de stratégies pour vous aider à vous conformer aux recommandations de CIS Microsoft Azure Foundations Benchmark v1.3.0. |
 | [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md) | Fournit un ensemble de stratégies pour vous aider à vous conformer aux recommandations de CIS Microsoft Azure Foundations Benchmark v1.1.0. |
 | [CMMC niveau 3](./cmmc-l3.md) | Propose des garde-fous pour la conformité à la norme CMMC Level 3. |
-| [DoD Impact Level 4](./dod-impact-level-4/index.md) | Fournit un ensemble de stratégies vous permettant de vous conformer à DoD Impact Level 4. |
-| [DoD Impact Level 5](./dod-impact-level-5/index.md) | Fournit un ensemble de stratégies vous permettant de vous conformer à DoD Impact Level 5. |
-| [FedRAMP Moderate](./fedramp-m/index.md) | Fournit un ensemble de stratégies pour vous aider à vous conformer à FedRAMP Moderate. |
-| [FedRAMP High](./fedramp-h/index.md) | Fournit un ensemble de stratégies vous permettant de vous conformer à FedRAMP High. |
 | [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md) | Fournit un ensemble de stratégies permettant de se conformer à HIPAA HITRUST. |
 | [IRS 1075 septembre 2016](./irs-1075-sept2016.md) | Propose des garde-fous pour la conformité à la norme IRS 1075.|
 | [ISO 27001](./iso-27001-2013.md) | Propose des garde-fous pour la conformité à la norme ISO 27001. |
@@ -36,7 +31,6 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 | [Charge de travail App Service Environment/SQL Database ISO 27001](./iso27001-ase-sql-workload/index.md) | Fournit plus d’infrastructure à l’exemple de blueprint [Services partagés ISO 27001](./iso27001-shared/index.md). |
 | [Média](./media/index.md) | Fournit un ensemble de stratégies vous permettant de vous conformer à Media MPAA. |
 | [New Zealand ISM Restricted](./new-zealand-ism.md) | Attribue des stratégies pour répondre à certains contrôles du New Zealand Information Security Manual. |
-| [NIST SP 800-53 R4](./nist-sp-800-53-r4.md) | Propose des garde-fous pour la conformité à NIST SP 800-53 R4. |
 | [NIST SP 800-171 R2](./nist-sp-800-171-r2.md) | Propose des garde-fous pour la conformité à NIST SP 800-171 R2. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Fournit un ensemble de stratégies pour la mise en conformité à PCI-DSS v3.2.1. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Facilite la mise en conformité à SWIFT CSP-CSCF v2020. |

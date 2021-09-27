@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/17/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: ce3f7b923cec3dec28043f43babbaa86a0c6d92e
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
+ms.openlocfilehash: 2b3e2af66334ebb82c8113caac2f8b78d5c8bf20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662067"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674487"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
@@ -57,9 +57,6 @@ En comparaison avec d’autres fournisseurs d’entrepôts de données, les vues
 - Prise en charge étendue des fonctions d’agrégation. Consultez [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
 - Prise en charge de la recommandation de vue matérialisée propre à la requête.  Consultez [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql).
 - Actualisation automatique et synchrone des données avec les modifications apportées aux données dans les tables de base. Aucune action de l'utilisateur n'est requise.
->[!note] 
-> Une vue matérialisée créée à l’aide d’expressions CASE stocke des valeurs qui répondent aux critères CASE au moment de la création de la vue uniquement.  La vue matérialisée ne reflète pas les modifications de données incrémentielles résultant des expressions CASE après la création de la vue.   
-
  
 ## <a name="common-scenarios"></a>Scénarios courants  
 

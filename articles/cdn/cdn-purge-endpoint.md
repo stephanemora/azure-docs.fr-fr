@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: allensu
-ms.openlocfilehash: d54b181ee55d841f8739008a2fb6657f7885cb96
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: 97d1fc2605cc649af0603be540165ba47b3b4345
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113126443"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658713"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purger un point de terminaison CDN Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -78,5 +78,5 @@ Ce didacticiel vous guide dans le processus de vidage des éléments multimédia
 
 ## <a name="see-also"></a>Voir aussi
 * [Préchargement d’éléments multimédias sur un point de terminaison CDN Azure](cdn-preload-endpoint.md)
-* [Référence API REST du CDN Azure - Vider ou pré-charger un point de terminaison](/rest/api/cdn/cdn/endpoints)
+* [Référence API REST du CDN Azure - Vider ou pré-charger un point de terminaison](/rest/api/cdn/endpoints)
 

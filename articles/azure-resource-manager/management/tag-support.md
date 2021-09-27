@@ -3,12 +3,12 @@ title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
 ms.date: 07/20/2021
-ms.openlocfilehash: 4f15fea365fc242f3c7253a39b6a877dd672deb1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6581a4c9a61fb3de1e04119b13bc83a4b67ce92d
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453286"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707728"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/group-filter.md) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -911,10 +911,10 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | diskEncryptionSets | Oui | Oui |
 > | disks | Oui | Oui |
 > | galleries | Oui | Oui |
-> | galleries / applications | Non | Non |
-> | galleries / applications / versions | Non | Non |
-> | galleries / images | Non | Non |
-> | galleries / images / versions | Non | Non |
+> | galleries / applications | Oui | Non |
+> | galleries / applications / versions | Oui | Non |
+> | galleries / images | Oui | Non |
+> | galleries / images / versions | Oui | Non |
 > | hostGroups | Oui | Oui |
 > | hostGroups / hosts | Oui | Oui |
 > | images | Oui | Oui |
