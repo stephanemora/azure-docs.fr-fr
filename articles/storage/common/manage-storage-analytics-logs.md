@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-azurepowershell
-ms.openlocfilehash: 0470813cf19305124956925a0730344c3183866a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a5e23ed381ad1e973e0ae6343fb3c0566aac6a7d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666772"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673252"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Activation et gestion des journaux Azure Storage Analytics (classique)
 
@@ -50,8 +50,7 @@ Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnosti
 3. Vérifiez que **l’état** est défini sur **On**, puis sélectionnez les **services** pour lesquels vous souhaitez activer la journalisation.
 
    > [!div class="mx-imgBorder"]
-   > ![Configurez la journalisation dans le portail Azure.](./media/manage-storage-analytics-logs/enable-diagnostics.png)    
-
+   > ![Configurez la journalisation dans le portail Azure.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
 
 4. Vérifiez que la case **Supprimer les données** est cochée.  Ensuite, définissez le nombre de jours pendant lesquels vous souhaitez conserver les données de journal en déplaçant la commande de curseur sous la case à cocher, ou en modifiant directement la valeur qui apparaît dans la zone de texte à côté de la commande de curseur. La valeur par défaut pour les nouveaux comptes de stockage est de sept jours. Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de journal.
 
@@ -90,28 +89,28 @@ Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnosti
    $ctx = $storageAccount.Context
    ```
 
-   * Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
+   - Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
 
-   * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage. 
+   - Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
-6. Utilisez **Set-AzStorageServiceLoggingProperty** pour changer les paramètres des journaux actuels. Les cmdlets qui contrôlent la journalisation du stockage utilisent un paramètre **LoggingOperations**, une chaîne contenant une liste de types de requêtes à consigner séparée par des virgules. Les trois types de requêtes possibles sont **lire**, **écrire** et **supprimer**. Pour désactiver la journalisation, utilisez la valeur **aucun** pour le paramètre **LoggingOperations**.  
+6. Utilisez **Set-AzStorageServiceLoggingProperty** pour changer les paramètres des journaux actuels. Les cmdlets qui contrôlent la journalisation du stockage utilisent un paramètre **LoggingOperations**, une chaîne contenant une liste de types de requêtes à consigner séparée par des virgules. Les trois types de requêtes possibles sont **lire**, **écrire** et **supprimer**. Pour désactiver la journalisation, utilisez la valeur **aucun** pour le paramètre **LoggingOperations**.
 
-   La commande suivante active la journalisation des requêtes de lecture, d’écriture et de suppression dans le service de File d’attente de votre compte de stockage par défaut avec une rétention de cinq jours :  
+   La commande suivante active la journalisation des requêtes de lecture, d’écriture et de suppression dans le service de File d’attente de votre compte de stockage par défaut avec une rétention de cinq jours :
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5 -Context $ctx
-   ```  
+   ```
 
    > [!WARNING]
    > Les journaux sont stockés sous forme de données dans votre compte. Les données de journal peuvent s’accumuler dans votre compte au fil du temps, ce qui risque d’augmenter le coût du stockage. Si vous n’avez besoin de ces données que pendant une durée limitée, vous pouvez réduire vos coûts en modifiant la stratégie de rétention des données. Les données de journal périmées (antérieures à votre stratégie de rétention des données) sont supprimées par le système. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation souhaitée des données de journal de votre compte. Pour plus d’informations, consultez la page [Facturation sur les métriques de stockage](storage-analytics-metrics.md#billing-on-storage-metrics).
-   
-   La commande suivante désactive la journalisation du service de table dans votre compte de stockage par défaut :  
+
+   La commande suivante désactive la journalisation du service de table dans votre compte de stockage par défaut :
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none -Context $ctx 
-   ```  
+   ```
 
-   Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, consultez : [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/).  
+   Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, consultez : [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/).
 
 ### <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
@@ -122,13 +121,13 @@ Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnosti
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();  
+var serviceProperties = queueClient.GetServiceProperties();
 
 serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
-serviceProperties.Logging.RetentionDays = 2;  
+serviceProperties.Logging.RetentionDays = 2;
 
 queueClient.SetServiceProperties(serviceProperties);  
-``` 
+```
 
 ---
 
@@ -154,7 +153,7 @@ Les données de journal peuvent s’accumuler dans votre compte au fil du temps,
    > ![Modification de la période de rétention sur le Portail Azure](./media/manage-storage-analytics-logs/modify-retention-period.png)
 
    Le nombre de jours par défaut pour les nouveaux comptes de stockage est de sept jours. Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance.
-   
+
 4. Cliquez sur **Enregistrer**.
 
    Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé *$logs* dans votre compte de stockage. Vous pouvez afficher les données du journal à l’aide d’un explorateur de stockage, tel que l’[Explorateur Stockage Microsoft Azure](https://storageexplorer.com), ou de façon programmatique à l’aide d’une bibliothèque de client de stockage ou PowerShell.
@@ -187,28 +186,28 @@ Les données de journal peuvent s’accumuler dans votre compte au fil du temps,
    $ctx = $storageAccount.Context
    ```
 
-   * Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
+   - Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
 
-   * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage. 
+   - Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
 6. Utilisez [Get-AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty) pour afficher la stratégie actuelle de rétention des journaux. L’exemple suivant imprime sur la console la période de rétention des services de stockage Blob et File d’attente.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
-   ```  
+   ```
 
    Dans la sortie de la console, la période de rétention s’affiche sous l’en-tête de colonne `RetentionDays`.
 
    > [!div class="mx-imgBorder"]
    > ![Stratégie de rétention dans la sortie PowerShell](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Utilisez [Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) pour changer la période de rétention. Dans l’exemple suivant, elle est remplacée par quatre jours.  
+7. Utilisez [Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) pour changer la période de rétention. Dans l’exemple suivant, elle est remplacée par quatre jours.
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
-   ```  
+   ```
 
-   Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, consultez : [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/).  
+   Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, consultez : [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/).
 
 ### <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
@@ -216,7 +215,7 @@ L’exemple suivant imprime sur la console la période de rétention des service
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ViewRetentionPeriod":::
 
-Dans l’exemple suivant, elle est remplacée par quatre jours. 
+Dans l’exemple suivant, elle est remplacée par quatre jours.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
 
@@ -240,7 +239,7 @@ Console.WriteLine("Retention period for logs from the queue service is: " +
    queueserviceProperties.Logging.RetentionDays.ToString());
 ```
 
-Dans l’exemple suivant, la période de rétention des journaux des services de stockage Blob et File d’attente est remplacée par quatre jours. 
+Dans l’exemple suivant, la période de rétention des journaux des services de stockage Blob et File d’attente est remplacée par quatre jours.
 
 ```csharp
 
@@ -249,7 +248,7 @@ queueserviceProperties.Logging.RetentionDays = 4;
 
 blobClient.SetServiceProperties(blobserviceProperties);
 queueClient.SetServiceProperties(queueserviceProperties);  
-``` 
+```
 
 ---
 
@@ -264,18 +263,18 @@ Vous pouvez vérifier que les journaux sont en cours de suppression en affichant
 
 ## <a name="view-log-data"></a>Affichage des données de journal
 
- Pour afficher et analyser vos données de journal, vous devez télécharger les objets Blob qui contiennent les données de journal souhaitées sur un ordinateur local. De nombreux outils de consultation du stockage vous permettent de télécharger des objets Blob de votre compte de stockage. Vous pouvez également utiliser l’outil de copie Azure de ligne de commande fourni par l’équipe de Stockage Azure [AzCopy](storage-use-azcopy-v10.md) pour télécharger vos données de journal.  
- 
->[!NOTE]
-> Le conteneur `$logs` n’étant pas intégré avec Event Grid, vous ne recevez pas de notifications lors de l’écriture de fichiers journaux. 
+ Pour afficher et analyser vos données de journal, vous devez télécharger les objets Blob qui contiennent les données de journal souhaitées sur un ordinateur local. De nombreux outils de consultation du stockage vous permettent de télécharger des objets Blob de votre compte de stockage. Vous pouvez également utiliser l’outil de copie Azure de ligne de commande fourni par l’équipe de Stockage Azure [AzCopy](storage-use-azcopy-v10.md) pour télécharger vos données de journal.
 
- Pour vous assurer de télécharger les données de journal souhaitées et éviter de télécharger les mêmes données plusieurs fois :  
+> [!NOTE]
+> Le conteneur `$logs` n’étant pas intégré avec Event Grid, vous ne recevez pas de notifications lors de l’écriture de fichiers journaux.
 
--   Utilisez la convention d’affectation de noms de l’horodatage pour les objets Blob contenant les données de journal pour suivre les objets Blob que vous avez déjà téléchargés pour analyse afin d’éviter de télécharger plusieurs fois les mêmes données.  
+ Pour vous assurer de télécharger les données de journal souhaitées et éviter de télécharger les mêmes données plusieurs fois :
 
--   Utilisez les métadonnées des objets Blob contenant des données de journal pour identifier la période pendant laquelle l’objet Blob conserve les données de journal afin d’identifier l’objet Blob exact que vous devez télécharger.  
+-   Utilisez la convention d’affectation de noms de l’horodatage pour les objets Blob contenant les données de journal pour suivre les objets Blob que vous avez déjà téléchargés pour analyse afin d’éviter de télécharger plusieurs fois les mêmes données.
 
-Pour commencer à utiliser AzCopy, consultez [Prise en main d’AzCopy](storage-use-azcopy-v10.md) 
+-   Utilisez les métadonnées des objets Blob contenant des données de journal pour identifier la période pendant laquelle l’objet Blob conserve les données de journal afin d’identifier l’objet Blob exact que vous devez télécharger.
+
+Pour commencer à utiliser AzCopy, consultez [Prise en main d’AzCopy](storage-use-azcopy-v10.md)
 
 L’exemple suivant montre comment vous pouvez télécharger les données de journal du service de file d’attente pour les heures en commençant à 9h, 10h et 11h le 20 mai 2014.
 
@@ -289,7 +288,7 @@ Lorsque vous avez téléchargé vos données de journal, vous pouvez afficher le
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur Storage Analytics, consultez [Storage Analytics](storage-analytics.md) pour Storage Analytics.
-* Pour plus d’informations sur l’utilisation d’un langage .NET pour configurer la journalisation du stockage, consultez la [référence sur la bibliothèque cliente de stockage](/previous-versions/azure/dn261237(v=azure.100)). 
-* Pour obtenir des informations générales sur la configuration de la journalisation du stockage avec l’API REST, consultez [Activation et configuration de Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
-* Pour plus d’informations sur le format des journaux Storage Analytics, consultez [Format des journaux Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
+- Pour plus d’informations sur Storage Analytics, consultez [Storage Analytics](storage-analytics.md) pour Storage Analytics.
+- Pour plus d’informations sur l’utilisation d’un langage .NET pour configurer la journalisation du stockage, consultez la [référence sur la bibliothèque cliente de stockage](/previous-versions/azure/dn261237(v=azure.100)).
+- Pour obtenir des informations générales sur la configuration de la journalisation du stockage avec l’API REST, consultez [Activation et configuration de Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
+- Pour plus d’informations sur le format des journaux Storage Analytics, consultez [Format des journaux Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).

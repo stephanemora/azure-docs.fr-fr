@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: be3c5bc2d178171aaebd322e13b23b3a6f79c442
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0cac775870345ae298672c2af5dad8277c592e6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100388989"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639783"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Présentation du déclencheur RabbitMQ pour Azure Functions
 
@@ -23,7 +23,7 @@ Utilisez le déclencheur RabbitMQ pour répondre aux messages d’une file d’a
 
 Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-rabbitmq.md).
 
-## <a name="example"></a>Exemple
+## <a name="example"></a> Exemple
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -247,7 +247,7 @@ Le type de message par défaut est [Événement RabbitMQ](https://rabbitmq.githu
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Le message en file d’attente est disponible via context.bindings.<NAME> où <NAME> correspond au nom défini dans function.json. Si la charge utile est JSON, la valeur est désérialisée en objet.
+Le message en file d’attente est disponible via context.bindings.\<NAME\> où \<NAME\> correspond au nom défini dans function.json. Si la charge utile est JSON, la valeur est désérialisée en objet.
 
 # <a name="python"></a>[Python](#tab/python)
 

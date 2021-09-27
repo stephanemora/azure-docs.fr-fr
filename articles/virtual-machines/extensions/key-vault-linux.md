@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 56feecac6edae1c25c8706891ed7c2697a2508e1
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: a55a49232e18c61f1c5b1915c06cd61e1f13ab0b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114221193"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674430"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Key Vault pour Linux
 
@@ -28,6 +28,7 @@ L’extension de machine virtuelle Key Vault prend en charge les distributions L
 
 - Ubuntu-1804
 - Suse-15 
+- [CBL-Mariner](https://github.com/microsoft/CBL-Mariner)
 
 > [!NOTE]
 > Pour bénéficier de fonctionnalités de sécurité étendues, préparez la mise à niveau des systèmes Ubuntu 16.04 et Debian 9, car ces versions sont en train d’atteindre la fin de la période de support désignée.
@@ -286,7 +287,7 @@ Les journaux d’extension de machines virtuelles Key Vault existent uniquement 
 |--|--|
 | /var/log/waagent.log  | Indique quand une mise à jour de l’extension s’est produite. |
 | /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*    | Examinez les journaux du service d’extension de machines virtuelles Key Vault pour déterminer l’état du service akvvm_service et du télécharger du certificat. L’emplacement de téléchargement des fichiers PEM se trouve également dans ces fichiers avec une entrée appelée nom du fichier de certificat. Si certificateStoreLocation n’est pas spécifié, sa valeur par défaut est /var/lib/waagent/Microsoft.Azure.KeyVault.Store/ |
-| /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/* | La configuration et fichiers binaires pour le service d’extension de machines virtuelles Key Vault. |
+| /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-\<most recent version\>/config/*   | La configuration et fichiers binaires pour le service d’extension de machines virtuelles Key Vault. |
 |||
   
 ### <a name="using-symlink"></a>Liens symboliques

@@ -2,7 +2,6 @@
 title: Tickets de caisse - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Découvrez les concepts liés à l’analyse des tickets de caisse avec l’API Form Recognizer - utilisation et limites.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 1efe839a1344f28d2f3033d67de2dd7035320f08
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: f9e6478acb2e0c21b2794b9c613f60dface3859f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563907"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673990"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modèle de reçu prédéfini dans Form Recognizer
 

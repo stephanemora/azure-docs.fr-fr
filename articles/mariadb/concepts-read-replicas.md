@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 39547e3156a684293a0624f974a8b0930f656485
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b7306555e59759f79ffad8e984f0688820247de
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664212"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641291"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas en lecture dans Azure Database for MariaDB
 
@@ -23,7 +23,7 @@ Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire au
 Pour en savoir plus sur la réplication GTID, consultez la [documentation sur la réplication MariaDB](https://mariadb.com/kb/en/library/gtid/).
 
 > [!NOTE]
-> Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="when-to-use-a-read-replica"></a>Quand utiliser un réplica en lecture
 

@@ -2,7 +2,6 @@
 title: Dispositions - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Découvrez les concepts liés à l’analyse des dispositions avec l’API Form Recognizer - utilisation et limites.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: af45cf3d3f9ae534be52ae617b13c76eb0d2eae8
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 247400ea72567108fb9dc320bddd1b87d6ef6ced
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563884"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641671"
 ---
 # <a name="form-recognizer-layout-service"></a>Service Layout de Form Recognizer
 

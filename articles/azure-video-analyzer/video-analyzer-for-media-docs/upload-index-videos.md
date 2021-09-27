@@ -1,20 +1,15 @@
 ---
 title: Charger et indexer les vidéos avec Azure Video Analyzer for Media (anciennement Video Indexer)
-titleSuffix: Azure Video Analyzer for Media
 description: Cette rubrique montre comment utiliser des API pour charger et indexer vos vidéos avec Azure Video Analyzer for Media (anciennement Video Indexer).
-author: Juliako
-manager: femila
 ms.service: azure-video-analyzer
 ms.topic: article
-ms.subservice: azure-video-analyzer-media
 ms.date: 05/12/2021
-ms.author: juliako
-ms.openlocfilehash: ce8804d1f057bc8f67331211c7ed4b734750aa19
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 4020050cdcc1f9910ab14117b45bb007f5915dca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112119069"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658770"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -353,7 +348,7 @@ Les codes d’état répertoriés dans le tableau suivant peuvent être renvoyé
 
 ## <a name="firewall"></a>Pare-feu
 
-Consultez [Compte de stockage qui se trouve derrière un pare-feu](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
+Consultez [Compte de stockage qui se trouve derrière un pare-feu](faq.yml#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

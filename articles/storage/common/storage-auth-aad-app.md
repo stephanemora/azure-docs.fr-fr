@@ -10,12 +10,12 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ee77fd8ee7f9b209fa1639c787295e380e8dce0b
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 746d908065523651f9147a721531514d1a0f84c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901994"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673271"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente
 
@@ -35,7 +35,7 @@ Pour authentifier un principal de sécurité à partir de votre application Stoc
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Inscrire votre application à un locataire Azure AD
 
-La première étape d’utilisation d’Azure AD pour autoriser l’accès aux ressources de stockage est d’inscrire votre application cliente avec un locataire Azure AD à partir du [Portail Microsoft Azure](https://portal.azure.com). Lorsque vous inscrivez votre application cliente, vous fournissez des informations sur l’application à Azure AD. Azure AD fournit ensuite un ID de client (appelé aussi *ID d’application*) que vous utilisez pour associer votre application à Azure AD au moment de l’exécution. Pour en savoir plus sur l’ID de client, consultez [Objets application et principal du service dans Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Pour inscrire votre application de Stockage Microsoft Azure, veuillez suivre les étapes indiquées dans le [Guide de démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
+La première étape d’utilisation d’Azure AD pour autoriser l’accès aux ressources de stockage est d’inscrire votre application cliente avec un locataire Azure AD à partir du [Portail Microsoft Azure](https://portal.azure.com). Lorsque vous inscrivez votre application cliente, vous fournissez des informations sur l’application à Azure AD. Azure AD fournit ensuite un ID de client (appelé aussi *ID d’application*) que vous utilisez pour associer votre application à Azure AD au moment de l’exécution. Pour en savoir plus sur l’ID de client, consultez [Objets application et principal du service dans Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Pour inscrire votre application de Stockage Microsoft Azure, veuillez suivre les étapes indiquées dans le [Guide de démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md).
 
 L’illustration suivante montre les paramètres courants d’inscription d’une application web. À savoir : dans cet exemple, l’URI de redirection est défini sur `http://localhost:5000/signin-oidc` pour tester l’exemple d’application dans l’environnement de développement. Vous pourrez par la suite modifier ce paramètre sous le paramètre **Authentification** de votre application inscrite sur le Portail Azure :
 
@@ -140,7 +140,7 @@ Lorsque votre application accède au stockage Azure, elle le fait pour le compte
 
 Un exemple d’application web complet qui acquiert un jeton et l’utilise pour créer un objet blob dans le Stockage Azure est disponible sur [GitHub](https://aka.ms/aadstorage). Nous vous conseillons d’examiner et d’exécuter l’exemple complet pour mieux comprendre les exemples de code. Pour obtenir des instructions sur la façon d’exécuter l’exemple complet, veuillez consultez la section intitulée [Afficher et exécuter l’exemple complet](#view-and-run-the-completed-sample).
 
-#### <a name="add-references-and-using-statements"></a>Ajouter des références et des instructions using  
+#### <a name="add-references-and-using-statements"></a>Ajouter des références et des instructions using
 
 Dans Visual Studio, installez la bibliothèque de client du Stockage Azure. Dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet**, puis **Console du gestionnaire de package**. Tapez les commandes suivantes dans la fenêtre de la console pour installer les packages nécessaires à partir de la bibliothèque de client du Stockage Azure pour .NET :
 

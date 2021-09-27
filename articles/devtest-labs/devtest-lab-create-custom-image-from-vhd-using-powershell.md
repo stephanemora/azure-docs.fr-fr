@@ -1,15 +1,15 @@
 ---
 title: Créer une image personnalisée à partir d’un fichier de disque dur virtuel à l’aide d’Azure PowerShell
 description: Automatiser la création d’une image personnalisée dans Azure DevTest Labs à partir d’un fichier de disque dur virtuel avec PowerShell
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8994f51311ec2b6942e807e5e501a25b45130f60
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e0a44b51ae96eca8abef9dd5fc17107264f83b2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525284"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675229"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Créer une image personnalisée à partir d’un fichier de disque dur virtuel avec PowerShell
 

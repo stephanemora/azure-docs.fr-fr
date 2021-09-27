@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9d61e9ff753c37268be19e95db9450e2cd923d96
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: ca8e0f2303ed31660e92f084c0f6760a60f40c22
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279678"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659473"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Étape 3 : configurer la migration vers l’API REST v3 ou le Kit de développement logiciel (SDK) client
 
@@ -77,11 +77,11 @@ Lisez l’article [Se connecter à l’API Azure Media Services v3 avec .NET](co
 
 Si vous souhaitez simplement installer le dernier Kit de développement logiciel (SDK) à l’aide de PackageManager, utilisez la commande suivante :
 
-```Install-Package Microsoft.Azure.Management.Media```
+`Install-Package Microsoft.Azure.Management.Media`
 
 Ou bien, pour installer le dernier Kit de développement logiciel (SDK) à l’aide de l’interface de ligne de commande .NET, utilisez la commande suivante :
 
-```dotnet add package Microsoft.Azure.Management.Media```
+`dotnet add package Microsoft.Azure.Management.Media`
 
 En outre, des exemples .NET complets sont disponibles dans [Azure-Samples/media-services-V3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet) pour divers scénarios. Les projets contenus dans ce référentiel montrent comment implémenter différents scénarios Azure Media Services à l’aide de la version v3.
 
