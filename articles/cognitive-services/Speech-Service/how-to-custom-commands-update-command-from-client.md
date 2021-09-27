@@ -3,19 +3,19 @@ title: Mettre à jour un paramètre de commande à partir d’une application cl
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment mettre à jour une commande à partir d’une application cliente.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: lajanuar
-ms.openlocfilehash: 9ae8d43be88558469165e926994f994aa0fe5736
-ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
+ms.author: pafarley
+ms.openlocfilehash: c5314e659379fb56aca1eea0f1834985fc303c86
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527983"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541024"
 ---
 # <a name="update-a-command-from-a-client-app"></a>Mettre à jour une commande à partir d’une application cliente
 

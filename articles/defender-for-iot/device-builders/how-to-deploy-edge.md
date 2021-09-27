@@ -2,13 +2,13 @@
 title: Déployer un module de sécurité IoT Edge
 description: Apprenez à déployer un agent de sécurité Defender pour IoT sur IoT Edge.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 45f7351b47554ce3eb6906d5b6011de945182484
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 09/23/2021
+ms.openlocfilehash: f5d6dbf45745629fb656812bf75a3b69381260eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113015025"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678570"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
 
@@ -57,8 +57,11 @@ Suivez les différentes étapes pour procéder au déploiement IoT Edge de Defen
 #### <a name="step-1-modules"></a>Étape 1 : Modules
 
 1. Sélectionnez le module **AzureSecurityCenterforIoT**.
+
 1. Sous l’onglet **Paramètres du module**, remplacez le **nom** par **azureiotsecurity**.
+
 1. Dans l’onglet **Variables d’environnement**, ajoutez une variable si nécessaire (vous pouvez, par exemple, ajouter le *niveau de débogage* et le définir sur l’une des valeurs suivantes : « Fatal », « Error » (Erreur), « Warning » (Avertissement) ou « Information »).
+
 1. Sous l’onglet **Options de création de conteneur**, ajoutez la configuration suivante :
 
     ``` json
@@ -82,19 +85,19 @@ Suivez les différentes étapes pour procéder au déploiement IoT Edge de Defen
 1. Sous l’onglet **Paramètres de jumeau de module**, ajoutez la configuration suivante :
 
    Propriété de jumeau de module :
-   
+
    ``` json
      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
    ```
 
-   Contenu de la propriété de jumeau de module : 
+   Contenu de la propriété de jumeau de module :
 
    ```json
      {
 
      }
    ```
-    
+
    Pour plus d’informations sur la configuration de l’agent, consultez [Configurer des agents de sécurité](./how-to-agent-configuration.md).
 
 1. Sélectionnez **Update**.

@@ -10,12 +10,12 @@ ms.date: 05/07/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bd1bbf0d1c5a49bde35d303e6780737fb43ca997
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab764fd95168fef768efd0687adb5e2841bfb140
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524204"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609286"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Lancer un basculement de compte de stockage
 
@@ -124,7 +124,7 @@ Une fois que vous avez réactivé GRS pour votre compte de stockage, Microsoft c
 - Les ressources disponibles pour la réplication en arrière-plan, telles que l’UC, la mémoire, le disque et la capacité WAN. Le trafic en direct est prioritaire sur la géoréplication.
 - Si vous utilisez Stockage Blob, le nombre d’instantanés par blob.
 - Si vous utilisez Stockage Table, la [stratégie de partitionnement des données](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). Le processus de réplication ne peut pas évoluer au-delà du nombre de clés de partition que vous utilisez.
-  
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Récupération d'urgence et basculement de compte de stockage](storage-disaster-recovery-guidance.md)

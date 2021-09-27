@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ace0ccb8372ff21a2d3e8721baf09bab539846c2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 02c0197af40854bfbcff04401dbc4e9ca0d990dc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033660"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573894"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Utiliser le portail Azure pour créer et supprimer des utilisateurs consommateurs dans Azure AD B2C
 
@@ -36,7 +36,8 @@ Cet article se concentre l’utilisation de **comptes consommateurs** sur le por
 ## <a name="create-a-consumer-user"></a>Créer un utilisateur consommateur
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur**.

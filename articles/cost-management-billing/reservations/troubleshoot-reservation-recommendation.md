@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/19/2020
-ms.openlocfilehash: a3137d779908bf2791ca396068a8c9edf5d56739
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 09/15/2021
+ms.openlocfilehash: 9ab8626a10e729e5bdf070f355fcc480d6dc4f16
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492235"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646812"
 ---
 # <a name="troubleshoot-azure-reservation-recommendations"></a>Résoudre les problèmes liés aux recommandations de réservation
 
@@ -22,8 +22,8 @@ Cet article vous aide à comprendre et à résoudre les problèmes des recommand
 ## <a name="symptoms"></a>Symptômes
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez à **Réservations**.
-2. Sélectionnez **+ Ajouter** , puis sélectionnez un produit.
-3. Sous l’onglet **Recommandé** , vous pouvez ne voir aucune recommandation ou voir des recommandations qui ne correspondent pas à vos attentes.
+2. Sélectionnez **+ Ajouter**, puis sélectionnez un produit.
+3. Sous l’onglet **Recommandé**, vous pouvez ne voir aucune recommandation ou voir des recommandations qui ne correspondent pas à vos attentes.
 
 ## <a name="cause"></a>Cause :
 
@@ -31,7 +31,7 @@ La liste des produits recommandés est générée sur la base de la quantité d�
 
 Quand vous utilisez une ressource avec une configuration donnée, il n’est pas garanti que vous allez économiser de l’argent en achetant une réservation pour cette configuration. Il se peut par exemple que vous en ayez une utilisation sporadique. Dans ce cas, le coût total de la réservation risque de ne pas être plus économique pendant la durée de la période de réservation.
 
-Il est également important de comprendre comment la sélection de l’étendue affecte les recommandations. Quand l’étendue est définie sur **Partagée** , les recommandations de la liste montrent les instances réservées où Azure trouve des économies pour toute l’inscription associée à l’abonnement de facturation. Quand l’étendue est définie sur **Unique** , les recommandations de la liste s’appliquent seulement aux ressources qui s’exécutent dans l’abonnement. Il est possible que certaines tailles de machine virtuelle soient recommandées pour une étendue mais pas pour une autre. Par exemple, vous pouvez avoir une utilisation agrégée de **Standard_B1ls** pour votre inscription qui est suffisamment élevée pour justifier le coût de l’achat d’une réservation dans l’étendue de l’inscription. Cependant, un abonnement donné dans l’inscription peut ne pas être assez utilisé pour justifier le coût de l’achat d’une réservation dans l’étendue. Le changement d’étendue entre **Partagée** et **Unique** peut produire des recommandations différentes.
+Il est également important de comprendre comment la sélection de l’étendue affecte les recommandations. Quand l’étendue est définie sur **Partagée**, les recommandations de la liste montrent les instances réservées où Azure trouve des économies pour toute l’inscription associée à l’abonnement de facturation. Quand l’étendue est définie sur **Unique**, les recommandations de la liste s’appliquent seulement aux ressources qui s’exécutent dans l’abonnement. Il est possible que certaines tailles de machine virtuelle soient recommandées pour une étendue mais pas pour une autre. Par exemple, vous pouvez avoir une utilisation agrégée de **Standard_B1ls** pour votre inscription qui est suffisamment élevée pour justifier le coût de l’achat d’une réservation dans l’étendue de l’inscription. Cependant, un abonnement donné dans l’inscription peut ne pas être assez utilisé pour justifier le coût de l’achat d’une réservation dans l’étendue. Le changement d’étendue entre **Partagée** et **Unique** peut produire des recommandations différentes.
 
 Azure peut recommander l’achat d’une réservation pour certaines périodes, mais pas pour d’autres, en fonction des économies de coûts identifiées. En particulier, les périodes de trois années ont des remises supérieures à celles d’une année. Il est plus probable qu’Azure trouve des économies sur une période de trois années plutôt que sur une période d’une année.
 

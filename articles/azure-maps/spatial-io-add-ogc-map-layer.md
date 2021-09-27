@@ -6,13 +6,12 @@ ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-ms.openlocfilehash: 387521e07108aeb101361c3720ea6347ded58c75
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 43fec3aacb1bc22566f4e918166f5e004110a563
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562658"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437685"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Ajouter une couche fournie par l’Open Geospatial Consortium (OGC)
 
@@ -54,7 +53,7 @@ Le code suivant montre comment superposer une couche OGC sur la carte.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Exemple de couche OGC' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>OGC Map layer example</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Exemple de couche OGC' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>OGC Map layer example</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="ogc-map-layer-options"></a>Options de couche OGC
@@ -63,7 +62,7 @@ L’exemple ci-dessous illustre les différentes options de couche OGC. Vous pou
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Options de couche OGC' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>OGC map layer options</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Options de couche OGC' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>OGC map layer options</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="ogc-web-map-service-explorer"></a>Explorateur Web Map Service OGC
@@ -72,7 +71,7 @@ L’outil suivant superpose les images des services WMS (Web Map Service) et WMT
 
 <br/>
 
-<iframe height='750' style='width: 100%;' scrolling='no' title='Explorateur Web Map Service OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC Web Map Service explorer</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='750' scrolling='no' title='Explorateur Web Map Service OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC Web Map Service explorer</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Vous pouvez également spécifier les paramètres de carte pour utiliser un service proxy. Le service proxy vous permet de charger des ressources hébergées sur des domaines où CORS n’est pas activé.

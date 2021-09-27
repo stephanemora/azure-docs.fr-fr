@@ -4,12 +4,12 @@ description: Explique les comportements de mise à l’échelle des applications
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: azure-functions
-ms.openlocfilehash: ff7194b5dfda09253526aa79b52be475c131a411
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c67177570906e0122df6116f1a0a159d64f3486b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563339"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571308"
 ---
 # <a name="event-driven-scaling-in-azure-functions"></a>Mise à l’échelle basée sur les événements dans Azure Functions
 
@@ -55,7 +55,7 @@ $resource | Set-AzResource -Force
 
 ## <a name="best-practices-and-patterns-for-scalable-apps"></a>Bonnes pratiques et modèles pour les applications scalables
 
-Nombreux sont les aspects d’une application de fonction qui impactent sa mise à l’échelle, notamment la configuration de l’hôte, l’empreinte du runtime et l’efficacité des ressources.  Pour plus d’informations, consultez la [section sur l’extensibilité dans l’article Considérations relatives aux performances](functions-best-practices.md#scalability-best-practices). Vous devez également savoir ce qu’il se passe au niveau des connexions lors de la mise à l’échelle de votre application de fonction. Pour plus d’informations, consultez [How to manage connections in Azure Functions](manage-connections.md) (Comment gérer des connexions dans Azure Functions).
+Nombreux sont les aspects d’une application de fonction qui impactent sa mise à l’échelle, notamment la configuration de l’hôte, l’empreinte du runtime et l’efficacité des ressources.  Pour plus d’informations, consultez la [section sur l’extensibilité dans l’article Considérations relatives aux performances](performance-reliability.md#scalability-best-practices). Vous devez également savoir ce qu’il se passe au niveau des connexions lors de la mise à l’échelle de votre application de fonction. Pour plus d’informations, consultez [How to manage connections in Azure Functions](manage-connections.md) (Comment gérer des connexions dans Azure Functions).
 
 Pour plus d’informations sur la mise à l’échelle en Python et Node.js, consultez le [Guide des développeurs Python sur Azure Functions - Mise à l’échelle et concurrence](functions-reference-python.md#scaling-and-performance) et le [Guide des développeurs Node.js sur Azure Functions - Mise à l’échelle et concurrence](functions-reference-node.md#scaling-and-concurrency).
 

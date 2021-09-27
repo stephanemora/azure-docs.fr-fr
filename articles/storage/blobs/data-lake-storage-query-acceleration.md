@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3360b2ddfb89ede248cc9bcafe4a0178de2f0e9d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95912754"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636797"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Accélération des requêtes Azure Data Lake Storage
 
@@ -21,7 +21,7 @@ L’accélération des requêtes (préversion) est une nouvelle capacité d’Az
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’accélération des requêtes accepte les *prédicats de filtrage* et les *projections de colonnes* qui permettent aux applications de filtrer les lignes et les colonnes au moment où les données sont lues sur le disque. Seules les données qui remplissent les conditions d’un prédicat sont transférées à l’application via le réseau. Cela réduit la latence du réseau et le coût du calcul.  
+L’accélération des requêtes accepte les *prédicats de filtrage* et les *projections de colonnes* qui permettent aux applications de filtrer les lignes et les colonnes au moment où les données sont lues sur le disque. Seules les données qui remplissent les conditions d’un prédicat sont transférées à l’application via le réseau. Cela réduit la latence du réseau et le coût du calcul.
 
 Vous pouvez utiliser SQL pour spécifier les prédicats de filtrage de lignes et les projections de colonne dans une demande d’accélération de requête. Une demande traite un seul fichier. Par conséquent, les fonctionnalités relationnelles avancées de SQL, telles que les jointures et les regroupements par agrégats, ne sont pas prises en charge. L’accélération des requêtes prend en charge les données au format CSV et JSON comme entrée de chaque demande.
 
@@ -50,7 +50,7 @@ Le diagramme suivant illustre la façon dont une application typique utilise l�
 
 L’accélération des requêtes optimise les performances en réduisant la quantité de données transférées et traitées par votre application.
 
-Pour calculer une valeur agrégée, les applications récupèrent généralement **toutes** les données à partir d’un fichier, puis traitent et filtrent les données localement. Une analyse des modèles d’entrée/sortie pour les charges de travail analytiques révèle que les applications n’ont généralement besoin que de 20 % des données qu’elles lisent pour effectuer un calcul donné. Cette statistique est vraie même après l’application de techniques telles que l’[élagage de partition](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). Cela signifie que 80 % de ces données sont inutilement transférées via le réseau, analysées et filtrées par des applications. Ce modèle, conçu essentiellement pour supprimer les données inutiles, entraîne un coût de calcul significatif.  
+Pour calculer une valeur agrégée, les applications récupèrent généralement **toutes** les données à partir d’un fichier, puis traitent et filtrent les données localement. Une analyse des modèles d’entrée/sortie pour les charges de travail analytiques révèle que les applications n’ont généralement besoin que de 20 % des données qu’elles lisent pour effectuer un calcul donné. Cette statistique est vraie même après l’application de techniques telles que l’[élagage de partition](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). Cela signifie que 80 % de ces données sont inutilement transférées via le réseau, analysées et filtrées par des applications. Ce modèle, conçu essentiellement pour supprimer les données inutiles, entraîne un coût de calcul significatif.
 
 Même si Azure dispose d’un réseau de pointe, tant en termes de débit que de latence, le transfert inutile de données sur ce réseau reste coûteux pour les performances des applications. En filtrant les données indésirables pendant la demande de stockage, l’accélération des requêtes élimine ce coût.
 
@@ -58,11 +58,11 @@ En outre, la charge d’UC requise pour analyser et filtrer les données inutile
 
 ## <a name="applications-that-can-benefit-from-query-acceleration"></a>Applications pouvant tirer parti de l’accélération des requêtes
 
-L’accélération des requêtes est conçue pour les infrastructures d’analytique distribuées et les applications de traitement des données. 
+L’accélération des requêtes est conçue pour les infrastructures d’analytique distribuées et les applications de traitement des données.
 
-Les infrastructures d’analytique distribuée, telles qu’Apache Spark et Apache Hive, incluent une couche d’abstraction de stockage dans l’infrastructure. Ces moteurs incluent également des optimiseurs de requête qui peuvent incorporer la connaissance des capacités du service d’E/S sous-jacent lors de la détermination d’un plan de requête optimal pour les requêtes utilisateur. Ces infrastructures commencent à intégrer l’accélération des requêtes. Par conséquent, les utilisateurs de ces infrastructures constateront une amélioration de la latence des requêtes et une réduction du coût total de possession sans avoir à apporter de modifications aux requêtes. 
+Les infrastructures d’analytique distribuée, telles qu’Apache Spark et Apache Hive, incluent une couche d’abstraction de stockage dans l’infrastructure. Ces moteurs incluent également des optimiseurs de requête qui peuvent incorporer la connaissance des capacités du service d’E/S sous-jacent lors de la détermination d’un plan de requête optimal pour les requêtes utilisateur. Ces infrastructures commencent à intégrer l’accélération des requêtes. Par conséquent, les utilisateurs de ces infrastructures constateront une amélioration de la latence des requêtes et une réduction du coût total de possession sans avoir à apporter de modifications aux requêtes.
 
-L’accélération des requêtes est également conçue pour les applications de traitement de données. Ces types d’applications effectuent généralement des transformations de données à grande échelle qui peuvent ne pas conduire directement à des aperçus analytiques, de sorte qu’elles n’utilisent pas toujours des infrastructures d’analytique distribuées établies. Ces applications ont souvent une relation plus directe avec le service de stockage sous-jacent afin de pouvoir bénéficier directement de fonctionnalités telles que l’accélération des requêtes. 
+L’accélération des requêtes est également conçue pour les applications de traitement de données. Ces types d’applications effectuent généralement des transformations de données à grande échelle qui peuvent ne pas conduire directement à des aperçus analytiques, de sorte qu’elles n’utilisent pas toujours des infrastructures d’analytique distribuées établies. Ces applications ont souvent une relation plus directe avec le service de stockage sous-jacent afin de pouvoir bénéficier directement de fonctionnalités telles que l’accélération des requêtes.
 
 Pour obtenir un exemple de la façon dont une application peut intégrer l’accélération des requêtes, consultez [Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md).
 

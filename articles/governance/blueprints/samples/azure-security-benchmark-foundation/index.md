@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint Azure Security Benchmark Foundation
 description: Vue d’ensemble et architecture de l’exemple de blueprint Azure Security Benchmark Foundation.
-ms.date: 03/12/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: a60f70b1f3e9d810ccded8bbeee726ea950524e9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 82521251ca395a0d5a1409dae62954950b7da8a3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739256"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614728"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Azure Security Benchmark Foundation
 
-L’exemple de blueprint Azure Security Benchmark Foundation offre un ensemble de modèles d’infrastructure de base qui vous permettront de créer un environnement Azure sécurisé et conforme. Avec ce blueprint, vous pouvez déployer une architecture cloud qui offre des solutions aux scénarios qui ont des obligations d’accréditation ou de conformité. Cet exemple de blueprint de base est une extension de l’[exemple de blueprint Azure Security Benchmark](../azure-security-benchmark.md). Il déploie et configure limites réseau, supervision et autres ressources en phase avec les stratégies et autres garde-fous définis dans le [Benchmark de sécurité Azure](../../../../security/benchmarks/index.yml).
+L’exemple de blueprint Azure Security Benchmark Foundation offre un ensemble de modèles d’infrastructure de base qui vous permettront de créer un environnement Azure sécurisé et conforme. Avec ce blueprint, vous pouvez déployer une architecture cloud qui offre des solutions aux scénarios qui ont des obligations d’accréditation ou de conformité. Il déploie et configure limites réseau, supervision et autres ressources en phase avec les stratégies et autres garde-fous définis dans le [Benchmark de sécurité Azure](../../../../security/benchmarks/index.yml).
 
 ## <a name="architecture"></a>Architecture
 

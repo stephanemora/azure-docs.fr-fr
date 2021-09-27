@@ -3,19 +3,19 @@ title: Conversation multi-appareil (préversion) - Service Speech
 titleSuffix: Azure Cognitive Services
 description: La conversation multi-appareil permet de lancer facilement une conversation vocale ou textuelle entre plusieurs clients et de coordonner les messages envoyés.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: lajanuar
-ms.openlocfilehash: 02c5ea7f64ecbeeb4682f327671c53f2a8def2c5
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 200298a5b78080e731799619cdde7bcf77b3a7d1
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533083"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539548"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Qu'est-ce que la conversation multi-appareil (préversion) ?
 

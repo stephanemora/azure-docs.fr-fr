@@ -4,12 +4,12 @@ description: Découvrez les différences et le flux de migration pour la migrati
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: b8b054d06c9c0987508abfdf03bbcf9470572bd1
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c4f4156f80fac0c9e5eaae360aa937544d88aa9e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868764"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656794"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrer Azure HDInsight 3.6 Apache Storm vers HDInsight 4.0 Apache Spark
 
@@ -40,7 +40,7 @@ Apache Storm peut fournir différents niveaux de traitement de message garanti.
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Spark Streaming vs Spark Structured Streaming
 
-Spark Structured Streaming remplace Spark Streaming (DStreams). Structured Streaming continuera à bénéficier d’améliorations et de maintenance, contrairement à DStreams qui sera proposé uniquement en mode maintenance. **Remarque : Liens nécessaire pour insister sur ce point**. Structured Streaming n’offre pas autant de fonctionnalités que DStreams pour les sources et les récepteurs pris en charge par défaut. Veillez donc à bien évaluer vos besoins pour choisir l’option de traitement de flux Spark qui vous convient le mieux.
+Spark Structured Streaming remplace Spark Streaming (DStreams). Structured Streaming continuera à bénéficier d’améliorations et de maintenance, contrairement à DStreams qui sera proposé uniquement en mode maintenance. Structured Streaming n’offre pas autant de fonctionnalités que DStreams pour les sources et les récepteurs pris en charge par défaut. Veillez donc à bien évaluer vos besoins pour choisir l’option de traitement de flux Spark qui vous convient le mieux.
 
 ## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Traitement en streaming (événement unique) vs traitement Micro-Batch
 

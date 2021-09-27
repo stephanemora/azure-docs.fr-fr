@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 1f07907d3a4f421fa9f7a03c48d5f74496a1d45a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 8fc9934c5d524550929c3400af9f257c4cbcccc8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123303073"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665907"
 ---
 # <a name="find-errors-and-resume-jobs-by-using-log-and-plan-files-in-azcopy"></a>Rechercher des erreurs et reprendre des travaux à l’aide des fichiers journaux et de plan dans AzCopy
 
@@ -24,13 +24,13 @@ AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copi
 
 ## <a name="log-and-plan-files"></a>Fichiers journaux et de plan
 
-AzCopy crée des fichiers *journaux* et *de plan* pour chaque travail. Vous pouvez utiliser ces journaux pour investiguer et résoudre les problèmes potentiels. 
+AzCopy crée des fichiers *journaux* et *de plan* pour chaque travail. Vous pouvez utiliser ces journaux pour investiguer et résoudre les problèmes potentiels.
 
 Les journaux d’activité contiennent l’état de la défaillance (`UPLOADFAILED`, `COPYFAILED`et `DOWNLOADFAILED`), le chemin complet et la raison de la défaillance.
 
-Par défaut, les fichiers journaux et de plan se trouvent dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME$\.azcopy` sur Mac et Linux, mais vous pouvez changer cet emplacement. 
+Par défaut, les fichiers journaux et de plan se trouvent dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME$\.azcopy` sur Mac et Linux, mais vous pouvez changer cet emplacement.
 
-L’erreur correspondante n’est pas nécessairement la première erreur qui apparaît dans le fichier. Pour les erreurs telles que les erreurs réseau, les délais d’expiration et les erreurs de serveur occupé, AzCopy effectue jusqu’à 20 nouvelles tentatives. En général, le processus aboutit.  La première erreur que vous voyez peut être un problème anodin qui a fait l’objet d’une nouvelle tentative réussie.  Ainsi, au lieu de vous concentrer sur la première erreur du fichier, recherchez les erreurs à proximité de `UPLOADFAILED`, `COPYFAILED` ou `DOWNLOADFAILED`. 
+L’erreur correspondante n’est pas nécessairement la première erreur qui apparaît dans le fichier. Pour les erreurs telles que les erreurs réseau, les délais d’expiration et les erreurs de serveur occupé, AzCopy effectue jusqu’à 20 nouvelles tentatives. En général, le processus aboutit.  La première erreur que vous voyez peut être un problème anodin qui a fait l’objet d’une nouvelle tentative réussie.  Ainsi, au lieu de vous concentrer sur la première erreur du fichier, recherchez les erreurs à proximité de `UPLOADFAILED`, `COPYFAILED` ou `DOWNLOADFAILED`.
 
 > [!IMPORTANT]
 > Lorsque vous soumettez requête au support Microsoft (ou que vous résolvez le problème impliquant un tiers), partagez la version rédigée de la commande que vous souhaitez exécuter. Cela garantit que la SAP n’est pas accidentellement partagée avec tout le monde. Vous trouverez la version expurgée au début du fichier journal.
@@ -108,7 +108,7 @@ Utilisez `azcopy env` pour vérifier la valeur actuelle de cette variable. Si la
 
 ## <a name="change-the-default-log-level"></a>Modifier le niveau de consignation par défaut
 
-Par défaut, le niveau de consignation d’AzCopy est défini sur `INFO`. Si vous souhaitez réduire la verbosité du journal afin d’économiser de l’espace disque, écrasez ce paramètre en utilisant l’option ``--log-level``. 
+Par défaut, le niveau de consignation d’AzCopy est défini sur `INFO`. Si vous souhaitez réduire la verbosité du journal afin d’économiser de l’espace disque, écrasez ce paramètre en utilisant l’option ``--log-level``.
 
 Les niveaux d’enregistrement disponibles sont : `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` et `FATAL`.
 

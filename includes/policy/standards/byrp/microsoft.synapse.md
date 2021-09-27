@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/20/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f48abf7dc3a98c902d6a22995bc9f069082b3d12
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 3dd2aa6122ca1356878d45c06f8d5eae27b033ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122605215"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633548"
 ---
 ## <a name="cmmc-level-3"></a>CMMC niveau 3
 
@@ -23,7 +23,7 @@ Pour plus d’informations sur ce standard de conformité, consultez [Cybersecur
 
 ## <a name="fedramp-high"></a>FedRAMP Niveau élevé
 
-Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire Azure Policy – FedRAMP High](../../../../articles/governance/policy/samples/fedramp-high.md).
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – FedRAMP High](../../../../articles/governance/policy/samples/fedramp-high.md).
 Pour plus d’informations sur cette norme de conformité, consultez [FedRAMP High](https://www.fedramp.gov/).
 
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
@@ -38,7 +38,7 @@ Pour plus d’informations sur cette norme de conformité, consultez [FedRAMP Hi
 
 ## <a name="fedramp-moderate"></a>FedRAMP Niveau modéré
 
-Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire Azure Policy – FedRAMP Moderate](../../../../articles/governance/policy/samples/fedramp-moderate.md).
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – FedRAMP Moderate](../../../../articles/governance/policy/samples/fedramp-moderate.md).
 Pour plus d’informations sur cette norme de conformité, consultez [FedRAMP Moderate](https://www.fedramp.gov/).
 
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
@@ -51,10 +51,10 @@ Pour plus d’informations sur cette norme de conformité, consultez [FedRAMP Mo
 |Protection du système et des communications |SC-7 (3) |Points d’accès |[Les espaces de travail Azure Synapse doivent utiliser une liaison privée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |Protection du système et des communications |SC-12 |Établissement et gestion de clés de chiffrement |[Les espaces de travail Azure Synapse doivent utiliser des clés gérées par le client pour chiffrer les données au repos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
 
-## <a name="nist-sp-800-53-rev-4"></a>NIST SP 800-53 Rev. 4
+## <a name="nist-sp-800-53-rev-4"></a>NIST SP 800-53 Rev. 4
 
-Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire Azure Policy – NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
-Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
+Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
 
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -68,14 +68,14 @@ Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 80
 
 ## <a name="nist-sp-800-53-rev-5"></a>NIST SP 800-53 Rev. 5
 
-Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire Azure Policy – NIST SP 800-53 Rev. 5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
-Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53).
+Pour voir le mappage entre les composants intégrés Azure Policy disponibles pour tous les services Azure et cette norme de conformité, consultez [Conformité réglementaire d’Azure Policy – NIST SP 800-53 Rev. 5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
+Pour plus d’informations sur cette norme de conformité, consultez [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53).
 
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Contrôle d’accès |AC-4 |Application du flux d’informations |[Les espaces de travail Azure Synapse doivent utiliser une liaison privée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |Contrôle d’accès |AC-17 |Accès à distance |[Les espaces de travail Azure Synapse doivent utiliser une liaison privée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
-|Contrôle d’accès |AC-17 (1) |Surveillance et contrôle |[Les espaces de travail Azure Synapse doivent utiliser une liaison privée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
+|Contrôle d’accès |AC-17 (1) |Supervision et contrôle |[Les espaces de travail Azure Synapse doivent utiliser une liaison privée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |Évaluation des risques |RA-5 |Supervision et analyse des vulnérabilités |[L’évaluation des vulnérabilités doit être activée sur vos espaces de travail Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0049a6b3-a662-4f3e-8635-39cf44ace45a) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/ASC_SQLVulnerabilityAssessmentOnSynapse_Audit.json) |
 |Protection du système et des communications |SC-7 |Protection de la limite |[Les espaces de travail Azure Synapse doivent utiliser une liaison privée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |Protection du système et des communications |SC-7 (3) |Points d’accès |[Les espaces de travail Azure Synapse doivent utiliser une liaison privée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |

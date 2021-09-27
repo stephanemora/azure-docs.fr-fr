@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 27117f8839c6ea0d98c2f15e01ee6a3ab3ec36c6
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 5d61b7047262c86471dba988bd0f80cb4fdac8ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116277"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663627"
 ---
 # <a name="kubernetes-hosted-client-application"></a>Application cliente hébergée par Kubernetes
 
@@ -29,3 +29,8 @@ Assurez-vous que le nœud Kubernetes qui héberge le pod se connectant au serveu
 ## <a name="noisy-neighbor-problem"></a>Problème de voisin bruyant
 
 Attention au problème de *voisin bruyant*. Un pod exécutant le client peut être affecté par d’autres pods en cours d’exécution sur le même nœud, et limiter les connexions Redis ou les opérations d’E/S.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Développement](cache-best-practices-development.md)
+- [FAQ sur le développement d’Azure Cache pour Redis](cache-development-faq.yml)

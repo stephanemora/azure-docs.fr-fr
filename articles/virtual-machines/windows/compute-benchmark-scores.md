@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: f83a2a8aab4f1daf9fe4317491b2ed3591ec227d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 9d717912e62340c939649271d2ccf3339a72b0e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689708"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633466"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Windows
 
@@ -375,7 +375,7 @@ CoreMark est un outil open source qui peut être téléchargé sur [GitHub](http
 
 Pour générer et exécuter le point de référence, saisissez :
 
-```> make```
+`> make`
 
 Les résultats complets sont disponibles dans les fichiers ```run1.log``` et ```run2.log```. 
 ```run1.log``` contient les résultats de CoreMark. Il s’agit des résultats du point de référence avec les paramètres de performance.
@@ -385,7 +385,7 @@ Les résultats complets sont disponibles dans les fichiers ```run1.log``` et ```
 
 Par défaut, le point de référence s’exécute pendant 10 à 100 secondes. Pour changer cela, utilisez ```ITERATIONS=N```.
 
-```% make ITERATIONS=10```
+`% make ITERATIONS=10`
 
 L’indicateur ci-dessus permet d’exécuter le point de référence pendant 10 itérations. 
 **Les résultats peuvent être rapportés uniquement si le point de référence a été exécuté pendant au moins 10 secondes !**
@@ -394,7 +394,7 @@ L’indicateur ci-dessus permet d’exécuter le point de référence pendant 10
 
 Utilisez ```XCFLAGS=-DMULTITHREAD=N``` où N est le nombre de threads à exécuter simultanément. Plusieurs implémentations peuvent être exécutées dans des contextes multiples.
 
-```% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"```
+`% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"`
 
 L’indicateur ci-dessus compilera le point de référence pour une exécution sur quatre cœurs.
 

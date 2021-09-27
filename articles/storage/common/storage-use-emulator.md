@@ -1,19 +1,19 @@
 ---
 title: Utilisation de l’émulateur de stockage Azure pour le développement et le test (déconseillé)
 description: L’émulateur de stockage Azure (déconseillé) fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 07/14/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2ff639cd19a97d2e3a5ef730c774f8c967cfa6c3
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: d23c5eed831e693509cd9216acd7c98166544b31
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114203798"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595766"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing-deprecated"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test (déconseillé)
 
@@ -30,7 +30,7 @@ Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows. P
 
 > [!NOTE]
 > Il n’est pas garanti que vous puissiez accéder aux données créées dans une version de l’émulateur de stockage à partir d’une autre version. Si vous devez rendre vos données persistantes à long terme, nous vous recommandons de stocker ces données dans un compte de stockage Azure plutôt que dans l’émulateur de stockage.
-> 
+>
 > L’émulateur de stockage dépend des versions spécifiques des bibliothèques OData. Le remplacement des DLL OData utilisées par l’émulateur de stockage par des versions ultérieures n’est pas pris en charge et peut provoquer un comportement inattendu. Toutefois, vous pouvez utiliser n’importe quelle version OData prise en charge par le service de stockage pour envoyer des demandes à l’émulateur.
 
 ## <a name="how-the-storage-emulator-works"></a>Fonctionnement de l’émulateur de stockage
@@ -151,9 +151,9 @@ Par exemple, l'adresse suivante peut être utilisée pour accéder à un objet b
 
 Les points de terminaison de service de l’émulateur de stockage sont :
 
-* Service BLOB : `http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Service de File d’attente : `http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Service de Table : `http://127.0.0.1:10002/<account-name>/<resource-path>`
+- Service BLOB : `http://127.0.0.1:10000/<account-name>/<resource-path>`
+- Service de File d’attente : `http://127.0.0.1:10001/<account-name>/<resource-path>`
+- Service de Table : `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Adressage du compte secondaire avec RA-GRS
 
@@ -195,32 +195,32 @@ Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 
 L’émulateur de stockage étant un environnement émulé local, il existe des différences entre l’émulateur et un compte de stockage Azure dans le cloud :
 
-* L'émulateur de stockage prend en charge uniquement un compte fixe et une clé d'authentification connue.
-* L’émulateur de stockage n’est pas un service de stockage scalable et ne prend pas en charge un grand nombre de clients simultanés.
-* Comme décrit dans [Adressage des ressources dans l’émulateur de stockage](#addressing-resources-in-the-storage-emulator), les ressources ne sont pas adressées de la même manière dans l’émulateur de stockage et dans un compte de stockage Azure. La différence est due au fait que la résolution de noms de domaine est disponible dans le cloud, mais pas sur l’ordinateur local.
-* À partir de la version 3.1, le compte d'émulateur de stockage prend en charge la réplication géo-redondante avec accès en lecture. Dans l’émulateur, RA-GRS est activé pour tous les comptes et il n’y a jamais de latence entre le réplica principal et le réplica secondaire. Les opérations Get Blob Service Stats, Get Queue Service Stats et Get Table Service Stats sont prises en charge sur le compte secondaire et retournent toujours la valeur de l’élément de réponse `LastSyncTime` comme heure actuelle en fonction de la base de données SQL sous-jacente.
-* Les points de terminaison du service de fichiers et de protocole SMB ne sont pas pris en charge dans l’émulateur de stockage pour le moment.
-* Si vous utilisez une version des services de stockage qui n’est pas prise en charge par l’émulateur, l’émulateur retourne une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 - Demande incorrecte).
+- L'émulateur de stockage prend en charge uniquement un compte fixe et une clé d'authentification connue.
+- L’émulateur de stockage n’est pas un service de stockage scalable et ne prend pas en charge un grand nombre de clients simultanés.
+- Comme décrit dans [Adressage des ressources dans l’émulateur de stockage](#addressing-resources-in-the-storage-emulator), les ressources ne sont pas adressées de la même manière dans l’émulateur de stockage et dans un compte de stockage Azure. La différence est due au fait que la résolution de noms de domaine est disponible dans le cloud, mais pas sur l’ordinateur local.
+- À partir de la version 3.1, le compte d'émulateur de stockage prend en charge la réplication géo-redondante avec accès en lecture. Dans l’émulateur, RA-GRS est activé pour tous les comptes et il n’y a jamais de latence entre le réplica principal et le réplica secondaire. Les opérations Get Blob Service Stats, Get Queue Service Stats et Get Table Service Stats sont prises en charge sur le compte secondaire et retournent toujours la valeur de l’élément de réponse `LastSyncTime` comme heure actuelle en fonction de la base de données SQL sous-jacente.
+- Les points de terminaison du service de fichiers et de protocole SMB ne sont pas pris en charge dans l’émulateur de stockage pour le moment.
+- Si vous utilisez une version des services de stockage qui n’est pas prise en charge par l’émulateur, l’émulateur retourne une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 - Demande incorrecte).
 
 ### <a name="differences-for-blob-storage"></a>Différences pour le stockage d’objets blob
 
 Les différences suivantes s’appliquent au stockage d’objets blob dans l’émulateur :
 
-* L’émulateur de stockage prend uniquement en charge les objets blob d’une taille inférieure ou égale à 2 Go.
-* La longueur maximale d’un nom d’objet blob dans l’émulateur de stockage est de 256 caractères, contre 1 024 caractères dans le stockage Azure.
-* La copie incrémentielle permet de copier des instantanés à partir d’objets blob remplacés, ce qui renvoie une erreur sur le service.
-* L’opération Get Page Ranges Diff ne fonctionne pas entre des instantanés copiés à l’aide de la copie incrémentielle d’objets blob.
-* Une opération Put Blob peut réussir sur un objet blob qui existe dans l’émulateur de stockage avec un bail actif, même si l’ID du bail n’a pas été spécifié dans la demande.
-* L’émulateur ne prend pas en charge les opérations d’ajout de blob. Toute tentative d’exécution d’une opération sur un objet blob d’ajout renvoie une erreur FeatureNotSupportedByEmulator (code d’état HTTP 400 – demande incorrecte).
+- L’émulateur de stockage prend uniquement en charge les objets blob d’une taille inférieure ou égale à 2 Go.
+- La longueur maximale d’un nom d’objet blob dans l’émulateur de stockage est de 256 caractères, contre 1 024 caractères dans le stockage Azure.
+- La copie incrémentielle permet de copier des instantanés à partir d’objets blob remplacés, ce qui renvoie une erreur sur le service.
+- L’opération Get Page Ranges Diff ne fonctionne pas entre des instantanés copiés à l’aide de la copie incrémentielle d’objets blob.
+- Une opération Put Blob peut réussir sur un objet blob qui existe dans l’émulateur de stockage avec un bail actif, même si l’ID du bail n’a pas été spécifié dans la demande.
+- L’émulateur ne prend pas en charge les opérations d’ajout de blob. Toute tentative d’exécution d’une opération sur un objet blob d’ajout renvoie une erreur FeatureNotSupportedByEmulator (code d’état HTTP 400 – demande incorrecte).
 
 ### <a name="differences-for-table-storage"></a>Différences pour le stockage de tables
 
 Les différences suivantes s’appliquent au stockage de tables dans l’émulateur :
 
-* Les propriétés de date du service de Table dans l’émulateur de stockage ne prennent en charge que la plage autorisée par SQL Server 2005 (les dates postérieures au 1er janvier 1753). Toutes les dates antérieures au 1er janvier 1753 sont remplacées par cette valeur. La précision des dates est limitée à la précision de SQL Server 2005, ce qui signifie que les dates sont précises au 1/300e de seconde.
-* L’émulateur de stockage prend en charge des valeurs de propriétés de clé de partition et de clé de ligne de moins de 512 octets chacune. La taille totale du nom du compte, du nom de table et de l’ensemble des noms de propriétés de clé ne peut pas dépasser 900 octets.
-* La taille totale d’une ligne de table dans l’émulateur de stockage est limitée à moins de 1 Mo.
-* Dans l’émulateur de stockage, les propriétés du type de données `Edm.Guid` ou `Edm.Binary` ne prennent en charge que les opérateurs de comparaison `Equal (eq)` et `NotEqual (ne)` dans les chaînes de filtre de requête.
+- Les propriétés de date du service de Table dans l’émulateur de stockage ne prennent en charge que la plage autorisée par SQL Server 2005 (les dates postérieures au 1er janvier 1753). Toutes les dates antérieures au 1er janvier 1753 sont remplacées par cette valeur. La précision des dates est limitée à la précision de SQL Server 2005, ce qui signifie que les dates sont précises au 1/300e de seconde.
+- L’émulateur de stockage prend en charge des valeurs de propriétés de clé de partition et de clé de ligne de moins de 512 octets chacune. La taille totale du nom du compte, du nom de table et de l’ensemble des noms de propriétés de clé ne peut pas dépasser 900 octets.
+- La taille totale d’une ligne de table dans l’émulateur de stockage est limitée à moins de 1 Mo.
+- Dans l’émulateur de stockage, les propriétés du type de données `Edm.Guid` ou `Edm.Binary` ne prennent en charge que les opérateurs de comparaison `Equal (eq)` et `NotEqual (ne)` dans les chaînes de filtre de requête.
 
 ### <a name="differences-for-queue-storage"></a>Différences pour le stockage de files d’attente
 
@@ -230,109 +230,109 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-510"></a>Version 5.10
 
-* L’émulateur de stockage ne refuse pas la version 2019-07-07 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- L’émulateur de stockage ne refuse pas la version 2019-07-07 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-59"></a>Version 5.9
 
-* L’émulateur de stockage ne refuse pas la version 2019-02-02 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- L’émulateur de stockage ne refuse pas la version 2019-02-02 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-58"></a>Version 5.8
 
-* L’émulateur de stockage ne refuse pas la version 2018-11-09 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- L’émulateur de stockage ne refuse pas la version 2018-11-09 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-57"></a>Version 5.7
 
-* Correction d’un bogue générant une erreur en cas d’activation de la journalisation.
+- Correction d’un bogue générant une erreur en cas d’activation de la journalisation.
 
 ### <a name="version-56"></a>Version 5.6
 
-* L’émulateur de stockage prend maintenant en charge la version 2018-03-28 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- L’émulateur de stockage prend maintenant en charge la version 2018-03-28 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-55"></a>Version 5.5
 
-* L’émulateur de stockage prend maintenant en charge la version 2017-11-09 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
-* La prise en charge a été ajoutée pour la propriété **Créé** de l’objet blob, qui retourne l’heure de création de l’objet blob.
+- L’émulateur de stockage prend maintenant en charge la version 2017-11-09 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- La prise en charge a été ajoutée pour la propriété **Créé** de l’objet blob, qui retourne l’heure de création de l’objet blob.
 
 ### <a name="version-54"></a>Version 5.4
 
-* Pour améliorer la stabilité de l’installation, l’émulateur ne tente plus de réserver les ports au moment de l’installation. Si vous souhaitez des réservations de port, utilisez l’option *-reserveports* de la commande **init** pour les spécifier.
+- Pour améliorer la stabilité de l’installation, l’émulateur ne tente plus de réserver les ports au moment de l’installation. Si vous souhaitez des réservations de port, utilisez l’option *-reserveports* de la commande **init** pour les spécifier.
 
 ### <a name="version-53"></a>Version 5.3
 
-* L’émulateur de stockage prend maintenant en charge la version 2017-07-29 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- L’émulateur de stockage prend maintenant en charge la version 2017-07-29 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-52"></a>Version 5.2
 
-* L’émulateur de stockage prend maintenant en charge la version 2017-04-17 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
-* Correction d’un bogue impliquant le mauvais encodage des valeurs de propriété de table.
+- L’émulateur de stockage prend maintenant en charge la version 2017-04-17 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- Correction d’un bogue impliquant le mauvais encodage des valeurs de propriété de table.
 
 ### <a name="version-51"></a>Version 5.1
 
-* Correction d’un bogue dans lequel l’émulateur de stockage retournait l’en-tête `DataServiceVersion` dans certaines réponses où le service ne se trouvait pas.
+- Correction d’un bogue dans lequel l’émulateur de stockage retournait l’en-tête `DataServiceVersion` dans certaines réponses où le service ne se trouvait pas.
 
 ### <a name="version-50"></a>Version 5.0
 
-* Le programme d’installation de l’émulateur de stockage ne vérifie plus s’il existe déjà des installations de MSSQL et de .NET Framework.
-* Le programme d’installation de l’émulateur de stockage ne crée plus la base de données dans le cadre de l’installation. Si nécessaire, la base de données sera toujours créée dans le cadre du démarrage.
-* La création de la base de données ne nécessite plus une élévation de privilèges.
-* Les réservations de ports ne sont plus nécessaires pour le démarrage.
-* Ajoute les options suivantes pour `init` : `-reserveports` (nécessite une élévation), `-unreserveports` (nécessite une élévation), `-skipcreate`.
-* L’option d’interface utilisateur Émulateur de stockage de la barre d’état système lance maintenant l’interface de ligne de commande. L’ancienne interface graphique utilisateur (GUI) n’est plus disponible.
-* Certaines DLL ont été supprimées ou renommées.
+- Le programme d’installation de l’émulateur de stockage ne vérifie plus s’il existe déjà des installations de MSSQL et de .NET Framework.
+- Le programme d’installation de l’émulateur de stockage ne crée plus la base de données dans le cadre de l’installation. Si nécessaire, la base de données sera toujours créée dans le cadre du démarrage.
+- La création de la base de données ne nécessite plus une élévation de privilèges.
+- Les réservations de ports ne sont plus nécessaires pour le démarrage.
+- Ajoute les options suivantes pour `init` : `-reserveports` (nécessite une élévation), `-unreserveports` (nécessite une élévation), `-skipcreate`.
+- L’option d’interface utilisateur Émulateur de stockage de la barre d’état système lance maintenant l’interface de ligne de commande. L’ancienne interface graphique utilisateur (GUI) n’est plus disponible.
+- Certaines DLL ont été supprimées ou renommées.
 
 ### <a name="version-46"></a>Version 4.6
 
-* L’émulateur de stockage prend maintenant en charge la version 2016-05-31 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- L’émulateur de stockage prend maintenant en charge la version 2016-05-31 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-45"></a>Version 4.5
 
-* Corrige un bogue provoquant l’échec de l’installation et de l’initialisation au moment du renommage de la base de données de sauvegarde.
+- Corrige un bogue provoquant l’échec de l’installation et de l’initialisation au moment du renommage de la base de données de sauvegarde.
 
 ### <a name="version-44"></a>Version 4.4
 
-* L’émulateur de stockage prend maintenant en charge la version 2015-12-11 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
-* Le garbage collection par l’émulateur de stockage des données blob est désormais plus efficace quand le nombre d’objets blob est élevé.
-* Correction d’un bogue qui provoquait la validation du XML ACL de conteneur légèrement différemment de la façon dont procède le service de stockage.
-* Correction d’un bogue qui entraînait parfois le signalement des valeurs de date/heure max et min dans le fuseau horaire incorrect.
+- L’émulateur de stockage prend maintenant en charge la version 2015-12-11 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- Le garbage collection par l’émulateur de stockage des données blob est désormais plus efficace quand le nombre d’objets blob est élevé.
+- Correction d’un bogue qui provoquait la validation du XML ACL de conteneur légèrement différemment de la façon dont procède le service de stockage.
+- Correction d’un bogue qui entraînait parfois le signalement des valeurs de date/heure max et min dans le fuseau horaire incorrect.
 
 ### <a name="version-43"></a>Version 4.3
 
-* L’émulateur de stockage prend maintenant en charge la version 2015-07-08 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- L’émulateur de stockage prend maintenant en charge la version 2015-07-08 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-42"></a>Version 4.2
 
-* L’émulateur de stockage prend maintenant en charge la version 2015-04-05 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+- L’émulateur de stockage prend maintenant en charge la version 2015-04-05 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-41"></a>Version 4.1
 
-* L’émulateur de stockage prend maintenant en charge la version 2015-02-21 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table. Il ne prend pas en charge les nouvelles fonctionnalités d’ajout de blob.
-* L’émulateur retourne à présent un message d’erreur significatif pour les versions non prises en charge des services de stockage. Nous vous recommandons d’utiliser la dernière version de l’émulateur. Si vous obtenez une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 - demande incorrecte), téléchargez la dernière version de l’émulateur.
-* Correction d’un bogue dans lequel une condition de course a généré des données d’entité de table incorrectes lors d’opérations de fusion simultanées.
+- L’émulateur de stockage prend maintenant en charge la version 2015-02-21 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table. Il ne prend pas en charge les nouvelles fonctionnalités d’ajout de blob.
+- L’émulateur retourne à présent un message d’erreur significatif pour les versions non prises en charge des services de stockage. Nous vous recommandons d’utiliser la dernière version de l’émulateur. Si vous obtenez une erreur VersionNotSupportedByEmulator (code d’état HTTP 400 - demande incorrecte), téléchargez la dernière version de l’émulateur.
+- Correction d’un bogue dans lequel une condition de course a généré des données d’entité de table incorrectes lors d’opérations de fusion simultanées.
 
 ### <a name="version-40"></a>Version 4.0
 
-* L’exécutable de l’émulateur de stockage est renommé en *AzureStorageEmulator.exe*.
+- L’exécutable de l’émulateur de stockage est renommé en *AzureStorageEmulator.exe*.
 
 ### <a name="version-32"></a>Version 3.2
 
-* L’émulateur de stockage prend maintenant en charge la version 2014-02-14 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table. Les points de terminaison du service de fichiers ne sont pas pris en charge dans l’émulateur de stockage pour le moment. Pour plus d’informations sur la version 2014-02-14, consultez la page [Contrôle de version pour les services Azure Storage](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) .
+- L’émulateur de stockage prend maintenant en charge la version 2014-02-14 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table. Les points de terminaison du service de fichiers ne sont pas pris en charge dans l’émulateur de stockage pour le moment. Pour plus d’informations sur la version 2014-02-14, consultez la page [Contrôle de version pour les services Azure Storage](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) .
 
 ### <a name="version-31"></a>Version 3.1
 
-* Le stockage géo-redondant avec accès en lecture (RA-GRS) est maintenant pris en charge dans l’émulateur de stockage. Les API `Get Blob Service Stats`, `Get Queue Service Stats` et `Get Table Service Stats` sont prises en charge pour le compte secondaire et renvoient la valeur de l’élément de réponse LastSyncTime comme heure actuelle en fonction de la base de données SQL sous-jacente. Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d’informations, consultez Bibliothèque cliente Microsoft Azure Storage pour .NET.
+- Le stockage géo-redondant avec accès en lecture (RA-GRS) est maintenant pris en charge dans l’émulateur de stockage. Les API `Get Blob Service Stats`, `Get Queue Service Stats` et `Get Table Service Stats` sont prises en charge pour le compte secondaire et renvoient la valeur de l’élément de réponse LastSyncTime comme heure actuelle en fonction de la base de données SQL sous-jacente. Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d’informations, consultez Bibliothèque cliente Microsoft Azure Storage pour .NET.
 
 ### <a name="version-30"></a>Version 3.0
 
-* L’émulateur de stockage Azure n’est plus inclus dans le même package que l’émulateur de calcul.
-* L’interface utilisateur graphique de l’émulateur de stockage est dépréciée. Elle a été remplacée par une interface de ligne de commande scriptable. Pour plus d’informations sur l’interface de ligne de commande, consultez la section Référence de l’outil en ligne de commande de l’émulateur de stockage. L’interface graphique est toujours présente dans la version 3.0, mais elle est uniquement accessible lorsque l’émulateur de calcul est installé en cliquant avec le bouton droit sur l’icône de la zone de notification, puis en sélectionnant Afficher l’IU de l’émulateur de stockage.
-* La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
+- L’émulateur de stockage Azure n’est plus inclus dans le même package que l’émulateur de calcul.
+- L’interface utilisateur graphique de l’émulateur de stockage est dépréciée. Elle a été remplacée par une interface de ligne de commande scriptable. Pour plus d’informations sur l’interface de ligne de commande, consultez la section Référence de l’outil en ligne de commande de l’émulateur de stockage. L’interface graphique est toujours présente dans la version 3.0, mais elle est uniquement accessible lorsque l’émulateur de calcul est installé en cliquant avec le bouton droit sur l’icône de la zone de notification, puis en sélectionnant Afficher l’IU de l’émulateur de stockage.
+- La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Évaluez l’émulateur de stockage open source [Azurite](https://github.com/azure/azurite) multiplateforme et géré par la communauté. 
-* L’article [Exemples de stockage Azure avec .NET](./storage-samples-dotnet.md) contient des liens vers plusieurs exemples de code que vous pouvez utiliser lorsque vous développez votre application.
-* Vous pouvez utiliser [l’Explorateur Stockage Microsoft Azure](https://storageexplorer.com) pour travailler avec des ressources dans votre compte de stockage cloud et dans l’émulateur de stockage.
+- Évaluez l’émulateur de stockage open source [Azurite](https://github.com/azure/azurite) multiplateforme et géré par la communauté.
+- L’article [Exemples de stockage Azure avec .NET](./storage-samples-dotnet.md) contient des liens vers plusieurs exemples de code que vous pouvez utiliser lorsque vous développez votre application.
+- Vous pouvez utiliser [l’Explorateur Stockage Microsoft Azure](https://storageexplorer.com) pour travailler avec des ressources dans votre compte de stockage cloud et dans l’émulateur de stockage.
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Développement de Stockage Azure local avec Azurite, les kits de développement logiciel (SDK) Azure et l’Explorateur Stockage Azure](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)
+- [Développement de Stockage Azure local avec Azurite, les kits de développement logiciel (SDK) Azure et l’Explorateur Stockage Azure](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)

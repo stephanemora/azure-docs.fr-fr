@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 008d47fe7086322ea0bb7ef26a6c4b449f4269d2
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: c1c9ed19d55850258c043a2a1e223474e13d2d21
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028821"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128574298"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Salesforce à l’aide d’Azure Active Directory B2C
 
@@ -61,7 +61,8 @@ Pour permettre aux utilisateurs de se connecter avec un compte Salesforce dans A
 
 ## <a name="configure-salesforce-as-an-identity-provider"></a>Configurer Salesforce en tant que fournisseur d’identité
 
-1. Veillez à bien utiliser le répertoire qui contient le locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser le répertoire qui contient le locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Fournisseurs d’identité**, puis **Nouveau fournisseur OpenID Connect**.
 1. Saisissez un **Nom**. Par exemple, entrez *Salesforce*.
@@ -96,7 +97,7 @@ Pour permettre aux utilisateurs de se connecter avec un compte Salesforce dans A
 1. Sélectionnez **Enregistrer**.
 1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
 1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Sélectionnez le bouton **Exécuter le flux utilisateur**.
+1. Sélectionnez le bouton **Exécuter le flux d’utilisateur**.
 1. Sur la page d'inscription ou de connexion, sélectionnez **Salesforce** pour vous connecter avec un compte Salesforce.
 
 Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
@@ -110,15 +111,16 @@ Si le processus de connexion réussit, votre navigateur est redirigé vers `http
 Vous devez stocker la clé secrète client que vous avez enregistrée dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
-5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
-6. Pour **Options**, choisissez `Manual`.
-7. Entrez un **nom** pour la clé de stratégie. Par exemple : `SalesforceSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
-8. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
-9. Pour **Utilisation de la clé**, sélectionnez `Signature`.
-10. Cliquez sur **Créer**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Pour **Options**, choisissez `Manual`.
+1. Entrez un **nom** pour la clé de stratégie. Par exemple : `SalesforceSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
+1. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
+1. Pour **Utilisation de la clé**, sélectionnez `Signature`.
+1. Cliquez sur **Créer**.
 
 ## <a name="configure-salesforce-as-an-identity-provider"></a>Configurer Salesforce en tant que fournisseur d’identité
 

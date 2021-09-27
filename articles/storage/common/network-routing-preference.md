@@ -11,12 +11,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: bf2270fe6f71dfe5be31db8e82f6c44696f28074
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f3a665df26e504eee1c9bea77f8bf6bf5631193f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601489"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591023"
 ---
 # <a name="network-routing-preference-for-azure-storage"></a>Préférence de routage réseau pour Stockage Azure
 
@@ -100,7 +100,7 @@ La préférence de routage pour le service Stockage Azure est disponible dans le
 - OuJapon Est 
 - Inde Ouest
 - Australie Est 
-- Sud-Australie Est 
+- Australie Sud-Est 
 
 Les problèmes connus suivants affectent la préférence de routage pour le service Stockage Azure :
 

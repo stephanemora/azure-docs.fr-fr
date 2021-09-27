@@ -3,12 +3,12 @@ title: Guide pratique pour gérer les affectations avec PowerShell
 description: Découvrez comment gérer les affectations de blueprints avec le module PowerShell Azure Blueprint, Az.Blueprint.
 ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 943f2bcceef76a2b867b7459f88f6d5041f38ef5
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 0ce2132fe9d43ef0d5df1a4e0eec3a80a3a5c5ca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534941"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612811"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Guide pratique pour gérer les affectations avec PowerShell
 
@@ -16,7 +16,7 @@ Une affectation de blueprint peut être gérée avec le module PowerShell **Az.B
 
 ## <a name="add-the-azblueprint-module"></a>Ajouter le module Az.Blueprint
 
-Pour permettre à Azure PowerShell de gérer les affectations de blueprints, vous devez ajouter le module. Vous pouvez utiliser ce module avec PowerShell installé localement, avec [Azure Cloud Shell](https://shell.azure.com) ou avec l’[image Docker Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell/).
+Pour permettre à Azure PowerShell de gérer les affectations de blueprints, vous devez ajouter le module. Vous pouvez utiliser ce module avec PowerShell installé localement, avec [Azure Cloud Shell](https://shell.azure.com) ou avec l’[image Docker Azure PowerShell](/powershell/azure/azureps-in-docker).
 
 ### <a name="base-requirements"></a>Configuration de base requise
 

@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: edd90071125c65b7d4af3d0065e92b30f35e5f65
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7c3ad407b0c412e3cf4dbb5cc1635376c718a747
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114436950"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605807"
 ---
 # <a name="azcopy-v10-configuration-settings-azure-storage"></a>Paramètres de configuration d’AzCopy v10 (Stockage Azure)
 
@@ -59,7 +59,6 @@ Le tableau suivant décrit chaque variable d’environnement et fournit des lien
 | GOOGLE_APPLICATION_CREDENTIALS | Le chemin absolu au fichier de clés du compte de service. Fournit une clé pour autoriser l’utilisation de Google Cloud Storage. [Copier les données de Google Cloud Storage vers Stockage Azure à l’aide d’AzCopy (préversion)](storage-ref-azcopy-configuration-settings.md) |
 | HTTPS_PROXY | Configure les paramètres de proxy pour AzCopy. Définissez cette variable sur l’adresse IP du proxy et le numéro de port du proxy. Par exemple : `xx.xxx.xx.xxx:xx`. Si vous exécutez AzCopy sur Windows, AzCopy détecte automatiquement les paramètres de proxy. Vous n’avez donc pas besoin d’utiliser ce paramètre dans Windows. Si vous choisissez d’utiliser ce paramètre dans Windows, il remplace la détection automatique. Consultez [Configurer les paramètres de proxy](#configure-proxy-settings) |
 
-
 ## <a name="configure-proxy-settings"></a>Configuration des paramètres de proxy
 
 Pour configurer les paramètres de proxy pour AzCopy, définissez la variable d’environnement `HTTPS_PROXY`. Si vous exécutez AzCopy sur Windows, AzCopy détecte automatiquement les paramètres de proxy. Vous n’avez donc pas besoin d’utiliser ce paramètre dans Windows. Si vous choisissez d’utiliser ce paramètre dans Windows, il remplace la détection automatique.
@@ -74,7 +73,7 @@ Actuellement, AzCopy ne prend en charge les serveurs proxy qui requièrent une a
 
 ### <a name="bypassing-a-proxy"></a>Contournement d’un proxy
 
-Si vous exécutez AzCopy sur Windows et souhaitez lui demander de n’utiliser aucun _proxy_ (au lieu de détecter automatiquement les paramètres), utilisez ces commandes. Avec ces paramètres, AzCopy ne recherche pas ou ne tente pas d’utiliser un proxy.
+Si vous exécutez AzCopy sur Windows et souhaitez lui demander de n’utiliser aucun *proxy* (au lieu de détecter automatiquement les paramètres), utilisez ces commandes. Avec ces paramètres, AzCopy ne recherche pas ou ne tente pas d’utiliser un proxy.
 
 | Système d’exploitation | Environnement | Commandes  |
 |--------|-----------|----------|

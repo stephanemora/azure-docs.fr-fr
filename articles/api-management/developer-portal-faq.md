@@ -4,18 +4,18 @@ titleSuffix: Azure API Management
 description: Forum aux questions sur le portail des développeurs dans Gestion des API. Le portail des développeurs est un site web personnalisable, où les consommateurs d’API peuvent explorer vos API.
 services: api-management
 documentationcenter: API Management
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: troubleshooting
 ms.date: 07/30/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b7b7efda7ca28382ca1dfbdead64db9976d67bd4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0c8757211bf11e97cde091d49eb6512bb0e4f7cc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563125"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656338"
 ---
 # <a name="api-management-developer-portal---frequently-asked-questions"></a>Portail des développeurs Gestion des API - Forum aux questions
 
@@ -79,7 +79,7 @@ Vous pouvez également activer CORS manuellement.
 1. Sélectionnez le lien **L’appliquer manuellement au niveau global** pour afficher le code de stratégie généré.
 2. Accédez à **Toutes les API** dans la section **API** de votre service Gestion des API dans le Portail Azure.
 3. Sélectionnez l’icône **</>** dans la section **Traitement entrant**.
-4. Insérez la stratégie dans la section **<inbound>** du fichier XML. Assurez-vous que la valeur **<origin>** correspond au domaine de votre portail des développeurs.
+4. Insérez la stratégie dans la section **\<inbound\>** du fichier XML. Assurez-vous que la valeur **\<origin\>** correspond au domaine de votre portail des développeurs.
 
 > [!NOTE]
 > 

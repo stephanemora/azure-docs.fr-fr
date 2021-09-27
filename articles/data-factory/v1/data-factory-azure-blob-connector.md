@@ -3,16 +3,17 @@ title: Déplacer des données vers et à partir de Stockage Blob Azure
 description: 'Découvrez comment copier des données d’objets blob dans Azure Data Factory. Utilisez notre exemple : Guide pratique pour copier des données vers et à partir de Stockage Blob Azure et Azure SQL Database.'
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3d42c7cc6498adad251174db7caea11feec82784
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 02b51ff93b14adcbf0dc4c628421a7521fdc49c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753554"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599807"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -188,7 +189,7 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
     4. Sélectionnez un **emplacement** pour la fabrique de données.
     5. Sélectionnez la case à cocher **Épingler au tableau de bord** en bas du panneau.
     6. Cliquez sur **Créer**.
-3. Une fois la création terminée, le panneau **Data Factory** s’affiche comme sur l’image suivante :  ![Page d’accueil Data Factory](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. Une fois la création terminée, le panneau **Data Factory** s’affiche comme sur l’image suivante :  :::image type="content" source="./media/data-factory-azure-blob-connector/data-factory-home-page.png" alt-text="Page d’accueil Data Factory":::
 
 ### <a name="copy-wizard"></a>Assistant de copie
 1. Dans la page d’accueil Data Factory, cliquez sur la vignette **Copier les données** pour lancer **l’Assistant Copier des données** dans un onglet distinct.  
@@ -203,27 +204,27 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
     5. Modifiez la **Date et heure de début** et définissez-la sur **21/04/2017**.
     6. Modifiez la **Date et heure de fin** et définissez-la sur **25/04/2017**. Vous souhaiterez peut-être taper la date au lieu de parcourir le calendrier.
     8. Cliquez sur **Suivant**.
-        ![Outil de copie - Page Propriétés](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-properties-page.png" alt-text="Outil de copie - Page Propriétés":::
 3. Dans la page **Source data store** (Magasin de données source), cliquez sur la vignette **Stockage d’objets blob Azure**. Cette page sert à spécifier le magasin de données source pour la tâche de copie. Vous pouvez utiliser un service lié de magasin de données existant (ou) spécifier un nouveau magasin de données. Pour utiliser un service lié existant, vous devez sélectionner **FROM EXISTING LINKED SERVICES** (À PARTIR DES SERVICES LIÉS EXISTANTS) et le service lié approprié.
-    ![Outil de copie - Page Banque de données sources](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png" alt-text="Outil de copie - Page Banque de données sources":::
 4. Dans la page **Specify the Azure Blob storage account** (Spécifier le compte de stockage d’objets blob Azure) :
     1. Conservez le nom généré automatiquement comme **Nom de la connexion**. Le nom de la connexion est le nom du service lié de type Stockage Azure.
     2. Vérifiez que l’option **À partir des abonnements** est sélectionnée pour **Account selection method** (Méthode de sélection du compte).
     3. Sélectionnez votre abonnement Azure ou conservez **Sélectionner tout** pour l’option **Abonnement Azure**.
     4. Sélectionnez un **compte de stockage Azure** dans la liste des comptes de stockage Azure disponibles dans l’abonnement sélectionné. Vous pouvez également choisir d’entrer manuellement les paramètres du compte de stockage en sélectionnant l’option **Entrer manuellement** dans **Account selection method** (Méthode de sélection de compte).
     5. Cliquez sur **Suivant**.  
-        ![Outil de copie - Spécifier le compte de stockage Blob Azure](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png" alt-text="Outil de copie - Spécifier le compte de stockage Blob Azure":::
 5. Dans la page **Choose the input file or folder** (Choisir le fichier ou le dossier d’entrée) :
     1. Double-cliquez sur **adfblobcontainer**.
     2. Sélectionnez **input**, puis cliquez sur **Choisir**. Dans cette procédure pas à pas, vous sélectionnez le dossier d’entrée. Vous pouvez également sélectionner à la place le fichier emp.txt dans le dossier.
-        ![Outil de copie - Choisir le fichier ou le dossier d’entrée 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png" alt-text="Outil de copie - Choisir le fichier ou le dossier d’entrée 1":::
 6. Dans la page **Choose the input file or folder** (Choisir le fichier ou le dossier d’entrée) :
     1. Vérifiez que le **fichier ou dossier** est défini sur **adfblobconnector/input**. Si les fichiers se trouvent dans des sous-dossiers, par exemple, 01/04/2017, 02/04/2017 et ainsi de suite, entrez adfblobconnector/input /{jour}/{mois}/{année} pour le fichier ou le dossier. Si vous appuyez sur TAB hors de la zone de texte, trois listes déroulantes s’affichent. Elles permettent de sélectionner les formats d’année (aaaa), de mois (MM) et de jour (jj).
     2. Ne définissez pas **Copy file recursively (Copier le fichier de façon récursive)** . Sélectionnez cette option pour rechercher de manière récursive dans les dossiers les fichiers à copier vers la destination.
     3. Ne sélectionnez pas l’option **Copie binaire**. Sélectionnez cette option pour effectuer une copie binaire du fichier source vers la destination. Ne sélectionnez pas cette option pour la procédure pas à pas afin de pouvoir afficher d’autres options dans les pages suivantes.
     4. Vérifiez que l’option **Type de compression** est définie sur **Aucune**. Sélectionnez une valeur pour cette option si vos fichiers sources sont compressés dans l’un des formats pris en charge.
     5. Cliquez sur **Suivant**.
-    ![Outil de copie - Choisir le fichier ou le dossier d’entrée 2](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/chose-input-file-folder.png" alt-text="Outil de copie - Choisir le fichier ou le dossier d’entrée 2":::
 7. Dans la page **File format settings** (Paramètres de format de fichier), vous pouvez voir les délimiteurs et le schéma qui sont détectés automatiquement par l’Assistant en analysant le fichier.
     1. Vérifiez les options suivantes :  
         a. L’option **Format de fichier** est définie sur **Format du texte**. La liste déroulante contient tous les formats pris en charge. Par exemple : JSON, Avro, ORC, Parquet.
@@ -236,9 +237,9 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
     3. En bas de la page, affichez **l’aperçu** des données du fichier emp.txt.
     4. Cliquez sur l’onglet **SCHÉMA** en bas de la page pour afficher le schéma déduit par l’Assistant Copie en examinant les données du fichier source.
     5. Une fois que vous avez vérifié les délimiteurs et afficher un aperçu des données, cliquez sur **Suivant**.
-    ![Outil de copie - Paramètres de format de fichier](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png" alt-text="Outil de copie - Paramètres de format de fichier":::
 8. Dans la **page de la banque de données de destination**, sélectionnez **Stockage Blob Azure**, puis cliquez sur **Suivant**. Vous utilisez le Stockage Blob Azure comme banques de données source et de destination dans cette procédure pas à pas.  
-    ![Outil de copie - Sélectionner la banque de données de destination](media/data-factory-azure-blob-connector/select-destination-data-store.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/select-destination-data-store.png" alt-text="Outil de copie - Sélectionner la banque de données de destination":::
 9. Dans la page **Specify the Azure Blob storage account** (Spécifier le compte de stockage Blob Azure) :  
     1. Entrez **AzureStorageLinkedService** dans le champ **Nom de la connexion**.
     2. Vérifiez que l’option **À partir des abonnements** est sélectionnée pour **Account selection method** (Méthode de sélection du compte).
@@ -253,20 +254,20 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
     1. Vérifiez que l’option **Type de compression** est définie sur **Aucune**.
     1. Vérifiez que l’option **Copy behavior (Comportement de copie)** est définie sur **Merge files (Fusionner les fichiers)** . Si un fichier de sortie du même nom existe déjà, le nouveau contenu est ajouté à la fin du même fichier.
     1. Cliquez sur **Suivant**.
-       ![Outil de copie - Choisir le fichier ou le dossier de sortie](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+       :::image type="content" source="media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png" alt-text="Outil de copie - Choisir le fichier ou le dossier de sortie":::
 11. Dans la page **Paramètres de format de fichier**, passez en revue les paramètres, puis cliquez sur **Suivant**. L’une des options supplémentaires ici consiste à ajouter un en-tête au fichier de sortie. Si vous sélectionnez cette option, une ligne d’en-tête est ajoutée avec les noms des colonnes du schéma de la source. Vous pouvez renommer les noms de colonne par défaut lorsque vous affichez le schéma de la source. Par exemple, vous pouvez modifier les première et deuxième colonnes et les définir respectivement sur Prénom et Nom. Le fichier de sortie est alors généré avec un en-tête contenant ces noms comme noms de colonne.
-    ![Outil de copie - Paramètres de format de fichier pour la destination](media/data-factory-azure-blob-connector/file-format-destination.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/file-format-destination.png" alt-text="Outil de copie - Paramètres de format de fichier pour la destination":::
 12. Dans la page **Paramètres de performances**, vérifiez que les paramètres **cloud units (Unités cloud)** et **parallel copies (Copies parallèles)** sont définis sur **Auto**, puis cliquez sur Suivant. Pour plus d’informations sur ces paramètres, consultez le [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md#parallel-copy).
-    ![Outil de copie - Paramètres de performances](media/data-factory-azure-blob-connector/copy-performance-settings.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-performance-settings.png" alt-text="Outil de copie - Paramètres de performances":::
 14. Dans la page **Résumé**, passez en revue tous les paramètres (propriétés de tâche, paramètres de source et de destination, et paramètres de copie), puis cliquez sur **Suivant**.
-    ![Outil de copie - Page Résumé](media/data-factory-azure-blob-connector/copy-tool-summary-page.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-tool-summary-page.png" alt-text="Outil de copie - Page Résumé":::
 15. Passez en revue les informations contenues dans la page **Résumé**, puis cliquez sur **Terminer**. L’Assistant crée deux services liés, deux jeux de données (entrée et sortie) et un pipeline dans la fabrique de données (d’où vous avez lancé l’Assistant Copie).
-    ![Outil de copie - Page Déploiement](media/data-factory-azure-blob-connector/copy-tool-deployment-page.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-tool-deployment-page.png" alt-text="Outil de copie - Page Déploiement":::
 
 ### <a name="monitor-the-pipeline-copy-task"></a>Surveiller le pipeline (tâche de copie)
 
 1. Cliquez sur le lien `Click here to monitor copy pipeline` dans la page **Déploiement**.
-2. **L’application Surveiller et Gérer** doit apparaître dans un onglet distinct.  ![Application Surveiller et gérer](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+2. **L’application Surveiller et Gérer** doit apparaître dans un onglet distinct.  :::image type="content" source="media/data-factory-azure-blob-connector/monitor-manage-app.png" alt-text="Application Surveiller et gérer":::
 3. Modifiez l’heure de **début** indiquée en haut sur `04/19/2017` et l’heure de **fin** sur `04/27/2017`, puis cliquez sur **Appliquer**.
 4. La liste **FENÊTRES D’ACTIVITÉ** doit contenir cinq fenêtres d’activité. Les heures **WindowStart** doivent couvrir tous les jours, de l’heure de début du pipeline à son heure de fin.
 5. Cliquez plusieurs fois sur le bouton **Actualiser** correspondant à la liste **FENÊTRES D’ACTIVITÉ** jusqu’à ce que le statut de toutes les fenêtres d’activité soit défini sur Prêt.
@@ -283,11 +284,11 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
 ### <a name="data-factory-entities"></a>Entités Data Factory
 À présent, revenez dans l’onglet contenant la page d’accueil Data Factory. Notez qu’il existe désormais deux services liés, deux jeux de données et un pipeline dans votre fabrique de données.
 
-![Page d’accueil Data Factory comportant des entités](media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png)
+:::image type="content" source="media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png" alt-text="Page d’accueil Data Factory comportant des entités":::
 
 Cliquez sur **Créer et déployer** pour démarrer Data Factory Editor.
 
-![Data Factory Editor](media/data-factory-azure-blob-connector/data-factory-editor.png)
+:::image type="content" source="media/data-factory-azure-blob-connector/data-factory-editor.png" alt-text="Data Factory Editor":::
 
 Votre fabrique de données doit contenir les entités Data Factory suivantes :
 

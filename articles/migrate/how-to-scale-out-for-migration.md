@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 56f79028b2424d8383a0a4a3cb27639f3924ff90
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 9aee2c46f677f5265b7eafce9cc7af7214f745df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779618"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652943"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Mettre à l’échelle une migration sans agent de machines virtuelles VMware vers Azure
 
@@ -75,11 +75,14 @@ Dans **Télécharger l’appliance Azure Migrate**, cliquez sur **Télécharger*
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Exécuter le script du programme d’installation Azure Migrate
 
 1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
-2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
-3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
-4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
 
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
+
+3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
+
+4. Exécutez le script nommé `AzureMigrateInstaller.ps1` via la commande suivante :
+
+  `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
 5. Sélectionnez parmi les options de scénario, de cloud, de configuration et de connectivité pour déployer l’appliance souhaitée. Par exemple, la sélection présentée ci-dessous configure une **appliance de scale-out** pour lancer des réplications concurrentes sur des serveurs s’exécutant dans votre environnement VMware vers un projet Azure Migrate avec une connectivité **par défaut _(point de terminaison public)_**  sur le **cloud public Azure**.
 
@@ -141,14 +144,17 @@ Avant de commencer, assurez-vous que [ces points de terminaison Azure](migrate-a
 Pour terminer l’inscription de l’appliance de montée en puissance parallèle, cliquez sur **Importer** pour obtenir les fichiers de configuration nécessaires de l’appliance principale.
 
 1. Cliquer sur **Importer** a pour effet d’ouvrir une fenêtre contextuelle contenant des instructions sur la façon d’importer les fichiers de configuration nécessaires à partir de l’appliance principale.
+
 :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="Boîte de dialogue modale":::
+
 1. Connectez-vous (bureau à distance) à l’appliance principale, puis exécutez les commandes PowerShell suivantes :
 
-    ``` PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' ```
+   `PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' `
     
-    ``` PS .\ExportConfigFiles.ps1 ```
+    `PS .\ExportConfigFiles.ps1 `
 
 1. Copiez le fichier zip créé en exécutant les commandes ci-dessus sur l’appliance de montée en puissance parallèle. Le fichier zip contient les fichiers de configuration nécessaires pour l’inscription de l’appliance de montée en puissance parallèle.
+
 1. Dans la fenêtre contextuelle ouverte à l’étape précédente, sélectionnez l’emplacement du fichier zip de configuration copié, puis cliquez sur **Enregistrer**.
 
 Une fois les fichiers importés, l’inscription de l’appliance de montée en puissance parallèle s’achève et l’horodateur de la dernière importation réussie s’affiche. Vous pouvez également consulter les détails de l’inscription en cliquant sur **Afficher les détails**.

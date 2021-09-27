@@ -3,12 +3,12 @@ title: Questions courantes sur la récupération d’urgence pour VMware avec Az
 description: Obtenez des réponses à des questions courantes sur la récupération d’urgence de machines virtuelles VMware locales sur Azure à l’aide d’Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0e39cd3b9f06620f2004a2afbc869fe22de04468
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 8480598cc872a051b6b81f928e92740e39353598
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272861"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621216"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -25,7 +25,7 @@ Pour modifier l’expérience :
 1. Ouvrez le coffre sur le portail Azure. 
 2. Cliquez sur **Site Recovery** sous la section **Démarrer**. 
 3. Cliquez sur la bannière en haut de cette page. 
-
+    
     [![Modifier la pile VMware étape 1](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
 
 4. Cela ouvre le volet de sélection d’expérience. Sélectionnez l’expérience classique si vous souhaitez utiliser le serveur de configuration, puis cliquez sur **OK**. Sinon, fermez le volet. 

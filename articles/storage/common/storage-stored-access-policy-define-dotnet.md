@@ -11,28 +11,28 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c1b6aa0d6bdd98a66a638a216f93a6d81bd6b93
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 1be2b8200cd9e7b83fb3d113966a13c32e126d34
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113726857"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589261"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Créer une stratégie d’accès stockée avec .NET
 
 Une stratégie d’accès stockée fournit un niveau de contrôle supplémentaire sur les signatures d’accès partagé (SAP) au niveau du service côté serveur. La définition d’une stratégie d’accès stockée sert à regrouper des signatures d’accès partagé et à fournir des restrictions supplémentaires pour les signatures d’accès partagé liées par la stratégie. Vous pouvez utiliser une stratégie d'accès stockée pour modifier l'heure de début, l'heure d'expiration ou les autorisations d'une SAP, ou de la révoquer après sa publication.
-  
-Les ressources de Stockage Azure suivantes prennent en charge les stratégies d’accès stockées :  
-  
-- Conteneurs d’objets blob  
-- Partages de fichiers  
-- Files d’attente  
-- Tables  
-  
+
+Les ressources de Stockage Azure suivantes prennent en charge les stratégies d’accès stockées :
+
+- Conteneurs d’objets blob
+- Partages de fichiers
+- Files d’attente
+- Tables
+
 > [!NOTE]
 > Une stratégie d’accès stockée sur un conteneur peut être associée à une signature d’accès partagé accordant des autorisations au conteneur lui-même ou aux objets blob qu’il contient. De même, une stratégie d’accès stockée sur un partage de fichiers peut être associée à une signature d’accès partagé accordant des autorisations au partage lui-même ou aux fichiers qu’il contient.  
 >
-> Les stratégies d’accès stockées sont prises en charge pour une SAP de service uniquement. Les stratégies d’accès stockées ne sont pas prises en charge pour les SAP de compte ou les SAP de délégation d’utilisateur.  
+> Les stratégies d’accès stockées sont prises en charge pour une SAP de service uniquement. Les stratégies d’accès stockées ne sont pas prises en charge pour les SAP de compte ou les SAP de délégation d’utilisateur.
 
 Pour plus d’informations sur les stratégies d’accès stockées, consultez [Définir une stratégie d’accès stockée](/rest/api/storageservices/define-stored-access-policy).
 

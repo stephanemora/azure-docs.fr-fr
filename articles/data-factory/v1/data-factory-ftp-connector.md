@@ -3,16 +3,17 @@ title: Déplacer des données à partir d’un serveur FTP à l’aide d’Azure
 description: Découvrez comment déplacer des données depuis un serveur FTP à l’aide d’Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a8a8ca44fbdb7610f85bc53c23d502d2efb01c8b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6c267c3234e0861a394c75cf47bd198b1209b58
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363948"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589983"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Déplacer des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

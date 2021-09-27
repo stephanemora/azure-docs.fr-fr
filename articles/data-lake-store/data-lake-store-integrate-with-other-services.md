@@ -1,17 +1,17 @@
 ---
 title: Intégrer Data Lake Storage Gen1 avec d’autres services Azure
 description: Découvrez comment intégrer Azure Data Lake Storage Gen1 à d’autres services Azure.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: twooley
-ms.openlocfilehash: 929853f4dbedca7034c8e2a51e6231651a2dd08f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: normesta
+ms.openlocfilehash: a5d5c67b89d35284a4c441ac87d9ae467edb5aa5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461658"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602837"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Intégration d’Azure Data Lake Storage Gen1 à d’autres services Azure
 Azure Data Lake Storage Gen1 peut être utilisé conjointement à d’autres services Azure afin d’augmenter le nombre de scénarios. L’article suivant liste les services auxquels Data Lake Storage Gen1 peut être intégré.

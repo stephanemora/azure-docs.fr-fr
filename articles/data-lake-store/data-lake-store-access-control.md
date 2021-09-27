@@ -1,23 +1,17 @@
 ---
 title: Vue d’ensemble du contrôle d’accès dans Data Lake Storage Gen1 | Microsoft Docs
 description: Découvrez les principes de base du modèle de contrôle d’accès d’Azure Data Lake Storage Gen1, qui dérive de HDFS.
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: twooley
-ms.openlocfilehash: aa0da5721c577957b101ac8a2d9346c0536f0a88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: normesta
+ms.openlocfilehash: 76e04c749af8e2152bb7fd1ab18a4bc5589b259f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102424136"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680525"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Contrôle d’accès dans Azure Data Lake Storage Gen1
 

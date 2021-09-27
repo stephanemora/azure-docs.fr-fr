@@ -1,15 +1,15 @@
 ---
 title: Adopter Azure DevTest Labs pour votre entreprise
 description: Cet article fournit des conseils pour favoriser l’adoption d’Azure DevTest Labs dans votre entreprise.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 81767c36b2a5b46eb41be1e516a14fb3ebe3fb7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e5be75d7049d9cfdc97a764fdca8d1e63876aaf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85476986"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671162"
 ---
 # <a name="devtest-labs-in-the-enterprise"></a>DevTest Labs dans l’entreprise
 Les entreprises adoptent rapidement le cloud en raison de ses [avantages](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case), qui incluent l’économie, la flexibilité et l’agilité. Les premières étapes sont souvent développement et le test des charges de travail. Azure DevTest Labs offre des [fonctionnalités](devtest-lab-concepts.md) qui bénéficient à l’entreprise et permettent la prise en charge des [principaux scénarios de développement/test](devtest-lab-guidance-get-started.md).

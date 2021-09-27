@@ -6,12 +6,12 @@ author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 05/30/2021
-ms.openlocfilehash: f0dfc7c77ce0eeedc6a85760627988e3eddc838e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2d65b537ef0bad56127fcfcc1e87f1b1cfc15f2d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784916"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583762"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Utiliser une identité managée pour authentifier votre travail Azure Stream Analytics vers Power BI
 
@@ -214,8 +214,10 @@ Corps de la demande
 
 Pour les déploiements automatisés, l’utilisation d’une connexion interactive pour permettre à un tâche ASA d’accéder à un espace de travail Power BI n’est pas possible. Cela peut être réalisé en utilisant un principal de service pour accorder l’autorisation d’identité gérée d’une tâche ASA. Cela est possible à l’aide de PowerShell :
 
-Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>" Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
-
+```powershell
+Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>"
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
 
 ## <a name="remove-managed-identity"></a>Supprimer l’identité managée
 

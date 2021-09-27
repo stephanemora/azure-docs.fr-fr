@@ -1,20 +1,19 @@
 ---
-title: Déployer une passerelle auto-hébergée sur Kubernetes | Microsoft Docs
+title: Déployer une passerelle auto-hébergée sur Kubernetes
 description: Découvrez comment déployer un composant de passerelle auto-hébergée de la Gestion des API Azure sur Kubernetes.
-services: api-management
-author: vladvino
+author: dlepow
 manager: gwallace
 ms.service: api-management
 ms.workload: mobile
 ms.topic: article
-ms.author: apimpm
+ms.author: danlep
 ms.date: 05/25/2021
-ms.openlocfilehash: 645fce68e408b65299090e4661b36690f7ca140c
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: dda6fcbf71914fefcd1afd2056864ad66aa11d4d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690486"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609818"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Déployer une passerelle auto-hébergée sur Kubernetes
 
@@ -43,25 +42,27 @@ Cet article explique comment déployer la passerelle auto-hébergée de la Gesti
 8. Collez les commandes dans la fenêtre du terminal. La première commande crée un secret Kubernetes contenant le jeton d’accès généré à l’étape 4. La deuxième commande applique le fichier de configuration téléchargé à l’étape 6 au cluster Kubernetes, et s’attend à ce que le fichier figure dans le répertoire actif.
 9. Exécutez les commandes pour créer les objets Kubernetes nécessaires dans l’[espace de noms par défaut](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) et démarrez le ou les pods de la passerelle auto-hébergée à partir d’une [image conteneur](https://aka.ms/apim/sputnik/dhub) téléchargée à partir de Microsoft Container Registry.
 10. Exécutez la commande suivante pour vérifier si le déploiement a réussi. Notez que le temps nécessaire à la création de tous les objets et à l’initialisation des pods peut être long.
+
     ```console
     kubectl get deployments
     NAME             READY   UP-TO-DATE   AVAILABLE   AGE
     <gateway-name>   1/1     1            1           18s
     ```
 11. Exécutez la commande suivante pour vérifier si le service a bien été créé. Notez que les adresses IP et les ports de votre service seront différents.
+
     ```console
     kubectl get services
     NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
     <gateway-name>   LoadBalancer   10.99.236.168   <pending>     80:31620/TCP,443:30456/TCP   9m1s
     ```
-12. Revenez au portail Azure, puis sélectionnez **Vue d’ensemble**.
-13. Vérifiez qu’**État** affiche une coche verte, suivie d’un nombre de nœuds qui correspond au nombre de réplicas spécifiés dans le fichier YAML. Cet état signifie que les pods de passerelle auto-hébergés déployés communiquent avec le service Gestion des API et présentent une « pulsation » normale.
+1. Revenez au portail Azure, puis sélectionnez **Vue d’ensemble**.
+1. Vérifiez qu’**État** affiche une coche verte, suivie d’un nombre de nœuds qui correspond au nombre de réplicas spécifiés dans le fichier YAML. Cet état signifie que les pods de passerelle auto-hébergés déployés communiquent avec le service Gestion des API et présentent une « pulsation » normale.
 
     ![État de la passerelle](media/how-to-deploy-self-hosted-gateway-kubernetes/status.png)
 
 > [!TIP]
-> Exécutez la commande <code>kubectl logs deployment/<gateway-name></code> pour afficher les journaux d’un pod sélectionné de manière aléatoire, s’il en existe plusieurs.
-> Exécutez <code>kubectl logs -h</code> pour obtenir un ensemble complet d’options de commande, par exemple, comment afficher les journaux d’un pod ou d’un conteneur spécifique.
+> Exécutez la commande `kubectl logs deployment/<gateway-name>` pour afficher les journaux d’un pod sélectionné de manière aléatoire, s’il en existe plusieurs.
+> Exécutez `kubectl logs -h` pour obtenir un ensemble complet d’options de commande, par exemple, comment afficher les journaux d’un pod ou d’un conteneur spécifique.
 
 ## <a name="production-deployment-considerations"></a>Points à prendre en considération pour le déploiement de production
 

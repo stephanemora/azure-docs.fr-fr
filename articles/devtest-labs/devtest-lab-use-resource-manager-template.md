@@ -1,14 +1,14 @@
 ---
 title: Afficher et utiliser un modèle Azure Resource Manager de machine virtuelle
 description: Découvrez comment utiliser le modèle Azure Resource Manager à partir d’une machine virtuelle pour créer d’autres machines virtuelles
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: a72816c19c4d465e5bcb14b377d6f7a7df49f97b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d298ef123fac319ec211d45c877f314c5f008fef
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954014"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646717"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Créer des machines virtuelles à l’aide d’un modèle Azure Resource Manager 
 
