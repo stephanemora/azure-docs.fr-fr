@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 08/11/2021
-ms.openlocfilehash: 3b715c15eb889d04c87a654fd68b802a53e7af01
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 318c4ba47caab7ce7f84f8bc43522d04c3eb40da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531370"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644863"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-using-an-integration-service-environment-ise"></a>Se connecter aux réseaux virtuels Azure à partir d’Azure Logic Apps en utilisant un environnement de service d’intégration (ISE)
 
@@ -156,7 +156,7 @@ Si vous n’autorisez pas l’accès pour ces dépendances, votre déploiement I
   * [Adresses IP Azure pour les connecteurs de la région ISE, disponibles dans ce fichier de téléchargement](https://www.microsoft.com/download/details.aspx?id=56519)
   * [Adresses de gestion App Service Environment](../app-service/environment/management-addresses.md)  
   * [Adresses de gestion d’Azure Traffic Manager](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
-  * [Adresses IP du plan de contrôle de Gestion des API Azure](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+  * [Adresses IP du plan de contrôle de Gestion des API Azure](../api-management/api-management-using-with-vnet.md#control-plane-ip-addresses)
 
 * Points de terminaison de service
 
@@ -168,7 +168,7 @@ Si vous n’autorisez pas l’accès pour ces dépendances, votre déploiement I
    
    * [Dépendances d’Azure App Service](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
    * [Dépendances d’Azure Cache Service](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
-   * [Dépendances de Gestion des API Azure](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
+   * [Dépendances de Gestion des API Azure](../api-management/api-management-using-with-vnet.md#network-configuration-issues)
 
 <a name="create-environment"></a>
 

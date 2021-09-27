@@ -3,16 +3,16 @@ title: Intégrer Google Tag Manager au portail des développeurs
 titleSuffix: Azure API Management
 description: Découvrez comment connecter Google Tag Manager à votre portail des développeurs managé ou auto-hébergé dans la Gestion des API Azure.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: c209eb782787146d947b4684d41c5d1e9bb6364e
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: a3436727470ceb073f5431ef9677fbc17afdda84
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741217"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601669"
 ---
 # <a name="integrate-google-tag-manager-to-api-management-developer-portal"></a>Intégrer Google Tag Manager au portail des développeurs Gestion des API
 

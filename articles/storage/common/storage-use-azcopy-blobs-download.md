@@ -8,16 +8,16 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c57744817e26cc79c101246f146d32d3db061ed5
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 9ee927ff858c1242ddab687e28707049a27a23bb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361476"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624839"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy"></a>Télécharger des objets blob à partir du Stockage Blob Azure en utilisant AzCopy
 
-Vous pouvez télécharger des blobs et des répertoires à partir du stockage Blob à l’aide de l’utilitaire en ligne de commande AzCopy v10. 
+Vous pouvez télécharger des blobs et des répertoires à partir du stockage Blob à l’aide de l’utilitaire en ligne de commande AzCopy v10.
 
 Pour obtenir des exemples d’autres types de tâches, telles que le chargement de fichiers, la synchronisation avec le stockage Blob ou la copie de blobs entre des comptes, consultez les liens présentés dans la section [Étapes suivantes](#next-steps) de cet article.
 
@@ -25,7 +25,7 @@ Pour obtenir des exemples d’autres types de tâches, telles que le chargement 
 
 Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour télécharger AzCopy, et découvrez comment vous pouvez fournir des informations d’identification au service de stockage.
 
-> [!NOTE] 
+> [!NOTE]
 > Les exemples de cet article partent du principe que vous avez fourni des informations d’identification d’autorisation en utilisant Azure AD (Azure Active Directory).
 >
 > Si vous préférez utiliser un jeton SAS pour autoriser l’accès aux données d’objets blob, vous pouvez ajouter ce jeton à l’URL de ressource dans chaque commande AzCopy. Par exemple : `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -39,7 +39,7 @@ Téléchargez un blob à l’aide de la commande [azcopy copy](storage-ref-azcop
 
 **Syntaxe**
 
-``azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'``
+`azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'`
 
 **Exemple**
 
@@ -105,7 +105,7 @@ Ajoutez l’indicateur `--recursive` pour télécharger des fichiers dans tous l
 
 ## <a name="download-specific-blobs"></a>Télécharger des blobs spécifiques
 
-Vous pouvez télécharger des blobs spécifiques en utilisant des noms de fichiers complets, des noms partiels avec des caractères génériques (*), ou des dates et des heures. 
+Vous pouvez télécharger des blobs spécifiques en utilisant des noms de fichiers complets, des noms partiels avec des caractères génériques (*), ou des dates et des heures.
 
 > [!TIP]
 > Ces exemples englobent les arguments de chemin avec des guillemets simples (''). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
@@ -158,9 +158,9 @@ Vous pouvez également exclure des blobs à l’aide de l’option `--exclude-pa
 
 Les options `--include-pattern` et `--exclude-pattern` s’appliquent uniquement aux noms de blob, et non au chemin.  Si vous souhaitez copier tous les fichiers texte (objets blob) qui existent dans une arborescence de répertoires, utilisez l’option `–recursive` pour obtenir la totalité de l’arborescence de répertoires, puis utilisez `–include-pattern` et spécifiez `*.txt` pour obtenir tous les fichiers texte.
 
-#### <a name="download-blobs-that-were-modified-before-or-after-a-date-and-time"></a>Télécharger les blobs qui ont été modifiés avant ou après une date et une heure 
+#### <a name="download-blobs-that-were-modified-before-or-after-a-date-and-time"></a>Télécharger les blobs qui ont été modifiés avant ou après une date et une heure
 
-Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-before` ou `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`). 
+Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-before` ou `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`).
 
 Les exemples suivants téléchargent les fichiers qui ont été modifiés à la date spécifiée ou après celle-ci.
 
@@ -184,9 +184,9 @@ Pour obtenir des informations de référence détaillées, consultez les documen
 
 #### <a name="download-previous-versions-of-a-blob"></a>Télécharger les versions précédentes d’un objet blob
 
-Si vous avez activé le [contrôle de version](../blobs/versioning-enable.md), vous pouvez télécharger une ou plusieurs versions précédentes d’un objet blob. 
+Si vous avez activé le [contrôle de version](../blobs/versioning-enable.md), vous pouvez télécharger une ou plusieurs versions précédentes d’un objet blob.
 
-Tout d’abord, créez un fichier texte qui contient une liste d’[ID de version](../blobs/versioning-overview.md). Chaque ID de version doit figurer sur une ligne distincte. Par exemple : 
+Tout d’abord, créez un fichier texte qui contient une liste d’[ID de version](../blobs/versioning-overview.md). Chaque ID de version doit figurer sur une ligne distincte. Par exemple :
 
 ```
 2020-08-17T05:50:34.2199403Z
@@ -194,11 +194,11 @@ Tout d’abord, créez un fichier texte qui contient une liste d’[ID de versio
 2020-08-17T05:50:36.7607103Z
 ```
 
-Utilisez ensuite la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--list-of-versions`. Spécifiez l’emplacement du fichier texte qui contient la liste des versions (par exemple : `D:\\list-of-versions.txt`).  
+Utilisez ensuite la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--list-of-versions`. Spécifiez l’emplacement du fichier texte qui contient la liste des versions (par exemple : `D:\\list-of-versions.txt`).
 
 #### <a name="download-a-blob-snapshot"></a>Télécharger un instantané d’objet blob
 
-Vous pouvez télécharger un [instantané de blob](../blobs/snapshots-overview.md) en référençant la valeur **DateTime** d’un instantané de blob. 
+Vous pouvez télécharger un [instantané de blob](../blobs/snapshots-overview.md) en référençant la valeur **DateTime** d’un instantané de blob.
 
 **Syntaxe**
 
@@ -247,4 +247,4 @@ Consultez les articles suivants pour configurer les paramètres, optimiser les p
 
 - [Paramètres de configuration d’AzCopy](storage-ref-azcopy-configuration-settings.md)
 - [Optimiser les performances d’AzCopy](storage-use-azcopy-optimize.md)
-- [Résoudre les problèmes d’AzCopy v10 dans Stockage Azure en utilisant des fichiers journaux](storage-use-azcopy-configure.md)
+- [Résoudre les problèmes d’AzCopy V10 dans le stockage Azure à l’aide de fichiers journaux](storage-use-azcopy-configure.md)

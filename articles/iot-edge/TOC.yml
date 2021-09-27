@@ -47,8 +47,6 @@
           href: tutorial-deploy-function.md
         - name: Rechercher des moyennes avec Azure Stream Analytics
           href: tutorial-deploy-stream-analytics.md
-        - name: Scoring des données avec Azure Machine Learning
-          href: tutorial-deploy-machine-learning.md
         - name: Classer des images avec Service Vision personnalisée
           href: tutorial-deploy-custom-vision.md
         - name: Stocker des données localement avec SQL
@@ -156,9 +154,21 @@
             - name: Windows
               href: how-to-auto-provision-simulated-device-windows.md
         - name: "Attestation de certificat\_X.509"
-          href: how-to-auto-provision-x509-certs.md
+          items:
+            - name: Linux
+              href: how-to-provision-devices-at-scale-linux-x509.md
+            - name: Conteneurs Linux sur Windows
+              href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
+            - name: Windows
+              href: how-to-provision-devices-at-scale-windows-x509.md
         - name: Attestation de clé symétrique
-          href: how-to-auto-provision-symmetric-keys.md
+          items:
+            - name: Linux
+              href: how-to-provision-devices-at-scale-linux-symmetric.md
+            - name: Conteneurs Linux sur Windows
+              href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
+            - name: Windows
+              href: how-to-provision-devices-at-scale-windows-symmetric.md
     - name: Développer des modules personnalisés
       items:
         - name: "Développer avec Visual Studio\_2019"

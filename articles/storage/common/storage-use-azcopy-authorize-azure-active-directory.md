@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e6b2e331c274013ccad445c4e203388b8b7b8048
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: d5aced875863f892ec9dda0022f4571ce15349c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903866"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638232"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autoriser l’accès aux objets blob avec AzCopy et Azure Active Directory (Azure AD)
 
-Vous pouvez fournir à AzCopy des informations d’identification d’autorisation à l’aide d’Azure AD. De cette façon, vous n’aurez pas à ajouter un jeton de signature d’accès partagé (SAP) à chaque commande. 
+Vous pouvez fournir à AzCopy des informations d’identification d’autorisation à l’aide d’Azure AD. De cette façon, vous n’aurez pas à ajouter un jeton de signature d’accès partagé (SAP) à chaque commande.
 
-Commencez par vérifier vos attributions de rôles. Ensuite, choisissez le type de _principal de sécurité_ que vous souhaitez autoriser. Il peut s’agir d’une [identité d’utilisateur](../../active-directory/fundamentals/add-users-azure-active-directory.md), d’une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) ou d’un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md).
+Commencez par vérifier vos attributions de rôles. Ensuite, choisissez le type de *principal de sécurité* que vous souhaitez autoriser. Il peut s’agir d’une [identité d’utilisateur](../../active-directory/fundamentals/add-users-azure-active-directory.md), d’une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) ou d’un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Une identité d’utilisateur est tout utilisateur ayant une identité dans Azure AD. Il s’agit du principal de sécurité le plus facile à autoriser. Les identités managées et les principaux de service sont d’excellentes options si vous envisagez d’utiliser AzCopy à l’intérieur d’un script qui s’exécute sans intervention de l’utilisateur. Une identité managée est mieux adaptée pour les scripts qui s’exécutent à partir d’une machine virtuelle Azure, et un principal de service est mieux adapté pour les scripts qui s’exécutent localement. 
+Une identité d’utilisateur est tout utilisateur ayant une identité dans Azure AD. Il s’agit du principal de sécurité le plus facile à autoriser. Les identités managées et les principaux de service sont d’excellentes options si vous envisagez d’utiliser AzCopy à l’intérieur d’un script qui s’exécute sans intervention de l’utilisateur. Une identité managée est mieux adaptée pour les scripts qui s’exécutent à partir d’une machine virtuelle Azure, et un principal de service est mieux adapté pour les scripts qui s’exécutent localement.
 
 Pour plus d’informations sur AzCopy, consultez [Prise en main d’AzCopy](storage-use-azcopy-v10.md).
 
@@ -145,7 +145,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> Envisagez d’utiliser une invite comme dans cet exemple. De cette façon, votre mot de passe n’apparaîtra pas dans l’historique des commandes de votre console.  
+> Envisagez d’utiliser une invite comme dans cet exemple. De cette façon, votre mot de passe n’apparaîtra pas dans l’historique des commandes de votre console.
 
 Ensuite, tapez la commande suivante, puis appuyez sur la touche ENTRÉE.
 
@@ -153,7 +153,7 @@ Ensuite, tapez la commande suivante, puis appuyez sur la touche ENTRÉE.
 azcopy login --service-principal  --application-id application-id --tenant-id=tenant-id
 ```
 
-Remplacez l’espace réservé `<application-id>` par l’ID d’application de votre enregistrement d’application de principal de service. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire**. 
+Remplacez l’espace réservé `<application-id>` par l’ID d’application de votre enregistrement d’application de principal de service. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire**.
 
 #### <a name="authorize-a-service-principal-by-using-a-certificate"></a>Autoriser un principal de service à l’aide d’un certificat
 
@@ -181,13 +181,13 @@ azcopy login --service-principal --certificate-path <path-to-certificate-file> -
 Remplacez l’espace réservé `<path-to-certificate-file>` par le chemin d’accès complet ou relatif du fichier de certificat. AzCopy enregistre le chemin d’accès à ce certificat, mais il n’enregistre pas une copie du certificat, alors assurez-vous de garder ce certificat en place. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire**.
 
 > [!NOTE]
-> Envisagez d’utiliser une invite comme dans cet exemple. De cette façon, votre mot de passe n’apparaîtra pas dans l’historique des commandes de votre console. 
+> Envisagez d’utiliser une invite comme dans cet exemple. De cette façon, votre mot de passe n’apparaîtra pas dans l’historique des commandes de votre console.
 
 ## <a name="authorize-without-a-secret-store"></a>Autoriser sans magasin de secrets
 
-La commande `azcopy login` récupère un jeton OAuth, puis place ce jeton dans un magasin de secrets sur votre système. Si votre système d’exploitation ne dispose pas d’un magasin des secrets comme un *porte-clés* Linux, la commande `azcopy login` ne fonctionne pas, car il n’y pas de place pour le jeton. 
+La commande `azcopy login` récupère un jeton OAuth, puis place ce jeton dans un magasin de secrets sur votre système. Si votre système d’exploitation ne dispose pas d’un magasin des secrets comme un *porte-clés* Linux, la commande `azcopy login` ne fonctionne pas, car il n’y pas de place pour le jeton.
 
-Au lieu d’utiliser la commande `azcopy login`, vous pouvez définir des variables d’environnement en mémoire. Exécutez ensuite une commande AzCopy. AzCopy récupère le jeton d’authentification requis pour terminer l’opération. Une fois l’opération terminée, le jeton disparaît de la mémoire. 
+Au lieu d’utiliser la commande `azcopy login`, vous pouvez définir des variables d’environnement en mémoire. Exécutez ensuite une commande AzCopy. AzCopy récupère le jeton d’authentification requis pour terminer l’opération. Une fois l’opération terminée, le jeton disparaît de la mémoire.
 
 ### <a name="authorize-a-user-identity"></a>Autoriser une identité d’utilisateur
 
@@ -264,10 +264,10 @@ export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Remplacez l’espace réservé `<application-id>` par l’ID d’application de votre enregistrement d’application de principal de service. Remplacez l’espace réservé `<client-secret>` par la clé secrète client. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire**. 
+Remplacez l’espace réservé `<application-id>` par l’ID d’application de votre enregistrement d’application de principal de service. Remplacez l’espace réservé `<client-secret>` par la clé secrète client. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire**.
 
 > [!NOTE]
-> Utilisez de préférence une invite pour collecter le mot de passe de l’utilisateur. De cette façon, votre mot de passe n’apparaîtra pas dans votre historique de commandes. 
+> Utilisez de préférence une invite pour collecter le mot de passe de l’utilisateur. De cette façon, votre mot de passe n’apparaîtra pas dans votre historique de commandes.
 
 Exécutez ensuite une commande AzCopy (par exemple `azcopy list https://contoso.blob.core.windows.net`).
 
@@ -275,7 +275,7 @@ Exécutez ensuite une commande AzCopy (par exemple `azcopy list https://contoso.
 
 Si vous préférez utiliser vos propres informations d’identification pour l’autorisation, vous pouvez télécharger un certificat à l’enregistrement de votre application, puis utiliser ce certificat pour vous connecter.
 
-En plus de télécharger votre certificat dans votre application, vous devrez également avoir une copie du certificat enregistrée sur la machine ou la VM sur laquelle AzCopy sera exécuté. Cette copie du certificat doit être au format.PFX ou.PEM et doit inclure la clé privée. La clé privée doit être protégée par un mot de passe. 
+En plus de télécharger votre certificat dans votre application, vous devrez également avoir une copie du certificat enregistrée sur la machine ou la VM sur laquelle AzCopy sera exécuté. Cette copie du certificat doit être au format.PFX ou.PEM et doit inclure la clé privée. La clé privée doit être protégée par un mot de passe.
 
 Tapez la commande suivante, puis appuyez sur la touche ENTRÉE.
 
@@ -286,10 +286,10 @@ export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Remplacez l’espace réservé `<path-to-certificate-file>` par le chemin d’accès complet ou relatif du fichier de certificat. AzCopy enregistre le chemin d’accès à ce certificat, mais il n’enregistre pas une copie du certificat, alors assurez-vous de garder ce certificat en place. Remplacez l’espace réservé `<certificate-password>` par le mot de passe du certificat. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire**. 
+Remplacez l’espace réservé `<path-to-certificate-file>` par le chemin d’accès complet ou relatif du fichier de certificat. AzCopy enregistre le chemin d’accès à ce certificat, mais il n’enregistre pas une copie du certificat, alors assurez-vous de garder ce certificat en place. Remplacez l’espace réservé `<certificate-password>` par le mot de passe du certificat. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire**.
 
 > [!NOTE]
-> Utilisez de préférence une invite pour collecter le mot de passe de l’utilisateur. De cette façon, votre mot de passe n’apparaîtra pas dans votre historique de commandes. 
+> Utilisez de préférence une invite pour collecter le mot de passe de l’utilisateur. De cette façon, votre mot de passe n’apparaîtra pas dans votre historique de commandes.
 
 Exécutez ensuite une commande AzCopy (par exemple `azcopy list https://contoso.blob.core.windows.net`).
 

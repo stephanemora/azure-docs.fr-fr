@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/19/2020
-ms.openlocfilehash: 9d5706843e8131110566ad8f955415b6db29f7ba
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.date: 09/15/2021
+ms.openlocfilehash: 3bade2b547db3b76bde02731807d4e6ef3539711
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207429"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649603"
 ---
 # <a name="troubleshoot-reservation-utilization"></a>Résoudre les problèmes d’utilisation de réservations
 
@@ -21,7 +21,7 @@ Cet article vous aide à comprendre et à résoudre les problèmes de réservati
 
 ## <a name="symptoms"></a>Symptômes
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Réservations** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Réservations**.
 1. Dans la liste des réservations, recherchez la quantité d’utilisation d’une réservation dans la colonne **Utilisation (%)** . Elle peut être de 0 %.
 1. Sélectionnez la réservation.
 1. Dans la page de vue d’ensemble de la réservation, le pourcentage utilisé dans le graphique peut ne pas correspondre à la valeur indiquée dans la liste des réservations.

@@ -2,13 +2,13 @@
 title: Groupe de ressources Azure en tant que source Event Grid
 description: Décrit les propriétés fournies pour les événements de groupe de ressources avec Azure Event Grid.
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: 7616999d820075524f6efadccd98e04c09732032
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 09/15/2021
+ms.openlocfilehash: dfd4a60c83c9059e0e9e16783a54dfc93af7f0b1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733509"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666511"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Groupe de ressources Azure en tant que source Event Grid
 

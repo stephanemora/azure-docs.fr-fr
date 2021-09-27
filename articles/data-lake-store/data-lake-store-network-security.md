@@ -1,24 +1,17 @@
 ---
 title: Sécurité du réseau dans Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Comprendre l’intégration au réseau virtuel dans Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/09/2018
-ms.author: elsung
-ms.openlocfilehash: 716e3766fdd7c1999efa12456346862a9902d7a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: normesta
+ms.openlocfilehash: faa71c0623fe2c0142f9c5f433fa76f36ddf2d5a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92108709"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578675"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Intégration de réseau virtuel dans Azure Data Lake Storage Gen1
 

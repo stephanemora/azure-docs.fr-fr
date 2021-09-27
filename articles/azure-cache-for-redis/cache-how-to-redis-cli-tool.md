@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7c46ae96de44b191009a86552799488cb770c7e4
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 1f3b99e7b1db248a09cf20e42391c1bf36584dcb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112233526"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668865"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Utiliser l'outil de ligne de commande Redis avec Azure Cache pour Redis
 
@@ -34,7 +34,7 @@ Vous pouvez collecter les informations nécessaires pour accéder au cache à l�
 
 Dans cette section, vous extrairez les clés du portail Azure.
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 
 ## <a name="enable-access-for-redis-cliexe"></a>Activer l’accès pour redis-cli.exe

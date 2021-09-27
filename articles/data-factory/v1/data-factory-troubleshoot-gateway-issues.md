@@ -3,16 +3,17 @@ title: Résoudre les problèmes des passerelles de gestion des données
 description: Fournit des conseils pour résoudre les problèmes liés à la passerelle de gestion des données.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 284486c5db248ced8ada6e7194c7bc5a9be5689f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e136ec96cc2a698f0b0e794830403dcbc284341c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100388343"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554237"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.
@@ -69,7 +70,7 @@ Le message d’erreur suivant peut s’afficher lors de l’inscription d’une 
 
 
 
-![Contenu ou format de clé non valide](media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png" alt-text="Contenu ou format de clé non valide":::
 
 #### <a name="cause"></a>Cause
 Le contenu ou le format de la clé de passerelle est incorrect. Vous avez peut-être copié uniquement une partie de la clé dans le portail ou vous utilisez une clé non valide.
@@ -82,7 +83,7 @@ Le message d’erreur suivant peut s’afficher lors de l’inscription d’une 
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![Capture d’écran mettant en évidence le message d’erreur indiquant que la clé de passerelle n’est pas valide ou est vide.](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png" alt-text="Capture d’écran mettant en évidence le message d’erreur indiquant que la clé de passerelle n’est pas valide ou est vide.":::
 
 #### <a name="cause"></a>Cause
 La clé de passerelle a été régénérée ou la passerelle a été supprimée dans le portail Azure. Cela peut également se produire si vous n’utilisez pas la configuration de passerelle de gestion des données la plus récente.
@@ -97,7 +98,7 @@ Le message d’erreur suivant peut s’afficher lors de l’inscription d’une 
 
 `Error: Gateway has been online for a while, then shows "Gateway is not registered" with the status "Gateway key is invalid"`
 
-![La clé de passerelle n’est pas valide ou est vide.](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png" alt-text="La clé de passerelle n’est pas valide ou est vide.":::
 
 #### <a name="cause"></a>Cause
 Cette erreur peut se produire si la passerelle a été supprimée ou la clé de passerelle associée a été régénérée.
@@ -110,12 +111,12 @@ Si la passerelle existe encore, mais que sa clé a été régénérée, utilisez
 ### <a name="7-problem"></a>7. Problème
 Lorsque vous inscrivez une passerelle, il se peut que vous deviez entrer le chemin d’accès et le mot de passe d’un certificat.
 
-![Capture d’écran montrant où entrer le chemin d’accès et le mot de passe du certificat.](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/specify-certificate.png" alt-text="Capture d’écran montrant où entrer le chemin d’accès et le mot de passe du certificat.":::
 
 #### <a name="cause"></a>Cause
 La passerelle a été inscrite sur d’autres ordinateurs auparavant. Lors de l’inscription initiale de la passerelle, un certificat de chiffrement lui a été associé. Le certificat peut avoir été généré automatiquement par la passerelle ou fourni par l’utilisateur.  Ce certificat est utilisé pour chiffrer les informations d’identification de la banque de données (service lié).  
 
-![Exportation du certificat](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/export-certificate.png" alt-text="Exporter le certificat":::
 
 Lorsque vous restaurez la passerelle sur un autre ordinateur hôte, l’Assistant Inscription demande ce certificat afin de déchiffrer les informations d’identification précédemment chiffrées avec ce certificat.  Sans ce certificat, les informations d’identification ne peuvent pas être déchiffrées par la nouvelle passerelle et les exécutions d’activités de copie suivantes associées à cette nouvelle passerelle échouent.  
 
@@ -155,7 +156,7 @@ Vous obtenez l’erreur suivante.
 
 `Error: Gateway cannot connect to cloud service through service bus`
 
-![La passerelle ne peut pas se connecter au service cloud](media/data-factory-troubleshoot-gateway-issues/gateway-cannot-connect-to-cloud-service.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/gateway-cannot-connect-to-cloud-service.png" alt-text="La passerelle ne peut pas se connecter au service cloud":::
 
 #### <a name="cause"></a>Cause
 La passerelle ne peut pas se connecter au service cloud via Service Bus.
@@ -189,7 +190,7 @@ Cette erreur peut s’afficher lorsque vous essayez d’utiliser le Gestionnaire
 
 Lorsque vous obtenez cette erreur, la page de paramètres du Gestionnaire de configuration de passerelle de gestion des données peut se présenter comme dans la capture d’écran suivante.
 
-![Impossible de contacter la base de données](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png" alt-text="Impossible de contacter la base de données":::
 
 #### <a name="cause"></a>Cause
 Le certificat TLS/SSL a peut-être été perdu sur l’ordinateur de la passerelle. L’ordinateur de la passerelle ne peut pas charger le certificat actuellement utilisé pour le chiffrement TLS. Un message d’erreur similaire au message suivant peut également être affiché dans le journal des événements.
@@ -203,10 +204,10 @@ Procédez comme suit pour résoudre le problème :
 2. Basculez vers l’onglet **Paramètres** .  
 3. Cliquez sur le bouton **Modifier** pour modifier le certificat TLS/SSL.
 
-   ![Bouton de modification du certificat](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
+   :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png" alt-text="Bouton de modification du certificat":::
 4. Sélectionnez un nouveau certificat comme certificat TLS/SSL. Vous pouvez utiliser n’importe quel certificat TLS/SSL généré par vos soins ou par une organisation quelconque.
 
-   ![Indiquer un certificat](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
+   :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png" alt-text="Indiquer un certificat":::
 
 ## <a name="copy-activity-fails"></a>Échec de l’activité de copie
 ### <a name="problem"></a>Problème
@@ -232,7 +233,7 @@ Si vous obtenez des erreurs liées à la connexion à la banque de données ou a
 3. Dans **Tester la connexion**, ajoutez les valeurs de groupe de la passerelle.
 4. Cliquez sur **Tester la connexion** pour vérifier si vous pouvez vous connecter à la source de données locale à partir de l’ordinateur de la passerelle en utilisant les informations de connexion et d’identification. Si le test de connexion échoue encore après l'installation d'un pilote, redémarrez la passerelle pour récupérer les dernières modifications.
 
-![Tester la connexion dans l’onglet Diagnostics](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png" alt-text="Tester la connexion dans l’onglet Diagnostics":::
 
 ## <a name="gateway-logs"></a>Journaux d’activité de la passerelle
 ### <a name="send-gateway-logs-to-microsoft"></a>Envoyer les journaux d’activité de la passerelle à Microsoft
@@ -240,21 +241,21 @@ Lorsque vous contactez le Support Microsoft pour résoudre des problèmes de pas
 
 1. Basculez vers l’onglet **Diagnostics** du Gestionnaire de configuration de passerelle de gestion des données.
 
-    ![Onglet Diagnostics de la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
+    :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png" alt-text="Onglet Diagnostics de la passerelle de gestion des données":::
 2. Cliquez sur **Envoyer des journaux d’activité** pour afficher la boîte de dialogue suivante.
 
-    ![Lien Envoyer des journaux d’activité de la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
+    :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png" alt-text="Lien Envoyer des journaux d’activité de la passerelle de gestion des données":::
 3. (Facultatif) Cliquez sur **Afficher les journaux d’activité** pour consulter les journaux d’activité dans l’Observateur d’événements.
 4. (Facultatif) Cliquez sur **Confidentialité** pour consulter la déclaration de confidentialité relative aux services web Microsoft.
 5. Lorsque vous êtes satisfait des éléments que vous vous apprêtez à charger, cliquez sur **Envoyer des journaux d’activité** pour envoyer les journaux d’activité des sept derniers jours à Microsoft en vue de résoudre les problèmes. L’état de l’opération d’envoi des journaux devrait s’afficher comme dans la capture d’image suivante.
 
-    ![Capture d’écran montrant où afficher l’état de l’opération d’envoi de journaux.](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png" alt-text="Capture d’écran montrant où afficher l’état de l’opération d’envoi de journaux.":::
 6. Une fois l’opération terminée, la boîte de dialogue illustrée dans la capture d’écran suivante s’affiche.
 
-    ![État de l’opération Envoyer des journaux d’activité pour la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
+    :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png" alt-text="État de l’opération Envoyer des journaux d’activité pour la passerelle de gestion des données":::
 7. Notez l’**ID du rapport** et communiquez-le au Support Microsoft. L’ID du rapport permet de localiser les journaux d’activité de la passerelle que vous avez chargés pour la résolution des problèmes.  L’ID du rapport est également enregistré dans l’Observateur d’événements.  Vous pouvez le trouver en recherchant l’ID d’événement « 25 » et en vérifiant la date et l’heure.
 
-    ![ID du rapport de l’opération Envoyer des journaux d’activité pour la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
+    :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png" alt-text="ID du rapport de l’opération Envoyer des journaux d’activité pour la passerelle de gestion des données":::    
 
 ### <a name="archive-gateway-logs-on-gateway-host-machine"></a>La passerelle d’archive ouvre une session sur l’ordinateur hôte de la passerelle
 Dans certains cas, il se peut que vous ayez des problèmes avec la passerelle et que vous ne puissiez pas partager directement les journaux d’activité de la passerelle :
@@ -265,11 +266,11 @@ Dans certains cas, il se peut que vous ayez des problèmes avec la passerelle et
 
 Dans ces cas de figure, vous pouvez enregistrer les journaux d’activité de la passerelle dans un fichier zip et fournir celui-ci au Support Microsoft. Par exemple, si vous recevez une erreur lorsque vous inscrivez la passerelle, comme illustré dans la capture d’écran suivante.   
 
-![Erreur d’inscription de la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png" alt-text="Erreur d’inscription de la passerelle de gestion des données":::
 
 Cliquez sur le lien **Archiver les journaux d’activité de la passerelle** pour archiver et enregistrer les journaux d’activité, puis fournissez le fichier zip au Support Microsoft.
 
-![Lien Archiver les journaux d’activité de la passerelle de gestion de données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png" alt-text="Lien Archiver les journaux d’activité de la passerelle de gestion de données":::
 
 ### <a name="locate-gateway-logs"></a>Rechercher dans les journaux d’activité de la passerelle
 Vous pouvez accéder à des informations détaillées sur les journaux d’activité de la passerelle dans les journaux d’événements Windows.
@@ -279,4 +280,4 @@ Vous pouvez accéder à des informations détaillées sur les journaux d’activ
 
    Lors de la résolution de problèmes liés à la passerelle, recherchez les événements de niveau Erreur dans l’Observateur d’événements.
 
-![Journaux d’activité de la passerelle de gestion des données dans l’Observateur d’événements](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png" alt-text="Journaux d’activité de la passerelle de gestion des données dans l’Observateur d’événements":::

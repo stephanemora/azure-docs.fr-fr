@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9259fac727287ce4d52594d146eaac96a3085433
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8c6e1e1e22f8d694a020174af15ee8f12c6838d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524728"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594723"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurer le comportement de session dans Azure Active Directory B2C
 
@@ -89,7 +89,8 @@ Vous pouvez configurer le comportement de la session Azure AD B2C, notamment le
 Pour configurer le comportement de la session :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire et abonnement** dans le menu supérieur et en choisissant l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Flux d’utilisateurs**.
 1. Ouvrez le flux utilisateur que vous avez créé précédemment.
@@ -133,14 +134,14 @@ La fonction Maintenir la connexion est configurable au niveau du flux de l’uti
 Pour activer Maintenir la connexion pour votre flux utilisateur :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre  **Répertoire + abonnement**  dans le menu du haut, puis choisissez le répertoire qui contient votre locataire Azure AD B2C.
-3. Choisissez  **Tous les services**  dans le coin supérieur gauche du Portail Azure, puis recherchez et sélectionnez  **Azure AD B2C**.
-4. Sélectionnez  **Flux utilisateur (stratégies)** .
-5. Ouvrez le flux utilisateur que vous avez créé précédemment.
-6. Sélectionnez  **Propriétés**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez  **Tous les services**  dans le coin supérieur gauche du Portail Azure, puis recherchez et sélectionnez  **Azure AD B2C**.
+1. Sélectionnez  **Flux utilisateur (stratégies)** .
+1. Ouvrez le flux utilisateur que vous avez créé précédemment.
+1. Sélectionnez  **Propriétés**.
 
-7. Sous  **Comportement de session**, sélectionnez **Activer la session Maintenir la connexion**. En regard de **Maintenir la session de connexion (jours)** , entrez une valeur comprise entre 1 et 90 pour indiquer le nombre de jours pendant lesquels une session peut rester ouverte.
-
+1. Sous  **Comportement de session**, sélectionnez **Activer la session Maintenir la connexion**. En regard de **Maintenir la session de connexion (jours)** , entrez une valeur comprise entre 1 et 90 pour indiquer le nombre de jours pendant lesquels une session peut rester ouverte.
 
    ![Activer Maintenir ma connexion dans la session](media/session-behavior/enable-keep-me-signed-in.png)
 
@@ -325,7 +326,8 @@ Après la déconnexion, l’utilisateur est redirigé vers l’URI spécifié da
 Pour exiger un jeton d’ID dans les demandes de déconnexion :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire et abonnement** dans le menu supérieur et en choisissant l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Flux d’utilisateurs**.
 1. Ouvrez le flux utilisateur que vous avez créé précédemment.
@@ -353,7 +355,8 @@ Pour exiger un jeton d’ID dans les demandes de déconnexion, ajoutez un élém
 Pour configurer l’URL de déconnexion de votre application :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire et abonnement** dans le menu supérieur et en choisissant l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez votre application.
 1. Sélectionnez **Authentification**.

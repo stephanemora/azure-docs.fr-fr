@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b2c166da02d145e9995526279121c1dd360557ad
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: e764623fa84be4ffe023545495528e18f3a9adb2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122563962"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624410"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -35,7 +36,7 @@ Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline const
 
 Une activité peut inclure zéro ou plusieurs [jeux de données](data-factory-create-datasets.md) d’entrée et produire un ou plusieurs [jeux de données](data-factory-create-datasets.md) de sortie. Le diagramme suivant montre la relation entre le pipeline, l’activité et le jeu de données dans Data Factory :
 
-![Relation entre le pipeline, l’activité et le jeu de données](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
+:::image type="content" source="media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png" alt-text="Relation entre le pipeline, l’activité et le jeu de données":::
 
 Un pipeline vous permet de gérer les activités en tant que groupe et non pas individuellement. Par exemple, vous pouvez déployer, planifier, interrompre et reprendre un pipeline, plutôt que de gérer indépendamment des activités dans le pipeline.
 
@@ -271,13 +272,13 @@ Si vous avez plusieurs activités dans un pipeline et que la sortie d’une acti
 
 Vous pouvez chaîner deux activités en utilisant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. La seconde activité s’exécute uniquement quand la première se termine correctement.
 
-![Chaînage des activités dans le même pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+:::image type="content" source="./media/data-factory-create-pipelines/chaining-one-pipeline.png" alt-text="Chaînage des activités dans le même pipeline":::
 
 Dans cet exemple, le pipeline contient deux activités : Activity1 et Activity2. Activity1 utilise Dataset1 comme entrée et produit une sortie Dataset2. L’activité utilise Dataset2 comme entrée et produit une sortie Dataset3. La sortie d’Activity1 (Dataset2) étant l’entrée d’Activity2, Activity2 n’est exécutée que lorsque l’activité se termine avec succès et produit la tranche Dataset2. Si Activity1 échoue pour une quelconque raison et ne produit pas la tranche Dataset2, Activity2 n’est pas exécutée pour cette tranche (par exemple : entre 9 h et 10 h).
 
 Vous pouvez également chaîner des activités se trouvant dans des pipelines différents.
 
-![Chaînage des activités dans deux pipelines](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+:::image type="content" source="./media/data-factory-create-pipelines/chaining-two-pipelines.png" alt-text="Chaînage des activités dans deux pipelines":::
 
 Dans cet exemple, Pipeline1 ne contient qu’une seule activité qui utilise Dataset1 comme entrée et produit Dataset2 comme sortie. Pipeline2 ne contient également qu’une seule activité qui utilise Dataset2 comme entrée et produit Dataset3 comme sortie.
 

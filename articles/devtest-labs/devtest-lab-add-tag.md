@@ -1,14 +1,14 @@
 ---
-title: Ajouter des balises à un laboratoire dans Azure DevTest Labs | Microsoft Docs
+title: Ajouter des balises à un laboratoire
 description: Apprenez à créer des balises personnalisées dans Azure DevTest Labs, et à utilisez des balises pour catégoriser les ressources. Vous pouvez voir toutes les ressources de votre abonnement qui ont une balise.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: a4d2b328626f0d0f096082fa88bb170894ccf3e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f301987a43dccdec91c08f6956986dcc7c48596a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88270731"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621658"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Ajouter des balises à un laboratoire dans Azure DevTest Labs
 

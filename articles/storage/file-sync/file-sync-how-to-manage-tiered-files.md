@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8ba54fa398d42aea43a93d3b3369f21f4d2168ec
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 0feb7f6fc9a36e3440001d3a344ada843ea54e0d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533288"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645699"
 ---
 # <a name="how-to-manage-tiered-files"></a>Guide pratique pour gérer les fichiers hiérarchisés
 
@@ -22,15 +22,15 @@ Cet article fournit des conseils pour les utilisateurs qui ont des questions en 
 
 Si les fichiers doivent être hiérarchisés par ensemble, les stratégies sont évaluées une fois par heure. Vous pouvez rencontrer deux situations lors de la création d’un point de terminaison de serveur :
 
-Lorsque vous ajoutez un nouveau point de terminaison de serveur pour la première fois, il existe souvent des fichiers à cet emplacement de serveur. Ils doivent être chargés en premier, avant que la hiérarchisation Cloud puisse commencer. La stratégie d’espace libre du volume ne commence pas à fonctionner tant que le chargement initial de tous les fichiers n’est pas terminé. Toutefois, la stratégie de date facultative commence à fonctionner sur la base d’un fichier individuel, dès qu’un fichier a été chargé. L’intervalle d’une heure s’applique également dans ce cas de figure. 
+Lorsque vous ajoutez un nouveau point de terminaison de serveur pour la première fois, il existe souvent des fichiers à cet emplacement de serveur. Ils doivent être chargés en premier, avant que la hiérarchisation Cloud puisse commencer. La stratégie d’espace libre du volume ne commence pas à fonctionner tant que le chargement initial de tous les fichiers n’est pas terminé. Toutefois, la stratégie de date facultative commence à fonctionner sur la base d’un fichier individuel, dès qu’un fichier a été chargé. L’intervalle d’une heure s’applique également dans ce cas de figure.
 
 Lorsque vous ajoutez un nouveau point de terminaison de serveur, vous pouvez connecter un emplacement de serveur vide à un partage de fichiers Azure contenant vos données. Si vous choisissez de télécharger l’espace de noms et de rappeler le contenu pendant le téléchargement initial vers votre serveur, une fois l’espace de noms indisponible, les fichiers sont renommés en fonction de l’horodatage de la dernière modification. Et ce, jusqu’à ce que la stratégie d’espace de volume libre et la stratégie de date (en option) sont atteintes.
 
 Vous pouvez déterminer de plusieurs façons si un fichier a été hiérarchisé sur votre partage de fichiers Azure :
-    
-   *  **Vérifier les attributs du fichier.**
-     Cliquez avec le bouton droit sur le fichier, accédez à **Détails**, puis faites défiler vers le bas jusqu’à la propriété **Attributs**. Un fichier hiérarchisé a les attributs suivants définis :     
-        
+
+   - **Vérifier les attributs du fichier.**
+     Cliquez avec le bouton droit sur le fichier, accédez à **Détails**, puis faites défiler vers le bas jusqu’à la propriété **Attributs**. Un fichier hiérarchisé a les attributs suivants définis :
+
         | Lettre de l’attribut | Attribut | Définition |
         |:----------------:|-----------|------------|
         | Un | Archivage | Indique que le fichier doit être sauvegardé par un logiciel de sauvegarde. Cet attribut est toujours défini, que le fichier soit hiérarchisé ou entièrement stocké sur le disque. |
@@ -40,26 +40,27 @@ Vous pouvez déterminer de plusieurs façons si un fichier a été hiérarchisé
         | O | Hors connexion | Indique qu’une partie ou la totalité du contenu du fichier n’est pas stockée sur le disque. Quand un fichier est entièrement rappelé, la synchronisation de fichiers Azure supprime cet attribut. |
 
         ![Boîte de dialogue Propriétés d’un fichier dans laquelle l’onglet Détails est sélectionné](../files/media/storage-files-faq/azure-file-sync-file-attributes.png)
-        
-    
+
+
         > [!NOTE]
         > Vous pouvez également voir les attributs de tous les fichiers d’un dossier en ajoutant le champ **Attributs** à l’affichage sous forme de tableau de l’Explorateur de fichiers. Pour ce faire, cliquez avec le bouton droit sur une colonne (par exemple, **Taille**), sélectionnez **Autres**, puis sélectionnez **Attributs** dans la liste déroulante.
-        
+
         > [!NOTE]
         > Tous ces attributs sont également visibles pour les fichiers partiellement rappelés.
-        
-   * **Utiliser `fsutil` pour rechercher les points d’analyse sur un fichier.**
-       Comme indiqué dans l’option précédente, un fichier hiérarchisé a toujours un point d’analyse défini. Un point d’analyse permet au pilote de filtre du système de fichiers Azure File Sync (StorageSync.sys) de récupérer du contenu à partir de partages de fichiers Azure qui n’est pas stocké localement sur le serveur. 
+
+   - **Utiliser `fsutil` pour rechercher les points d’analyse sur un fichier.**
+       Comme indiqué dans l’option précédente, un fichier hiérarchisé a toujours un point d’analyse défini. Un point d’analyse permet au pilote de filtre du système de fichiers Azure File Sync (StorageSync.sys) de récupérer du contenu à partir de partages de fichiers Azure qui n’est pas stocké localement sur le serveur.
 
        Pour vérifier si un fichier a un point d’analyse, dans une fenêtre d’invite de commandes avec élévation de privilèges ou une fenêtre PowerShell, exécutez l’utilitaire `fsutil` :
 
         ```powershell
         fsutil reparsepoint query <your-file-name>
         ```
+
        Si le fichier comporte un point d’analyse, vous pouvez vous attendre à voir s’afficher le message **Valeur de la balise d’analyse : 0x8000001e**. Cette valeur hexadécimale est la valeur de point d’analyse détenue par Azure File Sync. La sortie contient également les données d’analyse qui représentent le chemin du fichier dans votre partage de fichiers Azure.
-        
-        > [!WARNING]  
-        > La commande d’utilitaire `fsutil reparsepoint` permet également de supprimer un point d’analyse. N’exécutez pas cette commande, sauf si l’équipe d’ingénierie Azure File Sync vous le demande. L’exécution de cette commande peut entraîner une perte de données. 
+
+        > [!WARNING]
+        > La commande d’utilitaire `fsutil reparsepoint` permet également de supprimer un point d’analyse. N’exécutez pas cette commande, sauf si l’équipe d’ingénierie Azure File Sync vous le demande. L’exécution de cette commande peut entraîner une perte de données.
 
 ## <a name="how-to-exclude-applications-from-cloud-tiering-last-access-time-tracking"></a>Comment exclure des applications du suivi du dernier accès de la hiérarchisation Cloud
 
@@ -111,31 +112,33 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 Pour rappeler un fichier sur le disque, le plus simple consiste à l’ouvrir. Le filtre de système de fichiers d’Azure File Sync (StorageSync.sys) télécharge le fichier à partir de votre partage de fichiers Azure de façon fluide, sans aucune intervention de votre part. Pour les types de fichiers qui peuvent être partiellement lus ou transmis, comme les fichiers multimédias ou .zip, l’ouverture d’un fichier n’entraîne pas le téléchargement du fichier entier.
 
 Pour vous assurer qu’un fichier est entièrement téléchargé sur le disque local, vous devez utiliser PowerShell pour forcer le rappel complet d’un fichier. Cette option peut être utile si vous souhaitez rappeler plusieurs fichiers en même temps (comme tous les fichiers d’un dossier). Ouvrez une session PowerShell sur le nœud de serveur sur lequel Azure File Sync est installé, puis exécutez les commandes PowerShell suivantes :
-    
+
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
+
 Paramètres facultatifs :
-* `-Order CloudTieringPolicy` rappellera d’abord les fichiers les plus récemment modifiés ou ayant été consultés, et est autorisée par la stratégie de hiérarchisation actuelle. 
+- `-Order CloudTieringPolicy` rappellera d’abord les fichiers les plus récemment modifiés ou ayant été consultés, et est autorisée par la stratégie de hiérarchisation actuelle. 
     * Si la stratégie d’espace libre du volume est configurée, les fichiers sont rappelés jusqu’à ce que le paramètre de stratégie d’espace libre du volume soit atteint. Par exemple, si le paramètre de stratégie volume libre est de 20 %, le rappel s’arrête une fois que l’espace libre du volume atteint 20 %.  
     * Si la stratégie d’espace libre et de date du volume est configurée, les fichiers sont rappelés jusqu’à ce que le paramètre de stratégie d’espace libre et de date du volume soit atteint. Par exemple, si le paramètre de stratégie d’espace libre du volume est de 20 % et que la stratégie de date est de 7 jours, le rappel s’arrêtera une fois que l’espace libre du volume atteindra 20 % ou lorsque tous les fichiers consultés ou modifiés dans les 7 jours sont enregistrés en local.
-* `-ThreadCount` détermine le nombre de fichiers rappelés en parallèle.
-* `-PerFileRetryCount` détermine la fréquence à laquelle un rappel portant sur une fichier actuellement bloqué est tenté.
-* `-PerFileRetryDelaySeconds` détermine le délai, en secondes, entre les tentatives de rappel, et doit systématiquement être utilisé avec le paramètre précédent.
+- `-ThreadCount` détermine le nombre de fichiers rappelés en parallèle.
+- `-PerFileRetryCount` détermine la fréquence à laquelle un rappel portant sur une fichier actuellement bloqué est tenté.
+- `-PerFileRetryDelaySeconds` détermine le délai, en secondes, entre les tentatives de rappel, et doit systématiquement être utilisé avec le paramètre précédent.
 
 Exemple :
+
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
-``` 
+```
 
-> [!Note]  
->- Si le volume local qui héberge le serveur n’a pas assez d’espace libre pour rappeler toutes les données hiérarchisées, l’applet de commande `Invoke-StorageSyncFileRecall` échoue.  
+> [!NOTE]  
+> - Si le volume local qui héberge le serveur n’a pas assez d’espace libre pour rappeler toutes les données hiérarchisées, l’applet de commande `Invoke-StorageSyncFileRecall` échoue.
 
-> [!Note]
+> [!NOTE]
 > Pour rappeler les fichiers qui ont été hiérarchisés, la bande passante réseau doit être d'au moins 1 Mbps. Si la bande passante du réseau est inférieure à 1 Mbps, les fichiers peuvent ne pas se rappeler avec une erreur de délai d'attente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Questions fréquentes (FAQ) sur Azure Files](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)
+- [Questions fréquentes (FAQ) sur Azure Files](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)

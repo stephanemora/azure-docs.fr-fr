@@ -6,16 +6,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: gopalv
-author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: ed3b0512a7f73ae9e387b41871e2ee59607e731d
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: c25dbb3c03bb4c03a511b4e526ff8248bd0096c8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597497"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641994"
 ---
 # <a name="update-a-deployed-web-service"></a>Mettre à jour un service web déployé
 
@@ -94,7 +92,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > Pour mettre à jour le service afin d’utiliser un nouveau script ou environnement d’entrée, créez un [fichier de configuration d’inférence](./reference-azure-machine-learning-cli.md#inference-configuration-schema) et spécifiez-le avec le paramètre `ic`.
 
-Pour plus d’informations, consultez la documentation [az ml service update](/cli/azure/ml(v1)/service?view=azure-cli-latest#az_ml_v1__service_update).
+Pour plus d’informations, consultez la documentation [az ml service update](/cli/azure/ml(v1)/service?view=azure-cli-latest#az_ml_v1__service_update&preserve-view=true).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

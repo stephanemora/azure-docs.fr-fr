@@ -3,19 +3,19 @@ title: Transcription de centre d’appels - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Un scénario courant pour la reconnaissance vocale est la transcription de grands volumes de données de téléphonie provenant de différents systèmes, tels que la réponse vocale interactive (RVI). À l’aide du service Speech et du modèle vocal unifié, une entreprise peut obtenir des transcriptions de qualité, avec des systèmes de capture audio.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: lajanuar
-ms.openlocfilehash: 1cf4c6111c18a9c0b79bc898a89b24717bb9f438
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 0c1e1ca9b38c342d469c7d4ea1589b48038c95db
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533076"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538864"
 ---
 # <a name="speech-service-for-telephony-data"></a>Service Speech pour les données de téléphonie
 

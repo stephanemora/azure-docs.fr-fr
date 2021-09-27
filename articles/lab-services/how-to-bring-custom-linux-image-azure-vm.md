@@ -3,12 +3,12 @@ title: Azure Lab Services - Comment récupérer une image Linux personnalisée
 description: Décrit comment récupérer une image Linux personnalisée à partir d’une machine virtuelle Azure.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: d0ddde1be7792e5bc4c0c58c50945aa27920d889
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: edb1620b0051e82df3994982eb069e78e22777bf
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830962"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450932"
 ---
 # <a name="bring-a-linux-custom-image-from-an-azure-virtual-machine"></a>Récupérer une image personnalisée Windows à partir d’une machine virtuelle Azure
 
@@ -34,7 +34,7 @@ Pour effectuer les étapes indiquées dans cet article, vous devrez disposer de 
 
 ## <a name="import-the-custom-image-into-a-shared-image-gallery"></a>Importez l’image personnalisée dans une galerie d’images partagées
 
-1. Dans une galerie d’images partagées, [créez une définition d’image](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition) ou choisissez une définition d’image existante.
+1. Dans une galerie d’images partagées, [créez une définition d’image](../virtual-machines/image-version.md) ou choisissez une définition d’image existante.
      - Choisissez **Gen 1** pour la **génération de la machine virtuelle**.
      - Indiquez si vous créez une image **spécialisée** ou **généralisée** pour l'**état du système d’exploitation**.
 
@@ -42,7 +42,7 @@ Pour effectuer les étapes indiquées dans cet article, vous devrez disposer de 
     
     Vous pouvez également choisir d’utiliser une définition d’image existante, et créer une nouvelle version de votre image personnalisée.
     
-1. [Créez une version d’image](../virtual-machines/windows/shared-images-portal.md#create-an-image-version).
+1. [Créez une version d’image](../virtual-machines/image-version.md).
     - La propriété **Numéro de version** utilise le format suivant : *VersionMajeure.VersionMineure.Patch*. 
     - Pour la **Source**, sélectionnez **Disques et/ou captures instantanées** à partir de la liste déroulante.
     - Pour la propriété **Disque de système d’exploitation**, choisissez le disque de votre machine virtuelle Azure que vous avez créé dans les étapes précédentes.

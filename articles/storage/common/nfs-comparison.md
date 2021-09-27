@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: rogarana
-ms.openlocfilehash: 6f179fe2e91da9e68a0809763bd9f38a5947e8a4
-ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
+ms.openlocfilehash: 3dcc0a93473e5f0b14f8921114172dbf6506d8aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2021
-ms.locfileid: "113600601"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636740"
 ---
 # <a name="compare-access-to-azure-files-blob-storage-and-azure-netapp-files-with-nfs"></a>Comparer l'accès avec NFS à Azure Files, Stockage Blob et NetApp Files Azure
 
@@ -29,7 +29,6 @@ Plus généralement, consultez [cet article](storage-introduction.md) pour compa
 |Performances (par volume)     |Jusqu'à 20 000 IOPS, jusqu'à 100 Gio/s de débit.         |Jusqu'à 100 000 IOPS, jusqu'à 80 Gio/s de débit.         |Jusqu'à 460 000 IOPS, jusqu'à 36 Gio/s de débit.         |
 |Scale     | Jusqu'à 2 Pio pour un seul volume. <br></br> Jusqu'à 4,75 Tio max pour un seul fichier.<br></br>Aucune exigence de capacité minimale.         |Jusqu'à 100 Tio pour un seul partage de fichiers.<br></br>Jusqu'à 4 Tio pour un seul fichier.<br></br>Capacité minimale de 100 Gio.         |Jusqu'à 100 Tio pour un seul volume.<br></br>Jusqu'à 16 Tio pour un seul fichier.<br></br>Expérience cohérente en matière de cloud hybride.         |
 |Tarifs     |[Tarifs Stockage Blob Azure](https://azure.microsoft.com/pricing/details/storage/blobs/)         |[Tarifs Azure Files](https://azure.microsoft.com/pricing/details/storage/files/)         |[Tarifs Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/)         |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

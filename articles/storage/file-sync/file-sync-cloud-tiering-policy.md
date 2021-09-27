@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f5f06f87ece24377aac380e80c308b4e40906255
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: be07d4b2213599f9d6a5a5d24f2fc17e266c2c87
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259296"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620138"
 ---
 # <a name="cloud-tiering-policies"></a>Stratégies de hiérarchisation Cloud
 
 La hiérarchisation Cloud a deux stratégies qui déterminent les fichiers hiérarchisés dans le Cloud : la **stratégie d’espace libre du volume** et la **stratégie de date**.
 
-La **stratégie d’espace libre du volume** garantit qu’un pourcentage spécifié du volume local sur lequel se trouve le point de terminaison de serveur est toujours libre. 
+La **stratégie d’espace libre du volume** garantit qu’un pourcentage spécifié du volume local sur lequel se trouve le point de terminaison de serveur est toujours libre.
 
 Les fichiers des niveaux de **stratégie de date** ont été consultés il y a au moins x jours. La stratégie d’espace disponible sur le volume est toujours prioritaire, et, lorsqu’il n’y a pas suffisamment d’espace libre sur le volume pour conserver les fichiers autant de jours que défini par la stratégie de date, Azure File Sync va substituer la stratégie de date et poursuivra la hiérarchisation des fichiers les plus froids jusqu’à ce que le pourcentage d’espace libre sur le volume requis soit atteint.
 
@@ -36,7 +36,7 @@ Nous allons utiliser un exemple pour illustrer le fonctionnement de ces stratég
 
 **Modification 1 :** vous avez activé la hiérarchisation Cloud, défini une stratégie d’espace libre de volume de 20 % et conservé la stratégie de date désactivée. Avec cette configuration, la hiérarchisation cloud garantit que 20 % (dans ce cas 100 Gio) d’espace sont conservés gratuitement et disponibles sur l’ordinateur local. Par conséquent, la capacité totale du cache local est de 400 Gio. Ces 400 Gio stockent les fichiers les plus récents et les plus fréquemment consultés sur le volume local.
 
-Avec cette configuration, seuls les fichiers 1 à 4 sont stockés dans le cache local, et le fichier 5 est hiérarchisé. Seuls 370 Gio sur les 400 Gio peuvent être utilisés. Le fichier 5 a une taille de 140 Gio et la limite de 400 Gio serait dépassée s’il était mis en cache localement. 
+Avec cette configuration, seuls les fichiers 1 à 4 sont stockés dans le cache local, et le fichier 5 est hiérarchisé. Seuls 370 Gio sur les 400 Gio peuvent être utilisés. Le fichier 5 a une taille de 140 Gio et la limite de 400 Gio serait dépassée s’il était mis en cache localement.
 
 **Modification 2 :** supposons qu’un utilisateur accède au fichier 5. Cela fait du fichier 5 le fichier le plus récemment consulté dans le partage. Par conséquent, le fichier 5 est stocké dans le cache local et s’ajuste à la limite de 400 Gio, le fichier 4 est hiérarchisé. Le tableau suivant indique l’emplacement de stockage des fichiers, avec ces mises à jour :
 
@@ -62,7 +62,7 @@ Avec cette configuration, seuls les fichiers 1 à 4 sont stockés dans le cache 
 
 Dans ce cas, les fichiers 1, 2 et 5 sont mis en cache localement et les fichiers 3 et 4 sont hiérarchisés. Étant donné que la stratégie de date est de 60 jours, les fichiers 3 et 4 sont hiérarchisés, même si la stratégie d’espace libre du volume autorise jusqu’à 400 Gio localement.
 
-> [!NOTE] 
+> [!NOTE]
 > Les fichiers ne sont pas automatiquement rappelés quand les clients modifient la stratégie d’espace libre du volume sur une valeur inférieure (par exemple, de 20 % à 10 %) ou remplacent la valeur de la stratégie de date par une valeur plus élevée (par exemple, de 20 jours à 50 jours).
 
 ## <a name="multiple-server-endpoints-on-a-local-volume"></a>Plusieurs points de terminaison de serveur sur un volume local
@@ -71,4 +71,4 @@ La hiérarchisation Cloud peut être activée pour plusieurs points de terminais
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Superviser la hiérarchisation Cloud](file-sync-monitor-cloud-tiering.md)
+- [Superviser la hiérarchisation Cloud](file-sync-monitor-cloud-tiering.md)

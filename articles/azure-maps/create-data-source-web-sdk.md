@@ -1,20 +1,20 @@
 ---
 title: Créer une source de données pour une carte dans Microsoft Azure Maps
 description: 'Découvrez comment créer une source de données pour une carte. En savoir plus sur les sources de données utilisées par le Kit de développement logiciel (SDK) web Azure Maps : Sources GeoJSON et mosaïques vectorielles.'
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: d20be688ccd13e7f053c4633a91cc5ce7a6cc34f
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: bb5050d1305f88987ed7ac38a8217e6b4f9c724e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669069"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425767"
 ---
 # <a name="create-a-data-source"></a>Création d'une source de données
 
@@ -132,7 +132,7 @@ map.layers.add(flowLayer, 'labels');
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Couche de lignes de la vignette vectorielle" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Couche de lignes de la vignette vectorielle" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/wvMXJYJ'>Couche de lignes de la vignette vectorielle</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

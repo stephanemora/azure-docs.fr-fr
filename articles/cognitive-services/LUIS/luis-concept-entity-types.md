@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/26/2021
-ms.openlocfilehash: a075a84322dc11be352470d50478979b975f0292
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7eb4affb75816789dca094f9ec6e2ae19a222285
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140890"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582378"
 ---
 # <a name="entities-in-luis"></a>Entités dans LUIS
 
@@ -95,7 +95,7 @@ L’entité issue du machine learning utilise le contexte pour extraire des enti
 
 Pour plus d’informations sur les entités issues du machine learning, [cliquez ici](./reference-entity-machine-learned-entity.md).
 
-Pour plus d’informations, consultez l’[article de référence sur les entités issues du machine learning](./reference-entity-pattern-any.md).
+Pour plus d’informations, consultez l’[article de référence sur les entités issues du machine learning](./reference-entity-machine-learned-entity.md).
 
 #### <a name="ml-entity-with-structure"></a>Entité ML avec structure
 

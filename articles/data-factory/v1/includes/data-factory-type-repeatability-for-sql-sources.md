@@ -1,15 +1,16 @@
 ---
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 9447cec55c53861ca57d5416a91ffefd35fdd20b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: dc86c549fd0f40bd2ca3835c4d7179caf4db2ada
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753355"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653403"
 ---
 ## <a name="repeatability-during-copy"></a>Répétabilité pendant la copie
 Lors de la copie de données vers SQL Azure/SQL Server à partir d’autres magasins de données, vous devez garder la répétabilité à l’esprit afin d’éviter des résultats inattendus. 

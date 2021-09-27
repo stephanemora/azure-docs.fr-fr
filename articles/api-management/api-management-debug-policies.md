@@ -3,7 +3,7 @@ title: Déboguer les stratégies de Gestion des API Azure dans Visual Studio Cod
 description: Apprenez à déboguer les stratégies de Gestion des API Azure à l'aide de l'extension Visual Studio Code de Gestion des API Azure
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
-ms.author: apimpm
-ms.openlocfilehash: 2e45d1274cf7332dbca70eaa8fc51f0ac98e5359
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 884ddb46c2182ae22df555b5ac32c4b4ff72c424
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648014"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625826"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Déboguer les stratégies de Gestion des API Azure dans Visual Studio Code
 

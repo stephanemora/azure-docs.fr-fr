@@ -3,16 +3,16 @@ title: Résidence des données client dans Azure IoT Central | Microsoft Docs
 description: Cet article décrit la résidence des données client dans les applications Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/02/2020
+ms.date: 08/31/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9cf803ddd5a3c9329cadefffc35ae6d6999323a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2086ab1e899b85f52391187425c85eeb86b21c0e
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93280653"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123481161"
 ---
 # <a name="azure-iot-central-customer-data-residency"></a>Résidence des données client dans Azure IoT Central
 
