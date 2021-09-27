@@ -87,70 +87,102 @@
       href: storage-service-add-ons.md
     - name: Qu’est-ce que remplacer par un quota inconditionnel de volume signifie
       href: volume-hard-quota-guidelines.md
+    - name: Azure NetApp Files pour Azure Government
+      href: azure-government.md
 - name: Guides pratiques
   items:
-    - name: S’inscrire à Azure NetApp Files
-      href: azure-netapp-files-register.md
-    - name: Créer un compte NetApp
-      href: azure-netapp-files-create-netapp-account.md
-    - name: Créer et gérer des pools de capacité
+    - name: Inscrire et configurer
+      items:
+        - name: S’inscrire à Azure NetApp Files
+          href: azure-netapp-files-register.md
+        - name: Créer un compte NetApp
+          href: azure-netapp-files-create-netapp-account.md
+        - name: Déléguer un sous-réseau à Azure NetApp Files
+          href: azure-netapp-files-delegate-subnet.md
+    - name: Gérer Active Directory
+      items:
+        - name: Créer et gérer des connexions Active Directory
+          href: create-active-directory-connections.md
+        - name: Configurer ADDS LDAP sur TLS
+          href: configure-ldap-over-tls.md
+    - name: Gérer les pools de capacité
       items:
         - name: Configurer un pool de capacité
           href: azure-netapp-files-set-up-capacity-pool.md
         - name: Gérer un pool de capacités de QoS manuel
           href: manage-manual-qos-capacity-pool.md
-    - name: Déléguer un sous-réseau à Azure NetApp Files
-      href: azure-netapp-files-delegate-subnet.md
-    - name: Créer et gérer des connexions Active Directory
-      href: create-active-directory-connections.md
-    - name: Créer et gérer des volumes NFS
+        - name: Gérer la facturation en utilisant des étiquettes
+          href: manage-billing-tags.md
+    - name: Gérer les volumes
       items:
-        - name: Créer un volume NFS
-          href: azure-netapp-files-create-volumes.md
-        - name: "Configurer le domaine par défaut NFS\_v4.1"
-          href: azure-netapp-files-configure-nfsv41-domain.md
-        - name: "Configurer le chiffrement Kerberos NFS\_v4.1"
-          href: configure-kerberos-encryption.md
-        - name: Configurer le protocole LDAP ADDS avec groupes étendus pour NFS
-          href: configure-ldap-extended-groups.md
-        - name: Configurer un client NFS pour Azure NetApp Files
-          href: configure-nfs-clients.md
-    - name: Créer et gérer des volumes SMB
+        - name: Gérer les volumes NFS
+          items:
+            - name: Créer un volume NFS
+              href: azure-netapp-files-create-volumes.md
+            - name: "Configurer le domaine par défaut NFS\_v4.1"
+              href: azure-netapp-files-configure-nfsv41-domain.md
+            - name: "Configurer le chiffrement Kerberos NFS\_v4.1"
+              href: configure-kerberos-encryption.md
+            - name: Configurer le protocole LDAP ADDS avec groupes étendus pour NFS
+              href: configure-ldap-extended-groups.md
+            - name: Configurer un client NFS pour Azure NetApp Files
+              href: configure-nfs-clients.md
+        - name: Gérer les volumes SMB
+          items:
+            - name: Créer un volume SMB
+              href: azure-netapp-files-create-volumes-smb.md
+            - name: Activer la disponibilité continue sur des volumes SMB existants
+              href: enable-continuous-availability-existing-SMB.md
+        - name: Gérer les volumes à deux protocoles
+          items:
+            - name: Créer un volume à deux protocoles
+              href: create-volumes-dual-protocol.md
+        - name: Gérer l’accès au volume et le chiffrement
+          items:
+            - name: Configurer la stratégie d’exportation pour NFS ou le double protocole
+              href: azure-netapp-files-configure-export-policy.md
+            - name: Configurer des autorisations Unix et modifier le mode de propriété
+              href: configure-unix-permissions-change-ownership-mode.md
+        - name: Monter ou démonter un volume
+          items:
+            - name: Monter ou démonter un volume
+              href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+        - name: Gérer la capacité et les performances du volume
+          items:
+            - name: Surveiller la capacité d'un volume
+              href: monitor-volume-capacity.md
+            - name: Redimensionner un pool de capacités ou un volume
+              href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+            - name: Changer dynamiquement le niveau de service d’un volume
+              href: dynamic-change-volume-service-level.md
+    - name: Gérer la protection des données
       items:
-        - name: Créer un volume SMB
-          href: azure-netapp-files-create-volumes-smb.md
-        - name: Activer la disponibilité continue sur des volumes SMB existants
-          href: enable-continuous-availability-existing-SMB.md
-    - name: Créer un volume à deux protocoles
-      href: create-volumes-dual-protocol.md
-    - name: Configurer ADDS LDAP sur TLS
-      href: configure-ldap-over-tls.md
-    - name: Configurer la stratégie d’exportation pour NFS ou le double protocole
-      href: azure-netapp-files-configure-export-policy.md
-    - name: Monter ou démonter un volume
-      href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
-    - name: Configurer des autorisations Unix et modifier le mode de propriété
-      href: configure-unix-permissions-change-ownership-mode.md
-    - name: Gérer les instantanés
-      href: azure-netapp-files-manage-snapshots.md
-    - name: Redimensionner un pool de capacités ou un volume
-      href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-    - name: Surveiller la capacité d'un volume
-      href: monitor-volume-capacity.md
-    - name: Changer dynamiquement le niveau de service d’un volume
-      href: dynamic-change-volume-service-level.md
-    - name: Gérer la réplication interrégion
-      items:
-        - name: Créer une réplication de volume
-          href: cross-region-replication-create-peering.md
-        - name: Afficher l’état d’intégrité de la relation de réplication
-          href: cross-region-replication-display-health-status.md
-        - name: Gérer la reprise d’activité après sinistre
-          href: cross-region-replication-manage-disaster-recovery.md
-        - name: Supprimer des volumes ou des réplications de volume
-          href: cross-region-replication-delete.md
-    - name: Gérer la facturation en utilisant des étiquettes
-      href: manage-billing-tags.md
+        - name: Gérer les instantanés de volume
+          items:
+            - name: Créer un instantané à la demande
+              href: azure-netapp-files-manage-snapshots.md
+            - name: Gérer les stratégies de capture instantanée
+              href: snapshots-manage-policy.md
+            - name: Modifier l’option Masquer le chemin d’instantané
+              href: snapshots-edit-hide-path.md
+            - name: Restaurer un instantané sur un nouveau volume
+              href: snapshots-restore-new-volume.md
+            - name: Restaurer un fichier à partir d’un instantané à l’aide d’un client
+              href: snapshots-restore-file-client.md
+            - name: Restaurer un volume à l’aide de la restauration d’instantané
+              href: snapshots-revert-volume.md
+            - name: Suppression d'instantanés
+              href: snapshots-delete.md
+        - name: Gérer la réplication interrégion
+          items:
+            - name: Créer une réplication de volume
+              href: cross-region-replication-create-peering.md
+            - name: Afficher l’état d’intégrité de la relation de réplication
+              href: cross-region-replication-display-health-status.md
+            - name: Gérer la reprise d’activité après sinistre
+              href: cross-region-replication-manage-disaster-recovery.md
+            - name: Supprimer des volumes ou des réplications de volume
+              href: cross-region-replication-delete.md
     - name: Développer
       items:
         - name: API REST

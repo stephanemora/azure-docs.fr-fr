@@ -41,10 +41,12 @@
           href: agent-overview.md
         - name: Planifier le déploiement
           href: plan-at-scale-deployment.md
-        - name: Connecter des ordinateurs à Azure Arc depuis le portail Azure
+        - name: Connecter des machines à l’aide d’un script de déploiement
           href: onboard-portal.md
         - name: Connecter des ordinateurs à grande échelle avec un principal de service
           href: onboard-service-principal.md
+        - name: Connecter des machines à partir d’Automation Update Management
+          href: onboard-update-management-machines.md
         - name: Connecter des ordinateurs à Azure Arc avec PowerShell DSC
           href: onboard-dsc.md
         - name: Connecter des ordinateurs depuis Windows Admin Center

@@ -5,8 +5,6 @@
   items:
     - name: "Qu’est-ce que la gestion des applications\_?"
       href: what-is-application-management.md
-    - name: "Qu’est-ce que l’authentification unique\_?"
-      href: what-is-single-sign-on.md
     - name: Nouveautés dans la documentation
       href: whats-new-docs.md
 - name: Démarrages rapides
@@ -57,22 +55,10 @@
           href: my-apps-deployment-plan.md
     - name: Authentification unique
       items:
+        - name: "Qu’est-ce que l’authentification unique\_?"
+          href: what-is-single-sign-on.md
         - name: Planifier un déploiement de l’authentification unique
           href: plan-sso-deployment.md
-        - name: Options d’authentification unique
-          href: sso-options.md
-        - name: Authentification unique OIDC
-          href: configure-oidc-single-sign-on.md
-        - name: Authentification unique SAML
-          href: configure-saml-single-sign-on.md
-        - name: Authentification unique par mot de passe
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Authentification unique par lien
-          href: configure-linked-sign-on.md
-        - name: Authentification unique basée sur en-tête (applications locales)
-          href: ../app-proxy/application-proxy-configure-single-sign-on-with-headers.md
-        - name: SSO en un clic
-          href: one-click-sso-tutorial.md
     - name: Sécurité des applications
       items:
         - name: Options d’accès aux applications
@@ -158,16 +144,18 @@
       items:
         - name: "Sécuriser l’accès hybride avec Azure\_AD"
           href: secure-hybrid-access.md
-        - name: Sécuriser l’accès hybride avec des intégrations de partenaires
-          href: secure-hybrid-access-integrations.md
-        - name: Datawiza
-          href: datawiza-with-azure-ad.md
-        - name: F5
+        - name: "F5 et l’intégration Azure\_AD"
           href: f5-aad-integration.md
         - name: Déploiement F5 BIG-IP VE dans Azure IaaS
           href: f5-bigip-deployment-guide.md
-        - name: VPN sans mot de passe F5 Big-IP
+        - name: "F5 BIG-IP avec Azure\_AD pour un VPN sans mot de passe"
           href: f5-aad-password-less-vpn.md
+    - name: Authentification unique
+      items:
+        - name: Authentification unique par mot de passe
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Authentification unique liée
+          href: configure-linked-sign-on.md
     - name: Dépanner
       items:
         - name: Résoudre les problèmes d’authentification unique par mot de passe

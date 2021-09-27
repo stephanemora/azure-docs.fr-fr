@@ -25,6 +25,12 @@
   items:
     - name: Installation de la version d’essai d’Azure Defender pour IoT
       href: tutorial-onboarding.md
+    - name: Intégrer Forescout
+      href: tutorial-forescout.md
+    - name: Intégrer Fortinet
+      href: tutorial-fortinet.md
+    - name: Intégrer Palo Alto
+      href: tutorial-palo-alto.md
     - name: Intégrer Qradar
       href: tutorial-qradar.md
     - name: Intégrer Splunk
@@ -52,7 +58,7 @@
           displayName: 'SSL, TLS, PKI, Locally-signed, CA-signed'
           href: how-to-deploy-certificates.md
         - name: Installer les logiciels
-          displayName: 'tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports'
+          displayName: 'tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports, hyper-v, NDIS, ClearPass, span,'
           href: how-to-install-software.md
         - name: Connecter les capteurs avec un proxy
           displayName: 'Squid, proxy, connect, direct internet access, access, internet, tunnel'
@@ -183,14 +189,6 @@
     - name: Configurer la supervision de SNMP MIB
       href: how-to-set-up-snmp-mib-monitoring.md
       displayName: health
-    - name: Intégrer des partenaires
-      items:
-        - name: Intégration de Forescout
-          href: integration-forescout.md
-        - name: Intégration de Fortinet
-          href: integration-fortinet.md
-        - name: Intégration de Palo Alto
-          href: integration-palo-alto.md
 - name: Référence
   items:
     - name: Utiliser les API Defender pour IoT

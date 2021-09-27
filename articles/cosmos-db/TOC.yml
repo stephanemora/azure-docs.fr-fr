@@ -225,6 +225,8 @@
           href: sql/cli-samples.md
         - name: Azure Resource Manager
           href: sql/templates-samples-sql.md
+        - name: Bicep
+          href: sql/bicep-samples.md
     - name: Concepts
       items:
         - name: Modélisation et partitionnement
@@ -788,7 +790,7 @@
                 - name: Résoudre les problèmes liés aux demandes lentes
                   href: sql/troubleshoot-dot-net-sdk-slow-request.md
                 - name: Résoudre les problèmes de service indisponible
-                  href: troubleshoot-service-unavailable.md
+                  href: sql/troubleshoot-service-unavailable.md
             - name: .Java
               items:
                 - name: Résoudre les problèmes du kit SDK Java v4
@@ -1065,6 +1067,8 @@
         - name: Gérer avec des modèles Resource Manager
           href: cassandra/templates-samples.md
           displayName: ARM
+        - name: Gérer à l’aide de Bicep
+          href: cassandra/manage-with-bicep.md
         - name: Gérer à l’aide de PowerShell
           href: cassandra/powershell-samples.md
         - name: Gérer à l’aide d’Azure CLI
@@ -1205,6 +1209,8 @@
         - name: Gérer avec des modèles Resource Manager
           href: mongodb/resource-manager-template-samples.md
           displayName: ARM
+        - name: Gérer à l’aide de Bicep
+          href: mongodb/manage-with-bicep.md
         - name: Gérer à l’aide de PowerShell
           href: mongodb/powershell-samples.md
         - name: Gérer à l’aide d’Azure CLI
@@ -1289,6 +1295,8 @@
         - name: Gérer avec des modèles Resource Manager
           href: graph/resource-manager-template-samples.md
           displayName: ARM
+        - name: Gérer à l’aide de Bicep
+          href: graph/manage-with-bicep.md
         - name: Gérer à l’aide de PowerShell
           href: graph/powershell-samples.md
         - name: Gérer à l’aide d’Azure CLI
@@ -1364,6 +1372,8 @@
           href: table/find-request-unit-charge.md
         - name: Gérer avec des modèles Resource Manager
           href: table/resource-manager-templates.md
+        - name: Gérer à l’aide de Bicep
+          href: table/manage-with-bicep.md
           displayName: ARM
         - name: Gérer à l’aide de PowerShell
           href: table/powershell-samples.md
@@ -1402,6 +1412,9 @@
           href: sql/manage-with-powershell.md
         - name: Utilisation de l’interface de ligne de commande Azure
           href: sql/manage-with-cli.md
+        - name: Utilisation de Bicep
+          href: sql/manage-with-bicep.md
+          displayName: ARM
         - name: Utilisation de modèles Resource Manager
           href: sql/manage-with-templates.md
           displayName: ARM
@@ -1504,6 +1517,8 @@
               href: monitor-server-side-latency.md
             - name: Superviser l’utilisation des unités de requête
               href: monitor-request-unit-usage.md
+            - name: Surveiller les mises à jour des clés
+              href: monitor-account-key-updates.md
             - name: Superviser l’utilisation des unités de requête normalisées
               href: monitor-normalized-request-units.md
         - name: Utiliser les journaux Azure Monitor

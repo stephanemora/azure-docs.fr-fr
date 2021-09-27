@@ -113,6 +113,8 @@
           href: playback-recordings-how-to.md
         - name: Utilisation du widget de lecteur Azure Video Analyzer
           href: player-widget.md
+        - name: Exemple d’application de widget de lecteur
+          href: sample-player-widget.md
         - name: Utiliser des stratégies d’accès pour la lecture
           href: access-policies.md
     - name: Enregistrement
@@ -135,6 +137,8 @@
       items:
         - name: Supervision et journalisation
           href: monitor-log-edge.md
+        - name: Points de terminaison publics
+          href: access-public-endpoints-networking.md
     - name: Visualiser
       items:
         - name: Incorporer un widget de lecteur dans Power BI
@@ -173,3 +177,5 @@
       href: faq-edge.yml
     - name: Quotas et limitations
       href: quotas-limitations.md
+    - name: Ressource Terraform Azure Video Analytics
+      href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer'

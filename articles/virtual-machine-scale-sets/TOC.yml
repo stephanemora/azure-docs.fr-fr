@@ -160,6 +160,32 @@
         - name: Scores de test d’évaluation
           href: ../virtual-machines/windows/compute-benchmark-scores.md
           maintainContext: true
+        - name: Réservation de capacité (préversion)
+          items:
+            - name: Vue d’ensemble
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-overview.md
+              maintainContext: true
+            - name: Créer une réservation de capacité
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-create.md
+              maintainContext: true
+            - name: Surallocation d’une réservation de capacité
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-overallocate.md
+              maintainContext: true
+            - name: Modifier une réservation de capacité
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-modify.md
+              maintainContext: true
+            - name: Associer un groupe de machines virtuelles identiques
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-associate-virtual-machine-scale-set.md
+              maintainContext: true
+            - name: Supprimer un groupe de machines virtuelles identiques
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-remove-virtual-machine-scale-set.md
+              maintainContext: true
       maintainContext: true
     - name: Versions de Linux approuvées
       href: ../virtual-machines/linux/endorsed-distros.md

@@ -41,10 +41,18 @@
           href: create-host-cli.md
     - name: Connexion à une machine virtuelle
       items:
-        - name: SSH (Linux)
-          href: bastion-connect-vm-ssh.md
-        - name: RDP (Windows)
-          href: bastion-connect-vm-rdp.md
+        - name: Machine virtuelle Windows
+          items:
+            - name: Connexion RDP
+              href: bastion-connect-vm-rdp-windows.md
+            - name: Connexion SSH
+              href: bastion-connect-vm-ssh-windows.md
+        - name: Machine virtuelle Linux
+          items:
+            - name: Connexion RDP
+              href: bastion-connect-vm-rdp-linux.md
+            - name: Connexion SSH
+              href: bastion-connect-vm-ssh-linux.md
     - name: Mettre à niveau un SKU
       href: upgrade-sku.md
     - name: Configurer la mise à l’échelle de l’hôte

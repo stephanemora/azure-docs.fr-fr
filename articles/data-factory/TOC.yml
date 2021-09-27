@@ -256,6 +256,8 @@ items:
             href: connector-overview.md
           - name: "Amazon\_Marketplace\_Web\_Service"
             href: connector-amazon-marketplace-web-service.md
+          - name: Amazon RDS pour Oracle
+            href: connector-amazon-rds-for-oracle.md
           - name: Amazon Redshift
             href: connector-amazon-redshift.md
           - name: Amazon S3
@@ -709,6 +711,8 @@ items:
             href: monitor-integration-runtime.md
           - name: Surveiller le runtime d’intégration Azure-SSIS
             href: monitor-integration-runtime.md#azure-ssis-integration-runtime
+          - name: Exécuter des pipelines de données avec des contrats SLA
+            href: tutorial-operationalize-pipelines.md
           - name: Reconfigurer le runtime d’intégration Azure-SSIS
             href: manage-azure-ssis-integration-runtime.md
           - name: Copier ou cloner une fabrique de données
@@ -879,7 +883,7 @@ items:
             displayName: diu
       - name: Guides de résolution des problèmes
         items:
-          - name: Expérience utilisateur Data Factory
+          - name: Azure Data Factory Studio
             href: data-factory-ux-troubleshoot-guide.md
           - name: Activités
             href: data-factory-troubleshoot-guide.md

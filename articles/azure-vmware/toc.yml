@@ -110,6 +110,8 @@
           href: configure-dns-azure-vmware-solution.md
         - name: Configurer l’extension réseau HCX
           href: configure-hcx-network-extension.md
+        - name: Configurer les composants réseau NSX
+          href: configure-nsx-network-components-azure-portal.md
         - name: Configurer la mise en miroir des ports
           href: configure-port-mirroring-azure-vmware-solution.md
         - name: Configurer un réseau VPN de site à site dans un WAN virtuel
@@ -120,12 +122,16 @@
           href: vmware-hcx-mon-guidance.md
     - name: Configurer des stratégies de stockage
       href: configure-storage-policy.md
+    - name: Configurer des syslogs VMware
+      href: configure-vmware-syslogs.md
     - name: Configurer le cluster de basculement Windows Server
       href: configure-windows-server-failover-cluster.md
     - name: Connecter plusieurs clouds privés dans la même région
       href: connect-multiple-private-clouds-same-region.md
     - name: Déployer la reprise d’activité
       items:
+        - name: Déployer la reprise d’activité JetStream
+          href: deploy-disaster-recovery-using-jetstream.md
         - name: Déployer VMware HCX pour la reprise d’activité
           href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Déployer VMware SRM pour la reprise d’activité
@@ -148,6 +154,10 @@
           href: ecosystem-back-up-vms.md
         - name: Solutions de migration pour les machines virtuelles
           href: ecosystem-migration-vms.md
+        - name: Solutions de sécurité pour Azure VMware Solution
+          href: ecosystem-security-solutions.md
+        - name: Déploiement d’appliance Bitnami
+          href: bitnami-appliances-deployment.md
     - name: Solutions VMware
       items:
         - name: Configurer l’extension réseau HCX
@@ -158,12 +168,6 @@
           href: azure-vmware-solution-horizon.md
         - name: Déployer des machines virtuelles à partir de la bibliothèque de contenu
           href: deploy-vm-content-library.md
-        - name: Récupération d'urgence
-          items:
-            - name: VMware SRM pour la reprise d’activité
-              href: disaster-recovery-using-vmware-site-recovery-manager.md
-            - name: VMware HCX pour la reprise d’activité
-              href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Mettre à niveau l’appliance VMware HCX
           href: 'https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html'
 - name: Ressources

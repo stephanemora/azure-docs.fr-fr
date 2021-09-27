@@ -1,7 +1,6 @@
 - name: Documentation Bicep
   href: index.yml
 - name: Vue d’ensemble
-  expanded: true
   items:
     - name: "Qu’est-ce que Bicep\_?"
       href: overview.md
@@ -35,9 +34,9 @@
             - name: Déploiement conditionnel
               href: conditional-resource-deployment.md
               displayName: runtime
-            - name: Nom et type de ressource enfant
+            - name: Ressources enfants
               href: child-resource-name-type.md
-              displayName: 'parent,parent resource'
+              displayName: 'parent,parent resource,sub,nested'
             - name: Ressources d’extension
               href: scope-extension-resources.md
         - name: Paramètres
@@ -84,7 +83,23 @@
               href: deploy-to-tenant.md
               displayName: assign role
         - name: Linter
-          href: linter.md
+          items:
+            - name: Linter
+              href: linter.md
+            - name: Règles des linters
+              items:
+                - name: Aucune URL d’environnement codée en dur
+                  href: linter-rule-no-hardcoded-environment-urls.md
+                - name: Aucun paramètre inutilisé
+                  href: linter-rule-no-unused-parameters.md
+                - name: Aucune variable inutilisée
+                  href: linter-rule-no-unused-variables.md
+                - name: Préférer l’interpolation
+                  href: linter-rule-prefer-interpolation.md
+                - name: Valeur par défaut de paramètre sécurisé
+                  href: linter-rule-secure-parameter-default.md
+                - name: Simplifier l’interpolation
+                  href: linter-rule-simplify-interpolation.md
         - name: Meilleures pratiques
           href: best-practices.md
         - name: Modèles
@@ -121,8 +136,10 @@
               href: add-template-to-azure-pipelines.md
             - name: Bicep avec GitHub Actions
               href: deploy-github-actions.md
-    - name: Utiliser l’interface CLI Bicep
+    - name: Migrer vers Bicep
       items:
+        - name: Workflow recommandé
+          href: migrate.md
         - name: Décompiler
           href: decompile.md
           displayName: 'conversion issues,export,convert,playground'

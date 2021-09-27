@@ -332,15 +332,23 @@
           href: configure-tokens.md
     - name: Définir des attributs personnalisés
       href: user-flow-custom-attributes.md
-    - name: Gestion de la sécurité et des menaces
+    - name: Sécurité
       items:
-        - name: Investiguer les risques avec Identity Protection
-          href: identity-protection-investigate-risk.md
-        - name: Configurer un accès conditionnel
-          href: conditional-access-user-flow.md
-        - name: Atténuer les attaques sur les informations d’identification
-          displayName: 'smart lockout, account lockout, password attack'
-          href: threat-management.md
+        - name: Gestion des menaces et supervision
+          items:
+            - name: Azure Monitor
+              href: azure-monitor.md
+            - name: Azure Sentinel
+              href: azure-sentinel.md
+              displayName: 'log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration'
+        - name: Partenaires pour Web Application Firewall
+          items:
+            - name: Akamai
+              href: partner-akamai.md
+            - name: Pare-feu d'applications web Azure
+              href: partner-azure-web-application-firewall.md
+            - name: Cloudflare
+              href: partner-cloudflare.md
         - name: Partenaires de protection contre les fraudes
           items:
             - name: Arkose Labs
@@ -352,6 +360,28 @@
             - name: Microsoft Dynamics 365 Fraud Protection
               href: partner-dynamics-365-fraud-protection.md
               displayName: 'm365 dynamics, dynamics fraud protection, fraud, 365 protection'
+        - name: Investiguer les risques avec Identity Protection
+          href: identity-protection-investigate-risk.md
+        - name: Configurer un accès conditionnel
+          href: conditional-access-user-flow.md
+        - name: Atténuer les attaques sur les informations d’identification
+          displayName: 'smart lockout, account lockout, password attack'
+          href: threat-management.md
+        - name: MFA sécurisée basée sur les téléphones
+          href: phone-based-mfa.md
+          displayName: 'multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard'
+        - name: Sécuriser l’accès aux applications héritées et locales
+          items:
+            - name: Datawiza
+              href: partner-datawiza.md
+            - name: Identité Ping
+              href: partner-ping-identity.md
+            - name: Strata
+              href: partner-strata.md
+              displayName: 'AAD b2c access, legacy app, onpremises apps'
+            - name: Zscaler
+              href: partner-zscaler.md
+              displayName: 'zscaler b2c, vpn, sdp b2c'
     - name: Configurer la vérification de l’âge
       href: age-gating.md
     - name: Connecteurs d’API
@@ -394,32 +424,12 @@
           href: partner-lexisnexis.md
         - name: Onfido
           href: partner-onfido.md
-    - name: Sécuriser l’accès aux applications héritées et locales
-      items:
-        - name: Datawiza
-          href: partner-datawiza.md
-        - name: Identité Ping
-          href: partner-ping-identity.md
-        - name: Strata
-          href: partner-strata.md
-          displayName: 'AAD b2c access, legacy app, onpremises apps'
-        - name: Zscaler
-          href: partner-zscaler.md
-          displayName: 'zscaler b2c, vpn, sdp b2c'
     - name: Nom de domaine
       items:
         - name: Vue d’ensemble de b2clogin.com
           href: b2clogin.md
         - name: Configuration d’un domaine personnalisé
           href: custom-domain.md
-        - name: Partenaires pour Web Application Firewall
-          items:
-            - name: Akamai
-              href: partner-akamai.md
-            - name: Pare-feu d'applications web Azure
-              href: partner-azure-web-application-firewall.md
-            - name: Cloudflare
-              href: partner-cloudflare.md
         - name: Configurer des domaines d’API web
           href: multiple-token-endpoints.md
           displayName: 'migrate, b2clogin, owin'
@@ -450,23 +460,14 @@
               href: partner-n8identity.md
             - name: Saviynt
               href: partner-saviynt.md
-    - name: Journaux et supervision
+    - name: Journaux d’activité
       items:
         - name: Journaux d’audit
           href: view-audit-logs.md
-          displayName: 'log, logs, logging, usage, events, reports, reporting'
-        - name: Azure Monitor
-          href: azure-monitor.md
           displayName: 'log, logs, logging, usage, events, reports, reporting, dashboard'
-        - name: Azure Sentinel
-          href: azure-sentinel.md
-          displayName: 'log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration'
         - name: Analyse de l'utilisation
           href: analytics-with-application-insights.md
           displayName: 'application insights, app insights, reports, reporting'
-        - name: MFA sécurisée basée sur les téléphones
-          href: phone-based-mfa.md
-          displayName: 'multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard'
     - name: Conformité
       items:
         - name: Accès utilisateur

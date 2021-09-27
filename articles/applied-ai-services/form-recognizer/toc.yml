@@ -41,6 +41,8 @@
       href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: Guides pratiques
   items:
+    - name: Générer des jetons SAS pour les conteneurs Blob Azure
+      href: generate-sas-tokens.md
     - name: Entraîner un modèle personnalisé avec l’exemple d’outil d’étiquetage
       href: label-tool.md
     - name: Créer un jeu de données d’entraînement

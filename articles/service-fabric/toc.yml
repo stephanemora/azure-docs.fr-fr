@@ -545,6 +545,8 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: Se connecter à distance à la machine virtuelle du nœud de cluster
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+                - name: Mise à niveau du système d’exploitation Linux pour Azure Service Fabric
+                  href: service-fabric-cluster-upgrade-os.md
         - name: Clusters autonomes
           items:
             - name: Créer

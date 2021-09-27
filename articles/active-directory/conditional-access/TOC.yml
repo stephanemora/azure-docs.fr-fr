@@ -102,6 +102,8 @@
           href: troubleshoot-conditional-access.md
         - name: Résoudre les problèmes avec l’outil What If
           href: troubleshoot-conditional-access-what-if.md
+        - name: Résoudre les problèmes rencontrés avec la fonctionnalité Évaluation continue de l’accès
+          href: howto-continuous-access-evaluation-troubleshoot.md
         - name: Questions fréquentes (FAQ)
           href: faqs.md
     - name: Migrer les stratégies classiques

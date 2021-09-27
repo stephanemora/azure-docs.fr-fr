@@ -9,14 +9,8 @@
   items:
     - name: Créer/utiliser des partages de fichiers - Windows
       href: storage-files-quick-create-use-windows.md
-    - name: Créer des partages de fichiers - Portail
+    - name: Créer des partages de fichiers
       href: storage-how-to-use-files-portal.md
-    - name: Créer des partages de fichiers - PowerShell
-      href: storage-how-to-use-files-powershell.md
-    - name: Créer des partages de fichiers - CLI
-      href: storage-how-to-use-files-cli.md
-    - name: Créer des partages de fichiers - Explorateur Stockage
-      href: storage-how-to-use-files-storage-explorer.md
 - name: Tutoriels
   items:
     - name: Étendre les serveurs de fichiers Windows avec Azure File Sync
@@ -177,7 +171,7 @@
           href: storage-files-migration-overview.md
         - name: Cibler un déploiement cloud uniquement
           items:
-            - name: RoboCopy vers des partages de fichiers Azure
+            - name: RoboCopy pour migrer vers des partages de fichiers Azure
               href: storage-files-migration-robocopy.md
             - name: Migrer d’un serveur NAS local vers des partages de fichiers Azure avec DataBox
               href: storage-files-migration-nas-cloud-databox.md

@@ -100,7 +100,7 @@
       href: document-translation/get-started-with-document-translation.md
     - name: Guides pratiques
       items:
-        - name: Créer des jetons SAS pour la traduction de documents
+        - name: Générer des jetons SAS pour la traduction de documentation
           href: document-translation/create-sas-tokens.md
         - name: Créer et utiliser une identité managée
           href: document-translation/managed-identity.md

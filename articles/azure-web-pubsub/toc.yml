@@ -13,18 +13,18 @@
     - name: Créer une instance
       expanded: true
       items:
-        - name: Portail
+        - name: Le portail Azure
           href: howto-develop-create-instance.md
-        - name: Interface de ligne de commande
+        - name: L’interface de ligne de commande Azure
           href: quickstart-cli-create.md
     - name: Se connecter à l’instance
       expanded: true
       items:
-        - name: Publication/abonnement à partir du navigateur
+        - name: PubSub à partir du navigateur
           href: quickstart-live-demo.md
-        - name: Publication/abonnement à partir de l’interface CLI
+        - name: PubSub à partir d’Azure CLI
           href: quickstart-cli-try.md
-        - name: Publication/abonnement avec le SDK Service
+        - name: PubSub à l’aide du SDK Service
           href: quickstart-use-sdk.md
 - name: Tutoriels
   expanded: true
@@ -32,7 +32,7 @@
     - name: Développement serverless
       expanded: true
       items:
-        - name: Créer une application de notification avec Azure Function
+        - name: Créer une application de notification avec Azure Functions
           href: tutorial-serverless-notification.md
         - name: Créer une application de conversation en temps réel avec une authentification cliente
           href: quickstart-serverless.md
@@ -40,7 +40,7 @@
       href: tutorial-pub-sub-messages.md
     - name: Générer une application de conversation
       href: tutorial-build-chat.md
-    - name: Streaming client à l’aide du sous-protocole pris en charge par le service
+    - name: Streaming client avec un sous-protocole pris en charge par le service
       href: tutorial-subprotocol.md
     - name: Authentification et autorisations
       href: tutorial-permission.md
@@ -49,7 +49,7 @@
   items:
     - name: Développer
       items:
-        - name: Guide pratique pour créer des clients WebSocket
+        - name: Créer des clients WebSocket
           href: howto-websocket-connect.md
     - name: Sécuriser
       items:
@@ -65,7 +65,7 @@
       items:
         - name: Collecter le suivi réseau
           href: howto-troubleshoot-network-trace.md
-        - name: Capturer les journaux de diagnostic
+        - name: Capturer des journaux de diagnostics
           href: howto-troubleshoot-diagnostic-logs.md
 - name: Concepts
   expanded: true

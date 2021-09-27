@@ -539,7 +539,7 @@
   items:
     - name: Documentation sur Speech Devices
       href: index-devices.yml
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: "Qu’est-ce que le SDK d’appareils Speech\_?"
           href: speech-devices-sdk.md
@@ -618,6 +618,8 @@
       items:
         - name: Vue d’ensemble de Speech Studio
           href: speech-studio-overview.md
+        - name: Contrôle d’accès en fonction du rôle dans Speech Studio
+          href: speech-studio-role-based-access-control.md
     - name: Préparation pour l’entreprise
       items:
         - name: Prise en charge de la région

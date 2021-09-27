@@ -30,6 +30,8 @@
   items:
     - name: Vue d’ensemble de l’authentification des comptes Automation
       href: automation-security-overview.md
+    - name: Changement de contexte dans Automation
+      href: context-switching.md
     - name: Vue d’ensemble de l’exécution d’un runbook
       href: automation-runbook-execution.md
     - name: Vue d’ensemble des Runbook Worker hybrides

@@ -213,6 +213,8 @@
         - name: Vue d’ensemble de la sécurité en entreprise
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Flux de trafic d’un espace de travail sécurisé
+          href: concept-secure-network-traffic-flow.md
         - name: Base de référence de la sécurité
           href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Contrôles de sécurité par Azure Policy
@@ -243,7 +245,7 @@
               displayName: 'vnet, workspace, container instance, container registry'
               href: how-to-secure-workspace-vnet.md
             - name: Sécuriser l’environnement d’entraînement
-              displayName: vnet
+              displayName: 'vnet, No public IP'
               href: how-to-secure-training-vnet.md
             - name: Sécuriser l’environnement d’inférence
               displayName: vnet
@@ -295,7 +297,7 @@
         - name: Créer et gérer des ressources de calcul
           items:
             - name: Instance de calcul
-              displayName: compute target
+              displayName: 'compute target, No public IP'
               href: how-to-create-manage-compute-instance.md
             - name: Cluster de calcul
               displayName: 'compute target, low priority, managed identity'
@@ -541,7 +543,7 @@
                 - name: Surveillance des points de terminaison en ligne managés
                   href: how-to-monitor-online-endpoints.md
                 - name: Résoudre les problèmes liés aux points de terminaison en ligne managés
-                  href: how-to-troubleshoot-managed-online-endpoints.md
+                  href: how-to-troubleshoot-online-endpoints.md
             - name: Batch
               items:
                 - name: Scoring par lots avec des points de terminaison de traitement de lots

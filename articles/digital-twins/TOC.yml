@@ -73,8 +73,6 @@
               href: how-to-set-up-instance-cli.md
             - name: PowerShell
               href: how-to-set-up-instance-powershell.md
-            - name: Configurer un exemple de script
-              href: how-to-set-up-instance-scripted.md
         - name: Activer l’accès privé avec Private Link
           href: how-to-enable-private-link.md
         - name: Écrire le code d’authentification de l’application
@@ -137,7 +135,7 @@
       items:
         - name: Afficher des métriques dans Azure Monitor
           href: troubleshoot-metrics.md
-        - name: Activer et interroger les journaux de diagnostic
+        - name: Utiliser des journaux de diagnostic.
           href: troubleshoot-diagnostics.md
         - name: Activer les alertes
           href: troubleshoot-alerts.md

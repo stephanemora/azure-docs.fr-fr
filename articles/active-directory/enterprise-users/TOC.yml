@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: 'Utilisateurs, groupes, licences et rôles Azure AD'
+    - name: 'Utilisateurs, groupes et licences Azure AD'
       href: directory-overview-user-model.md
 - name: Démarrages rapides
   items:
@@ -30,7 +30,7 @@
 - name: Guides pratiques
   expanded: true
   items:
-    - name: Gestion des utilisateurs
+    - name: Utilisateurs
       items:
         - name: Créer des utilisateurs
           href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -62,25 +62,25 @@
           href: users-restrict-guest-permissions.md
         - name: Groupes dynamiques et invités
           href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Gérer votre organisation
+    - name: Organisation
       items:
-        - name: Organisations Azure AD
+        - name: Organisations de locataires Azure AD
           href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+        - name: Suppression d’un locataire
+          href: directory-delete-howto.md
+        - name: Locataires multiples
+          href: licensing-directory-independence.md
+        - name: Prendre le contrôle d’un locataire
+          href: domains-admin-takeover.md
         - name: Gérer les noms de domaine
           href: domains-manage.md
         - name: Vérifier les sous-domaines comme étant managés
           href: domains-verify-custom-subdomain.md
-        - name: Supprimer un répertoire
-          href: directory-delete-howto.md
-        - name: Plusieurs répertoires
-          href: licensing-directory-independence.md
-        - name: Inscription libre-service
+        - name: Inscription en libre-service
           href: directory-self-service-signup.md
-        - name: Reprendre un répertoire
-          href: domains-admin-takeover.md
         - name: Azure AD Connect
           href: ../hybrid/whatis-hybrid-identity.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Gérer les groupes
+    - name: Groupes
       items:
         - name: Gérer l’accès à l’aide des groupes
           href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -130,7 +130,7 @@
           href: groups-self-service-management.md
         - name: Affecter des étiquettes de sensibilité
           href: groups-assign-sensitivity-labels.md
-    - name: Attribuer des licences
+    - name: Licences
       items:
         - name: Attribuer des licences à des utilisateurs
           href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -148,7 +148,7 @@
           href: licensing-ps-examples.md
         - name: ID de plan de service pour les licences
           href: licensing-service-plan-reference.md
-    - name: Gérer la connexion
+    - name: Connexion
       items:
         - name: Personnaliser la marque de la société
           href: ../fundamentals/customize-branding.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context

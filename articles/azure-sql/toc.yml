@@ -10,7 +10,7 @@
   items:
     - name: Modèles d’achat
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: database/purchasing-models.md
         - name: Vue d’ensemble du modèle vCore
           href: database/service-tiers-vcore.md
@@ -20,7 +20,7 @@
           href: database/reserved-capacity-overview.md
     - name: Capacité de calcul et stockage
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: database/service-tiers-general-purpose-business-critical.md
           displayName: provisioned compute tier
         - name: Usage général / Standard
@@ -102,8 +102,10 @@
                   href: database/authentication-aad-service-principal.md
                 - name: Rôle Lecteurs d’annuaires
                   href: database/authentication-aad-directory-readers-role.md
-                - name: "Authentification Azure\_AD seul"
+                - name: "Authentification avec Azure\_AD uniquement"
                   href: database/authentication-azure-ad-only-authentication.md
+                - name: Azure Policy pour l’authentification avec Azure AD uniquement
+                  href: database/authentication-azure-ad-only-authentication-policy.md
             - name: Transparent Data Encryption (TDE)
               items:
                 - name: Vue d’ensemble
@@ -191,6 +193,8 @@
                   href: database/authentication-aad-directory-readers-role-tutorial.md
                 - name: "Activer l’authentification Azure\_AD seul"
                   href: database/authentication-azure-ad-only-authentication-tutorial.md
+                - name: Application de l’authentification avec Azure AD uniquement à l’aide d’Azure Policy
+                  href: database/authentication-azure-ad-only-authentication-policy-how-to.md
                 - name: "Créer un serveur avec l’authentification Azure\_AD seul activée"
                   href: database/authentication-azure-ad-only-authentication-create-server.md
             - name: Configurer TDE avec BYOK
@@ -750,7 +754,7 @@
   items:
     - name: Documentation
       href: managed-instance/index.yml
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: "Qu’est-ce que SQL Managed Instance\_?"
           href: managed-instance/sql-managed-instance-paas-overview.md
@@ -1099,7 +1103,7 @@
       href: virtual-machines/index.yml
     - name: Windows
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           items:
             - name: "Qu’est-ce qu’une machine virtuelle SQL\_Server\_?"
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md

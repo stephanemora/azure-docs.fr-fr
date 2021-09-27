@@ -140,6 +140,8 @@ items:
                     href: ./sql/mfa-authentication.md
                   - name: Autorisation SQL
                     href: ./sql/sql-authentication.md
+                  - name: Accès conditionnel
+                    href: ./security/workspace-conditional-access.md
               - name: Contrôle d’accès
                 items:
                   - name: Vue d’ensemble
@@ -671,6 +673,8 @@ items:
                 href: ./spark/data-sources/apache-spark-sql-connector.md
               - name: JSON
                 href: how-to-analyze-complex-schema.md
+              - name: Metastore Hive externe
+                href: ./spark/apache-spark-external-metastore.md
   - name: Synapse Link
     items:
       - name: Vue d’ensemble
@@ -787,6 +791,8 @@ items:
                 href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: "Amazon\_Marketplace\_Web\_Service"
                 href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+              - name: Amazon RDS pour Oracle
+                href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon Redshift
                 href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon S3

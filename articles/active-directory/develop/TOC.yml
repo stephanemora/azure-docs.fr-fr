@@ -552,6 +552,8 @@
           href: howto-restrict-your-app-to-a-set-of-users.md
         - name: Ajouter des rôles d’application dans votre application
           href: howto-add-app-roles-in-azure-ad-apps.md
+        - name: Implémenter le contrôle d’accès en fonction du rôle dans votre application
+          href: howto-implement-rbac-for-apps.md
     - name: Utiliser l’API Microsoft Graph
       href: microsoft-graph-intro.md
     - name: Créer pour la résilience
