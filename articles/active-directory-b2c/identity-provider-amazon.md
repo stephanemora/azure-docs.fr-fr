@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 03/17/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b6c0d9d5430d84006b208c50e78b8d875c95b8ac
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 58b4738784683aa1ce9271e7cf3a022d70496e1a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028381"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572100"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Amazon à l’aide d’Azure Active Directory B2C
 
@@ -55,7 +55,8 @@ Pour permettre la connexion des utilisateurs avec un compte Amazon dans Azure A
 ## <a name="configure-amazon-as-an-identity-provider"></a>Configuration d’Amazon en tant que fournisseur d’identité
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
 1. Sélectionnez **Fournisseurs d’identité**, puis **Amazon**.
 1. Saisissez un **Nom**. Par exemple, *Amazon*.
@@ -87,15 +88,16 @@ Si le processus de connexion réussit, votre navigateur est redirigé vers `http
 Vous devez stocker la clé secrète client que vous avez enregistrée dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
-5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
-6. Pour **Options**, choisissez `Manual`.
-7. Entrez un **nom** pour la clé de stratégie. Par exemple : `AmazonSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
-8. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
-9. Pour **Utilisation de la clé**, sélectionnez `Signature`.
-10. Cliquez sur **Créer**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Pour **Options**, choisissez `Manual`.
+1. Entrez un **nom** pour la clé de stratégie. Par exemple : `AmazonSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
+1. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
+1. Pour **Utilisation de la clé**, sélectionnez `Signature`.
+1. Cliquez sur **Créer**.
 
 ## <a name="configure-amazon-as-an-identity-provider"></a>Configuration d’Amazon en tant que fournisseur d’identité
 

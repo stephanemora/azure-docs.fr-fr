@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 07/25/2021
+ms.date: 09/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 8615c84a611d8f05ebb7db017bc8e7dbfa54fbcd
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 578ef03a4f43e54a91af3b24ce77f6e0ac0674cf
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114678239"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123646412"
 ---
 - [Activer si nécessaire] Les comptes Azure Cosmos DB doivent utiliser des clés gérées par le client pour chiffrer les données au repos
 - [Activer si nécessaire] Les espaces de travail Azure Machine Learning doivent être chiffrés avec une clé gérée par le client (CMK)

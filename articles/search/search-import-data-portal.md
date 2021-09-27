@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d0280b8af673ebcf994ca537cbc929f9035a8d6d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ed3f02f6bf4c9a7b53a63f31163663c59c0edc88
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556493"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451022"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistant Importation de données pour la Recherche cognitive Azure
 
@@ -82,16 +82,15 @@ En arrière-plan, l’Assistant crée, configure et appelle les objets suivants.
 | [Ensemble de compétences](/rest/api/searchservice/create-skillset) | Ensemble complet d’instructions destiné à manipuler, transformer et mettre en forme du contenu, notamment en analysant et extrayant des informations de fichiers image. À l’exception des structures très simples et limitées, il comporte une référence à une ressource Cognitive Services qui assure l’enrichissement. Il peut aussi éventuellement contenir une définition de base de connaissances.  | 
 | [Indexeur](/rest/api/searchservice/create-indexer)  | Objet de configuration spécifiant une source de données, un index cible, un ensemble de compétences facultatif, une planification facultative et des paramètres de configuration facultatifs pour la gestion des erreurs et l’encodage en base 64. |
 
-
 ## <a name="how-to-start-the-wizard"></a>Comment démarrer l’Assistant
 
 L’Assistant Importation des données se démarre à partir de la barre de commandes dans la page Vue d’ensemble du service.
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez la page du service de recherche à partir du tableau de bord, ou [recherchez votre service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans la liste.
 
-2. En haut de la page de présentation du service, cliquez sur **Importer des données**.
+1. En haut de la page de présentation du service, cliquez sur **Importer des données**.
 
-   ![Commande Importer des données dans le portail](./media/search-import-data-portal/import-data-cmd2.png "Démarrer l’Assistant Importer des données")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Capture d’écran de la commande Importer des données" border="true":::
 
 Vous pouvez aussi lancer **l’Importation des données** à partir d’autres services Azure, dont Azure Cosmos DB, Azure SQL Database, SQL Managed Instance et le Stockage Blob Azure. Recherchez **Ajouter Recherche cognitive Azure** dans le volet de navigation de gauche de la page de présentation du service.
 

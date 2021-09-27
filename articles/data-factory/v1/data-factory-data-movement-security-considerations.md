@@ -3,16 +3,17 @@ title: Considérations de sécurité relatives au déplacement des données dans
 description: Découvrez comment sécuriser les déplacements de données dans Azure Data Factory.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 33b1ad381b3f7865768f9e39295a2985f8aa5234
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0823c085470e83c82164fa578f1465e95eda81f0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375100"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596198"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
@@ -80,7 +81,7 @@ Salesforce prend en charge Shield Platform qui permet de chiffrer tous les fichi
 ## <a name="hybrid-scenarios-using-data-management-gateway"></a>Scénarios hybrides (à l’aide de la passerelle de gestion des données)
 Pour les scénarios hybrides, la passerelle de gestion des données doit être installée au sein d’un réseau local, d’un réseau virtuel (Azure) ou d’un cloud privé virtuel (Amazon). La passerelle doit pouvoir accéder aux banques de données locales. Pour obtenir des informations détaillées sur la passerelle, consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md). 
 
-![Canaux de passerelle de gestion de données](media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png" alt-text="Canaux de passerelle de gestion de données":::
 
 Le **canal de commande** établit la communication entre les services de déplacement des données dans Data Factory et la passerelle de gestion des données. La communication contient des informations relatives à l’activité. Le canal de données est utilisé pour transférer des données entre les banques de données locales et les banques de données cloud.    
 
@@ -100,7 +101,7 @@ Vous pouvez chiffrer les informations d’identification des banques de données
 #### <a name="click-once-credentials-manager-app"></a>Application Gestionnaire des informations d’identification ClickOnce
 Vous pouvez lancer l’application Gestionnaire des informations d’identification ClickOnce depuis le portail Azure ou l’Assistant de copie lors de la création de pipelines. Cette application s’assure que les informations d’identification ne sont pas transférées en texte brut sur le réseau. Elle utilise par défaut le port **8050** de l’ordinateur hébergeant la passerelle pour établir une communication sécurisée. Ce port peut être modifié en cas de besoin.  
   
-![Port HTTPS pour la passerelle](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/https-port-for-gateway.png" alt-text="Port HTTPS pour la passerelle":::
 
 La passerelle de gestion des données utilise actuellement un seul **certificat**. Ce certificat est créé lors de l’installation de la passerelle (pour toutes les passerelles de gestion des données créées après novembre 2016 et ayant une version 2.4.xxxx.x ou ultérieure). Vous pouvez remplacer ce certificat par votre propre certificat SSL/TLS. Ce certificat est utilisé par l’application Gestionnaire des informations d’identification ClickOnce pour se connecter en toute sécurité à l’ordinateur de la passerelle et définir les informations d’identification des banques de données. Il stocke les informations d’identification des banques de données en local et de manière sécurisée à l’aide de l’API Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) sur l’ordinateur qui héberge la passerelle. 
 
@@ -132,11 +133,11 @@ Les illustrations suivantes décrivent l’utilisation de la passerelle de gesti
 
 **Express Route :**
  
-![ExpressRoute avec passerelle](media/data-factory-data-movement-security-considerations/express-route-for-gateway.png) 
+:::image type="content" source="media/data-factory-data-movement-security-considerations/express-route-for-gateway.png" alt-text="ExpressRoute avec passerelle"::: 
 
 **IPSec VPN :**
 
-![VPN IPSec avec passerelle](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="VPN IPSec avec passerelle":::
 
 ### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Configurations de pare-feu et filtrage des adresses IP de la passerelle
 
@@ -162,7 +163,7 @@ Le tableau suivant indique les paramètres de **port entrant** requis pour le **
 | ------------- | ----------- | 
 | 8050 (TCP) | Requis par l’application Gestionnaire des informations d’identification pour définir en toute sécurité les informations d’identification des banques de données locales sur la passerelle. | 
 
-![Configuration requise des ports de la passerelle](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/gateway-port-requirements.png" alt-text="Configuration requise des ports de la passerelle":::
 
 #### <a name="ip-configurationsfiltering-in-data-store"></a>Configuration/filtrage des adresses IP dans la banque de données
 Pour certaines banques de données hébergées dans le cloud, vous devez également approuver l'adresse IP de l'ordinateur qui y accède. Vérifiez que l'adresse IP de l'ordinateur de passerelle est approuvée/correctement configurée dans le pare-feu.

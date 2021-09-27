@@ -3,17 +3,17 @@ title: Charges utiles de télémétrie, de propriétés et de commandes dans Azu
 description: Les modèles d’appareil Azure IoT Central vous permettent de spécifier la données de télémétrie, les propriétés et les commandes qu’un appareil doit implémenter. Comprendre le format des données qu’un appareil peut échanger avec IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/19/2020
+ms.date: 08/25/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 2f76be3bd5a2688e91f63da5da137492190b2ccb
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 3c30662a9ca85265f43e78ad9dd3f33c70c167a5
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789068"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479937"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Charges utiles de télémétrie, de propriétés et de commandes
 

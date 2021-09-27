@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: justinha
-ms.openlocfilehash: 1e98f32bd6fe7d5373d5ab6621ffdce5e79abc08
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4de85e8cf62ed2b8e5726d2c569396bcba1cb968
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619587"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590097"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Joindre une machine virtuelle CoreOs à un domaine managé par Azure Active Directory Domain Services
 
@@ -35,6 +35,7 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
     * Si nécessaire, le premier tutoriel [crée et configure un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Un compte d’utilisateur membre du domaine managé.
+* Des noms de machine virtuelle Linux uniques d’un maximum de 15 caractères pour éviter les noms tronqués susceptibles de générer des conflits dans Active Directory.
 
 ## <a name="create-and-connect-to-a-coreos-linux-vm"></a>Créer une machine virtuelle CoreOS et s’y connecter
 

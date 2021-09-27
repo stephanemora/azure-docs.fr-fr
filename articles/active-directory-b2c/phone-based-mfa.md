@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/01/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cc9e0be90c138ba33e1b4dfe11ea6f9c8b7da297
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 112fe68a1d8682b03a9f08839d827b71ebadf1d1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033552"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571766"
 ---
 # <a name="securing-phone-based-multi-factor-authentication-mfa"></a>Sécurisation de l’authentification multifacteur (MFA) basée sur le téléphone
 
@@ -95,23 +95,20 @@ Effectuez les actions suivantes pour limiter les connexions frauduleuses.
 - Supprimez les codes de pays qui ne sont pas pertinents pour votre organisation du menu déroulant dans lequel l’utilisateur vérifie son numéro de téléphone (cette modification s’appliquera aux futures connexions) :
     
    1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général de votre locataire Azure AD B2C.
-
-   2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-
-   3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
-
-   4. Sélectionnez le flux d’utilisateur, puis sélectionnez **Langues**. Sélectionnez la langue correspondant à l’emplacement géographique de votre organisation pour ouvrir le volet de détails de la langue. (Pour cet exemple, nous sélectionnons **Anglais en** pour les États-Unis). Sélectionnez la **Page d’authentification multifacteur**, puis sélectionnez **Télécharger les valeurs par défaut (en)** .
+   1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+   1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+   1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
+   1. Sélectionnez le flux d’utilisateur, puis sélectionnez **Langues**. Sélectionnez la langue correspondant à l’emplacement géographique de votre organisation pour ouvrir le volet de détails de la langue. (Pour cet exemple, nous sélectionnons **Anglais en** pour les États-Unis). Sélectionnez la **Page d’authentification multifacteur**, puis sélectionnez **Télécharger les valeurs par défaut (en)** .
  
       ![Charger de nouvelles valeurs de remplacement pour télécharger les valeurs par défaut](media/phone-based-mfa/download-defaults.png)
 
-   5. Ouvrez le fichier JSON qui a été téléchargé à l’étape précédente. Dans le fichier, recherchez `DEFAULT` et remplacez la ligne par `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Veillez à définir `Overrides` sur `true`.
+   1. Ouvrez le fichier JSON qui a été téléchargé à l’étape précédente. Dans le fichier, recherchez `DEFAULT` et remplacez la ligne par `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Veillez à définir `Overrides` sur `true`.
 
    > [!NOTE]
    > Vous pouvez personnaliser la liste des codes de pays autorisés dans l’élément `countryList` (voir l’[Exemple de page d’authentification par facteur de téléphone](localization-string-ids.md#phone-factor-authentication-page-example)).
 
-   7. Enregistrez le fichier JSON. Dans le volet de détails de la langue, sous **Charger de nouvelles valeurs de remplacement**, sélectionnez le fichier JSON modifié pour le charger.
-
-   8. Fermez le volet et sélectionnez **Exécuter le flux d’utilisateur**. Pour cet exemple, vérifiez qu’**États-Unis** est le seul code pays disponible dans la liste déroulante :
+   1. Enregistrez le fichier JSON. Dans le volet de détails de la langue, sous **Charger de nouvelles valeurs de remplacement**, sélectionnez le fichier JSON modifié pour le charger.
+   1. Fermez le volet et sélectionnez **Exécuter le flux d’utilisateur**. Pour cet exemple, vérifiez qu’**États-Unis** est le seul code pays disponible dans la liste déroulante :
  
       ![Liste déroulante des codes de pays](media/phone-based-mfa/country-code-drop-down.png)
 

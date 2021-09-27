@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 09/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: lvandenende
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: a82b2632d5415091986c418ca7cd3871e519b374
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: d4c0c4122d44716b3bb55b231662743c79bdd9d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634183"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633409"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -69,6 +69,10 @@ Une fois l’inscription à Azure AD Multi-Factor Authentication terminée, les 
 - Administrateur de facturation
 - Administrateur d’utilisateurs
 - Administrateur d’authentification
+- Administrateur de mots de passe
+- Administrateur d’authentification privilégié
+- Administrateur d’application
+- Administrateur d’application cloud
 
 > [!WARNING]
 > Vérifiez que votre annuaire a au moins deux comptes disposant des privilèges d’administrateur général. Ceci vous aidera dans le cas où un administrateur général est verrouillé. Pour plus d’informations, consultez l’article [Gérer les comptes d’accès d’urgence dans Azure AD](../roles/security-emergency-access.md).

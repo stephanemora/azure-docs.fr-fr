@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e289ad866ba53de761077f22b27ef4ff763451ff
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: ccf2f423137e4732b2785f23256577c92eee07ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468550"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595652"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -46,7 +46,7 @@ Pour plus de commodité, vous pouvez envisager d’ajouter l’emplacement du r�
 
 Si vous choisissez de ne pas ajouter le répertoire AzCopy à votre chemin d’accès, vous devrez remplacer les répertoires par l’emplacement de votre fichier exécutable AzCopy et saisir `azcopy` ou `.\azcopy` dans les invites de commandes Windows PowerShell.
 
-En tant que propriétaire de votre compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée. Avant d’effectuer une opération pertinente avec AzCopy, vous devez choisir comment fournir les informations d’identification d’autorisation du service de stockage. 
+En tant que propriétaire de votre compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée. Avant d’effectuer une opération pertinente avec AzCopy, vous devez choisir comment fournir les informations d’identification d’autorisation du service de stockage.
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
@@ -64,7 +64,7 @@ Utilisez ce tableau pour vous guider :
 
 #### <a name="option-1-use-azure-active-directory"></a>Option 1 : Utiliser Azure Active Directory
 
-Cette option est disponible uniquement pour le stockage blob. En utilisant Azure Active Directory, vous pouvez fournir des informations d’identification en une seule fois au lieu d’ajouter un jeton SAS à chaque commande.  
+Cette option est disponible uniquement pour le stockage blob. En utilisant Azure Active Directory, vous pouvez fournir des informations d’identification en une seule fois au lieu d’ajouter un jeton SAS à chaque commande.
 
 > [!NOTE]
 > Dans la version actuelle, si vous envisagez de copier des blobs entre des comptes de stockage, vous devez ajouter un jeton SAS à chaque URL source. Vous pouvez omettre le jeton SAS uniquement à partir de l’URL de destination. Pour des exemples, consultez [Copier des objets blob entre des comptes de stockage](#transfer-data).
@@ -84,7 +84,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 Pour en savoir plus sur les jetons SAS et savoir comment en obtenir un, voir [Utilisation des signatures d’accès partagé (SAP)](./storage-sas-overview.md).
 
 > [!NOTE]
-> Le paramètre [Transfert sécurisé requis](storage-require-secure-transfer.md) d’un compte de stockage détermine si la connexion à un compte de stockage est sécurisée à l’aide du protocole TLS (Transport Layer Security). Ce paramètre est activé par défaut.   
+> Le paramètre [Transfert sécurisé requis](storage-require-secure-transfer.md) d’un compte de stockage détermine si la connexion à un compte de stockage est sécurisée à l’aide du protocole TLS (Transport Layer Security). Ce paramètre est activé par défaut.
 
 <a id="transfer-data"></a>
 
@@ -116,7 +116,7 @@ Pour en savoir plus sur une commande spécifique, incluez simplement le nom de l
 
 ### <a name="list-of-commands"></a>Liste des commandes
 
-Le tableau suivant répertorie toutes les commandes AzCopy v10. Chaque commande est liée à un article de référence. 
+Le tableau suivant répertorie toutes les commandes AzCopy v10. Chaque commande est liée à un article de référence.
 
 |Commande|Description|
 |---|---|
@@ -140,7 +140,7 @@ Le tableau suivant répertorie toutes les commandes AzCopy v10. Chaque commande 
 |[azcopy sync](storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json)|Réplique l’emplacement source vers l’emplacement de destination.|
 
 > [!NOTE]
-> AzCopy ne propose pas de commande permettant de renommer des fichiers. 
+> AzCopy ne propose pas de commande permettant de renommer des fichiers.
 
 ## <a name="use-in-a-script"></a>Utiliser dans un script
 

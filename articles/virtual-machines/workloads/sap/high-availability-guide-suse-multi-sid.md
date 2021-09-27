@@ -1,13 +1,9 @@
 ---
 title: Guide de haute disponibilité multi-SID des machines virtuelles Azure SAP sur SLES | Microsoft Docs
 description: Guide de haute disponibilité multi-SID pour SAP NetWeaver sur SUSE Linux Enterprise Server pour les applications SAP
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 6d60ea09896d42fa43a650e210ed3c19d3a99ef4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 8442418896f0ce07e601d89a9a1b42ca5b62404a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450633"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569292"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Guide de haute disponibilité multi-SID pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -582,7 +578,7 @@ Les tests présentés se trouvent dans un cluster à deux nœuds, multi-SID, ave
 
 1. Testez HAGetFailoverConfig et HACheckFailoverConfig.
 
-   Exécutez les commandes suivantes en tant que <sapsid>adm sur le nœud où l’instance ASCS est actuellement en cours d’exécution. Si les commandes échouent avec ÉCHEC : Mémoire insuffisante apparait, cela peut être dû à des tirets dans votre nom d’hôte. Ceci est un problème connu et il sera corrigé par SUSE dans le package sap-suse-cluster-connector.
+   Exécutez les commandes suivantes en tant que \<sapsid\>adm sur le nœud où l’instance ASCS est actuellement en cours d’exécution. Si les commandes échouent avec ÉCHEC : Mémoire insuffisante apparait, cela peut être dû à des tirets dans votre nom d’hôte. Ceci est un problème connu et il sera corrigé par SUSE dans le package sap-suse-cluster-connector.
 
    ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig

@@ -1,14 +1,14 @@
 ---
-title: Exécuter une fabrique d’images dans Azure DevTest Labs à partir d’Azure DevOps
+title: Exécuter une fabrique d’images depuis Azure DevOps
 description: Cet article décrit toutes les tâches de préparation nécessaires pour exécuter la fabrique d’images à partir d’Azure DevOps (anciennement Visual Studio Team Services).
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc12dc67160a68898191ab802cc9f6e9bd3f3f62
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85476136"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604857"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Exécuter une fabrique d’images depuis Azure DevOps
 Cet article décrit toutes les tâches de préparation nécessaires pour exécuter la fabrique d’images à partir d’Azure DevOps (anciennement Visual Studio Team Services).

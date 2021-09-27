@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 08/18/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ff085c32c7aeb63fea04f04558c1bccd5814b29b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 064a3749577e3e50d6a0d63eda2a944a30788614
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122563974"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569453"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
 Le service Stockage Azure stocke toujours plusieurs copies de vos données afin qu’elles soient protégées contre des événements planifiés ou non, notamment des défaillances matérielles temporaires, des pannes de réseau ou de courant et des catastrophes naturelles majeures. La redondance garantit que votre compte de stockage répond à ses objectifs de disponibilité et de durabilité, même en cas de défaillance.
 
-Lorsque vous choisissez l’option de redondance la mieux adaptée à votre scénario, réfléchissez aux compromis possibles entre, d’une part, des coûts réduits et, de l’autre, une disponibilité accrue. Les facteurs déterminant le choix de l’option de redondance sont les suivants :  
+Lorsque vous choisissez l’option de redondance la mieux adaptée à votre scénario, réfléchissez aux compromis possibles entre, d’une part, des coûts réduits et, de l’autre, une disponibilité accrue. Les facteurs déterminant le choix de l’option de redondance sont les suivants :
 
 - Mode de réplication de vos données dans la région primaire
 - Réplication éventuelle de vos données vers une deuxième région géographiquement éloignée de la région primaire, afin d’offrir une protection contre des catastrophes régionales
@@ -160,7 +160,7 @@ Le stockage géo-redondant (GRS ou GZRS) réplique vos données vers un autre em
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Concevoir vos applications pour l’accès en lecture à la région secondaire
 
-Si votre compte de stockage est configuré pour l’accès en lecture à la région secondaire, vous pouvez concevoir vos applications pour qu’elles passent en toute transparence à la lecture des données de la région secondaire si la région primaire devient indisponible pour une raison quelconque. 
+Si votre compte de stockage est configuré pour l’accès en lecture à la région secondaire, vous pouvez concevoir vos applications pour qu’elles passent en toute transparence à la lecture des données de la région secondaire si la région primaire devient indisponible pour une raison quelconque.
 
 La région secondaire est disponible pour l’accès en lecture une fois que vous avez activé RA-GRS ou RA-GZRS, afin que vous puissiez tester votre application à l’avance pour vous assurer qu’elle sera correctement lue à partir du serveur secondaire en cas de panne. Pour plus d’informations sur la conception de vos applications de manière à tirer parti de la géoredondance, consultez [Utiliser la géoredondance pour concevoir des applications hautement disponibles](geo-redundant-design.md).
 

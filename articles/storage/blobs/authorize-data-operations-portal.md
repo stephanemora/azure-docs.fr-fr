@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: b6af5e7efa14c7a8b2243e908b52ed6cf50c8272
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 35ea4317b78a9f732d095d9f024d7465ebd1828e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727216"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615697"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Choisir comment autoriser l’accès à des données de blobs dans le portail Azure
 
-Lorsque vous accédez aux données d’objet blob à l’aide du [Portail Azure](https://portal.azure.com), le portail fait des requêtes à Azure Storage en arrière-plan. Une requête au stockage Azure peut être autorisée à l’aide de votre compte Azure AD ou de la clé d’accès au compte de stockage. Le portail indique quelle méthode vous utilisez et vous permet de basculer entre les deux si vous disposez des autorisations appropriées.  
+Lorsque vous accédez aux données d’objet blob à l’aide du [Portail Azure](https://portal.azure.com), le portail fait des requêtes à Azure Storage en arrière-plan. Une requête au stockage Azure peut être autorisée à l’aide de votre compte Azure AD ou de la clé d’accès au compte de stockage. Le portail indique quelle méthode vous utilisez et vous permet de basculer entre les deux si vous disposez des autorisations appropriées.
 
 Vous pouvez également préciser de quelle manière une opération individuelle de chargement d'objets blob doit être autorisée sur le portail Azure. Par défaut, le portail applique la méthode que vous utilisez déjà pour autoriser une opération de chargement d'objets blob, mais vous pouvez modifier ce paramètre au moment du chargement d'un objet blob.
 

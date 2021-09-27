@@ -1,20 +1,20 @@
 ---
 title: Affichage d’informations sur les caractéristiques dans les cartes Android | Microsoft Azure Maps
 description: Découvrez comment afficher des informations lorsque les utilisateurs interagissent avec les fonctionnalités de la carte. Utilisez Android SDK Azure Maps pour afficher des messages Toast et d’autres types de messages.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 9d7606a259f46981f672cba114410f84d395615c
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: a8bd232ccba2adb3666ee7fd54983be2ed1f7296
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091786"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426433"
 ---
 # <a name="display-feature-information"></a>Afficher des informations sur les fonctionnalités
 

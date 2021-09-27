@@ -1,14 +1,14 @@
 ---
 title: Diagnostiquer les échecs d’artefacts dans une machine virtuelle Azure DevTest Labs
 description: DevTest Labs fournit des informations qui permettent de diagnostiquer un échec d’artefact. Cet article explique comment détecter un problème lié aux échecs d’artefact.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 440ce6a537ac8d6a21ae8010bfbb3c38a82bf01e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e7c343eee8c3484e12139c2bef963fc463ffc28d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85480811"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567446"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnostiquer les échecs d’artefacts dans le labo 
 Une fois que vous avez créé un artefact, vous pouvez vérifier si la procédure a réussi ou échoué. Les journaux d’activité d’artefact d’Azure DevTest Labs fournissent des informations qui permettent de diagnostiquer un échec d’artefact. Vous disposez de deux options pour afficher les informations des journaux d’artefact relatives à une machine virtuelle Windows :
@@ -49,4 +49,3 @@ Pour obtenir des instructions sur la recherche des fichiers journaux sur une mac
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [ajouter un référentiel Git à un labo](devtest-lab-add-artifact-repo.md).
-

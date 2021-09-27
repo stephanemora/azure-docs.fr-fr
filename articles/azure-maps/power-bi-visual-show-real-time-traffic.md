@@ -1,20 +1,20 @@
 ---
 title: Afficher le trafic en temps réel dans le visuel Power BI Azure Maps | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à afficher le trafic en temps dans le visuel Microsoft Azure Maps pour Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fe9e86f3c1d155a1f0b29f500de3954e360b4aa7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea6959aef0bf142f630dca576fe40a18329948bd
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86261388"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428935"
 ---
 # <a name="show-real-time-traffic"></a>Afficher le trafic en temps réel
 

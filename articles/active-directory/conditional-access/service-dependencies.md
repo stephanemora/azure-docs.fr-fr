@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4174ea12f687e370eb1ff5508876e44a1430cdfb
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 7ff1a78fb5dd51ebc00d8a174989d59184c0b884
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864019"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554635"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Que sont les dépendances de service dans l’accès conditionnel Azure Active Directory ? 
 
@@ -60,6 +60,8 @@ Le tableau ci-dessous répertorie les dépendances de service supplémentaires e
 |                     | SharePoint                                  | Liaison anticipée |
 | Power Apps           | Gestion Microsoft Azure (portail et API) | Liaison anticipée |
 |                     | Microsoft Azure Active Directory              | Liaison anticipée |
+|                     | SharePoint                                  | Liaison anticipée |
+|                     | Exchange                                    | Liaison anticipée |
 | Projet             | Dynamics CRM                                | Liaison anticipée |
 | Skype Entreprise  | Exchange                                    | Liaison anticipée |
 | Visual Studio       | Gestion Microsoft Azure (portail et API) | Liaison anticipée |

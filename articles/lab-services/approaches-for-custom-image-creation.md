@@ -3,12 +3,12 @@ title: Azure Lab Services - Approches recommandées pour la création d’images
 description: Décrit les approches de création d’images personnalisées pour les labos.
 ms.date: 07/27/2021
 ms.topic: article
-ms.openlocfilehash: 94a86ab6668300d736d17e52aaeaa0e615adf637
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 621456c910b5137ed14a77d8d2cfeb9664910fa9
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829189"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450637"
 ---
 # <a name="recommended-approaches-for-creating-custom-images"></a>Approches recommandées pour la création d’images personnalisées
 Cet article décrit les approches recommandées suivantes pour créer une image personnalisée :
@@ -52,8 +52,9 @@ Voici les principales étapes à suivre pour apporter une image personnalisée d
 
 1. Créez une [machine virtuelle Azure](https://azure.microsoft.com/services/virtual-machines/) en utilisant une image de la Place de marché Windows ou Linux.
 1. Connectez-vous à la machine virtuelle Azure et installez d’autres logiciels. Vous pouvez également effectuer d’autres personnalisations nécessaires à votre labo.
-1. Une fois que vous avez fini de configurer l’image, [enregistrez l’image de la machine virtuelle dans une galerie d’images partagées](../virtual-machines/image-version-vm-powershell.md). Dans le cadre de cette étape, vous devez également créer la définition et la version de l’image.
+1. Une fois que vous avez fini de configurer l’image, [enregistrez l’image de la machine virtuelle dans une galerie d’images partagées](../virtual-machines/image-version.md). Dans le cadre de cette étape, vous devez également créer la définition et la version de l’image.
 1. Une fois que l’image personnalisée est enregistrée dans la galerie, vous pouvez l’utiliser pour créer des labos. 
+
 
 Les étapes varient selon que vous créez une image personnalisée Windows ou Linux. Lisez les articles suivants pour obtenir des instructions détaillées :
 

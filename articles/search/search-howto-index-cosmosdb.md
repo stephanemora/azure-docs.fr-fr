@@ -7,12 +7,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2021
-ms.openlocfilehash: 29a6041206496d7970e3ea58deed1754c062b663
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 389ecc550fd2b9e0fa41b7437b47aa5b40af3712
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525072"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450914"
 ---
 # <a name="index-data-from-azure-cosmos-db-using-sql-or-mongodb-apis"></a>Indexer des données à partir d’Azure Cosmos DB à l’aide d’API SQL ou MongoDB
 
@@ -29,10 +29,6 @@ L’indexeur Cosmos DB dans Recherche cognitive Azure peut analyser les [él�
 + Pour l’[API SQL](../cosmos-db/sql-query-getting-started.md), qui est en disponibilité générale, vous pouvez utiliser le [portail](#cosmos-indexer-portal), l’[API REST](/rest/api/searchservice/indexer-operations), le [Kit de développement logiciel (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) ou un autre SDK Azure pour créer la source de données et l’indexeur.
 
 + Pour l’[API MongoDB (préversion)](../cosmos-db/mongodb-introduction.md), vous pouvez utiliser le [portail](#cosmos-indexer-portal) ou l’[API REST version 2020-06-30-Preview](search-api-preview.md) pour créer la source de données et l’indexeur.
-
-> [!Note]
-> Vous pouvez voter sur User Voice pour l’[API Table](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab) si vous souhaitez la voir prise en charge dans Recherche cognitive Azure.
->
 
 ## <a name="prerequisites"></a>Configuration requise
 
@@ -59,7 +55,7 @@ Assurez-vous que votre base de données Cosmos DB contient des données. L’[As
 
 Vous pouvez [démarrer l’Assistant](search-import-data-portal.md) à partir de la barre de commandes dans la page du service Recherche cognitive Azure ou, si vous vous connectez à l’API SQL de Cosmos DB, vous pouvez cliquer sur **Ajouter Recherche cognitive Azure** dans la section **Paramètres** du volet de navigation gauche de votre compte Cosmos DB.
 
-   ![Commande Importer des données dans le portail](./media/search-import-data-portal/import-data-cmd2.png "Démarrer l’Assistant Importer des données")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Capture d’écran de la commande Importer des données" border="true":::
 
 ### <a name="step-3---set-the-data-source"></a>Étape 3 : Définir la source de données
 
@@ -185,7 +181,7 @@ Le corps de la requête contient la définition de la source de données, qui do
 Vous pouvez spécifier une requête SQL pour aplatir les propriétés ou les tableaux imbriqués, projeter des propriétés JSON et filtrer les données à indexer. 
 
 > [!WARNING]
-> Les requêtes personnalisées ne sont pas prises en charge pour l’**API MongoDB** : le paramètre `container.query` doit être défini sur Null ou être omis. Si vous avez besoin d’utiliser une requête personnalisée, indiquez-le nous sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Les requêtes personnalisées ne sont pas prises en charge pour l’**API MongoDB** : le paramètre `container.query` doit être défini sur Null ou être omis. 
 
 Exemple de document :
 

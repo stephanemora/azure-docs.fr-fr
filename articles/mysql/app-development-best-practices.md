@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 1ec3d86ea66e436732cd8d1044c0658238ba781f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 22f17c59b93a3defd6c372eb6a871496850ba122
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113086259"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670763"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Meilleures pratiques pour créer une application avec Azure Database pour MySQL
 
@@ -45,7 +45,7 @@ Pour les charges de travail intensives, le réglage des paramètres du serveur, 
 
 Pour calculer la plus grande taille possible de `tmp_table_size` et `max_heap_table_size`, utilisez la formule suivante :
 
-```(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections```
+`(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections`
 
 > [!NOTE]
 > Mémoire totale indique la quantité totale de mémoire dont dispose le serveur sur les vCores provisionnés.  Par exemple, dans un serveur Azure Database pour MySQL avec deux vCores universel, la mémoire totale sera de 5 Go * 2. Vous trouverez plus de détails sur la mémoire pour chaque niveau de service dans la documentation relative aux [niveaux tarifaires](./concepts-pricing-tiers.md).
@@ -125,7 +125,7 @@ La métrique `created_tmp_disk_tables` indique le nombre de tables qui ont été
 
 Pour calculer le pourcentage de votre charge de travail avec des requêtes débordant sur des disques, utilisez vos valeurs de métriques dans la formule ci-dessous :
 
-```(created_tmp_disk_tables / (created_tmp_disk_tables + created_tmp_tables)) * 100```
+`(created_tmp_disk_tables / (created_tmp_disk_tables + created_tmp_tables)) * 100`
 
 Dans l’idéal, ce pourcentage doit être inférieur à 25 %. Si vous constatez que le pourcentage est supérieur ou égal à 25 %, nous vous suggérons de modifier deux paramètres de serveur, tmp_table_size et max_heap_table_size.
 

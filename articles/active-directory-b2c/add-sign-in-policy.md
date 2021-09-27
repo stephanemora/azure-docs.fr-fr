@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 08/24/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 71784aa5e40cc7af96faa60d0779a779e99f3425
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 78556d5f6d6a203a3d105f971cb7850109daa01a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777845"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570271"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configurer un flux de connexion dans Azure Active Directory B2C
 
@@ -47,13 +47,13 @@ Pour ajouter une stratégie de connexion :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez l’icône **Répertoires + Abonnements** dans la barre d’outils du portail.
-1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD B2C dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Stratégies**, sélectionnez **Flux d’utilisateurs**, puis sélectionnez **Nouveau flux d’utilisateur**.
 1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Connexion**.
 1. Sous **Sélectionner une version**, sélectionnez **Recommandé**, puis **Créer**. ([Apprenez-en davantage](user-flow-versions.md) sur les version de flux utilisateur.)
 1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *signupsignin1*.
-1. Sous **Fournisseurs d’identité**, sélectionnez au moins un fournisseur d’identité :
+1. Sous **Fournisseurs d’identité**, sélectionnez au moins un fournisseur d’identité :
 
    * Sous **Comptes locaux**, sélectionnez l’une des options suivantes : **Connexion par e-mail**, **Connexion par ID utilisateur**, **Connexion par téléphone**, **Connexion par téléphone/e-mail**, **Connexion par ID utilisateur/e-mail**, ou **Aucun**. [Plus d’informations](sign-in-options.md)
    * Sous **Fournisseurs d’identité sociale**, sélectionnez l’un des fournisseurs d’identité sociale ou d’entreprise externes que vous avez configurés. [Plus d’informations](add-identity-provider.md)
@@ -117,8 +117,8 @@ Le profil technique **LocalAccountSignUpWithLogonEmail** est [autodéclaré](sel
 ## <a name="update-and-test-your-policy"></a>Charger et tester votre stratégie
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Veillez à utiliser le répertoire qui contient votre locataire Azure AD B2C en sélectionnant l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
-1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Veillez à utiliser le répertoire qui contient votre locataire Azure AD en sélectionnant l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Infrastructure d’expérience d’identité**.
 1. Sélectionnez **Charger une stratégie personnalisée**, puis chargez le fichier de stratégie que vous avez modifié, *TrustFrameworkExtensions.xml*.

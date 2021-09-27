@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a720eec0c112b54fab0a1651c388b6e0514128c3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b77eadcbd46c4cac442ed26af94d5781d225806a
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094939"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475779"
 ---
 # <a name="azure-cognitive-services-security"></a>Sécurité Azure Cognitive Services
 
@@ -209,9 +209,6 @@ Pour les services suivants, les ingénieurs Microsoft n’accéderont pas aux do
 * Face
 * Content Moderator
 * Personalizer
-
-> [!IMPORTANT]
-> Pour **Form Recognizer**, les ingénieurs Microsoft n’accéderont pas aux données client dans les ressources créées après le 10 juillet 2020.
 
 Pour demander à utiliser la référence SKU E0, complétez et envoyez ce  [formulaire de demande](https://aka.ms/cogsvc-cmk). Comptez environ 3 à 5 jours ouvrables pour obtenir des nouvelles sur le statut de votre demande. Selon la demande, vous pouvez être placé dans une file d’attente et approuvé lorsque de l’espace devient disponible. Une fois que votre demande d’utilisation de la référence SKU E0 avec LUIS aura été approuvée, vous devrez créer une nouvelle ressource à partir du portail Azure et sélectionner le niveau tarifaire E0. Les utilisateurs n'auront pas la possibilité de procéder à la mise à niveau de la référence SKU F0 vers la nouvelle référence SKU E0.
 

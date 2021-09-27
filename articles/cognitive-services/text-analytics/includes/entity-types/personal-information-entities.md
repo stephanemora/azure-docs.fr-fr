@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 08/11/2021
+ms.date: 09/09/2021
 ms.author: aahi
-ms.openlocfilehash: c1b4d8801013eeb25c18b837ef4ff5a0245739e5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ce85895307af9e437fb9ceaaff3f1a385e77e17d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524525"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672563"
 ---
 > [!NOTE]
 > Pour détecter des informations médicales protégées, utilisez le paramètre `domain=phi` et la version du modèle `2020-04-01` (ou une version ultérieure).
@@ -55,7 +55,7 @@ Cette catégorie contient l’entité suivante :
 
         Noms des personnes. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Person` au `piiCategories` paramètre. `Person` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Person` au `piiCategories` paramètre. `Person`  est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     
@@ -142,7 +142,7 @@ Cette catégorie contient l’entité suivante :
 
         Sociétés, partis politiques, groupes de musique, clubs de sport, organismes gouvernementaux et organisations publiques. Les nationalités et les religions ne sont pas incluses dans ce type d’entité. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Organization` au `piiCategories` paramètre. `Organization` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Organization` au `piiCategories` paramètre. `Organization`  est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -154,78 +154,6 @@ Cette catégorie contient l’entité suivante :
    :::column-end:::
 
 :::row-end:::
-
-#### <a name="subcategories"></a>Sous-catégories
-
-L’entité de cette catégorie peut contenir les sous-catégories suivantes.
-
-:::row:::
-    :::column span="":::
-        **Sous-catégorie d’entité**
-
-        Médecine    
-
-    :::column-end:::
-    :::column span="2":::
-        **Détails**
-
-        Sociétés et groupes médicaux.
-
-        Pour accéder à cette catégorie d’entité, ajoutez `OrganizationMedical` au `piiCategories` paramètre. `OrganizationMedical` est retourné dans la réponse de l’API si elle est détectée.
-      
-    :::column-end:::
-
-    :::column span="":::
-      **Langues de document prises en charge**
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-:::row:::
-    :::column span="":::
-
-        Bourse
-
-    :::column-end:::
-    :::column span="2":::
-
-        Groupes de bourse. 
-
-        Pour accéder à cette catégorie d’entité, ajoutez `OrganizationStockExchange` au `piiCategories` paramètre. `OrganizationStockExchange`  est retourné dans la réponse de l’API si elle est détectée.
-      
-    :::column-end:::
-
-    :::column span="":::
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-:::row:::
-    :::column span="":::
-
-        Sports
-
-    :::column-end:::
-    :::column span="2":::
-
-        Les organisations liées au sport.
-
-        Pour accéder à cette catégorie d’entité, ajoutez `OrganizationSports` au `piiCategories` paramètre. `OrganizationSports`  est retourné dans la réponse de l’API si elle est détectée.
-      
-    :::column-end:::
-
-    :::column span="":::
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-
 
 ### <a name="category-address"></a>Catégorie : Adresse
 
@@ -243,7 +171,7 @@ Cette catégorie contient l’entité suivante :
 
         Adresse postale complète. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Address` au `piiCategories` paramètre. `Address` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Address` au `piiCategories` paramètre. `Address`  est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -272,7 +200,7 @@ Cette catégorie contient l’entité suivante :
 
         Adresses e-mail. Également retourné avec `domain=phi`.
       
-        Pour accéder à cette catégorie d’entité, ajoutez `Email` au `piiCategories` paramètre. `Email` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Email` au `piiCategories` paramètre. `Email`  est retourné dans la réponse de l’API si elle est détectée.
 
     :::column-end:::
     :::column span="":::
@@ -300,7 +228,7 @@ Cette catégorie contient l’entité suivante :
 
         URL vers des sites web. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `URL` au `piiCategories` paramètre. `URL` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `URL` au `piiCategories` paramètre. `URL`  est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -329,7 +257,7 @@ Cette catégorie contient l’entité suivante :
 
         Adresses IP du réseau. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `IPAddress` au `piiCategories` paramètre. `IPAddress` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `IPAddress` au `piiCategories` paramètre. `IPAddress`  est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 
@@ -357,7 +285,7 @@ Cette catégorie contient les entités suivantes :
 
         Dates et heures du jour. 
 
-        Pour accéder à cette catégorie d’entité, ajoutez `DateTime` au `piiCategories` paramètre. `DateTime` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `DateTime` au `piiCategories` paramètre. `DateTime`  est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
 :::column span="":::
@@ -366,33 +294,6 @@ Cette catégorie contient les entités suivantes :
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
    :::column-end:::
-:::row-end:::
-
-#### <a name="subcategories"></a>Sous-catégories
-
-L’entité de cette catégorie peut contenir les sous-catégories suivantes.
-
-:::row:::
-    :::column span="":::
-        **Sous-catégorie d’entité**
-
-        Date
-
-    :::column-end:::
-    :::column span="2":::
-        **Détails**
-
-        Dates du calendrier. Également retourné avec `domain=phi`.
-
-        Pour accéder à cette catégorie d’entité, ajoutez `Date` au `piiCategories` paramètre. `Date` est retourné dans la réponse de l’API si elle est détectée.
-      
-    :::column-end:::
-    :::column span="2":::
-      **Langues de document prises en charge**
-      
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
-      
-    :::column-end:::
 :::row-end:::
 
 ### <a name="category-quantity"></a>Catégorie : Quantité
@@ -411,7 +312,7 @@ Cette catégorie contient les entités suivantes :
 
         Nombres et quantités numériques.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Quantity` au `piiCategories` paramètre. `Quantity` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Quantity` au `piiCategories` paramètre. `Quantity`  est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="2":::
@@ -438,7 +339,7 @@ L’entité de cette catégorie peut contenir les sous-catégories suivantes.
 
         Ages. 
 
-        Pour accéder à cette catégorie d’entité, ajoutez `Age` au `piiCategories` paramètre. `Age` est retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `Age` au `piiCategories` paramètre. `Age`  est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::
     :::column span="2":::

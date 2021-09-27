@@ -3,12 +3,12 @@ title: Installer et déployer l’agent Linux C
 description: Découvrez comment installer et déployer sur Linux l’agent de sécurité Defender pour IoT basé sur C.
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.openlocfilehash: 8317d91fe51c06b67529b1f7bfe8894cef153232
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 46677a971165c65440310e21933f586cc685b771
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113015024"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584865"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Déployer l’agent de sécurité Defender pour IoT basé sur C pour Linux
 
@@ -61,24 +61,24 @@ Le script effectue l’opération suivante :
 
 Pour obtenir de l’aide, exécutez le script avec le paramètre –help :
 
-```./InstallSecurityAgent.sh --help```
+`./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>Désinstaller l’agent
 
 Pour désinstaller l’agent, exécutez le script avec le paramètre –-uninstall :
 
-```./InstallSecurityAgent.sh -–uninstall```
+`./InstallSecurityAgent.sh -–uninstall`
 
 ## <a name="troubleshooting"></a>Dépannage
 
 Vérifiez l’état du déploiement en exécutant la commande suivante :
 
-```systemctl status ASCIoTAgent.service```
+`systemctl status ASCIoTAgent.service`
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Lire la [vue d’ensemble](overview.md) du service Defender pour IoT
-- En apprendre plus sur Defender pour IoT dans [Qu’est-ce qu’une solution basée sur agent pour les générateurs d’appareils](architecture-agent-based.md)
+- Pour en savoir plus sur Defender pour IoT, consultez [Présentation de la solution basée sur un agent pour les fabricants d’appareils](architecture-agent-based.md)
 - Activer le [service](quickstart-onboard-iot-hub.md)
 - Consulter le [Forum aux questions sur Azure Defender pour IoT](resources-agent-frequently-asked-questions.md)
 - Comprendre les [alertes de sécurité](concept-security-alerts.md)

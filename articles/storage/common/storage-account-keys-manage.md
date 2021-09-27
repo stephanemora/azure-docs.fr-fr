@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 600c651601e4281b717c1c8fa7808f3663be4af6
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: cfea2bd15bceb7d1478059d9ef80f4eb33337dc6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093938"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664748"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gérer les clés d’accès au compte de stockage
 
@@ -57,7 +57,7 @@ $storageAccountKey = `
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour répertorier les clés d’accès à votre compte avec Azure CLI, appelez la commande [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list), comme dans l’exemple suivant. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs. 
+Pour répertorier les clés d’accès à votre compte avec Azure CLI, appelez la commande [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list), comme dans l’exemple suivant. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
 
 ```azurecli-interactive
 az storage account keys list \
@@ -97,7 +97,7 @@ La possibilité de définir une stratégie d’expiration de clé à l’aide du
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Pour créer une stratégie d’expiration de clé, utilisez la commande [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) et définissez le paramètre `-KeyExpirationPeriodInDay` sur le nombre de jours pendant lesquels une clé d’accès peut être active avant que l’utilisateur ne la fasse pivoter. 
+Pour créer une stratégie d’expiration de clé, utilisez la commande [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) et définissez le paramètre `-KeyExpirationPeriodInDay` sur le nombre de jours pendant lesquels une clé d’accès peut être active avant que l’utilisateur ne la fasse pivoter.
 
 ```powershell
 $account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
@@ -107,32 +107,31 @@ $account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
 > [!TIP]
 > Vous pouvez également définir la stratégie d’expiration de clé lorsque vous créez un compte de stockage en définissant le paramètre `-KeyExpirationPeriodInDay` de la commande [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
 
-Pour vérifier que la stratégie a été appliquée, utilisez la propriété `KeyPolicy` de [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) retournée à la variable `$account` dans la commande précédente. 
-  
+Pour vérifier que la stratégie a été appliquée, utilisez la propriété `KeyPolicy` de [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) retournée à la variable `$account` dans la commande précédente.
+
 ```powershell
 $account.KeyPolicy
-``` 
+```
 
 La période d’expiration de la clé apparaît dans la sortie de la console.
 
 > [!div class="mx-imgBorder"]
 > ![période d’expiration de la clé d’accès](./media/storage-account-keys-manage/key-policy-powershell.png)
 
-Vous souhaiterez peut-être faire pivoter les clés existantes si elles ont été actives pendant une période plus longue que la période d’expiration. Pour déterminer à quel moment une clé a été créée, utilisez la propriété `KeyCreationTime`. 
-  
+Vous souhaiterez peut-être faire pivoter les clés existantes si elles ont été actives pendant une période plus longue que la période d’expiration. Pour déterminer à quel moment une clé a été créée, utilisez la propriété `KeyCreationTime`.
+
 ```powershell
 $account.KeyCreationTime
-``` 
+```
 
 L’heure de création de la clé d’accès pour les deux clés d’accès apparaît dans la sortie de la console.
 
 > [!div class="mx-imgBorder"]
 > ![heures de création de clé d’accès](./media/storage-account-keys-manage/key-creation-time-powershell.png)
 
-
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour créer une stratégie d’expiration de clé au niveau de comptes de stockage existants, utilisez la commande [az storage account update](/cli/azure/storage/account#az_storage_account_update) et définissez le paramètre `--key-exp-days` sur le nombre de jours pendant lesquels une clé d’accès peut être active avant que l’utilisateur ne la fasse pivoter. 
+Pour créer une stratégie d’expiration de clé au niveau de comptes de stockage existants, utilisez la commande [az storage account update](/cli/azure/storage/account#az_storage_account_update) et définissez le paramètre `--key-exp-days` sur le nombre de jours pendant lesquels une clé d’accès peut être active avant que l’utilisateur ne la fasse pivoter.
 
 ```azurecli-interactive
 az storage account update \
@@ -144,7 +143,7 @@ az storage account update \
 > Vous pouvez également définir la stratégie d’expiration de clé lorsque vous créez un compte de stockage en définissant le paramètre `-KeyExpirationPeriodInDay` de la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 Pour vérifier que la stratégie a été appliquée, appelez la commande [az storage account show](/cli/azure/storage/account#az_storage_account_show) et utilisez la chaîne `{KeyPolicy:keyPolicy}` pour le paramètre `-query`.
-  
+
 ```azurecli-interactive
 az storage account show \
   -n <storage-account-name> \
@@ -162,9 +161,8 @@ La période d’expiration de la clé apparaît dans la sortie de la console.
 }
 ```
 
-
 Vous souhaiterez peut-être faire pivoter les clés existantes si elles ont été actives pendant une période plus longue que la période d’expiration. Pour déterminer à quel moment une clé a été créée, utilisez la commande [az storage account show](/cli/azure/storage/account#az_storage_account_show), puis utilisez la chaîne `keyCreationTime` pour le paramètre -query.
-  
+
 ```azurecli-interactive
 az storage account show \
   -n <storage-account-name> \
@@ -176,22 +174,22 @@ az storage account show \
 
 ### <a name="query-for-policy-violations"></a>Requête de violations de stratégie
 
-Si vous créez un paramètre de diagnostic qui [envoie des journaux à l’espace de travail Azure log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics), vous pouvez utiliser une requête de journal Azure Monitor pour déterminer si une clé a expiré. 
+Si vous créez un paramètre de diagnostic qui [envoie des journaux à l’espace de travail Azure log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics), vous pouvez utiliser une requête de journal Azure Monitor pour déterminer si une clé a expiré.
 
 Pour déterminer si une clé a expiré, entrez la requête suivante dans la barre de **recherche des journaux**.
 
-```Kusto
+```kusto
 StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated". 
 ```
 
 Vous pouvez également créer une requête qui vous permet de déterminer si une requête est proche de l’expiration. La requête suivante fournit ces informations.
 
-```Kusto
-resources  
-| where type =~ 'microsoft.storage/storageAccounts' 
-| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime)) 
-| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "") 
-| project name, days, KeyExpiryStatus  
+```kusto
+resources 
+| where type =~ 'microsoft.storage/storageAccounts'
+| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime))
+| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "")
+| project name, days, KeyExpiryStatus  
 ```
 
 ### <a name="rotate-access-keys"></a>Faire pivoter les clés d’accès
@@ -241,13 +239,13 @@ Pour opérer la rotation des clés d’accès de votre compte de stockage avec A
     ```azurecli-interactive
     az storage account keys renew \
       --resource-group <resource-group> \
-      --account-name <storage-account>
+      --account-name <storage-account> \
       --key primary
     ```
 
 1. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
 
-2. Régénérez la clé d’accès secondaire de la même manière. Pour régénérer la clé secondaire, utilisez `key2` comme nom de clé au lieu de `key1`.
+2. Régénérez la clé d’accès secondaire de la même manière. Pour régénérer la clé secondaire, utilisez `secondary` comme nom de clé au lieu de `primary`.
 
 ---
 

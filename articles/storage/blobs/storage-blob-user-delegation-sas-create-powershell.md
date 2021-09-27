@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 69184abac12e9146d29ec5e7f14a536756ae0139
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 22ababc0bca34423a6205d52f29f18ad691f919e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613575"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662619"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec PowerShell
 
@@ -95,7 +95,7 @@ Pour plus d’informations sur les rôles intégrés qui incluent l’action **M
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Utiliser des informations d’identification Azure AD pour sécuriser une SAP
 
-Lorsque vous créez une SAP de délégation d’utilisateur avec Azure PowerShell, la clé de délégation d’utilisateur utilisée pour signer la SAP est créée de manière implicite. L’heure de début et l’heure d’expiration que vous spécifiez pour la SAP sont également utilisées comme heure de début et heure d’expiration pour la clé de délégation d’utilisateur. 
+Lorsque vous créez une SAP de délégation d’utilisateur avec Azure PowerShell, la clé de délégation d’utilisateur utilisée pour signer la SAP est créée de manière implicite. L’heure de début et l’heure d’expiration que vous spécifiez pour la SAP sont également utilisées comme heure de début et heure d’expiration pour la clé de délégation d’utilisateur.
 
 Étant donné que la clé de délégation d’utilisateur est valide au maximum pendant 7 jours à partir de la date de début, vous devez spécifier pour la SAP un délai d’expiration se situant dans les 7 jours après l’heure de début. La SAP n’est pas valide après l’expiration de la clé de délégation d’utilisateur. Par conséquent, une SAP dont le délai d’expiration est supérieur à 7 jours ne sera toujours valide que pendant 7 jours.
 

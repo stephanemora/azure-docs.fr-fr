@@ -3,16 +3,17 @@ title: Déplacer des données à l’aide de l’activité de copie
 description: 'Apprenez-en plus sur le déplacement des données dans les pipelines Data Factory : migration de données entre des magasins de cloud, entre des boutiques locales et cloud. Utiliser l’activité de copie.'
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 99190ccab6dc299fac970fce6fb0222096592357
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d138cab93d9cd9b1c4c44e92e6fcfb583103fb70
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766894"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629405"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Déplacer des données à l’aide de l’activité de copie
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -25,7 +26,7 @@ ms.locfileid: "108766894"
 ## <a name="overview"></a>Vue d’ensemble
 Dans Azure Data Factory, vous pouvez utiliser l’activité de copie pour copier des données entre des magasins de données locaux et cloud. Une fois les données copiées, elles peuvent être transformées et analysées plus avant. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
 
-![Rôle d’activité de copie](media/data-factory-data-movement-activities/copy-activity.png)
+:::image type="content" source="media/data-factory-data-movement-activities/copy-activity.png" alt-text="Rôle d’activité de copie":::
 
 L’activité de copie est effectuée par un [service globalement disponible](#global)sécurisé, fiable et évolutif. Cet article fournit des détails sur le déplacement des données dans Data Factory et dans l’activité de copie.
 
@@ -45,14 +46,14 @@ Lorsque les magasins de données source et récepteur se trouvent dans le cloud,
 
 Le service choisit automatiquement la région optimale pour effectuer le déplacement des données. Cette région est généralement la plus proche de la banque de données du récepteur.
 
-![Copie cloud-cloud](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
+:::image type="content" source="./media/data-factory-data-movement-activities/cloud-to-cloud.png" alt-text="Copie cloud-cloud":::
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Copie de données entre un magasin de données local et un magasin de données cloud
 Pour déplacer en toute sécurité des données entre des banques de données locales et une banque de données cloud, installez la passerelle de gestion des données sur votre ordinateur local. La passerelle de gestion des données est un agent qui permet le traitement et le déplacement de données hybrides. Vous pouvez l’installer sur la même machine que le magasin de données lui-même ou sur une machine distincte ayant accès au magasin de données.
 
 Dans ce scénario, la passerelle de gestion des données effectue la sérialisation/désérialisation, la compression/décompression, le mappage de colonnes et la conversion de type sont effectués par la passerelle de gestion des données. Les données ne transitent pas via le service Azure Data Factory. Au lieu de cela, la passerelle de gestion des données les écrit directement dans le magasin de destination.
 
-![Copie de type local vers cloud](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
+:::image type="content" source="./media/data-factory-data-movement-activities/onprem-to-cloud.png" alt-text="Copie de type local vers cloud":::
 
 Consultez la page [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour une introduction et une procédure pas à pas. Pour obtenir des informations détaillées sur cet agent, consultez [Passerelle de gestion de données](data-factory-data-management-gateway.md) .
 

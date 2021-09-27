@@ -4,15 +4,15 @@ description: Obtenez plus d’informations sur les objectifs d’extensibilité 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 09/16/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 871cb72c163472dbe3409738199e710300c5057d
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 83e33933e8afb8b376750368a64c60cb56406a75
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867326"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651538"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles à l’aide des protocoles SMB et de système de fichiers NFS. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.
@@ -100,7 +100,7 @@ Le tableau suivant indique les limites de tests réalisés par Microsoft, ainsi 
 | Nombre maximal d’objets de système de fichiers (répertoires et fichiers) dans un répertoire **(non récursif)** | 5 millions d’objets | Oui |
 | Taille maximale du descripteur de sécurité d’objet (répertoires et fichiers) | 64 Kio | Oui |
 | Taille du fichier | 100 Gio | Non |
-| Taille minimale d’un fichier à hiérarchiser | V9 et versions ultérieures : en fonction de la taille de cluster du système de fichiers (le double de cette taille). Par exemple, si la taille du cluster de système de fichiers est de 4 Kio, la taille de fichier minimale sera de 8 Kio.<br> V8 et versions antérieures : 64 Kio  | Oui |
+| Taille minimale d’un fichier à hiérarchiser | en fonction de la taille de cluster du système de fichiers (le double de cette taille). Par exemple, si la taille du cluster de système de fichiers est de 4 Kio, la taille de fichier minimale sera de 8 Kio. | Oui |
 
 > [!Note]  
 > Un point de terminaison Azure File Sync peut augmenter la taille d’un partage de fichiers Azure. Si la limite de taille du partage de fichiers Azure est atteinte, la synchronisation ne fonctionne pas.

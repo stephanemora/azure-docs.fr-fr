@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: alkohli
-ms.openlocfilehash: 1ef18e29abfc479307aa840d5c0f34ed52227aaf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a2a6b7b514cb95eb327235c59bb569ac66f4a5d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524800"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670497"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gérer un appareil Azure Stack Edge Pro avec GPU via Windows PowerShell
 
@@ -109,7 +109,7 @@ Vous souhaitez effectuer cette configuration avant de configurer le calcul à pa
 
     `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
 
-    Remplacez la valeur <subnet details> par la plage de sous-réseau que vous souhaitez utiliser. 
+    Remplacez la valeur \<subnet details\> par la plage de sous-réseau que vous souhaitez utiliser. 
 
 1. Une fois que vous avez exécuté cette commande, vous pouvez utiliser la commande `Get-HcsKubeClusterNetworkInfo` pour vérifier que les sous-réseaux de pod et de service ont été modifiés.
 
@@ -485,9 +485,11 @@ Pour modifier la mémoire ou les limites du processeur pour le nœud Worker Kube
     
 1. Pour modifier les valeurs de mémoire et de processeurs pour le nœud Worker, exécutez la commande suivante :
 
-    Set-AzureDataBoxEdgeRoleCompute -Name <Name value from the output of Get-AzureDataBoxEdgeRole> -Memory <Value in Bytes> -ProcessorCount <Nb de cœurs>
+   ```powershell
+   Set-AzureDataBoxEdgeRoleCompute -Name <Name value from the output of Get-AzureDataBoxEdgeRole> -Memory <Value in Bytes> -ProcessorCount <No. of cores>
+   ```
 
-    Voici un exemple de sortie. 
+   Voici un exemple de sortie. 
     
     ```powershell
     [10.100.10.10]: PS>Set-AzureDataBoxEdgeRoleCompute -Name IotRole -MemoryInBytes 32GB -ProcessorCount 16

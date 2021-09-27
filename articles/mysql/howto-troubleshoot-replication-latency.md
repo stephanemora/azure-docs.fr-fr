@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
-ms.openlocfilehash: 44752024c8bd2ddbceed1495067260bce3ce0037
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: fc206254180e2b5b35f10538bfb4940970b1609e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113088383"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560804"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Résoudre les problèmes de latence de réplication dans Azure Database pour MySQL
 
@@ -32,7 +32,7 @@ Le décalage de réplication sur les réplicas de lecture secondaires dépend de
 Dans cet article, vous allez apprendre à résoudre les problèmes de latence de réplication dans Azure Database pour MySQL. Vous comprendrez également certaines causes courantes de l’augmentation de la latence de réplication sur les serveurs de réplication.
 
 > [!NOTE]
-> Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 >
 
 ## <a name="replication-concepts"></a>Concepts de réplication

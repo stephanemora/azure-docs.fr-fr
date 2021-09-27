@@ -9,15 +9,15 @@ metadata:
   ms.date: 02/12/2020
   ms.author: joflore
   author: MicrosoftGuyJFlo
-  manager: daveba
+  manager: karenhoran
   ms.reviewer: na
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 8fa75d1baae917e7e60ca99f4d5c3cc33ff85f0a
-  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+  ms.openlocfilehash: 0a948eaf278e2f3064178f8ec29465dfc4d0b3fa
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/16/2021
-  ms.locfileid: "112200747"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128590651"
 title: FAQ sur l’itinérance des paramètres et des données
 summary: Cet article répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
 sections:

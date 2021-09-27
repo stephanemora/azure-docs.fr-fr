@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: b60fc4b1fc20c455c2c409f544a8af16f1dbf8d1
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: f421e2aee0dc6a056cd28cf66a66dda41ce3f9e9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107508954"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615526"
 ---
 # <a name="optimize-the-performance-of-azcopy-with-azure-storage"></a>Optimiser les performances d’AzCopy avec Stockage Azure
 
@@ -26,7 +26,7 @@ Vous pouvez effectuer un test d’évaluation des performances, puis utiliser de
 
 ## <a name="run-benchmark-tests"></a>Exécuter des tests d’évaluation
 
-Vous pouvez exécuter un test d’évaluation des performances sur des conteneurs d’objets blob ou des partages de fichiers spécifiques pour voir des statistiques générales sur les performances et identifier les goulots d’étranglement des performances. Vous pouvez exécuter le test en chargeant ou en téléchargeant des données de test générées. 
+Vous pouvez exécuter un test d’évaluation des performances sur des conteneurs d’objets blob ou des partages de fichiers spécifiques pour voir des statistiques générales sur les performances et identifier les goulots d’étranglement des performances. Vous pouvez exécuter le test en chargeant ou en téléchargeant des données de test générées.
 
 Utilisez la commande suivante pour exécuter un test d’évaluation des performances.
 
@@ -45,7 +45,7 @@ azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myB
 
 Cette commande exécute un test d’évaluation des performances en chargeant les données de test dans une destination spécifiée. Les données de test sont générées en mémoire, chargées dans la destination, puis supprimées de la destination une fois le test terminé. Vous pouvez spécifier le nombre de fichiers à générer et leur taille souhaitée à l’aide de paramètres de commande facultatifs.
 
-Si vous préférez exécuter ce test en téléchargeant des données, définissez le paramètre `mode` sur `download`. Pour obtenir des informations de référence détaillées, consultez [benchmark azcopy](storage-ref-azcopy-bench.md). 
+Si vous préférez exécuter ce test en téléchargeant des données, définissez le paramètre `mode` sur `download`. Pour obtenir des informations de référence détaillées, consultez [benchmark azcopy](storage-ref-azcopy-bench.md).
 
 ## <a name="optimize-for-large-numbers-of-small-files"></a>Optimiser pour de grands nombres de petits fichiers
 
@@ -53,9 +53,9 @@ Le débit peut diminuer lors du transfert de petits fichiers, en particulier lor
 
 #### <a name="reduce-the-size-of-each-job"></a>Réduire la taille de chaque travail
 
-Pour obtenir des performances optimales, vérifiez que chaque travail transfère moins de 10 millions de fichiers. Les travaux qui transfèrent plus de 50 millions de fichiers peuvent s’exécuter assez lentement, car le mécanisme de suivi des travaux d’AzCopy entraîne une surcharge importante. Pour réduire la charge, envisagez de diviser les grands travaux en travaux plus petits. 
+Pour obtenir des performances optimales, vérifiez que chaque travail transfère moins de 10 millions de fichiers. Les travaux qui transfèrent plus de 50 millions de fichiers peuvent s’exécuter assez lentement, car le mécanisme de suivi des travaux d’AzCopy entraîne une surcharge importante. Pour réduire la charge, envisagez de diviser les grands travaux en travaux plus petits.
 
-Une façon de réduire la taille d’un travail consiste à limiter le nombre de fichiers affectés par un travail. Pour cela, vous pouvez utiliser des paramètres de commande. Par exemple, un travail peut copier seulement un sous-ensemble de répertoires si vous utilisez le paramètre `include path` dans le cadre de la commande [azcopy copy](storage-ref-azcopy-copy.md). 
+Une façon de réduire la taille d’un travail consiste à limiter le nombre de fichiers affectés par un travail. Pour cela, vous pouvez utiliser des paramètres de commande. Par exemple, un travail peut copier seulement un sous-ensemble de répertoires si vous utilisez le paramètre `include path` dans le cadre de la commande [azcopy copy](storage-ref-azcopy-copy.md).
 
 Utilisez le paramètre `include-pattern` pour copier les fichiers qui ont une extension spécifique (par exemple : `*.pdf`). Dans un travail distinct, utilisez le paramètre `exclude-pattern` pour copier tous les fichiers qui n’ont pas l’extension `*.pdf`. Pour obtenir des exemples, consultez [Charger des fichiers spécifiques](storage-use-azcopy-blobs-upload.md#upload-specific-files) et [Télécharger des objets blob spécifiques](storage-use-azcopy-blobs-download.md#download-specific-blobs).
 
@@ -65,25 +65,25 @@ Une fois que vous avez décidé de diviser les grands travaux en travaux plus pe
 
 Si vous chargez ou téléchargez des fichiers, utilisez la variable d’environnement `AZCOPY_CONCURRENCY_VALUE` pour augmenter le nombre de demandes simultanées qui peuvent être effectuées sur votre machine. Définissez cette variable sur la valeur la plus élevée possible sans compromettre les performances de votre machine. Pour plus d’informations sur cette variable, consultez la section [Augmenter le nombre de demandes simultanées](#increase-the-number-of-concurrent-requests) de cet article.
 
-Si vous copiez des objets blob entre des comptes de stockage, envisagez de définir la valeur de la variable d’environnement `AZCOPY_CONCURRENCY_VALUE` sur une valeur supérieure à `1000`. Vous pouvez définir cette variable sur une valeur élevée, car AzCopy utilise les API de serveur à serveur : les données sont donc copiées directement entre les serveurs de stockage et n’utilisent pas la puissance de traitement de votre machine.  
+Si vous copiez des objets blob entre des comptes de stockage, envisagez de définir la valeur de la variable d’environnement `AZCOPY_CONCURRENCY_VALUE` sur une valeur supérieure à `1000`. Vous pouvez définir cette variable sur une valeur élevée, car AzCopy utilise les API de serveur à serveur : les données sont donc copiées directement entre les serveurs de stockage et n’utilisent pas la puissance de traitement de votre machine.
 
 #### <a name="decrease-the-number-of-logs-generated"></a>Réduire le nombre de journaux générés
 
-Vous pouvez améliorer les performances en réduisant le nombre d’entrées de journal créées par AzCopy au fur et à mesure de l’exécution d’une opération. Par défaut, AzCopy journalise toutes les activités relatives à une opération. Pour obtenir des performances optimales, envisagez de définir le paramètre `log-level` de votre commande de copie, de synchronisation ou de suppression sur `ERROR`. De cette façon, AzCopy consigne seulement les erreurs. Par défaut, le niveau de journalisation est défini sur `INFO`. 
+Vous pouvez améliorer les performances en réduisant le nombre d’entrées de journal créées par AzCopy au fur et à mesure de l’exécution d’une opération. Par défaut, AzCopy journalise toutes les activités relatives à une opération. Pour obtenir des performances optimales, envisagez de définir le paramètre `log-level` de votre commande de copie, de synchronisation ou de suppression sur `ERROR`. De cette façon, AzCopy consigne seulement les erreurs. Par défaut, le niveau de journalisation est défini sur `INFO`.
 
-#### <a name="turn-off-length-checking"></a>Désactiver la vérification de la longueur 
+#### <a name="turn-off-length-checking"></a>Désactiver la vérification de la longueur
 
-Si vous chargez ou téléchargez des fichiers, envisagez de définir le paramètre `--check-length` de vos commandes de copie et de synchronisation sur `false`. Ceci empêche AzCopy de vérifier la longueur d’un fichier après un transfert. Par défaut, AzCopy vérifie la longueur pour garantir que les fichiers source et de destination correspondent une fois le transfert terminé. AzCopy effectue cette vérification après chaque transfert de fichier. Cette vérification peut dégrader les performances quand les travaux transfèrent un grand nombre de petits fichiers. 
+Si vous chargez ou téléchargez des fichiers, envisagez de définir le paramètre `--check-length` de vos commandes de copie et de synchronisation sur `false`. Ceci empêche AzCopy de vérifier la longueur d’un fichier après un transfert. Par défaut, AzCopy vérifie la longueur pour garantir que les fichiers source et de destination correspondent une fois le transfert terminé. AzCopy effectue cette vérification après chaque transfert de fichier. Cette vérification peut dégrader les performances quand les travaux transfèrent un grand nombre de petits fichiers.
 
 #### <a name="turn-on-concurrent-local-scanning-linux"></a>Activer l’analyse locale simultanée (Linux)
 
-Les analyses de fichiers sur certains systèmes Linux ne s’exécutent pas suffisamment rapidement pour saturer toutes les connexions réseau parallèles. Dans ce cas, vous pouvez définir `AZCOPY_CONCURRENT_SCAN` sur `true`. 
+Les analyses de fichiers sur certains systèmes Linux ne s’exécutent pas suffisamment rapidement pour saturer toutes les connexions réseau parallèles. Dans ce cas, vous pouvez définir `AZCOPY_CONCURRENT_SCAN` sur `true`.
 
 ## <a name="increase-the-number-of-concurrent-requests"></a>Augmenter le nombre de demandes simultanées
 
-Vous pouvez augmenter le débit en définissant la variable d’environnement `AZCOPY_CONCURRENCY_VALUE`. Cette variable spécifie le nombre de demandes pouvant être effectuées simultanément.  
+Vous pouvez augmenter le débit en définissant la variable d’environnement `AZCOPY_CONCURRENCY_VALUE`. Cette variable spécifie le nombre de demandes pouvant être effectuées simultanément.
 
-Si votre ordinateur dispose de moins de 5 unités centrales, la valeur de cette variable est définie sur `32`. Sinon, la valeur par défaut est égale à 16 multiplié par le nombre d’unités centrales. La valeur maximale par défaut de cette variable est `3000`, mais vous pouvez l’augmenter ou la diminuer manuellement. 
+Si votre ordinateur dispose de moins de 5 unités centrales, la valeur de cette variable est définie sur `32`. Sinon, la valeur par défaut est égale à 16 multiplié par le nombre d’unités centrales. La valeur maximale par défaut de cette variable est `300`, mais vous pouvez l’augmenter ou la diminuer manuellement.
 
 | Système d’exploitation | Commande  |
 |--------|-----------|
@@ -97,7 +97,7 @@ Avant de définir cette variable, nous vous recommandons d’exécuter un test d
 
 ## <a name="limit-the-throughput-data-rate"></a>Limiter le débit de données
 
-Vous pouvez utiliser l’indicateur `cap-mbps` dans vos commandes pour plafonner le débit de données. Par exemple, la commande suivante reprend un travail et plafonne le débit à `10` mégabits (Mb) par seconde. 
+Vous pouvez utiliser l’indicateur `cap-mbps` dans vos commandes pour plafonner le débit de données. Par exemple, la commande suivante reprend un travail et plafonne le débit à `10` mégabits (Mb) par seconde.
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10
@@ -118,7 +118,7 @@ Définissez la variable d’environnement `AZCOPY_BUFFER_GB` pour spécifier la 
 
 ## <a name="optimize-file-synchronization"></a>Optimiser la synchronisation des fichiers
 
-La commande [sync](storage-ref-azcopy-sync.md) identifie tous les fichiers à l'emplacement de destination, puis compare les noms de fichiers et les derniers horodatages modifiés avant de démarrer l'opération de synchronisation. Si vous disposez d'un grand nombre de fichiers, vous pouvez améliorer les performances en éliminant ce traitement préalable. 
+La commande [sync](storage-ref-azcopy-sync.md) identifie tous les fichiers à l'emplacement de destination, puis compare les noms de fichiers et les derniers horodatages modifiés avant de démarrer l'opération de synchronisation. Si vous disposez d'un grand nombre de fichiers, vous pouvez améliorer les performances en éliminant ce traitement préalable.
 
 Pour ce faire, utilisez plutôt la commande [azcopy copy](storage-ref-azcopy-copy.md) et définissez l'indicateur `--overwrite` sur `ifSourceNewer`. AzCopy comparera les fichiers tels qu'ils sont copiés sans effectuer d'analyses et de comparaison préalables. Cela offre un avantage en termes de performances lorsque le nombre de fichiers à comparer est important.
 

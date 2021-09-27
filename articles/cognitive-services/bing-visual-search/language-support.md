@@ -3,19 +3,17 @@ title: Prise en charge linguistique - API Recherche visuelle Bing
 titleSuffix: Azure Cognitive Services
 description: Liste des langages naturels, des pays et des régions pris en charge par l’API Recherche visuelle Bing. L’API Recherche visuelle Bing prend en charge plus d’une trentaine de pays/région, dont beaucoup possèdent plusieurs langues.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: scottwhi
-ms.openlocfilehash: 6d93b6d024fc966f3b260602f4798a2d77669a35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1362f9cf3963416853cf5933ee622d204578d33
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96501156"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669528"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Langages et régions pris en charge par l’API Recherche visuelle Bing
 

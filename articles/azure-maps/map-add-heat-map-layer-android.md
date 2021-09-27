@@ -1,20 +1,20 @@
 ---
 title: Ajouter une couche de carte thermique à des cartes Android | Microsoft Azure Maps
 description: Découvrez comment créer une carte thermique. Découvrez comment utiliser le Kit de développement logiciel (SDK) Android Azure Maps pour ajouter une couche thermique à une carte. Découvrez comment personnaliser les couches thermiques.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ffbda69d91a709ff5a9af66f7abe2b7734efe177
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 5e48be82a2486291d2b7fdecf42d759e2c13eb08
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666386"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425191"
 ---
 # <a name="add-a-heat-map-layer-android-sdk"></a>Ajouter une couche de carte thermique (SDK Android)
 
@@ -259,7 +259,7 @@ La vidéo suivante montre une carte exécutant le code ci-dessus, qui met à l�
 
 ![Animation montrant une carte avec une couche de carte thermique présentant une taille géospatiale cohérente](media/map-add-heat-map-layer-android/android-consistent-zoomable-heat-map-layer.gif)
 
-L’expression `zoom` peut uniquement être utilisée dans les expressions `step` et `interpolate`. L’expression suivante peut être utilisée pour estimer un rayon en mètres. Cette expression utilise un espace réservé `radiusMeters` que vous devez remplacer par le rayon de votre choix. Cette expression calcule le rayon de pixel approximatif pour un niveau de zoom à l’Équateur pour les niveaux de zoom 0 et 24, et utilise une `exponential interpolation` expression pour mettre à l’échelle ces valeurs de la même façon que le système de mosaïques dans la carte.
+L’expression `zoom` peut uniquement être utilisée dans les expressions `step` et `interpolate`. L’expression suivante peut être utilisée pour rapprocher un rayon en mètres. Cette expression utilise un espace réservé `radiusMeters` que vous devez remplacer par le rayon de votre choix. Cette expression calcule le rayon de pixel approximatif pour un niveau de zoom à l’Équateur pour les niveaux de zoom 0 et 24, et utilise une `exponential interpolation` expression pour mettre à l’échelle ces valeurs de la même façon que le système de mosaïques dans la carte.
 
 ::: zone pivot="programming-language-java-android"
 

@@ -3,12 +3,12 @@ title: Utiliser les API Defender pour IoT
 description: Utilisez une API REST externe pour accéder aux données découvertes par les capteurs et les consoles de gestion et effectuer des actions avec ces données.
 ms.date: 12/14/2020
 ms.topic: reference
-ms.openlocfilehash: 0e3659d8d5e6829651012dae02ca74c5ecacaf0c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 7b97be1e30440131045dccf1822fe6855e747768
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113015111"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600624"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>API de capteur et de console de gestion Defender pour IoT
 
@@ -277,7 +277,7 @@ Tableau d'objets JSON qui représentent les appareils.
 
 | Type | API | Exemple |
 |--|--|--|
-| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:<span>//127<span>.0.0.1/api/v1/devices?authorized=true |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
 
 ### <a name="retrieve-device-connection-information---apiv1devicesconnections"></a>Récupérer les informations de connexion des appareils – /api/v1/devices/connections
 
@@ -450,8 +450,8 @@ Tableau d'objets JSON qui représentent les connexions de l’appareil.
 > [!div class="mx-tdBreakAll"]
 > | Type | API | Exemple |
 > |--|--|--|
-> | GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/devices/connections | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/connections |
-> | GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<ADRESSE_IP>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000' |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/connections` |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000'` |
 
 ### <a name="retrieve-information-on-cves---apiv1devicescves"></a>Récupérer des informations sur les CVE – /api/v1/devices/cves
 
@@ -565,8 +565,8 @@ Tableau d’objets JSON qui représentent les CVE identifiés sur les adresses I
 
 | Type | API | Exemple |
 |--|--|--|
-| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/devices/cves | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/cves |
-| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/devices/<deviceIpAddress>/cves?top= | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50 |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/cves` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top=` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50` |
 
 ### <a name="retrieve-alert-information---apiv1alerts"></a>Récupérer des informations sur les alertes – /api/v1/alerts
 
@@ -708,7 +708,7 @@ Notez que /api/v2/ est nécessaire pour les informations suivantes :
 > [!div class="mx-tdBreakAll"]
 > | Type | API | Exemple |
 > |--|--|--|
-> | GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<ADRESSE_IP>/api/v1/alerts?state=&fromTime=&toTime=&type=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections' |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections'` |
 
 ### <a name="retrieve-timeline-events---apiv1events"></a>Récupérer les événements de chronologie – /api/v1/events
 
@@ -2084,97 +2084,51 @@ Notez que /api/v2/ est nécessaire pour les informations suivantes :
 
 ```rest
 [
-
     {
-    
         "engine": "Operational",
-        
         "handled": false,
-        
         "title": "Traffic Detected on sensor Interface",
-        
         "additionalInformation": null,
-        
         "sourceDevice": 0,
-        
         "zoneId": 1,
-        
         "siteId": 1,
-        
         "time": 1594808245000,
-        
         "sensorId": 1,
-        
         "message": "The sensor resumed detecting network traffic on ens224.",
-        
         "destinationDevice": 0,
-        
         "id": 1,
-        
         "severity": "Warning"
-    
     },
-    
     {
-    
         "engine": "Anomaly",
-        
         "handled": false,
-        
         "title": "Address Scan Detected",
-        
         "additionalInformation": null,
-        
         "sourceDevice": 4,
-        
         "zoneId": 1,
-        
         "siteId": 1,
-        
         "time": 1594808260000,
-        
         "sensorId": 1,
-        
         "message": "Address scan detected.\nScanning address: 10.10.10.22\nScanned subnet: 10.11.0.0/16\nScanned addresses: 10.11.1.1, 10.11.20.1, 10.11.20.10, 10.11.20.100, 10.11.20.2, 10.11.20.3, 10.11.20.4, 10.11.20.5, 10.11.20.6, 10.11.20.7...\nIt is recommended to notify the security officer of the incident.",
-        
         "destinationDevice": 0,
-        
         "id": 2,
-        
         "severity": "Critical"
-    
     },
-    
     {
-    
         "engine": "Operational",
-        
         "handled": false,
-        
         "title": "Suspicion of Unresponsive MODBUS Device",
-        
         "additionalInformation": null,
-        
         "sourceDevice": 194,
-        
         "zoneId": 1,
-        
         "siteId": 1,
-        
         "time": 1594808285000,
-        
         "sensorId": 1,
-        
         "message": "Outstation device 10.13.10.1 (Protocol Address 53) seems to be unresponsive to MODBUS requests.",
-        
         "destinationDevice": 0,
-        
         "id": 3,
-        
         "severity": "Minor"
-    
     }
-  
 ]
 ```
 
@@ -2183,7 +2137,7 @@ Notez que /api/v2/ est nécessaire pour les informations suivantes :
 > [!div class="mx-tdBreakAll"]
 > | Type | API | Exemple |
 > |--|--|--|
-> | GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<>ADRESSE_IP>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1' |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1'` |
 
 ### <a name="qradar-alerts"></a>Alertes QRadar
 
@@ -2286,7 +2240,7 @@ Tableau d'objets JSON qui représentent les appareils.
 
 | Type | API | Exemple |
 |--|--|--|
-| PUT | curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/external/v1/alerts/<UUID> | curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/alerts/1-1594550943000 |
+| PUT | `curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID>` | `curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/alerts/1-1594550943000` |
 
 ### <a name="alert-exclusions-maintenance-window---externalv1maintenancewindow"></a>Exclusions d’alerte (fenêtre de maintenance) – /external/v1/maintenanceWindow
 
@@ -2307,13 +2261,9 @@ Les API que vous définissez ici apparaissent dans la fenêtre de la console de 
 - **engines** : Définit à partir de quel moteur de sécurité supprimer les alertes pendant le processus de maintenance :
 
    - ANOMALY
-
    - MALWARE
-
    - OPERATIONAL
-
    - POLICY_VIOLATION
-
    - PROTOCOL_VIOLATION
 
 - **sensorIds** : Définit à partir de quel capteur Defender pour IoT supprimer les alertes pendant le processus de maintenance. Il s’agit du même ID que celui récupéré à partir de /api/v1/appliances (GET).
@@ -2327,11 +2277,8 @@ Les API que vous définissez ici apparaissent dans la fenêtre de la console de 
 - **400 (Demande incorrecte)** : Apparaît dans les cas suivants :
 
    - Le paramètre **ttl** n’est pas numérique ou n’est pas positif.
-
    - Le paramètre **subnets** a été défini dans un format incorrect.
-
    - Le paramètre **ticketId** est manquant.
-
    - Le paramètre **engine** ne correspond pas aux moteurs de sécurité existants.
 
 - **404 (Introuvable)** : L’un des capteurs n’existe pas.
@@ -2362,9 +2309,7 @@ Cette méthode est utile lorsque vous souhaitez définir une durée plus longue 
 - **400 (Demande incorrecte)** : Apparaît dans les cas suivants :
 
    - Le paramètre **ttl** n’est pas numérique ou n’est pas positif.
-
    - Le paramètre **ticketId** est manquant.
-
    - Le paramètre **ttl** est manquant.
 
 - **404 (Introuvable)** : L’ID de ticket n’est pas lié à une fenêtre de maintenance ouverte.
@@ -2444,10 +2389,10 @@ Tableau d’objets JSON qui représentent les opérations de fenêtre de mainten
 
 | Type | API | Exemple |
 |--|--|--|
-| POST | curl -k -X POST -d '{"ticketId": "<ID_TICKET>",ttl": <DURÉE_DE_VIE>,"engines": [<MOTEUR1, MOTEUR2...MOTEURn>],"sensorIds": [<ID_CAPTEUR1, ID_CAPTEUR2...ID_CAPTEURn>],"subnets": [<SOUS-RÉSEAU1, SOUS-RÉSEAU2...SOUS-RÉSEAUn>]}' -H "Authorization: <JETON_AUTHENTIFICATION>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
-| PUT | curl -k -X PUT -d '{"ticketId": "<ID_TICKET>",ttl": "<DURÉE_DE_VIE>"}' -H "Authorization: <JETON_AUTHENTIFICATION>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
-| DELETE | curl -k -X DELETE -d '{"ticketId": "<ID_TICKET>"}' -H "Authorization: <JETON_AUTHENTIFICATION>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
-| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<ADRESSE_IP>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a' |
+| POST | `curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
+| PUT | `curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
+| DELETE | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
 
 ### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>Authentifier les informations d’identification d’utilisateur – /external/authentication/validation
 
@@ -2510,7 +2455,7 @@ response:
 
 | Type | API | Exemple |
 |--|--|--|
-| POST | curl -k -d '{"username":"<NOM_UTILISATEUR>","password":"PASSWORD"}' 'https://<ADRESSE_IP>/external/authentication/validation' | curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https:/<span>/127.0.0.1/external/authentication/validation' |
+| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https:/<span>/127.0.0.1/external/authentication/validation'` |
 
 ### <a name="change-password---externalauthenticationset_password"></a>Modifier le mot de passe – /external/authentication/set_password
 
@@ -2584,7 +2529,7 @@ response:
 
 | Type | API | Exemple |
 |--|--|--|
-| POST | curl -k -d '{"username": "<NOM_UTILISATEUR>","password": "<MOT_DE_PASSE_ACTUEL>","new_password": "<NOUVEAU_MOT_DE_PASSE>"}' -H 'Content-Type: application/json'  https://<ADRESSE_IP>/external/authentication/set_password | curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password |
+| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password` |
 
 ### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Mise à jour du mot de passe de l’utilisateur par l’administrateur système – /external/authentication/set_password_by_admin
 
@@ -2665,7 +2610,7 @@ response:
 > [!div class="mx-tdBreakAll"]
 > | Type | API | Exemple |
 > |--|--|--|
-> | POST | curl -k -d '{"admin_username":"<NOM_UTILISATEUR_ADMINISTRATEUR>","admin_password":"<MOT_DE_PASSE_ADMINISTRATEUR>","username": "<NOM_UTILISATEUR>","new_password": "<NOUVEAU_MOT_DE_PASSE>"}' -H 'Content-Type: application/json'  https://<ADRESSE_IP>/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password_by_admin |
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password_by_admin` |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

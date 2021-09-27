@@ -6,17 +6,17 @@ author: MRayermannMSFT
 ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
-ms.author: chuye
-ms.openlocfilehash: 7ef07280d65f3533e1def6475e40a65b16f0f6c3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.author: marayerm
+ms.openlocfilehash: bf7fe9dc4d8c60b7e8779100bd959ee7e85415e0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563910"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583853"
 ---
 # <a name="sign-in-to-storage-explorer"></a>Se connecter à l’Explorateur Stockage
 
-La connexion est la méthode recommandée pour accéder à vos ressources de stockage Azure avec Explorateur Stockage. En vous connectant, vous tirez parti des autorisations adossées à Azure AD, comme les listes de contrôle d’accès RBAC et Gen2 POSIX. 
+La connexion est la méthode recommandée pour accéder à vos ressources de stockage Azure avec Explorateur Stockage. En vous connectant, vous tirez parti des autorisations adossées à Azure AD, comme les listes de contrôle d’accès RBAC et Gen2 POSIX.
 
 ## <a name="how-to-sign-in"></a>Comment se connecter
 
@@ -59,5 +59,5 @@ Si vous avez des difficultés à vous connecter ou si vous rencontrez des probl�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockage](../../vs-azure-tools-storage-explorer-blobs.md)
-* [Résoudre des problèmes de connexion](./storage-explorer-troubleshooting.md#sign-in-issues)
+- [Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockage](../../vs-azure-tools-storage-explorer-blobs.md)
+- [Résoudre des problèmes de connexion](./storage-explorer-troubleshooting.md#sign-in-issues)

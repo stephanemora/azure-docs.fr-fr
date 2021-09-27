@@ -8,12 +8,12 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: 7059990f56cfa0f3eae9a10f3a7d3760095a1e83
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 0a00ad012f38a142332a62846e78c2ae87460464
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699222"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128659492"
 ---
 # <a name="rebuild-a-studio-classic-experiment-in-azure-machine-learning"></a>Reconstruire une expérience Studio (classique) dans Azure Machine Learning
 
@@ -51,7 +51,7 @@ Dans Azure Machine Learning, le graphique visuel est appelé un **brouillon de p
 
 1. Ajustez les paramètres.
     
-    Sélectionnez chaque module et ajustez les paramètres dans le panneau des paramètres du module à droite. Utilisez les paramètres pour recréer les fonctionnalités de votre expérience Studio (classique). Pour plus d’informations sur chaque module, consultez la [référence relative aux modules](/algorithm-module-reference/module-reference.md).
+    Sélectionnez chaque module et ajustez les paramètres dans le panneau des paramètres du module à droite. Utilisez les paramètres pour recréer les fonctionnalités de votre expérience Studio (classique). Pour plus d’informations sur chaque module, consultez la [référence relative aux modules](./algorithm-module-reference/module-reference.md).
 
 ## <a name="submit-a-run-and-check-results"></a>Envoyer une exécution et vérifier les résultats
 

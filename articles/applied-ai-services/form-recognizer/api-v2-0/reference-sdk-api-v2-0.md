@@ -2,7 +2,6 @@
 title: 'Informations de référence : Bibliothèque de client Form Recognizer 3.0.0 et API REST v2.0'
 titleSuffix: Azure Cognitive Services
 description: Utilisez la bibliothèque de client Form Recognizer v3.0.0 ou l’API REST v2.0 afin de créer une application de traitement des formulaires qui extrait des paires clé/valeur et des données de table de vos documents personnalisés.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -13,12 +12,12 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp
 keywords: traitement des formulaires, traitement de données automatisé
-ms.openlocfilehash: 2a312359d164b54c90be7bc1dc8dbf8aa47f80cb
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 32dcfb1ba1e413e666e6a3d27ef9f03dbce81978
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534977"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641751"
 ---
 # <a name="reference-azure-form-recognizer-client-library-v300-and-rest-api-v20"></a>Informations de référence : Bibliothèque de client Azure Form Recognizer v3.0.0 et API REST v2.0
 

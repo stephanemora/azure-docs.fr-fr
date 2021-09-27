@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: détection d’anomalie, Machine Learning, algorithmes
-ms.openlocfilehash: 85c169afb8c6158a3e5c32ac4d62cbeeabb4c2bb
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 7f8e9c26de1cceb6c4dec514e21d36b9843bb44e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035596"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588159"
 ---
 # <a name="multivariate-time-series-anomaly-detection-preview"></a>Détection d’anomalie dans les séries chronologiques multivariées (préversion)
 
@@ -34,7 +34,7 @@ Si votre objectif est de détecter les anomalies au niveau du système à partir
 
 ## <a name="notebook"></a>Notebook
 
-Pour savoir comment appeler l’API Détecteur d’anomalies (multivarié), essayez ce [notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb). Ce notebook Jupyter montre comment envoyer une demande d’API et visualiser le résultat.
+Pour savoir comment appeler l’API Détecteur d’anomalies (multivarié), essayez ce [notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb). Ce notebook Jupyter montre comment envoyer une demande d’API et visualiser le résultat.
 
 Pour exécuter le notebook, vous devez obtenir une **clé d’abonnement** d’API Détecteur d’anomalies valide et un **point de terminaison d’API**. Dans le notebook, ajoutez votre clé d’abonnement d’API Détecteur d’anomalies valide à la variable `subscription_key`, et remplacez la variable `endpoint` par votre point de terminaison.
 

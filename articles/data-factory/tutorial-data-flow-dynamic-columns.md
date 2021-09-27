@@ -4,15 +4,16 @@ description: Ce tutoriel explique comment définir dynamiquement des noms de col
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/17/2021
-ms.openlocfilehash: 96143f39811658c2794b46f3504a1a604264ab13
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 576b11e78c8cf928863d7db700942cbeab884e2c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112542802"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617827"
 ---
 # <a name="dynamically-set-column-names-in-data-flows"></a>Définir dynamiquement des noms de colonnes dans les flux de données
 
@@ -51,17 +52,17 @@ Au cours de cette étape, vous allez créer un pipeline qui contient une activit
 1. Dans l’onglet **Général** du pipeline, entrez **DeltaLake** pour le **nom** du pipeline.
 1. Dans la barre supérieure de la fabrique, faites glisser le curseur **Débogage du flux de données**. Le mode de débogage permet un test interactif de la logique de transformation sur un cluster Spark activé. Le préchauffage des clusters de flux de données nécessite 5 à 7 minutes et il est recommandé aux utilisateurs d’activer d’abord le débogage s’ils envisagent d’effectuer un développement de flux de données. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).
 
-    ![Activité de flux de données](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="Activité de flux de données":::
 1. Dans le volet **Activités**, développez la section **Déplacer et transformer**. Faites glisser et déposez l’activité **Flux de données** à partir du volet vers le canevas du pipeline.
 
-    ![Capture d’écran montrant le canevas du pipeline dans lequel vous pouvez supprimer l’activité Flux de données.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Capture d’écran montrant le canevas du pipeline dans lequel vous pouvez supprimer l’activité Flux de données.":::
 1. Dans la fenêtre contextuelle **Ajout de flux de données**, sélectionnez **Créer un flux de données**, puis nommez votre flux de données **DynaCols**. Une fois que vous avez fini, cliquez sur Terminer.    
 
 ## <a name="build-dynamic-column-mapping-in-data-flows"></a>Créer un mappage de colonnes dynamique dans les flux de données
 
 Pour ce tutoriel, nous allons utiliser un exemple de fichier de classement de films et renommer certains champs de la source en un nouvel ensemble de colonnes cibles susceptibles de changer au fil du temps. Les jeux de données que vous allez créer ci-dessous doivent pointer vers ce fichier CSV de films dans votre Stockage Blob ou compte de stockage ADLS Gen2. [Téléchargez le fichier de films ici](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/moviesDB.csv) et stockez le fichier dans votre compte de stockage Azure.
 
-![Flux final](media/data-flow/dynacols-1.png "Flux final")
+:::image type="content" source="media/data-flow/dynacols-1.png" alt-text="Flux final":::
 
 ### <a name="tutorial-objectives"></a>Objectifs du tutoriel
 
@@ -95,7 +96,7 @@ Commençons par configurer l’environnement de flux de données correspondant �
 
 Dans ce premier scénario, vous allez définir des noms de colonne de sortie dans votre flux de données en définissant le mappage de colonnes en fonction des champs entrants correspondants avec un paramètre qui est un tableau de chaînes de colonnes et qui correspond à chaque index de tableau avec la position ordinale de la colonne entrante. Lors de l’exécution de ce flux de données à partir d’un pipeline, vous pouvez définir des noms de colonnes différents sur chaque exécution de pipeline en envoyant dans ce paramètre de tableau de chaînes l’activité de flux de données.
 
-![Paramètres](media/data-flow/dynacols-3.png "Paramètres")
+:::image type="content" source="media/data-flow/dynacols-3.png" alt-text="Paramètres":::
 
 1. Revenez au concepteur de flux de données et modifiez le flux de données créé ci-dessus.
 1. Cliquez sur l’onglet Paramètres
@@ -108,7 +109,7 @@ Dans ce premier scénario, vous allez définir des noms de colonne de sortie dan
 1. Pour la première colonne, la règle de correspondance est ```position==1``` et le nom est ```$parameter1[1]```
 1. Suivre le même modèle pour les colonnes 2 et 3
  
-    ![Transformation de sélection](media/data-flow/dynacols-4.png "Transformation de sélection")
+    :::image type="content" source="media/data-flow/dynacols-4.png" alt-text="Transformation de sélection":::
 
 1. Cliquez sur les onglets Inspection et Aperçu des données de la Transformation de sélection pour afficher les nouvelles valeurs de nom de colonne ```(a,b,c)``` qui remplacent les noms de colonnes de film, titre et genres d’origine
    
@@ -131,7 +132,7 @@ Maintenant que vous avez stocké le contenu du fichier de configuration en mémo
 1. Ce que nous avons fait, c’est trouver tous les noms de colonnes qui correspondent à la propriété ```prevcolumn``` du fichier de configuration JSON externe et renommer chaque correspondance avec le nouveau nom ```newcolumn```.
 1. Cliquez sur les onglets Aperçu des données et Inspecter dans la Transformation de sélection. Vous devez maintenant voir les nouveaux noms de colonne du fichier de mappage externe.
 
-![Source 2](media/data-flow/dynacols-2.png "Source 2")
+:::image type="content" source="media/data-flow/dynacols-2.png" alt-text="Source 2":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

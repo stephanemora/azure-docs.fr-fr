@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: b11fff95543abb4fc74b2087deffe56786998e28
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 272575ab5fac1888e6f9c3d84317e0450447f3c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525673"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662644"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive
 
@@ -45,8 +45,6 @@ Les outils et bibliothèques de client suivants prennent tous en charge la hiér
 - Bibliothèque de client Java
 - Bibliothèque de client Python
 - Bibliothèque de client Node.js
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="storage-accounts-that-support-tiering"></a>Comptes de stockage prenant en charge la hiérarchisation
 
@@ -90,9 +88,9 @@ Voici quelques exemples de scénarios d’utilisation pour le niveau d’accès 
 
 ## <a name="account-level-tiering"></a>Hiérarchisation au niveau du compte
 
-Les objets blob des trois niveaux d’accès peuvent coexister au sein d’un même compte. Tout objet blob ne disposant pas d’un niveau explicitement attribué déduit le niveau à partir du paramètre de niveau d’accès du compte. Si le niveau d’accès émane du compte, vous voyez la propriété de l’objet blob **Niveau d’accès déduit** définie sur la valeur « True », et la propriété de l’objet blob **Niveau d’accès** correspond au niveau du compte. Dans le portail Azure, la propriété du _niveau d’accès déduit_ est affichée avec le niveau d’accès des objets blob comme **Chaud (déduit)** ou **Froid (déduit)** .
+Les objets blob des trois niveaux d’accès peuvent coexister au sein d’un même compte. Tout objet blob ne disposant pas d’un niveau explicitement attribué déduit le niveau à partir du paramètre de niveau d’accès du compte. Si le niveau d’accès émane du compte, vous voyez la propriété de l’objet blob **Niveau d’accès déduit** définie sur la valeur « True », et la propriété de l’objet blob **Niveau d’accès** correspond au niveau du compte. Dans le portail Azure, la propriété du *niveau d’accès déduit* est affichée avec le niveau d’accès des objets blob comme **Chaud (déduit)** ou **Froid (déduit)** .
 
-La modification du niveau d’accès du compte s’applique à tous les objets de _niveau d’accès déduit_ stockés dans le compte et ne possédant pas un ensemble de niveau explicite. Si vous passez le niveau du compte de chaud à froid, vous serez facturé pour les opérations d’écriture (par 10 000) de tous les objets blobs n’ayant aucun niveau configuré dans les comptes GPv2 uniquement. Ce changement n’est pas facturé dans les comptes Stockage Blob. Vous serez facturé pour les opérations de lecture (par 10 000) et d’extraction de données (par Go) si vous passez votre compte Stockage Blob ou GPv2 d’un stockage froid à chaud.
+La modification du niveau d’accès du compte s’applique à tous les objets de *niveau d’accès déduit* stockés dans le compte et ne possédant pas un ensemble de niveau explicite. Si vous passez le niveau du compte de chaud à froid, vous serez facturé pour les opérations d’écriture (par 10 000) de tous les objets blobs n’ayant aucun niveau configuré dans les comptes GPv2 uniquement. Ce changement n’est pas facturé dans les comptes Stockage Blob. Vous serez facturé pour les opérations de lecture (par 10 000) et d’extraction de données (par Go) si vous passez votre compte Stockage Blob ou GPv2 d’un stockage froid à chaud.
 
 Seuls les niveaux d’accès chaud et froid peuvent être choisis comme le niveau d’accès par défaut du compte. Le niveau archive ne peut être choisi qu’au niveau d’un objet. Au moment du chargement d’un objet blob, vous pouvez spécifier le niveau d’accès de votre choix (chaud, froid ou archive) indépendamment du niveau par défaut du compte. Cette fonctionnalité vous permet d’écrire des données directement dans le niveau archive pour réaliser des économies à partir du moment où vous créez des données dans le stockage d’objets blob.
 
@@ -109,7 +107,7 @@ Quand un objet blob est remplacé au niveau d’accès chaud ou froid, le nouvel
 
 ### <a name="blob-lifecycle-management"></a>Gestion de cycle de vie des objets blob
 
-La gestion du cycle de vie du stockage des objets blob offre une stratégie enrichie, basée sur des règles, que vous pouvez utiliser pour faire passer vos données au niveau d’accès le plus adapté et faire expirer les données à la fin de leur cycle de vie. Pour plus d’informations, consultez [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](storage-lifecycle-management-concepts.md).
+La gestion du cycle de vie du stockage des objets blob offre une stratégie enrichie, basée sur des règles, que vous pouvez utiliser pour faire passer vos données au niveau d’accès le plus adapté et faire expirer les données à la fin de leur cycle de vie. Pour plus d’informations, consultez [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](./lifecycle-management-overview.md).
 
 > [!NOTE]
 > Pour le moment, les données stockées dans le niveau d’accès d’objets blob de blocs (performance Premium) ne peuvent pas être déplacées dans le niveau chaud, froid ou archive avec [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) ou à l’aide de la gestion du cycle de vie du Stockage Blob Azure.
@@ -180,10 +178,21 @@ Tous les comptes de stockage utilisent un modèle tarifaire pour le stockage d�
 
 Différents niveaux d’accès, ainsi que la hiérarchisation au niveau de l’objet blob sont disponibles dans certaines régions. Pour avoir une liste complète, voir [Régions Azure disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)              | ![Oui](../media/icons/yes-icon.png) |
+| Objets blob de blocs Premium          | ![Non](../media/icons/no-icon.png)|![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment gérer les objets blob et comptes dans les niveaux d’accès.
 
 - [Comment gérer le niveau d’un objet blob dans un compte de stockage Azure](manage-access-tier.md)
 - [Comment gérer le niveau d’accès par défaut d’un compte de stockage Azure](../common/manage-account-default-access-tier.md)
-- [Optimiser les coûts en automatisant les niveaux d’accès au stockage Blob Azure](storage-lifecycle-management-concepts.md)
+- [Optimiser les coûts en automatisant les niveaux d’accès au stockage Blob Azure](./lifecycle-management-overview.md)

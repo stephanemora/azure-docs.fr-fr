@@ -8,12 +8,12 @@ ms.date: 07/23/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: b0dfb510ecf1722f1b8df9289a864ecd519be055
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: ea06b3c4fdf9be626df99f4a06f4190ce86df4b3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114653144"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433275"
 ---
 # <a name="azure-disk-pools-preview"></a>Pools de disques Azure (préversion)
 
@@ -32,7 +32,7 @@ Lorsque vous ajoutez un disque managé au pool de disques, le disque est attach�
 Dans la préversion, les pools de disques présentent les restrictions suivantes :
 
 - Seuls les disques SSD Premium ou disques Ultra peuvent être ajoutés à un pool de disques.
-- Les disques qui utilisent le [stockage redondant interzone (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) ne sont pas pris en charge pour l’instant. 
+- Les disques qui utilisent le [stockage redondant interzone (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks) ne sont pas pris en charge pour l’instant. 
 
 ### <a name="regional-availability"></a>Disponibilité régionale
 
