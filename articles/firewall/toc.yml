@@ -68,8 +68,8 @@
       href: dns-details.md
     - name: Base de référence de la sécurité
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
-    - name: Prise en charge FTP active
-      href: active-ftp-support.md
+    - name: Prise en charge du protocole FTP
+      href: ftp-support.md
 - name: Guides pratiques
   items:
     - name: Déployer et configurer - Classique

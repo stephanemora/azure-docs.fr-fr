@@ -228,10 +228,6 @@ items:
             href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context
           - name: Gestion des coûts pour un pool SQL serverless
             href: sql/data-processed.md
-          - name: Bonnes pratiques sur les pools SQL serverless
-            href: sql/best-practices-serverless-sql-pool.md
-          - name: Bonnes pratiques sur les pools SQL dédiés
-            href: sql/best-practices-dedicated-sql-pool.md
       - name: Démarrages rapides
         items:
           - name: Utiliser un pool SQL serverless
@@ -293,8 +289,10 @@ items:
             items:
               - name: Vue d’ensemble
                 href: sql/develop-overview.md
-              - name: Meilleures pratiques
-                href: sql/develop-best-practices.md
+              - name: Bonnes pratiques sur les pools SQL serverless
+                href: sql/best-practices-serverless-sql-pool.md
+              - name: Bonnes pratiques sur les pools SQL dédiés
+                href: sql/best-practices-dedicated-sql-pool.md
               - name: Vue matérialisée
                 items:
                   - name: Conseils de réglage des performances
@@ -793,6 +791,8 @@ items:
                 href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon RDS pour Oracle
                 href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+              - name: Amazon RDS pour SQL Server
+                href: ../data-factory/connector-amazon-rds-for-sql-server.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon Redshift
                 href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon S3

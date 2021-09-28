@@ -55,10 +55,16 @@
       href: volume-quota-introduction.md
     - name: Consignes pour planifier un réseau Azure NetApp Files
       href: azure-netapp-files-network-topologies.md
-    - name: Comment fonctionnent les instantanés Azure NetApp Files
-      href: snapshots-introduction.md
     - name: Pool de capacités QoS
       href: manual-qos-capacity-pool-introduction.md
+    - name: Comment fonctionnent les instantanés Azure NetApp Files
+      href: snapshots-introduction.md
+    - name: Sauvegarde Azure NetApp Files
+      items:
+        - name: Présentation de la sauvegarde Azure NetApp Files
+          href: backup-introduction.md
+        - name: Exigences et considérations relatives à la sauvegarde Azure NetApp Files
+          href: backup-requirements-considerations.md
     - name: Réplication entre régions
       items:
         - name: Comprendre la réplication interrégion
@@ -173,6 +179,24 @@
               href: snapshots-revert-volume.md
             - name: Suppression d'instantanés
               href: snapshots-delete.md
+        - name: Gestion des sauvegardes de volumes
+          items:
+            - name: Configurer des sauvegardes
+              items:
+                - name: Configuration de sauvegardes basées sur une stratégie
+                  href: backup-configure-policy-based.md
+                - name: Configuration des sauvegardes manuelles
+                  href: backup-configure-manual.md
+            - name: Gestion des stratégies de sauvegarde
+              href: backup-manage-policies.md
+            - name: Recherche dans les sauvegardes
+              href: backup-search.md
+            - name: Restaurer une sauvegarde
+              href: backup-restore-new-volume.md
+            - name: Désactiver les fonctionnalités de sauvegarde
+              href: backup-disable.md
+            - name: Supprimer les sauvegardes
+              href: backup-delete.md
         - name: Gérer la réplication interrégion
           items:
             - name: Créer une réplication de volume

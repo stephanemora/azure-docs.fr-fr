@@ -106,16 +106,12 @@
           href: assign-user-or-group-access-portal.md
         - name: Créer des collections sur Mes applications
           href: access-panel-collections.md
-        - name: Utiliser l’accès aux applications en libre-service
+        - name: Activation de l’accès aux applications en libre-service
           href: access-panel-manage-self-service-access.md
-        - name: Supprimer l’accès utilisateur
-          href: methods-for-removing-user-access.md
-        - name: Masquer une application
+        - name: Hide an app
           href: hide-application-from-user-portal.md
         - name: "Comment désactiver les inscriptions des utilisateurs\_?"
           href: disable-user-sign-in-portal.md
-        - name: Configurer l’affectation en libre-service
-          href: manage-self-service-access.md
         - name: Forcer l’accélération automatique
           href: configure-authentication-for-federated-users-portal.md
         - name: Empêcher l’accélération automatique de la connexion
@@ -184,6 +180,8 @@
       href: application-types.md
     - name: Raisons pour lesquelles les utilisateurs sont affectés à une application
       href: ways-users-get-assigned-to-applications.md
+    - name: Supprimer l’accès utilisateur
+      href: methods-for-removing-user-access.md
 - name: Ressources
   items:
     - name: Options d’aide et de support pour les développeurs

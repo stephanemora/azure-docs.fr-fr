@@ -18,8 +18,11 @@
         - name: Créer un registre de conteneurs - PowerShell
           href: container-registry-get-started-powershell.md
         - name: Créer un registre de conteneurs - Modèle ARM
-          displayName: Resource Manager
+          displayName: 'Resource Manager,ARM'
           href: container-registry-get-started-geo-replication-template.md
+        - name: Créer un registre de conteneurs – Bicep
+          displayName: 'Resource Manager,ARM'
+          href: container-registry-get-started-bicep.md
         - name: Envoyer des événements à Event Grid - CLI
           href: container-registry-event-grid-quickstart.md
         - name: Créer et envoyer (push) des images Java - CLI
