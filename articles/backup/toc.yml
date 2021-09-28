@@ -140,7 +140,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-vms-introduction.md
-        - name: Sauvegarde
+        - name: Backup
           items:
             - name: Sauvegarder et restaurer des machines virtuelles Azure avec la restauration instantanée de Sauvegarde Azure
               href: backup-instant-restore-capability.md
@@ -198,7 +198,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-database-postgresql-overview.md
-        - name: Sauvegarde
+        - name: Backup
           href: backup-azure-database-postgresql.md
         - name: Restaurer
           href: restore-azure-database-postgresql.md
@@ -246,7 +246,7 @@
               href: manage-azure-managed-disks.md
         - name: Avec PowerShell
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-managed-disks-ps.md
             - name: Restaurer
               href: restore-managed-disks-ps.md
@@ -326,6 +326,8 @@
       items:
         - name: Vue d’ensemble
           href: sap-hana-db-about.md
+        - name: Architecture
+          href: azure-backup-architecture-for-sap-hana-backup.md
         - name: Backup
           href: backup-azure-sap-hana-database.md
         - name: Restaurer

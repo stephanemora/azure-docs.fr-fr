@@ -253,8 +253,6 @@
       href: core/howto-faq.yml
     - name: Gérer vos préférences personnelles
       href: core/howto-manage-preferences.md
-    - name: Activer ou désactiver les conversations en direct
-      href: core/howto-show-hide-chat.md
 - name: Informations de référence
   items:
     - name: Azure CLI

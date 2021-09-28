@@ -60,15 +60,17 @@
     - name: Dépendances de micro-agent Linux
       displayName: 'linux, micro agent, agent'
       href: concept-micro-agent-linux-dependencies.md
-    - name: Alertes de sécurité des micro-agents (préversion)
-      href: concept-agent-based-security-alerts.md
-    - name: Alertes intégrées pour IoT Hub
-      displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
-      href: concept-security-alerts.md
-    - name: Alertes de sécurité personnalisées pour IoT Hub
-      href: concept-customizable-security-alerts.md
-    - name: Recommandations de sécurité pour IoT Hub
-      href: concept-recommendations.md
+    - name: Alertes de sécurité
+      items:
+        - name: Alertes de sécurité des micro-agents (préversion)
+          href: concept-agent-based-security-alerts.md
+        - name: Alertes intégrées pour IoT Hub
+          displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
+          href: concept-security-alerts.md
+        - name: Alertes de sécurité personnalisées pour IoT Hub
+          href: concept-customizable-security-alerts.md
+        - name: Recommandations de sécurité pour IoT Hub
+          href: concept-recommendations.md
     - name: Classique
       items:
         - name: Micro-agent Defender-IoT
