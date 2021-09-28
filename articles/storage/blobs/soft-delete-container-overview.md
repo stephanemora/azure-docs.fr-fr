@@ -10,12 +10,12 @@ ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: d3684d3fcb79fca31f403294a640887fa8e33d92
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: 51aa58bf3f3c0d672d90b70301f84306e09e06e9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113504474"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585701"
 ---
 # <a name="soft-delete-for-containers"></a>Suppression réversible pour les conteneurs
 
@@ -62,6 +62,17 @@ La version 2019-12-12 ou les versions ultérieures de l’API REST Stockage Azu
 
 > [!IMPORTANT]
 > La suppression réversible d’un conteneur n’a pas pour effet de protéger contre la suppression d’un compte de stockage, mais uniquement contre la suppression de conteneurs dans ce compte. Pour empêcher toute suppression d’un compte de stockage, configurez un verrou sur la ressource du compte de stockage. Pour plus d’informations sur le verrouillage des ressources Azure Resource Manager, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)              | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 

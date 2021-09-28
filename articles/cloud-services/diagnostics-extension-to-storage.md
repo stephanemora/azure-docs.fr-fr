@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: application-insights
-ms.openlocfilehash: 74dcfa8aa2ff062f6b021643dca539233c681cd4
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: f470ea2cb34f10e42d0f45b9bbcbab4db2cee7cb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822363"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668770"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Stocker et afficher des données de diagnostic dans Azure Storage
 
@@ -78,7 +78,7 @@ Plusieurs outils sont disponibles pour afficher les données après leur transfe
 
 * Explorateur de serveurs dans Visual Studio : si vous avez installé Microsoft Azure Tools pour Microsoft Visual Studio, vous pouvez utiliser le nœud de stockage Azure dans l’Explorateur de serveurs pour afficher des objets blobs en lecture seule et les données du tableau depuis vos comptes de stockage Azure. Vous pouvez afficher des données à partir de votre compte d’émulateur de stockage local et de comptes de stockage que vous avez créés pour Azure. Pour plus d’informations, consultez [Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [L’explorateur de stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données Azure Storage sur Windows, OSX et Linux.
-* [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) inclut Diagnostics Azure Manager qui vous permet d’afficher, de télécharger et de gérer les données de diagnostic collectées par les applications s’exécutant dans Azure.
+* [Azure Management Studio](https://cerebrata.com/blog/introducing-azure-management-studio-and-azure-explorer) inclut Diagnostics Azure Manager qui vous permet d’afficher, de télécharger et de gérer les données de diagnostic collectées par les applications s’exécutant dans Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Assurer le suivi du flux dans une application Cloud Services avec Diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)

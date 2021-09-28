@@ -10,12 +10,12 @@ ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 45a0fbac0fbe1bd513717ba1ab1d30b3cffbf78e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 791e533cc1f0dafa8724faa8cc3a46d1f8c770d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065941"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666000"
 ---
 # <a name="actions-and-attributes-for-azure-role-assignment-conditions-in-azure-storage-preview"></a>Actions et attributs pour les conditions d’attribution de rôle Azure dans Stockage Azure (préversion)
 
@@ -58,11 +58,11 @@ Le tableau suivant répertorie les actions et sous-opérations prises en charge 
 > | --- | --- | --- |
 > | Supprimer un objet blob | DataAction pour la suppression d’objets blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
 > | Lire un objet blob | DataAction pour la lecture d’objets blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-> | Lire du contenu à partir d’un objet blob avec des conditions de balise  | Opérations REST Obtenir un objet blob, Obtenir les métadonnées de l’objet blob, Obtenir les propriétés de l’objet blob, Obtenir la liste de blocage, Obtenir les plages de pages et Contenu des objets blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Sous-opération**<br/>`Blob.Read.WithTagConditions` | 
+> | Lire du contenu à partir d’un objet blob avec des conditions de balise  | Opérations REST Obtenir un objet blob, Obtenir les métadonnées de l’objet blob, Obtenir les propriétés de l’objet blob, Obtenir la liste de blocage, Obtenir les plages de pages et Contenu des objets blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Sous-opération**<br/>`Blob.Read.WithTagConditions` |
 > | Écrire dans un objet blob | DataAction pour l’écriture dans des objets blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
-> | Écrire dans un objet blob avec des balises d’index d’objet blob | Opérations REST : Placer l’objet blob, Placer en liste de blocage, Copier l’objet blob et copier l’objet blob à partir de l’URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Sous-opération**<br/>`Blob.Write.WithTagHeaders` | 
+> | Écrire dans un objet blob avec des balises d’index d’objet blob | Opérations REST : Placer l’objet blob, Placer en liste de blocage, Copier l’objet blob et copier l’objet blob à partir de l’URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Sous-opération**<br/>`Blob.Write.WithTagHeaders` |
 > | Créer un objet blob ou un instantané, ou ajouter des données | DataAction pour la création d’objets blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |
-> | Écrire du contenu dans un objet blob avec des balises d’index d’objet blob | Opérations REST : Placer l’objet blob, Placer en liste de blocage, Copier l’objet blob et copier l’objet blob à partir de l’URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Sous-opération**<br/>`Blob.Write.WithTagHeaders` | 
+> | Écrire du contenu dans un objet blob avec des balises d’index d’objet blob | Opérations REST : Placer l’objet blob, Placer en liste de blocage, Copier l’objet blob et copier l’objet blob à partir de l’URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Sous-opération**<br/>`Blob.Write.WithTagHeaders` |
 > | Supprimer une version d’un objet blob | DataAction pour la suppression d’une version d’un objet blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
 > | Modifier la propriété d’un objet blob | DataAction pour la modification de la propriété d’un objet blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
 > | Modifier les autorisations d’un objet blob | DataAction pour la modification des autorisations d’un objet blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
@@ -141,4 +141,3 @@ Le tableau suivant répertorie les attributs que vous pouvez utiliser dans vos e
 - [Exemples de conditions d’attribution de rôle Azure (préversion)](storage-auth-abac-examples.md)
 - [Format et syntaxe des conditions d’attribution de rôle Azure (préversion)](../../role-based-access-control/conditions-format.md)
 - [Qu’est-ce que le contrôle d’accès basé sur les attributs Azure (Azure ABAC) ? (préversion)](../../role-based-access-control/conditions-overview.md)
-

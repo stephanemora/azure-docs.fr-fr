@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: f806a700fa9f1788e2435a43d8fdcb19fa8134ce
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b7594a8d5e958b05c001f3943437e86b5830bd80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372651"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667081"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Résoudre les problèmes liés à Live Video Analytics sur IoT Edge
 
@@ -39,7 +39,7 @@ Si l’infrastructure Edge est correcte, vous pouvez rechercher des problèmes 
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content <path-to-deployment_manifest.json>
 ```
 Si le code JSON n’est pas bien formé, vous pouvez recevoir l’erreur suivante :   
-&nbsp;&nbsp;&nbsp; **Impossible d’analyser le code JSON du fichier : « <deployment manifest.json> » pour l’argument « content ». Exception : « Données supplémentaires : ligne 101 colonne 1 (caractère 5325) »**
+&nbsp;&nbsp;&nbsp; **Impossible d’analyser le code JSON du fichier : « \<deployment manifest.json\> » pour l’argument « content ». Exception : « Données supplémentaires : ligne 101 colonne 1 (caractère 5325) »**
 
 Si vous rencontrez cette erreur, nous vous recommandons de vérifier dans le fichier JSON s’il manque des crochets ou si la structure du fichier présente d’autres problèmes. Pour valider la structure des fichiers, vous pouvez utiliser un client tel que [Notepad++ avec le plug-in JSON Viewer](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) ou un outil en ligne tel que [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
 

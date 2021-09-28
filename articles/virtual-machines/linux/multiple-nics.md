@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: bb35fd8a8a2cf032e42d8d286707a66fc2a8faed
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: b6b8f300fe4e9f89e58afca14d39ac938b08b644
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692646"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673176"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau
 
@@ -98,7 +98,7 @@ az vm create \
 Ajoutez des tables de routage au SE invité en suivant la procédure décrite dans [Configurer plusieurs cartes réseau dans un système d’exploitation invité](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Ajout d’une carte réseau à une machine virtuelle existante
-Les étapes précédentes ont permis de créer une machine virtuelle avec plusieurs cartes réseau. Vous pouvez également ajouter des cartes réseau à une machine virtuelle existante avec l’interface Azure CLI. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](../sizes.md) , pensez à dimensionner la vôtre en conséquence. Si nécessaire, vous pouvez [redimensionner une machine virtuelle](change-vm-size.md).
+Les étapes précédentes ont permis de créer une machine virtuelle avec plusieurs cartes réseau. Vous pouvez également ajouter des cartes réseau à une machine virtuelle existante avec l’interface Azure CLI. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](../sizes.md) , pensez à dimensionner la vôtre en conséquence. Si nécessaire, vous pouvez [redimensionner une machine virtuelle](../resize-vm.md).
 
 Créez une autre carte réseau avec [az network nic create](/cli/azure/network/nic). L’exemple suivant crée une carte réseau nommée *myNic3* connectée au sous-réseau principal et au groupe de sécurité réseau créés lors des étapes précédentes :
 
