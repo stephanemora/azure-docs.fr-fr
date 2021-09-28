@@ -276,7 +276,7 @@
         - name: Code sécurisé
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        - name: Auditer et gérer la conformité
+        - name: Auditer et gérer
           href: how-to-integrate-azure-policy.md
           displayName: policy
     - name: Espaces de travail et ressources de calcul

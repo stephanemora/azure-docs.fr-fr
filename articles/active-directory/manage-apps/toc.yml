@@ -12,17 +12,15 @@
   items:
     - name: Ajouter une application
       href: add-application-portal.md
-    - name: Configurer une application
-      href: add-application-portal-configure.md
-    - name: Affecter des utilisateurs à une application
+    - name: Attribuer un utilisateur
       href: add-application-portal-assign-users.md
-    - name: Configurer l’authentification unique SAML
+    - name: Activer l’authentification unique
       href: add-application-portal-setup-sso.md
-    - name: Configurer l’authentification unique OIDC
-      href: add-application-portal-setup-oidc-sso.md
-    - name: Voir vos applications
+    - name: Configurer les propriétés
+      href: add-application-portal-configure.md
+    - name: Afficher les applications
       href: view-applications-portal.md
-    - name: Supprimer une application
+    - name: Supprimer des applications
       href: delete-application-portal.md
 - name: Tutoriels
   items:
@@ -47,6 +45,8 @@
       href: application-management-fundamentals.md
     - name: Scénarios courants de gestion d’applications
       href: common-scenarios.md
+    - name: Stratégie de découverte du domaine d’accueil
+      href: home-realm-discovery-policy.md
     - name: Planification d’une intégration d’applications cloud
       items:
         - name: Bien démarrer avec l’intégration d’applications
@@ -55,10 +55,10 @@
           href: my-apps-deployment-plan.md
     - name: Authentification unique
       items:
+        - name: Planifier le déploiement
+          href: plan-sso-deployment.md
         - name: "Qu’est-ce que l’authentification unique\_?"
           href: what-is-single-sign-on.md
-        - name: Planifier un déploiement de l’authentification unique
-          href: plan-sso-deployment.md
     - name: Sécurité des applications
       items:
         - name: Options d’accès aux applications
@@ -152,10 +152,12 @@
           href: f5-aad-password-less-vpn.md
     - name: Authentification unique
       items:
-        - name: Authentification unique par mot de passe
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Authentification unique liée
+        - name: Liée
           href: configure-linked-sign-on.md
+        - name: OpenID Connect
+          href: add-application-portal-setup-oidc-sso.md
+        - name: Mot de passe
+          href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Dépanner
       items:
         - name: Résoudre les problèmes d’authentification unique par mot de passe

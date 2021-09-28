@@ -509,36 +509,46 @@
   items:
     - name: Guide des API de place de marché
       href: marketplace-apis-guide.md
-    - name: Informations de référence sur l’API CPP
+    - name: API de soumission de place de marché
       items:
-        - name: Vue d’ensemble de l’API CPP
-          href: cloud-partner-portal-api-overview.md
-        - name: Prérequis de l’API
-          href: cloud-partner-portal-api-prerequisites.md
-        - name: Considérations relatives aux API
-          href: cloud-partner-portal-api-considerations.md
-        - name: Contrôle d’accès concurrentiel
-          href: cloud-partner-portal-api-concurrency-control.md
-        - name: Récupération des offres
-          href: cloud-partner-portal-api-retrieve-offers.md
-        - name: Récupérer une offre spécifique
-          href: cloud-partner-portal-api-retrieve-specific-offer.md
-        - name: Ajouter ou modifier une offre
-          href: cloud-partner-portal-api-creating-offer.md
-        - name: Récupérer l’état de l’offre
-          href: cloud-partner-portal-api-retrieve-offer-status.md
-        - name: Publication d’une offre
-          href: cloud-partner-portal-api-publish-offer.md
-        - name: Récupérer des opérations
-          href: cloud-partner-portal-api-retrieve-operations.md
-        - name: Annulez des opérations
-          href: cloud-partner-portal-api-cancel-operations.md
-        - name: Démarrer
-          href: cloud-partner-portal-api-go-live.md
-        - name: Tarification des offres de machine virtuelle
-          href: cloud-partner-portal-api-setting-price.md
-        - name: Résolution des erreurs liées à l’authentification
-          href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
+        - name: Vue d’ensemble des API de soumission de place de marché
+          href: submission-api-overview.md
+        - name: API de soumission de l’Espace partenaires
+          items:
+            - name: Prérequis de l’API
+              href: submission-api-onboard.md
+            - name: API de soumission de l’Espace partenaires
+              href: 'https://apidocs.microsoft.com/services/partneringestion/'
+        - name: API de soumission héritées
+          items:
+            - name: Vue d’ensemble des API héritées
+              href: cloud-partner-portal-api-overview.md
+            - name: Prérequis de l’API
+              href: cloud-partner-portal-api-prerequisites.md
+            - name: Considérations relatives aux API
+              href: cloud-partner-portal-api-considerations.md
+            - name: Contrôle d’accès concurrentiel
+              href: cloud-partner-portal-api-concurrency-control.md
+            - name: Récupération des offres
+              href: cloud-partner-portal-api-retrieve-offers.md
+            - name: Récupérer une offre spécifique
+              href: cloud-partner-portal-api-retrieve-specific-offer.md
+            - name: Ajouter ou modifier une offre
+              href: cloud-partner-portal-api-creating-offer.md
+            - name: Récupérer l’état de l’offre
+              href: cloud-partner-portal-api-retrieve-offer-status.md
+            - name: Publication d’une offre
+              href: cloud-partner-portal-api-publish-offer.md
+            - name: Récupérer des opérations
+              href: cloud-partner-portal-api-retrieve-operations.md
+            - name: Annulez des opérations
+              href: cloud-partner-portal-api-cancel-operations.md
+            - name: Démarrer
+              href: cloud-partner-portal-api-go-live.md
+            - name: Tarification des offres de machine virtuelle
+              href: cloud-partner-portal-api-setting-price.md
+            - name: Résolution des erreurs liées à l’authentification
+              href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Service de mesure de la Place de marché
       items:
         - name: Service de détection d’anomalie
