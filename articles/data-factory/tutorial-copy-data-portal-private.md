@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 227bbaf2faa845d269d8326883c3e63c4572fdab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7aee146ea06e15696b1e52e701d8d32b476d0570
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637737"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798329"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copier des données du stockage Blob Azure vers une base de données SQL de manière sécurisée en utilisant des points de terminaison privés
 
@@ -102,14 +102,14 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. Sur le portail Data Factory, accédez à **Gérer** et sélectionnez **Créer** pour créer un runtime d’intégration Azure.
 
-   ![Capture d’écran montrant la création d’un runtime d’intégration Azure](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/create-new-azure-ir.png" alt-text="Capture d’écran montrant la création d’un runtime d’intégration Azure":::
 1. Dans la page **Configuration du runtime d’intégration**, choisissez le runtime d’intégration à créer en fonction des fonctionnalités nécessaires. Dans ce tutoriel, sélectionnez **Azure, Auto-hébergé**, puis cliquez sur **Continuer**. 
 1. Sélectionnez **Azure**, puis cliquez sur **Continuer** pour créer un runtime d’intégration Azure.
 
-   ![Capture d’écran montrant un nouveau runtime d’intégration Azure](./media/tutorial-copy-data-portal-private/azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/azure-ir.png" alt-text="Capture d’écran montrant un nouveau runtime d’intégration Azure":::
 1. Sous **Configuration de réseau virtuel (préversion)** , sélectionnez **Activer**.
 
-   ![Capture d’écran montrant l’activation d’un nouveau runtime d’intégration Azure](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/enable-managed-vnet.png" alt-text="Capture d’écran montrant l’activation d’un nouveau runtime d’intégration Azure":::
 1. Sélectionnez **Create** (Créer).
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
@@ -123,12 +123,12 @@ Dans ce tutoriel, vous allez commencer par créer un pipeline. Puis vous créez 
 
 1. Dans la page d’accueil, sélectionnez **Orchestrer**.
 
-   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la page d’accueil ADF.":::
 1. Dans le volet Propriétés du pipeline, entrez **CopyPipeline** comme nom du pipeline.
 
 1. Dans la boîte à outils **Activités**, développez la catégorie **Déplacer et transformer**, puis faites glisser l’activité **Copier les données** de la boîte à outils vers l’aire du Concepteur de pipeline. Entrez **CopyFromBlobToSql** comme nom.
 
-    ![Capture d’écran montrant l’activité de copie](./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png" alt-text="Capture d’écran montrant l’activité de copie":::
 
 ### <a name="configure-a-source"></a>Configuration d’une source
 
@@ -151,7 +151,7 @@ Dans ce tutoriel, vous allez commencer par créer un pipeline. Puis vous créez 
 
 1. Veillez à activer **Création interactive**. L’activation peut prendre environ une minute.
 
-    ![Capture d’écran montrant Création interactive](./media/tutorial-copy-data-portal-private/interactive-authoring.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/interactive-authoring.png" alt-text="Capture d’écran montrant Création interactive":::
 
 1. Sélectionnez **Tester la connexion**. Celle-ci doit échouer quand le compte de stockage autorise l’accès provenant des **Réseaux sélectionnés** uniquement et oblige Azure Data Factory à créer un point de terminaison privé vers le compte (le point de terminaison doit être approuvé avant utilisation du compte). Le message d’erreur comporte un lien permettant de créer un point de terminaison privé. Vous pouvez le suivre pour créer un point de terminaison privé managé. Pour créer un point de terminaison privé managé, vous pouvez également accéder directement à l’onglet **Gérer** et appliquer les instructions de la [section suivante](#create-a-managed-private-endpoint).
 
@@ -169,7 +169,7 @@ Dans ce tutoriel, vous allez commencer par créer un pipeline. Puis vous créez 
 
 1. Sélectionnez **OK**. La page du pipeline s’affiche automatiquement. Dans l’onglet **Source**, vérifiez que **SourceBlobDataset** est sélectionné. Pour afficher un aperçu des données dans cette page, sélectionnez **Aperçu des données**.
 
-    ![Capture d’écran montrant le jeu de données source](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/source-dataset-selected.png" alt-text="Capture d’écran montrant le jeu de données source":::
 
 #### <a name="create-a-managed-private-endpoint"></a>Créer un point de terminaison privé managé
 
@@ -184,7 +184,7 @@ Si vous n’avez pas sélectionné le lien hypertexte lorsque vous avez testé l
 
 1. Sélectionnez **+ Nouveau** sous **Points de terminaison privés managés**.
 
-    ![Capture d’écran montrant Points de terminaison privés managés > bouton Nouveau](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Capture d’écran montrant Points de terminaison privés managés &gt; bouton Nouveau"::: 
 
 1. Sélectionnez la vignette **Stockage Blob Azure** dans la liste, puis **Continuer**.
 
@@ -196,14 +196,14 @@ Si vous n’avez pas sélectionné le lien hypertexte lorsque vous avez testé l
 
 1. Sélectionnez le point de terminaison privé que vous avez créé. Le lien hypertexte qui apparaît vous permet d’approuver le point de terminaison privé au niveau du compte de stockage.
 
-    ![Capture d’écran montrant le volet Points de terminaison privés managés](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/manage-private-endpoint.png" alt-text="Capture d’écran montrant le volet Points de terminaison privés managés"::: 
 
 #### <a name="approval-of-a-private-link-in-a-storage-account"></a>Approbation d’une liaison privée dans un compte de stockage
 1. Dans la section **Paramètres** du compte de stockage, accédez à **Connexions des points de terminaison privés**.
 
 1. Cochez la case du point de terminaison privé que vous avez créé, puis sélectionnez **Approuver**.
 
-    ![Capture d’écran montrant le bouton Approuver pour le point de terminaison privé](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/approve-private-endpoint.png" alt-text="Capture d’écran montrant le bouton Approuver pour le point de terminaison privé":::
 
 1. Ajoutez une description, puis sélectionnez **Oui**.
 1. Revenez à la section **Points de terminaison privés managés** de l’onglet **Gérer** dans Data Factory.
@@ -240,7 +240,7 @@ Si vous n’avez pas sélectionné le lien hypertexte lorsque vous avez testé l
 
 1. Accédez à l’onglet avec le pipeline. Ensuite, vérifiez que **OutputSqlDataset** est sélectionné dans **Jeu de données récepteur**.
 
-    ![Capture d’écran montrant l’onglet Pipeline](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/pipeline-tab-2.png" alt-text="Capture d’écran montrant l’onglet Pipeline":::
 
 Si vous le souhaitez, vous pouvez mapper le schéma de la source au schéma correspondant de la destination en suivant les instructions mentionnées dans [Mappage de schéma dans l’activité de copie](./copy-activity-schema-and-type-mapping.md).
 
@@ -252,7 +252,7 @@ Si vous n’avez pas sélectionné le lien hypertexte lorsque vous avez testé l
 1. Accédez à la section **Points de terminaison privés managés**.
 1. Sélectionnez **+ Nouveau** sous **Points de terminaison privés managés**.
 
-    ![Capture d’écran montrant Points de terminaison privés managés > bouton Nouveau](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Capture d’écran montrant Points de terminaison privés managés &gt; bouton Nouveau"::: 
 
 1. Sélectionnez la vignette **Azure SQL Database** dans la liste, puis **Continuer**.
 1. Entrez le nom du serveur SQL que vous avez sélectionné.

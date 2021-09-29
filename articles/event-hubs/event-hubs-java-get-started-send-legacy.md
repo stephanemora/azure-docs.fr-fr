@@ -2,14 +2,14 @@
 title: Recevoir des événements d’Azure Event Hubs ou lui en envoyer en utilisant Java (hérité)
 description: Cet article décrit la procédure à suivre pour créer une application Java qui reçoit des événements d’Azure Event Hubs et lui en envoie à l’aide de l’ancien package azure-eventhubs.
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/28/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: b9bbd5d4290261ec96755f02a6179a7cde267d82
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1f9bb76439e6bf1ec7858b578ea25a027716fb28
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309405"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217388"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Utiliser Java pour recevoir des événements d’Azure Event Hubs ou lui en envoyer (azure-eventhubs)
 

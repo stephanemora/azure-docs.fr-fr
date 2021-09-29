@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment gérer les opérations de rest
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: f82adee9690c0114fef17640672c7326cffc8481
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 0aa66b5c853faf26320510b3fe78ac71cd9d8afc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966074"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820334"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurer des machines virtuelles avec l’API REST
 
@@ -603,7 +603,7 @@ Voici un exemple de corps de demande pour restaurer les disques d’une machine 
 }
 ```
 
-Comme l’opération de restauration de la région primaire, il s’agit d’une opération asynchrone qui doit être [suivie séparément](/azure/backup/backup-azure-arm-userestapi-restoreazurevms#restore-response).
+Comme l’opération de restauration de la région primaire, il s’agit d’une opération asynchrone qui doit être [suivie séparément](#restore-response).
 
 
 

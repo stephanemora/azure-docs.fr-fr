@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 44286f0f5a0d5f367cd3934ff61653eb4772c1fd
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: b9f04acb695ad2c54abb5780eac86cd393fe8822
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182463"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759260"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-fusion-erp"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Oracle Fusion ERP
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Oracle Fusion ERP pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Oracle Fusion ERP dans Mes applications vous redirige vers l’URL de connexion à Oracle Fusion ERP. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Oracle Fusion ERP dans Mes applications vous redirige vers l’URL de connexion à Oracle Fusion ERP. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

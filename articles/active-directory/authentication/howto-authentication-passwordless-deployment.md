@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c6cb9d7dad1b55e6d49fdbe40a0ecd9dd052ba8
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 1ee82c26217ac1b760c59f56f9875b7dcbcaf663
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228393"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759811"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory
 
@@ -109,11 +109,11 @@ Vos communications aux utilisateurs finaux doivent inclure les informations suiv
 
 * [Conseils d’aide sur l’inscription combinée à Azure AD MFA et SSPR](howto-registration-mfa-sspr-combined.md)
 
-* [Téléchargement de l’application Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md)
+* [Téléchargement de l’application Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a)
 
 * [Inscription dans l’application Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 
-* [Connexion avec votre téléphone](../user-help/user-help-auth-app-sign-in.md)
+* [Connexion avec votre téléphone](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c)
 
 Microsoft fournit des modèles de communication pour les utilisateurs finaux. Téléchargez le [matériel de déploiement de l’authentification](https://aka.ms/MFAtemplates) pour faciliter la rédaction de vos communications. Le matériel de déploiement comprend des affiches personnalisables et des modèles d’e-mail qui vous permettent d’informer vos utilisateurs sur l’arrivée des options d’authentification sans mot de passe dans votre organisation.
 
@@ -130,7 +130,7 @@ Cette méthode peut également être utilisée pour faciliter la récupération 
 
 ## <a name="plan-for-and-deploy-the-microsoft-authenticator-app"></a>Planifier et déployer l’application Microsoft Authenticator
 
-L’[application Microsoft Authenticator](concept-authentication-passwordless.md) transforme n’importe quel téléphone iOS ou Android en informations d’identification fortes, sans mot de passe. Vous pouvez la télécharger gratuitement sur Google Play ou l’App Store d’Apple. Demandez aux utilisateurs de [télécharger l’application Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) et de suivre les instructions fournies pour activer la connexion par téléphone.
+L’[application Microsoft Authenticator](concept-authentication-passwordless.md) transforme n’importe quel téléphone iOS ou Android en informations d’identification fortes, sans mot de passe. Vous pouvez la télécharger gratuitement sur Google Play ou l’App Store d’Apple. Demandez aux utilisateurs de [télécharger l’application Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) et de suivre les instructions fournies pour activer la connexion par téléphone.
 
 ### <a name="technical-considerations"></a>Considérations techniques
 

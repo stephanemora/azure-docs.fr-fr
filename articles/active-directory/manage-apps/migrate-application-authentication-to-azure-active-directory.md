@@ -12,12 +12,12 @@ ms.date: 02/05/2021
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f8ee443f12ce4c28e5bb883be686a4610eeec38
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 2ef33a1fa80e443a51583551f2ec3ceb65da3f88
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768903"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791647"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migrer l’authentification des applications vers Azure Active Directory
 
@@ -503,7 +503,7 @@ Selon la façon dont vous configurez votre application, vérifiez que l’authen
 | ------------------------ | --------------------------------------------------- |
 | **OAuth/OpenID Connect** | Sélectionnez **Applications d’entreprise&gt; Autorisations** et assurez-vous que vous avez accepté que l’application soit utilisée dans votre organisation dans les paramètres utilisateur de votre application. |
 | **Authentification unique SAML** | Utilisez le bouton [Tester les paramètres SAML](./debug-saml-sso-issues.md) sous **Authentification unique**. |
-| **Authentification unique par mot de passe** | Téléchargez et installez l’[extension de connexion sécurisée à MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). Cette extension vous permet de lancer les applications cloud de votre organisation qui vous obligent à utiliser un processus d’authentification unique. |
+| **Authentification unique par mot de passe** | Téléchargez et installez l’[extension de connexion sécurisée à MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension). Cette extension vous permet de lancer les applications cloud de votre organisation qui vous obligent à utiliser un processus d’authentification unique. |
 
 |  **[Proxy d’application](../app-proxy/application-proxy.md)** | Vérifiez que votre connecteur est en cours d’exécution et affecté à votre application. Pour obtenir de l’aide, consultez le [Guide de résolution des problèmes de proxy d’application](../app-proxy/application-proxy-troubleshoot.md). |
 
@@ -553,7 +553,7 @@ Une fois que vous avez migré les applications, vous pouvez enrichir l’expéri
 
 **Rendre les applications détectables**
 
-**Dirigez votre utilisateur** vers l’expérience du portail [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). À cet endroit, ils peuvent accéder à toutes les applications basées sur le cloud. Ces applications sont rendues disponibles à l’aide d’[Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), et aux applications qui utilisent le [proxy d’application](../app-proxy/application-proxy.md), à condition qu’ils disposent d’autorisations pour accéder à ces applications.
+**Dirigez votre utilisateur** vers l’expérience du portail [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension). À cet endroit, ils peuvent accéder à toutes les applications basées sur le cloud. Ces applications sont rendues disponibles à l’aide d’[Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), et aux applications qui utilisent le [proxy d’application](../app-proxy/application-proxy.md), à condition qu’ils disposent d’autorisations pour accéder à ces applications.
 
 Vous pouvez guider vos utilisateurs sur la façon de découvrir leurs applications :
 

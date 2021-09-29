@@ -1,19 +1,19 @@
 ---
 title: Exemples de stockage Azure avec Java| Microsoft Docs
 description: Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez des exemples de mise en route d’objets blob, de files d’attente, de tables et de fichiers à l’aide des bibliothèques clientes de stockage Java.
-author: twooley
+author: normesta
 ms.custom: devx-track-java
-ms.author: twooley
+ms.author: normesta
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 3a6a68a150bd474f40ffb1610ed7a310e4f30de9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 0d5a6c98e990bdc87fbe3dcb26cfe4710b3af099
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276635"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588653"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Exemples de stockage Azure utilisant les bibliothèques clientes Java v12
 
@@ -111,6 +111,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 :::row-end:::
 
 ### <a name="troubleshooting"></a>Dépannage
+
 :::row:::
    :::column span="2":::
       [Déclencher une erreur récupérable à l’aide d’un client de conteneur](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/StorageErrorHandlingExample.java#L11)
@@ -120,6 +121,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 ## <a name="data-lake-storage-gen2-samples"></a>Exemples de Data Lake Storage Gen2
 
 ### <a name="data-lake-service"></a>Service Data Lake
+
 :::row:::
    :::column span="":::
       [Créer un client du service Data Lake](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L48)
@@ -130,6 +132,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 :::row-end:::
 
 ### <a name="file-system"></a>Système de fichiers
+
 :::row:::
    :::column span="":::
       [Créer un système de fichiers](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L64)
@@ -210,7 +213,6 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
       [Obtenir les contrôles d’accès sur un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L104)
    :::column-end:::
 :::row-end:::
-
 
 ## <a name="azure-file-samples"></a>Exemples de fichiers Azure
 
@@ -324,7 +326,6 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
    :::column-end:::
 :::row-end:::
 
-
 ## <a name="queue-samples"></a>Exemples de files d’attente
 
 ### <a name="authentication"></a>Authentification
@@ -430,10 +431,10 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 
 Pour afficher l’intégralité des bibliothèques d’exemples Java, accédez à :
 
-* [Exemples de code d’objet blob Azure](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
-* [Exemples de code Azure Data Lake](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
-* [Exemples de code Azure Files](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share)
-* [Exemples de code de file d’attente Azure](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
+- [Exemples de code d’objet blob Azure](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+- [Exemples de code Azure Data Lake](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
+- [Exemples de code Azure Files](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share)
+- [Exemples de code de file d’attente Azure](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
 
 Vous pouvez parcourir et cloner le dépôt GitHub pour chaque bibliothèque.
 
@@ -441,17 +442,17 @@ Vous pouvez parcourir et cloner le dépôt GitHub pour chaque bibliothèque.
 
 Consultez les guides suivants si vous recherchez des instructions sur l’installation et la prise en main des bibliothèques clientes de stockage Azure.
 
-* [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](../blobs/storage-quickstart-blobs-java.md)
-* [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](../queues/storage-quickstart-queues-java.md)
-* [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](../files/storage-java-how-to-use-file-storage.md)
+- [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](../blobs/storage-quickstart-blobs-java.md)
+- [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](../queues/storage-quickstart-queues-java.md)
+- [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](../../cosmos-db/table-storage-how-to-use-java.md)
+- [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](../files/storage-java-how-to-use-file-storage.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les exemples pour d’autres langages :
 
-* .NET : [Exemples relatifs au service Stockage Azure avec .NET](storage-samples-dotnet.md)
-* Python : [Exemples relatifs au service Stockage Azure avec Python](storage-samples-python.md)
-* JavaScript/Node.js : [Exemples relatifs au service Stockage Azure en JavaScript](storage-samples-javascript.md)
-* C++ : [Exemples relatifs au service Stockage Azure avec C++](storage-samples-c-plus-plus.md)
-* Tous les autres langages : [Exemples relatifs à Stockage Azure](storage-samples.md)
+- .NET : [Exemples relatifs au service Stockage Azure avec .NET](storage-samples-dotnet.md)
+- Python : [Exemples relatifs au service Stockage Azure avec Python](storage-samples-python.md)
+- JavaScript/Node.js : [Exemples relatifs au service Stockage Azure en JavaScript](storage-samples-javascript.md)
+- C++ : [Exemples relatifs au service Stockage Azure avec C++](storage-samples-c-plus-plus.md)
+- Tous les autres langages : [Exemples relatifs à Stockage Azure](storage-samples.md)

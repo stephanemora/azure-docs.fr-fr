@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 5e655177f37ecafea407899c4512d803ba2295ad
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: d9f8e74119d201cd3449b9a3b0f1a3a85c395181
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252800"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124813890"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-anyconnect"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco AnyConnect
 
@@ -181,7 +181,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans C
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
 * Cliquez sur Tester cette application dans le portail Azure : vous devez être connecté automatiquement à l’instance Cisco AnyConnect pour laquelle vous avez configuré l’authentification unique (SSO)
-* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Cisco AnyConnect dans le volet d’accès doit vous connecter automatiquement à l’application Cisco AnyConnect pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Cisco AnyConnect dans le volet d’accès doit vous connecter automatiquement à l’application Cisco AnyConnect pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

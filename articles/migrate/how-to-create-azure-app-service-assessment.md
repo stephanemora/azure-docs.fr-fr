@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 07/28/2021
-ms.openlocfilehash: 39dfd96a92dcce152a6a8ff5afdd1c18b2f1d754
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ffaeaa383ee3d21bfe5a1798c440e1bccc039448
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121784650"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810433"
 ---
 # <a name="create-an-azure-app-service-assessment"></a>Créer une évaluation Azure App Service
 
@@ -41,33 +41,33 @@ Exécutez une évaluation comme suit :
 
 1. Sur la page **Vue d’ensemble** > **Serveurs, bases de données et applications web**, cliquez sur **Découvrir, évaluer et migrer**.
     :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Page Vue d’ensemble d’Azure Migrate":::
-2. Sur **Azure Migrate : Détection et évaluation**, cliquez sur **Évaluer** et choisissez le type d’évaluation **Azure App Service**.
+2. Sur **Azure Migrate : détection et évaluation**, cliquez sur **Évaluer** et choisissez le type d’évaluation **Azure App Service**.
     :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Liste déroulante permettant de choisir le type d’évaluation Azure App Service":::
 3. Dans **Créer une évaluation**, vous pouvez voir que le type d’évaluation **Azure App Service** est présélectionné et que la source de détection est **Serveurs découverts par l’appliance Azure Migrate** par défaut.
 4. Cliquez sur **Modifier** pour passer en revue les propriétés de l’évaluation.
 
     :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Bouton Modifier à partir duquel les propriétés de l’évaluation peuvent être personnalisées":::
 
-1. Voici ce qu’incluent les propriétés d’évaluation d’Azure App Service :
+1. Voici ce qu’incluent les propriétés d’évaluation d’évaluation Azure App Service :
 
     | **Propriété** | **Détails** |
     | --- | --- |
     | **Emplacement cible** | Région Azure vers laquelle vous souhaitez opérer la migration. Les recommandations en matière de configuration et de coût d’Azure App Service sont basées sur l’emplacement que vous spécifiez. |
-    | **Isolation requise** | Sélectionnez Oui si vous souhaitez que vos applications web s’exécutent dans un environnement privé et dédié dans un centre de données Azure à l’aide de machines virtuelles de la série Dv2 avec des processeurs plus rapides, un stockage SSD et le double de rapport mémoire/cœur par rapport aux plans Standard. |
-    | **Instances réservées** | Spécifie des instances réservées afin que les estimations de coût dans l’évaluation les prennent en compte.<br/><br/> Si vous sélectionnez une option d’instance de réserve, vous ne pouvez pas spécifier de « Remise (%) ». |
+    | **Isolation requise** | Sélectionnez Oui si vous souhaitez que vos applications web s’exécutent dans un environnement privé et dédié dans un centre de données Azure à l’aide de machines virtuelles de la série Dv2 avec des processeurs plus rapides, un stockage SSD et le double de mémoire ratio cœur par rapport aux plans Standard. |
+    | **Instances réservées** | Spécifie des instances réservées afin que les estimations de coût dans l’évaluation les prennent en compte.<br/><br/> Si vous sélectionnez une option d’instance réservée, vous ne pouvez pas spécifier de « Remise (%) ». |
     | **Offer** | [Offre Azure](https://azure.microsoft.com/support/legal/offer-details/) dans laquelle vous êtes inscrit. L’évaluation estime le coût de cette offre. |
     | **Devise** | Devise de facturation de votre compte. |
     | **Remise (%)** | Toute remise propre à un abonnement que vous recevez en plus de l’offre Azure. Le paramètre par défaut est 0 %. |
-    | **Abonnement Contrat Entreprise** | Spécifie qu’un abonnement Contrat Entreprise (EA) est utilisé pour l’estimation des coûts. Prend en compte la remise applicable à l’abonnement. <br/><br/> Conserve les paramètres par défaut pour les instances réservées et la remise (en %). |
+    | **Abonnement Contrat Entreprise** | Spécifie qu’un abonnement Contrat Entreprise (EA) est utilisé pour l’estimation des coûts. Prend en compte la remise applicable à l’abonnement. <br/><br/> Conservez les paramètres par défaut pour les instances réservées et les propriétés de remise (en %). |
 
-    :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="Propriétés de l’évaluation d’App Service":::
+    :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="Propriétés de l’évaluation App Service":::
 
 1. Dans **Créer une évaluation** > cliquez sur Suivant.
 1. Dans **Sélectionner les serveurs à évaluer** > **Nom de l’évaluation**, spécifiez un nom pour l’évaluation.
 1. Dans **Sélectionner ou créer un groupe**, sélectionnez **Créer**, puis spécifiez un nom de groupe.
 1. Sélectionnez l’appliance, puis sélectionnez les serveurs que vous souhaitez ajouter au groupe. Puis cliquez sur Suivant.
 1. Dans **Vérifier + créer l’évaluation**, passez en revue les détails de l’évaluation, puis cliquez sur Créer une évaluation pour créer le groupe et lancer l’évaluation.
-1. Une fois l’évaluation créée, accédez à la vignette **Serveurs, bases de données et applications web** > **Azure Migrate : Découverte et évaluation** > actualisez les données de la vignette en cliquant sur l’option Actualiser en haut de la vignette. Attendez que les données soient actualisées.
+1. Une fois l’évaluation créée, accédez à la mosaïque **Serveurs, bases de données et applications web** > **Azure Migrate : découverte et évaluation** > Actualiser les données de la mosaïque en cliquant sur l’option Actualiser en haut de la mosaïque. Attendez que les données soient actualisées.
      :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Actualiser les données des outils de découverte et d’évaluation":::
 1. Cliquez sur le nombre en regard de l’évaluation d’Azure App Service.
      :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation jusqu’à l’évaluation créée":::
@@ -77,29 +77,29 @@ Exécutez une évaluation comme suit :
 
 **Pour voir une évaluation** :
 
-1. **Serveurs, bases de données et applications web** > **Azure Migrate : Découverte et évaluation** > cliquez sur le numéro en regard de l’évaluation d’Azure App Service.
+1. **Serveurs, bases de données et applications web** > **Azure Migrate : découverte et évaluation** > cliquez sur le numéro en regard de l’évaluation d’Azure App Service.
 2. Cliquez sur le nom de l’évaluation que vous souhaitez afficher.
-      :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="Présentation de l’évaluation d’App Service":::
+      :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="Vue d’ensemble de l’évaluation d’App Service":::
 3. Passez en revue le récapitulatif de l’évaluation. Vous pouvez également modifier les propriétés de l’évaluation ou recalculer celle-ci.
 
-#### <a name="azure-app-service-readiness"></a>Préparation d’Azure App Service
+#### <a name="azure-app-service-readiness"></a>Préparé pour Azure App Service
 
 Cela indique la distribution des applications web évaluées. Vous pouvez explorer au niveau du détail pour comprendre les détails concernant les avertissements/problèmes de migration que vous pouvez résoudre avant la migration vers Azure App Service. [En savoir plus](concepts-azure-webapps-assessment-calculation.md) Vous pouvez également consulter la référence App Service recommandée pour la migration vers Azure App Service.
 
 #### <a name="azure-app-service-cost-details"></a>Détails des coûts d’Azure App Service
 
-Un [plan App Service](/azure/app-service/overview-hosting-plans) comporte une [facturation](https://azure.microsoft.com/pricing/details/app-service/windows/) des ressources de calcul qu’il utilise.
+Un [plan App Service](../app-service/overview-hosting-plans.md) comporte les [frais](https://azure.microsoft.com/pricing/details/app-service/windows/) des ressources de calcul qu’il utilise.
 
 ### <a name="review-readiness"></a>Vérifier la préparation nécessaire
 
-1. Cliquez sur **Préparation d’Azure App Service**.
-    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Détails de la préparation d’Azure App Service":::
-1. Passez en revue la colonne Préparation d’Azure App Service dans le tableau, pour les applications web évaluées :
+1. Cliquez sur **Préparé pour Azure App Service**.
+    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Détails de la préparation pour Azure App Service":::
+1. Consultez la colonne de préparation pour Azure App Service dans la table, pour les applications web évaluées :
     1. Si aucun problème de compatibilité n’est détecté, la préparation est marquée comme **Prête** pour le type de déploiement cible.
-    1. S’il existe des problèmes de compatibilité non critiques, tels que des fonctionnalités dégradées ou non prises en charge qui ne bloquent pas la migration vers un type de déploiement cible spécifique, l’état de préparation est marqué comme **Disponible sous conditions** (avec lien hypertexte) avec des détails d’**avertissement** et des recommandations de correction.
+    1. S’il existe des problèmes de compatibilité non critiques, tels que des fonctionnalités détériorées ou non prises en charge qui ne bloquent pas la migration vers un type de déploiement cible spécifique, l’état de préparation est marqué comme **Prêt sous conditions** (avec lien hypertexte) avec des détails d’**avertissement** et des recommandations de correction.
     1. S’il existe des problèmes de compatibilité susceptibles de bloquer la migration vers un type de déploiement cible spécifique, L’état de préparation est marqué comme **Non prêt** avec des détails sur le **problème** et des recommandations de correction.
-    1. Si la détection est toujours en cours ou s’il existe des problèmes de découverte pour une instance ou une application web, l’état de préparation est marqué comme **Inconnu** , car l’évaluation n’a pas pu calculer la préparation pour cette application web.
-1. Examinez la référence SKU recommandée pour les applications web, qui est déterminée selon la matrice ci-dessous :
+    1. Si la détection est toujours en cours ou s’il existe des problèmes de découverte pour une instance ou une application web, l’état de préparation est marqué comme **Inconnu**, car l’évaluation n’a pas pu calculer la préparation pour cette application web.
+1. Examinez la référence SKU recommandée pour les applications web, déterminée selon la matrice ci-dessous :
 
 **Isolation requise** | **Instance réservée** | **Plan App Service/SKU**
 --- | --- | ---
@@ -108,14 +108,14 @@ Oui  | Non  | I1
 Non  | Oui | P1v3
 Non  | Non | P1v2
 
-**Préparation d’Azure App Service** | **Déterminer la référence SKU d’App Service** | **Déterminer les estimations de coût**
+**Préparé pour Azure App Service** | **Déterminer la référence SKU d’App Service** | **Déterminer les estimations de coût**
 --- | --- | ---
 Ready  | Oui | Oui
 Disponible sous conditions  | Oui  | Oui
 Pas prêt  | Non | Non
 Unknown  | Non | Non
 
-1. Cliquez sur le lien hypertexte Plan App Service dans le tableau pour afficher les détails du plan App Service, comme les ressources de calcul et les autres applications web qui font partie du même plan.
+1. Cliquez sur le lien hypertexte Plan App Service dans la table pour afficher les détails du plan App Service, comme les ressources de calcul et les autres applications web qui font partie du même plan.
 
 ### <a name="review-cost-estimates"></a>Réviser les estimations de coûts
 

@@ -16,12 +16,12 @@ ms.date: 04/16/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9acbe5d7b57906c894021ec4e4f83633433b3c3b
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: f5974f8d3f94d16a27c77c81837d7c430ee48b26
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122525887"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124817920"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -439,9 +439,9 @@ Suivez les instructions des liens ci-dessous :
 
 | Articles sur les procédures | Description |
 | - | - |
- [Créer des révisions d’accès](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Création de révisions d’accès pour les rôles Azure AD privilégiés dans PIM. |
-| [Réviser soi-même un accès](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Si vous êtes affecté à un rôle d’administrateur, approbation ou refus de l’accès à votre rôle. |
-| [Effectuer une révision d’accès](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Affichage d’une révision d’accès et application des résultats. |
+ [Créer des révisions d’accès](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Création de révisions d’accès pour les rôles Azure AD privilégiés dans PIM. |
+| [Réviser soi-même un accès](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Si vous êtes affecté à un rôle d’administrateur, approbation ou refus de l’accès à votre rôle. |
+| [Effectuer une révision d’accès](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Affichage d’une révision d’accès et application des résultats. |
 
 
 ### <a name="review-azure-resource-roles"></a>Réviser les rôles Ressource Azure
@@ -454,9 +454,9 @@ Suivez les instructions des liens ci-dessous :
 
 | Articles sur les procédures| Description |
 | - | -|
-| [Créer des révisions d’accès](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Création de révisions d’accès pour les rôles Ressource Azure privilégiés dans PIM. |
-| [Réviser soi-même un accès](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Si vous êtes affecté à un rôle d’administrateur, approbation ou refus de l’accès à votre rôle. |
-| [Effectuer une révision d’accès](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Affichage d’une révision d’accès et application des résultats. |
+| [Créer des révisions d’accès](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Création de révisions d’accès pour les rôles Ressource Azure privilégiés dans PIM. |
+| [Réviser soi-même un accès](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Si vous êtes affecté à un rôle d’administrateur, approbation ou refus de l’accès à votre rôle. |
+| [Effectuer une révision d’accès](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Affichage d’une révision d’accès et application des résultats. |
 
 
 ## <a name="use-the-access-reviews-api"></a>Utiliser l’API des révisions d’accès

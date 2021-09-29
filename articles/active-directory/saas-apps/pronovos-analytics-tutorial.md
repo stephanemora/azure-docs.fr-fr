@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2c3b591ae8d4bf1489dcc96ceee3f9bc572ecc26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 856dd432bac11bf12ffe4acc602a90299b663917
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92505802"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776098"
 ---
 # <a name="tutorial-tutorial-azure-active-directory-single-sign-on-sso-integration-with-pronovos-analytics"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ProNovos Analytics
 
@@ -133,7 +133,7 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans ProNovos Anal
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette ProNovos Analytics dans le volet d’accès doit vous connecter automatiquement à l’application ProNovos Analytics pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette ProNovos Analytics dans le volet d’accès doit vous connecter automatiquement à l’application ProNovos Analytics pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

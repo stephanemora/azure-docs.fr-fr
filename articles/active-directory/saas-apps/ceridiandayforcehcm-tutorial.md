@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 1f2e01a79f980e63102bb6538859f0da30c555c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f2a66feb85a9873a34470cfccc6360f9e24612f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651845"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124739803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Didacticiel : Intégration d’Azure Active Directory à Ceridian Dayforce HCM
 
@@ -107,7 +107,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | Nom | Attribut source|
+    | Name | Attribut source|
     | ---------| --------- |
     | name  | user.extensionattribute2 |
 
@@ -177,7 +177,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Ceridian Dayforce HCM pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Ceridian Dayforce HCM dans Mes applications vous redirige vers l’URL de connexion à Ceridian Dayforce HCM. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Ceridian Dayforce HCM dans Mes applications vous redirige vers l’URL de connexion à Ceridian Dayforce HCM. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

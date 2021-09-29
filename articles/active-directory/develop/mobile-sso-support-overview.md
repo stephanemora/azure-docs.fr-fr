@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
 ms.custom: has-adal-ref
-ms.openlocfilehash: 49757ba5faaff1043bd9b113cad3cfa342bb51ce
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 43f66b7f44e7d30816da5ac59a9692807f257a2b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527812"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787260"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Prise en charge des stratégies de protection des applications et de l’authentification unique dans les applications mobiles que vous développez
 
@@ -67,7 +67,7 @@ Apple vous aide à faire cela dans les applications iOS : [Authentification d�
 
 Pour activer les stratégies de protection des applications, utilisez la [MSAL (Microsoft Authentication Library)](msal-overview.md). MSAL est la bibliothèque d’authentification et d’autorisation de la plateforme d’identité de Microsoft, et le SDK Intune est développé pour fonctionner en tandem avec celui-ci.
 
-En outre, vous devez utiliser une application Broker pour l’authentification. Le répartiteur requiert que l’application fournisse des informations sur l’application et l’appareil pour garantir la conformité de l’application. les utilisateurs d’iOS utilisent l’application [Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md) et les utilisateurs Android utilisent l’application Microsoft Authenticator ou l’application [portail d’entreprise](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) pour [l’authentification répartie](./msal-android-single-sign-on.md). Par défaut, MSAL utilise un service Broker comme premier choix pour la réalisation d’une demande d’authentification. par conséquent, l’utilisation du répartiteur pour l’authentification est activée automatiquement pour votre application lors de l’utilisation de MSAL.
+En outre, vous devez utiliser une application Broker pour l’authentification. Le répartiteur requiert que l’application fournisse des informations sur l’application et l’appareil pour garantir la conformité de l’application. les utilisateurs d’iOS utilisent l’application [Microsoft Authenticator](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c) et les utilisateurs Android utilisent l’application Microsoft Authenticator ou l’application [portail d’entreprise](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) pour [l’authentification répartie](./msal-android-single-sign-on.md). Par défaut, MSAL utilise un service Broker comme premier choix pour la réalisation d’une demande d’authentification. par conséquent, l’utilisation du répartiteur pour l’authentification est activée automatiquement pour votre application lors de l’utilisation de MSAL.
 
 Enfin, [ajouter le kit de développement logiciel (SDK) Intune](/mem/intune/developer/app-sdk-get-started) à votre application pour activer les stratégies de protection des applications. Le kit de développement logiciel (SDK) est le plus souvent suivi d’un modèle d’interception et applique automatiquement des politiques de protection d’application pour déterminer si les actions prises par l’application sont autorisées ou non. Il existe également des API que vous pouvez appeler manuellement pour indiquer à l’application s’il existe des restrictions sur certaines actions.
 

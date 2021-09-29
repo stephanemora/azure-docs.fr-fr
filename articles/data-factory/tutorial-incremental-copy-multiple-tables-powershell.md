@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 07/05/2021
-ms.openlocfilehash: 16feecb1560c114520b10ed2adaef578534052f4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 46c6dfa381ec2dff04212c38a7580859bcba4762
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638395"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733020"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Charger de façon incrémentielle les données de plusieurs tables de SQL Server sur Azure SQL Database avec PowerShell
 
@@ -60,7 +60,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 
     Voici le diagramme général de la solution : 
 
-    ![Chargement incrémentiel de données](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png" alt-text="Chargement incrémentiel de données":::
 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -820,11 +820,11 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’**activité 
 
 5. Dans la page d’accueil d’Azure Data Factory, sélectionnez **Superviser** sur le côté gauche. 
 
-    ![Capture d’écran montrant la page d’accueil pour Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
+    :::image type="content" source="media/doc-common-process/get-started-page-monitor-button.png" alt-text="Capture d’écran montrant la page d’accueil pour Azure Data Factory.":::    
 
 6. Vous pouvez voir toutes les exécutions de pipeline et leurs états. Notez que dans l’exemple suivant, l’état d’exécution de pipeline est **Réussite**. Pour vérifier les paramètres transmis au pipeline, sélectionnez le lien dans la colonne **Paramètres**. Si une erreur s’est produite, un lien figure dans la colonne **Erreur**.
 
-    ![Capture d’écran montrant les exécutions de pipeline pour une fabrique de données incluant votre pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png" alt-text="Capture d’écran montrant les exécutions de pipeline pour une fabrique de données incluant votre pipeline.":::    
 7. Si vous sélectionnez le lien dans la colonne **Actions**, vous voyez toutes les exécutions d’activité du pipeline. 
 
 8. Pour revenir à la vue **Exécutions de pipeline**, sélectionnez **Toutes les exécutions de pipeline**. 

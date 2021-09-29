@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 660c80a471739f7dc0163e915f45e3a067e1e4b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec01461246496a7471a061f81d629f5e060a5eb0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871960"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824468"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Détecter un problème de travail lent ou défaillant sur un cluster HDInsight
 
@@ -88,7 +88,7 @@ HDInsight s’appuie sur plusieurs services Azure. Il exécute des serveurs virt
 #### <a name="check-azure-service-usage-limits"></a>Rechercher les limites d’utilisation des services Azure
 
 Si vous démarrez un cluster volumineux ou si vous avez lancé simultanément un grand nombre de clusters, un cluster peut échouer si vous avez dépassé une limite de service Azure. Les limites de service varient selon votre abonnement Azure. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
-Vous pouvez demander à Microsoft d’augmenter le nombre de ressources HDInsight disponibles (par exemple, les cœurs de machines virtuelles et les instances de machines virtuelles) en soumettant une [demande d’augmentation des quotas de processeurs virtuels pour Resource Manager](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+Vous pouvez demander à Microsoft d’augmenter le nombre de ressources HDInsight disponibles (par exemple, les cœurs de machines virtuelles et les instances de machines virtuelles) en soumettant une [demande d’augmentation des quotas de processeurs virtuels pour Resource Manager](../azure-portal/supportability/regional-quota-requests.md).
 
 #### <a name="check-the-release-version"></a>Vérifier la version
 

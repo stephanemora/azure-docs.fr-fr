@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 177c02da26ffcedd0453538bc32158cf2f014896
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1f3db34f477e228157cfa8378f171adf7a239811
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369283"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828841"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planifier votre application QnA Maker
 
@@ -88,7 +88,7 @@ Une base de connaissances est directement liée à sa ressource QnA Maker. Elle 
 
 C’est la première base de connaissances créée dans votre ressource QnA Maker qui détermine la langue de la ressource. Vous ne pouvez définir qu’une seule langue pour une ressource QnA Maker.
 
-Vous pouvez structurer vos ressources QnA Maker en fonction de la langue ou utiliser [Traducteur](../../translator/translator-info-overview.md) pour traduire une requête dans la langue de la base de connaissances avant de l’envoyer au point de terminaison de prédiction des requêtes.
+Vous pouvez structurer vos ressources QnA Maker en fonction de la langue ou utiliser [Traducteur](../../translator/translator-overview.md) pour traduire une requête dans la langue de la base de connaissances avant de l’envoyer au point de terminaison de prédiction des requêtes.
 
 # <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
 

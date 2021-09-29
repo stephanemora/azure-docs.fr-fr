@@ -1,7 +1,7 @@
 ---
 title: Nouveautés des identités externes d’Azure Active Directory
 description: Identités externes Azure Active Directory - Nouvelle documentation et documentation mise à jour.
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,29 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 81a25af5dfa73cbeefdf5fc677da80515f20a2f1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b6346a9e8ff776143b6e000f945fcd9400e03a0d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532563"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776478"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Identités externes d’Azure Active Directory : Nouveautés
 
 Bienvenue dans les nouveautés de la documentation sur les identités externes Azure Active Directory. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés liées au service d’identités externes, consultez [Nouveautés d'Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="august-2021"></a>Août 2021
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Fournisseurs d’identité pour les identités externes](identity-providers.md)
+- [Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres](delegate-invitations.md)
+- [Propriétés d’un utilisateur Azure Active Directory B2B Collaboration](user-properties.md)
+- [Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B](google-federation.md)
+- [Fournisseur d’identité Azure Active Directory (Azure AD) pour External Identities](azure-ad-account.md)
+- [Fournisseur d’identité de compte Microsoft (MSA) pour External Identities](microsoft-account.md)
+- [Ajouter un connecteur d’API à un workflow d’utilisateur](self-service-sign-up-add-api-connector.md)
+
 
 ## <a name="july-2021"></a>Juillet 2021
 

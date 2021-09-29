@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
-ms.openlocfilehash: d635d0c87cb6f759c15461abe9efc9dd42297ddb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: fbeadc3a8c947f673ca134e0daf8a0a1c1d68b80
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964907"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787506"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-active-directory-application-proxy"></a>Définition d’une page d’accueil personnalisée pour les applications publiées avec le Proxy d’application Azure Active Directory
 
@@ -32,7 +32,7 @@ Voici un scénario expliquant pourquoi votre entreprise pourrait vouloir défini
 - Vous préférez définir `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` comme URL de la page d’accueil de sorte qu’un utilisateur externe voie d’abord la page de connexion.
 
 > [!NOTE]
-> Si vous octroyez aux utilisateurs un accès aux applications publiées, celles-ci sont affichées dans [Mes applications](../user-help/my-apps-portal-end-user-access.md) et le [lanceur d’applications Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> Si vous octroyez aux utilisateurs un accès aux applications publiées, celles-ci sont affichées dans [Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) et le [lanceur d’applications Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## <a name="before-you-start"></a>Avant de commencer
 

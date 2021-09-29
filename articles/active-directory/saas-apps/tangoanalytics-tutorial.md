@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 67a7641c00dbd03e111f2fa8b62b7a6b709efb43
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 8a654d33b73e0346b468c7401f1c4b0fd5988637
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753050"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124772407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>Didacticiel : intégration d’Azure Active Directory à Tango Analytics
 
@@ -128,7 +128,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure. Vous devez être connecté automatiquement à l’instance de Tango Analytics pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Tango Analytics dans Mes applications doit vous connecter automatiquement à l’application Tango Analytics pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Tango Analytics dans Mes applications doit vous connecter automatiquement à l’application Tango Analytics pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

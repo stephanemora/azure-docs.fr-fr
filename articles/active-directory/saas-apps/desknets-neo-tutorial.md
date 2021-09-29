@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2021
 ms.author: jeedes
-ms.openlocfilehash: ed8a5a8046d33cc3ac0935d1635beb3af1335709
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6b95ad86ddb16e357139cfccd67b87f159f2637c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138568"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124826552"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-desknets-neo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à desknet’s NEO
 
@@ -170,7 +170,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à desknet’s NEO, puis lancez le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette desknet’s NEO dans Mes applications, vous êtes redirigé vers l’URL de connexion à desknet’s NEO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette desknet’s NEO dans Mes applications, vous êtes redirigé vers l’URL de connexion à desknet’s NEO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

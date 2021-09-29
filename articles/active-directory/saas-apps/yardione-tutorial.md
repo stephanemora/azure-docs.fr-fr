@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 5ebe380642ac524bcae5be8c6e14f9b09f3b66f4
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 86bd4fa087006c69b163eca99bf59346e74330eb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895565"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Didacticiel : Intégration d’Azure Active Directory à YardiOne
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à YardiOne et lancez le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette YardiOne dans Mes applications, vous êtes redirigé vers l’URL de connexion à YardiOne. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette YardiOne dans Mes applications, vous êtes redirigé vers l’URL de connexion à YardiOne. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,18 +1,18 @@
 ---
 title: Tutoriel - Importer et publier votre première API dans Gestion des API Azure
 description: Dans ce tutoriel, vous importez une API de la spécification OpenAPI dans Gestion des API Azure, puis vous testez votre API dans le portail Azure.
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.author: apimpm
-ms.openlocfilehash: 0187a1c15315835c1606913acfd52dc930e92443
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: danlep
+ms.openlocfilehash: 8ac58d354c5a92482f2cd47c59316fca9ba32025
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538648"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627099"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>Tutoriel : Importer et publier votre première API
 

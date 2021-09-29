@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: c1fa9d27bbdfe91eebb74186e69cf707166384fd
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 197b04a659ff2635742907339ba9b48e00668cff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122525886"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732731"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -89,7 +89,7 @@ Au minimum, il est recommandé de déployer la [réinitialisation de mot de pass
 
 ### <a name="strong-credential-management"></a>Gestion renforcée des informations d’identification
 
-Les mots de passe en eux-mêmes ne sont pas suffisamment sécurisés pour empêcher les acteurs malveillants d’obtenir l’accès à votre environnement. Au minimum, tout utilisateur disposant d’un compte privilégié doit être activé pour l’authentification multifacteur (MFA). Dans l’idéal, vous devez activer l’[inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md) et exiger que tous les utilisateurs s’inscrivent à MFA et à SSPR en utilisant l’[expérience d’inscription combinée](../user-help/security-info-setup-signin.md). Enfin, nous vous recommandons d’adopter une stratégie pour [fournir la résilience](../authentication/concept-resilient-controls.md) de façon à réduire le risque de verrouillage en raison de circonstances imprévues.
+Les mots de passe en eux-mêmes ne sont pas suffisamment sécurisés pour empêcher les acteurs malveillants d’obtenir l’accès à votre environnement. Au minimum, tout utilisateur disposant d’un compte privilégié doit être activé pour l’authentification multifacteur (MFA). Dans l’idéal, vous devez activer l’[inscription combinée](../authentication/concept-registration-mfa-sspr-combined.md) et exiger que tous les utilisateurs s’inscrivent à MFA et à SSPR en utilisant l’[expérience d’inscription combinée](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8). Enfin, nous vous recommandons d’adopter une stratégie pour [fournir la résilience](../authentication/concept-resilient-controls.md) de façon à réduire le risque de verrouillage en raison de circonstances imprévues.
 
 ![Flux de l’expérience utilisateur combinée](./media/active-directory-ops-guide/active-directory-ops-img4.png)
 

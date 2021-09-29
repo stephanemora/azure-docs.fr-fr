@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 48c6232678adceed0bc239ff788f8a191d9d88c2
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 42040653f432577457cea6e5325fe686878e9da3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304701"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820153"
 ---
 # <a name="copy-and-transform-data-to-and-from-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données vers et depuis SQL Server à l'aide d'Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -62,7 +62,7 @@ Utilisez les étapes suivantes pour créer un service lié SQL Server dans l’i
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -440,7 +440,7 @@ Pour en savoir plus, consultez [Appel d'une procédure stockée à partir d'un r
 
 Le connecteur SQL Server dans l’activité de copie propose un partitionnement de données intégré pour copier des données en parallèle. Vous trouverez des options de partitionnement de données dans l’onglet **Source** de l’activité de copie.
 
-![Capture d’écran représentant les options de partition](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Capture d’écran représentant les options de partition":::
 
 Lorsque vous activez la copie partitionnée, l’activité de copie exécute des requêtes en parallèle sur votre source SQL Server pour charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur la valeur quatre, le service génère et exécute simultanément quatre requêtes selon l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant une partie des données de votre serveur SQL.
 
@@ -501,7 +501,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 Si la table a une partition physique, vous voyez « HasPartition » avec la valeur « yes » (oui) comme suit.
 
-![Résultat d’une requête SQL](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="Résultat d’une requête SQL":::
 
 ## <a name="best-practice-for-loading-data-into-sql-server"></a>Bonnes pratiques de chargement de données dans SQL Server
 
@@ -526,7 +526,7 @@ Actuellement, l’activité de copie ne prend pas en charge en mode natif le cha
 
 Par exemple, vous pouvez créer un pipeline avec une **activité Copy** chaînée avec une **activité de procédure stockée**. La première activité copie des données de votre banque source vers une table de mise en lots SQL Server, par exemple **UpsertStagingTable**, comme nom de table dans le jeu de données. La seconde activité appelle ensuite une procédure stockée pour fusionner les données sources de la table de mise en lots vers la table cible et nettoyer la table de mise en lots.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 Dans votre base de données, définissez une procédure stockée avec la logique MERGE, comme dans l’exemple suivant, qui est pointée à partir de l’activité de procédure stockée précédente. Supposons que la cible est la table **Marketing** comportant trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération d’upsert sur la colonne **ProfileID**.
 
@@ -739,13 +739,13 @@ Quand vous copiez des données depuis/vers SQL Server avec [Always Encrypted](/
 
 1. Configurez votre instance SQL Server pour qu’elle accepte les connexions à distance. Démarrez **SQL Server Management Studio**, cliquez avec le bouton droit sur **Serveur**, puis sélectionnez **Propriétés**. Sélectionnez **Connexions** dans la liste, puis cochez la case **Autoriser les accès distants à ce serveur**.
 
-    ![Activation des connexions à distance](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
+    :::image type="content" source="media/copy-data-to-from-sql-server/AllowRemoteConnections.png" alt-text="Activer des connexions à distance":::
 
     Pour obtenir des instructions détaillées, consultez [Configurer l’option de configuration du serveur d’accès à distance](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option).
 
 2. Démarrez le **Gestionnaire de configuration SQL Server**. Développez **Configuration du réseau SQL Server** pour l’instance souhaitée, puis sélectionnez **Protocoles pour MSSQLSERVER**. Des protocoles s’affichent dans le volet droit. Activez TCP/IP en cliquant avec le bouton droit sur **TCP/IP**, puis en sélectionnant **Activer**.
 
-    ![Activer TCP/IP](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
+    :::image type="content" source="./media/copy-data-to-from-sql-server/EnableTCPProptocol.png" alt-text="Activer TCP/IP":::
 
     Pour obtenir des informations supplémentaires et découvrir d’autres façons d’activer le protocole TCP/IP, consultez [Activer ou désactiver un protocole réseau de serveur](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/02/2021
 ms.author: jeedes
-ms.openlocfilehash: d04d2aa68eecc4b18f0ec1e3bfd1f6cb4d279bc0
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 68973b12800157152ea8edfcc70b30685caf24fd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178860"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794953"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à New Relic by Account
 
@@ -172,7 +172,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion New Relic by Account pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette New Relic by Account dans Mes applications vous redirige vers l’URL de connexion New Relic by Account. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette New Relic by Account dans Mes applications vous redirige vers l’URL de connexion New Relic by Account. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

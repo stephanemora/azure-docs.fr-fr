@@ -5,15 +5,15 @@ author: craigktreasure
 manager: virivera
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 08/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: b047c293a14dcfde5c8de2f56fb5c2abeab61c69
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 987c8933040b71c8053728f64da2964e02ac6fa3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254332"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607308"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity-with-mrtk"></a>Démarrage rapide : Créer une application HoloLens avec Azure Object Anchors, dans Unity avec MRTK
 
@@ -57,11 +57,11 @@ Quand une boîte de dialogue « Importateur TMP » vous invite à importer des
 
  Après l’écran de démarrage de Unity, vous devrez voir un rectangle englobant blanc. Vous pouvez utiliser votre main pour déplacer, mettre à l’échelle ou faire pivoter le rectangle englobant. Positionnez celui-ci de façon à couvrir l’objet que vous souhaitez détecter.
 
-Ouvrez le <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">menu de la main</a> et sélectionnez **Verrouiller la zone de recherche** pour empêcher le déplacement du rectangle englobant. Sélectionnez **Démarrer la recherche** pour démarrer la détection d’objets. Une fois l’objet est détecté, un maillage s’affiche sur l’objet. Les détails d’une instance détectée s’affichent à l’écran, tels que l’horodatage mis à jour et le ratio de couverture des surfaces. Sélectionnez **Arrêter la recherche** pour arrêter le suivi. Toutes les instances détectées seront supprimées.
+Ouvrez le <a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">menu de la main</a> et sélectionnez **Verrouiller la zone de recherche** pour empêcher le déplacement du rectangle englobant. Sélectionnez **Démarrer la recherche** pour démarrer la détection d’objets. Une fois l’objet est détecté, un maillage s’affiche sur l’objet. Les détails d’une instance détectée s’affichent à l’écran, tels que l’horodatage mis à jour et le ratio de couverture des surfaces. Sélectionnez **Arrêter la recherche** pour arrêter le suivi. Toutes les instances détectées seront supprimées.
 
 #### <a name="the-app-menus"></a>Menus de l’application
 
-Vous pouvez également effectuer d’autres actions à l’aide du <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">menu de la main</a>.
+Vous pouvez également effectuer d’autres actions à l’aide du <a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">menu de la main</a>.
 
 ##### <a name="primary-menu"></a>Menu principal
 
@@ -70,7 +70,7 @@ Vous pouvez également effectuer d’autres actions à l’aide du <a href="http
 * **Paramètres du dispositif de suivi** : active/désactive le menu des paramètres du dispositif de suivi.
 * **Paramètres de la zone de recherche** : active/désactive le menu des paramètres de la zone de recherche.
 * **Démarrer le suivi** : capture les données de diagnostic et les enregistre sur l’appareil. Pour plus d’informations, consultez la section **Déboguer les problèmes de détection et capturer les diagnostics**.
-* **Charger le suivi** : charge les données de diagnostics dans le service Object Anchors.    
+* **Charger le suivi** : charge les données de diagnostics dans le service Object Anchors.
 
     :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Menu de la main principal de Unity":::
 
@@ -106,3 +106,6 @@ Vous pouvez également effectuer d’autres actions à l’aide du <a href="http
 
 > [!div class="nextstepaction"]
 > [Kit SDK de conversion](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [Résolution des problèmes de détection d’objets](../troubleshoot/object-detection.md)

@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: a5b84673a879c086fe1fc0543da1ab0037d32ac1
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 2c7c2a6d0056cb16f2ff79cb662cce2604d835b5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255979"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767619"
 ---
 # <a name="copy-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité de copie dans Azure Data Factory et Azure Synapse Analytics
 
@@ -26,7 +26,7 @@ ms.locfileid: "123255979"
 
 Dans Azure Data Factory et les pipelines Synapse, vous pouvez utiliser l’activité de copie pour copier des données entre des banques de données locales et dans le cloud. Une fois que vous avez copié les données, vous pouvez utiliser d’autres activités pour les transformer et les analyser ultérieurement. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
 
-![Rôle de l’activité de copie](media/copy-activity-overview/copy-activity.png)
+:::image type="content" source="media/copy-activity-overview/copy-activity.png" alt-text="Rôle de l’activité de copie":::
 
 L’activité de copie est exécutée sur un [runtime d’intégration](concepts-integration-runtime.md). Vous pouvez utiliser différents types de runtimes d’intégration pour différents scénarios de copie de données :
 
@@ -41,7 +41,7 @@ Pour copier des données d’une source vers un récepteur, le service qui exéc
 2. Effectue les opérations de sérialisation/désérialisation, de compression/décompression, de mappage de colonnes, et ainsi de suite. Il effectue ces opérations en se basant sur les configurations du jeu de données d’entrée, du jeu de données de sortie et de l’activité de copie.
 3. Écrit les données dans la banque de données réceptrice/de destination.
 
-![Vue d’ensemble de l’activité de copie](media/copy-activity-overview/copy-activity-overview.png)
+:::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="Vue d’ensemble des activités de copie":::
 
 ## <a name="supported-data-stores-and-formats"></a>Banques de données et formats pris en charge
 
@@ -161,7 +161,7 @@ Vous pouvez tirer parti de la reprise de l’activité de copie des deux manièr
 - **Nouvelle tentative de niveau d’activité :** Vous pouvez définir le nombre de nouvelles tentatives sur l’activité de copie. Pendant l’exécution du pipeline, en cas d’échec de l’exécution de l’activité de copie, la nouvelle tentative automatique suivante démarre à partir du point d’échec de la dernière évaluation.
 - **Réexécuter à partir d’une activité ayant échoué :** Une fois l’exécution du pipeline terminée, vous pouvez également déclencher une réexécution à partir de l’activité ayant échoué dans la vue d’analyse de l’interface utilisateur ADF ou par programmation. Si l’activité qui a échoué est une activité de copie, le pipeline n’est pas exécuté à nouveau à partir de cette activité, mais reprend également à partir du point d’échec de l’exécution précédente.
 
-    ![Reprendre la copie](media/copy-activity-overview/resume-copy.png)
+    :::image type="content" source="media/copy-activity-overview/resume-copy.png" alt-text="Reprendre la copie":::
 
 Quelques points à noter :
 
@@ -190,7 +190,7 @@ En plus de copier des données d’une banque de données source vers un récept
 
 Vous pouvez trouver la configuration suivante dans l’onglet source de l’activité de copie. Vous pouvez également mapper ces colonnes supplémentaires dans l’activité de copie [Mappage de schéma](copy-activity-schema-and-type-mapping.md#schema-mapping) comme d’habitude en utilisant les noms de colonne que vous avez définis. 
 
-![Ajouter des colonnes supplémentaires dans l’activité de copie](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
+:::image type="content" source="./media/copy-activity-overview/copy-activity-add-additional-columns.png" alt-text="Ajouter des colonnes supplémentaires dans l’activité de copie":::
 
 >[!TIP]
 >Cette fonctionnalité fonctionne avec le modèle de jeu de données le plus récent. Si vous ne voyez pas cette option dans l’interface utilisateur, essayez de créer un nouveau jeu de données.
@@ -255,7 +255,7 @@ Cette fonctionnalité est prise en charge lors de la copie de données à partir
 - [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
-![Créer des tables de récepteur](media/copy-activity-overview/create-sink-table.png)
+:::image type="content" source="media/copy-activity-overview/create-sink-table.png" alt-text="Créer des tables de récepteur":::
 
 ## <a name="fault-tolerance"></a>Tolérance de panne
 

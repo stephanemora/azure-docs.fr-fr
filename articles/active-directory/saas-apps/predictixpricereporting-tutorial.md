@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 801197a171b5be2cfe46c249398381e1b25857ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48fe4b7b30baef036aa3961f189c5354a264b813
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92515353"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutoriel : Intégration d’Azure Active Directory à Predictix Price Reporting
 
@@ -191,7 +191,7 @@ Ensuite, vous devez créer un utilisateur nommé Britta Simon dans Predictix Pri
 
 Vous devez maintenant tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous sélectionnez la vignette Predictix Price Reporting dans le volet d’accès, vous devez être connecté automatiquement à l’instance Predictix Price Reporting pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Accéder aux applications du portail Mes applications et les utiliser](../user-help/my-apps-portal-end-user-access.md).
+Lorsque vous sélectionnez la vignette Predictix Price Reporting dans le volet d’accès, vous devez être connecté automatiquement à l’instance Predictix Price Reporting pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Accéder aux applications du portail Mes applications et les utiliser](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

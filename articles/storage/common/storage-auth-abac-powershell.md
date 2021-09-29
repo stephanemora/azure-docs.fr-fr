@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: d6cb1980c93e5161f02b79b05f1128ba777027c6
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 19aee45977dfde4b401dc4736e24970e311a4cc9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112281950"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621126"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-azure-powershell-preview"></a>Tutoriel : Ajouter une condition d’attribution de rôle pour restreindre l’accès aux objets blob en utilisant Azure PowerShell (préversion)
 
@@ -29,8 +29,8 @@ Dans la plupart des cas, une attribution de rôle accorde les autorisations dont
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Ajouter une condition à une attribution de rôle
-> * Restreindre l’accès aux objets blob en fonction d’une étiquette d’index d’objets blob
+> - Ajouter une condition à une attribution de rôle
+> - Restreindre l’accès aux objets blob en fonction d’une étiquette d’index d’objets blob
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -132,7 +132,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
 1. Ajoutez l’étiquette d’index d’objets blob suivante au fichier texte. Pour plus d’informations, consultez [Utiliser des balises d’index de blob (préversion) pour gérer et rechercher des données sur Stockage Blob Azure](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Les objets blob prennent également en charge la possibilité de stocker des métadonnées clé/valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions. 
+    > Les objets blob prennent également en charge la possibilité de stocker des métadonnées clé/valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions.
 
     | Clé | Valeur |
     | --- | --- |
@@ -193,7 +193,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
     ```
 
     Voici un exemple de sortie :
-    
+
     ```azurepowershell
     RoleAssignmentId   : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microso
                          ft.Authorization/roleAssignments/<roleAssignmentId>
@@ -257,7 +257,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
     ```
 
     Voici un exemple de sortie. Notez que vous **ne pouvez pas** lire le fichier en raison de la condition que vous avez ajoutée.
-    
+
     ```azurepowershell
     Get-AzStorageBlob : This request is not authorized to perform this operation using this permission. HTTP Status Code:
     403 - HTTP Error Message: This request is not authorized to perform this operation using this permission.
@@ -272,7 +272,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
         + FullyQualifiedErrorId : StorageException,Microsoft.WindowsAzure.Commands.Storage.Blob.Cmdlet.GetAzureStorageBlob
        Command
     ```
-    
+
 1. Lisez le fichier du projet Cascade.
 
     ```azurepowershell
@@ -280,10 +280,10 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
     ```
 
     Voici un exemple de sortie. Notez que vous pouvez lire le fichier, car il a l’étiquette Project=Cascade.
-    
+
     ```azurepowershell
        AccountName: <storageAccountName>, ContainerName: <containerName>
-    
+
     Name                 BlobType  Length          ContentType                    LastModified         AccessTier SnapshotT
                                                                                                                   ime
     ----                 --------  ------          -----------                    ------------         ---------- ---------
@@ -339,7 +339,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
                          torage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
                          StringEquals 'Baker'))
     ```
-    
+
 ## <a name="step-9-clean-up-resources"></a>Étape 9 : Nettoyer les ressources
 
 1. Utilisez [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) pour supprimer l’attribution de rôle et la condition que vous avez ajoutés.

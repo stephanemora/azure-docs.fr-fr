@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/25/2021
 ms.author: jeedes
-ms.openlocfilehash: f3fbab143fd330e017e9e51c74a403d9bfb687ff
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 472bf22c723bbbf08d97ca95fd595e1559879714
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455637"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124808251"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec SignalFx
 
@@ -146,7 +146,7 @@ Lisez les informations suivantes pour savoir comment tester l’authentification
 
 * Lorsqu’un utilisateur de test se connecte pour la première fois, Azure force la modification du mot de passe. Dans ce cas, le processus de connexion SSO n’est pas finalisé et l’utilisateur de test est dirigé vers le portail Azure. Pour résoudre ce problème, l’utilisateur de test doit modifier son mot de passe, accéder à la page de connexion de SignalFx ou à Mes applications, puis réessayer.
     * Un clic sur la vignette SignalFx dans Mes applications doit vous connecter automatiquement à SignalFx. 
-        * Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+        * Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 * L’application SignalFx est accessible à partir de Mes applications ou via une page de connexion personnalisée attribuée à l’organisation. L’utilisateur de test doit tester l’intégration à partir de l’un de ces emplacements.
     * L’utilisateur test peut utiliser les informations d’identification créées précédemment dans cette procédure pour **b.simon\@contoso.com**.

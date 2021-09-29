@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 5004b433189700bc2fbaf5efe65e4556d40521cb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4abaf1302ddfb8d99b3baefabf865613794cd026
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97671986"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124747747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brandfolder"></a>Tutoriel : Intégration d’Azure Active Directory à Brandfolder
 
@@ -177,7 +177,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Brandfol
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Brandfolder dans le volet d’accès, vous devez être connecté automatiquement à l’application Brandfolder pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Brandfolder dans le volet d’accès, vous devez être connecté automatiquement à l’application Brandfolder pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

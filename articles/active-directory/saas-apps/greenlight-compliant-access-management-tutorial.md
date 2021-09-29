@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 80ab26092a5c59f4b82d873422e8c6c21e1325a2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 665884b2c19b3ecf389065fc2e480cf795ac071b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92447532"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124833547"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-greenlight-compliant-access-management"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Greenlight Compliant Access Management
 
@@ -139,7 +139,7 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Greenl
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Greenlight Compliant Access Management dans le volet d’accès doit vous connecter automatiquement à l’application Greenlight Compliant Access Management pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Greenlight Compliant Access Management dans le volet d’accès doit vous connecter automatiquement à l’application Greenlight Compliant Access Management pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

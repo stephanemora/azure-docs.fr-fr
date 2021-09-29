@@ -11,23 +11,23 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 607f7921b62540d26b1354c21f3352f5b5b943f4
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: bc2150f63e0392f94c17f90ab41f80de91336c7b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112376645"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620157"
 ---
 # <a name="secure-access-to-application-data"></a>Sécuriser l’accès aux données d’application
 
-Ce tutoriel est le troisième de la série. Vous apprenez à sécuriser l’accès au compte de stockage. 
+Ce tutoriel est le troisième de la série. Vous apprenez à sécuriser l’accès au compte de stockage.
 
 Dans ce troisième volet, vous apprenez à :
 
 > [!div class="checklist"]
-> * Utiliser des jetons SAS pour accéder à des images miniatures
-> * Activer le chiffrement côté serveur
-> * Activer le transport HTTPS uniquement
+> - Utiliser des jetons SAS pour accéder à des images miniatures
+> - Activer le chiffrement côté serveur
+> - Activer le transport HTTPS uniquement
 
 Le [stockage Blob Azure](../common/storage-introduction.md#blob-storage) fournit un service fiable pour stocker les fichiers des applications. Ce tutoriel est la suite de [la rubrique précédente][previous-tutorial] et décrit comment sécuriser l’accès à votre compte de stockage à partir d’une application web. À la fin de ce didacticiel, les images sont chiffrées et l’application web utilise des jetons SAS sécurisés pour accéder aux images miniatures.
 
@@ -55,7 +55,7 @@ Set-AzStorageAccount -ResourceGroupName "MyResourceGroup" -AccountName $blobStor
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
-    --account-name $blobStorageAccount --query [0].value --output tsv) 
+    --account-name $blobStorageAccount --query [0].value --output tsv)
 
 az storage container set-permission \
     --account-name $blobStorageAccount \
@@ -190,9 +190,9 @@ HTTP/1.1 400 The account being accessed does not support http.
 Dans le troisième volet de la série, vous avez appris à sécuriser l’accès au compte de stockage, notamment :
 
 > [!div class="checklist"]
-> * Utiliser des jetons SAS pour accéder à des images miniatures
-> * Activer le chiffrement côté serveur
-> * Activer le transport HTTPS uniquement
+> - Utiliser des jetons SAS pour accéder à des images miniatures
+> - Activer le chiffrement côté serveur
+> - Activer le transport HTTPS uniquement
 
 Passer au quatrième volet de la série pour apprendre à surveiller et résoudre les problèmes d’une application de stockage cloud.
 
