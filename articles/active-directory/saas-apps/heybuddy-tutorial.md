@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: b10e91a29eeece8201fcf20c9c6d108de4a1897d
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 415e397ff9e8ef1a2194f081cd9e854335725a93
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108801601"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761001"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-heybuddy"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec HeyBuddy
 
@@ -145,7 +145,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 - Accédez directement à l’URL de connexion à HeyBuddy pour y lancer le processus de connexion.
 
-- Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette HeyBuddy dans Mes applications vous redirige vers l’URL de connexion à HeyBuddy. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+- Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette HeyBuddy dans Mes applications vous redirige vers l’URL de connexion à HeyBuddy. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

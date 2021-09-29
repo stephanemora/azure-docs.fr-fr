@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: b05dbeeb69cee8afd3c237b3fbc2c3e59fef238f
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 4050d9452a8253bbfe468b180a8eaa701e2a3684
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112288052"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587458"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-azure-cli-preview"></a>Tutoriel : Ajouter une condition d’attribution de rôle pour restreindre l’accès aux objets blob en utilisant Azure CLI (préversion)
 
@@ -24,14 +24,13 @@ ms.locfileid: "112288052"
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-
 Dans la plupart des cas, une attribution de rôle accorde les autorisations dont vous avez besoin sur des ressources Azure. Toutefois, dans certains cas, vous souhaiterez peut-être fournir un contrôle d’accès plus précis en ajoutant une condition d’attribution de rôle.
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Ajouter une condition à une attribution de rôle
-> * Restreindre l’accès aux objets blob en fonction d’une étiquette d’index d’objets blob
+> - Ajouter une condition à une attribution de rôle
+> - Restreindre l’accès aux objets blob en fonction d’une étiquette d’index d’objets blob
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -106,7 +105,7 @@ Vous pouvez autoriser l’accès au stockage Blob à partir d’Azure CLI avec d
 1. Ajoutez l’étiquette d’index d’objets blob suivante au fichier texte. Pour plus d’informations, consultez [Utiliser des balises d’index de blob (préversion) pour gérer et rechercher des données sur Stockage Blob Azure](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Les objets blob prennent également en charge la possibilité de stocker des métadonnées clé/valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions. 
+    > Les objets blob prennent également en charge la possibilité de stocker des métadonnées clé/valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions.
 
     | Clé | Valeur |
     | --- | --- |
@@ -225,7 +224,7 @@ Vous pouvez autoriser l’accès au stockage Blob à partir d’Azure CLI avec d
     ```
 
     Voici un exemple de sortie. Notez que vous **ne pouvez pas** lire le fichier en raison de la condition que vous avez ajoutée.
-    
+
     ```azurecli
     You do not have the required permissions needed to perform this operation.
     Depending on your operation, you may need to be assigned one of the following roles:
@@ -233,10 +232,10 @@ Vous pouvez autoriser l’accès au stockage Blob à partir d’Azure CLI avec d
         "Storage Blob Data Reader"
         "Storage Queue Data Contributor"
         "Storage Queue Data Reader"
-    
+
     If you want to use the old authentication method and allow querying for the right account key, please use the "--auth-mode" parameter and "key" value.
     ```
-    
+
 1. Lisez les propriétés du fichier pour le projet Cascade.
 
     ```azurecli
@@ -244,7 +243,7 @@ Vous pouvez autoriser l’accès au stockage Blob à partir d’Azure CLI avec d
     ```
 
     Voici un exemple de sortie. Notez que vous pouvez lire les propriétés du fichier, car il a l’étiquette Project=Cascade.
-    
+
     ```azurecli
     {
       "container": "<containerName>",
@@ -283,7 +282,7 @@ Vous pouvez autoriser l’accès au stockage Blob à partir d’Azure CLI avec d
     ```
 
     Vous devez obtenir un résultat semblable à ce qui suit :
-    
+
     ```azurecli
     [
       {
@@ -331,7 +330,7 @@ Vous pouvez autoriser l’accès au stockage Blob à partir d’Azure CLI avec d
     ```azurecli
     az role assignment update --role-assignment "./path/roleassignment.json"
     ```
-    
+
 ## <a name="step-8-clean-up-resources"></a>Étape 8 : Nettoyer les ressources
 
 1. Utilisez [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) pour supprimer l’attribution de rôle et la condition que vous avez ajoutés.

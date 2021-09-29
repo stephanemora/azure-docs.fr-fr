@@ -5,12 +5,12 @@ author: bwren
 ms.author: bwren
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 9923bfcbd439ef5e20e44e9c397199fe06f40b43
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 029202b1b05c43c29f0011d01d63cc5d5c5f029f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102032906"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649697"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutoriel : Créer un graphique de métriques dans Azure Monitor
 Metrics Explorer est une fonctionnalité d’Azure Monitor dans le portail Azure qui vous permet de créer des graphiques à partir de valeurs de métriques, de corréler visuellement des tendances et d’examiner des pics et des creux dans des valeurs de métriques. Utilisez Metrics Explorer pour examiner l’intégrité et l’utilisation de vos ressources Azure ou pour tracer des graphiques à partir de métriques personnalisées. 
@@ -77,7 +77,7 @@ Consultez les [exemples de graphiques](../essentials/metric-chart-samples.md) au
 
 ## <a name="advanced-chart-settings"></a>Paramètres de graphique avancés
 
-Vous pouvez personnaliser le style et le titre du graphique, et modifier les paramètres de graphique avancés. Lorsque vous avez terminé la personnalisation, épinglez-le à un tableau de bord pour enregistrer votre travail. Vous pouvez également configurer des alertes de métriques. Pour en savoir plus sur ces fonctionnalités et d’autres fonctionnalités avancées d’Azure Monitor Metrics Explorer, consultez [Fonctionnalités avancées d’Azure Metrics Explorer](../essentials/metrics-charts.md#locking the-range-of-the-y-axis).
+Vous pouvez personnaliser le style et le titre du graphique, et modifier les paramètres de graphique avancés. Lorsque vous avez terminé la personnalisation, épinglez-le à un tableau de bord pour enregistrer votre travail. Vous pouvez également configurer des alertes de métriques. Pour en savoir plus sur ces fonctionnalités et d’autres fonctionnalités avancées d’Azure Monitor Metrics Explorer, consultez [Fonctionnalités avancées d’Azure Metrics Explorer](../essentials/metrics-charts.md#locking-the-range-of-the-y-axis).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

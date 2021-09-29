@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3defd1bf3e3052f45f00eeeec0078ce0f6bbde
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d4b704e1226348f834be8f4af237443994cb456e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524041"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732719"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Activer la réinitialisation de mot de passe en libre-service Azure Active Directory depuis l’écran de connexion Windows
 
@@ -186,7 +186,7 @@ Une fois SSPR configuré pour vos appareils Windows, quels sont les changements 
 
 Quand les utilisateurs tentent de se connecter, ils voient un lien **Réinitialiser le mot de passe** ou **Mot de passe oublié** qui permet d’ouvrir l’expérience de réinitialisation de mot de passe en libre-service à l’écran de connexion. Cette fonctionnalité permet aux utilisateurs de réinitialiser leur mot de passe sans avoir à utiliser un autre appareil pour accéder à un navigateur web.
 
-Pour plus d’informations sur l’utilisation de cette fonctionnalité, consultez [Réinitialiser votre mot de passe professionnel ou scolaire](../user-help/active-directory-passwords-update-your-own-password.md)
+Pour plus d’informations sur l’utilisation de cette fonctionnalité, consultez [Réinitialiser votre mot de passe professionnel ou scolaire](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

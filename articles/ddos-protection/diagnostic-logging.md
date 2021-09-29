@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: ea85ca0cf1160b4ad738ea45ce33e72d07dc5fbf
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: eded4bfc37df72b9163aeac51d66c973b24838b2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681393"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750266"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Afficher et configurer la journalisation des diagnostics DDoS
 
-La norme Azure DDoS Protection fournit une visualisation et des insights détaillés sur les attaques avec l’analyse des attaques DDoS. Les clients qui protègent leurs réseaux virtuels contre les attaques DDoS ont une visibilité détaillée du trafic des attaques et des mesures prises pour leur prévention par le biais de rapports de prévention des attaques et de journaux de flux de prévention des attaques. La télémétrie enrichie est exposée via Azure Monitor et inclut des métriques détaillées pendant la durée d’une attaque DDoS. La génération d’alertes peut être configurée pour l’une des métriques Azure Monitor exposées par DDoS Protection. La journalisation peut être également intégrée à [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics et Stockage Azure pour l’analyse avancée par le biais de l’interface de diagnostic d’Azure Monitor.
+La norme Azure DDoS Protection fournit une visualisation et des insights détaillés sur les attaques avec l’analyse des attaques DDoS. Les clients qui protègent leurs réseaux virtuels contre les attaques DDoS ont une visibilité détaillée du trafic des attaques et des mesures prises pour leur prévention par le biais de rapports de prévention des attaques et de journaux de flux de prévention des attaques. La télémétrie enrichie est exposée via Azure Monitor et inclut des métriques détaillées pendant la durée d’une attaque DDoS. La génération d’alertes peut être configurée pour l’une des métriques Azure Monitor exposées par DDoS Protection. La journalisation peut être également intégrée à [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics et Stockage Azure pour l’analyse avancée par le biais de l’interface de diagnostic d’Azure Monitor.
 
 Les journaux de diagnostic suivants sont disponibles pour Azure DDoS Protection Standard : 
 
@@ -167,7 +167,7 @@ Cette [stratégie intégrée](https://portal.azure.com/#blade/Microsoft_Azure_Po
 
 ### <a name="azure-sentinel-data-connector"></a>Connecteur de données Azure Sentinel
 
-Vous pouvez connecter vos journaux à Azure Sentinel, afficher et analyser vos données dans des classeurs, créer des alertes personnalisées et les incorporer dans des processus d’investigation. Pour vous connecter à Azure Sentinel, consultez [Se connecter à Azure Sentinel](../sentinel/connect-azure-ddos-protection.md). 
+Vous pouvez connecter vos journaux à Azure Sentinel, afficher et analyser vos données dans des classeurs, créer des alertes personnalisées et les incorporer dans des processus d’investigation. Pour vous connecter à Azure Sentinel, consultez [Se connecter à Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection). 
 
 ![Connecteur Azure Sentinel DDoS](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
 

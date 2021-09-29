@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.openlocfilehash: d0e5134da9083e97b3977b05d601c2cfba25f5d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1be53ae920fe75616ae406fea6d64886c2ddf7d3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92636678"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124745972"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whosonlocation"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à WhosOnLocation
 
@@ -161,7 +161,7 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans WhosOn
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette WhosOnLocation dans le volet d’accès, vous êtes automatiquement connecté à l’application WhosOnLocation pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette WhosOnLocation dans le volet d’accès, vous êtes automatiquement connecté à l’application WhosOnLocation pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

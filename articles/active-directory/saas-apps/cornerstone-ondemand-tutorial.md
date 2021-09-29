@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 8740f7e8b02002e4f55a833074cf34057cddc056
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: db128d799b9d0ff498bf7aec8958626582e514bf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226147"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124765625"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cornerstone
 
@@ -152,7 +152,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Cornerstone pour y lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Cornerstone Single Sign-On dans Mes applications, vous êtes redirigé vers l’URL de connexion à Cornerstone. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Cornerstone Single Sign-On dans Mes applications, vous êtes redirigé vers l’URL de connexion à Cornerstone. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="test-sso-for-cornerstone-mobile"></a>Tester l’authentification unique pour Cornerstone (mobile)
 

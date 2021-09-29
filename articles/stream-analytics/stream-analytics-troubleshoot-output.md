@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 28d66477c31db9ee274fb1e8aaa1690365a4fa72
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 393d710ba411a6573a4cce155abd7c1aeae06aa8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112912786"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754878"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Résoudre les problèmes liés aux sorties Azure Stream Analytics
 
@@ -25,7 +25,7 @@ Cet article décrit les problèmes courants liés aux connexions de sortie Azure
 
    * Si la valeur **Événements d’entrée** est supérieure à zéro, le travail peut lire les données d’entrée. Si la valeur **Événements d’entrée** n’est pas supérieure à zéro, il y a un problème avec l’entrée du travail. Pour plus d’informations, consultez [Résoudre les problèmes liés aux connexions d’entrée](stream-analytics-troubleshoot-input.md). Si votre travail a une entrée de données de référence, appliquez le fractionnement par nom logique lorsque vous examinez la métrique **Événements d’entrée**. S’il n’existe aucun événement d’entrée provenant de vos données de référence, cela signifie probablement que cette source d’entrée n’a pas été configurée correctement pour extraire le jeu de données de référence approprié.
    * Si la valeur **Erreurs de conversion de données** est supérieure à zéro et est en augmentation, consultez [Erreurs de données Azure Stream Analytics](data-errors.md) pour obtenir des informations détaillées sur les erreurs de conversion de données.
-   * Si la valeur **Erreurs d’exécution** est supérieure à zéro, votre travail reçoit des données, mais génère des erreurs pendant le traitement de la requête. Pour trouver les erreurs, accédez aux [journaux d’audit](../azure-resource-manager/management/view-activity-logs.md), puis filtrez sur l’état **Échec**.
+   * Si la valeur **Erreurs d’exécution** est supérieure à zéro, votre travail reçoit des données, mais génère des erreurs pendant le traitement de la requête. Pour trouver les erreurs, accédez aux [journaux d’audit](../azure-monitor/essentials/activity-log.md), puis filtrez sur l’état **Échec**.
    * Si la valeur **Événements d’entrée** est supérieure à zéro et que la valeur **Événements de sortie** est égale à zéro, l’une des instructions suivantes a l’état true :
       * Le traitement de la requête a abouti à un nombre nul d’événements de sortie.
       * Les événements ou les champs peuvent être formés de manière inappropriée et n’entraîner aucune sortie après le traitement des requêtes.

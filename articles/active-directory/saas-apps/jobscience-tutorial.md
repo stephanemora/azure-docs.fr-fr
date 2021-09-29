@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fdfa2385851773f30305ca9ec7f5371d39e8089
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96002185"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124765351"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutoriel : Intégration d’Azure Active Directory à Jobscience
 
@@ -226,7 +226,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     d. Cliquez sur **Créer**.
  
-### <a name="creating-a-jobscience-test-user"></a>Création d’un utilisateur de test Jobscience
+### <a name="creating-a-jobscience-test-user&quot;></a>Création d’un utilisateur de test Jobscience
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous devez les approvisionner dans Jobscience. Dans le cas de Jobscience, cet approvisionnement est une tâche manuelle.
 
@@ -240,7 +240,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous dev
 
 1. Accédez à Setup.
    
-   ![Capture d’écran montrant l’élément Setup.](./media/jobscience-tutorial/ic784358.png "Programme d’installation")
+   ![Capture d’écran montrant l’élément Setup.](./media/jobscience-tutorial/ic784358.png &quot;Programme d’installation")
 1. Accédez à **Manage Users \> Users**.
    
    ![Utilisateurs](./media/jobscience-tutorial/ic784369.png "Utilisateurs")
@@ -304,7 +304,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Si vous cliquez sur la mosaïque Jobscience dans le volet d’accès, vous devez vous connecter automatiquement à votre application Jobscience.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

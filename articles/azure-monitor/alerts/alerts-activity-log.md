@@ -4,12 +4,12 @@ description: Créer des alertes de journal d’activité à l’aide du portail 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 08/12/2021
-ms.openlocfilehash: 8f26806a08ca463350e54d5ce1319fe0323715e7
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 273f8b3a747685c250958e745ce6a37754859329
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220039"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744591"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 
@@ -269,6 +269,5 @@ Les ressources de règle d'alerte de journal d'activité peuvent être supprimé
 
 - En savoir plus sur le [schéma de webhook des journaux d’activité](./activity-log-alerts-webhook.md).
 - Lisez une [présentation des journaux d’activité](./activity-log-alerts.md).
-- En savoir plus sur les [groupes d’actions](../platform/action-groups.md).  
+- En savoir plus sur les [groupes d’actions](./action-groups.md).  
 - En savoir plus sur les [notifications sur l’intégrité du service](../../service-health/service-notifications.md).
-

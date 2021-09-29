@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 0ff799c2cb01eedd7b5c03dc7208e9e727d17688
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52ed1d50aa1567b36c81706adcd3ea474e853a1e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101647164"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124738192"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à OpenAthens
 
@@ -168,7 +168,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Un clic sur Tester cette application dans le portail Azure doit vous connecter automatiquement à l’instance d’OpenAthens pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette OpenAthens dans Mes applications doit vous connecter automatiquement à l’application OpenAthens pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette OpenAthens dans Mes applications doit vous connecter automatiquement à l’application OpenAthens pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

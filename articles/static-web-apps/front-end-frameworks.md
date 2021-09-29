@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 767b20600c8edb2752a87a10c788ee446a8f15b3
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: be5415658de782c362eca0f40a17a4578932aafa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813971"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777219"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps"></a>Configurer des infrastructures et bibliothèques frontales avec Azure Static Web Apps
 
-Azure Static Web Apps nécessite que vous disposiez des valeurs de configuration appropriées dans le [fichier de configuration de build](github-actions-workflow.md) pour votre infrastructure ou bibliothèque frontale.
+Azure Static Web Apps nécessite que vous disposiez des valeurs de configuration appropriées dans le [fichier de configuration de build](build-configuration.md) pour votre infrastructure ou bibliothèque frontale.
 
 ## <a name="configuration"></a>Configuration
 
@@ -24,9 +24,9 @@ Le tableau suivant répertorie les paramètres d’une série d’infrastructure
 
 Les éléments suivants expliquent la présence des colonnes du tableau :
 
-- **Emplacement de sortie** : Répertorie la valeur de `output_location`, qui est le [dossier des versions générées des fichiers d’application](github-actions-workflow.md#build-and-deploy).
+- **Emplacement de sortie** : Répertorie la valeur de `output_location`, qui est le [dossier des versions générées des fichiers d’application](build-configuration.md).
 
-- **Commande de compilation personnalisée** : Lorsque l’infrastructure requiert une commande différente de `npm run build` ou `npm run azure:build`, vous pouvez définir une [commande de compilation personnalisée](github-actions-workflow.md#custom-build-commands).
+- **Commande de compilation personnalisée** : Lorsque l’infrastructure requiert une commande différente de `npm run build` ou `npm run azure:build`, vous pouvez définir une [commande de compilation personnalisée](build-configuration.md#custom-build-commands).
 
 | Framework | Emplacement de l’artefact de l’application | Commande de compilation personnalisée |
 |--|--|--|
@@ -65,4 +65,4 @@ Les éléments suivants expliquent la présence des colonnes du tableau :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configuration de build et de workflow](github-actions-workflow.md)
+- [Configuration de build et de workflow](build-configuration.md)

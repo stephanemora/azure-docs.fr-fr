@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: b62e41f280d02664b3df631c3413960f1265356f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c6a46d1d0224ac802dc2c7b418e1fa19f1b26099
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863171"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742862"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Requête d’augmentation du quota pour Azure HDInsight
 
@@ -64,7 +64,7 @@ Si vous avez besoin d’une augmentation de quota, effectuez les étapes suivant
 > [!NOTE]  
 > Si vous avez besoin d’augmenter le quota de cœurs d’HDInsight dans une région privée, [envoyez une demande de liste approuvée](https://aka.ms/canaryintwhitelist).
 
-Vous pouvez [contacter le support technique pour demander une augmentation du quota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+Vous pouvez [contacter le support technique pour demander une augmentation du quota](../azure-portal/supportability/regional-quota-requests.md).
 
 Il existe des limites de quota fixes. Par exemple, un seul abonnement Azure peut avoir au maximum 10 000 cœurs. Pour plus d’informations sur ces limites, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 

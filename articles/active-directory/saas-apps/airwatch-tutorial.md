@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 4955062e6f0d0c231d09964c985df12284e3733c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b6c102cc7f7bd7c8c32a2ebc04ddce5458a2563
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653284"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748264"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutoriel : Intégrer AirWatch à Azure Active Directory
 
@@ -88,7 +88,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | Nom |  Attribut source|
+    | Name |  Attribut source|
     |---------------|----------------|
     | Identificateur d’utilisateur | user.userprincipalname |
     | | |
@@ -238,7 +238,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à AirWatch et lancez le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette AirWatch dans Mes applications, vous êtes redirigé vers l’URL de connexion à AirWatch. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette AirWatch dans Mes applications, vous êtes redirigé vers l’URL de connexion à AirWatch. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

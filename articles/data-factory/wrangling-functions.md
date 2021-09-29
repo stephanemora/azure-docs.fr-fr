@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: f75ae0030316fafcc734644d4def4ad94d04b0d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e3f310fb7544ed92dcf096dcf0d6e276a01fa7de
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524799"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732989"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Fonctions de transformation dans Power Query pour le data wrangling
 
@@ -111,7 +111,7 @@ Conserver et supprimer les premiers éléments, Conserver la plage (fonctions M 
 
 Cette option est accessible à partir de l’option Extraire du ruban
 
-![Power Query Ajouter une colonne](media/wrangling-data-flow/pq-split.png)
+:::image type="content" source="media/wrangling-data-flow/pq-split.png" alt-text="Power Query Ajouter une colonne":::
 
 ### <a name="for-tablecombinecolumns"></a>Pour ```Table.CombineColumns```
 

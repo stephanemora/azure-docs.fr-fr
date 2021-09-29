@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 04/28/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 48d1fd6797dee7f73c2af6b7455b9d58de04f237
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 2146d07ce28cf0d14bb1b1416a0aa5b8ebf1febe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429588"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612070"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
@@ -245,6 +245,8 @@ Ensuite, ajoutez le code suivant à la fin de la méthode `Main` :
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Query_twins":::
 
 Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. La sortie doit afficher tous les jumeaux numériques de cette instance.
+
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 ## <a name="complete-code-example"></a>Exemple de code complet
 

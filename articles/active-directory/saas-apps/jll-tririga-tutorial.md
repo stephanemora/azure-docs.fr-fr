@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: jeedes
-ms.openlocfilehash: b33db1b766d99aeb8d0a08f6396b5384948f118e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ece13e809f83188b5907eea2a6b66bdd02291fce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736867"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734096"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jll-tririga"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à JLL TRIRIGA
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure : vous devez être connecté automatiquement à l’instance de JLL TRIRIGA pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette JLL TRIRIGA dans le volet d’accès doit vous connecter automatiquement à l’instance de JLL TRIRIGA pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette JLL TRIRIGA dans le volet d’accès doit vous connecter automatiquement à l’instance de JLL TRIRIGA pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

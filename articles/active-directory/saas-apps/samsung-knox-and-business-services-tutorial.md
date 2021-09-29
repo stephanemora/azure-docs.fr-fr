@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 4c292838305baa44699b6309fcaaf7de7366ba94
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: a501c12c81da0e2fbacfa6db3a46d590f2501a54
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753378"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124746414"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsung-knox-and-business-services"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Samsung Knox and Business Services
 
@@ -141,7 +141,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à [SamsungKnox.com](https://samsungknox.com/) pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Samsung Knox et services métier dans Mes applications vous redirige vers le site [SamsungKnox.com](https://samsungknox.com/). Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Samsung Knox et services métier dans Mes applications vous redirige vers le site [SamsungKnox.com](https://samsungknox.com/). Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

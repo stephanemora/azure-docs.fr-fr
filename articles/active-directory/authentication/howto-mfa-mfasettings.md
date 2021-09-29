@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: d5aa2a2eba1cf6123d81813cab00d2ac7c5309b4
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 22dd9bdfc8f26a46c7cd5989851fb748955732fe
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835366"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773813"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurer les paramètres d'Azure AD Multi-Factor Authentication
 
@@ -311,7 +311,7 @@ Si vous ne souhaitez pas utiliser de stratégies d'accès conditionnel pour acti
 
 ## <a name="verification-methods"></a>Méthodes de vérification
 
-Vous pouvez choisir les méthodes de vérification mises à la disposition des utilisateurs dans le portail des paramètres de service. Lorsque vos utilisateurs inscrivent leurs comptes à Azure AD Multi-Factor Authentication, ils choisissent leur méthode de vérification préférée parmi celles que vous avez activées. Vous trouverez de l’aide sur le processus d’inscription des utilisateurs dans [Configurer mon compte pour l’authentification multifacteur](../user-help/multi-factor-authentication-end-user-first-time.md).
+Vous pouvez choisir les méthodes de vérification mises à la disposition des utilisateurs dans le portail des paramètres de service. Lorsque vos utilisateurs inscrivent leurs comptes à Azure AD Multi-Factor Authentication, ils choisissent leur méthode de vérification préférée parmi celles que vous avez activées. Vous trouverez de l’aide sur le processus d’inscription des utilisateurs dans [Configurer mon compte pour l’authentification multifacteur](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
 
 Les méthodes de vérification disponibles sont les suivantes :
 
@@ -341,7 +341,7 @@ La fonctionnalité de _mémorisation de Multi-Factor Authentication_ permet aux 
 > [!IMPORTANT]
 > Si un appareil ou un compte est compromis, la mémorisation de Multi-Factor Authentication sur des appareils approuvés peut affecter la sécurité. En cas de violation d’un compte d’entreprise ou de perte/vol d’un appareil fiable, vous devez [révoquer les sessions MFA](howto-mfa-userdevicesettings.md).
 >
-> L’action de restauration révoque le statut approuvé de tous les appareils, et oblige l’utilisateur à procéder de nouveau à l’authentification multifacteur. Vous pouvez également demander aux utilisateurs de restaurer Multi-Factor Authentication sur leurs propres appareils, comme cela est indiqué dans [Gérer vos paramètres pour l’authentification multifacteur](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> L’action de restauration révoque le statut approuvé de tous les appareils, et oblige l’utilisateur à procéder de nouveau à l’authentification multifacteur. Vous pouvez également demander aux utilisateurs de restaurer Multi-Factor Authentication sur leurs propres appareils, comme cela est indiqué dans [Gérer vos paramètres pour l’authentification multifacteur](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Principe de la fonctionnalité
 

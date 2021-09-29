@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120e97e62980427fb83c6bf7884da92dd9c5e1f7
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 01044f9d03b911bfb6939023dfb4fd5d3b0a3cd3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602317"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773794"
 ---
 # <a name="plan-an-azure-active-directory-multi-factor-authentication-deployment"></a>Planifier un déploiement de l’authentification multifacteur Azure Active Directory 
 
@@ -182,7 +182,7 @@ Comme indiqué, vérifiez que les utilisateurs sont inscrits à plusieurs métho
 - Mettre à jour leurs méthodes en tant qu’administrateur. Pour ce faire, sélectionnez l’utilisateur concerné dans le portail Azure, sélectionnez Méthodes d’authentification, puis mettez à jour ses méthodes.
 Communication avec les utilisateurs
 
-Il est essentiel d’informer les utilisateurs sur les changements à venir, les conditions d’inscription à Azure AD MFA ainsi que toute action utilisateur nécessaire. Nous fournissons des [modèles de communication](https://aka.ms/mfatemplates) et une [documentation destinée à l’utilisateur final](../user-help/security-info-setup-signin.md) pour faciliter la rédaction de vos communications. Dirigez les utilisateurs vers [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) pour qu’ils s’inscrivent en sélectionnant le lien **Informations de sécurité** sur cette page.
+Il est essentiel d’informer les utilisateurs sur les changements à venir, les conditions d’inscription à Azure AD MFA ainsi que toute action utilisateur nécessaire. Nous fournissons des [modèles de communication](https://aka.ms/mfatemplates) et une [documentation destinée à l’utilisateur final](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) pour faciliter la rédaction de vos communications. Dirigez les utilisateurs vers [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) pour qu’ils s’inscrivent en sélectionnant le lien **Informations de sécurité** sur cette page.
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planifier l’intégration avec les systèmes locaux
 

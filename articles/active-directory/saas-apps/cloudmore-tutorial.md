@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: f8b6ddd1bb0c87ded0dabfe3267a17effe67fd1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6370fcf8c3c563f23425c35ec400e25e0fdb2c31
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92455751"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759393"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudmore"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cloudmore
 
@@ -142,7 +142,7 @@ Dans cette section, vous créez un utilisateur appelé B.Simon dans Cloudmore. C
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Cloudmore dans le volet d’accès, vous devez être connecté automatiquement à l’application Cloudmore pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Cloudmore dans le volet d’accès, vous devez être connecté automatiquement à l’application Cloudmore pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

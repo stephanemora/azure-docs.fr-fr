@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2021
 ms.author: yelevin
-ms.openlocfilehash: 8c9206404294557f3f4a50d03ae550e407b92ed3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 82a2dca4c38a8d8602bf41ee36760e846edb5d78
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525341"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774744"
 ---
 # <a name="threat-intelligence-integration-in-azure-sentinel"></a>Intégration des renseignements sur les menaces dans Azure Sentinel
 
@@ -75,7 +75,7 @@ Pour vous connecter aux flux de la plateforme de renseignements sur les menaces 
 
 ### <a name="agari-phishing-defense-and-brand-protection"></a>Agari Phishing Defense and Brand Protection
 
-- Pour connecter la [protection contre l’hameçonnage et la protection de marque Agari](https://agari.com/products/phishing-defense/), utilisez le [connecteur de données Agari](connect-agari-phishing-defense.md) intégré dans Azure Sentinel.
+- Pour connecter la [protection contre l’hameçonnage et la protection de marque Agari](https://agari.com/products/phishing-defense/), utilisez le [connecteur de données Agari](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) intégré dans Azure Sentinel.
 
 ### <a name="anomali-threatstream"></a>ThreatStream d’Anomali
 
@@ -112,7 +112,7 @@ Pour vous connecter aux flux de la plateforme de renseignements sur les menaces 
 
 ### <a name="threatquotient-threat-intelligence-platform"></a>ThreatQuotient Threat Intelligence Platform
 
-- Pour obtenir des informations de support technique et des instructions pour connecter [ThreatQuotient TIP](https://www.threatq.com/) à Azure Sentinel, consultez [Connecteur Microsoft Sentinel pour l’intégration de ThreatQ](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=DetailsAndSupport) .
+- Pour obtenir des informations de support technique et des instructions pour connecter [ThreatQuotient TIP](https://www.threatq.com/) à Azure Sentinel, consultez [Connecteur Microsoft Sentinel pour l’intégration de ThreatQ](https://azuremarketplace.microsoft.com/marketplace/apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?tab=overview) .
 
 ## <a name="incident-enrichment-sources"></a>Sources d’enrichissement des incidents
 

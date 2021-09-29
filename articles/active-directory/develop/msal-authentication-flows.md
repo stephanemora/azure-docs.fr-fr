@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff8a97afa39f4db6892402c334aacb903d2cb4c2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755026"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787241"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -27,11 +27,11 @@ Microsoft Authentication Library (MSAL) prend en charge plusieurs flux d’authe
 |--|--|--|
 | [Code d’autorisation](#authorization-code) | Peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API web. Vous permet d’ajouter un accès de connexion et d’API à vos applications mobiles et de bureau. | [Applications de bureau](scenario-desktop-overview.md), [applications mobiles](scenario-mobile-overview.md), [applications web](scenario-web-app-call-api-overview.md) |
 | [Informations d’identification du client](#client-credentials) | Vous permet d’accéder aux ressources hébergées sur le web à l’aide de l’identité d’une application. Couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l’interaction immédiate d’un utilisateur. | [Applications démon](scenario-daemon-overview.md) |
-| [Code d’appareil](#device-code) | Permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante. | [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
+| [Code d’appareil](#device-code) | Permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante. | [Applications de bureau/mobiles](scenario-desktop-acquire-token-device-code-flow.md) |
 | [Octroi implicite](#implicit-grant) | Permet à l’application d’obtenir des jetons sans échange d’informations d’identification avec le serveur principal. L’application peut alors connecter l’utilisateur, maintenir la session et obtenir des jetons pour d’autres API web, le tout dans le code JavaScript client. | [Applications monopages (SPA)](scenario-spa-overview.md) |
 | [On-behalf-of](#on-behalf-of) | Une application appelle un service ou une API web, qui à son tour doit appeler un autre service ou une autre API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. | [API web](scenario-web-api-call-api-overview.md) |
-| [Nom d’utilisateur/mot de passe](#usernamepassword) | Permet à une application de connecter l’utilisateur en gérant directement son mot de passe. Ce flux n’est pas recommandé. | [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#username-and-password) |
-| [Authentification Windows intégrée](#integrated-windows-authentication) | Permet aux applications sur des ordinateurs joints à un domaine ou à Azure Active Directory (Azure AD) d’obtenir un jeton silencieusement (sans interaction de l’utilisateur avec l’interface utilisateur). | [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Nom d’utilisateur/mot de passe](#usernamepassword) | Permet à une application de connecter l’utilisateur en gérant directement son mot de passe. Ce flux n’est pas recommandé. | [Applications de bureau/mobiles](scenario-desktop-acquire-token-username-password.md) |
+| [Authentification Windows intégrée](#integrated-windows-authentication) | Permet aux applications sur des ordinateurs joints à un domaine ou à Azure Active Directory (Azure AD) d’obtenir un jeton silencieusement (sans interaction de l’utilisateur avec l’interface utilisateur). | [Applications de bureau/mobiles](scenario-desktop-acquire-token-integrated-windows-authentication.md) |
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Comment chaque flux émet des jetons et des codes
 

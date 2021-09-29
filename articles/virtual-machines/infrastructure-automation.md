@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 2ba417782fcaa5fedc5696546af60623696387e7
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a9605f6a6240fcaad29b30c03138f31e1472ba3f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694300"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734870"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utiliser les outils d’automatisation d’infrastructure avec les machines virtuelles dans Azure
 
@@ -118,7 +118,7 @@ Azure Automation fournit également un service de Configuration d’état souhai
 
 Découvrez comment :
 
-- [Créer un runbook PowerShell](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
+- [Créer un runbook PowerShell](../automation/learn/powershell-runbook-managed-identity.md).
 - [Utiliser un Runbook Worker hybride pour gérer les ressources locales](../automation/automation-hybrid-runbook-worker.md).
 - [Utiliser Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 

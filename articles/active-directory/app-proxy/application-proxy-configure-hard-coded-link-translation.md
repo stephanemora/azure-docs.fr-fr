@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 32fcbcd7c932eee36f5974b369d41e551c861ebf
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 08b730b0196aa5b78ebafc0208accd51e544e8d7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186492"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787487"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-active-directory-application-proxy"></a>Redirection des liens codés en dur pour des applications publiées avec le Proxy d’application Azure Active Directory
 
@@ -57,7 +57,7 @@ Avec l’extension de navigateur MyApps, toutes les URL internes publiées avec 
 
 Pour utiliser cette fonctionnalité, l’utilisateur doit télécharger l’extension et être connecté. Aucune autre configuration n’est nécessaire pour les administrateurs ou les utilisateurs. 
 
-Pour plus d’informations, notamment sur la configuration de cette option, consultez la documentation de [l’extension de navigateur MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
+Pour plus d’informations, notamment sur la configuration de cette option, consultez la documentation de [l’extension de navigateur MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension).
 
 > [!NOTE]
 > L’extension de navigateur MyApps ne prend pas en charge la traduction de liens pour les URL génériques.

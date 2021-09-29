@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 428f2958aba4baedb0ae5371eb29528f7bdca7b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfdac97681c16d46e568dbea423ba83ab2c68063
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92456737"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124747690"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-braze"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Braze
 
@@ -148,7 +148,7 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Braze.
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Braze dans le panneau d’accès doit vous connecter automatiquement à l’application Braze pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Braze dans le panneau d’accès doit vous connecter automatiquement à l’application Braze pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 6b74f4616f988d27bca7c7087d33bdb5f5a2a324
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2f7929875ac9cb489f79a7755066c85848e9ebe1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130662"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753371"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-equinix-federation-app"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Equinix Federation App
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 Accédez directement à l’URL de connexion Equinix Federation App pour lancer le processus de connexion.
 
  > [!NOTE]
- > Il est impossible de tester votre application Azure en utilisant le lien **Tester cette application** ou en cliquant sur la vignette d’Equinix Federation App, car il s’agit d’une authentification unique lancée par le fournisseur d’identité, qu’Equinix ne prend pas en charge par défaut.  Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+ > Il est impossible de tester votre application Azure en utilisant le lien **Tester cette application** ou en cliquant sur la vignette d’Equinix Federation App, car il s’agit d’une authentification unique lancée par le fournisseur d’identité, qu’Equinix ne prend pas en charge par défaut.  Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

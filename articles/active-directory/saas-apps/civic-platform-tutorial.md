@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 26109d4b8875dd0b442521513dbd219dc0de06e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83203a6fc7a0843ef91922ddd61c7b84195d2c74
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92455967"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754016"
 ---
 # <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Tutoriel : Intégrer Civic Platform à Azure Active Directory
 
@@ -182,7 +182,7 @@ Dans cette section, vous créez un utilisateur appelé B.Simon dans Civic Platfo
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Civic Platform dans le volet d’accès, vous devez être automatiquement connecté à l’application Civic Platform pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Civic Platform dans le volet d’accès, vous devez être automatiquement connecté à l’application Civic Platform pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

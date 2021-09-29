@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 5d3d74c0e29de6ee75f80ab26c982c92501dafa2
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: cb3efdc1bc03535abcf1f50ed4cd7a5c847ed957
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181681"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751701"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Tableau Online
 
@@ -194,7 +194,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Tableau Online pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Tableau Online dans Mes applications vous redirige vers l’URL de connexion Tableau Online. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Tableau Online dans Mes applications vous redirige vers l’URL de connexion Tableau Online. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

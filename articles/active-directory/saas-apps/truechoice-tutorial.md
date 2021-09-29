@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 98e6290041573adb4dba0dced5268caacae47017
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 42bee8e95d21c0cf11112b1fa745b6acef79875c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162799"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124765041"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-truechoice"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TrueChoice
 
@@ -136,7 +136,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à TrueChoice pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette TrueChoice dans Mes applications vous redirige vers l’URL de connexion à TrueChoice. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette TrueChoice dans Mes applications vous redirige vers l’URL de connexion à TrueChoice. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

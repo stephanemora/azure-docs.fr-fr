@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/09/2021
 ms.author: thwimmer
-ms.openlocfilehash: 2f5ee2257652bdfa07081a558a8723c334c11ed9
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: aa4242b65157776ef48f4095d64366344c0cbce6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326910"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734212"
 ---
 # <a name="tutorial-configure-freshservice-provisioning-for-automatic-user-provisioning"></a>Tutoriel : Configurer Freshservice Provisioning pour le provisionnement automatique des utilisateurs
 
-Ce tutoriel décrit les étapes à effectuer dans Freshservice Provisioning et dans Azure Active Directory (Azure AD) pour configurer le provisionnement automatique des utilisateurs. Une fois qu’il est configuré, Azure AD provisionne et déprovisionne automatiquement les utilisateurs dans [Freshservice Provisioning](https://effy.co.in/) à l’aide du service Provisionnement Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md). 
+Ce tutoriel décrit les étapes à effectuer dans Freshservice Provisioning et dans Azure Active Directory (Azure AD) pour configurer le provisionnement automatique des utilisateurs. Une fois qu’il est configuré, Azure AD provisionne et déprovisionne automatiquement les utilisateurs dans [Freshservice Provisioning](https://effy.co.in/) à l’aide du service Provisionnement Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
@@ -37,14 +37,14 @@ Ce tutoriel décrit les étapes à effectuer dans Freshservice Provisioning et d
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
-* [Un locataire Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
+* [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
 * Un [compte Freshservice](https://www.freshservice.com) avec les autorisations Administration d’organisation.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
-1. En savoir plus sur le [fonctionnement du service d’approvisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Déterminez qui sera dans l’[étendue pour l’approvisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Déterminez les données à [mapper entre Azure AD et Freshservice Provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. En savoir plus sur le [fonctionnement du service d’approvisionnement](../manage-apps/user-provisioning.md).
+2. Déterminez qui sera dans l’[étendue pour l’approvisionnement](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Déterminez les données à [mapper entre Azure AD et Freshservice Provisioning](../manage-apps/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-freshservice-provisioning-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer Freshservice Provisioning pour prendre en charge le provisionnement avec Azure AD
 
@@ -57,15 +57,15 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="step-3-add-freshservice-provisioning-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Freshservice Provisioning à partir de la galerie d’applications Azure AD
 
-Ajoutez Freshservice Provisioning à partir de la galerie d’applications Azure AD pour commencer à gérer le provisionnement dans Freshservice Provisioning. En savoir plus sur l’ajout d’une application à partir de la galerie [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Ajoutez Freshservice Provisioning à partir de la galerie d’applications Azure AD pour commencer à gérer le provisionnement dans Freshservice Provisioning. En savoir plus sur l’ajout d’une application à partir de la galerie [ici](../manage-apps/add-gallery-app.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Étape 4. Définir qui sera dans l’étendue pour l’approvisionnement 
 
-Le service de provisionnement Azure AD vous permet de définir l’étendue des utilisateurs provisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur. Si vous choisissez de définir l’étendue du provisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs à l’application. Si vous choisissez de définir l’étendue du provisionnement en fonction uniquement des attributs de l’utilisateur, vous pouvez utiliser un filtre d’étendue comme décrit [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Le service de provisionnement Azure AD vous permet de définir l’étendue des utilisateurs provisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur. Si vous choisissez de définir l’étendue du provisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs à l’application. Si vous choisissez de définir l’étendue du provisionnement en fonction uniquement des attributs de l’utilisateur, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quand vous attribuez des utilisateurs à Freshservice Provisioning, vous devez sélectionner un rôle différent du rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) pour ajouter des rôles supplémentaires. 
+* Quand vous attribuez des utilisateurs à Freshservice Provisioning, vous devez sélectionner un rôle différent du rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
-* Commencez progressivement. Testez avec un petit ensemble d’utilisateurs avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Commencez progressivement. Testez avec un petit ensemble d’utilisateurs avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-freshservice-provisioning"></a>Étape 5. Configurer le provisionnement automatique des utilisateurs dans Freshservice Provisioning 
@@ -102,7 +102,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Freshservice Provisioning**.
 
-9. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Freshservice Provisioning. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés afin de faire correspondre les comptes d’utilisateur dans Freshservice Provisioning pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), vous devez vérifier que l’API Freshservice Provisioning prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Freshservice Provisioning. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés afin de faire correspondre les comptes d’utilisateur dans Freshservice Provisioning pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../manage-apps/customize-application-attributes.md), vous devez vérifier que l’API Freshservice Provisioning prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|Pris en charge pour le filtrage|
    |---|---|---|
@@ -132,7 +132,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 > * Vous devez sélectionner le type de données approprié pour l’attribut personnalisé, puis cliquez sur **Enregistrer**.
 > * Revenez à l’écran des mappages par défaut et cliquez sur **Ajouter un nouveau mappage**. Les attributs personnalisés s’affichent dans la liste déroulante **Attribut cible**.
 
-10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Si vous souhaitez activer le service de provisionnement Azure AD pour Freshservice Provisioning, définissez **État du provisionnement** sur **Activé** dans la section **Paramètres**.
 
@@ -151,15 +151,15 @@ Cette opération démarre le cycle de synchronisation initiale de tous les utili
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :
 
-1. Utilisez les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
-2. Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
-3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
+2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
+3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../manage-apps/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)

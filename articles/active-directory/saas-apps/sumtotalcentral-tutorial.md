@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 929c447d1a19b85ab8e12b45198508e5f5747c12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ff2ea6b4c230a2156a7a63287e8d940d1cb6f98
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521847"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124752087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Didacticiel : Intégration d’Azure Active Directory à SumTotalCentral
 
@@ -153,7 +153,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans S
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette SumTotalCentral dans le volet d’accès, vous devez être connecté automatiquement à l’application SumTotalCentral pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette SumTotalCentral dans le volet d’accès, vous devez être connecté automatiquement à l’application SumTotalCentral pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

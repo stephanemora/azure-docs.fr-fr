@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: a3d63a65edaca68bbb60bf7b8901e341da218377
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 82cca0492aba30b8bf04a8d3fe4c9c4c7d5be5a1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733535"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775160"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>Démarrage rapide : Bibliothèque de client de clés Azure Key Vault pour JavaScript (version 4)
 
@@ -152,9 +152,9 @@ const { KeyClient } = require("@azure/keyvault-keys");
 
 ### <a name="authenticate-and-create-a-client"></a>Authentifier et créer un client
 
-Dans ce guide de démarrage rapide, l’utilisateur connecté est utilisé pour l’authentification auprès du coffre de clés, qui est la méthode recommandée pour le développement local. Pour les applications déployées sur Azure, l’identité managée doit être affectée à App Service ou à une machine virtuelle. Pour plus d’informations, consultez [Vue d’ensemble des identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Dans ce guide de démarrage rapide, l’utilisateur connecté est utilisé pour l’authentification auprès du coffre de clés, qui est la méthode recommandée pour le développement local. Pour les applications déployées sur Azure, l’identité managée doit être affectée à App Service ou à une machine virtuelle. Pour plus d’informations, consultez [Vue d’ensemble des identités managées](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Dans l’exemple ci-dessous, le nom de votre coffre de clés est étendu à l’URI du coffre de clés, au format « https://\<your-key-vault-name\>.vault.azure.net ». Cet exemple utilise la classe [« DefaultAzureCredential() »](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) de la [bibliothèque Azure Identity](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), ce qui permet d’utiliser le même code dans différents environnements avec des options différentes pour fournir une identité. Pour plus d’informations sur l’authentification auprès du coffre de clés, consultez le [Guide du développeur](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+Dans l’exemple ci-dessous, le nom de votre coffre de clés est étendu à l’URI du coffre de clés, au format « https://\<your-key-vault-name\>.vault.azure.net ». Cet exemple utilise la classe [« DefaultAzureCredential() »](/javascript/api/@azure/identity/defaultazurecredential) de la [bibliothèque Azure Identity](/javascript/api/overview/azure/identity-readme), ce qui permet d’utiliser le même code dans différents environnements avec des options différentes pour fournir une identité. Pour plus d’informations sur l’authentification auprès du coffre de clés, consultez le [Guide du développeur](../general/developers-guide.md#authenticate-to-key-vault-in-code).
 
 Ajoutez le code suivant à la fonction « main() ».
 
@@ -168,7 +168,7 @@ const client = new KeyClient(KVUri, credential);
 
 ### <a name="save-a-key"></a>Enregistrer une clé
 
-À présent que votre application est authentifiée, vous pouvez placer une clé dans votre coffre de clés à l’aide de la [méthode createKey](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_). Les paramètres de la méthode acceptent un nom de clé et le [type clé](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keytype).
+À présent que votre application est authentifiée, vous pouvez placer une clé dans votre coffre de clés à l’aide de la [méthode createKey](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_). Les paramètres de la méthode acceptent un nom de clé et le [type clé](/javascript/api/@azure/keyvault-keys/keytype).
 
 ```javascript
 await client.createKey(keyName, keyType);
@@ -184,7 +184,7 @@ const retrievedKey = await client.getKey(keyName);
 
 ### <a name="delete-a-key"></a>Supprimer une clé
 
-Pour finir, nous allons supprimer et purger la clé de votre coffre de clés avec les méthodes [beginDeleteKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) et [purgeDeletedKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_).
+Pour finir, nous allons supprimer et purger la clé de votre coffre de clés avec les méthodes [beginDeleteKey](/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) et [purgeDeletedKey](/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_).
 
 ```javascript
 const deletePoller = await client.beginDeleteKey(keyName);

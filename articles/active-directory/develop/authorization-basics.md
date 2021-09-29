@@ -13,12 +13,12 @@ ms.date: 07/23/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: johngarland, mamarxen, ianbe, marsma
-ms.openlocfilehash: 4dcdb90daa9bb8cd1df79ec399eb9372fca02c61
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: a3710d4af1b65b1220db8938b35cf9d6cb516579
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037187"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734719"
 ---
 # <a name="authorization-basics"></a>Notions de base des autorisations
 
@@ -43,14 +43,14 @@ La forme d’autorisation la plus simple est peut-être d’accorder ou de refus
 
 L’autorisation via des listes de contrôle d’accès (ACL) implique la conservation de listes explicites d’entités spécifiques qui ont ou n’ont pas accès à une ressource ou à une fonctionnalité. Les ACL offrent un contrôle plus précis de l’authentification en tant qu’autorisation, mais deviennent difficiles à gérer à mesure que le nombre d’entités augmente.
 
-### <a name="role-based-access-control"></a>Contrôle d'accès en fonction d'un rôle 
+### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle 
 
 Le contrôle d’accès en fonction du rôle (RBAC) est probablement l’approche la plus courante pour appliquer les autorisations dans les applications. Lorsque vous utilisez le RBAC, les rôles sont définis pour décrire les types d’activités qu’une entité peut effectuer. Un développeur d’applications accorde l’accès aux rôles plutôt qu’aux entités individuelles. Un administrateur peut ensuite attribuer des rôles à différentes entités pour contrôler lesquelles ont accès à quelles ressources et fonctionnalités.
 
 Dans les implémentations du RBAC avancé, les rôles peuvent être mappés à des collections d’autorisations, où une autorisation décrit une action ou une activité granulaire qui peut être effectuée. Les rôles sont ensuite configurés en tant que combinaisons d’autorisations. Vous calculez le jeu d’autorisations global des entités pour une application en croisant les autorisations accordées aux différents rôles attribués à l’entité. Un bon exemple de cette approche est l’implémentation du RBAC qui régit l’accès aux ressources dans les abonnements Azure.
 
 > [!NOTE]
-> Le [RBAC des applications](./custom-rbac-for-developers.md) diffère du [RBAC d’Azure](/azure/role-based-access-control/overview) et du [RBAC d’Azure AD](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Les rôles personnalisés d’Azure et les rôles intégrés font tous deux partie du RBAC d’Azure, qui vous aide à gérer les ressources Azure. Le RBAC d’Azure AD vous permet de gérer les ressources Azure AD.
+> Le [RBAC des applications](./custom-rbac-for-developers.md) diffère du [RBAC d’Azure](../../role-based-access-control/overview.md) et du [RBAC d’Azure AD](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Les rôles personnalisés d’Azure et les rôles intégrés font tous deux partie du RBAC d’Azure, qui vous aide à gérer les ressources Azure. Le RBAC d’Azure AD vous permet de gérer les ressources Azure AD.
 
 ### <a name="attribute-based-access-control"></a>Contrôle d’accès en fonction de l’attribut 
 
@@ -75,4 +75,4 @@ Il n’est pas strictement nécessaire pour les développeurs d’incorporer la 
 
 - Pour en savoir plus sur l’implémentation personnalisée d’un contrôle d’accès en fonction du rôle dans les applications, consultez [Contrôle d’accès en fonction du rôle pour les développeurs d’applications](./custom-rbac-for-developers.md).
 - Pour plus d’informations sur le processus d’inscription d’une application lui permettant de s’intégrer avec la Plateforme d’identités Microsoft, consultez [Modèle d’application](./application-model.md).
-- Pour obtenir un exemple de configuration d’une autorisation basée sur l’authentification simple, consultez [Configurer votre application App Service ou Azure Functions pour utiliser la connexion Azure AD](/azure/app-service/configure-authentication-provider-aad).
+- Pour obtenir un exemple de configuration d’une autorisation basée sur l’authentification simple, consultez [Configurer votre application App Service ou Azure Functions pour utiliser la connexion Azure AD](../../app-service/configure-authentication-provider-aad.md).

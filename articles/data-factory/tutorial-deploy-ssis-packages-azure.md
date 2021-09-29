@@ -8,12 +8,12 @@ ms.custom: seo-lt-2019
 ms.date: 07/19/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 2eff29e1260198c6d5031403e9dfb9fcbd2da4e5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fcd1349df07920ff0e7669face1bfa0e66343dfb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730090"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737007"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Provisionner le runtime d’intégration Azure-SSIS dans Azure Data Factory
 
@@ -73,7 +73,7 @@ Une fois la fabrique de données créée, ouvrez la page de vue d’ensemble dan
 
 1. Sur la page d’accueil, sélectionnez la vignette **Configurer SSIS**. 
 
-   ![Capture d’écran montrant la page d'accueil Azure Data Factory.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la page d'accueil Azure Data Factory.":::
 
 1. Consultez la section [Approvisionner un runtime d’intégration Azure-SSIS](#provision-an-azure-ssis-integration-runtime) pour connaître les autres étapes de configuration d’un runtime d’intégration Azure-SSIS. 
 
@@ -81,15 +81,15 @@ Une fois la fabrique de données créée, ouvrez la page de vue d’ensemble dan
 
 1. Dans l’IU d’Azure Data Factory, accédez à l’onglet **Gérer**, puis à l’onglet **Runtimes d’intégration** pour voir les runtimes d’intégration présents dans votre fabrique de données. 
 
-   ![Sélections pour l’affichage des runtimes d’intégration existants](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png" alt-text="Sélections pour l’affichage des runtimes d’intégration existants":::
 
 1. Sélectionnez **Nouveau** pour créer un runtime d’intégration Azure-SSIS et ouvrez le volet **Configuration du runtime d’intégration**. 
 
-   ![Runtime d’intégration via le menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png" alt-text="Runtime d’intégration via le menu":::
 
 1. Dans le volet **Configuration du runtime d’intégration**, sélectionnez la vignette **Faire une migration lift-and-shift des packages SSIS existants à exécuter dans Azure**, puis sélectionnez **Continuer**.
 
-   ![Spécifier le type de runtime d’intégration](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png" alt-text="Spécifier le type de runtime d’intégration":::
 
 1. Consultez la section [Approvisionner un runtime d’intégration Azure-SSIS](#provision-an-azure-ssis-integration-runtime) pour connaître les autres étapes de configuration d’un runtime d’intégration Azure-SSIS. 
 
@@ -101,7 +101,7 @@ Le volet **Configuration du runtime d’intégration** comporte trois pages dans
 
 Dans la page **Paramètres généraux** du volet **Configuration du runtime d’intégration**, effectuez les étapes suivantes. 
 
-   ![Paramètres généraux :](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png" alt-text="Paramètres généraux":::
 
    1. Dans **Nom**, saisissez le nom de votre runtime d’intégration. 
 
@@ -131,7 +131,7 @@ Quel que soit votre modèle de déploiement, si vous souhaitez utiliser SQL Serv
    
 Si vous cochez la case, effectuez les étapes suivantes pour apporter votre propre serveur de base de données afin d’héberger la base de données SSISDB que nous allons créer et gérer en votre nom.
 
-   ![Paramètres de déploiement pour SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png" alt-text="Paramètres de déploiement pour SSISDB":::
    
    1. Pour **Abonnement**, sélectionnez l’abonnement Azure comprenant votre serveur de base de données pour héberger la base de données SSISDB. 
 
@@ -169,7 +169,7 @@ Le magasin de packages Azure-SSIS IR vous permet d’importer/d’exporter/de su
    
 Si vous cochez cette case, vous pouvez ajouter plusieurs magasins de packages à votre runtime d’intégration Azure-SSIS en sélectionnant **Nouveau**. À l’inverse, un magasin de packages peut être partagé par plusieurs runtimes d’intégration Azure-SSIS.
 
-![Paramètres de déploiement pour MSDB/le système de fichiers/Azure Files](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png)
+:::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png" alt-text="Paramètres de déploiement pour MSDB/le système de fichiers/Azure Files":::
 
 Dans le volet **Ajouter un magasin de packages**, effectuez les étapes suivantes.
    
@@ -180,7 +180,7 @@ Dans le volet **Ajouter un magasin de packages**, effectuez les étapes suivante
       > [!NOTE]
       > Vous pouvez utiliser les services liés **Stockage Fichier Azure** ou **Système de fichiers** pour accéder à Azure Files. Si vous utilisez le service lié **Stockage Fichier Azure**, le magasin de packages Azure-SSIS IR prend en charge uniquement la méthode d’authentification **De base** (pas les méthodes **Clé de compte** et **URI SAS**). 
 
-      ![Paramètres de déploiement pour les services liés](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
+      :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png" alt-text="Paramètres de déploiement pour les services liés":::
 
       1. Dans **Nom**, entrez le nom de votre service lié. 
          
@@ -230,7 +230,7 @@ Sélectionnez **Tester la connexion** le cas échéant et, si l’opération ré
 
 Dans la page **Paramètres avancés** du volet **Configuration du runtime d’intégration**, effectuez les étapes suivantes. 
 
-   ![Paramètres avancés](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png" alt-text="Paramètres avancés":::
 
    1. Pour **Exécutions parallèles maximales par nœud**, sélectionnez le nombre maximal de packages exécutables simultanément par nœud au sein de votre cluster de runtime d’intégration. Seuls les numéros des packages pris en charge sont affichés. Sélectionnez un petit nombre si vous souhaitez utiliser plusieurs cœurs pour exécuter un seul package volumineux nécessitant beaucoup de calcul ou de mémoire. Sélectionnez un nombre élevé si vous souhaitez exécuter un ou plusieurs petits packages dans un seul cœur. 
 
@@ -257,7 +257,7 @@ Dans la page **Résumé** du volet **Configuration du runtime d’intégration**
 
 Dans le volet **Connexions** du hub **Gestion**, basculez sur la page **Runtimes d’intégration** et sélectionnez **Actualiser**. 
 
-   ![Volet Connexions](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png" alt-text="Volet Connexions":::
 
    Vous pouvez modifier/reconfigurer votre runtime d’intégration Azure-SSIS en sélectionnant son nom. Vous pouvez également sélectionner les boutons appropriés pour superviser/démarrer/arrêter/supprimer votre runtime d’intégration Azure-SSIS, générer automatiquement un pipeline ADF avec l’activité Exécuter le package SSIS à exécuter sur votre runtime d’intégration Azure-SSIS et afficher le code JSON/la charge utile de votre runtime d’intégration Azure-SSIS.  Vous ne pouvez modifier ou supprimer votre runtime d’intégration Azure-SSIS que quand il est arrêté.
 

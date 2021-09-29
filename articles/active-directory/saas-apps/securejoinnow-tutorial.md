@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: f000cf2b58bb9f9b3c2077dbad490e6a4ff3da43
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: a7d7abd904b2948b9da5af5af25a43934c3513e4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109735902"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124741291"
 ---
 # <a name="tutorial-integrate-securew2-joinnow-connector-with-azure-active-directory"></a>Tutoriel : Intégrer Azure Active Directory à SecureW2 JoinNow Connector
 
@@ -130,7 +130,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion de SecureW2 JoinNow Connector pour lancer le flux de connexion à partir de là.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette SecureW2 JoinNow Connector dans Mes applications vous redirige vers l’URL de connexion de SecureW2 JoinNow Connector. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette SecureW2 JoinNow Connector dans Mes applications vous redirige vers l’URL de connexion de SecureW2 JoinNow Connector. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

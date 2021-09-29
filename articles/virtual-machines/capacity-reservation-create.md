@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: a8c5e7f21747bc4f37f766106931a8f303fa33d3
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: db9b8b71ddbdccb2cdc4893ce7ea041304bafba9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273373"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776611"
 ---
 # <a name="create-a-capacity-reservation-preview"></a>Créer une réservation de capacité (version préliminaire)
 
@@ -157,12 +157,12 @@ La réservation de capacité doit respecter les règles suivantes :
     -CapacityToReserve 5
     ```
 
-Pour plus d’informations, accédez aux commandes Azure PowerShell [New-AzResourceGroup](/powershell/module/az.compute/new-azresourcegroup), [New-AzCapacityReservationGroup](/powershell/module/az.compute/new-azcapacityreservationgroup), et [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
+Pour plus d’informations, accédez aux commandes Azure PowerShell [New-AzResourceGroup](/powershell/module/az.Resources/new-azresourcegroup), [New-AzCapacityReservationGroup](/powershell/module/az.compute/new-azcapacityreservationgroup), et [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
 
 
 ### <a name="arm-template"></a>[Modèle ARM](#tab/arm1)
 
-Un  [modèle ARM](/azure/azure-resource-manager/templates/overview)  est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative. Dans la syntaxe déclarative, vous décrivez le déploiement souhaité sans écrire la séquence de commandes de programmation pour créer le déploiement. 
+Un  [modèle ARM](../azure-resource-manager/templates/overview.md)  est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative. Dans la syntaxe déclarative, vous décrivez le déploiement souhaité sans écrire la séquence de commandes de programmation pour créer le déploiement. 
 
 Les modèles ARM vous permettent de déployer des groupes de ressources associées. Dans un modèle unique, vous pouvez créer un groupe de réservations de capacité et des réservations de capacité. Vous pouvez déployer des modèles via le Portail Azure, Azure CLI ou Azure PowerShell, ou à partir de pipelines d’intégration continue/de livraison continue. 
 

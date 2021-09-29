@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 1c18b31e8eb77c6dea2d3cf3a3e99c09d4a7e8b6
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: a94b6382003d4cd9ee1e3d1bbb4932ee88a15577
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112236046"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625732"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans Node.js
 
@@ -32,9 +32,9 @@ Pour obtenir des exemples d’utilisation des autres clients Node.js, consultez 
 
 ## <a name="create-a-cache"></a>Création d'un cache
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 Ajoutez des variables d’environnement pour votre **NOM D’HÔTE** et la clé d’accès **Principale**. Utilisez ces variables à partir de votre code au lieu d’y inclure directement les informations sensibles.
 

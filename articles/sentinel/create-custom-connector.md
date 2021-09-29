@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: b0a0b8cb4d3ff5ce10348608d66a451517b60016
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 3b578ffbb734c738aa3f082d192eae8557f4e307
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535385"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755105"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Ressources pour la création de connecteurs Azure Sentinel personnalisés
 
@@ -183,10 +183,10 @@ Utilisez Azure Functions avec une API RESTful et divers langages de codage, tels
 
 Pour voir des exemples de cette méthode, consultez :
 
-- [Connecter VMware Carbon Black Cloud Endpoint Standard à Azure Sentinel avec Azure Functions](connect-vmware-carbon-black.md)
-- [Connecter votre Okta Single Sign-On à Azure Sentinel avec Azure Functions](connect-okta-single-sign-on.md)
-- [Connecter votre solution Proofpoint TAP à l’aide d’Azure Functions](connect-proofpoint-tap.md)
-- [Connecter votre solution Qualys VM à Azure Sentinel à l’aide d’Azure Functions](connect-qualys-vm.md)
+- [Connecter VMware Carbon Black Cloud Endpoint Standard à Azure Sentinel avec Azure Functions](./data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)
+- [Connecter votre Okta Single Sign-On à Azure Sentinel avec Azure Functions](./data-connectors-reference.md#okta-single-sign-on-preview)
+- [Connecter votre solution Proofpoint TAP à l’aide d’Azure Functions](./data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)
+- [Connecter votre solution Qualys VM à Azure Sentinel à l’aide d’Azure Functions](./data-connectors-reference.md#qualys-vulnerability-management-vm-preview)
 - [Ingestion de données aux formats XML, CSV ou autres](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Surveiller Zoom avec Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Déployer une application de fonction permettant de transférer les données de l’API de gestion d’Office 365 dans Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (communauté GitHub pour Azure Sentinel)

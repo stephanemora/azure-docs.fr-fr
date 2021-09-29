@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
-ms.openlocfilehash: b9aebe7dc3d21e5ee1ab5686b3253bee3e75094d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7e5f9d2f8bf4ca13b5ccc94261f24f4d871e3be
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92457416"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759640"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-axiad-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Axiad Cloud
 
@@ -137,7 +137,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans A
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Axiad Cloud dans le volet d’accès, vous devez être connecté automatiquement à l’application Axiad Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Axiad Cloud dans le volet d’accès, vous devez être connecté automatiquement à l’application Axiad Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

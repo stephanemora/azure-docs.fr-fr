@@ -3,21 +3,21 @@ title: Exemple de script Azure PowerShell - Sécuriser le serveur principal | Mi
 description: Découvrez comment utiliser un exemple de script Azure PowerShell pour sécuriser le serveur principal avec une authentification mutuelle des certificats.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.topic: sample
 ms.date: 11/16/2017
-ms.author: apimpm
+ms.author: danlep
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 7d3a4352c356f6f14ff23f32f6e71724027e20d7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: a41b29e190ca6bb2cd05e832dc980ac568668a8e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816779"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657362"
 ---
 # <a name="secure-back-end"></a>Sécuriser le serveur principal
 

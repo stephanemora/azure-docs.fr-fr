@@ -3,14 +3,14 @@ title: Exemple de script Azure CLI - Créer une rubrique personnalisée | Micros
 description: Cet article fournit un exemple de script Azure CLI qui montre comment créer une rubrique personnalisée Azure Event Grid.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/22/2021
+ms.date: 09/15/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 54f56b1bce0c8d88bff3b39b6d4c8ff108106cb3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 18e33e7ac9c270bfc8736caa0215fdcdd4cf41ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463778"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612051"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Créer une rubrique personnalisée Event Grid avec Azure CLI
 

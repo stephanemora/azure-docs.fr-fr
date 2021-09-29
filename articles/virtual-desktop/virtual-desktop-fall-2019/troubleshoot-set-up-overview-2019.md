@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 14449af17a39be884ae023ea23910e617048d5c4
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5c55dac88810531af849cbacb129197eaddf1a08
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753896"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774592"
 ---
 #  <a name="azure-virtual-desktop-classic-troubleshooting-overview-feedback-and-support"></a>Vue d’ensemble du dépannage d’Azure Virtual Desktop (classique), feedback et support
 
@@ -58,5 +58,5 @@ Utilisez le tableau suivant pour identifier et résoudre les problèmes que vous
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Azure Virtual Desktop, consultez [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
 - Pour plus d’informations sur le service, consultez [Environnement Azure Virtual Desktop](environment-setup-2019.md).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../../azure-monitor/essentials/activity-log.md).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../../azure-resource-manager/templates/deployment-history.md).

@@ -1,14 +1,14 @@
 ---
 title: Exemple de blueprint CMMC niveau 3
 description: Vue d’ensemble de l’exemple de blueprint CMMC niveau 3 Cet exemple de blueprint aide les clients à évaluer des contrôles spécifiques.
-ms.date: 03/24/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: df3dac17ce91757640f5b437f5915d41c901afc4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2925acf75ada0bd950ca52e3fe63b9c97b5e34ad
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757634"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632326"
 ---
 # <a name="cmmc-level-3-blueprint-sample"></a>Exemple de blueprint CMMC niveau 3
 
@@ -280,8 +280,8 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |CMMC niveau 3|Affectation de rôle|Espaces de noms exclus de l’évaluation de la stratégie : Les pods de cluster Kubernetes doivent utiliser uniquement un réseau hôte et une plage de ports approuvés|Liste des espaces de noms Kubernetes à exclure de l’évaluation de la stratégie.|
 |CMMC niveau 3|Affectation de rôle|Dernière version de Java pour App Services|Dernière version de Java prise en charge pour App Services|
 |CMMC niveau 3|Affectation de rôle|Dernière version de Python pour Linux pour App Services|Dernière version de Python prise en charge pour App Services|
-|CMMC niveau 3|Affectation de rôle|Facultatif : Liste d’images VM avec un système d’exploitation Linux pris en charge à ajouter à l’étendue pendant l’audit du déploiement d’agent Log Analytics|Exemple de valeur : « /subscriptions/<<subscriptionId>>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage »|
-|CMMC niveau 3|Affectation de rôle|Facultatif : Liste d’images VM avec un système d’exploitation Windows pris en charge à ajouter à l’étendue pendant l’audit du déploiement d’agent Log Analytics|Exemple de valeur : « /subscriptions/<<subscriptionId>>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage »|
+|CMMC niveau 3|Affectation de rôle|Facultatif : Liste d’images VM avec un système d’exploitation Linux pris en charge à ajouter à l’étendue pendant l’audit du déploiement d’agent Log Analytics|Exemple de valeur : `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
+|CMMC niveau 3|Affectation de rôle|Facultatif : Liste d’images VM avec un système d’exploitation Windows pris en charge à ajouter à l’étendue pendant l’audit du déploiement d’agent Log Analytics|Exemple de valeur : `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
 |CMMC niveau 3|Affectation de rôle|Liste des régions où Network Watcher doit être activé|Vérifiez si Network Watcher n’est pas activé pour une ou plusieurs régions.|
 |CMMC niveau 3|Affectation de rôle|Liste des types de ressources devant avoir les journaux de diagnostic activés||
 |CMMC niveau 3|Affectation de rôle|Valeur maximale dans la plage de ports d’hôte autorisée que les pods peuvent utiliser dans l’espace de noms de réseau hôte|Valeur maximale de la plage de ports hôtes autorisée que les pods peuvent utiliser dans l’espace de noms du réseau hôte.|

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 8cbccc3fb4cc513d7c86253ae07fbced4626a15e
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: a839588b7b7d5b05a6cf6355345327bae1634a82
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599653"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789576"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Didacticiel : Intégration d’Azure Active Directory à Tidemark
 
@@ -191,7 +191,7 @@ Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Ti
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Tidemark dans le volet d’accès, vous devez être connecté automatiquement à l’application Tidemark pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Lorsque vous cliquez sur la vignette Tidemark dans le volet d’accès, vous devez être connecté automatiquement à l’application Tidemark pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

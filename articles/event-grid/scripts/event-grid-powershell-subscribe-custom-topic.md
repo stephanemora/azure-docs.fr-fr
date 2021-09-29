@@ -3,13 +3,13 @@ title: Exemple de script Azure PowerShell - S’abonner à une rubrique personna
 description: Cet article fournit un exemple de script Azure PowerShell qui montre comment s’abonner à des événements Event Grid pour une rubrique personnalisée.
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 07/08/2020
-ms.openlocfilehash: f37a90b84e5e55298efc0b3cd53812db95e4d86d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/15/2021
+ms.openlocfilehash: 30d328583246c8460e157f706ff68536d74232d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87460726"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595063"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-powershell"></a>S’inscrire aux événements d’une rubrique personnalisée avec PowerShell
 

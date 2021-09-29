@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 08/04/2021
 ms.custom: mvc
-ms.openlocfilehash: 720b19ff16e72fade8bcdbd1b41304b2d87d1f2d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 99216bd26bfff76c4342f1533ff4ced070a69e92
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737664"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735960"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
@@ -21,7 +21,7 @@ ms.locfileid: "121737664"
 ## <a name="update-august-2021"></a>Mise à jour (août 2021)
 
 - La découverte et l’évaluation à l’échelle des applications web ASP.NET s’exécutant sur des serveurs IIS dans votre environnement VMware sont désormais en préversion. [En savoir plus](concepts-azure-webapps-assessment-calculation.md) Reportez-vous aux tutoriels sur la [découverte](tutorial-discover-vmware.md) et l’[évaluation](tutorial-assess-webapps.md) pour démarrer.
-- Prise en charge des [ultra disques](https://docs.microsoft.com/azure/virtual-machines/disks-types#ultra-disk) Azure dans la recommandation d’évaluation des machines virtuelles Azure.
+- Prise en charge des [ultra disques](../virtual-machines/disks-types.md#ultra-disk) Azure dans la recommandation d’évaluation des machines virtuelles Azure.
 - Disponibilité générale de l’inventaire logiciel à l’échelle, et de l’analyse des dépendances sans agent pour les machines virtuelles VMware.
 - Mises à jour de l’appliance Azure Migrate :
     - « Diagnostiquer et résoudre » sur l’appliance pour aider les utilisateurs à identifier et évaluer automatiquement les problèmes liés à l’appliance.

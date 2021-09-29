@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 30c3ecb64b8fdb2ff1bf3569803b07d9f0646347
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0ec5cbd61a72bdff367acc071d653d03d9459464
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138046"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124765473"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutoriel : Intégrer Dropbox Business à Azure Active Directory
 
@@ -183,7 +183,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Dropbox Business et lancez le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Dropbox Business dans Mes applications vous redirige vers l’URL de connexion à Dropbox Business. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Dropbox Business dans Mes applications vous redirige vers l’URL de connexion à Dropbox Business. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

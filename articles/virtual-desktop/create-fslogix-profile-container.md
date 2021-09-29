@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ed2267ebb4467331a4859f2b3f6507edd39dc03b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e4f4a7149f522d11a9a77bdeb9b16a0f848cba77
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750332"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776859"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Créer un conteneur de profil avec Azure NetApp Files et Azure AD DS
 
@@ -37,7 +37,6 @@ Avant de pouvoir créer un conteneur de profils FSLogix pour un pool d'hôtes, v
 
 - Installer et configurer Azure Virtual Desktop
 - Approvisionner un pool d'hôtes Azure Virtual Desktop
-- [Activer votre abonnement Azure NetApp Files](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## <a name="set-up-your-azure-netapp-files-account"></a>Configurer votre compte Azure NetApp Files
 

@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.topic: reference
 ms.date: 08/12/2021
 ms.author: bagol
-ms.openlocfilehash: d3f727b251c13bdc52de793919d85e984d8b78f2
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 8cbd8861e7dc01e8615225dd88960b581fd4c2f4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261166"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755078"
 ---
 # <a name="find-your-azure-sentinel-data-connector"></a>Rechercher votre connecteur de données Azure Sentinel
 
@@ -72,7 +72,7 @@ Cet article explique comment déployer des connecteurs de données dans Azure Se
 > [!IMPORTANT]
 > Si vous effectuez cette étape, faites-le avant de déployer votre connecteur de données.
 >
-L’application de fonction Agari permet de partager des informations sur les menaces avec Azure Sentinel via l’API Security Graph. Pour utiliser cette fonctionnalité, vous devez activer le [connecteur Sentinel Threat Intelligence Platforms](connect-threat-intelligence.md) et [inscrire une application](/graph/auth-register-app-v2) dans Azure Active Directory.
+L’application de fonction Agari permet de partager des informations sur les menaces avec Azure Sentinel via l’API Security Graph. Pour utiliser cette fonctionnalité, vous devez activer le [connecteur Sentinel Threat Intelligence Platforms](./connect-threat-intelligence-tip.md) et [inscrire une application](/graph/auth-register-app-v2) dans Azure Active Directory.
 
 À l’issue de ce processus, vous disposerez de trois informations à utiliser lors du [déploiement de l’application de fonction](connect-azure-functions-template.md) : l’**ID de locataire Graph**, l’**ID de client Graph** et la **Clé secrète client Graph** (voir les *Paramètres d'application* dans le tableau ci-dessus).
 
@@ -163,7 +163,6 @@ Pour plus d’informations, reportez-vous au Guide du Syslog Cognito Detect qui 
 | --- | --- |
 | **Méthode d’ingestion des données** | [**Agent Log Analytics : journaux personnalisés**](connect-custom-logs.md) <br><br>[Configuration supplémentaire pour Alsid](#extra-configuration-for-alsid)|
 | **Table(s) Log Analytics** | AlsidForADLog_CL |
-| **Exemple de fichier journal personnalisé :** | https://github.com/Azure/azure-quickstart-templates/blob/master/alsid-syslog-proxy/logs/AlsidForAD.log |
 | **Alias de fonction Kusto :** | afad_parser |
 | **URL de fonction Kusto :** | https://aka.ms/sentinel-alsidforad-parser |
 | **Pris en charge par** | [Alsid](https://www.alsid.com/contact-us/) |
@@ -405,7 +404,7 @@ Pour plus d’informations, consultez la [documentation d’Azure Information Pr
 
 La ressource de compte de stockage (parent) comprend d’autres ressources (enfants) pour chaque type de stockage : fichiers, tables, files d’attente et objets blob.
 
-Lors de la configuration des diagnostics pour un compte de stockage, vous devez sélectionner et configurer à son tour les éléments suivants :
+Lors de la configuration des diagnostics pour un compte de stockage, vous devez sélectionner et configurer à son tour les éléments suivants :
 - La ressource de compte parent, en exportant la métrique de **Transaction**.
 - Chacune des ressources de type de stockage enfant, en exportant tous les journaux et métriques (voir le tableau ci-dessus).
 
@@ -593,7 +592,7 @@ Configurez eNcore pour diffuser en continu des données via TCP vers l’agent L
 | --- | --- |
 | **Méthode d’ingestion des données** | **[Common Event format (CEF)](connect-common-event-format.md) sur Syslog** |
 | **Table(s) Log Analytics** | CommonSecurityLog |
-| **Documentation/<br>instructions d’installation du fournisseur** | Pour configurer WAF, consultez la page [WIKI de support - Configuration du pare-feu d’applications web avec NetScaler](https://support.citrix.com/article/CTX234174).<br><br>Pour configurer les journaux CEF, consultez [Prise en charge de la journalisation CEF dans le pare-feu d’application](https://support.citrix.com/article/CTX136146).<br><br>Pour transférer les journaux vers le proxy, consultez [Configuration de l’appliance Citrix ADC pour la journalisation d’audit](https://docs.citrix.com/en-us/citrix-adc/current-release/system/audit-logging/configuring-audit-logging.html). |
+| **Documentation/<br>instructions d’installation du fournisseur** | Pour configurer WAF, consultez la page [WIKI de support - Configuration du pare-feu d’applications web avec NetScaler](https://support.citrix.com/article/CTX234174).<br><br>Pour configurer les journaux CEF, consulter [Prise en charge de la journalisation CEF dans le pare-feu d’application](https://support.citrix.com/article/CTX136146).<br><br>Pour transférer les journaux vers le proxy, consultez [Configuration de l’appliance Citrix ADC pour la journalisation d’audit](https://docs.citrix.com/en-us/citrix-adc/current-release/system/audit-logging/configuring-audit-logging.html). |
 | **Pris en charge par** | [Systèmes Citrix](https://www.citrix.com/support/) |
 | | |
 
@@ -1109,7 +1108,7 @@ Ajoutez http://localhost:8081/ sous **URI de redirection autorisées** lors de l
 | **Table(s) Log Analytics** | Okta_CL |
 | **Code d’application de fonction Azure** | https://aka.ms/sentineloktaazurefunctioncodev2 |
 | **Informations d'identification de l’API** | <li>Jeton d'API |
-| **Documentation/<br>instructions d’installation du fournisseur** | <li>[Documentation de l’API Okta System Log](https://developer.okta.com/docs/reference/api/system-log/)<li>[Créer un jeton d'API](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Connecter Okta SSO à Azure Sentinel](connect-okta-single-sign-on.md) |
+| **Documentation/<br>instructions d’installation du fournisseur** | <li>[Documentation de l’API Okta System Log](https://developer.okta.com/docs/reference/api/system-log/)<li>[Créer un jeton d'API](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Connecter Okta SSO à Azure Sentinel](#okta-single-sign-on-preview) |
 | **Instructions de déploiement du connecteur** | <li>[Déploiement en un clic](connect-azure-functions-template.md?tabs=ARM) avec un modèle Azure Resource Manager (ARM)<li>[Déploiement manuel](connect-azure-functions-template.md?tabs=MPS) |
 | **Paramètres d’application** | <li>apiToken<li>workspaceID<li>workspaceKey<li>URI (suit le schéma `https://<OktaDomain>/api/v1/logs?since=`. [Identifiez votre espace de noms de domaine](https://developer.okta.com/docs/reference/api-overview/#url-namespace).) <li>logAnalyticsUri (facultatif) |
 | **Pris en charge par** | Microsoft |
@@ -1610,7 +1609,7 @@ Suivez les instructions pour obtenir les informations d'identification.
 
 Le connecteur de données Zimperium Mobile Threat Defense connecte le journal des menaces Zimperium à Azure Sentinel pour afficher des tableaux de bord, créer des alertes personnalisées et améliorer l’investigation. Ce connecteur vous donne plus d’informations sur le paysage des menaces mobiles de votre organisation et améliore vos capacités d’opération de sécurité. Pour plus d’instructions, consultez
 
-Pour plus d’informations sur la connexion à Azure Sentinel, consultez [Connecter Zimperium à Azure Sentinel](connect-zimperium-mtd.md).
+Pour plus d’informations sur la connexion à Azure Sentinel, consultez [Connecter Zimperium à Azure Sentinel](#zimperium-mobile-thread-defense-preview).
 
 | Attribut du connecteur | Description |
 | --- | --- |

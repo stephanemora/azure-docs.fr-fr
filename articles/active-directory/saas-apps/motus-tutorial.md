@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 64e2b678fc2705a8949b8029a05ca1905f227ef4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c22abf2f94a16c11f7e519613e46ea46c3c6f918
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92507786"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742308"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-motus"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Motus
 
@@ -137,7 +137,7 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Motus.
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Motus dans le panneau d’accès doit vous connecter automatiquement à l’application Motus pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Motus dans le panneau d’accès doit vous connecter automatiquement à l’application Motus pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

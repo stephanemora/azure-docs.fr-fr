@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de59b3f26a9a4696c721cab94cd5b96bd0200e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cbf02dd12c76de529026b58f98f111aa3be39502
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98611977"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626434"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Tutoriel : Environnement Azure Active Directory simple
 
@@ -33,7 +33,7 @@ Voici les conditions préalables requises pour suivre ce didacticiel.
 - Une [carte réseau externe](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) pour autoriser la machine virtuelle à communiquer avec Internet.
 - Un [abonnement Azure](https://azure.microsoft.com/free)
 - Une copie de Windows Server 2016
-- [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
+- [Microsoft .NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471)
 
 > [!NOTE]
 > Ce didacticiel utilise des scripts PowerShell pour vous permettre de créer l’environnement le plus vite possible.  Chacun des scripts utilise les variables déclarées au début des scripts.  Vous pouvez et devez modifier les variables pour qu’elles reflètent votre environnement.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 32036e3ac121d5128b85fb82e345aad53d040619
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 22b16dc0e06e961542c5474c56914e91df22ffa4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271000"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785607"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spectrumu"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à SpectrumU
 
@@ -139,7 +139,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion de SpectrumU pour initier le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la mosaïque SpectrumU dans Mes applications, une redirection est effectuée vers l’URL de connexion SpectrumU. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la mosaïque SpectrumU dans Mes applications, une redirection est effectuée vers l’URL de connexion SpectrumU. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

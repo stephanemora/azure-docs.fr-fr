@@ -2,15 +2,15 @@
 title: Solution Analyseur de performances réseau dans Azure Log Analytics | Microsoft Docs
 description: Utilisez la fonctionnalité Moniteur ExpressRoute de Network Performance Monitor afin de surveiller les performances et la connectivité de bout en bout entre vos succursales et Azure, via Azure ExpressRoute.
 ms.topic: conceptual
-author: abshamsft
-ms.author: absha
+author: KumudD
+ms.author: kumud
 ms.date: 11/27/2018
-ms.openlocfilehash: 0b005e46e9f9a740fee153e063bebf108c22b303
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a55a529e6e133bf15c980f3d0ea0cd9ff20a09b8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725694"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788797"
 ---
 # <a name="expressroute-monitor"></a>Moniteur ExpressRoute
 

@@ -3,21 +3,21 @@ title: 'Tutoriel : Créer une application monopage JavaScript qui utilise le fl
 titleSuffix: Microsoft identity platform
 description: Dans ce tutoriel, vous allez créer une application monopage JavaScript qui peut connecter des utilisateurs et utiliser le flux de code d’authentification pour obtenir un jeton d’accès à partir de la plateforme d’identités Microsoft et appeler l’API Microsoft Graph.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/17/2020
-ms.author: hahamil
+ms.author: marsma
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 2eaaeda879e9946610d2f18f7ccf530bc60f7910
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 07269bddcaf077d6224ffad5d592a9cbd3d3f754
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072204"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603635"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript à l’aide du flux de code d’authentification
 

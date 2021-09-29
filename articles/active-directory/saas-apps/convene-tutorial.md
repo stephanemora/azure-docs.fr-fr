@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: f48c83f01612a907c459419cb4dfbb278ec06fa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 560f301087939c91d95b49eb3e5a5c4c60adb868
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92455236"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124770393"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-convene"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Convene
 
@@ -150,7 +150,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Convene.
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Convene dans le volet d’accès, vous devez être connecté automatiquement à l’application Convene pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Convene dans le volet d’accès, vous devez être connecté automatiquement à l’application Convene pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

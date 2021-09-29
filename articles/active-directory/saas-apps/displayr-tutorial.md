@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 5f5ffb3303d60ebe080514099822ea4743e9a31f
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: fda718d4f5719e02fad8215394c2b5c80136f633
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271809"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124770412"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Tutoriel : Intégrer Displayr à Azure Active Directory
 
@@ -156,7 +156,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Displayr pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Cliquez sur la mosaïque Displayr dans Mes applications pour être redirigé vers l’URL de connexion Displayr. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Cliquez sur la mosaïque Displayr dans Mes applications pour être redirigé vers l’URL de connexion Displayr. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

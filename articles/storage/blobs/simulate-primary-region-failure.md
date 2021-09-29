@@ -11,12 +11,12 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: devx-track-js
-ms.openlocfilehash: 5a0bef4fbfd4ee9aa720dab430a33bbfcd0b918b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe955ede3c2936c0c842d19fbadb9a075830822c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91280349"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603483"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutoriel : Simuler une défaillance lors de la lecture de données à partir de la région primaire
 
@@ -29,9 +29,9 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Dans ce deuxième volet, vous apprenez à :
 
 > [!div class="checklist"]
-> * Exécuter et interrompre l’application
-> * Simuler une défaillance avec un [routage statique non valide](#simulate-a-failure-with-an-invalid-static-route) ou [Fiddler](#simulate-a-failure-with-fiddler)
-> * Simuler la restauration du point de terminaison principal
+> - Exécuter et interrompre l’application
+> - Simuler une défaillance avec un [routage statique non valide](#simulate-a-failure-with-an-invalid-static-route) ou [Fiddler](#simulate-a-failure-with-fiddler)
+> - Simuler la restauration du point de terminaison principal
 
 ## <a name="prerequisites"></a>Prérequis
 

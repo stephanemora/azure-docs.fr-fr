@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: bce5b5874b12638d1f2d628e23812676053006a4
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 9a142dfcba67b80a8293a15d03ea2b389bd297d1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035201"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593892"
 ---
 # <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -57,15 +57,15 @@ Toutes les versions de l’API pour MongoDB s’exécutent sur le même codebase
 
 * Il existe trois façons de déployer l’API Azure Cosmos DB pour MongoDB :
      * [Débit provisionné](../set-throughput.md) : Définissez un nombre de RU/s et changez-le manuellement. Ce modèle est le mieux adapté aux charges de travail régulières.
-     * [Autoscale]../(provision-throughput-autoscale.md) : définir une limite supérieure sur le débit nécessaire. Le débit est instantanément mis à l’échelle selon vos besoins. Ce modèle est le mieux adapté aux charges de travail qui changent fréquemment, et optimise leurs coûts.
+     * [Mise à l’échelle automatique](../provision-throughput-autoscale.md) : Définissez une limite supérieure pour le débit dont vous avez besoin. Le débit est instantanément mis à l’échelle selon vos besoins. Ce modèle est le mieux adapté aux charges de travail qui changent fréquemment, et optimise leurs coûts.
      * [Serverless](../serverless.md) : payez uniquement pour le débit que vous utilisez, par période. Ce modèle est le mieux adapté aux charges de travail de développement et de test. 
 
 * Les performances d’un cluster partitionné dépendent de la clé de partition que vous choisissez lors de la création d’une collection. Choisissez une clé de partition avec soin pour vous assurer que vos données seront réparties uniformément entre les partitions.
 
 ### <a name="capacity-planning"></a>planification de la capacité
 
-Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
-* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
 * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](../estimate-ru-with-capacity-planner.md)
 
 ## <a name="quickstart"></a>Démarrage rapide
@@ -78,8 +78,8 @@ Vous tentez d’effectuer une planification de la capacité pour une migration v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
-    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
     * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
 * Pour savoir comment obtenir les informations de chaîne de connexion de votre compte, suivez le didacticiel [Connecter une application MongoDB à Azure Cosmos DB](connect-mongodb-account.md).
 * Pour savoir comment créer une connexion entre votre base de données Cosmos et l’application MongoDB dans Studio 3T, suivez le didacticiel [Utiliser Studio 3T avec Azure Cosmos DB](connect-using-mongochef.md).

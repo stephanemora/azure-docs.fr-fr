@@ -9,12 +9,12 @@ ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 660f6ffe286e13e46f367c761c596ed0ee51da24
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 6d6a3833ccf9a30f59da0931f497da1d0490b9a8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259848"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736880"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
 
@@ -51,7 +51,7 @@ Il existe deux façons de créer un jeton SAP, à l’aide de l’Explorateur St
 
 L’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) est un outil pour gérer les ressources que vous avez stockées dans le stockage Azure.  Vous pouvez obtenir plus d’informations sur l’utilisation de l’Explorateur Stockage Azure [ici](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du fichier d’entrée particulier (blob). Pour créer un jeton SAP, suivez [ces instructions](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). Une fois que vous avez créé la SAP, l’URL complète avec la chaîne de requête ainsi que la chaîne de requête elle-même sont fournies et peuvent être copiées à partir de l’écran.
+Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du fichier d’entrée particulier (blob). Pour créer un jeton SAP, suivez [ces instructions](../storage/blobs/quickstart-storage-explorer.md). Une fois que vous avez créé la SAP, l’URL complète avec la chaîne de requête ainsi que la chaîne de requête elle-même sont fournies et peuvent être copiées à partir de l’écran.
 
  ![Explorateur Stockage, envoi d’une signature d’accès partagé à Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorateur Stockage, envoi d’une signature d’accès partagé à Genomics")
 

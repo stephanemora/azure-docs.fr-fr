@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: f20a401487e402d70f58d475ab5c99ff480ac840
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: b7df43c394d3df20f4d423fde6cf680432c80337
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111987749"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124731478"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wan-sign"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à WAN-Sign
 
@@ -130,11 +130,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans Portail Azure : vous devez être connecté automatiquement à l’instance de WAN-Sign pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette WAN-Sign dans Mes applications, vous êtes automatiquement connecté à l’instance de WAN-Sign pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette WAN-Sign dans Mes applications, vous êtes automatiquement connecté à l’instance de WAN-Sign pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez configuré WAN-Sign, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-

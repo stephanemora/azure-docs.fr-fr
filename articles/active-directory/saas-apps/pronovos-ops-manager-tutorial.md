@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 56e596c940da5ac966d8a94bd3cf639bb76b416a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca388f85d583159ef22adf2211a2456db08c99e7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92516611"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776041"
 ---
 # <a name="tutorial-integrate-pronovos-ops-manager-with-azure-active-directory"></a>Tutoriel : Intégrer ProNovos Ops Manager à Azure Active Directory
 
@@ -132,7 +132,7 @@ Dans cette section, vous créez un utilisateur appelé B.Simon dans ProNovos Ops
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette ProNovos Ops Manager dans le panneau d’accès doit vous connecter automatiquement à l’application ProNovos Ops Manager pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette ProNovos Ops Manager dans le panneau d’accès doit vous connecter automatiquement à l’application ProNovos Ops Manager pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

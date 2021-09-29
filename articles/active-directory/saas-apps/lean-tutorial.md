@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: e1900e84ddc4aecdacfdcddeeb8ffa63593bf5df
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4d4faa8a1e59d8b8c5c49cebab95aecf3db045ec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92458794"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124739126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lean"></a>Tutoriel : Intégration d’Azure Active Directory à Lean
 
@@ -187,7 +187,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Lean. Le
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Lean dans le panneau d’accès doit vous connecter automatiquement à l’application Lean pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Lean dans le panneau d’accès doit vous connecter automatiquement à l’application Lean pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

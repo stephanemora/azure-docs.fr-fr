@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a65ce79252c25d187ed61de3b637182deaf225db
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: df3c243970709ad7ae4bc52f179117affc2d8613
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136343"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776432"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -166,7 +166,7 @@ Dans cet article, vous trouverez les informations nécessaires pour restreindre 
 > [!div class="mx-tableFixed"]
 > | Tâche | Rôle moins privilégié | Autres rôles |
 > | ---- | --------------------- | ---------------- |
-> | Ajouter des ressources à un catalogue | Administrateur Identity Governance | Avec la gestion des droits d’utilisation, vous pouvez déléguer cette tâche au propriétaire du catalogue ([voir la documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)) |
+> | Ajouter des ressources à un catalogue | Administrateur Identity Governance | Avec la gestion des droits d’utilisation, vous pouvez déléguer cette tâche au propriétaire du catalogue ([voir la documentation](../governance/entitlement-management-catalog-create.md#add-more-catalog-owners)) |
 > | Ajouter des sites SharePoint Online au catalogue | Administrateur SharePoint |  |
 
 ## <a name="groups"></a>Groupes

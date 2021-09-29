@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 5a2169db47ca5a6adcddbcc9558161370b896a62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54396b54539bcd352d2643c964a5ecc9e3b9f1f7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95997067"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124752288"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smart-global-governance"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Smart Global Governance
 
@@ -146,7 +146,7 @@ Collaborez avec l’[équipe de support technique Smart Global Governance](mailt
 
 Dans cette section, vous allez tester votre configuration de l’authentification SSO Azure AD à l’aide du volet d’accès.
 
-Le fait de sélectionner la vignette Smart Global Governance dans le panneau d’accès doit vous connecter automatiquement à l’instance Smart Global Governance pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de sélectionner la vignette Smart Global Governance dans le panneau d’accès doit vous connecter automatiquement à l’instance Smart Global Governance pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

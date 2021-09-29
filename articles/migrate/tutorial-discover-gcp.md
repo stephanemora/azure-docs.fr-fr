@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.custom: mvc
-ms.openlocfilehash: 187808cacd40d2be0b122263e4c10672ef90fff3
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ea7c3e1efac5b0710cdcf7e59f496b6c23468194
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412454"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594912"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir des instances GCP (Google Cloud Platform) avec Azure Migrate : découverte et évaluation
 
@@ -185,16 +185,20 @@ Le script du programme d’installation effectue les opérations suivantes :
 Exécutez le script comme suit :
 
 1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un ordinateur d’une appliance Azure Migrate existante.
-2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
-3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
-4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
 
-    - Pour le cloud public : 
+2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
+
+3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
+
+4. Exécutez le script nommé `AzureMigrateInstaller.ps1` via la commande suivante :
+
+   - Pour le cloud public : 
     
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - Pour Azure Government : 
+     `PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1`
+
+   - Pour Azure Government : 
     
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+     `PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1`
 
     Une fois son exécution terminé, le script lance l’application web de l’appliance.
 

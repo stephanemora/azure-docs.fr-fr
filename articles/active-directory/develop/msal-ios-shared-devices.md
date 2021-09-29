@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 3353d87291492563acbd3a85bbae266c711377f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 92d52bcdd990d255a41c151b2312cc2b6494bd45
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611801"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787184"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Mode d’appareil partagé pour les appareils iOS
 
@@ -31,7 +31,7 @@ Le mode Appareil partagé vous permet de configurer un appareil iOS 13 ou ult�
 
 Le mode Appareil partagé permet également de gérer l’appareil à l’aide des identités Microsoft.
 
-Cette fonctionnalité utilise l’[application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) pour gérer les utilisateurs sur l’appareil et distribuer le [plug-in Microsoft Enterprise Single Sign-On pour les appareils Apple](apple-sso-plugin.md).
+Cette fonctionnalité utilise l’[application Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) pour gérer les utilisateurs sur l’appareil et distribuer le [plug-in Microsoft Enterprise Single Sign-On pour les appareils Apple](apple-sso-plugin.md).
 
 ## <a name="create-a-shared-device-mode-app"></a>Créer une application en mode Appareil partagé
 
@@ -41,7 +41,7 @@ Pour créer une application en mode d’appareil partagé, les développeurs et 
 
 1. Les **Administrateurs d’appareils** préparent l’appareil pour qu’il soit partagé à l’aide d’un fournisseur de gestion des périphériques mobiles (GPM) tel que Microsoft Intune pour gérer les appareils de leur organisation. Le GPM envoie (push) l’application Microsoft Authenticator sur les appareils et active le « mode partagé » pour chaque appareil via une mise à jour de profil sur l’appareil. Ce paramètre Mode partagé est ce qui modifie le comportement des applications prises en charge sur l’appareil. Cette configuration à partir du fournisseur GPM définit le mode Appareil partagé pour l’appareil et active le [plug-in Microsoft Enterprise Single Sign-On pour les appareils Apple](apple-sso-plugin.md), qui est requis pour le mode Appareil partagé.
 
-1. [**Requis en Préversion publique uniquement**] Un utilisateur doté du rôle [Administrateur d’appareil cloud](../roles/permissions-reference.md#cloud-device-administrator) doit alors lancer l’[application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) et joindre son appareil à l’organisation.
+1. [**Requis en Préversion publique uniquement**] Un utilisateur doté du rôle [Administrateur d’appareil cloud](../roles/permissions-reference.md#cloud-device-administrator) doit alors lancer l’[application Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) et joindre son appareil à l’organisation.
 
     Pour configurer l’appartenance de vos rôles organisationnels dans le Portail Azure : **Azure Active Directory** > **Rôles et administrateurs** > **Administrateur d’appareil cloud**
 

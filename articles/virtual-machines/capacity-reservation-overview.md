@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: ee14ea525575a49abd4e4026201c3fa39ffa84b9
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: fe50e8db24f0f280365e435d8a205e9b45ac6ccb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273381"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774477"
 ---
 # <a name="on-demand-capacity-reservation-preview"></a>Réservation de capacité à la demande (version préliminaire)
 
@@ -137,7 +137,7 @@ La réservation de capacité ne crée pas de limites sur le nombre de déploieme
 
 Quand une réservation est créée, Azure met de côté le nombre demandé d’instances de capacité à l’emplacement spécifié : 
 
-![Image de réservation de capacité 1.](\media\capacity-reservation-overview\capacity-reservation-1.jpg) 
+![Image de réservation de capacité 1.](./media/capacity-reservation-overview/capacity-reservation-1.jpg) 
 
 Effectuez le suivi de l’état de la réservation globale par le biais des propriétés suivantes :  
 - `capacity` = Quantité totale d’instances réservées par le client 
@@ -148,7 +148,7 @@ L’exemple ci-dessus commence par `capacity` égal à 2 et la longueur de `viru
 
 Lorsqu’une machine virtuelle est ensuite allouée à la réservation de capacité, elle utilise logiquement l’une des instances de capacité de réserve : 
 
-![Image de réservation de capacité 2.](\media\capacity-reservation-overview\capacity-reservation-2.jpg) 
+![Image de réservation de capacité 2.](./media/capacity-reservation-overview/capacity-reservation-2.jpg) 
 
 L’état de la réservation de capacité affiche désormais `capacity` égal à 2 et la longueur de `virutalMachinesAllocated` et de `virtualMachinesAssociated` égal à 1.  
 
@@ -156,23 +156,23 @@ Les allocations par rapport à la réservation de capacité réussissent si les 
 
 À l’aide de notre exemple, lorsqu’une troisième machine virtuelle est allouée à la réservation de capacité, la réservation passe à l’état [surutilisé](capacity-reservation-overallocate.md). Cette troisième machine virtuelle nécessitera un quota inutilisé et une augmentation de la capacité supplémentaire d’Azure. Une fois que la troisième machine virtuelle est allouée, la réservation de capacité se présente désormais comme suit : 
 
-![Image de réservation de capacité 3.](\media\capacity-reservation-overview\capacity-reservation-3.jpg) 
+![Image de réservation de capacité 3.](./media/capacity-reservation-overview/capacity-reservation-3.jpg) 
 
 Le `capacity` est égal à 2 et la longueur de `virutalMachinesAllocated` et `virtualMachinesAssociated` est égale à 3. 
 
 Supposons à présent que l’application s’adapte à la valeur minimale de deux machines virtuelles. Étant donné que la machine virtuelle 0 a besoin d’une mise à jour, elle est choisie pour la désallocation. La réservation passe automatiquement à cet état : 
 
-![Image de réservation de capacité 4.](\media\capacity-reservation-overview\capacity-reservation-4.jpg) 
+![Image de réservation de capacité 4.](./media/capacity-reservation-overview/capacity-reservation-4.jpg) 
 
 Le `capacity` et la longueur de `virtualMachinesAllocated` sont égal à 2. Toutefois, la longueur de `virtualMachinesAssociated` est toujours 3, car la machine virtuelle 0, bien que désallouée, est toujours associée à la réservation de capacité.  
 
 La réservation de capacité existera jusqu’à ce qu’elle soit supprimée explicitement. Pour supprimer une réservation de capacité, la première étape consiste à dissocier toutes les machines virtuelles dans la propriété `virtualMachinesAssociated`. Une fois la désassociation terminée, la réservation de capacité doit se présenter comme suit : 
 
-![Image de réservation de capacité 5.](\media\capacity-reservation-overview\capacity-reservation-5.jpg) 
+![Image de réservation de capacité 5.](./media/capacity-reservation-overview/capacity-reservation-5.jpg) 
 
 L’état de la réservation de capacité affiche désormais `capacity` égal à 2 et la longueur de `virtualMachinesAssociated` et de `virtualMachinesAllocated` égal à 0. À partir de cet état, la réservation de capacité peut être supprimée. Une fois supprimé, vous ne payez plus la réservation.  
 
-![Image de réservation de capacité 6.](\media\capacity-reservation-overview\capacity-reservation-6.jpg)
+![Image de réservation de capacité 6.](./media/capacity-reservation-overview/capacity-reservation-6.jpg)
 
 
 ## <a name="usage-and-billing"></a>Utilisation et facturation 
@@ -183,13 +183,13 @@ Quand une réservation de capacité est vide, l’utilisation de la machine virt
 
 Par exemple, imaginons une réservation de capacité avec la quantité réservée 2 créée. L’abonnement a accès à une instance de machine virtuelle réservée correspondante de la même taille. Le résultat est deux flux d’utilisation pour la réservation de capacité, dont l’un est couvert par l’instance réservée : 
 
-![Image de réservation de capacité 7.](\media\capacity-reservation-overview\capacity-reservation-7.jpg)
+![Image de réservation de capacité 7.](./media/capacity-reservation-overview/capacity-reservation-7.jpg)
 
 Dans l’image ci-dessus, une remise d’instance de machine virtuelle réservée est appliquée à l’une des instances inutilisées et le coût de cette instance est mis à zéro. Pour l’autre instance, le tarif PAYG sera facturé pour la taille de machine virtuelle réservée.  
 
 Lorsqu’une machine virtuelle est allouée à la réservation de capacité, les autres composants de machine virtuelle tels que les disques, le réseau, les extensions et tout autre composant requis doivent également être alloués. Dans cet état, l’utilisation de la machine virtuelle reflète une machine virtuelle allouée et une instance de capacité inutilisée. L’instance de machine virtuelle réservée met à zéro le coût de la machine virtuelle ou de l’instance de la capacité inutilisée. Les autres frais liés aux disques, à la mise en réseau et aux autres composants associés à la machine virtuelle allouée s’affichent également sur la facture. 
 
-![Image de réservation de capacité 8.](\media\capacity-reservation-overview\capacity-reservation-8.jpg)
+![Image de réservation de capacité 8.](./media/capacity-reservation-overview/capacity-reservation-8.jpg)
 
 Dans l’image ci-dessus, la remise d’instance réservée de machine virtuelle est appliquée à la machine virtuelle 0, qui est facturée uniquement pour les autres composants tels que le disque et la mise en réseau. L’autre instance inutilisée est facturée au tarif PAYG pour la taille de machine virtuelle réservée.
 

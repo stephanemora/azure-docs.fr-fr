@@ -7,12 +7,12 @@ ms.subservice: process-automation
 ms.date: 08/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 78b188b270ec08aa546311b449f908d47313a9a1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5a86a5c8c0922e0861411e93376047344ba6c5af
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524371"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789101"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Vue d’ensemble de l’authentification de compte Azure Automation
 
@@ -24,7 +24,7 @@ Cet article couvre différents scénarios d’authentification pris en charge pa
 
 Lorsque vous démarrez Azure Automation pour la première fois, vous devez créer au moins un compte Automation. Les comptes Automation vous permettent d’isoler vos ressources, runbooks, et configurations Automation des ressources d’autres comptes. Vous pouvez utiliser des comptes Automation pour séparer les ressources dans des environnements logiques distincts ou dans des responsabilités déléguées. Par exemple, vous pouvez utiliser un compte pour le développement, un autre pour la production et un autre pour l’environnement local. Vous pouvez également dédier un compte Automation à la gestion des mises à jour du système d’exploitation sur l’ensemble de vos ordinateurs grâce à [Update Management](update-management/overview.md). 
 
-Un compte Azure Automation est différent de votre compte Microsoft ou des comptes créés dans votre abonnement Azure. Pour obtenir une présentation de la création d’un compte Automation, consultez [Créer un compte Automation](automation-quickstart-create-account.md).
+Un compte Azure Automation est différent de votre compte Microsoft ou des comptes créés dans votre abonnement Azure. Pour obtenir une présentation de la création d’un compte Automation, consultez [Créer un compte Automation](./quickstarts/create-account-portal.md).
 
 ## <a name="automation-resources"></a>Ressources Automation
 

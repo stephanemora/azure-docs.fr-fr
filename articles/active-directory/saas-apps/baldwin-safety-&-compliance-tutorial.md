@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 9fda314b5cd25f4e806d1ed552fbef24ae54ffa6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 391153bf48b097f314ead1e05f53c14019e80be8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033012"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759583"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-baldwin-safety-and-compliance"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Baldwin Safety and Compliance
 
@@ -125,7 +125,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Dans le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance Baldwin Safety and Compliance pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Baldwin Safety and Compliance dans Mes applications, vous êtes automatiquement connecté à l’instance de Baldwin Safety and Compliance pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Baldwin Safety and Compliance dans Mes applications, vous êtes automatiquement connecté à l’instance de Baldwin Safety and Compliance pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa8f116680b3876eebb2b96a4f4c5e40d6384a2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1a03b30c1e2628342246430089e3c6fbb47c98a7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524431"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754338"
 ---
 # <a name="azure-active-directory-security-operations-guide-for-applications"></a>Guide sur les opérations de sécurité Azure Active Directory pour les applications
 
@@ -72,7 +72,7 @@ Les fichiers journaux que vous pouvez utiliser pour investiguer et superviser so
 
 * [Journaux de connexion](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Journaux d’audit Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Journaux d’audit Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Journaux Azure Key Vault](../../key-vault/general/logging.md)
 
@@ -162,7 +162,7 @@ Pour plus d’informations sur les opérations de consentement, reportez-vous au
 
 * [Gestion du consentement pour les applications et évaluation des demandes de consentement dans Azure Active Directory](../manage-apps/manage-consent-requests.md)
 
-* [Détecter et corriger les octrois de consentement illicites - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants?view=o365-worldwide)
+* [Détecter et corriger les octrois de consentement illicites - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)
 
 * [Guide opérationnel sur les réponses aux incidents - Investigation d’octroi de consentement d’application](/security/compass/incident-response-playbook-app-consent)
 

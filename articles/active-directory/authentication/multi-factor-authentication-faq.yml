@@ -12,12 +12,12 @@ metadata:
   manager: daveba
   ms.reviewer: michmcla
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 93a4f7b6b58262ce71cfc40492ffc444d15ccc0c
-  ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+  ms.openlocfilehash: 101eec41e463be264f51015c9672b60bd52e0d40
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/30/2021
-  ms.locfileid: "111907196"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124787392"
 title: Forum aux questions sur Azure AD Multi-Factor Authentication
 summary: >
   Ce forum aux questions répond aux questions courantes sur Azure AD Multi-Factor Authentication et sur l'utilisation du service Multi-Factor Authentication. Il est divisé en questions relatives au service en général, aux modèles de facturation, aux expériences utilisateur et au dépannage.
@@ -170,7 +170,7 @@ sections:
       Si les étapes ci-dessus ne fonctionnent pas, vérifiez si les utilisateurs sont configurés pour plusieurs méthodes de vérification. Essayez de vous reconnecter, mais sélectionnez une autre méthode de vérification sur la page de connexion.
 
 
-      Pour plus d’informations, consultez le [Guide de dépannage de l'utilisateur final](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
+      Pour plus d’informations, consultez le [Guide de dépannage de l'utilisateur final](https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5).
   - question: >
       Que faire si un de mes utilisateurs ne peut pas accéder à son compte ?
     answer: >
@@ -182,7 +182,7 @@ sections:
   - question: >
       Que se passe-t-il si un utilisateur ne peut pas se connecter à des applications sans navigateur ?
     answer: >
-      Si votre organisation utilise encore des clients hérités et si vous [avez autorisé l’utilisation de mots de passe d’application](howto-mfa-app-passwords.md), vos utilisateurs ne peuvent pas se connecter à ces clients hérités avec leur nom d’utilisateur et leur mot de passe. Au lieu de cela, ils doivent [configurer des mots de passe d’application](../user-help/multi-factor-authentication-end-user-app-passwords.md). Vos utilisateurs doivent effacer (supprimer) leurs informations de connexion, redémarrer l’application, puis se connecter avec leur nom d’utilisateur et leur *mot de passe d’application* au lieu de leur mot de passe standard.
+      Si votre organisation utilise encore des clients hérités et si vous [avez autorisé l’utilisation de mots de passe d’application](howto-mfa-app-passwords.md), vos utilisateurs ne peuvent pas se connecter à ces clients hérités avec leur nom d’utilisateur et leur mot de passe. Au lieu de cela, ils doivent [configurer des mots de passe d’application](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9). Vos utilisateurs doivent effacer (supprimer) leurs informations de connexion, redémarrer l’application, puis se connecter avec leur nom d’utilisateur et leur *mot de passe d’application* au lieu de leur mot de passe standard.
 
 
       Si votre organisation ne comporte pas de clients hérités, vous ne devez pas autoriser vos utilisateurs à créer de mots de passe d’application.

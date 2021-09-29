@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 32150fb4cce76d5a2537c5ec969f265e0d8aae20
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 170c115e56232b334527d92623c87bacd377f5aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816185"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659839"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Démarrage rapide : Définir et récupérer un certificat dans Azure Key Vault avec Azure PowerShell
 
@@ -52,7 +52,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-Vous pouvez maintenant référencer ce certificat que vous avez ajouté à Azure Key Vault à l’aide de son URI. Utilisez **"https://<nom_unique_de_votre_coffre_de_clés>.vault.azure.net/certificates/ExampleCertificate"** pour obtenir la version actuelle. 
+Vous pouvez maintenant référencer ce certificat que vous avez ajouté à Azure Key Vault à l’aide de son URI. Utilisez **`https://<your-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate`** pour obtenir la version actuelle. 
 
 Pour voir le certificat stocké précédemment :
 

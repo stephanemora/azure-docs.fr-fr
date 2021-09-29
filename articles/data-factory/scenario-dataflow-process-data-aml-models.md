@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 1/31/2021
 ms.author: amberz
 ms.co-author: Donnana
-ms.openlocfilehash: a652ac797739323530dee169987a135c8abdf0f8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 084e4c0fa3ecf94685e1789273764c548c07147a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641309"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730779"
 ---
 # <a name="process-data-from-automated-machine-learning-models-by-using-data-flows"></a>Traiter des données à partir de modèles Machine Learning automatisé à l’aide de flux de données
 
@@ -71,19 +71,19 @@ Supposons que nous devions supprimer un nombre de lignes inférieur à deux.
 
 1. Utilisez l’activité Agréger pour obtenir le nombre de lignes. Utilisez **Regroupé par** basé sur Col2 et **Agrégats** avec `count(1)` pour le nombre de lignes.
 
-    ![Capture d’écran montrant la configuration de l’activité Agréger pour obtenir le nombre de lignes.](./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png" alt-text="Capture d’écran montrant la configuration de l’activité Agréger pour obtenir le nombre de lignes.":::
 
 1. À l’aide de l’activité de récepteur, sélectionnez le **Type de récepteur** comme **Cache** sous l’onglet **Récepteur**. Sélectionnez ensuite la colonne souhaitée dans la liste déroulante **Colonnes clés** de l’onglet **Paramètres**.
 
-    ![Capture d’écran montrant la configuration de l’activité CacheSink pour obtenir le nombre de lignes d’un récepteur mis en cache.](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png" alt-text="Capture d’écran montrant la configuration de l’activité CacheSink pour obtenir le nombre de lignes d’un récepteur mis en cache.":::
 
 1. Utilisez l’activité Colonne dérivée pour ajouter une colonne du nombre de lignes dans le flux source. Dans l’onglet **Paramètres de la colonne dérivée** , utilisez l'expression `CacheSink#lookup` pour obtenir le nombre de lignes de CacheSink.
 
-    ![Capture d’écran montrant la configuration de l’activité Colonne dérivée pour ajouter le nombre de lignes dans source1.](./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png" alt-text="Capture d’écran montrant la configuration de l’activité Colonne dérivée pour ajouter le nombre de lignes dans source1.":::
 
 1. Utilisez l’activité Fractionnement conditionnel pour supprimer les données non qualifiées. Dans cet exemple, le nombre de lignes est basé sur la colonne Col2. La condition est de supprimer un nombre de lignes inférieur à deux. Deux lignes (ID=2 et ID=7) seront ainsi supprimées. Vous pouvez enregistrer des données non qualifiées dans un stockage d’objets BLOB pour la gestion des données.
 
-    ![Capture d’écran montrant la configuration de l’activité Fractionnement conditionnel pour récupérer des données supérieures ou égales à deux.](./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png" alt-text="Capture d’écran montrant la configuration de l’activité Fractionnement conditionnel pour récupérer des données supérieures ou égales à deux.":::
 
 > [!NOTE]
 >    * Créez une nouvelle source pour obtenir le nombre de lignes qui sera utilisé dans la source d’origine dans des étapes ultérieures.
@@ -95,21 +95,21 @@ Nous voulons fractionner les données d’apprentissage et les données de test 
 
 1. Utilisez l’activité Fenêtre pour ajouter un numéro de ligne de colonne pour chaque partition. Sous l’onglet **Au-dessus de**, sélectionnez une colonne de partition. Dans ce tutoriel, nous allons partitionner pour Col2. Indiquez un ordre dans l’onglet **Trier** qui, dans ce tutoriel, sera basé sur l’ID. Indiquez un ordre dans l’onglet **Colonnes de fenêtre** pour ajouter une colonne de nombre de lignes pour chaque partition.
 
-    ![Capture d’écran montrant la configuration de l’activité Fenêtre pour ajouter une nouvelle colonne de nombre de lignes.](./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png" alt-text="Capture d’écran montrant la configuration de l’activité Fenêtre pour ajouter une nouvelle colonne de nombre de lignes.":::
 
 1. Utilisez l’activité Fractionnement conditionnel pour fractionner les deux premières lignes de chaque partition dans le jeu de données de test et les lignes restantes dans le jeu de données d’apprentissage. Dans l’onglet **Paramètres de fractionnement conditionnel**, utilisez l’expression `lesserOrEqual(RowNum,2)` comme condition.
 
-    ![Capture d’écran montrant la configuration de l’activité Fractionnement conditionnel pour fractionner le jeu de données actuel entre le jeu de données d’apprentissage et le jeu de données de test.](./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png" alt-text="Capture d’écran montrant la configuration de l’activité Fractionnement conditionnel pour fractionner le jeu de données actuel entre le jeu de données d’apprentissage et le jeu de données de test.":::
 
 ## <a name="partition-the-training-and-test-datasets-with-parquet-format"></a>Partitionner les jeux de données d’apprentissage et de test avec le format Parquet
 
 À l’aide de l’activité Récepteur, sous l’onglet **Optimiser**, utilisez **Valeur unique par partition** pour définir une colonne comme clé de colonne pour la partition.
 
-![Capture d’écran montrant la configuration de l’activité Récepteur pour définir la partition du jeu de données d’apprentissage.](./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png)
+:::image type="content" source="./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png" alt-text="Capture d’écran montrant la configuration de l’activité Récepteur pour définir la partition du jeu de données d’apprentissage.":::
 
 Revenons sur toute la logique du pipeline.
 
-![Capture d’écran qui montre la logique de l’ensemble du pipeline.](./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png)
+:::image type="content" source="./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png" alt-text="Capture d’écran qui montre la logique de l’ensemble du pipeline.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

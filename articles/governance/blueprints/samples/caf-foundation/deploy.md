@@ -3,12 +3,12 @@ title: Déployer un exemple de blueprint de base de CAF
 description: Étapes de déploiement pour l’exemple de blueprint de base du framework d’adoption du cloud, incluant des informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: 281bd0fdae5aa144799499d583b5673a569612b1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: daa3d4a2c8f8abec3754680ddf9fb6115f88bf6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757868"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678229"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Déployer l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure
 
@@ -106,7 +106,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Références SKU de machine virtuelle autorisées|Affectation de rôle|Policy_Allowed-VM-SKUs|Références SKU de machine virtuelle autorisées|
 |Ajouter la balise CostCenter aux groupes de ressources|Affectation de rôle|Policy_CostCenter_Tag|Ajouter la balise CostCenter et sa valeur à partir du groupe de ressources|
 |Types de ressources que vous ne souhaitez pas autoriser dans votre environnement|Affectation de rôle|Policy _Allowed-Resource-Types|Ressources Azure que vous souhaitez autoriser dans votre environnement|
-|Déployer Key Vault|Modèle Resource Manager|KV-AccessPolicy|**Verrouillé** : <Object ID> d’utilisateur ou de groupe Azure AD auquel accorder des autorisations dans Key Vault|
+|Déployer Key Vault|Modèle Resource Manager|KV-AccessPolicy|**Verrouillé** : \<Object ID\> d’utilisateur ou de groupe Azure AD auquel accorder des autorisations dans Key Vault|
 |Déployer Log Analytics|Modèle Resource Manager|LogAnalytics_DataRetention|**Verrouillé** : nombre de jours pendant lesquels les données sont conservées dans Log Analytics|
 |Déployer Log Analytics|Modèle Resource Manager|LogAnalytics_Location|**Verrouillé** : région utilisée lors de l’établissement de l’espace de travail|
 

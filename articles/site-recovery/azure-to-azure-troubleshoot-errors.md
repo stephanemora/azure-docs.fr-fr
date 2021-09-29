@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 6d61a44e671c43754fa7cccbe8ea8fe54eeba387
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: faee5c872b70f55011c6213a04e14c6f69bcc8df
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97900414"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730457"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Résoudre les erreurs rencontrées lors de la réplication de machines virtuelles Azure vers Azure
 
@@ -36,7 +36,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### <a name="fix-the-problem"></a>Résoudre le problème
 
-Contactez le [support de facturation Azure](../azure-portal/supportability/resource-manager-core-quotas-request.md) pour activer votre abonnement et créer des machines virtuelles des tailles nécessaires dans l’emplacement cible. Retentez alors l’opération ayant échouée.
+Contactez le [support de facturation Azure](../azure-portal/supportability/regional-quota-requests.md) pour activer votre abonnement et créer des machines virtuelles des tailles nécessaires dans l’emplacement cible. Retentez alors l’opération ayant échouée.
 
 Si l’emplacement cible a une contrainte de capacité, désactivez la réplication sur cet emplacement. Activez ensuite la réplication sur un autre emplacement où votre abonnement dispose d’un quota suffisant pour créer des machines virtuelles des tailles nécessaires.
 

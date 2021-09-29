@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: jeedes
-ms.openlocfilehash: f6d69d20684433cf8df8b121734458bacefda3b8
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 0b00f99f8fe116fa0e19946464b6c7fad144aab1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206832"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124745425"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Didacticiel : Intégration d’Azure Active Directory avec Workfront
 
@@ -168,7 +168,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Workfront pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Workfront dans Mes applications vous redirige vers l’URL de connexion à Workfront. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Workfront dans Mes applications vous redirige vers l’URL de connexion à Workfront. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

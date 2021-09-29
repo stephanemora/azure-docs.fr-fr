@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f2f3a3c561b2fe82dcbeaaee1138c0d465ac6a4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a38361355c48021b6145552071593056a2a3caa6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524652"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759735"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Activer la connexion sans mot de passe avec l’application Microsoft Authenticator 
 
@@ -83,7 +83,7 @@ Les utilisateurs s’inscrivent à la méthode d’authentification sans mot de 
 1. Dans **Microsoft Authenticator**, choisissez **Activer la connexion par téléphone** dans le menu déroulant du compte inscrit.
 1. Suivez les instructions de l’application pour terminer de vous inscrire à la connexion sans mot de passe.
 
-Une organisation peut demander à ses utilisateurs de se connecter avec leur téléphone, sans utiliser de mot de passe. Pour plus d’informations sur la configuration de l’application Microsoft Authenticator et sur l’activation de la connexion par téléphone, consultez [Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md).
+Une organisation peut demander à ses utilisateurs de se connecter avec leur téléphone, sans utiliser de mot de passe. Pour plus d’informations sur la configuration de l’application Microsoft Authenticator et sur l’activation de la connexion par téléphone, consultez [Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c).
 
 > [!NOTE]
 > Les utilisateurs que la stratégie n’autorise pas à utiliser la connexion par téléphone ne sont plus en mesure de l’activer dans l’application Microsoft Authenticator.

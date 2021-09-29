@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 6eced120a05ddaca8d8cf426fd2a977891b3e36b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d89cf3609094df30ea9936a96ebbde815163096a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95997135"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124752441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Didacticiel : intégration d’Azure Active Directory avec Small Improvements
 
@@ -235,7 +235,7 @@ Pour se connecter à Small Improvements, les utilisateurs d’Azure AD doivent �
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Small Improvements dans le volet d’accès, vous devez être connecté automatiquement à l’application Small Improvements pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Small Improvements dans le volet d’accès, vous devez être connecté automatiquement à l’application Small Improvements pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

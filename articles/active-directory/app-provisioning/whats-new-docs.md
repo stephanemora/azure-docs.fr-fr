@@ -1,7 +1,7 @@
 ---
 title: Nouveautés en matière d'approvisionnement des applications Azure Active Directory
 description: Approvisionnement des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,25 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: mtillman
-ms.openlocfilehash: 23d3c074ee1a4cb07b4770b27ee1ead145bae28a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1cd99265954671084b37bcf0f11606a1e334223e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562462"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759792"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Approvisionnement des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à l'approvisionnement des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière d'approvisionnement, consultez [Nouveautés d'Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="august-2021"></a>Août 2021
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](functions-for-customizing-application-data.md)
+- [Problèmes et solutions connus relatifs à la conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD](application-provisioning-config-problem-scim-compatibility.md)
+- [Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory](customize-application-attributes.md)
+
 
 ## <a name="july-2021"></a>Juillet 2021
 

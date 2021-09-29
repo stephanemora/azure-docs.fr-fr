@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b0295c994a736e26d7b581bd13b6167819833360
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8acfbdba72eaaee65e7421f503462c6346776384
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748706"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786538"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Application de bureau qui appelle des API web : Inscription d'application
 
@@ -53,7 +53,7 @@ Spécifiez l’URI de redirection de votre application en [configurant les param
 - Si vous générez une application Objective-C ou Swift native pour macOS, enregistrez l’URI de redirection en fonction de l’identificateur de bundle de votre application, au format suivant : `msauth.<your.app.bundle.id>://auth`. Remplacez `<your.app.bundle.id>` par l’identificateur de bundle de votre application.
 - Si vous générez une application Node.js Electron, utilisez un protocole de fichier personnalisé au lieu d’un URI de redirection web ordinaire (https://) afin de gérer l’étape de redirection du flux d’autorisation, par exemple `msal://redirect`. Le nom du protocole de fichier personnalisé ne doit pas être simple à deviner et doit suivre les suggestions de la [spécification OAuth 2.0 pour les applications natives](https://tools.ietf.org/html/rfc8252#section-7.1).
 - Si votre application n’utilise que l’authentification Windows intégrée ou un mot de passe et un nom d’utilisateur, vous n’avez pas besoin d’inscrire d’URI de redirection pour votre application. Ces flux effectuent un aller-retour vers le point de terminaison de la plateforme d’identités Microsoft v2.0. Votre application ne sera pas rappelée sur un URI spécifique.
-- Pour différencier le [flux de code d’appareil](scenario-desktop-acquire-token.md#device-code-flow), l’[authentification Windows intégrée](scenario-desktop-acquire-token.md#integrated-windows-authentication) et un [mot de passe associé à un nom d’utilisateur](scenario-desktop-acquire-token.md#username-and-password) d’une application cliente confidentielle à l’aide d’un flux d’informations d’identification client utilisé dans des [applications démon](scenario-daemon-overview.md), dont aucune ne requiert d’URI de redirection, configurez-la en tant qu’application cliente publique. Pour obtenir cette configuration :
+- Pour différencier le [flux de code d’appareil](scenario-desktop-acquire-token-device-code-flow.md), l’[authentification Windows intégrée](scenario-desktop-acquire-token-integrated-windows-authentication.md) et un [mot de passe associé à un nom d’utilisateur](scenario-desktop-acquire-token-username-password.md) d’une application cliente confidentielle à l’aide d’un flux d’informations d’identification client utilisé dans des [applications démon](scenario-daemon-overview.md), dont aucune ne requiert d’URI de redirection, configurez-la en tant qu’application cliente publique. Pour obtenir cette configuration :
 
     1. Dans le <a href="https://portal.azure.com/" target="_blank">portail Azure</a>, sélectionnez votre application dans **Inscriptions d’applications**, puis sélectionnez **Authentification**.
     1. Dans **Paramètres avancés** > **Autoriser les flux de clients publics** > **Activer les flux mobiles et de bureau suivants**, sélectionnez **Oui**.

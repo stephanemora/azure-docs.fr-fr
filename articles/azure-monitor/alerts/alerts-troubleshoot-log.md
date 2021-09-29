@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f7e5340b69bacb14180b4feee7ada22c7ca298d0
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: aafd6f2e0d5c10b1e3e1698176734a83083ef72d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592702"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744509"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertes de journal de résolution de problèmes dans Azure Monitor  
 
@@ -156,7 +156,7 @@ Le nombre total de règles d’alerte de Recherche dans les journaux s’affiche
 
 ## <a name="activity-log-example-when-rule-is-disabled"></a>Exemple de journal d’activité lorsque la règle est désactivée
 
-Si la requête échoue pendant sept jours consécutifs, Azure Monitor désactive l’alerte de journal et arrête la facturation de la règle. Vous pouvez voir l’heure exacte à laquelle Azure Monitor a désactivé l’alerte de journal dans le [journal d’activité Azure](../../azure-resource-manager/management/view-activity-logs.md). 
+Si la requête échoue pendant sept jours consécutifs, Azure Monitor désactive l’alerte de journal et arrête la facturation de la règle. Vous pouvez voir l’heure exacte à laquelle Azure Monitor a désactivé l’alerte de journal dans le [journal d’activité Azure](../../azure-monitor/essentials/activity-log.md). 
 
 Consultez l’exemple suivant :
 

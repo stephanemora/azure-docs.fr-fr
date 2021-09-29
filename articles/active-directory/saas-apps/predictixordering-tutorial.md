@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: f48f7cf9507afae31e3c36aef517aab7b7d77ccf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7408e5203d0b2bc05895ae8ba0403ab9718d1fb9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92515370"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789804"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutoriel : Intégration d’Azure Active Directory à Predictix Ordering
 
@@ -190,7 +190,7 @@ Ensuite, vous devez créer un utilisateur nommé Britta Simon dans Predictix Ord
 
 Vous devez maintenant tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous sélectionnez la vignette Predictix Ordering dans le volet d’accès, vous devez être connecté automatiquement à l’instance de Predictix Ordering pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Accéder aux applications du portail Mes applications et les utiliser](../user-help/my-apps-portal-end-user-access.md).
+Quand vous sélectionnez la vignette Predictix Ordering dans le volet d’accès, vous devez être connecté automatiquement à l’instance de Predictix Ordering pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Accéder aux applications du portail Mes applications et les utiliser](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

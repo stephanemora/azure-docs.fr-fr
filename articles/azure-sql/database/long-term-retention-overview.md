@@ -12,12 +12,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
 ms.date: 07/13/2021
-ms.openlocfilehash: 13e522b45673723a33b8739ccefafa4a8410910a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e5e980878091145770f98cff952374e76f08180d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525316"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775642"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Conservation à long terme – Azure SQL Database et Azure SQL Managed Instance
 
@@ -88,8 +88,6 @@ Vous pouvez configurer la conservation des sauvegardes à long terme à l’aide
 Pour apprendre à configurer la conservation à long terme ou à restaurer une base de données à partir d’une sauvegarde pour SQL Database à l’aide du Portail Azure ou de PowerShell, consultez [Gérer la conservation à long terme des sauvegardes Azure SQL Database](long-term-backup-retention-configure.md).
 
 Pour savoir comment configurer la conservation à long terme ou restaurer une base de données à partir d’une sauvegarde pour Azure SQL Managed Instance à l’aide du portail Azure ou de PowerShell, consultez [Gérer la conservation à long terme des sauvegardes Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md).
-
-Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage. Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. Pour apprendre à restaurer votre base de données à partir d’une sauvegarde LTR à l’aide du Portail Azure ou de PowerShell, consultez [Gérer la rétention à long terme des sauvegardes Azure SQL Database](long-term-backup-retention-configure.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

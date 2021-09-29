@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 42b25599bfd1ef40f8bb0bc1a954677f68dbf668
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 1c134fa24914ffc1cc2d51389cf6840986a74c58
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862881"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128661559"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Démarrage rapide : Utiliser le portail Azure pour créer un serveur flexible Azure Database pour MySQL
 
@@ -24,7 +24,9 @@ Le serveur flexible Azure Database pour MySQL est un service managé qui vous pe
 > [!IMPORTANT]
 > Le serveur flexible Azure Database pour MySQL est actuellement en préversion publique.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
+
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 Accédez au [portail Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
@@ -57,7 +59,7 @@ Pour créer un serveur flexible, procédez comme suit :
     Region|La région la plus proche de vos utilisateurs| L’emplacement géographique le plus proche de vos utilisateurs.|
     Type de charge de travail| Développement | Pour une charge de travail de production, vous pouvez choisir Petite/moyenne taille ou Grande taille en fonction des exigences de [max_connections](concepts-server-parameters.md#max_connections).|
     Zone de disponibilité| Aucune préférence | Si votre application exécutée sur des machines virtuelles Azure, dans des groupes de machines virtuelles identiques ou sur une instance d'AKS est approvisionnée dans une zone de disponibilité spécifique, vous pouvez spécifier votre serveur flexible dans la même zone de disponibilité afin de colocaliser l'application et la base de données de manière à améliorer les performances en réduisant la latence du réseau entre les zones.|
-    Haute disponibilité| Désactivé | Pour les serveurs de production, choisissez entre [haute disponibilité d’une zone redondante](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-high-availability#zone-redundant-high-availability) et [haute disponibilité dans la même zone](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-high-availability#same-zone-high-availability). Cela est fortement recommandé pour la continuité des activités et la protection contre les défaillances de machines virtuelles|
+    Haute disponibilité| Désactivé | Pour les serveurs de production, choisissez entre [haute disponibilité d’une zone redondante](concepts-high-availability.md#zone-redundant-ha-architecture) et [haute disponibilité dans la même zone](concepts-high-availability.md#same-zone-ha-architecture). Cela est fortement recommandé pour la continuité des activités et la protection contre les défaillances de machines virtuelles|
     |Zone de disponibilité en attente| Aucune préférence| Choisissez l’emplacement de la zone du serveur de secours et colocalisez-le avec le serveur de secours de l’application en cas de défaillance de la zone |
     Version de MySQL|**5.7**| Version principale MySQL.|
     Nom d’utilisateur administrateur |**mydemouser**| Votre compte de connexion à utiliser lorsque vous vous connectez au serveur. Le nom d’utilisateur administrateur ne peut pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.|
@@ -132,7 +134,7 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl
 
 Si le message d’erreur suivant s’affiche lors de la connexion à votre serveur flexible à la suite de la commande précédente, c’est que vous n’avez pas défini la règle de pare-feu en utilisant l’option « Autoriser l’accès public à partir de n’importe quel service Azure dans Azure à ce serveur » mentionnée précédemment ou que cette option n’est pas enregistrée. Reconfigurez le pare-feu, puis réessayez.
 
-ERREUR 2002 (HY000) : Connexion impossible au serveur MySQL sur <servername> (115)
+ERREUR 2002 (HY000) : Connexion impossible au serveur MySQL sur \<servername\> (115)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Vous venez de créer un serveur flexible Azure Database pour MySQL dans un groupe de ressources. Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, vous pouvez les supprimer en supprimant le groupe de ressources ou en supprimant simplement le serveur MySQL. Pour supprimer le groupe de ressources, effectuez ces étapes :

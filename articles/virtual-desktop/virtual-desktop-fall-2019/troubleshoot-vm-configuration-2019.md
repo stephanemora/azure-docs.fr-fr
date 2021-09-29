@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c662338a29ef30abf1a0da77edad25d4f5896cd3
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f867ad9d55f5e5dbaac7962dd8e4ae4daeafee6f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028070"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776839"
 ---
 # <a name="azure-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Configuration de machines virtuelles hôte de session Azure Virtual Desktop (classique)
 
@@ -359,5 +359,5 @@ Pour en savoir plus sur cette stratégie, consultez [Autoriser l’ouverture de 
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Azure Virtual Desktop, consultez [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
 - Pour plus d’informations sur le service, consultez [Environnement Azure Virtual Desktop](environment-setup-2019.md).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../../azure-monitor/essentials/activity-log.md).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../../azure-resource-manager/templates/deployment-history.md).

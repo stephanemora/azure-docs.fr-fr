@@ -1,8 +1,8 @@
 ---
 title: 'Démarrage rapide : Bibliothèque Stockage Blob Azure v12 - Python'
 description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure version 12 pour Python afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 01/28/2021
 ms.topic: quickstart
 ms.service: storage
@@ -10,12 +10,12 @@ ms.subservice: blobs
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: d560dfc8d8621e94315d8603a9d6e8b3b8cbf09a
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: fdb5e14d57e2e8f9fa4bcf0cba5d54dba253e935
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123468111"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587553"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Démarrage rapide : Gérer des objets blob avec le SDK Python v12
 
@@ -23,10 +23,10 @@ Dans ce guide de démarrage rapide, vous découvrez comment gérer des objets bl
 
 Autres ressources :
 
-* [Documentation de référence de l’API](/python/api/azure-storage-blob)
-* [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
-* [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/)
-* [Exemples](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [Documentation de référence de l’API](/python/api/azure-storage-blob)
+- [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
+- [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/)
+- [Exemples](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -90,9 +90,9 @@ Cette commande installe le package de la bibliothèque cliente Stockage Blob Azu
 
 Stockage Blob Azure est optimisé pour stocker des quantités massives de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires. Le stockage Blob offre trois types de ressources :
 
-* Le compte de stockage
-* Un conteneur dans le compte de stockage.
-* Un blob dans le conteneur
+- Le compte de stockage
+- Un conteneur dans le compte de stockage.
+- Un blob dans le conteneur
 
 Le diagramme suivant montre la relation entre ces ressources.
 
@@ -100,20 +100,20 @@ Le diagramme suivant montre la relation entre ces ressources.
 
 Utilisez les classes Python suivantes pour interagir avec ces ressources :
 
-* [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient): La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs blob.
-* [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) : La classe `ContainerClient` vous permet de manipuler des conteneurs de stockage Azure et leurs blobs.
-* [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) : La classe `BlobClient` vous permet de manipuler des blobs de stockage Azure.
+- [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient): La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs blob.
+- [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) : La classe `ContainerClient` vous permet de manipuler des conteneurs de stockage Azure et leurs blobs.
+- [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) : La classe `BlobClient` vous permet de manipuler des blobs de stockage Azure.
 
 ## <a name="code-examples"></a>Exemples de code
 
 Ces exemples d’extraits de code vous montrent comment effectuer les tâches suivantes avec la bibliothèque cliente Stockage Blob Azure pour Python :
 
-* [Obtenir la chaîne de connexion](#get-the-connection-string)
-* [Créer un conteneur](#create-a-container)
-* [Charger des objets blob sur un conteneur](#upload-blobs-to-a-container)
-* [Lister les objets blob d’un conteneur](#list-the-blobs-in-a-container)
-* [Télécharger des objets blob](#download-blobs)
-* [Supprimer un conteneur](#delete-a-container)
+- [Obtenir la chaîne de connexion](#get-the-connection-string)
+- [Créer un conteneur](#create-a-container)
+- [Charger des objets blob sur un conteneur](#upload-blobs-to-a-container)
+- [Lister les objets blob d’un conteneur](#list-the-blobs-in-a-container)
+- [Télécharger des objets blob](#download-blobs)
+- [Supprimer un conteneur](#delete-a-container)
 
 ### <a name="get-the-connection-string"></a>Obtenir la chaîne de connexion
 
@@ -219,5 +219,5 @@ Pour afficher des exemples d’applications de stockage blob, passez à :
 > [!div class="nextstepaction"]
 > [Exemples Python du SDK Stockage Blob Azure v12](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* Pour plus d’informations, consultez les [bibliothèques de client Stockage Azure pour Python](/azure/developer/python/sdk/storage/overview).
-* Pour des tutoriels, des exemples, des guides de démarrage rapide et autre documentation, visitez [Azure pour les développeurs Python](/azure/python/).
+- Pour plus d’informations, consultez les [bibliothèques de client Stockage Azure pour Python](/azure/developer/python/sdk/storage/overview).
+- Pour des tutoriels, des exemples, des guides de démarrage rapide et autre documentation, visitez [Azure pour les développeurs Python](/azure/python/).

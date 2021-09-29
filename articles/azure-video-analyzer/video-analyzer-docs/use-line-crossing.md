@@ -3,12 +3,12 @@ title: Détecter quand des objets franchissent une ligne virtuelle dans une vid�
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Video Analyzer pour détecter quand des objets franchissent une ligne dans un flux vidéo en direct d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.date: 06/01/2021
-ms.openlocfilehash: 7257562626b17c8f61479eb1ba4d51fea52d3c91
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 27f14c8257d11956d0cacb3efddfb6a00ba239f6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185954"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630183"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>Tutoriel : Détecter quand des objets franchissent une ligne virtuelle dans une vidéo en direct
 
@@ -253,7 +253,7 @@ Dans ce message, notez les informations suivantes :
 * `direction` contient la direction de cet événement.
 
 > [!NOTE] 
-> Si vous avez déployé des ressources Azure à l’aide du déploiement en un clic pour ce tutoriel, une machine virtuelle Standard DS1 est créée. Toutefois, pour obtenir des résultats précis à partir de modèles AI consommant beaucoup de ressources comme YOLO, il peut être nécessaire d’augmenter la taille de la machine virtuelle. [Redimensionnez la machine virtuelle](../../virtual-machines/windows/resize-vm.md) pour augmenter le nombre de processeurs virtuels et la mémoire en fonction de vos besoins. Réactivez ensuite le pipeline en direct pour afficher les inférences.
+> Si vous avez déployé des ressources Azure à l’aide du déploiement en un clic pour ce tutoriel, une machine virtuelle Standard DS1 est créée. Toutefois, pour obtenir des résultats précis à partir de modèles AI consommant beaucoup de ressources comme YOLO, il peut être nécessaire d’augmenter la taille de la machine virtuelle. [Redimensionnez la machine virtuelle](../../virtual-machines/resize-vm.md) pour augmenter le nombre de processeurs virtuels et la mémoire en fonction de vos besoins. Réactivez ensuite le pipeline en direct pour afficher les inférences.
 
 ## <a name="customize-for-your-own-environment"></a>Personnaliser pour votre propre environnement
 

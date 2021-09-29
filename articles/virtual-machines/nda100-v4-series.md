@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: iafinder
-ms.openlocfilehash: 7a129c8b4c03ea4ff71255f18f0637ef57aa060a
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 22883ab1053a69cc0593565eb19df46ae1852fb7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586362"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774136"
 ---
 # <a name="nd-a100-v4-series"></a>ND A100 v4-series
 
@@ -42,19 +42,19 @@ Ces instances offrent d’excellentes performances pour de nombreux outils d’I
 InfiniBand : pris en charge, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Interconnexion Nvidia/NVLink : Pris en charge<br>
 <br>
+La série ND A100 v4 prend en charge les versions de noyau suivantes : <br>
+CentOS 7.9 HPC : 3.10.0-1160.24.1.el7.x86_64 <br>
+Ubuntu 18.04 : 5.4.0-1043-azure <br>
+Ubuntu 20.04 : 5.4.0-1046-azure <br>
+<br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS / MBps | Bande passante réseau maximale | Nombre max de cartes réseau |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_ND96asr_v4 | 96 | 900 | 6000 | 8 GPU 40 Go A100 (NVLink 3.0) | 40 | 32 | 80 000 / 800 | 24 000 Mbits/s | 8 |
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)] <br>
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-La série ND A100 v4 prend en charge les versions de noyau suivantes : 
-- CentOS 7.9 HPC : 3.10.0-1160.24.1.el7.x86_64 <br>
-- Ubuntu 18.04 : 5.4.0-1043-azure <br>
-- Ubuntu 20.04 : 5.4.0-1046-azure <br>
-
-## <a name="other-sizes"></a>Autres tailles
+## <a name="other-sizes-and-information"></a>Autres tailles et informations
 
 - [Usage général](sizes-general.md)
 - [Mémoire optimisée](sizes-memory.md)
@@ -62,6 +62,10 @@ La série ND A100 v4 prend en charge les versions de noyau suivantes :
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+
+Pour plus d’informations sur les types de disques, consultez [Quels sont les types de disque disponibles dans Azure ?](disks-types.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

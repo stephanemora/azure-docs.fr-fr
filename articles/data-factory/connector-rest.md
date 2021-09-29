@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: makromer
-ms.openlocfilehash: 16bb4ac7062c39ad57becce4d5280ed227160690
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: dc9aec86e01655087a64c3ac0a494d448889f857
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311572"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733089"
 ---
 # <a name="copy-and-transform-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copier et transformer des données depuis et vers un point de terminaison REST à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -57,7 +57,7 @@ Utilisez les étapes suivantes pour créer un service lié REST dans l’interfa
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -388,7 +388,7 @@ Les propriétés prises en charge dans la section **sink** (récepteur) de l’a
 | requestMethod | Méthode HTTP. Les valeurs autorisées sont **POST** (valeur par défaut), **PUT** et **PATCH**. | Non |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
 | httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour l’écriture des données. La valeur par défaut est **00:01:40**.  | Non |
-| requestInterval | Intervalle de temps en millisecondes entre les différentes demandes. La valeur de l’intervalle de demande doit être un nombre compris entre [10, 60000]. |  Non |
+| requestInterval | Intervalle de temps en millisecondes entre les différentes demandes. La valeur de l’intervalle de demande doit être un nombre compris entre [10, 60000]. |  No |
 | httpCompressionType | Type de compression HTTP à utiliser lors de l’envoi de données avec un niveau de compression optimal. Les valeurs autorisées sont **none** et **gzip**. | Non |
 | writeBatchSize | Nombre d’enregistrements à écrire dans le récepteur REST par lot. La valeur par défaut est 10 000. | Non |
 
@@ -459,13 +459,13 @@ REST est pris en charge dans les flux de données pour les jeux de données d’
 |:--- |:--- |:--- |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
 | httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour l’écriture des données. La valeur par défaut est **00:01:40**.  | Non |
-| requestInterval | Intervalle de temps en millisecondes entre les différentes demandes. La valeur de l’intervalle de demande doit être un nombre compris entre [10, 60000]. |  Non |
+| requestInterval | Intervalle de temps en millisecondes entre les différentes demandes. La valeur de l’intervalle de demande doit être un nombre compris entre [10, 60000]. |  No |
 | httpCompressionType | Type de compression HTTP à utiliser lors de l’envoi de données avec un niveau de compression optimal. Les valeurs autorisées sont **none** et **gzip**. | Non |
 | writeBatchSize | Nombre d’enregistrements à écrire dans le récepteur REST par lot. La valeur par défaut est 10 000. | No |
 
 Vous pouvez définir les méthodes delete, insert, update et upsert, ainsi que les données de ligne relatives à envoyer au récepteur REST pour les opérations CRUD.
 
-![Récepteur REST de flux de données](media/data-flow/data-flow-sink.png)
+:::image type="content" source="media/data-flow/data-flow-sink.png" alt-text="Récepteur REST de flux de données":::
 
 ## <a name="sample-data-flow-script"></a>Exemple de script de flux de données
 
@@ -586,21 +586,21 @@ Le modèle définit deux paramètres :
 ### <a name="how-to-use-this-solution-template"></a>Utiliser ce modèle de solution
 
 1. Accédez au modèle **Copier à partir de REST ou HTTP à l’aide de OAuth**. Créez une connexion pour la connexion source. 
-    ![Créer des connexions](media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png" alt-text="Créer des connexions":::
 
     Voici les principales étapes pour les nouveaux paramètres de service lié (REST) :
     
      1. Sous **URL de base**, spécifiez le paramètre d’URL pour votre propre service REST source. 
      2. Pour **Type d’authentification**, choisissez *Anonyme*.
-        ![Nouvelle connexion REST](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
+        :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png" alt-text="Nouvelle connexion REST":::
 
 2. Créez une connexion pour la connexion de destination.  
-    ![Nouvelle connexion Gen2](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png" alt-text="Nouvelle connexion Gen2":::
 
 3. Sélectionnez **Utiliser ce modèle**.
-    ![Utiliser ce modèle](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png" alt-text="Utiliser ce modèle":::
 
-4. Vous pouvez voir le pipeline créé comme indiqué dans l’exemple suivant :  ![La capture d’écran montre le pipeline créé à partir du modèle.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Vous pouvez voir le pipeline créé comme indiqué dans l’exemple suivant :  :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png" alt-text="La capture d’écran montre le pipeline créé à partir du modèle.":::
 
 5. Sélectionnez l’activité **Web**. Dans **Paramètres**, spécifiez l’**URL**, la **méthode**, les **en-têtes** et le **corps** correspondants pour récupérer le jeton du porteur OAuth à partir de l’API de connexion du service à partir duquel vous souhaitez copier des données. L’espace réservé dans le modèle illustre un exemple de norme OAuth Azure Active Directory (AAD). Remarque : l’authentification AAD est prise en charge en mode natif par le connecteur REST, qui ici n’est qu’un exemple de flux OAuth. 
 
@@ -611,7 +611,7 @@ Le modèle définit deux paramètres :
     | headers | L’en-tête est défini par l’utilisateur, qui fait référence à un nom d’en-tête dans la requête HTTP. | 
     | body | Corps de la requête HTTP. | 
 
-    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png" alt-text="Pipeline":::
 
 6. Dans l’activité **Copier les données**, sélectionnez l’onglet *Source*, vous pouvez voir que le jeton du porteur (access_token) récupéré à partir de l’étape précédente est transmis à l’activité Copier les données en tant qu’**Autorisation** sous les en-têtes supplémentaires. Confirmez les paramètres pour les propriétés suivantes avant de démarrer une exécution de pipeline.
 
@@ -620,20 +620,20 @@ Le modèle définit deux paramètres :
     | Méthode de requête | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | 
     | En-têtes supplémentaires | En-têtes de requête HTTP supplémentaires.| 
 
-   ![Copier l’authentification source](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png" alt-text="Copier l’authentification source":::
 
 7. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
-   ![Exécution du pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png" alt-text="Exécution du pipeline"::: 
 
-8. Lorsque l’exécution du pipeline s’effectue correctement, vous pouvez voir le résultat similaire à l’exemple suivant : ![Résultat de l’exécution du pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+8. Lorsque l’exécution du pipeline s’effectue correctement, vous pouvez voir le résultat similaire à l’exemple suivant : :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png" alt-text="Résultat de l’exécution du pipeline"::: 
 
 9. Cliquez sur l’icône de sortie de WebActivity dans la colonne **Actions**, vous voyez l’access_token retourné par le service.
 
-   ![Sortie de jeton](media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png" alt-text="Sortie de jeton"::: 
 
 10. Cliquez sur l’icône d’entrée de CopyActivity dans la colonne **Actions**, vous voyez que l’access_token récupéré par WebActivity est transmis à CopyActivity à des fins d’authentification. 
 
-    ![Entrée de jeton](media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png" alt-text="Entrée de jeton":::
         
     >[!CAUTION] 
     >Pour éviter la journalisation des jetons en texte brut, activez la sortie sécurisée dans l’activité Web et l’entrée sécurisée dans l’activité de copie.

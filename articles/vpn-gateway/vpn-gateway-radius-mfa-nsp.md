@@ -9,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 6cfc6ea361dddf703741baa1a990018186b402e4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 6fada4ca0ae24c2f3b859e02c55c7406cc44bb51
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289477"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734967"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Intégrer l’authentification RADIUS de la passerelle VPN Azure avec un serveur NPS pour l’authentification multifacteur 
 
@@ -22,7 +22,7 @@ L’article décrit comment intégrer un serveur NPS (Network Policy Server) ave
 
 ## <a name="prerequisite"></a>Configuration requise
 
-Pour activer l’authentification multifacteur, les utilisateurs doivent être dans Azure Active Directory (Azure AD), qui doit être synchronisé à partir de l’environnement local ou cloud. L’utilisateur doit également avoir terminé le processus d’inscription automatique pour l’authentification multifacteur.  Pour plus d’informations, voir [Configurer mon compte pour la vérification en deux étapes](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)
+Pour activer l’authentification multifacteur, les utilisateurs doivent être dans Azure Active Directory (Azure AD), qui doit être synchronisé à partir de l’environnement local ou cloud. L’utilisateur doit également avoir terminé le processus d’inscription automatique pour l’authentification multifacteur.  Pour plus d’informations, voir [Configurer mon compte pour la vérification en deux étapes](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
 
 ## <a name="detailed-steps"></a>Procédure détaillée
 

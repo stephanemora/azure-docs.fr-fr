@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 34b892e45dabf6273143ee331a9f7837464d99a3
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: b611d883d979069248590acb46196c84decd918a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114691310"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124731509"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-walkme-saml20"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à WalkMe SAML2.0
 
@@ -132,7 +132,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans Portail Azure : vous devez être connecté automatiquement à l’instance de WalkMe SAML2.0 pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette WalkMe SAML2.0 dans Mes applications, vous êtes automatiquement connecté à l’instance de WalkMe SAML2.0 pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette WalkMe SAML2.0 dans Mes applications, vous êtes automatiquement connecté à l’instance de WalkMe SAML2.0 pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

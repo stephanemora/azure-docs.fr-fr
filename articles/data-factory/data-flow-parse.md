@@ -7,16 +7,18 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 05/10/2021
-ms.openlocfilehash: 6612ded8cdc5e5e1a5ef38c18cc854fde41f2733
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7f426c04793c754619cd40bfdfcb4a7b9fc7d904
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641424"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059907"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>Transformation d’analyse dans un flux de données de mappage
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Utilisez la transformation Analyse pour analyser les colonnes de vos données qui sont sous forme de documents. Les types de documents incorporés actuellement pris en charge et qui peuvent être analysés sont JSON, XML et Texte délimité.
 

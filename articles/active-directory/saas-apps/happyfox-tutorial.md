@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 1672f20575ba2c3f0766e2781a5705a76af53da5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 21a207874cbcaa7534e4d56e7236266e1c6cb8f0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473329"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124739691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Didacticiel : intégration d’Azure Active Directory dans HappyFox
 
@@ -154,7 +154,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 2. Cliquez sur le bouton **SAML** pour vous connecter à HappyFox à l’aide de votre compte Azure AD.
 
-Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

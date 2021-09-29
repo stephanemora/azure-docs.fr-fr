@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8809f8c168e7095f05587c7a572e08287637dc5a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7efa458ebcae7e837be4bb574f4a2707e9cb9e30
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034589"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732614"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Réinitialiser le mot de passe d’un utilisateur à l’aide d’Azure Active Directory
 
@@ -29,7 +29,7 @@ En tant qu’administrateur, vous pouvez réinitialiser le mot de passe d’un u
 >Vous ne serez pas en mesure de réinitialiser le mot de passe d’un utilisateur si votre locataire Azure AD n’est pas son répertoire de base. Cela signifie que si votre utilisateur se connecte à votre organisation à l’aide d’un compte venant d’une autre organisation, un compte Microsoft ou un compte Google, vous ne pourrez réinitialiser son mot de passe.<br><br>Si votre utilisateur a une source d’autorité comme Windows Server Active Directory, vous ne serez en mesure de réinitialiser le mot de passe que si vous avez activé la réécriture du mot de passe.<br><br>Si votre utilisateur a une source d’autorité comme Azure AD externe, il se peut que vous ne puissiez pas réinitialiser le mot de passe. Seul l’utilisateur, ou un administrateur dans Azure AD externe, peut réinitialiser le mot de passe.
 
 >[!Note]
->Si vous n’êtes pas administrateur et si vous recherchez des instructions de réinitialisation pour votre propre mot de passe professionnel ou scolaire, consultez [Réinitialiser votre mot de passe professionnel ou scolaire](../user-help/active-directory-passwords-update-your-own-password.md).
+>Si vous n’êtes pas administrateur et si vous recherchez des instructions de réinitialisation pour votre propre mot de passe professionnel ou scolaire, consultez [Réinitialiser votre mot de passe professionnel ou scolaire](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 
 ## <a name="to-reset-a-password"></a>Pour réinitialiser un mot de passe
 

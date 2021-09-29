@@ -8,16 +8,16 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: reference
-  ms.date: 06/25/2020
+  ms.date: 09/10/2021
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: cde28b924954db563ce3ed71873ded00a753f80f
-  ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+  ms.openlocfilehash: 45a4273ccdfa76eb158ca8fd2ce51161fc3993b1
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113114500"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124771343"
 title: FAQ relative à la synchronisation cloud Azure Active Directory Connect
 summary: >
   Découvrez les questions fréquemment posées sur la synchronisation cloud Azure Active Directory (Azure AD) Connect.
@@ -92,5 +92,5 @@ sections:
       Nothing.  Les utilisateurs ne seront pas supprimés si l’unité d’organisation est renommée ou déplacée.
   - question: >
       La synchronisation cloud Azure AD Connect prend-elle en charge les grands groupes ?
-    answer: "Oui. Aujourd’hui, nous prenons en charge jusqu’à 50 000 membres de groupes synchronisés à l’aide du filtrage d’étendue d’unité d’organisation. En même temps, lorsque vous utilisez le filtrage de l’étendue de groupe, nous vous recommandons de conserver la taille de votre groupe à moins de 1 500 membres. Cela est dû au fait que même si vous pouvez synchroniser un grand groupe dans le cadre d’un filtre d’étendue de groupe, lorsque vous ajoutez des membres à ce groupe par lots de plus de 1 500, la synchronisation différentielle échoue. \n"
+    answer: "Oui. Aujourd’hui, nous prenons en charge jusqu’à 50 000 membres de groupes synchronisés à l’aide du filtrage d’étendue d’unité d’organisation. \n"
 additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes \n\n- [Présentation du provisionnement](what-is-provisioning.md)\n- [Qu’est-ce que la synchronisation cloud Azure AD Connect ?](what-is-cloud-sync.md)\n        \n"

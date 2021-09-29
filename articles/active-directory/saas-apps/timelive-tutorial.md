@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 49dff636e7ffb9889219abfae80a4bd8b1c0da1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c0e3a3b644181e13f4fadad93e91628dfc084b7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516407"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733855"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timelive"></a>Didacticiel : Intégration d’Azure Active Directory avec TimeLive
 
@@ -208,7 +208,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans TimeLive
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette TimeLive dans le volet d’accès, vous devez être connecté automatiquement à l’application TimeLive pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Lorsque vous cliquez sur la vignette TimeLive dans le volet d’accès, vous devez être connecté automatiquement à l’application TimeLive pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

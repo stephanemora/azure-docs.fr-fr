@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cf8869002fb3e0170331709af3da5b971a098740
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6a6d66be619808ae7a6997966aef32e89b0b2226
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612396"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786880"
 ---
 # <a name="overview-of-shared-device-mode"></a>Vue d’ensemble du mode d’appareil partagé
 
@@ -54,7 +54,7 @@ Comme nous l’avons vu, le mode d’appareil partagé est une fonctionnalité A
 
 ### <a name="build-applications-that-support-frontline-workers"></a>Générer des applications qui prennent en charge les travailleurs de première ligne
 
-Vous pouvez prendre en charge les travailleurs de première ligne dans vos applications à l’aide de la bibliothèque d’authentification Microsoft (MSAL) et de l’[application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) pour activer un état d’appareil appelé *mode d’appareil partagé*. Quand un appareil est en mode d’appareil partagé, Microsoft fournit à votre application des informations pour lui permettre de modifier son comportement en fonction de l’état de l’utilisateur sur l’appareil, en protégeant les données utilisateur.
+Vous pouvez prendre en charge les travailleurs de première ligne dans vos applications à l’aide de la bibliothèque d’authentification Microsoft (MSAL) et de l’[application Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) pour activer un état d’appareil appelé *mode d’appareil partagé*. Quand un appareil est en mode d’appareil partagé, Microsoft fournit à votre application des informations pour lui permettre de modifier son comportement en fonction de l’état de l’utilisateur sur l’appareil, en protégeant les données utilisateur.
 
 Fonctionnalités prises en charge :
 
@@ -73,7 +73,7 @@ Pour plus d’informations sur la façon de modifier vos applications pour prend
 
 Une fois que vos applications prennent en charge le mode d’appareil partagé et incluent les données et les modifications de sécurité requises, vous pouvez les publier comme étant utilisables par les travailleurs de première ligne.
 
-Les administrateurs d’appareils d’une organisation peuvent déployer leurs appareils et vos applications dans leurs magasins et lieux de travail via une solution de gestion des appareils mobiles (MDM) comme Microsoft Intune. Une partie du processus de configuration consiste à marquer l’appareil en tant qu’*appareil partagé*. Les administrateurs configurent le mode d’appareil partagé en déployant l’[application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) et en définissant le mode d’appareil partagé par le biais des paramètres de configuration. Après avoir effectué ces étapes, toutes les applications qui prennent en charge le mode d’appareil partagé utilisent l’application Microsoft Authenticator pour gérer son état d’utilisateur et fournir des fonctionnalités de sécurité pour l’appareil et l’organisation.
+Les administrateurs d’appareils d’une organisation peuvent déployer leurs appareils et vos applications dans leurs magasins et lieux de travail via une solution de gestion des appareils mobiles (MDM) comme Microsoft Intune. Une partie du processus de configuration consiste à marquer l’appareil en tant qu’*appareil partagé*. Les administrateurs configurent le mode d’appareil partagé en déployant l’[application Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) et en définissant le mode d’appareil partagé par le biais des paramètres de configuration. Après avoir effectué ces étapes, toutes les applications qui prennent en charge le mode d’appareil partagé utilisent l’application Microsoft Authenticator pour gérer son état d’utilisateur et fournir des fonctionnalités de sécurité pour l’appareil et l’organisation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 509d1dc0b94bdfa9be5185df0bad793f7702eb26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 904a29278ea3efdabe6ed72892d2e14ccbf2e0e3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101731032"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740755"
 ---
 # <a name="correct-misspelled-words-with-bing-resource"></a>Corriger les mots mal orthographiés à l’aide d’une ressource Bing
 
@@ -68,11 +68,6 @@ Pour créer une ressource Recherche Bing dans le portail Azure, suivez ces instr
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
-## <a name="enable-spell-check-from-ui"></a>Activer la vérification orthographique depuis l’IU 
-Vous pouvez activer la vérification orthographique pour votre exemple de requête à l’aide du [portail Luis](https://www.luis.ai). Sélectionnez **Gérer** en haut de l’écran, puis **Ressources Azure** dans le volet de navigation de gauche. Une fois que vous avez associé une ressource de prédiction à votre application, sélectionnez **Changer les paramètres de la requête** au bas de la page, puis collez la clé de ressource dans le champ **Activer la vérification orthographique**.
-    
-   > [!div class="mx-imgBorder"]
-   > ![Activer la vérification orthographique](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
 
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Ajout de la clé à l’URL de point de terminaison

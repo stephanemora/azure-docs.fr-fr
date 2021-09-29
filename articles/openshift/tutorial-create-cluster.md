@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: 707ee38ef71a0f3f3f09e142bd4d944bb04cff3d
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 82e21038b143e0e32a58c3aa24b227ebe850fd06
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446127"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775010"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutoriel : Créer un cluster Azure Red Hat OpenShift 4
 
@@ -42,7 +42,7 @@ Le secret d’extraction ARO ne modifie pas le coût de la licence RH OpenShift 
 
 Au cours de ce tutoriel, vous allez créer un groupe de ressources qui contiendra le réseau virtuel pour le cluster. Vous devez disposer d’autorisations d’Administrateur pour l’accès Utilisateur ou Contributeur, ou d’autorisations de Propriétaire, soit directement sur le réseau virtuel, soit sur le groupe de ressources ou l’abonnement qui le contient.
 
-Vous devez également disposer de suffisamment d’autorisations d'accès Azure Active Directory (utilisateur membre de l’abonné ou utilisateur invité avec le rôle d’**administrateur d’application**) aux outils pour créer une application et un principal de service en votre nom pour le cluster. Pour plus d’informations, consultez [Utilisateurs membres et invités[ et ](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory](/azure/active-directory/fundamentals/users-default-permissions#member-and-guest-users).
+Vous devez également disposer de suffisamment d’autorisations d'accès Azure Active Directory (utilisateur membre de l’abonné ou utilisateur invité avec le rôle d’**administrateur d’application**) aux outils pour créer une application et un principal de service en votre nom pour le cluster. Pour plus d’informations, consultez [Utilisateurs membres et invités[ et ](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory](../active-directory/fundamentals/users-default-permissions.md#member-and-guest-users).
 
 ### <a name="register-the-resource-providers"></a>Inscrire les fournisseurs de ressources
 

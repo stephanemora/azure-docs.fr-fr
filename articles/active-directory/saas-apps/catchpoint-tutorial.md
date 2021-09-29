@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 48b7bbb73b40431d609a473b7d33072ee705af97
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 9847543eaa79b76301229b24f93cc5683b965c5b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108801871"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124765872"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Catchpoint
 
@@ -177,7 +177,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 - Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance de Catchpoint pour laquelle vous avez configuré l’authentification unique.
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Catchpoint dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Catchpoint pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Catchpoint dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Catchpoint pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 > [!NOTE]
 > Quand vous vous connectez à l’application Catchpoint via la page de connexion, après avoir fourni les **informations d’identification Catchpoint**, entrez la valeur de l’espace de noms (**Namespace**) valide dans le champ **Company Credentials(SSO)** (Informations d’identification de la société (SSO)), puis sélectionnez **Login** (Se connecter).

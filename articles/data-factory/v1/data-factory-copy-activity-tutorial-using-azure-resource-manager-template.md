@@ -3,17 +3,18 @@ title: 'Tutoriel : Créer un pipeline à l’aide d’un modèle Azure Resource
 description: Dans ce didacticiel, vous créez un pipeline Azure Data Factory en utilisant un modèle Azure Resource Manager. Ce pipeline copie des données d’un stockage Blob Azure dans Azure SQL Database.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: f396563b4429d7aa547c86a2a5b3f84ac6bab4b9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 259a2e2e263f022b4cb91824aba9921f14cc1069
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957206"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614823"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutoriel : utiliser un modèle Azure Resource Manager pour créer un pipeline Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
@@ -59,7 +60,7 @@ Dans ce didacticiel, vous créez une fabrique de données avec les entités Data
 
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Il existe deux types d’activités : les [activités de déplacement des données](data-factory-data-movement-activities.md) et les [activités de transformation des données](data-factory-data-transformation-activities.md). Dans ce didacticiel, vous créez un pipeline avec une activité (activité de copie).
 
-![Copie de données d’un objet blob Azure vers Azure SQL Database](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png) 
+:::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png" alt-text="Copie de données d’un objet blob Azure vers Azure SQL Database"::: 
 
 La section suivante fournit le modèle Resource Manager complet permettant de définir des entités Data Factory pour que vous puissiez rapidement parcourir le didacticiel et tester le modèle. Pour comprendre comment chaque entité Data Factory est définie, consultez la section [Entités Data Factory dans le modèle](#data-factory-entities-in-the-template).
 
@@ -339,15 +340,15 @@ Créez un fichier JSON nommé **ADFCopyTutorialARM-Parameters** contient les par
 
 1. Cliquez sur **Fabriques de données** dans le menu à gauche (ou) cliquez sur **Tous les services** puis sur **Fabriques de données** sous la catégorie **Intelligence et analyse**.
    
-    ![Menu Fabriques de données](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png" alt-text="Menu Fabriques de données":::
 
 1. Sur la page **Fabriques de données**, recherchez votre fabrique de données (AzureBlobToAzureSQLDatabaseDF). 
    
-    ![Recherche d’une fabrique de données](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png" alt-text="Recherche d’une fabrique de données":::  
 
 1. Cliquez sur votre fabrique de données Azure. La page d’accueil de la fabrique de données apparaît.
    
-    ![Page d’accueil de la fabrique de données](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png" alt-text="Page d’accueil de la fabrique de données":::  
 
 1. Suivez les instructions dans [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel. Pour le moment, Visual Studio ne prend pas en charge la surveillance des pipelines Data Factory.
 

@@ -8,16 +8,16 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: f6319369a03de754b1ce016fb20aa99e5ab466e1
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: d9f3d2c8f30f3b5d249aae0789a7e2fee282e867
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223419"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677812"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>Démarrage rapide : Configurer Azure Bastion à partir des paramètres de la machine virtuelle
 
-Cet article de démarrage rapide vous explique comment configurer Azure Bastion en fonction des paramètres de votre machine virtuelle dans le portail Azure, puis comment vous connecter à une machine virtuelle via une adresse IP privée. Une fois le service approvisionné, l’expérience RDP/SSH est disponible pour toutes les machines virtuelles du même réseau virtuel. La machine virtuelle n’a pas besoin d’une adresse IP publique, d’un logiciel client, d’un agent ou d’une configuration spéciale. Si vous n’avez pas besoin de l’adresse IP publique sur votre machine virtuelle, vous pouvez la supprimer. Vous vous connecterez alors à votre machine virtuelle via le portail à l’aide de l’adresse IP privée. Pour plus d’informations sur Azure Bastion, consultez [Présentation d’Azure Bastion](bastion-overview.md).
+Cet article de démarrage rapide vous explique comment configurer Azure Bastion en fonction des paramètres de votre machine virtuelle dans le portail Azure, puis comment vous connecter à une machine virtuelle via une adresse IP privée. Une fois le service approvisionné, l’expérience RDP/SSH est disponible pour toutes les machines virtuelles du même réseau virtuel. La machine virtuelle n’a pas besoin d’une adresse IP publique, d’un logiciel client, d’un agent ou d’une configuration spéciale. Si vous n’avez pas besoin de l’adresse IP publique sur votre machine virtuelle, vous pouvez la supprimer. Vous vous connecterez alors à votre machine virtuelle via le portail à l’aide de l’adresse IP privée. Pour plus d’informations sur Azure Bastion, consultez [Présentation d’Azure Bastion](bastion-overview.md). 
 
 ## <a name="prerequisites"></a><a name="prereq"></a>Configuration requise
 

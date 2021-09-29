@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 3926e98cb55d1afd80caf4af5d67910b66c09cdd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34adca214e5673340b12c8dfcdbdfd8a5bac9e0e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180334"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759602"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Didacticiel : Intégration d’Azure Active Directory à BambooHR
 
@@ -101,7 +101,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
@@ -113,7 +113,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à BambooHR.
 
@@ -125,13 +125,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-bamboohr-sso"></a>Configurer l’authentification unique BambooHR
+## <a name=&quot;configure-bamboohr-sso&quot;></a>Configurer l’authentification unique BambooHR
 
 1. Dans une nouvelle fenêtre, connectez-vous à votre site d’entreprise BambooHR comme administrateur.
 
 2. Dans la page d’accueil, effectuez les actions suivantes :
    
-    ![Page Authentification unique BambooHR](./media/bamboo-hr-tutorial/ic796691.png "Single Sign on")   
+    ![Page Authentification unique BambooHR](./media/bamboo-hr-tutorial/ic796691.png &quot;Single Sign on")   
 
     a. Sélectionnez **Applications**.
    
@@ -178,7 +178,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL de connexion BambooHR pour démarrer le flux de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette BambooHR dans le volet d’accès vous redirige vers l’URL de connexion BambooHR. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette BambooHR dans le volet d’accès vous redirige vers l’URL de connexion BambooHR. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

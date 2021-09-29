@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 168c187c4e573193b439e790fb94290aadec046a
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: d7716c6d91ac0f7c8c699d14f265e00f5535a00d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778871"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730397"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Prise en charge des API dans Azure Static Web Apps avec Azure Functions
 
@@ -49,7 +49,7 @@ Les points de terminaison d’API sont disponibles pour l’application web via 
 
 | Fonctions managées | Amener vos propres fonctions |
 | --- | --- |
-| Bien que l’itinéraire _api_ soit fixe, vous contrôlez l’emplacement du dossier de l’application de fonction managée. Vous pouvez modifier cet emplacement en [modifiant le fichier YAML de flux de travail](github-actions-workflow.md#build-and-deploy) situé dans le dossier _. GitHub/workflows_ de votre référentiel. | Les requêtes adressées à l’itinéraire _api_ sont envoyées à votre application Azure Functions existante. |
+| Bien que l’itinéraire _api_ soit fixe, vous contrôlez l’emplacement du dossier de l’application de fonction managée. Vous pouvez modifier cet emplacement en [modifiant le fichier YAML de flux de travail](build-configuration.md) situé dans le dossier _. GitHub/workflows_ de votre référentiel. | Les requêtes adressées à l’itinéraire _api_ sont envoyées à votre application Azure Functions existante. |
 
 ## <a name="troubleshooting-and-logs"></a>Résolution des problèmes et journaux
 

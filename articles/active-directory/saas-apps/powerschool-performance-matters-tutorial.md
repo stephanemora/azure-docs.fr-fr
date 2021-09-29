@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/05/2021
 ms.author: jeedes
-ms.openlocfilehash: bcc47c22bd3537e9944c19fcb0c7b85ccdc8987a
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: a4e77934cbb0ea5867d2ace93aade157d896a550
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206148"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124731837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-powerschool-performance-matters"></a>Tutoriel : Intégration d’Azure Active Directory à Powerschool Performance Matters
 
@@ -136,7 +136,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Powerschool Performance Matters pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Powerschool Performance Matters dans Mes applications, vous êtes redirigé vers l’URL de connexion à Powerschool Performance Matters. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Powerschool Performance Matters dans Mes applications, vous êtes redirigé vers l’URL de connexion à Powerschool Performance Matters. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

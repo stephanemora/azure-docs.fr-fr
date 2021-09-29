@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 09/12/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a3c8b3d97a117e88c323253134be383fb0766355
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bbe79082f63065ed73b573ab87f3299f7df79148
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531426"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740248"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -111,8 +111,6 @@ L’élément **DataUri** est utilisé pour spécifier l’identificateur de pag
 ### <a name="select-a-page-layout"></a>Sélectionner une mise en page
 
 Vous pouvez activer le [code JavaScript côté client](javascript-and-page-layout.md) en insérant `contract` entre `elements` et le type de page. Par exemple : `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 La partie [version](page-layout.md) de `DataUri` spécifie le package de contenu contenant du code HTML, CSS et JavaScript pour les éléments d’interface utilisateur de votre stratégie. Si vous prévoyez d’activer le code JavaScript côté client, les éléments sur lesquels vous basez votre JavaScript doivent être immuables. S’ils ne le sont pas, toute modification pourrait provoquer un comportement inattendu sur vos pages d’utilisateurs. Pour éviter ces problèmes, imposez l’utilisation d’une mise en page et spécifiez une version de mise en page. Toutes les définitions de contenu sur lesquelles vous avez basé votre code JavaScript sont ainsi immuables. Même si vous ne souhaitez pas activer JavaScript, vous pouvez spécifier la version de mise en page pour vos pages.
 

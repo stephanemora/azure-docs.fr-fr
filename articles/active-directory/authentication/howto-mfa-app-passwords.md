@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58344a385a8ad4d409748c039f8f1e7807e290b7
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: f79bca8626eca56c40f99f75daa2b8cb4da3a995
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228376"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773775"
 ---
 # <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Activer et utiliser Azure AD Multi-Factor Authentication avec des applications héritées à l'aide de mots de passe d'application
 
@@ -42,7 +42,7 @@ Lorsque vous utilisez des mots de passe d’application, tenez compte des consid
 * Dès qu'Azure AD Multi-Factor Authentication est activé sur le compte d'un utilisateur, des mots de passe d'application peuvent être utilisés avec la plupart des clients sans navigateur, comme Outlook et Microsoft Skype Entreprise. Cependant, les actions d’administration ne peuvent pas être effectuées à l’aide de mots de passe d’application, dans des applications sans navigateur comme Windows PowerShell. Les actions sont impossibles, même quand l’utilisateur a un compte d’administrateur.
     * Pour exécuter des scripts PowerShell, créez un compte de service avec un mot de passe fort et n’activez pas la vérification en deux étapes sur ce compte.
 * Si vous soupçonnez qu’un compte d’utilisateur est compromis et que vous révoquez/réinitialisez le mot de passe du compte, les mots de passe d’application doivent également être mis à jour. Les mots de passe d’application ne sont pas révoqués automatiquement lorsqu’un mot de passe de compte d’utilisateur est révoqué/réinitialisé. L’utilisateur doit supprimer les mots de passe d’application existants et en créer de nouveaux.
-   * Pour plus d’informations, consultez [Créer et supprimer des mots de passe d’application à partir de la page Vérification de sécurité supplémentaire](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
+   * Pour plus d’informations, consultez [Créer et supprimer des mots de passe d’application à partir de la page Vérification de sécurité supplémentaire](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
 >[!WARNING]
 > Les mots de passe d’application ne fonctionnent pas dans les environnements hybrides où les clients communiquent avec les points de terminaison locaux et les points de terminaison à découverte automatique cloud. Les mots de passe de domaine sont requis pour l’authentification locale. Les mots de passe d’application sont requis pour s’authentifier auprès du cloud.
@@ -102,8 +102,8 @@ Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d’applic
 Lorsque les utilisateurs procèdent à leur inscription initiale à Azure AD Multi-Factor Authentication, vous avez la possibilité de créer des mots de passe d'application à la fin du processus d'inscription.
 
 Les utilisateurs peuvent aussi créer des mots de passe d’application après l’inscription. Pour obtenir plus d’informations ainsi que les étapes détaillées à suivre par les utilisateurs, consultez les ressources suivantes :
-* [Que sont les mots de passe d’application dans Azure AD Multi-Factor Authentication ?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
-* [Créer des mots de passe d’application à partir de la page Informations de sécurité](../user-help/security-info-app-passwords.md)
+* [Que sont les mots de passe d’application dans Azure AD Multi-Factor Authentication ?](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9)
+* [Créer des mots de passe d’application à partir de la page Informations de sécurité](https://support.microsoft.com/account-billing/create-app-passwords-from-the-security-info-preview-page-d8bc744a-ce3f-4d4d-89c9-eb38ab9d4137)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/08/2021
-ms.openlocfilehash: 4a03eb37d5ec956dfeb5eb3d637722c506f58bf1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c47443068aadef73a75e68d97de24981125fd973
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637729"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737001"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données du stockage Blob Azure vers une base de données SQL Database en utilisant l’outil Copier les données
 
@@ -80,7 +80,7 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
 1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Intégration** > **Data Factory** :
 
-   ![Création d’une fabrique de données](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Création d’une fabrique de données":::
 
 1. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**.
 
@@ -88,7 +88,7 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nouveau message d’erreur de la fabrique de données pour le nom dupliqué.":::
 
-   Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
+   Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
 
 1. Sélectionnez l’**abonnement** Azure dans lequel vous créez la nouvelle fabrique de données.
 
@@ -116,11 +116,11 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
 1. Sur la page d’accueil d’Azure Data Factory, sélectionnez la mosaïque **Ingérer** pour lancer l’outil Copier des données.
 
-   ![Capture d’écran montrant la page d'accueil Azure Data Factory.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la page d'accueil Azure Data Factory.":::
 
 1. Sur la page **Propriétés** de l’outil Copier des données, choisissez **Tâche de copie intégrée** sous **Type de tâche**, puis **Suivant**.
 
-     ![Capture d’écran montrant la page Propriétés](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
+     :::image type="content" source="./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png" alt-text="Capture d’écran montrant la page Propriétés":::
     
 1. Sur la page **Banque de données source**, procédez comme suit :
 
@@ -140,7 +140,7 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
 1. Dans la page **Paramètres de format de fichier** , cochez la case *Première ligne comme en-tête*. Notez que l’outil détecte automatiquement les séparateurs de lignes et de colonnes. Vous pouvez également visualiser des données et afficher le schéma des données d’entrée en sélectionnant le bouton **Aperçu des données** dans cette page. Sélectionnez ensuite **Suivant**. 
 
-   ![Paramètres de format de fichier](./media/tutorial-copy-data-tool/file-format-settings-page.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/file-format-settings-page.png" alt-text="Paramètres de format de fichier":::
 
 1. Sur la page **Banque de données de destination**, procédez comme suit :
 
@@ -150,7 +150,7 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
    c. Sur la page **Nouvelle connexion (Azure SQL Database)** , sélectionnez votre abonnement Azure, le nom du serveur et le nom de la base de données dans la liste déroulante. Sélectionnez ensuite **Authentification SQL** sous **Type d’authentification**, spécifiez le nom d’utilisateur et le mot de passe. Testez la connexion et sélectionnez **Créer**.
 
-   ![Configurer Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/config-azure-sql-db.png" alt-text="Configurer Azure SQL DB":::
 
    d. Sélectionnez le service lié qui vient d’être créé en tant que récepteur, puis sélectionnez **Suivant**.
 
@@ -158,7 +158,7 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
 1. Dans la page **Mappage de colonne**, notez que les deuxième et troisième colonnes du fichier d’entrée sont mappées aux colonnes **FirstName** et **LastName** de la table **emp**. Ajustez le mappage pour vérifier qu’il n’y a pas d’erreur, puis sélectionnez **Suivant**.
 
-   ![Page de mappage de colonnes](./media/tutorial-copy-data-tool/column-mapping.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/column-mapping.png" alt-text="Page de mappage de colonnes":::
 
 1. Sur la page **Paramètres**, sous **Nom de la tâche**, saisissez **CopyFromBlobToSqlPipeline** et sélectionnez **Suivant**.
 
@@ -168,21 +168,21 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
 1. Sur la page **Déploiement**, sélectionnez **Analyse** pour analyser le pipeline (tâche).
 
-   ![Surveillance d’un pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/monitor-pipeline.png" alt-text="Surveillance d’un pipeline":::
 
 1. Dans la page Exécutions de pipeline, sélectionnez **Actualiser** pour actualiser la liste. Sélectionnez le lien situé sous **Nom du pipeline** pour afficher les détails de l’exécution d’activité ou réexécuter le pipeline. 
 
-   ![Exécution du pipeline](./media/tutorial-copy-data-tool/pipeline-run.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/pipeline-run.png" alt-text="Exécution du pipeline":::
 
 1. Sur la page « Exécutions des activités », sélectionnez le lien **Détails** (icône en forme de lunettes) sous la colonne **Nom de l’activité** pour plus d’informations sur l’opération de copie. Pour revenir à l’affichage « Exécutions de pipeline », sélectionnez le lien **Toutes les exécutions de pipeline** dans le menu de navigation. Sélectionnez **Actualiser** pour actualiser l’affichage.
 
-   ![Surveiller des exécutions d’activités](./media/tutorial-copy-data-tool/activity-monitoring.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/activity-monitoring.png" alt-text="Surveiller des exécutions d’activités":::
 
 1. Vérifiez que les données sont insérées dans la table **dbo.emp** dans votre base de données SQL Database.
 
 1. Sélectionnez l’onglet **Auteur** sur la gauche pour basculer en mode éditeur. Vous pouvez mettre à jour les services, jeux de données et pipelines liés créés par l’outil à l’aide de l’éditeur. Pour plus de détails sur la modification de ces entités dans l’interface utilisateur de Data Factory, consultez [la version du portail Azure de ce didacticiel](tutorial-copy-data-portal.md).
 
-   ![Sélectionner l’onglet Auteur](./media/tutorial-copy-data-tool/author-tab.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/author-tab.png" alt-text="Sélectionner l’onglet Auteur":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 Le pipeline de cet exemple copie des données du stockage Blob vers une base de données SQL Database. Vous avez appris à :

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d275c4fe093992f1bf87f7d4b8c5965e448a41
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0f3a5efbb9c990173c7012b9ff6f938fed33f1ad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532068"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734564"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Utilisateurs Identity Protection et B2B
 
@@ -32,7 +32,7 @@ Si vous tentez de vous connecter à une autre organisation en tant qu’invité 
 
 Si votre organisation le permet, vous pouvez utiliser la réinitialisation de mot de passe en libre-service pour débloquer votre compte et rétablir la sécurité de vos informations d’identification.
 1. Accédez au [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/) et lancez la réinitialisation du mot de passe. Si la réinitialisation de mot de passe en libre-service n’est pas activée pour votre compte et que vous ne pouvez pas poursuivre la procédure, contactez votre administrateur informatique avec les informations [ci-dessous](#how-to-remediate-a-users-risk-as-an-administrator).
-2. Si la réinitialisation de mot de passe en libre-service est activée pour votre compte, vous serez invité à vérifier votre identité à l’aide de méthodes de sécurité avant de modifier votre mot de passe. Pour obtenir de l’aide, consultez l’article [Réinitialiser votre mot de passe professionnel ou scolaire](../user-help/active-directory-passwords-update-your-own-password.md).
+2. Si la réinitialisation de mot de passe en libre-service est activée pour votre compte, vous serez invité à vérifier votre identité à l’aide de méthodes de sécurité avant de modifier votre mot de passe. Pour obtenir de l’aide, consultez l’article [Réinitialiser votre mot de passe professionnel ou scolaire](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 3. Une fois que vous avez réinitialisé votre mot de passe en toute sécurité, le risque est corrigé. Vous pouvez maintenant réessayer de vous connecter en tant qu’utilisateur invité.
 
 Si, après avoir réinitialisé votre mot de passe, vous êtes toujours bloqué en tant qu’invité en raison d’un risque, contactez l’administrateur informatique de votre organisation.
