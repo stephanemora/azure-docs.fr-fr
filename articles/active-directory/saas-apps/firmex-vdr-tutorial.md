@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 6dbd39b5c56192ad2ca957c5500338b50e8c8963
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7161bfd88052a41a8db57d63329f4a68f9949d6b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92453380"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124834989"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-firmex-vdr"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Firmex VDR
 
@@ -194,7 +194,7 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Firmex
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Firmex VDR dans le volet d’accès, vous devez être connecté automatiquement à l’application Firmex VDR pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Firmex VDR dans le volet d’accès, vous devez être connecté automatiquement à l’application Firmex VDR pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

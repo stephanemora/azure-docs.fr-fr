@@ -8,12 +8,12 @@ metadata:
   author: trkeya
   ms.author: trkeya
   ms.date: 06/02/2021
-  ms.openlocfilehash: d8403e69b241ee107631f7ba8cdd88d6700e65e0
-  ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+  ms.openlocfilehash: 5af21d8e78f468a1a099da30ca87437a0433e750
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/30/2021
-  ms.locfileid: "123187634"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124736163"
 title: Questions courantes concernant la place de marché commerciale Microsoft
 summary: Cette page répond aux questions fréquentes à propos du marketplace commercial.
 sections:
@@ -35,7 +35,7 @@ sections:
       Place de marché Azure comprend des solutions informatiques et de développement qui s’appuient sur Azure ou utilisées dans les abonnements Azure eux-mêmes.
 
 
-      Pour en savoir plus, consultez la [documentation sur les clients de la Place de marché](https://aka.ms/MarketplaceBuyerGuide).
+      Pour en savoir plus, consultez la [documentation sur les clients de la Place de marché](/marketplace/).
   - question: >
       Pourquoi dois-je rendre mes logiciels ou services disponibles dans le marketplace commercial Microsoft ?
     answer: "Place de marché commerciale est un point de départ de la collaboration et de l’activation de la mise sur le marché avec les canaux de vente et les récompenses de Place de marché. Les sites web et les expériences dans le produit donnent à vos produits une visibilité auprès de millions de clients qui cherchent des solutions comme les vôtres. Vous n’avez même pas besoin de créer ni d’acheter les capacités de commerce. \n\nLe marketplace commercial est disponible dans 141 régions, par plan. \n\nNous gérons le paiement des taxes dans de nombreux pays/régions et fournissons l’accès à notre réseau mondial de revendeurs. Vous pouvez utiliser un Contrat client Microsoft ou un Contrat Entreprise pour vendre à des organisations sans avoir à créer de nouvelle relation d’achat.\n\nPour en savoir plus, accédez au [hub de la Place de marché commerciale Microsoft](https://aka.ms/commercialmarketplacehub).\n"

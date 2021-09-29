@@ -8,17 +8,17 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/23/2021
-ms.openlocfilehash: 87902df54eccdd7038c8351f4ca1794b013a0f13
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 4f4b0cd13095c83f84c96e57e73f255caf4fcdc9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699182"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736320"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Migrer vers Azure Machine Learning 
 
 > [!IMPORTANT]
-> Le support de Machine Learning Studio (classique) prend fin le 31 août 2024. Nous vous recommandons de passer à [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) avant cette date.
+> Le support de Machine Learning Studio (classique) prend fin le 31 août 2024. Nous vous recommandons de passer à [Azure Machine Learning](./overview-what-is-azure-machine-learning.md) avant cette date.
 >
 > À partir du 1er décembre 2021, vous ne pourrez plus créer de nouvelles ressources Machine Learning Studio (classique). Jusqu’au 31 août 2024, vous pouvez continuer à utiliser les ressources Machine Learning Studio (classique) existantes.  
 >
@@ -82,7 +82,7 @@ Après avoir défini une stratégie, migrez votre premier modèle.
 
 ## <a name="step-5-cleanup-studio-classic-assets"></a>Étape 5 : Nettoyer les ressources Studio (classique)
 
-1. [Nettoyez les ressources Studio (classique)](/classic/export-delete-personal-data-dsr.md) pour éviter les frais supplémentaires. Vous souhaiterez peut-être conserver les ressources en secours jusqu’à ce que vous ayez validé les charges de travail Azure Machine Learning.
+1. [Nettoyez les ressources Studio (classique)](./classic/export-delete-personal-data-dsr.md) pour éviter les frais supplémentaires. Vous souhaiterez peut-être conserver les ressources en secours jusqu’à ce que vous ayez validé les charges de travail Azure Machine Learning.
 
 ## <a name="step-6-review-and-expand-scenarios"></a>Étape 6 : Examiner et développer des scénarios
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 87ab7156e92f46630e9eed005c7384d883b0caa0
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 0cc51035a8bdb0ee12d27763b1d03e6b08494b66
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804823"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124795770"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Meraki Dashboard
 
@@ -191,7 +191,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 - Dans le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance de Meraki Dashboard pour laquelle vous avez configuré l’authentification unique.
 
-- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Meraki Dashboard dans Mes applications, vous devez être connecté automatiquement à l’application Meraki Dashboard pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Meraki Dashboard dans Mes applications, vous devez être connecté automatiquement à l’application Meraki Dashboard pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

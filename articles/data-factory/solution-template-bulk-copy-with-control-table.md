@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: ba4d84a6d3eda01f3d9192aef521d7d45a811083
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 94f7210c05056db2ead8b1aa54d9a0d16e3d8849
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532053"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743585"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copier en bloc à partir d’une base de données avec une table de contrôle
 
@@ -67,33 +67,33 @@ Les trois derniers paramètres qui définissent le chemin d’accès dans votre 
 
 2. Accédez au modèle **Copier en bloc à partir d’une base de données**. Créez une **nouvelle** connexion à la table de contrôle externe que vous avez créée à l’étape 1.
 
-    ![Créer une connexion à la table de contrôle](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png" alt-text="Créer une connexion à la table de contrôle":::
 
 3. Créez une **nouvelle** connexion à la base de données source à partir de laquelle vous copiez des données.
 
-    ![Créer une connexion à la base de données source](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png" alt-text="Créer une connexion à la base de données source":::
     
 4. Créez une **nouvelle** connexion au magasin de données de destination vers lequel vous copiez des données.
 
-    ![Créer une connexion au magasin de destination](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png" alt-text="Créer une connexion au magasin de destination":::
 
 5. Sélectionnez **Utiliser ce modèle**.
 
 6. Vous voyez le pipeline, comme indiqué dans l’exemple suivant :
 
-    ![Passer en revue le pipeline](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png" alt-text="Passer en revue le pipeline":::
 
 7. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
 
-    ![Cliquez sur **Déboguer**](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png" alt-text="Cliquez sur **Déboguer**":::
 
 8. Les résultats ressemblent à l’exemple qui suit :
 
-    ![Vérifier le résultat](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png" alt-text="Vérifier le résultat":::
 
 9. (Facultatif) Si vous choisissez « Azure Synapse Analytics » comme destination des données, vous devez entrer une connexion à un stockage d’objets blob Azure pour la mise en lots, conformément aux exigences d’Azure Synapse Analytics Polybase. Le modèle génère automatiquement un chemin de conteneur pour votre stockage d’objets blob. Vérifiez si le conteneur a été créé après l’exécution du pipeline.
     
-    ![Paramètre Polybase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png" alt-text="Paramètre Polybase":::
        
 ## <a name="next-steps"></a>Étapes suivantes
 

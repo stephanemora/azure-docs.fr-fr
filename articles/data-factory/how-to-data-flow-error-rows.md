@@ -7,12 +7,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: f4f4c1c334bb3720118b050947da6345116ef22f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9a7fb311fce0c557276f0ce8feb814d791df959d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641971"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831271"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Gérer les lignes d’erreur de troncation SQL dans Data Factory en mappant les flux de données
 
@@ -34,7 +34,7 @@ Il existe deux méthodes principales pour gérer correctement les erreurs lors d
 
 2. Dans notre flux de données, nous voulons mapper des titres de films de notre récepteur à cette colonne « name » cible.
 
-    ![Flux de données de film 1](media/data-flow/error4.png)
+    :::image type="content" source="media/data-flow/error4.png" alt-text="Flux de données de film 1":::
     
 3. Le problème est que le titre du film ne peut pas tenir dans une colonne de récepteur qui ne peut contenir que 5 caractères. Lorsque vous exécutez ce flux de données, vous recevez une erreur semblable à celle-ci : ```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
 
@@ -45,21 +45,21 @@ Cette vidéo présente un exemple de configuration de la logique de gestion des 
 
 1. Dans ce scénario, la longueur maximale de la colonne « name » est de cinq caractères. Nous allons donc ajouter une transformation de fractionnement conditionnel qui nous permettra de journaliser des lignes avec des « titres » de plus de cinq caractères, tout en autorisant que le reste des lignes pouvant tenir dans cet espace s’écrive dans la base de données.
 
-    ![fractionnement conditionnel](media/data-flow/error1.png)
+    :::image type="content" source="media/data-flow/error1.png" alt-text="fractionnement conditionnel":::
 
 2. Cette transformation de fractionnement conditionnel définit la longueur maximale de « title » sur cinq. Toute ligne d’une longueur inférieure ou égale à cinq passe dans le flux ```GoodRows```. Toute ligne d’une longueur supérieure à cinq passe dans le flux ```BadRows```.
 
 3. Nous devons maintenant journaliser les lignes qui ont échoué. Ajoutez une transformation de récepteur au flux de ```BadRows``` pour la journalisation. Ici, nous allons « mapper automatiquement » tous les champs afin d’obtenir la journalisation de l’enregistrement de transaction complet. Il s’agit d’une sortie de fichier CSV délimité par du texte transmis à un fichier unique dans le Stockage Blob Azure. Nous allons appeler le fichier journal « badrows. csv ».
 
-    ![Lignes incorrectes](media/data-flow/error3.png)
+    :::image type="content" source="media/data-flow/error3.png" alt-text="Lignes incorrectes":::
     
 4. Le flux de données terminé est illustré ci-dessous. Nous sommes maintenant en mesure de fractionner les lignes d’erreur afin d’éviter les erreurs de troncation SQL et de placer ces entrées dans un fichier journal. Pendant ce temps, les lignes réussies peuvent continuer d’écrire dans notre base de données cible.
 
-    ![compléter le flux de données](media/data-flow/error2.png)
+    :::image type="content" source="media/data-flow/error2.png" alt-text="compléter le flux de données":::
 
 5. Si vous choisissez l’option de gestion des lignes d’erreur dans la transformation du récepteur et définissez « Lignes d’erreur de sortie », ADF génère automatiquement une sortie de fichier CSV de vos données de ligne, ainsi que les messages d’erreur signalés par le pilote. Avec cette autre option, vous n’êtes pas tenu d’ajouter manuellement cette logique à votre flux de données. Cette option entraîne une légère baisse des performances pour permettre à ADF d’implémenter une méthodologie en 2 phases afin d’intercepter et de consigner les erreurs.
 
-    ![Flux de données terminé avec lignes d’erreur](media/data-flow/error-row-3.png)
+    :::image type="content" source="media/data-flow/error-row-3.png" alt-text="Flux de données terminé avec lignes d’erreur":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

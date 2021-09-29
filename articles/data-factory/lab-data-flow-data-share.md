@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/04/2021
-ms.openlocfilehash: 40d1970fa3e1c55fe54845478ed6c7d5abc1faf0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4194c277a8472f8834362de462d804db2a3b406d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637820"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798861"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Intégration de données avec Azure Data Factory et Azure Data Share
 
@@ -52,46 +52,46 @@ Dans Azure Data Factory, les services liés définissent les informations de con
 1. Ouvrez le [portail Azure](https://portal.azure.com) dans Microsoft Edge ou Google Chrome.
 1. À l’aide de la barre de recherche en haut de la page, recherchez « Fabriques de données »
 
-    ![Portail 1](media/lab-data-flow-data-share/portal1.png)
+    :::image type="content" source="media/lab-data-flow-data-share/portal1.png" alt-text="Portail 1":::
 1. Cliquez sur votre ressource de fabrique de données pour ouvrir son panneau de ressources.
 
-    ![Portail 2](media/lab-data-flow-data-share/portal2.png)
+    :::image type="content" source="media/lab-data-flow-data-share/portal2.png" alt-text="Portail 2":::
 1. Cliquez sur **Créer et surveiller** pour ouvrir l’expérience utilisateur ADF. L’expérience utilisateur ADF est également accessible sur adf.azure.com.
 
-    ![Portail 3](media/lab-data-flow-data-share/portal3.png)
+    :::image type="content" source="media/lab-data-flow-data-share/portal3.png" alt-text="Portail 3":::
 1. Vous êtes redirigé vers la page d’accueil de l’expérience utilisateur ADF. Cette page contient des guides de démarrage rapide, des vidéos pédagogiques et des liens vers des tutoriels pour apprendre les concepts liés à la fabrique de données. Pour commencer la création, cliquez sur l’icône en forme de crayon dans la barre latérale gauche.
 
-    ![Configuration du portail](./media/doc-common-process/get-started-page-author-button.png)
+    :::image type="content" source="./media/doc-common-process/get-started-page-author-button.png" alt-text="Configuration du portail":::
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Créer un service lié Azure SQL Database
 
 1. Pour créer un service lié, sélectionnez le hub de **Gestion** dans la barre latérale de gauche. Dans le volet **Connexions**, sélectionnez ensuite **Services liés**, puis **Nouveau** pour ajouter un nouveau service lié.
 
-    ![Configuration du portail 2](media/lab-data-flow-data-share/configure2.png)
+    :::image type="content" source="media/lab-data-flow-data-share/configure2.png" alt-text="Configuration du portail 2":::
 1. Le premier service lié que vous allez configurer est un service Azure SQL DB. Vous pouvez utiliser la barre de recherche pour filtrer la liste des magasins de données. Cliquez sur la vignette **Azure SQL Database**, puis cliquez sur Continue (Continuer).
 
-    ![Configuration du portail 4](media/lab-data-flow-data-share/configure-4.png)
+    :::image type="content" source="media/lab-data-flow-data-share/configure-4.png" alt-text="Configuration du portail 4":::
 1. Dans le volet de configuration de SQL DB, entrez « SQLDB » en tant que nom de service lié. Entrez vos informations d’identification pour permettre à la fabrique de données de se connecter à votre base de données. Si vous utilisez l’authentification SQL, entrez le nom du serveur, la base de données, votre nom d’utilisateur et le mot de passe. Vous pouvez vérifier que vos informations de connexion sont correctes en cliquant sur **Tester la connexion**. Une fois que vous avez fini, cliquez sur **Créer**.
 
-    ![Configuration du portail 5](media/lab-data-flow-data-share/configure5.png)
+    :::image type="content" source="media/lab-data-flow-data-share/configure5.png" alt-text="Configuration du portail 5":::
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Créer un service lié Azure Synapse Analytics
 
 1. Répétez le même processus pour ajouter un service lié Azure Synapse Analytics. Sous l’onglet Connections, cliquez sur **New**. Sélectionnez la vignette **Azure Synapse Analytics**, puis cliquez sur Continuer.
 
-    ![Configuration du portail 6](media/lab-data-flow-data-share/configure-6.png)
+    :::image type="content" source="media/lab-data-flow-data-share/configure-6.png" alt-text="Configuration du portail 6":::
 1. Dans le volet de configuration du service lié, entrez « SQLDW » en tant que nom de service lié. Entrez vos informations d’identification pour permettre à la fabrique de données de se connecter à votre base de données. Si vous utilisez l’authentification SQL, entrez le nom du serveur, la base de données, votre nom d’utilisateur et le mot de passe. Vous pouvez vérifier que vos informations de connexion sont correctes en cliquant sur **Tester la connexion**. Une fois que vous avez fini, cliquez sur **Créer**.
 
-    ![Configuration du portail 7](media/lab-data-flow-data-share/configure-7.png)
+    :::image type="content" source="media/lab-data-flow-data-share/configure-7.png" alt-text="Configuration du portail 7":::
 
 ### <a name="create-an-azure-data-lake-storage-gen2-linked-service"></a>Créer un service lié Azure Data Lake Storage Gen2
 
 1. Le dernier service lié nécessaire pour ce lab est un service Azure Data Lake Storage Gen2.  Sous l’onglet Connections, cliquez sur **New**. Sélectionnez la vignette **Azure Data Lake Storage Gen2**, puis cliquez sur Continue.
 
-    ![Configuration du portail 8](media/lab-data-flow-data-share/configure8.png)
+    :::image type="content" source="media/lab-data-flow-data-share/configure8.png" alt-text="Configuration du portail 8":::
 1. Dans le volet de configuration du service lié, entrez « ADLSGen2 » en tant que nom de service lié. Si vous utilisez l’authentification par clé de compte, sélectionnez votre compte de stockage ADLS Gen2 dans la liste déroulante **Nom du compte de stockage**. Vous pouvez vérifier que vos informations de connexion sont correctes en cliquant sur **Tester la connexion**. Une fois que vous avez fini, cliquez sur **Créer**.
 
-    ![Configuration du portail 9](media/lab-data-flow-data-share/configure9.png)
+    :::image type="content" source="media/lab-data-flow-data-share/configure9.png" alt-text="Configuration du portail 9":::
 
 ### <a name="turn-on-data-flow-debug-mode"></a>Activer le mode de débogage de flux de données
 
@@ -99,9 +99,9 @@ Dans la section *Transform data using mapping data flow* (Transformer les donné
 
 Pour activer le débogage, cliquez sur le curseur **Débogage du flux de données** dans la barre supérieure du canevas de flux de données ou du canevas de pipeline quand vous avez des activités de **Flux de données**. Quand la boîte de dialogue de confirmation s’affiche, cliquez sur OK. Le cluster va prendre entre 5 et 7 minutes environ pour démarrer. Pendant l’initialisation, passez à *Ingérer des données d’Azure SQL DB dans ADLS Gen2 à l’aide de l’activité de copie*.
 
-![Configuration du portail 10](media/lab-data-flow-data-share/configure10.png)
+:::image type="content" source="media/lab-data-flow-data-share/configure10.png" alt-text="Configuration du portail 10":::
 
-![Capture d’écran montrant où se trouve le curseur de débogage du flux de données.](media/lab-data-flow-data-share/configure-11.png)
+:::image type="content" source="media/lab-data-flow-data-share/configure-11.png" alt-text="Capture d’écran montrant où se trouve le curseur de débogage du flux de données.":::
 
 ## <a name="ingest-data-using-the-copy-activity"></a>Ingérer des données à l’aide de l’activité de copie
 
@@ -113,25 +113,25 @@ Dans Azure Data Factory, un pipeline est un regroupement logique d’activités 
 
 1. Dans le volet des ressources de fabrique, cliquez sur l’icône représentant un signe plus pour ouvrir le nouveau menu de ressource. Sélectionnez **Pipeline**.
 
-    ![Copie dans le portail 1](media/lab-data-flow-data-share/copy1.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy1.png" alt-text="Copie dans le portail 1":::
 1. Sous l’onglet **General** (Général) du canevas de pipeline, donnez à votre pipeline un nom descriptif, par exemple « IngestAndTransformTaxiData ».
 
-    ![Copie dans le portail 2](media/lab-data-flow-data-share/copy2.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy2.png" alt-text="Copie dans le portail 2":::
 1. Dans le volet d’activités du canevas de pipeline, ouvrez l’accordéon **Move and Transform** (Déplacer et transformer), puis faites glisser l’activité **Copy data** (Copier les données) vers le canevas. Donnez à l’activité de copie un nom descriptif, par exemple « IngestIntoADLS ».
 
-    ![Copie dans le portail 3](media/lab-data-flow-data-share/copy3.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy3.png" alt-text="Copie dans le portail 3":::
 
 ### <a name="configure-azure-sql-db-source-dataset"></a>Configurer un jeu de données source Azure SQL DB
 
 1. Cliquez sur l’onglet **Source** de l’activité de copie. Pour créer un jeu de données, cliquez sur **New**. Votre source est la table « dbo.TripData » située dans le service lié « SQLDB » configuré.
 
-    ![Copie dans le portail 4](media/lab-data-flow-data-share/copy4.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy4.png" alt-text="Copie dans le portail 4":::
 1. Recherchez **Azure SQL Database**, puis cliquez sur Continue.
 
-    ![Copie dans le portail 5](media/lab-data-flow-data-share/copy-5.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy-5.png" alt-text="Copie dans le portail 5":::
 1. Appelez votre jeu de données « TripData ». Sélectionnez « SQLDB » en tant que service lié. Sélectionnez le nom de table « dbo.TripData » dans la liste déroulante correspondante. Importez le schéma **à partir de la connexion/du magasin**. Une fois que vous avez fini, cliquez sur OK.
 
-    ![Copie dans le portail 6](media/lab-data-flow-data-share/copy6.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy6.png" alt-text="Copie dans le portail 6":::
 
 Vous avez réussi à créer votre jeu de données source. Vérifiez dans les paramètres de la source que la valeur par défaut **Table** est sélectionnée dans le champ d’utilisation de la requête.
 
@@ -139,31 +139,31 @@ Vous avez réussi à créer votre jeu de données source. Vérifiez dans les par
 
 1. Cliquez sur l’onglet **Sink** (Récepteur) de l’activité de copie. Pour créer un jeu de données, cliquez sur **New**.
 
-    ![Copie dans le portail 7](media/lab-data-flow-data-share/copy7.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy7.png" alt-text="Copie dans le portail 7":::
 1. Recherchez **Azure Data Lake Storage Gen2**, puis cliquez sur Continue.
 
-    ![Copie dans le portail 8](media/lab-data-flow-data-share/copy8.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy8.png" alt-text="Copie dans le portail 8":::
 1. Dans le volet de sélection du format, sélectionnez **DelimitedText**, car vous écrivez dans un fichier CSV. Cliquez sur Continue.
 
-    ![Copie dans le portail 9](media/lab-data-flow-data-share/copy9.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy9.png" alt-text="Copie dans le portail 9":::
 1. Nommez votre jeu de données récepteur « TripDataCSV ». Sélectionnez « ADLSGen2 » en tant que service lié. Entrez l’emplacement où vous souhaitez écrire votre fichier CSV. Par exemple, vous pouvez écrire vos données dans le fichier `trip-data.csv` dans le conteneur `staging-container`. Affectez la valeur true à **First row as header** (Première ligne comme en-tête), car vous souhaitez que vos données de sortie aient des en-têtes. Dans la mesure où il n’existe pas encore de fichier à l’emplacement de destination, affectez à **Import schema** (Schéma d’importation) la valeur **None** (Aucun). Une fois que vous avez fini, cliquez sur OK.
 
-    ![Copie dans le portail 10](media/lab-data-flow-data-share/copy10.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy10.png" alt-text="Copie dans le portail 10":::
 
 ### <a name="test-the-copy-activity-with-a-pipeline-debug-run"></a>Tester l’activité de copie avec une exécution de débogage de pipeline
 
 1. Pour vérifier que votre activité de copie fonctionne correctement, cliquez sur **Debug** (Déboguer) en haut du canevas de pipeline afin d’exécuter un débogage. Une exécution de débogage vous permet de tester votre pipeline de bout en bout, ou jusqu’à un point d’arrêt, avant de le publier sur le service de fabrique de données.
 
-    ![Copie dans le portail 11](media/lab-data-flow-data-share/copy11.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy11.png" alt-text="Copie dans le portail 11":::
 1. Pour superviser votre exécution de débogage, accédez à l’onglet **Sortie** du canevas du pipeline. L’écran de supervision est actualisé automatiquement toutes les 20 secondes, ou quand vous cliquez manuellement sur le bouton d’actualisation. L’activité de copie a une vue de supervision spéciale à laquelle vous pouvez accéder en cliquant sur l’icône représentant des lunettes dans la colonne **Actions**.
 
-    ![Copie dans le portail 12](media/lab-data-flow-data-share/copy12.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy12.png" alt-text="Copie dans le portail 12":::
 1. La vue de supervision de la copie donne les détails d’exécution de l’activité ainsi que les caractéristiques de performance. Vous pouvez voir des informations telles que les données lues/écrites, les lignes lues/écrites, les fichiers lus/écrits et le débit. Si vous avez tout configuré correctement, vous devez voir 49 999 lignes écrites dans un fichier de votre récepteur ADLS.
 
-    ![Copie dans le portail 13](media/lab-data-flow-data-share/copy13.png)
+    :::image type="content" source="media/lab-data-flow-data-share/copy13.png" alt-text="Copie dans le portail 13":::
 1. Avant de passer à la section suivante, il est suggéré de publier vos changements sur le service de fabrique de données en cliquant sur **Publish all** (Tout publier) dans la barre supérieure de la fabrique. Bien que cela ne soit pas abordé dans ce lab, Azure Data Factory prend en charge l’intégration complète de Git. L’intégration de Git permet la gestion de versions, l’enregistrement itératif dans un dépôt et la collaboration dans une fabrique de données. Pour plus d’informations, consultez [Contrôle de code source dans Azure Data Factory](./source-control.md#troubleshooting-git-integration).
 
-    ![Publication dans le portail 1](media/lab-data-flow-data-share/publish1.png)
+    :::image type="content" source="media/lab-data-flow-data-share/publish1.png" alt-text="Publication dans le portail 1":::
 
 ## <a name="transform-data-using-mapping-data-flow"></a>Transformer des données avec un flux de données de mappage
 
@@ -175,28 +175,28 @@ Le flux de données créé au cours de cette étape effectue une jointure intern
 
 1. Dans le volet d’activités du canevas de pipeline, ouvrez l’accordéon **Move and Transform**, puis faites glisser l’activité **Data flow** (Flux de données) vers le canevas.
 
-    ![Flux de données dans le portail 1](media/lab-data-flow-data-share/dataflow1.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow1.png" alt-text="Flux de données dans le portail 1":::
 1. Dans le volet latéral qui s’ouvre, sélectionnez **Create new data flow** (Créer un flux de données), puis choisissez **Mapping data flow** (Flux de données de mappage). Cliquez sur **OK**.
 
-    ![Flux de données dans le portail 2](media/lab-data-flow-data-share/dataflow2.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow2.png" alt-text="Flux de données dans le portail 2":::
 1. Vous accédez ensuite au canevas de flux de données, où vous créez votre logique de transformation. Sous l’onglet General, nommez votre flux de données « JoinAndAggregateData ».
 
-    ![Flux de données dans le portail 3](media/lab-data-flow-data-share/dataflow3.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow3.png" alt-text="Flux de données dans le portail 3":::
 
 ### <a name="configure-your-trip-data-csv-source"></a>Configurer votre source csv de données de trajet
 
 1. La première chose à faire est de configurer vos deux transformations de sources. La première source pointe vers le jeu de données DelimitedText de « TripDataCSV ». Pour ajouter une transformation de source, cliquez sur la case **Add Source** (Ajouter une source) dans le canevas.
 
-    ![Flux de données dans le portail 4](media/lab-data-flow-data-share/dataflow4.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow4.png" alt-text="Flux de données dans le portail 4":::
 1. Nommez votre source « TripDataCSV », puis sélectionnez le jeu de données « TripDataCSV » dans la liste déroulante de sources. Si vous vous en souvenez, vous n’avez pas importé de schéma initialement durant la création de ce jeu de données, car il n’y avait aucune donnée. Dans la mesure où `trip-data.csv` existe maintenant, cliquez sur **Edit** (Modifier) pour accéder à l’onglet des paramètres du jeu de données.
 
-    ![Flux de données dans le portail 5](media/lab-data-flow-data-share/dataflow5.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow5.png" alt-text="Flux de données dans le portail 5":::
 1. Accédez à l’onglet **Schema** (Schéma), puis cliquez sur **Import schema** (Importer le schéma). Sélectionnez **From connection/store** (Depuis la connexion/le magasin) pour effectuer l’importation directement à partir du magasin de fichiers. 14 colonnes de type chaîne doivent s’afficher.
 
-    ![Flux de données dans le portail 6](media/lab-data-flow-data-share/dataflow6.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow6.png" alt-text="Flux de données dans le portail 6":::
 1. Revenez au flux de données « JoinAndAggregateData ». Si votre cluster de débogage a démarré (indiqué par un cercle vert à côté du curseur de débogage), vous pouvez obtenir une capture instantanée des données sous l’onglet **Data Preview** (Aperçu des données). Cliquez sur **Refresh** (Actualiser) pour extraire un aperçu des données.
 
-    ![Flux de données dans le portail 7](media/lab-data-flow-data-share/dataflow7.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow7.png" alt-text="Flux de données dans le portail 7":::
 
 > [!Note]
 > L’aperçu des données n’écrit pas de données.
@@ -205,84 +205,84 @@ Le flux de données créé au cours de cette étape effectue une jointure intern
 
 1. La deuxième source que vous ajoutez doit pointer vers la table SQL DB « dbo.TripFares ». Sous votre source « TripDataCSV », il existe une autre zone **Add Source**. Cliquez dessus pour ajouter une nouvelle transformation de source.
 
-    ![Flux de données dans le portail 8](media/lab-data-flow-data-share/dataflow8.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow8.png" alt-text="Flux de données dans le portail 8":::
 1. Nommez cette source « TripFaresSQL ». Cliquez sur **New** (Nouveau) à côté du champ du jeu de données source pour créer un jeu de données SQL DB.
 
-    ![Flux de données dans le portail 9](media/lab-data-flow-data-share/dataflow9.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow9.png" alt-text="Flux de données dans le portail 9":::
 1. Sélectionnez la vignette **Azure SQL Database**, puis cliquez sur Continue. *Remarque : Vous remarquerez peut-être que de nombreux connecteurs de la fabrique de données ne sont pas pris en charge dans le flux de données de mappage. Pour transformer les données d’une de ces sources, ingérez-les dans une source prise en charge à l’aide de l’activité de copie*.
 
-    ![Flux de données dans le portail 10](media/lab-data-flow-data-share/dataflow-10.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow-10.png" alt-text="Flux de données dans le portail 10":::
 1. Appelez votre jeu de données « TripFares ». Sélectionnez « SQLDB » en tant que service lié. Sélectionnez le nom de table « dbo.TripFares » dans la liste déroulante de noms de table. Importez le schéma **à partir de la connexion/du magasin**. Une fois que vous avez fini, cliquez sur OK.
 
-    ![Flux de données dans le portail 11](media/lab-data-flow-data-share/dataflow11.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow11.png" alt-text="Flux de données dans le portail 11":::
 1. Pour vérifier vos données, extrayez un aperçu de ces dernières sous l’onglet **Data Preview**.
 
-    ![Flux de données dans le portail 12](media/lab-data-flow-data-share/dataflow12.png)
+    :::image type="content" source="media/lab-data-flow-data-share/dataflow12.png" alt-text="Flux de données dans le portail 12":::
 
 ### <a name="inner-join-tripdatacsv-and-tripfaressql"></a>Effectuer une jointure interne de TripDataCSV et TripFaresSQL
 
 1. Pour ajouter une nouvelle transformation, cliquez sur l’icône représentant un signe plus dans le coin inférieur droit de « TripDataCSV ». Sous **Multiple inputs/outputs** (Entrées/sorties multiples), sélectionnez **Join** (Créer une jointure).
 
-    ![Jointure dans le portail 1](media/lab-data-flow-data-share/join1.png)
+    :::image type="content" source="media/lab-data-flow-data-share/join1.png" alt-text="Jointure dans le portail 1":::
 1. Nommez votre transformation de jointure « InnerJoinWithTripFares ». Sélectionnez « TripFaresSQL » dans la liste déroulante de flux de droite. Sélectionnez le type de jointure **Inner** (Interne). Pour en savoir plus sur les différents types de jointure dans le flux de données de mappage, consultez [Types de jointure](./data-flow-join.md#join-types).
 
     Sélectionnez les colonnes auxquelles vous souhaitez faire correspondre chaque flux via la liste déroulante **Join conditions** (Conditions de jointure). Pour ajouter une condition de jointure supplémentaire, cliquez sur l’icône représentant un signe plus à côté d’une condition existante. Par défaut, toutes les conditions de jointure sont associées à un opérateur AND, ce qui signifie que toutes les conditions doivent être remplies pour avoir une correspondance. Dans ce lab, nous souhaitons faire correspondre les colonnes `medallion`, `hack_license`, `vendor_id` et `pickup_datetime`
 
-    ![Jointure dans le portail 2](media/lab-data-flow-data-share/join2.png)
+    :::image type="content" source="media/lab-data-flow-data-share/join2.png" alt-text="Jointure dans le portail 2":::
 1. Vérifiez que vous avez correctement effectué la jointure de 25 colonnes à l’aide d’un aperçu des données.
 
-    ![Jointure dans le portail 3](media/lab-data-flow-data-share/join3.png)
+    :::image type="content" source="media/lab-data-flow-data-share/join3.png" alt-text="Jointure dans le portail 3":::
 
 ### <a name="aggregate-by-payment_type"></a>Agréger par payment_type
 
 1. Une fois que vous avez fini d’effectuer votre transformation de jointure, ajoutez une transformation d’agrégat en cliquant sur l’icône représentant un signe plus à côté de « InnerJoinWithTripFares ». Choisissez **Aggregate** (Agrégat) sous **Schema modifier** (Modificateur de schéma).
 
-    ![Agrégation dans le portail 1](media/lab-data-flow-data-share/agg1.png)
+    :::image type="content" source="media/lab-data-flow-data-share/agg1.png" alt-text="Agrégation dans le portail 1":::
 1. Nommez votre transformation d’agrégat « AggregateByPaymentType ». Sélectionnez `payment_type` en tant que colonne de regroupement.
 
-    ![Agrégation dans le portail 2](media/lab-data-flow-data-share/agg2.png)
+    :::image type="content" source="media/lab-data-flow-data-share/agg2.png" alt-text="Agrégation dans le portail 2":::
 1. Accédez à l’onglet **Agrégats**. Ici, vous allez spécifier deux agrégations :
     * Le tarif moyen regroupé par type de paiement
     * La distance totale du trajet regroupée par type de paiement
 
     Pour commencer, vous allez créer l’expression correspondant au tarif moyen. Dans la zone de texte intitulée **Add or select a column** (Ajouter ou sélectionner une colonne), entrez « average_fare ».
 
-    ![Agrégation dans le portail 3](media/lab-data-flow-data-share/agg3.png)
+    :::image type="content" source="media/lab-data-flow-data-share/agg3.png" alt-text="Agrégation dans le portail 3":::
 1. Pour entrer une expression d’agrégation, cliquez sur la zone bleue intitulée **Enter expression** (Entrer l’expression). Cela permet d’ouvrir le Générateur d’expressions de flux de données, un outil utilisé pour créer visuellement des expressions de flux de données à l’aide d’un schéma d’entrée, de fonctions et d’opérations intégrées ainsi que de paramètres définis par l’utilisateur. Pour plus d’informations sur les fonctionnalités du Générateur d’expressions, consultez la [documentation du Générateur d’expressions](./concepts-data-flow-expression-builder.md).
 
     Pour obtenir le tarif moyen, utilisez la fonction d’agrégation `avg()` afin d’agréger le cast de la colonne `total_amount` en entier avec `toInteger()`. En langage d’expression de flux de données, cela est défini sous la forme `avg(toInteger(total_amount))`. Une fois que vous avez fini, cliquez sur **Save and finish** (Enregistrer et terminer).
 
-    ![Agrégation dans le portail 4](media/lab-data-flow-data-share/agg4.png)
+    :::image type="content" source="media/lab-data-flow-data-share/agg4.png" alt-text="Agrégation dans le portail 4":::
 1. Pour ajouter une expression d’agrégation supplémentaire, cliquez sur l’icône représentant un signe plus à côté de `average_fare`. Sélectionnez **Add column** (Ajouter une colonne).
 
-    ![Agrégation dans le portail 5](media/lab-data-flow-data-share/agg5.png)
+    :::image type="content" source="media/lab-data-flow-data-share/agg5.png" alt-text="Agrégation dans le portail 5":::
 1. Dans la zone de texte intitulée **Add or select a column** (Ajouter ou sélectionner une colonne), entrez « total_trip_distance ». Comme à la dernière étape, ouvrez le Générateur d’expressions pour entrer l’expression.
 
     Pour obtenir la distance totale du trajet, utilisez la fonction d’agrégation `sum()` afin d’agréger le cast de la colonne `trip_distance` en entier avec `toInteger()`. En langage d’expression de flux de données, cela est défini sous la forme `sum(toInteger(trip_distance))`. Une fois que vous avez fini, cliquez sur **Save and finish** (Enregistrer et terminer).
 
-    ![Agrégation dans le portail 6](media/lab-data-flow-data-share/agg6.png)
+    :::image type="content" source="media/lab-data-flow-data-share/agg6.png" alt-text="Agrégation dans le portail 6":::
 1. Testez votre logique de transformation sous l’onglet **Data Preview**. Comme vous pouvez le voir, il existe beaucoup moins de lignes et de colonnes qu’auparavant. Seules les trois colonnes de regroupement et d’agrégation définies dans cette transformation se poursuivent en aval. Comme il n’existe que cinq groupes de types de paiement dans l’exemple, seules cinq lignes sont générées.
 
-    ![Agrégation dans le portail 7](media/lab-data-flow-data-share/agg7.png)
+    :::image type="content" source="media/lab-data-flow-data-share/agg7.png" alt-text="Agrégation dans le portail 7":::
 
 ### <a name="configure-you-azure-synapse-analytics-sink"></a>Configurer votre récepteur Azure Synapse Analytics
 
 1. Une fois que nous avons fini de travailler sur la logique de transformation, nous sommes prêts à créer un récepteur de nos données dans une table Azure Synapse Analytics. Ajoutez une transformation de récepteur sous la section **Destination**.
 
-    ![Récepteur dans le portail 1](media/lab-data-flow-data-share/sink1.png)
+    :::image type="content" source="media/lab-data-flow-data-share/sink1.png" alt-text="Récepteur dans le portail 1":::
 1. Nommez votre récepteur « SQLDWSink ». Cliquez sur **Nouveau** à côté du champ de jeu de données récepteur pour créer un jeu de données Azure Synapse Analytics.
 
-    ![Récepteur dans le portail 2](media/lab-data-flow-data-share/sink2.png)
+    :::image type="content" source="media/lab-data-flow-data-share/sink2.png" alt-text="Récepteur dans le portail 2":::
 
 1. Sélectionnez la vignette **Azure Synapse Analytics**, puis cliquez sur Continuer.
 
-    ![Récepteur dans le portail 3](media/lab-data-flow-data-share/sink-3.png)
+    :::image type="content" source="media/lab-data-flow-data-share/sink-3.png" alt-text="Récepteur dans le portail 3":::
 1. Appelez votre jeu de données « AggregatedTaxiData ». Sélectionnez « SQLDW » en tant que service lié. Sélectionnez **Create new table** (Créer une table), puis nommez la nouvelle table dbo.AggregateTaxiData. Une fois que vous avez fini, cliquez sur OK
 
-    ![Récepteur dans le portail 4](media/lab-data-flow-data-share/sink4.png)
+    :::image type="content" source="media/lab-data-flow-data-share/sink4.png" alt-text="Récepteur dans le portail 4":::
 1. Accédez à l’onglet **Settings** (Paramètres) du récepteur. Comme nous créons une table, nous devons sélectionner **Recreate table** (Recréer la table) sous l’action de table. Décochez **Enable staging** (Activer la préproduction), qui nous permet de passer de l’insertion ligne par ligne à l’insertion par lot, et inversement.
 
-    ![Récepteur dans le portail 5](media/lab-data-flow-data-share/sink5.png)
+    :::image type="content" source="media/lab-data-flow-data-share/sink5.png" alt-text="Récepteur dans le portail 5":::
 
 Vous avez réussi à créer votre flux de données. Il est temps maintenant de l’exécuter dans une activité de pipeline.
 
@@ -290,19 +290,19 @@ Vous avez réussi à créer votre flux de données. Il est temps maintenant de l
 
 1. Revenez à l’onglet du pipeline **IngestAndTransformData**. Notez la zone verte dans l’activité de copie « IngestIntoADLS ». Faites-la glisser vers l’activité de flux de données « JoinAndAggregateData ». Cela entraîne la création d’un élément « en cas de réussite », qui déclenche l’exécution de l’activité de flux de données uniquement si la copie est réussie.
 
-    ![Pipeline dans le portail 1](media/lab-data-flow-data-share/pipeline1.png)
+    :::image type="content" source="media/lab-data-flow-data-share/pipeline1.png" alt-text="Pipeline dans le portail 1":::
 1. Comme nous l’avons fait pour l’activité de copie, cliquez sur **Debug** pour effectuer une exécution de débogage. Pour les exécutions de débogage, l’activité de flux de données utilise le cluster de débogage actif au lieu de démarrer un nouveau cluster. L’exécution de ce pipeline prend un peu plus d’une minute.
 
-    ![Pipeline dans le portail 2](media/lab-data-flow-data-share/pipeline2.png)
+    :::image type="content" source="media/lab-data-flow-data-share/pipeline2.png" alt-text="Pipeline dans le portail 2":::
 1. Tout comme l’activité de copie, le flux de données a une vue de supervision spéciale, accessible via l’icône de lunettes à la fin de l’activité.
 
-    ![Pipeline dans le portail 3](media/lab-data-flow-data-share/pipeline3.png)
+    :::image type="content" source="media/lab-data-flow-data-share/pipeline3.png" alt-text="Pipeline dans le portail 3":::
 1. Dans la vue de supervision, vous pouvez voir un graphe de flux de données simplifié avec les temps d’exécution et les lignes à chaque étape d’exécution. Si tout est correct, vous devez avoir agrégé 49 999 lignes en cinq lignes dans cette activité.
 
-    ![Pipeline dans le portail 4](media/lab-data-flow-data-share/pipeline4.png)
+    :::image type="content" source="media/lab-data-flow-data-share/pipeline4.png" alt-text="Pipeline dans le portail 4":::
 1. Vous pouvez cliquer sur une transformation pour obtenir des détails supplémentaires sur son exécution, par exemple les informations de partitionnement ainsi que les colonnes nouvelles/mises à jour/supprimées.
 
-    ![Pipeline dans le portail 5](media/lab-data-flow-data-share/pipeline5.png)
+    :::image type="content" source="media/lab-data-flow-data-share/pipeline5.png" alt-text="Pipeline dans le portail 5":::
 
 Vous avez fini à présent la partie fabrique de données de ce lab. Publiez vos ressources si vous souhaitez les faire fonctionner avec des déclencheurs. Vous avez réussi à exécuter un pipeline qui a ingéré des données d’Azure SQL Database vers Azure Data Lake Storage à l’aide de l’activité de copie, puis vous avez agrégé ces données dans Azure Synapse Analytics. Vous pouvez vérifier que les données ont été correctement écrites en examinant le serveur SQL Server lui-même.
 
@@ -318,13 +318,13 @@ Une fois que vous avez créé un partage de données, vous changez de rôle et d
 
 1. À l’aide de la barre de recherche en haut de la page, recherchez **Partages de données**
 
-    ![Publicités du portail](media/lab-data-flow-data-share/portal-ads.png)
+    :::image type="content" source="media/lab-data-flow-data-share/portal-ads.png" alt-text="Publicités du portail":::
 
 1. Sélectionnez le compte de partage de données qui contient « Provider » (Fournisseur) dans son nom. Par exemple, **DataProvider0102**. 
 
 1. Sélectionnez **Start sharing your data** (Commencer à partager vos données)
 
-    ![Démarrer le partage](media/lab-data-flow-data-share/ads-start-sharing.png)
+    :::image type="content" source="media/lab-data-flow-data-share/ads-start-sharing.png" alt-text="Démarrer le partage":::
 
 1. Sélectionnez **+Create** (+Créer) pour commencer à configurer votre nouveau partage de données. 
 
@@ -334,17 +334,17 @@ Une fois que vous avez créé un partage de données, vous changez de rôle et d
 
 1. Sous **Conditions d’utilisation**, spécifiez un ensemble de conditions auxquelles vous souhaitez que votre consommateur de données adhère. Certains exemples incluent « Do not distribute this data outside your organization » (Ne pas diffuser ces données en dehors de votre organisation) ou « Refer to legal agreement » (Se référer à l’accord juridique). 
 
-    ![Partager les détails](media/lab-data-flow-data-share/ads-details.png)
+    :::image type="content" source="media/lab-data-flow-data-share/ads-details.png" alt-text="Partager les détails":::
 
 1. Sélectionnez **Continuer**. 
 
 1. Sélectionnez **Ajouter des jeux de données** 
 
-    ![Ajouter un jeu de données 1](media/lab-data-flow-data-share/add-dataset.png)
+    :::image type="content" source="media/lab-data-flow-data-share/add-dataset.png" alt-text="Ajouter un jeu de données 1":::
 
 1. Sélectionnez **Azure Synapse Analytics** pour sélectionner une table Azure Synapse Analytics où vos transformations ADF ont été placées.
 
-    ![Ajouter un jeu de données SQL](media/lab-data-flow-data-share/add-dataset-sql.png)
+    :::image type="content" source="media/lab-data-flow-data-share/add-dataset-sql.png" alt-text="Ajouter un jeu de données SQL":::
 
 
 1. Vous allez recevoir un script à exécuter pour pouvoir continuer. Le script fourni crée un utilisateur dans la base de données SQL pour permettre au MSI Azure Data Share de s’authentifier en son nom. 
@@ -368,7 +368,7 @@ Une fois que vous avez créé un partage de données, vous changez de rôle et d
 
 1. Sélectionnez **Ajouter un Dataset**, puis **Azure Data Lake Store Gen2**
 
-    ![Ajouter un jeu de données ADLS](media/lab-data-flow-data-share/add-dataset-adls.png)
+    :::image type="content" source="media/lab-data-flow-data-share/add-dataset-adls.png" alt-text="Ajouter un jeu de données ADLS":::
 
 1. Sélectionnez **Suivant**.
 
@@ -386,7 +386,7 @@ Une fois que vous avez créé un partage de données, vous changez de rôle et d
 
     1. L’adresse e-mail de l’abonnement Azure dans lequel vous vous trouvez. 
 
-        ![Ajouter des destinataires](media/lab-data-flow-data-share/add-recipients.png)
+        :::image type="content" source="media/lab-data-flow-data-share/add-recipients.png" alt-text="Ajouter des destinataires":::
 
     1. Ajoutez le consommateur de données fictives nommé *janedoe@fabrikam.com* .
 
@@ -408,7 +408,7 @@ Une fois que vous avez créé un partage de données, vous changez de rôle et d
 
 1. Accédez à l’onglet **Invitations**. Ici, vous voyez s’afficher une liste des invitations en attente. 
 
-    ![Invitations en attente](media/lab-data-flow-data-share/pending-invites.png)
+    :::image type="content" source="media/lab-data-flow-data-share/pending-invites.png" alt-text="Invitations en attente":::
 
 1. Sélectionnez l’invitation à *janedoe@fabrikam.com* . Sélectionnez Supprimer. Si votre destinataire n’a pas encore accepté l’invitation, il ne pourra plus le faire. 
 
@@ -422,7 +422,7 @@ Vous devez maintenant avoir une invitation Azure Data Share dans votre boîte de
 
 Dans l’e-mail que vous devez avoir reçu, cliquez sur « Afficher l’invitation> ». À ce stade, vous allez simuler l’expérience du consommateur de données qui accepte une invitation des fournisseurs de données à accéder à leur partage de données. 
 
-![Invitation par e-mail](media/lab-data-flow-data-share/email-invite.png)
+:::image type="content" source="media/lab-data-flow-data-share/email-invite.png" alt-text="Invitation par e-mail":::
 
 Vous pouvez être invité à sélectionner un abonnement. Veillez à sélectionner l’abonnement que vous avez utilisé pour ce lab. 
 
@@ -436,7 +436,7 @@ Vous pouvez être invité à sélectionner un abonnement. Veillez à sélectionn
 
 1. À côté de **Received share name** (Nom de partage reçu), notez que le nom de partage par défaut est le nom spécifié par le fournisseur de données. Donnez au partage un nom convivial qui décrit les données que vous allez recevoir, par exemple **TaxiDataShare**.
 
-    ![Acceptations d’invitation](media/lab-data-flow-data-share/consumer-accept.png)
+    :::image type="content" source="media/lab-data-flow-data-share/consumer-accept.png" alt-text="Acceptations d’invitation":::
 
 1. Vous pouvez choisir **Accept and configure now** (Accepter et configurer maintenant) ou **Accept and configure later** (Accepter et configurer plus tard). Si vous choisissez d’accepter l’invitation et d’effectuer la configuration maintenant, vous spécifiez un compte de stockage dans lequel toutes les données doivent être copiées. Si vous choisissez d’accepter l’invitation et d’effectuer la configuration plus tard, les jeux de données du partage ne sont pas mappés, et vous devez les mapper manuellement. Nous allons choisir cette option plus tard. 
 
@@ -452,7 +452,7 @@ Vous pouvez être invité à sélectionner un abonnement. Veillez à sélectionn
 
 1. Sélectionnez l’onglet **Jeux de données**. Notez que chaque jeu de données est non mappé, ce qui signifie qu’il n’existe aucune destination vers laquelle copier les données. 
 
-    ![jeux de données non mappés](media/lab-data-flow-data-share/unmapped.png)
+    :::image type="content" source="media/lab-data-flow-data-share/unmapped.png" alt-text="jeux de données non mappés":::
 
 1. Sélectionnez la table Azure Synapse Analytics, puis sélectionnez **+ Mapper à la cible**.
 
@@ -460,7 +460,7 @@ Vous pouvez être invité à sélectionner un abonnement. Veillez à sélectionn
 
     Vous pouvez mapper les données SQL à un large éventail de magasins de données. Dans le cas présent, nous allons effectuer un mappage à une base de données Azure SQL Database.
 
-    ![mapping](media/lab-data-flow-data-share/mapping-options.png)
+    :::image type="content" source="media/lab-data-flow-data-share/mapping-options.png" alt-text="mapping":::
     
     (Facultatif) Sélectionnez **Azure Data Lake Store Gen2** en tant que type de données cible. 
     
@@ -472,7 +472,7 @@ Vous pouvez être invité à sélectionner un abonnement. Veillez à sélectionn
 
 1. Sélectionnez l’abonnement, le groupe de ressources et le compte de stockage que vous avez utilisés. 
 
-    ![mappage SQL](media/lab-data-flow-data-share/map-to-sqldb.png)
+    :::image type="content" source="media/lab-data-flow-data-share/map-to-sqldb.png" alt-text="mappage SQL":::
 
 1. Pour pouvoir continuer, vous devez créer un utilisateur dans SQL Server en exécutant le script fourni. Tout d’abord, copiez le script fourni dans le Presse-papiers. 
 
@@ -494,11 +494,11 @@ Vous pouvez être invité à sélectionner un abonnement. Veillez à sélectionn
 
 1. Sélectionnez ensuite le dossier Azure Data Lake Gen2 faisant partie du jeu de données, et mappez-le à un compte Stockage Blob Azure. 
 
-    ![storage](media/lab-data-flow-data-share/storage-map.png)
+    :::image type="content" source="media/lab-data-flow-data-share/storage-map.png" alt-text="storage":::
 
     Une fois tous les jeux de données mappés, vous êtes prêt à recevoir les données du fournisseur de données. 
 
-    ![mappé](media/lab-data-flow-data-share/all-mapped.png)
+    :::image type="content" source="media/lab-data-flow-data-share/all-mapped.png" alt-text="mappé":::
     
 1. Sélectionnez **Details** (Détails). 
 
@@ -506,7 +506,7 @@ Vous pouvez être invité à sélectionner un abonnement. Veillez à sélectionn
 
 1. Sélectionnez Instantané de déclencheur -> Copie complète. 
 
-    ![déclencheur](media/lab-data-flow-data-share/trigger-full.png)
+    :::image type="content" source="media/lab-data-flow-data-share/trigger-full.png" alt-text="trigger":::
 
     Cela déclenche la copie des données vers votre nouveau compte de partage de données. Dans un scénario réel, ces données proviennent d’un tiers. 
 

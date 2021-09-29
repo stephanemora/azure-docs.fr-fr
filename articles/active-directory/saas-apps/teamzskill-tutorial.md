@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 0a8cdbb298ff15b5502fead93aee0d6d200f06bb
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: afc777de3d63753ee3c4a599bd20193d6c09bd36
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803095"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821416"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamzskill"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TeamzSkill
 
@@ -175,7 +175,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 - Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance de TeamzSkill pour laquelle vous avez configuré l’authentification unique.
 
-Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette TeamzSkill dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de TeamzSkill pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette TeamzSkill dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de TeamzSkill pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

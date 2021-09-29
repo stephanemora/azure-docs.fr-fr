@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: fichier descriptif
 description: inclure fichier
 services: azure-communication-services
 author: tomaschladek
@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 60de092a25350add4dc5b216bb7d079b866cc1fd
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: f5b41f98f3d0ce1ca1cab4f8a5c5715d9a10fa64
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113659565"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677282"
 ---
 > [!NOTE]
 > Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart).
@@ -155,7 +155,7 @@ console.log(token);
 L’actualisation des jetons d’accès est aussi simple que l’appel de `getToken` avec la même identité que celle utilisée pour émettre les jetons. Vous devez également fournir les `scopes` des jetons actualisés.
 
 ```javascript
-// // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+// Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
 let refreshedTokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 ```
 

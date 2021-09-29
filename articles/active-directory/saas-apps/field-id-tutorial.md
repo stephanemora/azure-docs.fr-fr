@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 55a66f3f287ffb50d932263e407772efffa839ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d06770489ee4c8a97e5c2e6b50d3b1c345ca03af
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92453533"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124835160"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-field-id"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Field iD
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans F
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous sélectionnez la vignette Field iD dans le volet d’accès, vous devez être connecté automatiquement à l’application Field iD pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Quand vous sélectionnez la vignette Field iD dans le volet d’accès, vous devez être connecté automatiquement à l’application Field iD pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -2,17 +2,17 @@
 title: Portail Azure - Activez les clés gérées par le client avec les disques managés - SSE
 description: Activez les clés gérées par le client sur vos disques managés à l’aide du portail Azure.
 author: roygara
-ms.date: 08/31/2021
+ms.date: 09/27/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 2117fc6d425233ee2de4954173981ad5cfda5f18
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: c5941c8307e5aacc99f6fce627dafc154b6bc786
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123318469"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091157"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Utiliser le portail Azure pour activer le chiffrement côté serveur à l'aide de clés gérées par le client pour les disques managés
 

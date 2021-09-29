@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: e009f24f1ce7d05c8890b197ea1208f2d01666d4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a1cd31fdb70dd38a014c60e5a0901cdfa51bc791
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697956"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780848"
 ---
 # <a name="np-series"></a>Série NP 
 
@@ -163,7 +163,7 @@ Pour désactiver Host_Mem(SB) : sudo xbutil host_mem --disable
 
 
 
-## <a name="other-sizes"></a>Autres tailles
+## <a name="other-sizes-and-information"></a>Autres tailles et informations
 
 - [Usage général](sizes-general.md)
 - [Mémoire optimisée](sizes-memory.md)
@@ -171,6 +171,10 @@ Pour désactiver Host_Mem(SB) : sudo xbutil host_mem --disable
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+
+Pour plus d’informations sur les types de disques, consultez [Quels sont les types de disque disponibles dans Azure ?](disks-types.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

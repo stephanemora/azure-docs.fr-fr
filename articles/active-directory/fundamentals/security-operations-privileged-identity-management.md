@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42a7b541b3f5b5c5d1ec462898615793d50b5493
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f17ff93dde6c4bbb7df57d177bc7d1e3d746b347
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531608"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814618"
 ---
 # <a name="azure-active-directory-security-operations-for-privileged-identity-management-pim"></a>Opérations de sécurité Azure Active Directory pour Privileged Identity Management (PIM)
 
@@ -50,13 +50,13 @@ Cet article fournit des conseils sur la création de bases de référence, l’a
 
 ## <a name="where-to-look"></a>Où regarder ?
 
-Les fichiers journaux que vous pouvez utiliser pour l’investigation et la supervision sont les suivants : 
+Les fichiers journaux que vous pouvez utiliser pour investiguer et superviser sont les suivants : 
 
 * [Journaux d’audit Azure AD](../reports-monitoring/concept-audit-logs.md)
 
-* [Journaux d’activité de connexion](../reports-monitoring/concept-all-sign-ins.md)
+* [Journaux de connexion](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Journaux d’audit Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Journaux d’audit Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Journaux Azure Key Vault](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -151,7 +151,7 @@ Un utilisateur disposant d’autorisations d’administrateur de ressources peut
 Pour plus d’informations, consultez [Attribuer des rôles de ressources Azure dans Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants concernant les opérations de sécurité :
+Consultez les articles suivants sur les opérations de sécurité :
 
 [Vue d’ensemble des opérations de sécurité Azure AD](security-operations-introduction.md)
 

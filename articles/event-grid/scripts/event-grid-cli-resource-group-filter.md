@@ -3,14 +3,14 @@ title: Azure CLI - S’abonner à un groupe de ressources et filtrer par ressour
 description: Cet article fournit un exemple de script Azure CLI qui montre comment s’abonner à des événements Event Grid pour une ressource et filtrer pour trouver une ressource.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/22/2021
+ms.date: 09/15/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9e44744f8f356a4e4c2d68f8ea20121407218eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f8d994e286b9d68b7a71a3048d95fdf21215611f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463773"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620632"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>S’inscrire aux événements d’un groupe de ressources et filtrer pour trouver une ressource avec Azure CLI
 

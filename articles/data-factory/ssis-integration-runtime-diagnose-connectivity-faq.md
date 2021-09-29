@@ -8,12 +8,12 @@ ms.author: meiyl
 author: meiyl
 ms.reviewer: sawinark
 ms.date: 06/21/2021
-ms.openlocfilehash: 1d501a461caab23fb45441473fda60e13c7e8334
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e1d1b8a876d55698db83b0c7d331f45797c3c1b3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531849"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743181"
 ---
 # <a name="use-the-diagnose-connectivity-feature-in-the-ssis-integration-runtime"></a>Utiliser la fonctionnalité de diagnostic de connectivité dans le runtime d’intégration SSIS
 
@@ -23,9 +23,9 @@ Vous pouvez rencontrer des problèmes de connectivité en exécutant des package
 
 Résolvez les problèmes de connectivité à l’aide de la fonctionnalité *diagnostiquer la connectivité* pour tester les connexions. Cette fonctionnalité se trouve dans la page d’analyse du runtime d’intégration SSIS du portail Azure Data Factory.
 
- ![Page Analyser - diagnostiquer la connectivité](media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-diagnose-connectivity.png)
+ :::image type="content" source="media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-diagnose-connectivity.png" alt-text="Page Analyser - diagnostiquer la connectivité":::
 
- ![Page Analyser - tester la connexion](media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-test-connection.png)
+ :::image type="content" source="media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-test-connection.png" alt-text="Page Analyser - tester la connexion":::
 
 Utilisez les sections suivantes pour en savoir plus sur les erreurs les plus courantes susceptibles de se produire lorsque vous testez les connexions. Chaque section décrit les éléments suivants :
 

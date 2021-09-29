@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: fichier descriptif
 description: Fichier include
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ffe433e632e2afed32f2a135d87d927686e9a004
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 6c8f4e902929d6a610dc1f9224ac17b2d3b893d0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018279"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056552"
 ---
 Vous pouvez déployer des profils pour les clients VPN Azure (Windows 10) à l’aide de Microsoft Intune. Cet article vous aide à créer un profil Intune avec des paramètres personnalisés.
 
@@ -72,7 +72,7 @@ Dans cette section, vous allez créer un profil Microsoft Intune avec des param�
 
     * **Nom :** Entrez un nom pour la configuration.
     * **Description :** Description facultative.
-    * **OMA-URI :** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (ces informations se trouvent dans le fichier azurevpnconfig.xml dans la balise <name></name>).
+    * **OMA-URI :** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (ces informations se trouvent dans le fichier azurevpnconfig.xml dans la balise \<name\> \</name\>).
     * **Type de données :** Chaîne (fichier XML).
 
    Sélectionnez l’icône de dossier et choisissez le fichier que vous avez enregistré à l’étape 6 dans les étapes de [XML](#xml). Sélectionnez **Ajouter**.

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: lenalepa
-ms.openlocfilehash: 6297f519e87e9cb98ff0c85916eeae4161d2749e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 017f43152ed041d0b3b9a24bab151bb06acb9d3f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524231"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748483"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Guide pratique pour utiliser l’accès aux applications en libre-service
 
@@ -24,7 +24,7 @@ Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications dep
 
 Cette fonctionnalité est un excellent moyen pour un groupe informatique d’économiser du temps et de l’argent, et elle est recommandée dans le cadre d’un déploiement d’applications modernes avec Azure Active Directory.
 
-Pour en savoir plus sur l’utilisation de Mes applications du point de vue de l’utilisateur final, consultez l’[aide du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Pour en savoir plus sur l’utilisation de Mes applications du point de vue de l’utilisateur final, consultez l’[aide du portail Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 À l’aide de cette fonctionnalité, vous pouvez :
 

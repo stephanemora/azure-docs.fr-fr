@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 5f25980a6dbe1087754b48d14b22f207b9573264
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd0c6ee20008ee63da20ecb5890d20b2da41d758
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92518396"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801312"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shibumi"></a>Tutoriel : Intégration d’Azure Active Directory à Shibumi
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Shibumi, effectuez les
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.shibumi.com/saml/SSO`
 
@@ -192,7 +192,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Shibumi.
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Shibumi dans le volet d’accès, vous devez être connecté automatiquement à l’application Shibumi pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Shibumi dans le volet d’accès, vous devez être connecté automatiquement à l’application Shibumi pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -1,18 +1,18 @@
 ---
 title: 'Tutoriel : Publier les versions d’une API à l’aide de Gestion des API Azure'
 description: Suivez les étapes de ce tutoriel pour apprendre à publier plusieurs versions d’API dans Gestion des API.
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/10/2021
-ms.author: apimpm
-ms.openlocfilehash: 5930979258372e4269c4d453ffbc5e0d46258088
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.author: danlep
+ms.openlocfilehash: 0f9d43f0b9abd53f76efb1e29d40667f1daf19b3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483607"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644806"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Tutoriel : Publier plusieurs versions de votre API 
 

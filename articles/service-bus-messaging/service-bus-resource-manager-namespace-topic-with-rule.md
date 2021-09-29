@@ -4,15 +4,15 @@ description: Créer un espace de noms Service Bus avec rubrique, abonnement et r
 author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
+ms.date: 09/27/2021
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 97e851fccae5ca74152dbf68b416fe91e111ec79
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: a065c5e131fa7a278c25642bad0995f003016cce
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112294172"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155227"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus avec rubrique, abonnement et règle à l’aide d’un modèle Azure Resource Manager
 

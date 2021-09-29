@@ -3,17 +3,17 @@ title: Obtenir des notifications concernant la maintenance à l’aide de l’in
 description: Affichez les notifications de maintenance pour les machines virtuelles s’exécutant dans Azure et démarrez la maintenance en libre-service à l’aide d’Azure CLI.
 author: shants123
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 7b4f79724ee3105e9a64b44617762d71f4f6a158
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 8b6f40109993df4ecd41b6f17505882e4e840ad1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698798"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215526"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Gestion de notifications de maintenance planifiée à l’aide d’Azure CLI
 

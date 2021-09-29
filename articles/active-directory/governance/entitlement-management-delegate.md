@@ -16,12 +16,12 @@ ms.date: 7/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af0269d2ae698a025682929818b601cdebec06ad
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 864633246a673e331e65a1b9de329b9528ab701f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286520"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814582"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Délégation et rôles dans la gestion des droits d’utilisation Azure AD
 
@@ -97,7 +97,7 @@ Le tableau suivant liste les tâches que les rôles de gestion des droits d’ut
 | [Ajouter une organisation connectée](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
 | [Créer un catalogue](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
 | [Ajouter une ressource à un catalogue](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Ajouter un propriétaire de catalogue](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Ajouter un propriétaire de catalogue](entitlement-management-catalog-create.md#add-more-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Modifier un catalogue](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Supprimer un catalogue](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Déléguer à un gestionnaire de package d’accès](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
@@ -140,7 +140,7 @@ Pour déterminer le rôle le moins privilégié pour une tâche, vous pouvez ég
 
 ## <a name="manage-role-assignments-programmatically-preview"></a>Gérer les attributions de rôles par programmation (préversion)
 
-Vous pouvez également voir et mettre à jour les créateurs de catalogue ainsi que les attributions de rôles propres au catalogue de gestion des droits d’utilisation à l’aide de Microsoft Graph.  Un utilisateur disposant d’un rôle approprié et d’une application qui a l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API Graph pour [lister les définitions de rôles](/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-beta&preserve-view=true) de la gestion des droits d’utilisation et [lister les attributions de rôles](/graph/api/rbacapplication-list-roleassignments?view=graph-rest-beta&preserve-view=true) de ces définitions de rôles.
+Vous pouvez également afficher et mettre à jour les créateurs de catalogue ainsi que les attributions de rôles propres au catalogue de gestion des droits d’utilisation à l’aide de Microsoft Graph.  Un utilisateur disposant d’un rôle approprié et d’une application qui a l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API Graph pour [lister les définitions de rôles](/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-beta&preserve-view=true) de la gestion des droits d’utilisation et [lister les attributions de rôles](/graph/api/rbacapplication-list-roleassignments?view=graph-rest-beta&preserve-view=true) de ces définitions de rôles.
 
 Par exemple, pour voir les rôles propres à la gestion des droits d’utilisation qui ont été attribués à un utilisateur ou à un groupe, utilisez la requête Graph pour lister les attributions de rôles, puis indiquez l’ID de l’utilisateur ou du groupe comme valeur du filtre de requête `principalId` :
 

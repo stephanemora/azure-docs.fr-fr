@@ -9,12 +9,12 @@ ms.author: dashe
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 3419483442a208bd2ed15071ffcbd447dfe1bd26
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9cced212913ad8f31f71445a6bf3e70fc3bb3f8e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524631"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743116"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Résoudre les problèmes de gestion du runtime d’intégration SSIS dans Azure Data Factory
 
@@ -174,7 +174,7 @@ Cette erreur peut se produire pour diverses raisons quand vous démarrez l’Azu
 | Le réseau virtuel et les IP publiques statiques fournis pour votre Azure-SSIS Integration Runtime doivent se trouver au même emplacement. | Selon les exigences du réseau Azure, l’IP publique statique et le réseau virtuel doivent se trouver dans le même emplacement et le même abonnement. Indiquez deux IP publiques statiques valides et redémarrez l’Azure-SSIS IR. |
 | L’IP publique statique fournie est une adresse de base, fournissez-en deux standard pour votre Azure-SSIS Integration Runtime. | Pour obtenir de l’aide, consultez [SKU d’IP publique](../virtual-network/public-ip-addresses.md#sku). |
 
-![Runtime d’intégration Azure SSIS](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+:::image type="content" source="media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png" alt-text="Runtime d’intégration Azure SSIS":::
 
 ### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
 

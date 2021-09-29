@@ -4,15 +4,15 @@ description: Dans ce démarrage rapide, vous allez apprendre à générer une ap
 author: craigktreasure
 manager: virivera
 ms.author: crtreasu
-ms.date: 08/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: cb9b1d5aa489950e86bc2f1575d44fd78919359e
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 53bcc84fc63666e64ffaf502a4348de87c1ab8c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254331"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796979"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity"></a>Démarrage rapide : Créer une application HoloLens avec Azure Object Anchors dans Unity
 
@@ -70,3 +70,6 @@ L’application recherche des objets dans le champ perspective actuel, puis les 
 
 > [!div class="nextstepaction"]
 > [Kit SDK de conversion](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [Résolution des problèmes de détection d’objets](../troubleshoot/object-detection.md)

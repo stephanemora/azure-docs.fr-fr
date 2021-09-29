@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 8d092b090638f6b1c8c0a116d254430ce99450aa
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: eb630ac58cc3d62f00bf4a99bdd717f1cc1f46c2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602674"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124825608"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textexpander"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TextExpander
 
@@ -141,7 +141,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure : vous devez être connecté automatiquement à l’instance de TextExpander pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette TextExpander dans le volet Mes applications, vous devez être automatiquement connecté à l’application TextExpander pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette TextExpander dans le volet Mes applications, vous devez être automatiquement connecté à l’application TextExpander pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

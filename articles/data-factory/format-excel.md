@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 7a1a0331276169bb81dcf86c74aab1a16855b25c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 66f0f310faa32e65dea657d7b15ceae7e4f84ba0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255848"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831342"
 ---
 # <a name="excel-file-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Format de fichier Excel dans Azure Data Factory et Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -124,7 +124,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 
 L’image ci-dessous est un exemple de configuration de source Excel dans des flux de données de mappage utilisant le mode du jeu de données.
 
-![Source Excel](media/data-flow/excel-source.png)
+:::image type="content" source="media/data-flow/excel-source.png" alt-text="Source Excel":::
 
 Le script de flux de données associé est le suivant :
 
@@ -136,7 +136,7 @@ source(allowSchemaDrift: true,
 
 Si vous utilisez un jeu de données Inline, les options de source suivantes s’affichent dans le flux de données de mappage.
 
-![Jeu de données Inline de la source Excel](media/data-flow/excel-source-inline-dataset.png)
+:::image type="content" source="media/data-flow/excel-source-inline-dataset.png" alt-text="Jeu de données Inline de la source Excel":::
 
 Le script de flux de données associé est le suivant :
 

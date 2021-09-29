@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/16/2021
 ms.author: jeedes
-ms.openlocfilehash: a6ff071e1420376627232ead8fe91f7c358299a2
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 104815a21755f604ea1562eafaef43f8a32ca916
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122773200"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816733"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contrast-security"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Contrast Security
 
@@ -152,7 +152,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Dans le portail Azure, cliquez sur **Tester cette application** ; vous êtes alors automatiquement connecté à l’instance de Contrast Security pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Contrast Security dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Contrast Security pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Contrast Security dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Contrast Security pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

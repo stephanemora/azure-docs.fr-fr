@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: 3718a4255e8b58202c723bccbbfb1aa3459e1ce2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9c6b80897908bf73c21e9bf8b358216c3fd23b1f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372315"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806650"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Prise en charge linguistique pour une ressource QnA Maker et bases de connaissances
 
@@ -77,7 +77,7 @@ Cette fonctionnalité n’est pas prise en charge dans notre version stable en d
 
 Pour prendre en charge un système de base de connaissances comprenant plusieurs langues, vous pouvez :
 
-* Utiliser le [service Translator](../../translator/translator-info-overview.md) pour traduire une question dans une langue individuelle avant de l’envoyer à votre base de connaissances. Cela vous permet de vous concentrer sur la qualité d’une seule langue et la qualité des autres questions et réponses.
+* Utiliser le [service Translator](../../translator/translator-overview.md) pour traduire une question dans une langue individuelle avant de l’envoyer à votre base de connaissances. Cela vous permet de vous concentrer sur la qualité d’une seule langue et la qualité des autres questions et réponses.
 * Créez une ressource QnA Maker, ainsi qu’une base de connaissances à l’intérieur de cette ressource, pour chaque langue. Cela vous permet de gérer d’autres questions et du texte de réponse plus nuancé pour chaque langue. Vous bénéficiez ainsi d’une flexibilité sensiblement accrue, mais devez exposer des frais de maintenance bien plus élevés lorsque les questions ou réponses changent dans toutes les langues.
 
 

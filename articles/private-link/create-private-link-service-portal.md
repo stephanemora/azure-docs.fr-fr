@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 08/18/2021
 ms.author: allensu
-ms.openlocfilehash: 6b54784b5cd77113983dea5e936d93e36aca5591
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: de7d106ae02e1150d9765e60fbfdf0dc0cb9bc74
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122201843"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810316"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer un service Private Link en utilisant le portail Azure
 
@@ -50,7 +50,7 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau pour
     | Groupe de ressources   | Sélectionnez **Créer nouveau**. Enter **CreatePrivLinkService-rg**. </br> Sélectionnez **OK**. |
     | **Détails de l’instance** |                                                                 |
     | Nom             | Entrez **myVNet**                                    |
-    | Région           | Sélectionnez **(États-Unis) USA Est** |
+    | Région           | Sélectionnez **(États-Unis) USA Est 2** |
 
 5. Sélectionnez l’onglet **Adresses IP**, ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
 
@@ -122,7 +122,7 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 
 * Adresse IP du serveur frontal
 * Pool de back-ends
-* Règles d’équilibrage de charge du trafic entrant
+* Règles d’équilibrage des charges entrantes
 
 1. Dans la zone de recherche située en haut du portail, entrez **Équilibreur de charge**. Sélectionnez **Équilibreurs de charge** dans les résultats de la recherche.
 
@@ -151,10 +151,10 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 
 8. Sélectionnez **Dynamique** comme **Attribution**.
 
-9. Sélectionnez **Redondant interzone** dans la **Zone de disponibilité**.
+9. Sélectionnez **Zone-redondante** dans la **Zone de disponibilité**.
 
     > [!NOTE]
-    > Dans les régions avec [Zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), vous avez la possibilité de sélectionner aucune zone (option par défaut), une zone spécifique ou redondant interzone. Le choix dépendra de vos exigences spécifiques en matière de défaillance de domaine. Dans les régions sans Zones de disponibilité, ce champ n’apparaît pas. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
+    > Dans les régions avec des [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), vous avez la possibilité de sélectionner aucune zone (option par défaut), une zone spécifique ou redondant dans une zone. Le choix dépendra de vos exigences spécifiques en matière de défaillance de domaine. Dans les régions sans Zones de disponibilité, ce champ n’apparaît pas. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
 
 10. Sélectionnez **Ajouter**.
 
@@ -178,7 +178,7 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez **myHTTPRule** |
+    | Nom | Entrez **MyHTTPRule** |
     | Version de l’adresse IP | Sélectionnez **IPv4** ou **IPv6** en fonction de vos besoins. |
     | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontend**. |
     | Protocol | Sélectionnez **TCP**. |

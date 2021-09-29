@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 06/14/2021
-ms.openlocfilehash: 0fa4491f9d4fa955dfc9be7033e4eab9137b5672
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 655f61388d2fd19cffbb4b7d3212bf401e20040d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294967"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824762"
 ---
 # <a name="cognitive-services-docs-whats-new-for-may-1-2021---may-31-2021"></a>Documentation de Cognitive Services : Nouveautés pour la période du 1er mai 2021 au 31 mai 2021
 
@@ -36,14 +36,14 @@ Découvrez les nouveautés de la documentation de Cognitive Services pour la pé
 
 ### <a name="new-articles"></a>Nouveaux articles
 
-- [Informations de référence : Bibliothèque cliente Azure Form Recognizer v3.0.0 et API REST v2.0](./form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
+- [Informations de référence : Bibliothèque cliente Azure Form Recognizer v3.0.0 et API REST v2.0](../applied-ai-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Modèle de cartes de visite prédéfini Form Recognizer](./form-recognizer/concept-business-cards.md)
-- [Démarrage rapide : Bien démarrer avec les SDK de bibliothèque cliente ou l’API REST](./form-recognizer/quickstarts/client-library.md)
-- [Nouveautés de Form Recognizer](./form-recognizer/whats-new.md)
-- [Page d’arrivée de Form Recognizer](./form-recognizer/index.yml)
+- [Modèle de cartes de visite prédéfini Form Recognizer](../applied-ai-services/form-recognizer/concept-business-cards.md)
+- [Démarrage rapide : Bien démarrer avec les SDK de bibliothèque cliente ou l’API REST](../applied-ai-services/form-recognizer/quickstarts/client-library.md)
+- [Nouveautés de Form Recognizer](../applied-ai-services/form-recognizer/whats-new.md)
+- [Page d’arrivée de Form Recognizer](../applied-ai-services/form-recognizer/index.yml)
 
 ## <a name="translator"></a>Convertisseur
 
@@ -76,7 +76,7 @@ Découvrez les nouveautés de la documentation de Cognitive Services pour la pé
 
 Au cours de cette période, les personnes suivantes ont apporté leur contribution à la documentation de Cognitive Services. Merci ! Découvrez comment contribuer en suivant les liens sous « Être impliqué » dans la [page de destination Nouveautés](index.yml).
 
-- [enzocanoo](https://github.com/enzocanoo) - Enzo Cano (2)
+- [enzocanoo](https://github.com/enzocano) - Enzo Cano (2)
 - [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (2)
 - [sassdawe](https://github.com/sassdawe) - DavidSass (1)
 - [SzymonSel](https://github.com/SzymonSel) - Szymon Seliga (1)

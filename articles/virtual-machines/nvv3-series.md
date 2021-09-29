@@ -8,12 +8,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 2477820a7b6c30ebad1c676cc9ec31f513eed1de
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 467395cddedb61b7ff7fac585009853282e2b118
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690209"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818288"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 
@@ -41,7 +41,6 @@ Chaque GPU dans les instances NVv3 est fourni avec une licence GRID. Cette licen
 
 <sup>1</sup> 1 GPU = la moitié d’une carte M60.
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="supported-operating-systems-and-drivers"></a>Systèmes d’exploitation et pilotes pris en charge
 
@@ -51,7 +50,9 @@ Pour tirer parti des fonctionnalités GPU de machines virtuelles de la série N 
 
 Si vous choisissez d’installer manuellement les pilotes GPU NVIDIA, voir [Configuration des pilotes GPU de série N pour Windows](./windows/n-series-driver-setup.md) ou [Configuration des pilotes GPU de série N pour Linux](./linux/n-series-driver-setup.md) pour connaître les systèmes d’exploitation et pilotes pris en charge, ainsi que les étapes d’installation et de vérification.
 
-## <a name="other-sizes"></a>Autres tailles
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes-and-information"></a>Autres tailles et informations
 
 - [Usage général](sizes-general.md)
 - [Mémoire optimisée](sizes-memory.md)
@@ -59,6 +60,10 @@ Si vous choisissez d’installer manuellement les pilotes GPU NVIDIA, voir [Conf
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+
+Pour plus d’informations sur les types de disques, consultez [Quels sont les types de disque disponibles dans Azure ?](disks-types.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

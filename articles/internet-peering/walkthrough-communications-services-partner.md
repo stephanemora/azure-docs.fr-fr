@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: gatharej
-ms.openlocfilehash: 4c4e3e2331ce334fbdd1c273fecd899bcd24612b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 395ca8022b0355ff79c200dfbe87bc78e29de089
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124560"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060855"
 ---
 # <a name="azure-internet-peering-for-communications-services-walkthrough"></a>Procédure pas à pas de peering Internet Azure pour services de communication
 
@@ -52,7 +52,7 @@ Si l’homologue a déjà associé son ASN public à un abonnement Azure, ignore
 L’étape suivante consiste à créer une connexion de peering directe pour le Peering Service.
 
 > [!NOTE]
-> Une fois l’association d’ASN approuvée, envoyez-nous un e-mail à l’adresse peeringservices@microsoft.com avec votre ASN et votre ID d’abonnement pour associer votre abonnement aux services de communication. 
+> Une fois l’association d’ASN approuvée, envoyez-nous un e-mail à l’adresse peeringservice@microsoft.com avec votre ASN et votre ID d’abonnement pour associer votre abonnement aux services de communication. 
 
 **2. Créez une connexion de peering direct pour Peering Service :**
 

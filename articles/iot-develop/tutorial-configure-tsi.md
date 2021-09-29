@@ -8,12 +8,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: e1d4b294003fe7eb03f6742c75be6d4fadbfce4f
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 1258255ddc12dc4d718998e2320aa40951916400
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406011"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642735"
 ---
 # <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Tutoriel : Créer et configurer un environnement Time Series Insights Gen2
 
@@ -208,11 +208,11 @@ Sélectionnez l’onglet **Instances**. Recherchez l’instance qui représente 
 
 ![Capture d’écran montrant comment modifier une instance.](./media/tutorial-configure-tsi/edit-instance.png)
 
-Ouvrez le menu déroulant **Type**, puis sélectionnez **Temperature Controller**. Entrez *defaultComponent, <your device name>* pour mettre à jour le nom de l’instance qui représente toutes les étiquettes de niveau supérieur associées à votre appareil.
+Ouvrez le menu déroulant **Type**, puis sélectionnez **Temperature Controller**. Entrez *defaultComponent, \<your device name\>* pour mettre à jour le nom de l’instance qui représente toutes les étiquettes de niveau supérieur associées à votre appareil.
 
 ![Capture d’écran montrant comment changer un type d’instance.](./media/tutorial-configure-tsi/change-type.png)
 
-Avant de sélectionner **Enregistrer**, sélectionnez l’onglet **Champs d’instance**, puis sélectionnez **Device Fleet**. Pour regrouper les données de télémétrie, entrez *\<your device name> - Temp Controller*. Ensuite, sélectionnez **Enregistrer**.
+Avant de sélectionner **Enregistrer**, sélectionnez l’onglet **Champs d’instance**, puis sélectionnez **Device Fleet**. Pour regrouper les données de télémétrie, entrez *\<your device name\> - Temp Controller*. Ensuite, sélectionnez **Enregistrer**.
 
 ![Capture d’écran montrant comment affecter une instance à une hiérarchie](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 

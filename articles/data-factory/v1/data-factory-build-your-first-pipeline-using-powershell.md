@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: f25e3d9f3b3d6319493856e3b15c894301289c29
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7b9d8f8a58f4f2e9920b81c88547282d250fb16e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783015"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647705"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutoriel : Créer votre première fabrique de données Azure à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
@@ -383,7 +384,7 @@ Au cours de cette étape, vous utilisez Azure PowerShell pour surveiller ce qui 
     ```
     Vous pouvez continuer d’exécuter cette applet de commande jusqu’à ce que le segment apparaisse dans l’état **Prêt** ou **En échec**. Quand l’état du segment est Prêt, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.  La création d’un cluster HDInsight à la demande prend généralement un certain temps.
 
-    ![données de sortie](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png" alt-text="données de sortie":::
 
 > [!IMPORTANT]
 > La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes). Le pipeline devrait donc traiter la tranche en **30 minutes environ** .

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 5b6a4186fed994057ab6c44930c5ec68ba85ad05
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 86bdbd1588c14ad03cca6544e341599a446c35e9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607128"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767258"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Déplacement de données au sein d’un pipeline ML et vers un autre pipeline ML (Python)
 
@@ -237,7 +237,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Azure ne supprime pas automatiquement les données intermédiaires écrites avec `OutputFileDatasetConfig`. Pour éviter les frais de stockage pour de grandes quantités de données inutiles, vous devez :
 
 * Supprimer programmatiquement les données intermédiaires à la fin d’une exécution de pipeline, quand elles ne sont plus nécessaires
-* Utiliser le Stockage Blob avec une stratégie de stockage à court terme pour les données intermédiaires (voir [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)) 
+* Utiliser le Stockage Blob avec une stratégie de stockage à court terme pour les données intermédiaires (voir [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal)) 
 * Passer en revue et supprimer régulièrement les données qui ne sont plus nécessaires
 
 Pour plus d’informations, consultez [Planifier et gérer les coûts d’Azure Machine Learning](concept-plan-manage-cost.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f42329632b384ad2217f4deac97a9b984d17da7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 07ea682d65bde9748a4cd55ed066eb8f31eb418a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532220"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784087"
 ---
 # <a name="how-to-export-risk-data"></a>Comment : Exporter les données liées aux risques
 
@@ -73,7 +73,7 @@ Azure Event Hubs peut examiner les données entrantes provenant de sources com
 
 ## <a name="other-options"></a>Autres options
 
-Les organisations peuvent choisir de [connecter les données Azure AD à Azure Sentinel](../../sentinel/connect-azure-ad-identity-protection.md) pour un traitement approfondi.
+Les organisations peuvent choisir de [connecter les données Azure AD à Azure Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) pour un traitement approfondi.
 
 Les organisations peuvent utiliser l’[API Microsoft Graph pour interagir par programmation avec les événements à risque](howto-identity-protection-graph-api.md).
 
@@ -81,6 +81,6 @@ Les organisations peuvent utiliser l’[API Microsoft Graph pour interagir par 
 
 - [Présentation de la supervision d’Azure Active Directory](../reports-monitoring/overview-monitoring.md)
 - [Installer et utiliser les vues Log Analytics pour Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [Connecter les données à partir de Azure Active Directory (Azure AD) Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md)
+- [Connecter les données à partir de Azure Active Directory (Azure AD) Identity Protection](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
 - [Azure Active Directory Identity Protection et Kit de développement logiciel (SDK) Microsoft Graph PowerShell](howto-identity-protection-graph-api.md)
 - [Tutoriel : Diffuser en continu des journaux Azure Active Directory sur un hub d’événements Azure](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)

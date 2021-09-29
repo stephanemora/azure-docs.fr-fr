@@ -8,12 +8,12 @@ ms.subservice: security
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/03/2021
-ms.openlocfilehash: ab31c1629140a1e0f3f5a6dcbe409b6803805e34
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2b39017bb8d1a7e8527f8302190921463247f721
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642063"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779689"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 
@@ -113,7 +113,7 @@ Salesforce prend en charge Shield Platform Encryption qui permet de chiffrer tou
 
 Pour les scénarios hybrides, un runtime d’intégration auto-hébergé doit être installé au sein d’un réseau local, d’un réseau virtuel (Azure) ou d’un cloud privé virtuel (Amazon). Le runtime d’intégration auto-hébergé doit être en mesure d’accéder aux banques de données locales. Pour plus d’informations sur le runtime d’intégration auto-hébergé, consultez [Comment créer et configurer un runtime d’intégration auto-hébergé](./create-self-hosted-integration-runtime.md). 
 
-![canaux de runtime d’intégration auto-hébergé](media/data-movement-security-considerations/data-management-gateway-channels.png)
+:::image type="content" source="media/data-movement-security-considerations/data-management-gateway-channels.png" alt-text="canaux de runtime d’intégration auto-hébergé":::
 
 Le canal de commande autorise la communication entre les services de déplacement des données dans Data Factory et le runtime d’intégration auto-hébergé. La communication contient des informations relatives à l’activité. Le canal de données est utilisé pour transférer des données entre les banques de données locales et les banques de données cloud.    
 
@@ -157,11 +157,11 @@ Les images suivantes décrivent l’utilisation du runtime d’intégration auto
 
 #### <a name="express-route"></a>ExpressRoute
 
-![Utiliser ExpressRoute avec passerelle](media/data-movement-security-considerations/express-route-for-gateway.png) 
+:::image type="content" source="media/data-movement-security-considerations/express-route-for-gateway.png" alt-text="Utiliser ExpressRoute avec passerelle"::: 
 
 #### <a name="ipsec-vpn"></a>VPN IPSec
 
-![VPN IPSec avec passerelle](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+:::image type="content" source="media/data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="VPN IPSec avec passerelle":::
 
 ### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a> Configurations de pare-feu et configuration de la liste d’autorisation pour les adresses IP
 
@@ -188,7 +188,7 @@ Le tableau suivant indique les exigences de ports entrants pour le pare-feu Wind
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Requis par la cmdlet de chiffrement PowerShell comme décrit dans la rubrique[Chiffrer des informations d’identification pour des banques de données locales dans Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) et par l’application du gestionnaire des informations d’identification pour définir en toute sécurité les informations d’identification pour les banques de données locales sur le runtime d’intégration auto-hébergé. |
 
-![Configuration requise des ports de la passerelle](media/data-movement-security-considerations/gateway-port-requirements.png) 
+:::image type="content" source="media/data-movement-security-considerations/gateway-port-requirements.png" alt-text="Configuration requise des ports de la passerelle"::: 
 
 #### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>Configurations IP et configuration de la liste d’autorisation dans les magasins de données
 

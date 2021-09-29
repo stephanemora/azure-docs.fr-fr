@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/13/2020
 ms.author: jeedes
-ms.openlocfilehash: 712f6f6aa8b3fd3c72e6a5150115c85ee3f47e64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ec930256cd8d27ccf1cc4e054761af400ac0c69
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516730"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794991"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-momenta"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Momenta
 
@@ -137,7 +137,7 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Moment
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Momenta dans le volet d’accès, vous devez être connecté automatiquement à l’application Momenta pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Momenta dans le volet d’accès, vous devez être connecté automatiquement à l’application Momenta pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

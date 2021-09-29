@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
-ms.openlocfilehash: 7983ae912d29f2a27d35b261d1654205fe503651
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: be8c322bafb5dfaf3fadecfadfd5f9b1ec9a95f1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305067"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804081"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Préversion : modes d’orchestration pour les groupes de machines virtuelles identiques dans Azure
 
@@ -164,7 +164,6 @@ Inscrivez-vous et commencez à utiliser le [Mode d’orchestration flexible](..\
     | Fonctionnalité  | Prise en charge par l’orchestration Flexible (préversion)  | Prise en charge par l’orchestration Uniform (disponibilité générale)  | Prise en charge par les groupes à haute disponibilité (disponibilité générale)  |
     |-|-|-|-|
     | Nombre maximal d’instances (avec garantie de disponibilité de domaine d’erreur)  | 1 000  | 3000  | 200  |
-
 
 ## <a name="troubleshoot-scale-sets-with-flexible-orchestration"></a>Résoudre les problèmes de groupes identiques avec orchestration Flexible
 Trouvez la solution adaptée à votre scénario de dépannage.

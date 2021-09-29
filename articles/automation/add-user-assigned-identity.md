@@ -3,14 +3,14 @@ title: Utilisation d’une identité managée affectée par l’utilisateur pour
 description: Cet article explique comment configurer une identité managée affectée par l’utilisateur pour les comptes Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/26/2021
+ms.date: 09/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ce409853cddfd0278692e2c6e233331530296d6b
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 7b1a75aac3166b1fdd3cdd39f5f66bd380339975
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214262"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061786"
 ---
 # <a name="using-a-user-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Utilisation d’une identité managée affectée par l’utilisateur pour un compte Azure Automation (préversion)
 
@@ -23,11 +23,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un compte Azure Automation. Pour obtenir des instructions, consultez [Créer un compte Azure Automation](automation-quickstart-create-account.md).
+- Un compte Azure Automation. Pour obtenir des instructions, consultez [Créer un compte Azure Automation](./quickstarts/create-account-portal.md).
 
 - Une identité managée affectée par le système. Pour des instructions, consultez [À l’aide d’une identité managée affectée par le système pour votre compte Azure Automation (préversion)](enable-managed-identity-for-automation.md).
 
-- Identité managée affectée par l’utilisateur. Pour plus d’informations, consultez [Créer une identité managée affectée par l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+- Identité managée affectée par l’utilisateur. Pour obtenir des instructions, consultez [Créer une identité managée affectée par l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
 - L’identité managée affectée par l’utilisateur et les ressources Azure cibles que votre runbook gère à l’aide de cette identité doivent se trouver dans le même abonnement Azure.
 
@@ -49,7 +49,7 @@ Vous pouvez ajouter une identité managée affectée par le système pour un com
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Subscription
+    Connect-AzAccount
 }
 
 # If you have multiple subscriptions, set the one to use
@@ -319,8 +319,14 @@ New-AzRoleAssignment `
 Après avoir activé l’identité managée affectée par l’utilisateur pour votre compte Automation et accordé à une identité l’accès à la ressource cible, vous pouvez spécifier cette identité dans les runbooks pour les ressources qui prennent en charge l’identité managée. Pour la prise en charge des identités, utilisez la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount).
 
 ```powershell
-Connect-AzAccount -Identity `
-    -AccountId <user-assigned-identity-ClientId> 
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with user-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity -AccountId <user-assigned-identity-ClientId>).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
 ## <a name="generate-an-access-token-without-using-azure-cmdlets"></a>Générer un jeton d’accès sans utiliser les applets de commande Azure

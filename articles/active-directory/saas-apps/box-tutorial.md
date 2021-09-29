@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 79153734beb9ddc8bb43c1c4928844c5d4bd18e7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5f01332c2ab9ee9ecb3ca79a1883ea1a45ce76e9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739987"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791187"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Box
 
@@ -157,7 +157,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Box pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Box dans Mes applications vous redirige vers l’URL de connexion Box. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Box dans Mes applications vous redirige vers l’URL de connexion Box. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ### <a name="push-an-azure-group-to-box"></a>Envoyer (push) un groupe Azure à Box
 

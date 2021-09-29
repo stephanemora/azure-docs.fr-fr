@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 04/26/2021
 ms.custom: seodec18, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: d1ad8e4af0d3fdb0abb95fc12ec4a445afabbb1f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 5c3c5271e000b001ebe257a5ef421f01ac2b1e32
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459241"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597357"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-an-example-jupyter-notebook"></a>Tutoriel : Entraîner un modèle de classification d’images avec un exemple Jupyter Notebook 
 
@@ -342,11 +342,13 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Notez comment le script obtient les données et enregistre les modèles :
 
-+ Le script d’entraînement lit un argument pour rechercher le répertoire qui contient les données. Quand vous envoyez le travail ultérieurement, vous pointez vers la banque de données pour cet argument : ```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
+- Le script d’entraînement lit un argument pour rechercher le répertoire qui contient les données. Quand vous envoyez le travail ultérieurement, vous pointez vers la banque de données pour cet argument : 
 
-+ Le script d’entraînement enregistre votre modèle dans un répertoire nommé **outputs**. Tout ce qui est écrit dans ce répertoire est chargé automatiquement dans votre espace de travail. Vous accédez à votre modèle à partir de ce répertoire plus loin dans le tutoriel. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
+  `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
 
-+ Le script d’entraînement nécessite le fichier `utils.py` pour charger correctement le jeu de données. Le code suivant copie `utils.py` dans `script_folder`, afin que le fichier soit accessible en plus du script d’entraînement sur la ressource distante.
+- Le script d’entraînement enregistre votre modèle dans un répertoire nommé **outputs**. Tout ce qui est écrit dans ce répertoire est chargé automatiquement dans votre espace de travail. Vous accédez à votre modèle à partir de ce répertoire plus loin dans le tutoriel. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
+
+- Le script d’entraînement nécessite le fichier `utils.py` pour charger correctement le jeu de données. Le code suivant copie `utils.py` dans `script_folder`, afin que le fichier soit accessible en plus du script d’entraînement sur la ressource distante.
 
   ```python
   import shutil

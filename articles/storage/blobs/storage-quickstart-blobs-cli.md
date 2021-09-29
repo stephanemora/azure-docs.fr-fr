@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d58a1db58c669bf17c4708e73f658b721376adcf
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 68797d8b158e7ff56d609f0d59c174b72277e98b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123472917"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674582"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI
 
@@ -68,7 +68,7 @@ az storage account create \
 
 Les objets blob sont toujours chargés dans un conteneur. Vous pouvez organiser des groupes d’objets blob dans des conteneurs de la même façon que vous organisez vos fichiers dans les dossiers de l’ordinateur. Créez un conteneur pour stocker des objets blob avec la commande [az storage container create](/cli/azure/storage/container).
 
-L’exemple suivant utilise votre compte Azure AD pour autoriser l’opération à créer le conteneur. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](assign-azure-role-data-access.md).  
+L’exemple suivant utilise votre compte Azure AD pour autoriser l’opération à créer le conteneur. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](assign-azure-role-data-access.md).
 
 N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 

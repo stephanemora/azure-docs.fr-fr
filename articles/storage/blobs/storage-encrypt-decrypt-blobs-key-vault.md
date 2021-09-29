@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6affeacd119682a76f648feff05429f1e3173b1c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 78356745ee013b011f23a4bf42f903cf89bedd4b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461893"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603977"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutoriel - Chiffrer et déchiffrer des objets blob avec Azure Key Vault
 
@@ -32,9 +32,9 @@ Pour plus d’informations générales sur le chiffrement côté client du Stock
 
 Pour suivre ce tutoriel, vous devez disposer des éléments suivants :
 
-* Un compte Azure Storage
-* Visual Studio 2013 ou une version ultérieure
-* Azure PowerShell
+- Un compte Azure Storage
+- Visual Studio 2013 ou une version ultérieure
+- Azure PowerShell
 
 ## <a name="overview-of-client-side-encryption"></a>Vue d’ensemble du chiffrement côté client
 
@@ -51,10 +51,10 @@ Voici une brève description du fonctionnement du chiffrement côté client :
 
 Afin de poursuivre ce tutoriel, vous devez effectuer les étapes suivantes, qui sont décrites dans le tutoriel [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET](../../key-vault/secrets/quick-create-net.md) :
 
-* Création d’un coffre de clés
-* Ajout d’une clé ou d’un secret au coffre de clés
-* Inscrivez une application auprès d’Azure Active Directory.
-* Autorisation de l’application à utiliser la clé ou le secret
+- Création d’un coffre de clés
+- Ajout d’une clé ou d’un secret au coffre de clés
+- Inscrivez une application auprès d’Azure Active Directory.
+- Autorisation de l’application à utiliser la clé ou le secret
 
 Notez les valeurs ClientID et ClientSecret qui ont été générées lors de l'inscription d'une application avec Azure Active Directory.
 
@@ -107,6 +107,7 @@ using Microsoft.Azure.KeyVault;
 using System.Threading;
 using System.IO;
 ```
+
 ---
 
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>Ajouter une méthode pour obtenir un jeton pour votre application console
@@ -134,6 +135,7 @@ private async static Task<string> GetToken(string authority, string resource, st
     return result.AccessToken;
 }
 ```
+
 ---
 
 ## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Accéder au stockage Azure et à Key Vault dans votre programme
@@ -161,18 +163,19 @@ contain.CreateIfNotExists();
 // This is where the GetToken method from above is used.
 KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ```
+
 ---
 
 > [!NOTE]
 > Modèles d'objet Key Vault
-> 
+>
 > Il est important de comprendre qu'il n'y a que deux modèles d'objet Key Vault à connaître : l’un est basé sur l'API REST (espace de noms KeyVault) et l'autre est une extension pour le chiffrement côté client.
-> 
+>
 > Le client Key Vault interagit avec l’API REST et comprend les secrets et les clés web JSON pour les deux genres d’éléments qui sont contenus dans Key Vault.
-> 
+>
 > Les extensions Key Vault sont des classes qui semblent avoir été créées spécifiquement pour le chiffrement côté client dans Azure Storage. Elles contiennent une interface pour les clés (IKey) et des classes basées sur le concept d’un programme de résolution de clés. Il existe deux implémentations d’IKey à connaître : RSAKey et SymmetricKey. Elles coïncident désormais avec les éléments contenus dans un coffre de clés, mais à ce stade, ce sont des classes indépendantes (la clé et le secret récupérés par le client Key Vault n'implémentent donc pas IKey).
-> 
-> 
+>
+>
 
 ## <a name="encrypt-blob-and-upload"></a>Chiffrement et téléchargement d’objets blob 
 
@@ -202,15 +205,15 @@ CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
+
 ---
 
 > [!NOTE]
 > Si vous examinez le constructeur BlobEncryptionPolicy, vous remarquerez qu'il peut accepter une clé et/ou un programme de résolution. Rappelez-vous que vous ne pouvez pas utiliser un programme de résolution pour le chiffrement, car celui-ci ne prend pour l’instant pas en charge de clé par défaut.
 
-
 ## <a name="decrypt-blob-and-download"></a>Déchiffrement et téléchargement d’objets blob
 
-Le déchiffrement s’effectue réellement quand les classes du programme de résolution sont pertinentes. L’ID de la clé utilisée pour le chiffrement est associé à l’objet blob dans ses métadonnées. Il est donc inutile de récupérer la clé et de mémoriser l’association entre la clé et les objets blob. Il vous suffit de vous assurer que la clé reste bien dans Key Vault.   
+Le déchiffrement s’effectue réellement quand les classes du programme de résolution sont pertinentes. L’ID de la clé utilisée pour le chiffrement est associé à l’objet blob dans ses métadonnées. Il est donc inutile de récupérer la clé et de mémoriser l’association entre la clé et les objets blob. Il vous suffit de vous assurer que la clé reste bien dans Key Vault.
 
 La clé privée d’une clé RSA reste dans Key Vault. Ainsi, la clé chiffrée des métadonnées d’objets blob qui contient la clé de chiffrement de contenu (CEK) est envoyée à Key Vault pour que le déchiffrement puisse avoir lieu.
 
@@ -231,6 +234,7 @@ BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = polic
 using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
     blob.DownloadToStream(np, null, options, null);
 ```
+
 ---
 
 > [!NOTE]
@@ -240,9 +244,9 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 
 L’utilisation d’un secret avec le chiffrement côté client s’effectue via la classe SymmetricKey, car un secret est essentiellement une clé symétrique. Mais, comme indiqué ci-dessus, un secret dans Key Vault ne correspond pas exactement à une valeur SymmetricKey. Plusieurs choses sont à savoir ici :
 
-* La clé d’une valeur SymmetricKey doit avoir une longueur fixe : 128, 192, 256, 384 ou 512 bits.
-* La clé d’une valeur SymmetricKey doit être codée en Base64.
-* Un secret Key Vault qui est utilisé comme une valeur SymmetricKey doit avoir un type de contenu « application/octet-stream » dans Key Vault.
+- La clé d’une valeur SymmetricKey doit avoir une longueur fixe : 128, 192, 256, 384 ou 512 bits.
+- La clé d’une valeur SymmetricKey doit être codée en Base64.
+- Un secret Key Vault qui est utilisé comme une valeur SymmetricKey doit avoir un type de contenu « application/octet-stream » dans Key Vault.
 
 Voici un exemple de création de secret dans Key Vault, effectuée dans PowerShell, qui peut être utilisé comme une valeur SymmetricKey.
 Veuillez noter que la valeur codée en dur, $key, est fournie uniquement à des fins de démonstration. Dans votre propre code, vous devez générer cette clé.
@@ -273,6 +277,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
+
 ---
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,14 +8,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-python, devx-track-azurepowershell, synapse
-ms.openlocfilehash: 833800da17302d2f28619cd1f66acfc476175a7f
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: c21d06a97acd433445ee73e90833684c5cc36dac
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824613"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815005"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Créer un déclencheur qui exécute un pipeline selon une planification
 
@@ -37,20 +37,20 @@ Vous pouvez créer un **déclencheur de planification** afin de planifier l’ex
 1. Passez dans l’onglet **Modification** de Data Factory ou dans l’onglet Intégrer d’Azure Synapse. 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
-    ![Basculer vers l’onglet Modifier](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab.png" alt-text="Basculer vers l’onglet Modifier":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-    ![Basculer vers l’onglet Modifier](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png" alt-text="Basculer vers l’onglet Modifier":::
 
 ---
     
 2. Sélectionnez **Déclencheur** dans le menu, puis sélectionnez **Nouveau/Modifier**. 
 
-    ![Menu de nouveau déclencheur](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-menu.png" alt-text="Menu de nouveau déclencheur":::
 
 1. Sur la page **Ajouter des déclencheurs**, sélectionnez **Choisir un déclencheur…** , puis **+Nouveau**. 
 
-    ![Ajouter un déclencheur - nouveau déclencheur](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/add-trigger-new-button.png" alt-text="Ajouter un déclencheur - nouveau déclencheur":::
 
 1. Sur la page **Nouveau déclencheur**, procédez comme suit : 
 
@@ -66,30 +66,30 @@ Vous pouvez créer un **déclencheur de planification** afin de planifier l’ex
     :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Options de périodicité avancées de jours, de semaines ou de mois":::
     1. Pour préciser une date et une heure de fin, sélectionnez **Spécifier une date de fin**, puis définissez _Se termine le_ et sélectionnez **OK**. Un coût est associé à chaque exécution du pipeline. Si vous effectuez un test, vous souhaiterez peut-être vous assurer que le pipeline n’est déclenché que deux fois. Toutefois, vérifiez que la durée est suffisante entre l’heure de publication et l’heure de fin pour permettre l’exécution du pipeline. Le déclencheur ne s’applique que lorsque vous avez publié la solution, et non lorsque vous enregistrez le déclencheur dans l’interface utilisateur.
 
-        ![Paramètres du déclencheur](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
+        :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-01.png" alt-text="Paramètres du déclencheur":::
 
-        ![Paramètres du déclencheur pour la date de fin](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
+        :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-02.png" alt-text="Paramètres du déclencheur pour la date de fin":::
 
 1. Dans la fenêtre **Nouveau déclencheur**, sélectionnez **Oui** dans l’option **Activé**, puis sélectionnez **OK**. Vous pouvez utiliser cette case à cocher pour désactiver le déclencheur ultérieurement. 
 
-    ![Paramètres du déclencheur - Bouton Suivant](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-next.png" alt-text="Paramètres du déclencheur - Bouton Suivant":::
 
 1. Dans la fenêtre **Nouveau déclencheur**, consultez le message d’avertissement, puis sélectionnez **OK**.
 
-    ![Paramètres du déclencheur - Bouton Terminer](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-finish.png" alt-text="Paramètres du déclencheur - Bouton Terminer":::
 
 1. Sélectionnez **Publier tout** pour publier les modifications. Tant que vous n’avez pas publié les modifications, le déclencheur ne démarre pas le déclenchement des exécutions du pipeline. 
 
-    ![Bouton Publier](./media/how-to-create-schedule-trigger/publish-2.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/publish-2.png" alt-text="Bouton Publier":::
 
 1. Basculez sur l’onglet **Exécutions de pipeline** sur la gauche, puis sélectionnez **Actualiser** pour actualiser la liste. Vous observerez les exécutions du pipeline déclenchées par le déclencheur planifié. Notez les valeurs dans la colonne **Déclenché par**. Si vous utilisez l’option **Déclencher maintenant**, l’exécution du déclencheur manuelle apparaît dans la liste. 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    ![Surveiller les exécutions déclenchées](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs.png" alt-text="Surveiller les exécutions déclenchées":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-    ![Surveiller les exécutions déclenchées](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png" alt-text="Surveiller les exécutions déclenchées":::
     
 ---
 
@@ -97,10 +97,10 @@ Vous pouvez créer un **déclencheur de planification** afin de planifier l’ex
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    ![Surveiller les exécutions du déclencheur](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs.png" alt-text="Superviser les exécutions de déclencheur":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-    ![Surveiller les exécutions du déclencheur](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png" alt-text="Superviser les exécutions de déclencheur":::
     
 ---
 
@@ -391,7 +391,7 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valeurs par défaut, limites et exemples du schéma
 
-| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides | Exemple |
+| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides |  Exemple |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | String | Oui | None | Dates-Heures ISO-8601 | pour le fuseau horaire UTC `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> pour les autres fuseaux horaires `"2013-01-09T09:30:00-08:00"` |
 | **timeZone** | String | Oui | None | [Valeurs de fuseau horaire](#time-zone-option)  | `"UTC"` |

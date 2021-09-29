@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 2ecc10c43600a20ceb7209f651f27e78e7b286be
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 0ce6c7ced310fa467adbdc707d25bb5efc0f02bc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533251"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763307"
 ---
 # <a name="work-with-threat-indicators-in-azure-sentinel"></a>Utiliser des indicateurs de menace dans Azure Sentinel
 
@@ -179,7 +179,7 @@ La règle **Analyse de correspondance Microsoft Threat Intelligence** est actuel
 |Source de journal  |Description  |
 |---------|---------|
 |[CEF](connect-common-event-format.md)     |  La correspondance est établie pour tous les journaux CEF ingérés dans la table **CommonSecurityLog** de Log Analytics, sauf pour ceux où la valeur `DeviceVendor` est `Cisco`. <br><br>Pour faire correspondre le renseignement sur les menaces généré par Microsoft avec les journaux CEF, veillez à mapper le domaine dans le champ `RequestURL` du journal CEF.      |
-|[DNS](connect-dns.md)     | La correspondance est établie pour tous les journaux DNS qui sont des requêtes DNS de recherche adressées par des clients aux services DNS (`SubType == "LookupQuery"`). Les requêtes DNS sont traitées uniquement pour les requêtes IPv4 (`QueryType=”A”`) et IPv6 (`QueryType=” AAAA”`).<br><br>Pour faire correspondre le renseignement sur les menaces généré par Microsoft avec les journaux DNS, aucun mappage manuel de colonnes n’est nécessaire, car toutes les colonnes du serveur DNS Windows sont standard, et les domaines se trouvent dans la colonne `Name` par défaut.   |
+|[DNS](./data-connectors-reference.md#domain-name-server)     | La correspondance est établie pour tous les journaux DNS qui sont des requêtes DNS de recherche adressées par des clients aux services DNS (`SubType == "LookupQuery"`). Les requêtes DNS sont traitées uniquement pour les requêtes IPv4 (`QueryType=”A”`) et IPv6 (`QueryType=” AAAA”`).<br><br>Pour faire correspondre le renseignement sur les menaces généré par Microsoft avec les journaux DNS, aucun mappage manuel de colonnes n’est nécessaire, car toutes les colonnes du serveur DNS Windows sont standard, et les domaines se trouvent dans la colonne `Name` par défaut.   |
 |[Syslog](connect-syslog.md)     |  La correspondance est actuellement établie uniquement pour les événements Syslog où `Facility` est `cron`. <br><br>Pour faire correspondre le renseignement sur les menaces généré par Microsoft avec Syslog, aucun mappage manuel de colonnes n’est nécessaire. Les détails sont fournis dans le champ `SyslogMessage` du Syslog par défaut, et la règle analyse le domaine directement à partir du SyslogMessage.     |
 |     |         |
 

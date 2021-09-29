@@ -1,7 +1,6 @@
 ---
 title: 'Démarrage rapide : Définir et récupérer un certificat dans Azure Key Vault avec Azure CLI'
 description: Démarrage rapide montrant comment définir et récupérer un certificat dans Azure Key Vault à l’aide d’Azure CLI
-services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
@@ -10,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: dc3abe43c2cdf4d0ee58ac9aed570a2c507b0d7f
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 265a66b6aa80dddb6ca4d8da8567ded8c7a380ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815267"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663779"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Démarrage rapide : Définir et récupérer un certificat dans Azure Key Vault à l’aide d’Azure CLI
 
@@ -45,7 +44,7 @@ Tapez les commandes ci-dessous pour créer un certificat auto-signé avec une st
 az keyvault certificate create --vault-name "<your-unique-keyvault-name>" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
 ```
 
-Vous pouvez maintenant référencer ce certificat que vous avez ajouté à Azure Key Vault à l’aide de son URI. Utilisez **"https://<nom_unique_de_votre_coffre_de_clés>.vault.azure.net/certificates/ExampleCertificate"** pour obtenir la version actuelle. 
+Vous pouvez maintenant référencer ce certificat que vous avez ajouté à Azure Key Vault à l’aide de son URI. Utilisez **`https://<your-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate`** pour obtenir la version actuelle. 
 
 Pour voir le certificat stocké précédemment :
 

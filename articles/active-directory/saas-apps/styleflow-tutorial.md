@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/10/2021
 ms.author: jeedes
-ms.openlocfilehash: b3ca14b1b89873cc3ba8295a4c0a52ee3033370a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: befa56fa3d0c0cda4626e629e22564ccc457fea0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111987731"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800647"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-styleflow"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Styleflow
 
@@ -133,10 +133,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Check Point Styleflow pour y lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette de Check Point Styleflow dans Mes applications, vous accédez à l’URL de connexion Check Point Styleflow. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette de Check Point Styleflow dans Mes applications, vous accédez à l’URL de connexion Check Point Styleflow. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez configuré Styleflow, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-

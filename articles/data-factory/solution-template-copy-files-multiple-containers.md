@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: c1f2a83807703593482cc725036a2da158d7195d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d1d1ffaecdf57817e5ef7be48791d0cb50ca9b74
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532626"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743547"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Copier plusieurs dossiers avec Azure Data Factory
 
@@ -45,27 +45,27 @@ Si vous souhaitez copier plusieurs conteneurs sous des dossiers racine entre des
 
 1. Accédez au modèle **Copier plusieurs conteneurs de fichiers entre des magasins de fichiers**. Créez une **nouvelle** connexion à votre magasin de stockage source. C’est dans ce magasin que seront copiés les fichiers provenant de plusieurs conteneurs.
 
-    ![Créer une connexion à la source](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png" alt-text="Créer une connexion à la source":::
 
 2. Créez une **nouvelle** connexion à votre magasin de stockage de destination.
 
-    ![Créer une connexion à la destination](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png" alt-text="Créer une connexion à la destination":::
 
 3. Sélectionnez **Utiliser ce modèle**.
 
-    ![Utiliser ce modèle](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png" alt-text="Utiliser ce modèle":::
     
 4. Vous verrez le pipeline, comme indiqué dans l’exemple suivant :
 
-    ![Afficher le pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png" alt-text="Afficher le pipeline":::
 
 5. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
 
-    ![Exécuter le pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png" alt-text="Exécuter le pipeline":::
 
-6. Vérifiez le résultat.
+6. Examinez le résultat.
 
-    ![Vérifier le résultat](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image6.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image6.png" alt-text="Vérifier le résultat":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

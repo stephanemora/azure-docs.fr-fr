@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 70f318c10799c1cf30265373d8971faddfafc072
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: e7241944f6178b80ad684ff35684b5b5d3f53e94
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533249"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784524"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -142,7 +142,7 @@ Identity Secure Score est un ensemble de contrôles de sécurité recommandés q
 
 ## <a name="enable-password-management"></a>Activer la gestion des mots de passe
 
-Si vous avez plusieurs locataires ou si vous voulez permettre aux utilisateurs de [réinitialiser leurs mots de passe](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md), il est important d’utiliser des stratégies de sécurité appropriées afin d’éviter les abus.
+Si vous avez plusieurs locataires ou si vous voulez permettre aux utilisateurs de [réinitialiser leurs mots de passe](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e), il est important d’utiliser des stratégies de sécurité appropriées afin d’éviter les abus.
 
 **Bonne pratique** : Configurez la réinitialisation de mot de passe en libre-service pour vos utilisateurs.  
 **Détail** : Utilisez la fonctionnalité de [réinitialisation de mot de passe en libre-service](../../active-directory-b2c/user-flow-self-service-password-reset.md) d’Azure AD.

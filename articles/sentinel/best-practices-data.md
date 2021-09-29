@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 35b29ae6116e2e040f2383606fa20c5ab6316315
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 7c29ae41acd800a3e8893ec50ef25cb77c89fe04
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253456"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810177"
 ---
 #  <a name="data-collection-best-practices"></a>Meilleures pratiques de collecte de données
 
@@ -99,7 +99,7 @@ Si vous devez collecter des données Microsoft Office, en dehors des données du
 
 |Obstacle/besoin  |Solutions possibles  |Considérations  |
 |---------|---------|---------|
-|**Collecter des données brutes à partir de Teams, la trace des messages, les données de phishing, etc.**     |    Utiliser la fonctionnalité intégrée de [connecteur Office 365](connect-office-365.md), puis créer un connecteur personnalisé pour d’autres données brutes  |  Le mappage des événements avec l’ID d’enregistrement correspondant peut être difficile.  |
+|**Collecter des données brutes à partir de Teams, la trace des messages, les données de phishing, etc.**     |    Utiliser la fonctionnalité intégrée de [connecteur Office 365](./data-connectors-reference.md#microsoft-office-365), puis créer un connecteur personnalisé pour d’autres données brutes  |  Le mappage des événements avec l’ID d’enregistrement correspondant peut être difficile.  |
 |**Besoin du contrôle d’accès en fonction du rôle pour diviser les pays, les services, etc.**     | Personnaliser la collecte de données en ajoutant des étiquettes aux données et en créant des espaces de travail dédiés pour chaque séparation nécessaire|   La collecte de données personnalisée présente des coûts d’ingestion supplémentaires.     |
 |**Besoin de plusieurs locataires dans un seul espace de travail**     |  Personnaliser la collecte de données en utilisant Azure LightHouse et une vue centralisée des incidents|  La collecte de données personnalisée présente des coûts d’ingestion supplémentaires.  <br><br>Pour plus d’informations, consultez [Étendre Azure Sentinel dans les espaces de travail et les locataires](extend-sentinel-across-workspaces-tenants.md).      |
 | | | |

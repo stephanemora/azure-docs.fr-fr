@@ -3,12 +3,12 @@ title: Sécurité réseau pour Azure Event Hubs
 description: Cet article explique comment configurer l’accès à partir de points de terminaison privés
 ms.topic: conceptual
 ms.date: 05/04/2021
-ms.openlocfilehash: 39bad6fabb0f8f639449cd20033b8b31139d98b1
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ef789153dd807e68736c12f779cad22311c63443
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413408"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784980"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Sécurité du réseau pour Azure Event Hubs 
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Event Hubs : 
@@ -73,7 +73,7 @@ Le [service Azure Private Link](../private-link/private-link-overview.md) vous p
 Un point de terminaison privé est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
 
 > [!IMPORTANT]
-> Cette fonctionnalité n’est pas prise en charge dans les niveaux **De base** et **Premium**. 
+> Cette fonctionnalité n’est pas prise en charge dans le niveau **De base**. 
 
 
 Pour plus d’informations, consultez le [Guide pratique pour configurer des points de terminaison privés pour un Event Hub](private-link-service.md)

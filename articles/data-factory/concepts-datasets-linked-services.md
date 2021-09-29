@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2020
-ms.openlocfilehash: abe7270cd825fa53d139bd87796c3300a8fe9a65
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: dff54916007046d3d0d8d6741ca6fce7409c5d99
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642008"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787979"
 ---
 # <a name="datasets-in-azure-data-factory-and-azure-synapse-analytics"></a>Les jeux de données dans Azure Data Factory et Azure Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -29,7 +29,7 @@ Cet article décrit les jeux de données, comment ils sont définis au format JS
 
 Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md) pour obtenir une vue d’ensemble.  Pour plus d'informations sur Azure Synapse, consultez [Qu'est-ce que Azure Synapse ?](../synapse-analytics/overview-what-is.md)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Une fabrique de données ou un espace de travail Synapse peut avoir un ou plusieurs pipelines. Un **pipeline** constitue un regroupement logique d’**activités** qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. À présent, un **jeu de données** est une vue de données nommée qui pointe ou fait référence simplement aux données que vous souhaitez utiliser dans vos **activités** en tant qu’entrées et sorties. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets blob Azure spécifie le conteneur et le dossier du Stockage Blob à partir duquel l’activité doit lire les données.
 
 Avant de créer un jeu de données, vous devez créer un [**service lié**](concepts-linked-services.md) afin d’établir un lien entre votre banque de données et le service. Les services liés ressemblent à des chaînes de connexion. Ils définissent les informations de connexion nécessaires au service pour se connecter à des ressources externes. Considérez les choses de la façon suivante : le jeu de données représente la structure des données à l’intérieur des magasins de données liés, et le service lié définit la connexion à la source de données. Par exemple, un service lié de stockage Azure relie un compte de stockage. Un jeu de données d'objets blob représente le conteneur d’objets blob et le dossier à l’intérieur de ce compte Stockage Azure contenant les objets blob d’entrée à traiter.
@@ -38,7 +38,7 @@ Voici un exemple de scénario. Pour copier des données du stockage Blob vers un
 
 Le diagramme suivant montre la relation entre le pipeline, l’activité, le jeu de données et les services liés :
 
-![Relation entre le pipeline, l’activité, le jeu de données et les services liés](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png" alt-text="Relation entre le pipeline, l’activité, le jeu de données et les services liés":::
 
 
 ## <a name="dataset-json"></a>Jeu de données JSON

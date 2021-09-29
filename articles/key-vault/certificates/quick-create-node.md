@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 069238a6feb4425aba1da48b89d26128d6d54775
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: d6fa93319e9e2ecdd666a92f816df5a63a4f477f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846983"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748667"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-javascript-version-4"></a>Démarrage rapide : Bibliothèque de client de certificats Azure Key Vault pour JavaScript (version 4)
 
@@ -152,9 +152,9 @@ const { CertificateClient } = require("@azure/keyvault-certificates");
 
 ### <a name="authenticate-and-create-a-client"></a>Authentifier et créer un client
 
-Dans ce guide de démarrage rapide, l’utilisateur connecté est utilisé pour l’authentification auprès du coffre de clés, qui est la méthode recommandée pour le développement local. Pour les applications déployées sur Azure, l’identité managée doit être affectée à App Service ou à une machine virtuelle. Pour plus d’informations, consultez [Vue d’ensemble des identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Dans ce guide de démarrage rapide, l’utilisateur connecté est utilisé pour l’authentification auprès du coffre de clés, qui est la méthode recommandée pour le développement local. Pour les applications déployées sur Azure, l’identité managée doit être affectée à App Service ou à une machine virtuelle. Pour plus d’informations, consultez [Vue d’ensemble des identités managées](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Dans l’exemple ci-dessous, le nom de votre coffre de clés est étendu à l’URI du coffre de clés, au format « https://\<your-key-vault-name\>.vault.azure.net ». Cet exemple utilise la classe [« DefaultAzureCredential() »](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) de la [bibliothèque Azure Identity](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), ce qui permet d’utiliser le même code dans différents environnements avec des options différentes pour fournir une identité. Pour plus d’informations sur l’authentification auprès du coffre de clés, consultez le [Guide du développeur](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+Dans l’exemple ci-dessous, le nom de votre coffre de clés est étendu à l’URI du coffre de clés, au format « https://\<your-key-vault-name\>.vault.azure.net ». Cet exemple utilise la classe [« DefaultAzureCredential() »](/javascript/api/@azure/identity/defaultazurecredential) de la [bibliothèque Azure Identity](/javascript/api/overview/azure/identity-readme), ce qui permet d’utiliser le même code dans différents environnements avec des options différentes pour fournir une identité. Pour plus d’informations sur l’authentification auprès du coffre de clés, consultez le [Guide du développeur](../general/developers-guide.md#authenticate-to-key-vault-in-code).
 
 Ajoutez le code suivant à la fonction « main() ».
 
@@ -168,7 +168,7 @@ const client = new Certificate(KVUri, credential);
 
 ### <a name="save-a-certificate"></a>Enregistrer un certificat
 
-Maintenant que votre application est authentifiée, vous pouvez placer un certificat dans votre coffre de clés à l’aide de la méthode [beginCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_). Un nom de certificat et la stratégie de certificat [CertificatePolicy](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicy) avec [CertificatePolicyProperties](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties) sont nécessaires.
+Maintenant que votre application est authentifiée, vous pouvez placer un certificat dans votre coffre de clés à l’aide de la méthode [beginCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_). Un nom de certificat et la stratégie de certificat [CertificatePolicy](/javascript/api/@azure/keyvault-certificates/certificatepolicy) avec [CertificatePolicyProperties](/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties) sont nécessaires.
 
 ```javascript
 const certificatePolicy = {
@@ -191,7 +191,7 @@ const retrievedCertificate = await client.getCertificate(certificateName);
 
 ### <a name="delete-a-certificate"></a>Supprimer un certificat
 
-Pour finir, nous allons supprimer et purger le certificat de votre coffre de clés avec les méthodes [beginDeleteCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) et [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_).
+Pour finir, nous allons supprimer et purger le certificat de votre coffre de clés avec les méthodes [beginDeleteCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) et [purgeDeletedCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_).
 
 ```javascript
 const deletePoller = await client.beginDeleteCertificate(certificateName);

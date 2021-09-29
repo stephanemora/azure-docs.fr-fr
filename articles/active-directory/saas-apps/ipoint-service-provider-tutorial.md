@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: e45b9c2f8732d95c8c7784a7798b9ae2e9f1dab9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa864229529e0302b8968ed5219e700642b63c3e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92459824"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809313"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ipoint-service-provider"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à iPoint Service Provider
 
@@ -150,7 +150,7 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans iPoint
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette iPoint Service Provider dans le volet d’accès, vous devez être automatiquement connecté à l’application iPoint Service Provider pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette iPoint Service Provider dans le volet d’accès, vous devez être automatiquement connecté à l’application iPoint Service Provider pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

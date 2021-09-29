@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 085b9a187ce574c5138867f7a2ce929218717c37
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 591d248bed623a31d9c120ae669615efa5c5544d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253804"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763250"
 ---
 # <a name="azure-sentinel-workspace-architecture-best-practices"></a>Meilleures pratiques pour l’architecture de l’espace de travail Azure Sentinel
 
@@ -42,7 +42,7 @@ Lorsque vous déterminez le nombre de locataires et d’espaces de travail à ut
 
 Si vous avez plusieurs locataires, par exemple si vous êtes un fournisseur de services de sécurité gérée (MSSP), nous vous recommandons de créer au moins un espace de travail pour chaque locataire Azure AD pour prendre en charge les [connecteurs de données de service à service](connect-data-sources.md#service-to-service-integration) intégrés qui fonctionnent uniquement dans leur propre locataire Azure AD.
 
-Tous les connecteurs basés sur les paramètres de diagnostic ne peuvent pas être connectés à un espace de travail qui ne se trouve pas dans le même locataire que celui de la ressource. Cela s’applique aux connecteurs tels que [Pare-feu Azure](connect-azure-firewall.md), [Stockage Azure](connect-azure-storage-account.md), [Azure Activity](connect-azure-activity.md) ou [Azure Active Directory](connect-azure-active-directory.md).
+Tous les connecteurs basés sur les paramètres de diagnostic ne peuvent pas être connectés à un espace de travail qui ne se trouve pas dans le même locataire que celui de la ressource. Cela s’applique aux connecteurs tels que [Pare-feu Azure](./data-connectors-reference.md#azure-firewall), [Stockage Azure](./data-connectors-reference.md#azure-storage-account), [Azure Activity](./data-connectors-reference.md#azure-activity) ou [Azure Active Directory](connect-azure-active-directory.md).
 
 Utilisez [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) pour gérer plusieurs instances Azure Sentinel dans divers locataires.
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/25/2021
 ms.author: mametcal
 ms.custom: devx-track-java
-ms.openlocfilehash: 86a4d97f387124b7c0043ec49f00b818c8b34a19
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6e2b57ec7f5522d8789d1977afc4aa58fc24a3e7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450581"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573305"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalité à une application Spring Boot
 
@@ -85,6 +85,7 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
 1. Dans le portail App Configuration de votre magasin de configuration, sélectionnez `Access keys` dans la barre latérale. Sélectionnez l’onglet Clés en lecture seule. Copiez la valeur de la chaîne de connexion principale.
@@ -159,7 +160,7 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
             return "welcome";
         }
     }

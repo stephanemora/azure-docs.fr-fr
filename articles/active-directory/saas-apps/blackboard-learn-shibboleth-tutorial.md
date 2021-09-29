@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 099ca4681dcbcc31962a56c08f5599a96c00bcb6
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 8c6fef9319416c902f9c334453bd4a3a2fe4f93a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112008054"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809986"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Didacticiel : Intégration d’Azure Active Directory à Blackboard Learn - Shibboleth
 
@@ -137,7 +137,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Blackboard Learn - Shibboleth pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Blackboard Learn - Shibboleth dans Mes applications, vous devez être connecté automatiquement à l’application Blackboard Learn - Shibboleth pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Blackboard Learn - Shibboleth dans Mes applications, vous devez être connecté automatiquement à l’application Blackboard Learn - Shibboleth pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: a7dae1f33583a7350dd273a44efa90e9cb7dd725
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 543acb129d23a0b74434535306aca801d2f5fdd2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638858"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763630"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Charger de façon incrémentielle des données d’un magasin de données source vers un magasin de données de destination
 
@@ -24,7 +24,7 @@ Dans une solution d’intégration de données, le chargement incrémentielle (o
 ## <a name="delta-data-loading-from-database-by-using-a-watermark"></a>Chargement de données delta à partir d’une base de données à l’aide d’un filigrane
 Dans ce cas, vous définissez un filigrane dans votre base de données source. Un filigrane est une colonne incluant une clé d’incrémentation ou l’horodatage de la dernière mise à jour. La solution de chargement delta charge les données modifiées entre un ancien filigrane et un nouveau filigrane. Le flux de travail de cette approche est illustré dans le diagramme suivant : 
 
-![Flux de travail d’utilisation d’un filigrane](media/tutorial-incremental-copy-overview/workflow-using-watermark.png)
+:::image type="content" source="media/tutorial-incremental-copy-overview/workflow-using-watermark.png" alt-text="Flux de travail d’utilisation d’un filigrane":::
 
 Pour des instructions pas à pas, consultez les didacticiels suivants : 
 - [Copier de façon incrémentielle les données d’une table d’Azure SQL Database dans un stockage Blob Azure](tutorial-incremental-copy-powershell.md)
@@ -38,7 +38,7 @@ La technologie Change Tracking est une solution légère dans SQL Server et Azur
 
 Le flux de travail de cette approche est illustré dans le diagramme suivant :
 
-![Flux de travail pour l’utilisation de Change Tracking](media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png)
+:::image type="content" source="media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png" alt-text="Flux de travail pour l’utilisation de Change Tracking":::
 
 Pour des instructions pas à pas, consultez les didacticiels suivants : <br/>
 - [Copier de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie Change Tracking](tutorial-incremental-copy-change-tracking-feature-powershell.md)

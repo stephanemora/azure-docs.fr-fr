@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: allensu
-ms.openlocfilehash: f4c06fb4c97ea38c494f18e5bf72e9eb015299a8
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 0ca1f0ee6bcac39f0f73286fe8c426be9447c345
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535390"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754460"
 ---
 # <a name="default-outbound-access-in-azure"></a>Accès sortant par défaut dans Azure
 
@@ -62,7 +62,7 @@ Il existe plusieurs façons de désactiver l’accès sortant par défaut :
 
 2.  Utiliser le mode d’orchestration flexible pour les paramètres de mise à l’échelle des machines virtuelles.
 
-    * Les paramètres de mise à l’échelle flexibles sont sécurisés par défaut. Aucune instance créée via des paramètres de mise à l’échelle flexibles ne sera associée à l’adresse IP d’accès sortant par défaut. Pour plus d’informations, veuillez vous référer au [mode d’orchestration flexible pour les paramètres de mise à l’échelle des machines virtuelles](https://aka.ms/vmssflex/docs)
+    * Les paramètres de mise à l’échelle flexibles sont sécurisés par défaut. Aucune instance créée via des paramètres de mise à l’échelle flexibles ne sera associée à l’adresse IP d’accès sortant par défaut. Pour plus d’informations, veuillez vous référer au [mode d’orchestration flexible pour les paramètres de mise à l’échelle des machines virtuelles](../virtual-machines/flexible-virtual-machine-scale-sets.md)
 
 ## <a name="if-i-need-outbound-access-what-is-the-recommended-way"></a>Si j’ai besoin d’un accès sortant, quelle est la méthode recommandée ?
 

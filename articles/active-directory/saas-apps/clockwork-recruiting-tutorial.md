@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 9aea5cda6f4cc1b1bf017ae6e317a26982906c88
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7697932a0fa39c2aa0f1ed66f766407bd59d0db7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121784004"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124817521"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clockwork-recruiting"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Clockwork Recruiting
 
@@ -124,7 +124,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Dans le portail Azure, sélectionnez **Tester cette application**. Vous êtes alors redirigé vers l’URL de connexion à Clockwork Recruiting, d’où vous pouvez lancer le flux de connexion. 
 * Accédez directement à l’URL de connexion à Clockwork Recruiting et lancez-y le flux de connexion.
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous sélectionnez la vignette Clockwork Recruiting dans Mes applications, vous êtes redirigé vers l’URL de connexion à Clockwork Recruiting. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous sélectionnez la vignette Clockwork Recruiting dans Mes applications, vous êtes redirigé vers l’URL de connexion à Clockwork Recruiting. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

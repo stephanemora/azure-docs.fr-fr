@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 06/03/2021
+ms.date: 09/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 96e402a46d931223832295ccbd892eb38b909c59
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 54229ff68cf9e4ac749fb1396282d9c881f52806
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220788"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572668"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Ajouter l’accès conditionnel à des flux d’utilisateurs dans Azure Active Directory B2C
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
@@ -75,11 +75,12 @@ Azure AD B2C **Premium P2** est nécessaire pour créer des stratégies de conne
 ## <a name="prepare-your-azure-ad-b2c-tenant"></a>Préparer votre locataire Azure AD B2C
 Pour ajouter une stratégie d’accès conditionnel, désactivez les paramètres de sécurité par défaut :
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
-3. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
-4. Sélectionnez **Propriétés**, puis **Gérer les paramètres de sécurité par défaut**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
+1. Sélectionnez **Propriétés**, puis **Gérer les paramètres de sécurité par défaut**.
    ![Désactiver les paramètres de sécurité par défaut](media/conditional-access-user-flow/disable-security-defaults.png)
-5. Sous **Activer les paramètres de sécurité par défaut**, sélectionnez **Non**.
+1. Sous **Activer les paramètres de sécurité par défaut**, sélectionnez **Non**.
    ![Définissez le bouton bascule Activer les paramètres de sécurité par défaut sur la valeur Non](media/conditional-access-user-flow/enable-security-defaults-toggle.png)
 
 ## <a name="add-a-conditional-access-policy"></a>Ajouter une stratégie d’accès conditionnel
@@ -331,8 +332,10 @@ Quand vous ajoutez un accès conditionnel à un flux d’utilisateur, envisagez 
    > Avec la disponibilité générale de l’accès conditionnel dans Azure AD B2C, les utilisateurs sont désormais invités à s’inscrire à une méthode d’authentification multifacteur lors de l’inscription. Les flux d’utilisateur d’inscription que vous avez créés avant la mise à disposition générale ne reflètent pas automatiquement ce nouveau comportement, mais vous pouvez inclure le comportement en créant des flux d’utilisateurs.
 ::: zone pivot="b2c-user-flow"
 Pour activer l’accès conditionnel pour un flux d’utilisateur, assurez-vous que la version prend en charge l’accès conditionnel. Ces versions de flux d’utilisateurs sont étiquetées **Recommandé**.
+
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Sous **Stratégies**, sélectionnez **Flux utilisateur**. Sélectionnez ensuite le flux d’utilisateur.
 1. Sélectionnez **Propriétés** et vérifiez que le flux d’utilisateur prend en charge l’accès conditionnel en recherchant le paramètre libellé **Accès conditionnel**.
@@ -374,14 +377,15 @@ Dans la stratégie d’accès conditionnel ci-dessus, la méthode de transformat
 ## <a name="review-conditional-access-outcomes-in-the-audit-report"></a>Examiner les résultats de l’accès conditionnel dans le rapport d’audit
 Pour examiner le résultat d’un événement d’accès conditionnel
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
-3. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
-4. Sous **Activités**, sélectionnez **Journaux d’audit**.
-5. Filtrez le journal d’audit en choisissant **B2C** comme **Catégorie** et **IdentityProtection** comme **Type de ressource d’activité**. Ensuite, sélectionnez **Appliquer**.
-6. Passez en revue l’activité d’audit des sept derniers jours. Les types d’activité suivants sont inclus :
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
+1. Sous **Activités**, sélectionnez **Journaux d’audit**.
+1. Filtrez le journal d’audit en choisissant **B2C** comme **Catégorie** et **IdentityProtection** comme **Type de ressource d’activité**. Ensuite, sélectionnez **Appliquer**.
+1. Passez en revue l’activité d’audit des sept derniers jours. Les types d’activité suivants sont inclus :
    - **Évaluer les stratégies d’accès conditionnel** : cette entrée du journal d’audit indique qu’une évaluation de l’accès conditionnel a été effectuée pendant une authentification.
    - **Atténuer l’utilisateur** : cette entrée indique que l’accord ou les exigences d’une stratégie d’accès conditionnel ont été satisfaites par l’utilisateur final, et que cette activité a été signalée au moteur de risque afin d’atténuer (réduire le risque) utilisateur.
-7. Sélectionnez une entrée de journal **Évaluer la stratégie d’accès conditionnel** dans la liste pour ouvrir la page **Détails de l’activité : Journal d’audit**, qui affiche les identificateurs du journal d’audit, ainsi que ces informations dans la section **Détails supplémentaires** :
+1. Sélectionnez une entrée de journal **Évaluer la stratégie d’accès conditionnel** dans la liste pour ouvrir la page **Détails de l’activité : Journal d’audit**, qui affiche les identificateurs du journal d’audit, ainsi que ces informations dans la section **Détails supplémentaires** :
    - **ConditionalAccessResult** : accord requis par l’évaluation de la stratégie conditionnelle.
    - **AppliedPolicies** : liste de toutes les stratégies d’accès conditionnel où les conditions ont été satisfaites et les stratégies sont activées.
    - **ReportingPolicies** : liste des stratégies d’accès conditionnel qui ont été définies en mode rapport seul et où les conditions ont été satisfaites.

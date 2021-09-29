@@ -8,13 +8,13 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 08/24/2021
-ms.openlocfilehash: b5fdb41c84d97c5a4ba544c299eb183c704fa3d8
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: 14fa6484a3cba97602d33cf2b302d62bf6ef2871
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822210"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743892"
 ---
 # <a name="data-flow-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité de flux de données dans Azure Data Factory et Azure Synapse Analytics
 
@@ -67,7 +67,7 @@ staging.linkedService | Si vous utilisez une source ou un récepteur Azure Synap
 staging.folderPath | Si vous utilisez une source ou un récepteur Azure Synapse Analytics, chemin du dossier dans le compte de stockage blob utilisé pour la préproduction PolyBase | String | Uniquement si le flux de données lit ou écrit dans Azure Synapse Analytics
 traceLevel | Définissez le niveau de journalisation de votre exécution d’activité de flux de données | Fine, grossière, aucune | Non
 
-![Exécuter un flux de données](media/data-flow/activity-data-flow.png "Exécuter un flux de données")
+:::image type="content" source="media/data-flow/activity-data-flow.png" alt-text="Exécuter un flux de données":::
 
 ### <a name="dynamically-size-data-flow-compute-at-runtime"></a>Dimensionner dynamiquement le calcul du flux de données au moment de l’exécution
 
@@ -76,7 +76,7 @@ Les propriétés Nombre de cœurs et Type de capacité de calcul peuvent être d
 > [!NOTE]
 > Lors du choix des cœurs de nœuds de pilote et worker dans les flux de données Azure Synapse, un minimum de 3 nœuds sera toujours utilisé.
 
-![Flux de données dynamique](media/data-flow/dyna1.png "Flux de données dynamique")
+:::image type="content" source="media/data-flow/dyna1.png" alt-text="Flux de données dynamique":::
 
 [Voici un bref tutoriel vidéo expliquant cette technique](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
@@ -86,7 +86,7 @@ Choisissez le runtime d’intégration à utiliser pour l’exécution de votre 
 
 Un type de calcul minimal Usage général (Optimisé pour le calcul n’est pas recommandé pour les charges de travail volumineuses) avec une configuration 8 + 8 (16 cœurs au total) et 10 minutes est la recommandation minimale pour la plupart des charges de travail de production. En définissant une courte durée de vie, Azure IR peut gérer un cluster à chaud sans entraîner un temps de démarrage de plusieurs minutes pour un cluster à froid. Vous pouvez accélérer encore davantage l’exécution de vos flux de données en sélectionnant « Réutilisation rapide » dans les configurations de flux de données Azure IR. Pour plus d’informations, consultez [Runtime d’intégration Azure](concepts-integration-runtime.md).
 
-![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
+:::image type="content" source="media/data-flow/ir-new.png" alt-text="Azure Integration Runtime":::
 
 > [!IMPORTANT]
 > La sélection du runtime d’intégration dans l’activité de flux de données s’applique uniquement aux *exécutions déclenchées* de votre pipeline. Le débogage de votre pipeline avec des flux de données s’exécute sur le cluster spécifié dans la session de débogage.
@@ -99,7 +99,7 @@ Si vous utilisez Azure Synapse Analytics comme récepteur ou source, vous devez 
 
 Si vous n’avez pas besoin que chaque exécution du pipeline de vos activités de flux de données journalise entièrement tous les journaux de télémétrie détaillés, vous pouvez éventuellement définir le niveau de journalisation sur « De base » ou « Aucun ». Lors de l’exécution de vos flux de données en mode « Verbose » (par défaut), vous demandez au service d’enregistrer entièrement l’activité à chaque niveau de partition individuel au cours de la transformation des données. Cela peut être une opération coûteuse. Par conséquent, n’activez l’option Verbose que lorsque la résolution des problèmes peut améliorer les performances globales du pipeline et du flux de données. Le mode « De base » ne consigne que les durées de transformation, tandis que le mode « Aucun » ne fournit qu’un résumé des durées.
 
-![Niveau de journalisation](media/data-flow/logging.png "Définir le niveau de journalisation")
+:::image type="content" source="media/data-flow/logging.png" alt-text="Niveau de journalisation":::
 
 ## <a name="sink-properties"></a>Propriétés du récepteur
 
@@ -111,7 +111,7 @@ Le comportement par défaut des récepteurs de flux de données consiste à exé
 
 Cette option n'est disponible que pour les flux de données dont les récepteurs de cache sont activés pour la « Sortie vers l'activité ». La sortie du flux de données qui est injectée directement dans votre pipeline est limitée à 2 Mo. Le paramètre « Première ligne uniquement » vous permet de limiter la sortie de données du flux de données lorsque vous injectez la sortie de l'activité de flux de données directement dans votre pipeline.
 
-![Propriétés du récepteur](media/data-flow/sink-properties.png "Définir les priorités des récepteurs")
+:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Propriétés du récepteur":::
 
 ## <a name="parameterizing-data-flows"></a>Paramétrage de flux de données
 
@@ -119,7 +119,7 @@ Cette option n'est disponible que pour les flux de données dont les récepteurs
 
 Si votre flux de données utilise des jeux de données paramétrables, définissez les valeurs de paramètre sous l’onglet **Paramètres**.
 
-![Exécuter des paramètres de flux de données](media/data-flow/params.png "Paramètres")
+:::image type="content" source="media/data-flow/params.png" alt-text="Exécuter des paramètres de flux de données":::
 
 ### <a name="parameterized-data-flows"></a>Flux de données paramétrables
 
@@ -129,13 +129,13 @@ Si votre flux de données est paramétré, définissez les valeurs dynamiques de
 
 Vous pouvez paramétrer le nombre de cœurs ou le type de calcul si vous utilisez le runtime d'intégration Azure à résolution automatique et spécifiez des valeurs pour compute.coreCount et compute.computeType.
 
-![Exemple d’exécution de paramètres de flux de données](media/data-flow/parameterize-compute.png "Exemple de paramètres")
+:::image type="content" source="media/data-flow/parameterize-compute.png" alt-text="Exemple d’exécution de paramètres de flux de données":::
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>Débogage de pipeline de l’activité de flux de données
 
 Pour effectuer une exécution de débogage de pipeline à l’aide d’une activité de flux de données, vous devez passer en mode de débogage de flux de données à l’aide du curseur **Débogage de flux de données** dans la barre supérieure. Le mode débogage vous permet d’exécuter le flux de données sur un cluster Spark actif. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).
 
-![Capture d’écran montrant où se trouve le bouton Débogage](media/data-flow/debug-button-3.png)
+:::image type="content" source="media/data-flow/debug-button-3.png" alt-text="Capture d’écran montrant où se trouve le bouton Débogage":::
 
 Le pipeline de débogage s’exécute sur le cluster de débogage actif, et non sur l’environnement de runtime d’intégration spécifié dans les paramètres d’activité de flux de données. Vous pouvez choisir l’environnement de calcul de débogage lors du démarrage du mode de débogage.
 

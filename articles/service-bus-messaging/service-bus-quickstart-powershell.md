@@ -3,18 +3,18 @@ title: Utiliser Azure PowerShell pour créer une file d’attente Service Bus
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un espace de noms Service Bus puis une file d’attente dans un espace de noms à l’aide d’Azure PowerShell.
 author: spelluru
 ms.author: spelluru
-ms.date: 08/12/2020
+ms.date: 09/28/2021
 ms.topic: quickstart
 ms.devlang: dotnet
 ms.custom:
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: e850567f56cb89db135f9b6efeafb3d63dca151b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f98bf871abf50e3164f0ea9ca281887e29abfba9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479002"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211750"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Utiliser Azure PowerShell pour créer un espace de noms Service Bus ainsi qu’une file d'attente
 Ce guide de démarrage rapide vous montre comment créer un espace de noms Service Bus et une file d’attente à l’aide d’Azure PowerShell. Il vous montre également comment obtenir les informations d’autorisation qu’une application cliente peut utiliser pour envoyer/recevoir des messages à/de la file d'attente. 

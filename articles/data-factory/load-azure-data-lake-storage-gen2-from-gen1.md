@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/06/2021
-ms.openlocfilehash: 0b927f945dc7e891e93df6cd455840e6ff19a2fd
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 5f18e2a1fc64e33faecf17c95e9261e023cc6c9d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772442"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779708"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory
 
@@ -39,11 +39,11 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Données + Analytique** > **Data Factory**.
    
-   ![Capture d’écran montrant la sélection de Data Factory dans le volet Nouveau.](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png" alt-text="Capture d’écran montrant la sélection de Data Factory dans le volet Nouveau.":::
 
 2. Dans la page **Nouvelle fabrique de données**, entrez les valeurs appropriées dans les champs de l’image suivante : 
       
-   ![Capture d’écran montrant la page Nouvelle fabrique de données.](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png" alt-text="Capture d’écran montrant la page Nouvelle fabrique de données.":::
  
     * **Name** : Entrez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données \"LoadADLSDemo\" n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Recréez la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
     * **Abonnement**: Sélectionnez l’abonnement Azure dans lequel créer la fabrique de données. 
@@ -62,7 +62,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 1. Sur la page d’accueil, sélectionnez la mosaïque **Ingérer** pour lancer l’outil de copie des données. 
 
-   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png )
+   :::image type="content" source="./media/doc-common-process/get-started-page.png " alt-text="Capture d’écran montrant la page d’accueil ADF.":::
 
 2. Sur la page **Propriétés**, choisissez **Tâche de copie intégrée** sous **Type de tâche** et choisissez **Exécuter une fois maintenant** sous **Cadence ou planification des tâches**, puis sélectionnez **Suivant**.
 
@@ -70,7 +70,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
     
 4. Sélectionnez **Azure Data Lake Storage Gen1** dans la galerie des connecteurs, puis sélectionnez **Continuer**.
     
-    ![Capture d’écran montrant la page de sélection de la connexion Azure Data Lake Storage Gen1.](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png" alt-text="Capture d’écran montrant la page de sélection de la connexion Azure Data Lake Storage Gen1.":::
     
 5. Dans la page **Nouvelle connexion (Azure Data Lake Storage Gen1)** , effectuez ces étapes :
    1. Sélectionnez votre Data Lake Storage Gen1 pour le nom du compte, puis spécifiez ou confirmez le **locataire**.
@@ -79,7 +79,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
    > [!IMPORTANT]
    > Dans cette procédure pas à pas, vous utilisez une identité managée pour des ressources Azure afin d’authentifier votre solution Azure Data Lake Storage Gen1. Pour accorder à l’identité managée les autorisations appropriées dans Azure Data Lake Storage Gen1, suivez [ces instructions](connector-azure-data-lake-store.md#managed-identity).
    
-   ![Capture d’écran montrant la configuration de la connexion Azure Data Lake Storage Gen1.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png" alt-text="Capture d’écran montrant la configuration de la connexion Azure Data Lake Storage Gen1.":::
       
 6. Sur la page **Banque de données source**, procédez comme suit. 
     1. Sélectionnez la nouvelle connexion dans la section **Connexion**.
@@ -90,13 +90,13 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
     
 7. Dans la page **Banque de données de destination**, sélectionnez **+ Nouvelle connexion** > **Azure Data Lake Storage Gen2** > **Continuer**.
 
-    ![Capture d’écran montrant la page de sélection de la connexion Azure Data Lake Storage Gen2.](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png" alt-text="Capture d’écran montrant la page de sélection de la connexion Azure Data Lake Storage Gen2.":::
 
 8. Dans la page **Nouvelle connexion (Azure Data Lake Storage Gen2)** , effectuez ces étapes :
    1. Sélectionnez votre compte activé pour Data Lake Storage Gen2 dans la liste déroulante **Nom du compte de stockage**.
    1. Sélectionnez **Créer** pour créer la connexion. 
 
-   ![Capture d’écran montrant la configuration de la connexion Azure Data Lake Storage Gen2.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png" alt-text="Capture d’écran montrant la configuration de la connexion Azure Data Lake Storage Gen2.":::
 
 9. Sur la page **Magasin de données de destination**, procédez comme suit. 
     1. Sélectionnez la nouvelle connexion dans le bloc **Connexion**. 
@@ -109,19 +109,19 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 11. Dans la page **Résumé**, vérifiez les paramètres, puis cliquez sur **Suivant**.
 
-    ![Capture d’écran montrant la page Résumé.](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png" alt-text="Capture d’écran montrant la page Résumé.":::
 
 12. Dans la page **Déploiement**, sélectionnez **Surveiller** pour superviser le pipeline.
 
-    ![Capture d’écran montrant la page Déploiement.](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png" alt-text="Capture d’écran montrant la page Déploiement.":::
 
 13. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement. La colonne **Nom du pipeline** comprend les liens permettant d’afficher les détails de l’exécution de l’activité et de réexécuter le pipeline.
 
-    ![Capture d’écran montrant la page de surveillance des exécutions de pipelines.](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png" alt-text="Capture d’écran montrant la page de surveillance des exécutions de pipelines.":::
 
 14. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien dans la colonne **Nom du pipeline**. Il n’y a qu’une seule activité (activité de copie) dans le pipeline ; vous ne voyez donc qu’une seule entrée. Pour revenir à l’affichage des exécutions de pipeline, sélectionnez le lien **Toutes les exécutions de pipeline** dans le menu de navigation en haut. Sélectionnez **Actualiser** pour actualiser la liste. 
 
-    ![Capture d’écran montrant la page de surveillance des exécutions d’activités.](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png" alt-text="Capture d’écran montrant la page de surveillance des exécutions d’activités.":::
 
 15. Pour surveiller les détails d’exécution de chaque activité de copie, sélectionnez le lien **Détails** (image de lunettes) sous la colonne **Nom de l’activité** dans la vue de surveillance des activités. Vous pouvez suivre les informations détaillées comme le volume de données copiées à partir de la source dans le récepteur, le débit des données, les étapes d’exécution avec une durée correspondante et les configurations utilisées.
 

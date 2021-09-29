@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 8c9f1cb2257cd52658852b441b02620dac4663bb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 02b89d175c5586f2fd1bdd192ba87c70488ebbce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479986"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124822540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-openpages"></a>Didacticiel : Intégration d’Azure Active Directory à IBM OpenPages
 
@@ -128,7 +128,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application sur le portail Azure. Vous êtes alors automatiquement connecté à l'instance d'IBM OpenPages pour laquelle vous avez configuré l'authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette IBM OpenPages dans Mes applications, vous devez être automatiquement connecté à l'application IBM OpenPages pour laquelle vous avez configuré l'authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette IBM OpenPages dans Mes applications, vous devez être automatiquement connecté à l'application IBM OpenPages pour laquelle vous avez configuré l'authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 01/07/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 081ae6506949407c0cc5331abf542367f7cc4c84
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9f4e99c21ab0cba538021f416e058bdafd5c83b9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562793"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779347"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Comprendre comment les utilisateurs sont affectés aux applications dans Azure Active Directory
 
@@ -34,8 +34,8 @@ Pour qu’un utilisateur puisse accéder à une application, il doit tout d’ab
   * Un [groupe de sécurité dynamique](../enterprise-users/groups-dynamic-membership.md) créé dans le cloud
   * Un groupe Microsoft 365 créé dans le cloud
   * Le groupe [Tous les utilisateurs](../fundamentals/active-directory-groups-create-azure-portal.md)
-* Un administrateur active l’[accès aux applications en libre-service](./manage-self-service-access.md) pour autoriser un utilisateur à ajouter une application à l’aide de la fonctionnalité **Ajouter une application** de [Mes applications](../user-help/my-apps-portal-end-user-access.md) **sans approbation de l’entreprise**.
-* Un administrateur active l’[accès aux applications en libre-service](./manage-self-service-access.md) pour autoriser un utilisateur à ajouter une application à l’aide de la fonctionnalité **Ajouter une application** de [Mes accès](../user-help/my-apps-portal-end-user-access.md), mais uniquement **après approbation d’un ensemble sélectionné d’approbateurs d’entreprise**.
+* Un administrateur active l’[accès aux applications en libre-service](./manage-self-service-access.md) pour autoriser un utilisateur à ajouter une application à l’aide de la fonctionnalité **Ajouter une application** de [Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) **sans approbation de l’entreprise**.
+* Un administrateur active l’[accès aux applications en libre-service](./manage-self-service-access.md) pour autoriser un utilisateur à ajouter une application à l’aide de la fonctionnalité **Ajouter une application** de [Mes accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510), mais uniquement **après approbation d’un ensemble sélectionné d’approbateurs d’entreprise**.
 * Un administrateur active la [gestion des groupes en libre-service](../enterprise-users/groups-self-service-management.md) pour permettre à un utilisateur de joindre un groupe auquel une application est affectée, **sans approbation d’entreprise**
 * Un administrateur active la [gestion des groupes en libre-service](../enterprise-users/groups-self-service-management.md) pour permettre à un utilisateur de joindre un groupe auquel une application est affectée, mais uniquement **après approbation d’un ensemble sélectionné d’approbateurs d’entreprise**
 * Un administrateur affecte une licence à un utilisateur pour une première application, par exemple [Microsoft 365](https://products.office.com/)

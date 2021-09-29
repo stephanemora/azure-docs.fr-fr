@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 3f517698c1e44ccb5bdddb5a0bf78578c62b481e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 44dbc49b6bca6e0bf4b9079ee7199dc96ede06e6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740048"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796093"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-identity-awareness"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Check Point Identity Awareness
 
@@ -156,7 +156,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Check Point Identity Awareness pour y lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Check Point Identity Awareness dans Mes applications, vous êtes redirigé vers l’URL de connexion à Check Point Identity Awareness. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Check Point Identity Awareness dans Mes applications, vous êtes redirigé vers l’URL de connexion à Check Point Identity Awareness. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

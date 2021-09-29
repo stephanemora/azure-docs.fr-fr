@@ -1,33 +1,26 @@
 ---
 title: 'Azure AD Connect : Configurer un emplacement de données par défaut pour les ressources Microsoft 365'
 description: Explique comment rapprocher vos ressources utilisateur Microsoft 365 de l’utilisateur avec la synchronisation Azure Active Directory Connect.
-services: active-directory
-documentationcenter: ''
 author: billmath
-manager: mtillman
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edbc8c0151be2bc65dd653e996413d4c7877b1ef
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 7b709932114ad9e527b82a1457310ff01d2cff38
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114229757"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768550"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Microsoft 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les capacités multigéographiques dans Microsoft 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Microsoft 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
 
 ## <a name="supported-multi-geo-locations"></a>Emplacements géographiques multiples pris en charge
-Pour obtenir la liste de toutes les zones géographiques prises en charge par Azure AD Connect, consultez [Disponibilité multi-géographique de Microsoft 365](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability)
+Pour obtenir la liste de toutes les zones géographiques prises en charge par Azure AD Connect, consultez [Disponibilité multi-géographique de Microsoft 365](/microsoft-365/enterprise/microsoft-365-multi-geo#microsoft-365-multi-geo-availability)
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Activer la synchronisation de l’emplacement des données préféré
 Par défaut, les ressources Microsoft 365 des utilisateurs se trouvent dans la même zone géographique que le locataire Azure AD. Par exemple, si votre locataire est situé en Amérique du Nord, les boîtes aux lettres Exchange des utilisateurs sont également situées en Amérique du Nord. Pour une organisation multinationale, cela n’est peut-être pas optimal.
@@ -37,7 +30,7 @@ L’attribut **preferredDataLocation** vous permet de définir la zone géograph
 > [!IMPORTANT]
 > Les fonctionnalités multigéographiques sont actuellement disponibles pour les clients dotés d’un Contrat Entreprise actif avec au moins 250 abonnements aux services Microsoft 365. Pour plus d’informations, adressez-vous à votre représentant Microsoft.
 >
-> Pour obtenir la liste de toutes les zones géographiques prises en charge par Azure AD Connect, consultez [Disponibilité multi-géographique de Microsoft 365](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability).
+> Pour obtenir la liste de toutes les zones géographiques prises en charge par Azure AD Connect, consultez [Disponibilité multi-géographique de Microsoft 365](/microsoft-365/enterprise/microsoft-365-multi-geo#microsoft-365-multi-geo-availability).
 
 
 

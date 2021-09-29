@@ -4,13 +4,13 @@ description: Découvrez comment utiliser le portail Azure ou l’interface CLI p
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/02/2021
-ms.openlocfilehash: 49e9dee0b28eb17f2a4241570a2f0752f33b9020
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 7a76b4b37760e5e320ab62c2660e97c9fcabdbb0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563118"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815693"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
 
@@ -126,7 +126,7 @@ Les sections précédentes décrivaient comment créer, afficher et gérer des r
 6. Vous pouvez désactiver une règle d’alerte de métrique à l’aide de la commande suivante.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --disabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. Vous pouvez supprimer une règle d’alerte de métrique à l’aide de la commande suivante.

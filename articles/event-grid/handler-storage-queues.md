@@ -2,13 +2,13 @@
 title: File d’attente de stockage en tant que gestionnaire d’événements pour des événements Azure Event Grid
 description: Décrit comment utiliser des files d’attente de stockage Azure en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: d7c8b7a111c29fe11cc11ee191d78ae2a5f13610
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.date: 09/28/2021
+ms.openlocfilehash: 12314aaad4204892523ab88166bf86a80c35c939
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421731"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217785"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>File d’attente de stockage en tant que gestionnaire d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements, et le **Stockage File d’attente Azure** est l’un d’eux. 

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48d424a64df215a7506130a44d57fc45d638255d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c40d1ae4d24f24feafa138b75aefc3f9b711287e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562856"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762870"
 ---
 # <a name="best-practices-for-azure-ad-roles"></a>Meilleures pratiques pour les rôles Azure AD
 
@@ -62,7 +62,7 @@ Les révisions d’accès permettent aux organisations d’examiner régulièrem
 - Un acteur malveillant peut compromettre un compte.
 - Les personnes changent d’équipe au sein d’une entreprise. En l’absence d’audit, elles peuvent accumuler des accès inutiles au fil du temps.
  
-Pour plus d’informations sur les révisions d’accès pour les rôles, consultez [Créer une révision d’accès des rôles Azure AD dans PIM](../privileged-identity-management/pim-how-to-start-security-review.md). Pour plus d’informations sur les révisions d’accès des groupes auxquels des rôles sont attribués, consultez [Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD](../governance/create-access-review.md).
+Pour plus d’informations sur les révisions d’accès pour les rôles, consultez [Créer une révision d’accès des rôles Azure AD dans PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md). Pour plus d’informations sur les révisions d’accès des groupes auxquels des rôles sont attribués, consultez [Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD](../governance/create-access-review.md).
 
 ## <a name="5-limit-the-number-of-global-administrators-to-less-than-5"></a>5. Limiter le nombre d’administrateurs généraux à moins de cinq
 

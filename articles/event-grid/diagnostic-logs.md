@@ -2,13 +2,13 @@
 title: Azure Event Grid – Journaux de diagnostic pour des rubriques ou domaines
 description: Cet article fournit des informations conceptuelles sur les journaux de diagnostic pour une rubrique ou un domaine Azure Event Grid.
 ms.topic: conceptual
-ms.date: 12/03/2020
-ms.openlocfilehash: 13577e02cba07fc788bb4846cddd3c0ed894f2b1
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 09/28/2021
+ms.openlocfilehash: 057d4856e6a1bc0574639def731dffc99f988994
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314924"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216894"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Journaux de diagnostic pour des rubriques/domaines Azure Event Grid
 Les paramètres de diagnostic permettent aux utilisateurs d’Event Grid de capturer et d’afficher les journaux d’**échec de publication et de remise** dans un compte de stockage, un Event Hub ou espace de travail Log Analytics. Cet article fournit un schéma pour les journaux et un exemple d’entrée de journal.

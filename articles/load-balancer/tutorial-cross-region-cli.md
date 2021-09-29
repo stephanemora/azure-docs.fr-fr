@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
-ms.openlocfilehash: ca4134ff25dc9915f256b5a7bdd9404021b60a8e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b9c96a6434712ed3179fe25c1014dc1fdc6e062d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791910"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736582"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-cli"></a>Tutoriel : Créer un équilibreur de charge Azure interrégional à l’aide d’Azure CLI
 
@@ -192,4 +192,4 @@ Dans ce tutoriel, vous allez :
 
 Passez à l’article suivant pour savoir comment…
 > [!div class="nextstepaction"]
-> [Équilibrer la charge de machines virtuelles entre des zones de disponibilité](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Équilibrer la charge de machines virtuelles entre des zones de disponibilité](./quickstart-load-balancer-standard-public-portal.md)

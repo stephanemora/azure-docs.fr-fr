@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 09bb503be37df8afe54f6dcc8c427bf12f9e7dc1
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: dbee4a0c4aa82d34df6b5ea6e3e7274868be5d62
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252990"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743846"
 ---
 # <a name="json-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Format JSON dans Azure Data Factory et Azure Synapse Analytics
 
@@ -223,7 +223,7 @@ Le tableau ci-dessous liste les propriétés prises en charge par une source JS
 
 L’utilisation d’un jeu de données JSON comme source dans votre flux de données vous permet de définir cinq paramètres supplémentaires. Ces paramètres se trouvent sous l’accordéon de **paramètres JSON**, sous l’onglet **Options de la source**. Pour le paramètre de **Forme de document**, vous pouvez sélectionner un des types **Document unique**, **document par ligne** et un **Tableau de documents**.
 
-![Paramètres JSON](media/data-flow/json-settings.png "Paramètres JSON")
+:::image type="content" source="media/data-flow/json-settings.png" alt-text="Paramètres JSON":::
 
 #### <a name="default"></a>Default
 
@@ -359,11 +359,11 @@ Vous pouvez ajouter une colonne complexe à votre flux de données à l’aide d
 
 Dans le volet latéral du schéma de sortie, pointez sur une colonne, puis cliquez sur l’icône plus. Sélectionnez **Ajouter une sous-colonne** pour transformer la colonne en type complexe.
 
-![Ajouter une sous-colonne](media/data-flow/derive-add-subcolumn.png "Ajouter une sous-colonne")
+:::image type="content" source="media/data-flow/derive-add-subcolumn.png" alt-text="Ajouter une sous-colonne":::
 
 Vous pouvez ajouter des colonnes et des sous-colonnes supplémentaires de la même façon. Pour chaque champ non complexe, une expression peut être ajoutée dans l’éditeur d’expressions vers la droite.
 
-![Ajouter une colonne complexe](media/data-flow/derive-complex-column.png "Ajouter des colonnes")
+:::image type="content" source="media/data-flow/derive-complex-column.png" alt-text="Ajouter une colonne complexe":::
 
 #### <a name="entering-the-json-structure-manually"></a>Saisie manuelle de la structure JSON
 

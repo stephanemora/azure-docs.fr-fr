@@ -12,12 +12,12 @@ ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: has-adal-ref
-ms.openlocfilehash: 16761e71cdb3b87454bc8409fa8896d13779f66d
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 9a21ae719a6e89819cb6841f69ff48e17cc0bec6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535150"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779518"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants
 
@@ -77,7 +77,7 @@ Le proxy d’application est un service Azure AD que vous configurez dans le por
 
 Cette fonctionnalité comprend les composants suivants : le service de proxy d’application, qui s’exécute dans le cloud, le connecteur de proxy d’application, qui est un agent léger s’exécutant sur un serveur local, et Azure AD, qui est le fournisseur d’identité. Les trois composants fonctionnent ensemble pour fournir à l’utilisateur une expérience d’authentification unique afin d’accéder aux applications web locales.
 
-Après s’être connectés, les utilisateurs externes peuvent accéder aux applications web locales à l’aide d’une URL connue ou [Mes applications](../user-help/my-apps-portal-end-user-access.md) sur leurs appareils de bureau ou iOS/MAC. Par exemple, le proxy d’application peut fournir l’accès à distance et l’authentification unique aux services Bureau à distance, aux sites SharePoint, à Tableau, à Qlik, à Outlook sur le web et aux applications métier (LOB).
+Après s’être connectés, les utilisateurs externes peuvent accéder aux applications web locales à l’aide d’une URL connue ou [Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) sur leurs appareils de bureau ou iOS/MAC. Par exemple, le proxy d’application peut fournir l’accès à distance et l’authentification unique aux services Bureau à distance, aux sites SharePoint, à Tableau, à Qlik, à Outlook sur le web et aux applications métier (LOB).
 
 ![Architecture du proxy d’application Azure AD](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 

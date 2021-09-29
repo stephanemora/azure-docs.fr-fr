@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 05/10/2021
+ms.date: 08/24/2021
 ms.author: alkohli
-ms.openlocfilehash: c1d1fd5a15d889ead669a5c7c880ed59f5a66ba8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 471d5bff3fa3a4be092f1294f64b0bb8c3fdf9a8
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525285"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "129211682"
 ---
 # <a name="review-copy-errors-in-uploads-from-azure-data-box-and-azure-data-box-heavy-devices"></a>Passer en revue les erreurs de copie dans les chargements à partir d’appareils Azure Data Box et Azure Data Box Heavy
 

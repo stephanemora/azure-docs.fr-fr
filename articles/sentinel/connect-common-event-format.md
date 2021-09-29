@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2021
 ms.author: yelevin
-ms.openlocfilehash: 6f261e69daa14e652d226c9b0d6402eb353c1744
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 71f127bd45c833205067256a2b23cdc72b2c3bfb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251887"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784505"
 ---
 # <a name="get-cef-formatted-logs-from-your-device-or-appliance-into-azure-sentinel"></a>Récupérez les journaux au format CEF de votre appareil ou de votre dispositif dans Azure Sentinel.
 
@@ -55,7 +55,7 @@ Un espace de travail Azure Sentinel est requis pour ingérer des données CEF da
 
 - Vous devez avoir des droits de lecture et d'écriture sur cet espace de travail.
 
-- Vous devez disposer d’autorisations de lecture sur les clés partagées pour accéder à l’espace de travail. [En savoir plus sur les clés d’espace de travail](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+- Vous devez disposer d’autorisations de lecture sur les clés partagées pour accéder à l’espace de travail. [En savoir plus sur les clés d’espace de travail](../azure-monitor/agents/agent-windows.md).
 
 ## <a name="designate-a-log-forwarder-and-install-the-log-analytics-agent"></a>Désignation d’un redirecteur de journal et installation de l’agent de Log Analytics
 
@@ -117,7 +117,7 @@ Pour rechercher des événements CEF pour ces produits, entrez le nom de la fonc
 
 Vous pouvez trouver des exemples de requêtes, des classeurs et des modèles de règle d’analyse utiles, en particulier pour votre produit, dans l’onglet **étapes suivantes** de la page connecteur de données de votre produit dans le portail Azure Sentinel.
 
-Si vous ne voyez pas de données, consultez la page de [résolution des problèmes de CEF](connect-cef-verify.md) pour obtenir de l’aide.
+Si vous ne voyez pas de données, consultez la page de [résolution des problèmes de CEF](./troubleshooting-cef-syslog.md) pour obtenir de l’aide.
 
 ### <a name="changing-the-source-of-the-timegenerated-field"></a>Modification de la source du champ TimeGenerated
 

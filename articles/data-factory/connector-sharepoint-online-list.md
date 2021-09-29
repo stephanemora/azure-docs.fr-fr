@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 1b21416e06948c9a32831dc23c66c31b62a3ddae
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: ad9adb2c9f6b8308aba79f9e9bd1eadbf755760a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307801"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763934"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données à partir de SharePoint Online List à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -63,7 +63,7 @@ Le connecteur SharePoint List Online utilise l’authentification du principal d
         </AppPermissionRequests>
         ```
 
-        ![Autorisation SharePoint accordée](media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png)
+        :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png" alt-text="Autorisation SharePoint accordée":::
 
     3. Cliquez sur « Faire confiance à cette application ».
 
@@ -79,7 +79,7 @@ Suivez les étapes suivantes pour créer un service lié à une liste SharePoint
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -234,7 +234,7 @@ Lors de la copie de données à partir de SharePoint Online List, les mappages s
 
 Pour copier un fichier à partir de SharePoint Online, vous pouvez utiliser **l’activité web** afin d’authentifier et de récupérer un jeton d’accès auprès de SPO, puis le transmettre à **l’activité de copie** suivante afin de copier des données avec le **connecteur HTTP comme source**.
 
-![Flux de copie de fichier SharePoint](media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png)
+:::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="Flux de copie de fichier SharePoint":::
 
 1. Suivez la section [Prérequis](#prerequisites) pour créer une application AAD et accorder l’autorisation à SharePoint Online. 
 

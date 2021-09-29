@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 06/22/2021
-ms.openlocfilehash: afdfce29840bbc88bdfc853e12e8109881f8366a
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: d593b234e33eefeb5116bc69aeb7ad990ac24536
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113002027"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153821"
 ---
 # <a name="publish-an-integrated-solution"></a>Publier une solution intégrée
 
@@ -51,7 +51,7 @@ Pour obtenir une vue d’ensemble du programme Solutions intégrées, regardez l
 
 ## <a name="submit-a-nomination"></a>Soumettre une nomination
 
-Les partenaires qui souhaitent participer au programme doivent identifier les autres partenaires avec lesquels ils souhaitent travailler. Ils doivent remplir le [formulaire de nomination des solutions intégrées](https://aka.ms/AA5qicu). L’équipe du programme des solutions intégrées examine la nomination et se prononce dans les 10 jours ouvrables. L’équipe fournit l’étape d’approbation et les suivantes.
+Les partenaires qui souhaitent participer au programme doivent identifier les autres partenaires avec lesquels ils souhaitent travailler. Ils doivent remplir le [formulaire de nomination des solutions intégrées](https://go.microsoft.com/fwlink/?linkid=2172593). L’équipe du programme des solutions intégrées examine la nomination et se prononce dans les 10 jours ouvrables. L’équipe fournit l’étape d’approbation et les suivantes.
 
 ## <a name="develop-an-integrated-solution"></a>Développer une solution intégrée
 

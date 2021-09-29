@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 6a4fabe23f9eb679b1aa059d9fa534147bcce32f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff8e46e2478ed8dade90206b3646bbb5aa7d92c4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92460325"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Didacticiel : Intégration d’Azure Active Directory à IMAGE WORKS
 
@@ -30,7 +30,7 @@ L’intégration d’IMAGE WORKS à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à IMAGE WORKS, vous avez besoin des éléments suivants :
 
@@ -185,7 +185,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans I
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette IMAGE WORKS dans le volet d’accès doit vous connecter automatiquement à l’application IMAGE WORKS pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette IMAGE WORKS dans le volet d’accès doit vous connecter automatiquement à l’application IMAGE WORKS pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

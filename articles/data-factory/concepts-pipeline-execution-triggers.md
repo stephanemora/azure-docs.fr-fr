@@ -1,5 +1,5 @@
 ---
-title: Exécution de pipeline et déclencheurs
+title: Exécution du pipeline et déclencheurs
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory ou Azure Synapse Analytics, soit à la demande, soit en créant un déclencheur.
 author: dcstwh
@@ -8,14 +8,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: 8055f9a81f9788a7f9f53d0fd2672d527ebc203a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c4aa95ad6f2bf44602b18f875626fa93b1248e13
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641302"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787866"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory-or-azure-synapse-analytics"></a>Exécution de pipeline et déclencheurs dans Azure Data Factory ou Azure Synapse Analytics
 
@@ -280,7 +280,7 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valeurs par défaut, limites et exemples du schéma
 
-| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides | Exemple |
+| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides |  Exemple |
 | --- | --- | --- | --- | --- | --- |
 | **startTime** | string | Oui | None | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | Oui | None | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |

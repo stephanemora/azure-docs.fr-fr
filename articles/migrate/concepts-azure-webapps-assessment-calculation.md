@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: ec83b7a8de449a73dc227941f864ac7cd8495e68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3328fb0fb20a9b0e492c3cd4281ee35dcf12dda0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562476"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792027"
 ---
 # <a name="assessment-overview-migrate-to-azure-app-service"></a>Vue d’ensemble de l’évaluation (migrer vers Azure App Service)
 
@@ -59,8 +59,8 @@ Voici ce qu’incluent les propriétés d’évaluation d’Azure App Service :
 **Propriété** | **Détails**
 --- | ---
 **Emplacement cible** | Région Azure vers laquelle vous souhaitez opérer la migration. Les recommandations en matière de configuration et de coût d’Azure App Service sont basées sur l’emplacement que vous spécifiez.
-**Isolation requise** | Sélectionnez Oui si vous souhaitez que vos applications web s’exécutent dans un environnement privé et dédié dans un centre de données Azure à l’aide de machines virtuelles de la série Dv2 avec des processeurs plus rapides, un stockage SSD et le double de rapport mémoire/cœur par rapport aux plans Standard.
-**Instances réservées** | Spécifie des instances réservées afin que les estimations de coût dans l’évaluation les prennent en compte.<br/><br/> Si vous sélectionnez une option d’instance de réserve, vous ne pouvez pas spécifier de « Remise (%) ».
+**Isolation requise** | Sélectionnez Oui si vous souhaitez que vos applications web s’exécutent dans un environnement privé et dédié dans un centre de données Azure à l’aide de machines virtuelles de la série Dv2 avec des processeurs plus rapides, un stockage SSD et le double de mémoire ratio cœur par rapport aux plans Standard.
+**Instances réservées** | Spécifie des instances réservées afin que les estimations de coût dans l’évaluation les prennent en compte.<br/><br/> Si vous sélectionnez une option d’instance réservée, vous ne pouvez pas spécifier de « Remise (%) ».
 **Offer** | [Offre Azure](https://azure.microsoft.com/support/legal/offer-details/) dans laquelle vous êtes inscrit. L’évaluation estime le coût de cette offre.
 **Devise** | Devise de facturation de votre compte.
 **Remise (%)** | Toute remise propre à un abonnement que vous recevez en plus de l’offre Azure. Le paramètre par défaut est 0 %.
@@ -76,7 +76,7 @@ La préparation d’Azure App Service pour les applications web est basée sur l
 
 1. L’évaluation Azure App Service prend en compte les données de configuration des applications web pour identifier les problèmes de compatibilité.
 1. Si aucun problème de compatibilité n’est détecté, la préparation est marquée comme **Prête** pour le type de déploiement cible.
-1. S’il existe des problèmes de compatibilité non critiques, tels que des fonctionnalités dégradées ou non prises en charge qui ne bloquent pas la migration vers un type de déploiement cible spécifique, l’état de préparation est marqué comme **Disponible sous conditions** (avec lien hypertexte) avec des détails d’**avertissement** et des recommandations de correction.
+1. S’il existe des problèmes de compatibilité non critiques, tels que des fonctionnalités détériorées ou non prises en charge qui ne bloquent pas la migration vers un type de déploiement cible spécifique, l’état de préparation est marqué comme **Prêt sous conditions** (avec lien hypertexte) avec des détails d’**avertissement** et des recommandations de correction.
 1. S’il existe des problèmes de compatibilité susceptibles de bloquer la migration vers un type de déploiement cible spécifique, L’état de préparation est marqué comme **Non prêt** avec des détails sur le **problème** et des recommandations de correction.
 1. Si la détection est toujours en cours ou s’il existe des problèmes de détection pour une instance ou une application web, l’état de préparation est marqué comme **Inconnu** , car l’évaluation n’a pas pu calculer la préparation pour cette application web.
 
@@ -92,7 +92,7 @@ Les plans Premium sont destinés aux charges de travail de production. Ils s’e
 
 ### <a name="azure-app-service-plan"></a>Plan Azure App Service
 
-Dans App Service, une application s’exécute toujours dans un [plan App Service](/azure/app-service/overview-hosting-plans). Un plan App Service définit un ensemble de ressources de calcul nécessaires à l’exécution d’une application web. À un niveau élevé, le plan/la référence SKU est déterminé en fonction du tableau ci-dessous.
+Dans App Service, une application s’exécute toujours dans un [plan App Service](../app-service/overview-hosting-plans.md). Un plan App Service définit un ensemble de ressources de calcul nécessaires à l’exécution d’une application web. À un niveau élevé, le plan/la référence SKU est déterminé en fonction du tableau ci-dessous.
 
 **Isolation requise** | **Instance réservée** | **Plan App Service/SKU**
 --- | --- | ---
@@ -103,7 +103,7 @@ Non  | Non | P1v2
 
 ### <a name="azure-app-service-cost-details"></a>Détails des coûts d’Azure App Service
 
-Un [plan App Service](/azure/app-service/overview-hosting-plans) comporte une [facturation](https://azure.microsoft.com/pricing/details/app-service/windows/) des ressources de calcul qu’il utilise. Dans App Service, vous payez les frais par plans App Service et non par application web. Une ou plusieurs applications peuvent être configurées pour s’exécuter sur les mêmes ressources informatiques (ou dans le même plan App Service). Toutes les applications que vous placez dans ce plan App Service s’exécutent sur ces ressources de calcul telles que définies par votre plan App Service.
+Un [plan App Service](../app-service/overview-hosting-plans.md) comporte une [facturation](https://azure.microsoft.com/pricing/details/app-service/windows/) des ressources de calcul qu’il utilise. Dans App Service, vous payez les frais par plans App Service et non par application web. Une ou plusieurs applications peuvent être configurées pour s’exécuter sur les mêmes ressources informatiques (ou dans le même plan App Service). Toutes les applications que vous placez dans ce plan App Service s’exécutent sur ces ressources de calcul telles que définies par votre plan App Service.
 Pour optimiser les coûts, l’évaluation d’Azure Migrate alloue plusieurs applications web à chaque plan App Service recommandé. Le nombre d’applications web allouées à chaque instance de plan est indiqué dans le tableau ci-dessous.
 
 **Plan App Service** | **Applications web par plan App Service**
@@ -113,7 +113,7 @@ P1v2  | 8
 P1v3  | 16
 
 > [!NOTE]
-> Un plan App Service peut être mis à l’échelle à tout moment. [Plus d’informations](/azure/app-service/overview-hosting-plans#what-if-my-app-needs-more-capabilities-or-features/)
+> Un plan App Service peut être mis à l’échelle à tout moment. [Plus d’informations](../app-service/overview-hosting-plans.md#what-if-my-app-needs-more-capabilities-or-features)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Passer en revue](best-practices-assessment.md) les meilleures pratiques pour la création d’évaluations. 

@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour Azure Monitor
 description: Liste les contrôles de conformité réglementaire d’Azure Policy pour Azure Monitor. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.topic: sample
 author: rboucher
 ms.author: robb
 ms.service: azure-monitor
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 120763c3301232b15bc521c6929ee212fa297a8b
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 7d93a63c1c4f6b21eb53e2db5f2018c423b9654e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479493"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658909"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-monitor"></a>Contrôles de conformité réglementaire d’Azure Policy pour Azure Monitor
 

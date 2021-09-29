@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/30/2021
+ms.date: 9/7/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 190a5c7df833137fdbc13dc6a09e7c19a34dce0a
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: bc57addda6b2e94307aecb5715cd0d3e51a0b745
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866489"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748570"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archive des nouveautés d’Azure Active Directory
 
@@ -34,6 +34,213 @@ Les notes de publication relatives aux nouveautés d’Azure Active Directory fo
 
 ---
  
+## <a name="february-2021"></a>Février 2021
+
+### <a name="email-one-time-passcode-authentication-on-by-default-starting-october-2021"></a>E-mail d’authentification par code secret à usage unique par défaut à partir d’octobre 2021
+
+**Type :** Modification planifiée  
+**Catégorie de service :** B2B  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+À partir du 31 octobre 2021, [l’authentification par code secret à usage unique](../external-identities/one-time-passcode.md) de Microsoft Azure Active Directory deviendra la méthode par défaut pour l’invitation de comptes et de locataires pour les scénarios de collaboration B2B. À ce stade, Microsoft n’autorise plus l’échange d’invitations à l’aide de comptes de Azure Active Directory non gérés. 
+
+---
+
+### <a name="unrequested-but-consented-permissions-will-no-longer-be-added-to-tokens-if-they-would-trigger-conditional-access"></a>Les autorisations non demandées mais consenties ne seront plus ajoutées aux jetons si elles déclenchent un accès conditionnel
+
+**Type :** Modification planifiée  
+**Catégorie de service :** Authentifications (connexions)  
+**Fonctionnalité de produit :** plateforme
+ 
+Actuellement, les applications qui utilisent des [autorisations dynamiques](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent) reçoivent toutes les autorisations auxquelles elles ont consenti à accéder. Cela comprend les applications qui ne sont pas demandées, même si elles déclenchent un accès conditionnel. Par exemple, cela peut entraîner une application qui demande uniquement `user.read` qui a également le consentement de `files.read`, pour être obligée de passer l’accès conditionnel attribué pour l’autorisation `files.read`. 
+
+Pour réduire le nombre d’invites d’accès conditionnel inutiles, Azure AD change la façon dont les étendues non demandées sont fournies aux applications. Les applications ne déclenchent que l’accès conditionnel pour les autorisations qu’elles demandent explicitement. Pour plus d’informations, consultez [Nouveautés de l’authentification](../develop/reference-breaking-changes.md#conditional-access-will-only-trigger-for-explicitly-requested-scopes).
+ 
+---
+ 
+### <a name="public-preview----use-a-temporary-access-pass-to-register-passwordless-credentials"></a>Préversion publique : Utiliser un passe d’accès temporaire pour inscrire les informations d’identification sans mot de passe
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** MFA  
+**Fonctionnalité de produit :** Protection et sécurité des identités
+
+La Passe d’accès temporaire est un code secret à durée limitée qui sert d’informations d’identification fortes et permet l’intégration d’informations d’identification et de récupération sans mot de passe lorsqu’un utilisateur a perdu ou oublié son application de facteur d’authentification fort (par exemple, la clé de sécurité FIDO2 ou Microsoft Authenticator) et doit se connecter pour inscrire de nouvelles méthodes d’authentification fortes. [Plus d’informations](../authentication/howto-authentication-temporary-access-pass.md)
+
+---
+
+### <a name="public-preview----keep-me-signed-in-kmsi-in-next-generation-of-user-flows"></a>Préversion publique : Maintenir la connexion dans la prochaine génération de flux d’utilisateur
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2C - Gestion des identités consommateurs  
+**Fonctionnalité de produit :** B2B/B2C
+
+La nouvelle génération de flux d’utilisateurs B2C prend désormais en charge la fonctionnalité [Maintenir la connexion](../../active-directory-b2c/session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) qui permet aux clients d’étendre la durée de vie de la session pour les utilisateurs de leurs applications web et natives à l’aide d’un cookie persistant.  La fonctionnalité maintient la session active même lorsque l’utilisateur ferme et ouvre à nouveau le navigateur. Elle est révoquée lorsque l’utilisateur se déconnecte.
+
+---
+
+### <a name="public-preview----reset-redemption-status-for-a-guest-user"></a>Préversion publique : Réinitialiser l’état d’acceptation d’un utilisateur invité
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2B  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+Les clients peuvent à présent réinviter des utilisateurs invités externes existants à réinitialiser leur état d’acceptation, ce qui permet au compte d’utilisateur invité de rester sans qu’aucun accès ne soit perdu. [Plus d’informations](../external-identities/reset-redemption-status.md)
+ 
+---
+
+### <a name="public-preview----synchronization-provisioning-apis-now-support-application-permissions"></a>Préversion publique : Les API de synchronisation (approvisionnement) prennent désormais en charge les permissions d’application
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Provisionnement d’applications  
+**Fonctionnalité de produit :** Gestion du cycle de vie des identités
+ 
+Les clients peuvent désormais utiliser application.readwrite.ownedby comme permission d’application pour appeler les API de synchronisation. Attention ! Cette fonction est prise en charge uniquement pour l’approvisionnement par Azure AD des applications tiers (par exemle, AWS, Data Bricks, etc.). Elle n’est actuellement pas prise en charge pour l’approvisionnement RH (Workday/Successfactors) ou la synchronisation Cloud (AD vers Azure AD). [Plus d’informations](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true)
+ 
+---
+
+### <a name="general-availability---authentication-policy-administrator-built-in-role"></a>Disponibilité générale : Rôle intégré Administrateur de la stratégie d’authentification
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** RBAC  
+**Fonctionnalité de produit :** Contrôle d’accès
+ 
+Les utilisateurs disposant de ce rôle peuvent configurer la stratégie de méthodes d’authentification, les paramètres d’authentification multifacteur à l’ensemble du locataire et la stratégie de protection par mot de passe. Ce rôle accorde l’autorisation de gérer les paramètres de protection par mot de passe : les configurations de verrouillage intelligent et la mise à jour de la liste des mots de passe interdits personnalisés. [Plus d’informations](../roles/permissions-reference.md#authentication-policy-administrator)
+
+---
+
+### <a name="general-availability---user-collections-on-my-apps-are-available-now"></a>Disponibilité générale : les collections d’utilisateurs sur Mes applications sont désormais disponibles !
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** My Apps  
+**Fonctionnalité de produit :** Expériences d’utilisateur final
+ 
+Les utilisateurs peuvent désormais créer leurs propres regroupements d’applications dans le lanceur d’applications Mes applications. Ils peuvent également réorganiser et masquer les regroupements que leurs administrateurs ont partagés avec eux. [Plus d’informations](../user-help/my-apps-portal-user-collections.md)
+
+---
+
+### <a name="general-availability---autofill-in-authenticator"></a>Disponibilité générale : remplissage automatique dans Authenticator
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Application Microsoft Authenticator  
+**Fonctionnalité de produit :** Protection et sécurité des identités
+ 
+Microsoft Authenticator offre des capacités d’authentification multifacteur et de gestion des comptes et, à présent, il remplit également automatiquement les mots de passe sur les sites et les applications consultés par les utilisateurs sur leur appareil mobile (iOS et Android). 
+
+Pour utiliser la fonction de remplissage automatique sur Authenticator, les utilisateurs doivent ajouter leur compte Microsoft personnel à Authenticator et l’utiliser pour synchroniser leurs mots de passe. Pour l’instant, les comptes professionnels ou scolaires ne peuvent pas être utilisés pour synchroniser les mots de passe. [Plus d’informations](../user-help/user-help-auth-app-faq.md#autofill-for-it-admins)
+
+---
+
+### <a name="general-availability---invite-internal-users-to-b2b-collaboration"></a>Disponibilité générale : inviter des utilisateurs internes à une collaboration B2B
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** B2B  
+**Fonctionnalité de produit :** B2B/B2C
+ 
+Les clients peuvent désormais inviter des invités internes à utiliser la collaboration B2B au lieu d’envoyer une invitation à un compte interne existant. Cela permet aux clients de conserver l’ID d’objet, l’UPN, les appartenances aux groupes et les affectations d’applications de cet utilisateur. [Plus d’informations](../external-identities/invite-internal-users.md)
+
+---
+
+### <a name="general-availability---domain-name-administrator-built-in-role"></a>Disponibilité générale : Rôle intégré Administrateur de nom de domaine
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** RBAC  
+**Fonctionnalité de produit :** Contrôle d’accès
+ 
+Les utilisateurs disposant de ce rôle peuvent gérer (lire, ajouter, vérifier, mettre à jour et supprimer) des noms de domaine. Ils peuvent également lire les informations du répertoire sur les utilisateurs, les groupes et les applications, car ces objets possèdent des dépendances de domaine. 
+
+Pour les environnements locaux, les utilisateurs disposant de ce rôle peuvent configurer des noms de domaine pour la fédération afin que les utilisateurs associés soient toujours authentifiés localement. Ces utilisateurs peuvent ensuite se connecter à des services Azure AD avec leurs mots de passe locaux par le biais de l’authentification unique. Les paramètres de fédération doivent être synchronisés via Azure AD Connect, afin que les utilisateurs disposent également des autorisations nécessaires pour gérer Azure AD Connect. [Plus d’informations](../roles/permissions-reference.md#domain-name-administrator)
+ 
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---february-2021"></a>Nouvelles applications fédérées disponibles dans la Galerie d’applications Azure AD (février 2021)
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Intégration tierce
+ 
+En février 2021, nous avons ajouté les 37 applications suivantes à notre Galerie d’applications avec prise en charge de la fédération :
+
+[Extension Loop Messenger](https://loopworks.com/loop-flow-messenger/), [Adaptateur Silverfort Azure AD](http://www.silverfort.com/), [Interplay Learning](https://skilledtrades.interplaylearning.com/#login), [Nura Space](https://dashboard.nuraspace.com/login), [Yooz EU](https://eu1.getyooz.com/?kc_idp_hint=microsoft), [UXPressia](https://uxpressia.com/users/sign-in), [plateforme d’intégration et de pré-intégration introDus](http://app.introdus.dk/login), [Happybot](https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id=34353e1e-dfe5-4d2f-bb09-2a5e376270c8&response_type=code&redirect_uri=https://api.happyteams.io/microsoft/integrate&response_mode=query&scope=offline_access%20User.Read%20User.Read.All), [LeaksID](https://app.leaksid.com/), [ShiftWizard](http://www.shiftwizard.com/), [PingFlow SSO](https://app.pingview.io/), [Swiftlane](https://admin.swiftlane.com/login), [Quasydoc SSO](https://www.quasydoc.eu/login), [Fenwick Gold Account](https://businesscentral.dynamics.com/), [SeamlessDesk](https://www.seamlessdesk.com/login), [Learnsoft LMS & TMS](http://www.learnsoft.com/), [P-TH+](https://p-th.jp/), [myViewBoard](https://api.myviewboard.com/auth/microsoft/), [Tartabit IoT Bridge](https://bridge-us.tartabit.com/), [AKASHI](../saas-apps/akashi-tutorial.md), [Rewatch](../saas-apps/rewatch-tutorial.md), [Zuddl](../saas-apps/zuddl-tutorial.md), [Gestion des places de parking Parkalot](../saas-apps/parkalot-car-park-management-tutorial.md), [HSB ThoughtSpot](../saas-apps/hsb-thoughtspot-tutorial.md), [IBMid](../saas-apps/ibmid-tutorial.md), [SharingCloud](../saas-apps/sharingcloud-tutorial.md), [PoolParty Semantic Suite](../saas-apps/poolparty-semantic-suite-tutorial.md), [GlobeSmart](../saas-apps/globesmart-tutorial.md), [Samsung Knox and Business Services](../saas-apps/samsung-knox-and-business-services-tutorial.md), [Penji](../saas-apps/penji-tutorial.md), [Kendis (plateforme de mise à l’échelle agile)](../saas-apps/kendis-scaling-agile-platform-tutorial.md), [Maptician](../saas-apps/maptician-tutorial.md), [Olfeo SAAS](../saas-apps/olfeo-saas-tutorial.md), [Sigma Computing](../saas-apps/sigma-computing-tutorial.md), [CloudKnox (plateforme de gestion des autorisations)](../saas-apps/cloudknox-permissions-management-platform-tutorial.md), [Klaxoon SAML](../saas-apps/klaxoon-saml-tutorial.md), [Enablon](../saas-apps/enablon-tutorial.md)
+
+Pour accéder à la documentation de ces applications, cliquez https://aka.ms/AppsTutorial
+
+Pour référencer votre application dans la Galerie d’applications Azure AD, lisez les informations détaillées ici : https://aka.ms/AzureADAppRequest
+
+--- 
+
+### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---february-2021"></a>Nouveaux connecteurs d’approvisionnement dans la Galerie d'applications Azure AD (février 2021)
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Provisionnement d’applications  
+**Fonctionnalité de produit :** Intégration tierce
+ 
+
+Vous pouvez désormais automatiser la création, la mise à jour et la suppression de comptes d’utilisateur pour ces applications nouvellement intégrées :
+
+- [Atea](../saas-apps/atea-provisioning-tutorial.md)
+- [Getabstract](../saas-apps/getabstract-provisioning-tutorial.md)
+- [HelloID](../saas-apps/helloid-provisioning-tutorial.md)
+- [Hoxhunt](../saas-apps/hoxhunt-provisioning-tutorial.md)
+- [Iris Intranet](../saas-apps/iris-intranet-provisioning-tutorial.md)
+- [Preciate](../saas-apps/preciate-provisioning-tutorial.md)
+
+Pour plus d’informations, consultez [Automatisation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](../app-provisioning/user-provisioning.md).
+
+---
+
+### <a name="general-availability---10-azure-active-directory-roles-now-renamed"></a>Disponibilité générale : 10 rôles Azure Active Directory maintenant renommés
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** RBAC  
+**Fonctionnalité de produit :** Contrôle d’accès
+ 
+10 rôles Azure AD intégrés ont été renommés afin d’être alignés dans le centre d’[administration Microsoft 365](/microsoft-365/admin/microsoft-365-admin-center-preview), le [Portail Azure AD](https://portal.azure.com/)et [Microsoft Graph](https://developer.microsoft.com/graph/). Pour en savoir plus sur les nouveaux rôles, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md#all-roles).
+
+![Tableau répertoriant les noms de rôles dans MS API Graph et le portail Azure, ainsi que le nom final proposé sur l’API, Portail Azure et Mac.](media/whats-new/roles-table-rbac.png)
+
+---
+
+### <a name="new-company-branding-in-mfasspr-combined-registration"></a>Nouvelle personnalisation de la société dans l’enregistrement combiné MFA/SSPR
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** expérience utilisateur et gestion  
+**Fonctionnalité de produit :** Expériences d’utilisateur final
+ 
+Dans le passé, les logos de la société n’étaient pas utilisés sur les pages de connexion Azure Active Directory. La personnalisation de la société est désormais située en haut à gauche de l’enregistrement combiné MFA/SSPR. La personnalisation de la société est également incluse dans Mes connexions et la page Informations de sécurité. [Plus d’informations](../fundamentals/customize-branding.md)
+
+---
+
+### <a name="general-availability---second-level-manager-can-be-set-as-alternate-approver"></a>Disponibilité générale : Le manager de second niveau peut être défini en tant qu’approbateur de remplacement
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Gestion de l’accès utilisateur  
+**Fonctionnalité de produit :** Gestion des droits d’utilisation
+ 
+Une option supplémentaire lorsque vous sélectionnez des approbateurs est désormais disponible dans la gestion des droits d’utilisation. Si vous sélectionnez « Gestionnaire en tant qu’approbateur » pour le premier approbateur, vous disposez d’une seconde option, « Gestionnaire de second niveau en tant qu’approbateur de substitution », sélectionnable dans le champ d’approbateur de substitution. Si vous sélectionnez cette option, vous devez ajouter un approbateur de secours auquel transférer la demande au cas où le système ne peut pas trouver le gestionnaire de second niveau. [Plus d’informations](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
+ 
+---
+
+### <a name="authentication-methods-activity-dashboard"></a>Tableau de bord de l’activité des méthodes d’authentification
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Signalement  
+**Fonctionnalité de produit :** Monitoring et création de rapports
+ 
+
+Le tableau de bord actualisé d’activités des méthodes d’authentification donne aux administrateurs une vue d’ensemble de l’activité d’inscription et d’utilisation de la méthode d’authentification dans leur locataire. Le rapport résume le nombre d’utilisateurs inscrits pour chaque méthode, ainsi que les méthodes utilisées pendant la connexion et la réinitialisation du mot de passe. [Plus d’informations](../authentication/howto-authentication-methods-activity.md)
+ 
+---
+
+### <a name="refresh-and-session-token-lifetimes-configurability-in-configurable-token-lifetime-ctl-are-retired"></a>L’actualisation et la configuration des jetons de sessions dans Configurable Token Lifetime (CTL) sont supprimées
+
+**Type :** Déprécié  
+**Catégorie de service :** Autres  
+**Fonctionnalité de produit :** Authentification utilisateur
+ 
+L’actualisation et la configuration des durées de vie des jetons de session dans CTL sont supprimées. Azure Active Directory n’honore plus la configuration des jetons d’actualisation et de session dans les stratégies existantes. [Plus d’informations](../develop/active-directory-configurable-token-lifetimes.md#token-lifetime-policies-for-refresh-tokens-and-session-tokens)
+ 
+---
+
 ## <a name="january-2021"></a>Janvier 2021
 
 ### <a name="secret-token-will-be-a-mandatory-field-when-configuring-provisioning"></a>Le jeton secret est un champ obligatoire lors de la configuration du provisionnement
@@ -177,7 +384,7 @@ Pour plus d’informations, consultez [Qu’est ce que le provisionnement automa
 
 En janvier 2021, nous avons ajouté les 29 applications suivantes à notre Galerie d’applications avec prise en charge de la fédération :
 
-[mySCView](https://dev.myscview.com/), [Talentech](https://talentech.com/contact/), [Bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [Supportbench](https://account.supportbench.net/agent/login/),[Bienvenue Formation](https://formation.bienvenue.pro/login), [AIDA Healthcare SSO](https://aidaforparents.com/login/organizations), [International SOS Assistance Products](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX One](../saas-apps/navex-one-tutorial.md), [LabLog](../saas-apps/lablog-tutorial.md), [Oktopost SAML](../saas-apps/oktopost-saml-tutorial.md), [EPHOTO DAM](../saas-apps/ephoto-dam-tutorial.md), [Notion](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [Timeclock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [Nalco E-data](https://www.ecolab.com/), [Vacancy Filler](https://app.vacancy-filler.co.uk/VFMVC/Account/Login), [Synerise AI Growth Ecosystem](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md), [Imperva Data Security](../saas-apps/imperva-data-security-tutorial.md), [Illusive Networks](../saas-apps/illusive-networks-tutorial.md), [Proware](../saas-apps/proware-tutorial.md), [Splan Visitor](../saas-apps/splan-visitor-tutorial.md), [Aruba User Experience Insight](../saas-apps/aruba-user-experience-insight-tutorial.md), [Contentsquare SSO](../saas-apps/contentsquare-sso-tutorial.md), [Perimeter 81](../saas-apps/perimeter-81-tutorial.md), [Burp Suite Enterprise Edition](../saas-apps/burp-suite-enterprise-edition-tutorial.md)
+[mySCView](https://www.myscview.com/), [Talentech](https://talentech.com/contact/), [Bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [Supportbench](https://account.supportbench.net/agent/login/),[Bienvenue Formation](https://formation.bienvenue.pro/login), [AIDA Healthcare SSO](https://aidaforparents.com/login/organizations), [International SOS Assistance Products](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX One](../saas-apps/navex-one-tutorial.md), [LabLog](../saas-apps/lablog-tutorial.md), [Oktopost SAML](../saas-apps/oktopost-saml-tutorial.md), [EPHOTO DAM](../saas-apps/ephoto-dam-tutorial.md), [Notion](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [Timeclock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [Nalco E-data](https://www.ecolab.com/), [Vacancy Filler](https://app.vacancy-filler.co.uk/VFMVC/Account/Login), [Synerise AI Growth Ecosystem](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md), [Imperva Data Security](../saas-apps/imperva-data-security-tutorial.md), [Illusive Networks](../saas-apps/illusive-networks-tutorial.md), [Proware](../saas-apps/proware-tutorial.md), [Splan Visitor](../saas-apps/splan-visitor-tutorial.md), [Aruba User Experience Insight](../saas-apps/aruba-user-experience-insight-tutorial.md), [Contentsquare SSO](../saas-apps/contentsquare-sso-tutorial.md), [Perimeter 81](../saas-apps/perimeter-81-tutorial.md), [Burp Suite Enterprise Edition](../saas-apps/burp-suite-enterprise-edition-tutorial.md)
 
 La documentation de toutes ces applications est disponible ici https://aka.ms/AppsTutorial
 
@@ -844,7 +1051,7 @@ L’actualisation de la préversion publique de provisionnement cloud Azure AD C
  
 Lorsque des administrateurs informatiques ou des utilisateurs finaux lisent des clés de récupération BitLocker auxquelles ils ont accès, Azure Active Directory génère désormais un journal d’audit qui capture les utilisateurs ayant accédé à la clé de récupération. Le même audit fournit des détails sur l’appareil auquel la clé BitLocker a été associée.
 
-Les utilisateurs finaux peuvent [accéder à leurs clés de récupération par le biais de Mon compte](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key). Les administrateurs informatiques peuvent accéder aux clés de récupération par le biais de l’[API de clé de récupération BitLocker en version bêta](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta&preserve-view=true) ou du portail Azure AD. Pour plus d’informations, consultez [Afficher ou copier des clés BitLocker dans le portail Azure AD](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+Les utilisateurs finaux peuvent [accéder à leurs clés de récupération par le biais de Mon compte](https://support.microsoft.com/account-billing/manage-your-work-or-school-account-connected-devices-from-the-devices-page-6b5a735d-0a7f-4e94-8cfd-f5da6bc13d4e#view-a-bitlocker-key). Les administrateurs informatiques peuvent accéder aux clés de récupération par le biais de l’[API de clé de récupération BitLocker en version bêta](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta&preserve-view=true) ou du portail Azure AD. Pour plus d’informations, consultez [Afficher ou copier des clés BitLocker dans le portail Azure AD](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
 
 ---
 
@@ -1086,7 +1293,7 @@ Vous pouvez étendre un domaine managé pour avoir plusieurs jeux de réplicas p
 **Catégorie de service :** Authentifications (connexions)  
 **Fonctionnalité de produit :** Expériences d’utilisateur final
  
-La nouvelle fonctionnalité Mes connexions Azure AD permet aux utilisateurs d’entreprise d’examiner leur historique de connexion pour vérifier l’absence de toute activité inhabituelle. Elle permet en outre aux utilisateurs finaux de signaler s’ils étaient ou non à l’origine d’activités suspectes. Pour en savoir plus sur l’utilisation de cette fonctionnalité, consultez [Afficher et rechercher votre activité de connexion récente à partir de la page Mes connexions](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
+La nouvelle fonctionnalité Mes connexions Azure AD permet aux utilisateurs d’entreprise d’examiner leur historique de connexion pour vérifier l’absence de toute activité inhabituelle. Elle permet en outre aux utilisateurs finaux de signaler s’ils étaient ou non à l’origine d’activités suspectes. Pour en savoir plus sur l’utilisation de cette fonctionnalité, consultez [Afficher et rechercher votre activité de connexion récente à partir de la page Mes connexions](https://support.microsoft.com/account-billing/view-and-search-your-work-or-school-account-sign-in-activity-from-my-sign-ins-9e7d108c-8e3f-42aa-ac3a-bca892898972#confirm-unusual-activity).
  
 ---
 
@@ -1809,7 +2016,7 @@ L’évaluation continue de l’accès est une nouvelle fonctionnalité de sécu
 
 **Fonctionnalité de produit :** Authentification utilisateur
 
-Office lance une série d’applications métier avant tout mobiles qui s’adressent à des organisations non traditionnelles et à des employés de grandes organisations pour qui l’e-mail n’est pas la méthode de communication principale. Ces applications ciblent les employés de terrain, les travailleurs sans bureau, les agents de terrain ou les effectifs de vente au détail qui n’ont pas forcément d’adresse e-mail professionnelle, ou d’accès à un ordinateur ou à d’autres ressources informatiques. Ce projet permet à ces employés de se connecter à des applications d’entreprise en entrant un numéro de téléphone et un code. Pour en savoir, consultez notre [documentation administrateur](../authentication/howto-authentication-sms-signin.md) et notre [documentation utilisateur final](../user-help/sms-sign-in-explainer.md).
+Office lance une série d’applications métier avant tout mobiles qui s’adressent à des organisations non traditionnelles et à des employés de grandes organisations pour qui l’e-mail n’est pas la méthode de communication principale. Ces applications ciblent les employés de terrain, les travailleurs sans bureau, les agents de terrain ou les effectifs de vente au détail qui n’ont pas forcément d’adresse e-mail professionnelle, ou d’accès à un ordinateur ou à d’autres ressources informatiques. Ce projet permet à ces employés de se connecter à des applications d’entreprise en entrant un numéro de téléphone et un code. Pour en savoir, consultez notre [documentation administrateur](../authentication/howto-authentication-sms-signin.md) et notre [documentation utilisateur final](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42).
 
 ---
 
@@ -2028,7 +2235,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 **Fonctionnalité de produit :**
 
-Le portail Mon personnel permet aux responsables sur le terrain, tels que des responsables de magasin, de s’assurer que les membres de leur personnel sont en mesure d’accéder à leurs comptes Azure AD. Au lieu de s’appuyer sur un support technique central, les organisations peuvent déléguer à un responsable sur le terrain des tâches courantes telles que la réinitialisation de mot de passe ou la modification de numéros de téléphone. Grâce au portail Mon personnel, un utilisateur qui ne parvient plus à accéder à son compte peut récupérer l’accès en quelques clics, sans intervention du support technique ou du personnel informatique. Pour plus d’informations, consultez [Gestion des utilisateurs avec Mon personnel (préversion)](../roles/my-staff-configure.md) et [Déléguer la gestion des utilisateurs avec Mon personnel (préversion)](../user-help/my-staff-team-manager.md).
+Le portail Mon personnel permet aux responsables sur le terrain, tels que des responsables de magasin, de s’assurer que les membres de leur personnel sont en mesure d’accéder à leurs comptes Azure AD. Au lieu de s’appuyer sur un support technique central, les organisations peuvent déléguer à un responsable sur le terrain des tâches courantes telles que la réinitialisation de mot de passe ou la modification de numéros de téléphone. Grâce au portail Mon personnel, un utilisateur qui ne parvient plus à accéder à son compte peut récupérer l’accès en quelques clics, sans intervention du support technique ou du personnel informatique. Pour plus d’informations, consultez [Gestion des utilisateurs avec Mon personnel (préversion)](../roles/my-staff-configure.md) et [Déléguer la gestion des utilisateurs avec Mon personnel (préversion)](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd).
 
 ---
 
@@ -2384,7 +2591,7 @@ Commencez par visiter [Activer les clés de sécurité FIDO2 pour votre locatair
 **Catégorie de service :** Mon profil/compte  
 **Fonctionnalité de produit :** Expériences d’utilisateur final
  
-Mon compte, le guichet unique pour tous les besoins de gestion des comptes d'utilisateurs finaux, est désormais généralement disponible. Les utilisateurs finaux peuvent accéder à ce nouveau site via une URL, ou à partir de l'en-tête de la nouvelle expérience Mes applications. Pour en savoir plus sur toutes les fonctionnalités en libre-service offertes par la nouvelle expérience, consultez la [Présentation du portail Mon compte](../user-help/my-account-portal-overview.md).
+Mon compte, le guichet unique pour tous les besoins de gestion des comptes d'utilisateurs finaux, est désormais généralement disponible. Les utilisateurs finaux peuvent accéder à ce nouveau site via une URL, ou à partir de l'en-tête de la nouvelle expérience Mes applications. Pour en savoir plus sur toutes les fonctionnalités en libre-service offertes par la nouvelle expérience, consultez la [Présentation du portail Mon compte](https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd).
 
 ---
  
@@ -2394,7 +2601,7 @@ Mon compte, le guichet unique pour tous les besoins de gestion des comptes d'uti
 **Catégorie de service :** Mon profil/compte  
 **Fonctionnalité de produit :** Expériences d’utilisateur final
  
-Le mois prochain, l'URL de la nouvelle expérience d'utilisateur final Mon compte sera remplacée par `https://myaccount.microsoft.com`. Pour en savoir plus sur cette expérience et sur les différentes fonctionnalités en libre-service qu'elle offre aux utilisateurs finaux, consultez [Aide du portail Mon compte](../user-help/my-account-portal-overview.md).
+Le mois prochain, l'URL de la nouvelle expérience d'utilisateur final Mon compte sera remplacée par `https://myaccount.microsoft.com`. Pour en savoir plus sur cette expérience et sur les différentes fonctionnalités en libre-service qu'elle offre aux utilisateurs finaux, consultez [Aide du portail Mon compte](https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd).
 
 ---
 
@@ -2903,7 +3110,7 @@ Pour plus d’informations sur les classeurs, découvrez [comment utiliser des c
 
 À compter d’octobre, l’expérience de la page Mon profil deviendra Mon compte. Dans le cadre de cette modification, **Mon compte** s’affichera partout où il est actuellement indiqué **Mon profil**. Outre le changement de nom et quelques améliorations en matière de conception, la mise à jour de l’expérience offrira une intégration supplémentaire à la page du compte Microsoft Office. En particulier, vous serez en mesure d’accéder aux installations et aux abonnements Office à partir de la page **Vue d’ensemble du compte** ainsi qu’à des préférences de contact Office à partir de la page **Confidentialité**.
 
-Pour plus d’informations sur l’expérience de la page Mon profil (préversion), consultez [Vue d’ensemble du portail Mon profil (préversion)](../user-help/my-account-portal-overview.md).
+Pour plus d’informations sur l’expérience de la page Mon profil (préversion), consultez [Vue d’ensemble du portail Mon profil (préversion)](https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd).
 
 ---
 
@@ -3090,7 +3297,7 @@ Les identités gérées affectées par l’utilisateur sont désormais général
 
 Les utilisateurs qui ont inscrit une application mobile auprès de votre organisation peuvent désormais réinitialiser leur propre mot de passe en approuvant une notification de l’application Microsoft Authenticator ou en entrant un code à partir de leur application mobile ou d’un jeton matériel.
 
-Pour plus d’informations, découvrez le [fonctionnement de ce processus : Réinitialisation de mot de passe en libre-service Azure AD](../authentication/concept-sspr-howitworks.md). Pour plus d’informations sur l’expérience utilisateur, consultez [Vue d’ensemble de la réinitialisation d’un mot de passe professionnel ou scolaire](../user-help/active-directory-passwords-reset-register.md).
+Pour plus d’informations, découvrez le [fonctionnement de ce processus : Réinitialisation de mot de passe en libre-service Azure AD](../authentication/concept-sspr-howitworks.md). Pour plus d’informations sur l’expérience utilisateur, consultez [Vue d’ensemble de la réinitialisation d’un mot de passe professionnel ou scolaire](https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a).
 
 ---
 
@@ -3171,7 +3378,7 @@ Pour plus d’informations sur la configuration d’Azure Monitor, consultez [Jo
 
 Le 25 septembre 2019, nous allons désactiver l’ancienne expérience d’informations de sécurité non améliorée pour l’inscription et la gestion des informations de sécurité utilisateur. Seule la [nouvelle version améliorée](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271) sera disponible. Cela signifie que vos utilisateurs ne seront plus en mesure d’utiliser l’ancienne expérience.
 
-Pour en savoir plus sur l’expérience d’informations de sécurité renforcée, consultez notre [documentation administrateur](../authentication/concept-registration-mfa-sspr-combined.md) et notre [documentation utilisateur](../user-help/security-info-setup-signin.md).
+Pour en savoir plus sur l’expérience d’informations de sécurité renforcée, consultez notre [documentation administrateur](../authentication/concept-registration-mfa-sspr-combined.md) et notre [documentation utilisateur](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8).
 
 #### <a name="to-turn-on-this-new-experience-you-must"></a>Pour activer cette nouvelle expérience, vous devez :
 
@@ -3253,7 +3460,7 @@ Pour plus d’informations, voir [Quelles sont les nouveautés en matière d’a
 
 Les clients Azure AD peuvent désormais définir des stratégies pour gérer les clés de sécurité FIDO2 pour les utilisateurs et groupes de leur organisation. Les utilisateurs finaux peuvent également enregistrer eux-mêmes leurs clés de sécurité, les utiliser pour se connecter à leurs comptes Microsoft sur des sites web à l’aide d’appareils compatibles FIDO, ainsi que pour se connecter à leurs appareils Windows 10 associés à Azure AD.
 
-Pour plus de détails, voir la section [Activer l’authentification sans mot de passe pour Azure AD (préversion)](../authentication/concept-authentication-passwordless.md) qui traite des informations relatives à l’administrateur, et la section [Configurer des informations de sécurité pour utiliser une clé de sécurité (préversion)](../user-help/security-info-setup-security-key.md) qui traite des informations relatives à l’utilisateur final.
+Pour plus de détails, voir la section [Activer l’authentification sans mot de passe pour Azure AD (préversion)](../authentication/concept-authentication-passwordless.md) qui traite des informations relatives à l’administrateur, et la section [Configurer des informations de sécurité pour utiliser une clé de sécurité (préversion)](https://support.microsoft.com/account-billing/set-up-a-security-key-as-your-verification-method-2911cacd-efa5-4593-ae22-e09ae14c6698) qui traite des informations relatives à l’utilisateur final.
 
 ---
 
@@ -4054,7 +4261,7 @@ Pour plus d’informations sur les nouveaux cookies, consultez [Paramètres de c
 
 En janvier 2019, nous avons ajouté à notre galerie d’applications les 35 applications suivantes qui prennent en charge la fédération :
 
-[Firstbird](../saas-apps/firstbird-tutorial.md), [Folloze](../saas-apps/folloze-tutorial.md), [Talent Palette](../saas-apps/talent-palette-tutorial.md), [Infor CloudSuite](../saas-apps/infor-cloud-suite-tutorial.md), [Cisco Umbrella](../saas-apps/cisco-umbrella-tutorial.md), [Zscaler Internet Access Administrator](../saas-apps/zscaler-internet-access-administrator-tutorial.md), [Expiration Reminder](../saas-apps/expiration-reminder-tutorial.md), [InstaVR Viewer](../saas-apps/instavr-viewer-tutorial.md), [CorpTax](../saas-apps/corptax-tutorial.md), [Verb](https://app.verb.net/login), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Close](../saas-apps/pavaso-digital-close-tutorial.md), [GoodPractice Toolkit](../saas-apps/goodpractice-toolkit-tutorial.md), [Cloud Service PICCO](../saas-apps/cloud-service-picco-tutorial.md), [AuditBoard](../saas-apps/auditboard-tutorial.md), [iProva](../saas-apps/iprova-tutorial.md), [Workable](../saas-apps/workable-tutorial.md), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO System](../saas-apps/gtnexus-sso-module-tutorial.md), [CBRE ServiceInsight](../saas-apps/cbre-serviceinsight-tutorial.md), [Deskradar](../saas-apps/deskradar-tutorial.md), [Coralogixv](../saas-apps/coralogix-tutorial.md), [Signagelive](../saas-apps/signagelive-tutorial.md), [ARES for Enterprise](../saas-apps/ares-for-enterprise-tutorial.md), [K2 for Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](../saas-apps/idid-manager-tutorial.md), [HighGear](../saas-apps/highgear-tutorial.md), [Visitly](../saas-apps/visitly-tutorial.md), [Korn Ferry ALP](../saas-apps/korn-ferry-alp-tutorial.md), [Acadia](../saas-apps/acadia-tutorial.md), [Adoddle cSaas Platform](../saas-apps/adoddle-csaas-platform-tutorial.md)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->
+[Firstbird](../saas-apps/firstbird-tutorial.md), [Folloze](../saas-apps/folloze-tutorial.md), [Talent Palette](../saas-apps/talent-palette-tutorial.md), [Infor CloudSuite](../saas-apps/infor-cloud-suite-tutorial.md), [Cisco Umbrella](../saas-apps/cisco-umbrella-tutorial.md), [Zscaler Internet Access Administrator](../saas-apps/zscaler-internet-access-administrator-tutorial.md), [Expiration Reminder](../saas-apps/expiration-reminder-tutorial.md), [InstaVR Viewer](../saas-apps/instavr-viewer-tutorial.md), [CorpTax](../saas-apps/corptax-tutorial.md), [Verb](https://app.verb.net/login), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Close](../saas-apps/pavaso-digital-close-tutorial.md), [GoodPractice Toolkit](../saas-apps/goodpractice-toolkit-tutorial.md), [Cloud Service PICCO](../saas-apps/cloud-service-picco-tutorial.md), [AuditBoard](../saas-apps/auditboard-tutorial.md), [iProva](../saas-apps/iprova-tutorial.md), [Workable](../saas-apps/workable-tutorial.md), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO System](../saas-apps/gtnexus-sso-module-tutorial.md), [CBRE ServiceInsight](../saas-apps/cbre-serviceinsight-tutorial.md), [Deskradar](../saas-apps/deskradar-tutorial.md), [Coralogixv](../saas-apps/coralogix-tutorial.md), [Signagelive](../saas-apps/signagelive-tutorial.md), [ARES for Enterprise](../saas-apps/ares-for-enterprise-tutorial.md), [K2 for Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](../saas-apps/idid-manager-tutorial.md), [HighGear](../saas-apps/highgear-tutorial.md), [Visitly](../saas-apps/visitly-tutorial.md), [Korn Ferry ALP](../saas-apps/korn-ferry-alp-tutorial.md), [Acadia](../saas-apps/acadia-tutorial.md), [Adoddle cSaas Platform](../saas-apps/adoddle-csaas-platform-tutorial.md)
 
 Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](../saas-apps/tutorial-list.md). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
@@ -4084,7 +4291,7 @@ Consultez [Qu’est-ce qu’Azure Active Directory Identity Protection (version 
 
 Pour sécuriser les codes secrets à usage unique, les informations et les paramètres d'application, vous pouvez activer la fonctionnalité Verrou d'application dans l'application Microsoft Authenticator. Si vous activez Verrou d’application, vous êtes invité à vous authentifier à l’aide de votre code PIN ou verrou biométrique chaque fois que vous ouvrez l’application Microsoft Authenticator.
 
-Pour plus d’informations, consultez [Forum aux questions sur l’application Microsoft Authenticator](../user-help/user-help-auth-app-faq.md).
+Pour plus d’informations, consultez [Forum aux questions sur l’application Microsoft Authenticator](https://support.microsoft.com/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd).
 
 ---
 
@@ -4379,7 +4586,7 @@ Pour accéder à cette fonctionnalité et pour obtenir plus d’informations, co
 Consultez le nouveau plan de déploiement disponible pour le panneau d’accès MyApps (https://aka.ms/deploymentplans).
 Le panneau d’accès MyApps permet aux utilisateurs de rechercher l’ensemble de leurs applications et d’y accéder à partir d’un emplacement unique. Ce portail offre également aux utilisateurs différentes fonctionnalités en libre-service, telles que des fonctions de demande d’accès aux applications et aux groupes ou de gestion de l’accès à ces ressources pour le compte d’autres utilisateurs.
 
-Pour plus d’informations, consultez l’article [Qu’est-ce que le portail MyApps ?](../user-help/my-apps-portal-end-user-access.md).
+Pour plus d’informations, consultez l’article [Qu’est-ce que le portail MyApps ?](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ---
 
@@ -5622,7 +5829,7 @@ L’extension de navigateur Mes applications est désormais disponible via un ou
 - Raccourcis vers les applications récemment utilisées à partir de l’extension
 - L’extension est disponible pour Microsoft Edge, Chrome et Firefox.
 
-Pour plus d’informations, consultez [Extension de connexion sécurisée à Mes applications](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
+Pour plus d’informations, consultez [Extension de connexion sécurisée à Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ---
 

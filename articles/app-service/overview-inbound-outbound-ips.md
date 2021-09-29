@@ -4,12 +4,12 @@ description: Découvrez comment les adresses IP entrantes et sortantes sont util
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ea667fcfe70e109038d74e7c1fa0281bbc2b20bb
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: f8354d52c43d786e3506cf6fcee0907f9f365ab6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535113"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836312"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Adresses IP entrantes et sortantes dans Azure App Service
 
@@ -29,7 +29,7 @@ Quel que soit le nombre d’instances scale-out, chaque application a une seule 
 
 - Supprimer une application, puis la recréer dans un autre groupe de ressources (l’unité de déploiement peut changer).
 - Supprimer la dernière application dans une combinaison de groupe de ressources _et_ de région, puis la recréer (l’unité de déploiement peut changer).
-- Supprimer une liaison TLS/SSL sur IP existante, comme pendant un renouvellement de certificat (voir [Renouveler un certificat](configure-ssl-certificate.md#renew-certificate)).
+- Supprimer une liaison TLS/SSL sur IP existante, comme pendant un renouvellement de certificat (voir [Renouveler un certificat](configure-ssl-certificate.md#renew-an-expiring-certificate)).
 
 ## <a name="find-the-inbound-ip"></a>Rechercher l’IP entrante
 
@@ -82,7 +82,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 ## <a name="get-a-static-outbound-ip"></a>Obtenir une adresse IP sortante statique
-Vous pouvez contrôler l’adresse IP du trafic sortant à partir de votre application en utilisant une intégration VNet régionale avec une passerelle NAT de réseau virtuel pour diriger le trafic vers une adresse IP publique statique. L’[intégration VNet régionale](/azure/app-service/web-sites-integrate-with-vnet) est disponible dans les formules d’App Service **De base**, **Premium**, **PremiumV2** et **PremiumV3**. Pour en savoir plus sur cette configuration, consultez l’intégration de la [passerelle NAT](./networking/nat-gateway-integration.md).
+Vous pouvez contrôler l’adresse IP du trafic sortant à partir de votre application en utilisant une intégration VNet régionale avec une passerelle NAT de réseau virtuel pour diriger le trafic vers une adresse IP publique statique. L’[intégration VNet régionale](./web-sites-integrate-with-vnet.md) est disponible dans les formules d’App Service **De base**, **Premium**, **PremiumV2** et **PremiumV3**. Pour en savoir plus sur cette configuration, consultez l’intégration de la [passerelle NAT](./networking/nat-gateway-integration.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

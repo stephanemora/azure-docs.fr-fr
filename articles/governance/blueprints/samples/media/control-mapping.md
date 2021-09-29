@@ -1,14 +1,14 @@
 ---
 title: Contrôles de l’exemple de blueprint Media
 description: Correspondance des contrôles des exemples de blueprint Media. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 04/13/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: f2750f4733a3a815236778c846bde4e186f30512
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 05349865fc5927c52b669e55157d97dec09f51a5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161318"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674886"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Media
 

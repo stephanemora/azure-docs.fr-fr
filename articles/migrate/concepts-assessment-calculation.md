@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 852bbd93fe7ac1524201db1f96a6a43c7ff60bdb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0a5591ddad8410c2cea7018fa2f4d4f13a3afa86
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562694"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735959"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Vue d’ensemble de l’évaluation (migrer vers des machines virtuelles Azure)
 
@@ -232,7 +232,7 @@ Pour les disques Ultra, il existe une plage d’IOPS et de débits qui est autor
     - Un disque (Disque 2) capable de satisfaire les exigences en termes d’IOPS total
         - IOPS à provisionner = (débit du disque source) *1024/256
     - Un disque (Disque 3) capable de satisfaire les exigences en termes de débit total
-1. Sur les trois disques, l’un avec la taille de disque maximale est trouvé et est arrondi à la prochaine [offre de disque Ultra](https://docs.microsoft.com/azure/virtual-machines/disks-types#disk-size) disponible. Il s’agit de la taille de disque Ultra provisionnée.
+1. Sur les trois disques, l’un avec la taille de disque maximale est trouvé et est arrondi à la prochaine [offre de disque Ultra](../virtual-machines/disks-types.md#disk-size) disponible. Il s’agit de la taille de disque Ultra provisionnée.
 1. La valeur IOPS provisionnée est calculée à l’aide de la logique suivante :
     - Si le débit source découvert se trouve dans la plage autorisée pour la taille du disque Ultra, la valeur IOPS provisionnée est égale à la valeur IOPS du disque source
     - Sinon, la valeur IOPS provisionnée est calculée à l’aide de la valeur IOPS à provisionner (débit de disque source) *1024/256

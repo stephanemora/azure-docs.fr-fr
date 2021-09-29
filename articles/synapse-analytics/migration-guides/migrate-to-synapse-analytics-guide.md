@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 5d2dc316d5f58374792e04460f1abd8e63002243
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 601b31aa4941ba3a971ebbc9be03178593b5f565
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524202"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129055283"
 ---
 # <a name="migrate-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Migrer un entrepôt de données vers un pool SQL dédié dans Azure Synapse Analytics
 
@@ -108,7 +108,7 @@ Pour plus d’informations sur l’exécution de ce scénario de migration, cons
 
 | Titre/lien                              | Description                                                                                                                       |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| [Outil et modèle d’évaluation de charge de travail de données](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Cet outil fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour une charge de travail donnée. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme. |
+| [Outil et modèle d’évaluation de charge de travail de données](https://www.microsoft.com/download/details.aspx?id=103130) | Cet outil fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour une charge de travail donnée. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme. |
 | [Gestion des problèmes de codage des données lors du chargement de données dans Azure Synapse Analytics](https://azure.microsoft.com/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | Ce billet de blog fournit des informations sur certains des problèmes de codage des données que vous pouvez rencontrer lors de l’utilisation de PolyBase pour charger des données dans SQL Data Warehouse. Cet article fournit également des options que vous pouvez utiliser pour surmonter ce type de problèmes et charger les données avec succès. |
 | [Obtention des tailles de table dans le pool SQL Azure dédié à Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | L’une des tâches clés qu’un architecte doit effectuer consiste à obtenir des mesures sur un nouvel environnement après la migration. Les exemples incluent la collecte des temps de chargement depuis un site local vers le cloud et la collecte des temps de chargement Polybase. L’une des tâches les plus importantes est de déterminer la taille de stockage dans SQL Data Warehouse par rapport à la plateforme actuelle du client. |
 | [Utilitaire permettant de déplacer des connexions SQL Server locales vers Azure Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | Un script PowerShell crée un script de commande T-SQL visant à recréer les connexions et certains utilisateurs de base de données d’une instance SQL Server locale vers un service Azure SQL PaaS. Cet outil permet de mapper automatiquement des comptes Windows Server Active Directory à des comptes Azure Active Directory ou d’effectuer des recherches de nom d’utilisateur principal (UPN) pour chaque connexion par rapport au Windows Server Active Directory local. L’outil peut également migrer les connexions natives SQL Server. Les rôles personnalisés de serveur et de base de données font l’objet d’un script, tout comme l’appartenance à un rôle, le rôle de base de données et les autorisations de l’utilisateur. Les bases de données autonomes ne sont pas prises en charge et seul un sous-ensemble des autorisations SQL Server possibles est scripté. Des informations supplémentaires sont disponibles dans le document de support et le script contient des commentaires pour faciliter la compréhension. |

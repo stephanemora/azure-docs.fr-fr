@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: 270f6e83a7073bf39f4bc7efae8adea1ca56627e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d6be1c8c0abf050a95d02c764580657b88975e0f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532190"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743423"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Déplacer des fichiers à l’aide de Azure Data Factory
 
@@ -48,25 +48,25 @@ Le modèle définit quatre paramètres :
 
 1. Accédez au modèle **Déplacer des fichiers**. Sélectionnez la connexion existante ou créez une **Nouvelle** connexion au stockage de fichiers source à partir duquel vous souhaitez déplacer des fichiers. Sachez que **DataSource_Folder** et **DataSource_File** font référence à la même connexion de votre stockage de fichiers source.
 
-    ![Créer une connexion à la source](media/solution-template-move-files/move-files1.png)
+    :::image type="content" source="media/solution-template-move-files/move-files1.png" alt-text="Créer une connexion à la source":::
 
 2. Sélectionnez la connexion existante ou créez une **Nouvelle** connexion au stockage de fichiers de destination à partir duquel vous souhaitez déplacer des fichiers.
 
-    ![Créer une connexion à la destination](media/solution-template-move-files/move-files2.png)
+    :::image type="content" source="media/solution-template-move-files/move-files2.png" alt-text="Créer une connexion à la destination":::
 
 3. Sélectionnez l’onglet **Utiliser ce modèle**.
     
 4. Vous verrez le pipeline, comme indiqué dans l’exemple suivant :
 
-    ![Afficher le pipeline](media/solution-template-move-files/move-files4.png)
+    :::image type="content" source="media/solution-template-move-files/move-files4.png" alt-text="Afficher le pipeline":::
 
 5. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.   Les paramètres sont le chemin d’accès du dossier à partir duquel vous souhaitez déplacer les fichiers et le chemin d’accès au dossier dans lequel vous souhaitez déplacer les fichiers. 
 
-    ![Exécuter le pipeline](media/solution-template-move-files/move-files5.png)
+    :::image type="content" source="media/solution-template-move-files/move-files5.png" alt-text="Exécuter le pipeline":::
 
-6. Vérifiez le résultat.
+6. Examinez le résultat.
 
-    ![Vérifier le résultat](media/solution-template-move-files/move-files6.png)
+    :::image type="content" source="media/solution-template-move-files/move-files6.png" alt-text="Vérifier le résultat":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

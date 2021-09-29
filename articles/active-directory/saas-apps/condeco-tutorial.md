@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: jeedes
-ms.openlocfilehash: 0367581d17545b3334865bae4c74fb095a210664
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86538e75480d89d2bc4b87d037dcea8f4b62cc49
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644814"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Didacticiel : Intégration d'Azure Active Directory à Condeco
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Condeco pour démarrer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Condeco dans Mes applications, vous devez être connecté automatiquement à l’application Condeco pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Condeco dans Mes applications, vous devez être connecté automatiquement à l’application Condeco pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

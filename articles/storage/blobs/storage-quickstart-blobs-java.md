@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Bibliothèque Stockage Blob Azure v12 – Java'
 description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure version 12 pour Java afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
-author: twooley
+author: normesta
 ms.custom: devx-track-java
-ms.author: twooley
+ms.author: normesta
 ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c951071b7746e426edfd6a9c9f4851236c12159d
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 74fd04281b27c66861de686a03d2dd26031f0349
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469623"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562566"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Démarrage rapide : Gérer les objets blob avec le SDK Java v12
 
@@ -21,10 +21,10 @@ Ce guide de démarrage rapide explique comment gérer des objets blob avec Java.
 
 Ressources supplémentaires :
 
-* [Documentation de référence de l’API](/java/api/overview/azure/storage-blob-readme)
-* [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
-* [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
-* [Exemples](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [Documentation de référence de l’API](/java/api/overview/azure/storage-blob-readme)
+- [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
+- [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
+- [Exemples](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -163,9 +163,9 @@ public class App
 
 Stockage Blob Azure est optimisé pour stocker des quantités massives de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires. Le stockage Blob offre trois types de ressources :
 
-* Le compte de stockage
-* Un conteneur dans le compte de stockage.
-* Un blob dans le conteneur
+- Le compte de stockage
+- Un conteneur dans le compte de stockage.
+- Un blob dans le conteneur
 
 Le diagramme suivant montre la relation entre ces ressources.
 
@@ -173,22 +173,22 @@ Le diagramme suivant montre la relation entre ces ressources.
 
 Utilisez les classes Java suivantes pour interagir avec ces ressources :
 
-* [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient): La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs blob. Le compte de stockage fournit l’espace de noms de niveau supérieur pour le service BLOB.
-* La classe [ fournit une API de générateur Fluent pour faciliter la configuration et l’instanciation d’objets ](/java/api/com.azure.storage.blob.blobserviceclientbuilder).
-* [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) : La classe `BlobContainerClient` vous permet de manipuler des conteneurs de stockage Azure et leurs blobs.
-* La classe [ vous permet de manipuler des blobs de stockage Azure.
-* [BlobItem](/java/api/com.azure.storage.blob.models.blobitem) : La classe `BlobItem` représente des objets blob retournés par un appel à [listBlobs](/java/api/com.azure.storage.blob.blobcontainerclient.listblobs).
+- [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient): La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs blob. Le compte de stockage fournit l’espace de noms de niveau supérieur pour le service BLOB.
+- La classe [ fournit une API de générateur Fluent pour faciliter la configuration et l’instanciation d’objets ](/java/api/com.azure.storage.blob.blobserviceclientbuilder).
+- [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) : La classe `BlobContainerClient` vous permet de manipuler des conteneurs de stockage Azure et leurs blobs.
+- La classe [ vous permet de manipuler des blobs de stockage Azure.
+- [BlobItem](/java/api/com.azure.storage.blob.models.blobitem) : La classe `BlobItem` représente des objets blob retournés par un appel à [listBlobs](/java/api/com.azure.storage.blob.blobcontainerclient.listblobs).
 
 ## <a name="code-examples"></a>Exemples de code
 
 Ces exemples d’extraits de code montrent comment effectuer les opérations suivantes avec la bibliothèque cliente Stockage Blob Azure pour Java :
 
-* [Obtenir la chaîne de connexion](#get-the-connection-string)
-* [Créer un conteneur](#create-a-container)
-* [Charger des objets blob sur un conteneur](#upload-blobs-to-a-container)
-* [Lister les objets blob d’un conteneur](#list-the-blobs-in-a-container)
-* [Télécharger des objets blob](#download-blobs)
-* [Supprimer un conteneur](#delete-a-container)
+- [Obtenir la chaîne de connexion](#get-the-connection-string)
+- [Créer un conteneur](#create-a-container)
+- [Charger des objets blob sur un conteneur](#upload-blobs-to-a-container)
+- [Lister les objets blob d’un conteneur](#list-the-blobs-in-a-container)
+- [Télécharger des objets blob](#download-blobs)
+- [Supprimer un conteneur](#delete-a-container)
 
 ### <a name="get-the-connection-string"></a>Obtenir la chaîne de connexion
 
@@ -371,5 +371,5 @@ Pour afficher des exemples d’applications de stockage blob, passez à :
 > [!div class="nextstepaction"]
 > [Exemples Java du SDK Stockage Blob Azure v12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
-* Pour plus d’informations, consultez le [Kit de développement logiciel (SDK) Azure pour Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
-* Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et d’autres documents, visitez [Azure pour les développeurs cloud Java](/azure/developer/java/).
+- Pour plus d’informations, consultez le [Kit de développement logiciel (SDK) Azure pour Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
+- Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et d’autres documents, visitez [Azure pour les développeurs cloud Java](/azure/developer/java/).

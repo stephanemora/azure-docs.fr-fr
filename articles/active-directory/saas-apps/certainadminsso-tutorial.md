@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 03a216f24013413fd03de9ae71eb599fd1334998
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b408e943d67657995e28b7493e172a13213a3ef4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97672935"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Tutoriel : Intégration d’Azure Active Directory avec Certain Admin SSO
 
@@ -185,7 +185,7 @@ Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Ce
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Certain Admin SSO dans le volet d’accès, vous devez être automatiquement connecté à l’application Certain Admin SSO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Certain Admin SSO dans le volet d’accès, vous devez être automatiquement connecté à l’application Certain Admin SSO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

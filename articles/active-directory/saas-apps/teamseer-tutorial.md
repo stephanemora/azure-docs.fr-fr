@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 910eb170cc8edf46fe926731edf932e62faca08b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521167"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutoriel : Intégration d’Azure Active Directory à TeamSeer
 
@@ -234,7 +234,7 @@ Pour se connecter à TeamSeer, les utilisateurs d’Azure AD doivent être provi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette TeamSeer dans le volet d’accès, vous devez être automatiquement connecté à l’application TeamSeer pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette TeamSeer dans le volet d’accès, vous devez être automatiquement connecté à l’application TeamSeer pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

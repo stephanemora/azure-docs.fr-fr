@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e6147918e7cd56aed5b5b333a8e9825a34d60fd4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5307a56ba2384f9e0294634530823238fd903859
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652273"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766746"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Utiliser l’Explorateur Stockage Azure pour gérer les répertoires et les fichiers dans Azure Data Lake Storage Gen2
 
@@ -42,11 +42,11 @@ Lors du premier démarrage de l’Explorateur Stockage, la fenêtre **Microsoft 
 
 Sélectionnez **Ajouter un compte Azure**, puis cliquez sur **Connexion..** . Suivez les instructions de connexion à votre compte Azure qui s’affichent à l’écran.
 
-![Capture d’écran montrant l’Explorateur Stockage Microsoft Azure, avec l’option Ajouter un compte Azure et le bouton Se connecter en évidence.](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Capture d’écran montrant l’Explorateur Stockage Microsoft Azure, avec l’option Ajouter un compte Azure et le bouton Se connecter en évidence.](media/quickstart-storage-explorer/storage-explorer-connect.png)
 
 Une fois que la connexion est établie, l’Explorateur Stockage Azure se charge avec l’onglet **Explorateur** affiché. Cette vue vous donne accès à l’ensemble de vos comptes Stockage Azure, ainsi qu’au stockage local configuré via les comptes de l’[émulateur de stockage Azure](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou les environnements [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-![Fenêtre de connexion à l’Explorateur Stockage Microsoft Azure](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
+![Fenêtre de connexion à l’Explorateur Stockage Microsoft Azure](media/quickstart-storage-explorer/storage-explorer-main-page.png)
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 

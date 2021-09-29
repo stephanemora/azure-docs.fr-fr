@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/17/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ce49a0a6fc249f3cea6bfdac613beade5322142f
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 07c3b88bd4cb5b7c0b0121bc2b9e12b7f9d5a441
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323885"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598039"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>Tutoriel : créer des flux d’utilisateurs et des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -63,10 +63,8 @@ Les [stratégies personnalisées](custom-policy-overview.md) sont des fichiers d
 Le flux d’utilisateur Inscription et connexion gère les expériences d’inscription et de connexion avec une seule configuration. Les utilisateurs de votre application sont dirigés vers le chemin approprié en fonction du contexte.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
-
-    ![Volet client B2C, répertoire et abonnement, Portail Azure](./media/tutorial-create-user-flows/directory-subscription-pane.png)
-
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Stratégies**, sélectionnez **Flux d’utilisateurs**, puis sélectionnez **Nouveau flux d’utilisateur**.
 
@@ -150,7 +148,8 @@ Si vous voulez autoriser les utilisateurs à modifier leur profil dans votre app
 ## <a name="add-signing-and-encryption-keys"></a>Ajouter des clés de signature et de chiffrement
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Dans la page de vue d’ensemble, sous **Stratégies**, sélectionnez **Identity Experience Framework**.
 

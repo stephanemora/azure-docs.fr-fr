@@ -8,12 +8,13 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
-ms.openlocfilehash: 1b4998be1b49e58c7e2d22749ee46e1f8d754ecd
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: sms
+ms.openlocfilehash: ed39dbc991f8aa1e4b8391f10521ca8094c953fe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255267"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657782"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>Tutoriel : Signer et envoyer des requêtes avec Postman
 Dans ce tutoriel, nous allons configurer et utiliser Postman pour effectuer une requête auprès d’Azure Communication Services à l’aide du protocole HTTP. À la fin de ce tutoriel, vous aurez réussi à envoyer un SMS à l’aide de Communication Services et de Postman. Vous pourrez ensuite utiliser Postman pour explorer d’autres API au sein d’Azure Communication Services.

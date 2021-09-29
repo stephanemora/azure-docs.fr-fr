@@ -3,13 +3,13 @@ title: Azure PowerShell - S’abonner à un compte de stockage blob
 description: Cet article fournit un exemple de script Azure PowerShell qui montre comment s’abonner à des événements Event Grid pour un compte Stockage Blob.
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 07/22/2021
-ms.openlocfilehash: 5a224335f0e8eed4707f8123a92de28a6b5c7c61
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 09/15/2021
+ms.openlocfilehash: 72899bf83d7610576d36a1670cd589d68291baf3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467359"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602875"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>S’abonner aux événements d’un compte de stockage blob avec PowerShell
 

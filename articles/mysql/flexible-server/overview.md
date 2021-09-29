@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 08/10/2021
-ms.openlocfilehash: c2cdd4009261306357bc9d840afa83bc1ebf40df
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 863281f85eac1d467e7935f47a90aacf1b3134dd
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111632"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153441"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -162,26 +162,34 @@ L’un des avantages de l’exécution de votre charge de travail dans Azure est
 | Region | Disponibilité | Haute disponibilité dans la même zone | Haute disponibilité redondante interzone |
 | --- | --- | --- | --- |
 | Australie Est | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Sud-Australie Est | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Brésil Sud | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Centre du Canada | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Est du Canada | :heavy_check_mark: | :x: | :x: |
+| Inde centrale | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | USA Centre | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Asie Est (Hong Kong, R.A.S.) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | USA Est | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | USA Est 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| France Centre | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
+| France Centre | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Allemagne Centre-Ouest | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japon Est | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Centre de la Corée | :heavy_check_mark: | :x: | :x: |
+| OuJapon Est | :heavy_check_mark: | :x: | :x: |
+| Centre de la Corée | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Corée du Sud | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Europe Nord | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Norvège Est | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Asie Sud-Est | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Suisse Nord | :heavy_check_mark: | :x: | :x: |
+| États-Unis - partie centrale méridionale | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Afrique du Sud Nord | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Suisse Nord | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Sud du Royaume-Uni | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Ouest du Royaume-Uni | :heavy_check_mark: | :x: | :x: |
+| Émirats arabes unis Nord | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | USA Ouest | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | USA Ouest 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Europe Ouest | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Sud-Australie Est | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Afrique du Sud Nord | :heavy_check_mark: | :x: | :x: |
-| Asie Est (Hong Kong, R.A.S.) | :heavy_check_mark: | :x: | :x: |
-| Inde centrale | :heavy_check_mark: | :x: | :x: |
+| Centre-USA Ouest | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ## <a name="contacts"></a>Contacts
 

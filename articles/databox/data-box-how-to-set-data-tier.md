@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 82ac4e9c4a2f573295790d5d7fa3b02c2e690bbc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92125062"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819850"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utiliser Azure Data Box ou Azure Data Box Heavy pour envoyer des données au niveau d’objets blob de Stockage Azure approprié
 
@@ -47,7 +47,7 @@ Vous pouvez aussi créer d’abord un compte de stockage avec l’attribut de ni
 
 Une fois les données d’un appareil Data Box chargées sur le niveau par défaut, vous souhaiterez peut-être les déplacer vers un autre niveau. Il existe deux façons de déplacer ces données vers un niveau autre que le niveau par défaut.
 
-- **Gestion du cycle de vie du Stockage Blob Azure** : vous pouvez utiliser une approche basée sur la stratégie pour hiérarchiser automatiquement les données ou les faire expirer à la fin de leur cycle de vie. Pour plus d’informations, consultez [Gestion du cycle de vie de Stockage Blob Azure](../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Gestion du cycle de vie du Stockage Blob Azure** : vous pouvez utiliser une approche basée sur la stratégie pour hiérarchiser automatiquement les données ou les faire expirer à la fin de leur cycle de vie. Pour plus d’informations, consultez [Gestion du cycle de vie de Stockage Blob Azure](../storage/blobs/lifecycle-management-overview.md).
 - **Écriture de scripts** : vous pouvez utiliser des scripts Azure PowerShell pour activer la hiérarchisation des objets blob. Vous pouvez appeler l’opération `SetBlobTier` afin de définir le niveau de l’objet blob.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Utiliser Azure PowerShell pour définir le niveau des objets blob
@@ -116,4 +116,4 @@ Les étapes suivantes décrivent comment affecter les objets blob au niveau Arch
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--  Découvrez comment gérer les [scénarios courants de hiérarchisation des données avec des règles de stratégie de cycle de vie](../storage/blobs/storage-lifecycle-management-concepts.md#examples).
+-  Découvrez comment gérer les [scénarios courants de hiérarchisation des données avec des règles de stratégie de cycle de vie](../storage/blobs/lifecycle-management-overview.md#examples-of-lifecycle-policies).

@@ -4,12 +4,12 @@ description: Gestion des performances et suivi de l’utilisation de votre appli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: a22bbad35fad5c5c4b231636fa2ac434b186a660
-ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
+ms.openlocfilehash: 6104cef3a3ba1850163964778e6fa000fc6981b6
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113616484"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060552"
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
 Application Insights, fonctionnalité d’[Azure Monitor](../overview.md), est un service extensible de gestion des performances des applications (APM) destiné aux développeurs et aux professionnels de DevOps. Utilisez-le pour superviser vos applications en temps réel. Ce service détecte automatiquement les anomalies de performances et intègre de puissants outils analytiques conçus pour vous aider à diagnostiquer les problèmes et à comprendre l’usage que les utilisateurs font de votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plateformes, notamment .NET, Node.js, Java et Python, qu’elles soient hébergées localement, de manière hybride ou dans n’importe quel cloud public. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio App Center.
@@ -96,6 +96,7 @@ Il existe plusieurs façons de démarrer avec Application Insights. Commencez pa
   * [**Applications ASP.NET ou ASP.NET Core hébergées sur Azure Web Apps**](./azure-web-apps.md)
   * [**Applications ASP.NET hébergées dans IIS sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques Azure**](./azure-vm-vmss-apps.md)
   * [**Applications ASP.NET hébergées dans IIS sur un serveur local**](./status-monitor-v2-overview.md)
+  * [**Applications Java**](java-in-process-agent.md)
 * **Au moment du développement : ajoutez Application Insights à votre code.** Vous permet de personnaliser la collecte des données de télémétrie et d’envoyer des données de télémétrie supplémentaires.
   * [Applications ASP.NET](./asp-net.md)
   * [Applications ASP.NET Core](./asp-net-core.md)

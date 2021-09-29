@@ -3,24 +3,22 @@ title: Qu’est-ce que l’API Recherche de vidéos Bing ?
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment rechercher des vidéos sur le web à l’aide de l’API Recherche de vidéos Bing.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 12/18/2019
-ms.author: scottwhi
-ms.openlocfilehash: d5a4c3110186329516f10465c5e80a10b0ceb7b7
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 5e1586ac15df484cd4110a63c922bc72785a406f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379818"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600738"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Qu’est-ce que l’API Recherche de vidéos Bing ?
 
 > [!WARNING]
-> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020** , toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Les API Recherche Bing passent de Cognitive Services aux services de recherche Bing. À compter du **30 octobre 2020**, toutes les nouvelles instances de Recherche Bing doivent être provisionnées en suivant le processus documenté [ici](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
 > Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 

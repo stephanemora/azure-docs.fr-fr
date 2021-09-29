@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 1cec7b181f2630caa90d3e518b74605f5b8871e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1c6507f7ca4497fd779174b1bc2830c0e53f03f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92460544"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124833194"
 ---
 # <a name="tutorial-integrate-hyperanna-with-azure-active-directory"></a>Tutoriel : Intégrer HyperAnna à Azure Active Directory
 
@@ -143,7 +143,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans H
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette HyperAnna dans le volet d’accès, vous devez être connecté automatiquement à l’application HyperAnna pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette HyperAnna dans le volet d’accès, vous devez être connecté automatiquement à l’application HyperAnna pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

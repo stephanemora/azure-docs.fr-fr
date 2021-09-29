@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/25/2021
+ms.date: 09/02/2021
 ms.author: davidmu
 ms.reviewer: lenalepa
-ms.openlocfilehash: 36da44521169c516888489bd0ac60015adcc432f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6d77f3d93ad3b69f6cc8842e8a320221e533c4c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562542"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791476"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planifier la configuration de Mes applications Azure Active Directory
 
 > [!NOTE]
 > Cet article est destiné aux professionnels de l’informatique qui doivent planifier la configuration du portail Mes applications de leur organisation.
 >
-> **Pour la documentation destinée à l’utilisateur final, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md)** .
+> **Pour la documentation destinée à l’utilisateur final, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)** .
 
 Azure Active Directory (Azure AD) My Apps est un portail web qui vous aide à lancer et à gérer des applications. La page Mes applications fournit aux utilisateurs un emplacement unique pour commencer leur travail et trouver toutes les applications auxquelles ils ont accès. Les utilisateurs accèdent à Mes applications à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
@@ -36,7 +36,6 @@ Par défaut, le portail Mes applications est accessible aux utilisateurs et ne p
 Toute application figurant dans la liste des applications d’entreprise d’Azure Active Directory apparaît lorsque les deux conditions suivantes sont réunies :
 
 * La propriété de visibilité de l’application a la valeur true.
-
 * L’application est attribuée à un utilisateur ou à un groupe quelconque. Elle apparaît pour les utilisateurs attribués.
 
 La configuration du portail garantit que les bonnes personnes peuvent facilement trouver les bonnes applications.
@@ -46,27 +45,18 @@ La configuration du portail garantit que les bonnes personnes peuvent facilement
 Les utilisateurs accèdent au portail Mes applications pour :
 
 * Détecter toutes les applications connectées à Azure AD de leur organisation auxquelles ils ont accès et y accéder.
-
    * Il est préférable de s’assurer que les applications sont configurées pour l’authentification unique (SSO) afin de fournir aux utilisateurs la meilleure expérience.
-
 * Demander l’accès aux nouvelles applications qui sont configurées pour le libre-service.
-
 * Créer des collections personnelles d’applications.
-
 * Gérer l’accès aux applications pour les autres utilisateurs lorsqu’ils sont affectés au rôle de propriétaire du groupe ou que l’on leur délègue le contrôle du groupe utilisé pour accorder l’accès aux applications.
 
 Les administrateurs peuvent configurer les éléments suivants :
 
 * [Les expériences de consentement](../manage-apps/configure-user-consent.md) ,y compris les conditions d’utilisation du service.
-
 * [La détection des applications en libre-service et les demandes d’accès](../manage-apps/access-panel-manage-self-service-access.md).
-
 * [Les collections d’applications](../manage-apps/access-panel-collections.md).
-
 * L’attribution d’icônes aux applications.
-
 * Des noms conviviaux pour les applications.
-
 * La personnalisation de l’entreprise intégrée sur Mes applications.
 
 ## <a name="plan-consent-configuration"></a>Planifier la configuration du consentement
@@ -102,7 +92,6 @@ Il est préférable d’activer l’authentification unique pour toutes les appl
 Azure AD prend en charge plusieurs options d’authentification unique.
 
 * Pour plus d’informations, consultez [Options d’authentification unique dans Azure AD](sso-options.md).
-
 * Pour plus d’informations sur l’utilisation d’Azure AD en tant que fournisseur d'identité pour une application, consultez la [Série de démarrages rapides sur la gestion des applications](../manage-apps/view-applications-portal.md).
 
 ### <a name="use-federated-sso-if-possible"></a>Utiliser l’authentification unique fédérée si possible
@@ -120,12 +109,11 @@ Pour vous connecter à des applications SSO basée sur un mot de passe ou à des
 
 ![Capture d’écran](./media/my-apps-deployment-plan/ap-dp-install-myapps.png)
 
-Pour plus d’informations sur l’extension, consultez [Installation de l’extension de navigateur Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Pour plus d’informations sur l’extension, consultez [Installation de l’extension de navigateur Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-Si vous devez intégrer ces applications, vous devez définir un mécanisme de déploiement de l’extension à grande échelle avec les [navigateurs pris en charge](../user-help/my-apps-portal-end-user-access.md). Les options sont les suivantes :
+Si vous devez intégrer ces applications, vous devez définir un mécanisme de déploiement de l’extension à grande échelle avec les [navigateurs pris en charge](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). Les options sont les suivantes :
 
 * [Téléchargement et configuration pilotés par l’utilisateur pour Chrome, Firefox, Microsoft Edge ou Internet Explorer](../user-help/my-apps-portal-end-user-access.md)
-
 * [Configuration Manager pour Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 L’extension permet aux utilisateurs de lancer une application à partir de sa barre de recherche, de rechercher l’accès aux applications récemment utilisées et d’avoir un lien vers la page Mes applications.
@@ -151,7 +139,6 @@ Chaque application Azure AD à laquelle un utilisateur a accès apparaît dans M
 Les utilisateurs finaux peuvent également personnaliser leur expérience en :
 
 * créant leurs propres collections d’applications.
-
 * [masquant et en réorganisant des collections d’applications](access-panel-collections.md).
 
 ![Capture d’écran de la configuration en libre-service](./media/my-apps-deployment-plan/collections.png)
@@ -174,9 +161,7 @@ Pour plus d’informations sur l’activation de ces scénarios, consultez [Conf
 Vous pouvez permettre aux utilisateurs de découvrir des applications et d’en demander l’accès via le panneau Mes applications. Pour ce faire, vous devez d’abord :
 
 * activer la gestion de groupes en libre-service ;
-
 * activer l’application pour l’authentification unique ;
-
 * créer un groupe pour l’accès aux applications.
 
 ![Capture d’écran de la configuration en libre-service de Mes applications](./media/my-apps-deployment-plan/my-apps-self-service.png)

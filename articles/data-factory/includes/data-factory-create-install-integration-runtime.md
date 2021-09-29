@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: c0a0b44b3de088539a070f1182248c4e6db7303f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6bf40202908aa68345fabd2b6fe55d501e8325ff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771167"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733027"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé
 
@@ -101,23 +101,23 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 
 8. Sur la page **Inscrire le Integration Runtime (auto-hébergé)** , collez la clé que vous avez enregistrée dans la section précédente, puis cliquez sur **Inscrire**. 
 
-    ![Inscrire le runtime d’intégration](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/register-integration-runtime.png" alt-text="Inscrire le runtime d’intégration":::
 
 9. Dans la page **Nouveau runtime d’intégration (auto-hébergé)** , sélectionnez **Terminer**. 
 
 10. Le message suivant s’affiche une fois que le runtime d’intégration auto-hébergé est bien inscrit :
 
-    ![Inscription réussie](media/data-factory-create-install-integration-runtime/registered-successfully.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/registered-successfully.png" alt-text="Inscription réussie":::
 
 14. Sur la page **Inscrire le runtime d’intégration (auto-hébergé)** , cliquez sur **Lancer le Gestionnaire de configuration**.
 
 15. La page suivante apparaît une fois que le nœud est connecté au service cloud :
 
-    ![Page Le nœud est connecté](media/data-factory-create-install-integration-runtime/node-is-connected.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/node-is-connected.png" alt-text="Page Le nœud est connecté":::
 
 16. Maintenant, testez la connectivité à votre base de données SQL Server.
 
-    ![Onglet Diagnostic](media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png)   
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png" alt-text="Onglet Diagnostic":::   
 
     a. Sur la page **Gestionnaire de configuration**, accédez à l’onglet **Diagnostics**.
 

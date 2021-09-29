@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 08/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a00022227959d8506bd976c33787bcc5a23273f
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 026adbac5ad66772711bcd3988a9c95da49ae6a1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778799"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124837477"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -246,7 +246,7 @@ L’utilisation de runbooks enfants diminue le délai d’exécution total du ru
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour commencer à utiliser un runbook PowerShell, voir [Tutoriel : Créer un runbook PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+* Pour commencer à utiliser un runbook PowerShell, voir [Tutoriel : Créer un runbook PowerShell](./learn/powershell-runbook-managed-identity.md).
 * Pour savoir comment utiliser des runbooks, voir [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
 * Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](/powershell/scripting/overview).
 * Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation#automation).

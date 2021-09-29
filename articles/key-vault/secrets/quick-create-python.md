@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d9d15735439890d16ba56ca12b5476253f6fcf5d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 8d5ef1f13b7413eeb21c7e026aa1cbf9d9bb4541
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537363"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757398"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client de secrets Azure Key Vault pour Python
 
@@ -133,7 +133,7 @@ python kv_secrets.py
 ```
 
 - Si vous rencontrez des erreurs d’autorisation, vérifiez que vous avez exécuté la commande [`az keyvault set-policy`](#grant-access-to-your-key-vault).
-- Le fait de réexécuter le code avec le même nom de secret a pour effet de générer l’erreur : « Le secret (en conflit) <name> est actuellement à l’état supprimé mais récupérable. » Utilisez un nom de secret différent.
+- Le fait de réexécuter le code avec le même nom de secret a pour effet de générer l’erreur : « Le secret (en conflit) \<name\> est actuellement à l’état supprimé mais récupérable. » Utilisez un nom de secret différent.
 
 ## <a name="code-details"></a>Détails du code
 

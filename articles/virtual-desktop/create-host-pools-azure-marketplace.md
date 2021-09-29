@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 49c453f4ffcb2fac04b42f4956768e06ab8fce8f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 8e33c165cd249b578bd4cba9ef4f25446287d7ec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123100809"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766442"
 ---
 # <a name="tutorial-create-a-host-pool"></a>Tutoriel : créer un pool d’hôtes
 
@@ -237,7 +237,7 @@ Pour plus d’informations sur l’utilisation d’Azure CLI pour créer des mac
     - [Créer une machine virtuelle Windows à l’aide de l’interface de ligne de commande Azure]( /azure/virtual-machines/windows/quick-create-cli)
     - [Tutoriel : créer et gérer des machines virtuelles Windows avec Azure CLI](/cli/azure/azure-cli-vm-tutorial)
 - Linux
-    - [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)]( /virtual-machines/linux/quick-create-cli)
+    - [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)](../virtual-machines/linux/quick-create-cli.md)
     - [Tutoriel : Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI]( /azure/virtual-machines/linux/tutorial-manage-vm) 
 ---
 

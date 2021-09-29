@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: edff28779c18e56bb7ee2e5ff3d222823a038f7d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ed65bb5bcde37bf4ad18d9650697d51640ac1e4a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641474"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767581"
 ---
 # <a name="monitor-copy-activity"></a>Superviser une activité de copie
 
@@ -30,17 +30,17 @@ Pour surveiller l’exécution de l’activité de copie, accédez à l’interf
 
 # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-![Surveillance de l’exécution du pipeline](./media/copy-activity-overview/monitor-pipeline-run.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-pipeline-run.png" alt-text="Surveillance de l’exécution du pipeline":::
 
 # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
-![Surveillance de l’exécution du pipeline](./media/copy-activity-overview/monitor-pipeline-run-synapse.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-pipeline-run-synapse.png" alt-text="Surveillance de l’exécution du pipeline":::
 
 ---
 
 À ce niveau, vous pouvez voir des liens pour copier l’entrée, la sortie d'activité et des erreurs (en cas d’échec d’exécution de l’activité de copie), ainsi que des statistiques telles que durée/état. Cliquez sur le bouton **Détails** (lunettes) en regard du nom de l’activité de copie pour consulter de plus amples informations sur l'exécution de l'activité de copie. 
 
-![Surveiller une exécution d'activité de copie](./media/copy-activity-overview/monitor-copy-activity-run.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run.png" alt-text="Surveiller une exécution d'activité de copie":::
 
 Dans cette vue de surveillance graphique, le service vous présente les informations d’exécution de l’activité de copie, notamment le volume de données lues/écrites, le nombre de fichiers/lignes de données copiés de la source au récepteur, le débit, les configurations appliquées pour votre scénario de copie, les étapes de l’activité de copie avec les durées et les détails correspondants, et bien plus. Reportez-vous à [cette table](#monitor-programmatically) pour chaque mesure possible et sa description détaillée. 
 
@@ -50,7 +50,7 @@ La partie inférieure **Détails et durées d’exécution** décrit les étapes
 
 **Exemple : Copier des données d’Amazon S3 vers Azure Data Lake Storage Gen2**
 
-![Détails de surveillance d'une exécution d'activité de copie](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run-details.png" alt-text="Détails de surveillance d'une exécution d'activité de copie":::
 
 ## <a name="monitor-programmatically"></a>Surveiller par programmation
 

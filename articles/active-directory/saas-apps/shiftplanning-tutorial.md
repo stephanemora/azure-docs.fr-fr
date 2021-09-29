@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: e1099f271291c6d86610237454e08e06b5fe48c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61bb44a6431885c4696af840d829bc1671f1c1e5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522153"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Didacticiel : intégration d’Azure Active Directory à Humanity
 
@@ -122,13 +122,13 @@ Pour configurer l’authentification unique Azure AD avec Humanity, effectuez l
 
     c. URL de déconnexion
 
-### <a name="configure-humanity-single-sign-on"></a>Configurer l’authentification unique Humanity
+### <a name="configure-humanity-single-sign-on&quot;></a>Configurer l’authentification unique Humanity
 
 1. Dans une autre fenêtre de navigateur web, ouvrez une session sur votre site d’entreprise **Humanity** en tant qu’administrateur.
 
 2. Dans le menu situé en haut, cliquez sur **Admin**.
 
-    ![Administrateur](./media/shiftplanning-tutorial/iC786619.png "Admin")
+    ![Administrateur](./media/shiftplanning-tutorial/iC786619.png &quot;Admin")
 3. Sous **Integration**, cliquez sur **Single Sign-On**.
 
     ![Capture d’écran montrant l’élément Single Sign-on sélectionné dans le menu Integration.](./media/shiftplanning-tutorial/iC786620.png "Single Sign on")
@@ -200,7 +200,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-humanity-test-user"></a>Créer un utilisateur de test Humanity
+### <a name="create-humanity-test-user&quot;></a>Créer un utilisateur de test Humanity
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Humanity, vous devez les approvisionner dans Humanity. Dans le cas de Humanity, l’approvisionnement est une tâche manuelle.
 
@@ -210,7 +210,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Humanity, vous deve
 
 2. Cliquez sur **Admin**.
 
-    ![Administrateur](./media/shiftplanning-tutorial/iC786619.png "Admin")
+    ![Administrateur](./media/shiftplanning-tutorial/iC786619.png &quot;Admin")
 
 3. Cliquez sur **Staff**.
 
@@ -235,7 +235,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Humanity, vous deve
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Humanity dans le panneau d’accès doit vous connecter automatiquement à l’application Humanity pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Humanity dans le panneau d’accès doit vous connecter automatiquement à l’application Humanity pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

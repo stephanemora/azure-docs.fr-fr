@@ -1,19 +1,19 @@
 ---
 title: 'Tutoriel : Connecter des applications d’appareils à composants multiples IoT Plug and Play à IoT Hub | Microsoft Docs'
 description: Tutoriel - Créer et exécuter l’exemple de code d’appareil IoT Plug-and-Play (C, C#, Java, JavaScript ou Python) qui utilise plusieurs composants et se connecte à un hub IoT. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
-author: ericmitt
-ms.author: ericmitt
+author: lizross
+ms.author: lizross
 ms.date: 07/22/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 380f6e880dbc56457e7c54f4b30be4a63454e94b
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 9bc8e41f3977777cc0d3af03805c6fcc0c9415e9
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114405946"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093076"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub"></a>Tutoriel : Connecter une application d’appareil multicomposant IoT Plug-and-Play s’exécutant sur Linux ou Windows à IoT Hub
 

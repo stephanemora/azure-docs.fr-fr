@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 135d9235a94dd22311a804ee8c20046d2608a95c
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: b030ab291f1b1ce0d3d89ea01c63d6c2eaeff72c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822219"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218032"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory-and-azure-synapse-analytics"></a>Pipelines et activités dans Azure Data Factory et Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Les activités d’un pipeline définissent les actions à effectuer sur les don
 
 Azure Data Factory et Azure Synapse Analytics ont trois groupes d’activités : les [activités de déplacement des données](copy-activity-overview.md), les [activités de transformation des données](transform-data.md) et les [activités de contrôle](#control-flow-activities). Une activité peut inclure zéro ou plusieurs [jeux de données](concepts-datasets-linked-services.md) d’entrée et produire un ou plusieurs [jeux de données](concepts-datasets-linked-services.md) de sortie. Le diagramme suivant montre la relation entre le pipeline, l’activité et le jeu de données :
 
-![Relation entre le jeu de données, l’activité et le pipeline](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
+:::image type="content" source="media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png" alt-text="Relation entre le jeu de données, l’activité et le pipeline":::
 
 Un jeu de données d’entrée représente l’entrée d’une activité dans le pipeline, tandis qu’un jeu de données de sortie représente la sortie de l’activité. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Après avoir créé un jeu de données, vous pouvez l’utiliser avec des activités d’un pipeline. Un jeu de données peut, par exemple, constituer un jeu de données d’entrée/sortie d’une activité de copie ou d’une activité HDInsightHive. Pour plus d’informations sur les jeux de données, consultez l’article [Jeux de données dans Azure Data Factory](concepts-datasets-linked-services.md).
 
@@ -408,4 +408,4 @@ Consultez les didacticiels suivants pour obtenir des instructions pas à pas de 
 - [Créer un pipeline avec une activité de transformation des données](tutorial-transform-data-spark-powershell.md)
 
 Comment parvenir à l’intégration continue et la livraison continue (CI/CD) à l’aide d’Azure Data Factory
-- [Intégration et déploiement continus dans Azure Data Factory](continuous-integration-deployment.md)
+- [Intégration et déploiement continus dans Azure Data Factory](continuous-integration-delivery.md)

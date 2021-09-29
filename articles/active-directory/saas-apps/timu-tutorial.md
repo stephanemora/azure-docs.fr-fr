@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 903150a199bac1189274cadc9755b38873cde73e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29444a14cd906e0bae0b95fed4fcc2e62e381db3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182102"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733484"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timu"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TIMU
 
@@ -148,7 +148,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion TIMU pour y lancer le processus de connexion.
 
-* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette TIMU dans le volet d’accès vous redirige vers l’URL de connexion TIMU. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette TIMU dans le volet d’accès vous redirige vers l’URL de connexion TIMU. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

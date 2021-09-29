@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0dc36b817d5b5cdf731edecd64e1879c153d866a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 444803285eca144ff5abd7cdaa83c90670774955
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98015128"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784486"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Résoudre les problèmes liés aux requêtes Azure Stream Analytics
 
@@ -43,7 +43,7 @@ Cet article décrit les problèmes courants liés au développement de requêtes
 5.  Vérifiez que les stratégies d’ordre des événements sont configurées comme prévu. Accédez à **Paramètres** et sélectionnez [**Ordre des événements**](./stream-analytics-time-handling.md). La stratégie n’est *pas* appliquée lorsque vous utilisez le bouton **Test** pour tester la requête. C’est une des différences entre le test en navigateur et l’exécution réelle du travail. 
 
 6. Déboguez à l’aide des journaux d’activité et de ressources :
-    - Utilisez les [journaux d’activité](../azure-resource-manager/management/view-activity-logs.md) pour identifier et déboguer les erreurs.
+    - Utilisez les [journaux d’activité](../azure-monitor/essentials/activity-log.md) pour identifier et déboguer les erreurs.
     - Utilisez les [journaux de ressources](stream-analytics-job-diagnostic-logs.md) pour identifier et déboguer les erreurs.
 
 ## <a name="resource-utilization-is-high"></a>L’utilisation des ressources est élevée

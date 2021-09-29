@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/17/2021
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: c348b82135f129b4c603a70c87f880e8d23d2b67
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 598f1df9808bfe4e367719615ebae332c617a984
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633625"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767828"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v3-driver"></a>Créer une application Java pour gérer les données de l’API Cassandra Azure Cosmos DB (pilote v3)
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -39,7 +39,7 @@ Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte d’
 - [Git](https://www.git-scm.com/downloads). Sur Ubuntu, exécutez `sudo apt-get install git` pour installer Git.
 
 > [!NOTE]
-> Ceci est un simple guide de démarrage rapide qui utilise la [version 3](https://github.com/datastax/java-driver/tree/3.x) du pilote open source Apache Cassandra pour Java. Dans la plupart des cas, vous devez être en mesure de connecter une application Java existante dépendante d’Apache Cassandra à l’API Cassandra d’Azure Cosmos DB sans aucune modification de votre code existant. Nous vous recommandons cependant d’ajouter notre [extension Java personnalisée](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/feature/java-driver-3%2F1.0.0), qui comprend des stratégies personnalisées de nouvelle tentative et d’équilibrage de charge pour une meilleure expérience globale. Ceci permet de gérer la [limitation du débit](/azure/cosmos-db/cassandra/scale-account-throughput#handling-rate-limiting-429-errors) et le basculement au niveau de l’application dans Azure Cosmos DB. Vous trouverez un exemple complet qui implémente l’extension [ici](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample).
+> Ceci est un simple guide de démarrage rapide qui utilise la [version 3](https://github.com/datastax/java-driver/tree/3.x) du pilote open source Apache Cassandra pour Java. Dans la plupart des cas, vous devez être en mesure de connecter une application Java existante dépendante d’Apache Cassandra à l’API Cassandra d’Azure Cosmos DB sans aucune modification de votre code existant. Nous vous recommandons cependant d’ajouter notre [extension Java personnalisée](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/feature/java-driver-3%2F1.0.0), qui comprend des stratégies personnalisées de nouvelle tentative et d’équilibrage de charge pour une meilleure expérience globale. Ceci permet de gérer la [limitation du débit](./scale-account-throughput.md#handling-rate-limiting-429-errors) et le basculement au niveau de l’application dans Azure Cosmos DB. Vous trouverez un exemple complet qui implémente l’extension [ici](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample).
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 

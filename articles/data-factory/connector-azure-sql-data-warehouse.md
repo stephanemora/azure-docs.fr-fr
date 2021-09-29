@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 2131e74935ee831925dbe307a79c26909078e575
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: fb28edc395738a2993750d97e26b9a98999b1284
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313977"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744050"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory-or-synapse-pipelines"></a>Copier et transformer des données dans Azure Synapse Analytics à l’aide de pipelines Azure Data Factory ou Synapse
 
@@ -60,7 +60,7 @@ Pour créer un service lié Azure Synapse Analytics dans l’interface utilisate
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -436,7 +436,7 @@ Pour copier des données vers Azure Synapse Analytics, définissez **SqlDWSink**
 
 Le connecteur Azure Synapse Analytics dans l’activité de copie propose un partitionnement de données intégré pour copier des données en parallèle. Vous trouverez des options de partitionnement de données dans l’onglet **Source** de l’activité de copie.
 
-![Capture d’écran représentant les options de partition](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Capture d’écran représentant les options de partition":::
 
 Lorsque vous activez la copie partitionnée, l’activité de copie exécute des requêtes en parallèle sur votre source Azure Synapse Analytics pour charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur la valeur quatre, le service génère et exécute simultanément quatre requêtes selon l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre instance Azure Synapse Analytics.
 
@@ -884,7 +884,7 @@ Exemple SQL : ```Select * from MyTable where customerId > 1000 and customerId < 
 - Sérialisable
 - Aucun (ignorer le niveau d’isolement)
 
-![Niveau d’isolation](media/data-flow/isolationlevel.png)
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Niveaux d’isolement":::
 
 ### <a name="sink-transformation"></a>Transformation du récepteur
 
@@ -907,7 +907,7 @@ Les paramètres spécifiques à Azure Synapse Analytics sont disponibles dans l�
 
 **Pré et post-scripts SQL** : Entrez des scripts SQL multilignes qui s’exécutent avant (prétraitement) et après (post-traitement) l’écriture de données dans votre base de données de réception.
 
-![Pré et post-scripts de traitement SQL](media/data-flow/prepost1.png "Scripts de traitement SQL")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="Pré et post-scripts de traitement SQL":::
 
 ### <a name="error-row-handling"></a>Gestion des lignes d’erreur
 

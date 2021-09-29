@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 05b42a3dd6d5df7bf4484e23b2780732d55ab731
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f1b5196d422d2bc4a961c2b45ed814ee5555f2c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789152"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643837"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Tutoriel sur le service Device Update pour IoT Hub : Utilisation de l’image de référence Raspberry Pi 3 B+
 
@@ -143,7 +143,7 @@ Utilisez ce numéro de version dans l’étape « Importer la mise à jour » 
 
 ## <a name="import-update"></a>Importer la mise à jour
 
-1. Téléchargez l’[exemple de manifeste d’importation](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) et l’[exemple de mise à jour d’image](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+1. Téléchargez l’[exemple de manifeste d’importation](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Pi.json) et l’[exemple de mise à jour d’image](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
 2. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez à votre hub IoT avec Device Update. Ensuite, sélectionnez l’option Mises à jour de l’appareil sous Gestion automatique des appareils dans la barre de navigation de gauche.
 3. Sélectionnez l’onglet Mises à jour.
 4. Sélectionnez « + Importer une nouvelle mise à jour ».
@@ -175,7 +175,7 @@ Utilisez ce numéro de version dans l’étape « Importer la mise à jour » 
 
 3. Sélectionnez l’onglet Groupes en haut de la page. 
 
-4. Sélectionnez le bouton Ajouter pour créer un nouveau groupe.
+4. Sélectionnez le bouton Ajouter pour créer un groupe.
 
 5. Sélectionnez l’étiquette IoT Hub que vous avez créée à l’étape précédente à partir de la liste. Sélectionnez Créer un groupe de mises à jour.
 

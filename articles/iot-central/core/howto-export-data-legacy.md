@@ -2,17 +2,17 @@
 title: Exporter des données à partir d'Azure IoT Central (fonctionnalité héritée) | Microsoft Docs
 description: Comment exporter des données depuis votre application Azure IoT Central vers Azure Event Hubs, Azure Service Bus et Stockage Blob Azure
 services: iot-central
-author: viv-liu
-ms.author: viviali
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: c751e67ff65fc9487fd59ab511ae0cae28bb223b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 017d563c4f253eb8cc49736f2fc3036ae4082e0a
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615146"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153479"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exporter des données IoT vers des destinations cloud à l'aide de la fonctionnalité d'exportation de données (héritée)
 

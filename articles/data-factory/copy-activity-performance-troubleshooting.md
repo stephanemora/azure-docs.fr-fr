@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: cea4999752d416f36f435ba88403fd9dc735f689
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/09/2021
+ms.openlocfilehash: a2f3ddf20b41ae1a1638a8c8a1900207f5b880df
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255813"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767467"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -24,7 +24,7 @@ Cet article décrit comment résoudre les problèmes de performances de l’acti
 
 Après avoir exécuté une activité de copie, vous pouvez collecter les résultats de l’exécution et les statistiques de performances dans l’affichage de [l’analyse de l’activité de copie](copy-activity-monitoring.md). Voici un exemple.
 
-![Détails de l’analyse d’une exécution d’activité de copie](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run-details.png" alt-text="Détails de l’analyse d’une exécution d’activité de copie":::
 
 ## <a name="performance-tuning-tips"></a>Conseils sur le réglage des performances
 

@@ -4,18 +4,18 @@ titleSuffix: Azure API Management
 description: Suivez les étapes de ce didacticiel pour apprendre à apporter des modifications sans rupture à l’aide de révisions dans Gestion des API.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
-ms.author: apimpm
-ms.openlocfilehash: 6ab3f2e4e2164611820813a5fdb04e2b27df1ff2
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.author: danlep
+ms.openlocfilehash: 34ffc28e6c8e109252b68be269c1918beabfd5af
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877027"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676596"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Tutoriel : Utiliser des révisions pour apporter aux API des changements non cassants de manière sécurisée
 Une fois que votre API est prête et commence à être utilisée par les développeurs, vous devez finir par lui apporter des modifications sans interrompre les appelants de l’API. Il est également utile d’informer les développeurs des modifications apportées. 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: db5cb2f6bc8b4ca3eed802552fe86830b9f1723f
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 6277e42daf370cef65724f8958a9851ecd51d57c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259571"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216742"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Résoudre les problèmes liés à Azure Files dans Linux (SMB)
 
@@ -40,7 +40,6 @@ Causes courantes de ce problème :
 - Les utilitaires SMB (cifs-utils) ne sont pas installés sur le client.
 - La version de SMB minimale, à savoir 2.1, n’est pas disponible sur le client.
 - Le chiffrement SMB 3.x n’est pas pris en charge sur le client. Le tableau précédent fournit une liste des distributions de Linux qui prennent en charge le montage à partir d’emplacements locaux et entre les régions grâce au chiffrement. Les autres distributions requièrent un noyau 4.11 et versions ultérieures.
-- Vous tentez de vous connecter à un compte de stockage via le port TCP 445, qui n’est pas pris en charge.
 - Vous tentez de vous connecter à un partage de fichiers Azure à partir d’une machine virtuelle Azure qui ne se trouve pas dans la même région que le compte de stockage.
 - Si le paramètre [Transfert sécurisé requis](../common/storage-require-secure-transfer.md) est activé sur le compte de stockage, Azure Files autorise uniquement les connexions utilisant SMB 3.x avec chiffrement.
 

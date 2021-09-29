@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: d43e9c784a24e6a751d97eb4deeaffec381d124e
-ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
+ms.openlocfilehash: 64341d762eb05b77946f560f474ab1c4c52e3f52
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112423125"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800761"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-standard-for-success-accreditation"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Standard for Success Accreditation
 
@@ -173,7 +173,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Sur le portail Azure, cliquez sur **Tester cette application**. Cela a pour effet de vous connecter automatiquement à l’application Standard for Success Accreditation pour laquelle vous avez configuré l’authentification unique 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Standard for Success Accreditation dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion, et si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Standard for Success Accreditation pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Standard for Success Accreditation dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion, et si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Standard for Success Accreditation pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

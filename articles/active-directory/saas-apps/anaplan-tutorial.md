@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 95f764ec806109f0b14a2c79bc168bee309ccaee
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f78cc7e95affb23166a3c24d924dfcec87d423da
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126666"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796416"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Didacticiel : Intégration d’Azure Active Directory à Anaplan
 
@@ -130,7 +130,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l'URL de connexion à Anaplan pour initier le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Anaplan dans Mes applications vous redirige vers l'URL de connexion à Anaplan. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Anaplan dans Mes applications vous redirige vers l'URL de connexion à Anaplan. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

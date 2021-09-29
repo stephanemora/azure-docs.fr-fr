@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: 03c51dc95998ef0d077dc34232d8aa86ab96fbb7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b1eaa9e7a7c35c659156cfd4bc2541cb3ca39173
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739394"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805794"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 
@@ -23,7 +23,7 @@ Dans ce tutoriel, vous allez créer un pipeline Data Factory qui présente certa
 
 Ce graphique fournit une vue d’ensemble du scénario :
 
-![Le diagramme montre le Stockage Blob Azure qui est la cible d’une copie, laquelle, en cas de réussite, envoie un e-mail avec des détails ou, en cas d’échec, envoie un e-mail avec les détails de l’erreur.](media/tutorial-control-flow/overview.png)
+:::image type="content" source="media/tutorial-control-flow/overview.png" alt-text="Le diagramme montre le Stockage Blob Azure qui est la cible d’une copie, laquelle, en cas de réussite, envoie un e-mail avec des détails ou, en cas d’échec, envoie un e-mail avec les détails de l’erreur.":::
 
 Ce tutoriel explique comment effectuer les tâches suivantes :
 
@@ -329,13 +329,13 @@ Dans le [portail Azure](https://portal.azure.com), créez un workflow Logic Apps
 
 Votre workflow ressemble à l’exemple suivant :
 
-![Flux de travail d’un e-mail d’avis de réussite](media/tutorial-control-flow/success-email-workflow-trigger.png)
+:::image type="content" source="media/tutorial-control-flow/success-email-workflow-trigger.png" alt-text="Flux de travail d’un e-mail d’avis de réussite":::
 
 Ce contenu JSON correspond à la classe `EmailRequest` que vous avez créée dans la section précédente.
 
 Ajoutez une action `Office 365 Outlook – Send an email`. Pour l’action **Envoyer un e-mail**, personnalisez la mise en forme de l’e-mail à l’aide des propriétés transmises dans le schéma JSON du **corps** de la requête. Voici un exemple :
 
-![Concepteur d’application logique - Action Envoyer un e-mail](media/tutorial-control-flow/customize-send-email-action.png)
+:::image type="content" source="media/tutorial-control-flow/customize-send-email-action.png" alt-text="Concepteur d’application logique - Action Envoyer un e-mail":::
 
 Une fois que vous avez enregistré le workflow, copiez et enregistrez la valeur de l’**URL HTTP POST** à partir du déclencheur.
 
@@ -343,7 +343,7 @@ Une fois que vous avez enregistré le workflow, copiez et enregistrez la valeur 
 
 Clonez **CopySuccessEmail** en tant qu’autre workflow Logic Apps nommé *CopyFailEmail*. Dans le déclencheur de la requête, `Request Body JSON schema` est identique. Modifiez la mise en forme de votre e-mail, notamment `Subject`, pour l’adapter à un avis d’échec. Voici un exemple :
 
-![Concepteur d’application logique - Workflow d’un e-mail d’avis d’échec](media/tutorial-control-flow/fail-email-workflow.png)
+:::image type="content" source="media/tutorial-control-flow/fail-email-workflow.png" alt-text="Concepteur d’application logique - Workflow d’un e-mail d’avis d’échec":::
 
 Une fois que vous avez enregistré le workflow, copiez et enregistrez la valeur de l’**URL HTTP POST** à partir du déclencheur.
 
