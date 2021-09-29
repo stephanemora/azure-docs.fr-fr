@@ -7,15 +7,14 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
 ms.date: 08/17/2021
-ms.openlocfilehash: a4125b5755d262a441d470e8fc970ef55ea74de2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3a723f2317e9408f35ef506d96d7fb9714c9f4b3
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641861"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059793"
 ---
 # <a name="troubleshoot-connector-and-format-issues-in-mapping-data-flows-in-azure-data-factory"></a>Résoudre les problèmes liés aux connecteurs et à la mise en forme dans le flux de données de mappage dans Azure Data Factory
-
 
 Cet article explore les méthodes de résolution des problèmes liés aux connecteurs et à la mise en forme pour les flux de données de mappage dans Azure Data Factory (ADF).
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: ab16bfe708589b6f89dd5b9a37512d4f2148992f
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 5afe39d7693d36ebfd433c6cd1db336e9c72b7ca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214913"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664235"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>Tutoriel : Migrer SQL Server vers Azure SQL Database à l’aide de DMS
 
@@ -249,7 +249,7 @@ Pour effectuez la migration du schéma **AdventureWorks2016** vers une base de d
 
     ![Configurer des paramètres réseau pour l’instance Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-settings-3.png)
 
-    - Sélectionnez **Vérifier + créer** pour passer en revue les détails, puis sélectionnez **Créer** pour créer le service.
+    - Sélectionnez **Vérifier + créer** pour vérifier les détails, puis sélectionnez **Créer** pour créer le service.
 
 ## <a name="create-a-migration-project"></a>Créer un projet de migration
 
@@ -343,7 +343,7 @@ Sélectionnez l’ensemble des bases de données ou des bases de données spéci
 
 2. Vérifiez les bases de données cibles de l’instance cible **Azure SQL Database**.
 
-### <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 
 - Pour plus d’informations sur Azure Database Migration Service, consultez l’article [Qu’est-ce qu’Azure Database Migration Service ?](./dms-overview.md).
 - Pour plus d’informations sur Azure SQL Database, consultez l’article [Qu’est-ce que le service Azure SQL Database ?](../azure-sql/database/sql-database-paas-overview.md).

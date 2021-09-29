@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 28c1d138cc4a2993caf2b162b9363bc33b6666b7
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 6253039c2c256e421815cad30f06780bc6c89694
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273375"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774345"
 ---
 # <a name="associate-a-vm-to-a-capacity-reservation-group-preview"></a>Associer une machine virtuelle à un groupe de réservations de capacité (préversion) 
 
@@ -26,7 +26,7 @@ Cet article vous guide tout au long des étapes d’association d’une machine 
 
 ## <a name="register-for-capacity-reservation"></a>S’inscrire à la réservation de capacité 
 
-Avant de pouvoir utiliser la fonctionnalité Réservation de capacité, vous devez [inscrire votre abonnement à la préversion](capacity-reservation-overview.md#register-for-capacity-reservation). L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour finaliser l’inscription à la fonctionnalité.
+Avant de pouvoir utiliser la fonctionnalité Réservation de capacité, vous devez [inscrire votre abonnement pour la préversion](capacity-reservation-overview.md#register-for-capacity-reservation). L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour finaliser l’inscription à la fonctionnalité.
 
 ## <a name="associate-a-new-vm"></a>Associer une nouvelle machine virtuelle
 
@@ -110,7 +110,7 @@ Pour en savoir plus, consultez la commande Azure PowerShell [New-AzVM](/powershe
 
 ### <a name="arm-template"></a>[Modèle ARM](#tab/arm1)
 
-Un  [modèle ARM](/azure/azure-resource-manager/templates/overview)  est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative. Dans la syntaxe déclarative, vous décrivez le déploiement souhaité sans écrire la séquence de commandes de programmation pour créer le déploiement. 
+Un  [modèle ARM](../azure-resource-manager/templates/overview.md)  est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative. Dans la syntaxe déclarative, vous décrivez le déploiement souhaité sans écrire la séquence de commandes de programmation pour créer le déploiement. 
 
 Les modèles ARM vous permettent de déployer des groupes de ressources associées. Dans un modèle unique, vous pouvez créer un groupe de réservations de capacité et des réservations de capacité. Vous pouvez déployer des modèles via le Portail Azure, Azure CLI ou Azure PowerShell, ou à partir de pipelines d’intégration continue/de livraison continue. 
 

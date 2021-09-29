@@ -13,12 +13,12 @@ ms.date: 07/16/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 866eb949d124e8d705785c6552672730fe67ece1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2ee33ec1ff87a73e31e55f06fe70672314384a6e
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464162"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059470"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plateforme d’identités Microsoft et informations d’identification du mot de passe du propriétaire de la ressource OAuth 2.0
 
@@ -35,7 +35,7 @@ La plateforme d’identité Microsoft prend en charge l’[octroi des informatio
 > * Les comptes sans mots de passe ne peuvent pas se connecter avec ROPC, ce qui signifie que les fonctionnalités telles que la connexion SMS, FIDO et l’application Authenticator ne fonctionneront pas avec ce flux. Utilisez un autre flux que ROPC si votre application ou vos utilisateurs ont besoin de ces fonctionnalités.
 > * Si les utilisateurs doivent utiliser l’[authentification multifacteur (MFA)](../authentication/concept-mfa-howitworks.md) pour se connecter à l’application, ils seront au lieu de cela bloqués.
 > * ROPC n’est pas pris en charge dans les scénarios de la [fédération d’identités hybrides](../hybrid/whatis-fed.md) (par exemple, Azure AD et ADFS utilisés pour authentifier des comptes locaux). Si les utilisateurs sont redirigés en pleine page vers des fournisseurs d’identité locaux, Azure AD n’est pas en mesure de tester le nom d’utilisateur et le mot de passe par rapport à ce fournisseur d’identité. [L’authentification directe](../hybrid/how-to-connect-pta.md) est toutefois prise en charge avec ROPC.
-> * Voici une exception à un scénario d’identité hybride : la stratégie de découverte du domaine d’accueil avec l’ensemble AllowCloudPasswordValidation défini sur TRUE permettra au flux ROPC de fonctionner pour les utilisateurs fédérés lorsque le mot de passe local est synchronisé avec le Cloud. Pour plus d’informations, consultez [Activer l’authentification ROPC directe des utilisateurs fédérés pour les applications héritées](../manage-apps/configure-authentication-for-federated-users-portal.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
+> * Voici une exception à un scénario d’identité hybride : la stratégie de découverte du domaine d’accueil avec l’ensemble AllowCloudPasswordValidation défini sur TRUE permettra au flux ROPC de fonctionner pour les utilisateurs fédérés lorsque le mot de passe local est synchronisé avec le Cloud. Pour plus d’informations, consultez [Activer l’authentification ROPC directe des utilisateurs fédérés pour les applications héritées](../manage-apps/home-realm-discovery-policy.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
 
 [!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 

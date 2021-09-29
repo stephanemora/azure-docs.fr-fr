@@ -3,14 +3,14 @@ title: Démarrage rapide - Utiliser Azure CLI pour créer une file d’attente S
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Azure CLI pour créer un espace de noms Service Bus puis une file d'attente dans celui-ci.
 author: spelluru
 ms.topic: quickstart
-ms.date: 08/12/2020
+ms.date: 09/28/2021
 ms.author: spelluru
-ms.openlocfilehash: 73457e6b2e210bd7db91165e97ce73591d921be4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 381d4d32d87391c0914d55690a0f4119b95a3488
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479020"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211826"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Utiliser Azure CLI pour créer un espace de noms Service Bus ainsi qu’une file d'attente
 Ce guide de démarrage rapide vous montre comment créer un espace de noms Service Bus et une file d’attente à l’aide d’Azure CLI. Il vous montre également comment obtenir les informations d’autorisation qu’une application cliente peut utiliser pour envoyer/recevoir des messages à/de la file d'attente. 

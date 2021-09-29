@@ -5,17 +5,17 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
+ms.date: 09/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 67f317594b257776a3a8ac8c257281352516bfee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 468f5141d7e28d387719df6bddbf30f5810c5955
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749470"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557240"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Démarrage rapide : créer un cluster Azure Managed Instance pour Apache Cassandra à partir du portail Azure (préversion)
- 
+
 Azure Managed Instance pour Apache Cassandra offre des opérations de déploiement et de mise à l’échelle automatisées pour les centres de données Apache Cassandra open source managés, ce qui permet d’accélérer les scénarios hybrides et de réduire la maintenance continue.
 
 > [!IMPORTANT]
@@ -52,8 +52,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
    * **Mot de passe d’administrateur Cassandra initial** : mot de passe utilisé pour créer le cluster.
    * **Confirmer le mot de passe d’administrateur Cassandra** : entrez à nouveau votre mot de passe.
 
-    > [!NOTE]
-    > Durant la préversion publique, vous pouvez créer le cluster Managed Instance dans les régions suivantes : *USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, Europe Nord, Europe Ouest, Asie Sud-Est et Australie Est*.
+   > [!NOTE]
+   > Durant la préversion publique, vous pouvez créer le cluster Managed Instance dans les régions suivantes : *USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, Europe Nord, Europe Ouest, Asie Sud-Est et Australie Est*.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Remplissez le formulaire de création du cluster." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
@@ -63,14 +63,14 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
    :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Configurez les détails de la mise en réseau." lightbox="./media/create-cluster-portal/networking.png" border="true":::
 
-    > [!NOTE]
-    > Le déploiement d’une instance Azure Managed Instance pour Apache Cassandra nécessite un accès à Internet. Le déploiement échoue dans les environnements où l’accès à Internet est limité. Vérifiez que vous ne bloquez pas l’accès dans votre réseau virtuel aux services Azure essentiels qui sont nécessaires au bon fonctionnement de Managed Instance pour Apache Cassandra :
-    > - Stockage Azure
-    > - Azure KeyVault
-    > - Groupes de machines virtuelles identiques Azure
-    > - Surveillance Azure
-    > - Azure Active Directory
-    > - Sécurité Azure
+   > [!NOTE]
+   > Le déploiement d’une instance Azure Managed Instance pour Apache Cassandra nécessite un accès à Internet. Le déploiement échoue dans les environnements où l’accès à Internet est limité. Vérifiez que vous ne bloquez pas l’accès dans votre réseau virtuel aux services Azure essentiels qui sont nécessaires au bon fonctionnement de Managed Instance pour Apache Cassandra :
+   > - Stockage Azure
+   > - Azure KeyVault
+   > - Groupes de machines virtuelles identiques Azure
+   > - Surveillance Azure
+   > - Azure Active Directory
+   > - Sécurité Azure
 
 1. Si vous avez créé un réseau virtuel à l’étape précédente, passez à l’étape 8. Si vous avez sélectionné un réseau virtuel existant, avant de créer votre cluster, vous devez appliquer des autorisations spéciales au réseau virtuel et au sous-réseau. Pour cela, utilisez la commande `az role assignment create`, en remplaçant `<subscription ID>`, `<resource group name>` et `<VNet name>` par les valeurs appropriées :
 
@@ -83,11 +83,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 1. Maintenant que vous avez terminé la mise en réseau, cliquez sur **Vérifier + créer** > **Créer**
 
-    > [!NOTE]
-    > La création du cluster peut prendre jusqu’à 15 minutes.
+   > [!NOTE]
+   > La création du cluster peut prendre jusqu’à 15 minutes.
 
    :::image type="content" source="./media/create-cluster-portal/review-create.png" alt-text="Passez en revue le résumé pour créer le cluster." lightbox="./media/create-cluster-portal/review-create.png" border="true":::
-
 
 1. Une fois le déploiement terminé, vérifiez votre groupe de ressources pour voir le cluster Manage Instance nouvellement créé :
 
@@ -96,7 +95,6 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 1. Pour parcourir les nœuds du cluster, accédez au volet Réseau virtuel que vous avez utilisé pour créer le cluster et ouvrez le volet **Vue d’ensemble** pour les afficher :
 
    :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="Affichez les ressources du cluster." lightbox="./media/create-cluster-portal/resources.png" border="true":::
-
 
 ## <a name="connecting-to-your-cluster"></a>Connexion à votre cluster
 
@@ -119,7 +117,8 @@ export SSL_VALIDATE=false
 
 # Connect to CQLSH (replace <IP> with the private IP addresses of the nodes in your Datacenter):
 host=("<IP>" "<IP>" "<IP>")
-cqlsh $host 9042 -u cassandra -p cassandra --ssl
+initial_admin_password="Password provided when creating the cluster"
+cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 ```
 
 ## <a name="troubleshooting"></a>Dépannage

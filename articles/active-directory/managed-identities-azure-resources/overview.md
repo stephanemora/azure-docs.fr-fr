@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 08/26/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f79fc66b44de89ba93137b244e22890348ab1c4
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 91728bfee6b8e303de2e7199e703a8acaa5139d8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967200"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773585"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Que sont les identités managées pour les ressources Azure ?
 
@@ -75,7 +75,7 @@ Les ressources qui prennent en charge les identités managées affectées par le
 
 - Activer ou désactiver les identités managées au niveau de la ressource.
 - Utiliser des rôles RBAC pour [octroyer des autorisations](howto-assign-access-portal.md).
-- Afficher les opérations de création, lecture, mise à jour, suppression (CRUD, Create Read Update Delete) dans les [journaux d’activité Azure](../../azure-resource-manager/management/view-activity-logs.md).
+- Afficher les opérations de création, lecture, mise à jour, suppression (CRUD, Create Read Update Delete) dans les [journaux d’activité Azure](../../azure-monitor/essentials/activity-log.md).
 - Afficher l’activité de connexion dans les [journaux de connexion](../reports-monitoring/concept-sign-ins.md) Azure AD.
 
 Si vous choisissez une identité managée affectée par l’utilisateur à la place :
@@ -83,7 +83,7 @@ Si vous choisissez une identité managée affectée par l’utilisateur à la pl
 - Vous pouvez [créer, lire, mettre à jour et supprimer](how-to-manage-ua-identity-portal.md) les identités.
 - Vous pouvez utiliser les attributions de rôle RBAC pour [octroyer des autorisations](howto-assign-access-portal.md).
 - Les identités managées affectées par l’utilisateur peuvent être utilisées sur plusieurs ressources.
-- Les opérations CRUD peuvent être consultées dans les [journaux d’activité Azure](../../azure-resource-manager/management/view-activity-logs.md).
+- Les opérations CRUD peuvent être consultées dans les [journaux d’activité Azure](../../azure-monitor/essentials/activity-log.md).
 - Afficher l’activité de connexion dans les [journaux de connexion](../reports-monitoring/concept-sign-ins.md) Azure AD.
 
 Les opérations sur les identités managées peuvent être effectuées en utilisant un modèle Azure Resource Manager (ARM), le portail Azure, l’interface Azure CLI, PowerShell et des API REST.

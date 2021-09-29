@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 046b25164df92c609196a701d35f989aa397253b
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: af22c23184da4163deb07b2b9d5fa470bd35042d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825090"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760477"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mappage de schéma et de type de données dans l’activité de copie
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -68,7 +68,7 @@ Par exemple, pour copier des données de Salesforce vers Azure SQL Database et m
 
 2. Mappez les champs nécessaires et excluez/supprimez le reste.
 
-![Mapper d’un tableau à un autre](media/copy-activity-schema-and-type-mapping/map-tabular-to-tabular.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-tabular-to-tabular.png" alt-text="Mapper d’un tableau à un autre":::
 
 Le même mappage peut être configuré comme suit dans la charge utile de l’activité de copie (voir `translator`) :
 
@@ -187,11 +187,11 @@ Vous pouvez définir un mappage de ce type sur l’interface utilisateur de cré
 > [!NOTE]
 > Pour les enregistrements où le tableau marqué comme référence de collection est vide alors que la case est cochée, l’enregistrement entier est ignoré.
 
-![Mapper hiérarchiquement sous forme de tableau à l’aide de l’interface utilisateur](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png" alt-text="Mapper hiérarchiquement sous forme de tableau à l’aide de l’interface utilisateur":::
 
 Vous pouvez également basculer vers **Éditeur avancé**. Dans ce cas, vous pouvez afficher et modifier directement les chemins JSON des champs. Si vous choisissez d’ajouter un nouveau mappage dans cette vue, spécifiez le chemin JSON.
 
-![Mapper hiérarchiquement sous forme de tableau à l’aide de l’éditeur avancé](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png" alt-text="Mapper hiérarchiquement sous forme de tableau à l’aide de l’éditeur avancé":::
 
 Le même mappage peut être configuré comme suit dans la charge utile de l’activité de copie (voir `translator`) :
 

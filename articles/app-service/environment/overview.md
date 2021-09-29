@@ -4,15 +4,15 @@ description: Vue d’ensemble de l’environnement App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 08/05/2021
+ms.date: 09/07/2021
 ms.author: ccompy
 ms.custom: references_regions
-ms.openlocfilehash: 848b7ce830c91cffaaaa39ed2102255f0adc3b7f
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: e422f6316cce204a4b6ea152ff9be4489bb3e331
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535265"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767904"
 ---
 # <a name="app-service-environment-overview"></a>Vue d’ensemble d’App Service Environment 
 > [!NOTE]
@@ -101,29 +101,34 @@ ASEv3 est disponible dans les régions suivantes.
 |Régions ASEv3 d’hôte normales et dédiées|   Régions ASEv3 de zones de disponibilité|
 |---------------------------------------|------------------|
 |Australie Est|    Australie Est|
-|Sud-Australie Est|Brésil Sud|
+|Australie Sud-Est|Brésil Sud|
 |Brésil Sud   |Centre du Canada|
 |Centre du Canada|USA Centre|
 |Inde centrale  |USA Est|
 |USA Centre |USA Est 2|
 |Asie Est  | France Centre|
 |USA Est    | Allemagne Centre-Ouest|
-|USA Est 2| Europe Nord|
-|France Centre | États-Unis - partie centrale méridionale|
-|Allemagne Centre-Ouest   |   Asie Sud-Est|
+|USA Est 2| Japon Est|
+|France Centre | Europe Nord|
+|Allemagne Centre-Ouest   |   États-Unis - partie centrale méridionale|
+|Japon Est | Asie Sud-Est|
 |Centre de la Corée  | Sud du Royaume-Uni|
-|Europe Nord   | Europe Ouest|
-|Norvège Est    | USA Ouest 2 |
+|Centre-Nord des États-Unis   | Europe Ouest|
+|Europe Nord   | USA Ouest 2|
+|Norvège Est    | |
+|Afrique du Sud Nord | |
 |États-Unis - partie centrale méridionale   | |
 |Asie Sud-Est| |
 |Suisse Nord  | | 
+|Émirats arabes unis Nord| |   
 |Sud du Royaume-Uni| |    
 |Ouest du Royaume-Uni| |
 |Centre-USA Ouest    | | 
 |Europe Ouest    | |
 |USA Ouest    | | 
 |USA Ouest 2| |
+|USA Ouest 3| |
 
 <!--Links-->
-[reservedinstances]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances
+[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md
 [pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

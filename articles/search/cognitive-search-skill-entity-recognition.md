@@ -6,15 +6,15 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 6cf6bae3548a459a1d47dc0dcd55d28a290ca0f6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/24/2021
+ms.openlocfilehash: 0ff55bf38e88bf62b483cf70df89a17b9c5afb8d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563210"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210380"
 ---
-#    <a name="entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités
+# <a name="entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités
 
 La compétence **Reconnaissance d’entités** extrait les entités de différents types du texte. Cette compétence utilise les modèles Machine Learning fournis par [Analyse de texte](../cognitive-services/text-analytics/overview.md) dans Cognitive Services.
 

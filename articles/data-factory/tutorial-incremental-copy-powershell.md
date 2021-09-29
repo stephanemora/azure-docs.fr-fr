@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 02/18/2021
-ms.openlocfilehash: ecb83eb2b2cbdbbb91eb9b7dbf21c106ff0cab04
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9b1592f76917975e06e7d8a36cb618cbe3abadcf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637991"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757778"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Charger de façon incrémentielle les données depuis Azure SQL Database dans un stockage Blob Azure à l’aide de PowerShell
 
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 ## <a name="overview"></a>Vue d’ensemble
 Voici le diagramme général de la solution :
 
-![Chargement incrémentiel de données](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
+:::image type="content" source="media/tutorial-Incrementally-copy-powershell/incrementally-load.png" alt-text="Chargement incrémentiel de données":::
 
 Voici les étapes importantes à suivre pour créer cette solution :
 

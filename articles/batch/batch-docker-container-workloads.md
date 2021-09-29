@@ -4,12 +4,12 @@ description: Découvrez comment exécuter et mettre à l’échelle des applicat
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e8effa7daf0c30edaef9924cbefe35cdad1b20e1
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: c6922c48aedc3394d164367806bece43d5fb8a49
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564117"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744210"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -75,7 +75,7 @@ Ces images sont uniquement prises en charge dans le cadre d’une utilisation av
 
 Vous pouvez également créer des images personnalisées à partir de machines virtuelles exécutant Docker sur l’une des distributions Linux compatibles avec Batch. Si vous souhaitez fournir votre propre image Linux personnalisée, consultez les instructions dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md).
 
-Pour la prise en charge de Docker sur une image personnalisée, installez [Docker Community Edition (CE)](https://www.docker.com/community-edition) ou [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
+Pour la prise en charge de Docker sur une image personnalisée, installez [Docker Community Edition (CE)](https://www.docker.com/community-edition) ou [Docker Enterprise Edition (EE)](https://www.docker.com/blog/docker-enterprise-edition/).
 
 Remarques supplémentaires relatives à l’utilisation d’une image personnalisée Linux :
 

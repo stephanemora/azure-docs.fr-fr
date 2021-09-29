@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 77ff6024605c56f0ef74dd51936aed19efdb8a75
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 601dcaa3ea402f8f6b8b8c0664b8a47cfb5f4359
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532191"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743522"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copier les fichiers nouveaux et modifiés par LastModifiedDate avec Azure Data Factory
 
@@ -41,19 +41,19 @@ Le modèle définit six paramètres :
 
 1. Accédez au modèle **Copier les nouveaux fichiers par LastModifiedDate uniquement**. Créez une **nouvelle** connexion à votre magasin de stockage source. C’est à partir de ce magasin que seront copiés les fichiers de votre choix.
 
-    ![Créer une connexion à la source](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate1.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate1.png" alt-text="Créer une connexion à la source":::
     
 2. Créez une **nouvelle connexion** au magasin de destination. C’est à partir de ce magasin que seront copiés les fichiers de votre choix. 
 
-    ![Créer une connexion à la destination](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png" alt-text="Créer une connexion à la destination":::
 
 3. Sélectionnez **Utiliser ce modèle**.
 
-    ![Utiliser ce modèle](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png" alt-text="Utiliser ce modèle":::
     
 4. Le pipeline apparaît comme disponible dans le panneau, comme le montre l’exemple suivant :
 
-    ![Afficher le pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png" alt-text="Afficher le pipeline":::
 
 5. Sélectionnez **Déboguer**, entrez la valeur des **Paramètres** et sélectionnez **Terminer**.  Comme illustré ci-après, nous définissons les paramètres comme suit.
    - **FolderPath_Source** = sourcefolder
@@ -65,21 +65,21 @@ Le modèle définit six paramètres :
     
     L’exemple indique que les fichiers qui ont été modifiés au cours de la période (**2019-02-01T00:00:00Z** à **2019-03-01T00:00:00Z**) seront copiés à partir du chemin source **dossier_source/sous_dossier** vers le chemin de destination **dossier_destination/sous_dossier**.  Vous pouvez remplacer ces valeurs par vos propres paramètres.
 
-    ![Exécuter le pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png" alt-text="Exécuter le pipeline":::
 
 6. Vérifiez le résultat. Seuls les derniers fichiers modifiés dans l'intervalle de temps configuré ont été copiés dans le magasin de destination.
 
-    ![Vérifier le résultat](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png" alt-text="Vérifier le résultat":::
     
 7. Vous pouvez maintenant ajouter un déclencheur de fenêtres bascules pour automatiser ce pipeline et lui permettre de copier systématiquement les fichiers nouveaux et modifiés par LastModifiedDate et ce, de manière régulière.  Sélectionnez **Ajouter un déclencheur**, puis **Nouveau/Modifier**.
 
-    ![Capture d’écran mettant en surbrillance l’option de menu Nouveau/Modifier qui s’affiche quand vous sélectionnez Ajouter un déclencheur.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png" alt-text="Capture d’écran mettant en surbrillance l’option de menu Nouveau/Modifier qui s’affiche quand vous sélectionnez Ajouter un déclencheur.":::
     
 8. Dans la fenêtre **Ajouter des déclencheurs**, sélectionnez **+ Nouveau**.
 
 9. Sélectionnez **Fenêtre bascule** pour le type de déclencheur, définissez **Toutes les 15 minutes** en tant que périodicité (vous pouvez opter pour l’intervalle de temps de votre choix). Sélectionnez **Oui** pour la zone Activé, puis sélectionnez **OK**.
 
-    ![Créer le déclencheur](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png" alt-text="Créer le déclencheur"::: 
     
 10. Définissez la valeur correspondant aux **Paramètres d’exécution du déclencheur** comme suit, puis sélectionnez **Terminer**.
     - **FolderPath_Source** = **sourcefolder**.  Vous pouvez remplacer ce dossier par votre dossier dans le magasin de données sources.
@@ -89,11 +89,11 @@ Le modèle définit six paramètres :
     - **LastModified_From** =   **\@trigger().outputs.windowStartTime**.  Cette variable système issue du déclencheur détermine l'heure du dernier déclenchement du pipeline.
     - **LastModified_To** =  **\@trigger().outputs.windowEndTime**.  Cette variable système issue du déclencheur détermine l'heure du déclenchement du pipeline actuel.
     
-    ![Paramètres d'entrée](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png" alt-text="Paramètres d'entrée":::
     
 11. Sélectionnez **Publier tout**.
     
-    ![Publier tout](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate12.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate12.png" alt-text="Publier tout":::
 
 12. Créer des fichiers dans le dossier source du magasin source de données.  Vous attendez à présent que le pipeline se déclenche automatiquement, et seuls les nouveaux fichiers seront copiés dans le magasin de destination.
 
@@ -101,7 +101,7 @@ Le modèle définit six paramètres :
 
 14. Vérifiez le résultat. Votre pipeline sera déclenché automatiquement toutes les 15 minutes, et seuls les fichiers nouveaux et modifiés à partir du magasin source seront copiés vers le magasin de destination à chaque exécution du pipeline.
 
-    ![Capture d’écran montrant les résultats retournés lors du déclenchement du pipeline.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png" alt-text="Capture d’écran montrant les résultats retournés lors du déclenchement du pipeline.":::
     
 ## <a name="next-steps"></a>Étapes suivantes
 

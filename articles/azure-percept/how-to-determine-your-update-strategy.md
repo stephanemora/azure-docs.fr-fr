@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: c26de68bc30e8ebfa6de92c8e142e6ca69088b26
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: d5b3f793f6fdf7fe1182c700da8635df9b2ef9a0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223352"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820549"
 ---
 # <a name="determine-your-update-strategy-for-azure-percept-dk"></a>Déterminer votre stratégie de mise à jour pour Azure Percept DK
 
@@ -20,7 +20,7 @@ Pour maintenir votre logiciel Azure Percept DK à jour, Microsoft propose deux m
 
 La mise à jour via un câble USB effectue une nouvelle installation du kit de développement. Les configurations existantes et toutes les données utilisateur dans chaque partition sont effacées après le déploiement de la nouvelle image. Pour ce faire, connectez le kit de développement à un système hôte à l’aide d’un câble USB de type C. Le système hôte peut être un ordinateur Windows ou Linux.  Vous pouvez également utiliser cette méthode de mise à jour pour effectuer une réinitialisation aux paramètres d’usine. Pour ce faire, redéployez exactement la même version vers le kit de développement. Pour plus de détails sur la mise à jour via câble USB, consultez [Mettre à jour Azure Percept DK via une connexion par câble USB-C](./how-to-update-via-usb.md).
 
-La mise à jour OTA s’appuie sur le service Azure [Device Update pour IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-resources). Pour effectuer ce type de mise à jour, connectez le kit de développement au service Azure IoT Hub . Après une mise à jour OTA, les configurations et les données utilisateur sont conservées. Pour plus d’informations sur la mise à jour OTA, consultez [Mettre à jour votre Azure Percept DK par voie hertzienne (OTA)](./how-to-update-over-the-air.md).
+La mise à jour OTA s’appuie sur le service Azure [Device Update pour IoT Hub](../iot-hub-device-update/device-update-resources.md). Pour effectuer ce type de mise à jour, connectez le kit de développement au service Azure IoT Hub . Après une mise à jour OTA, les configurations et les données utilisateur sont conservées. Pour plus d’informations sur la mise à jour OTA, consultez [Mettre à jour votre Azure Percept DK par voie hertzienne (OTA)](./how-to-update-over-the-air.md).
 
 Vérifiez les avantages et inconvénients respectifs des mises à jour via câble USB et OTA, puis suivez les recommandations de Microsoft pour les différents scénarios.
 

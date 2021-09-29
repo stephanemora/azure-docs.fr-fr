@@ -3,20 +3,20 @@ title: Formation avec MLflow Projects
 titleSuffix: Azure Machine Learning
 description: Configurer MLflow avec Azure Machine Learning pour journaliser des métriques et des artefacts à partir de modèles ML
 services: machine-learning
-author: shivp950
-ms.author: shipatel
+author: cjgronlund
+ms.author: cgronlun
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.date: 06/16/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f9a298a311ac30b03be569a35aa59c0c6157601e
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 11358869e727948627e76c0f56c049b95c0abbb9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287602"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784778"
 ---
 # <a name="train-ml-models-with-mlflow-projects-and-azure-machine-learning"></a>Entraîner des modèles ML avec MLflow Projects et Azure Machine Learning
 

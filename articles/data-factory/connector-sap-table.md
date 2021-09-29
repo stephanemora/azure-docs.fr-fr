@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: b5e60883f4af77eabcd3a59334bbf31b63d5cc49
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: e4d77aa3d4456154149c5ad38b9fdc769953f8ad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316568"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764048"
 ---
 # <a name="copy-data-from-an-sap-table-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données à partir d’une table SAP à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -53,7 +53,7 @@ La version 7.01 ou ultérieure fait référence à la version SAP NetWeaver au 
 1. Utilisez l’interface graphique utilisateur SAP pour vous connecter au système SAP. 
 2. Accédez à **Système** -> **État**. 
 3. Vérifiez la version de SAP_BASIS et assurez-vous qu’elle est supérieure ou égale à 701.  
-      ![Vérifier SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+      :::image type="content" source="./media/connector-sap-table/sap-basis.png" alt-text="Vérifier SAP_BASIS":::
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -63,7 +63,7 @@ Pour utiliser ce connecteur de table SAP, vous devez effectuer les opérations s
 
 - Téléchargez la version 64 bits de [SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) à partir du site web de SAP et installez-la sur la machine dotée du runtime d’intégration auto-hébergé. Lors de l'installation, veillez à sélectionner l’option **Installer les assemblys dans le GAC** dans la fenêtre des **étapes de configuration facultatives**.
 
-  ![Installer SAP Connector pour .NET](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
+  :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Installer SAP Connector pour .NET":::
 
 - L’utilisateur SAP utilisé dans le connecteur de table SAP doit disposer des autorisations suivantes :
 
@@ -82,7 +82,7 @@ Utilisez les étapes suivantes pour créer un service lié à une table SAP dans
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -331,7 +331,7 @@ Actuellement, le connecteur de table SAP ne prend en charge qu’une seule tabl
 
 Voici un exemple :
 
-![Jointure de tables SAP](./media/connector-sap-table/sap-table-join.png) 
+:::image type="content" source="./media/connector-sap-table/sap-table-join.png" alt-text="Jointure de tables SAP"::: 
 
 >[!TIP]
 >Vous pouvez également envisager d’agréger les données jointes dans AFFICHAGE, qui est pris en charge par le connecteur de table SAP.
@@ -345,13 +345,13 @@ Pour vous aider rapidement, voici quelques conditions requises pour prendre en m
 
 - Définition :
 
-    ![Définition](./media/connector-sap-table/custom-function-module-definition.png) 
+    :::image type="content" source="./media/connector-sap-table/custom-function-module-definition.png" alt-text="Définition"::: 
 
 - Exportez les données dans l’une des tables ci-dessous :
 
-    ![Table d’exportation 1](./media/connector-sap-table/export-table-1.png) 
+    :::image type="content" source="./media/connector-sap-table/export-table-1.png" alt-text="Table d’exportation 1"::: 
 
-    ![Table d’exportation 2](./media/connector-sap-table/export-table-2.png)
+    :::image type="content" source="./media/connector-sap-table/export-table-2.png" alt-text="Table d’exportation 2":::
  
 Vous trouverez ci-dessous des illustrations du fonctionnement du connecteur de table SAP avec le module de fonction personnalisé :
 
@@ -367,11 +367,11 @@ Vous trouverez ci-dessous des illustrations du fonctionnement du connecteur de t
 
     1. Analysez la valeur de la table Fields pour récupérer les schémas.
 
-        ![Analyser les valeurs dans Fields](./media/connector-sap-table/parse-values.png)
+        :::image type="content" source="./media/connector-sap-table/parse-values.png" alt-text="Analyser les valeurs dans Fields":::
 
     1. Obtenez les valeurs de la table de sortie pour voir quelle table contient ces valeurs.
 
-        ![Obtenir les valeurs de la table de sortie](./media/connector-sap-table/get-values.png)
+        :::image type="content" source="./media/connector-sap-table/get-values.png" alt-text="Obtenir les valeurs de la table de sortie":::
 
     1. Récupérez les valeurs dans la table OUT_TABLE, analysez les données, puis écrivez-les dans le récepteur.
 

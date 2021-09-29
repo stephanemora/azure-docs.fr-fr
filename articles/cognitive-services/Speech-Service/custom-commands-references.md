@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 1040c05b081c6edb181d349d00468d1ba0aac3a7
-ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
+ms.openlocfilehash: 85c51be3b8434aadd254b0274e22b756c667832f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535361"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750778"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Concepts et définitions de commandes personnalisées
 
@@ -66,7 +66,7 @@ Les commandes personnalisées prennent en charge les types de paramètres suivan
 * Température
 * Url
 
-Chaque paramètre régional prend en charge le type de paramètre « String », mais la disponibilité de tous les autres types diffère selon les paramètres régionaux. Les commandes personnalisées utilisant la résolution d’entité prédéfinie de LUIS, la disponibilité d’un type de paramètre dans des paramètres régionaux dépend de la prise en charge des entités prédéfinies de LUIS dans ces paramètres régionaux. Vous trouverez [plus d’informations sur la prise en charge des entités prédéfinies par les paramètres régionaux de Luis](/azure/cognitive-services/luis/luis-reference-prebuilt-entities).
+Chaque paramètre régional prend en charge le type de paramètre « String », mais la disponibilité de tous les autres types diffère selon les paramètres régionaux. Les commandes personnalisées utilisant la résolution d’entité prédéfinie de LUIS, la disponibilité d’un type de paramètre dans des paramètres régionaux dépend de la prise en charge des entités prédéfinies de LUIS dans ces paramètres régionaux. Vous trouverez [plus d’informations sur la prise en charge des entités prédéfinies par les paramètres régionaux de Luis](../luis/luis-reference-prebuilt-entities.md).
 
 Certains types de paramètres comme Nombre, Chaîne et DateHeure prennent en charge la configuration de valeurs par défaut, que vous pouvez configurer à partir du portail.
 

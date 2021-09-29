@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: b95286169df2960d8e7297a493354b8f01e2f667
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 1bde9622dd649d24de26f38a282d075a46bbaee2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029690"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773756"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-ad-multi-factor-authentication"></a>Résoudre les messages d'erreur liés à l'extension NPS d'Azure AD Multi-Factor Authentication
 
@@ -51,14 +51,14 @@ Si vous rencontrez des erreurs au niveau de l'extension NPS d'Azure AD Multi-Fac
 | Code d'erreur | Message d’erreur | Étapes de dépannage |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Le locataire de l’appelant n’a pas les autorisations d’accès pour l’authentification de l’utilisateur | Vérifiez que le domaine du locataire et le domaine du nom d’utilisateur principal sont identiques. Par exemple, assurez-vous que user@contoso.com essaie de s’authentifier sur le locataire Contoso. Le nom d’utilisateur principal représente un utilisateur valide du locataire dans Azure. |
-| **AuthenticationMethodNotConfigured** | La méthode d’authentification spécifiée n’est pas configurée pour l’utilisateur | Invitez l’utilisateur à ajouter ou vérifier ses méthodes de vérification en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
+| **AuthenticationMethodNotConfigured** | La méthode d’authentification spécifiée n’est pas configurée pour l’utilisateur | Invitez l’utilisateur à ajouter ou vérifier ses méthodes de vérification en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7). |
 | **AuthenticationMethodNotSupported** | La méthode d’authentification spécifiée n’est pas prise en charge. | Effectuez la collecte de tous les journaux d’activité incluant cette erreur et [contactez le support technique](#contact-microsoft-support). Lorsque vous contactez le support technique, indiquez le nom d’utilisateur et la méthode de vérification secondaire ayant déclenché l’erreur. |
-| **BecAccessDenied** | L’appel de MSODS Bec a retourné une erreur de type accès refusé. Le nom d’utilisateur n’est probablement pas défini dans le locataire | L’utilisateur est présent dans le répertoire Active Directory local, mais il n’est pas synchronisé dans Azure AD par AD Connect. Ou bien, l’utilisateur est manquant pour le locataire. Ajoutez l’utilisateur dans Azure AD et invitez-le à ajouter ses méthodes de vérification en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
+| **BecAccessDenied** | L’appel de MSODS Bec a retourné une erreur de type accès refusé. Le nom d’utilisateur n’est probablement pas défini dans le locataire | L’utilisateur est présent dans le répertoire Active Directory local, mais il n’est pas synchronisé dans Azure AD par AD Connect. Ou bien, l’utilisateur est manquant pour le locataire. Ajoutez l’utilisateur dans Azure AD et invitez-le à ajouter ses méthodes de vérification en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7). |
 | **InvalidFormat** ou **StrongAuthenticationServiceInvalidParameter** | Le format du numéro de téléphone est inconnu | Demandez à l’utilisateur de corriger son numéro de téléphone de vérification. |
 | **InvalidSession** | La session spécifiée n’est pas valide ou a expiré | La session a duré plus de trois minutes. Vérifiez que l’utilisateur entre le code de vérification ou répond à la notification de l’application dans les trois minutes suivant l’initiation de la demande d’authentification. Si le problème persiste, vérifiez qu'il n'y a aucune latence réseau entre le client, le serveur NAS, le serveur NPS et le point de terminaison Azure AD MFA.  |
-| **NoDefaultAuthenticationMethodIsConfigured** | Aucune méthode d’authentification par défaut n’est configurée pour l’utilisateur | Invitez l’utilisateur à ajouter ou vérifier ses méthodes de vérification en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md). Vérifiez que l’utilisateur a choisi une méthode d’authentification par défaut et configuré cette méthode pour son compte. |
+| **NoDefaultAuthenticationMethodIsConfigured** | Aucune méthode d’authentification par défaut n’est configurée pour l’utilisateur | Invitez l’utilisateur à ajouter ou vérifier ses méthodes de vérification en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7). Vérifiez que l’utilisateur a choisi une méthode d’authentification par défaut et configuré cette méthode pour son compte. |
 | **OathCodePinIncorrect** | Code et PIN saisis erronés. | Cette erreur ne devrait pas survenir avec l’extension NPS. Si l’utilisateur la rencontre, [contactez le support technique](#contact-microsoft-support) pour obtenir de l’aide. |
-| **ProofDataNotFound** | Les données de vérification ne sont pas configurées pour la méthode d’authentification sélectionnée. | Invitez l’utilisateur à essayer une nouvelle méthode de vérification ou à en ajouter d’autres en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md). Si l’erreur persiste après que vous avez confirmé la bonne configuration de sa méthode de vérification, [contactez le support technique](#contact-microsoft-support). |
+| **ProofDataNotFound** | Les données de vérification ne sont pas configurées pour la méthode d’authentification sélectionnée. | Invitez l’utilisateur à essayer une nouvelle méthode de vérification ou à en ajouter d’autres en suivant les instructions de la page [Gérer les paramètres de la vérification en deux étapes](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7). Si l’erreur persiste après que vous avez confirmé la bonne configuration de sa méthode de vérification, [contactez le support technique](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Code et PIN saisis erronés. (OneWaySMS) | Cette erreur ne devrait pas survenir avec l’extension NPS. Si l’utilisateur la rencontre, [contactez le support technique](#contact-microsoft-support) pour obtenir de l’aide. |
 | **TenantIsBlocked** | Locataire bloqué | [Contactez le support technique](#contact-microsoft-support) et indiquez l’*ID locataire* figurant dans la page de propriétés Azure AD du Portail Azure. |
 | **UserNotFound** | L’utilisateur spécifié est introuvable | Le locataire n’apparaît plus comme étant actif dans Azure AD. Vérifiez que votre abonnement est actif et que vous disposez des applications internes requises. Assurez-vous également que le locataire spécifié dans l’objet du certificat est le locataire attendu et que le certificat est toujours valide et enregistré sous le principal de service. |
@@ -95,7 +95,7 @@ Si vous rencontrez l’une de ces erreurs, nous vous recommandons de [contacter 
 
 ### <a name="troubleshoot-user-accounts"></a>Résoudre les problèmes relatifs aux comptes utilisateur
 
-Si vos utilisateurs ont [des difficultés avec la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-troubleshoot.md), aidez-les à diagnostiquer eux-mêmes les problèmes.
+Si vos utilisateurs ont [des difficultés avec la vérification en deux étapes](https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5), aidez-les à diagnostiquer eux-mêmes les problèmes.
 
 ### <a name="health-check-script"></a>Script de vérification d’intégrité
 

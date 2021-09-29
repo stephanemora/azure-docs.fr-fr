@@ -8,17 +8,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/27/2021
-ms.openlocfilehash: ef2db7e11666c104215b29f298882cfe77631310
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.date: 09/09/2021
+ms.openlocfilehash: a95bfe8ed978a0d67381d0be1f15038c847ab36b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525490"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061216"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Une transformation de la source configure votre source de données pour le flux de données. Lorsque vous concevez des flux de données, la première étape consiste toujours à configurer une transformation de source. Pour ajouter une source, sélectionnez **Ajouter une source** dans le canevas de flux de données.
 
@@ -36,7 +38,7 @@ Les jeux de données inlined sont recommandés lors de l’utilisation de schém
 
 Pour utiliser un jeu de données inlined, sélectionnez le format de votre choix à l’aide du sélecteur **Type de source**. Au lieu de sélectionner un jeu de données source, sélectionnez le service lié auquel vous souhaitez vous connecter.
 
-![Screenshot that shows Inline selected.](media/data-flow/inline-selector.png "Capture d’écran montrant l’option Inlined sélectionnée.")
+:::image type="content" source="media/data-flow/inline-selector.png" alt-text="Screenshot that shows Inline selected.":::
 
 ## <a name="workspace-db-synapse-workspaces-only"></a>Workspace DB (espaces de travail Synapse uniquement)
 
@@ -45,7 +47,7 @@ Dans les espaces de travail Azure Synapse, une option supplémentaire, ```Worksp
 > [!NOTE]
 > Le connecteur Workspace DB d’Azure Synapse est actuellement en préversion publique et peut uniquement s’utiliser avec des bases de données Spark Lake pour l’instant.
 
-![Capture d’écran montrant Workspace DB sélectionné.](media/data-flow/syms-source.png "Capture d’écran montrant Workspace DB sélectionné.")
+:::image type="content" source="media/data-flow/syms-source.png" alt-text="Capture d’écran montrant Workspace DB sélectionné.":::
 
 ##  <a name="supported-source-types"></a><a name="supported-sources"></a> Types de sources pris en charge
 
@@ -76,7 +78,7 @@ Une fois que vous avez ajouté une source, configurez-la dans l’onglet **Param
 
 Les valeurs de développement des paramètres de jeux de données peuvent être configurées dans les [paramètres de débogage](concepts-data-flow-debug-mode.md). (Le mode débogage doit être activé.)
 
-![Capture d’écran montrant l’onglet Paramètres de la source](media/data-flow/source1.png "Capture d’écran montrant l’onglet Paramètres de la source")
+:::image type="content" source="media/data-flow/source1.png" alt-text="Capture d’écran montrant l’onglet Paramètres de la source":::
 
 **Nom du flux de sortie** : nom de la transformation de source.
 
@@ -109,7 +111,7 @@ L’onglet **Options de la source** contient des paramètres propres au connecte
 
 Comme les schémas des jeux de données, la projection d’une source définit les colonnes, les types et les formats des données sources. Pour la plupart des types de jeu de données, tels que SQL et Parquet, la projection dans une source est corrigée pour refléter le schéma défini dans un jeu de données. Quand vos fichiers sources ne sont pas fortement typés (par exemple, des fichiers .csv plats et non des fichiers Parquet), vous pouvez définir les types de données pour chaque champ de la transformation de source.
 
-![Screenshot that shows settings on the Projection tab.](media/data-flow/source3.png "Capture d’écran montrant les paramètres sous l’onglet Projection.")
+:::image type="content" source="media/data-flow/source3.png" alt-text="Screenshot that shows settings on the Projection tab.":::
 
 Si votre fichier texte ne comporte aucun schéma défini, sélectionnez **Détecter le type de données** afin que le service échantillonne et déduise les types de données. Sélectionnez **Définir le format par défaut** pour détecter automatiquement les formats de données par défaut.
 
@@ -129,7 +131,7 @@ L’onglet **Optimiser** permet de modifier les informations de partition à cha
 
 Si vous lisez des données à partir d’une source Azure SQL Database, c’est probablement le partitionnement **Source** personnalisé qui permettra de lire les données le plus rapidement. Le service lit les requêtes volumineuses en établissant des connexions avec votre base de données en parallèle. Ce partitionnement source peut être effectué sur une colonne ou à l’aide d’une requête.
 
-![Screenshot that shows the Source partition settings.](media/data-flow/sourcepart3.png "Capture d’écran montrant les paramètres de partitionnement Source.")
+:::image type="content" source="media/data-flow/sourcepart3.png" alt-text="Screenshot that shows the Source partition settings.":::
 
 Pour plus d’informations sur l’optimisation dans le mappage de flux de données, consultez la section [Onglet Optimiser](concepts-data-flow-overview.md#optimize).
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: v-erkel
-ms.openlocfilehash: 70b1dc3e2de6c70a6b59aa739a9bed254295a4f9
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 090003e25c2d8ca13be27bf94bc12b4941cda798
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293432"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814643"
 ---
 # <a name="use-nfs-mounted-blob-storage-with-azure-hpc-cache"></a>Utiliser le stockage Blob monté sur NFS avec Azure HPC Cache
 
@@ -38,7 +38,7 @@ Ce paramètre persiste pendant la durée de vie du conteneur, même si vous le s
 ## <a name="pre-load-data-with-nfs-protocol"></a>Précharger des données avec le protocole NFS
 <!-- cross-referenced from hpc-cache-ingest.md and here -->
 
-Sur un conteneur d’objets blob compatibles NFS, *un fichier ne peut être modifié que par le protocole utilisé lors de sa création*. Autrement dit, si vous utilisez l’API REST Azure pour remplir un conteneur, vous ne pouvez pas utiliser NFS pour mettre à jour ces fichiers. Étant donné qu’Azure HPC Cache utilise uniquement NFS, il ne peut pas modifier les fichiers qui ont été créés avec l’API REST Azure. (En savoir plus sur les [problèmes connus avec les API du stockage d’objets blob](../storage/blobs/network-file-system-protocol-known-issues.md#blob-storage-apis))
+Sur un conteneur d’objets blob compatibles NFS, *un fichier ne peut être modifié que par le protocole utilisé lors de sa création*. Autrement dit, si vous utilisez l’API REST Azure pour remplir un conteneur, vous ne pouvez pas utiliser NFS pour mettre à jour ces fichiers. Étant donné qu’Azure HPC Cache utilise uniquement NFS, il ne peut pas modifier les fichiers qui ont été créés avec l’API REST Azure. (En savoir plus sur les [problèmes connus avec les API du stockage d’objets blob](../storage/blobs/data-lake-storage-known-issues.md#blob-storage-apis))
 
 Ce n’est pas un problème pour le cache si votre conteneur est vide ou si les fichiers ont été créés à l’aide de NFS.
 

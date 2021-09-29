@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 6d199eb684802de948451bd376feda4a254aa06f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 2ca004902a6d574348846ba2ee4829a099db8b39
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884207"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094649"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Utiliser des packages Python privés avec Azure Machine Learning
 
@@ -91,7 +91,7 @@ L'environnement est maintenant prêt à être utilisé à des fins d'apprentissa
 
 Vous pouvez utiliser des packages à partir d'un compte de stockage Azure du pare-feu de votre organisation. Un tel compte de stockage peut contenir un ensemble organisé de packages ou un miroir interne de packages publiquement disponibles.
 
-Pour configurer ce type de stockage privé, consultez [Sécuriser un espace de travail Azure Machine Learning et les ressources associées](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints). Vous devez également [placer Azure Container Registry (ACR) derrière le réseau virtuel](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+Pour configurer ce type de stockage privé, consultez [Sécuriser un espace de travail Azure Machine Learning et les ressources associées](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). Vous devez également [placer Azure Container Registry (ACR) derrière le réseau virtuel](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 > [!IMPORTANT]
 > Vous devez accomplir cette étape pour pouvoir effectuer l’apprentissage ou le déploiement de modèles à l’aide du référentiel de packages privé.

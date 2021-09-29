@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: f75d3872d0125e210edcd33ca85978901468bfe8
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 77ec7a7dad4b215ae22bf3766172f1e92e932593
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563825"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736203"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -75,7 +75,7 @@ En règle générale, les offres SaaS conviennent parfaitement si vos clients ve
 Les offres de machines virtuelles et Azure Application sont adaptées si vous souhaitez que les clients déploient, gèrent et exécutent votre application ou service empaqueté (comme une image de machine virtuelle et/ou d’autres services Azure dans le modèle ARM) dans leur propre infrastructure cloud.
 
 [![Affiche un organigramme pour déterminer le type d’offre et le plan tarifaire.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
-&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Contactez [Microsoft Office](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) ou le [support](/azure/marketplace/support).<br>
+&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Contactez [Microsoft Office](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) ou le [support](./support.md).<br>
 &nbsp;&nbsp;&nbsp;<sup>(2)</sup> Les images des offres de machines virtuelles peuvent être incluses dans l’offre Azure App pour plus de flexibilité tarifaire.<br>
 &nbsp;&nbsp;&nbsp;<sup>(3)</sup> Les clients s’acquittent des coûts liés à l’infrastructure, car les services Azure sont déployés sur le locataire client pour les offres de machines virtuelles et Azure App.
 
@@ -207,4 +207,4 @@ Les plans privés vous permettent de fournir des tarifs supérieurs ou inférieu
 
 - Passez en revue les modèles de publication par magasin en ligne pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.
 - [Guide de publication par type d’offre](publisher-guide-by-offer-type.md).
-- [Plans et tarification pour les offres de la place de marché commerciale](/azure/marketplace/plans-pricing)
+- [Plans et tarification pour les offres de la place de marché commerciale](./plans-pricing.md)

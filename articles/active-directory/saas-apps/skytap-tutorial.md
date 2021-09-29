@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 4afda5105cf00faeb818eef71f9a645ce0ff8bf7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 7eec34cc0aed74bd4ef49fab7cc2e6d910675103
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557550"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124752463"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-single-sign-on-for-skytap"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Single Sign-on for Skytap
 
@@ -143,7 +143,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** sur le Portail Azure. La connexion est alors établie automatiquement avec l’instance de Single Sign-on for Skytap pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si le mode Fournisseur de services est configuré, la page de connexion à l’application (permettant de lancer le flux de connexion) s’ouvre quand vous cliquez sur la vignette Single Sign-on for Skytap dans Mes applications. Avec le mode Fournisseur d’identité, la connexion est établie automatiquement avec l’instance de Single Sign-on for Skytap pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si le mode Fournisseur de services est configuré, la page de connexion à l’application (permettant de lancer le flux de connexion) s’ouvre quand vous cliquez sur la vignette Single Sign-on for Skytap dans Mes applications. Avec le mode Fournisseur d’identité, la connexion est établie automatiquement avec l’instance de Single Sign-on for Skytap pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

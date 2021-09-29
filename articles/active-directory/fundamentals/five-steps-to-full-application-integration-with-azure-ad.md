@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: daf339a1ba79212f82a853a209068c97c13b29f8
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 7c3e4441289b2b17cf772df73f3c53caa465813e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966009"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732580"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinq étapes pour l’intégration de toutes vos applications à Azure AD
 
@@ -74,7 +74,7 @@ Un bon point de départ consiste à évaluer votre utilisation des Services de f
 
 ![Le schéma montre les applications locales, les applications métier, les applications SaaS et, via Azure AD, les applications Office 365 dont les connexions dans Active Directory et AD FS sont représentées en pointillés.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 
-Vous pouvez mettre à niveau cette configuration en [remplaçant ADFS par Azure AD comme centre](../manage-apps/migrate-adfs-apps-to-azure.md) de votre solution de gestion des identités. Cela permet d’ouvrir une session pour chaque application à laquelle vos employés veulent accéder, et permet aux employés de trouver facilement les applications métier dont ils ont besoin via le portail [MyApps](../user-help/my-apps-portal-end-user-access.md), en plus des autres avantages mentionnés ci-dessus.
+Vous pouvez mettre à niveau cette configuration en [remplaçant ADFS par Azure AD comme centre](../manage-apps/migrate-adfs-apps-to-azure.md) de votre solution de gestion des identités. Cela permet d’ouvrir une session pour chaque application à laquelle vos employés veulent accéder, et permet aux employés de trouver facilement les applications métier dont ils ont besoin via le portail [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510), en plus des autres avantages mentionnés ci-dessus.
 
 ![Le schéma montre les applications locales via Active Directory et AD FS, les applications métier, les applications SaaS et Office 365 dont les connexions dans Azure Active Directory sont représentées en pointillés.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-2.png)
 

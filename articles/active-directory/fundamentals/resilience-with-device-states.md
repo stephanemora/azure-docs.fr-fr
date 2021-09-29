@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d476be7a417cfc31cca76d3409074aaaa281a56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d9c22974ec3452df9597999eb62569a08eb85dc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724608"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754403"
 ---
 # <a name="build-resilience-with-device-states"></a>Renforcer la résilience grâce aux états des appareils
 
@@ -42,7 +42,7 @@ Lorsqu’un PRT est utilisé pour demander l’accès à une application, ses re
 
 * Normalisez l’accès des utilisateurs au navigateur pour utiliser soit [Microsoft Edge](/deployedge/microsoft-edge-security-identity), soit Google Chrome avec les [extensions](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) [prises en charge](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) qui permettent une authentification unique transparente pour les applications web utilisant le PRT.
 
-* Pour les appareils iOS et Android personnels ou appartenant à l’entreprise, déployez l’[application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Outre les capacités de connexion par authentification multifacteur et sans mot de passe, l’application Microsoft Authenticator active l’authentification unique sur une application native via [l’authentification répartie](../develop/msal-android-single-sign-on.md) avec moins d’invites d’authentification pour les utilisateurs finaux.
+* Pour les appareils iOS et Android personnels ou appartenant à l’entreprise, déployez l’[application Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc). Outre les capacités de connexion par authentification multifacteur et sans mot de passe, l’application Microsoft Authenticator active l’authentification unique sur une application native via [l’authentification répartie](../develop/msal-android-single-sign-on.md) avec moins d’invites d’authentification pour les utilisateurs finaux.
 
 * Pour les appareils iOS et Android personnels ou appartenant à l’entreprise, utilisez la [gestion des applications mobiles](/mem/intune/apps/app-management) pour accéder en toute sécurité aux ressources de l’entreprise avec moins de demandes d’authentification. 
 

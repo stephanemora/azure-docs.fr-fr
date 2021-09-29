@@ -14,12 +14,12 @@ metadata:
   ms.author: ajburnle
   ms.custom: it-pro, seodec18
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: a60d4a7f59888c7bd19156e567313a0110651753
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.openlocfilehash: 3eda49497f84c26829a626a243f19c7ac94e3b22
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111954987"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124732650"
 title: Questions fréquentes (FAQ) sur Azure Active Directory
 summary: >
   Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -97,7 +97,7 @@ sections:
       Oui, Azure AD fournit le [Panneau d’accès Azure AD](https://myapps.microsoft.com) pour l’accès aux applications en libre-service. Si vous êtes un client Microsoft 365, vous trouverez la plupart des mêmes fonctionnalités dans le [portail Office 365](https://portal.office.com).
 
 
-      Pour plus d’informations, consultez [Présentation du volet d’accès](../user-help/my-apps-portal-end-user-access.md).
+      Pour plus d’informations, consultez [Présentation du volet d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
   - question: >
       Azure AD m’aide-t-il à gérer mon infrastructure locale ?
     answer: "Oui. L’édition Azure AD Premium offre l’outil Azure AD Connect Health. Azure AD Connect Health vous permet de surveiller et d’analyser votre infrastructure d’identité locale et les services de synchronisation.  \n\nPour plus d’informations, consultez [Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud](../hybrid/whatis-azure-ad-connect.md).  \n"

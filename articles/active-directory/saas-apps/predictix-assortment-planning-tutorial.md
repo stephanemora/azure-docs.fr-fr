@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: adf00d24c05deab149edb95b8087b8522dbda99a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93b3305a08f7440a7ac79f349caea192a637af3e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92515387"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutoriel : Intégration d’Azure Active Directory à Predictix Assortment Planning
 
@@ -196,7 +196,7 @@ Ensuite, vous devez créer un utilisateur nommé Britta Simon dans Predictix Ass
 
 Vous devez maintenant tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous sélectionnez la vignette Predictix Assortment Planning dans le volet d’accès, vous devez être connecté automatiquement à l’instance Predictix Assortment Planning pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Accéder aux applications du portail Mes applications et les utiliser](../user-help/my-apps-portal-end-user-access.md).
+Lorsque vous sélectionnez la vignette Predictix Assortment Planning dans le volet d’accès, vous devez être connecté automatiquement à l’instance Predictix Assortment Planning pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Accéder aux applications du portail Mes applications et les utiliser](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

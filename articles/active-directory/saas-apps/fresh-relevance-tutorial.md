@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 4c22f6dc8aee4fc5ac27bf8768b26aa5bc3f76e9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fdcc22b4869f4c16b34885383897f81a832baa5f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785256"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124790944"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fresh-relevance"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Fresh Relevance
 
@@ -167,7 +167,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure. Vous devez être connecté automatiquement à l’instance de Fresh Relevance pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Fresh Relevance dans Mes applications, vous devez être connecté automatiquement à l’application Fresh Relevance pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Fresh Relevance dans Mes applications, vous devez être connecté automatiquement à l’application Fresh Relevance pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

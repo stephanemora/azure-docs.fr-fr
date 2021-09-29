@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: abnarain
-ms.openlocfilehash: bab07b19efc1978836d1f14463392f8de2bd6e92
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: c9e6c4c0475842d9eb8c674464ebcf997d98b548
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864550"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749439"
 ---
 # <a name="troubleshoot-azure-data-factory-and-synapse-pipelines"></a>Résoudre les problèmes liés aux pipelines Azure Data Factory et Synapse
 
@@ -566,7 +566,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Recommandation** : Corrigez les informations d’identification et redéployez le service lié. Vérifiez avant tout que les informations d’identification fonctionnent sur HDInsight en ouvrant l’URI du cluster sur n’importe quel navigateur et essayez de vous connecter. Si elles ne fonctionnent pas, vous pouvez les réinitialiser à partir du portail Azure.
 
-   Pour le cluster ESP, vous pouvez [réinitialiser le mot de passe via la réinitialisation de mot de passe en libre-service](../active-directory/user-help/active-directory-passwords-update-your-own-password.md).
+   Pour le cluster ESP, vous pouvez [réinitialiser le mot de passe via la réinitialisation de mot de passe en libre-service](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 
  </br>
 
@@ -953,7 +953,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Résolution** : Vous pouvez accéder au chemin **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** et ouvrir DriverConfiguration64.exe pour modifier le paramètre.
 
-    ![Décocher Utiliser le magasin de confiance système](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+    :::image type="content" source="./media/connector-troubleshoot-guide/system-trust-store-setting.png" alt-text="Décocher Utiliser le magasin de confiance système":::
 
 ## <a name="web-activity"></a>Activité web
 
@@ -982,7 +982,7 @@ Pour utiliser **Fiddler** en vue de créer une session HTTP de l’application 
 
    1. Dans l’onglet HTTPS, sélectionnez **Capturer les HTTPS CONNECT** et **Déchiffrer le trafic HTTPS**.
 
-      ![Options Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
+      :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Options Fiddler":::
 
 1. Si votre application utilise des certificats TLS/SSL, ajoutez le certificat Fiddler à votre appareil.
 

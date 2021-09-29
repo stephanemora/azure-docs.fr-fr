@@ -8,12 +8,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/04/2021
-ms.openlocfilehash: dff3972bfc9da83312a1fdf4fc7c6169f932c410
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 246b1988a7a632e9c3b332f7adbdf908f1084457
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641305"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798253"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Transformer des données dans Delta Lake à l’aide de flux de données de mappage
 
@@ -56,24 +56,24 @@ Au cours de cette étape, vous allez créer un pipeline qui contient une activit
 
 1. Dans la page d’accueil, sélectionnez **Orchestrer**.
 
-   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la page d’accueil ADF.":::
 
 1. Dans l’onglet **Général** du pipeline, entrez **DeltaLake** pour le **nom** du pipeline.
 1. Dans le volet **Activités**, développez la section **Déplacer et transformer**. Faites glisser et déposez l’activité **Flux de données** à partir du volet vers le canevas du pipeline.
 
-    ![Capture d’écran montrant le canevas du pipeline dans lequel vous pouvez supprimer l’activité Flux de données.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Capture d’écran montrant le canevas du pipeline dans lequel vous pouvez supprimer l’activité Flux de données.":::
 1. Dans la fenêtre contextuelle **Ajout de flux de données**, sélectionnez **Créer un flux de données**, puis nommez votre flux de données **DeltaLake**. Une fois que vous avez fini, cliquez sur Terminer.
 
-    ![Capture d’écran montrant où nommer votre flux de données lorsque vous en créez un.](media/tutorial-data-flow/activity2.png)
+    :::image type="content" source="media/tutorial-data-flow/activity2.png" alt-text="Capture d’écran montrant où nommer votre flux de données lorsque vous en créez un.":::
 1. Dans la barre supérieure du canevas du pipeline, faites glisser le curseur **Débogage du flux de données** pour l’activer. Le mode de débogage permet un test interactif de la logique de transformation sur un cluster Spark activé. Le préchauffage des clusters de flux de données nécessite 5 à 7 minutes et il est recommandé aux utilisateurs d’activer d’abord le débogage s’ils envisagent d’effectuer un développement de flux de données. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).
 
-    ![Capture d’écran montrant l’emplacement du curseur de débogage du flux de données.](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="Capture d’écran montrant l’emplacement du curseur de débogage du flux de données.":::
 
-## <a name="build-transformation-logic-in-the-data-flow-canvas&quot;></a>Générer une logique de transformation dans le canevas de flux de données
+## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Générer une logique de transformation dans le canevas de flux de données
 
 Vous allez générer deux flux de données dans ce tutoriel. Le premier flux de données est une source simple à réceptionner pour générer un nouveau Delta Lake à partir du fichier CSV des films ci-dessus. Enfin, vous allez créer le modèle de flux ci-dessous pour mettre à jour les données dans Delta Lake.
 
-![Flux final](media/data-flow/data-flow-tutorial-6.png &quot;Flux final")
+:::image type="content" source="media/data-flow/data-flow-tutorial-6.png" alt-text="Flux final":::
 
 ### <a name="tutorial-objectives"></a>Objectifs du tutoriel
 
@@ -95,7 +95,7 @@ Vous allez générer deux flux de données dans ce tutoriel. Le premier flux de 
 1. Ajoutez une transformation du récepteur.
 1. Delta est un type de jeu de données inlined. Vous devez pointer vers votre compte de stockage ADLS Gen2.
    
-   ![Inline dataset](media/data-flow/data-flow-tutorial-5.png "Jeu de données inlined")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-5.png" alt-text="Inline dataset":::
 
 1. Choisissez un nom de dossier dans votre conteneur de stockage où vous souhaitez qu’ADF crée l’instance de Delta Lake.
 1. Revenez au concepteur de pipeline et cliquez sur Déboguer pour exécuter le pipeline en mode débogage avec uniquement cette activité de flux de données sur le canevas. Vous générez ainsi votre nouvelle instance de Delta Lake dans ADLS Gen2.
@@ -107,16 +107,16 @@ Vous allez générer deux flux de données dans ce tutoriel. Le premier flux de 
 1. Dans cette même colonne dérivée, créez des films pour 2021 en prenant une année existante et en attribuant la valeur 2021 à l’année. Prenons l’année 1960.
 1. Voici à quoi ressembleront vos trois colonnes dérivées.
 
-   ![Colonne dérivée](media/data-flow/data-flow-tutorial-2.png "Colonne dérivée")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-2.png" alt-text="Colonne dérivée":::
    
 1. Les stratégies ```Update, insert, delete, and upsert``` sont créées dans la transformation de modification de ligne. Ajoutez une transformation de modification de ligne après votre colonne dérivée.
 1. Vos stratégies de modification de ligne doivent ressembler à ce qui suit.
 
-   ![Modification de ligne](media/data-flow/data-flow-tutorial-3.png "Ligne Alter")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-3.png" alt-text="Modification de ligne":::
    
 1. Maintenant que vous avez défini la stratégie appropriée pour chaque type de modification de ligne, vérifiez que les règles de mise à jour appropriées ont été définies sur la transformation du récepteur.
 
-   ![Section sink](media/data-flow/data-flow-tutorial-4.png "Récepteur")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-4.png" alt-text="Section sink":::
    
 1. Ici, nous utilisons le récepteur Delta Lake pour votre lac de données ADLS Gen2 et autorisons les insertions, les mises à jour et les suppressions. 
 1. Notez que Colonnes clés désigne une clé composite composée de la colonne clé primaire Movie et de la colonne Year. Cela est dû au fait que nous avons créé de faux films 2021 en dupliquant les lignes de 1960. Cela permet d’éviter les collisions lors de la recherche des lignes existantes en assurant l’unicité.

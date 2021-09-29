@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f6ee0323768287ee860becc5d02c85efb32e3fe
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3718cbacedf6f8770d0b7d1c83eb4035cb5676b0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704723"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784847"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-powershell"></a>Tutoriel : Créer un équilibreur de charge Azure inter-régions à l’aide du portail Azure
 
@@ -233,4 +233,4 @@ Dans ce tutoriel, vous allez :
 
 Passez à l’article suivant pour savoir comment…
 > [!div class="nextstepaction"]
-> [Équilibrer la charge de machines virtuelles entre des zones de disponibilité](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Équilibrer la charge de machines virtuelles entre des zones de disponibilité](./quickstart-load-balancer-standard-public-portal.md)

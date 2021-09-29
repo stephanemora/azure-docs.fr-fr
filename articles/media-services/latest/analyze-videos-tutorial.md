@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 38586e2cc60186c929b5ca43990019e768a1ed13
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 8f857ff3c1a17e0f17d396b8d97d9d0e27b4fa18
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720474"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646077"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutoriel : Analyser des vidéos avec Media Services v3
 
@@ -34,7 +34,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 ## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
  
-Il est important de se rappeler que vous devez vous conformer à toutes les lois applicables dans le cadre d’Azure Video Analyzer for Media (précédemment appelé Video Indexer). Vous ne devez pas utiliser Video Analyzer for Media ni tout autre service Azure d’une manière qui ne respecte pas les droits d’autrui. Avant de charger des vidéos, en particulier des données biométriques, sur le service Azure Media Services à des fins de traitement et de stockage, vous devez disposer de tous les droits appropriés sur ces vidéos, notamment le consentement des personnes qui y figurent. Pour plus d’informations sur la conformité, la confidentialité et la sécurité dans Video Indexer for Media, consultez les [Conditions générales d’utilisation de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions des Services en Ligne](https://www.microsoft.com/licensing/product-licensing/products) (OST) et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). En utilisant Video Analyzer for Media, vous acceptez de vous conformer aux Conditions générales de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité.
+Il est important de se rappeler que vous devez vous conformer à toutes les lois applicables dans le cadre d’Azure Video Analyzer for Media (précédemment appelé Video Indexer). Vous ne devez pas utiliser Video Analyzer for Media ni tout autre service Azure d’une manière qui ne respecte pas les droits d’autrui. Avant de charger des vidéos, en particulier des données biométriques, sur le service Azure Media Services à des fins de traitement et de stockage, vous devez disposer de tous les droits appropriés sur ces vidéos, notamment le consentement des personnes qui y figurent. Pour plus d’informations sur la conformité, la confidentialité et la sécurité dans Video Indexer for Media, consultez les [Conditions générales d’utilisation de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions des Services en Ligne](https://www.microsoft.com/licensing/product-licensing/products) (OST) et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml). En utilisant Video Analyzer for Media, vous acceptez de vous conformer aux Conditions générales de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité.
 
 ## <a name="prerequisites"></a>Prérequis
 

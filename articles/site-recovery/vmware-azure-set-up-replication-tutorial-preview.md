@@ -5,12 +5,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 08/19/2021
 ms.custom: MVC
-ms.openlocfilehash: 74e9af6f1f9dd30b391c17f03a0d8d5e9a41a10d
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 66bd4e5f24423ef022f8930b618b3cee9b5c9631
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122447016"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777333"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms---preview"></a>Configuration de la récupération d’urgence sur Azure de machines virtuelles VMware locales – Préversion
 
@@ -39,7 +39,7 @@ La réplication de VMware vers Azure comprend les procédures suivantes :
 - Pour commencer, accéder au [Portail Azure en version préliminaire](https://aka.ms/rcmcanary), puis suivre la procédure décrite dans les sections suivantes
 - Préparer un compte Azure
 - Préparer l’infrastructure
-- [Créer un coffre Recovery Services](/azure/site-recovery/quickstart-create-vault-template?tabs=CLI)
+- [Créer un coffre Recovery Services](./quickstart-create-vault-template.md?tabs=CLI)
 - [Déployer une appliance de réplication Azure Site Recovery](deploy-vmware-azure-replication-appliance-preview.md)
 - Activer la réplication
 
@@ -123,7 +123,7 @@ Pour activer la réplication, procédez comme suit :
       Par défaut, un nouveau compte de stockage de type LRS v1 est créé par Azure Site Recovery pour la première opération d’activation de la réplication d’un coffre. Pour les opérations suivantes, le même compte de stockage de cache est réutilisé.
     -  Disques managés
 
-       Par défaut, des disques managés HDD Standard sont créés dans Azure. Vous pouvez personnaliser le type de disque managé en sélectionnant **Personnaliser**. Veillez à [choisir le type de disque approprié](/azure/virtual-machines/disks-types#disk-comparison) en fonction des besoins de l’entreprise et des IOPS des disques de la machine source. Pour plus d’informations sur la tarification, consultez le document sur la [tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
+       Par défaut, des disques managés HDD Standard sont créés dans Azure. Vous pouvez personnaliser le type de disque managé en sélectionnant **Personnaliser**. Veillez à [choisir le type de disque approprié](../virtual-machines/disks-types.md#disk-comparison) en fonction des besoins de l’entreprise et des IOPS des disques de la machine source. Pour plus d’informations sur la tarification, consultez le document sur la [tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
 
        >[!NOTE]
        > Si vous installez manuellement le service de mobilité avant d’activer la réplication, vous pouvez modifier le type de disque managé au niveau du disque. Sinon, par défaut, un seul type de disque managé peut être choisi au niveau de la machine.

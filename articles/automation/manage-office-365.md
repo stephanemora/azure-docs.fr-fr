@@ -4,12 +4,12 @@ description: Cet article indique comment utiliser Azure Automation pour gérer l
 services: automation
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70c8892969a3b13175c60a4e20e0cf9086112abe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f61149fd9c35cc55a3ed55fa83e6031d895fb073
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93398043"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737740"
 ---
 # <a name="manage-office-365-services"></a>Gérer les services Office 365
 
@@ -33,7 +33,7 @@ L’utilisation d’Office 365 dans Azure Automation nécessite Microsoft Azure
 
 ## <a name="create-an-azure-automation-account"></a>Créer un compte Azure Automation
 
-Pour effectuer les étapes décrites dans cet article, vous avez besoin d’un compte dans Azure Automation. Consultez [Créer un compte Azure Automation](automation-quickstart-create-account.md).
+Pour effectuer les étapes décrites dans cet article, vous avez besoin d’un compte dans Azure Automation. Consultez [Créer un compte Azure Automation](./quickstarts/create-account-portal.md).
  
 ## <a name="add-msonline-and-msonlineext-as-assets"></a>Ajouter MSOnline et MSOnlineExt en tant que ressources
 
@@ -94,7 +94,7 @@ Send-MailMessage -Credential $credObject -From $emailFromAddress -To $emailToAdd
 
 Vous pouvez utiliser votre script dans un runbook Azure Automation. Pour cet exemple, nous allons utiliser le type de runbook PowerShell.
 
-1. Créez un nouveau runbook PowerShell. Consultez [Créer un runbook Azure Automation](./automation-quickstart-create-runbook.md).
+1. Créez un nouveau runbook PowerShell. Consultez [Créer un runbook Azure Automation](./learn/powershell-runbook-managed-identity.md).
 2. À partir de votre compte Automation, sélectionnez **Runbooks** sous **Automatisation des processus**.
 3. Sélectionnez le nouveau runbook et cliquez sur **Modifier**.
 4. Copiez votre script et collez-le dans l’éditeur de texte pour le runbook.

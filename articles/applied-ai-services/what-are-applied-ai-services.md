@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 05/04/2021
 ms.author: jeffme
-ms.openlocfilehash: fadfffadd0d7c2e642825fa8134906e6c3697014
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 102e8717b1bb6072eb0a52efc6ac3ecdd3e9c165
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745930"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124837344"
 ---
 # <a name="what-are-azure-applied-ai-services"></a>Qu’est-ce qu’Azure Applied AI Services ?
 
@@ -27,7 +27,7 @@ Permettre aux organisations dans tous les secteurs d’utiliser des informations
 
 Form Recognizer est constitué de modèles de traitement de documents personnalisés, de modèles prédéfinis pour les factures, reçus, ID et cartes de visite, et du modèle de disposition. 
 
-[En savoir plus sur Azure Form Recognizer](../cognitive-services/form-recognizer/index.yml)
+[En savoir plus sur Azure Form Recognizer](./form-recognizer/index.yml)
 
 ## <a name="azure-metrics-advisor"></a>Azure Metrics Advisor
 

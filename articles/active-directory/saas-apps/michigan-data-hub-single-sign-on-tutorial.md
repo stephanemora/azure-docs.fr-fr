@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/30/2021
 ms.author: jeedes
-ms.openlocfilehash: bb24b950e2fabeb0839cccba06c183dc48270465
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3525db32d6b2724a1339b5124acb5f2618d02e79
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736157"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124795428"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-michigan-data-hub-single-sign-on"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Michigan Data Hub Single Sign-On
 
@@ -127,7 +127,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Authentification unique Michigan Data Hub pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la mosaïque Authentification unique Michigan Data Hub dans Mes applications, vous êtes redirigé vers l’URL de connexion Authentification unique Michigan Data Hub. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la mosaïque Authentification unique Michigan Data Hub dans Mes applications, vous êtes redirigé vers l’URL de connexion Authentification unique Michigan Data Hub. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 08/26/2021
-ms.openlocfilehash: 1d4e8ad4fd7d0b5690f506e9db7f1043c8f21045
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 2c61431f3556a83482306c76c7246df5ba2c0139
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039085"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828404"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flux de données de mappage dans Azure Data Factory
 
@@ -29,7 +29,7 @@ Le flux de données de mappage fournit une expérience entièrement visuelle san
 
 Les flux de données sont créés à partir du volet Ressources de la fabrique, comme les pipelines et jeux de données. Pour créer un flux de données, sélectionnez le signe plus (+) en regard de **Ressources Factory**, puis sélectionnez **Flux de données**. 
 
-![Nouveau flux de données](media/data-flow/new-data-flow.png)
+:::image type="content" source="media/data-flow/new-data-flow.png" alt-text="Nouveau flux de données":::
 
 Vous accédez au canevas du flux de données dans lequel vous pouvez créer votre logique de transformation. Sélectionnez **Ajouter une source** pour commencer à configurer votre transformation de la source. Pour plus d’informations, consultez [Transformation de la source](data-flow-source.md).
 
@@ -37,13 +37,13 @@ Vous accédez au canevas du flux de données dans lequel vous pouvez créer votr
 
 Le flux de données de mappage a un canevas de création unique conçu pour faciliter la création de logique de transformation. Le canevas de flux de données est divisé en trois parties : la barre supérieure, le graphe et le panneau de configuration. 
 
-![Capture d’écran montrant le canevas du flux de données avec la barre supérieure, le graphique et le panneau de configuration étiquetés.](media/data-flow/canvas-1.png "Canevas")
+:::image type="content" source="media/data-flow/canvas-1.png" alt-text="Capture d’écran montrant le canevas du flux de données avec la barre supérieure, le graphique et le panneau de configuration étiquetés.":::
 
 ### <a name="graph"></a>Graph
 
 Le graphe affiche le flux de transformation. Il montre la traçabilité des données sources à mesure qu’elles sont transmises à un ou plusieurs récepteurs. Pour ajouter une nouvelle source, sélectionnez **Ajouter une source**. Pour ajouter une nouvelle transformation, sélectionnez le signe plus (+) situé dans la partie inférieure droite d’une transformation existante. Apprenez à [gérer le graphique des flux de données](concepts-data-flow-manage-graph.md).
 
-![Capture d’écran montrant la partie graphique du canevas avec une zone de texte de recherche.](media/data-flow/canvas-2.png)
+:::image type="content" source="media/data-flow/canvas-2.png" alt-text="Capture d’écran montrant la partie graphique du canevas avec une zone de texte de recherche.":::
 
 ### <a name="configuration-panel"></a>Panneau de configuration
 
@@ -55,19 +55,19 @@ Chaque transformation contient au moins quatre onglets de configuration.
 
 Le premier onglet du volet de configuration de chaque transformation contient les paramètres spécifiques à cette transformation. Pour plus d’informations, reportez-vous à la page de documentation de cette transformation.
 
-![Onglet Paramètres de la source](media/data-flow/source1.png "Onglet Paramètres de la source")
+:::image type="content" source="media/data-flow/source1.png" alt-text="Onglet Paramètres de la source":::
 
 #### <a name="optimize"></a>Optimiser
 
 L’onglet **Optimiser** contient des paramètres pour configurer des schémas de partitionnement. Pour en savoir plus sur l’optimisation de vos flux de données, consultez le [Guide des performances de flux de données de mappage](concepts-data-flow-performance.md).
 
-![La capture d’écran montre l’onglet Optimiser, qui comprend l’option Partition, Type de partition et Nombre de partitions.](media/data-flow/optimize.png)
+:::image type="content" source="media/data-flow/optimize.png" alt-text="La capture d’écran montre l’onglet Optimiser, qui comprend l’option Partition, Type de partition et Nombre de partitions.":::
 
-#### <a name="inspect&quot;></a>Inspecter
+#### <a name="inspect"></a>Inspecter
 
 Le volet **Inspecter** permet de visualiser les métadonnées du flux de données que vous êtes en train de transformer. Vous pouvez voir le nombre de colonnes, les colonnes modifiées, les colonnes ajoutées, les types de données, l'ordre des colonnes et les références des colonnes. **Inspecter** est un affichage en lecture seule de vos métadonnées. Il n’est pas nécessaire que le mode de débogage soit activé pour voir les métadonnées dans le volet **Inspecter**.
 
-![Inspecter](media/data-flow/inspect1.png &quot;Inspecter")
+:::image type="content" source="media/data-flow/inspect1.png" alt-text="Inspecter":::
 
 À mesure que vous modifiez la forme de vos données par le biais de transformations, les changements de métadonnées sont visibles dans le volet **Inspecter**. Si votre transformation de la source ne comporte pas de schéma défini, les métadonnées ne sont pas visibles dans le volet **Inspecter**. L’absence de métadonnées est fréquent dans les scénarios de dérive de schéma.
 

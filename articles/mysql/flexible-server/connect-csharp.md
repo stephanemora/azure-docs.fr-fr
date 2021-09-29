@@ -8,12 +8,12 @@ ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 01/16/2021
-ms.openlocfilehash: dd4da95bd3352897d62f36265544a10dbd37f825
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 5a4419d210e6cd5e75bdce1b63f97046b9eb6ec2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643184"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128627061"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Démarrage rapide : Utiliser .NET (C#) pour se connecter et interroger des données sur un serveur flexible Azure Database pour MySQL
 
@@ -25,7 +25,9 @@ Ce guide de démarrage rapide explique comment vous connecter à Azure Database 
 
 Voici les prérequis pour ce guide de démarrage rapide :
 
-- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free).
+- Compte Azure avec un abonnement actif. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Créez un serveur flexible Azure Database pour MySQL à l’aide du [portail Azure](./quickstart-create-server-portal.md) <br/> ou d’[Azure CLI](./quickstart-create-server-cli.md), si vous n’en avez pas.
 - Selon que vous utilisez un accès public ou privé, effectuez **UNE** des actions ci-dessous pour activer la connectivité.
 - [Créer une base de données et un utilisateur non-administrateur](../howto-create-users.md)

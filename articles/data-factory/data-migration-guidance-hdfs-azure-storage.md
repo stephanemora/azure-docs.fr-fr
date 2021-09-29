@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: f0242840e856a1ab78f6f6c5b89db3794ee206b3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e5a1569f0f1c2d8eea2c13f458c0f3a09a666f04
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524216"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216666"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Utiliser Azure Data Factory pour migrer des données d'un cluster Hadoop local vers le service Stockage Azure 
 
@@ -66,7 +66,7 @@ Si vous ne souhaitez pas que les données soient transférées sur l'Internet pu
 
 Cette image illustre une migration de données via l'Internet public :
 
-![Diagramme illustrant l'architecture de la solution pour la migration de données sur un réseau public](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-public-network.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-public-network.png" alt-text="Diagramme illustrant l'architecture de la solution pour la migration de données sur un réseau public":::
 
 - Dans cette architecture, les données sont transférées en toute sécurité à l'aide du protocole HTTPS via l'Internet public. 
 - Dans un environnement de réseau public, nous vous recommandons d'utiliser le mode DistCp de Data Factory. Vous pouvez tirer parti d'un puissant cluster existant pour obtenir le meilleur débit de copie. Vous bénéficiez également d'une planification flexible et d'une expérience de surveillance unifiée à partir de Data Factory.
@@ -75,7 +75,7 @@ Cette image illustre une migration de données via l'Internet public :
 
 Cette image illustre une migration de données via un lien privé : 
 
-![Diagramme illustrant l'architecture de la solution pour la migration de données sur un réseau privé](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-private-network.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-private-network.png" alt-text="Diagramme illustrant l'architecture de la solution pour la migration de données sur un réseau privé":::
 
 - Dans cette architecture, les données sont migrées sur un lien de peering privé via Azure ExpressRoute. Les données ne transitent jamais par l'Internet public.
 - L'outil DistCp ne prend pas en charge le peering privé ExpressRoute avec un point de terminaison de réseau virtuel Stockage Azure. Nous vous recommandons d'utiliser la fonctionnalité native de Data Factory via le runtime d'intégration pour migrer les données.
@@ -93,7 +93,7 @@ Nous vous recommandons de suivre ces meilleures pratiques lors de l'implémentat
 - Pour vous authentifier auprès de HDFS, vous pouvez utiliser [Windows (Kerberos) ou Anonymous](./connector-hdfs.md#linked-service-properties). 
 - Différents types d'authentification sont pris en charge pour la connexion au service Stockage Blob Azure.  Nous vous recommandons vivement d'utiliser des [identités managées pour les ressources Azure](./connector-azure-blob-storage.md#managed-identity). Basées sur une identité Data Factory automatiquement managée dans Azure Active Directory (Azure AD), les identités managées vous permettent de configurer des pipelines sans fournir d'informations d'identification dans la définition du service lié. Vous pouvez également vous authentifier auprès du service Stockage Blob à l'aide du [principal de service](./connector-azure-blob-storage.md#service-principal-authentication), d'une [signature d'accès partagé](./connector-azure-blob-storage.md#shared-access-signature-authentication) ou d'une [clé de compte de stockage](./connector-azure-blob-storage.md#account-key-authentication). 
 - Différents types d'authentification sont également pris en charge pour la connexion à Azure Data Lake Storage Gen2.  Nous vous recommandons vivement d'utiliser des [identités managées pour les ressources Azure](./connector-azure-data-lake-storage.md#managed-identity), mais vous pouvez aussi utiliser un [principal de service](./connector-azure-data-lake-storage.md#service-principal-authentication) ou une [clé de compte de stockage](./connector-azure-data-lake-storage.md#account-key-authentication). 
-- Lorsque vous n'utilisez pas d'identités managées pour les ressources Azure, nous vous recommandons vivement de [stocker les informations d'identification dans Azure Key Vault](./store-credentials-in-key-vault.md) pour faciliter la gestion centralisée et la rotation des clés sans modifier les services liés Azure Data Factory. Cette [bonne pratique s'applique également à l'intégration/livraison continue (CI/CD)](./continuous-integration-deployment.md#best-practices-for-cicd). 
+- Lorsque vous n'utilisez pas d'identités managées pour les ressources Azure, nous vous recommandons vivement de [stocker les informations d'identification dans Azure Key Vault](./store-credentials-in-key-vault.md) pour faciliter la gestion centralisée et la rotation des clés sans modifier les services liés Azure Data Factory. Cette [bonne pratique s'applique également à l'intégration/livraison continue (CI/CD)](./continuous-integration-delivery.md#best-practices-for-cicd). 
 
 ### <a name="initial-snapshot-data-migration"></a>Migration initiale des données d’instantané 
 
@@ -117,7 +117,7 @@ En présence d'un grand nombre de fichiers dans le système HDFS, l'analyse init
 
 Considérez le pipeline suivant pour la migration de données du système HDFS vers le service Stockage Blob Azure : 
 
-![Diagramme illustrant le pipeline des tarifs](media/data-migration-guidance-hdfs-to-azure-storage/pricing-pipeline.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/pricing-pipeline.png" alt-text="Diagramme illustrant le pipeline des tarifs":::
 
 Basons-nous sur les informations suivantes : 
 
@@ -130,7 +130,7 @@ Basons-nous sur les informations suivantes :
 
 Voici le prix estimé en fonction de nos hypothèses : 
 
-![Tableau indiquant les calculs de prix](media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png" alt-text="Tableau indiquant les calculs de prix":::
 
 > [!NOTE]
 > Il s’agit d’un exemple de tarification hypothétique. Vos tarifs réels dépendent du débit réel dans votre environnement.

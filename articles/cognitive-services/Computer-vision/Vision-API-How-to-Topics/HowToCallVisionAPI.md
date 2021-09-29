@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0014297d45c26d855a2df8c2a3fdccb2f0c047d2
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: b7835185071d85b064c942da9f86f6848443dcd1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822906"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820210"
 ---
 # <a name="call-the-image-analysis-api"></a>Appeler l’API Analyse d’image
 
@@ -138,7 +138,7 @@ Consultez la liste suivante des erreurs possibles et leurs causes :
     * InternalServerError
 
 > [!TIP]
-> Quand vous utilisez l’API Vision par ordinateur, vous pouvez rencontrer des défaillances temporaires causées par des [limites du taux de transfert](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) appliquées par le service ou d’autres problèmes passagers comme des pannes du réseau. Pour plus d’informations sur la gestion de ces types d’échecs, consultez le [modèle Nouvelle tentative](https://docs.microsoft.com/azure/architecture/patterns/retry) dans le guide des modèles de conception de cloud et le [modèle Disjoncteur](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) connexe.
+> Quand vous utilisez l’API Vision par ordinateur, vous pouvez rencontrer des défaillances temporaires causées par des [limites du taux de transfert](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) appliquées par le service ou d’autres problèmes passagers comme des pannes du réseau. Pour plus d’informations sur la gestion de ces types d’échecs, consultez le [modèle Nouvelle tentative](/azure/architecture/patterns/retry) dans le guide des modèles de conception de cloud et le [modèle Disjoncteur](/azure/architecture/patterns/circuit-breaker) connexe.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

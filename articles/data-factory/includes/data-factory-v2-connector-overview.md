@@ -2,14 +2,14 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 07/29/2021
+ms.date: 09/22/2021
 ms.author: jianleishen
-ms.openlocfilehash: f8ba37528213d4abca398ae3d5fddc24f1ab17aa
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 3eeebaf827e1c5a244423f0cab1b4adceefceb5f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123355242"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129096027"
 ---
 | Category              | Banque de données                                                   | [Activité de copie](../copy-activity-overview.md) (source/récepteur) | [Mappage de flux de données](../concepts-data-flow-overview.md) (source/récepteur) | [Activité de recherche](../control-flow-lookup-activity.md) | [Activité d'obtention des métadonnées](../control-flow-get-metadata-activity.md)/[Activité de validation](../control-flow-validation-activity.md) | [Supprimer l’activité](../delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -29,7 +29,9 @@ ms.locfileid: "123355242"
 | &nbsp;                | [Azure SQL Managed Instance](../connector-azure-sql-managed-instance.md) | ✓/✓                                                          | ✓/✓ <br>                                                     |                                                              | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Stockage de tables Azure](../connector-azure-table-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| **Sauvegarde de la base de données**          | [Amazon Redshift](../connector-amazon-redshift.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| **Sauvegarde de la base de données**          | [Amazon RDS pour Oracle](../connector-amazon-rds-for-oracle.md)       | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [Amazon RDS pour SQL Server](../connector-amazon-rds-for-sql-server.md)       | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                              |                                                              |
+| &nbsp;                | [Amazon Redshift](../connector-amazon-redshift.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [DB2](../connector-db2.md)             | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Drill](../connector-drill.md)         | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Google BigQuery](../connector-google-bigquery.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

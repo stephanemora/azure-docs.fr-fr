@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12337e9c6d42ee140367c26cd160fd0a5fd595d3
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 98cd9fd4a54796827184da9dc549637331892083
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902300"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590477"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutoriel : Implémenter le modèle de capture de lac de données pour mettre à jour une table Delta Databricks
 
@@ -25,21 +25,21 @@ Vous allez créer une petite solution qui permet à un utilisateur de remplir un
 Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
-> * Créer un abonnement Event Grid qui appelle une fonction Azure
-> * Créer une fonction Azure qui reçoit une notification d’un événement, puis exécute le travail dans Azure Databricks
-> * Créer un travail Databricks qui insère une commande client dans une table Databricks Delta hébergée dans le compte de stockage
+> - Créer un abonnement Event Grid qui appelle une fonction Azure
+> - Créer une fonction Azure qui reçoit une notification d’un événement, puis exécute le travail dans Azure Databricks
+> - Créer un travail Databricks qui insère une commande client dans une table Databricks Delta hébergée dans le compte de stockage
 
 Pour créer cette solution, nous allons procéder dans l’ordre inverse et commencer par l’espace de travail Azure Databricks.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Créez un compte de stockage qui possède un espace de noms hiérarchique (Azure Data Lake Storage Gen2). Ce tutoriel utilise un compte de stockage nommé `contosoorders`. Vérifiez que le [rôle Contributeur aux données Blob du stockage](assign-azure-role-data-access.md) est attribué à votre compte d’utilisateur.
+- Créez un compte de stockage qui possède un espace de noms hiérarchique (Azure Data Lake Storage Gen2). Ce tutoriel utilise un compte de stockage nommé `contosoorders`. Vérifiez que le [rôle Contributeur aux données Blob du stockage](assign-azure-role-data-access.md) est attribué à votre compte d’utilisateur.
 
    Consultez [Créer un compte de stockage à utiliser avec Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md).
+- Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
 
@@ -71,17 +71,17 @@ Tout d’abord, créez un fichier CSV qui décrit une commande client, puis char
 
 4. Enregistrez ce fichier sur votre ordinateur local et nommez-le **data.csv**.
 
-5. Dans l’Explorateur Stockage, chargez ce fichier dans le dossier **input**.  
+5. Dans l’Explorateur Stockage, chargez ce fichier dans le dossier **input**.
 
 ## <a name="create-a-job-in-azure-databricks"></a>Créer un travail dans Azure Databricks
 
 Dans cette section, vous allez effectuer les tâches suivantes :
 
-* Créer un espace de travail Azure Databricks.
-* Créez un bloc-notes.
-* Créer et remplir une table Databricks Delta
-* Ajouter du code qui insère des lignes dans la table Databricks Delta
-* Créer un travail
+- Créer un espace de travail Azure Databricks.
+- Créez un bloc-notes.
+- Créer et remplir une table Databricks Delta
+- Ajouter du code qui insère des lignes dans la table Databricks Delta
+- Créer un travail
 
 ### <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 
@@ -111,8 +111,8 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
-    * Entrez un nom pour le cluster.
-    * Veillez à cocher la case **Arrêter après 120 minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
+    - Entrez un nom pour le cluster.
+    - Veillez à cocher la case **Arrêter après 120 minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
 
 4. Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
@@ -132,11 +132,11 @@ Pour plus d’informations sur la création de clusters, consultez [Créer un cl
 
 ### <a name="create-and-populate-a-databricks-delta-table"></a>Créer et remplir une table Databricks Delta
 
-1. Dans le notebook que vous avez créé, copiez et collez le bloc de code suivant dans la première cellule, mais n’exécutez pas ce code pour l’instant.  
+1. Dans le notebook que vous avez créé, copiez et collez le bloc de code suivant dans la première cellule, mais n’exécutez pas ce code pour l’instant.
 
    Dans ce bloc de code, remplacez les valeurs d’espace réservé `appId`, `password` et `tenant` par celles que vous avez collectées au moment de la finalisation des prérequis de ce tutoriel.
 
-    ```Python
+    ```python
     dbutils.widgets.text('source_file', "", "Source File")
 
     spark.conf.set("fs.azure.account.auth.type", "OAuth")
@@ -159,9 +159,8 @@ Pour plus d’informations sur la création de clusters, consultez [Créer un cl
 
 3. Copiez le bloc de code suivant et collez-le dans une autre cellule, puis appuyez sur les touches **Maj + Entrée** pour l’exécuter.
 
-   ```Python
+   ```python
    from pyspark.sql.types import StructType, StructField, DoubleType, IntegerType, StringType
-
 
    inputSchema = StructType([
    StructField("InvoiceNo", IntegerType(), True),
@@ -194,7 +193,7 @@ Pour plus d’informations sur la création de clusters, consultez [Créer un cl
 
 1. Copiez le bloc de code suivant et collez-le dans une autre cellule, mais n’exécutez pas cette cellule pour l’instant.
 
-   ```Python
+   ```python
    upsertDataDF = (spark
      .read
      .option("header", "true")
@@ -257,7 +256,7 @@ Créez une fonction Azure qui exécute le travail.
 2. Cliquez sur le bouton **Générer un nouveau jeton**, puis sur le bouton **Générer**.
 
    Veillez à conserver une copie du jeton en lieu sûr. Votre fonction Azure a besoin de ce jeton pour s’authentifier auprès de Databricks et ainsi pouvoir exécuter la tâche.
-  
+
 3. Cliquez sur le bouton **Créer une ressource** en haut à gauche du portail Azure, puis sélectionnez **Calcul > Application de fonction**.
 
    ![Créer une fonction Azure](./media/data-lake-storage-events/function-app-create-flow.png "Créer une fonction Azure")

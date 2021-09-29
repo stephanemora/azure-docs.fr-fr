@@ -1,18 +1,18 @@
 ---
 title: Exemples de stockage Azure avec .NET| Microsoft Docs
 description: Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez la mise en route des exemples d’objets blob, de files d’attente, de tables et de fichiers qui utilisent des bibliothèques clientes de stockage .NET.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: c140234ce93ff9146ef3b1a5a135258ad707c807
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 947afa47c3ad5903e22cdd114a8020956861aa45
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275700"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633732"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Exemples de stockage Azure utilisant les bibliothèques clientes .NET v12
 
@@ -86,6 +86,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 :::row-end:::
 
 ### <a name="troubleshooting"></a>Dépannage
+
 :::row:::
    :::column span="2":::
       [Déclencher une erreur récupérable à l’aide d’un client de conteneur](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01b_HelloWorldAsync.cs#L166)
@@ -114,6 +115,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 :::row-end:::
 
 ### <a name="file-system"></a>Système de fichiers
+
 :::row:::
    :::column span="":::
       [Créer un fichier à l’aide d’un client de système de fichiers](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L22)
@@ -148,6 +150,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 :::row-end:::
 
 ### <a name="file"></a>Fichier
+
 :::row:::
    :::column span="":::
       [Charger un fichier](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L126)
@@ -270,7 +273,8 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
    :::column-end:::
 :::row-end:::
 
-### <a name="troubleshooting"></a>Dépannage 
+### <a name="troubleshooting"></a>Dépannage
+
 :::row:::
    :::column span="2":::
       [Déclencher une erreur récupérable à l’aide d’un client de file d’attente](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L188)
@@ -313,10 +317,10 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 
 Pour afficher l’intégralité des bibliothèques d’exemples .NET, accédez à :
 
-* [Exemples de code BLOB Azure](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
-* [Exemples de code Azure Data Lake](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
-* [Exemples de code Azure Files](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples)
-* [Exemples de code de file d’attente Azure](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+- [Exemples de code BLOB Azure](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+- [Exemples de code Azure Data Lake](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
+- [Exemples de code Azure Files](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples)
+- [Exemples de code de file d’attente Azure](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
 
 Vous pouvez parcourir et cloner le dépôt GitHub pour chaque bibliothèque.
 
@@ -324,17 +328,17 @@ Vous pouvez parcourir et cloner le dépôt GitHub pour chaque bibliothèque.
 
 Consultez les guides suivants si vous recherchez des instructions sur l’installation et la prise en main des bibliothèques clientes de stockage Azure.
 
-* [Prise en main du service BLOB Azure dans .NET](../blobs/storage-quickstart-blobs-dotnet.md)
-* [Prise en main du service de File d’attente Azure dans .NET](../queues/storage-quickstart-queues-dotnet.md)
-* [Prise en main du service de Table Azure dans .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
-* [Prise en main du service de fichiers Azure dans .NET](../files/storage-dotnet-how-to-use-files.md)
+- [Prise en main du service BLOB Azure dans .NET](../blobs/storage-quickstart-blobs-dotnet.md)
+- [Prise en main du service de File d’attente Azure dans .NET](../queues/storage-quickstart-queues-dotnet.md)
+- [Prise en main du service de Table Azure dans .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
+- [Prise en main du service de fichiers Azure dans .NET](../files/storage-dotnet-how-to-use-files.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les exemples pour d’autres langages :
 
-* Java : [Exemples relatifs au service Stockage Azure avec Java](storage-samples-java.md)
-* Python : [Exemples relatifs au service Stockage Azure avec Python](storage-samples-python.md)
-* JavaScript/Node.js : [Exemples relatifs au service Stockage Azure en JavaScript](storage-samples-javascript.md)
-* C++ : [Exemples relatifs au service Stockage Azure avec C++](storage-samples-c-plus-plus.md)
-* Tous les autres langages : [Exemples relatifs à Stockage Azure](storage-samples.md)
+- Java : [Exemples relatifs au service Stockage Azure avec Java](storage-samples-java.md)
+- Python : [Exemples relatifs au service Stockage Azure avec Python](storage-samples-python.md)
+- JavaScript/Node.js : [Exemples relatifs au service Stockage Azure en JavaScript](storage-samples-javascript.md)
+- C++ : [Exemples relatifs au service Stockage Azure avec C++](storage-samples-c-plus-plus.md)
+- Tous les autres langages : [Exemples relatifs à Stockage Azure](storage-samples.md)

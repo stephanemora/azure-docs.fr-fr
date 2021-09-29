@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 02ba974aa430bd75848c3fcf2b762453d99e27fe
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 1462b45ede121cfbbe72b1f06d0f64b167c9246f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183604"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124808643"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutoriel : Intégrer Oracle Cloud Infrastructure Console à Azure Active Directory
 
@@ -197,7 +197,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Lorsque vous sélectionnez la vignette Oracle Cloud Infrastructure Console dans le volet d’accès, vous êtes redirigé vers la page de connexion Oracle Cloud Infrastructure Console. Sélectionnez le **fournisseur d’identité** dans le menu déroulant et cliquez sur **Continuer** comme indiqué ci-dessous pour vous connecter. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Lorsque vous sélectionnez la vignette Oracle Cloud Infrastructure Console dans le volet d’accès, vous êtes redirigé vers la page de connexion Oracle Cloud Infrastructure Console. Sélectionnez le **fournisseur d’identité** dans le menu déroulant et cliquez sur **Continuer** comme indiqué ci-dessous pour vous connecter. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ![Configuration](./media/oracle-cloud-tutorial/config10.png)
 

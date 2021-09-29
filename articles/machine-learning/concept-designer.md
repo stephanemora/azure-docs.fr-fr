@@ -10,19 +10,19 @@ ms.author: peterlu
 author: peterclu
 ms.date: 08/03/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: c6bb9eefd7545a014faf10ad20afa655f7f4cd48
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 3a38717cec9aed40e3aff96376a9d956eb82a53d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122563678"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792217"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>Qu'est-ce que le concepteur Azure Machine Learning ? 
 
 Le concepteur Azure Machine Learning est une interface par glisser-déposer utilisée pour entraîner et déployer des modèles dans Azure Machine Learning. Cet article décrit les tâches que vous pouvez effectuer dans le concepteur.
 
  - Pour commencer avec le concepteur, consultez [Tutoriel : Entraîner un modèle de régression sans code](tutorial-designer-automobile-price-train-score.md). 
- - Pour découvrir les composants disponibles dans le concepteur, consultez les [informations de référence sur les algorithmes et les composants](/azure/machine-learning/algorithm-module-reference/module-reference).
+ - Pour découvrir les composants disponibles dans le concepteur, consultez les [informations de référence sur les algorithmes et les composants](./algorithm-module-reference/module-reference.md).
 
 ![Exemple de concepteur Azure Machine Learning](./media/concept-designer/designer-drag-and-drop.gif)
 

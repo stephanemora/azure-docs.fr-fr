@@ -14,12 +14,12 @@ ms.date: 07/26/2021
 ms.author: baselden
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99bdfeff59f26f59c9d64bcca9226d9b1f70ec1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: afb94b9589171a5715b1e7bdf9a80ceb0a8b7f45
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525208"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771172"
 ---
 # <a name="plan-a-privileged-identity-management-deployment"></a>Planifier un déploiement de Privileged Identity Management
 
@@ -97,7 +97,7 @@ En cas d’expiration du rôle, vous pouvez **prolonger** ou **renouveler** ces 
 
 ## <a name="plan-the-project"></a>Planifier le projet
 
-Les échecs de projets informatiques, lorsqu’ils se produisent, proviennent généralement d’une disparité entre les attentes et l’impact, les responsabilités et les résultats. Pour éviter ces écueils, [assurez-vous de faire appel aux bonnes personnes](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders), et que les rôles des parties prenantes soient bien compris.
+Quand des échecs se produisent pour des projets reposant sur la technologie, cela provient généralement d’une disparité des attentes en ce qui concerne l’impact, les résultats et les responsabilités. Pour éviter ces écueils, [assurez-vous de faire appel aux bonnes personnes](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders), et que les rôles des parties prenantes soient bien compris.
 
 ### <a name="plan-a-pilot"></a>Prévoir un pilote
 
@@ -152,7 +152,7 @@ Suivez ces tâches pour préparer PIM à gérer des rôles Azure AD.
 
 Listez les utilisateurs avec des rôles privilégiés dans votre organisation. Passez en revue les utilisateurs affectés, identifiez les administrateurs qui n’ont plus besoin du rôle et supprimez-les de leurs affectations. 
 
-Vous pouvez utiliser des [révisions d’accès des rôles Azure AD](pim-how-to-start-security-review.md) pour automatiser la détection, l’examen et l’approbation ou la suppression des attributions.
+Vous pouvez utiliser des [révisions d’accès des rôles Azure AD](./pim-create-azure-ad-roles-and-resource-roles-review.md) pour automatiser la détection, l’examen et l’approbation ou la suppression des attributions.
 
 ### <a name="determine-roles-to-be-managed-by-pim"></a>Déterminer les rôles à gérer par PIM
 
@@ -183,7 +183,7 @@ Suivez les instructions des liens ci-dessous :
 
 2. [Autorisez les utilisateurs admissibles à activer leur rôle Azure AD juste-à-temps](pim-how-to-activate-role.md).
 
-Lorsque le rôle approche de son expiration, [utilisez PIM pour prolonger ou renouveler les rôles](pim-resource-roles-renew-extend.md). Ces deux actions utilisateur exigent l’approbation d’un Administrateur général ou d’un Administrateur de rôle privilégié.  Ces deux actions utilisateur exigent l’approbation d’un Administrateur général ou d’un Administrateur de rôle privilégié. 
+Lorsque le rôle approche de son expiration, [utilisez PIM pour prolonger ou renouveler les rôles](pim-resource-roles-renew-extend.md). Ces deux actions utilisateur exigent l’approbation d’un Administrateur général ou d’un Administrateur de rôle privilégié.
 
 Lorsque ces événements importants se produisent dans des rôles Azure AD, PIM [envoie des notifications par e-mail et des e-mails de synthèse hebdomadaire](pim-email-notifications.md) aux administrateurs de privilèges en fonction du rôle, de l’événement et des paramètres de notification. Ces e-mails peuvent également inclure des liens vers des tâches appropriées, comme l’activation ou le renouvellement d’un rôle. 
 
@@ -214,7 +214,7 @@ Réduisez au minimum les attributions de rôles Propriétaire et Administrateur 
 
 En tant qu’administrateur général, vous pouvez [élever l’accès pour gérer tous les abonnements Azure](../../role-based-access-control/elevate-access-global-admin.md). Vous pouvez ensuite rechercher le propriétaire de chaque abonnement et travailler avec lui pour supprimer les attributions inutiles au sein de ses abonnements.
 
-Utilisez les [révisions d’accès pour les ressources Azure](pim-resource-roles-start-access-review.md) afin de vérifier et de supprimer les attributions de rôles inutiles. 
+Utilisez les [révisions d’accès pour les ressources Azure](./pim-create-azure-ad-roles-and-resource-roles-review.md) afin de vérifier et de supprimer les attributions de rôles inutiles. 
 
 ### <a name="determine-roles-to-be-managed-by-pim"></a>Déterminer les rôles à gérer par PIM
 
@@ -318,6 +318,4 @@ Configurez les membres et propriétaires des groupes d’accès privilégié pou
 * En cas de problèmes liés à PIM, consultez [Résoudre un problème avec PIM](pim-troubleshoot.md).
 
 * [Déployer d’autres fonctionnalités d’identité](../fundamentals/active-directory-deployment-plans.md)
-
- 
 

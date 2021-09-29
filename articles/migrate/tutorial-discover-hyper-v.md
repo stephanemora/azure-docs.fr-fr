@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 7bdc0008baa1ee03c11aeeba03485fd7cd09e6f9
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 8ee94cf4c02c5535a85b75eec5a60522143a16ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969813"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748703"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir les serveurs fonctionnant sur Hyper-V avec l’outil de découverte et d’évaluation d’Azure Migrate
 
@@ -139,7 +139,7 @@ Azure Migrate utilise une appliance Azure Migrate légère. L’appliance effect
 
 > [!NOTE]
 > Si, pour une raison quelconque, vous ne pouvez pas configurer l’appliance à l’aide du modèle, vous pouvez la configurer à l’aide d’un script PowerShell sur un serveur Windows Server 2016 existant. [Plus d’informations](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)<br/>
-> L’option de déploiement d’une appliance à l’aide d’un modèle VHD n’est pas prise en charge dans le cloud Azure Government. [En savoir plus](/azure/migrate/deploy-appliance-script-government) sur le déploiement d’une appliance pour le cloud Azure Government.
+> L’option de déploiement d’une appliance à l’aide d’un modèle VHD n’est pas prise en charge dans le cloud Azure Government. [En savoir plus](./deploy-appliance-script-government.md) sur le déploiement d’une appliance pour le cloud Azure Government.
 
 Ce tutoriel configure l’appliance sur un serveur s’exécutant dans l’environnement Hyper-V, de la façon suivante :
 

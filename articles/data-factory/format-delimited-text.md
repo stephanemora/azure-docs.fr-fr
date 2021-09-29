@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 64ef52e542d5e014ab3e79d98f730f691fa28a50
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 4b21aa5d63f371749081d7bc71577c7d0f5a2d49
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257380"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787676"
 ---
 # <a name="delimited-text-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Format de texte délimité dans Azure Data Factory et Azure Synapse Analytics
 
@@ -167,7 +167,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 
 L’image ci-dessous est un exemple de configuration de source de texte délimité dans des flux de données de mappage.
 
-![Source DelimitedText](media/data-flow/delimited-text-source.png)
+:::image type="content" source="media/data-flow/delimited-text-source.png" alt-text="Source DelimitedText":::
 
 Le script de flux de données associé est le suivant :
 
@@ -197,7 +197,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par un réce
 
 L’image ci-dessous est un exemple de configuration de récepteur de texte délimité dans des flux de données de mappage.
 
-![Récepteur DelimitedText](media/data-flow/delimited-text-sink.png)
+:::image type="content" source="media/data-flow/delimited-text-sink.png" alt-text="Récepteur DelimitedText":::
 
 Le script de flux de données associé est le suivant :
 

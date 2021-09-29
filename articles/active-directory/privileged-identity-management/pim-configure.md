@@ -14,12 +14,12 @@ ms.date: 06/25/2021
 ms.author: curtand
 ms.custom: pim,azuread-video-2020,contperf-fy21q3-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697dd72ba72924a14501a1410255a817f50f6789
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d24f4806274889be1743e19b6b10c909b4a0057d
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738708"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707601"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
@@ -149,7 +149,7 @@ Voici quelques exemples où vous pourriez convier des invités à votre organisa
 
 Lorsque vous utilisez une collaboration B2B, vous pouvez inviter un utilisateur externe à votre organisation en tant qu’invité. L’invité peut être géré en tant qu’utilisateur dans votre organisation, mais il doit être authentifié dans son organisation d’origine et non dans votre organisation Azure AD. Cela signifie que si l’invité n’a plus accès à son organisation d’origine, il n’a également plus accès à votre organisation. Par exemple, si l’invité quitte son organisation, il perd automatiquement l’accès à toutes les ressources que vous avez partagées avec lui dans Azure AD sans que vous ayez rien à faire. Pour plus d’informations sur B2B Collaboration, consultez [Présentation de l’accès utilisateur invité dans Azure Active Directory B2B](../external-identities/what-is-b2b.md).
 
-![Diagramme montrant comment un utilisateur invité est authentifié dans son annuaire d’origine](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![Diagramme montrant comment un utilisateur invité est authentifié dans son annuaire d’origine](./media/pim-configure/b2b-external-user.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

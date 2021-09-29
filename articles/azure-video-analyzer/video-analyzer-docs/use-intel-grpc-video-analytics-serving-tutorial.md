@@ -4,12 +4,12 @@ description: Ce tutoriel montre comment utiliser l’extension Intel OpenVINO™
 ms.topic: tutorial
 ms.service: azure-video-analyzer
 ms.date: 06/01/2021
-ms.openlocfilehash: f666ac772d85fb1501c54001511e25cd941ee7c3
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: a55b4a970f1a6aeb0e257ae6404eae349f356a01
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604781"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058563"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutoriel : Analyser une vidéo en direct avec l’extension Intel OpenVINO™ DL Streamer – Edge AI 
 
@@ -55,7 +55,7 @@ Le module OpenVINO™ DL Streamer - Edge AI Extension est un microservice basé 
 
 Pour créer des solutions d’analytique vidéo complexes hautes performances, le module Azure Video Analyzer doit être associé à un moteur d’inférence puissant capable d’optimiser l’échelle à la périphérie. Dans ce tutoriel, les demandes d’inférence sont envoyées à l’extension Intel OpenVINO™ DL Streamer – Edge AI, module périphérique conçu pour fonctionner avec Azure Video Analyzer.
 
-Dans la version initiale de ce serveur d’inférence, vous avez accès aux [modèles](https://aka.ms/intel-dlstreamer-docs) suivants :
+Dans la version initiale de ce serveur d’inférence, vous avez accès aux [modèles](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options) suivants :
 
 - object_detection for person_vehicle_bike_detection ![détection d’objet pour véhicule](./media/use-intel-openvino-tutorial/object-detection.png)
 

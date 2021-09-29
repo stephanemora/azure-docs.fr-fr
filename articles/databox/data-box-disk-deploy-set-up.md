@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 77c09385c69e4a2922fa3b2249143e6e969bfc5a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: b58fd8ba86febba41715aba4340838a0f494e6ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759902"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591651"
 ---
 ::: zone target="docs"
 
@@ -222,24 +222,26 @@ Si vous rencontrez des problèmes lors du déverrouillage des disques, consultez
 
 6. Exécutez l’outil Data Box Disk Unlock. Fournissez la clé d’accès issue du Portail Azure que vous avez obtenue à l’étape [Se connecter aux disques et obtenir la clé d’accès](#connect-to-disks-and-get-the-passkey). Si vous le souhaitez, spécifiez une liste de volumes chiffrés BitLocker à déverrouiller. La clé d’accès et la liste de volumes doivent être spécifiées entre guillemets simples. 
 
-    Tapez la commande suivante.
+   Tapez la commande suivante.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'          
+   ```bash
+   sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'
+   ```
 
-    Voici un exemple de sortie obtenue. 
+   Voici un exemple de sortie obtenue. 
  
-    ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:'qwerqwerqwer'  
-    
-    START: Mon Aug 13 14:25:49 2018 
-    Volumes: /dev/sdbl 
-    Passkey: qwerqwerqwer 
-    
-    Volumes for data copy : 
-    /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
-    END: Mon Aug 13 14:26:02 2018
-    ```
-    Le point de montage du volume sur lequel vous pouvez copier vos données s’affiche.
+   ```output
+   [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:'qwerqwerqwer'  
+   
+   START: Mon Aug 13 14:25:49 2018 
+   Volumes: /dev/sdbl 
+   Passkey: qwerqwerqwer 
+   
+   Volumes for data copy : 
+   /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
+   END: Mon Aug 13 14:26:02 2018
+   ```
+   Le point de montage du volume sur lequel vous pouvez copier vos données s’affiche.
 
 7. Répétez la procédure de déverrouillage pour toutes les réinsertions de disque ultérieures. Si vous avez besoin d’aide concernant l’outil de déverrouillage Data Box Disk, utilisez la commande `help`. 
     
