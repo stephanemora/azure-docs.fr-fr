@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce43a9b518224e7458551139dc1f708dabc5b3e3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e0a3c2b380160ef68655f0727f4d47280cd5cd02
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532562"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754284"
 ---
 # <a name="security-operations-for-infrastructure"></a>Opérations de sécurité pour l’infrastructure
 
@@ -39,13 +39,13 @@ La première étape pour pouvoir détecter les événements inattendus et les at
 
 ## <a name="where-to-look"></a>Emplacement des fichiers
 
-Les fichiers journaux à utiliser pour l’investigation et le monitoring sont les suivants : 
+Les fichiers journaux que vous pouvez utiliser pour investiguer et superviser sont les suivants : 
 
 * [Journaux d’audit Azure AD](../reports-monitoring/concept-audit-logs.md)
 
-* [Journaux d’activité de connexion](../reports-monitoring/concept-all-sign-ins.md)
+* [Journaux de connexion](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Journaux d’audit Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Journaux d’audit Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Journaux Azure Key Vault](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -97,7 +97,7 @@ L'authentification directe d'Azure Active Directory (Azure AD) permet de connect
 
 Les éléments suivants sont spécifiques à Rechercher :
 
-| Éléments à analyser| Niveau de risque| Where| Filtre/sous-filtre| Notes |
+| Éléments à analyser| Niveau de risque| Where| Filtre/Sous-filtre| Notes |
 | - | - | - | - | - |
 | Erreurs d’authentification directe Azure AD|Moyenne | Application and ‎Service Logs\Microsoft\A‎zureAdConnec‎t\Authenticatio‎nAgent\Adm| AADSTS80001 – Impossible de se connecter à Active Directory| Assurez-vous que les serveurs des agents sont membres de la même forêt Active Directory que les utilisateurs dont les mots de passe doivent être validés, et qu’ils peuvent se connecter à Active Directory. |
 | Erreurs d’authentification directe Azure AD| Moyenne| Application and ‎Service Logs\Microsoft\A‎zureAdConnec‎t\Authenticatio‎nAgent\Adm| AADSTS8002 - Délai d’attente dépassé lors de la connexion à Active Directory| Vérifiez qu’Active Directory est disponible et répond aux demandes des agents. |
@@ -126,7 +126,7 @@ Cet article décrit comment Azure AD et le proxy d’application Azure AD offren
 
 Pour configurer la surveillance pour le proxy d’application, consultez [résoudre les problèmes de proxy d’application et de messages d’erreur](../app-proxy/application-proxy-troubleshoot.md). Le fichier de données qui consigne les informations est disponible dans applications et services Logs\Microsoft\AadApplicationProxy\Connector\Admin. Pour obtenir un guide de référence complet sur l’activité d’audit, consultez [référence de l’activité d’audit Azure AD](../reports-monitoring/reference-audit-activities.md). Éléments spécifiques à vérifier :
 
-| Éléments à analyser| Niveau de risque| Where| Filtre/sous-filtre| Notes |
+| Éléments à analyser| Niveau de risque| Where| Filtre/Sous-filtre| Notes |
 | - | - | - | - | - |
 | Erreurs Kerberos| Moyenne | Outils divers| Moyenne | Aide sur l’authentification Kerberos sous erreurs Kerberos sur la [Résolution des problèmes de proxy d’application et des messages d’erreur](../app-proxy/application-proxy-troubleshoot.md). |
 | Problèmes de sécurité DC| Élevé| Journaux d’audit de sécurité DC| ID d’événement 4742(S) : un compte d’ordinateur a été modifié<br>-et-<br>Indicateur - Approuvé pour la délégation<br>-ou-<br>Indicateur - Approuvé pour authentifier la délégation| Examinez tout changement d’indicateur. |
@@ -139,7 +139,7 @@ Pour que l’authentification multifacteur (MFA) soit efficace, vous devez égal
 
 L’authentification héritée est capturée dans le journal des connexions Azure AD dans le cadre des détails de l’événement. Vous pouvez utiliser le classeur Azure Monitor pour faciliter l’identification de l’utilisation de l’authentification héritée. Pour plus d'informations, consultez la section [Connexions à l'aide de l'authentification traditionnelle](../reports-monitoring/howto-use-azure-monitor-workbooks.md), qui fait partie de la section [Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md). Vous pouvez également utiliser le classeur protocoles non sécurisés pour Azure Sentinel. Pour plus d’informations, consultez [Guide d’implémentation des classeurs des protocoles non sécurisés Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Les activités spécifiques à surveiller sont les suivantes :
 
-| Éléments à analyser| Niveau de risque| Where| Filtre/sous-filtre| Notes |
+| Éléments à analyser| Niveau de risque| Where| Filtre/Sous-filtre| Notes |
 | - | - | - | - | - |
 | Authentifications héritées|Élevé | Journal de connexions Azure AD| ClientApp : POP<br>ClientApp : IMAP<br>ClientApp : MAPI<br>ClientApp : SMTP<br>ClientApp : ActiveSync, accédez à EXO<br>Autres Clients = SharePoint et EWS| Dans les environnements de domaine fédérés, les authentifications ayant échoué ne sont pas enregistrées et n’apparaissent donc pas dans le journal. |
 
@@ -174,18 +174,18 @@ Azure AD utilise Microsoft SQL Server moteur de données ou SQL pour stocker des
 
 | Éléments à analyser| Where| Notes |
 | - | - | - |
-| mms_management_agent| Enregistrements d’audit du service SQL| Voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_partition| Enregistrements d’audit du service SQL| Voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_run_profile| Enregistrements d’audit du service SQL| Voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_server_configuration| Enregistrements d’audit du service SQL| Voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_synchronization_rule| Enregistrements d’audit du service SQL| Voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
+| mms_management_agent| Enregistrements d’audit du service SQL| Voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_partition| Enregistrements d’audit du service SQL| Voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_run_profile| Enregistrements d’audit du service SQL| Voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_server_configuration| Enregistrements d’audit du service SQL| Voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_synchronization_rule| Enregistrements d’audit du service SQL| Voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records) |
 
 
 Pour plus d’informations sur la façon dont les informations de configuration doivent être surveillées, consultez :
 
-* Pour le serveur SQL, voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15).
+* Pour le serveur SQL, voir [Enregistrements SQL Server Audit](/sql/relational-databases/security/auditing/sql-server-audit-records).
 
-* Pour Azure Sentinel, voir [Se connecter aux serveurs Windows pour collecter des événements de sécurité](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15). 
+* Pour Azure Sentinel, voir [Se connecter aux serveurs Windows pour collecter des événements de sécurité](/sql/relational-databases/security/auditing/sql-server-audit-records). 
 
 * Pour plus d’informations sur la configuration et l’utilisation de Azure AD Connect, voir [Qu’est-ce que Azure AD Connect ?](../hybrid/whatis-azure-ad-connect.md)
 
@@ -208,14 +208,14 @@ Pour plus d’informations sur la façon dont les informations de configuration 
 
 **Surveillez les aspects suivants** : 
 
-| Éléments à analyser| Niveau de risque| Where| Filtre/sous-filtre| Notes |
+| Éléments à analyser| Niveau de risque| Where| Filtre/Sous-filtre| Notes |
 | - | - | - | - | - |
 | Modifications du planificateur|Élevé | PowerShell| Set-ADSyncScheduler| Rechercher les modifications à planifier |
 | Modifications apportées aux tâches planifiées| Élevé | Journaux d’audit Azure AD| Activité = 4699(S) : une tâche planifiée a été supprimée<br>-ou-<br>Activité = 4701(S) : une tâche planifiée a été désactivée<br>-ou-<br>Activité = 4701(S) : une tâche planifiée a été mise à jour| Surveiller tous les journaux d’activité |
 
 
 
-* Pour plus d’informations sur la journalisation des opérations de script PowerShell, consultez Activation de la [journalisation de blocs de script](/powershell/module/microsoft.powershell.core/about/about_logging_windows?view=powershell-7.1), qui fait partie de la documentation de référence de PowerShell.
+* Pour plus d’informations sur la journalisation des opérations de script PowerShell, consultez Activation de la [journalisation de blocs de script](/powershell/module/microsoft.powershell.core/about/about_logging_windows), qui fait partie de la documentation de référence de PowerShell.
 
 * Pour plus d’informations sur la configuration de la journalisation PowerShell pour l’analyse par Splunk, consultez [Obtenir des données dans Splunk User Behavior Analytics](https://docs.splunk.com/Documentation/UBA/5.0.4.1/GetDataIn/AddPowerShell).
 
@@ -225,7 +225,7 @@ L’authentification unique transparente (Seamless SSO) Azure Active Directory (
 
 La surveillance de l’authentification unique et de l’activité Kerberos peut vous aider à détecter les modèles d’attaques générales de vol d’informations d’identification. Surveillez les informations suivantes :
 
-| Éléments à analyser| Niveau de risque| Where| Filtre/sous-filtre| Notes |
+| Éléments à analyser| Niveau de risque| Where| Filtre/Sous-filtre| Notes |
 | - | - | - | - | - |
 | Erreurs associées à l’authentification unique et aux échecs de validation Kerberos|Moyenne | Journal de connexions Azure AD| | Liste des codes d'erreur de l'authentification unique à [l'authentification unique](../hybrid/tshoot-connect-sso.md). |
 | Requête pour dépanner les erreurs|Moyenne | PowerShell| Consultez le tableau suivant de la requête. Vérifiez dans chaque forêt l’authentification unique activée.| Vérifiez dans chaque forêt l’authentification unique activée. |

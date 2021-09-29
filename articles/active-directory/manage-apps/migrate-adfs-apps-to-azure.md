@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 6633d7a6ed7def1a2c3ee7f0262c16b106275bfa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 420b1a0042dff8b643dc98f3b3f92e33be8c2d75
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562950"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791761"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -413,7 +413,7 @@ Selon la façon dont vous configurez votre application, vérifiez que l’authen
 | :- | :- |
 | OAuth/OpenID Connect| Sélectionnez **Applications d’entreprise > Autorisations** et assurez-vous que vous avez accepté l’application dans les paramètres utilisateur de votre application.|
 | Authentification unique SAML | Utilisez le bouton [Tester les paramètres SAML](debug-saml-sso-issues.md) qui se trouve sous **Authentification unique**. |
-| Authentification unique par mot de passe |  Télécharger et installer [l’extension de connexion sécurisée ](../user-help/my-apps-portal-end-user-access.md)[-](../user-help/my-apps-portal-end-user-access.md)[ Mes applications](../user-help/my-apps-portal-end-user-access.md). Cette extension vous permet de lancer les applications cloud de votre organisation qui vous obligent à utiliser un processus d’authentification unique. |
+| Authentification unique par mot de passe |  Télécharger et installer [l’extension de connexion sécurisée ](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)[-](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)[ Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). Cette extension vous permet de lancer les applications cloud de votre organisation qui vous obligent à utiliser un processus d’authentification unique. |
 | Application Proxy (Proxy d’application) | Vérifiez que votre connecteur est en cours d’exécution et affecté à votre application. Pour obtenir de l’aide, consultez le [Guide de résolution des problèmes de proxy d’application](../app-proxy/application-proxy-troubleshoot.md). |
 
 > [!NOTE]

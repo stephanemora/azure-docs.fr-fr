@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: dlepow
 ms.author: danlep
 ms.date: 07/12/2021
-ms.openlocfilehash: c14107561886a9e29c2d95c5d04847274afdf4e3
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e2f56f8886a387158c148edaf9ae557deac3783f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733946"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659150"
 ---
 # <a name="azure-api-management-as-an-event-grid-source-preview"></a>Gestion des API Azure comme source Event Grid (préversion)
 
@@ -116,16 +116,13 @@ L’exemple suivant montre le schéma d’un événement de suppression d’un u
 
 # <a name="event-grid-event-schema"></a>[Schéma d’événement Event Grid](#tab/event-grid-event-schema)
 
-L’exemple suivant montre le schéma d’un événement de mise à jour d’une API. La propriété `data` comprend à la fois le tableau `updatedProperies` et la valeur `resourceUri`.  Le schéma des autres événements de mise à jour d’une ressource de Gestion des API est similaire. 
+L’exemple suivant montre le schéma d’un événement de mise à jour d’une API. Le schéma des autres événements de mise à jour d’une ressource de Gestion des API est similaire. 
 ```json
 [{
   "id": "95015754-aa51-4eb6-98d9-9ee322b82ad7",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "updatedProperties": [
-      "path"
-    ],
     "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "eventType": "Microsoft.ApiManagement.APIUpdated",
@@ -137,7 +134,7 @@ L’exemple suivant montre le schéma d’un événement de mise à jour d’une
 
 # <a name="cloud-event-schema"></a>[Schéma d’événement cloud](#tab/cloud-event-schema)
 
-L’exemple suivant montre le schéma d’un événement de mise à jour d’une API. La propriété `data` comprend à la fois le tableau `updatedProperies` et la valeur `resourceUri`.  Le schéma des autres événements de mise à jour d’une ressource de Gestion des API est similaire. 
+L’exemple suivant montre le schéma d’un événement de mise à jour d’une API. Le schéma des autres événements de mise à jour d’une ressource de Gestion des API est similaire. 
 
 ```json
 [{
@@ -145,10 +142,7 @@ L’exemple suivant montre le schéma d’un événement de mise à jour d’une
   "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "updatedProperties": [
-      "path"
-    ],
-    "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "Type": "Microsoft.ApiManagement.APIUpdated",
   "Time": "2021-07-12T23:13:44.9048323Z",
@@ -166,7 +160,7 @@ Un événement contient les données générales suivantes :
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | `topic` | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| `subject` | string | Identifiant complet de la ressource concernée par le changement de l’état de conformité, y compris le nom et le type de la ressource. Utilise le format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>` |
+| `subject` | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
 | `eventType` | string | Un des types d’événements inscrits pour cette source d’événement. |
 | `eventTime` | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | `id` | string | Identificateur unique de l’événement. |
@@ -181,7 +175,7 @@ Un événement contient les données générales suivantes :
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | `source` | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| `subject` | string | Identifiant complet de la ressource concernée par le changement de l’état de conformité, y compris le nom et le type de la ressource. Utilise le format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>` |
+| `subject` | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
 | `type` | string | Un des types d’événements inscrits pour cette source d’événement. |
 | `time` | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | `id` | string | Identificateur unique de l’événement. |
@@ -194,10 +188,9 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| `resourceUri` | string | URI de la ressource de Gestion des API qui a déclenché l’événement. |
-| `updatedProperties` | string[] | Liste des propriétés mises à jour dans la ressource de Gestion des API qui ont déclenché un événement de mise à jour. |
+| `resourceUri` | string | Identifiant complet de la ressource concernée par le changement de l’état de conformité, y compris le nom et le type de la ressource. Utilise le format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/Microsoft.ApiManagement/service/<ServiceName>/<ResourceType>/<ResourceName>` |
 
-## <a name="tutorials-and-how-tos"></a>Tutoriels et guides pratiques
+## <a name="tutorials-and-how-tos"></a>Tutoriels et articles de procédures
 
 |Intitulé  |Description  |
 |---------|---------|

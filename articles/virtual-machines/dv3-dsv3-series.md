@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 7877e674b4a027616d3593251602610cfa145c33
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: c3accb7edfb65ee2f21c924e4b028a6fdcaccea4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691221"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774250"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 et Dsv3
 
@@ -70,7 +70,7 @@ Machines virtuelles de série Dsv3 dotées de la technologie Hyper-Threading d�
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit de stockage temporaire et débit maximal de rafale mis en cache : IOPS/Mbits/s<sup>2</sup> | Débit du disque non mis en cache max. : IOPS/Mbits/s | Débit du disque maximal de rafale non mis en cache : IOPS/Mo/s<sup>1</sup> | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v3<sup>3</sup>  | 2  | 8   | 16  | 4  | 4 000/32 (50)       | 4 000/100    |3 200/48    | 4 000/100   | 2/1 000  |
+| Standard_D2s_v3<sup>2</sup>  | 2  | 8   | 16  | 4  | 4 000/32 (50)       | 4 000/100    |3 200/48    | 4 000/100   | 2/1 000  |
 | Standard_D4s_v3  | 4  | 16  | 32  | 8  | 8 000/64 (100)      | 8 000/200    |6 400/96    | 8 000/200   | 2/2 000  |
 | Standard_D8s_v3  | 8  | 32  | 64  | 16 | 16 000/128 (200)    | 16 000/400   |12 800/192  | 16 000/400  | 4/4 000  |
 | Standard_D16s_v3 | 16 | 64  | 128 | 32 | 32 000/256 (400)    | 32 000/800   |25 600/384  | 32 000/800  | 8/8 000  |
@@ -92,8 +92,10 @@ Machines virtuelles de série Dsv3 dotées de la technologie Hyper-Threading d�
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
-- [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-- Pour plus d’informations sur les types de disques, consultez [Quels sont les types de disque disponibles dans Azure ?](disks-types.md)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+
+Pour plus d’informations sur les types de disques, consultez [Quels sont les types de disque disponibles dans Azure ?](disks-types.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

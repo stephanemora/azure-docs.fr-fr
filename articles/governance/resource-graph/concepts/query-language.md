@@ -1,14 +1,14 @@
 ---
 title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1f1eef5a70187ed883da9f535cc2f2915e3bf6d6
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 8d537d0816ef4d32d6ce85cf363e08bece28ec84
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123104650"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536082"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -36,6 +36,7 @@ Resource Graph fournit plusieurs tables contenant les données qu’il stocke su
 |ExtendedLocationResources |Non |Inclut les ressources _associées_ à `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |Non |Inclut les ressources _associées_ à `Microsoft.GuestConfiguration`. |
 |HealthResources|Oui |Inclut les ressources _associées_ à `Microsoft.ResourceHealth/availabilitystatuses`. |
+|IoTSecurityResources |Non |Inclut les ressources _associées_ à `Microsoft.IoTSecurity`. |
 |KubernetesConfigurationResources |Non |Inclut les ressources _associées_ à `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Partielle, joindre _à_ uniquement. (préversion) |Inclut les ressources _associées_ à `Microsoft.Maintenance`. |
 |PatchAssessmentResources|Non |Comprend des ressources _associées_ à l’évaluation des correctifs de machines virtuelles Azure. |
