@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2021
 ms.author: yelevin
-ms.openlocfilehash: cda5595eb2c8b72f6b38ade1feefe84904312412
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: aa30b85047460bffe0177c9154152d18262b44be
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261198"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823845"
 ---
 # <a name="connect-your-data-source-to-azure-sentinels-data-collector-api-to-ingest-data"></a>Connecter votre source de données à l’API du Collecteur de données Azure Sentinel pour l’ingestion des données
 
@@ -38,7 +38,7 @@ Consultez la section de votre produit sur la page de [référence des connecteur
 
 - Vous devez disposer d’autorisations en lecture et en écriture dans l’espace de travail Azure Sentinel.
 
-- Vous devez disposer d’autorisations de lecture sur les clés partagées pour accéder à l’espace de travail. [En savoir plus sur les clés d’espace de travail](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+- Vous devez disposer d’autorisations de lecture sur les clés partagées pour accéder à l’espace de travail. [En savoir plus sur les clés d’espace de travail](../azure-monitor/agents/agent-windows.md).
 
 ## <a name="configure-and-connect-your-data-source"></a>Configurer et connecter votre source de données
 

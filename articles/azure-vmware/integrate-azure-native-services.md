@@ -3,12 +3,12 @@ title: Surveiller et protéger les machines virtuelles avec les services Azure n
 description: Découvrez comment intégrer et déployer les outils natifs Microsoft Azure pour surveiller et gérer vos charges de travail Azure VMware Solution.
 ms.topic: how-to
 ms.date: 08/15/2021
-ms.openlocfilehash: 36bdb029f61a707f83ae42e66f399f376db23025
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 19453eeb652a0303e0447a80e37b63613aa92255
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527719"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799317"
 ---
 # <a name="monitor-and-protect-vms-with-azure-native-services"></a>Surveiller et protéger les machines virtuelles avec les services Azure natifs
 
@@ -86,7 +86,7 @@ Le service [Azure Update Management](../automation/update-management/overview.md
    >[!TIP]
    >Vous pouvez [utiliser un modèle Azure Resource Manager (ARM) afin de créer un compte Automation](../automation/quickstart-create-automation-account-template.md). L’utilisation d’un modèle ARM comprend moins d’étapes que les autres méthodes de déploiement.
 
-1. [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/logs/quick-create-workspace.md). Si vous préférez, vous pouvez également créer un espace de travail via [interface de ligne de commande](../azure-monitor/logs/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md) ou [modèle Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md).
+1. [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/logs/quick-create-workspace.md). Si vous préférez, vous pouvez également créer un espace de travail via [interface de ligne de commande](../azure-monitor/logs/resource-manager-workspace.md), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md) ou [modèle Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md).
 
 1. [Activez Update Management à partir d’un compte Automation](../automation/update-management/enable-from-automation-account.md). Dans le processus, vous allez associer votre espace de travail Log Analytics à votre compte Automation. 
  

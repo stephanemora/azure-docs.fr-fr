@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/17/2019
   ms.author: kefre
   ms.custom: seodec18
-  ms.openlocfilehash: 2509338fac06a182864777e2ff5825f1092f758c
-  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+  ms.openlocfilehash: b344ae378bc299a737e212205b2d85f6106424a6
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/26/2021
-  ms.locfileid: "122968819"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124824829"
 title: Questions fréquentes (FAQ) sur l’API Vision par ordinateur
 summary: >
   > [!TIP]
@@ -48,7 +48,7 @@ sections:
   - question: >
       Puis-je former l’API Vision par ordinateur pour qu’elle utilise des balises personnalisées ?  J’aimerais par exemple ajouter des images d’espèces de chats pour « former » l’IA, puis recevoir une valeur d’espèce en fonction d’une requête d’IA.
     answer: >
-      Cette fonction n’est pas disponible actuellement. Vous pouvez utiliser [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/overview) pour entraîner un modèle afin de détecter les caractéristiques visuelles définies par l’utilisateur.
+      Cette fonction n’est pas disponible actuellement. Vous pouvez utiliser [Custom Vision](../custom-vision-service/overview.md) pour entraîner un modèle afin de détecter les caractéristiques visuelles définies par l’utilisateur.
   - question: >
       Puis-je déployer la capacité OCR (Read) localement ?
     answer: >

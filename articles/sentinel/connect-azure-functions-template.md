@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2021
 ms.author: yelevin
-ms.openlocfilehash: f776c39a5a1dadde2e6ee01fe211e0769e5e06eb
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: b6e38d6ce5944d09a089404ae1fe2ca81a951c18
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261146"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781294"
 ---
 # <a name="use-azure-functions-to-connect-azure-sentinel-to-your-data-source"></a>Utiliser Azure Functions pour connecter Azure Sentinel à votre source de données
 
-Vous pouvez utiliser [Azure Functions](/azure/azure-functions/functions-overview), conjointement avec différents langages de codage tels que [PowerShell](../azure-functions/functions-reference-powershell.md) ou Python, pour créer un connecteur serverless pour les points de terminaison de l’API REST de vos sources de données compatibles. Des applications Azure Function vous permettent de connecter Azure Sentinel à l’API REST de votre source de données pour extraire des journaux.
+Vous pouvez utiliser [Azure Functions](../azure-functions/functions-overview.md), conjointement avec différents langages de codage tels que [PowerShell](../azure-functions/functions-reference-powershell.md) ou Python, pour créer un connecteur serverless pour les points de terminaison de l’API REST de vos sources de données compatibles. Des applications Azure Function vous permettent de connecter Azure Sentinel à l’API REST de votre source de données pour extraire des journaux.
 
 Cet article explique comment configurer Azure Sentinel pour l’utilisation des applications Azure Function. Vous devrez peut-être également configurer votre système source et les liens d’informations spécifiques au fournisseur et au produit dans chaque page du connecteur de données dans le portail, ou la section pour votre service dans la page de [référence des connecteurs de données Azure Sentinel](data-connectors-reference.md).
 
@@ -213,6 +213,6 @@ Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne comm
 
 Dans ce document, vous avez appris à connecter Azure Sentinel à votre source de données à l’aide de connecteurs Azure Functions. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](./get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](./detect-threats-built-in.md).
+- [Utilisez des classeurs](./monitor-your-data.md) pour superviser vos données.

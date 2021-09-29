@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 69c6ebe3c1b9b034b2f682f64a55f22e0489b3f5
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 4e97c8253f73ab264d49cfa24403586ca8d573bd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892345"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124802205"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Tutoriel : Intégrer Knowledge Anywhere LMS à Azure Active Directory
 
@@ -179,7 +179,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Knowledge Anywhere LMS pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Cliquez la vignette Knowledge Anywhere LMS dans Mes applications pour accéder directement à l’URL de connexion à Knowledge Anywhere LMS. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Cliquez la vignette Knowledge Anywhere LMS dans Mes applications pour accéder directement à l’URL de connexion à Knowledge Anywhere LMS. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

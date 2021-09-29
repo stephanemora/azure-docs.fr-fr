@@ -8,13 +8,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: 1595d2984c4130fa89c52aec615941051fa1bb82
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 09/09/2021
+ms.openlocfilehash: 4c1ec8e8ca10764c630320c1d448b812da7a3cc4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099352"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750727"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -30,7 +30,7 @@ Regardez la vidéo ci-dessous pour voir des exemples de minutages qui transforme
 
 Une fois que vous avez vérifié votre logique de transformation à l’aide du mode débogage, exécutez votre flux de travail de bout en bout en tant qu’activité dans un pipeline. Les flux de données sont mis en œuvre dans un pipeline à l’aide de l’[activité d’exécution d’un flux de données](control-flow-execute-data-flow-activity.md). L’activité de flux de données offre une expérience de surveillance unique par rapport aux autres activités qui affichent un plan d’exécution détaillé et un profil de performances de la logique de transformation. Pour afficher des informations de surveillance détaillées d’un flux de données, cliquez sur l’icône de lunettes dans la sortie d’exécution de l’activité d’un pipeline. Pour plus d’informations, consultez [Supervision des flux de données de mappage](concepts-data-flow-monitoring.md).
 
-![Moniteur Data Flow](media/data-flow/monitoring-details.png "Moniteur Data Flow 2")
+:::image type="content" source="media/data-flow/monitoring-details.png" alt-text="Moniteur Data Flow":::
 
 Lors de la surveillance des performances du flux de données, quatre goulots d’étranglement peuvent se présenter :
 
@@ -39,7 +39,7 @@ Lors de la surveillance des performances du flux de données, quatre goulots d�
 * temps de transformation ;
 * écriture dans un récepteur. 
 
-![Surveillance du flux de données](media/data-flow/monitoring-performance.png "Moniteur Data Flow 3")
+:::image type="content" source="media/data-flow/monitoring-performance.png" alt-text="Surveillance du flux de données":::
 
 Le temps de démarrage du cluster est le temps nécessaire au lancement d’un cluster Apache Spark. Cette valeur se trouve dans l’angle supérieur droit de l’écran de surveillance. Les flux de données s’exécutent selon un modèle juste-à-temps, où chaque travail utilise un cluster isolé. Ce temps de démarrage est généralement de 3 à 5 minutes. Pour des travaux séquentiels, il est possible de réduire ce temps en activant une valeur de durée de vie. Pour plus d’informations, reportez-vous à la section **Durée de vie** dans [Performance du runtime d’intégration](concepts-integration-runtime-performance.md#time-to-live).
 
@@ -55,7 +55,7 @@ Lorsque vous concevez et testez des flux de données à partir de l’expérienc
 
 L’onglet **Optimiser** contient des paramètres pour configurer le schéma de partitionnement du cluster Spark. Cet onglet présent dans chaque transformation de flux de données spécifie si vous souhaitez repartitionner les données **après** la transformation. L’ajustement du partitionnement permet de contrôler la répartition de vos données entre les nœuds de calcul et les optimisations de la localisation des données qui peuvent avoir des effets tant positifs que négatifs sur les performances globales de vos flux de données.
 
-![La capture d’écran montre l’onglet Optimiser, qui comprend l’option Partition, Type de partition et Nombre de partitions.](media/data-flow/optimize.png)
+:::image type="content" source="media/data-flow/optimize.png" alt-text="La capture d’écran montre l’onglet Optimiser, qui comprend l’option Partition, Type de partition et Nombre de partitions.":::
 
 Par défaut, l’option *Utiliser le partitionnement actuel* est sélectionnée, laquelle indique au service de conserver le partitionnement de sortie actuel de la transformation. Le repartitionnement des données prenant du temps, est recommandé d’*utiliser le partitionnement actuel* dans la plupart des scénarios. Les scénarios dans lesquels il peut être souhaitable de repartitionner vos données incluent des agrégats et des jointures qui entraînent une asymétrie considérable de vos données, ou l’utilisation d’un partitionnement de source sur une base de données SQL.
 
@@ -93,7 +93,7 @@ Si vous avez une bonne compréhension de la cardinalité de vos données, une cl
 
 Si vous n’avez pas besoin que chaque exécution du pipeline de vos activités de flux de données journalise entièrement tous les journaux de télémétrie détaillés, vous pouvez éventuellement définir le niveau de journalisation sur « De base » ou « Aucun ». Lors de l’exécution de vos flux de données en mode « Verbose » (par défaut), vous demandez au service d’enregistrer entièrement l’activité à chaque niveau de partition individuel au cours de la transformation des données. Cela peut être une opération coûteuse. Par conséquent, n’activez l’option Verbose que lorsque la résolution des problèmes peut améliorer les performances globales du pipeline et du flux de données. Le mode « De base » ne consigne que les durées de transformation, tandis que le mode « Aucun » ne fournit qu’un résumé des durées.
 
-![Niveau de journalisation](media/data-flow/logging.png "Définir le niveau de journalisation")
+:::image type="content" source="media/data-flow/logging.png" alt-text="Niveau de journalisation":::
 
 ## <a name="optimizing-sources"></a>Optimisation des sources
 
@@ -111,7 +111,7 @@ Azure SQL Database offre une option de partitionnement unique appelée partition
 > [!TIP]
 > Pour le partitionnement de la source, les E/S de SQL Server constituent le goulot d’étranglement. L’ajout d’un trop grand nombre de partitions peut saturer votre base de données source. Généralement, quatre ou cinq partitions sont idéales lors de l’utilisation de cette option.
 
-![Partitionnement de source](media/data-flow/sourcepart3.png "Partitionnement de source")
+:::image type="content" source="media/data-flow/sourcepart3.png" alt-text="Partitionnement de source":::
 
 #### <a name="isolation-level"></a>Niveau d'isolation
 
@@ -123,9 +123,9 @@ Vous pouvez lire à partir d’Azure SQL Database à l’aide d’une table ou d
 
 ### <a name="azure-synapse-analytics-sources"></a>Sources d’Azure Synapse Analytics
 
-Quand vous utilisez Azure Synapse Analytics, un paramètre appelé **Activer le mode de préproduction** existe dans les options de source. Cela permet au service de lire à partir de Synapse à l’aide de ```Staging```, ce qui améliore considérablement les performances de lecture à l’aide de la commande [Instruction COPY Synapse](/sql/t-sql/statements/copy-into-transact-sql.md) et fournit la capacité de chargement en masse la plus performante. L’activation de ```Staging``` nécessite que vous spécifiiez un Stockage Blob Azure ou un emplacement de préproduction Azure Data Lake Storage Gen2 dans les paramètres d’activité du flux de données.
+Quand vous utilisez Azure Synapse Analytics, un paramètre appelé **Activer le mode de préproduction** existe dans les options de source. Cela permet au service de lire à partir de Synapse à l’aide de ```Staging```, ce qui améliore considérablement les performances de lecture à l’aide de la commande [Instruction COPY Synapse](/sql/t-sql/statements/copy-into-transact-sql) et fournit la capacité de chargement en masse la plus performante. L’activation de ```Staging``` nécessite que vous spécifiiez un Stockage Blob Azure ou un emplacement de préproduction Azure Data Lake Storage Gen2 dans les paramètres d’activité du flux de données.
 
-![Activer le mode de préproduction](media/data-flow/enable-staging.png "Activer le mode de préproduction")
+:::image type="content" source="media/data-flow/enable-staging.png" alt-text="Activer le mode de préproduction":::
 
 ### <a name="file-based-sources"></a>Sources basées sur des fichiers
 
@@ -159,7 +159,7 @@ Une fois l’écriture terminée, régénérez les index à l’aide de la comma
 
 Ces opérations peuvent être effectuées en mode natif à l’aide de scripts Pre-SQL et Post-SQL au sein d’une base de données SQL Azure ou d’un récepteur Synapse dans le mappage de flux de données.
 
-![Désactiver les index](media/data-flow/disable-indexes-sql.png "Désactiver les index")
+:::image type="content" source="media/data-flow/disable-indexes-sql.png" alt-text="Désactiver les index":::
 
 > [!WARNING]
 > Lors de la désactivation des index, le flux de données prend le contrôle d’une base de données et les requêtes sont peu susceptibles d’aboutir à ce moment. Par conséquent, de nombreux travaux ETL sont déclenchés de nuit pour éviter ce conflit. Pour plus d’informations, découvrez les [contraintes de la désactivation des index SQL](/sql/relational-databases/indexes/disable-indexes-and-constraints)
@@ -184,7 +184,7 @@ Si les données sont distribués uniformément, **Utiliser le partitionnement ac
 
 Lorsque vous écrivez des fichiers, vous avez le choix entre plusieurs options de nommage qui ont toutes une incidence sur les performances.
 
-![Options du récepteur](media/data-flow/file-sink-settings.png "Options du récepteur")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Options du récepteur":::
 
 La sélection de l’option **Par défaut** permet d’écrire le plus rapidement. Chaque partition correspond à un fichier avec le nom par défaut Spark. Cela est utile si vous lisez simplement à partir du dossier de données.
 
@@ -216,7 +216,7 @@ Si la taille des données diffusées est trop importante pour le nœud Spark, il
 
 Lorsque vous utilisez des sources de données dont la requête peut prendre plus de temps, comme les requêtes de base de données volumineuses, il est recommandé de désactiver la diffusion pour les jointures. La source avec des temps de requête longs peut entraîner des délais d’attente Spark lorsque le cluster tente de diffuser des nœuds de calcul. La désactivation de la diffusion est également conseillée lorsque vous avez un flux dans votre flux de données qui regroupe des valeurs à utiliser ultérieurement dans une transformation de recherche. Ce modèle peut troubler l’optimiseur Spark et provoquer des délais d’attente.
 
-![Optimisation de la transformation de jointure (Join)](media/data-flow/joinoptimize.png "Optimisation de la jointure")
+:::image type="content" source="media/data-flow/joinoptimize.png" alt-text="Optimisation de la transformation de jointure (Join)":::
 
 #### <a name="cross-joins"></a>Jointures croisées
 
@@ -234,7 +234,7 @@ La [transformation de fenêtre dans les flux de données de mappage](data-flow-w
 
 Certaines transformations, telles que des jointures et des agrégats, remanient vos partitions de données et peuvent entraîner une asymétrie des données. Une telle asymétrie a pour effet que les données ne sont pas réparties uniformément entre les partitions. Une asymétrie importante des données peut entraîner un ralentissement des transformations en aval et des écritures dans le récepteur. Vous pouvez vérifier l’asymétrie de vos données à tout moment pendant l’exécution d’un flux de données en cliquant sur la transformation dans l’affichage de la surveillance.
 
-![Asymétrie et kurtosis](media/data-flow/skewness-kurtosis.png "Asymétrie et kurtosis")
+:::image type="content" source="media/data-flow/skewness-kurtosis.png" alt-text="Asymétrie et kurtosis":::
 
 L’affichage de la surveillance montre comment les données sont réparties sur chaque partition, ainsi que deux métriques, l’asymétrie et le kurtosis. **L’asymétrie** est une mesure de l’asymétrie des données. Elle peut avoir une valeur positive, nulle, négative ou indéfinie. Une asymétrie négative signifie que la queue gauche est plus longue que la droite. Le **kurtosis** mesure sur l’importance de la queue. Des valeurs de kurtosis élevées ne sont pas souhaitables. Les plages idéales d’asymétrie sont comprises entre -3 et +3, et les plages de kurtosis sont inférieures à 10. Un moyen simple d’interpréter ces nombres consiste à examiner le graphique de partition pour voir si la barre 1 est beaucoup plus grande que le reste.
 

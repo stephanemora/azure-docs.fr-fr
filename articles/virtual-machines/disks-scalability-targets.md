@@ -3,16 +3,16 @@ title: Cibles de scalabilité et de niveau de performance des disques de machine
 description: Découvrez les cibles de scalabilité et de niveau de performance des disques attachés à des machines virtuelles.
 author: roygara
 ms.author: rogarana
-ms.date: 06/29/2021
+ms.date: 09/27/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 864716118cbb0d65c871a5a50071ff08cae0af62
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 773b4dbe5bcabc459b832f450610c395a981650a
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692274"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155157"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks"></a>Cibles de scalabilité et de niveau de performance des disques de machines virtuelles
 

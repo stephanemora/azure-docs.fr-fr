@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 6ce64aa104ca261845740f9b448d5d4e7afd10e5
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b90ed4a95103aca2962a9ea886353867668a0390
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751646"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818480"
 ---
 # <a name="azure-virtual-desktop-classic-powershell"></a>Azure Virtual Desktop (classique) PowerShell
 
@@ -22,7 +22,7 @@ Cet article permet de résoudre les problèmes et erreurs rencontrés lors de l�
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
-Pour discuter du service Azure Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté, consultez le site [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Rendez-vous sur le site [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) pour discuter du service Azure Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté.
 
 ## <a name="powershell-commands-used-during-azure-virtual-desktop-setup"></a>Commandes PowerShell utilisées pendant la configuration d’Azure Virtual Desktop
 
@@ -87,12 +87,12 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble de la résolution des problèmes d’Azure Virtual Desktop et des procédures d’escalade, consultez [Vue d’ensemble de la résolution des problèmes, commentaires et support](troubleshoot-set-up-overview-2019.md).
-- Pour résoudre les problèmes de création d’un locataire et d’un pool d’hôtes dans un environnement Azure Virtual Desktop, consultez [Création d’un locataire et d’un pool d’hôtes](troubleshoot-set-up-issues-2019.md).
+- Pour découvrir une vue d’ensemble de la résolution des problèmes Azure Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview-2019.md).
+- Pour résoudre les problèmes de création d’un pool de locataires et d’hôtes dans un environnement Azure Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues-2019.md).
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Azure Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration-2019.md).
-- Pour résoudre les problèmes de connexion client Azure Virtual Desktop, consultez [Connexions au service Azure Virtual Desktop](troubleshoot-service-connection-2019.md).
+- Pour résoudre les problèmes de connexion au client Azure Virtual Desktop, consultez [Connexions au service Azure Virtual Desktop](troubleshoot-service-connection-2019.md).
 - Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](../troubleshoot-client.md).
 - Pour plus d’informations sur le service, consultez [Environnement Azure Virtual Desktop](environment-setup-2019.md).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../../azure-monitor/essentials/activity-log.md).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../../azure-resource-manager/templates/deployment-history.md).

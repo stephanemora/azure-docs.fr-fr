@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 0f85f3c747c634e0118ac516fc83284350fc2584
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dfee9cae7d19eb1afae5b05141c08ecf26fe6dc8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92445016"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124826346"
 ---
 # <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Tutoriel : Intégrer Helper Helper à Azure Active Directory
 
@@ -142,7 +142,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Helper H
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Quand vous sélectionnez la vignette Helper Helper dans le volet d’accès, vous devez être connecté automatiquement à l’application Helper Helper pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous sélectionnez la vignette Helper Helper dans le volet d’accès, vous devez être connecté automatiquement à l’application Helper Helper pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

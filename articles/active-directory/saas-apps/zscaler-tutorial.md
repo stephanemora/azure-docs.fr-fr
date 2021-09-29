@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: c0b824b35c1cbeeda9639f321200b367d0152e0e
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: d7d1e873c6e0a77be3dc780291891b61432bb7c3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803149"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807878"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zscaler
 
@@ -233,7 +233,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 - Accédez directement à l’URL de connexion à Zscaler, puis lancez le flux de connexion à partir de cet emplacement.
 
-- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Zscaler dans Mes applications, une redirection est effectuée vers l’URL de connexion à Zscaler. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Zscaler dans Mes applications, une redirection est effectuée vers l’URL de connexion à Zscaler. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

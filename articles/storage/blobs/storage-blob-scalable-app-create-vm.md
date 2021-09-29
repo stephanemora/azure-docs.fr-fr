@@ -8,12 +8,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4b8c52b03cb6dec6096565e9eac26b7b2c4a30e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1674fe3aee6ea336986a9570232d070f47bbb478
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89073248"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620233"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Créer une machine virtuelle et un compte de stockage pour une application évolutive
 
@@ -22,9 +22,9 @@ Ce tutoriel est la première partie d’une série d’étapes. Ce didacticiel d
 Dans ce premier volet, vous apprenez à :
 
 > [!div class="checklist"]
-> * Créez un compte de stockage.
-> * Création d'une machine virtuelle
-> * Configurer une extension de script personnalisé
+> - Créez un compte de stockage.
+> - Création d'une machine virtuelle
+> - Configurer une extension de script personnalisé
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
- 
+
 L’exemple charge 50 fichiers volumineux dans un conteneur blob sur un compte de stockage Azure. Le compte de stockage Azure fournit un espace de noms unique pour stocker les objets de données de Stockage Azure et y accéder. Créez un compte de stockage dans le groupe de ressources que vous avez créé à l’aide de la commande [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount).
 
 Dans la commande suivante, indiquez le nom global unique de votre compte de stockage Blob dans l’espace réservé `<blob_storage_account>`.
@@ -103,12 +103,12 @@ Write-host "Your public IP address is $($pip.IpAddress)"
 Pour ce didacticiel, vous devez installer des prérequis sur la machine virtuelle. L’extension de script personnalisé est utilisée pour exécuter un script PowerShell qui effectue les tâches suivantes :
 
 > [!div class="checklist"]
-> * Installer .NET Core 2.0
-> * Installer chocolatey
-> * Installer GIT
-> * Cloner l’exemple de dépôt
-> * Restaurer des packages NuGet
-> * Créer 50 fichiers de 1 Go avec des données aléatoires
+> - Installer .NET Core 2.0
+> - Installer chocolatey
+> - Installer GIT
+> - Cloner l’exemple de dépôt
+> - Restaurer des packages NuGet
+> - Créer 50 fichiers de 1 Go avec des données aléatoires
 
 Exécutez l’applet de commande suivante pour finaliser la configuration de la machine virtuelle. Cette étape dure 5 à 15 minutes.
 
@@ -127,9 +127,9 @@ Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 Dans la première partie de la série, vous avez appris à créer un compte de stockage, déployer une machine virtuelle et configurer la machine virtuelle avec les prérequis nécessaires, notamment comment :
 
 > [!div class="checklist"]
-> * Créez un compte de stockage.
-> * Création d'une machine virtuelle
-> * Configurer une extension de script personnalisé
+> - Créez un compte de stockage.
+> - Création d'une machine virtuelle
+> - Configurer une extension de script personnalisé
 
 Passez à la deuxième partie de la série pour charger de grandes quantités de données dans un compte de stockage à l’aide d’un parallélisme et d’un nombre de nouvelles tentatives exponentiels.
 

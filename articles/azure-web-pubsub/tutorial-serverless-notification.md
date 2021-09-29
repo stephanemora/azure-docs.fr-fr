@@ -6,18 +6,18 @@ ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 08/24/2021
-ms.openlocfilehash: 11938094e1e99dc5a8816697030f4b69d6bc9d13
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 98bb95800596ac54bae01efb501c6016767ca650
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122970480"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785094"
 ---
 # <a name="tutorial-create-a-serverless-notification-app-with-azure-functions-and-azure-web-pubsub-service"></a>Tutoriel : Créer une application de notification serverless avec Azure Functions et le service Azure Web PubSub
 
 Le service Azure Web PubSub vous aide à créer des applications web de messagerie en temps réel à l’aide de WebSockets. Azure Functions est une plateforme serverless qui vous permet d’exécuter votre code sans gérer d’infrastructures. Dans ce tutoriel, vous apprenez à utiliser le service Azure Web PubSub et Azure Functions pour construire une application serverless avec une messagerie en temps réel dans le cadre de scénarios de notification. 
 
-Dans ce tutoriel, vous apprenez à effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une application de notification serverless
@@ -358,7 +358,7 @@ Utilisez les commandes suivantes pour créer ces éléments.
 
 1. Déployez le projet de fonction sur Azure :
 
-    Après avoir créé votre application de fonction dans Azure, vous êtes prêt à déployer votre projet Functions local à l’aide de la commande [func azure functionapp publish](/azure-functions/functions-run-local).
+    Après avoir créé votre application de fonction dans Azure, vous êtes prêt à déployer votre projet Functions local à l’aide de la commande [func azure functionapp publish](../azure-functions/functions-run-local.md).
 
     ```bash
     func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings

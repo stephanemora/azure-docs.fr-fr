@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 1664656f82492e664b7574339893cd688f0a061d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de6c5528bb62cecb130667b2e80a8884c7608a58
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097311"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807086"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Vue d’ensemble des liaisons de sortie RabbitMQ pour Azure Functions
 
@@ -23,7 +23,7 @@ Utilisez la liaison de sortie RabbitMQ pour envoyer des messages à une file d�
 
 Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-rabbitmq-output.md).
 
-## <a name="example"></a>Exemple
+## <a name="example"></a> Exemple
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -308,7 +308,7 @@ Quand vous utilisez des fonctions de script C# :
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Le message en file d’attente est disponible via context.bindings.<NAME> où <NAME> correspond au nom défini dans function.json. Si la charge utile est JSON, la valeur est désérialisée en objet.
+Le message en file d’attente est disponible via context.bindings.\<NAME\> où \<NAME\> correspond au nom défini dans function.json. Si la charge utile est JSON, la valeur est désérialisée en objet.
 
 # <a name="python"></a>[Python](#tab/python)
 

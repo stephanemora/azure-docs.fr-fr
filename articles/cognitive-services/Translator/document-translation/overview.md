@@ -1,17 +1,21 @@
 ---
 title: Qu’est-ce que la Traduction de documentation Microsoft Azure Cognitive Services ?
 description: Une vue d’ensemble du processus et du service de traduction de documents en lot basés sur le cloud.
-ms.topic: overview
-manager: nitinme
-ms.author: lajanuar
+services: cognitive-services
 author: laujan
-ms.date: 08/09/2021
-ms.openlocfilehash: 64198fce7acb3ea02349978de0c2787cb744e6b4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: translator-text
+ms.topic: overview
+ms.date: 05/25/2021
+ms.author: lajanuar
+recommendations: false
+ms.openlocfilehash: 959ba664b67b9427bb7faf190cac2417e3769080
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433887"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667423"
 ---
 # <a name="what-is-document-translation"></a>Qu’est-ce que la traduction de documents ?
 

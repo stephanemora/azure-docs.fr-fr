@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 78400f06f0335bb9c7430938ecd4a893ecb79322
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
+ms.openlocfilehash: 2741a3a122821b67d245096ac6994191bef6f998
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112428113"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124835427"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fabric"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Fabric
 
@@ -140,11 +140,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion de Fabric pour initier le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous sélectionnez la vignette **Fabric** dans le portail Mes applications, vous êtes redirigé vers l’URL de connexion de Fabric. Pour plus d’informations sur le portail Mes applications, consultez [Introduction au portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous sélectionnez la vignette **Fabric** dans le portail Mes applications, vous êtes redirigé vers l’URL de connexion de Fabric. Pour plus d’informations sur le portail Mes applications, consultez [Introduction au portail Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez configuré Fabric, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-

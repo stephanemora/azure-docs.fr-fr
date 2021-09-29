@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkel
-ms.openlocfilehash: 1385e81b5e5a4047a23b47f39d206ea94ec4d79c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 77663500c6a3e4c432506a5859892506f8995de1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414191"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552601"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Tutoriel : Monter le cluster
 
@@ -92,7 +92,7 @@ Outre les chemins, vous devez inclure les [options de la commande mount](#use-re
 
 Pour garantir un montage sans interruption du client, passez les paramètres et arguments suivants dans votre commande mount :
 
-``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
+`mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}`
 
 | Paramètres obligatoires | Description |
 --- | ---
@@ -101,9 +101,9 @@ Pour garantir un montage sans interruption du client, passez les paramètres et 
 ``mountproto=netid`` | Cette option prend en charge la gestion appropriée des erreurs réseau pour les opérations de montage.
 ``retry=n`` | Définissez ``retry=30`` pour éviter les échecs de montage temporaires. (Une valeur différente est recommandée dans les montages de premier plan.)
 
-| Paramètres favoris  | Description |
---- | ---
-``nointr``            | Si vos clients utilisent des noyaux de systèmes d’exploitation plus anciens (datant d’avant avril 2008) qui prennent en charge cette option, utilisez-la. Notez que l’option « intr » est la valeur par défaut.
+| Paramètres favoris | Description |
+| --- | --- |
+| `nointr` | Si vos clients utilisent des noyaux de systèmes d’exploitation plus anciens (datant d’avant avril 2008) qui prennent en charge cette option, utilisez-la. Notez que l’option « intr » est la valeur par défaut. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

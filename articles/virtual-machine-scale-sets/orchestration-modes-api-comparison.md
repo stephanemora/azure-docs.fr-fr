@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 20278ebae9e590a99293c37df506b7d07ff79ddc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 9fd4d2171aa54da469aacfaa7090025c296dd0c1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699206"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804072"
 ---
 # <a name="preview-orchestration-modes-api-comparison"></a>Préversion : Comparaison de l’API des modes d’orchestration 
 
@@ -59,7 +59,7 @@ Instance Obtenir ou Mettre à jour des groupes de machines virtuelles identiques
 
 ### <a name="flexible-alternative"></a>Alternative flexible 
 Appeler des API de machine virtuelle uniques :
-- [Ressource de verrouillage ARM](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources?tabs=json) pour un comportement de type Protection de l’instance 
+- [Ressource de verrouillage ARM](../azure-resource-manager/management/lock-resources.md?tabs=json) pour un comportement de type Protection de l’instance 
 
 
 ## <a name="list-instances"></a>Instances de liste 

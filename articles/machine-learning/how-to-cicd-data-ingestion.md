@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 34aa94ea7bef56ecc2e01b792a0f5e8b417804fa
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: fc843d45bbdbcc8ac7de7135eb3534cc606409bd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890183"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212510"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps pour un pipeline d’ingestion des données
 
@@ -122,7 +122,7 @@ Le processus d’intégration continue pour un pipeline Azure Data Factory est u
 1. Une personne disposant des autorisations accordées clique sur le bouton ***Publier*** pour générer des modèles Azure Resource Manager à partir du code source de la branche de collaboration. 
 1. L’espace de travail valide les pipelines (considérez cela comme du linting et des tests unitaires), génère des modèles Azure Resource Manager (considérez cela comme de la création) et enregistre les modèles générés dans une branche technique ***adf_publish*** dans le même dépôt de code (considérez cela comme de la publication d’artefacts). Cette branche est créée automatiquement par l’espace de travail Azure Data Factory. 
 
-Pour plus d’informations sur ce processus, consultez [Intégration et livraison continues dans Azure Data Factory](../data-factory/continuous-integration-deployment.md).
+Pour plus d’informations sur ce processus, consultez [Intégration et livraison continues dans Azure Data Factory](../data-factory/continuous-integration-delivery.md).
 
 Il est important de s’assurer que les modèles Azure Resource Manager générés sont indépendants de l’environnement. Cela signifie que toutes les valeurs qui peuvent différer d’un environnement à l’autre sont paramétrées. Azure Data Factory est suffisamment intelligente pour exposer la plupart de ces valeurs en tant que paramètres. Par exemple, dans le modèle suivant, les propriétés de connexion à un espace de travail Azure Machine Learning sont exposées en tant que paramètres :
 
@@ -174,7 +174,7 @@ Les activités du pipeline peuvent faire référence aux variables de pipeline t
 
 ![Capture d’écran montrant un bloc-notes appelé PrepareData et un pipeline d’exécution d’apprentissage automatique appelé ML Excute Pipeline en haut avec l’onglet Paramètres sélectionné en-dessous.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
-L’espace de travail Azure Data Factory ***n’exposent pas*** les variables de pipeline en tant que paramètres par défaut des modèles Azure Resource Manager. L’espace de travail utilise le [modèle de paramétrage par défaut](../data-factory/continuous-integration-deployment.md#default-parameterization-template) dictant quelles propriétés de pipeline doivent être exposées comme paramètres de modèle Azure Resource Manager. Pour ajouter des variables de pipeline à la liste, mettez à jour la section `"Microsoft.DataFactory/factories/pipelines"` du [modèle de paramétrage par défaut](../data-factory/continuous-integration-deployment.md#default-parameterization-template) avec l’extrait de code suivant et placez le fichier JSON résultant à la racine du dossier source :
+L’espace de travail Azure Data Factory ***n’exposent pas*** les variables de pipeline en tant que paramètres par défaut des modèles Azure Resource Manager. L’espace de travail utilise le [modèle de paramétrage par défaut](../data-factory/continuous-integration-delivery-resource-manager-custom-parameters.md) dictant quelles propriétés de pipeline doivent être exposées comme paramètres de modèle Azure Resource Manager. Pour ajouter des variables de pipeline à la liste, mettez à jour la section `"Microsoft.DataFactory/factories/pipelines"` du [modèle de paramétrage par défaut](../data-factory/continuous-integration-delivery-resource-manager-custom-parameters.md) avec l’extrait de code suivant et placez le fichier JSON résultant à la racine du dossier source :
 
 ```json
 "Microsoft.DataFactory/factories/pipelines": {
@@ -481,5 +481,5 @@ stages:
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Contrôle de code source dans Azure Data Factory](../data-factory/source-control.md)
-* [Intégration et déploiement continus dans Azure Data Factory](../data-factory/continuous-integration-deployment.md)
+* [Intégration et déploiement continus dans Azure Data Factory](../data-factory/continuous-integration-delivery.md)
 * [DevOps pour Azure Databricks](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks)

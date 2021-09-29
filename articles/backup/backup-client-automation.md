@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment utiliser PowerShell pour confi
 ms.topic: conceptual
 ms.date: 08/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1d72dec0e9e2c1df0f93df5b557d72e8ad5c857e
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: b1ec8bf20871fe5cb6f3245f202f2db2ca2c57f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779492"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824888"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -410,7 +410,7 @@ PolicyState     : Valid
 L'objet de stratégie est à présent complet. Il est associé à une planification de sauvegarde, à une stratégie de rétention et à une liste d’inclusion/exclusion de fichiers. Cette stratégie peut maintenant être validée à des fins d’utilisation par Sauvegarde Azure. Avant d’appliquer la stratégie que vous venez de créer, vérifiez qu’aucune stratégie de sauvegarde existante n’est associée au serveur à l’aide de l’applet de commande [Remove-OBPolicy](/powershell/module/msonlinebackup/remove-obpolicy). Lors de la suppression de la stratégie, vous êtes invité à confirmer l'opération. Pour ignorer la confirmation, utilisez l’indicateur `-Confirm:$false` avec l’applet de commande.
 
 >[!Note]
->Lors de l’exécution de l’applet de commande si vous êtes invité à définir un code PIN de sécurité, consultez la [section Méthode 1](/azure/backup/backup-azure-delete-vault#method-1).
+>Lors de l’exécution de l’applet de commande si vous êtes invité à définir un code PIN de sécurité, consultez la [section Méthode 1](./backup-azure-delete-vault.md#method-1).
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 724b94a44ae289063bbb1c6ebf53b38c0a617b88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed819b22caab25fea8ae002d482cf2df5d0bf60c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799325"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733060"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -22,7 +22,7 @@ LUIS possède un éventail de fonctionnalités au sein du service. Certaines fon
 
 ## <a name="multi-language-luis-apps"></a>Applications LUIS multilingues
 
-Si vous avez besoin d’une application client LUIS multilingue, comme un chatbot, vous avez plusieurs options. Si LUIS prend en charge toutes les langues, vous développez une application LUIS pour chaque langue. Chaque application LUIS possède un ID d’application unique et un journal de point de terminaison. Si vous avez besoin du service Language Understanding pour une langue non prise en charge par LUIS, vous pouvez utiliser le service [Translator](../Translator/translator-info-overview.md) pour traduire l’énoncé dans une langue prise en charge, envoyer l’énoncé au point de terminaison LUIS et recevoir les scores obtenu.
+Si vous avez besoin d’une application client LUIS multilingue, comme un chatbot, vous avez plusieurs options. Si LUIS prend en charge toutes les langues, vous développez une application LUIS pour chaque langue. Chaque application LUIS possède un ID d’application unique et un journal de point de terminaison. Si vous avez besoin du service Language Understanding pour une langue non prise en charge par LUIS, vous pouvez utiliser le service [Translator](../translator/translator-overview.md) pour traduire l’énoncé dans une langue prise en charge, envoyer l’énoncé au point de terminaison LUIS et recevoir les scores obtenu.
 
 ## <a name="languages-supported"></a>Langues prises en charge
 

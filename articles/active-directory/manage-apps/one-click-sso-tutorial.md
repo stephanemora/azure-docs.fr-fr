@@ -12,12 +12,12 @@ ms.date: 06/11/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
-ms.openlocfilehash: bec4df252a98fc105f0eec1480452021fefb0031
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dac32dd14e006b1187f62389d3bc38e3c30a890f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562541"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791457"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuration en un clic de l’authentification unique pour une application
 
@@ -36,7 +36,7 @@ La fonctionnalité d’authentification SSO en un clic a été conçue pour conf
 ## <a name="prerequisites"></a>Prérequis
 
 - Abonnement actif de l’application à configurer avec l’authentification unique. Vous avez également besoin d’informations d’identification de l’administrateur.
-- L’**Extension de connexion sécurisée à Mes applications** de Microsoft installée dans le navigateur. Pour plus d’informations, consultez [Accéder aux applications du portail Mes applications et les utiliser](../user-help/my-apps-portal-end-user-access.md).
+- L’**Extension de connexion sécurisée à Mes applications** de Microsoft installée dans le navigateur. Pour plus d’informations, consultez [Accéder aux applications du portail Mes applications et les utiliser](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="one-click-sso-configuration-steps"></a>Étapes de configuration SSO en un clic
 
@@ -81,4 +81,4 @@ La fonctionnalité d’authentification SSO en un clic a été conçue pour conf
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 - [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
-- [Présentation de l’Extension de navigateur de connexion sécurisée à Mes applications](../user-help/my-apps-portal-end-user-access.md)
+- [Présentation de l’Extension de navigateur de connexion sécurisée à Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)

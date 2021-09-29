@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/18/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 20421d46c664354ef0ec97fe459ca83209020307
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 0808b52c777389cfdf641094fd152ee9f11b482f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598049"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782719"
 ---
 # <a name="troubleshoot-azure-data-factory-and-azure-synapse-analytics-connectors"></a>Résoudre les problèmes des connecteurs Azure Data Factory et Azure Synapse Analytics
 
@@ -154,7 +154,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Résolution** : Pour contourner ce problème, utilisez la copie intermédiaire pour ignorer la validation TLS (Transport Layer Security) pour Azure Data Lake Storage Gen1. Vous devez reproduire ce problème et collecter la trace du moniteur réseau (netmon), puis demander à votre équipe réseau de vérifier la configuration du réseau local.
 
-    ![Diagramme des connexions Azure Data Lake Storage Gen1 pour la résolution des problèmes.](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
+    :::image type="content" source="./media/connector-troubleshoot-guide/adls-troubleshoot.png" alt-text="Diagramme des connexions Azure Data Lake Storage Gen1 pour la résolution des problèmes.":::
 
 
 ### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Message d’erreur : Le serveur distant a retourné une erreur : (403) Interdit
@@ -1208,7 +1208,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
     2. Ouvrez le fichier *diawp.exe.config* et, à la fin de la section `<runtime>`, ajoutez `<enforceFIPSPolicy enabled="false"/>`, comme illustré ici :
 
-        ![Capture d’écran d’une section du fichier diawp.exe.config montrant FIPS désactivé.](./media/connector-troubleshoot-guide/disable-fips-policy.png)
+        :::image type="content" source="./media/connector-troubleshoot-guide/disable-fips-policy.png" alt-text="Capture d’écran d’une section du fichier diawp.exe.config montrant FIPS désactivé.":::
 
     3. Enregistrez le fichier, puis redémarrez la machine du runtime d’intégration auto-hébergé.
 
@@ -1375,7 +1375,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 Si vous avez besoin d’une aide supplémentaire, essayez les ressources suivantes :
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Demandes de fonctionnalités Data Factory](/answers/topics/azure-data-factory.html)
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Page Microsoft Q&A](/answers/topics/azure-data-factory.html)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 5eb0f353579233041bb5ccba46de2549ada7e9b7
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d8091bd5e1bb95ff29d0be948a464f587a49f62f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864786"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819750"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Tutoriel : Créer des clusters Azure HDInsight avec Azure Automation
 
@@ -27,7 +27,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un [compte Azure Automation](../automation/automation-quickstart-create-account.md) existant.
+* Un [compte Azure Automation](../automation/quickstarts/create-account-portal.md) existant.
 * Un [compte de stockage Azure](../storage/common/storage-account-create.md) existant, qui sera utilisé comme espace de stockage en cluster.
 
 ## <a name="install-hdinsight-modules"></a>Installer les modules HDInsight
@@ -55,7 +55,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 1. Sélectionnez **Ajouter des informations d’identification**.
 1. Entrez les informations nécessaires dans le panneau **Nouvelles informations d’identification**. Ces informations d’identification servent à stocker le mot de passe du cluster, qui vous permet de vous connecter à Ambari.
 
-    | Propriété | Value |
+    | Propriété | Valeur |
     | --- | --- |
     | Nom | `cluster-password` |
     | Nom d'utilisateur | `admin` |

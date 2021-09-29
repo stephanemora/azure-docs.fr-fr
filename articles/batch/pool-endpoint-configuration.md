@@ -2,13 +2,13 @@
 title: Configurer des points de terminaison de nœud dans le pool Azure Batch
 description: Comment configurer ou désactiver l’accès aux ports SSH ou RDP sur les nœuds de calcul dans un pool Azure Batch.
 ms.topic: how-to
-ms.date: 02/13/2018
-ms.openlocfilehash: 4e7df7da539be75ef1befdff4b4e1fe5244c1702
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/10/2021
+ms.openlocfilehash: a3c7d3d8f4aeaea17334b4dc3c65ee47ab982462
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92109304"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779955"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurer ou désactiver l’accès à distance aux nœuds de calcul dans un pool Azure Batch
 

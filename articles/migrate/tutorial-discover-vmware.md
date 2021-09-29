@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 520b75e38d7ccf33c3f900c0b30bfd68e6184720
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 3d3fc18ebceb18e7411a68c19e069a0db4889854
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542401"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797112"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>Tutoriel : Découvrir les serveurs fonctionnant dans un environnement VMware avec Azure Migrate
 
@@ -141,7 +141,7 @@ L’outil Azure Migrate : découverte et évaluation utilise une appliance Azur
 
 > [!NOTE]
 > Si vous ne pouvez pas configurer l’appliance en utilisant le modèle OVA, vous pouvez la configurer en exécutant un script PowerShell sur un serveur existant exécutant Windows Server 2016. Découvrez comment [utiliser PowerShell pour configurer une appliance Azure Migrate](deploy-appliance-script.md#set-up-the-appliance-for-vmware). <br/>
-> L’option de déploiement d’une appliance à l’aide d’un modèle OVA n’est pas prise en charge dans le cloud Azure Government. [En savoir plus](/azure/migrate/deploy-appliance-script-government) sur le déploiement d’une appliance pour le cloud Azure Government.
+> L’option de déploiement d’une appliance à l’aide d’un modèle OVA n’est pas prise en charge dans le cloud Azure Government. [En savoir plus](./deploy-appliance-script-government.md) sur le déploiement d’une appliance pour le cloud Azure Government.
 
 ### <a name="deploy-by-using-an-ova-template"></a>Déployer à l’aide d’un modèle OVA
 
@@ -318,7 +318,7 @@ Pour démarrer la découverte de vCenter Server, sélectionnez **Démarrer la d
 * L’[inventaire logiciel](how-to-discover-applications.md) identifie le rôle de serveur web existant sur les serveurs découverts. Si le rôle de serveur web est activé pour un serveur, Azure Migrate procède à la découverte d’applications web sur le serveur. Les données de configuration des applications web sont mises à jour une fois par jour.
 * Au cours de l’inventaire logiciel, les informations d’identification des serveurs ajoutées sont comparées aux serveurs et validées pour l’analyse des dépendances sans agent. Une fois la découverte des serveurs terminée, vous pouvez activer l’analyse des dépendances sans agent sur les serveurs. Seuls les serveurs pour lesquels la validation réussit peuvent être sélectionnés pour activer l’[analyse des dépendances sans agent](how-to-create-group-machine-dependencies-agentless.md).
 * Les données des applications web ASP.NET et des bases de données et instances SQL Server commencent à apparaître dans le portail dans les 24 heures qui suivent le démarrage de la découverte.
-* Par défaut, Azure Migrate utilise le moyen le plus sûr de se connecter aux instances SQL, c’est-à-dire qu’Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL sources en définissant la propriété TrustServerCertificate sur `true`. En outre, la couche transport utilise SSL pour chiffrer le canal et contourner la chaîne de certificat pour valider l’approbation. Par conséquent, le serveur d’appliance doit être configuré pour approuver l’autorité racine du certificat. Toutefois, vous pouvez modifier les paramètres de connexion en sélectionnant **Modifier les propriétés de connexion de SQL Server** sur l’appliance. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2158046) sur ce que vous devez choisir.
+* Par défaut, Azure Migrate utilise le moyen le plus sûr de se connecter aux instances SQL, c’est-à-dire qu’Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL sources en définissant la propriété TrustServerCertificate sur `true`. En outre, la couche transport utilise SSL pour chiffrer le canal et contourner la chaîne de certificat pour valider l’approbation. Par conséquent, le serveur d’appliance doit être configuré pour approuver l’autorité racine du certificat. Toutefois, vous pouvez modifier les paramètres de connexion en sélectionnant **Modifier les propriétés de connexion de SQL Server** sur l’appliance. [En savoir plus](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) sur ce que vous devez choisir.
 
     :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Capture d’écran montrant comment modifier les propriétés de connexion de SQL Server.":::
 

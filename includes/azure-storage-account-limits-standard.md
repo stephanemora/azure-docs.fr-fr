@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
+title: fichier descriptif
 description: Fichier include
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/30/2020
+ms.date: 09/07/2021
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 82bf11c530dd9d040fc0f82be570774d543b1987
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f3d3f66f01ce3245fa56712d06867bc35a4114ff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446173"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778837"
 ---
 Le tableau suivant présente les limites par défaut pour les comptes de stockage d’objets blob, d’objets blob de blocs et V1 et V2 universels. La limite d’*entrée* désigne toutes les données envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données reçues d’un compte de stockage.
 
@@ -33,6 +33,8 @@ Le tableau suivant présente les limites par défaut pour les comptes de stockag
 | Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions hors États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 15 Gbit/s pour LRS/ZRS<sup>2</sup> |
 | Nombre maximal de règles de réseau virtuel par compte de stockage | 200 |
 | Nombre maximal de règles d’adresse IP par compte de stockage | 200 |
+| Nombre maximal de règles d’instance de ressource par compte de stockage | 200 |
+| Nombre maximal de points de terminaison privés par compte de stockage | 200 |
 
 <sup>1</sup> Les comptes de stockage standard Azure prennent en charge la demande de limites supérieures pour la capacité et les entrées. Pour demander une augmentation des limites de compte, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
 

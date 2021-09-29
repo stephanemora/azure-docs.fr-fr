@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 09/28/2021
 ms.author: alzam
-ms.openlocfilehash: 57328748f21dda9efe3b2208aeb4854360a76e38
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b0988547105f953c0665ea753007c0725055fe61
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288679"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208702"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Travail à distance à l’aide d’une connexion point à site par passerelle VPN Azure
 
@@ -31,7 +31,7 @@ Une connexion par passerelle VPN point à site (P2S) vous permet de créer une c
 
 Le tableau ci-dessous présente les systèmes d’exploitation clients et les options d’authentification disponibles. Il serait utile de sélectionner la méthode d’authentification en fonction du système d’exploitation client déjà utilisé. Par exemple, sélectionnez OpenVPN avec l’authentification basée sur les certificats si vous avez plusieurs systèmes d’exploitation clients qui doivent se connecter. Notez également qu’un VPN point à site est pris en charge uniquement sur des passerelles VPN basées sur un itinéraire.
 
-![Capture d'écran représentant les systèmes d'exploitation clients et les options d'authentification disponibles.](./media/working-remotely-support/ostable.png "Système d''exploitation")
+![Capture d'écran représentant les systèmes d'exploitation clients et les options d'authentification disponibles.](./media/working-remotely-support/os-table.png "Système d''exploitation")
 
 ## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Scénario 1 : les utilisateurs doivent accéder à des ressources seulement dans Azure
 

@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client Stockage Blob Azure v10 pour JavaScript'
 description: Créez, chargez et supprimez des objets blob et des conteneurs en Node.js avec la bibliothèque de client Stockage Azure v10 pour JavaScript.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: ddcce3e624de7e8bed62783bdc22c5c4211e19e2
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: be5e67eeec220e2bbb8fa3cb525bb8ec9f224b06
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280103"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599066"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Démarrage rapide : Gérer des objets blob avec le SDK JavaScript v10 en Node.js
 
@@ -120,7 +120,7 @@ const fs = require('fs');
 const path = require('path');
 ```
 
-L’objectif de ces modules est le suivant : 
+L’objectif de ces modules est le suivant :
 
 - *fs* est le module Node.js natif utilisé pour travailler avec le système de fichiers
 
@@ -132,6 +132,7 @@ Ensuite, les valeurs des variables d’environnement sont lues et mises de côt�
 const STORAGE_ACCOUNT_NAME = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
 ```
+
 L’ensemble de constantes suivant permet de connaître la prévision des calculs de taille des fichiers lors des opérations de chargement.
 
 ```javascript
@@ -191,7 +192,7 @@ const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
 const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
 ```
 
-Les variables *containerURL* et *blockBlobURL* sont réutilisées tout au long de l’exemple pour agir sur le compte de stockage. 
+Les variables *containerURL* et *blockBlobURL* sont réutilisées tout au long de l’exemple pour agir sur le compte de stockage.
 
 À ce stade, le conteneur n’existe pas dans le compte de stockage. L’instance de *ContainerURL* représente une URL sur laquelle vous pouvez agir. Avec cette instance, vous pouvez créer et supprimer le conteneur. L’emplacement de ce conteneur équivaut à un emplacement tel que celui-ci :
 
@@ -258,7 +259,7 @@ async function showContainerNames(aborter, serviceURL) {
 }
 ```
 
-Lorsque la réponse est retournée, les éléments *containerItems* sont itérés pour consigner le nom dans la console. 
+Lorsque la réponse est retournée, les éléments *containerItems* sont itérés pour consigner le nom dans la console.
 
 ### <a name="upload-text"></a>Charger du texte
 
@@ -405,7 +406,7 @@ console.log(`Container "${containerName}" is deleted`);
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Toutes les données écrites dans le compte de stockage sont automatiquement supprimées à la fin de l’exemple de code. 
+Toutes les données écrites dans le compte de stockage sont automatiquement supprimées à la fin de l’exemple de code.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

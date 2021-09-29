@@ -16,12 +16,12 @@ ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e31b9ce115ebe0723a9d082aaddd8056e486ed27
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 65ccc68585e127741a0acffde54273ae496aea47
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176975"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124817972"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Effectuer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -111,4 +111,4 @@ Pour récupérer tous les résultats d’une révision d’accès, cliquez sur l
 - [Manage user access with Azure AD access reviews](manage-user-access-with-access-reviews.md) (Gérer l’accès des utilisateurs avec les révisions d’accès Azure AD)
 - [Gérer l’accès invité avec les révisions d’accès Azure AD](manage-guest-access-with-access-reviews.md)
 - [Créer une révision d’accès de groupes ou d’applications](create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)
+- [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)

@@ -12,12 +12,12 @@ ms.date: 08/09/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: tilarso
-ms.openlocfilehash: 7f9f5a49a46c4f73dce65f23e8ace278f02fe941
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 6d2a6afe4555bc9324241616ae6c22494216a146
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123115882"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791438"
 ---
 # <a name="protecting-against-consent-phishing"></a>Protéger contre le hameçonnage de consentement
 
@@ -48,7 +48,7 @@ Si votre organisation a été affectée par une application désactivée par Mic
 1. Examinez l’activité de l’application désactivée, notamment :
     - Les autorisations déléguées ou autorisations d’application demandées par l’application.
     - Les journaux d’audit Azure AD pour l’activité de l’application et de l’activité de connexion pour les utilisateurs autorisés à utiliser l’application.
-1. Passez en revue et mettez en œuvre les [conseils sur la défense contre les octrois de consentement illicites](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants?view=o365-worldwide&preserve-view=true) dans les produits cloud Microsoft, y compris l’audit des autorisations et le consentement pour l’application désactivée ou toute autre application suspecte détectée lors de la révision.
+1. Passez en revue et mettez en œuvre les [conseils sur la défense contre les octrois de consentement illicites](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) dans les produits cloud Microsoft, y compris l’audit des autorisations et le consentement pour l’application désactivée ou toute autre application suspecte détectée lors de la révision.
 1. Implémentez les meilleures pratiques pour renforcer la protection contre le hameçonnage de consentement, décrites ci-dessous.
 
 
@@ -59,20 +59,20 @@ Chez Microsoft, nous souhaitons placer les administrateurs dans le contrôle en 
 * Apprenez à votre organisation le fonctionnement de l’infrastructure de nos autorisations et consentements
     - Comprenez les données et les autorisations demandées par une application et comprenez le fonctionnement des  [autorisations et du consentement](../develop/v2-permissions-and-consent.md) au sein de notre plateforme.
     - Veillez à ce que les administrateurs sachent comment  [gérer et évaluer les demandes de consentement](./manage-consent-requests.md).
-    - Effectuer l’[audit des applications et des autorisations accordées](/azure/security/fundamentals/steps-secure-identity#audit-apps-and-consented-permissions)  au sein de votre organisation pour vous assurer que les applications utilisées n’accèdent qu’aux données dont elles ont besoin et qu’elles adhèrent aux principes de privilège moindre.
+    - Effectuer l’[audit des applications et des autorisations accordées](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions)  au sein de votre organisation pour vous assurer que les applications utilisées n’accèdent qu’aux données dont elles ont besoin et qu’elles adhèrent aux principes de privilège moindre.
 * Savoir comment identifier et bloquer les stratégies d’hameçonnage de consentement courantes
     - Vérifiez les erreurs orthographiques et grammaticales. Si un e-mail ou l’écran de consentement de l’application contient des erreurs orthographiques et grammaticales, il est probable qu’il s’agisse d’une application suspecte. Dans ce cas, vous pouvez le rapportez directement sur l’[invite de consentement](../develop/application-consent-experience.md#building-blocks-of-the-consent-prompt) avec le lien « *Le rapporter ici* » et Microsoft examinera s’il s’agit d’une application malveillante et la désactivera le cas échéant.
     - Ne vous fiez pas aux noms d’application et aux URL de domaine comme source d’authenticité. Les attaquants aiment usurper les noms d’application et de domaine qui semblent provenir d’un service ou d’entreprises légitimes, pour que vous donniez votre consentement à une application malveillante. Au lieu de cela, validez la source de l’URL de domaine et utilisez des applications à partir d'[éditeurs vérifiés](../develop/publisher-verification-overview.md) lorsque cela est possible.
-    - Bloquez les [e-mails de hameçonnage de consentement à l’aide de Microsoft Defender pour Office 365](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide&preserve-view=true#impersonation-settings-in-anti-phishing-policies-in-microsoft-defender-for-office-365) en protégeant contre les campagnes de hameçonnage où un attaquant usurpe l’identité d’un utilisateur connu de votre organisation.
+    - Bloquez les [e-mails de hameçonnage de consentement à l’aide de Microsoft Defender pour Office 365](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies#impersonation-settings-in-anti-phishing-policies-in-microsoft-defender-for-office-365) en protégeant contre les campagnes de hameçonnage où un attaquant usurpe l’identité d’un utilisateur connu de votre organisation.
     - Configurez les stratégies de sécurité des applications cloud de Microsoft, telles que les [stratégies d’activité](/cloud-app-security/user-activity-policies), la [détection d’anomalies](/cloud-app-security/anomaly-detection-policy)et les [stratégies d’application OAuth](/cloud-app-security/app-permission-policy)  pour faciliter la gestion et prendre des mesures sur l’activité anormale des applications dans votre organisation.
-    - Examinez et recherchez les attaques par hameçonnage de consentement en suivant les conseils relatifs à la [recherche avancée avec Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview?view=o365-worldwide&preserve-view=true).
+    - Examinez et recherchez les attaques par hameçonnage de consentement en suivant les conseils relatifs à la [recherche avancée avec Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview).
 * Autoriser l’accès aux applications de confiance et protégez-vous contre celles auxquelles vous ne faites pas confiance
     - Utilisez des applications qui ont été vérifiées par l’éditeur. La [vérification de l’éditeur](../develop/publisher-verification-overview.md) permet aux administrateurs et aux utilisateurs finaux de s'assurer de l'authenticité des développeurs d'applications à l’aide d’un processus de vérification pris en charge par Microsoft.
     - [Configurez des paramètres de consentement de l'utilisateur](./configure-user-consent.md?tabs=azure-portal) en permettant aux utilisateurs de donner leur consentement uniquement à des applications spécifiques fiables, telles que les applications développées par votre organisation ou par des éditeurs vérifiés.
-    - Créez des stratégies de [gouvernance des applications](/microsoft-365/compliance/app-governance-manage-app-governance?view=o365-worldwide&preserve-view=true) proactives pour surveiller le comportement des applications tierces sur la plateforme Microsoft 365 pour résoudre les comportements d’application suspects courants.
+    - Créez des stratégies de [gouvernance des applications](/microsoft-365/compliance/app-governance-manage-app-governance) proactives pour surveiller le comportement des applications tierces sur la plateforme Microsoft 365 pour résoudre les comportements d’application suspects courants.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Examen d’octroi de consentement d’application](/security/compass/incident-response-playbook-app-consent)
 * [Gestion de l’accès aux applications](./what-is-access-management.md)
-* [Limiter les opérations de consentement de l’utilisateur dans Azure AD](/azure/security/fundamentals/steps-secure-identity#restrict-user-consent-operations)
+* [Limiter les opérations de consentement de l’utilisateur dans Azure AD](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations)

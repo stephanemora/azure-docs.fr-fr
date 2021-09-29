@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ebebd323c683036a472106894cb0e42ba460996
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 53cfd6f72ec51475453ba940c54433651f07b419
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "108807536"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809761"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-certent-equity-management"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Certent Equity Management
 
@@ -143,7 +143,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 - Cliquez sur Tester cette application dans le portail Azure ; vous êtes alors connecté automatiquement à l’instance de Certent Equity Management pour laquelle vous avez configuré l’authentification unique.
 
-- Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Certent Equity Management dans Mes applications, vous devez être automatiquement connecté à l’application Certent Equity Management pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+- Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Certent Equity Management dans Mes applications, vous devez être automatiquement connecté à l’application Certent Equity Management pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

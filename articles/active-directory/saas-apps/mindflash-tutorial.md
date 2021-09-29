@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4fbc79723dd484148ddf2f8836848aa9bc333341
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d776c245600691db24d80ecb705d8bf14d8fd1ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522584"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124795371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Didacticiel : Intégration d’Azure Active Directory avec Mindflash
 
@@ -177,17 +177,17 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-mindflash-test-user"></a>Créer un utilisateur de test Mindflash
+### <a name="create-mindflash-test-user&quot;></a>Créer un utilisateur de test Mindflash
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Mindflash, vous devez les approvisionner dans Mindflash. En l’occurrence, cet approvisionnement est une tâche manuelle.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
+### <a name=&quot;to-provision-a-user-accounts-perform-the-following-steps&quot;></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
 1. Connectez-vous à votre site d'entreprise **Mindflash** en tant qu'administrateur.
 
 1. Accédez à **Gérer les utilisateurs**.
    
-    ![Gérer les utilisateurs](./media/mindflash-tutorial/ic787140.png "Manage Users")
+    ![Gérer les utilisateurs](./media/mindflash-tutorial/ic787140.png &quot;Manage Users")
 
 1. Cliquez sur **Ajouter des utilisateurs**, puis sur **Nouveau**.
 
@@ -211,7 +211,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Mindflash, vous deve
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Mindflash dans le panneau d’accès doit vous connecter automatiquement à l’application Mindflash pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Mindflash dans le panneau d’accès doit vous connecter automatiquement à l’application Mindflash pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

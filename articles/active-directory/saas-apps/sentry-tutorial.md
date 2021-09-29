@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 0f639c656207f94b37bbf2768b6c39fc69eb8603
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 5a8cbdc77a7570037645b350b62787aeaea7374f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114454570"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821501"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sentry"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Sentry
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="either-mode"></a>L’un ou l’autre mode :
 
-Vous pouvez utiliser le portail Mes applications pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Sentry dans le portail Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. Si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’application Sentry pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez utiliser le portail Mes applications pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Sentry dans le portail Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. Si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’application Sentry pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

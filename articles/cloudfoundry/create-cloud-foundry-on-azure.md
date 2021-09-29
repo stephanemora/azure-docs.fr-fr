@@ -14,16 +14,16 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 3444d6c62b5e36b7e68cfaf6da1ec534e2ea4ec6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1ed9dbef648eace79807f06f034ba02e8bc67817
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551451"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655863"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Créer un cluster Pivotal Cloud Foundry sur Azure
 
-Ce didacticiel explique comment créer et générer rapidement les paramètres dont vous avez besoin pour approvisionner un cluster Pivotal Cloud Foundry (PCF) sur Azure. Pour trouver la solution Pivotal Cloud Foundry, effectuez une recherche dans la [Place de marché](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry) Azure.
+Ce didacticiel explique comment créer et générer rapidement les paramètres dont vous avez besoin pour approvisionner un cluster Pivotal Cloud Foundry (PCF) sur Azure. Pour trouver la solution Pivotal Cloud Foundry, effectuez une recherche dans la Place de marché Azure.
 
 ![Rechercher Pivotal Cloud Foundry dans Azure](media/deploy/pcf-marketplace.png)
 
@@ -117,7 +117,7 @@ Pour plus d’informations, consultez [Utiliser des clés SSH avec Windows sur A
 
 ## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Approvisionner votre cluster Cloud Foundry sur Azure
 
-Vous disposez maintenant de tous les paramètres dont vous avez besoin pour approvisionner votre [cluster Pivotal Cloud Foundry sur Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
+Vous disposez maintenant de tous les paramètres dont vous avez besoin pour approvisionner votre cluster Pivotal Cloud Foundry sur Azure.
 Entrez les paramètres et créez votre cluster PCF.
 
 ## <a name="verify-the-deployment-and-sign-in-to-the-pivotal-ops-manager"></a>Vérifier le déploiement et se connecter au Pivotal Ops Manager

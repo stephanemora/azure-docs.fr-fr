@@ -1,8 +1,8 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client Stockage File d’attente Azure v12 – JavaScript'
 description: Découvrez comment utiliser la bibliothèque de client Stockage File d’attente Azure v12 pour JavaScript, afin de créer une file d’attente et d’y ajouter des messages. Apprenez ensuite à lire et à supprimer des messages de la file d’attente. Vous apprendrez également à supprimer une file d’attente.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 12/13/2019
 ms.topic: quickstart
 ms.service: storage
@@ -10,12 +10,12 @@ ms.subservice: queues
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: 943678debc32116ff7a2e54810c4edcf2d331bd6
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a3adb61c27610b07f17aae44c607e36c640cd07d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534425"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570927"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Démarrage rapide : Bibliothèque de client Stockage File d’attente Azure v12 pour JavaScript
 

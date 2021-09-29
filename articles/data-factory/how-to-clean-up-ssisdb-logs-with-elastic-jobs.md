@@ -8,12 +8,12 @@ ms.date: 08/28/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3e793f7a1c2e927be9b0431df05bdc228355429f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 7e235bd04b0693a0fabc9f4432aff01c85b5c67e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123110194"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824709"
 ---
 # <a name="how-to-clean-up-ssisdb-logs-automatically"></a>Comment nettoyer les journaux SSISDB automatiquement
 
@@ -34,7 +34,7 @@ Pour gérer les journaux d’exécution de package SSIS, vous pouvez configurer 
 - **Supprimer régulièrement les anciennes versions** : active le nettoyage des versions de projet stockées, défini par défaut sur *True*.
 - **Nombre maximal de versions par projet** : spécifie le nombre maximal de versions de projet stockées, défini par défaut sur *10*. Les versions plus anciennes sont supprimées lorsque la procédure stockée SSISDB appropriée est appelée.
 
-![Propriétés de nettoyage des journaux SSISDB](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-ssisdb-properties.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-ssisdb-properties.png" alt-text="Propriétés de nettoyage des journaux SSISDB":::
 
 Une fois les propriétés de nettoyage des journaux SSISDB configurées, vous pouvez appeler la procédure stockée SSISDB appropriée, `[internal].[cleanup_server_retention_window_exclusive]`, pour nettoyer les journaux d’exécution de package SSIS.
 
@@ -55,7 +55,7 @@ Ces procédures stockées SSISDB peuvent également être appelées automatiquem
 ## <a name="clean-up-ssisdb-logs-automatically-via-adf"></a>Nettoyer les journaux SSISDB automatiquement par le biais d’ADF
 Que vous utilisiez le serveur de base de données Azure SQL/Managed Instance pour héberger des SSISDB, vous pouvez toujours utiliser ADF pour nettoyer automatiquement les journaux SSISDB selon une planification. Pour ce faire, vous pouvez préparer une activité Exécuter le package SSIS dans le pipeline ADF avec un package incorporé contenant une seule tâche Exécuter SQL qui appelle les procédures stockées SSISDB appropriées. Consultez l’exemple 4 dans notre blog : [Exécutez n’importe quelle requête SQL en 3 étapes simples à l’aide du service SSIS dans Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-sql-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2457244).
 
-![Nettoyage des journaux SSISDB par le biais d’ADF](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/run-sql-ssis-activity-ssis-parameters-ssisdb-clean-up.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/run-sql-ssis-activity-ssis-parameters-ssisdb-clean-up.png" alt-text="Nettoyage des journaux SSISDB par le biais d’ADF":::
 
 Pour le paramètre **SQLStatementSource**, vous pouvez entrer `EXEC internal.cleanup_server_retention_window_exclusive` pour nettoyer les journaux d’exécution de package SSIS. 
 
@@ -68,7 +68,7 @@ Une fois que votre pipeline ADF est préparé, vous pouvez associer un déclench
 ## <a name="clean-up-ssisdb-logs-automatically-via-azure-sql-managed-instance-agent"></a>Nettoyer les journaux SSISDB automatiquement par le biais de l’Agent Azure SQL Managed Instance
 Si vous utilisez Azure SQL Managed Instance pour héberger SSISDB, vous pouvez également utiliser son orchestrateur/planificateur de travaux intégré, l’Agent Azure SQL Managed Instance, pour nettoyer automatiquement les journaux SSISDB selon une planification. Si SSISDB a été créé récemment dans votre Azure SQL Managed Instance, nous avons également créé un travail T-SQL nommé **Travail de maintenance de serveur SSIS** sous l’Agent Azure SQL Managed Instance pour nettoyer plus particulièrement les journaux d’exécution de package SSIS. Il est désactivé et configuré par défaut avec une planification d’exécution quotidienne.  Si vous souhaitez l’activer et ou reconfigurer sa planification, vous pouvez le faire en vous connectant à votre Azure SQL Managed Instance à l’aide de SSMS. Une fois connecté, dans la fenêtre **Explorateur d'objets** de SSMS, vous pouvez développer le nœud **Agent SQL Server**, développer le sous-nœud **Travaux**, puis double-cliquer sur **Travail de maintenance de serveur SSIS** pour l’activer/le reconfigurer.
 
-![Nettoyage des journaux SSISDB par le biais de l’Agent Azure SQL Managed Instance](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-maintenance-job.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-maintenance-job.png" alt-text="Nettoyage des journaux SSISDB par le biais de l’Agent Azure SQL Managed Instance":::
 
 Si le **Travail de maintenance de serveur SSIS** n’est pas encore créé sous votre Agent Azure SQL Managed Instance, vous pouvez l’ajouter manuellement en exécutant le script T-SQL suivant sur votre Azure SQL Managed Instance.
 
@@ -375,7 +375,7 @@ Les scripts T-SQL suivants créent un nouveau travail élastique qui appelle la 
 
 Vous pouvez surveiller le travail de nettoyage des journaux SSISDB dans le portail Azure. Pour chaque exécution, vous voyez son état, heure de début et heure de fin.
 
-![Surveiller le travail de nettoyage des journaux SSISDB dans le portail Azure](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/monitor-cleanup-job-portal.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/monitor-cleanup-job-portal.png" alt-text="Surveiller le travail de nettoyage des journaux SSISDB dans le portail Azure":::
 
 ### <a name="monitor-ssisdb-log-clean-up-job-using-t-sql"></a>Surveiller le travail de nettoyage des journaux SSISDB à l’aide de T-SQL
 

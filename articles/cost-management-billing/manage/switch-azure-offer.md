@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/27/2021
 ms.author: banders
-ms.openlocfilehash: 7388ee42195d93a9b7d9a64567f25be91b0eb38d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 73f40b059e5577ba893b26ab715a8158e3a33482
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111952"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836907"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Changer votre abonnement Azure pour une autre offre
 
@@ -108,7 +108,7 @@ Aucun temps d’arrêt de service n’est à déplorer pour les utilisateurs ass
 
 #### <a name="quota-increases-are-reset"></a>Les augmentations de quota sont réinitialisées.
 
-Lorsque vous changez d’offres, les [augmentations de limite ou de quota dépassant la limite par défaut](../../azure-portal/supportability/resource-manager-core-quotas-request.md) sont réinitialisées. Il n’existe aucune interruption de service, même si vous avez davantage de ressources au-delà de la limite par défaut. Par exemple, vous utilisez 200 cœurs sur votre abonnement, puis lorsque vous changez d’offre, votre quota de cœurs est réinitialisé à la valeur par défaut de 20 cœurs. Les machines virtuelles qui utilisent les 200 cœurs ne sont pas affectées et continuent de fonctionner. Toutefois, si vous n’effectuez pas une autre demande d’augmentation de quota, vous ne pouvez pas approvisionner davantage de cœurs.
+Lorsque vous changez d’offres, les [augmentations de limite ou de quota dépassant la limite par défaut](../../azure-portal/supportability/regional-quota-requests.md) sont réinitialisées. Il n’existe aucune interruption de service, même si vous avez davantage de ressources au-delà de la limite par défaut. Par exemple, vous utilisez 200 cœurs sur votre abonnement, puis lorsque vous changez d’offre, votre quota de cœurs est réinitialisé à la valeur par défaut de 20 cœurs. Les machines virtuelles qui utilisent les 200 cœurs ne sont pas affectées et continuent de fonctionner. Toutefois, si vous n’effectuez pas une autre demande d’augmentation de quota, vous ne pouvez pas approvisionner davantage de cœurs.
 
 #### <a name="billing"></a>Facturation
 

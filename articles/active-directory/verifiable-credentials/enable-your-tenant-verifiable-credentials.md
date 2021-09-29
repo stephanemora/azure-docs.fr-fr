@@ -11,12 +11,12 @@ ms.subservice: verifiable-credentials
 ms.date: 06/24/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 7b50e17a8c6730aedbc8fea68a2ab4d8685b2fa5
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 9867825794c363b9df53849ad3fd1cb644492677
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228975"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816287"
 ---
 # <a name="tutorial---configure-azure-active-directory-to-issue-verifiable-credentials-preview"></a>Tutoriel : configurer Azure Active Directory pour émettre des justificatifs vérifiables (préversion)
 
@@ -249,7 +249,7 @@ Avant de créer les justificatifs vérifiables, vous devez avant tout donner à 
 1. Configurez votre organisation en fournissant les informations suivantes :
 
       - **Nom de l’organisation** : entrez un nom pour faire référence à votre entreprise dans le cadre des justificatifs vérifiables. Cette valeur n’est pas destinée aux clients.
-      - **Domaine :** entrez un domaine ajouté à un point de terminaison de service dans votre document DID. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) et d’autres portefeuilles utilisent ces informations pour s’assurer que votre DID est [lié à votre domaine](how-to-dnsbind.md). Si le portefeuille peut vérifier le DID, il affiche un symbole vérifié. Dans le cas contraire, il informe l’utilisateur que des justificatifs ont été émis par une organisation qu’il n’a pas pu valider. Le domaine est ce qui lie votre DID à un élément tangible que l’utilisateur peut connaître sur votre entreprise.
+      - **Domaine :** entrez un domaine ajouté à un point de terminaison de service dans votre document DID. [Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) et d’autres portefeuilles utilisent ces informations pour s’assurer que votre DID est [lié à votre domaine](how-to-dnsbind.md). Si le portefeuille peut vérifier le DID, il affiche un symbole vérifié. Dans le cas contraire, il informe l’utilisateur que des justificatifs ont été émis par une organisation qu’il n’a pas pu valider. Le domaine est ce qui lie votre DID à un élément tangible que l’utilisateur peut connaître sur votre entreprise.
       - **Coffre de clés :** indiquez le nom du coffre de clés que vous avez créé précédemment.
 
    >[!IMPORTANT]

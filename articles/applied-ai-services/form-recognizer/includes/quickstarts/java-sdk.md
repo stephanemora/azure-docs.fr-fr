@@ -1,7 +1,6 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client Form Recognizer pour Java'
 description: Utilisez la bibliothèque de client Java Form Recognizer afin de créer une application de traitement des formulaires qui extrait des paires clé/valeur et des données de table de vos documents personnalisés.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.topic: include
 ms.date: 05/25/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
-ms.openlocfilehash: 59b318d78ae93339074db25f99721eb86364b241
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 4554725a028bc3b70e14b8eba00a636965694819
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327072"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652549"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->

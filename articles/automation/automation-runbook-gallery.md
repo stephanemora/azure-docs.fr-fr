@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1f7a3f31ed67817252f7ba33b9f4a83ef8ccd5c6
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 203900e225700055c581ce4c7a100e055d9526b7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114455619"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124837439"
 ---
 # <a name="use-existing-runbooks-and-modules"></a>Utiliser des runbooks et des modules existants
 
@@ -131,7 +131,7 @@ Vous pouvez envoyer des demandes à [User Voice](https://feedback.azure.com/foru
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour commencer à utiliser des runbooks PowerShell, consultez [Tutoriel : Créer un runbook PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+* Pour commencer à utiliser des runbooks PowerShell, consultez [Tutoriel : Créer un runbook PowerShell](./learn/powershell-runbook-managed-identity.md).
 * Pour savoir comment utiliser des runbooks, voir [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
 * Pour plus d’informations sur les scripts PowerShell, consultez la [documentation PowerShell](/powershell/scripting/overview).
 * Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation).

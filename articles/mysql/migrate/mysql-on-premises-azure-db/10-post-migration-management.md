@@ -9,12 +9,12 @@ ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
 ms.date: 06/21/2021
-ms.openlocfilehash: bed5253a1d5948e7d016bca9e46236d6b57bac57
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 9894769ecd3d7144fa2cf4bb245575d397c60148
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114292950"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823992"
 ---
 # <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-post-migration-management"></a>Migrer MySQL local vers Azure Database pour MySQL : gestion post-migration
 
@@ -30,7 +30,7 @@ Une fois la migration terminée, la phase suivante permet de gérer les nouvelle
 
 Azure Database pour MySQL offre la possibilité de surveiller ces deux types d’activités opérationnelles à l’aide d’outils Azure, par exemple [Azure Monitor](../../../azure-monitor/overview.md), [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) et [Azure Sentinel.](../../../sentinel/overview.md) Outre les outils basés sur Azure, les systèmes d’informations de sécurité et de gestion d’événements (SIEM) peuvent également être configurés pour consommer ces journaux.
 
-Quel que soit l’outil utilisé pour surveiller les nouvelles charges de travail informatiques, des alertes doivent être créées pour avertir les administrateurs Azure et les Administrateurs de base de données de toute activité suspecte. Si un événement d’alerte particulier a un chemin de correction bien défini, les alertes peuvent déclencher des [runbooks Azure](../../../automation/automation-quickstart-create-runbook.md) automatisés pour traiter l’événement.
+Quel que soit l’outil utilisé pour surveiller les nouvelles charges de travail informatiques, des alertes doivent être créées pour avertir les administrateurs Azure et les Administrateurs de base de données de toute activité suspecte. Si un événement d’alerte particulier a un chemin de correction bien défini, les alertes peuvent déclencher des [runbooks Azure](../../../automation/learn/powershell-runbook-managed-identity.md) automatisés pour traiter l’événement.
 
 La première étape de la création d’un environnement entièrement surveillé consiste à permettre aux données de journal MySQL d’être transmises à Azure Monitor. Pour plus d’informations, consultez [Configurer et consulter les journaux d’audit Azure Database pour MySQL dans le portail Azure](../../howto-configure-audit-logs-portal.md).
 

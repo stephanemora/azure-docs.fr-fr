@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d6b752b2c562944748d21aa1a28a177163a95aee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01ed38d4db0ff13b56fd3461cf062b65de4ca68f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92455287"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816727"
 ---
 # <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Tutoriel : Intégrer Continuity Control à Azure Active Directory
 
@@ -132,7 +132,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans C
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Quand vous sélectionnez la vignette Control dans le panneau d’accès, vous devez être connecté automatiquement à l’application Control pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous sélectionnez la vignette Control dans le panneau d’accès, vous devez être connecté automatiquement à l’application Control pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

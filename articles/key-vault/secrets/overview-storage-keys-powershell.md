@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 180d367e6175a6f637cd5598e0b1af9a89d0ec30
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 334eb66a6372272b7b5d467c5603e694b1ad8683
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724331"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610937"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell
 > [!IMPORTANT]
@@ -197,7 +197,7 @@ Les commandes figurant dans cette section effectuent les actions suivantes :
 -
 ### <a name="set-variables"></a>Définition des variables
 
-Commencez par définir les variables utilisées par les cmdlets PowerShell dans les étapes suivantes. Veillez à mettre à jour les espaces réservés <YourStorageAccountName> et <YourKeyVaultName>.
+Commencez par définir les variables utilisées par les cmdlets PowerShell dans les étapes suivantes. Veillez à mettre à jour les espaces réservés \<YourStorageAccountName\> et \<YourKeyVaultName\>.
 
 Nous utiliserons également les cmdlets Azure PowerShell [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) pour obtenir le contexte de votre compte de stockage Azure.
 

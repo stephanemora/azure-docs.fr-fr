@@ -8,12 +8,12 @@ ms.date: 04/09/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 8d2198c4c2c2dd100d7bbf88eebc4e521d6ace04
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 886248c4561b4f332bf3906db62938168d638c12
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525139"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820752"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Régions et zones de disponibilité dans Azure
 
@@ -52,7 +52,7 @@ Générez la haute disponibilité dans votre architecture d’applications par l
 - **Services redondants interzone** : lorsque la plateforme Azure effectue automatiquement la réplication entre des zones (par exemple, stockage redondant interzone, SQL Database).
 
 > [!NOTE]
-> Les types de ressources SKU standard Adresses IP publiques et Préfixe d’adresse IP publique ont également une option « sans zone ».  Cela permet aux clients d’utiliser les adresses IP publiques de référence SKU standard (et de les associer aux ressources qui autorisent uniquement la référence SKU standard), mais n’offre pas de garantie de redondance.  (Toutes les adresses IP publiques [mises à niveau](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) de la référence SKU de base à la référence standard sont de type « sans zone ».)
+> Les types de ressources SKU standard Adresses IP publiques et Préfixe d’adresse IP publique ont également une option « sans zone ».  Cela permet aux clients d’utiliser les adresses IP publiques de référence SKU standard (et de les associer aux ressources qui autorisent uniquement la référence SKU standard), mais n’offre pas de garantie de redondance.  (Toutes les adresses IP publiques [mises à niveau](../virtual-network/public-ip-upgrade-portal.md) de la référence SKU de base à la référence standard sont de type « sans zone ».)
 
 Pour obtenir la continuité complète des activités sur Azure, générez votre architecture d’applications à l’aide de la combinaison des Zones de disponibilité et des paires de régions Azure. Vous pouvez effectuer une réplication synchrone de vos applications et données à l’aide des Zones de la disponibilité d’une région Azure pour répliquer en haute disponibilité et de façon asynchrone entre les régions Azure pour la protection de la récupération d’urgence.
  

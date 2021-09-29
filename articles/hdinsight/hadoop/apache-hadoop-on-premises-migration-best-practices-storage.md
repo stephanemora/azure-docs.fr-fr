@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 89a2a659e195afcae336c930a101ed0c0b470cb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6efc962a915bc549fa14008b8a6487085e0a49e6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715409"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797645"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Effectuer la migration de clusters Apache Hadoop locaux vers Azure HDInsight
 
@@ -100,7 +100,7 @@ Dans le passé, l’analytique cloud devait trouver le meilleur compromis entre 
 
 - **Surensemble d’autorisations POSIX** : Le modèle de sécurité pour Data Lake Gen2 prend entièrement en charge les autorisations ACL et POSIX ainsi que certaines granularités supplémentaires spécifiques de Data Lake Storage Gen2. Les paramètres peuvent être configurés via les outils d’administration ou des infrastructures telles que Hive et Spark.
 
-- **Rentabilité** : Data Lake Storage Gen2 intègre une capacité de stockage et des transactions économiques. Tout au long du cycle de vie des données, les frais facturés changent de façon à minimiser les coûts via des fonctionnalités intégrées, comme le [cycle de vie du Stockage Blob Azure](../../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Rentabilité** : Data Lake Storage Gen2 intègre une capacité de stockage et des transactions économiques. Tout au long du cycle de vie des données, les frais facturés changent de façon à minimiser les coûts via des fonctionnalités intégrées, comme le [cycle de vie du Stockage Blob Azure](../../storage/blobs/lifecycle-management-overview.md).
 
 - **Fonctionne avec les outils, les frameworks et les applications de stockage Blob** : Data Lake Storage Gen2 continue de fonctionner avec une large gamme d’outils, de frameworks et d’applications qui existent aujourd’hui pour Stockage Blob.
 

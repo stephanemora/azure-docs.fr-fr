@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 399d2f71fa20d63dce89cf3be5c12ffd63264895
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd03ce16f0695c23f30146cb8099eb67614982dc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724708"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754424"
 ---
 # <a name="build-resilience-with-credential-management"></a>Renforcer la résilience grâce à la gestion des informations d’identification
 
@@ -57,7 +57,7 @@ En plus de la résilience des utilisateurs individuels décrite ci-dessus, les e
 
 * Déployez des [informations d’identification sans mot de passe](../authentication/howto-authentication-passwordless-deployment.md) telles que Windows Hello Entreprise, l’authentification par téléphone et les clés de sécurité FIDO2 pour réduire les dépendances.
 
-* Déployez l’[application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) en tant que second facteur.
+* Déployez l’[application Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) en tant que second facteur.
 
 * Activez [la synchronisation de hachage de mot de passe](../hybrid/whatis-phs.md) pour les comptes hybrides qui sont synchronisés à partir de Windows Server Active Directory. Cette option peut être activée en même temps que les services de fédération tels que AD FS et fournit une solution de repli en cas d’échec du service de fédération.
 

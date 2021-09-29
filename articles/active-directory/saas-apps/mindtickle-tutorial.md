@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 94b6b32a8391bd60e02ea45e16a3de3221fb93f2
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: fef2458a68124cfdac3389c1f52083a8b2b76e3c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123031829"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124795219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindtickle"></a>Tutoriel : Intégration d’Azure Active Directory à MindTickle
 
@@ -144,7 +144,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à MindTickle pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette MindTickle dans Mes applications, vous êtes redirigé vers l’URL de connexion à MindTickle. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette MindTickle dans Mes applications, vous êtes redirigé vers l’URL de connexion à MindTickle. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

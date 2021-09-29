@@ -3,12 +3,12 @@ title: Gérer les ressources avec le portail Azure
 description: Utilisez le portail Azure et Azure Resource Manager pour déployer vos ressources dans un groupe de ressources de votre abonnement.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 718d8be4e51bf41467bea398440b24f98ac1f6e9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 03b1cda06bf6865dda1b8d40096f6b76588d8184
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957903"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762186"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles ARM et le portail Azure
 
@@ -126,6 +126,5 @@ Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour visualiser les journaux d’audit, voir [Opérations d’audit avec Resource Manager](../management/view-activity-logs.md).
 - Pour résoudre les erreurs de déploiement, consultez [Voir les opérations de déploiement](deployment-history.md).
 - Pour exporter un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter des modèles ARM](export-template-portal.md).

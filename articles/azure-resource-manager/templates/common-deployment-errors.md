@@ -5,12 +5,12 @@ tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b26af22423f7af64d3dbcffd7d7ed20c1069a60
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: be79c143cf38602dbe8f406d8aa3e2988de2c9d9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314964"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785227"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -91,7 +91,7 @@ Il existe deux types d’erreurs que vous pouvez rencontrer :
 
 Les erreurs de validation sont liées à des scénarios pouvant être identifiés avant le déploiement. Elles incluent notamment les erreurs de syntaxe dans votre modèle ou le déploiement de ressources entraînant un dépassement des quotas d’abonnement. Les erreurs de déploiement sont liées aux événements se produisant lors du déploiement. Elles incluent la tentative d’accès à une ressource qui est déployée en parallèle.
 
-Les deux types d’erreurs retournent un code d’erreur qui vous permet de résoudre les problèmes liés au déploiement. Les deux types d’erreurs apparaissent dans le [journal d’activité](../management/view-activity-logs.md). Toutefois, les erreurs de validation n’apparaissent pas dans l’historique de votre déploiement, car le déploiement n’a jamais démarré.
+Les deux types d’erreurs retournent un code d’erreur qui vous permet de résoudre les problèmes liés au déploiement. Les deux types d’erreurs apparaissent dans le [journal d’activité](../../azure-monitor/essentials/activity-log.md). Toutefois, les erreurs de validation n’apparaissent pas dans l’historique de votre déploiement, car le déploiement n’a jamais démarré.
 
 ### <a name="validation-errors"></a>Erreurs de validation
 
@@ -251,5 +251,4 @@ Si vous obtenez des erreurs de déploiement que vous pensez liées à une mauvai
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour étudier la résolution des problèmes, suivez le [Tutoriel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](template-tutorial-troubleshoot.md)
-* Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../management/view-activity-logs.md).
 * Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](deployment-history.md).

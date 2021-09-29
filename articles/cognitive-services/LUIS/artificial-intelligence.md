@@ -6,12 +6,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 39f73dd002091451ae832516d525499eae98564d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 623b50bee72f99be4d31159165f1af5b98f67b88
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95021369"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750740"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Intelligence artificielle dans Language Understanding (LUIS)
 
@@ -39,7 +39,7 @@ Le traitement en langage naturel est disponible dans votre application LUIS des 
     * [Segmentation du texte en unités lexicales](luis-language-support.md#tokenization)
     * Morphologique à travers les signes diacritiques, la ponctuation et la forme des mots [Paramètres de l’API](luis-reference-application-settings.md)
 * Avant ou après le traitement de l’énoncé de requête fourni par d’autres [Cognitive Services](../what-are-cognitive-services.md) comme :
-    * [Traduction](../translator/translator-info-overview.md)
+    * [Traduction](../translator/translator-overview.md)
 
 ## <a name="natural-language-understanding-nlu"></a>Compréhension du langage naturel
 

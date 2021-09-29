@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 932e4db2c7a91c1c6ec6133068741f07d3652c35
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: a8433e5dac5741940c275ee92a5f69818023b251
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112460736"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124813367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>Didacticiel : Intégration d’Azure Active Directory à JobScore
 
@@ -183,7 +183,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans J
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette JobScore dans le volet d’accès doit vous connecter automatiquement à l’application JobScore pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette JobScore dans le volet d’accès doit vous connecter automatiquement à l’application JobScore pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

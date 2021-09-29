@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: tutorial
 ms.date: 08/17/2021
-ms.openlocfilehash: 03862b42fb181adcf1a6c4edbed66ce61ee49e73
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: d6fa48fb35d836fc7f08c98e7b1807068c000d84
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426127"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797024"
 ---
 # <a name="live-migration-to-azure-managed-instance-for-apache-cassandra-by-using-a-dual-write-proxy"></a>Migration dynamique vers Azure Managed Instance pour Apache Cassandra en utilisant un proxy de double écriture
 
@@ -29,7 +29,6 @@ Ce tutoriel explique comment migrer des données vers Azure Managed Instance pou
 
 L’approche proposée est illustrée dans l’image suivante.
 
-
 :::image type="content" source="./media/migration/live-migration.gif" alt-text="Animation montrant la migration dynamique de données vers Azure Managed Instance pour Apache Cassandra." border="false":::
 
 ## <a name="prerequisites"></a>Prérequis
@@ -39,7 +38,6 @@ L’approche proposée est illustrée dans l’image suivante.
 * [Provisionnez un compte Azure Databricks à l’intérieur de votre réseau virtuel Cassandra géré](deploy-cluster-databricks.md). Veillez à ce que le compte dispose d’un accès réseau à votre cluster Cassandra source. Nous allons créer un cluster Spark dans ce compte pour le chargement des données d’historique.
 
 * Veillez à avoir déjà migré l’espace de clés/le schéma de table de votre base de données Cassandra source vers votre base de données Managed Instance Cassandra cible.
-
 
 ## <a name="provision-a-spark-cluster"></a>Approvisionner un cluster Spark
 
@@ -92,7 +90,7 @@ Démarrer le proxy de cette façon suppose que les conditions suivantes sont ré
 - Les points de terminaison source et cible ont le même nom d’utilisateur et le même mot de passe.
 - Les points de terminaison source et cible implémentent SSL (Secure Sockets Layer).
 
-Si vos points de terminaison source et cible ne peuvent pas répondre à ces critères, consultez les informations ci-dessous pour d’autres options de configuration. 
+Si vos points de terminaison source et cible ne peuvent pas répondre à ces critères, consultez les informations ci-dessous pour d’autres options de configuration.
 
 ### <a name="configure-ssl"></a>Configuration du chiffrement SSL
 
@@ -109,7 +107,6 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> 
 
 > [!NOTE]
 > Vérifiez que votre application cliente utilise le même magasin de clés et le même mot de passe que ceux utilisés pour le proxy de double écriture lors de la création de connexions SSL à la base de données via le proxy.
-
 
 ### <a name="configure-the-credentials-and-port"></a>Configurer les informations d’identification et le port
 
@@ -165,7 +162,6 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-
 ```
 
 Une fois que le proxy à double écriture est en cours d’exécution, vous devez changer le port sur votre client d’application et redémarrer. (Ou bien changer le port Cassandra et redémarrer le cluster si vous avez choisi cette approche.) Le proxy va alors démarrer le transfert des écritures vers le point de terminaison cible. Des informations sur [la surveillance et les métriques](https://github.com/Azure-Samples/cassandra-proxy#monitoring) dans l’outil proxy sont disponibles. 
-
 
 ## <a name="run-the-historical-data-load"></a>Effectuer le chargement des données d’historique
 
@@ -233,7 +229,6 @@ DFfromSourceCassandra
 ## <a name="validate-the-source-and-target"></a>Vérifier la source et la cible
 
 Une fois le chargement des données d’historique terminé, vos bases de données doivent être synchronisées et prêtes pour le basculement. Cependant, nous vous recommandons d’examiner la source et la cible pour vérifier que les résultats de la demande sont bien en correspondance avant d’effectuer le basculement final.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 6c1d9b813db15900521968865c1036d53ad53f41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45b5a29307ca8aa37f3b369b4e79054a22fa0634
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95544783"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579637"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Surveiller et résoudre les problèmes d’une application de stockage cloud
 
@@ -22,10 +22,10 @@ Ce didacticiel est le quatrième et dernier volet d’une série. Vous apprenez 
 Dans ce quatrième volet, vous apprenez à :
 
 > [!div class="checklist"]
-> * Activer la journalisation et les métriques
-> * Activer les alertes pour les erreurs d’autorisation
-> * Exécuter un trafic de test avec des jetons SAS incorrects
-> * Télécharger et analyser des journaux d’activité
+> - Activer la journalisation et les métriques
+> - Activer les alertes pour les erreurs d’autorisation
+> - Exécuter un trafic de test avec des jetons SAS incorrects
+> - Télécharger et analyser des journaux d’activité
 
 [Azure Storage Analytics](../common/storage-analytics.md) fournit la journalisation et les données de métriques d’un compte de stockage. Ces données fournissent des insights sur l’intégrité de votre compte de stockage. Pour collecter des données Azure Storage Analytics, vous pouvez configurer la journalisation, les mesures et les alertes. Ce processus implique l’activation de la journalisation, la configuration des métriques et l’activation des alertes.
 
@@ -112,10 +112,10 @@ L’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer
 Dans le quatrième et dernier volet de la série, vous avez appris à surveiller et résoudre les problèmes de votre compte de stockage, notamment :
 
 > [!div class="checklist"]
-> * Activer la journalisation et les métriques
-> * Activer les alertes pour les erreurs d’autorisation
-> * Exécuter un trafic de test avec des jetons SAS incorrects
-> * Télécharger et analyser des journaux d’activité
+> - Activer la journalisation et les métriques
+> - Activer les alertes pour les erreurs d’autorisation
+> - Exécuter un trafic de test avec des jetons SAS incorrects
+> - Télécharger et analyser des journaux d’activité
 
 Suivez ce lien pour consulter des exemples de stockage préconçus.
 

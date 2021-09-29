@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/08/2021
-ms.openlocfilehash: 3adb1c084276bed35ec7a2f542ee7f9d319f7b2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2311c7e0ab22510211b8fe6c6668b3253d5df28e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638325"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798310"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copier des données depuis une base de données SQL Server vers un stockage Blob Azure à l’aide de l’outil Copier les données
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -80,7 +80,7 @@ Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage
 
 1. Dans le volet gauche, sélectionnez **Tous les services**. Filtrez à l’aide du mot-clé **Stockage**, puis sélectionnez **Comptes de stockage**.
 
-    ![Recherche de compte de stockage](media/doc-common-process/search-storage-account.png)
+    :::image type="content" source="media/doc-common-process/search-storage-account.png" alt-text="Recherche de compte de stockage":::
 
 1. Dans la liste des comptes de stockage, appliquez un filtre pour votre compte de stockage (si nécessaire). Sélectionnez ensuite votre compte de stockage.
 
@@ -93,7 +93,7 @@ Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage
 
 1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Intégration** > **Data Factory**.
 
-   ![Création d’une fabrique de données](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Création d’une fabrique de données":::
 
 1. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**.
 
@@ -122,7 +122,7 @@ Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage
 
 1. Sur la page d’accueil d’Azure Data Factory, sélectionnez **Ingérer** pour lancer l’outil Copier des données.
 
-   ![Capture d’écran montrant la page d'accueil Azure Data Factory.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la page d'accueil Azure Data Factory.":::
 
 1. Sur la page **Propriétés** de l’outil Copier des données, choisissez **Tâche de copie intégrée** sous **Type de tâche** et choisissez **Exécuter une fois maintenant** sous **Cadence ou planification des tâches**, puis sélectionnez **Suivant**.
 
@@ -134,7 +134,7 @@ Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage
 
 1. Dans la boîte de dialogue **Configuration du runtime d’intégration**, sélectionnez **Auto-hébergé**. Sélectionnez **Continuer**.
 
-   ![Créer un runtime d’intégration](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
+   :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png" alt-text="Créer un runtime d’intégration":::
 
 1. Dans la boîte de dialogue **Configuration du runtime d’intégration**, sous **Nom**, entrez **TutorialIntegrationRuntime**. Sélectionnez ensuite **Créer**.
 
@@ -142,7 +142,7 @@ Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage
 
 1. Exécutez l’application téléchargée. Vous pouvez voir l’état de l’installation rapide dans la fenêtre.
 
-    ![État de l’installation express](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/express-setup-status.png" alt-text="État de l’installation express":::
 
 1. Dans la boîte de dialogue **Nouvelle connexion (SQL Server)** , vérifiez que **TutorialIntegrationRuntime** est sélectionné sous **Se connecter via le runtime d’intégration**. Ensuite, effectuez les étapes suivantes :
 
@@ -160,7 +160,7 @@ Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage
 
     g. Testez la connexion et sélectionnez **Créer**.
 
-      ![Runtime d’intégration sélectionné](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
+      :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png" alt-text="Runtime d’intégration sélectionné":::
 
 1. Sur la page **Banque de données sources**, assurez-vous que la connexion **SQL Server** nouvellement créée est sélectionnée dans le bloc **Connexion**. Ensuite, dans la section **Tables sources**, choisissez **TABLES EXISTANTES** et sélectionnez la table **dbo.emp** dans la liste, puis sélectionnez **Suivant**. Vous pouvez sélectionner n’importe quelle autre table en fonction de votre base de données.
 
@@ -170,7 +170,7 @@ Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage
 
 1. Dans **Nouvelle connexion**, recherchez et sélectionnez **Stockage Blob Azure**, puis cliquez sur **Continuer**.
 
-   ![Sélection du stockage Blob](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
+   :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png" alt-text="Sélection du stockage Blob":::
 
 1. Dans la boîte de dialogue **Nouvelle connexion (Stockage Blob Azure)** , procédez comme suit :
 

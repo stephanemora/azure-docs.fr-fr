@@ -4,12 +4,12 @@ description: Cet article explique comment rédiger du code pour Azure Event Hubs
 ms.topic: article
 ms.date: 09/20/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 096443dd9cb5940deb3b4b5d2fa1cc76f93c6744
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 032277e7e8e41842e3c5495e0697398123713fb1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128550511"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214443"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guide de programmation .NET pour Azure Event Hubs (package Microsoft.Azure.EventHubs hérité)
 Cet article décrit quelques scénarios courants de l’écriture de code à l’aide du service Azure Event Hubs. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](./event-hubs-about.md).
@@ -96,9 +96,6 @@ Pour utiliser la classe [EventProcessorHost][], vous pouvez implémenter [IEvent
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
 Pour commencer le traitement des événements, vous devez instancier [EventProcessorHost][]en fournissant les paramètres appropriés pour votre concentrateur d'événements. Par exemple :
-
-> [!NOTE]
-> EventProcessorHost et ses classes connexes sont mentionnées dans le package **Microsoft.Azure.EventHubs.Processor**. Ajoutez le package à votre projet Visual Studio en suivant les instructions fournies dans [cet article](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) ou en émettant la commande suivante dans la fenêtre [Console du Gestionnaire de Package](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

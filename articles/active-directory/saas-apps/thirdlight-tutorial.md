@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f15d00f1050177c6255fb5528f03314153c3ed9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9af3d45f99c0397a56721db01c160c866b7e792e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92514659"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124825506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Didacticiel : Intégration d’Azure Active Directory avec Thirdlight
 
@@ -124,13 +124,13 @@ Pour configurer l’authentification unique Azure AD avec ThirdLight, procédez 
 
     1. **URL de déconnexion**.
 
-### <a name="configure-thirdlight-single-sign-on"></a>Configurer l’authentification unique ThirdLight
+### <a name="configure-thirdlight-single-sign-on&quot;></a>Configurer l’authentification unique ThirdLight
 
 1. Dans une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise ThirdLight en tant qu’administrateur.
 
 1. Accédez **Configuration** > **Administration système** > **SAML2** :
 
-    ![Administration de système](./media/thirdlight-tutorial/ic805843.png "Administration de système")
+    ![Administration de système](./media/thirdlight-tutorial/ic805843.png &quot;Administration de système")
 
 1. Dans la section de configuration de SAML2, procédez comme suit.
   
@@ -219,7 +219,7 @@ Pour créer un compte d’utilisateur, procédez comme suit :
 
 Vous devez maintenant tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de sélectionner la vignette ThirdLight dans le panneau d’accès doit vous connecter automatiquement à l’instance ThirdLight pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le volet d’accès, consultez [Accéder aux applications du portail Mes applications et les utiliser](../user-help/my-apps-portal-end-user-access.md).
+Le fait de sélectionner la vignette ThirdLight dans le panneau d’accès doit vous connecter automatiquement à l’instance ThirdLight pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le volet d’accès, consultez [Accéder aux applications du portail Mes applications et les utiliser](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

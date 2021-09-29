@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 88492d914b710c7a738dd6d7f501e22d490065b6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: af5a1a8353435d9f54b28bce46897f55f8b560a7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833811"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812652"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Créer des runbooks graphiques dans Azure Automation
 
@@ -433,7 +433,7 @@ Vous avez la possibilité de rétablir la version publiée d’un runbook. Cette
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour commencer à utiliser des runbooks graphiques, consultez [Tutoriel : Créer un runbook graphique](learn/automation-tutorial-runbook-graphical.md).
+* Pour commencer à utiliser des runbooks graphiques, consultez [Tutoriel : Créer un runbook graphique](./learn/powershell-runbook-managed-identity.md).
 * Pour en savoir plus sur les types de runbook, leurs avantages et leurs limites, consultez [Types de runbooks Azure Automation](automation-runbook-types.md).
 * Pour comprendre les mécanismes d’authentification à l’aide du compte d’identification Automation, consultez [Compte d’identification](automation-security-overview.md#run-as-account).
 * Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation/#automation).

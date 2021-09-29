@@ -3,12 +3,12 @@ title: Sauvegarder des données de fichier avec MABS
 description: Vous pouvez sauvegarder des données de fichier sur les ordinateurs serveurs et clients avec MABS.
 ms.topic: conceptual
 ms.date: 08/19/2021
-ms.openlocfilehash: 71b12c98713dff2340bdda1baf486dcd5cfdb70a
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 5c5535969340b5612758ee0781e030fad0ec6dc6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681676"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806712"
 ---
 # <a name="back-up-file-data-with-mabs"></a>Sauvegarder des données de fichier avec MABS
 
@@ -73,7 +73,7 @@ Une fois que vous avez configuré votre infrastructure MABS, vous pouvez activer
 
 1. Dans **Spécifier une stratégie de rétention en ligne**, vous pouvez spécifier la façon dont les points de récupération créés à partir des sauvegardes quotidiennes/hebdomadaires/mensuelles/annuelles sont conservés dans Azure.
 
-1. Dans **Choisir la réplication en ligne**, spécifiez la manière dont se produit la réplication initiale complète des données. Vous pouvez répliquer sur le réseau ou effectuer une sauvegarde en mode hors connexion (essaimage hors connexion). La sauvegarde en mode hors connexion utilise la fonctionnalité Azure Import. [En savoir plus](/azure/backup/backup-azure-backup-import-export).
+1. Dans **Choisir la réplication en ligne**, spécifiez la manière dont se produit la réplication initiale complète des données. Vous pouvez répliquer sur le réseau ou effectuer une sauvegarde en mode hors connexion (essaimage hors connexion). La sauvegarde en mode hors connexion utilise la fonctionnalité Azure Import. [En savoir plus](./backup-azure-backup-import-export.md).
 
 1. Dans la page **Résumé**, vérifiez vos paramètres. Une fois que vous avez cliqué sur **Créer un groupe**, la réplication initiale des données se produit. Quand elle est terminée, l’état du groupe de protection indique **OK** dans la page **État**. Ensuite, la sauvegarde a lieu conformément aux paramètres du groupe de protection.
 

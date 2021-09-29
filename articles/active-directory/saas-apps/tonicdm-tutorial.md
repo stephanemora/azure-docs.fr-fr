@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0144e7e5cc9c6df376d78f39aab7fdb8cc70538e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd297a15da74a9888e3b829f993ea5d45b8d96c3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92520470"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821380"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>Tutoriel : Intégration d’Azure Active Directory à TonicDM
 
@@ -183,7 +183,7 @@ Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans To
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette TonicDM dans le volet d’accès, vous devez être connecté automatiquement à l’application TonicDM pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette TonicDM dans le volet d’accès, vous devez être connecté automatiquement à l’application TonicDM pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

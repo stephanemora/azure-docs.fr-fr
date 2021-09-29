@@ -4,12 +4,12 @@ description: Découvrez comment utiliser des identités managées par pod AAD da
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.openlocfilehash: 1ecf9b45983dbc34938593424644a646dc3d96cb
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: df893949214fc73813bb1b45a663f052ae3ed3c8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123101227"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124829084"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Utiliser des identités managées par pod Azure Active Directory dans Azure Kubernetes Service (préversion)
 
@@ -73,7 +73,7 @@ az aks create -g myResourceGroup -n myAKSCluster --enable-pod-identity --network
 >     * [Node Managed Identity (NMI)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/) : pod qui s’exécute en tant que DaemonSet sur chaque nœud du cluster AKS. L’identité NMI intercepte les demandes de jeton de sécurité adressées au [service de métadonnées d’instance Azure](../virtual-machines/linux/instance-metadata-service.md?tabs=linux) sur chaque nœud, les redirige vers elle-même et vérifie si le pod a accès à l’identité pour laquelle il demande un jeton et récupère le jeton auprès du locataire Azure Active Directory pour le compte de l’application.
 > 2. Mode managé : dans ce mode, il n’existe que l’identité NMI. L’identité doit être affectée manuellement et gérée par l’utilisateur. Pour plus d’informations, consultez [Identité des pods en mode managé](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/).
 >
->Quand vous installez l’identité de pod Azure Active Directory via le graphique Helm ou le manifeste YAML comme indiqué dans le [Guide d’Installation](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/), vous pouvez choisir entre les modes `standard` et `managed`. Si, à la place, vous décidez d’installer l’identité de pod Azure Active Directory à l’aide du [module complémentaire de cluster AKS](/azure/aks/use-azure-ad-pod-identity) comme indiqué dans l’article, le programme d’installation utilise le mode `managed`.
+>Quand vous installez l’identité de pod Azure Active Directory via le graphique Helm ou le manifeste YAML comme indiqué dans le [Guide d’Installation](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/), vous pouvez choisir entre les modes `standard` et `managed`. Si, à la place, vous décidez d’installer l’identité de pod Azure Active Directory à l’aide du module complémentaire de cluster AKS comme indiqué dans l’article, le programme d’installation utilise le mode `managed`.
 
 Utilisez [az aks get-credentials][az-aks-get-credentials] pour vous connecter à votre cluster AKS. Cette commande télécharge et configure également le certificat client `kubectl` sur votre ordinateur de développement.
 

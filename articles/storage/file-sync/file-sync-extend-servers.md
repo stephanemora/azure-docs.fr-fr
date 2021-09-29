@@ -7,24 +7,24 @@ ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 52a1931ec567d03d0beaaf9180532a91ff6bed07
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 951bf6704d68ae292b835a5528d099d634eb4226
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259460"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589413"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutoriel : Étendre les serveurs de fichiers Windows avec Azure File Sync
 
 Cet article montre les étapes de base à suivre pour étendre la capacité de stockage d’un serveur Windows à l’aide d’Azure File Sync. Le tutoriel utilise Windows Server comme une machine virtuelle Azure, mais ce processus s’applique sans problème à vos serveurs locaux. Pour savoir comment déployer Azure File Sync dans votre propre environnement, consultez l’article [Déployer Azure File Sync](file-sync-deployment-guide.md).
 
 > [!div class="checklist"]
-> * Déployer le service de synchronisation de stockage
-> * Préparer Windows Server pour une utilisation avec Azure File Sync
-> * Installer l’agent Azure File Sync
-> * Inscrire Windows Server dans le service de synchronisation de stockage
-> * Créer un groupe de synchronisation et un point de terminaison du cloud
-> * Créer un point de terminaison de serveur
+> - Déployer le service de synchronisation de stockage
+> - Préparer Windows Server pour une utilisation avec Azure File Sync
+> - Installer l’agent Azure File Sync
+> - Inscrire Windows Server dans le service de synchronisation de stockage
+> - Créer un groupe de synchronisation et un point de terminaison du cloud
+> - Créer un point de terminaison de serveur
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -42,7 +42,7 @@ Pour ce tutoriel, vous devez effectuer les opérations suivantes avant de déplo
 
 ### <a name="create-a-folder-and-txt-file"></a>Créer un dossier et un fichier .txt
 
-Sur votre ordinateur local, créez un dossier nommé _FilesToSync_ et ajoutez un fichier texte nommé _mytestdoc.txt_. Vous chargerez ce fichier dans le partage de fichiers plus tard dans ce tutoriel.
+Sur votre ordinateur local, créez un dossier nommé *FilesToSync* et ajoutez un fichier texte nommé *mytestdoc.txt*. Vous chargerez ce fichier dans le partage de fichiers plus tard dans ce tutoriel.
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -61,7 +61,7 @@ Après avoir déployé un compte de stockage Azure, vous créez un partage de fi
 
     ![Sélectionner le bouton Ajouter un partage de fichiers](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
-1. Nommez le nouveau partage de fichiers _afsfileshare_. Entrez « 5120 » dans **Quota**, puis sélectionnez **Créer**. La valeur du quota peut être de 100 Tio au maximum, mais vous avez besoin uniquement de 5 Tio pour ce tutoriel.
+1. Nommez le nouveau partage de fichiers *afsfileshare*. Entrez « 5120 » dans **Quota**, puis sélectionnez **Créer**. La valeur du quota peut être de 100 Tio au maximum, mais vous avez besoin uniquement de 5 Tio pour ce tutoriel.
 
     ![Indiquer un nom et un quota pour le nouveau partage de fichiers](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
 
@@ -69,7 +69,7 @@ Après avoir déployé un compte de stockage Azure, vous créez un partage de fi
 
     ![Charger un fichier](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
 
-1. Accédez au dossier _FilesToSync_ où vous avez créé le fichier .txt, sélectionnez _mytestdoc.txt_ et sélectionnez **Charger**.
+1. Accédez au dossier *FilesToSync* où vous avez créé le fichier .txt, sélectionnez *mytestdoc.txt* et sélectionnez **Charger**.
 
     ![Explorer le partage de fichiers](./media/storage-sync-files-extend-servers/create-file-share-portal6.png)
 
@@ -83,7 +83,7 @@ Après avoir déployé un compte de stockage Azure, vous créez un partage de fi
 
    ![Entrer les informations de base concernant votre machine virtuelle dans le panneau du portail](./media/storage-sync-files-extend-servers/vm-resource-group-and-subscription.png)
 
-1. Sous **Détails de l’instance**, indiquez un nom de machine virtuelle. Par exemple, utilisez _myVM_.
+1. Sous **Détails de l’instance**, indiquez un nom de machine virtuelle. Par exemple, utilisez *myVM*.
 1. Ne changez pas les valeurs par défaut définies pour les paramètres **Région**, **Options de disponibilité**, **Image** et **Taille**.
 1. Sous **Compte Administrateur**, indiquez un **nom d’utilisateur** et un **mot de passe** pour la machine virtuelle.
 1. Sous **Règles des ports d’entrée**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **RDP (3389)** et **HTTP** dans le menu déroulant.
@@ -140,7 +140,7 @@ Sur la machine virtuelle Windows Server 2016 Datacenter, le Gestionnaire de ser
 
    ![« Serveur local » sur le côté gauche de l’interface utilisateur du Gestionnaire de serveur](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-1.png)
 
-1. Dans le volet **Propriétés**, sélectionnez le lien vers **Configuration de sécurité renforcée d’Internet Explorer**.  
+1. Dans le volet **Propriétés**, sélectionnez le lien vers **Configuration de sécurité renforcée d’Internet Explorer**.
 
     ![Volet « Configuration de sécurité renforcée d’Internet Explorer » dans l’interface utilisateur du Gestionnaire de serveur](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-2.png)
 
@@ -164,9 +164,9 @@ Vous pouvez maintenant ajouter le disque de données à la machine virtuelle.
    À ce stade, vous avez mis le disque en ligne et créé un volume. Ouvrez l’Explorateur de fichiers sur la machine virtuelle Windows Server pour vérifier la présence du disque de données que vous venez d’ajouter.
 
 1. Dans l’Explorateur de fichiers sur la machine virtuelle, développez **Ce PC** et ouvrez le nouveau lecteur. Dans cet exemple, il s’agit du lecteur F: .
-1. Faites un clic droit et sélectionnez **Nouveau** > **Dossier**. Nommez le dossier _FilesToSync_.
+1. Faites un clic droit et sélectionnez **Nouveau** > **Dossier**. Nommez le dossier *FilesToSync*.
 1. Ouvrez le dossier **FilesToSync**.
-1. Faites un clic droit et sélectionnez **Nouveau** > **Document texte**. Nommez le fichier texte _MyTestFile_.
+1. Faites un clic droit et sélectionnez **Nouveau** > **Document texte**. Nommez le fichier texte *MyTestFile*.
 
     ![Ajouter un nouveau fichier texte](media/storage-sync-files-extend-servers/new-file.png)
 
@@ -217,9 +217,9 @@ Pour déployer Azure File Sync, vous commencez par créer une ressource **Servic
 
    | Valeur | Description |
    | ----- | ----- |
-   | **Nom** | Nom unique (par abonnement) du service de synchronisation de stockage.<br><br>Utilisez le nom _afssyncservice02_ dans ce tutoriel. |
+   | **Nom** | Nom unique (par abonnement) du service de synchronisation de stockage.<br><br>Utilisez le nom *afssyncservice02* dans ce tutoriel. |
    | **Abonnement** | L’abonnement Azure que vous utilisez pour ce tutoriel. |
-   | **Groupe de ressources** | groupe de ressources qui contient le service de synchronisation de stockage.<br><br>Utilisez le groupe _afsresgroup101918_ dans ce tutoriel. |
+   | **Groupe de ressources** | groupe de ressources qui contient le service de synchronisation de stockage.<br><br>Utilisez le groupe *afsresgroup101918* dans ce tutoriel. |
    | **Lieu** | USA Est |
 
 1. Quand vous avez terminé, sélectionnez **Créer** pour déployer le **service de synchronisation de stockage**.
@@ -262,8 +262,8 @@ L’interface utilisateur d’inscription du serveur s’ouvre normalement autom
    | Valeur | Description |
    | ----- | ----- |
    | **Abonnement Azure** | L’abonnement qui contient le Service de synchronisation de stockage pour ce didacticiel. |
-   | **Groupe de ressources** | groupe de ressources qui contient le service de synchronisation de stockage. Utilisez le groupe _afsresgroup101918_ dans ce tutoriel. |
-   | **Service de synchronisation de stockage** | Nom du service de synchronisation de stockage. Utilisez le nom _afssyncservice02_ dans ce tutoriel. |
+   | **Groupe de ressources** | groupe de ressources qui contient le service de synchronisation de stockage. Utilisez le groupe *afsresgroup101918* dans ce tutoriel. |
+   | **Service de synchronisation de stockage** | Nom du service de synchronisation de stockage. Utilisez le nom *afssyncservice02* dans ce tutoriel. |
 
 1. Sélectionnez **Inscrire** pour terminer le processus d’inscription du serveur.
 1. Dans le cadre du processus d’inscription, vous êtes invité à effectuer une nouvelle connexion. Connectez-vous et sélectionnez **Suivant**.

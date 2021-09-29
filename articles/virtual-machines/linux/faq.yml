@@ -9,12 +9,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 05/08/2019
   ms.author: cynthn
-  ms.openlocfilehash: fc03e3dd0692d8b4602795930baddc9a7b443955
-  ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+  ms.openlocfilehash: d07a19a8df673cd7f66edfc7017fba0f2936341f
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/14/2021
-  ms.locfileid: "112082828"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124754512"
 title: Forum aux questions sur les machines virtuelles Linux
 summary: >
   Cet article traite certaines questions courantes concernant les machines virtuelles Linux créées dans Azure avec le modèle de déploiement Resource Manager. Pour la version Windows de cette rubrique, consultez les [Questions fréquences sur les machines virtuelles Windows](../windows/faq.yml)
@@ -141,4 +141,4 @@ sections:
       - `video`
   - question: >
       Quelles sont les exigences en matière de mot de passe lors de la création d’une machine virtuelle ?
-    answer: "Il existe différentes exigences en termes de longueur du mot de passe, selon l’outil que vous utilisez :\n - Portail : entre 12 et 72 caractères\n - PowerShell : entre 8 et 123 caractères\n - Interface CLI : entre 12 et 123 caractères\n - Modèles Azure Resource Manager (ARM) : 12 à 72 caractères (les caractères de contrôle ne sont pas autorisés)\n \n\nLes mots de passe doivent également répondre à 3 des 4 exigences de complexité suivantes :\n\n* Avoir des minuscules\n* Avoir des majuscules\n* Avoir un chiffre\n* Avoir un caractère spécial (correspondances Regex [\\W_])\n\nLes noms mots de passe suivants ne sont pas autorisés :\n\n<table>\n    <tr>\n        <td style=\"text-align:center\">abc@123</td>\n        <td style=\"text-align:center\">P@$$w0rd</td>\n        <td style=\"text-align:center\">P@ssw0rd</td>\n        <td style=\"text-align:center\">P@ssword123</td>\n        <td style=\"text-align:center\">Pa$$word</td>\n    </tr>\n    <tr>\n        <td style=\"text-align:center\">pass@word1</td>\n        <td style=\"text-align:center\">Password!</td>\n        <td style=\"text-align:center\">Password1</td>\n        <td style=\"text-align:center\">Password22</td>\n        <td style=\"text-align:center\">iloveyou!</td>\n    </tr>\n</table>\n"
+    answer: "Il existe différentes exigences en termes de longueur du mot de passe, selon l’outil que vous utilisez :\n - Portail : entre 12 et 72 caractères\n - PowerShell : entre 8 et 123 caractères\n - Interface CLI : entre 12 et 123 caractères\n - Modèles Azure Resource Manager (ARM) : 12 à 72 caractères (les caractères de contrôle ne sont pas autorisés)\n \n\nLes mots de passe doivent également répondre à 3 des 4 exigences de complexité suivantes :\n\n* Avoir des minuscules\n* Avoir des majuscules\n* Avoir un chiffre\n* Avoir un caractère spécial (correspondances Regex [\\W_])\n\nLes noms mots de passe suivants ne sont pas autorisés :\n\n* abc@123\n* P@$$w0rd\n* P@ssw0rd\n* P@ssword123\n* Pa$$word\n* pass@word1\n* Password!\n* Password1\n* Password22\n* iloveyou!\n"

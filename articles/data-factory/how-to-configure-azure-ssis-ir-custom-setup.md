@@ -8,12 +8,12 @@ author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/30/2021
-ms.openlocfilehash: ec309debca7d3852411318ed56a914d47494fe2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 626afa6926dea10a633a5c7d5438ec8b8c578b6a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531980"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798652"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personnaliser l’installation d’un Azure-SSIS Integration Runtime
 
@@ -74,40 +74,40 @@ Pour approvisionner ou reconfigurer votre Azure-SSIS Integration Runtime à l’
 
    a. Sous **Local et attaché**, cliquez avec le bouton droit sur **Comptes de stockage**, puis sélectionnez **Se connecter au service Stockage Azure**.
 
-      ![Se connecter à Stockage Azure](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png" alt-text="Se connecter à Stockage Azure":::
 
    b. Sélectionnez **Compte de stockage ou service**, **Nom et clé du compte**, puis **Suivant**.
 
    c. Entrez le nom et la clé de votre compte de stockage Azure, sélectionnez **Suivant**, puis **Se connecter**.
 
-      ![Fournir le nom et la clé du compte de stockage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png" alt-text="Fournir le nom et la clé du compte de stockage":::
 
    d. Dans votre compte Stockage Azure connecté, cliquez avec le bouton droit sur **Conteneurs d'objets blob**, sélectionnez **Créer un conteneur d'objets blob** et nommez le nouveau conteneur d'objets blob.
 
-      ![Création d’un conteneur d’objets blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
+      Créer un :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png" alt-text="conteneur d’objets blob":::
 
    e. Sélectionnez le nouveau conteneur d'objets blob et chargez votre script d'installation personnalisée et ses fichiers associés. Veillez à charger *main.cmd* au niveau supérieur de votre conteneur d'objets blob, et non dans un dossier. Votre conteneur d'objets blob ne doit comprendre que les fichiers d'installation personnalisée nécessaires, afin que leur téléchargement ultérieur sur votre instance d'Azure-SSIS IR ne prenne pas beaucoup de temps. La durée maximale d'une installation personnalisée est actuellement fixée à 45 minutes avant qu'elle n'expire. Cela comprend le temps nécessaire pour télécharger tous les fichiers de votre conteneur d'objets blob et les installer sur l'instance d'Azure-SSIS IR. Si l’installation nécessite plus de temps, créez un ticket de support.
 
-      ![Chargez des fichiers vers le conteneur d’objets blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png" alt-text="Chargez des fichiers vers le conteneur d’objets blob":::
 
    f. Cliquez avec le bouton droit sur le conteneur d'objets blob, puis sélectionnez **Obtenir une signature d'accès partagé**.
 
-      ![Obtenez la signature d'accès partagé pour le conteneur d'objets blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png" alt-text="Obtenez la signature d'accès partagé pour le conteneur d'objets blob":::
 
    g. Créez l'URI de SAP pour votre conteneur d'objets blob avec un délai d'expiration suffisamment long et une autorisation de lecture, d'écriture ou de liste. Vous devez utiliser l’URI SAP pour télécharger et exécuter votre script d’installation personnalisée et ses fichiers associés. Cela se produit chaque fois qu’un nœud de votre Azure-SSIS IR est réinitialisé. Vous avez également besoin d’une autorisation d’écriture pour charger les journaux d’activité d’exécution de l’installation.
 
       > [!IMPORTANT]
       > Vérifiez que l’URI de SAP n’arrive pas à expiration et que les ressources d’installation personnalisée restent disponibles pendant la totalité du cycle de vie de votre Azure-SSIS IR, de la création à la suppression, en particulier si vous l’arrêtez et le redémarrez régulièrement au cours de cette période.
 
-      ![Générez la signature d'accès partagé pour le conteneur d'objets blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png" alt-text="Générez la signature d'accès partagé pour le conteneur d'objets blob":::
 
    h. Copiez et enregistrez l'URI de SAP de votre conteneur d'objets blob.
 
-      ![Copiez et enregistrez la signature d’accès partagé.](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png" alt-text="Copiez et enregistrez la signature d’accès partagé.":::
 
 1. Activez la case à cocher **Personnaliser votre Azure-SSIS Integration Runtime avec des installations de composants/configurations système supplémentaires** sur la page **Paramètres avancés** du volet **Configuration du runtime d’intégration**. Ensuite, entrez l'URI SAP de votre conteneur d'objets blob dans la zone de texte **URI SAP du conteneur d'installation personnalisée**.
 
-   ![Paramètres avancés avec des configurations personnalisées](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png" alt-text="Paramètres avancés avec des configurations personnalisées":::
 
 Une fois votre installation personnalisée standard terminée et votre instance d'Azure-SSIS Integration Runtime démarrée, vous trouverez tous les journaux d'activité d'installation personnalisée dans le dossier *main.cmd.log* de votre conteneur d'objets blob. Ils incluent la sortie standard de *main. cmd* et d’autres journaux d’activité d’exécution.
 
@@ -269,7 +269,7 @@ Pour afficher et réutiliser certains exemples d’installation personnalisée s
 
    a. Sous **Local et attaché**, cliquez avec le bouton droit sur **Comptes de stockage**, puis sélectionnez **Se connecter au service Stockage Azure**.
 
-      ![Se connecter à Stockage Azure](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png" alt-text="Se connecter à Stockage Azure":::
 
    b. Sélectionnez **Conteneur d'objets blob**, **URL de signature d'accès partagé (SAP)** , puis **Suivant**.
 
@@ -283,7 +283,7 @@ Pour afficher et réutiliser certains exemples d’installation personnalisée s
 
       * Un dossier *UserScenarios* contenant plusieurs exemples d’installations personnalisées pour des scénarios d’utilisateurs réels. Si vous souhaitez installer plusieurs exemples sur votre instance d'Azure-SSIS IR, vous pouvez combiner leurs fichiers de script d'installation personnalisée (*main.cmd*) en un seul et charger ce dernier avec tous les fichiers associés dans votre conteneur d'objets blob.
 
-        ![Contenu du conteneur d'objets blob Préversion publique](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
+        :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png" alt-text="Contenu du conteneur d'objets blob Préversion publique":::
 
    e. Double-cliquez sur le dossier *UserScenarios* pour rechercher les éléments suivants :
 
@@ -343,7 +343,7 @@ Pour afficher et réutiliser certains exemples d’installation personnalisée s
       
         Tout d'abord, [téléchargez la dernière version de Zulu OpenJDK](https://www.azul.com/downloads/zulu/zulu-windows/) (par exemple, *zulu8.33.0.1-jdk8.0.192-win_x64.zip*), puis téléchargez-la avec *main.cmd* et *install_openjdk.ps1* dans votre conteneur d'objets blob.
 
-        ![Dossiers dans le dossier de scénarios utilisateur](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
+        :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png" alt-text="Dossiers dans le dossier de scénarios utilisateur":::
 
    f. Pour réutiliser ces exemples d'installation personnalisée standard, copiez le contenu du dossier sélectionné et collez-le dans votre conteneur d'objets blob.
 

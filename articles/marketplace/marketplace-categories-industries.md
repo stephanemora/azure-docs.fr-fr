@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/20/2021
-ms.openlocfilehash: a2c716479d3b8fd279da855a1df9f280e47c6c5a
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 8c48f5ec6804996cb65428f2e66199cb30127849
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635260"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824108"
 ---
 # <a name="marketplace-categories-and-industries"></a>Catégories et secteurs d’activité de la Place de marché
 
@@ -103,6 +103,5 @@ Sélectionnez les produits applicables utilisés par votre application pour que 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour créer une offre, connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290) pour la créer et la configurer. Si vous n’êtes pas encore inscrit à l’Espace partenaires, [créez un compte](/azure/marketplace/create-account).
-- Pour obtenir des instructions pas à pas sur la publication d’une offre, consultez le [Guide de publication de la place de marché commerciale par type d’offre](/azure/marketplace/publisher-guide-by-offer-type).
-
+- Pour créer une offre, connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290) pour la créer et la configurer. Si vous n’êtes pas encore inscrit à l’Espace partenaires, [créez un compte](./create-account.md).
+- Pour obtenir des instructions pas à pas sur la publication d’une offre, consultez le [Guide de publication de la place de marché commerciale par type d’offre](./publisher-guide-by-offer-type.md).

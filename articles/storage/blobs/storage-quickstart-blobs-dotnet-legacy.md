@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Bibliothèque cliente Stockage Blob Azure pour .NET'
 description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure pour .NET afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f4c87e418ecaaed61a92ab70bcf5aef3a6e0b040
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 658a3650e917f3786b84e65b5e976e1ef0263f23
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470937"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652867"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v11 pour .NET
 
@@ -24,25 +24,25 @@ Familiarisez-vous avec la bibliothèque de client Stockage Blob Azure v11 pour .
 
 Utilisez la bibliothèque cliente Stockage Blob Azure pour .NET afin de :
 
-* Créez un conteneur.
-* Définir des autorisations sur un conteneur
-* Créer un objet blob dans le stockage Azure
-* Télécharger l’objet blob sur votre ordinateur local
-* Lister tous les objets blob d’un conteneur
-* Supprimer un conteneur
+- Créez un conteneur.
+- Définir des autorisations sur un conteneur
+- Créer un objet blob dans le stockage Azure
+- Télécharger l’objet blob sur votre ordinateur local
+- Lister tous les objets blob d’un conteneur
+- Supprimer un conteneur
 
 Ressources supplémentaires :
 
-* [Documentation de référence de l’API](/dotnet/api/overview/azure/storage)
-* [Code source de la bibliothèque](https://github.com/Azure/azure-storage-net/tree/master/Blob)
-* [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
-* [Exemples](/samples/browse/?products=azure-blob-storage)
+- [Documentation de référence de l’API](/dotnet/api/overview/azure/storage)
+- [Code source de la bibliothèque](https://github.com/Azure/azure-storage-net/tree/master/Blob)
+- [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+- [Exemples](/samples/browse/?products=azure-blob-storage)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-* Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
-* Dernière version du [Kit SDK .NET Core](https://dotnet.microsoft.com/download/dotnet-core) pour votre système d’exploitation. Veillez à disposer du Kit de développement logiciel (SDK), et non du runtime.
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
+- Dernière version du [Kit SDK .NET Core](https://dotnet.microsoft.com/download/dotnet-core) pour votre système d’exploitation. Veillez à disposer du Kit de développement logiciel (SDK), et non du runtime.
 
 ## <a name="setting-up"></a>Configuration
 
@@ -174,9 +174,9 @@ Après avoir ajouté la variable d’environnement, redémarrez tous les program
 
 Le Stockage Blob Azure est optimisé pour stocker de grandes quantités de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires. Le stockage Blob offre trois types de ressources :
 
-* Le compte de stockage.
-* Un conteneur dans le compte de stockage.
-* Un objet blob dans un conteneur.
+- Le compte de stockage.
+- Un conteneur dans le compte de stockage.
+- Un objet blob dans un conteneur.
 
 Le diagramme suivant montre la relation entre ces ressources.
 
@@ -184,22 +184,22 @@ Le diagramme suivant montre la relation entre ces ressources.
 
 Utilisez les classes .NET suivantes pour interagir avec ces ressources :
 
-* [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) : La classe `CloudStorageAccount` représente votre compte de stockage Azure. Utilisez cette classe pour autoriser l’accès au Stockage Blob à l’aide des clés d’accès à votre compte.
-* [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient) : La classe `CloudBlobClient` fournit un point d’accès au service blob dans votre code.
-* [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) : La classe `CloudBlobContainer` représente un conteneur d'objet blob dans votre code.
-* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) : L’objet `CloudBlockBlob` représente un objet blob de blocs dans votre code. Ils sont composés de blocs de données qui peuvent être gérés individuellement.
+- [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) : La classe `CloudStorageAccount` représente votre compte de stockage Azure. Utilisez cette classe pour autoriser l’accès au Stockage Blob à l’aide des clés d’accès à votre compte.
+- [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient) : La classe `CloudBlobClient` fournit un point d’accès au service blob dans votre code.
+- [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) : La classe `CloudBlobContainer` représente un conteneur d'objet blob dans votre code.
+- [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) : L’objet `CloudBlockBlob` représente un objet blob de blocs dans votre code. Ils sont composés de blocs de données qui peuvent être gérés individuellement.
 
 ## <a name="code-examples"></a>Exemples de code
 
 Ces exemples d’extraits de code vous montrent comment effectuer les opérations suivantes avec la bibliothèque cliente Stockage Blob Azure pour .NET :
 
-   * [Authentifier le client](#authenticate-the-client)
-   * [Créer un conteneur](#create-a-container)
-   * [Définir des autorisations sur un conteneur](#set-permissions-on-a-container)
-   * [Charger des objets blob sur un conteneur](#upload-blobs-to-a-container)
-   * [Lister les objets blob d’un conteneur](#list-the-blobs-in-a-container)
-   * [Télécharger des objets blob](#download-blobs)
-   * [Supprimer un conteneur](#delete-a-container)
+   - [Authentifier le client](#authenticate-the-client)
+   - [Créer un conteneur](#create-a-container)
+   - [Définir des autorisations sur un conteneur](#set-permissions-on-a-container)
+   - [Charger des objets blob sur un conteneur](#upload-blobs-to-a-container)
+   - [Lister les objets blob d’un conteneur](#list-the-blobs-in-a-container)
+   - [Télécharger des objets blob](#download-blobs)
+   - [Supprimer un conteneur](#delete-a-container)
 
 ### <a name="authenticate-the-client"></a>Authentifier le client
 
@@ -399,5 +399,5 @@ Pour savoir comment créer une application web qui charge une image dans le stoc
 > [!div class="nextstepaction"]
 > [Charger et traiter une image](storage-upload-process-images.md)
 
-* Pour en savoir plus sur .NET Core, consultez [Prise en main de .NET en 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
-* Pour explorer un exemple d’application que vous pouvez déployer depuis Visual Studio pour Windows, consultez l’[exemple d’application web de la galerie de photos .NET avec le Stockage Blob Azure](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
+- Pour en savoir plus sur .NET Core, consultez [Prise en main de .NET en 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
+- Pour explorer un exemple d’application que vous pouvez déployer depuis Visual Studio pour Windows, consultez l’[exemple d’application web de la galerie de photos .NET avec le Stockage Blob Azure](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).

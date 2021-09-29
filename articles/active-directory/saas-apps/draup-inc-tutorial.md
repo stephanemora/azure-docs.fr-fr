@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/19/2021
 ms.author: jeedes
-ms.openlocfilehash: 4fdc2c9c683376369de284035ad08ffd8bea39bf
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 61dfd791ff8c7dd51fd5205b5425dea5b46a7a01
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769905"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809536"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-draup-inc"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Draup, Inc
 
@@ -126,7 +126,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion de Draup, Inc pour initier le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Draup, Inc dans Mes applications, vous êtes redirigé vers l’URL de connexion de Draup, Inc. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Draup, Inc dans Mes applications, vous êtes redirigé vers l’URL de connexion de Draup, Inc. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

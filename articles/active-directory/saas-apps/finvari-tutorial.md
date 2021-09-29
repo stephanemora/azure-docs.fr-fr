@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 1c9fefb68452c82dc54ef9b61d1bcc4af903a689
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 04ae4ad3463efd9dd38a4c2bc06374efacda83df
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111987732"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124834975"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-finvari"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Finvari
 
@@ -134,7 +134,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Finvari pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Finvari dans Mes applications vous redirige vers l’URL de connexion à Finvari. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Finvari dans Mes applications vous redirige vers l’URL de connexion à Finvari. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

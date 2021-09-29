@@ -4,13 +4,13 @@ metadata:
   description: Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Relay.
   ms.topic: article
   ms.service: azure
-  ms.date: 06/23/2021
-  ms.openlocfilehash: fd18d0d36cb07596ba6f8b40e699228bb95a190d
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.date: 09/17/2021
+  ms.openlocfilehash: defbb7c8318b548de3ed5bc4aa6049944a719e6d
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253958"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128637552"
 title: FAQ sur Azure Relay
 summary: >
   Cet article contient les réponses à certaines questions fréquemment posées sur [Azure Relay](https://azure.microsoft.com/services/service-bus/). Pour des informations générales concernant la tarification et le support technique d’Azure, consultez le [Forum aux questions sur le support technique Azure](https://azure.microsoft.com/support/faq/).
@@ -42,7 +42,7 @@ sections:
   - question: >
       Comment sont facturés les services Connexions hybrides et Relais WCF ?
     answer: >
-      Pour obtenir des informations complètes sur les tarifs Relay, reportez-vous au tableau [Connexions hybrides et WCF Relay][Vue d’ensemble des tarifs] dans la page des tarifs Service Bus. Outre les prix mentionnés sur cette page, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée.
+      Pour obtenir toutes les informations sur la tarification Relay, consultez le tableau [Connexions hybrides et relais WCF](https://azure.microsoft.com/pricing/details/service-bus) dans la page de détails de la tarification Service Bus. Outre les prix mentionnés sur cette page, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée.
   - question: >
       Comment est facturé le service Connexions hybrides ?
     answer: "Voici trois exemples de scénarios facturation pour les Connexions hybrides :\n\n*   Scénario 1 :\n    *   Vous avez un seul écouteur, tel qu’une instance du Gestionnaire de Connexions hybrides installée qui s’exécute en continu pendant tout le mois.\n    *   Vous envoyez 3 Go de données sur la connexion durant le mois. \n    *   Le total des frais s’élève à 5 $.\n*   Scénario 2 :\n    *   Vous avez un seul écouteur, tel qu’une instance du Gestionnaire de Connexions hybrides installée qui s’exécute en continu pendant tout le mois.\n    *   Vous envoyez 10 Go de données sur la connexion durant le mois.\n    *   Le total des frais s’élève à 7,50 $. Ce montant se décompose en 5 $ pour la connexion et les 5 premiers Go de données + 2,50 $ pour les 5 Go de données supplémentaires.\n*   Scénario 3 :\n    *   Vous avez deux instances, A et B, du Gestionnaire de Connexions hybrides installées qui s’exécutent en continu pendant tout le mois.\n    *   Vous envoyez 3 Go de données sur la connexion A durant le mois.\n    *   Vous envoyez 6 Go de données sur la connexion B durant le mois.\n    *   Le total des frais s’élève à 10,50 $. Ce montant se décompose en 5 $ pour la connexion A + 5 $ pour la connexion B + 0,50 $ (pour le sixième Go sur la connexion B).\n"
@@ -110,11 +110,11 @@ sections:
   - question: >
       Quelles sont les exceptions générées par les API Azure Relay et les actions suggérées ?
     answer: >
-      Pour obtenir une description des exceptions courantes et des actions suggérées, consultez [Exceptions Relay][Exceptions Relay].
+      Pour obtenir une description des exceptions courantes et des actions suggérées, consultez [Exceptions Relay](relay-exceptions.md).
   - question: >
       Qu’est-ce qu’une signature d’accès partagé et quels langages puis-je utiliser pour générer une signature ?
     answer: >
-      Les signatures d’accès partagé (SAP) sont des mécanismes d’authentification basés sur des hachages sécurisés SHA-256 ou des URI. Pour savoir comment générer vos propres signatures en Node.js, PHP, Python, Java, C et C#, consultez [Authentification de Service Bus avec les signatures d’accès partagé][Signatures d’accès partagé].
+      Les signatures d’accès partagé (SAP) sont des mécanismes d’authentification basés sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node.js, PHP, Python, Java, C et C#, consultez [Authentification de Service Bus avec les signatures d’accès partagé](../service-bus-messaging/service-bus-sas.md).
   - question: >
       Est-il possible d’autoriser uniquement certains points de terminaison de relais ?
     answer: >

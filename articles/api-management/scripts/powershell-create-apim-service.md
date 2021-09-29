@@ -3,21 +3,21 @@ title: Exemple de script Azure PowerShell - Créer un service APIM | Microsoft 
 description: Découvrez comment créer un service Gestion des API (APIM). Découvrez un exemple de script et affichez des ressources disponibles supplémentaires.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.topic: sample
 ms.date: 11/16/2017
-ms.author: apimpm
+ms.author: danlep
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 17e1d76e95e38922e081e4a4e44c0a103db101fa
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: f6740e89197b8a2e11285a8c6ea41b593c3ed638
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817135"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641310"
 ---
 # <a name="create-an-api-management-service"></a>Créer un service Gestion des API
 

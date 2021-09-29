@@ -2,13 +2,13 @@
 title: Utiliser le Stockage Blob comme magasin de points de contrôle sur Azure Stack Hub
 description: Cet article explique comment utiliser le Stockage Blob comme magasin de points de contrôle dans Event Hubs sur Azure Stack Hub.
 ms.topic: how-to
-ms.date: 12/09/2020
-ms.openlocfilehash: b3abfca771835b05c654025e7c29c359346d2b5c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 09/28/2021
+ms.openlocfilehash: e3d75d4cd85bbf4e1bc8fc6fd581d510c35b0cb4
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003155"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213512"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub"></a>Utilisation du Stockage Blob comme magasin de points de contrôle – Event Hubs sur Azure Stack Hub
 Si vous utilisez Stockage Blob Azure comme magasin de points de contrôle dans un environnement qui prend en charge une autre version du Kit de développement logiciel (SDK) Stockage Blob que ceux généralement disponibles sur Azure, vous devez utiliser du code pour remplacer la version de l’API du service de stockage par la version prise en charge par cet environnement. Par exemple, si vous exécutez [Event Hubs sur Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), la version la plus élevée disponible pour le service Stockage est la version 2017-11-09. Dans ce cas, vous devez utiliser du code pour cibler la version de l’API du service Stockage sur 2017-11-09. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API Stockage, consultez les exemples suivants sur GitHub : 

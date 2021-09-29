@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2021
 ms.author: yelevin
-ms.openlocfilehash: b68d2a8219e7aa23aac3187333160dfd4276e7b8
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 090e82a3efd27629633772b0549ee6d2452e159d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122563619"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818940"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Détection avancée des attaques multiphases dans Azure Sentinel
 
@@ -746,9 +746,9 @@ Ce scénario est actuellement en **PRÉVERSION**.
 Azure Sentinel génère un incident quand plusieurs alertes de types différents sont détectées à partir des sources de données suivantes et peuvent être liées à une activité de ransomware :
 
 - [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
-- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
-- [Microsoft Defender pour Identity](connect-azure-atp.md)
-- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
+- [Microsoft Defender pour Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
+- [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
 - [Règles d’analyse planifiée d’Azure Sentinel](detect-threats-built-in.md#scheduled). Fusion prend uniquement en compte les règles d’analyse planifiées avec des informations de tactiques.
 
 De tels incidents Fusion sont nommés **Alertes multiples possiblement liées à l’activité Ransomware détectée** et sont générés lorsque des alertes connexes sont détectées pendant un délai d’exécution spécifique et sont associées aux étapes **Exécution** et **Évasion défense** sur une attaque.

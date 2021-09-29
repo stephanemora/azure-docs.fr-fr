@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/10/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e644732a90652b1672dc77bfc6db86d7a6b7295a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8db131bd39ae8ebe27720a7d725f6ab8082dfd83
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221076"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780012"
 ---
 # <a name="troubleshoot-the-azure-percept-dk-device"></a>Résoudre les problèmes relatifs aux appareils Azure Percept DK
 
@@ -49,12 +49,15 @@ Dans cette section, vous allez obtenir des conseils sur les journaux à collecte
 |*Module container logs* : enregistre des détails sur des conteneurs de modules IoT Edge spécifiques|Collecter lorsque vous rencontrez des problèmes avec un module|```sudo iotedge logs [container name]```|
 |*Journaux réseau* : ensemble de journaux couvrant les services Wi-Fi et la pile réseau.|Collectez lorsque vous rencontrez des problèmes de Wi-Fi ou de réseau.|```sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd > network_log.txt```<br><br>```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version && rpm -q ztpd > system_ver.txt```<br><br>Exécutez les deux commandes. Chaque commande collecte plusieurs journaux et les place dans une seule sortie.|
 
+> [!WARNING]
+> La sortie de la commande `support-bundle` peut contenir des noms d’hôte, d’appareil et de module, des informations journalisées par vos modules, etc. Soyez conscient de cela si vous partagez la sortie dans un forum public.
+
 ## <a name="troubleshooting-commands"></a>Commandes de dépannage
 Voici un ensemble de commandes qui peuvent être utilisées pour résoudre les problèmes que vous pouvez rencontrer avec le kit de développement. Pour exécuter ces commandes, vous devez d’abord vous connecter à votre kit de développement [via SSH](./how-to-ssh-into-percept-dk.md). 
 
 Pour plus d’informations sur les commandes Azure IoT Edge, consultez la [documentation sur la résolution des problèmes liés aux appareils Azure IoT Edge](../iot-edge/troubleshoot.md). 
 
-|Fonction         |Quand l’utiliser                    |Commande                 |
+|Function         |Quand l’utiliser                    |Commande                 |
 |------------------|----------------------------|---------------------------|
 |Vérifie la version du logiciel sur le kit de développement.|Utilisez chaque fois que vous avez besoin de vérifier la version du logiciel qui se trouve dans votre kit de développement.|```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version```|
 |Vérifie la température du kit de développement|Utilisez dans les cas où vous pensez que le kit de développement peut être à l’origine d’une surchauffe.|```cat /sys/class/thermal/thermal_zone0/temp```|

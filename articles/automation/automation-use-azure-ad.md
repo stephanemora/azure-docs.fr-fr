@@ -2,15 +2,15 @@
 title: Utiliser Azure AD dans Azure Automation pour l’authentification auprès d’Azure
 description: Cet article montre comment utiliser Azure AD dans Azure Automation en tant que fournisseur pour l’authentification auprès d’Azure.
 services: automation
-ms.date: 03/30/2020
+ms.date: 09/23/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3150b20e8ddd5fa49f1cc9486d29dd633e443239
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: a5bb9b4d8235d48f47b34613c78d68f8bd3a2435
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112454867"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079995"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Utiliser Azure AD pour s’authentifier sur Azure
 
@@ -51,7 +51,7 @@ Avant d’installer les modules Azure AD sur votre ordinateur :
 
 1. Assurez-vous que la fonctionnalité Microsoft .NET Framework 3.5.x est activée sur votre ordinateur. Il est probable que votre ordinateur dispose d’une version plus récente, mais la compatibilité descendante avec les versions antérieures du .NET Framework peut être activée ou désactivée. 
 
-2. Installez la version 64 bits de l’[Assistant de connexion Microsoft Online Services](/microsoft-365/enterprise/connect-to-microsoft-365-powershell?view=o365-worldwide#step-1-install-the-required-software-1).
+2. Installez la version 64 bits de l’[Assistant de connexion Microsoft Online Services](/microsoft-365/enterprise/connect-to-microsoft-365-powershell?view=o365-worldwide&preserve-view=true#step-1-install-the-required-software-1).
 
 3. Exécutez Windows PowerShell en tant qu’administrateur pour créer une invite de commandes Windows PowerShell avec élévation de privilèges.
 
@@ -97,10 +97,10 @@ Pour préparer une nouvelle ressource d’informations d’identification dans W
 
 ## <a name="manage-azure-resources-from-an-azure-automation-runbook"></a>Gérer des ressources Azure à partir d’un runbook Azure Automation
 
-Vous pouvez gérer les ressources Azure à partir de runbooks Azure Automation en utilisant la ressource d’informations d’identification. Vous trouverez ci-dessous un exemple de runbook PowerShell qui collecte la ressource d’informations d’identification à utiliser pour l’arrêt et le démarrage des machines virtuelles dans un abonnement Azure. Ce runbook utilise tout d’abord `Get-AutomationPSCredential` pour récupérer les informations d’identification à utiliser pour l’authentification auprès d’Azure. Il appelle ensuite la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) pour se connecter à Azure à l’aide des informations d’identification. Le script utilise la cmdlet [Select-AzureSubscription](/powershell/module/servicemanagement/azure.service/select-azuresubscription) pour choisir l’abonnement à utiliser. 
+Vous pouvez gérer les ressources Azure à partir de runbooks Azure Automation en utilisant la ressource d’informations d’identification. Vous trouverez ci-dessous un exemple de runbook PowerShell qui collecte la ressource d’informations d’identification à utiliser pour l’arrêt et le démarrage des machines virtuelles dans un abonnement Azure. Ce runbook utilise tout d’abord `Get-AutomationPSCredential` pour récupérer les informations d’identification à utiliser pour l’authentification auprès d’Azure. Il appelle ensuite la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) pour se connecter à Azure à l’aide des informations d’identification. 
 
-```azurepowershell
-Workflow Stop-Start-AzureVM 
+```powershell
+Workflow Workflow
 { 
     Param 
     (    
@@ -115,9 +115,25 @@ Workflow Stop-Start-AzureVM
         $Action 
     ) 
      
-    $credential = Get-AutomationPSCredential -Name 'AzureCredential' 
-    Connect-AzAccount -Credential $credential 
-    Select-AzureSubscription -SubscriptionId $AzureSubscriptionId 
+    # Ensures you do not inherit an AzContext in your runbook
+    Disable-AzContextAutosave -Scope Process
+
+    # Connect to Azure with system-assigned managed identity
+    $AzureContext = (Connect-AzAccount -Identity).context
+
+    # set and store context
+    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext 
+
+    # get credential
+    $credential = Get-AutomationPSCredential -Name "AzureCredential"
+
+    # Connect to Azure with credential
+    $AzureContext = (Connect-AzAccount -Credential $credential -TenantId $AzureContext.Subscription.TenantId).context 
+
+    # set and store context
+    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+        -TenantId $AzureContext.Subscription.TenantId `
+        -DefaultProfile $AzureContext
  
     if($AzureVMList -ne "All") 
     { 
@@ -126,14 +142,13 @@ Workflow Stop-Start-AzureVM
     } 
     else 
     { 
-        $AzureVMs = (Get-AzVM).Name 
+        $AzureVMs = (Get-AzVM -DefaultProfile $AzureContext).Name 
         [System.Collections.ArrayList]$AzureVMsToHandle = $AzureVMs 
- 
     } 
  
     foreach($AzureVM in $AzureVMsToHandle) 
     { 
-        if(!(Get-AzVM | ? {$_.Name -eq $AzureVM})) 
+        if(!(Get-AzVM -DefaultProfile $AzureContext | ? {$_.Name -eq $AzureVM})) 
         { 
             throw " AzureVM : [$AzureVM] - Does not exist! - Check your inputs " 
         } 
@@ -144,7 +159,7 @@ Workflow Stop-Start-AzureVM
         Write-Output "Stopping VMs"; 
         foreach -parallel ($AzureVM in $AzureVMsToHandle) 
         { 
-            Get-AzVM | ? {$_.Name -eq $AzureVM} | Stop-AzVM -Force 
+            Get-AzVM -DefaultProfile $AzureContext | ? {$_.Name -eq $AzureVM} | Stop-AzVM -DefaultProfile $AzureContext -Force 
         } 
     } 
     else 
@@ -152,7 +167,7 @@ Workflow Stop-Start-AzureVM
         Write-Output "Starting VMs"; 
         foreach -parallel ($AzureVM in $AzureVMsToHandle) 
         { 
-            Get-AzVM | ? {$_.Name -eq $AzureVM} | Start-AzVM 
+            Get-AzVM -DefaultProfile $AzureContext | ? {$_.Name -eq $AzureVM} | Start-AzVM -DefaultProfile $AzureContext
         } 
     } 
 }

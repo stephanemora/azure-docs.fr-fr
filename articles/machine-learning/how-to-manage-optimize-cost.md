@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: bf29f435c2d9439659abdcc76a7f8d85cf51c2af
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 47f10b542bd2c4eb7965e6dfc25349661ca3c3d8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532181"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805251"
 ---
 # <a name="manage-and-optimize-azure-machine-learning-costs"></a>Gérer et optimiser les coûts d’Azure Machine Learning
 
@@ -109,7 +109,7 @@ L’une des principales méthodes d’optimisation des coûts et des performance
 
 ## <a name="set-data-retention--deletion-policies"></a>Définir des stratégies de conservation et de suppression des données
 
-Chaque fois qu’un pipeline est exécuté, des jeux de données intermédiaires sont générés à chaque étape. Au fil du temps, ces jeux de données intermédiaires occupent de l’espace dans votre compte de stockage. Réfléchissez à la configuration de stratégies pour gérer vos données tout au long de leur cycle de vie afin d’archiver et de supprimer vos jeux de données. Pour plus d’informations, consultez [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](../storage/blobs/storage-lifecycle-management-concepts.md).
+Chaque fois qu’un pipeline est exécuté, des jeux de données intermédiaires sont générés à chaque étape. Au fil du temps, ces jeux de données intermédiaires occupent de l’espace dans votre compte de stockage. Réfléchissez à la configuration de stratégies pour gérer vos données tout au long de leur cycle de vie afin d’archiver et de supprimer vos jeux de données. Pour plus d’informations, consultez [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](../storage/blobs/lifecycle-management-overview.md).
 
 ## <a name="deploy-resources-to-the-same-region"></a>Déployer des ressources dans la même région
 
