@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, security
-ms.openlocfilehash: d5c794bfc707f6429daad2e78affe592f5e3754c
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 7fe7070611fc9fc94f983a69a6fb9009af0f9c3e
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114709995"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091518"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure
 
@@ -65,7 +65,7 @@ Dans cet article, vous apprendrez comment :
 
 + Un [espace de travail Azure Machine Learning avec un point de terminaison privé](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) existant.
 
-+ Un [compte de stockage Azure existant a ajouté votre réseau virtuel](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
++ Un [compte de stockage Azure existant a ajouté votre réseau virtuel](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 
 ## <a name="limitations"></a>Limites
 
@@ -106,7 +106,7 @@ Procédez comme suit pour activer l’accès aux données stockées dans le Stoc
     |Stockage blob par défaut de l’espace de travail| Stocke les ressources de modèle à partir du concepteur. Activez l’authentification via une identité managée sur ce compte de stockage pour déployer des modèles dans le concepteur. <br> <br> Vous pouvez visualiser et exécuter un pipeline de concepteur s’il utilise un magasin de données non défini par défaut qui a été configuré pour utiliser l’identité managée. Toutefois, si vous essayez de déployer un modèle entraîné sans que l’identité managée soit activée sur le magasin de données par défaut, le déploiement échoue, quelles que soient les autres magasins de données en cours d’utilisation.|
     |Magasin de fichiers par défaut de l’espace de travail| Stocke les ressources d’expérimentation AutoML. Activez l’authentification via une identité managée sur ce compte de stockage pour soumettre des expériences AutoML. |
 
-1. **Configurez des magasins de données pour utiliser l’authentification via une identité managée**. Après avoir ajouté un compte de stockage Azure à votre réseau virtuel avec un [point de terminaison de service](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou un [point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), vous devez configurer votre magasin de données afin qu’il utilise l’authentification via une [identité managée](../active-directory/managed-identities-azure-resources/overview.md). Ainsi, le studio peut accéder aux données de votre compte de stockage.
+1. **Configurez des magasins de données pour utiliser l’authentification via une identité managée**. Après avoir ajouté un compte de stockage Azure à votre réseau virtuel avec un [point de terminaison de service](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts) ou un [point de terminaison privé](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts), vous devez configurer votre magasin de données afin qu’il utilise l’authentification via une [identité managée](../active-directory/managed-identities-azure-resources/overview.md). Ainsi, le studio peut accéder aux données de votre compte de stockage.
 
     Azure Machine Learning utilise des [magasins de données](concept-data.md#datastores) pour se connecter aux comptes de stockage. Lors de la création d’un magasin de données, procédez comme suit pour configurer un magasin de données afin d’utiliser l’authentification via une identité managée :
 

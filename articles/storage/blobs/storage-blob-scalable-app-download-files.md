@@ -8,12 +8,12 @@ ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aafea55e2683ab9c78fafbf819c9a67d7cb75a45
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 435bc37a79ea7397bcfd8d1d044c44cd5fde382e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459680"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630723"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Télécharger de grandes quantités de données aléatoires depuis le stockage Azure
 
@@ -22,9 +22,9 @@ Ce tutoriel est le troisième de la série. Ce didacticiel vous montre comment t
 Dans ce troisième volet, vous apprenez à :
 
 > [!div class="checklist"]
-> * Mettre à jour l’application
-> * Exécution de l'application
-> * Valider le nombre de connexions
+> - Mettre à jour l’application
+> - Exécution de l'application
+> - Valider le nombre de connexions
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -223,8 +223,8 @@ C:\>
 Dans la troisième partie de la série, vous avez appris à télécharger de grandes quantités de données depuis un compte de stockage, et à :
 
 > [!div class="checklist"]
-> * Exécution de l'application
-> * Valider le nombre de connexions
+> - Exécution de l'application
+> - Valider le nombre de connexions
 
 Passez à la quatrième partie de la série pour vérifier les métriques de débit et de latence dans le portail.
 

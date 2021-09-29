@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 327fc5bd6003f93746f484e5d157cfa1737ae317
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 0db8c8d14dbd3e09ebb798c41ea2d7b526acabc9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982085"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753193"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-resource-central--saml-sso-for-meeting-room-booking-system"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Resource Central – SAML SSO for Meeting Room Booking System
 
@@ -177,7 +177,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
    :::image type="content" source="./media/resource-central/test.png" alt-text="Capture d’écran de la page web de test de l’authentification unique Resource Central":::
 
-* Utilisez le portail Mes applications de Microsoft. Dans le portail Mes applications, sélectionnez la vignette **Resource Central – SAML SSO for Meeting Room Booking System** pour accéder à l’URL de connexion de Resource Central – SAML SSO for Meeting Room Booking System. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Utilisez le portail Mes applications de Microsoft. Dans le portail Mes applications, sélectionnez la vignette **Resource Central – SAML SSO for Meeting Room Booking System** pour accéder à l’URL de connexion de Resource Central – SAML SSO for Meeting Room Booking System. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

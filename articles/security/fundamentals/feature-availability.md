@@ -6,12 +6,12 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: d535cff28e87de0f2dcf4afb90ab452303a6d0e0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3f2559ca573ed9fedf5a15fce454cf406f8f6b0b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609210"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210741"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilité des fonctionnalités cloud pour les clients du secteur public américain
 
@@ -138,9 +138,9 @@ Les tableaux suivants indiquent la disponibilité actuelle des fonctionnalités 
 |- [Métriques d'audit des incidents SOC](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 |- [Watchlists](../../sentinel/watchlists.md) | GA | GA |
 | **Support Threat Intelligence** | | |
-| - [Connecteur de données Threat Intelligence – TAXII](../../sentinel/understand-threat-intelligence.md)  | Version préliminaire publique | Non disponible |
+| - [Connecteur de données Threat Intelligence – TAXII](../../sentinel/understand-threat-intelligence.md)  | GA | Non disponible |
 | - [Connecteur de données Threat Intelligence Platform](../../sentinel/understand-threat-intelligence.md)  | Version préliminaire publique | Non disponible |
-| - [Panneau de recherche Threat Intelligence](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | Version préliminaire publique | Non disponible |
+| - [Panneau de recherche Threat Intelligence](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | Non disponible |
 | - [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | Version préliminaire publique | Non disponible |
 | - [Classeur Threat Intelligence](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | Non disponible |
 |**Support lié à la détection** | | |

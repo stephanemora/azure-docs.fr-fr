@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: ccda5c050c9f8af711637ea45090b6647c6c3488
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7bcdba39c5e805b80f3bdb248f078a2d35f8e47f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92674670"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821669"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Didacticiel : Intégration d’Azure Active Directory à Sedgwick CMS
 
@@ -190,7 +190,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans S
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Sedgwick CMS dans le volet d’accès, vous devriez être connecté automatiquement à l’application Sedgwick CMS pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Lorsque vous cliquez sur la vignette Sedgwick CMS dans le volet d’accès, vous devriez être connecté automatiquement à l’application Sedgwick CMS pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

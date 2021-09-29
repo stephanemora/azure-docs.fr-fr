@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 6d8c2fc67f768ed3fc4d4c66e91c42fbbe97e032
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d66b09aac2d03fe81cc38ffb53ac1bb29dae6f8f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121783843"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124813617"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eccentex-appbase-for-azure"></a>Tutoriel : Intégration entre l’authentification unique Azure Active Directory et Eccentex AppBase pour Azure
 
@@ -199,7 +199,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Eccentex AppBase pour Azure pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Eccentex AppBase pour Azure dans Mes applications, l’URL de connexion à Eccentex AppBase pour Azure s’ouvre. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Eccentex AppBase pour Azure dans Mes applications, l’URL de connexion à Eccentex AppBase pour Azure s’ouvre. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

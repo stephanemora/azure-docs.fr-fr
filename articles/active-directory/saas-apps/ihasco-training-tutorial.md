@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 832e13522b354fcefdc3f23164fd1b532a688ecb
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: ff3d676267e6c5b78044660882db3ccb9fde19fa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110656181"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768531"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ihasco-training"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à iHASCO Training
 
@@ -172,11 +172,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion d’iHASCO Training pour initier le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette iHASCO Training dans Mes applications, vous êtes redirigé vers l’URL de connexion d’iHASCO Training. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette iHASCO Training dans Mes applications, vous êtes redirigé vers l’URL de connexion d’iHASCO Training. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez configuré iHASCO Training, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-

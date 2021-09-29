@@ -8,12 +8,12 @@ ms.author: abnarain
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 3382cb1cf42b86b7dbd37b3f006c19e4822800ba
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c82a3fda3eb43fa73a46f934087bfb84e3aa2d1b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722364"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769690"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformer des données dans un réseau virtuel Azure à l’aide de l’activité Hive dans Azure Data Factory
 
@@ -39,10 +39,10 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 - **Compte Stockage Azure**. Vous créez un script Hive et le téléchargez vers le stockage Azure. La sortie du script Hive est stockée dans ce compte de stockage. Dans cet exemple, le cluster HDInsight utilise ce compte de stockage Azure en tant que stockage principal. 
 - **Réseau virtuel Azure.** Si vous ne disposez pas d’un réseau virtuel Azure, créez-le en suivant [ces instructions](../virtual-network/quick-create-portal.md). Dans cet exemple, HDInsight est dans un réseau virtuel Azure. Voici un exemple de configuration du réseau virtuel Azure. 
 
-    ![Création d’un réseau virtuel](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
+    :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png" alt-text="Création d’un réseau virtuel":::
 - **Cluster HDInsight.** Créez un cluster HDInsight et joignez-le au réseau virtuel que vous avez créé à l’étape précédente en suivant les instructions de cet article : [Étendre Azure HDInsight à l’aide d’un réseau virtuel Azure](../hdinsight/hdinsight-plan-virtual-network-deployment.md). Voici un exemple de configuration de HDInsight dans un réseau virtuel. 
 
-    ![HDInsight dans un réseau virtuel](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
+    :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png" alt-text="HDInsight dans un réseau virtuel":::
 - **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Téléchargez le script Hive sur votre compte de stockage Blob
@@ -152,11 +152,11 @@ Dans cette section, vous créez un runtime d’intégration autohébergé et l�
 3. Créez une machine virtuelle Azure et joignez-la au réseau virtuel qui contient votre cluster HDInsight. Pour plus d’informations, reportez-vous à [Créer des machines virtuelles](../virtual-network/quick-create-portal.md#create-virtual-machines). Joignez-les à un réseau virtuel Azure. 
 4. Sur la machine virtuelle Azure, téléchargez le [runtime d’intégration autohébergé](https://www.microsoft.com/download/details.aspx?id=39717). Utilisez la clé d’authentification obtenue à l’étape précédente pour inscrire manuellement le runtime d’intégration autohébergé. 
 
-   ![Inscrire le runtime d’intégration](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)
+   :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png" alt-text="Inscrire le runtime d’intégration":::
 
-   Le message suivant s’affiche une fois que le runtime d’intégration auto-hébergé est bien inscrit : ![Inscription réussie](media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png)
+   Le message suivant s’affiche une fois que le runtime d’intégration auto-hébergé est bien inscrit : :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png" alt-text="Inscription réussie":::
 
-   La page suivante apparaît une fois que le nœud est connecté au service cloud : ![Le nœud est connecté](media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png)
+   La page suivante apparaît une fois que le nœud est connecté au service cloud : :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png" alt-text="Le nœud est connecté":::
 
 ## <a name="author-linked-services"></a>Créer des services liés
 

@@ -10,12 +10,12 @@ ms.author: arupp
 ms.reviewer: vanto
 ms.date: 08/25/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 5750192116b9d6008bf1bb903dd36875b6939ffb
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 512f43c102aa40707170021ec1b1fd6372437d64
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866480"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793535"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -159,7 +159,7 @@ Pour configurer l’écriture des journaux d’audit dans un Event Hub, sélecti
 
 ## <a name="analyze-audit-logs-and-reports"></a><a id="subheading-3"></a>Analyse des journaux et des rapports d’audit
 
-Si vous avez choisi d’écrire les journaux d’audit dans des journaux Azure Monitor :
+Si vous avez choisi d’écrire les journaux d’audit dans Log Analytics :
 
 - Utilisez le [portail Azure](https://portal.azure.com). Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, sélectionnez **Afficher les journaux d’audit**.
 

@@ -3,12 +3,12 @@ title: Superviser les ressources déléguées à grande échelle
 description: Azure Lighthouse vous permet d’utiliser les journaux Azure Monitor de manière évolutive sur les locataires clients.
 ms.date: 08/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 3424078b00aef569f054d6d3c02382f4bd071a91
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d261fd41c300f317e34ff7cacafa53911b7bbc12
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563930"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736611"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Superviser les ressources déléguées à grande échelle
 
@@ -28,7 +28,7 @@ Nous vous recommandons de créer ces espaces de travail directement dans les loc
 > [!TIP]
 > Tout compte Automation utilisé pour accéder aux données d’un espace de travail Log Analytics doit être créé dans le même locataire que l’espace de travail.
 
-Vous pouvez créer un espace de travail Log Analytics à l’aide du [portail Azure](../../azure-monitor/logs/quick-create-workspace.md), d’[Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md) ou d’[Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
+Vous pouvez créer un espace de travail Log Analytics à l’aide du [portail Azure](../../azure-monitor/logs/quick-create-workspace.md), d’[Azure CLI](../../azure-monitor/logs/resource-manager-workspace.md) ou d’[Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
 > Si tous les espaces de travail sont créés dans les abonnés clients, les fournisseurs de ressources Microsoft.Insights doivent également être [inscrits](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) sur un abonnement dans l’abonné gestionnaire. Si votre locataire gestionnaire ne dispose pas d’un abonnement Azure existant, vous pouvez inscrire le fournisseur de ressources manuellement à l’aide des commandes PowerShell suivantes :

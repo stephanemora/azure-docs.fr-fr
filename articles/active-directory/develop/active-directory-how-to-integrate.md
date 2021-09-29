@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7ee283ff61753a060e49a3340cd0a795b04faf9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57aefd8cc8a246d485854f72b47c131f75dced0c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755928"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734817"
 ---
 # <a name="integrating-with-the-microsoft-identity-platform"></a>Intégration à la plateforme d’identités Microsoft
 
@@ -55,7 +55,7 @@ Il existe plusieurs façons d’intégrer votre application à la plateforme d�
 
 **Promouvez votre application aux millions d'organisations qui utilisent déjà Azure AD.**  Les utilisateurs qui recherchent ces marketplace utilisent déjà un ou plusieurs services cloud, ce qui les définit en tant que clients de service cloud. En savoir plus sur la promotion de votre application dans [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Lorsque des utilisateurs s’inscrivent à votre application, cela apparaîtra dans leur panneau d'accès Azure AD et le lanceur d'applications Microsoft 365.**  Les utilisateurs pourront rapidement et facilement retourner à votre application plus tard, ce qui améliore ainsi l’engagement utilisateur. En savoir plus sur le [panneau d'accès Azure AD](../user-help/my-apps-portal-end-user-access.md).
+**Lorsque des utilisateurs s’inscrivent à votre application, cela apparaîtra dans leur panneau d'accès Azure AD et le lanceur d'applications Microsoft 365.**  Les utilisateurs pourront rapidement et facilement retourner à votre application plus tard, ce qui améliore ainsi l’engagement utilisateur. En savoir plus sur le [panneau d'accès Azure AD](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Sécurisation de la communication de périphérique à service et de service à service
 

@@ -7,15 +7,16 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 474478c03586866f28d02c4e1cb219bd6df65dea
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: c5232d9ed3e7ab7caec6134e4c5d3e553e2b543c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525804"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818411"
 ---
 # <a name="dcsv2-series"></a>série DCsv2
 
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Les machines virtuelles de la série DCsv2 permettent de protéger la confidentialité et l’intégrité de vos données et de votre code lors de leur traitement dans le cloud public. La série DCsv2 s’appuie sur Intel® Software Guard Extensions, qui permet aux clients d’utiliser des enclaves sécurisées pour la protection.
 
@@ -62,5 +63,7 @@ Les exemples de cas d’usage incluent le partage de données pluripartites conf
 - [Générations précédentes](sizes-previous-gen.md)
 - [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 - [En savoir plus sur les types de disques](./disks-types.md#ultra-disk)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
 Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

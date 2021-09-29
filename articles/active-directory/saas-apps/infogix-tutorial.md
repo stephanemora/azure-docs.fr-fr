@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 7ca566c554c02d20d21bd7eba87dfbcbf1f746da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d47d1c6e720a25855a562b815c8a9c1b62850db
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97606485"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutoriel : Intégration d’Azure Active Directory avec Infogix Data3Sixty Govern
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Infogix Data3Sixty Go
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.data3sixty.com`
 
@@ -121,7 +121,7 @@ Pour configurer l’authentification unique Azure AD avec Infogix Data3Sixty Go
 
 7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | Nom | Attribut source|
+    | Name | Attribut source|
     | -----------| -------------- |
     | firstname  | user.givenname |
     | lastname | user.surname |
@@ -225,7 +225,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Infogix 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Infogix Data3Sixty Govern dans le volet d’accès, vous devez être connecté automatiquement à l’application Infogix Data3Sixty Govern pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Infogix Data3Sixty Govern dans le volet d’accès, vous devez être connecté automatiquement à l’application Infogix Data3Sixty Govern pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

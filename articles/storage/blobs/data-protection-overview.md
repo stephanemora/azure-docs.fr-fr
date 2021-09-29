@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
-ms.openlocfilehash: afdea12c8eedb25a9a56cda2d57ec3a24a5afc18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d9beb1ce981826eb7555b1a55e00c7c00fb84810
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532484"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766613"
 ---
 # <a name="data-protection-overview"></a>Vue d’ensemble de la protection des données
 
@@ -104,10 +104,10 @@ Le tableau suivant récapitule les considérations relatives au coût pour les d
 | Stratégie d’immuabilité sur une version de blob (préversion) | Aucun frais pour activer l’immuabilité au niveau de la version sur un conteneur. La création, la modification ou la suppression d’une stratégie de conservation légale ou de rétention à durée déterminée sur une version de blob entraîne des frais de transaction d’écriture. |
 | Stratégie d’immuabilité sur un conteneur | Aucuns frais pour configurer une stratégie d’immuabilité sur un conteneur. |
 | Suppression réversible de conteneur | Aucuns frais pour activer la suppression réversible de conteneur pour un compte de stockage. Les données d’un conteneur supprimé de manière réversible sont facturées au même tarif que les données actives jusqu’à ce que le conteneur supprimé de manière réversible soit supprimé définitivement. |
-| Contrôle de version des objets blob | Aucuns frais pour activer le contrôle de version de blob pour un compte de stockage. Une fois le contrôle de version de blob activé, chaque opération d’écriture ou de suppression sur un blob dans le compte crée une nouvelle version, ce qui peut entraîner des coûts de capacité accrus.<br /><br />Une version de blob est facturée sur la base de pages ou de blocs uniques. Par conséquent, les coûts augmentent à mesure que le blob de base diverge d’une version particulière. La modification du niveau d’un blob ou d’une version de blob peut avoir une incidence sur la facturation. Pour plus d’informations, consultez [Tarification et facturation](versioning-overview.md#pricing-and-billing).<br /><br />Utilisez la gestion du cycle de vie pour supprimer des versions antérieures en fonction des besoins afin de contrôler les coûts. Pour plus d’informations, consultez [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](storage-lifecycle-management-concepts.md). |
+| Contrôle de version des objets blob | Aucuns frais pour activer le contrôle de version de blob pour un compte de stockage. Une fois le contrôle de version de blob activé, chaque opération d’écriture ou de suppression sur un blob dans le compte crée une nouvelle version, ce qui peut entraîner des coûts de capacité accrus.<br /><br />Une version de blob est facturée sur la base de pages ou de blocs uniques. Par conséquent, les coûts augmentent à mesure que le blob de base diverge d’une version particulière. La modification du niveau d’un blob ou d’une version de blob peut avoir une incidence sur la facturation. Pour plus d’informations, consultez [Tarification et facturation](versioning-overview.md#pricing-and-billing).<br /><br />Utilisez la gestion du cycle de vie pour supprimer des versions antérieures en fonction des besoins afin de contrôler les coûts. Pour plus d’informations, consultez [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](./lifecycle-management-overview.md). |
 | Suppression réversible de blob | Aucun frais pour activer la suppression réversible de blob pour un compte de stockage. Les données d’un blob supprimé de manière réversible sont facturées au même tarif que les données actives jusqu’à ce que le blob supprimé de manière réversible soit supprimé définitivement. |
 | Restauration dans le temps | Aucuns frais pour activer la restauration à un instant dans le passé pour un compte de stockage. En revanche, l’activation de la restauration à un instant dans le passé a également pour effet d’activer le contrôle de version, la suppression réversible et le flux de modification des blobs, qui peuvent occasionner des frais supplémentaires.<br /><br />Vous êtes facturé pour la restauration à un instant dans le passé quand vous effectuez une opération de restauration. Le coût d’une opération de restauration dépend de la quantité de données restaurées. Pour plus d’informations, consultez [Tarification et facturation](point-in-time-restore-overview.md#pricing-and-billing). |
-| Instantanés d’objet blob | Les données d’un instantané sont facturées sur la base de pages ou de blocs uniques. Par conséquent, les coûts augmentent à mesure que le blob de base diverge de la capture instantanée. La modification du niveau d’un blob ou d’une capture instantanée peut avoir une incidence sur la facturation. Pour plus d’informations, consultez [Tarification et facturation](snapshots-overview.md#pricing-and-billing).<br /><br />Utilisez la gestion du cycle de vie pour supprimer des captures instantanées antérieures en fonction des besoins afin de contrôler les coûts. Pour plus d’informations, consultez [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](storage-lifecycle-management-concepts.md). |
+| Instantanés d’objet blob | Les données d’un instantané sont facturées sur la base de pages ou de blocs uniques. Par conséquent, les coûts augmentent à mesure que le blob de base diverge de la capture instantanée. La modification du niveau d’un blob ou d’une capture instantanée peut avoir une incidence sur la facturation. Pour plus d’informations, consultez [Tarification et facturation](snapshots-overview.md#pricing-and-billing).<br /><br />Utilisez la gestion du cycle de vie pour supprimer des captures instantanées antérieures en fonction des besoins afin de contrôler les coûts. Pour plus d’informations, consultez [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](./lifecycle-management-overview.md). |
 | Copier des données dans un deuxième compte de stockage | La maintenance des données dans un deuxième compte de stockage occasionne des coûts de capacité et de transaction. Si le deuxième compte de stockage se trouve dans une région différente de celle du compte source, la copie des données vers ce deuxième compte entraînera en sus des frais de sortie. |
 
 ## <a name="disaster-recovery"></a>Récupération d'urgence
@@ -116,7 +116,7 @@ Le service Stockage Azure maintient toujours plusieurs copies de vos données af
 
 En cas de défaillance d’un centre de données, si votre compte de stockage est redondant dans deux régions géographiques (géoredondant), vous avez la possibilité de basculer votre compte de la région primaire vers la région secondaire. Pour plus d’informations, consultez [Récupération d’urgence et basculement de compte de stockage](../common/storage-disaster-recovery-guidance.md).
 
-Le basculement géré par le client n’est actuellement pas pris en charge pour les comptes de stockage pour lesquels un espace de noms hiérarchique est activé. Pour plus d’informations, consultez [Fonctionnalités du stockage de blobs disponibles dans Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+Le basculement géré par le client n’est actuellement pas pris en charge pour les comptes de stockage pour lesquels un espace de noms hiérarchique est activé. Pour plus d’informations, consultez [Fonctionnalités du stockage de blobs disponibles dans Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

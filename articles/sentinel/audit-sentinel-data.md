@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 82d406521ad534c77fc48c095631e07a74bfd080
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 4378065a8d1a91f9051c04dbb71a90e2a4ab862c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563723"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777390"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Auditer les requêtes et les activités Azure Sentinel
 
@@ -47,7 +47,7 @@ Vous pouvez utiliser la table **AzureActivity** pour auditer l’activité dans 
 
 **Pour interroger la table AzureActivity** :
 
-1. Connectez la source de données [Activité Azure](connect-azure-activity.md) pour démarrer la diffusion en continu d’événements d’audit dans une nouvelle table de l’écran **Journaux** appelée AzureActivity.
+1. Connectez la source de données [Activité Azure](./data-connectors-reference.md#azure-activity) pour démarrer la diffusion en continu d’événements d’audit dans une nouvelle table de l’écran **Journaux** appelée AzureActivity.
 
 1. Ensuite, interrogez les données en utilisant KQL, comme vous le feriez avec n’importe quelle autre table.
 

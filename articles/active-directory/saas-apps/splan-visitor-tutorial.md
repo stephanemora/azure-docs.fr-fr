@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: de00b869aef2d1429740d75829da9a5c3e79de15
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: a2c33808be505209ff5eca58480b9fd5f03d9d4f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112465940"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785531"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>Tutoriel : Intégrer l’authentification unique Azure Active Directory à Splan Visitor
 
@@ -123,7 +123,7 @@ Créez un utilisateur de test nommé **Britta Simon** dans Splan Visitor. Rappro
 Testez votre configuration de l’authentification unique Azure AD avec l’une des options suivantes :
 
 * **Portail Azure**: Sélectionnez **Tester cette application** pour vous connecter automatiquement à l’application Splan Visitor pour laquelle vous avez configuré l’authentification unique.
-* **Portail Mes applications Microsoft** : Sélectionnez **Splan Visitor** pour vous connecter automatiquement à l’application Splan Visitor pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* **Portail Mes applications Microsoft** : Sélectionnez **Splan Visitor** pour vous connecter automatiquement à l’application Splan Visitor pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: f94aee8fd609870e2ac0e49721e8d7c21892428b
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 12a1505da59763f52da71b94dc3dc1ca8edcc075
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804283"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutoriel : Intégration d'Azure Active Directory à Zscaler Internet Access Administrator
 
@@ -188,7 +188,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 - Cliquez sur Tester cette application dans le portail Azure. Vous êtes alors connecté automatiquement à l’instance de Zscaler Internet Access Administrator pour laquelle vous avez configuré l’authentification SSO
 
-- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Zscaler Internet Access Administrator dans Mes applications, vous devez être automatiquement connecté à l’instance de Zscaler Internet Access Administrator pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Zscaler Internet Access Administrator dans Mes applications, vous devez être automatiquement connecté à l’instance de Zscaler Internet Access Administrator pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

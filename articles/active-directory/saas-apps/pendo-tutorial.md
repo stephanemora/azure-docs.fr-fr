@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/08/2021
 ms.author: jeedes
-ms.openlocfilehash: faeed8fa9debb53b601f223152865d4bb1f571b0
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: fcc72a43f7396f3c6f235400c7e0058c91d156d2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891650"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785949"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pendo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Pendo
 
@@ -132,7 +132,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure. Vous devez alors être automatiquement connecté à l’instance de Pendo pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Pendo dans Mes applications, vous devez être automatiquement connecté à l’instance de Pendo pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Pendo dans Mes applications, vous devez être automatiquement connecté à l’instance de Pendo pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

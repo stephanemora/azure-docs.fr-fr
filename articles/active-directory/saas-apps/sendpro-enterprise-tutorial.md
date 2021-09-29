@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2021
 ms.author: jeedes
-ms.openlocfilehash: 2acb234d04a0158b22b9078db903e6be562b892b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14cb4346fd8fee10ed6e204416dc18d81f6bd9d0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954664"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801483"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sendpro-enterprise"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec SendPro Enterprise
 
@@ -128,7 +128,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à SendPro Enterprise, puis lancez le flux de connexion à partir de cet emplacement.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette SendPro Enterprise dans Mes applications, une redirection est effectuée vers l’URL de connexion à SendPro Enterprise. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette SendPro Enterprise dans Mes applications, une redirection est effectuée vers l’URL de connexion à SendPro Enterprise. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

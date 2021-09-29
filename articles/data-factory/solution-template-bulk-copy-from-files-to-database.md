@@ -1,18 +1,19 @@
 ---
 title: Copie en bloc de fichiers dans une base de données
 description: Découvrez comment utiliser un modèle de solution pour copier des données en bloc depuis Azure Data Lake Storage Gen2 vers Azure Synapse Analytics/Azure SQL Database.
+titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: 553dbdbed3101e6e07b24082e2bbd94f8dd171d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 59189f0c197294ca74e01d331663c51fa0e2bd7d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532628"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757892"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Copie en bloc de fichiers dans une base de données
 
@@ -39,32 +40,32 @@ Le modèle définit les deux paramètres suivants :
 
 1. Accédez au modèle **Copie en bloc de fichiers dans une base de données**. Créez une **nouvelle** connexion au magasin Gen2 source. Sachez que « GetMetadataDataset » et « SourceDataset » sont des références à la même connexion de votre magasin de fichiers source.
 
-    ![Créer une connexion au magasin de données source](media/solution-template-bulk-copy-from-files-to-database/source-connection.png)
+    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/source-connection.png" alt-text="Créer une connexion au magasin de données source":::
 
 2. Créez une **nouvelle** connexion au magasin de données récepteur vers lequel vous copiez des données.
 
-    ![Créer une connexion au magasin de données récepteur](media/solution-template-bulk-copy-from-files-to-database/destination-connection.png)
+    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/destination-connection.png" alt-text="Créer une connexion au magasin de données récepteur":::
     
 3. Sélectionnez **Utiliser ce modèle**.
 
-    ![Utiliser ce modèle](media/solution-template-bulk-copy-from-files-to-database/use-template.png)
+    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/use-template.png" alt-text="Utiliser ce modèle":::
     
 4. Vous pouvez voir un pipeline créé comme indiqué dans l’exemple suivant :
 
-    ![Passer en revue le pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
+    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png" alt-text="Passer en revue le pipeline":::
 
     > [!NOTE]
     > Si vous choisissez **Azure Synapse Analytics** comme destination des données à l’**étape 2** mentionnée ci-dessus, vous devez entrer une connexion à un stockage Blob Azure pour la préproduction, comme le demande Azure Synapse Analytics Polybase. Comme le montre la capture d’écran suivante, le modèle génère automatiquement un *chemin de stockage* pour le stockage d’objets blob. Vérifiez si le conteneur a été créé après l’exécution du pipeline.
         
-    ![Paramètre Polybase](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
+    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/staging-account.png" alt-text="Paramètre Polybase":::
 
 5. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
 
-    ![Cliquez sur **Déboguer**](media/solution-template-bulk-copy-from-files-to-database/debug-run.png)
+    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/debug-run.png" alt-text="Cliquez sur **Déboguer**":::
 
 6. Lorsque l’exécution du pipeline s’effectue correctement, vous pouvez voir des résultats similaires à l’exemple suivant :
 
-    ![Vérifier le résultat](media/solution-template-bulk-copy-from-files-to-database/run-succeeded.png)
+    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/run-succeeded.png" alt-text="Vérifier le résultat":::
 
        
 ## <a name="next-steps"></a>Étapes suivantes

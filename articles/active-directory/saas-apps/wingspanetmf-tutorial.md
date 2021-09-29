@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: f0744b98b0264a79072e60ddb7627a4b527bdf1e
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: c174bfa0cc88f37f055a16ed7fad473187c7ed89
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600605"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124745830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Didacticiel : Intégration d’Azure Active Directory à Wingspan eTMF
 
@@ -186,7 +186,7 @@ Dans cette section, vous créez un utilisateur appelé Britta Simon dans Wingspa
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Wingspan eTMF dans le volet d’accès doit vous connecter automatiquement à l’application Wingspan eTMF pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Wingspan eTMF dans le volet d’accès doit vous connecter automatiquement à l’application Wingspan eTMF pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

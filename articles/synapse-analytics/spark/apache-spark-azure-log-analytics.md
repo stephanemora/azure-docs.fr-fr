@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: cc4d6cd7809c58451f95b94970ee8b489f2f9dfe
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: a455eb81a804c9eff9dcd84142eccbdfc3ac376c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535360"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804178"
 ---
 # <a name="monitor-apache-spark-applications-with-azure-log-analytics-preview"></a>Superviser des applications Apache Spark avec Azure Log Analytics (préversion)
 
@@ -29,7 +29,7 @@ Pour configurer les informations nécessaires dans Synapse Studio, procédez com
 
 Pour créer cet espace de travail, consultez l’une des ressources suivantes :
 - [Création d’un espace de travail sur le Portail Azure](../../azure-monitor/logs/quick-create-workspace.md)
-- [Création d’un espace de travail avec Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md)
+- [Création d’un espace de travail avec Azure CLI](../../azure-monitor/logs/resource-manager-workspace.md)
 - [Création et configuration d’un espace de travail dans Azure Monitor avec PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)
 
 ### <a name="step-2-prepare-a-apache-spark-configuration-file"></a>Étape 2 : Préparer un fichier de configuration Apache Spark

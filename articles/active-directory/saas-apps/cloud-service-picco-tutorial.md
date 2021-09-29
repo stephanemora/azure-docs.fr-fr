@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 1df8c6fa0877c20518be072674447d28d7f1ca0c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 409dc4a74c0b647d4e381d149612e3fbbabf27c3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97670111"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124817541"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Tutoriel : Intégration d’Azure Active Directory à Cloud Service PICCO
 
@@ -178,7 +178,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Cloud Se
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Cloud Service PICCO dans le panneau d’accès doit vous connecter automatiquement à l’application Cloud Service PICCO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Cloud Service PICCO dans le panneau d’accès doit vous connecter automatiquement à l’application Cloud Service PICCO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

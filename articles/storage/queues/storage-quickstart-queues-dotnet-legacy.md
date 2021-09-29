@@ -1,20 +1,20 @@
 ---
 title: 'Démarrage rapide : Utiliser Stockage Azure v11 pour .NET afin de gérer une file d’attente'
 description: Ce guide de démarrage rapide explique comment utiliser la bibliothèque de client Stockage Azure pour .NET afin de créer une file d’attente et d’y ajouter des messages. Il explique ensuite comment lire et traiter des messages de la file d’attente.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df2f3593f904c5c6c6c9af0ae635a2e152f9eb82
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: a86d77252bd7618faf9e94a69e4b0d6ef1e56b08
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871072"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651519"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Démarrage rapide : Utiliser le SDK Stockage Azure v11 pour .NET afin de gérer une file d’attente
 

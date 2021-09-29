@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/20/2021
-ms.openlocfilehash: 23b40998c3777a4d7d0e1d092a33d8e9b85b3d54
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 4c9028b559c537c0707b0ab3264fbfa11d26a350
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969983"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664107"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutoriel : Procéder à la migration en ligne de SQL Server vers Azure SQL Managed Instance à l'aide de DMS
 
@@ -109,7 +109,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 2. Dans l’écran **Azure Database Migration Service**, sélectionnez **Créer**.
 
-    ![Créer une instance Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-create-service1.png)
+    ![Créer une instance Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-create-service-1.png)
 
 3. Sous l’onglet Informations de base de la page **Créer un service de migration** :
 
@@ -120,12 +120,12 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
      - Choisissez **Azure** comme mode de service.
      - Sélectionnez une référence SKU dans le niveau tarifaire Premium. 
      
-    > [!NOTE]
-    > Les migrations en ligne sont uniquement prises en charge lorsque vous utilisez le niveau Premium.
+      > [!NOTE]
+      > Les migrations en ligne sont uniquement prises en charge lorsque vous utilisez le niveau Premium.
 
      - Pour plus d’informations sur les coûts et les niveaux de tarification, consultez la [page de tarification](https://aka.ms/dms-pricing).
 
-    ![Configurer des paramètres de base pour l’instance Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-create-service2.png)
+    ![Configurer des paramètres de base pour l’instance Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-create-service-2.png)
 
      - Sélectionnez **Suivant : Réseau**.
 
@@ -137,7 +137,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     
     - Pour plus d’informations, consultez l’article [Topologies de réseau pour des migrations Azure SQL Managed Instance à l’aide du service Azure Database Migration Service](./resource-network-topologies.md).
 
-    ![Configurer des paramètres réseau pour l’instance Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-create-service3.png)
+      ![Configurer des paramètres réseau pour l’instance Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-create-service-3.png)
 
     - Sélectionnez **Vérifier + créer** pour vérifier les détails, puis sélectionnez **Créer** pour créer le service.
 
@@ -153,11 +153,11 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 3. Sélectionnez **Nouveau projet de migration**.
 
-     ![Localisez votre instance Azure Database Migration Service.](media/tutorial-sql-server-to-managed-instance-online/dms-create-project1.png)
+     ![Localisez votre instance Azure Database Migration Service.](media/tutorial-sql-server-to-managed-instance-online/dms-create-project-1.png)
 
 4. Dans l’écran **Nouveau projet de migration**, spécifiez un nom pour le projet. Dans la zone de texte **Type de serveur source**, sélectionnez **SQL Server**. Dans la zone de texte **Type de serveur cible**, sélectionnez **Azure SQL Database Managed Instance**. Enfin, dans la zone de texte **Choisir un type d’activité**, sélectionnez **Migration de données hors connexion**.
 
-   ![Créer un projet Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-create-project2.png)
+   ![Créer un projet Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-create-project-2.png)
 
 5. Sélectionnez **Créer et exécuter une activité** pour créer le projet et exécuter l’activité de migration.
 
@@ -174,7 +174,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
     > [!CAUTION]
     > Les connexions TLS chiffrées à l’aide d’un certificat auto-signé n’offrent pas de sécurité renforcée. Elles sont vulnérables aux attaques de l’intercepteur. Ne faites jamais confiance à une connexion TLS utilisant des certificats autosignés dans un environnement de production ou sur des serveurs connectés à Internet.
 
-   ![Détails de la source](media/tutorial-sql-server-to-managed-instance-online/dms-source-details.png)
+    ![Détails de la source](media/tutorial-sql-server-to-managed-instance-online/dms-source-details.png)
 
 3. Sélectionnez **Suivant : sélectionner la cible**
 
@@ -198,10 +198,10 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 1. Dans l’écran **Sélectionner les bases de données**, sélectionnez les bases de données sources que vous souhaitez migrer.
 
-   ![Sélectionner les bases de données sources](media/tutorial-sql-server-to-managed-instance-online/dms-source-database.png)
+  ![Sélectionner les bases de données sources](media/tutorial-sql-server-to-managed-instance-online/dms-source-database.png)
 
-> [!IMPORTANT]
-> Si vous utilisez SSIS (SQL Server Integration Services), DMS ne prend pas en charge la migration de la base de données de catalogue de vos projets/packages SSIS (SSISDB) entre SQL Server et SQL Managed Instance. Toutefois, vous pouvez provisionner SSIS dans ADF (Azure Data Factory) et redéployer vos projets/packages SSIS sur la base de données SSISDB de destination hébergée par SQL Managed Instance. Pour plus d’informations sur la migration des packages SSIS, consultez l’article [Migrer des packages SQL Server Integration Services vers Azure](./how-to-migrate-ssis-packages.md).
+  > [!IMPORTANT]
+  > Si vous utilisez SSIS (SQL Server Integration Services), DMS ne prend pas en charge la migration de la base de données de catalogue de vos projets/packages SSIS (SSISDB) entre SQL Server et SQL Managed Instance. Toutefois, vous pouvez provisionner SSIS dans ADF (Azure Data Factory) et redéployer vos projets/packages SSIS sur la base de données SSISDB de destination hébergée par SQL Managed Instance. Pour plus d’informations sur la migration des packages SSIS, consultez l’article [Migrer des packages SQL Server Integration Services vers Azure](./how-to-migrate-ssis-packages.md).
 
 2. Sélectionnez **Suivant : configurer les paramètres de migration**.
 

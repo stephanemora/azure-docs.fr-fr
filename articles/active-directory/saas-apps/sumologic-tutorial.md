@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 16b54db4ed05e5e9133dcb210ed1d8dac97595fc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ecfaec5c9ea935efa67846f7c95f2d56a879cebc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090924"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124752110"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sumologic"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec SumoLogic
 
@@ -128,7 +128,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SumoLogic.
 
@@ -152,13 +152,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-sumologic-sso"></a>Configurer l’authentification unique SumoLogic
+## <a name=&quot;configure-sumologic-sso&quot;></a>Configurer l’authentification unique SumoLogic
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise SumoLogic en tant qu’administrateur.
 
 1. Accédez à **Gérer** -> **Sécurité**.
 
-    ![Gérer](./media/sumologic-tutorial/security.png "Gérer")
+    ![Gérer](./media/sumologic-tutorial/security.png &quot;Gérer")
 
 1. Cliquez sur **SAML**.
 
@@ -225,7 +225,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure : vous devez être connecté automatiquement à l’instance SumoLogic pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette SumoLogic dans Mes applications, vous devez être automatiquement connecté à l’instance SumoLogic pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette SumoLogic dans Mes applications, vous devez être automatiquement connecté à l’instance SumoLogic pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

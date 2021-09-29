@@ -2,20 +2,20 @@
 title: 'Démarrage rapide : Créer un espace de travail Synapse avec Azure PowerShell'
 description: Créez un espace de travail Azure Synapse avec Azure PowerShell en suivant les étapes décrites dans ce guide.
 services: synapse-analytics
-author: lenadroid
+author: rothja
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 10/19/2020
-ms.author: alehall
+ms.author: jroth
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b602ecb096293df7071489262175ae4bb7d71b0
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: ee02f650ad20eb9f6673875823090ea3d242b7cd
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113532"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093000"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Démarrage rapide : Créer un espace de travail Azure Synapse avec Azure PowerShell
 

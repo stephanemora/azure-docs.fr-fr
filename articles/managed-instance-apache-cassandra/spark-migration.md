@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: tutorial
 ms.date: 08/17/2021
-ms.openlocfilehash: 5d78161f73dfa1927483d7c6f8bad3ce925b3631
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 962c3f9e380bda96211ce2056ca886a555d44078
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426865"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736213"
 ---
 # <a name="migrate-to-azure-managed-instance-for-apache-cassandra-using-apache-spark"></a>Migration vers Azure Managed Instance pour Apache Cassandra avec Apache Spark
 
@@ -31,7 +31,6 @@ Ce tutoriel explique comment migrer des données vers Azure Managed Instance pou
 * [Approvisionnez un compte Azure Databricks à l’intérieur de votre réseau virtuel Cassandra géré](deploy-cluster-databricks.md). Veillez à ce qu’il dispose également d’un accès réseau à votre cluster Cassandra source.
 
 * Assurez-vous que vous avez déjà migré l’espace de clés/le schéma de table de votre base de données Cassandra source vers votre base de données Cassandra Managed Instance cible.
-
 
 ## <a name="provision-an-azure-databricks-cluster"></a>Provisionner un cluster Azure Databricks
 

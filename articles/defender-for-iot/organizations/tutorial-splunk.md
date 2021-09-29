@@ -4,14 +4,14 @@ description: Dans ce tutoriel, découvrez comment intégrer Splunk à Azure Defe
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 08/03/2021
+ms.date: 09/12/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 00d4f5c5c432a4b5cccdfbfb83fe81c2844d68e8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2484de315508310729882e46b5e22669d01ec9f8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121784227"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814708"
 ---
 # <a name="tutorial-integrate-splunk-with-azure-defender-for-iot"></a>Tutoriel : intégrer Splunk à Azure Defender pour IoT
 
@@ -33,6 +33,8 @@ Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Télécharger l’application Defender pour IoT dans Splunk
 > * Envoyer les alertes Defender pour IoT à Splunk
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -122,6 +124,10 @@ Pour envoyer des informations d’alerte aux serveurs Splunk à partir de Defend
     | **Mot de passe** | Mot de passe du serveur Splunk |
 
 1. Sélectionnez **Envoyer**.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Il n’y a pas de ressources à nettoyer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

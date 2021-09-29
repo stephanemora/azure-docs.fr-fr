@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 02/18/2021
-ms.openlocfilehash: fb01749b71c89b4290abf71e7f8ed5d95b891cdd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 38f98ab557738031e4c3933a4bc914b31c42cd91
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638001"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814842"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Tutoriel : Copier des données d’une base de données SQL Server vers un stockage Blob Azure
 
@@ -82,7 +82,7 @@ Dans ce tutoriel, vous spécifiez le nom et la clé de votre compte Stockage Azu
 
 1. Dans le volet gauche, sélectionnez **Plus de services**, filtrez à l’aide du mot-clé **Stockage**, puis sélectionnez **Comptes de stockage**.
 
-    ![Rechercher le compte de stockage](media/doc-common-process/search-storage-account.png)
+    :::image type="content" source="media/doc-common-process/search-storage-account.png" alt-text="Rechercher le compte de stockage":::
 
 1. Dans la liste des comptes de stockage, appliquez un filtre pour votre compte de stockage (si nécessaire), puis sélectionnez votre compte de stockage.
 
@@ -95,13 +95,13 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 1. Dans la fenêtre **Compte de stockage**, basculez vers **Vue d’ensemble**, puis sélectionnez **Objets blob**.
 
-    ![Sélection de l’option Objets blob](media/tutorial-hybrid-copy-powershell/select-blobs.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/select-blobs.png" alt-text="Sélection de l’option Objets blob":::
 
 1. Dans la fenêtre **Service Blob**, sélectionnez **Conteneur**.
 
 1. Dans la fenêtre **Nouveau conteneur**, dans la zone **Nom** , entrez **adftutorial**, puis sélectionnez **OK**.
 
-    ![Saisie du nom du conteneur](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/new-container-dialog.png" alt-text="Saisie du nom du conteneur":::
 
 1. Cliquez sur **adftutorial** dans la liste des conteneurs.  
 
@@ -266,21 +266,21 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 
 1. Dans la fenêtre **Inscrire Microsoft Integration Runtime (auto-hébergé)** , collez la clé que vous avez enregistrée dans la section précédente, puis cliquez sur **Inscrire**.
 
-    ![Inscrire le runtime d’intégration](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/register-integration-runtime.png" alt-text="Inscrire le runtime d’intégration":::
 
 1. Dans la fenêtre **Nouveau nœud Runtime d’intégration (autohébergé)** , sélectionnez **Terminer**.
 
-    ![Fenêtre Nouveau nœud Integration Runtime](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png" alt-text="Fenêtre Nouveau nœud Integration Runtime":::
 
  1. Le message suivant s’affiche une fois que le runtime d’intégration auto-hébergé est bien inscrit :
 
-    ![Inscription réussie](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/registered-successfully.png" alt-text="Inscription réussie":::
 
 1. Dans la fenêtre **Inscrire Microsoft Integration Runtime (auto-hébergé)** , cliquez sur **Lancer Configuration Manager**.
 
 1. Le message suivant apparaît une fois que le nœud est connecté au service cloud :
 
-    ![Le nœud est connecté](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/node-is-connected.png" alt-text="Le nœud est connecté":::
 
 1. Testez la connectivité à votre base de données SQL Server en procédant comme suit :
 
@@ -299,7 +299,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
     g. Entrez le mot de passe associé au nom d’utilisateur.
 
     h. Cliquez sur **Tester** pour vérifier que le runtime d’intégration se connecte à SQL Server.  
-    ![Connexion établie](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png" alt-text="Connexion établie":::
 
     Une coche verte apparaît si la connexion est établie. Sinon, c’est un message d’erreur concernant l’échec qui apparaît. Corrigez les problèmes et assurez-vous que le runtime d’intégration peut se connecter à votre instance SQL Server.
 
@@ -710,7 +710,7 @@ Le pipeline crée automatiquement le dossier de sortie nommé *fromonprem* dans 
 1. Sélectionnez `fromonprem` dans la liste des dossiers.
 1. Vérifiez que le fichier nommé `dbo.emp.txt` s’affiche.
 
-    ![Fichier de sortie](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/fromonprem-file.png" alt-text="Fichier de sortie":::
 
 
 ## <a name="next-steps"></a>Étapes suivantes

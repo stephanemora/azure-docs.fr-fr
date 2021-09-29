@@ -1,5 +1,6 @@
 ---
-title: Empêcher l’accélération automatique de la connexion dans Azure AD à l’aide de la stratégie Découverte de domaine d’accueil
+title: Empêcher l’accélération automatique de la connexion à l’aide de la stratégie de découverte du domaine d’accueil
+titleSuffix: Azure AD
 description: Découvrez comment empêcher l’accélération automatique de domain_hint vers des fournisseurs d’identité fédérés.
 services: active-directory
 author: davidmu1
@@ -11,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: davidmu
 ms.reviewer: hirsin
-ms.openlocfilehash: c85c4028c1931c1e5eee061b9be7b2ebffc5b951
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 9f8608330d5f74ef2e1262b7c3dff82be746c884
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113566911"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059169"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>Désactiver l’accélération automatique vers un fournisseur d’identité fédéré lors d’une connexion utilisateur avec la stratégie Découverte de domaine d’accueil
 
@@ -41,7 +42,7 @@ La section DomainHintPolicy de la stratégie HRD est un objet JSON qui permet à
 
 La logique DomainHintPolicy s’exécute sur chaque demande entrante contenant une indication de domaine, et accélère en fonction de deux éléments de données dans la demande : le domaine dans l’indication de domaine et l’ID client (l’application). En bref, l’instruction « Respect » pour un domaine ou une application prend le pas sur l’instruction « Ignore » relative à une indication de domaine pour un domaine ou une application donnés.
 
-1. En l’absence de toute stratégie d’indication de domaine, ou si aucune des 4 sections ne référence l’indication d’application ou de domaine mentionnée, [le reste de la stratégie HRD est évalué](configure-authentication-for-federated-users-portal.md#priority-and-evaluation-of-hrd-policies).
+1. En l’absence de toute stratégie d’indication de domaine, ou si aucune des 4 sections ne référence l’indication d’application ou de domaine mentionnée, [le reste de la stratégie HRD est évalué](home-realm-discovery-policy.md#priority-and-evaluation-of-hrd-policies).
 1. Si au moins l’une des instructions `RespectDomainHintForApps` ou `RespectDomainHintForDomains` de la section inclut l’indication d’application ou de domaine dans la demande, l’utilisateur est automatiquement accéléré vers le fournisseur d’identité fédéré comme demandé.
 1. Si au moins l’une des instructions `IgnoreDomainHintsForApps` ou `IgnoreDomainHintsForDomains` référence l’indication d’application ou de domaine dans la demande, et si elles ne sont pas référencées par les sections « Respect », la demande n’est pas accélérée automatiquement et l’utilisateur reste sur la page de connexion à Azure AD pour fournir un nom d’utilisateur.
 

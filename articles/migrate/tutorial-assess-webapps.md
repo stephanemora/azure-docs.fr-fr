@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 07/28/2021
-ms.openlocfilehash: 1bbe267aef27151b3ef70e88e0a8e85091d8a33d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7d37b3755e79c8117bbec7269e7ef97e8edb7429
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121782396"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782306"
 ---
 # <a name="tutorial-assess-aspnet-web-apps-for-migration-to-azure-app-service"></a>Tutoriel : évaluer des applications web ASP.NET en vue de leur migration vers Azure App Service
 
@@ -83,7 +83,7 @@ Cela indique la distribution des applications web évaluées. Vous pouvez descen
 
 #### <a name="azure-app-service-cost-details"></a>Détails des coûts d’Azure App Service
 
-Un [plan App Service](/azure/app-service/overview-hosting-plans) comporte les [frais](https://azure.microsoft.com/pricing/details/app-service/windows/) des ressources de calcul qu’il utilise.
+Un [plan App Service](../app-service/overview-hosting-plans.md) comporte les [frais](https://azure.microsoft.com/pricing/details/app-service/windows/) des ressources de calcul qu’il utilise.
 
 ### <a name="review-readiness"></a>Vérifier la préparation nécessaire
 

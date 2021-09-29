@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 8ae693d7f6974415eac294289288879d9668604c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cc5570344033951aacfd1558e7c23091bc74678
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98735583"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124808188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Didacticiel : Intégration d’Azure Active Directory à UltiPro
 
@@ -153,7 +153,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion UltiPro pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette UltiPro dans Mes applications vous redirige vers l’URL de connexion UltiPro. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette UltiPro dans Mes applications vous redirige vers l’URL de connexion UltiPro. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

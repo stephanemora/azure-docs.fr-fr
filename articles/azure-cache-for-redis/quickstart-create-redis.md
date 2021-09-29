@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 5559f3bdd749ba7913db3f37d47d2d158700facb
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 32ad04c46989816b86a644925f8727e21deb38c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746652"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582858"
 ---
 # <a name="quickstart-create-an-open-source-redis-cache"></a>Démarrage rapide : Créer un cache Redis open source
 
@@ -24,7 +24,7 @@ Vous aurez besoin d’un abonnement Azure avant de commencer. Si vous n’en ave
 
 ## <a name="create-a-cache"></a>Création d'un cache
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

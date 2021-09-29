@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: a39c2c15107f7bad79a02aaa9e98ee6d5e2b521f
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: f3a25e3411182dfb712125dac82c2e41806f52a8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207390"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Didacticiel : intégration d’Azure Active Directory à Veritas Enterprise Vault.cloud SSO
 
@@ -148,7 +148,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Veritas Enterprise Vault.cloud SSO pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Veritas Enterprise Vault.cloud SSO dans Mes applications, vous êtes redirigé vers l’URL d’authentification unique de Veritas Enterprise Vault.cloud SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Veritas Enterprise Vault.cloud SSO dans Mes applications, vous êtes redirigé vers l’URL d’authentification unique de Veritas Enterprise Vault.cloud SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

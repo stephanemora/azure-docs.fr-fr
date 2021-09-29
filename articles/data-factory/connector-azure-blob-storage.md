@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: e7d9e4da611bbbf13bacee60ed73248f5b39c14c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 9de59b4510642ab70540c4217ef074347a34ac89
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307055"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764181"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données dans Stockage Blob Azure à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -629,7 +629,7 @@ Les paramètres spécifiques du format se trouvent dans la documentation de ce f
 
 Dans une transformation de source, vous pouvez lire à partir d’un conteneur, d’un dossier ou d’un fichier individuel dans un stockage d’objets blob Azure. Utilisez l’onglet **Options de la source** pour gérer la façon dont les fichiers sont lus. 
 
-![Options de la source](media/data-flow/sourceOptions1.png "Options de la source")
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Options de la source":::
 
 **Chemin d’accès à caractères génériques :** L’utilisation d’un modèle à caractères génériques donne pour instruction au service de parcourir en boucle chaque dossier et fichier correspondant dans une même transformation de la source. Il s’agit d’un moyen efficace de traiter plusieurs fichiers dans un seul et même flux. Ajoutez plusieurs modèles de correspondance à caractères génériques avec le signe plus qui apparaît quand vous pointez sur votre modèle à caractères génériques existant.
 
@@ -651,11 +651,11 @@ Exemples de caractères génériques :
 
 Tout d’abord, définissez un caractère générique pour inclure tous les chemins d’accès des dossiers partitionnés, ainsi que des fichiers de nœud terminal que vous souhaitez lire.
 
-![Paramètres du fichier source de partition](media/data-flow/partfile2.png "Paramètre du fichier de partition")
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Paramètres du fichier source de partition":::
 
 Utilisez le paramètre **Chemin racine de la partition** pour définir le niveau supérieur de la structure de dossiers. Quand vous affichez le contenu de vos données à l’aide d’un aperçu des données, vous voyez que le service ajoute les partitions résolues trouvées dans chacun de vos niveaux de dossiers.
 
-![Chemin racine de la partition](media/data-flow/partfile1.png "Aperçu du chemin racine de la partition")
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Chemin racine de la partition":::
 
 **Liste de fichiers :** Il s’agit d’un ensemble de fichiers. Créez un fichier texte qui inclut une liste de fichiers avec chemin relatif à traiter. Pointez sur ce fichier texte.
 
@@ -688,7 +688,7 @@ Dans le cas présent, tous les fichiers qui provenaient de `/data/sales` sont d�
 
 Dans la transformation de récepteur, vous pouvez écrire dans un conteneur ou un dossier dans le stockage d’objets blob Azure. L’onglet **Paramètres** vous permet de gérer la façon dont les fichiers sont écrits.
 
-![Options du récepteur](media/data-flow/file-sink-settings.png "Options du récepteur")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Options du récepteur":::
 
 **Effacer le contenu du dossier :** Détermine si le contenu du dossier de destination doit être effacé avant l’écriture des données.
 

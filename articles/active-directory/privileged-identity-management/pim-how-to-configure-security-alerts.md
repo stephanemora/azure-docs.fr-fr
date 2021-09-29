@@ -14,12 +14,12 @@ ms.date: 06/30/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88854bb08b9f1cffec7d6f2fde535f73a3241e18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 761995f33d5688e5864640a0e6e2f864f5aa44a3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525206"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766043"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurer les alertes de sécurité pour les rôles Azure AD dans Privileged Identity Management
 
@@ -43,7 +43,7 @@ Gravité : **Faible**
 | --- | --- |
 | **Pourquoi reçois-je cette alerte ?** | L’affectation de rôles privilégiés à des utilisateurs qui n’en ont pas besoin augmente la probabilité d’une attaque. Il est également plus facile pour les attaquants de passer inaperçus dans des comptes qui ne sont pas activement utilisés. |
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et retirez-les des rôles privilégiés dont ils n’ont pas besoin. |
-| **Prévention** | Affectez des rôles privilégiés uniquement aux utilisateurs qui en ont besoin sur le plan professionnel. </br>Planifiez des [révisions d’accès](pim-how-to-start-security-review.md) régulières pour vérifier que les utilisateurs ont toujours besoin de leur accès. |
+| **Prévention** | Affectez des rôles privilégiés uniquement aux utilisateurs qui en ont besoin sur le plan professionnel. </br>Planifiez des [révisions d’accès](./pim-create-azure-ad-roles-and-resource-roles-review.md) régulières pour vérifier que les utilisateurs ont toujours besoin de leur accès. |
 | **Action d´atténuation dans le portail** | Supprime le compte de leur rôle privilégié. |
 | **Déclencheur** | Déclenché si un utilisateur dépasse un nombre spécifié de jours sans activer un rôle. |
 | **Nombre de jours** | Ce paramètre spécifie le nombre maximal de jours, de 0 à 100, pendant lesquels un utilisateur peut rester sans activer un rôle.|
@@ -76,7 +76,7 @@ Gravité : **Moyenne**
 | --- | --- |
 | **Pourquoi reçois-je cette alerte ?** | Comptes dans un rôle privilégié qui n’ont pas changé leur mot de passe au cours des 90 derniers jours. Ces comptes peuvent être des comptes partagés ou de service, qui ne sont pas gérés et qui sont vulnérables aux attaques. |
 | **Procédure de résolution** | Passez en revue les comptes de la liste. S’ils n’ont plus besoin d’un accès, supprimez-les de leurs rôles privilégiés. |
-| **Prévention** | Assurez-vous que les comptes partagés modifient régulièrement leur mot de passe fort en cas de changement des utilisateurs qui connaissent le mot de passe. </br>Passez régulièrement en revue les comptes avec des rôles privilégiés en utilisant des [révisions d’accès](pim-how-to-start-security-review.md) et supprimez les attributions de rôles qui ne sont plus nécessaires. |
+| **Prévention** | Assurez-vous que les comptes partagés modifient régulièrement leur mot de passe fort en cas de changement des utilisateurs qui connaissent le mot de passe. </br>Passez régulièrement en revue les comptes avec des rôles privilégiés en utilisant des [révisions d’accès](./pim-create-azure-ad-roles-and-resource-roles-review.md) et supprimez les attributions de rôles qui ne sont plus nécessaires. |
 | **Action d´atténuation dans le portail** | Supprime le compte de leur rôle privilégié. |
 | **Bonnes pratiques** | Les mots de passe des comptes d’accès partagés, de service et d’urgence qui s’authentifient avec un mot de passe et qui sont attribués à des rôles d’administrateur disposant de privilèges élevés, comme Administrateur général ou Administrateur de la sécurité, doivent faire l’objet d’une rotation dans les cas suivants :<ul><li>Après un incident de sécurité impliquant une mauvaise utilisation ou une compromission de droits d’accès d’administration</li><li>Après la modification des privilèges d’un utilisateur afin qu’il ne soit plus administrateur (par exemple si un employé qui était administrateur quitte le département informatique ou l’organisation)</li><li>À intervalles réguliers (par exemple trimestriels ou annuels), même s’il n’y a pas eu de violation connue ou de modification du personnel du département informatique</li></ul>Comme plusieurs personnes ont accès aux informations d’identification de ces comptes, les informations d’identification doivent faire l’objet d’une rotation pour que les personnes ayant quitté leurs rôles ne puissent plus accéder aux comptes. [En savoir plus sur la sécurisation des comptes](../roles/security-planning.md) |
 

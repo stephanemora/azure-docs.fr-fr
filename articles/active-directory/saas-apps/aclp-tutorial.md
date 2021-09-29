@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: bb91322df315d60adddf184905d0c619f5be8d6a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7c5f9d6f0f1b6d82ace01b22aca6a0efbc47ea89
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92313559"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124770716"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Tutoriel : Intégration d’Azure Active Directory à ACLP
 
@@ -172,7 +172,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans A
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette ACLP dans le volet d’accès, vous devez être connecté automatiquement à l’application ACLP pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette ACLP dans le volet d’accès, vous devez être connecté automatiquement à l’application ACLP pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

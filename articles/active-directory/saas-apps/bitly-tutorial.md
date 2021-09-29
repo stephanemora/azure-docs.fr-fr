@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: jeedes
-ms.openlocfilehash: ecd96e13f66e88be2ed4e53ff300510763fbd564
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 02a6788e25b5f3cb6ca38c74202af80972b7a4e7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92457093"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734390"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bitly"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Bitly
 
@@ -139,7 +139,7 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Bitly. B
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Bitly dans le volet d’accès doit vous connecter automatiquement à l’application Bitly pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Bitly dans le volet d’accès doit vous connecter automatiquement à l’application Bitly pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

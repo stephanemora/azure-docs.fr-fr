@@ -5,15 +5,14 @@ description: Découvrez les quotas et les limites de ressources pour Azure Machi
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 422c096533e8b470446a29b6d45f9127d963f913
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 3d86b167fbee582b29e9da8011b4256eb269efed
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122563933"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218999"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Gestion et augmentation des quotas de ressources avec Azure Purview
  

@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint HIPAA HITRUST 9.2
 description: Vue d’ensemble de l’exemple de blueprint HIPAA HITRUST 9.2. Cet exemple de blueprint aide les clients à évaluer des contrôles HIPAA HITRUST 9.2 spécifiques.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: eda98807a48a43132b9bbf6c7f9b6293aefdbacb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f566ea3fdc1d9922a99e375fab517203da59d526
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757148"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658260"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>Exemple de blueprint HIPAA HITRUST 9.2
 

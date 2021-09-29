@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 8ccabdb23f1d06dc45ebfd06117cc8c9a168a8ad
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 62cda5a8fc328d1681a2ccb5a7d196112fd2c157
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064729"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816432"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Tutoriel : Intégrer Replicon à Azure Active Directory
 
@@ -99,7 +99,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
@@ -111,7 +111,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B. Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Replicon.
 
@@ -123,13 +123,13 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-replicon-sso"></a>Configurer l’authentification unique de Replicon
+## <a name=&quot;configure-replicon-sso&quot;></a>Configurer l’authentification unique de Replicon
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Replicon en tant qu’administrateur.
 
 2. Procédez comme suit pour configurer SAML 2.0 :
 
-    ![Activer l’authentification SAML](./media/replicon-tutorial/authentication.png "Activer l’authentification SAML")
+    ![Activer l’authentification SAML](./media/replicon-tutorial/authentication.png &quot;Activer l’authentification SAML")
 
     a. Pour afficher la boîte de dialogue **EnableSAML Authentication2**, ajoutez ce qui suit à votre URL, après la clé de votre entreprise : `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
@@ -189,7 +189,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Replicon pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Replicon dans Mes applications vous redirige vers l’URL de connexion à Replicon. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Replicon dans Mes applications vous redirige vers l’URL de connexion à Replicon. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

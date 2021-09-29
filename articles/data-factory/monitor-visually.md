@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: 81649565955d1de031e4eefca548c5d58f7e28c6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6e781316d6aa58961360882d9d11fa6df05640fb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531741"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750544"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Surveiller visuellement Azure Data Factory
 
@@ -27,7 +27,7 @@ Par défaut, toutes les exécutions de fabrique de données sont affichées dans
 
 L’affichage de la surveillance par défaut est la liste des exécutions de pipeline déclenchées dans la période sélectionnée. Vous pouvez modifier l’intervalle de temps et filtrer par état, nom de pipeline ou annotation. Pointez sur l’exécution du pipeline spécifique pour recevoir des actions spécifiques de l’exécution, telles que réexécuter, et le rapport consommation.
 
-![Liste pour la supervision des exécutions de pipelines](media/monitor-visually/pipeline-runs.png)
+:::image type="content" source="media/monitor-visually/pipeline-runs.png" alt-text="Liste pour la supervision des exécutions de pipelines":::
 
 La grille d’exécution du pipeline contient les colonnes suivantes :
 
@@ -46,21 +46,21 @@ La grille d’exécution du pipeline contient les colonnes suivantes :
 
 Vous devez cliquer manuellement sur le bouton **Actualiser** pour actualiser la liste des exécutions de pipelines et d’activités. L’actualisation automatique n’est pas prise en charge actuellement.
 
-![Bouton Actualiser](media/monitor-visually/refresh.png)
+:::image type="content" source="media/monitor-visually/refresh.png" alt-text="Bouton Actualiser":::
 
 Pour afficher les résultats d’un débogage, sélectionnez l’onglet **Débogage**.
 
-![Sélectionner l’icône View active debug runs (Afficher les exécutions de débogage actives)](media/iterative-development-debugging/view-debug-runs.png)
+:::image type="content" source="media/iterative-development-debugging/view-debug-runs.png" alt-text="Sélectionner l’icône View active debug runs (Afficher les exécutions de débogage actives)":::
 
 ## <a name="monitor-activity-runs"></a>Surveiller des exécutions d’activités
 
 Pour obtenir une vue détaillée des activités individuelles d’un pipeline spécifique, cliquez sur le nom de celui-ci.
 
-![Afficher les exécutions d’activités](media/monitor-visually/view-activity-runs.png)
+:::image type="content" source="media/monitor-visually/view-activity-runs.png" alt-text="Afficher les exécutions d’activités":::
 
 La liste montre les exécutions d’activités correspondant à chaque exécution de pipeline. Pointez sur l’activité spécifique pour obtenir des informations spécifiques de son exécution, telles que l’entrée JSON, la sortie JSON et des expériences de surveillance détaillées spécifiques de l’activité.
 
-![Il existe des informations sur SalesAnalyticsMLPipeline, suivies d’une liste d’exécutions d’activités.](media/monitor-visually/activity-runs.png)
+:::image type="content" source="media/monitor-visually/activity-runs.png" alt-text="Il existe des informations sur SalesAnalyticsMLPipeline, suivies d’une liste d’exécutions d’activités.":::
 
 | **Nom de la colonne** | **Description** |
 | --- | --- |
@@ -77,7 +77,7 @@ La liste montre les exécutions d’activités correspondant à chaque exécutio
 
 En cas d’échec d’une activité, vous pouvez voir le message d’erreur détaillé en cliquant sur l’icône dans la colonne d’erreur. 
 
-![Une notification s’affiche avec les détails de l’erreur, notamment le code d’erreur, le type d’échec et les détails de l’erreur.](media/monitor-visually/activity-run-error.png)
+:::image type="content" source="media/monitor-visually/activity-run-error.png" alt-text="Une notification s’affiche avec les détails de l’erreur, notamment le code d’erreur, le type d’échec et les détails de l’erreur.":::
 
 ### <a name="promote-user-properties-to-monitor"></a>Promouvoir les propriétés de l’utilisateur à superviser
 
@@ -86,15 +86,15 @@ Promouvez n’importe quelle propriété de l’activité de pipeline en tant qu
 > [!NOTE]
 > Vous pouvez promouvoir jusqu’à cinq propriétés de l’activité de pipeline en tant que propriétés d’utilisateur.
 
-![Créer des propriétés d’utilisateur](media/monitor-visually/promote-user-properties.png)
+:::image type="content" source="media/monitor-visually/promote-user-properties.png" alt-text="Créer des propriétés d’utilisateur":::
 
 Une fois les propriétés d’utilisateur créées, vous pouvez les superviser dans les listes de supervision.
 
-![Ajouter des colonnes à la liste des exécutions d’activités pour les propriétés d’utilisateur](media/monitor-visually/choose-user-properties.png)
+:::image type="content" source="media/monitor-visually/choose-user-properties.png" alt-text="Ajouter des colonnes à la liste des exécutions d’activités pour les propriétés d’utilisateur":::
 
  Si la source de l’activité de copie est un nom de table, vous pouvez superviser le nom de table source en tant que colonne dans la liste des exécutions d’activités.
 
-![Liste des exécutions d’activités avec colonnes pour les propriétés d’utilisateur](media/monitor-visually/view-user-properties.png)
+:::image type="content" source="media/monitor-visually/view-user-properties.png" alt-text="Liste des exécutions d’activités avec colonnes pour les propriétés d’utilisateur":::
 
 
 ## <a name="rerun-pipelines-and-activities"></a>Réexécuter des pipelines et activités
@@ -112,37 +112,37 @@ Une fois les propriétés d’utilisateur créées, vous pouvez les superviser d
 
 Pour réexécuter un pipeline depuis le début, pointez dessus, puis sélectionnez **Réexécuter**. Si vous sélectionnez plusieurs pipelines, vous pouvez utiliser le bouton **Réexécuter** pour les exécuter tous.
 
-![Réexécuter un pipeline](media/monitor-visually/rerun-pipeline.png)
+:::image type="content" source="media/monitor-visually/rerun-pipeline.png" alt-text="Réexécuter un pipeline":::
 
 Si vous souhaitez réexécuter un pipeline à partir d’un point spécifique, vous pouvez le faire à partir de l’affichage des exécutions d’activité. Sélectionnez l’activité à partir de laquelle vous souhaitez, puis choisissez **Réexécuter à partir d’une activité**. 
 
-![Réexécuter une activité](media/monitor-visually/rerun-activity.png)
+:::image type="content" source="media/monitor-visually/rerun-activity.png" alt-text="Réexécuter une activité":::
 
 ### <a name="rerun-from-failed-activity"></a>Réexécuter à partir d’une activité ayant échoué
 
 Si une activité échoue, expire ou est annulée, vous pouvez réexécuter le pipeline à partir de cette activité ayant échoué en sélectionnant **Réexécuter à partir d’une activité ayant échoué**.
 
-![Réexécuter une activité ayant échoué](media/monitor-visually/rerun-failed-activity.png)
+:::image type="content" source="media/monitor-visually/rerun-failed-activity.png" alt-text="Réexécuter une activité ayant échoué":::
 
 ### <a name="view-rerun-history"></a>Voir l’historique des réexécutions
 
 Vous pouvez voir l’historique des réexécutions de toutes les exécutions du pipeline en mode Liste.
 
-![Afficher l’historique](media/monitor-visually/rerun-history-1.png)
+:::image type="content" source="media/monitor-visually/rerun-history-1.png" alt-text="Afficher l’historique":::
 
 Vous pouvez également voir l’historique des réexécutions d’une exécution de pipeline spécifique.
 
-![Voir l’historique d’une exécution de pipeline](media/monitor-visually/view-rerun-history.png)
+:::image type="content" source="media/monitor-visually/view-rerun-history.png" alt-text="Voir l’historique d’une exécution de pipeline":::
 
 ## <a name="monitor-consumption"></a>Surveiller la consommation
 
 Vous pouvez voir les ressources qu’une exécution de pipeline utilise en cliquant sur l’icône de consommation en regard de l’exécution. 
 
-![Capture d’écran montrant où vous pouvez voir les ressources consommées par un pipeline.](media/monitor-visually/monitor-consumption-1.png)
+:::image type="content" source="media/monitor-visually/monitor-consumption-1.png" alt-text="Capture d’écran montrant où vous pouvez voir les ressources consommées par un pipeline.":::
 
 Un clic sur l’icône ouvre un rapport consommation des ressources utilisées pour l’exécution de ce pipeline. 
 
-![Surveiller la consommation](media/monitor-visually/monitor-consumption-2.png)
+:::image type="content" source="media/monitor-visually/monitor-consumption-2.png" alt-text="Surveiller la consommation":::
 
 Vous pouvez connecter ces valeurs à la [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/details/data-factory/) pour estimer le coût d’exécution du pipeline. Pour plus d’informations sur la tarification d’Azure Data Factory, consultez [Compréhension de la tarification](pricing-concepts.md).
 
@@ -153,17 +153,17 @@ Vous pouvez connecter ces valeurs à la [Calculatrice de prix Azure](https://azu
 
 Un diagramme de Gantt est un affichage qui vous permet de voir l’historique des exécutions sur un intervalle de temps. En basculant vers un affichage de Gantt, vous pouvez voir toutes les exécutions de pipeline regroupées par nom, affichées sous forme de barres proportionnelles au temps d’exécution. Vous pouvez également regrouper par annotations/balises que vous avez créées sur votre pipeline. L’affichage de Gantt est également disponible au niveau de l’exécution de l’activité.
 
-![Exemple de diagramme de Gantt](media/monitor-visually/select-gantt.png)
+:::image type="content" source="media/monitor-visually/select-gantt.png" alt-text="Exemple de diagramme de Gantt":::
 
 La longueur de la barre indique la durée du pipeline. Vous pouvez également sélectionner la barre pour voir plus de détails.
 
-![Durée du diagramme de Gantt](media/monitor-visually/view-gantt-run.png)
+:::image type="content" source="media/monitor-visually/view-gantt-run.png" alt-text="Durée du diagramme de Gantt":::
 
 ## <a name="alerts"></a>Alertes
 
 Vous pouvez déclencher des alertes sur les métriques prises en charge dans Data Factory. Pour commencer, sélectionnez **Superviser** > **Alertes et métriques** dans la page de supervision de Data Factory.
 
-![Page de supervision de Data Factory](media/monitor-visually/start-page.png)
+:::image type="content" source="media/monitor-visually/start-page.png" alt-text="Page de supervision de Data Factory":::
 
 Pour voir une présentation de sept minutes et la démonstration de cette fonctionnalité, regardez la vidéo suivante :
 
@@ -173,35 +173,35 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
 1.  Sélectionnez **Nouvelle règle d’alerte** pour créer une alerte.
 
-    ![Bouton Nouvelle règle d’alerte](media/monitor-visually/new-alerts.png)
+    :::image type="content" source="media/monitor-visually/new-alerts.png" alt-text="Bouton Nouvelle règle d’alerte":::
 
 1.  Spécifiez le nom de la règle et sélectionnez la gravité de l’alerte.
 
-    ![Zones pour le nom de la règle et la gravité](media/monitor-visually/name-and-severity.png)
+    :::image type="content" source="media/monitor-visually/name-and-severity.png" alt-text="Zones pour le nom de la règle et la gravité":::
 
 1.  Sélectionnez les critères d’alerte.
 
-    ![Zone pour les critères cibles](media/monitor-visually/add-criteria-1.png)
+    :::image type="content" source="media/monitor-visually/add-criteria-1.png" alt-text="Zone pour les critères cibles":::
 
-    ![Capture d’écran montrant où vous sélectionnez une métrique pour configurer la condition d’alerte.](media/monitor-visually/add-criteria-2.png)
+    :::image type="content" source="media/monitor-visually/add-criteria-2.png" alt-text="Capture d’écran montrant où vous sélectionnez une métrique pour configurer la condition d’alerte.":::
 
-    ![Liste des critères](media/monitor-visually/add-criteria-3.png)
+    :::image type="content" source="media/monitor-visually/add-criteria-3.png" alt-text="Liste des critères":::
 
     Vous pouvez créer des alertes sur différentes métriques, notamment celles relatives au nombre/à la taille des entités ADF, aux exécutions d’activité/de pipeline/de déclencheur, à l’utilisation de l’UC/à la mémoire/au nombre de nœuds/à la file d’attente du runtime d’intégration (IR), ainsi qu’aux exécutions de packages SSIS et aux opérations de démarrage/d’arrêt de l’IR SSIS.
 
 1.  Configurez la logique d’alerte. Vous pouvez créer une alerte pour la métrique sélectionnée pour tous les pipelines et activités correspondantes. Vous pouvez également sélectionner un type d’activité, un nom d’activité, un nom de pipeline ou un type d’échec particulier.
 
-    ![Options de configuration de la logique d’alerte](media/monitor-visually/alert-logic.png)
+    :::image type="content" source="media/monitor-visually/alert-logic.png" alt-text="Options de configuration de la logique d’alerte":::
 
 1.  Configurez les notifications vocales, push, par e-mail et par SMS pour l’alerte. Choisissez ou créez un groupe d’actions pour les notifications d’alerte.
 
-    ![Options de configuration des notifications](media/monitor-visually/configure-notification-1.png)
+    :::image type="content" source="media/monitor-visually/configure-notification-1.png" alt-text="Options de configuration des notifications":::
 
-    ![Options d’ajout de notification](media/monitor-visually/configure-notification-2.png)
+    :::image type="content" source="media/monitor-visually/configure-notification-2.png" alt-text="Options d’ajout de notification":::
 
 1.  Créez la règle d’alerte
 
-    ![Options de création de règle d’alerte](media/monitor-visually/create-alert-rule.png)
+    :::image type="content" source="media/monitor-visually/create-alert-rule.png" alt-text="Options de création de règle d’alerte":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

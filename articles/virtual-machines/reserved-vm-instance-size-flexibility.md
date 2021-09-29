@@ -2,16 +2,16 @@
 title: Flexibilité des tailles de machines virtuelles – Azure Reserved VM Instances
 description: Découvrez les gammes de tailles auxquelles s’applique une remise de réservation lorsque vous achetez une instance de machine virtuelle réservée.
 ms.service: virtual-machines
-ms.subservice: reserved-instances
+ms.subservice: billing
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/06/2021
-ms.openlocfilehash: 7b556f485feaa1d6073802aac5aa02ad71e86856
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8d76bdbf17fbc03b9c99a2c08c56de1faf2ffea9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599047"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215431"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées
 

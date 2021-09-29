@@ -1,8 +1,8 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client Stockage File d’attente Azure v12 – Java'
 description: Découvrez comment utiliser la bibliothèque de client Stockage File d’attente Azure v12 pour Java, afin de créer une file d’attente et d’y ajouter des messages. Apprenez ensuite à lire et à supprimer des messages de la file d’attente. Vous apprendrez également à supprimer une file d’attente.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 12/01/2020
 ms.topic: quickstart
 ms.service: storage
@@ -10,12 +10,12 @@ ms.subservice: queues
 ms.custom:
 - devx-track-java
 - mode-api
-ms.openlocfilehash: f4e33cac6ba00be56b0f63cf5a10b2dce32e1be7
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 026f0ffe598f36df1ca482987bde8da310e4e0a5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534458"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667822"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Démarrage rapide : Bibliothèque de client Stockage File d’attente Azure v12 pour Java
 

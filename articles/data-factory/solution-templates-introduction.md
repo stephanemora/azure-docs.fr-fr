@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.author: susabat
 author: ssabat
 ms.custom: seo-lt-2019
-ms.date: 08/24/2021
-ms.openlocfilehash: 5d07ecedbc8fe4ff0670c9e8aa96fdf2a92359d3
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 09/09/2021
+ms.openlocfilehash: c384985ae178f22c15c4a408d7a2cd42d0fbf416
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123098947"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743393"
 ---
 # <a name="templates"></a>Modèles
 
@@ -27,15 +27,15 @@ Vous pouvez commencer à créer un pipeline Data Factory à partir d’un modèl
 
 1.  Sélectionnez **Modèles de pipeline** dans la section **Découvrir plus** de la page d’accueil de Data Factory pour ouvrir la galerie de modèles.
 
-    ![Capture d’écran montrant comment ouvrir la galerie de modèles à partir de la page d'accueil Data Factory.](media/doc-common-process/home-page-pipeline-templates-tile.png)
+    :::image type="content" source="media/doc-common-process/home-page-pipeline-templates-tile.png" alt-text="Capture d’écran montrant comment ouvrir la galerie de modèles à partir de la page d'accueil Data Factory.":::
 
 1.  Dans l’onglet Auteur de l’Explorateur de ressources, sélectionnez **+** , puis sélectionnez **Pipeline à partir du modèle** pour ouvrir la galerie de modèles.
 
-    ![Capture d’écran montrant comment ouvrir la galerie de modèles à partir de l’onglet Auteur.](media/solution-templates-introduction/templates-introduction-image-2.png)
+    :::image type="content" source="media/solution-templates-introduction/templates-introduction-image-2.png" alt-text="Capture d’écran montrant comment ouvrir la galerie de modèles à partir de l’onglet Auteur.":::
 
 ## <a name="template-gallery"></a>Galerie de modèles
 
-![Capture d’écran montrant la page Galerie de modèles.](media/solution-templates-introduction/templates-introduction-image-3.png)
+:::image type="content" source="media/solution-templates-introduction/templates-introduction-image-3.png" alt-text="Capture d’écran montrant la page Galerie de modèles.":::
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Modèles Data Factory prêts à l’emploi
 
@@ -81,11 +81,11 @@ Data Factory utilise des modèles Azure Resource Manager pour enregistrer des mo
 
 Vous pouvez également enregistrer un pipeline comme modèle en sélectionnant **Enregistrer comme modèle** dans l’onglet Pipeline.
 
-![Capture d’écran montrant comment enregistrer un pipeline en tant que modèle.](media/solution-templates-introduction/templates-introduction-image-4.png)
+:::image type="content" source="media/solution-templates-introduction/templates-introduction-image-4.png" alt-text="Capture d’écran montrant comment enregistrer un pipeline en tant que modèle.":::
 
 Après avoir coché la case **Mes modèles** dans la page **Galerie de modèles**, vous pouvez voir les pipelines enregistrés en tant que modèle dans le volet droit de cette page. 
 
-![Capture d’écran montrant le volet Mes modèles.](media/solution-templates-introduction/templates-introduction-image-5.png)
+:::image type="content" source="media/solution-templates-introduction/templates-introduction-image-5.png" alt-text="Capture d’écran montrant le volet Mes modèles.":::
 
 > [!NOTE]
 > Pour pouvoir utiliser la fonctionnalité Mes modèles, vous devez activer l’intégration GIT. Azure DevOps GIT et GitHub sont pris en charge.

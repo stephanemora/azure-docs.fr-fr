@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f50792ec45570f7e90893a97150ea26b63ebf9c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: f1ccaf6daabc661a8d4249aaeed322e2ab01dd66
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829833"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773908"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 
@@ -109,7 +109,7 @@ Suivez les étapes décrites dans [Bien démarrer avec Azure AD Multi-Factor Aut
 
 Lorsqu’un compte a été activé pour MFA, vous ne pouvez pas vous connecter aux ressources régies par la stratégie MFA tant que vous n’avez pas correctement configuré un appareil approuvé afin qu’il serve pour le second facteur d’authentification, et qu’il soit authentifié à l’aide de la vérification en deux étapes.
 
-Suivez les étapes décrites dans [Présentation concrète d'Azure AD Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md) pour en savoir plus sur la configuration de vos appareils pour l'authentification multifacteur avec votre compte d'utilisateur.
+Suivez les étapes décrites dans [Présentation concrète d'Azure AD Multi-Factor Authentication](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) pour en savoir plus sur la configuration de vos appareils pour l'authentification multifacteur avec votre compte d'utilisateur.
 
 > [!IMPORTANT]
 > Le comportement de connexion de la passerelle des services Bureau à distance ne permet pas d’entrer un code de vérification avec Azure AD Multi-Factor Authentication. Un compte d’utilisateur doit être configuré pour la vérification par téléphone ou l’application Microsoft Authenticator avec des notifications Push.

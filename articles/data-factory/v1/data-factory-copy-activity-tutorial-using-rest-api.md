@@ -3,17 +3,18 @@ title: 'Tutoriel : Utiliser l’API REST pour créer un pipeline Azure Data Fac
 description: Dans ce tutoriel, vous utilisez l’API REST pour créer un pipeline Azure Data Factory avec une activité de copie afin de copier des données d’un stockage Blob Azure dans Azure SQL Database.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 83c4b1861b6ee0db02b9a192183fc0de35476665
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 000f412c31f154b195eb82bdebe8d90254eb2673
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678922"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680658"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutoriel : utiliser l’API REST pour créer un pipeline Azure Data Factory afin de copier des données 
 > [!div class="op_single_selector"]

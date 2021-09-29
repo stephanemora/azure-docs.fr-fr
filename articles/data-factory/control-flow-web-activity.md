@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/19/2018
-ms.openlocfilehash: c89bebbd40b36712c6b33f017234705c426f5fb7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: c5656ffb4d8e129e334efc11e9a8e00be7227493
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641577"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798842"
 ---
 # <a name="web-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité Web dans Azure Data Factory et Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -91,7 +91,7 @@ Le tableau suivant affiche la configuration requise pour le contenu JSON :
 
 | Type de valeur | Corps de la demande | Response body |
 |---|---|---|
-|Objet JSON | Pris en charge | Pris en charge |
+|Objet JSON | Prise en charge | Prise en charge |
 |Tableau JSON | Prise en charge <br/>(À l’heure actuelle, les tableaux JSON ne fonctionnent pas en raison d’un bogue. Un correctif est en cours.) | Non pris en charge |
 | Valeur JSON | Prise en charge | Non pris en charge |
 | Type non-JSON | Non pris en charge | Non pris en charge |

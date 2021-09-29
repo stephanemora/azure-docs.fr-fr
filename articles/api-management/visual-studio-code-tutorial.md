@@ -3,15 +3,15 @@ title: Tutoriel - Importer et gérer des API - Gestion des API Azure et Visual S
 description: Dans ce tutoriel, découvrez comment importer, tester et gérer des API à l’aide de l’extension Gestion des API Azure pour Visual Studio Code.
 ms.service: api-management
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 0090d981e93cee12f2feaaf7d2c12f341564f6ec
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: ecdb97ad62a9b75279546493bbbf185f92fd29f6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482328"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625769"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>Tutoriel : Importer et gérer des API à l’aide de l’extension Gestion des API pour Visual Studio Code
 

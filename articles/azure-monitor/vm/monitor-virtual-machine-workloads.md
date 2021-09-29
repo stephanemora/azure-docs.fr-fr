@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: e411f7fd6f8d8a21b2016cbe16d0c7a947313331
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 64ef920e727baf559b71cac416404fb740e47625
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674861"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788550"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-workloads"></a>Superviser des machines virtuelles avec Azure Monitor : Charges de travail
 Cet article fait partie du scénario [Surveiller les machines virtuelles et leurs charges de travail dans Azure Monitor](monitor-virtual-machine.md). Il décrit comment surveiller les charges de travail qui s’exécutent sur les systèmes d’exploitation invités de vos machines virtuelles. Cet article contient des informations sur l’analyse et la génération d’alertes sur différentes sources de données sur vos machines virtuelles.
@@ -186,7 +186,7 @@ Pour surveiller l’état d’un service Windows ou d’un démon Linux, activez
 > [!NOTE]
 > La solution Suivi des modifications et analyse est différente de la fonctionnalité [Analyse des changements](vminsights-change-analysis.md) de VM Insights. Cette fonctionnalité est en préversion publique et n’est pas encore incluse dans ce scénario.
 
-Pour connaître les différentes options permettant d’activer la solution Change Tracking sur vos machines virtuelles, consultez [Activer Suivi des modifications et inventaire](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory). Cette solution comprend des méthodes permettant de configurer des machines virtuelles à grande échelle. Vous devrez [créer un compte Azure Automation](../../automation/automation-quickstart-create-account.md) pour prendre en charge cette solution.
+Pour connaître les différentes options permettant d’activer la solution Change Tracking sur vos machines virtuelles, consultez [Activer Suivi des modifications et inventaire](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory). Cette solution comprend des méthodes permettant de configurer des machines virtuelles à grande échelle. Vous devrez [créer un compte Azure Automation](../../automation/quickstarts/create-account-portal.md) pour prendre en charge cette solution.
 
 Lorsque vous activez Suivi des modifications et inventaire, deux nouvelles tables sont créées dans votre espace de travail Log Analytics. Utilisez ces tables pour les règles d’alerte de requête de journal.
 

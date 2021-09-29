@@ -3,17 +3,17 @@ title: Quotas de processeurs virtuels
 description: Découvrez plus en détail les quotas de processeurs virtuels pour Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: quota
+ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: fa0ed99827d4f203b0df55fd83803c976c455757
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 48bba54f8dae565a2af53c068b382f10b4b3b0f8
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687749"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215602"
 ---
 # <a name="check-vcpu-quotas-using-the-azure-cli"></a>Vérifier les quotas de processeurs virtuels à l’aide d’Azure CLI
 
@@ -22,7 +22,7 @@ ms.locfileid: "122687749"
 Les quotas de processeurs virtuels pour les machines virtuelles et les groupes de machines virtuelles identiques sont organisés en deux niveaux pour chaque abonnement, dans chaque région. Le premier niveau est le total des processeurs virtuels régionaux. Le deuxième niveau se compose des cœurs des différentes familles de tailles de machine virtuelle, comme les processeurs virtuels de la série D. Chaque fois qu’une nouvelle machine virtuelle est déployée, le nombre de processeurs virtuels de cette machine virtuelle ne doit pas dépasser le quota de processeurs virtuels pour la famille de tailles de machine virtuelle ou le quota du total des processeurs virtuels régionaux. Si l’un de ces quotas est dépassé, le déploiement des machines virtuelles n’est pas autorisé. Il existe également un quota pour le nombre total de machines virtuelles dans la région. Pour plus d’informations sur chacun de ces quotas, consultez la section **Utilisation + quotas** de la page **Abonnement** dans le [portail Azure](https://portal.azure.com) ou lancez une requête pour obtenir les valeurs à l’aide d’Azure CLI.
 
 > [!NOTE]
-> Le quota se calcule en fonction du nombre total de cœurs en cours d’utilisation, à la fois alloués et libérés. Si vous avez besoin de cœurs supplémentaires, [demandez une augmentation de quota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) ou supprimez des machines virtuelles devenues inutiles. 
+> Le quota se calcule en fonction du nombre total de cœurs en cours d’utilisation, à la fois alloués et libérés. Si vous avez besoin de cœurs supplémentaires, [demandez une augmentation de quota](../../azure-portal/supportability/regional-quota-requests.md) ou supprimez des machines virtuelles devenues inutiles. 
 
 
 ## <a name="check-usage"></a>Vérifier l’utilisation
@@ -63,7 +63,7 @@ Premium Storage Managed Disks                  5    10000
 ## <a name="reserved-vm-instances"></a>Instances de machines virtuelles réservées
 Les instances de machines virtuelles réservées, dont l’étendue se limite à un seul abonnement sans flexibilité de la taille des machines virtuelles, ajoutent un nouvel aspect aux quotas de processeurs virtuels. Ces valeurs décrivent le nombre d’instances de la taille indiquée qui doivent être déployables dans l’abonnement. Elles jouent le rôle d’espace réservé dans le système de quota, pour garantir que le quota est réservé et que les réservations Azure sont ainsi déployables dans l’abonnement. Par exemple, si un abonnement spécifique dispose de 10 réservations Standard_D1, la limite d’utilisation des réservations Standard_D1 est de 10. De cette façon, Azure veille à ce qu’il y ait toujours au moins 10 processeurs virtuels disponibles dans le quota Total des processeurs virtuels régionaux pour les instances Standard_D1 et au moins 10 processeurs virtuels disponibles dans le quota de processeurs virtuels Famille D Standard pour les instances Standard_D1.
 
-Si une augmentation de quota est nécessaire pour acheter une instance réservée à abonnement unique, vous pouvez [demander une augmentation de quota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) sur votre abonnement.
+Si une augmentation de quota est nécessaire pour acheter une instance réservée à abonnement unique, vous pouvez [demander une augmentation de quota](../../azure-portal/supportability/regional-quota-requests.md) sur votre abonnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,14 +7,14 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: 8c6f5954e173f58333ec3970cb09ca0404adf964
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 734c469afa43a178f5c7a50550426a47940b8f35
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822822"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820022"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -45,7 +45,7 @@ Lorsque vous déplacez les données entre des machines locales et cloud, l’act
 
 Voici un résumé global des étapes de flux de données de copie avec un runtime d’intégration auto-hébergé :
 
-![Vue d’ensemble du flux de données](media/create-self-hosted-integration-runtime/high-level-overview.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/high-level-overview.png" alt-text="Vue d’ensemble du flux de données":::
 
 1. Un développeur de données crée d’abord un runtime d’intégration auto-hébergé dans une fabrique de données Azure ou dans un espace de travail Synapse à l’aide du portail Azure ou de la cmdlet PowerShell.  Le développeur des données crée ensuite un service lié pour un magasin de données local en spécifiant l’instance de runtime d’intégration auto-hébergé que le service doit utiliser pour se connecter à des magasins de données.
 
@@ -226,19 +226,19 @@ Voici les détails relatifs aux actions et aux arguments de l'application :
 
 Par défaut, le compte de service utilisé pour la connexion du runtime d'intégration auto-hébergé est **NT SERVICE\DIAHostService**. Celui-ci figure sous **Services -> Runtime d'intégration -> Propriétés -> Connexion**.
 
-![Compte de service du runtime d'intégration auto-hébergé](media/create-self-hosted-integration-runtime/shir-service-account.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="Compte de service du runtime d'intégration auto-hébergé":::
 
 Assurez-vous que le compte dispose de l'autorisation Ouvrir une session en tant que service. À défaut, le démarrage du runtime d'intégration auto-hébergé échouera. Pour vérifier l'autorisation, accédez à **Stratégie de sécurité locale -> Paramètres de sécurité -> Stratégies locales -> Attribution des droits utilisateur -> Ouvrir une session en tant que service**
 
-![Capture d’écran du menu Stratégie de sécurité locale - Attribution des droits utilisateur](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account-permission.png" alt-text="Capture d’écran du menu Stratégie de sécurité locale - Attribution des droits utilisateur":::
 
-![Capture d’écran de l’attribution de droits utilisateur Ouvrir une session en tant que service](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png" alt-text="Capture d’écran de l’attribution de droits utilisateur Ouvrir une session en tant que service":::
 
 ## <a name="notification-area-icons-and-notifications"></a>Notifications et icônes de la zone de notification
 
 Si vous déplacez votre curseur sur les icônes ou les messages de la zone de notification, vous pouvez consulter des informations supplémentaires sur l’état du runtime d’intégration auto-hébergé.
 
-![Notifications dans la zone de notification](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications dans la zone de notification":::
 
 ## <a name="high-availability-and-scalability"></a>Haute disponibilité et extensibilité
 
@@ -424,7 +424,7 @@ Pour certaines bases de données cloud, comme Azure SQL Database et Azure Data L
 
 ### <a name="get-url-of-azure-relay"></a>Obtenir l'URL d'Azure Relay
 
-Un domaine et un port requis doivent être placés dans la liste d’autorisation de votre pare-feu pour la communication avec Azure Relay. Le runtime d'intégration auto-hébergé les utilisera pour la création interactive, par exemple pour tester la connexion, parcourir la liste des dossiers et la liste des tables, obtenir le schéma et afficher un aperçu des données. Si vous ne souhaitez pas autoriser **.servicebus.windows.net** et tenez à bénéficier d'URL plus spécifiques, vous pouvez afficher tous les noms de domaine complets requis par le runtime d'intégration auto-hébergé à partir du portail du service. Suivez ces étapes :
+Un domaine et un port requis doivent être placés dans la liste d’autorisation de votre pare-feu pour la communication avec Azure Relay. Le runtime d'intégration auto-hébergé les utilisera pour la création interactive, par exemple pour tester la connexion, parcourir la liste des dossiers et la liste des tables, obtenir le schéma et afficher un aperçu des données. Si vous ne souhaitez pas autoriser **.servicebus.windows.net** et tenez à bénéficier d'URL plus spécifiques, vous pouvez afficher tous les noms de domaine complets requis par le runtime d'intégration auto-hébergé à partir du portail du service. Procédez comme suit :
 
 1. Accédez au portail du service et sélectionnez votre runtime d'intégration auto-hébergé.
 2. Sur la page Modifier, sélectionnez **Nœuds**.

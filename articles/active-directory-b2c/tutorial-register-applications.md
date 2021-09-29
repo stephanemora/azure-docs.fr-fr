@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2ec67669edeb52af1044c97c984eb6ba36fd1a0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 913393b36ec91b1db576a39711deeddca0f98258
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579635"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581618"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutoriel : Inscrire une application web dans Azure Active Directory B2C
 
@@ -42,7 +42,8 @@ Pour inscrire une application web dans votre locataire Azure AD B2C, vous pouvez
 #### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Entrez un **Nom** pour l’application. Par exemple, *webapp1*.
@@ -62,7 +63,8 @@ Pour inscrire une application web dans votre locataire Azure AD B2C, vous pouvez
 #### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications-legacy/)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Applications (héritées)** , puis **Ajouter**.
 1. Entrez un nom pour l’application. Par exemple, *webapp1*.

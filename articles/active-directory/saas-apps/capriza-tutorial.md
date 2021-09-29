@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 29c21fa422d7b5f4b5cca449c9c8b4833f867856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 41c9e33db1f93ea9ea3dbc7f6f6ad5a0c6c6be4a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92456515"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124765986"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>Didacticiel : Intégration d’Azure Active Directory à Capriza Platform
 
@@ -186,7 +186,7 @@ Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Capriza Platform dans le volet d’accès, vous devez être automatiquement connecté à l’application Capriza Platform pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Capriza Platform dans le volet d’accès, vous devez être automatiquement connecté à l’application Capriza Platform pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

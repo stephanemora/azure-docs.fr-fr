@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.author: cshoe
-ms.openlocfilehash: 179fa0e247b2c875a4d32eac312d240ae768c009
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: fa97100e670e1d96bdd33c362b2e133d78d8dae7
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190552"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155436"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps"></a>Tutoriel : Publier un site Jekyll dans Azure Static Web Apps
 
@@ -73,7 +73,7 @@ Azure Static Web Apps utilise GitHub pour publier votre site web. Les étapes su
 1. Ajoutez le référentiel GitHub en tant que référentiel distant pour votre référentiel local. Veillez à remplacer l’espace réservé `<YOUR_USER_NAME>` par votre nom d’utilisateur GitHub dans la commande suivante.
 
    ```bash
-   git remote add origin https://github.com/<YOUR_USER_NAME>/jekyll-static-app
+   git remote add origin https://github.com/<YOUR_USER_NAME>/jekyll-azure-static
    ```
 
 1. Transmettez votre référentiel local à GitHub.
@@ -139,7 +139,7 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 #### <a name="custom-jekyll-settings"></a>Paramètres Jekyll personnalisés
 
-Quand vous générez une application web statique, un [fichier de workflow](./github-actions-workflow.md) est généré. Celui-ci contient les paramètres de configuration de la publication de l’application.
+Quand vous générez une application web statique, un [fichier de workflow](./build-configuration.md) est généré. Celui-ci contient les paramètres de configuration de la publication de l’application.
 
 Pour configurer des variables d’environnement, comme `JEKYLL_ENV`, ajoutez une section `env` à l’action GitHub Azure Static Web Apps dans le workflow.
 

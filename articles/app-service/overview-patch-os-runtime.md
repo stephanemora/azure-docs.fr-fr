@@ -4,12 +4,12 @@ description: Découvrez comment Azure App Service met à jour le système d’ex
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 8b876760ee2bafc855345878a28c38ec3b35daad
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 35d4bbb33aa737725668c0376bb1ffe6f7748f46
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047879"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800077"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Système d’exploitation et mise à jour corrective du runtime dans Azure App Service
 
@@ -39,10 +39,6 @@ Restez informé grâce à des annonces de sécurité critique dans Azure en cons
 
 De nouvelles versions stables des runtimes de langage pris en charge (majeures, mineures ou correctifs) sont régulièrement ajoutées aux instances App Service. Certaines mises à jour remplacent l’installation existante, tandis que d’autres sont installées côte à côte avec les versions existantes. Une installation de remplacement implique que votre application s’exécute automatiquement sur le runtime mis à jour. Une installation côte à côte signifie que vous devez migrer manuellement votre application pour tirer parti d’une nouvelle version du runtime. Pour plus d’informations, consultez l’une des sous-sections.
 
-Les mises à jour et les désapprobations de runtime sont annoncées ici :
-
-- https://azure.microsoft.com/updates/?product=app-service 
-- https://github.com/Azure/app-service-announcements/issues
 
 > [!NOTE] 
 > Ces informations s’appliquent aux runtimes de langage qui sont intégrés à une application App Service. Par exemple, un runtime personnalisé que vous chargez sur App Service reste inchangé, sauf si vous le mettez manuellement à niveau.
@@ -64,10 +60,6 @@ az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=8.9.3 -
 az webapp config set --python-version 3.8 --resource-group <groupname> --name <appname>
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
-
-### <a name="deprecated-versions"></a>Versions déconseillées  
-
-Lorsqu’une version plus ancienne est déconseillée, la date de suppression est annoncée, ce qui vous permet de planifier en conséquence la mise à niveau de votre version du runtime. 
 
 ## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Comment afficher l’état de mise à jour du système d’exploitation et du runtime sur mes instances ?  
 

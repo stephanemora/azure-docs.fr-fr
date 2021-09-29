@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
 ms.reviewer: ergreenl
-ms.openlocfilehash: 272e2d8a7234ca97646cf044be997f9ddba415e1
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 99f31344b5bc5b8aad6e2455be5f76ce1d546532
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772257"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754148"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Déboguer l’authentification unique SAML aux applications dans Azure Active Directory
 
@@ -24,12 +24,12 @@ Apprenez à rechercher et corriger les problèmes d'[authentification unique](wh
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Nous vous recommandons d’installer [l’extension de connexion sécurisée à Mes applications](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Cette extension de navigateur facilite la collecte des informations nécessaires sur la demande et la réponse SAML pour résoudre les problèmes liés à l’authentification unique. Au cas où vous ne parviendriez pas à l’installer, cet article explique comment résoudre les problèmes avec et sans l’extension.
+Nous vous recommandons d’installer [l’extension de connexion sécurisée à Mes applications](https://support.microsoft.com/account-billing/troubleshoot-problems-with-the-my-apps-portal-d228da80-fcb7-479c-b960-a1e2535cbdff#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Cette extension de navigateur facilite la collecte des informations nécessaires sur la demande et la réponse SAML pour résoudre les problèmes liés à l’authentification unique. Au cas où vous ne parviendriez pas à l’installer, cet article explique comment résoudre les problèmes avec et sans l’extension.
 
 Pour télécharger et installer l’extension de connexion sécurisée à Mes applications, suivez l’un des liens ci-dessous.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl)
 
 ## <a name="test-saml-based-single-sign-on"></a>Tester l’authentification unique SAML
 

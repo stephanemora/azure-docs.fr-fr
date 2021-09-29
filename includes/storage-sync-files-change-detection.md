@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: rogarana
-ms.openlocfilehash: 1ab8a709f100930117a445f7eee11f2a865df50d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a741a3bcace98aa4e153f2dc4aaf1b9c900c2003
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108791423"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080559"
 ---
 Les modifications apportées au partage de fichiers Azure avec le portail Azure ou SMB ne sont pas immédiatement détectées et répliquées comme le sont des modifications apportées au point de terminaison de serveur. Azure Files n’a pas encore de notifications ou journalisation des modifications. Il n’existe donc aucun moyen de lancer automatiquement une session de synchronisation lorsque des fichiers sont modifiés. Sur Windows Server, Azure File Sync utilise la [journalisation du nombre de séquences de mise à jour de Windows](/windows/win32/fileio/change-journals) pour lancer automatiquement une session de synchronisation quand des fichiers changent.
 
@@ -23,4 +23,4 @@ Pour synchroniser immédiatement les fichiers qui ont été modifiés dans le pa
 >[!NOTE]
 >Les modifications apportées à un partage de fichiers Azure avec REST ne mettent pas à jour l’heure de dernière modification de SMB et ne sont pas visibles en tant que modifications par synchronisation.
 
-Nous étudions la possibilité d’ajouter la détection des modifications pour un partage de fichiers Azure de la même façon que le nombre de séquences de mise à jour (USN) pour les volumes sur Windows Server. Aidez-nous à faire passer le développement de cette fonctionnalité en priorité en votant pour celle-ci via la page [UserVoice d’Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+Nous étudions la possibilité d’ajouter la détection des modifications pour un partage de fichiers Azure de la même façon que le nombre de séquences de mise à jour (USN) pour les volumes sur Windows Server.

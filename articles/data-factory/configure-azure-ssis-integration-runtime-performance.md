@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 93fdb913da430241835d448945747ba5ab736f45
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 907b946dec3112d152212d26a1d3dffca41150fa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563224"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828387"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
 
@@ -103,7 +103,7 @@ Ces données représentent une seule exécution de package sur un seul nœud de 
 
 L’axe des Y est le nombre de packages dont l’exécution s’est terminée en une heure. Notez qu’il ne s’agit que d’un résultat de test d’un package gourmand en mémoire. Si vous souhaitez connaître le débit de votre package, il est recommandé d’effectuer le test par vous-même.
 
-![Vitesse d’exécution du package Azure-SSIS Integration Runtime](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
+:::image type="content" source="media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png" alt-text="Vitesse d’exécution du package Azure-SSIS Integration Runtime":::
 
 ### <a name="configure-for-overall-throughput"></a>Configurer pour le débit global
 
@@ -111,7 +111,7 @@ Si vous avez beaucoup de packages à exécuter et que vous vous souciez surtout 
 
 L’axe des Y est le nombre de packages dont l’exécution s’est terminée en une heure. Notez qu’il ne s’agit que d’un résultat de test d’un package gourmand en mémoire. Si vous souhaitez connaître le débit de votre package, il est recommandé d’effectuer le test par vous-même.
 
-![Débit global maximal d’Azure-SSIS Integration Runtime](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
+:::image type="content" source="media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png" alt-text="Débit global maximal d’Azure-SSIS Integration Runtime":::
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 

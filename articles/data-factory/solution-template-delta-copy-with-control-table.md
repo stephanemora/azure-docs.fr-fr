@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 2478c50b9753f3518a0a09533842a4d7abde762c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8cf8ecaaafa9697286dcaa0ae61d00853d53a311
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524414"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743486"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copie delta à partir d’une base de données avec une table de contrôle
 
@@ -90,37 +90,37 @@ Le modèle définit les paramètres suivants :
     
 4. Accédez au modèle **Copie delta à partir d’une base de données**. Créez une **nouvelle** connexion à la base de données source à partir de laquelle vous copiez des données.
 
-    ![Créer une connexion à la table source](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png" alt-text="Créer une connexion à la table source":::
 
 5. Créez une **nouvelle** connexion au magasin de données de destination vers lequel vous copiez les données.
 
-    ![Créer une connexion à la table de destination](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png" alt-text="Créer une connexion à la table de destination":::
 
 6. Créez une **nouvelle** connexion à la table de contrôle externe et à la procédure stockée que vous avez créées aux étapes 2 et 3.
 
-    ![Créer une connexion au magasin de données de la table de contrôle](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png" alt-text="Créer une connexion au magasin de données de la table de contrôle":::
 
 7. Sélectionnez **Utiliser ce modèle**.
     
 8. Vous voyez le pipeline disponible, comme dans l’exemple suivant :
   
-    ![Passer en revue le pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png" alt-text="Passer en revue le pipeline":::
 
 9. Sélectionnez **Procédure stockée**. Pour **Nom de la procédure stockée**, choisissez **[dbo].[update_watermark]** . Sélectionnez **Paramètre d’importation**, puis sélectionnez **Ajouter du contenu dynamique**.  
 
-    ![Définir l’activité Procédure stockée](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png" alt-text="Définir l’activité Procédure stockée":::   
 
 10. Écrivez le contenu **\@{activity(’LookupCurrentWaterMark’).output.firstRow.NewWatermarkValue}** , puis sélectionnez **Terminer**.  
 
-    ![Écrire le contenu pour les paramètres de la procédure stockée](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png" alt-text="Écrire le contenu pour les paramètres de la procédure stockée":::        
      
 11. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
 
-    ![Sélectionner **Déboguer**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png" alt-text="Sélectionner **Déboguer**":::
 
 12. Des résultats similaires à l’exemple suivant s’affichent :
 
-    ![Vérifier le résultat](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png" alt-text="Vérifier le résultat":::
 
 13. Vous pouvez créer des lignes dans votre table source. Voici un exemple en langage SQL pour créer des lignes :
 
@@ -138,7 +138,7 @@ Le modèle définit les paramètres suivants :
 
 15. (Facultatif :) Si vous avez choisi Azure Synapse Analytics comme destination des données, vous devez également fournir une connexion à un Stockage Blob Azure pour la mise en lots, conformément aux exigences d’Azure Synapse Analytics Polybase. Le modèle génère un chemin d’accès au conteneur pour vous. Après l’exécution du pipeline, vérifiez si le conteneur a été créé dans le stockage d’objets Blob.
     
-    ![Configurer Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png" alt-text="Configurer Polybase":::
     
 ## <a name="next-steps"></a>Étapes suivantes
 

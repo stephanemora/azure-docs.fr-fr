@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 4143d44591d92111d4d4a6cbba3e9059f201a29c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3a2ae6c5af09fb78067a1ca69f88a62bb2f974f4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92459609"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809077"
 ---
 # <a name="tutorial-integrate-iwellnessnow-with-azure-active-directory"></a>Tutoriel : Intégrer iWellnessNow à Azure Active Directory
 
@@ -102,7 +102,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<CustomerName>.iwellnessnow.com/`
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans i
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette iWellnessNow dans le panneau d’accès doit vous connecter automatiquement à l’application iWellnessNow pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette iWellnessNow dans le panneau d’accès doit vous connecter automatiquement à l’application iWellnessNow pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
