@@ -5,12 +5,12 @@ ms.service: container-service
 ms.custom: subject-monitoring
 ms.date: 07/29/2021
 ms.topic: reference
-ms.openlocfilehash: 4dfbe6ba3e8bb64e2fdf41a06932f84fb1b7be94
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 9e8a12f8d3075bade1619ce766c74dc8cac23481
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122525970"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816060"
 ---
 # <a name="monitoring-aks-data-reference"></a>Informations de référence sur les données de supervision AKS
 
@@ -57,7 +57,7 @@ Pour référence, consultez la liste de [tous les types de catégories de journa
 
 | Category                | Description |
 |:---|:---|
-| cluster-autoscale       | Comprenez la raison pour laquelle le cluster AKS effectue un scale-up ou un scale-down, ce qui n’est peut-être pas prévu. Ces informations sont également utiles pour mettre en corrélation les intervalles de temps où une action intéressante a pu se produire dans le cluster. |
+| cluster-autoscaler       | Comprenez la raison pour laquelle le cluster AKS effectue un scale-up ou un scale-down, ce qui n’est peut-être pas prévu. Ces informations sont également utiles pour mettre en corrélation les intervalles de temps où une action intéressante a pu se produire dans le cluster. |
 | guard                   | Audits managés d’Azure Active Directory et d’Azure RBAC. Pour Azure AD managé, cela inclut un jeton en entrée et des informations utilisateur en sortie. Pour Azure RBAC, cela inclut des révisions d’accès en entrée et en sortie. |
 | kube-apiserver          | Journaux provenant du serveur d’API. |
 | kube-audit              | Données du journal d’audit pour chaque événement d’audit, y compris les événements get, list, create, update, delete, patch et post. |
@@ -99,4 +99,4 @@ Pour plus d’informations sur le schéma des entrées du journal d’activité,
 ## <a name="see-also"></a>Voir aussi
 
 - Consultez [Supervision d’Azure AKS](monitor-aks.md) pour obtenir une description de la supervision d’Azure AKS.
-- Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).
+- Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 44ea8afcb42365b2b01d81674d0f76781cca0ea9
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: eb1b40636c26e9515b19cc1853e249a7e4c99b57
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108801727"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753858"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-count-me-in---operations-dashboard"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Count Me In - Operations Dashboard
 
@@ -145,7 +145,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 - Accédez directement à l’URL de connexion Count Me In - Operations Dashboard et démarrez le flux de connexion.
 
-- Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Count Me In - Operations Dashboard dans Mes applications vous redirige vers l’URL de connexion Count Me In - Operations Dashboard. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+- Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Count Me In - Operations Dashboard dans Mes applications vous redirige vers l’URL de connexion Count Me In - Operations Dashboard. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

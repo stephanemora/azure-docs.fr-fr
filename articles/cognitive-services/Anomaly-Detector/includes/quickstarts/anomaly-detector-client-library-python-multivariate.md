@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 5b0dfd51ac3de7f7abea41f18f8bf43dfa14580c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0ac9f337ed24a3e440fe877998a40181853d5657
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121801187"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910695"
 ---
 Démarrez avec la bibliothèque de client Détecteur d’anomalies (multivarié) pour Python. Procédez comme suit pour installer le package de démarrage à l’aide des algorithmes fournis par le service. Les nouvelles API de détection d’anomalie multivariée permettent aux développeurs d’intégrer facilement l’intelligence artificielle avancée pour détecter les anomalies à partir de groupes de métriques, sans avoir besoin d’une connaissance du machine learning ni de données étiquetées. Les dépendances et inter-corrélations entre différents signes sont automatiquement comptabilisées comme des facteurs clés. Cela vous permet de protéger de manière proactive vos systèmes complexes contre les défaillances.
 
@@ -262,9 +262,9 @@ if __name__ == '__main__':
 
 ```
 
-Avant de l’exécuter, vous pouvez vérifier votre projet par rapport à l’[exemple de code complet](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) duquel ce guide de démarrage rapide est dérivé.
+Avant de l’exécuter, vous pouvez vérifier votre projet par rapport à l’[exemple de code complet](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) duquel ce guide de démarrage rapide est dérivé.
 
-Nous avons également un [notebook Jupyter approfondi](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb) pour vous aider à démarrer.
+Nous avons également un [notebook Jupyter approfondi](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) pour vous aider à démarrer.
 
 Exécutez l’application avec la commande `python` et le nom de votre fichier.
 

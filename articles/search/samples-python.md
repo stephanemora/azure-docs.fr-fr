@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2021
-ms.openlocfilehash: fc27ed68f5dedefa0b4bf77a206faa15c94f083f
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 17ce9f711572d1d760e44676ad8e8b51c5333985
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018312"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218406"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Exemples de code Python pour Recherche cognitive Azure
 
@@ -40,7 +40,7 @@ Les exemples de code de l’équipe de développement du kit SDK Azure illustre
 | [Chargement de documents](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_crud_operations.py) | Montre comment charger ou fusionner des documents dans un index dans le cadre d’une opération d’[importation de données](search-what-is-data-import.md). |
 | [Requête simple](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_simple_query.py) | Montre comment configurer une [requête de base](search-query-overview.md). |
 | [Requête de filtre](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_filter_query.py) | Montre comment configurer une [expression de filtre](search-filters.md). |
-| [Requête de facette](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_facet_query.py) | Montre comment utiliser des [facettes](search-filters-facets.md). |
+| [Requête de facette](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_facet_query.py) | Montre comment utiliser des [facettes](search-faceted-navigation.md). |
 
 ## <a name="doc-samples"></a>Exemples de documentation
 

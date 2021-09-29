@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ef04bf9f6d9ca6ff5089d2826c05a5acfb759b04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 896ce37053d54dbc51991082b4a79e91bdf85769
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001658"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124770165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Didacticiel : Intégration d’Azure Active Directory à IdeaScale
 
@@ -127,13 +127,13 @@ Pour configurer l’authentification unique Azure AD avec IdeaScale, effectuez 
 
     c. URL de déconnexion
 
-### <a name="configure-ideascale-single-sign-on"></a>Configurer l’authentification unique IdeaScale
+### <a name="configure-ideascale-single-sign-on&quot;></a>Configurer l’authentification unique IdeaScale
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise IdeaScale en tant qu’administrateur.
 
 2. Accédez à **Community Settings**.
 
-    ![Paramètres de la communauté](./media/ideascale-tutorial/ic790847.png "Community Settings")
+    ![Paramètres de la communauté](./media/ideascale-tutorial/ic790847.png &quot;Community Settings")
 
 3. Accédez à **Security \> Single Signon Settings**.
 
@@ -206,7 +206,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-ideascale-test-user"></a>Créer un utilisateur de test IdeaScale
+### <a name="create-ideascale-test-user&quot;></a>Créer un utilisateur de test IdeaScale
 
 Pour permettre aux utilisateurs Azure AD de se connecter à IdeaScale, vous devez les approvisionner dans IdeaScale. Dans le cas d’IdeaScale, l’approvisionnement est une tâche manuelle.
 
@@ -216,7 +216,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à IdeaScale, vous deve
 
 2. Accédez à **Community Settings**.
 
-    ![Paramètres de la communauté](./media/ideascale-tutorial/ic790847.png "Community Settings")
+    ![Paramètres de la communauté](./media/ideascale-tutorial/ic790847.png &quot;Community Settings")
 
 3. Accédez à **Basic Settings \> Member Management**.
 
@@ -242,7 +242,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à IdeaScale, vous deve
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette IdeaScale dans le panneau d’accès doit vous connecter automatiquement à l’application IdeaScale pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette IdeaScale dans le panneau d’accès doit vous connecter automatiquement à l’application IdeaScale pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

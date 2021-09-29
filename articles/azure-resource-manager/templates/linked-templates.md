@@ -2,14 +2,14 @@
 title: Lier des modèles pour déploiement
 description: Décrit l’utilisation des modèles liés dans un modèle ARM (Azure Resource Manager) pour créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 09/10/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3ae1bcc6cc1c99bc89e2f8fbd2c8debf95418850
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b8be710611d892913c43e9d500a051a3d3b55ca5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951148"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820511"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -38,7 +38,7 @@ Pour imbriquer un modèle, ajoutez une [ressource de déploiement](/azure/templa
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -67,7 +67,7 @@ L’exemple suivant déploie un compte de stockage au moyen d’un modèle imbri
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -77,7 +77,7 @@ L’exemple suivant déploie un compte de stockage au moyen d’un modèle imbri
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2019-04-01",
+              "apiVersion": "2021-04-01",
               "name": "[parameters('storageAccountName')]",
               "location": "West US",
               "sku": {
@@ -104,7 +104,7 @@ La portée est définie par la propriété `expressionEvaluationOptions`. Par d�
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2020-10-01",
+  "apiVersion": "2021-04-01",
   "name": "nestedTemplate1",
   "properties": {
     "expressionEvaluationOptions": {
@@ -131,7 +131,7 @@ Le modèle suivant montre la façon dont sont résolues les expressions de modè
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "nestedTemplate1",
       "properties": {
         "expressionEvaluationOptions": {
@@ -215,7 +215,7 @@ L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
@@ -258,7 +258,7 @@ L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de
           "resources": [
             {
               "type": "Microsoft.Sql/servers",
-              "apiVersion": "2018-06-01-preview",
+              "apiVersion": "2021-02-01-preview",
               "name": "[variables('sqlServerName')]",
               "location": "[parameters('location')]",
               "properties": {
@@ -308,7 +308,7 @@ L’extrait suivant montre quelles valeurs sont sécurisées et lesquelles ne le
   "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2021-04-01",
       "name": "mainTemplate",
       "properties": {
         ...
@@ -322,7 +322,7 @@ L’extrait suivant montre quelles valeurs sont sécurisées et lesquelles ne le
     {
       "name": "outer",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "properties": {
         "expressionEvaluationOptions": {
           "scope": "outer"
@@ -334,7 +334,7 @@ L’extrait suivant montre quelles valeurs sont sécurisées et lesquelles ne le
           "resources": [
             {
               "type": "Microsoft.Compute/virtualMachines",
-              "apiVersion": "2020-06-01",
+              "apiVersion": "2021-04-01",
               "name": "outer",
               "properties": {
                 ...
@@ -352,7 +352,7 @@ L’extrait suivant montre quelles valeurs sont sécurisées et lesquelles ne le
     {
       "name": "inner",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "properties": {
         "expressionEvaluationOptions": {
           "scope": "inner"
@@ -386,7 +386,7 @@ L’extrait suivant montre quelles valeurs sont sécurisées et lesquelles ne le
           "resources": [
             {
               "type": "Microsoft.Compute/virtualMachines",
-              "apiVersion": "2020-06-01",
+              "apiVersion": "2021-04-01",
               "name": "inner",
               "properties": {
                 ...
@@ -418,7 +418,7 @@ Pour lier un modèle, ajoutez une [ressource de déploiement](/azure/templates/m
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -456,7 +456,7 @@ Les paramètres du modèle lié peuvent être indiqués dans un fichier externe 
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2021-04-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -479,7 +479,7 @@ Pour passer des valeurs de paramètre inline, utilisez la propriété `parameter
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2021-04-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -522,7 +522,7 @@ Le modèle suivant montre comment *mainTemplate.json* déploie *nestedChild.json
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "childLinked",
       "properties": {
         "mode": "Incremental",
@@ -644,7 +644,7 @@ L’exemple de modèle suivant montre comment utiliser `copy` avec un modèle im
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2021-04-01",
     "name": "[concat('nestedTemplate', copyIndex())]",
     // yes, copy works here
     "copy": {
@@ -662,7 +662,7 @@ L’exemple de modèle suivant montre comment utiliser `copy` avec un modèle im
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
+            "apiVersion": "2021-04-01",
             "name": "[concat(variables('storageName'), copyIndex())]",
             "location": "West US",
             "sku": {
@@ -726,7 +726,7 @@ Vous pouvez utiliser ces entrées distinctes dans l’historique pour récupére
   "resources": [
     {
       "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2018-11-01",
+      "apiVersion": "2021-02-01",
       "name": "[parameters('publicIPAddresses_name')]",
       "location": "southcentralus",
       "properties": {
@@ -761,7 +761,7 @@ Le modèle suivant est lié au modèle précédent. Il crée trois adresses IP p
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('linkedTemplate', copyIndex())]",
       "copy": {
         "count": 3,
@@ -831,7 +831,7 @@ L’exemple suivant montre comment passer un jeton SAP lors de la liaison à un 
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -893,7 +893,7 @@ Les exemples suivants montrent des utilisations courantes des modèles liés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour suivre un tutoriel, consultez [Tutoriel : Déployer un modèle lié](./deployment-tutorial-linked-template.md).
-* Pour en savoir plus sur la définition de l’ordre de déploiement de vos ressources, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](./resource-dependency.md).
-* Pour savoir comment définir une seule ressource mais également comment créer de nombreuses instances de cette dernière, consultez [Itération de ressource dans les modèles ARM](copy-resources.md).
-* Pour connaître les étapes permettant de configurer un modèle dans un compte de stockage et de générer un jeton SAS, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md) ou [Déployer des ressources avec des modèles ARM et Azure CLI](deploy-cli.md).
+- Pour suivre un tutoriel, consultez [Tutoriel : Déployer un modèle lié](./deployment-tutorial-linked-template.md).
+- Pour en savoir plus sur la définition de l’ordre de déploiement de vos ressources, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](./resource-dependency.md).
+- Pour savoir comment définir une seule ressource mais également comment créer de nombreuses instances de cette dernière, consultez [Itération de ressource dans les modèles ARM](copy-resources.md).
+- Pour connaître les étapes permettant de configurer un modèle dans un compte de stockage et de générer un jeton SAS, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md) ou [Déployer des ressources avec des modèles ARM et Azure CLI](deploy-cli.md).

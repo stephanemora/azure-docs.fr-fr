@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: c594d253c193928eae47949474aaa75c4f27b60d
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: ce4d1030999978ba5814d7978238c6f70026b34c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314001"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785113"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données dans Azure SQL Database à l’aide de pipelines Azure Data Factory ou Azure Synapse Analytics
 
@@ -519,7 +519,7 @@ Pour en savoir plus, consultez [Appel d'une procédure stockée à partir d'un r
 
 Le connecteur Azure SQL Database dans l’activité de copie propose un partitionnement de données intégré pour copier des données en parallèle. Vous trouverez des options de partitionnement de données dans l’onglet **Source** de l’activité de copie.
 
-![Capture d’écran représentant les options de partition](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Capture d’écran représentant les options de partition":::
 
 Lorsque vous activez la copie partitionnée, l’activité de copie exécute des requêtes en parallèle sur votre source Azure SQL Database pour charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, le service génère et exécute simultanément quatre requêtes en fonction de l’option de partition et des paramètres que vous avez spécifiés, et chaque requête récupère une partie des données de votre compte Azure SQL Database.
 
@@ -580,7 +580,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 Si la table a une partition physique, vous voyez « HasPartition » avec la valeur « yes » (oui) comme suit.
 
-![Résultat d’une requête SQL](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="Résultat d’une requête SQL":::
 
 ## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Meilleures pratiques de chargement de données dans Azure SQL Data
 
@@ -605,7 +605,7 @@ Actuellement, l’activité de copie ne prend pas en charge en mode natif le cha
 
 Par exemple, vous pouvez créer un pipeline avec une **activité Copy** chaînée avec une **activité de procédure stockée**. La première activité copie des données de votre banque source vers une table de mise en lots Azure SQL Database, par exemple **UpsertStagingTable**, comme nom de table dans le jeu de données. La seconde activité appelle ensuite une procédure stockée pour fusionner les données sources de la table de mise en lots vers la table cible et nettoyer la table de mise en lots.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 Dans votre base de données, définissez une procédure stockée avec la logique MERGE, comme dans l’exemple suivant, qui est pointée à partir de l’activité de procédure stockée précédente. Supposons que la cible est la table **Marketing** comportant trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération d’upsert sur la colonne **ProfileID**.
 
@@ -702,7 +702,7 @@ Les paramètres spécifiques à Azure SQL Database sont disponibles dans l’ong
 
 **Procédure stockée** : choisissez cette option si vous souhaitez générer une projection et des données source à partir d’une procédure stockée exécutée à partir de votre base de données source. Vous pouvez entrer le schéma, le nom de la procédure et les paramètres ou cliquer sur Actualiser pour demander au service de découvrir les schémas et les noms des procédures. Ensuite, vous pouvez cliquer sur Importer pour importer tous les paramètres de procédure avec la forme ``@paraName``.
 
-![Procédure stockée](media/data-flow/stored-procedure-2.png "Procédure stockée")
+:::image type="content" source="media/data-flow/stored-procedure-2.png" alt-text="Procédure stockée":::
 
 - Exemple SQL : ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 - Exemple de SQL paramétrisé : ``"select * from {$tablename} where orderyear > {$year}"``
@@ -717,7 +717,7 @@ Les paramètres spécifiques à Azure SQL Database sont disponibles dans l’ong
 - Sérialisable
 - Aucun (ignorer le niveau d’isolement)
 
-![Niveaux d’isolement](media/data-flow/isolationlevel.png "Niveau d’isolation")
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Niveaux d’isolement":::
 
 ### <a name="sink-transformation"></a>Transformation du récepteur
 
@@ -725,7 +725,7 @@ Les paramètres spécifiques à Azure SQL Database sont disponibles dans l’ong
 
 **Méthode de mise à jour** : détermine les opérations autorisées sur la destination de votre base de données. Par défaut, seules les insertions sont autorisées. Pour mettre à jour, effectuer un upsert ou supprimer des lignes, une transformation alter-row est requise afin de baliser les lignes relatives à ces actions. Pour les mises à jour, les opérations upsert et les suppressions, une ou plusieurs colonnes clés doivent être définies afin de déterminer la ligne à modifier.
 
-![Colonnes clés](media/data-flow/keycolumn.png "Colonnes clés")
+:::image type="content" source="media/data-flow/keycolumn.png" alt-text="Colonnes clés":::
 
 Le nom de colonne que vous choisissez comme clé ici sera utilisé par le service dans le cadre des opérations suivantes de mise à jour, d’upsert et de suppression. Vous devez donc choisir une colonne qui existe dans le mappage du récepteur. Si vous ne souhaitez pas écrire la valeur dans cette colonne clé, cliquez sur Ignorer l’écriture des colonnes clés.
 
@@ -741,11 +741,11 @@ Vous pouvez paramétrer la colonne clé utilisée ici pour mettre à jour votre 
 
 **Utiliser TempDB :** Par défaut, le service utilise une table temporaire globale pour stocker des données dans le cadre du processus de chargement. Vous pouvez également désélectionner l’option « Utiliser TempDB » et demander au service de stocker la table d’hébergement temporaire dans une base de données utilisateur qui se trouve dans la base de données utilisée pour ce récepteur.
 
-![Utiliser la base de données temporaire](media/data-flow/tempdb.png "Utiliser la base de données temporaire")
+:::image type="content" source="media/data-flow/tempdb.png" alt-text="Utiliser la base de données temporaire":::
 
 **Pré et post-scripts SQL** : Entrez des scripts SQL multilignes qui s’exécutent avant (prétraitement) et après (post-traitement) l’écriture de données dans votre base de données de réception.
 
-![Pré et post-scripts de traitement SQL](media/data-flow/prepost1.png "Scripts de traitement SQL")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="Pré et post-scripts de traitement SQL":::
 
 ### <a name="error-row-handling"></a>Gestion des lignes d’erreur
 
@@ -763,7 +763,7 @@ Par défaut, l’exécution d’un flux de données échouera à la première er
 
 **Réussite signalée malgré l’erreur :** S’il est activé, le flux de données est marqué comme ayant réussi, même si des lignes d’erreur sont détectées. 
 
-![Gestion des lignes d’erreur](media/data-flow/sql-error-row-handling.png "Gestion des lignes d’erreur")
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Gestion des lignes d’erreur":::
 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Mappage de type de données pour Azure SQL Database

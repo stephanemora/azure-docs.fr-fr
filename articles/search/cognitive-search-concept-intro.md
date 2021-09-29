@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 73a1ae771ba3e3e5876b2efd3914b9e38ab0e426
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: b1c7a8f29c08f00cc69dbd304c8215180f5ace92
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222352"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796606"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enrichissement de l’IA dans Recherche cognitive Azure
 
@@ -71,7 +71,7 @@ Un [ensemble de compétences](cognitive-search-defining-skillset.md) assemblé �
 
 ### <a name="use-cases-for-custom-skills"></a>Cas d’usage des compétences personnalisées
 
-Les compétences personnalisées peuvent prendre en charge des scénarios plus complexes, tels que la reconnaissance de formulaires ou la détection d’entité personnalisée à l’aide d’un modèle que vous fournissez et encapsulez dans l’[interface web des compétences personnalisées](cognitive-search-custom-skill-interface.md). Plusieurs exemples de compétences personnalisées incluent [Form Recognizer](../cognitive-services/form-recognizer/overview.md), l’intégration de l’[API Recherche d’entités Bing](./cognitive-search-create-custom-skill-example.md) et la [reconnaissance d’entité personnalisée](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+Les compétences personnalisées peuvent prendre en charge des scénarios plus complexes, tels que la reconnaissance de formulaires ou la détection d’entité personnalisée à l’aide d’un modèle que vous fournissez et encapsulez dans l’[interface web des compétences personnalisées](cognitive-search-custom-skill-interface.md). Plusieurs exemples de compétences personnalisées incluent [Form Recognizer](../applied-ai-services/form-recognizer/overview.md), l’intégration de l’[API Recherche d’entités Bing](./cognitive-search-create-custom-skill-example.md) et la [reconnaissance d’entité personnalisée](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
 ## <a name="enrichment-steps"></a>Étapes d’enrichissement <a name="enrichment-steps"></a>
 

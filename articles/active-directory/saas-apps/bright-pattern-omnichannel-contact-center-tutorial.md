@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 9929dc3dbe5870fbe1a5047fbc3fc552e32aba59
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fb5c3a5811afdd003bf91a99bd64ed5fa8952a49
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92456691"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749997"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bright-pattern-omnichannel-contact-center"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Bright Pattern Omnichannel Contact Center
 
@@ -155,7 +155,7 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans le modèle Br
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Bright Pattern Omnichannel Contact Center dans le volet d’accès, vous devez être automatiquement connecté à l’instance de Bright Pattern Omnichannel Contact Center pour laquelle vous configurez l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Bright Pattern Omnichannel Contact Center dans le volet d’accès, vous devez être automatiquement connecté à l’instance de Bright Pattern Omnichannel Contact Center pour laquelle vous configurez l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

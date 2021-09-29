@@ -1,15 +1,15 @@
 ---
-title: Accéder à un laboratoire dans Azure DevTest Labs | Microsoft Docs
+title: Accéder à un laboratoire
 description: Dans ce didacticiel, vous accédez au laboratoire créé à l’aide d’Azure DevTest Labs, revendiquez des machines virtuelles, vous les utilisez, puis vous cessez de les revendiquer.
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.author: spelluru
-ms.openlocfilehash: 96d41b74b3c143feb64fc9c602de68182787c08b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: d9338bc746158802c86b9631323f3523d01714ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379466"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561312"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Didacticiel : accéder à un laboratoire dans Azure DevTest Labs
 Dans ce didacticiel, vous utilisez le laboratoire créé dans le [didacticiel : créer un laboratoire dans Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -77,4 +77,3 @@ Ce didacticiel vous a montré comment accéder à et utiliser un laboratoire cr�
 
 > [!div class="nextstepaction"]
 > [Procédure : utiliser des machines virtuelles dans un laboratoire](devtest-lab-add-vm.md)
-

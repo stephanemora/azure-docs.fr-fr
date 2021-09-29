@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 8c9666f9cfadeda29b6259876c972bda67a9ee44
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e8009e7b86ca151b6445ff3a5c165687641318d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462011"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590344"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutoriel : Générer une application hautement disponible avec le stockage Blob
 
@@ -31,9 +31,9 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Dans ce premier volet, vous apprenez à :
 
 > [!div class="checklist"]
-> * Créez un compte de stockage.
-> * Définir la chaîne de connexion
-> * Exécuter l’application console
+> - Créez un compte de stockage.
+> - Définir la chaîne de connexion
+> - Exécuter l’application console
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,7 +45,7 @@ Nous travaillons actuellement à la création d’extraits de code reflétant la
 
 # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
-* Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement Azure**.
+- Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement Azure**.
 
   ![Développement Azure (sous Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -55,8 +55,8 @@ Nous travaillons actuellement à la création d’extraits de code reflétant la
 
 # <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
-* Installez [Python](https://www.python.org/downloads/)
-* Téléchargez et installez le [SDK Stockage Azure pour Python](https://github.com/Azure/azure-storage-python).
+- Installez [Python](https://www.python.org/downloads/)
+- Téléchargez et installez le [SDK Stockage Azure pour Python](https://github.com/Azure/azure-storage-python).
 
 # <a name="nodejs-v12-sdk"></a>[SDK Node.js v12](#tab/nodejs)
 
@@ -64,7 +64,7 @@ Nous travaillons actuellement à la création d’extraits de code reflétant la
 
 # <a name="nodejs-v11-sdk"></a>[SDK Node.js v11](#tab/nodejs11)
 
-* Installez [Node.js](https://nodejs.org).
+- Installez [Node.js](https://nodejs.org).
 
 ---
 
@@ -82,7 +82,7 @@ Suivez ces étapes pour créer un compte de stockage géoredondant interzone (RA
 2. Sélectionnez **Compte de stockage - blob, fichier, table, file d’attente** sur la page **Nouveau**.
 4. Remplissez le formulaire de compte de stockage avec les informations suivantes, comme indiqué dans l’image ci-après et sélectionnez **Créer** :
 
-   | Paramètre       | Exemple de valeur | Description |
+   | Paramètre       | Exemple de valeur | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Abonnement** | *Mon abonnement* | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). |
    | **ResourceGroup** | *myResourceGroup* | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |

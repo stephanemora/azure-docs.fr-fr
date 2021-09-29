@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 4ab5db6ebae132376e9fade6533214c1d49341f6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e170cafe87e3ff23a550766ff2fc52ded7f80963
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569527"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153688"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 
@@ -356,9 +356,7 @@ Votre problème concerne-t-il la disponibilité d’un des services de stockage�
 [Les métriques de capacité indiquent une augmentation inattendue de l’utilisation de la capacité de stockage]
 
 ---
-[Vous constatez des redémarrages inattendus des machines virtuelles associées à un grand nombre de disques durs virtuels]
 
----
 [Votre problème provient de l’utilisation de l’émulateur de stockage pour le développement ou les tests]
 
 ---

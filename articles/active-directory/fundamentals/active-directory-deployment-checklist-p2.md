@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b746b1f7d35668759108580d4d695787ac8fa3bc
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e2411ef1ba4878e43c7f6432b6aa3bd032f2842a
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733103"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083711"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
 
@@ -92,7 +92,7 @@ Dans l’étape 4, les administrateurs appliquent le principe du moindre privil
 | Tâche | Detail | Licence obligatoire |
 | ---- | ------ | ---------------- |
 | [Appliquer l’utilisation de Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Supprimez les rôles d’administrateur des comptes d’utilisateur normaux de tous les jours. Autorisez les utilisateurs à utiliser leur rôle d’administrateur s’ils réussissent un contrôle d’authentification multifacteur, s’ils fournissent une justification professionnelle ou s’ils reçoivent l’approbation des approbateurs désignés. | Azure AD Premium P2 |
-| [Terminer une révision d’accès des rôles d’annuaire Azure AD dans PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Consultez vos équipes de sécurité et de direction pour créer une stratégie de révision d’accès afin d’examiner les accès administratifs en fonction des stratégies de votre organisation. | Azure AD Premium P2 |
+| [Terminer une révision d’accès des rôles d’annuaire Azure AD dans PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) | Consultez vos équipes de sécurité et de direction pour créer une stratégie de révision d’accès afin d’examiner les accès administratifs en fonction des stratégies de votre organisation. | Azure AD Premium P2 |
 | [Implémenter des stratégies d’appartenance de groupe dynamique](../enterprise-users/groups-dynamic-membership.md) | Utilisez des groupes dynamiques pour attribuer automatiquement des utilisateurs à des groupes en fonction de leurs attributs dans HR (ou votre source de confiance), comme le service, le poste, la région, et autres. |  |
 | [Implémenter le provisionnement d’applications en fonction du groupe](../manage-apps/what-is-access-management.md) | Utilisez le provisionnement de gestion d’accès en fonction du groupe pour provisionner automatiquement des utilisateurs pour les applications SaaS. |  |
 | [Automatiser le provisionnement et le déprovisionnement](../app-provisioning/user-provisioning.md) | Supprimez les étapes manuelles du cycle de vie des comptes de vos employés pour empêcher les accès non autorisés. Synchronisez des identités depuis votre source fidèle (système HR) vers Azure AD. |  |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 09/10/2021
 ms.author: alexeyo
-ms.openlocfilehash: a71a2736533cd2c707d4224db3790e93fe5e2782
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 06d54a7d42efd1cad9088785d24095abc039337b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563105"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737090"
 ---
 # <a name="speech-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -45,7 +45,6 @@ Pour l’utilisation avec le [Kit de développement logiciel (SDK) Speech](speec
 | Taille maximale de conteneur blob | N/A | 5 Go |
 | Nombre maximal de blobs par conteneur | N/A | 10000 |
 | Requête Nombre maximal de fichiers par transcription (en cas d’utilisation de plusieurs URL de contenu en entrée) | N/A | 1 000  |
-| Nombre maximal de travaux exécutés simultanément | N/A | 2000  |
 
 #### <a name="model-customization"></a>Personnalisation des modèles
 | Quota | Gratuit (F0)<sup>1</sup> | Standard (S0) |
@@ -100,7 +99,7 @@ Dans les tableaux ci-dessous, les paramètres sans ligne « Réglable » ne so
 | **Limite de demandes simultanées pour la voix neuronale personnalisée** |  |  |
 | Valeur par défaut | N/A | 10 |
 | Réglable | N/A | Oui<sup>5</sup> |
-| **Limite de demandes simultanées pour la voix personnalisée<sup>6</sup>** |  |  |
+| **Limite de demandes simultanées pour la voix personnalisée <sup>6</sup>** |  |  |
 | Valeur par défaut | 10 | 10 |
 | Réglable | Non<sup>5</sup> | Oui<sup>5</sup> |
 

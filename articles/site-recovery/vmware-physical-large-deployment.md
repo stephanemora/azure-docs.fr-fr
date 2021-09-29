@@ -4,12 +4,12 @@ description: Découvrez comment configurer la récupération d’urgence sur Azu
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 869702c9eaac4a38f6b0e64311c772892ddd6d90
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 6a77b91b49009964ba6e20f76e20e4739da6ea75
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580444"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823770"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurer la récupération d’urgence à grande échelle de machines virtuelles VMware et de serveurs physiques
 
@@ -82,7 +82,7 @@ Nous tenons à nous assurer que les quotas disponibles dans l’abonnement cible
 
 **Tâche** | **Détails** | **Action**
 --- | --- | ---
-**Vérifier les cœurs** | Si les cœurs que compte le quota disponible ne sont pas en nombre égal ou supérieur au nombre total cible au moment du basculement, les basculements échoueront. | Pour les machines virtuelles VMware, vérifiez que l’abonnement cible contient suffisamment de cœurs pour respecter la recommandation du Planificateur de déploiement en matière de cœurs.<br/><br/> Pour les serveurs physiques, vérifiez que les cœurs Azure répondent à vos estimations manuelles.<br/><br/> Pour vérifier les quotas, dans le portail Azure > **Abonnement**, cliquez sur **Utilisation + quotas**.<br/><br/> [Apprenez-en davantage](../azure-portal/supportability/resource-manager-core-quotas-request.md) sur l’augmentation des quotas.
+**Vérifier les cœurs** | Si les cœurs que compte le quota disponible ne sont pas en nombre égal ou supérieur au nombre total cible au moment du basculement, les basculements échoueront. | Pour les machines virtuelles VMware, vérifiez que l’abonnement cible contient suffisamment de cœurs pour respecter la recommandation du Planificateur de déploiement en matière de cœurs.<br/><br/> Pour les serveurs physiques, vérifiez que les cœurs Azure répondent à vos estimations manuelles.<br/><br/> Pour vérifier les quotas, dans le portail Azure > **Abonnement**, cliquez sur **Utilisation + quotas**.<br/><br/> [Apprenez-en davantage](../azure-portal/supportability/regional-quota-requests.md) sur l’augmentation des quotas.
 **Vérifier les limites de nombre de basculements** | Le nombre de basculements ne doit pas dépasser les limites de nombre de basculements de Site Recovery. |  Si le nombre de basculements dépasse les limites, vous pouvez ajouter des abonnements pour basculer vers plusieurs abonnements ou augmenter le quota pour un abonnement. 
 
 

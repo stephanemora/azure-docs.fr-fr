@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 10770e3df3f666163958344868a86ee8e7374d55
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8633ee6f76319afcd9c62a3aa5d70db77113f235
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532759"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750593"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory
 
@@ -224,7 +224,7 @@ Le tableau suivant indique les états globaux possibles d’un runtime Azure-SSI
 
 Pour superviser votre runtime Azure-SSIS IR sur le Portail Azure, accédez à la page **Runtimes d’intégration** du hub **Superviser** sur l’interface utilisateur ADF, où vous pouvez voir tous vos runtimes d’intégration.
 
-![Supervision de tous les runtimes d’intégration](media/monitor-integration-runtime/monitor-integration-runtimes.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-integration-runtimes.png" alt-text="Supervision de tous les runtimes d’intégration":::
 
 Ensuite, sélectionnez le nom de votre runtime Azure-SSIS IR pour ouvrir sa page de supervision, sur laquelle vous pouvez voir ses propriétés et états globaux/propres aux nœuds. Sur cette page, en fonction de la façon dont vous configurez les paramètres généraux, de déploiement et avancés de votre Azure-SSIS IR, vous trouverez différentes vignettes d’informations/fonctionnelles.
 
@@ -238,19 +238,19 @@ La vignette d’information **RÔLE/PAIRE DE SECOURS DOUBLE** indique le nom de 
 
 Les vignettes fonctionnelles sont décrites plus en détail ci-dessous.
 
-![Supervision du runtime Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png" alt-text="Supervision du runtime Azure-SSIS IR":::
 
 #### <a name="status-tile"></a>Vignette ÉTAT
 
 Sur la vignette **ÉTAT** de la page de supervision de votre runtime Azure-SSIS IR, vous pouvez voir son état global, par exemple, **En cours d’exécution** ou **Arrêté**. Si vous sélectionnez l’état **En cours d’exécution**, la fenêtre qui s’ouvre comporte un bouton **Arrêter** en direct permettant d’arrêter le runtime Azure-SSIS IR. Si vous sélectionnez l’état **Arrêté**, la fenêtre qui s’ouvre comporte un bouton **Démarrer** en direct permettant de démarrer le runtime Azure-SSIS IR. La fenêtre contextuelle comporte également un bouton **Exécuter le package SSIS** pour générer automatiquement un pipeline ADF avec l’activité Exécuter le package SSIS qui s’exécute sur votre Azure-SSIS IR (consultez [Exécuter un package SSIS avec l’activité Exécuter le Package SSIS dans Azure Data Factory](./how-to-invoke-ssis-package-ssis-activity.md)) et une zone de texte **ID de ressource**, à partir de laquelle vous pouvez copier votre ID de ressource Azure-SSIS IR (`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`). Le suffixe de votre ID de ressource Azure-SSIS IR qui contient vos noms ADF et Azure-SSIS IR forme un ID de cluster qui peut être utilisé pour acheter des composants SSIS/sous licence supplémentaires auprès d’éditeurs de logiciels indépendants (ISV) et les associer à votre Azure-SSIS IR (voir [Installer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS](./how-to-develop-azure-ssis-ir-licensed-components.md)).
 
-![Supervision du runtime Azure-SSIS IR – Vignette ÉTAT](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png" alt-text="Supervision du runtime Azure-SSIS IR – Vignette ÉTAT":::
 
 #### <a name="ssisdb-server-endpoint-tile"></a>Vignette POINT DE TERMINAISON DE SERVEUR SSISDB
 
 Si vous utilisez un modèle de déploiement de projet selon lequel les packages sont stockés dans une base de données SSISDB hébergée par votre serveur Azure SQL Database ou votre instance gérée, la vignette **POINT DE TERMINAISON DE SERVEUR SSISDB** apparaît sur la page de supervision de votre runtime Azure-SSIS IR (consultez [Configuration des paramètres de déploiement d’un runtime Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md#deployment-settings-page)). Sur cette vignette, vous pouvez sélectionner un lien désignant votre serveur Azure SQL Database ou votre instance gérée pour afficher une fenêtre vous permettant de copier le point de terminaison de serveur à partir d’une zone de texte et de l’utiliser en cas de connexion à partir de SSMS pour déployer, configurer, exécuter et gérer vos packages. Dans la fenêtre indépendante, vous pouvez également sélectionner le lien **Afficher les paramètres de la base de données Azure SQL Database ou de l’instance gérée** pour reconfigurer/redimensionner votre base de données SSISDB sur le Portail Azure.
 
-![Supervision du runtime Azure-SSIS IR – Vignette SSISDB](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png" alt-text="Supervision du runtime Azure-SSIS IR – Vignette SSISDB":::
 
 #### <a name="proxy--staging-tile"></a>Vignette PROXY / STAGING
 
@@ -260,35 +260,35 @@ Si vous téléchargez, installez et configurez le runtime d’intégration auto-
 
 Si vous joignez votre runtime Azure-SSIS IR à un réseau virtuel, la vignette **VALIDER LE RÉSEAU VIRTUEL/SOUS-RÉSEAU** apparaît sur la page de supervision de votre runtime Azure-SSIS IR (consultez [Jonction d’un runtime Azure-SSIS IR à un réseau virtuel](./join-azure-ssis-integration-runtime-virtual-network.md)). Sur cette vignette, vous pouvez sélectionner un lien désignant votre réseau virtuel et votre sous-réseau pour afficher une fenêtre vous permettant de copier l’ID de votre ressource de réseau virtuel (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet`) et le nom de votre sous-réseau à partir de zones de texte, ainsi que de valider la configuration de votre réseau virtuel et de votre sous-réseau pour vérifier que les trafics réseau entrants/sortants et la gestion de votre runtime Azure-SSIS IR ne sont pas entravés.
 
-![Supervision du runtime Azure-SSIS IR – Vignette VALIDER](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png" alt-text="Supervision du runtime Azure-SSIS IR – Vignette VALIDER":::
 
 #### <a name="diagnose-connectivity-tile"></a>Vignette DIAGNOSTIQUER LA CONNECTIVITÉ
 
 Sur la vignette **DIAGNOSTIQUER LA CONNECTIVITÉ** de la page de supervision de votre runtime Azure-SSIS IR, vous pouvez sélectionner le lien **Tester la connexion** pour ouvrir une fenêtre vous permettant de vérifier les connexions entre votre runtime Azure-SSIS IR et les magasins de packages/configuration/données correspondants, ainsi que les services de gestion, au moyen de leur nom de domaine complet (FQDN)/adresse IP et de leur port désigné (consultez [Test des connexions à partir d’un runtime Azure-SSIS IR](./ssis-integration-runtime-diagnose-connectivity-faq.md)).
 
-![Supervision du runtime Azure-SSIS IR – Vignette DIAGNOSTIQUER](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png" alt-text="Supervision du runtime Azure-SSIS IR – Vignette DIAGNOSTIQUER":::
 
 #### <a name="static-public-ip-addresses-tile"></a>Vignette ADRESSES IP PUBLIQUES STATIQUES
 
 Si vous apportez vos propres adresses IP publiques statiques pour Azure-SSIS IR, la vignette **ADRESSES IP PUBLIQUES STATIQUES** apparaît sur votre page d’analyse de Azure-SSIS IR (voir [Intégration de vos propres adresses IP publiques statiques pour Azure-SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). Sur cette vignette, vous pouvez sélectionner des liens désignant vos premières/deuxième adresses IP publiques statiques pour Azure-SSIS IR pour afficher une fenêtre contextuelle, dans laquelle vous pouvez copier leur ID de ressource (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) à partir d’une zone de texte. Dans la fenêtre contextuelle, vous pouvez également sélectionner le lien **Afficher votre premier/deuxième paramètre d’adresse IP publique statique** pour gérer votre première/deuxième adresse IP publique statique dans le Portail Azure.
 
-![Supervision de votre IR Azure-SSIS – Vignette STATIQUE](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png" alt-text="Supervision de votre IR Azure-SSIS – Vignette STATIQUE":::
 
 #### <a name="package-stores-tile"></a>Vignette MAGASINS DE PACKAGES
 
 Si vous utilisez un modèle de déploiement de package selon lequel les packages sont stockés un système de fichiers/Azure Files/une base de données SQL Server (MSDB) hébergé par votre instance Azure SQL Managed Instance et géré au moyen de magasins de packages Azure-SSIS IR, la vignette **MAGASINS DE PACKAGES** apparaît sur la page de supervision de votre runtime Azure-SSIS IR (consultez [Configuration des paramètres de déploiement d’un runtime Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md#deployment-settings-page)). Sur cette vignette, vous pouvez sélectionner un lien désignant le nombre de magasins de packages attachés à votre runtime Azure-SSIS IR pour afficher une fenêtre vous permettant de reconfigurer les services liés correspondant à vos magasins de packages Azure-SSIS IR qui se trouvent au-dessus du système de fichiers/d’Azure Files/de la base de données MSDB hébergé par votre instance Azure SQL Managed Instance.
 
-![Supervision du runtime Azure-SSIS IR – Vignette PACKAGE](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png" alt-text="Supervision du runtime Azure-SSIS IR – Vignette PACKAGE":::
 
 #### <a name="errors-tile"></a>Vignette ERREUR(S)
 
 En cas de problèmes liés au démarrage/à l’arrêt/à la maintenance/à la mise à niveau de votre runtime Azure-SSIS IR, une vignette **ERREUR(S)** supplémentaire apparaît sur la page de supervision de votre runtime Azure-SSIS IR. Sur cette vignette, vous pouvez sélectionner un lien désignant le nombre d’erreurs générées par votre runtime Azure-SSIS IR pour afficher une fenêtre vous permettant de voir ces erreurs plus en détail et de les copier pour trouver les solutions recommandées dans notre guide de dépannage (consultez [Résolution des problèmes d’un runtime Azure-SSIS IR](./ssis-integration-runtime-management-troubleshoot.md)).
 
-![Supervision de votre IR Azure-SSIS – Vignette ERREUR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png" alt-text="Supervision de votre IR Azure-SSIS – Vignette ERREUR":::
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Supervision d’Azure-SSIS Integration Runtime avec Azure Monitor
 
-Pour superviser votre runtime Azure-SSIS IR avec Azure Monitor, consultez [Supervision des opérations SSIS avec Azure Monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor).
+Pour superviser votre runtime Azure-SSIS IR avec Azure Monitor, consultez [Supervision des opérations SSIS avec Azure Monitor](./monitor-ssis.md).
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Plus d’informations sur le runtime d’intégration Azure-SSIS
 

@@ -7,12 +7,12 @@ ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: fff9c94af2c74612e8c07be1f7e125787265a72d
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: b9dce997adb1fbf16c777bc472d10008f68ef9f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541366"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763383"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Présentation d’Azure Defender pour Resource Manager
 
@@ -73,7 +73,7 @@ Pour examiner les alertes de sécurité depuis Azure Defender pour Resource Mana
 1. Recherchez des activités suspectes.
 
 > [!TIP]
-> Pour une meilleure expérience d’investigation plus complète, envoyez en streaming vos journaux d’activité Azure à Azure Sentinel, comme décrit dans [Connecter des données à partir du journal d’activité Azure](../sentinel/connect-azure-activity.md).
+> Pour une meilleure expérience d’investigation plus complète, envoyez en streaming vos journaux d’activité Azure à Azure Sentinel, comme décrit dans [Connecter des données à partir du journal d’activité Azure](../sentinel/data-connectors-reference.md#azure-activity).
 
 
 

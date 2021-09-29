@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 033561ac3c4a510927691dc8db4f61196f54ec2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 243c00ef686f0259a20f564f1641b9399a6691d7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92460385"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Igloo Software
 
@@ -125,13 +125,13 @@ Pour configurer l’authentification unique Azure AD avec Igloo Software, effect
 
     c. URL de déconnexion
 
-### <a name="configure-igloo-software-single-sign-on"></a>Configurer l’authentification unique Igloo Software
+### <a name="configure-igloo-software-single-sign-on&quot;></a>Configurer l’authentification unique Igloo Software
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Igloo Software en tant qu’administrateur.
 
 2. Accédez au **Panneau de configuration**.
 
-     ![Panneau de configuration](./media/igloo-software-tutorial/ic799949.png "Control panel")
+     ![Panneau de configuration](./media/igloo-software-tutorial/ic799949.png &quot;Control panel")
 
 3. Sous l’onglet **Appartenance**, cliquez sur **Paramètres de connexion**.
 
@@ -240,7 +240,7 @@ Lorsqu’un utilisateur assigné tente de se connecter à Igloo Software à l’
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Igloo Software dans le volet d’accès, vous devez être automatiquement connecté à l’application Igloo Software pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Igloo Software dans le volet d’accès, vous devez être automatiquement connecté à l’application Igloo Software pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

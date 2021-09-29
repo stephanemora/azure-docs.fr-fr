@@ -9,12 +9,12 @@ ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 06/04/2021
-ms.openlocfilehash: 3b8c15a764f3a196232e43ffd8d7fd7fe373355c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0b24ae5a1564f182cf44e540a9d05a2aaac005ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524744"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733116"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité Exécuter le Package SSIS dans Azure Data Factory
 
@@ -36,15 +36,15 @@ Lors de cette étape, vous utilisez l’interface utilisateur ou l’application
 
 1. Sur votre vue d’ensemble Data Factory ou sur la page d’accueil du portail Azure, sélectionnez la vignette **Créer et surveiller** pour démarrer l’application ou l’interface utilisateur Data Factory dans un onglet séparé. 
 
-   ![Page d’accueil Data Factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png" alt-text="Page d’accueil Data Factory":::
 
    Dans la page d’accueil, sélectionnez **Orchestrer**. 
 
-   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la page d’accueil ADF.":::
 
 1. Dans la boîte à outils **Activités**, étendez **Général**. Ensuitez, faites glisser une activité **Execute SSIS Package** jusqu’à l’aire du concepteur de pipeline. 
 
-   ![Faire glisser une activité Execute SSIS Package jusqu’à l’aire du concepteur](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
+   :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png" alt-text="Faire glisser une activité Execute SSIS Package jusqu’à l’aire du concepteur"::: 
 
    Sélectionnez l'objet d'activité Exécuter le package SSIS pour configurer les onglets **Général**, **Paramètres**, **Paramètres SSIS**, **Gestionnaires de connexions** et **Substitutions de propriété** correspondants.
 
@@ -52,7 +52,7 @@ Lors de cette étape, vous utilisez l’interface utilisateur ou l’application
 
 Sous l'onglet **Général** de l'activité Exécuter le package SSIS, procédez comme suit.
 
-![Définissez les propriétés sous l’onglet Général](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png" alt-text="Définissez les propriétés sous l’onglet Général":::
 
    1. Dans le champ **Nom**, entrez le nom de votre activité Exécuter le package SSIS.
 
@@ -72,7 +72,7 @@ Sous l'onglet **Général** de l'activité Exécuter le package SSIS, procédez 
 
 Sous l'onglet **Paramètres** de l'activité Exécuter le package SSIS, procédez comme suit.
 
-![Définir les propriétés sous l’onglet Paramètres - Automatique](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png" alt-text="Définir les propriétés sous l’onglet Paramètres - Automatique":::
 
    1. Dans le champ **Azure-SSIS IR**, sélectionnez le runtime d'intégration Azure-SSIS désigné pour lancer votre activité Exécuter le package SSIS.
 
@@ -98,13 +98,13 @@ Sous l'onglet **Paramètres** de l'activité Exécuter le package SSIS, procéde
 
    1. Si votre Azure-SSIS IR n’est pas en cours d’exécution ou que la case **Entrées manuelles** est sélectionnée, entrez les chemins de votre package et de votre environnement directement à partir de SSISDB aux formats suivants : `<folder name>/<project name>/<package name>.dtsx` et `<folder name>/<environment name>`.
 
-      ![Définir les propriétés sous l’onglet Paramètres - Manuel](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png" alt-text="Définir les propriétés sous l’onglet Paramètres - Manuel":::
 
 ##### <a name="package-location-file-system-package"></a>Emplacement du package : Système de fichiers (Package)
 
 **Système de fichiers (Package)** est automatiquement sélectionné comme emplacement de votre package si votre runtime d'intégration Azure-SSIS a été approvisionné sans SSISDB. Vous pouvez également le sélectionner vous-même. S'il est sélectionné, procédez comme suit.
 
-![Définir les propriétés sous l'onglet Paramètres - Système de fichiers (Package)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png" alt-text="Définir les propriétés sous l'onglet Paramètres - Système de fichiers (Package)":::
    
    1. Désignez le package à exécuter en fournissant un chemin d'accès UNC (Universal Naming Convention) à votre fichier de package (avec `.dtsx`) dans le champ **Chemin d'accès du package**. Vous pouvez accéder à votre package en sélectionnant **Parcourir le stockage de fichiers** ou entrer manuellement le chemin d'accès de celui-ci. Par exemple, si vous stockez votre package dans Azure Files, son chemin d'accès est `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
    
@@ -134,7 +134,7 @@ Pour tous les chemins d’accès UNC mentionnés précédemment, le nom de fichi
 
 Si vous sélectionnez **Système de fichiers (Projet)** comme emplacement de votre package, procédez comme suit.
 
-![Définir les propriétés sous l'onglet Paramètres - Système de fichiers (Projet)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png" alt-text="Définir les propriétés sous l'onglet Paramètres - Système de fichiers (Projet)":::
 
    1. Désignez le package à exécuter en fournissant un chemin d'accès UNC à votre fichier de projet (avec `.ispac`) dans le champ **Chemin d'accès du projet** et un fichier de package (avec `.dtsx`) de votre projet dans le champ **Nom du package**. Vous pouvez accéder à votre projet en sélectionnant **Parcourir le stockage de fichiers** ou entrer manuellement le chemin d'accès de celui-ci. Par exemple, si vous stockez votre projet dans Azure Files, son chemin d'accès est `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
 
@@ -162,7 +162,7 @@ Pour tous les chemins d’accès UNC mentionnés précédemment, le nom de fichi
 
 Si vous sélectionnez **Package incorporé** comme emplacement de votre package, procédez comme suit.
 
-![Définir les propriétés sous l'onglet Paramètres - Package incorporé](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png" alt-text="Définir les propriétés sous l'onglet Paramètres - Package incorporé":::
 
    1. Glissez-déplacez le fichier de votre package (avec `.dtsx`) ou **chargez-le** dans la zone prévue à cet effet depuis un dossier de fichiers. Votre package sera automatiquement compressé et incorporé à la charge utile de l'activité. Une fois votre package incorporé, vous pouvez le **télécharger** ultérieurement afin de le modifier. Vous pouvez également **paramétrer** votre package incorporé en l'assignant à un paramètre pipeline qui peut être utilisé dans plusieurs activités, optimisant ainsi la taille de votre charge utile de pipeline. L’incorporation de Fichiers projet (avec `.ispac`) n’est pas prise en charge pour le moment. Vous ne pouvez donc pas utiliser de paramètres SSIS ni gestionnaires de connexions avec une étendue au niveau du projet dans vos packages incorporés.
    
@@ -190,7 +190,7 @@ Pour tous les chemins d’accès UNC mentionnés précédemment, le nom de fichi
 
 Si vous sélectionnez **Magasin de packages** comme emplacement de votre package, procédez comme suit.
 
-![Définir les propriétés sous l'onglet Paramètres - Magasin de packages](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png" alt-text="Définir les propriétés sous l'onglet Paramètres - Magasin de packages":::
    
    1. Dans le champ **Nom du magasin de packages**, sélectionnez un magasin de packages existant associé à votre runtime d'intégration Azure-SSIS.
 
@@ -222,7 +222,7 @@ Pour tous les chemins d’accès UNC mentionnés précédemment, le nom de fichi
 
 Sous l'onglet **Paramètres SSIS** de l'activité Exécuter le package SSIS, procédez comme suit.
 
-![Définir les propriétés sous l’onglet Paramètres SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png" alt-text="Définir les propriétés sous l’onglet Paramètres SSIS":::
 
    1. Si votre runtime d'intégration Azure-SSIS est en cours d'exécution, **SSISDB** est sélectionné comme emplacement de votre package, et si la case **Entrées manuelles** de l'onglet **Paramètres** n'est pas cochée, les paramètres SSIS existants du projet et du package sélectionnés à partir de SSISDB apparaissent pour vous permettre de leur attribuer des valeurs. Sinon, vous pouvez affecter manuellement des valeurs une par une. Assurez-vous que les valeurs existent et qu’elles sont correctement entrées pour que l’exécution du package réussisse. 
    
@@ -236,19 +236,19 @@ Vous pouvez également utiliser les secrets stockés dans votre coffre de clés 
 
 Sous l'onglet **Gestionnaires de connexions** de l'activité Exécuter le package SSIS, procédez comme suit.
 
-![Définir les propriétés sous l’onglet Gestionnaires de connexions](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png" alt-text="Définir les propriétés sous l’onglet Gestionnaires de connexions":::
 
    1. Si votre runtime d'intégration Azure-SSIS est en cours d'exécution, **SSISDB** est sélectionné comme emplacement de votre package, et si la case **Entrées manuelles** de l'onglet **Paramètres** n'est pas cochée, les gestionnaires de connexions existants du projet et du package sélectionnés à partir de SSISDB apparaissent pour vous permettre d'attribuer des valeurs à leurs propriétés. Sinon, vous pouvez affecter manuellement des valeurs aux propriétés une par une. Assurez-vous que les valeurs existent et qu’elles sont correctement entrées pour que l’exécution du package réussisse. 
    
       Vous pouvez obtenir les noms **ÉTENDUE**, **NOM** et **PROPRIÉTÉ** corrects pour tout gestionnaire de connexions en ouvrant le package qui le contient sur SSDT. Une fois le package ouvert, sélectionnez le gestionnaire de connexions approprié pour afficher les noms et les valeurs de toutes ses propriétés dans la fenêtre **Propriétés** de SSDT. Grâce à ces informations, vous pouvez remplacer les valeurs de toutes les propriétés du gestionnaire de connexions à l’exécution. 
 
-      ![Obtenir les propriétés du gestionnaire de connexions sur SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png" alt-text="Obtenir les propriétés du gestionnaire de connexions sur SSDT":::
 
       Par exemple, sans modifier votre package d’origine sur SSDT, vous pouvez convertir ses flux de données local vers local s’exécutant sur SQL Server en flux de données local vers cloud s’exécutant sur un runtime d’intégration SSIS dans ADF en remplaçant les valeurs des propriétés **ConnectByProxy**, **ConnectionString** et **ConnectUsingManagedIdentity** dans les gestionnaires de connexions existants à l’exécution.
       
       Ces remplacements à l’exécution peuvent activer le runtime d’intégration auto-hébergé (SHIR) comme proxy pour le runtime d’intégration SSIS lors de l’accès aux données localement (voir [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour le runtime d’intégration SSIS](./self-hosted-integration-runtime-proxy-ssis.md)) et aux connexions Azure SQL Database/Managed Instance à l’aide du dernier pilote MSOLEDBSQL qui, à son tour, active l’authentification Azure Active Directory (AAD) avec l’identité managée ADF (voir [Configurer l’authentification AAD avec une identité managée ADF pour les connexions OLEDB](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication)).
 
-      ![Définir les propriétés à partir de SSDT sous l’onglet Gestionnaires de connexions](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png" alt-text="Définir les propriétés à partir de SSDT sous l’onglet Gestionnaires de connexions":::
    
    1. Si vous avez utilisé le niveau de protection **EncryptSensitiveWithUserKey** lorsque vous avez créé votre package via SSDT et que **Système de fichiers (Package)** , **Système de fichiers (Projet)** , **Package incorporé** ou **Magasin de packages** est sélectionné comme emplacement de votre package, vous devez également réentrer les propriétés sensibles de vos gestionnaires de connexions pour leur attribuer des valeurs dans cet onglet. 
 
@@ -260,23 +260,23 @@ Vous pouvez également utiliser les secrets stockés dans votre coffre de clés 
 
 Sous l'onglet **Substitutions de propriété** de l'activité Exécuter le package SSIS, procédez comme suit.
 
-![Définir les propriétés sous l’onglet Substitutions de propriété](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png" alt-text="Définir les propriétés sous l’onglet Substitutions de propriété":::
 
    1. Entrez un par un les chemins d'accès des propriétés existantes dans le package sélectionné pour leur attribuer manuellement des valeurs. Assurez-vous que les valeurs existent et qu’elles sont correctement entrées pour que l’exécution du package réussisse. Par exemple, pour remplacer la valeur de votre variable utilisateur, entrez son chemin d’accès au format suivant : `\Package.Variables[User::<variable name>].Value`. 
 
       Vous pouvez obtenir le **CHEMIN D’ACCÈS À LA PROPRIÉTÉ** correct pour toute propriété de package en ouvrant le package qui le contient sur SSDT. Une fois le package ouvert, sélectionnez son flux de contrôle et sa propriété **Configurations** dans la fenêtre **Propriétés** de SSDT. Sélectionnez ensuite le bouton de sélection ( **…** ) à côté de sa propriété **Configurations** pour ouvrir la **bibliothèque des configurations du package** qui est normalement utilisée pour [créer des configurations de package dans le modèle de déploiement de package](/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
-      ![Récupérer les propriétés de package à partir de SSDT – Propriété Configurations](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png" alt-text="Récupérer les propriétés de package à partir de SSDT – Propriété Configurations":::
 
       Dans la **bibliothèque des configurations du package**, cochez la case **Activer les configurations du package** et sélectionnez le bouton **Ajouter…** pour ouvrir l’**Assistant Configuration de package**. 
       
       Dans l’**Assistant Configuration du package**, sélectionnez l’élément **Fichier config XML** dans menu déroulant **Type de configuration** et le bouton **Spécifier directement les paramètres de configuration**, entrez le nom de votre fichier config, puis sélectionnez le bouton **Suivant >** . 
 
-      ![Récupérer les propriétés de package à partir de SSDT – Bibliothèque des configurations](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png" alt-text="Récupérer les propriétés de package à partir de SSDT – Bibliothèque des configurations":::
 
       Enfin, sélectionnez les propriétés du package dont vous souhaitez obtenir le chemin d’accès et le bouton **Suivant >** .  Vous pouvez maintenant voir, copier et coller les chemins d’accès aux propriétés du package de votre choix et les enregistrer dans votre fichier config. Grâce à ces informations, vous pouvez remplacer les valeurs de toutes les propriétés du package à l’exécution. 
 
-      ![Récupérer les propriétés de package à partir de SSDT – Assistant Configuration](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png" alt-text="Récupérer les propriétés de package à partir de SSDT – Assistant Configuration":::
    
    1. Si vous avez utilisé le niveau de protection **EncryptSensitiveWithUserKey** lorsque vous avez créé votre package via SSDT et que **Système de fichiers (Package)** , **Système de fichiers (Projet)** , **Package incorporé** ou **Magasin de packages** est sélectionné comme emplacement de votre package, vous devez également réentrer les propriétés sensibles de votre package pour leur attribuer des valeurs dans cet onglet. 
    
@@ -293,7 +293,7 @@ Pour publier le pipeline sur Data Factory, sélectionnez **Publier tout**.
 
 1. Pour déclencher une exécution de pipeline, sélectionnez **Déclencher** dans la barre d’outils, puis **Déclencher maintenant**. 
 
-   ![Déclencher maintenant](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png" alt-text="Déclencher maintenant":::
 
 2. Dans la fenêtre **Exécution du pipeline**, sélectionnez **Terminer**. 
 
@@ -301,11 +301,11 @@ Pour publier le pipeline sur Data Factory, sélectionnez **Publier tout**.
 
 1. Basculez vers l’onglet **Surveiller** sur la gauche. Vous voyez l’exécution de pipeline et son état, ainsi que d’autres informations (telles que l’heure de **Début d’exécution**). Sélectionnez **Actualiser** pour actualiser l’affichage.
 
-   ![Exécutions de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png" alt-text="Exécutions de pipeline":::
 
 2. Cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Une seule exécution d’activité est affichée, étant donné que le pipeline n’a qu’une seule activité. Il s’agit de l’activité Exécuter le package SSIS.
 
-   ![Exécutions d’activités](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png" alt-text="Exécutions d’activités":::
 
 3. Exécutez la requête suivante par rapport à la base de données SSISDB dans votre serveur SQL pour vérifier que le package s’est exécuté. 
 
@@ -313,11 +313,11 @@ Pour publier le pipeline sur Data Factory, sélectionnez **Publier tout**.
    select * from catalog.executions
    ```
 
-   ![Vérifier les exécutions de package](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png" alt-text="Vérifier les exécutions de package":::
 
 4. Vous pouvez également obtenir l’ID de l’exécution SSISDB à partir de la sortie de l’exécution de l’activité de pipeline, et utiliser l’ID pour consulter des journaux d’activité d’exécution et des messages d’erreur plus complets dans SQL Server Management Studio.
 
-   ![Obtenez l’ID de l'exécution.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
+   :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png" alt-text="Obtenez l’ID de l'exécution.":::
 
 ### <a name="schedule-the-pipeline-with-a-trigger"></a>Planifier le pipeline avec un déclencheur
 

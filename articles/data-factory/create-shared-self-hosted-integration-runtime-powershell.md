@@ -8,12 +8,12 @@ ms.author: lle
 author: lrtoyou1223
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 06/10/2020
-ms.openlocfilehash: b59655f343c8b5aa279dae9197c1d7fa41e0c318
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 65473b226ac8c188660862bddadb30ba44c4136d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562503"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811667"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory
 
@@ -40,17 +40,17 @@ Pour créer un runtime d’intégration auto-hébergé partagé à l’aide de l
 
 1. Dans le runtime d’intégration auto-hébergé à partager, sélectionnez **Octroyer une autorisation à une autre fabrique de données** et dans la page « Configuration du runtime d’intégration », sélectionnez la fabrique de données dans laquelle vous souhaitez créer le runtime d’intégration lié.
       
-    ![Bouton pour accorder l’autorisation sur l’onglet Partage](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
+    :::image type="content" source="media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png" alt-text="Bouton pour accorder l’autorisation sur l’onglet Partage":::  
     
 2. Notez et copiez « l’ID de ressource » ci-dessus du runtime d’intégration auto-hébergé à partager.
          
 3. Dans la fabrique de données à laquelle les autorisations ont été accordées, créez un runtime d’intégration auto-hébergé (lié) et entrez l’ID de ressource.
       
-    ![Bouton pour créer un runtime d’intégration auto-hébergé](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-1.png" alt-text="Bouton pour créer un runtime d’intégration auto-hébergé":::
    
-    ![Bouton pour créer un runtime d’intégration auto-hébergé lié](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-2.png" alt-text="Bouton pour créer un runtime d’intégration auto-hébergé lié"::: 
 
-    ![Champs de saisie du nom et de l’ID de ressource](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-3.png" alt-text="Champs de saisie du nom et de l’ID de ressource":::
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Créer un runtime d’intégration auto-hébergé partagé à l’aide d’Azure PowerShell
 
@@ -227,15 +227,15 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 #### <a name="shared-ir"></a>Runtime d’intégration partagé
 
-![Sélections pour rechercher un runtime d’intégration partagé](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-shared-IR.png" alt-text="Sélections pour rechercher un runtime d’intégration partagé":::
 
-![Surveiller un runtime d'intégration partagé](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png" alt-text="Surveiller un runtime d'intégration partagé":::
 
 #### <a name="linked-ir"></a>Runtime d’intégration lié
 
-![Sélections pour rechercher un runtime d’intégration lié](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-linked-ir.png" alt-text="Sélections pour rechercher un runtime d’intégration lié":::
 
-![Surveiller un runtime d'intégration lié](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png" alt-text="Surveiller un runtime d'intégration lié":::
 
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitations connues du partage de runtime d’intégration autohébergé

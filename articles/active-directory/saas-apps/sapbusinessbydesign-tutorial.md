@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 6db863f43deb6eb2787cda60650a267a62076aad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54bf74a0d20945d7af27b86b80e1ac50397d7425
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101654336"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124808469"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Didacticiel : Intégration d’Azure Active Directory à SAP Business ByDesign
 
@@ -192,7 +192,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL d’authentification SAP Business ByDesign pour lancer le processus de connexion.
 
-3. Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette SAP Business ByDesign dans Mes applications vous redirige vers l’URL d’authentification SAP Business ByDesign. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+3. Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette SAP Business ByDesign dans Mes applications vous redirige vers l’URL d’authentification SAP Business ByDesign. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

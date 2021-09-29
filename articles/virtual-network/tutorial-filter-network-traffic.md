@@ -8,12 +8,12 @@ ms.service: virtual-network
 ms.topic: tutorial
 ms.date: 03/06/2021
 ms.author: kumud
-ms.openlocfilehash: cfbb499c79761e1f2014c834e65dac35fe09ef90
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4af40f7f1caab7e4517c0dd621e400f58e3a29ad
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057284"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091366"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutoriel : Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide du portail Azure
 
@@ -178,7 +178,7 @@ Dans cette section, nous allons associer le groupe de sécurité réseau au sous
     | Groupe de sécurité d’application de destination | Sélectionnez **myAsgMgmtServers**. |
     | Service | Conservez la valeur par défaut **Personnalisé**. |
     | Plages de ports de destination | Entrez **3389**. |
-    | Protocol | Sélectionnez **TCP**. |
+    | Protocol | sélectionnez **N'importe laquelle**. |
     | Action | Conservez la valeur par défaut **Autoriser**. |
     | Priority | Conservez la valeur par défaut **110**. |
     | Nom | Entrez **Allow-RDP-All**. |

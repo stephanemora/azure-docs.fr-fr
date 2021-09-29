@@ -13,18 +13,18 @@ ms.date: 03/11/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d3ec7c9786a9b5d3774c05669ae6d51ad443e71d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c7f05973f7d609ab3f4dc0f2f567ede4ce0d0f64
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524968"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124830918"
 ---
 # <a name="manage-your-users-with-my-staff"></a>Gérez vos utilisateurs à l'aide de Mon personnel
 
 Mon personnel vous permet de déléguer des autorisations à une figure d'autorité, telle qu'un responsable de magasin ou un chef d'équipe, afin que les membres de son personnel aient accès à leur compte Azure AD. Au lieu de s'appuyer sur un support technique central, les organisations peuvent déléguer à un chef d'équipe local des tâches courantes comme la réinitialisation des mots de passe ou la modification des numéros de téléphone. Avec Mon personnel, l’utilisateur qui ne parvient pas à accéder à son compte peut récupérer l’accès en quelques clics seulement, sans intervention du support technique ou du personnel informatique.
 
-Avant de configurer Mon personnel pour votre organisation, nous vous recommandons de consulter cette documentation ainsi que la [documentation utilisateur](../user-help/my-staff-team-manager.md) afin de bien comprendre son fonctionnement et son impact sur vos utilisateurs. Vous pouvez utiliser la documentation utilisateur pour former vos utilisateurs et les préparer à la nouvelle expérience, afin de faciliter le déploiement.
+Avant de configurer Mon personnel pour votre organisation, nous vous recommandons de consulter cette documentation ainsi que la [documentation utilisateur](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd) afin de bien comprendre son fonctionnement et son impact sur vos utilisateurs. Vous pouvez utiliser la documentation utilisateur pour former vos utilisateurs et les préparer à la nouvelle expérience, afin de faciliter le déploiement.
 
 ## <a name="how-my-staff-works"></a>Fonctionnement de Mon personnel
 
@@ -72,7 +72,7 @@ Le principal de service apparaît lorsque vous créez une stratégie d'accès co
 
 ## <a name="using-my-staff"></a>Utilisation de Mon personnel
 
-Quand un utilisateur accède à Mon personnel, il voit apparaître le nom des [unités administratives](administrative-units.md) sur lesquelles il dispose d’autorisations d’administration. Dans la [documentation utilisateur de Mon personnel](../user-help/my-staff-team-manager.md), nous utilisons le terme « emplacement » pour faire référence aux unités administratives. Les autorisations d'un administrateur dont l'étendue ne couvre pas d'unités administratives s'appliquent à l'ensemble de l'organisation. Après l’activation de Mon personnel, les utilisateurs activés et disposant d’un rôle d’administrateur peuvent y accéder à l’adresse [https://mystaff.microsoft.com](https://mystaff.microsoft.com). Ils ont la possibilité de sélectionner une unité administrative pour afficher les utilisateurs qu'elle comporte, et de sélectionner un utilisateur pour ouvrir son profil.
+Quand un utilisateur accède à Mon personnel, il voit apparaître le nom des [unités administratives](administrative-units.md) sur lesquelles il dispose d’autorisations d’administration. Dans la [documentation utilisateur de Mon personnel](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd), nous utilisons le terme « emplacement » pour faire référence aux unités administratives. Les autorisations d'un administrateur dont l'étendue ne couvre pas d'unités administratives s'appliquent à l'ensemble de l'organisation. Après l’activation de Mon personnel, les utilisateurs activés et disposant d’un rôle d’administrateur peuvent y accéder à l’adresse [https://mystaff.microsoft.com](https://mystaff.microsoft.com). Ils ont la possibilité de sélectionner une unité administrative pour afficher les utilisateurs qu'elle comporte, et de sélectionner un utilisateur pour ouvrir son profil.
 
 ## <a name="reset-a-users-password"></a>Réinitialiser le mot de passe de l’utilisateur
 
@@ -128,5 +128,5 @@ Vous pouvez afficher les journaux d’audit des actions effectuées dans Mon per
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Documentation utilisateur de Mon personnel](../user-help/my-staff-team-manager.md)
+[Documentation utilisateur de Mon personnel](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd)
 [Documentation sur les unités administratives](administrative-units.md)

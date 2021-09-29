@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 786925799d19bf01e8edebbf85de04d92213298b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95d594d585ebb6016c1f2971121898b1c1b9c5da
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98732843"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816426"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-retrievermediadatabase"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à RetrieverMediaDatabase
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 1. Cliquez sur Tester cette application sur le portail Azure ; vous êtes alors connecté automatiquement à l’instance de RetrieverMediaDatabase pour laquelle vous avez configuré l’authentification unique.
 
-1. Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette RetrieverMediaDatabase dans Mes applications, vous êtes connecté automatiquement à l’instance de RetrieverMediaDatabase pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+1. Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette RetrieverMediaDatabase dans Mes applications, vous êtes connecté automatiquement à l’instance de RetrieverMediaDatabase pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/29/2021
 ms.author: radeltch
-ms.openlocfilehash: b6eceec68433c9cacfa4aa507e260cae86766609
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 59c977b94efe62489208fca0d2514a5d2e381aff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122564019"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803685"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sur Windows avec Azure NetApp Files (SMB) pour les applications SAP
 
@@ -31,7 +31,6 @@ ms.locfileid: "122564019"
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -111,10 +110,9 @@ Le partage pour les services centraux SAP de cette architecture de référence e
 
 Procédez comme suit pour préparer l’utilisation d’Azure NetApp Files.  
 
-1. Suivez les étapes pour vous [inscrire à Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md)  
-2. Créez un compte Azure NetApp, en suivant les étapes décrites dans [Créer un compte NetApp](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)  
-3. Configurez le pool de capacité, en suivant les instructions de la rubrique [Configurer un pool de capacité](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
-4. Les ressources d’Azure NetApp Files doivent résider dans un sous-réseau délégué. Suivez les instructions de la rubrique [Déléguer un sous-réseau à Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) pour créer un sous-réseau délégué.  
+1. Créez un compte Azure NetApp, en suivant les étapes décrites dans [Créer un compte NetApp](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)  
+2. Configurez le pool de capacité, en suivant les instructions de la rubrique [Configurer un pool de capacité](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
+3. Les ressources d’Azure NetApp Files doivent résider dans un sous-réseau délégué. Suivez les instructions de la rubrique [Déléguer un sous-réseau à Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) pour créer un sous-réseau délégué.  
 
    > [!IMPORTANT]
    > Vous devez créer des connexions Active Directory avant de créer un volume SMB. Passez en revue la [configuration requise pour les connexions Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
@@ -122,9 +120,9 @@ Procédez comme suit pour préparer l’utilisation d’Azure NetApp Files.
    > Lorsque vous créez la connexion Active Directory, veillez à entrer un préfixe de serveur SMB (compte d’ordinateur) de plus de 8 caractères pour éviter la limitation du nom d’hôte de 13 caractères pour les applications SAP (un suffixe est automatiquement ajouté au nom du compte de l’ordinateur SMB).     
    > Les limitations de nom d’hôte des applications SAP sont décrites dans [2718300 - Limitations de longueur de nom d’hôte physique et virtuel](https://launchpad.support.sap.com/#/notes/2718300) et [611361 - Noms d’hôte de serveurs de plateforme SAP ABAP](https://launchpad.support.sap.com/#/notes/611361).  
 
-5. Créez la connexion Active Directory, comme décrit dans [Créer une connexion Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
-6. Créez un volume SMB Azure NetApp Files, en suivant les instructions fournies dans [Ajouter un volume SMB](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
-7. Montez le volume SMB sur votre machine virtuelle Windows.
+4. Créez la connexion Active Directory, comme décrit dans [Créer une connexion Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
+5. Créez un volume SMB Azure NetApp Files, en suivant les instructions fournies dans [Ajouter un volume SMB](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
+6. Montez le volume SMB sur votre machine virtuelle Windows.
 
 > [!TIP]
 > Vous trouverez des instructions sur la façon de monter le volume Azure NetApp Files, si vous naviguez dans le [Portail Azure](https://portal.azure.com/#home) vers l’objet Azure NetApp Files, cliquez sur le panneau **Volumes**, puis **Instructions de montage**.  

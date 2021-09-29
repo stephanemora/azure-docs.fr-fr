@@ -6,16 +6,16 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/09/2021
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
-ms.openlocfilehash: f1dbbdaece135706555b19448f8126769958918f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 63c4a4b53889f2c762b7c1dadffe432cd7383b4c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641260"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758045"
 ---
 # <a name="set-variable-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité de définition de variable dans Azure Data Factory et Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,7 +38,7 @@ Un scénario courant impliquant des variables consiste à utiliser une variable 
 
 Voici un exemple de ce modèle :
 
-![Incrémenter une variable](media/control-flow-set-variable-activity/increment-variable.png "Incrémenter une variable")
+:::image type="content" source="media/control-flow-set-variable-activity/increment-variable.png" alt-text="Incrémenter une variable":::
 
 ``` json
 {

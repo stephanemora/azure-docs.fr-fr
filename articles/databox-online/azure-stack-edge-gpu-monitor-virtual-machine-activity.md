@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.author: alkohli
-ms.openlocfilehash: a73337ad261d8d2d7aef2c6292c7387d7c4cad9a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: aa1974347caa04c314e51b33daba47d7835026db
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562871"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757607"
 ---
 # <a name="monitor-vm-activity-on-your-azure-stack-edge-pro-gpu-device"></a>Surveiller l’activité d’une machine virtuelle sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -42,7 +42,7 @@ Pour afficher les journaux d’activité des machines virtuelles sur votre appar
 
     ![Capture d’écran montrant la page des journaux d’activité pour les machines virtuelles sur un appareil Azure Stack Edge. Une opération développée est mise en surbrillance dans la liste.](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-03.png)<!--Reshoot to remove pointer. May be able to replace drop-down only.-->
 
-Dans n’importe quel volet du **Journal d’activité** dans Azure, vous pouvez filtrer et trier les activités, sélectionner les colonnes à afficher, approfondir les détails d’une activité spécifique et obtenir des **Insights rapides** sur les erreurs, les échecs de déploiement, les alertes, l’intégrité des services et les changements de sécurité au cours des dernières 24 heures. Pour plus d’informations sur les journaux et les options de filtrage, voir [ Afficher les journaux d’activité ](../azure-resource-manager/management/view-activity-logs.md).
+Dans n’importe quel volet du **Journal d’activité** dans Azure, vous pouvez filtrer et trier les activités, sélectionner les colonnes à afficher, approfondir les détails d’une activité spécifique et obtenir des **Insights rapides** sur les erreurs, les échecs de déploiement, les alertes, l’intégrité des services et les changements de sécurité au cours des dernières 24 heures. Pour plus d’informations sur les journaux et les options de filtrage, voir [ Afficher les journaux d’activité ](../azure-monitor/essentials/activity-log.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

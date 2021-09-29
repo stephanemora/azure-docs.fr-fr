@@ -8,12 +8,12 @@ ms.date: 09/16/2021
 ms.author: prsandhu
 ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: c6620f95c9ec217771cd14c756e60fd0eb6d90c4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 26d4464d67634d5660796ce24dc9b9dc2505e0ef
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659277"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218239"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Services Azure prenant en charge les zones de disponibilité
 
@@ -49,16 +49,15 @@ Pour obtenir la continuité complète des activités sur Azure, générez votre 
 
 | Amérique           | Europe               | Afrique              | Asie-Pacifique   |
 |--------------------|----------------------|---------------------|----------------|
-|                    |                      |                     |                |
 | Brésil Sud       | France Centre       | Afrique du Sud Nord* | Australie Est |
 | Centre du Canada     | Allemagne Centre-Ouest |                     | Inde Centre* |
 | USA Centre         | Europe Nord         |                     | Japon Est     |
 | USA Est            | Norvège Est          |                     | Corée Centre* |
 | USA Est 2          | Sud du Royaume-Uni             |                     | Asie Sud-Est |
-| USA Centre Sud | Europe Ouest          |                     |                |
+| États-Unis - partie centrale méridionale   | Europe Ouest          |                     |                |
 | Gouvernement américain - Virginie    |                      |                     |                |
-| USA Ouest 2        |                      |                     |                |
-| USA Ouest 3        |                      |                     |                |
+| USA Ouest 2          |                      |                     |                |
+| USA Ouest 3          |                      |                     |                |
 
 \* Pour en savoir plus sur Zones de disponibilité et sur la prise en charge des services disponibles dans ces régions, contactez votre représentant commercial ou client Microsoft. Pour les régions à venir qui prendront en charge Zones de disponibilité, consultez [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 

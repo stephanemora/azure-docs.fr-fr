@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: afad903734fded062681f18683cb74492993fe1c
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 1d240d1a4fd37c9ec6371407969473e415a27065
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684214"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093684"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutoriel : Configurer ServiceNow pour l'approvisionnement automatique d'utilisateurs
 
@@ -146,7 +146,7 @@ Après avoir configuré l’approvisionnement, utilisez les ressources suivantes
 
    Par exemple, vous pouvez avoir deux localisations (Seattle, Los Angeles) et trois services (Ventes, Finances, Marketing) dans une table spécifique dans ServiceNow. Si vous tentez de provisionner un utilisateur dont le service est « Ventes » et qui se trouve à « Seattle », cet utilisateur est provisionné correctement. Si vous tentez de provisionner un utilisateur dont le service est « Ventes » et qui se trouve à « LA », l’utilisateur n’est pas provisionné. La localisation « LA » doit être ajouté à la table de référence dans ServiceNow, ou l’attribut utilisateur dans Azure AD doit être mis à jour afin de correspondre au format dans ServiceNow. 
 * Si une erreur **EntryJoiningPropertyValueIsMissing** s’affiche, passez en revue vos [mappages d’attributs](../app-provisioning/customize-application-attributes.md) pour identifier l’attribut correspondant. Cette valeur doit être présente sur l’utilisateur ou le groupe que vous tentez de provisionner. 
-* Pour comprendre les conditions ou les limitations (par exemple, le format à utiliser pour spécifier un indicatif de pays pour un utilisateur), passez en revue l’[API SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html).
+* Pour comprendre les conditions ou les limitations (par exemple, le format à utiliser pour spécifier un indicatif de pays pour un utilisateur), passez en revue l’[API SOAP de ServiceNow](https://docs.servicenow.com/bundle/rome-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html).
 * Par défaut, les demandes de provisionnement sont envoyées à https://{nom-de-votre-instance}.service-now.com/{nom-table}. Si vous avez besoin d’une URL de locataire personnalisée, vous pouvez indiquer l’URL complète comme nom de l’instance.
 * L’erreur **ServiceNowInstanceInvalid** indique un problème de communication avec l’instance ServiceNow. Voici le texte de l’erreur :
   

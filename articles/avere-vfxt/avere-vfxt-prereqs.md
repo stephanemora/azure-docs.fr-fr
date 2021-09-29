@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36ff2aadaf579403603dcf920050e52c0a8bf600
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008410"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807696"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Se préparer à la création du système Avere vFXT
 
@@ -42,7 +42,7 @@ Certaines solutions de contournement permettent à un non-propriétaire de crée
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota pour le cluster vFXT
 
-Veillez à disposer d’un quota suffisant pour les composants Azure suivants. Si nécessaire, [demandez une augmentation du quota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+Veillez à disposer d’un quota suffisant pour les composants Azure suivants. Si nécessaire, [demandez une augmentation du quota](../azure-portal/supportability/regional-quota-requests.md).
 
 > [!NOTE]
 > Les machines virtuelles et les composants SSD répertoriés ici sont destinées au cluster vFXT proprement dit. N’oubliez pas que vous avez également besoin d’un quota pour les machines virtuelles et les disques SSD que vous allez utiliser pour votre batterie de serveurs de calcul.

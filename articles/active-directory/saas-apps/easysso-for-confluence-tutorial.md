@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: ef121112bb4ff3ff6a297677a5c713f642cb3b78
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: ea114dfc0a0ecb7f06fa350a0067a96763dc2b81
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519535"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809501"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à EasySSO pour Confluence
 
@@ -194,7 +194,7 @@ Toutefois, si vous ne souhaitez pas activer le provisionnement automatique d’u
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide de Mes applications.
 
-Quand vous cliquez sur la vignette EasySSO for Confluence dans Mes applications, vous devez être connecté automatiquement à l’instance Confluence pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette EasySSO for Confluence dans Mes applications, vous devez être connecté automatiquement à l’instance Confluence pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ### <a name="sp-initiated-workflow"></a>Workflow lancé par le fournisseur de services
 

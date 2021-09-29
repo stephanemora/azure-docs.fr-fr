@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/18/2021
-ms.openlocfilehash: b1168833242aa69b8e1bff5d7bd810f2c3db019d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 70acef205aea35439e9b88e193c65a6e34ac0b7f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693584"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761471"
 ---
 # <a name="connect-azure-database-for-mysql-flexible-server-with-private-access-connectivity-method"></a>Connecter un serveur flexible Azure Database pour MySQL avec la méthode de connectivité d’accès privé
 
@@ -21,7 +21,9 @@ Le serveur flexible Azure Database pour MySQL est un service managé qui vous pe
 > [!IMPORTANT]
 > Le serveur flexible Azure Database pour MySQL est actuellement en préversion publique.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
+
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 Accédez au [portail Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.

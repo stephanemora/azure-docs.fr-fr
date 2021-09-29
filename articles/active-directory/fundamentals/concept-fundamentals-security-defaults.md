@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 09/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: lvandenende
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: d4c0c4122d44716b3bb55b231662743c79bdd9d7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 83a2c5bca5837919015125d6c421dccfef5bf58c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633409"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079444"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -61,18 +61,18 @@ Les utilisateurs disposant d’un accès privilégié ont un accès plus large �
 Une fois l’inscription à Azure AD Multi-Factor Authentication terminée, les neuf rôles Administrateur Azure AD suivants sont nécessaires pour effectuer une authentification supplémentaire chaque fois qu’ils se connectent :
 
 - Administrateur général
-- Administrateur SharePoint
-- Administrateur Exchange
-- Administrateur de l’accès conditionnel
-- Administrateur de sécurité
-- Administrateur du support technique
-- Administrateur de facturation
-- Administrateur d’utilisateurs
+- Administrateur d’application
 - Administrateur d’authentification
+- Administrateur de facturation
+- Administrateur d’application cloud
+- Administrateur de l’accès conditionnel
+- Administrateur Exchange
+- Administrateur du support technique
 - Administrateur de mots de passe
 - Administrateur d’authentification privilégié
-- Administrateur d’application
-- Administrateur d’application cloud
+- Administrateur de sécurité
+- Administrateur SharePoint
+- Administrateur d’utilisateurs
 
 > [!WARNING]
 > Vérifiez que votre annuaire a au moins deux comptes disposant des privilèges d’administrateur général. Ceci vous aidera dans le cas où un administrateur général est verrouillé. Pour plus d’informations, consultez l’article [Gérer les comptes d’accès d’urgence dans Azure AD](../roles/security-emergency-access.md).

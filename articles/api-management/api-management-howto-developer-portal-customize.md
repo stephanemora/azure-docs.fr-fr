@@ -2,17 +2,17 @@
 title: Tutoriel – Accéder au portail des développeurs et le personnaliser – Gestion des API Azure | Microsoft Docs
 description: Suivez ce tutoriel pour savoir comment personnaliser le portail des développeurs Gestion des API, un site web généré automatiquement et entièrement personnalisable à l’aide de la documentation de vos API.
 services: api-management
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 08/31/2021
-ms.author: apimpm
-ms.openlocfilehash: c08fd4635232bdb84ce27fdc7a3e6f0d1791e921
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.author: danlep
+ms.openlocfilehash: 9220bcfc218acaaa073090fd1b05b4648510d096
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123318573"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583023"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>Tutoriel : Accéder et personnaliser le portail des développeurs
 

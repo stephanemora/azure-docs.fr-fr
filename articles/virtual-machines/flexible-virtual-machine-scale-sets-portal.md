@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: cef23894759b0b2dca7098ef1c430548d1720406
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 5d25e46ae62962e3f94d4a3f9222f91ebfa1d430
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699209"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823454"
 ---
 # <a name="preview-create-virtual-machines-in-a-flexible-scale-set-using-azure-portal"></a>Préversion : Créer des machines virtuelles dans un groupe identique Flexible à l’aide du portaiI Azure
 
@@ -37,9 +37,7 @@ Cet article décrit l’utilisation du portail Azure pour créer un groupe ident
 
 Avant de pouvoir déployer des groupes de machines virtuelles identiques en mode d’orchestration Flexible, vous devez inscrire la fonctionnalité d’évaluation pour votre abonnement. L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes.
 
-Pendant la préversion du mode d’orchestration flexible pour les groupes identiques, utilisez le portail Azure *préversion* lié dans les étapes ci-dessous. 
-
-1. Connectez-vous au portail Azure à l’adresse https://preview.portal.azure.com.
+1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
 1. Accédez à vos **Abonnements**.
 1. Accédez à la page des informations de l’abonnement pour lequel vous souhaitez créer un groupe identique en mode d’orchestration Flexible en sélectionnant le nom de l’abonnement.
 1. Dans le menu, sous **Paramètres**, sélectionnez **Fonctionnalités en préversion**.
@@ -57,9 +55,7 @@ Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effe
 
 ### <a name="create-a-virtual-machine-scale-set-in-flexible-orchestration-mode-through-the-azure-portal"></a>Créez un groupe de machines virtuelles identiques en mode d’orchestration Flexible avec le portail Azure.
 
-Pendant la préversion du mode d’orchestration flexible pour les groupes identiques, utilisez le portail Azure *préversion* lié dans les étapes ci-dessous. 
-
-1. Connectez-vous au portail Azure à l’adresse https://preview.portal.azure.com.
+1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
 1. Dans la barre de recherche, recherchez et sélectionnez **Groupes de machines virtuelles identiques**.
 1. Sélectionnez **Créer** dans la page **Groupes de machines virtuelles identiques**.
 1. Dans la page **Créer un groupe de machines virtuelles identiques**, consultez la section **Orchestration**.

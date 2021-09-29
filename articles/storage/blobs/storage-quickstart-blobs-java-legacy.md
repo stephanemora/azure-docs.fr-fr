@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Bibliothèque cliente Stockage Blob Azure v8 pour Java'
 description: Créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, utilisez la bibliothèque de client Stockage Azure v8 pour Java, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de lister les objets blob dans un conteneur.
-author: twooley
+author: normesta
 ms.custom: devx-track-java
-ms.author: twooley
+ms.author: normesta
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 49c55a2b565100e370ce561537c96a96b896f355
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 97c876821cd457b1da95429160f74a19b491147b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280596"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622452"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Démarrage rapide : Gérer les objets blob avec le Kit de développement logiciel (SDK) Java V8
 
@@ -78,8 +78,8 @@ Deleting the source, and downloaded files
 
 Avant de continuer, vérifiez votre répertoire par défaut (*C:\Users\<user>\AppData\Local\Temp*, pour les utilisateurs Windows) pour l’exemple de fichier. Copiez l’URL de l’objet blob en dehors de la fenêtre de console et collez-la dans un navigateur pour afficher le contenu du fichier dans Stockage Blob. Si vous comparez l’exemple de fichier dans votre répertoire avec le contenu stocké dans le stockage d’objets blob, vous verrez qu’ils sont identiques.
 
-  >[!NOTE]
-  >Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage.
+  > [!NOTE]
+  > Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage.
 
 Une fois que vous avez vérifié les fichiers, appuyez sur la touche **Entrée** pour accomplir la démonstration et supprimer les fichiers de test. Comme vous savez maintenant ce que fait l’exemple, ouvrez le fichier **AzureApp.java** pour examiner le code.
 
@@ -91,15 +91,15 @@ Ensuite, nous allons parcourir l’exemple de code pas à pas pour vous montrer 
 
 La première chose à faire est de créer les références aux objets utilisés pour accéder et gérer Stockage Blob. Ces objets reposent l’un sur l’autre : chacun est utilisé par le suivant dans la liste.
 
-* Créez une instance de l’objet [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) pointant vers le compte de stockage.
+- Créez une instance de l’objet [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) pointant vers le compte de stockage.
 
     L’objet **CloudStorageAccount** est une représentation de votre compte de stockage. Il vous permet de définir et lire les propriétés du compte de stockage par programmation. Vous pouvez utiliser l’objet **CloudStorageAccount** pour créer une instance de l’objet **CloudBlobClient**, nécessaire pour accéder au service BLOB.
 
-* Créez une instance de l’objet **CloudBlobClient** pointant vers le [service Blob](/java/api/com.microsoft.azure.storage.blob.cloudblobclient) de votre compte de stockage.
+- Créez une instance de l’objet **CloudBlobClient** pointant vers le [service Blob](/java/api/com.microsoft.azure.storage.blob.cloudblobclient) de votre compte de stockage.
 
     L’objet **CloudBlobClient** fournit un point d’accès au service BLOB, ce qui vous permet de définir et lire les propriétés de stockage d’objets blob par programmation. Vous pouvez utiliser l’objet **CloudBlobClient** pour créer une instance de l’objet **CloudBlobContainer**, nécessaire pour créer des conteneurs.
 
-* Créez une instance de l’objet [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer) qui représente le conteneur auquel vous accédez. Utilisez les conteneurs pour organiser vos objets blob de la même façon que vous utilisez des dossiers pour organiser vos fichiers sur votre ordinateur.
+- Créez une instance de l’objet [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer) qui représente le conteneur auquel vous accédez. Utilisez les conteneurs pour organiser vos objets blob de la même façon que vous utilisez des dossiers pour organiser vos fichiers sur votre ordinateur.
 
     Dès que vous disposez de **CloudBlobContainer**, vous pouvez créer une instance de l'objet [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) qui pointe vers l'objet blob qui vous intéresse, et effectuer une opération de chargement, de téléchargement, de copie ou autre.
 

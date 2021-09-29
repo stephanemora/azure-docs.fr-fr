@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daeff2aef260c13ae4bb08fd0c4c6a39d3fdcb48
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92459677"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124809336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutoriel : Intégration d’Azure Active Directory avec ITRP
 
@@ -207,7 +207,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
 
-### <a name="create-an-itrp-test-user"></a>Créer un utilisateur de test ITRP
+### <a name="create-an-itrp-test-user&quot;></a>Créer un utilisateur de test ITRP
 
 Pour autoriser les utilisateurs Azure AD à se connecter à ITRP, vous devez les ajouter dans ITRP. Vous devez les ajouter manuellement.
 
@@ -217,7 +217,7 @@ Pour créer un compte d’utilisateur, procédez comme suit :
 
 1. En haut de la fenêtre, sélectionnez l’icône **Enregistrements** :
 
-    ![Icône Enregistrements](./media/itrp-tutorial/ic775575.png "Icône Enregistrements")
+    ![Icône Enregistrements](./media/itrp-tutorial/ic775575.png &quot;Icône Enregistrements")
 
 1. Dans le menu, sélectionnez **Personnes** :
 
@@ -242,7 +242,7 @@ Pour créer un compte d’utilisateur, procédez comme suit :
 
 Vous devez maintenant tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous sélectionnez la vignette ITRP dans le volet d’accès, vous devez être connecté automatiquement à l’instance ITRP pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le volet d’accès, consultez [Accéder aux applications du portail Mes applications et les utiliser](../user-help/my-apps-portal-end-user-access.md).
+Quand vous sélectionnez la vignette ITRP dans le volet d’accès, vous devez être connecté automatiquement à l’instance ITRP pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le volet d’accès, consultez [Accéder aux applications du portail Mes applications et les utiliser](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

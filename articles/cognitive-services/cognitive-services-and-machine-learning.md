@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 452b850f0c5c731c1e5f3bbe0a7f5a28e2b72ecc
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: e723089b0e248b3bab167b985bc410b3e00d4dc6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525700"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788265"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services et machine learning
 
@@ -94,8 +94,6 @@ Les données suivantes catégorisent chaque service selon le type de données qu
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Visage](./Face/Overview.md)|x|x||
-|[Form Recognizer](./form-recognizer/overview.md)||x||
-|[Lecteur immersif](../applied-ai-services/immersive-reader/overview.md)|x|||
 |[Ink Recognizer](/previous-versions/azure/cognitive-services/Ink-Recognizer/overview)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
@@ -105,7 +103,7 @@ Les données suivantes catégorisent chaque service selon le type de données qu
 |[Reconnaissance vocale (STT) Speech](speech-service/speech-to-text.md)|x|x||
 |[Traduction vocale](speech-service/speech-translation.md)|x|||
 |[Analyse de texte](./text-analytics/overview.md)|x|||
-|[Translator](./translator/translator-info-overview.md)|x|||
+|[Translator](./translator/translator-overview.md)|x|||
 |[Translator – Custom Translator](./translator/custom-translator/overview.md)||x||
 
 *Personalizer n’a besoin que des données d’entraînement collectées par le service (pendant qu’il fonctionne en temps réel) pour évaluer votre stratégie et vos données. Personalizer n’a pas besoin de jeux de données historiques volumineux pour une formation initiale ou par lot. 

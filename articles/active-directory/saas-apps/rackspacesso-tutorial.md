@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 5c0019d53e1f011d5dfd9bf687f938101284ffee
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 50b0a6bdb58559f5b0ca5c22991f6f6611269932
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075319"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758937"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Rackspace SSO
 
@@ -184,7 +184,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l'URL de connexion à Rackspace SSO et lancez le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Rackspace SSO dans Mes applications vous redirige vers l'URL de connexion à Rackspace SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Rackspace SSO dans Mes applications vous redirige vers l'URL de connexion à Rackspace SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 Vous pouvez également utiliser le bouton **Valider** dans les paramètres d’authentification unique de **Rackspace SSO** :
 

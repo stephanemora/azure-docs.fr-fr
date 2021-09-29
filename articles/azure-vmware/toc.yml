@@ -226,5 +226,7 @@
       href: /cli/azure/vmware
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/
+    - name: Modèle Resource Manager
+      href: /azure/templates/microsoft.avs/privateclouds
     - name: Fournisseur Terraform Azure
       href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud'

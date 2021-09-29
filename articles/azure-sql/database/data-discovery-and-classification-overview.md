@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/24/2021
 tags: azure-synapse
-ms.openlocfilehash: bcda86cd166e410bfc546c802466180557a92dc8
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: b24fcbac37288dd3c49fe64fe517dd31bbab03d2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825054"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788398"
 ---
 # <a name="data-discovery--classification"></a>Découverte et classification des données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -134,7 +134,7 @@ Ce sont les activités qui peuvent être auditées à l’aide des informations 
 - DBCC SHOW_STATISTICS
 - sys.dm_db_stats_histogram
 
-Utilisez [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) pour renvoyer des informations à partir d’un fichier d’audit stocké dans un compte stockage Azure.
+Utilisez [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) pour renvoyer des informations à partir d’un fichier d’audit stocké dans un compte stockage Azure.
 
 ## <a name="permissions"></a><a id="permissions"></a>Autorisations
 
@@ -218,10 +218,10 @@ Vous pouvez utiliser l’API REST pour gérer par programme les classifications 
 
 Vous pouvez utiliser les pilotes SQL suivants pour récupérer les métadonnées de classification :
 
-- [Pilote ODBC](https://docs.microsoft.com/sql/connect/odbc/data-classification)
-- [Pilote OLE DB](https://docs.microsoft.com/sql/connect/oledb/features/using-data-classification)
-- [Pilote JDBC](https://docs.microsoft.com/sql/connect/jdbc/data-discovery-classification-sample)
-- [Pilotes Microsoft SQL Server pour PHP](https://docs.microsoft.com/sql/connect/php/release-notes-php-sql-driver)
+- [Pilote ODBC](/sql/connect/odbc/data-classification)
+- [Pilote OLE DB](/sql/connect/oledb/features/using-data-classification)
+- [Pilote JDBC](/sql/connect/jdbc/data-discovery-classification-sample)
+- [Pilotes Microsoft SQL Server pour PHP](/sql/connect/php/release-notes-php-sql-driver)
 
 ## <a name="faq---advanced-classification-capabilities"></a>Questions fréquentes (FAQ) - Fonctionnalités de classification avancées
 

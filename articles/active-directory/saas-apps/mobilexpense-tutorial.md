@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: fbe711652d11a426d80dd767eb3069170f67f1b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb29d0d54c37502f4d6b54afd7c3d8429ca33182
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516135"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780544"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Didacticiel : Intégration d’Azure Active Directory à Mobile Xpense
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Mobile Xpense, effectu
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<sub-domain>.mobilexpense.com/<customername>`
 
@@ -191,7 +191,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Mobile Xpense dans le panneau d’accès doit vous connecter automatiquement à l’application Mobile Xpense pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Mobile Xpense dans le panneau d’accès doit vous connecter automatiquement à l’application Mobile Xpense pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

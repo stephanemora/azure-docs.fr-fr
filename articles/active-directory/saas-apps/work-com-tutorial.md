@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: a77b6472ea91a6ba4b6e31d1b7739aae236a1783
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12a2ef28e4335b933a33a244387494a0de7cd649
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92636151"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124745720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutoriel : Intégration d'Azure Active Directory à Work.com
 
@@ -123,13 +123,13 @@ Pour configurer l’authentification unique Azure AD auprès de Work.com, effec
 
     c. URL de déconnexion
 
-### <a name="configure-workcom-single-sign-on"></a>Configurer l’authentification unique Work.com
+### <a name="configure-workcom-single-sign-on&quot;></a>Configurer l’authentification unique Work.com
 
 1. Connectez-vous à votre locataire Work.com en tant qu’administrateur.
 
 2. Accédez à **Setup**.
    
-    ![Capture d’écran montrant l’élément Setup sélectionné à partir du menu utilisateur.](./media/work-com-tutorial/ic794108.png "Programme d’installation")
+    ![Capture d’écran montrant l’élément Setup sélectionné à partir du menu utilisateur.](./media/work-com-tutorial/ic794108.png &quot;Programme d’installation")
 
 3. Dans le volet de navigation gauche, dans la section **Administer**, cliquez sur **Domain Management** pour développer la section associée, puis cliquez sur **My Domain** pour ouvrir la page **My Domain**. 
    
@@ -246,17 +246,17 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-workcom-test-user"></a>Créer un utilisateur de test Work.com
+### <a name="create-workcom-test-user&quot;></a>Créer un utilisateur de test Work.com
 
 Pour que les utilisateurs d’Azure AD puissent se connecter, leur accès doit être approvisionné dans Work.com. Dans le cas de Work.com, l’approvisionnement est une tâche manuelle.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
+### <a name=&quot;to-configure-user-provisioning-perform-the-following-steps&quot;></a>Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
 1. Connectez-vous à votre site d’entreprise Work.com en tant qu’administrateur.
 
 2. Accédez à **Setup**.
    
-    ![Capture d’écran montrant l’élément Setup sélectionné à partir du menu utilisateur.](./media/work-com-tutorial/ic794108.png "Programme d’installation")
+    ![Capture d’écran montrant l’élément Setup sélectionné à partir du menu utilisateur.](./media/work-com-tutorial/ic794108.png &quot;Programme d’installation")
 
 3. Accédez à **Manage Users \> Users**.
    
@@ -294,7 +294,7 @@ Pour que les utilisateurs d’Azure AD puissent se connecter, leur accès doit �
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Work.com dans le volet d’accès doit vous connecter automatiquement à l’application Work.com pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette Work.com dans le volet d’accès doit vous connecter automatiquement à l’application Work.com pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

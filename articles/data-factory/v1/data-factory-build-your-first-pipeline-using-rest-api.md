@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 11/01/2017
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2d6a3ce399f5f02d48868627ac43c810cedb87a0
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 358980423fbc998c1705316c8e0ef873263c847b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670821"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664254"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Didacticiel : Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
 > [!div class="op_single_selector"]
@@ -461,7 +462,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 Exécutez Invoke-Command et la commande suivante jusqu’à ce que la tranche soit à l’état **Prêt** ou **Échec**. Quand l’état du segment est Prêt, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.  La création d’un cluster HDInsight à la demande prend généralement un certain temps.
 
-![données de sortie](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
+:::image type="content" source="./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png" alt-text="données de sortie":::
 
 > [!IMPORTANT]
 > Le fichier d’entrée sera supprimé lorsque la tranche est traitée avec succès. Par conséquent, si vous souhaitez réexécuter la tranche ou refaire le didacticiel, chargez le fichier d’entrée (input.log) dans le dossier inputdata du conteneur adfgetstarted.

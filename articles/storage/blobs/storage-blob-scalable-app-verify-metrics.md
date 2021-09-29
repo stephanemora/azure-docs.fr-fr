@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 1bec42dabde64fed8126e47e39f19536b28014f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ced5b6493753baab64f5390b7dee815227334796
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714831"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549514"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Vérifier les métriques de débit et de latence d’un compte de stockage
 
@@ -21,8 +21,8 @@ Ce didacticiel est le quatrième et dernier volet d’une série. Dans les didac
 Dans ce quatrième volet, vous apprenez à :
 
 > [!div class="checklist"]
-> * Configurer des graphiques dans le portail Azure
-> * Vérifier les métriques de débit et de latence
+> - Configurer des graphiques dans le portail Azure
+> - Vérifier les métriques de débit et de latence
 
 Les [métriques de stockage Azure](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) utilisent Azure Monitor pour fournir une vue unifiée des performances et de la disponibilité de votre compte de stockage.
 
@@ -67,8 +67,8 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la mach
 Dans cette quatrième partie, vous avez appris à afficher des métriques pour l’exemple de solution. Vous avez notamment vu comment :
 
 > [!div class="checklist"]
-> * Configurer des graphiques dans le portail Azure
-> * Vérifier les métriques de débit et de latence
+> - Configurer des graphiques dans le portail Azure
+> - Vérifier les métriques de débit et de latence
 
 Suivez ce lien pour consulter des exemples de stockage préconçus.
 

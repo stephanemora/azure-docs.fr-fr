@@ -1,22 +1,23 @@
 ---
-title: Mettre à jour Azure Percept DK via une connexion par câble USB-C
+title: Mettre à jour Azure Percept DK via une connexion USB-C
 description: Découvrez comment mettre à jour Azure Percept DK via une connexion par câble USB-C
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e40a75f91ebf371d27b541b74ba427f42bc518f3
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: 293249c764155aefe16ef23738b1e4efea4255e5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652903"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751046"
 ---
-# <a name="update-the-azure-percept-dk-over-a-usb-c-cable-connection"></a>Mettre à jour Azure Percept DK via une connexion par câble USB-C
+# <a name="update-azure-percept-dk-over-a-usb-c-connection"></a>Mettre à jour Azure Percept DK via une connexion USB-C
 
 Ce guide explique comment mettre à jour correctement le système d’exploitation et le microprogramme de votre kit de développement via une connexion USB. Voici une vue d’ensemble de ce que vous allez faire dans le cadre de cette procédure.
+
 1. Télécharger le package de mise à jour sur un ordinateur hôte
 1. Exécuter la commande qui transfère le package de mise à jour vers le kit de développement
 1. Mettre le kit de développement en mode USB à l’aide d’une connexion SSH ou des commutateurs DIP
@@ -27,7 +28,6 @@ Ce guide explique comment mettre à jour correctement le système d’exploitati
 > La mise à jour de votre kit de développement via une connexion USB aura pour effet de supprimer toutes les données existantes sur l’appareil, y compris les modèles et conteneurs d’IA.
 >
 > Suivez toutes les instructions dans l’ordre. Sauter des étapes pourrait avoir pour effet de mettre votre kit de développement dans un état inutilisable.
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -44,7 +44,7 @@ Ce guide explique comment mettre à jour correctement le système d’exploitati
 
 1. [Outil NXP UUU](https://github.com/NXPmicro/mfgtools/releases). Téléchargez la **version la plus récente** du fichier uuu.exe (pour Windows) ou du fichier uuu (pour Linux) sous l’onglet **Ressources**. UUU est un outil créé par NXP et utilisé pour mettre à jour les cartes de développement NXP.
 
-1. [Téléchargez les fichiers de mise à jour](https://go.microsoft.com/fwlink/?linkid=2155734). Ils sont tous contenus dans un fichier zip que vous allez extraire dans le cadre de la section suivante.
+1. [Téléchargez les fichiers de mise à jour](./how-to-select-update-package.md). Ils sont tous contenus dans un fichier zip que vous allez extraire dans le cadre de la section suivante.
 
 1. Vérifiez que les trois artefacts de la build sont présents :
     - Azure-Percept-DK- *&lt;numéro de version&gt;* .raw

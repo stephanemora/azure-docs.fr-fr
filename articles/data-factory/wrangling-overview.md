@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.openlocfilehash: 133496614db862d4c1af31afb015a535ddbfd188
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d49b587262bfceb8072761cec6981ab908abb21e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531452"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732949"
 ---
 # <a name="what-is-data-wrangling"></a>Qu’est-ce que le data wrangling ?
 
@@ -57,7 +57,7 @@ Analysez visuellement vos données sans code pour supprimer les valeurs hors nor
 
 Quand vous créez une activité Power Query, tous les jeux de données sources deviennent des requêtes de jeu de données et sont placés dans le dossier **ADFResource**. Par défaut, la requête utilisateur pointe vers la première requête de jeu de données. Toutes les transformations doivent être effectuées sur la requête utilisateur, car les modifications apportées aux requêtes de jeu de données ne sont pas prises en charge et ne sont pas rendues persistantes. Le renommage, l’ajout et la suppression de requêtes ne sont pas pris en charge.
 
-![Wrangling](media/wrangling-data-flow/editor.png)
+:::image type="content" source="media/wrangling-data-flow/editor.png" alt-text="Wrangling":::
 
 Actuellement, toutes les fonctions Power Query M ne sont pas prises en charge pour le rassemblement de données brutes à l’analyse, bien qu’elles soient disponibles pendant la création. Lors de la génération de vos activités Power Query, le message d’erreur suivant s’affiche si une fonction n’est pas prise en charge :
 

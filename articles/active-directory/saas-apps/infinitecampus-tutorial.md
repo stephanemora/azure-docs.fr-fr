@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: fc1a2658b32cb2a1be3a6d08a4210d3cf667cdc2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 9ded926c5798147fc53f047b8cdf2b220c815f05
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468056"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757246"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Didacticiel : intégration d’Azure Active Directory avec Infinite Campus
 
@@ -148,7 +148,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l'URL de connexion à Infinite Campus pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Infinite Campus dans Mes applications vous redirige vers l'URL de connexion à Infinite Campus. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Infinite Campus dans Mes applications vous redirige vers l'URL de connexion à Infinite Campus. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

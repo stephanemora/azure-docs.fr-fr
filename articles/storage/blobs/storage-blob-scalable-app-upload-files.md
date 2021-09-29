@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: a23836ebadace19c23802a0897287932892657a0
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 787cfde40013122c3827cddd4903ca15dfe51836
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459662"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624934"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Charger en parallèle de grandes quantités de données aléatoires dans le stockage Azure
 
@@ -21,10 +21,10 @@ Ce tutoriel est le deuxième d’une série. Ce didacticiel décrit le déploiem
 Dans ce deuxième volet, vous apprenez à :
 
 > [!div class="checklist"]
-> * Configurer la chaîne de connexion
-> * Créer l’application
-> * Exécution de l'application
-> * Valider le nombre de connexions
+> - Configurer la chaîne de connexion
+> - Créer l’application
+> - Exécution de l'application
+> - Valider le nombre de connexions
 
 Le Stockage Blob Microsoft Azure fournit un service évolutif pour stocker vos données. Pour que votre application soit aussi performante que possible, vous devez comprendre le fonctionnement du stockage blob. Vous devez connaître les limites des objets blob Azure. Pour en savoir plus sur ces limites, consultez : [Objectifs de performance et de scalabilité du Stockage Blob](../blobs/scalability-targets.md)
 
@@ -160,6 +160,7 @@ private static async Task UploadFilesAsync()
     }
 }
 ```
+
 En plus de définir les paramètres de limite de threads et de connexion, les valeurs [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) pour la méthode [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) sont configurées pour utiliser le parallélisme et désactiver la validation de hachage MD5. Les fichiers sont chargés dans des blocs de 100 Mo, cette configuration offre de meilleures performances, mais peut s’avérer coûteuse si vous utilisez un réseau peu performant, car, en cas d’échec, le bloc entier de 100 Mo est réessayé.
 
 |Propriété|Valeur|Description|
@@ -205,10 +206,10 @@ C:\>
 Dans la deuxième partie de la série, vous avez appris à charger de grandes quantités de données aléatoires dans un compte de stockage, notamment comment :
 
 > [!div class="checklist"]
-> * Configurer la chaîne de connexion
-> * Créer l’application
-> * Exécution de l'application
-> * Valider le nombre de connexions
+> - Configurer la chaîne de connexion
+> - Créer l’application
+> - Exécution de l'application
+> - Valider le nombre de connexions
 
 Passez à la troisième partie de la série pour télécharger de grandes quantités de données à partir d’un compte de stockage.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 3bbd18bc7851d4ccffca4f721f6e2aef45ff3c3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d444a62b7bb6be680c359d6b853a629a1e2dc5a9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97673715"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124830791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Didacticiel : Intégration d’Azure Active Directory à Bime
 
@@ -126,13 +126,13 @@ Pour configurer l’authentification unique Azure AD avec Bime, effectuez les é
 
     c. URL de déconnexion
 
-### <a name="configure-bime-single-sign-on"></a>Configurer l’authentification unique Bime
+### <a name="configure-bime-single-sign-on&quot;></a>Configurer l’authentification unique Bime
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Bime en tant qu’administrateur.
 
 2. Dans la barre d’outils, cliquez sur **Admin**, puis sur **Account**.
 
-    ![Capture d’écran montrant l’élément Admin et Account sélectionnés.](./media/bime-tutorial/ic775558.png "Admin")
+    ![Capture d’écran montrant l’élément Admin et Account sélectionnés.](./media/bime-tutorial/ic775558.png &quot;Admin")
 
 3. Dans la page de configuration du compte, procédez comme suit :
 
@@ -197,7 +197,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-bime-test-user"></a>Créer un utilisateur de test Bime
+### <a name="create-bime-test-user&quot;></a>Créer un utilisateur de test Bime
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Bime, vous devez les attribuer dans Bime. En l’occurrence, cet approvisionnement est une tâche manuelle.
 
@@ -207,7 +207,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bime, vous devez les
 
 2. Dans la barre d’outils, cliquez sur **Admin**, puis sur **Users**.
 
-    ![Capture d’écran montrant l’élément Admin et Users sélectionnés.](./media/bime-tutorial/ic775561.png "Admin")
+    ![Capture d’écran montrant l’élément Admin et Users sélectionnés.](./media/bime-tutorial/ic775561.png &quot;Admin")
 
 3. Dans la **Users List**, cliquez sur **Add New User** (« + »).
 
@@ -232,7 +232,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bime, vous devez les
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Bime dans le volet d’accès, vous devez être connecté automatiquement à l’application Bime pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Bime dans le volet d’accès, vous devez être connecté automatiquement à l’application Bime pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

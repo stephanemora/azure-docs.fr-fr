@@ -4,16 +4,16 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Configurez et créez une machine virtuelle pour la science des données sur Microsoft Azure pour vos besoins d’analyse et d’apprentissage automatique.
 services: machine-learning
 ms.service: data-science-vm
-author: gvashishtha
-ms.author: gopalv
+author: cjgronlund
+ms.author: cgronlun
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 7ba28c96b8359b95b1cd4797e922f2788d7b000e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab55e1600b412570c54ad291b6954bccefc7cd1d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745314"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548105"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Démarrage rapide : Configurer Data Science Virtual Machine pour Windows
 

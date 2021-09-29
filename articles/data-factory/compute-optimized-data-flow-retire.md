@@ -4,14 +4,15 @@ description: L’option de flux de données Optimisé pour le calcul est en cour
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 06/29/2021
-ms.openlocfilehash: 883fd878ecc90cb9608b6d5e6cbe8be4fb1ea079
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2ef5e68f9629feab42a4417b4e08697038947495
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122643226"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661827"
 ---
 # <a name="retirement-of-data-flow-compute-optimized-option"></a>Mise hors service de l’option de flux de données Optimisé pour le calcul
 
@@ -26,7 +27,7 @@ De maintenant jusqu’au 31 août 2024, vos flux de données optimisés pour le 
 1. Créez une instance Azure Integration Runtime avec « usage général » ou « à mémoire optimisée » comme type de calcul.
 2. Définissez votre activité de flux de données à l’aide de l’un de ces types de calcul.
 
-   ![Types de calcul](media/data-flow/compute-types.png)
+   :::image type="content" source="media/data-flow/compute-types.png" alt-text="Types de calcul":::
 
 ## <a name="comparison-between-different-compute-options"></a>Comparaison entre les différentes options de calcul 
 
@@ -37,5 +38,5 @@ De maintenant jusqu’au 31 août 2024, vos flux de données optimisés pour le 
 | Flux de données optimisés pour le calcul (dépréciés) | Non recommandé pour les charges de travail de production |
 
 * [Visitez la page de tarification d’Azure Data Factory pour connaître les derniers tarifs disponibles pour les flux de données à usage général et à mémoire optimisée](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
-* [Vous trouverez plus d’informations sur la FAQ des flux de données ici](https://aka.ms/dataflowsqa)  
+* [Vous trouverez plus d’informations sur la FAQ des flux de données ici](/azure/data-factory/frequently-asked-questions#mapping-data-flows)  
 * [Posez des questions et trouvez des réponses sur les flux de données sur Microsoft Q&A](https://aka.ms/datafactoryqa)

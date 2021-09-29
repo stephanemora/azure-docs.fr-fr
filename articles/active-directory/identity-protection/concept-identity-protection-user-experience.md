@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0bbb1df9821879dd34956d1cb16d2b37850d1d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 484136b1c01cf93515971a42030eacfdda51715e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562589"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784163"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Expériences utilisateur avec Azure AD Identity Protection
 
@@ -29,7 +29,7 @@ Toutes les stratégies de protection des identités ont un impact sur l’expér
 
 ## <a name="multi-factor-authentication-registration"></a>Inscription à l’authentification multifacteur
 
-Grâce à l'activation de la stratégie Identity Protection exigeant une inscription à l'authentification multifacteur et ciblant tous vos utilisateurs, ceux-ci auront la possibilité d'utiliser Azure AD MFA pour effectuer une mise à niveau automatique à l'avenir. La configuration de cette stratégie offre à vos utilisateurs une période de 14 jours pendant laquelle ils peuvent choisir de s’inscrire et à la fin sont forcés de s’inscrire. L’expérience pour les utilisateurs est décrite ci-dessous. Pour plus d’informations, consultez la documentation de l’utilisateur final dans l’article [Vue d’ensemble de la vérification à deux facteurs et de votre compte professionnel ou scolaire](../user-help/multi-factor-authentication-end-user-first-time.md).
+Grâce à l'activation de la stratégie Identity Protection exigeant une inscription à l'authentification multifacteur et ciblant tous vos utilisateurs, ceux-ci auront la possibilité d'utiliser Azure AD MFA pour effectuer une mise à niveau automatique à l'avenir. La configuration de cette stratégie offre à vos utilisateurs une période de 14 jours pendant laquelle ils peuvent choisir de s’inscrire et à la fin sont forcés de s’inscrire. L’expérience pour les utilisateurs est décrite ci-dessous. Pour plus d’informations, consultez la documentation de l’utilisateur final dans l’article [Vue d’ensemble de la vérification à deux facteurs et de votre compte professionnel ou scolaire](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
 
 ### <a name="registration-interrupt"></a>Interruption d’inscription
 

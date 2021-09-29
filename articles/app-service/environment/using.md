@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 131c8d2abc21e046a96488a602b831361f64dcf4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 150e5d0e0d7360bcf9d4f42038e3ff49366d80a8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122566108"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767885"
 ---
 # <a name="using-an-app-service-environment"></a>Utilisation d’un environnement App Service
 
@@ -186,10 +186,10 @@ Pour supprimer un environnement ASE :
 
 ## <a name="pricing"></a>Tarifs 
 
-Avec ASEv3, il existe un modèle de tarification différent selon le type de déploiement d’environnement ASE. Les trois modèles de tarification sont les suivants : 
+Avec ASEv3, il existe un modèle de tarification différent selon le type de déploiement d’ASE. Les trois modèles de tarification sont les suivants : 
 
-- **ASEv3** : si l’environnement ASE est vide, les coûts correspondent à un ASP avec une instance de Windows I1v2. La facturation d’une instance n’est pas un coût supplémentaire, elle s’applique uniquement si l’ASE est vide.
-- **Zone de disponibilité ASEv3** : il existe des frais minimum pour neuf instances Windows I1v2. Aucuns frais supplémentaire ne s’appliquent pour la prise en charge des zones de disponibilité si vous disposez de neuf instances de plan App Service ou plus. Tous les plans App Service dans un AZ ASEv3 ont également un nombre d’instances minimal de 3 pour s’assurer qu’il existe une instance dans chaque zone de disponibilité. À mesure du scale-out des plans, ceux-ci sont répartis entre les zones de disponibilité. 
+- **ASEv3** : si l’environnement ASE est vide, les coûts correspondent à un ASP avec une instance de Windows I1v2. La facturation d’une instance n’est pas un coût supplémentaire, mais elle est appliquée uniquement si ASE est vide.
+- **Zone de disponibilité ASEv3** : il existe des frais minimum pour neuf instances Windows I1v2. Aucun frais n’est facturé pour la prise en charge des zones de disponibilité si vous disposez d’au moins neuf instances de plan App Service. Tous les plans App Service dans un AZ ASEv3 ont également un nombre d’instances minimal de 3 pour s’assurer qu’il existe une instance dans chaque zone de disponibilité. À mesure du scale-out des plans, ceux-ci sont répartis entre les zones de disponibilité. 
 - **Hôte dédié ASEv3** : avec un déploiement d’hôte dédié, deux hôtes dédiés vous sont facturés, conformément à notre tarification à la création de ASEv3, puis un petit pourcentage du tarif Isolé v2 par cœur est facturé quand vous effectuez la mise à l’échelle.
 
 La tarification des instances réservées Isolé v2 est disponible et est décrite dans [Comment les remises de réservation s’appliquent à Azure App Service][reservedinstances]. Des informations sur la tarification, notamment sur la tarification des instances réservées, sont disponibles sous [Tarification d’App Service][pricing] sous **Plan Isolé v2**. 
@@ -220,5 +220,5 @@ La tarification des instances réservées Isolé v2 est disponible et est décri
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md
-[reservedinstances]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances
+[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances
 [pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

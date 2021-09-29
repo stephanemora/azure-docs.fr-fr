@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
 ms.custom: devx-track-js
-ms.openlocfilehash: ca842a3d235cd58cb12bf9d8d80419e42ddf8441
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9a709b9872546e8aa4909077b3dd40a03f004d5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445474"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910522"
 ---
 Découvrez comment commencer à utiliser la bibliothèque de client Détecteur d’anomalies pour JavaScript. Procédez comme suit pour installer le package de démarrage à l’aide des algorithmes fournis par le service. Le service Détecteur d’anomalies vous permet de rechercher des anomalies dans vos données de séries chronologiques en utilisant automatiquement les modèles les mieux adaptés sur celles-ci, quel que soit le secteur d’activité, le scénario ou le volume de données.
 
@@ -24,7 +24,7 @@ Utilisez la bibliothèque de client Détecteur d’anomalies pour JavaScript afi
 * Détecter l’état d’anomalie du dernier point de données dans vos séries chronologiques
 * Détectez les points de changement de tendance dans votre jeu de données.
 
-[Documentation de référence de la bibliothèque](https://go.microsoft.com/fwlink/?linkid=2090788) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (npm)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector) | [Trouver le code sur GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
+[Documentation de référence de la bibliothèque](https://go.microsoft.com/fwlink/?linkid=2090788) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [Package (npm)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector) | [Trouver le code sur GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
 ## <a name="prerequisites"></a>Prérequis
 

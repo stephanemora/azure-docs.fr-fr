@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
 ms.date: 06/10/2021
-ms.openlocfilehash: dce23e60b3a3be5ba7647de1f45380d188c07094
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 5ece5b220a59f562774fde7b093236ed5946f019
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296000"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836249"
 ---
 <!-- VERSION 2.2
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
@@ -147,7 +147,7 @@ Fournisseur de ressources et type : [Microsoft.Network/applicationGateways](../
 
 | Category | Nom d’affichage | Informations|
 |:---------|:-------------|------------------|
-| **Activitylog**   | Journal d’activité | Les entrées du journal d’activité sont collectées par défaut. vous pouvez utiliser le [Journal d’activité Azure](../azure-resource-manager/management/view-activity-logs.md) (anciennement journaux d’activité des opérations et journaux d’audit) pour voir toutes les opérations soumises à votre abonnement Azure, ainsi que leur état. |
+| **Activitylog**   | Journal d’activité | Les entrées du journal d’activité sont collectées par défaut. vous pouvez utiliser le [Journal d’activité Azure](../azure-monitor/essentials/activity-log.md) (anciennement journaux d’activité des opérations et journaux d’audit) pour voir toutes les opérations soumises à votre abonnement Azure, ainsi que leur état. |
 |**ApplicationGatewayAccessLog**|Journal d’accès| Vous pouvez utiliser ce journal pour voir les modèles d’accès Application Gateway et analyser les informations importantes. Ceci comprend l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour et les octets d’entrée et de sortie. Un journal d’accès est collecté toutes les 60 secondes. Ce journal contient un enregistrement par instance Application Gateway. L’instance de la passerelle Application Gateway est identifiée par la propriété instanceId.|
 | **ApplicationGatewayPerformanceLog**|Journal des performances|vous pouvez utiliser ce journal pour afficher les performances des instances de la passerelle Application Gateway. Ce journal capture des informations sur les performances de chaque instance, notamment le nombre total de requêtes traitées, le débit en octets, le nombre total de requêtes présentées, le nombre de requêtes ayant échoué, le nombre d’instances du serveur principal intègres et défectueuses. Le journal des performances est collecté toutes les 60 secondes. Le journal des performances est uniquement disponible pour la référence SKU v1. S’il s’agit de la référence SKU v2, utilisez les [Métriques](#metrics) pour les données de performances.|
 |**ApplicationGatewayFirewallLog**|Journal du pare-feu|vous pouvez utiliser ce journal pour afficher les requêtes consignées via le mode de détection ou de prévention d’une passerelle Application Gateway configuré avec un pare-feu d’applications web. Les journaux du pare-feu sont collectés toutes les 60 secondes.|

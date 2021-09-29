@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 19acaca8f5ca916ed73dad373736a4435742d247
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 0de2faec9be80863eb69ceff42700d9b3ba77439
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271743"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124738893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutoriel : Intégration d’Azure Active Directory à Learning Seat LMS
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** sur le Portail Azure. La connexion est établie automatiquement avec l’instance Learning Seat LMS pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si le mode Fournisseur de services est configuré, la page de connexion à l’application s’ouvre quand vous cliquez sur la vignette Learning Seat LMS dans Mes applications. Vous pouvez alors amorcer le flux de connexion. S’il s’agit du mode Fournisseur d’identité, la connexion est établie automatiquement avec l’instance Learning Seat LMS pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si le mode Fournisseur de services est configuré, la page de connexion à l’application s’ouvre quand vous cliquez sur la vignette Learning Seat LMS dans Mes applications. Vous pouvez alors amorcer le flux de connexion. S’il s’agit du mode Fournisseur d’identité, la connexion est établie automatiquement avec l’instance Learning Seat LMS pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 29ffaaa1b1b6efbcd5523a76018c92645e13d187
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8160da443398787f2b0ebb3cf437383a5bdc522
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181794"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124783080"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perimeterx"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à PerimeterX
 
@@ -156,7 +156,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 1. Sur le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance de PerimeterX pour laquelle vous avez configuré l’authentification unique.
 
-1. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette PerimeterX dans le panneau d’accès doit vous connecter automatiquement à l’application PerimeterX pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+1. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette PerimeterX dans le panneau d’accès doit vous connecter automatiquement à l’application PerimeterX pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

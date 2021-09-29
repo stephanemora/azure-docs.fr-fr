@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 4ccc36bb9f940fd018fe6d96b5338a7178657aa2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d237a1ff5ff2fa55a5a22fbc3b57c93849bdb87d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469378"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818823"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutoriel : Créer une application Apache Spark avec IntelliJ en utilisant un espace de travail Synapse
 
@@ -145,7 +145,7 @@ Après avoir créé une application Scala, vous pouvez l’exécuter à distance
     |Main class name|La valeur par défaut est la classe principale du fichier sélectionné. Vous pouvez changer la classe en sélectionnant les points de suspension ( **...** ), puis en choisissant une autre classe.|
     |Configurations du travail|Vous pouvez changer la clé et les valeurs par défaut. Pour plus d’informations, consultez [API REST Apache Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Arguments de ligne de commande|Vous pouvez entrer des arguments séparés par un espace pour la classe main, si nécessaire.|
-    |JAR référencés et fichiers référencés|vous pouvez entrer les chemins des fichiers jar et des fichiers référencés, si vous en avez. Vous pouvez également parcourir les fichiers dans le système de fichiers virtuel Azure, qui ne prend en charge que le cluster ADLS Gen2. Pour plus d’informations, consultez [Configuration Apache Spark]https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) et [Guide pratique pour charger des ressources sur un cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md).|
+    |JAR référencés et fichiers référencés|vous pouvez entrer les chemins des fichiers jar et des fichiers référencés, si vous en avez. Vous pouvez également parcourir les fichiers dans le système de fichiers virtuel Azure, qui ne prend en charge que le cluster ADLS Gen2. Pour plus d'informations : [Configuration Apache Spark](https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) et [Guide pratique pour charger des ressources sur un cluster](../../storage/blobs/quickstart-storage-explorer.md).|
     |Stockage des chargements de travaux|Développez pour afficher des options supplémentaires.|
     |Type de stockage|Sélectionnez **Utiliser l’objet blob Azure pour charger** ou **Utiliser le compte de stockage par défaut du cluster pour charger** à partir de la liste déroulante.|
     |Compte de stockage|Entrez votre compte de stockage.|

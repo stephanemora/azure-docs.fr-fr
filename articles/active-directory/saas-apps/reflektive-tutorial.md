@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: ea9e2154b3f6a8863b5ca20d2dd54774b0d3fc99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd8344924019af5512d1049126cd170372dfb8b4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92515045"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Didacticiel : Intégration d’Azure Active Directory à Reflektive
 
@@ -191,7 +191,7 @@ Dans cette section, vous créez un utilisateur nommé Britta Simon dans Reflekti
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Reflektive dans le volet d’accès, vous devez être connecté automatiquement à l’application Reflektive pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Quand vous cliquez sur la vignette Reflektive dans le volet d’accès, vous devez être connecté automatiquement à l’application Reflektive pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

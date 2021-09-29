@@ -8,12 +8,12 @@ ms.author: sawinark
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: c12c6bf17b5a773e9ef7f5ef122dfd8f466f3822
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 71991798306296c7df16ee7d39678a25f263629f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562769"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831229"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS
 
@@ -35,7 +35,7 @@ En raison des limitations des méthodes traditionnelles de gestion des licences 
 
 Le schéma suivant représente l’installation typique, l’activation et la liaison des licences, ainsi que les flux de validation pour les composants tiers qui utilisent ces nouvelles variables :
 
-![Installation des composants sous licence](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
+:::image type="content" source="media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png" alt-text="Installation des composants sous licence":::
 
 ## <a name="instructions"></a>Instructions
 1. Les éditeurs de logiciels indépendants peuvent proposer leurs composants sous licence sous diverses références ou niveaux (par exemple, nœud unique, jusqu’à 5 nœuds, jusqu’à 10 nœuds, etc.). L’éditeur fournit la clé de produit correspondante lorsque les clients acquièrent un produit. Il peut également octroyer le conteneur d’objets blob Stockage Azure, qui comporte le script d’installation éditeur et les fichiers associés. Les clients peuvent copier ces fichiers dans leur propre conteneur de stockage et les modifier avec leur propre clé de produit (par exemple, en exécutant `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Ils sont ensuite en mesure de provisionner ou de reconfigurer le runtime d’intégration Azure-SSIS avec l’URI SAS de leur conteneur en tant que paramètre. Pour plus d’informations, consultez [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Configuration personnalisée du runtime d’intégration Azure-SSIS).

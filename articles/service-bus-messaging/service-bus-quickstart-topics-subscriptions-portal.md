@@ -3,16 +3,16 @@ title: Utilisez le portail Azure pour créer des rubriques et des abonnements Se
 description: 'Démarrage rapide : Dans ce guide de démarrage rapide, vous allez apprendre à créer une rubrique Service Bus et des abonnements à cette rubrique à l’aide du portail Azure.'
 author: spelluru
 ms.author: spelluru
-ms.date: 06/23/2020
+ms.date: 09/15/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 99d7fd283ecd6c1872922c0298d334d254dd9656
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: f4a4e0ab9803ea12922e264888930c4f199bfefb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112413694"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565682"
 ---
 # <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique
 Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer une rubrique Service Bus, puis des abonnements à cette rubrique. 

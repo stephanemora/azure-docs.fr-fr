@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea643d58802a1233a24d53cb68c5099f2b8bdacd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95993922"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutoriel : Intégration d’Azure Active Directory à PageDNA
 
@@ -196,7 +196,7 @@ Un utilisateur nommé Britta Simon est maintenant créé dans PageDNA. Aucune ac
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à partir du portail Mes applications.
 
-Lorsque vous sélectionnez **PageDNA** sur le portail Mes applications, vous devez être automatiquement connecté à l'abonnement PageDNA pour lequel vous avez configuré l'authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Accéder aux applications du portail Mes applications et les utiliser](../user-help/my-apps-portal-end-user-access.md).
+Lorsque vous sélectionnez **PageDNA** sur le portail Mes applications, vous devez être automatiquement connecté à l'abonnement PageDNA pour lequel vous avez configuré l'authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Accéder aux applications du portail Mes applications et les utiliser](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

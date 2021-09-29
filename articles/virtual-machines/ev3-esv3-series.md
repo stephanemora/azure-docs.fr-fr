@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: mimckitt
-ms.openlocfilehash: 3166ba5015c4d3a8e8d449c497eade6bc8bc56f6
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 251d9d2afd541159ae48d5e769b24e0f925fd65d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688287"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776592"
 ---
 # <a name="ev3-and-esv3-series"></a>Séries Ev3 et Esv3
 
@@ -97,8 +97,10 @@ Machines virtuelles de série Esv3 dotées de la technologie Hyper-Threading d�
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
-- [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-- Pour plus d’informations sur les types de disques, consultez [Quels sont les types de disque disponibles dans Azure ?](disks-types.md)
+
+Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+
+Pour plus d’informations sur les types de disques, consultez [Quels sont les types de disque disponibles dans Azure ?](disks-types.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
