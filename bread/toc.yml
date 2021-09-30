@@ -255,9 +255,6 @@
         - name: "Azure\_Digital\_Twins"
           tocHref: /azure/digital-twins/
           topicHref: /azure/digital-twins/
-        - name: Accélérateurs de solution IoT
-          tocHref: /azure/iot-accelerators/
-          topicHref: /azure/iot-accelerators/
         - name: Service IoT Hub Device Provisioning
           tocHref: /azure/iot-dps/
           topicHref: /azure/iot-dps/
@@ -552,7 +549,7 @@
         - name: Groupes d'administration
           tocHref: /azure/governance/management-groups/
           topicHref: /azure/governance/management-groups/
-        - name: Stratégie
+        - name: Policy
           tocHref: /azure/governance/policy/
           topicHref: /azure/governance/policy/
         - name: Resource Graph

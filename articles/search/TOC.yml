@@ -442,8 +442,6 @@
       items:
         - name: Vue d’ensemble du filtre
           href: search-filters.md
-        - name: Filtres de facette
-          href: search-filters-facets.md
         - name: Ajouter la navigation par facettes
           href: search-faceted-navigation.md
         - name: Résoudre les problèmes liés aux filtres de collection
@@ -632,5 +630,5 @@
       href: search-faq-frequently-asked-questions.yml
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

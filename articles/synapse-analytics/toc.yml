@@ -105,7 +105,7 @@ items:
           - name: Contrôle de code source
             href: ./cicd/source-control.md
           - name: Intégration et livraison continues
-            href: ./cicd/continuous-integration-deployment.md
+            href: ./cicd/continuous-integration-delivery.md
           - name: Sécurité
             items:
               - name: Base de référence de la sécurité
@@ -766,7 +766,18 @@ items:
               - name: Supervision du flux de données
                 href: ../data-factory/concepts-data-flow-monitoring.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Performances de flux de données
-                href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                items:
+                  - name: Vue d’ensemble
+                    href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                    displayName: 'merge, timeout'
+                  - name: Optimisation des sources
+                    href: ../data-factory/concepts-data-flow-performance-sources.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Optimisation des récepteurs
+                    href: ../data-factory/concepts-data-flow-performance-sinks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Optimisation des transformations
+                    href: ../data-factory/concepts-data-flow-performance-transformations.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Utilisation des flux de données dans des pipelines
+                    href: ../data-factory/concepts-data-flow-performance-pipelines.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Performances Integration Runtime
                 href: ../data-factory/concepts-integration-runtime-performance.md?context=/azure/synapse-analytics/context/context
               - name: Gérer un graphe

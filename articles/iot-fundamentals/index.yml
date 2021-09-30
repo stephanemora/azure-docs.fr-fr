@@ -107,7 +107,7 @@ conceptualContent:
         - url: ../iot-dps/quick-setup-auto-provision-cli.md
           itemType: quickstart
           text: Configurer le service
-        - url: ../iot-dps/quick-create-simulated-device.md
+        - url: ../iot-dps/quick-create-simulated-device-tpm.md
           itemType: quickstart
           text: Provisionner un appareil TPM
       footerLink:
@@ -168,17 +168,6 @@ conceptualContent:
           text: Route vers votre point d’intérêt
       footerLink:
         url: ../azure-maps/index.yml
-        text: En savoir plus
-    - title: Personnaliser une solution IoT prédéfinie
-      links:
-        - url: ../iot-accelerators/about-iot-accelerators.md
-          itemType: overview
-          text: Que sont les accélérateurs de solution IoT ?
-        - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
-          itemType: quickstart
-          text: Essayer une solution de fabrique connectée
-      footerLink:
-        url: ../iot-accelerators/index.yml
         text: En savoir plus
 tools:
   title: Kits de développement logiciel (SDK) Azure IoT

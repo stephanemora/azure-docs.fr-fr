@@ -305,8 +305,6 @@
           href: /microsoft-iot-central/
         - name: IoT Edge
           href: ./index.yml
-        - name: Accélérateurs de solution IoT
-          href: ../iot-accelerators/index.yml
         - name: IoT Plug-and-Play
           href: ../iot-develop/index.yml
         - name: Azure Maps
@@ -351,5 +349,5 @@
       href: 'https://azure.microsoft.com/updates/?product=iot-edge'
     - name: Études de cas techniques
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-edge'

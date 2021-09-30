@@ -177,8 +177,6 @@
           href: configure-language-ruby.md
         - name: Configurer un conteneur personnalisé
           href: configure-custom-container.md
-        - name: Se connecter à des ressources locales
-          href: web-sites-integrate-with-vnet.md
         - name: Configurer Stockage Azure (conteneur)
           href: configure-connect-to-azure-storage.md
     - name: Déployer dans Azure
@@ -368,7 +366,7 @@
       href: app-service-best-practices.md
     - name: Exemples
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
     - name: Livres de recettes
       items:
