@@ -30,8 +30,6 @@
   items:
     - name: Vue d’ensemble de l’authentification des comptes Automation
       href: automation-security-overview.md
-    - name: Changement de contexte dans Automation
-      href: context-switching.md
     - name: Vue d’ensemble de l’exécution d’un runbook
       href: automation-runbook-execution.md
     - name: Vue d’ensemble des Runbook Worker hybrides
@@ -63,6 +61,8 @@
           href: automation-create-standalone-account.md
         - name: Créer un compte Automation - Modèle Resource Manager
           href: quickstart-create-automation-account-template.md
+        - name: Désactiver l’authentification locale
+          href: disable-local-authentication.md
         - name: Identité managée
           items:
             - name: Utiliser une identité managée affectée par le système
@@ -165,15 +165,19 @@
               href: troubleshoot/collect-data-microsoft-azure-automation-case.md
         - name: Utiliser un runbook Worker hybride
           items:
-            - name: Déployer des Runbook Worker hybrides Windows
+            - name: Déployer un worker basé sur une extension
+              href: extension-based-hybrid-runbook-worker-install.md
+            - name: Déployer un worker Windows basé sur un agent
               href: automation-windows-hrw-install.md
-            - name: Déployer des Runbook Worker hybrides Linux
+            - name: Déployer un worker Linux basé sur un agent
               href: automation-linux-hrw-install.md
             - name: Démarrer des runbooks sur un runbook Worker hybride
               href: automation-hrw-run-runbooks.md
             - name: Utiliser Azure Policy pour appliquer l’exécution d’un travail
               href: enforce-job-execution-hybrid-worker.md
-            - name: Résoudre les problèmes liés à la fonctionnalité Runbook Worker hybride
+            - name: Résoudre les problèmes de workers basés sur une extension
+              href: troubleshoot/extension-based-hybrid-runbook-worker.md
+            - name: Résoudre les problèmes de workers basés sur un agent
               href: troubleshoot/hybrid-runbook-worker.md
         - name: Utiliser l’intégration du contrôle de code source
           href: source-control-integration.md
@@ -382,5 +386,5 @@
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-automation'
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'

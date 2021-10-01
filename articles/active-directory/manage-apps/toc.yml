@@ -107,8 +107,8 @@
         - name: Créer des collections sur Mes applications
           href: access-panel-collections.md
         - name: Activation de l’accès aux applications en libre-service
-          href: access-panel-manage-self-service-access.md
-        - name: Hide an app
+          href: manage-self-service-access.md
+        - name: Masquer une application
           href: hide-application-from-user-portal.md
         - name: "Comment désactiver les inscriptions des utilisateurs\_?"
           href: disable-user-sign-in-portal.md
@@ -180,7 +180,7 @@
       href: application-types.md
     - name: Raisons pour lesquelles les utilisateurs sont affectés à une application
       href: ways-users-get-assigned-to-applications.md
-    - name: Supprimer l’accès utilisateur
+    - name: Méthodes de suppression de l’accès utilisateur à une application
       href: methods-for-removing-user-access.md
 - name: Ressources
   items:

@@ -18,6 +18,8 @@
       href: entitlement-management-access-package-first.md
     - name: Gérer l’accès aux ressources - Microsoft Graph
       href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+    - name: "Intégrer des utilisateurs externes à Azure\_AD via un processus d’approbation"
+      href: entitlement-management-onboard-external-user.md
     - name: Gérez le cycle de vie de vos licences basées sur des groupes dans Azure AD
       href: entitlement-management-group-licenses.md
 - name: Concepts

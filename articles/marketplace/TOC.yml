@@ -149,6 +149,8 @@
           href: azure-app-marketing.md
         - name: Facturation à l’usage
           href: marketplace-metering-service-apis.md
+        - name: Configurer les prix pour une facturation mensuelle à l’usage
+          href: azure-vm-pricing.md
         - name: Gestion des commentaires de révision
           href: azure-app-review-feedback.md
         - name: API d’application

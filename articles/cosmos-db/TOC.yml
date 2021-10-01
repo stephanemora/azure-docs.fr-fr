@@ -723,6 +723,8 @@
                   href: index-policy.md
                 - name: Gérer les stratégies d’indexation
                   href: sql/how-to-manage-indexing-policy.md
+                - name: Métriques d’indexation
+                  href: sql/index-metrics.md
             - name: .NET
               items:
                 - name: "Conseils en performances pour le kit SDK .NET\_v3"
