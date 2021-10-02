@@ -549,7 +549,7 @@
         - name: Groupes d'administration
           tocHref: /azure/governance/management-groups/
           topicHref: /azure/governance/management-groups/
-        - name: Policy
+        - name: Stratégie
           tocHref: /azure/governance/policy/
           topicHref: /azure/governance/policy/
         - name: Resource Graph
@@ -761,6 +761,9 @@
             - name: Passerelle NAT
               tocHref: /azure/virtual-network/nat-gateway
               topicHref: /azure/virtual-network/nat-gateway
+            - name: Services IP
+              tocHref: /azure/virtual-network/ip-services
+              topicHref: /azure/virtual-network/ip-services
         - name: WAN virtuel
           tocHref: /azure/virtual-wan/
           topicHref: /azure/virtual-wan/

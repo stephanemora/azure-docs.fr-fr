@@ -194,6 +194,8 @@
           href: event-driven-scaling.md
         - name: Traitement des événements fiables
           href: functions-reliable-event-processing.md
+        - name: Accès concurrentiel
+          href: functions-concurrency.md
         - name: Conception pour une entrée identique
           href: functions-idempotent.md
     - name: Déclencheurs et liaisons
