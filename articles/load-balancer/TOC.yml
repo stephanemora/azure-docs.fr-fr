@@ -170,6 +170,32 @@
       href: howto-load-balancer-imds.md
     - name: Configuration de l’équilibreur de charge en sortie uniquement
       href: egress-only.md
+    - name: IPv6
+      items:
+        - name: Public standard
+          items:
+            - name: Équilibreur de charge public standard avec IPv6 - PowerShell
+              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+            - name: Équilibreur de charge public standard avec IPv6 - Azure CLI
+              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+            - name: Équilibreur de charge public standard avec IPv6 - Modèle ARM
+              href: ipv6-configure-standard-load-balancer-template-json.md
+        - name: Interne standard
+          items:
+            - name: Équilibreur de charge interne standard avec IPv6 - PowerShell
+              href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+        - name: Public de base
+          items:
+            - name: Déployer une application double pile IPv6 avec le Load Balancer de base – PowerShell
+              href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+            - name: Déployer une application double pile IPv6 avec Basic Load Balancer - Azure CLI
+              href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+            - name: Déployer une application double pile IPv6 avec Basic Load Balancer - Modèle ARM
+              href: ipv6-configure-template-json.md
+        - name: Ajouter une IPv6 à une application IPv4 - PowerShell
+          href: ipv6-add-to-existing-vnet-powershell.md
+        - name: Ajouter une IPv6 à une application IPv4 - Azure CLI
+          href: ipv6-add-to-existing-vnet-cli.md
     - name: Dépanner
       items:
         - name: Résoudre les problèmes liés à Azure Load Balancer

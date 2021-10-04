@@ -1,0 +1,185 @@
+items:
+  - name: Documentation sur les services IP de réseau virtuel
+    href: index.yml
+  - name: Vue d’ensemble
+    items:
+      - name: "Que sont les services\_IP de réseau virtuel Azure\_?"
+        href: ip-services-overview.md
+  - name: Démarrages rapides
+    items:
+      - name: "Créer une adresse\_IP publique - Portail"
+        href: create-public-ip-portal.md
+      - name: "Créer une adresse\_IP publique - PowerShell"
+        href: create-public-ip-powershell.md
+      - name: "Créer une adresse\_IP publique - Azure CLI"
+        href: create-public-ip-cli.md
+      - name: "Créer une adresse\_IP publique - Modèle ARM"
+        href: create-public-ip-template.md
+      - name: "Créer un préfixe d’adresse\_IP publique - Portail"
+        href: create-public-ip-prefix-portal.md
+      - name: "Créer un préfixe d’adresse\_IP publique - PowerShell"
+        href: create-public-ip-prefix-powershell.md
+      - name: "Créer un préfixe d’adresse\_IP publique - Azure CLI"
+        href: create-public-ip-prefix-cli.md
+    expanded: true
+  - name: Tutoriels
+    items:
+      - name: Configurer la machine virtuelle avec la préférence de routage Internet
+        items:
+          - name: Portail Azure
+            href: tutorial-routing-preference-virtual-machine-portal.md
+          - name: Azure PowerShell
+            href: configure-routing-preference-virtual-machine-powershell.md
+          - name: Azure CLI
+            href: configure-routing-preference-virtual-machine-cli.md
+      - name: Configurer la préférence de routage mixte pour une machine virtuelle
+        href: routing-preference-mixed-network-adapter-portal.md
+      - name: Configurer la préférence de routage pour un cluster AKS
+        href: routing-preference-azure-kubernetes-service-cli.md
+  - name: Concepts
+    items:
+      - name: Adresses IP publiques
+        href: public-ip-addresses.md
+      - name: Adresses IP privées
+        href: private-ip-addresses.md
+      - name: Préfixe d’adresse IP publique
+        href: public-ip-address-prefix.md
+      - name: Gérer des adresses IP publiques
+        href: virtual-network-public-ip-address.md
+      - name: Gérer un préfixe IP public
+        href: manage-public-ip-address-prefix.md
+      - name: IPv6 pour les réseaux virtuels Azure
+        href: ipv6-overview.md
+      - name: Accès sortant par défaut
+        href: default-outbound-access.md
+      - name: Préférence de routage
+        href: routing-preference-overview.md
+      - name: Préférence de routage délimitée
+        href: routing-preference-unmetered.md
+      - name: Sécurité
+        items:
+          - name: Base de référence de sécurité pour les adresses IP publiques
+        href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
+  - name: Procédures
+    items:
+      - name: Configurer des adresses IP pour une interface réseau Azure
+        href: virtual-network-network-interface-addresses.md
+      - name: Gestion des ressources
+        items:
+          - name: Équilibrage de charge
+            href: configure-public-ip-load-balancer.md
+          - name: Passerelle NAT
+            href: configure-public-ip-nat-gateway.md
+          - name: Machine virtuelle
+            href: configure-public-ip-vm.md
+          - name: Pare-feu
+            href: configure-public-ip-firewall.md
+          - name: passerelle VPN
+            href: configure-public-ip-vpn-gateway.md
+          - name: passerelle d’application
+            href: configure-public-ip-application-gateway.md
+          - name: Bastion
+            href: configure-public-ip-bastion.md
+      - name: "Mettre à niveau une adresse\_IP publique"
+        items:
+          - name: "Mettre à niveau une adresse\_IP publique - Portail"
+            href: public-ip-upgrade-portal.md
+          - name: "Mettre à niveau une adresse\_IP publique - PowerShell"
+            href: public-ip-upgrade-powershell.md
+          - name: "Mettre à niveau une adresse\_IP publique - Azure CLI"
+            href: public-ip-upgrade-cli.md
+          - name: "Migrer une adresse\_IP réservée classique"
+            href: public-ip-upgrade-classic.md
+      - name: Machines virtuelles
+        items:
+          - name: Ajouter une adresse IP publique à une machine virtuelle existante
+            href: associate-public-ip-address-vm.md
+          - name: Dissocier l’adresse IP publique d’une machine virtuelle
+            href: remove-public-ip-address-vm.md
+          - name: Créer une machine virtuelle - IP public statique
+            items:
+              - name: Portail Azure
+                href: virtual-network-deploy-static-pip-arm-portal.md
+              - name: Azure PowerShell
+                href: virtual-network-deploy-static-pip-arm-ps.md
+              - name: Azure CLI
+                href: virtual-network-deploy-static-pip-arm-cli.md
+          - name: Créer une machine virtuelle - IP privé statique
+            items:
+              - name: Portail Azure
+                href: virtual-networks-static-private-ip-arm-pportal.md
+              - name: Azure PowerShell
+                href: virtual-networks-static-private-ip-arm-ps.md
+              - name: Azure CLI
+                href: virtual-networks-static-private-ip-arm-cli.md
+          - name: Créer une machine virtuelle - plusieurs IP
+            items:
+              - name: Portail Azure
+                href: virtual-network-multiple-ip-addresses-portal.md
+              - name: Azure PowerShell
+                href: virtual-network-multiple-ip-addresses-powershell.md
+              - name: Azure CLI
+                href: virtual-network-multiple-ip-addresses-cli.md
+          - name: Créer une machine virtuelle - adresse IP privée statique (classique)
+            items:
+              - name: Portail Azure
+                href: virtual-networks-static-private-ip-classic-pportal.md
+              - name: Azure PowerShell
+                href: virtual-networks-static-private-ip-classic-ps.md
+          - name: Groupe de machines virtuelles identiques avec IPv6
+            href: ipv6-virtual-machine-scale-set.md
+      - name: Préférence de routage
+        items:
+          - name: Création d’une adresse IP publique
+            items:
+              - name: Portail Azure
+                href: routing-preference-portal.md
+              - name: Azure PowerShell
+                href: routing-preference-powershell.md
+              - name: Azure CLI
+                href: routing-preference-cli.md
+      - name: Passer d’une région à l’autre
+        items:
+          - name: Adresses IP publiques
+            href: /resource-mover/tutorial-move-region-virtual-machines?toc=/azure/virtual-network/toc.json
+  - name: Informations de référence
+    items:
+      - name: Azure CLI
+        href: /cli/azure/azure-cli-reference-for-network
+      - name: Azure PowerShell
+        href: /powershell/module/az.network
+      - name: .NET
+        href: /dotnet/api/overview/azure/virtual-network
+      - name: Java
+        href: /java/api/
+      - name: Node.js
+        href: /javascript/azure#azure-sdk
+      - name: Python
+        href: 'https://azure.microsoft.com/develop/python/'
+      - name: REST
+        href: /rest/api/virtual-network
+      - name: Modèle Resource Manager
+        href: /azure/templates/microsoft.network/allversions
+      - name: Exemples de code
+        href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+      - name: Éléments intégrés Azure Policy
+        displayName: 'samples, policies, definitions'
+        href: ../policy-reference.md
+  - name: Ressources
+    items:
+      - name: Développer vos compétences avec Microsoft Learn
+        href: /learn/browse/
+      - name: Feuille de route Azure
+        href: 'https://azure.microsoft.com/roadmap/?category=networking'
+      - name: Blog sur la mise en réseau
+        href: 'https://azure.microsoft.com/blog/topics/networking'
+      - name: Page de questions Microsoft Q&A sur les réseaux
+        href: /answers/topics/azure-virtual-network.html
+      - name: Commentaires sur les réseaux
+        href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+      - name: Tarifs
+        href: 'https://azure.microsoft.com/pricing/details/virtual-network'
+      - name: Calculatrice de prix
+        href: 'https://azure.microsoft.com/pricing/calculator/'
+      - name: Stack Overflow
+        href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'

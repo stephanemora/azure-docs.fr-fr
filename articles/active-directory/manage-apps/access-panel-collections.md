@@ -8,23 +8,30 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 09/02/2021
 ms.author: davidmu
 ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 454f1d5513e7cee0535251ac6f6b02fd3b699643
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 02ccd18f4a394d17bcc73dab836c7972b37116a4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771399"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124817824"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Créer des collections sur le portail Mes applications
 
 Vos utilisateurs peuvent utiliser le portail Mes applications pour afficher et démarrer les applications cloud auxquelles ils ont accès. Par défaut, toutes les applications auxquelles un utilisateur peut accéder sont répertoriées sur une seule page. Pour mieux organiser cette page pour vos utilisateurs, si vous disposez d’une licence Azure AD Premium P1 ou P2, vous pouvez configurer des collections. Avec une collection, vous pouvez regrouper des applications associées (par exemple, par rôle de travail, tâche ou projet) et les afficher sous un onglet distinct. Une collection applique essentiellement un filtre aux applications auxquelles un utilisateur a déjà accès, de sorte que celui-ci ne voit que les applications de la collection qui lui ont été attribuées.
 
 > [!NOTE]
-> Cet article explique comment un administrateur peut activer et créer des collections. Pour plus d’informations sur l’utilisation du portail et des collections Mes applications à destination des utilisateurs finaux, voir [Accéder aux collections et les utiliser](../user-help/my-applications-portal-workspaces.md).
+> Cet article explique comment un administrateur peut activer et créer des collections. Pour plus d’informations sur l’utilisation du portail et des collections Mes applications à destination des utilisateurs finaux, voir [Accéder aux collections et les utiliser](https://support.microsoft.com/account-billing/organize-apps-using-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d).
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour créer des collections sur le portail Mes applications, vous aurez besoin des éléments suivants :
+
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Un des rôles suivants : Administrateur général, Administrateur d’application cloud, Administrateur d’application ou propriétaire du principal de service.
 
 ## <a name="enable-the-latest-my-apps-features"></a>Activer les dernières fonctionnalités de Mes applications
 
@@ -32,7 +39,7 @@ Vos utilisateurs peuvent utiliser le portail Mes applications pour afficher et d
 
 2. Accédez à **Azure Active Directory** > **Paramètres utilisateur**.
 
-3. Sous **Préversions des fonctionnalités utilisateur**, sélectionnez **Gérer les paramètres de préversion de la fonctionnalité utilisateur**.
+3. Sous **Fonctionnalités utilisateur**, sélectionnez **Gérer les paramètres de fonctionnalité utilisateur**.
 
 4. Sous **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour Mes applications**, choisissez une des options suivantes :
    * **Sélectionné** : active les fonctionnalités pour un groupe spécifique. Utilisez l’option **Sélectionner un groupe** pour sélectionner le groupe pour lequel vous souhaitez activer les fonctionnalités.  
@@ -53,21 +60,17 @@ Pour créer une collection, vous devez disposer d’une licence Azure AD Premium
 
 4. Sélectionnez **Nouvelle collection**. Dans la page **nouvelle collection**, entrez un **Nom** pour la collection (nous vous recommandons de ne pas utiliser le mot « collection » dans le nom). Saisissez ensuite une **Description**.
 
-   ![Page Nouvelle collection](media/acces-panel-collections/new-collection.png)
-
 5. Sélectionnez l’onglet **Applications** . Sélectionnez **+ Ajouter une application**, puis, dans la page **Ajouter des applications**, sélectionnez toutes les applications que vous souhaitez ajouter à la collection ou utilisez la zone **Recherche** pour rechercher des applications.
 
    ![Ajouter une application à la collection](media/acces-panel-collections/add-applications.png)
 
-6. Lorsque vous avez fini d’ajouter des applications, sélectionnez **Ajouter**. La liste des applications sélectionnées s’affiche. Vous pouvez utiliser la flèche Haut pour modifier l’ordre des applications dans la liste. Pour déplacer une application vers le bas ou la supprimer de la collection, sélectionnez le menu **Autres** ( **...** ).
+6. Lorsque vous avez fini d’ajouter des applications, sélectionnez **Ajouter**. La liste des applications sélectionnées s’affiche. Vous pouvez utiliser la flèche Haut pour modifier l’ordre des applications dans la liste.
 
 7. Sélectionnez l’onglet **Propriétaires** . Sélectionnez **+ Ajouter des utilisateurs et des groupes**, puis, dans la page **Ajouter des utilisateurs et des groupes**, sélectionnez les utilisateurs ou les groupes auxquels vous souhaitez attribuer la propriété. Une fois que vous avez fini de sélectionner les utilisateurs et groupes, choisissez **Sélectionner**.
 
-9. Sélectionnez l’onglet **Utilisateurs et groupes**. Sélectionnez **+ Ajouter des utilisateurs et des groupes**, puis, dans la page **Ajouter des utilisateurs et des groupes**, sélectionnez les utilisateurs ou les groupes auxquels vous souhaitez attribuer la collection. Ou utilisez la zone **Rechercher** pour rechercher des utilisateurs ou des groupes. Une fois que vous avez fini de sélectionner les utilisateurs et groupes, choisissez **Sélectionner**.
+8. Sélectionnez l’onglet **Utilisateurs et groupes**. Sélectionnez **+ Ajouter des utilisateurs et des groupes**, puis, dans la page **Ajouter des utilisateurs et des groupes**, sélectionnez les utilisateurs ou les groupes auxquels vous souhaitez attribuer la collection. Ou utilisez la zone **Rechercher** pour rechercher des utilisateurs ou des groupes. Une fois que vous avez fini de sélectionner les utilisateurs et groupes, choisissez **Sélectionner**.
 
-   ![Ajoutez des utilisateurs et des groupes](media/acces-panel-collections/add-users-and-groups.png)
-
-11. Sélectionnez **Vérifier + créer**. Les propriétés de la nouvelle collection s’affichent.
+9. Sélectionnez **Vérifier + créer**. Les propriétés de la nouvelle collection s’affichent.
 
 > [!NOTE]
 > Les regroupements d’administration sont gérés par le [portail Azure](https://portal.azure.com), pas depuis le [portail Mes applications](https://myapps.microsoft.com). Par exemple, si vous affectez des utilisateurs ou des groupes en tant que propriétaire, ils peuvent uniquement gérer la collection via le portail Azure.
@@ -86,7 +89,7 @@ Vous pouvez accéder aux journaux d’audit dans le [portail Azure](https://port
 
 ## <a name="get-support-for-my-account-pages"></a>Obtenir de l’aide pour les pages Mon compte
 
-À partir de la page Mes applications, un utilisateur peut sélectionner **Mon compte** > **Afficher mon compte** pour ouvrir ses paramètres de compte. Sur la page **Mon compte** Azure AD, les utilisateurs peuvent gérer leurs informations de sécurité, appareils, mots de passe, etc. Ils peuvent également accéder à leurs paramètres de compte Office.
+À partir de la page Mes applications, un utilisateur peut sélectionner **Mon compte** > **Afficher le compte** pour ouvrir ses paramètres de compte. Sur la page **Mon compte** Azure AD, les utilisateurs peuvent gérer leurs informations de sécurité, appareils, mots de passe, etc. Ils peuvent également accéder à leurs paramètres de compte Office.
 
 Si vous devez envoyer une demande de support pour un problème lié à la page du compte Azure AD ou à la page du compte Office, procédez comme suit afin de permettre son bon acheminement :
 

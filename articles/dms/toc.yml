@@ -41,6 +41,14 @@
       items:
         - name: vers Azure SQL Database
           href: tutorial-sql-server-to-azure-sql.md
+        - name: vers Azure SQL Managed Instance (en ligne) avec Azure Data Studio
+          href: tutorial-sql-server-managed-instance-online-ads.md
+        - name: vers Azure SQL Managed Instance (hors connexion) avec Azure Data Studio
+          href: tutorial-sql-server-managed-instance-offline-ads.md
+        - name: vers Azure SQL VM (en ligne) avec Azure Data Studio
+          href: tutorial-sql-server-to-virtual-machine-online-ads.md
+        - name: vers Azure SQL VM (hors connexion) avec Azure Data Studio
+          href: tutorial-sql-server-to-virtual-machine-offline-ads.md
         - name: vers Azure SQL Managed Instance (hors connexion)
           href: tutorial-sql-server-to-managed-instance.md
         - name: vers Azure SQL Managed Instance (en ligne)

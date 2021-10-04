@@ -3,12 +3,12 @@ title: Comprendre la fonctionnalité de configuration invité de la Stratégie A
 description: Découvrez comment la Stratégie Azure utilise la fonctionnalité de configuration invité pour auditer ou configurer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 07/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12e23b8db546d2bc34bbe17871ac5fbebd7a2de8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: d9da1454fa531bcc6526cc11dda3b341be0688df
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769641"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092620"
 ---
 # <a name="understand-the-guest-configuration-feature-of-azure-policy"></a>Comprendre la fonctionnalité de configuration invité de la Stratégie Azure
 
@@ -55,7 +55,7 @@ Pour limiter l’impact de l’extension sur les applications qui s’exécutent
 
 À l’intérieur de la machine, l’agent de la configuration invité utilise des outils locaux pour exécuter les tâches.
 
-Le tableau suivant affiche une liste des outils locaux utilisés sur chaque système d’exploitation pris en charge. Pour le contenu intégré, la configuration invité gère automatiquement le chargement de ces outils.
+Le tableau suivant affiche une liste des outils locaux utilisés sur chaque système d’exploitation pris en charge. Pour le contenu intégré, la configuration d’invité gère automatiquement le chargement de ces outils.
 
 |Système d’exploitation|Outil de validation|Notes|
 |-|-|-|
@@ -78,8 +78,8 @@ Les définitions de stratégie de la Configuration invité sont incluses dans le
 |Serveur de publication|Nom|Versions|
 |-|-|-|
 |Amazon|Linux|2|
-|Canonical|Serveur Ubuntu|14.04 - 20.x|
-|Credativ|Debian|8 - 10.x|
+|Canonical|Serveur Ubuntu|16.04 - 20.x|
+|Credativ|Debian|9 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Client Windows|Windows 10|
 |Oracle|Oracle-Linux|7.x, 8.x|
@@ -210,8 +210,8 @@ Des exemples de stratégie intégrée de la configuration invité sont disponibl
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Configurez un [environnement de développement](../how-to/guest-configuration-create-setup.md) de package de la configuration invité personnalisé.
-- [Créez un artefact de package](../how-to/guest-configuration-create.md) pour la configuration invité.
+- [Créez un artefact de package](../how-to/guest-configuration-create.md) pour la configuration d’invité.
 - [Testez l’artefact de package](../how-to/guest-configuration-create-test.md) à partir de votre environnement de développement.
-- Utilisez le module `GuestConfiguration` afin de [créer une définition de Stratégie Azure](../how-to/guest-configuration-create-definition.md) pour une gestion à l’échelle de votre environnement.
+- Utilisez le module `GuestConfiguration` afin de [créer une définition Azure Policy](../how-to/guest-configuration-create-definition.md) pour une gestion à grande échelle de votre environnement.
 - [Attribuez votre définition de stratégie personnalisée](../assign-policy-portal.md) à l’aide du portail Azure.
-- Découvrez comment visualiser les [informations relatives à la conformité pour les attributions de stratégie de la configuration invité](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
+- Découvrez comment visualiser les [informations relatives à la conformité pour les attributions de stratégie de configuration d’invité](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).

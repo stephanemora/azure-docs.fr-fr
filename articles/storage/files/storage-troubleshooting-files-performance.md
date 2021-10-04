@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 03fb94571e5e41a99688bf912cab36fa10edd2a4
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: d342565972b051dcd5362f192d15678e1817ce78
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867524"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818850"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Résoudre les problèmes de performances des partages de fichiers Azure
 
@@ -82,6 +82,8 @@ Pour déterminer si la plupart de vos demandes sont centrées sur des métadonn�
 
 - Vérifiez si l’application peut être modifiée pour réduire le nombre d’opérations sur les métadonnées.
 - Ajoutez un disque dur virtuel (VHD) sur le partage de fichiers, et montez-le sur SMB à partir du client pour effectuer des opérations de fichiers sur les données. Cette approche fonctionne pour des scénarios à un seul rédacteur/lecteur ou des scénarios avec plusieurs lecteurs et aucun rédacteur. Comme le système de fichiers appartient au client plutôt qu’à Azure Files, les opérations sur les métadonnées peuvent être locales. La configuration offre des performances similaires à celles d’un stockage local directement attaché.
+    -   Pour monter un disque dur virtuel (VHD) sur un client Windows, utilisez la cmdlet Powershell [Mount-DiskImage](https://docs.microsoft.com/powershell/module/storage/mount-diskimage).
+    -   Pour monter un disque dur virtuel (VHD) sur Linux, consultez la documentation de votre distribution Linux.     
 
 ### <a name="cause-3-single-threaded-application"></a>Cause 3 : Application à thread unique
 

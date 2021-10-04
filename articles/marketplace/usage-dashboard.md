@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 07/15/2021
-ms.openlocfilehash: c68216675a41a71b21216ce558b03171781dbc43
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: c50a36c521848956577fd0e8f53bdb2dceaaee8f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563215"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084041"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Utilisation dans les données d’analytique de la Place de marché commerciale
 
@@ -36,17 +36,45 @@ Le [tableau de bord de l’utilisation](https://go.microsoft.com/fwlink/?linkid=
 > [!NOTE]
 > Dans l’Espace partenaires, la latence maximale entre la génération d’événements d’utilisation et la création des rapports est de 48 heures.
 
+## <a name="access-the-usage-dashboard"></a>Accéder au tableau de bord Utilisation
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Sur la page Accueil, sélectionnez la vignette **Insights**.
+
+    [ ![Illustre la vignette Insights sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. Dans le menu de gauche, sélectionnez **Utilisation**.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Analyser** > **Utilisation**.
+
+---
+
 ## <a name="elements-of-the-usage-dashboard"></a>Éléments du tableau de bord Utilisation
 
 Les sections suivantes expliquent comment utiliser le tableau de bord Utilisation et lire les données.
 
-Pour accéder au tableau de bord Utilisation de l’Espace partenaires, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Utilisation** sous **Place de marché commerciale**.
-
 ### <a name="month-range"></a>Plage de mois
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Utilisation** en sélectionnant la plage des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
+
+[ ![Illustration des filtres de mois dans le tableau de bord Utilisation.](./media/usage-dashboard/usage-dashboard-filters.png) ](./media/usage-dashboard/usage-dashboard-filters.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Utilisation** en sélectionnant la plage des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
 
 :::image type="content" source="./media/usage-dashboard/month-filter.png" alt-text="Illustration des filtres de mois dans le tableau de bord Utilisation":::
+
+---
 
 ### <a name="usage-trend"></a>Tendance d’utilisation
 

@@ -210,6 +210,9 @@
           href: /security/benchmark/azure/baselines/event-grid-security-baseline?toc=/azure/event-grid/toc.json
         - name: Contrôles de sécurité par Azure Policy
           href: ./security-controls-policy.md
+        - name: Éléments intégrés Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
         - name: Authentifier la remise des événements aux gestionnaires d’événements
           href: security-authentication.md
         - name: Authentifier les clients de publication
@@ -252,7 +255,7 @@
           href: auth0-how-to.md
     - name: Obtenir des clés d’accès pour des rubriques ou des domaines
       href: get-access-keys.md
-    - name: Publier dans des rubriques personnalisées avec des clés d’accès
+    - name: Publier des rubriques personnalisées d’événements avec des clés d’accès
       href: post-to-custom-topic.md
     - name: Recevoir des événements sur un point de terminaison HTTP
       href: receive-events.md
@@ -348,9 +351,6 @@
           href: /azure/templates/microsoft.eventgrid/topics
     - name: Kits SDK
       href: sdk-overview.md
-    - name: Éléments intégrés Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

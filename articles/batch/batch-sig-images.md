@@ -4,12 +4,12 @@ description: Les pools d’images personnalisées représentent un moyen efficac
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: a9ff30f52ae19e3d6a7bc58ca81eabeb91d21146
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19a6168c2d6d2a37458dbbe9d8917f6e679da47f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024062"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827489"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées avec Shared Image Gallery
 
@@ -81,7 +81,7 @@ Lors de la création de machines virtuelles, suivez les recommandations suivante
 
 ### <a name="create-a-vm-snapshot"></a>Créer un instantané de la machine virtuelle
 
-Une capture instantanée est une copie complète en lecture seule d’un disque dur virtuel. Pour créer un instantané des disques de système d’exploitation ou de données d’une machine virtuelle, vous pouvez utiliser les outils en ligne de commande ou le portail Azure. Pour les étapes et les options permettant de créer un instantané, consultez les conseils pour les machines virtuelles [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) ou [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md).
+Une capture instantanée est une copie complète en lecture seule d’un disque dur virtuel. Pour créer un instantané des disques de système d’exploitation ou de données d’une machine virtuelle, vous pouvez utiliser les outils en ligne de commande ou le portail Azure. Pour les étapes et les options permettant de créer un instantané, consultez les conseils pour les [machines virtuelles](../virtual-machines/snapshot-copy-managed-disk.md).
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>Créer une image à partir d’un ou plusieurs instantanés
 
@@ -89,7 +89,7 @@ Pour créer une image managée à partir d’un instantané, utilisez les outils
 
 ### <a name="create-a-shared-image-gallery"></a>Créer une galerie Shared Image Gallery
 
-Après avoir créé votre image managée, vous devez créer une galerie Shared Image Gallery pour rendre votre image personnalisée disponible. Pour apprendre à créer une galerie Shared Image Gallery pour vos images, consultez [Créer une galerie Shared Image Gallery avec l'interface de ligne de commande Azure](../virtual-machines/shared-images-cli.md) ou [Créer une galerie Shared Image Gallery à l'aide du portail Azure](../virtual-machines/linux/shared-images-portal.md).
+Après avoir créé votre image managée, vous devez créer une galerie Shared Image Gallery pour rendre votre image personnalisée disponible. Pour apprendre à créer une instance du service Shared Image Gallery pour vos images, consultez [Créer une instance Shared Image Gallery](../virtual-machines/create-gallery.md).
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Créer un pool à partir d’une image partagée à l’aide de l’interface de ligne de commande Azure
 

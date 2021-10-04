@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 0d872a60c4aea89e621fe25ade45697244a74fa8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e7356319a875f3289531c24e5a053e745a543c0a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779720"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124830143"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accéder au tableau de bord web Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -21,10 +21,9 @@ Pour plus d’informations sur le tableau de bord Kubernetes, consultez la secti
 
 > [!WARNING]
 > **Le module complémentaire du tableau de bord AKS sera bientôt déconseillé. Utilisez plutôt l’[affichage des ressources Kubernetes dans le portail Azure][kubernetes-portal] (préversion).** 
-> * Le tableau de bord Kubernetes est activé par défaut pour les clusters exécutant une version de Kubernetes antérieure à 1.18.
-> * Le module complémentaire du dashboard est désactivé par défaut pour tous les nouveaux clusters créés sur Kubernetes 1.18 ou une version ultérieure. 
- > * À partir de la préversion de Kubernetes 1.19, AKS ne prend plus en charge l’installation du module complémentaire kube-dashboard géré. 
- > * Les clusters existants avec le module complémentaire activé ne seront pas impactés. Les utilisateurs pourront continuer à installer manuellement le tableau de bord open source en tant que logiciel installé par l’utilisateur.
+> * Le module complémentaire du dashboard est désactivé par défaut pour tous les nouveaux clusters.
+> * À partir de la préversion de Kubernetes 1.19, AKS ne prend plus en charge l’installation du module complémentaire kube-dashboard géré. 
+> * Les clusters existants avec le module complémentaire activé ne seront pas impactés. Les utilisateurs pourront continuer à installer manuellement le tableau de bord open source en tant que logiciel installé par l’utilisateur.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -34,32 +33,11 @@ Azure CLI version 2.6.0 ou ultérieure doit également être installé et confi
 
 ## <a name="disable-the-kubernetes-dashboard"></a>Désactiver le tableau de bord Kubernetes
 
-Le module complémentaire kube-dashboard est **activé par défaut sur les clusters antérieurs à K8s 1.18**. Le module complémentaire peut être désactivé en exécutant la commande suivante.
+Le module complémentaire peut être désactivé en exécutant la commande suivante.
 
 ``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
-
-## <a name="start-the-kubernetes-dashboard"></a>Ouvrir le tableau de bord Kubernetes
-
-> [!WARNING]
-> Le module complémentaire du tableau de bord AKS sera bientôt déconseillé à partir de la version 1.19. Utilisez plutôt l’[affichage des ressources Kubernetes dans le portail Azure][kubernetes-portal] (préversion). 
-> * La commande suivante ouvre l’affichage des ressources du portail Azure à la place du tableau de bord Kubernetes pour la version 1.19 et ultérieures.
-
-Pour ouvrir le tableau de bord Kubernetes sur un cluster, utilisez la commande [az aks browse][az-aks-browse]. Cette commande requiert l’installation sur le cluster du module complémentaire kube-dashboard, qui est inclus par défaut sur les clusters exécutant une version antérieure à Kubernetes 1.18.
-
-L’exemple suivant ouvre le tableau de bord du cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
-
-```azurecli
-az aks browse --resource-group myResourceGroup --name myAKSCluster
-```
-
-Cette commande crée un proxy entre votre système de développement et l’API Kubernetes, et ouvre un navigateur web sur le tableau de bord Kubernetes. Si le tableau de bord Kubernetes ne s’ouvre pas dans le navigateur web, copiez et collez l’adresse URL indiquée dans Azure CLI (habituellement `http://127.0.0.1:8001`).
-
-> [!NOTE]
-> Si vous ne voyez pas le tableau de bord sous `http://127.0.0.1:8001`, vous pouvez accéder manuellement aux adresses suivantes. Les clusters de la version 1.16 ou des versions ultérieures utilisent https et requièrent un point de terminaison séparé.
-> * K8s 1.16 ou version supérieure : `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
-> * K8s 1.15 et versions inférieures : `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)

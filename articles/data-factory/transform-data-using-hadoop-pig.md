@@ -1,22 +1,22 @@
 ---
 title: Transformer des données à l’aide d’une activité Hadoop Pig
+description: Découvrez comment utiliser l'activité Pig pour exécuter des requêtes Pig sur un cluster HDInsight à la demande/ou votre propre cluster avec Azure Data Factory ou Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l'activité pig d’une fabrique de données Azure pour exécuter des requêtes pig sur un cluster HDInsight à la demande/ou votre propre cluster.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 05/08/2020
-ms.openlocfilehash: a3ece45a6770532292d487e35024d54fc34727c9
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: c353b0c92a767adb2196a6268658abeecaed774d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534916"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806096"
 ---
-# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hadoop Pig dans Azure Data Factory
+# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory-or-synapse-analytics"></a>Transformer des données à l’aide d’une activité Hadoop Pig dans Azure Data Factory ou Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-pig-activity.md)
@@ -26,7 +26,7 @@ ms.locfileid: "122534916"
 
 L’activité HDInsight Pig d’un [pipeline](concepts-pipelines-activities.md) Data Factory exécute des requêtes Pig sur [votre propre](compute-linked-services.md#azure-hdinsight-linked-service) cluster ou cluster [à la demande](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight. Cet article s'appuie sur l'article [Activités de transformation des données](transform-data.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
-Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](introduction.md) et suivez le [Didacticiel : Transformer des données](tutorial-transform-data-spark-powershell.md) avant de lire cet article. 
+Pour en savoir plus, avant de lire cet article, consultez l’introduction à [Azure Data Factory](introduction.md) ou [Synapse Analytics](../synapse-analytics/overview-what-is.md), puis suivez le didacticiel [Transformer des données](tutorial-transform-data-spark-powershell.md). 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -62,7 +62,7 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 | name                | Nom de l’activité                     | Oui      |
 | description         | Texte décrivant la raison motivant l’activité. | Non       |
 | type                | Pour l’activité Hive, le type d’activité est HDinsightPig. | Oui      |
-| linkedServiceName   | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
+| linkedServiceName   | Référence au cluster HDInsight enregistré en tant que service lié. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
 | scriptLinkedService | Référence à un service lié de stockage Azure utilisé pour stocker le script Pig à exécuter. Seuls les services liés **[Stockage Blob Azure](./connector-azure-blob-storage.md)** et **[ADLS Gen2](./connector-azure-data-lake-storage.md)** sont pris en charge ici. Si vous ne spécifiez pas ce service lié, le service lié Stockage Azure défini dans le service lié HDInsight est utilisé. | Non       |
 | scriptPath          | Indiquez le chemin du fichier de script stocké dans le stockage Azure référencé par scriptLinkedService. Le nom de fichier respecte la casse. | Non       |
 | getDebugInfo        | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par scriptLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucun. | Non       |

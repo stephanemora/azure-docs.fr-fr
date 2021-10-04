@@ -363,12 +363,17 @@
       items:
         - name: Données de l’étiquette
           items:
-            - name: Obtenir des données étiquetées
-              displayName: 'data, dataset, labeling'
-              href: how-to-create-labeling-projects.md
+            - name: Configurer l’étiquetage d’images
+              displayName: 'data, dataset'
+              href: how-to-create-image-labeling-projects.md
+            - name: Configurer l’étiquetage de texte
+              displayName: 'data, dataset'
+              href: how-to-create-text-labeling-projects.md
             - name: Étiqueter des images et du texte
               displayName: 'data, dataset, labeling'
               href: how-to-label-data.md
+            - name: Externaliser les tâches d’étiquetage
+              href: how-to-outsource-data-labeling.md
             - name: Créer des jeux de données avec des étiquettes
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md

@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: Documentation sur les services IP de réseau virtuel
+summary: Apprenez à utiliser les services IP de réseau virtuel Azure. Des guides de démarrage rapide, des tutoriels, des exemples et plus encore vous montrent comment utiliser les services IP dans Azure.
+metadata:
+  title: Documentation sur les services IP de réseau virtuel Azure - Tutoriels, guides de démarrage rapide, informations de référence sur les API
+  description: Apprenez à utiliser les services IP de réseau virtuel Azure. Apprenez à déployer une passerelle NAT avec des guides de démarrage rapide, des tutoriels, des exemples, etc.
+  services: virtual-network
+  ms.service: virtual-network
+  ms.subservice: ip-services
+  ms.topic: landing-page
+  ms.collection: collection
+  author: asudbring
+  ms.author: allensu
+  ms.date: 10/01/2021
+  ms.openlocfilehash: 39bfb032451dad44aaf8c7faa634115776cc66d4
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129367241"
+landingContent:
+- title: À propos des services IP de réseau virtuel
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Que sont les services IP de réseau virtuel Azure ?
+      url: ip-services-overview.md
+  - linkListType: concept
+    links:
+    - text: Adresses IP publiques dans Azure
+      url: public-ip-addresses.md
+    - text: Préfixe d’adresse IP publique Azure
+      url: public-ip-address-prefix.md
+    - text: Adresses IP privées dans Azure
+      url: private-ip-addresses.md
+- title: Bien démarrer
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer une adresse IP publique
+      url: create-public-ip-portal.md
+    - text: Créer un préfixe d’adresse IP publique
+      url: create-public-ip-prefix-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Configurer la préférence de routage pour une machine virtuelle
+      url: tutorial-routing-preference-virtual-machine-portal.md
+    - text: Configurer les deux options de préférence de routage pour une machine virtuelle
+      url: routing-preference-mixed-network-adapter-portal.md
+    - text: Configurer la préférence de routage d’un service Azure Kubernetes
+      url: routing-preference-azure-kubernetes-service-cli.md
+- title: Gérer les fonctionnalités et les options
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Créer, changer ou supprimer une adresse IP publique Azure
+      url: virtual-network-public-ip-address.md
+    - text: Créer, changer ou supprimer un préfixe d’adresse IP publique Azure
+      url: manage-public-ip-address-prefix.md
+    - text: Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ?
+      url: ipv6-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer une préférence de routage pour une adresse IP publique
+      url: routing-preference-portal.md
+    - text: Mettre à niveau une adresse IP publique
+      url: public-ip-upgrade-portal.md
+    - text: Migrer une adresse IP réservée classique vers une adresse IP publique
+      url: public-ip-upgrade-classic.md
+- title: Machines virtuelles
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Accès sortant par défaut dans Azure
+      url: default-outbound-access.md
+    - text: Qu’est-ce qu’une préférence de routage ?
+      url: routing-preference-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer une machine virtuelle avec une adresse IP publique statique
+      url: virtual-network-deploy-static-pip-arm-portal.md
+    - text: Configurer une adresse IP privée pour une machine virtuelle
+      url: virtual-networks-static-private-ip-arm-pportal.md
+    - text: Affecter plusieurs adresses IP aux machines virtuelles
+      url: virtual-network-multiple-ip-addresses-portal.md

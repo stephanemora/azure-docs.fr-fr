@@ -91,6 +91,8 @@
 - name: Informations de référence
   expanded: true
   items:
+    - name: Identificateurs d’informations de base dans le journal de connexion
+      href: reference-basic-info-identifiers.md
     - name: Applets de commande Azure AD PowerShell pour la création de rapports
       href: reference-powershell-reporting.md
     - name: Informations de référence sur l’API des journaux d’audit

@@ -1,22 +1,22 @@
 ---
-title: Format Avro dans Azure Data Factory
+title: Format Avro
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Cette rubrique décrit comment traiter le format Avro dans Azure Data Factory.
+description: Cette rubrique explique comment traiter le format Avro dans Azure Data Factory et Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 6a4e3f033583f70250e12702b948fcd30875fb65
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 45c96b1e0777dd42bd1a7175a057e5a48f691ff4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123250697"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779670"
 ---
-# <a name="avro-format-in-azure-data-factory"></a>Format Avro dans Azure Data Factory
+# <a name="avro-format-in-azure-data-factory-and-synapse-analytics"></a>Format Avro dans Azure Data Factory et Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -32,7 +32,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La propriété type du jeu de données doit être définie sur **Avro**. | Oui      |
 | location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. **Consultez les détails dans l’article du connecteur -> section des propriétés du jeu de données**. | Oui      |
-| avroCompressionCodec | Codec de compression à utiliser lors de l’écriture dans des fichiers Avro. Lors de la lecture de fichiers Avro, Data Factory détermine automatiquement le codec de compression sur la base des métadonnées de fichier.<br>Les types pris en charge sont « **None** » (par défaut), « **deflate** » et « **snappy**». Notez que l’activité de copie ne prend pas en charge Snappy lors de la lecture ou de l’écriture des fichiers Avro. | Non       |
+| avroCompressionCodec | Codec de compression à utiliser lors de l’écriture dans des fichiers Avro. Lors de la lecture de fichiers Avro, le service détermine automatiquement le codec de compression sur la base des métadonnées de fichier.<br>Les types pris en charge sont « **None** » (par défaut), « **deflate** » et « **snappy**». Notez que l’activité de copie ne prend pas en charge Snappy lors de la lecture ou de l’écriture des fichiers Avro. | Non       |
 
 > [!NOTE]
 > Les espaces blancs dans le nom de colonne ne sont pas pris en charge pour les fichiers Avro.

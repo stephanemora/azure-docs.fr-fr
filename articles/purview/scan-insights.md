@@ -4,19 +4,22 @@ description: Ce guide pratique explique comment afficher et utiliser les rapport
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 11/20/2020
-ms.openlocfilehash: 3c5a3b9b312e093d7bee5c0c555e8e2eab0c531b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 17935a3dc4aef3c5cd9d6b1e162a2002b3c06e2c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531770"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211372"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Insights sur les analyses de vos données dans Azure Purview
 
 Ce guide pratique explique comment accéder aux rapports d’insights sur les analyses Azure Purview en lien avec vos données, ainsi que comment les afficher et les filtrer.
+
+> [!IMPORTANT]
+> Azure Purview est actuellement disponible en PRÉVERSION. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
 Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivantes :
 
@@ -31,7 +34,7 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 * Configurez vos ressources Azure et renseignez le compte avec des données.
 * Configurez et effectuez une analyse sur la source de données.
 
-Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md).
+Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview](manage-data-sources.md).
 
 ## <a name="use-purview-scan-insights"></a>Utiliser les insights sur les analyses dans Purview
 
@@ -45,11 +48,11 @@ Dans Azure Purview, vous pouvez inscrire et analyser les types de sources. Vous 
 
    :::image type="content" source="./media/scan-insights/portal-access.png" alt-text="Lancer Purview à partir du portail Azure":::
 
-1. Dans la page d’**accueil** de Purview, sélectionnez la vignette **View insights (Afficher les insights)** pour accéder à la zone **Insights** :::image type="icon" source="media/scan-insights/ico-insights.png" border="false":::.
+1. Sur la **page d'accueil** de Purview, sélectionnez **Insights** dans le menu de gauche.
 
    :::image type="content" source="./media/scan-insights/view-insights.png" alt-text="Afficher vos insights dans le portail Azure":::
 
-1. Dans la zone **Insights** :::image type="icon" source="media/scan-insights/ico-insights.png" border="false"::: , sélectionnez **Scans (Analyses)** pour afficher le rapport Purview **Scan insights (Insights sur les analyses)** .
+1. Dans la zone **Insights** , sélectionnez **Scans (Analyses)** pour afficher le rapport Purview **Scan insights (Insights sur les analyses)** .
 
 ### <a name="view-high-level-kpis-to-show-count-of-scans-by-status-and-deep-dive-into-each-scan"></a>Afficher les indicateurs de performance clés de haut niveau pour accéder au nombre d’analyses par état
  
@@ -62,7 +65,7 @@ Dans Azure Purview, vous pouvez inscrire et analyser les types de sources. Vous 
 
     :::image type="content" source="./media/scan-insights/main-graph.png" alt-text="Afficher l’état de l’analyse au fil du temps":::
 
-4. Vous pouvez approfondir l’exploration d’une analyse spécifique en cliquant sur le **nom de l’analyse** pour vous connecter à l’historique d’analyse au sein de l’expérience **Data Map** d’Azure Purview. À partir de la page de l’historique des exécutions, vous pouvez obtenir l’ID d’exécution qui vous aidera à effectuer d’autres investigations.
+4. Vous pouvez approfondir l’exploration d’une analyse spécifique en sélectionnant le **nom de l’analyse** pour vous connecter à l’historique d’analyse au sein de l’expérience **Data Map** d’Azure Purview. À partir de la page de l’historique des exécutions, vous pouvez obtenir l’ID d’exécution qui vous aidera à effectuer d’autres investigations.
 
     :::image type="content" source="./media/scan-insights/scan-status.png" alt-text="Afficher les détails de l’analyse":::
 

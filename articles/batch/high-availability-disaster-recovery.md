@@ -2,13 +2,13 @@
 title: Haute disponibilité et récupération d’urgence
 description: Apprenez à concevoir votre application Azure Batch afin de faire face à une panne régionale.
 ms.topic: how-to
-ms.date: 12/30/2020
-ms.openlocfilehash: eb3d0cb218e607e38b7478b7cc7956963e450f46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/08/2021
+ms.openlocfilehash: 5ba56d769344b930cdc3c6500d42456214b32a71
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524354"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799146"
 ---
 # <a name="design-your-batch-application-for-high-availability"></a>Concevoir votre application Batch à des fins de haute disponibilité
 
@@ -35,6 +35,7 @@ Lors de la conception d'une solution capable de basculer, tenez compte des point
 - Utilisez des modèles et/ou des scripts pour automatiser le déploiement de l'application dans une région.
 - Maintenez à jour les données de référence et les fichiers binaires de l'application dans toutes les régions. Une région à jour pourra être mise en ligne rapidement sans avoir à attendre le téléchargement et le déploiement des fichiers. Par exemple, si une application personnalisée à installer sur des nœuds de pool est stockée et référencée à l'aide de packages d'application Batch, lorsqu'une nouvelle version de l'application est produite, elle doit être téléchargée sur chaque compte Batch et référencée par la configuration du pool (ou la nouvelle version peut devenir la version par défaut).
 - Dans l’application qui appelle Batch, Stockage ou tout autre service, facilitez le basculement vers les clients ou la charge vers différentes régions.
+- Le cas échéant, envisagez de [créer des pools sur Zones de disponibilité](create-pool-availability-zones.md).
 - Envisagez fréquemment de basculer vers une autre région dans le cadre d’un fonctionnement normal. Par exemple, avec deux déploiements dans des régions distinctes, basculez une fois par mois vers l’autre région.
 
 ## <a name="next-steps"></a>Étapes suivantes

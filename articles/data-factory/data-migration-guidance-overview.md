@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
-ms.openlocfilehash: 41c2a1fd7bccb6a43a9b5f3a8ad979fca90e8749
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6175447ddb249e04a939219caa722c55dae65749
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562771"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749076"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Utilisez Azure Data Factory pour migrer des données de votre lac de données ou de votre entrepôt de données vers Azure
 
@@ -49,7 +49,8 @@ Vous devez prendre en compte trois points importants quand vous choisissez votre
 
 Supposons, par exemple, que vous envisagiez d’utiliser Azure Data Factory pour effectuer la migration de vos données sous deux semaines (votre *fenêtre de migration*). Notez la ligne de coupe rose/bleue dans le tableau suivant. La cellule rose la plus basse d’une colonne indique la combinaison taille des données/bande passante réseau dont la fenêtre de migration est la plus proche de deux semaines (tout en restant inférieure). (Toutes les combinaisons taille/bande passante figurant dans une cellule bleue correspondent à une fenêtre de migration en ligne supérieure à deux semaines.) 
 
-![Migration en ligne et migration hors connexion](media/data-migration-guidance-overview/online-offline.png) Ce tableau vous permet de savoir si vous pouvez respecter la fenêtre de migration prévue avec une migration en ligne (Azure Data Factory) en fonction de la taille de vos données et de la bande passante réseau disponible. Si la fenêtre de migration en ligne est supérieure à deux semaines, vous devrez plutôt utiliser la migration hors connexion.
+:::image type="content" source="media/data-migration-guidance-overview/online-offline.png" alt-text="en ligne et hors connexion":::
+Ce tableau vous permet de savoir si vous pouvez respecter la fenêtre de migration prévue avec une migration en ligne (Azure Data Factory) en fonction de la taille de vos données et de la bande passante réseau disponible. Si la fenêtre de migration en ligne est supérieure à deux semaines, vous devrez plutôt utiliser la migration hors connexion.
 
 > [!NOTE]
 > La migration de données en ligne vous permet de charger les données historiques et les flux incrémentiels de bout en bout à l’aide d’un seul outil.  Grâce à cette approche, vos données peuvent rester synchronisées entre le magasin existant et le nouveau magasin sur l’ensemble de la fenêtre de migration. Ainsi, vous pouvez régénérer votre logique ETL sur le nouveau magasin avec les données actualisées.

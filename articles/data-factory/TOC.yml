@@ -735,6 +735,8 @@ items:
                 href: monitor-install-analytics.md
           - name: Surveiller avec les Kits de développement logiciel (SDK)
             href: monitor-programmatically.md
+          - name: Surveiller les pipelines avec les notifications Microsoft Teams
+            href: how-to-send-notifications-to-teams.md
           - name: Surveiller le runtime d’intégration
             href: monitor-integration-runtime.md
           - name: Surveiller le runtime d’intégration Azure-SSIS
@@ -796,14 +798,27 @@ items:
           - name: Exécuter des packages SSIS avec dtexec compatible Azure
             href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
           - name: Exécuter des packages SSIS avec l’activité Exécuter le Package SSIS
-            href: how-to-invoke-ssis-package-ssis-activity.md
-            displayName: 'retry, timeout'
+            items:
+              - name: Utilisation de l’interface utilisateur du portail Azure Data Factory Studio
+                href: how-to-invoke-ssis-package-ssis-activity.md
+                displayName: 'retry, timeout'
+              - name: Utilisation de PowerShell
+                href: how-to-invoke-ssis-package-ssis-activity-powershell.md
+                displayName: 'retry, timeout'
           - name: Exécuter des packages SSIS avec l’activité de procédure stockée
             href: how-to-invoke-ssis-package-stored-procedure-activity.md
           - name: Planifier le runtime d’intégration Azure-SSIS Integration Runtime
             href: how-to-schedule-azure-ssis-integration-runtime.md
           - name: Joindre le runtime d’intégration Azure-SSIS à un réseau virtuel
-            href: join-azure-ssis-integration-runtime-virtual-network.md
+            items:
+              - name: Vue d’ensemble
+                href: join-azure-ssis-integration-runtime-virtual-network.md
+              - name: Configuration du réseau virtuel
+                href: azure-ssis-integration-runtime-virtual-network-configuration.md
+              - name: Utilisation de l’interface utilisateur Azure Data Factory Studio
+                href: join-azure-ssis-integration-runtime-virtual-network-ui.md
+              - name: Utilisation de Microsoft Azure PowerShell
+                href: join-azure-ssis-integration-runtime-virtual-network-powershell.md
           - name: Configurer l’IR auto-hébergé comme proxy pour Azure-SSIS IR
             href: self-hosted-integration-runtime-proxy-ssis.md
             displayName: self hosted
@@ -859,6 +874,8 @@ items:
             href: how-to-discover-explore-purview-data.md
       - name: Scénarios
         items:
+          - name: Surveiller les pipelines avec les notifications Microsoft Teams
+            href: how-to-send-notifications-to-teams.md
           - name: Migration des données pour Data Lake et EDW
             items:
               - name: Pourquoi Azure Data Factory
@@ -932,15 +949,53 @@ items:
             href: data-factory-troubleshoot-guide.md
             displayName: timeout
           - name: Connecteurs
-            href: connector-troubleshoot-guide.md
-            displayName: 'polybase, timeout'
+            items:
+              - name: Vue d’ensemble et erreurs générales de l’activité de copie
+                href: connector-troubleshoot-guide.md
+                displayName: 'polybase, timeout'
+              - name: Stockage Blob Azure
+                href: connector-troubleshoot-azure-blob-storage.md
+              - name: Azure Cosmos DB (y compris l’API SQL)
+                href: connector-troubleshoot-azure-cosmos-db.md
+              - name: Azure Data Lake (Gen1 et Gen2)
+                href: connector-troubleshoot-azure-data-lake.md
+              - name: Azure Database pour PostgreSQL
+                href: connector-troubleshoot-postgresql.md
+              - name: Azure Files
+                href: connector-troubleshoot-azure-files.md
+              - name: 'Azure Synapse Analytics, Azure SQL Database et SQL Server'
+                href: connector-troubleshoot-synapse-sql.md
+              - name: Stockage de table Azure
+                href: connector-troubleshoot-azure-table-storage.md
+              - name: DB2
+                href: connector-troubleshoot-db2.md
+              - name: Format de texte délimité
+                href: connector-troubleshoot-delimited-text.md
+              - name: "Dynamics\_365, Dataverse (Common Data Service) et Dynamics\_CRM"
+                href: connector-troubleshoot-dynamics-dataverse.md
+              - name: 'FTP, SFTP et HTTP'
+                href: connector-troubleshoot-ftp-sftp-http.md
+              - name: Oracle
+                href: connector-troubleshoot-oracle.md
+              - name: "Format\_ORC"
+                href: connector-troubleshoot-orc.md
+              - name: "Format\_Parquet"
+                href: connector-troubleshoot-parquet.md
+              - name: REST
+                href: connector-troubleshoot-rest.md
+              - name: Liste SharePoint Online
+                href: connector-troubleshoot-sharepoint-online-list.md
+              - name: Format XML
+                href: connector-troubleshoot-xml.md
           - name: Déclencheurs de pipeline
             href: pipeline-trigger-troubleshoot-guide.md
           - name: Flux de données
             items:
-              - name: Vue d’ensemble des flux de données
+              - name: Vue d’ensemble de la résolution des problèmes de flux de données
                 href: data-flow-troubleshoot-guide.md
                 displayName: timeout
+              - name: Messages et erreurs de flux de données
+                href: data-flow-troubleshoot-errors.md
               - name: Connecteur et format
                 href: data-flow-troubleshoot-connector-format.md
           - name: Intégration et déploiement continus

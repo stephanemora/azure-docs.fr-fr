@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: ec65980e3886b62b8718799d1566a11d5c13a679
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 936e031e72a98f2329202df4fb3b7a97e7f9d237
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122523982"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754483"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -258,7 +258,7 @@ Les ressources suivantes peuvent utiliser des Load Balancers de base, ce qui sig
 - Cache Redis 
 - Référence SKU Application Gateway (v1)
 - Service Fabric
-- Gestion des API
+- Gestion des API (stv1)
 - Active Directory Domain Services (ADDS)
 - Logic Apps
 - HDInsight

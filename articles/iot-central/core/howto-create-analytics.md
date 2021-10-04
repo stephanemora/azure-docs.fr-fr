@@ -1,18 +1,18 @@
 ---
 title: Analyser les données d’appareil dans votre application Azure IoT Central | Microsoft Docs
 description: Analysez les données d’appareil dans votre application Azure IoT Central.
-author: ankitscribbles
-ms.author: ankitgup
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2ee6c615556946fa3c28212bc3cf1917c4ef7f2f
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: ad16a831b22097e98bd02b606e3a6596cf4e48f5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122525903"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810954"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Guide pratique pour utiliser une analytique permettant d’analyser les données des appareils
 
@@ -22,7 +22,10 @@ Azure IoT Central fournit des fonctionnalités d’analyse enrichies pour analys
 
 L’interface utilisateur Analytics présente trois composants principaux :
 
-- **Panneau de configuration de données :** dans le panneau de configuration, sélectionnez le groupe d’appareils pour lequel vous souhaitez analyser les données. Ensuite, sélectionnez la télémétrie que vous souhaitez analyser et sélectionnez la méthode d’agrégation pour chaque télémétrie. Le contrôle **Diviser par** permet de regrouper les données à l’aide des propriétés de l’appareil en tant que dimensions.
+- **Panneau de configuration de données :** dans le panneau de configuration, sélectionnez le groupe d’appareils pour lequel vous souhaitez analyser les données. Ensuite, sélectionnez la télémétrie que vous souhaitez analyser et sélectionnez la méthode d’agrégation pour chaque télémétrie. Le contrôle **Grouper par** permet de regrouper les données à l’aide des propriétés de l’appareil en tant que dimensions.
+
+    > [!TIP]
+    > Si votre appareil utilise des organisations, les groupes d’appareils que vous voyez dépendent de l’appartenance à votre organisation.
 
 - **Contrôle du temps :** utilisez le contrôle du temps pour sélectionner la durée pendant laquelle vous souhaitez analyser les données. Vous pouvez faire glisser l’une des extrémités du curseur de temps pour sélectionner l’intervalle de temps. Le contrôle du temps présente également un curseur **Taille d’intervalle** qui contrôle le compartiment ou la taille d’intervalle utilisée pour agréger les données.
 
@@ -41,10 +44,10 @@ Choisissez un **groupe d’appareils** pour commencer, puis les données de tél
     > [!NOTE]
     > Les points de données historiques sont affichés uniquement lorsque les conditions de la requête sont vraies. Par exemple, un appareil a été mis à niveau de **Template1** vers **Template2** hier. Aujourd’hui, si vous interrogez des groupes d’appareils qui contiennent des appareils **Template1**, vous voyez les données d’appareil d’hier et d’avant. Si vous interrogez des groupes d’appareils qui contiennent des appareils **Template2**, vous voyez l’appareil et les données à partir du moment où il a été mis à niveau jusqu’à présent.
 
-- **Diviser par :** le contrôle **Diviser par** permet de regrouper les données à l’aide des propriétés de l’appareil en tant que dimensions. Les données de télémétrie et les propriétés de l’appareil sont combinées avec les propriétés cloud lorsque l’appareil envoie des données. Si une propriété cloud ou de l’appareil est mise à jour, vous voyez les données de télémétrie regroupées par différentes valeurs sur le graphique.
+- **Grouper par :** le contrôle **Grouper par** permet de regrouper les données à l’aide des propriétés de l’appareil en tant que dimensions. Les données de télémétrie et les propriétés de l’appareil sont combinées avec les propriétés cloud lorsque l’appareil envoie des données. Si une propriété cloud ou de l’appareil est mise à jour, vous voyez les données de télémétrie regroupées par différentes valeurs sur le graphique.
 
     > [!TIP]
-    > Pour afficher les données de chaque appareil séparément, sélectionnez **ID de l’appareil** dans le contrôle **Diviser par**.
+    > Pour afficher les données de chaque appareil séparément, sélectionnez **ID de l’appareil** dans le contrôle **Grouper par**.
 
 ## <a name="interact-with-your-data"></a>Interagissez avec vos données
 
@@ -67,7 +70,7 @@ Une fois que vous avez interrogé vos données, vous pouvez les visualiser sur l
   > [!TIP]
   > La taille de l’intervalle est déterminée dynamiquement en fonction de l’intervalle de temps sélectionné. Des délais plus petits vous permettent d’agréger les données en intervalles très granulaires allant jusqu’à quelques secondes.
 
-- **Légende du graphique :** la légende du graphique affiche les données de télémétrie sélectionnées sur le graphique. Pointez sur un élément de la légende pour l’activer sur le graphique. Lorsque vous utilisez **Diviser par**, les données de télémétrie sont regroupées par valeurs de la dimension sélectionnée. Vous pouvez activer ou désactiver la visibilité de chaque type de données de télémétrie ou cliquer sur le nom du groupe pour activer ou désactiver la visibilité du groupe.  
+- **Légende du graphique :** la légende du graphique affiche les données de télémétrie sélectionnées sur le graphique. Pointez sur un élément de la légende pour l’activer sur le graphique. Lorsque vous utilisez **Grouper par**, les données de télémétrie sont regroupées par valeurs de la dimension sélectionnée. Vous pouvez activer ou désactiver la visibilité de chaque type de données de télémétrie ou cliquer sur le nom du groupe pour activer ou désactiver la visibilité du groupe.  
 
 - **Contrôle du format de l’axe Y :** le mode de l’axe Y parcourt les options d’affichage de l’axe Y disponibles. Ce contrôle est disponible uniquement lorsque vous visualisez plusieurs types de données de télémétrie. Les trois modes sont les suivants :
 

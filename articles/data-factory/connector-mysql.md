@@ -1,29 +1,29 @@
 ---
-title: Copier des données de MySQL à l’aide d’Azure Data Factory
+title: Copier des données de MySQL
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez le connecteur MySQL dans Azure Data Factory, qui permet de copier des données d’une base de données MySQL vers une banque de données réceptrice prise en charge.
+description: Découvrez le connecteur MySQL dans Azure Data Factory et Synapse Analytics, qui permet de copier des données d’une base de données MySQL vers une banque de données réceptrice prise en charge.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 56a52c597de5715bf0ca1761a9ae88554deed162
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 98211fd52546f0301552641fc57badddc92fcae3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123315692"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831696"
 ---
-# <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
+# <a name="copy-data-from-mysql-using-azure-data-factory-or-synapse-analytics"></a>Copier des données de MySQL à l’aide d’Azure Data Factory ou Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Version actuelle](connector-mysql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données MySQL. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans des pipelines Azure Data Factory et Synapse Analytics pour copier des données à partir d’une base de données MySQL. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 >[!NOTE]
 >Pour copier des données depuis ou vers le service [Azure Database pour MySQL](../mysql/overview.md), utilisez le [connecteur spécialisé Azure Database pour MySQL](connector-azure-database-for-mysql.md).
@@ -244,9 +244,9 @@ Si vous utilisiez une source de données typée `RelationalSource`, elle reste p
 
 ## <a name="data-type-mapping-for-mysql"></a>Mappage de type de données pour MySQL
 
-Lors de la copie de données de MySQL, les mappages suivants sont utilisés entre les types de données MySQL et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
+Lors de la copie de données de MySQL, les mappages suivants sont utilisés entre les types de données MySQL et les types de données intermédiaires utilisés par le service en interne. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
-| Type de données MySQL | Type de données intermédiaires de Data Factory |
+| Type de données MySQL | Type de données de service intermédiaire |
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
@@ -295,4 +295,4 @@ Lors de la copie de données de MySQL, les mappages suivants sont utilisés entr
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

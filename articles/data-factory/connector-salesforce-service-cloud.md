@@ -1,26 +1,26 @@
 ---
 title: Copier des données depuis et vers Salesforce Service Cloud
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment copier des données du Salesforce Service Cloud vers des banques de données réceptrices prises en charge ou des magasins de données sources pris en charge vers Salesforce Service Cloud à l’aide d’une activité de copie dans un pipeline Data Factory.
+description: Découvrez comment copier des données de Salesforce Service Cloud vers des banques de données réceptrices prises en charge et comment copier des données de banques de données sources prises en charge vers Salesforce Service Cloud, à l’aide de l’activité de copie disponible dans le pipeline Azure Data Factory ou Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: ef7a8ffa73fe03776be38debc523f9d616bda7b1
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 9f59c7f810646734552d7eaefe59d1c99be1518c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316816"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782757"
 ---
-# <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copier des données depuis et vers le Salesforce Service Cloud à l’aide de Azure Data Factory
+# <a name="copy-data-from-and-to-salesforce-service-cloud-using-azure-data-factory-or-synapse-analytics"></a>Copier des données de et vers Salesforce Service Cloud en utilisant Azure Data Factory ou Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Salesforce Service Cloud. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité Copier dans des pipelines Azure Data Factory et Synapse Analytics pour copier des données depuis et vers Salesforce Service Cloud. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -63,7 +63,7 @@ Utilisez les étapes suivantes pour créer un service lié à Salesforce Service
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié à l’interface utilisateur d’Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -90,12 +90,12 @@ Les propriétés suivantes sont prises en charge pour le service lié Salesforce
 | type |La propriété type doit être définie sur **SalesforceServiceCloud**. |Oui |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce Service Cloud. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non |
 | username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
-| mot de passe |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| mot de passe |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. <br/><br/>Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). Le jeton de sécurité peut être uniquement ignoré si vous ajoutez l’adresse IP d'Integration Runtime à la [liste d'adresses IP approuvées](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) sur Salesforce. Lorsque vous utilisez Azure IR, consultez [Adresses IP Azure Integration Runtime](azure-integration-runtime-ip-addresses.md).<br/><br/>Pour des instructions sur l'obtention et la réinitialisation d’un jeton de sécurité, consultez l’article [Obtenir un jeton de sécurité](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non |
 | apiVersion | Spécifiez la version de l’API REST/en bloc de Salesforce à utiliser, par exemple `48.0`. Par défaut, le connecteur utilise [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier les données à partir de Salesforce, et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier les données dans Salesforce. | Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |
 
-**Exemple : Stocker les informations d’identification dans Data Factory**
+**Exemple : Stocker les informations d’identification**
 
 ```json
 {
@@ -169,7 +169,7 @@ Pour copier des données depuis/vers Salesforce Service Cloud, les propriétés 
 > [!IMPORTANT]
 > La partie « __c » du **nom de l’API** est requise pour tout objet personnalisé.
 
-![Connexion Salesforce – Data Factory – Nom de l’API](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Nom d’API de connexion Salesforce":::
 
 **Exemple :**
 
@@ -212,7 +212,7 @@ Pour copier des données à partir de Salesforce Service Cloud, les propriétés
 > [!IMPORTANT]
 > La partie « __c » du **nom de l’API** est requise pour tout objet personnalisé.
 
-![Connexion Salesforce – Data Factory – Listes des noms d’API](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Liste de noms d’API de connexion Salesforce":::
 
 **Exemple :**
 
@@ -330,9 +330,9 @@ L'erreur « MALFORMED_QUERY: Truncated » peut être rencontrée lorsqu'une co
 
 ## <a name="data-type-mapping-for-salesforce-service-cloud"></a>Mappage de type de données pour Salesforce Service Cloud
 
-Lorsque vous copiez des données à partir de Salesforce Service Cloud, les mappages suivants sont utilisés à partir des types de données Salesforce Service Cloud pour les types de données intermédiaires Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
+Lorsque vous copiez des données à partir de Salesforce Service Cloud, les mappages suivants sont utilisés à partir des types de données Salesforce Service Cloud pour les types de données intermédiaires utilisés en interne dans le service. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
 
-| Type de données Salesforce Service Cloud | Type de données intermédiaires d’Azure Data Factory |
+| Type de données Salesforce Service Cloud | Type de données de service intermédiaire |
 |:--- |:--- |
 | Numérotation automatique |String |
 | Case à cocher |Boolean |
@@ -360,4 +360,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats) pour obtenir la liste des sources et magasins de données pris en charge en tant que récepteurs par l’activité de copie.

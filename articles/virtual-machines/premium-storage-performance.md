@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6cd71daa43eb311316bb0da8b54bbef8733fb168
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 5c6530f138167cbd21ed1b40dee3b056ceb8c638
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694327"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803859"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Stockage Azure Premium : conception sous le signe de la haute performance
 
@@ -311,7 +311,7 @@ Pour tous les disques SSD Premium ou disques Ultra, vous pourrez peut-être dés
 
 * Pour **reiserFS**, utilisez l’option de montage barrier=none pour désactiver les barrières.  Pour activer explicitement les barrières, utilisez barrier=flush.
 * Pour **ext3/ext4**, utilisez l’option de montage barrier=0 pour désactiver les barrières.  Pour activer explicitement les barrières, utilisez barrier=1.
-* Pour **XFS**, utilisez l’option de montage nobarrier pour désactiver les barrières.  Pour activer explicitement les barrières, utilisez barrier.  Notez que dans les versions de noyau Linux ultérieures, la conception du système de fichiers XFS garantit toujours la durabilité, et la désactivation des barrières n’a aucun effet.  
+* Pour **XFS**, utilisez l’option de montage nobarrier pour désactiver les barrières.  Pour activer explicitement les barrières, utilisez barrier. Depuis la version 4.10 du noyau Linux principal, la conception du système de fichiers XFS garantit toujours la durabilité. La désactivation des barrières n’a aucun effet et l’option « nobarrier » est déconseillée. Toutefois, certaines distributions Linux peuvent avoir rétro-porté les modifications apportées à une version de distribution avec une version de noyau antérieure. Contactez votre fournisseur de distribution pour connaître l’état de la distribution et de la version que vous exécutez.
 
 ## <a name="disk-striping"></a>Entrelacement de disques
 

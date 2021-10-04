@@ -3,12 +3,12 @@ title: Ressources sans limite du nombre à 800
 description: Répertorie les types de ressources Azure qui peuvent avoir plus de 800 instances dans un groupe de ressources.
 ms.topic: conceptual
 ms.date: 07/13/2021
-ms.openlocfilehash: e9145500ade55aa8cb9061b6da125e2bd8a0f5c5
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 123148a863f74a6490a524ecc2d39bc44e65299d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113769242"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807059"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Ressources non limitées à 800 instances par groupe de ressources
 
@@ -16,6 +16,7 @@ Par défaut, vous pouvez déployer jusqu’à 800 instances d’un type de resso
 
 Pour certains types de ressources, vous devez contacter le support pour que la limite d’instance de 800 soit supprimée. Ces types de ressources sont mentionnés dans cet article.
 
+Le nombre d’instances par région est limité pour certaines ressources. Cette limite est différente des instances 800 par groupe de ressources. Pour vérifier vos instances par région, utilisez le portail Azure. Sélectionnez votre abonnement, puis **Utilisation + quotas** sur le volet de gauche. Pour plus d’informations, consultez [Vérifier l’utilisation des ressources par rapport aux limites](../../networking/check-usage-against-limits.md). 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 

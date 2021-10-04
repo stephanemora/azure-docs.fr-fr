@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/10/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 2a76ee1c5009091247d9629bdbb0edc0b8c8a217
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d1a46cd010f0a629e787a7ebabcfe002837b7ad3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524679"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811167"
 ---
 # <a name="azure-firewall-premium-features"></a>Fonctionnalités du Pare-feu Azure Premium
 
@@ -144,7 +144,7 @@ Les problèmes connus du Pare-feu Azure Premium sont les suivants :
 |Certificats clients (TLS)|Les certificats clients sont utilisés pour créer une approbation d’identité mutuelle entre le client et le serveur. Les certificats clients sont utilisés lors d’une négociation TLS. Le Pare-feu Azure renégocie une connexion avec le serveur et n’a pas accès à la clé privée des certificats clients.|Aucun|
 |QUIC/HTTP3|QUIC est la nouvelle version majeure de HTTP. Il s’agit d’un protocole basé sur UDP sur 80 (PLAN) et 443 (SSL). L’inspection FQDN/URL/TLS n’est pas prise en charge.|Configurez le passage UDP 80/443 en tant que règles de réseau.|
 Certificats signés par le client non approuvés|Les certificats signés par le client ne sont pas approuvés par le pare-feu lorsqu’ils proviennent d’un serveur web intranet.|Un correctif est en cours d’étude.
-|Adresse IP source erronée dans les alertes avec système IDPS pour HTTP (sans inspection TLS).|Lorsque le trafic HTTP en texte brut est utilisé, que le système IDPS émet une nouvelle alerte et que la destination est publique, l’adresse IP source affichée est incorrecte (l’adresse IP interne est affichée à la place de l’adresse IP d’origine).|Un correctif est en cours d’étude.|
+|Adresse IP source erronée dans les alertes avec système IDPS pour HTTP (sans inspection TLS).|Lorsque le trafic HTTP en texte brut est utilisé, que le système IDPS émet une nouvelle alerte et que la destination est une adresse IP publique, l’adresse IP source affichée est incorrecte (l’adresse IP interne est affichée à la place de l’adresse IP d’origine).|Un correctif est en cours d’étude.|
 |Propagation du certificat|Après l’application d’un certificat d’autorité de certification sur le pare-feu, la prise en compte du certificat peut prendre de 5 à 10 minutes.|Un correctif est en cours d’étude.|
 |Prise en charge du protocole TLS 1.3|Le protocole TLS 1.3 est partiellement pris en charge. Le tunnel TLS entre le client et le pare-feu est basé sur le protocole TLS 1.2, et celui entre le pare-feu et le serveur web externe est basé sur le protocole TLS 1.3.|Des mises à jour sont à l’étude.|
 |Point de terminaison privé Key Vault|Key Vault prend en charge l’accès au point de terminaison privé pour limiter son exposition réseau. Les services Azure approuvés peuvent contourner cette limitation si une exception est configurée comme décrit dans la [documentation de Key Vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Le Pare-feu Azure n’est pas répertorié actuellement comme un service approuvé et ne peut pas accéder au Key Vault.|Un correctif est en cours d’étude.|

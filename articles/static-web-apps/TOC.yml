@@ -37,7 +37,7 @@
           displayName: 'routing, routes'
         - name: Configuration de build
           href: build-configuration.md
-        - name: Paramètres de l’application
+        - name: Paramètres d’application
           href: application-settings.md
           displayName: environment variables
     - name: Sécurité
@@ -106,6 +106,8 @@
       href: publish-devops.md
     - name: Publier avec un modèle ARM
       href: publish-azure-resource-manager.md
+    - name: Ajouter Azure Front Door
+      href: front-door-manual.md
 - name: Informations de référence
   items:
     - name: Azure CLI
