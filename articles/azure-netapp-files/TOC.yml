@@ -99,7 +99,7 @@
   items:
     - name: Inscrire et configurer
       items:
-        - name: S’inscrire à Azure NetApp Files
+        - name: S’inscrire au fournisseur de ressources NetApp
           href: azure-netapp-files-register.md
         - name: Créer un compte NetApp
           href: azure-netapp-files-create-netapp-account.md
