@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: e3772f3583e4487c8c508136537ab213413865e7
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: adccd5873030adcc5c286ed8d23326796c27ab9c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112464740"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080975"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Utiliser l’accès au groupe de sécurité réseau et Azure Bastion
 
@@ -52,7 +52,7 @@ Azure Bastion est spécifiquement déployé dans le sous-réseau ***AzureBastion
 
 * **Trafic de sortie :**
 
-   * **Trafic de sortie vers les machines virtuelles cibles :** Azure Bastion atteindra les machines virtuelles cibles via l’adresse IP privée. Les groupes de sécurité réseau doivent autoriser le trafic de sortie vers d’autres sous-réseaux de machines virtuelles cibles sur les ports 3389 et 22.
+   * **Trafic de sortie vers les machines virtuelles cibles :** Azure Bastion atteindra les machines virtuelles cibles via l’adresse IP privée. Les groupes de sécurité réseau doivent autoriser le trafic de sortie vers d’autres sous-réseaux de machines virtuelles cibles sur les ports 3389 et 22. Si vous utilisez la fonctionnalité de port personnalisé dans le cadre d’une référence SKU standard, les groupes de sécurité réseau doivent autoriser le trafic de sortie vers d’autres sous-réseaux de machines virtuelles cibles pour la ou les valeurs personnalisées que vous avez ouvertes sur vos machines virtuelles cibles.
    * **Trafic de sortie vers le plan de données d’Azure Bastion :** Pour la communication du plan de données entre les composants sous-jacents d’Azure Bastion, activez les ports 8080, 5701 sortants à partir de l’étiquette de service **VirtualNetwork** vers l’étiquette de service **VirtualNetwork**. Cela permet aux composants d’Azure Bastion de communiquer entre eux.
    * **Trafic de sortie vers d’autres points de terminaison publics dans Azure :** Azure Bastion doit pouvoir se connecter à différents points de terminaison publics dans Azure (par exemple, pour stocker les journaux de diagnostic et de mesure). Azure Bastion a donc besoin d’un accès sortant sur le port 443 vers l’étiquette de service **AzureCloud**.
    * **Trafic de sortie vers Internet :** Azure Bastion doit pouvoir communiquer avec Internet pour valider les sessions et les certificats. Nous vous recommandons donc d’activer le port 80 sortant vers **Internet**.
@@ -63,7 +63,7 @@ Azure Bastion est spécifiquement déployé dans le sous-réseau ***AzureBastion
 ### <a name="target-vm-subnet"></a>Sous-réseau de la machine virtuelle cible
 Il s’agit du sous-réseau qui contient la machine virtuelle cible à laquelle vous souhaitez vous connecter via RDP/SSH.
 
-   * **Trafic d’entrée à partir d’Azure Bastion :** Azure Bastion atteindra les machines virtuelles cibles via l’adresse IP privée. Les ports RDP et SSH (3389 et 22 respectivement) doivent être ouverts du côté de la machine virtuelle cible sur l’adresse IP privée. Une bonne pratique consiste à ajouter la plage d’adresses IP du sous-réseau Azure Bastion à cette règle pour autoriser Bastion à ouvrir ces ports sur les machines virtuelles cibles de votre sous-réseau de machines virtuelles cible uniquement.
+   * **Trafic d’entrée à partir d’Azure Bastion :** Azure Bastion atteindra les machines virtuelles cibles via l’adresse IP privée. Les ports RDP/SSH (ports 3389/22 respectivement, ou les valeurs de port personnalisées si vous utilisez la fonctionnalité de port personnalisé dans le cadre de la référence SKU standard) doivent être ouverts sur la machine virtuelle cible sur une adresse IP privée. Une bonne pratique consiste à ajouter la plage d’adresses IP du sous-réseau Azure Bastion à cette règle pour autoriser Bastion à ouvrir ces ports sur les machines virtuelles cibles de votre sous-réseau de machines virtuelles cible uniquement.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

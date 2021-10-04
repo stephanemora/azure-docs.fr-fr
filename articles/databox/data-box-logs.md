@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/10/2021
+ms.date: 08/24/2021
 ms.author: alkohli
-ms.openlocfilehash: d98141c52acc3cd0628943d17a89ec9822299d48
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 842a6572ca7daf3c0039b088f25d538f709a1df7
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738137"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "129208604"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Suivi et journalisation des événements de vos ordres d’importation Azure Data Box et Azure Data Box Heavy
 
@@ -32,6 +32,9 @@ Le tableau suivant présente un résumé de chaque étape du traitement d’un o
 | Effacement des données de l’appareil   | [Afficher les journaux d’activité de chaîne de responsabilité](#get-chain-of-custody-logs-after-data-erasure) qui incluent les journaux d’audit et l’historique des commandes                |
 
 Cet article décrit en détail les différents mécanismes ou outils disponibles pour effectuer le suivi et l’audit d’un ordre d’importation Data Box ou Data Box Heavy. Les informations de cet article s’appliquent aux ordres d’importation à la fois de Data Box et de Data Box Heavy. Dans les sections suivantes, toutes les références à Data Box s’appliquent également à Data Box Heavy.
+
+> [!NOTE]
+> [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurer le contrôle d’accès sur la commande
 
@@ -79,7 +82,7 @@ Lors de la copie des données dans Data Box ou Data Box Heavy, un fichier d’er
 Assurez-vous que les travaux de copie ont été accomplis sans erreurs. Si des erreurs se sont produites durant le processus de copie, téléchargez les journaux à partir de la page **Connexion et copie**.
 
 - Si vous avez copié un fichier dont l’alignement n’est pas de 512 octets dans un dossier de disque managé sur votre Data Box, le fichier n’est pas chargé en tant qu’objet blob de pages vers votre compte de stockage intermédiaire. Vous verrez une erreur dans les journaux. Supprimez le fichier et copiez un fichier aligné sur 512 octets.
-- Si vous avez copié un fichier de disque dur virtuel (VHDX), de VHD dynamique ou de VHD de différenciation (ces types de fichiers ne sont pas pris en charge), vous verrez une erreur dans les journaux.
+- Si vous avez copié un fichier VHDX, ou un VHD dynamique ou un VHD de différenciation, vous verrez une erreur dans les journaux. Ces types de fichier ne sont pas pris en charge.
 
 Voici un exemple de fichier *error.xml* contenant différentes erreurs pouvant survenir lors de la copie vers des disques managés.
 
@@ -210,6 +213,9 @@ Par défaut, les journaux d’activité sont écrits dans un conteneur nommé `c
 Le chemin du journal de copie s’affiche également dans le panneau **Vue d’ensemble** du portail.
 
 ![Chemin du journal de copie dans le panneau Vue d’ensemble une fois l’opération terminée](media/data-box-logs/copy-log-path-1.png)
+
+> [!NOTE]
+> [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
 
 ### <a name="upload-completed-successfully"></a>Chargement réussi
 

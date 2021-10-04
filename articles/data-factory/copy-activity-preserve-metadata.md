@@ -1,26 +1,26 @@
 ---
-title: Conserver les métadonnées et les listes de contrôle d'accès à l'aide de l'outil Copier l'activité d'Azure Data Factory
+title: Conserver les métadonnées et les listes de contrôle d'accès à l'aide de l'activité Copy
+description: Découvrez comment conserver les métadonnées et les listes de contrôle d’accès lors de l’utilisation de l’activité de copie dans les pipelines d’Azure Data Factory et Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Apprenez à conserver les métadonnées et les listes de contrôle d'accès (ACL) pendant la copie à l'aide de l'outil Copier l'activité d'Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: b5bb9cc624f298ae4997b46a5cc7b4cf2a0d21ed
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 64608834c5d5b22383242f6739747d955e2feb3a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123250741"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767372"
 ---
-#  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Conserver les métadonnées et les listes de contrôle d'accès à l'aide de l'outil Copier l'activité d'Azure Data Factory
+#  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory-or-synapse-analytics"></a>Conserver les métadonnées et les listes de contrôle d'accès à l'aide de l'activité Copy d'Azure Data Factory ou Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Lorsque vous utilisez l'outil Copier l'activité d'Azure Data Factory pour copier des données de la source vers le récepteur, dans les scénarios suivants, vous pouvez également conserver les métadonnées et les listes de contrôle d'accès (ACL).
+Lorsque vous utilisez l'activité Copy d'Azure Data Factory ou Synapse Analytics pour copier des données de la source vers le récepteur, dans les scénarios suivants, vous pouvez également conserver les métadonnées et les listes de contrôle d'accès (ACL).
 
 ## <a name="preserve-metadata-for-lake-migration"></a><a name="preserve-metadata"></a> Conserver les métadonnées pour la migration entre lacs
 
@@ -31,11 +31,11 @@ L'outil Copier l'activité prend en charge la conservation des attributs suivant
 - **Toutes les métadonnées spécifiées par le client** 
 - Et les **cinq propriétés système intégrées au magasin de données** suivantes : `contentType`, `contentLanguage` (sauf pour Amazon S3), `contentEncoding`, `contentDisposition`, `cacheControl`.
 
-**Gérer les différences dans les métadonnées :** Amazon S3 et Stockage Microsoft Azure autorisent des jeux de caractères différents dans les clés des métadonnées spécifiées par le client. Quand vous choisissez de conserver les métadonnées en utilisant la copie d’activité, ADF remplace automatiquement les caractères non valides par « _ ».
+**Gérer les différences dans les métadonnées :** Amazon S3 et Stockage Microsoft Azure autorisent des jeux de caractères différents dans les clés des métadonnées spécifiées par le client. Quand vous choisissez de conserver les métadonnées en utilisant l’activité Copy, le service remplace automatiquement les caractères non valides par « _ ».
 
 Si vous copiez des fichiers en l’état à partir de Amazon S3/Azure Data Lake Storage Gen2/Stockage Blob Azure/Azure Files vers Azure Data Lake Storage Gen2/Stockage Blob Azure/Azure Files au format binaire, vous pouvez trouver l’option **Conserver** sous l’onglet **Activité de copie** > **Paramètres** pour la création d’activité ou la page **Paramètres** de l’outil Copier des données.
 
-![Copier l'activité - Conserver les métadonnées](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
+:::image type="content" source="./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png" alt-text="Copier l'activité - Conserver les métadonnées":::
 
 Voici un exemple de configuration JSON de l'outil Copier l'activité (voir `preserve`) : 
 
@@ -88,17 +88,17 @@ L'outil Copier l'activité prend en charge la conservation des types de listes d
 - **Propriétaire** : copiez et conservez l’utilisateur propriétaire des fichiers et des répertoires. Un accès de super utilisateur pour le récepteur Data Lake Storage Gen2 est requis.
 - **Groupe** : copiez et conservez le groupe propriétaire des fichiers et des répertoires. Un accès de super utilisateur pour le récepteur Data Lake Storage Gen2 ou l’utilisateur propriétaire (si ce dernier est également membre du groupe cible) est requis.
 
-Si vous spécifiez une copie à partir d’un dossier, Data Factory réplique les ACL de ce dossier, ainsi que les fichiers et les répertoires qu’il contient, si `recursive` est défini sur true. Si vous spécifiez une copie à partir d’un seul fichier, les ACL sur ce fichier sont copiés.
+Si vous spécifiez une copie à partir d’un dossier, le service réplique les ACL de ce dossier, ainsi que les fichiers et les répertoires qu’il contient, si `recursive` est défini sur true. Si vous spécifiez une copie à partir d’un seul fichier, les ACL sur ce fichier sont copiés.
 
 >[!NOTE]
->Quand vous utilisez ADF pour conserver les ACL entre Data Lake Storage Gen1/Gen2 et Gen2, les ACL existantes des dossiers/fichiers correspondants du récepteur Gen2 sont remplacées.
+>Quand vous utilisez l’activité de copie pour conserver les ACL entre Data Lake Storage Gen1/Gen2 et Gen2, les ACL existantes des dossiers/fichiers correspondants du récepteur Gen2 sont remplacées.
 
 >[!IMPORTANT]
->Lorsque vous choisissez de conserver les ACL, veillez à accorder des autorisations suffisantes à Data Factory pour qu’il fonctionne avec votre compte Data Lake Storage Gen2 récepteur. Par exemple, utilisez l’authentification par clé de compte ou attribuez le rôle de propriétaire des données Blob de stockage au principal de service ou à l’identité managée.
+>Lorsque vous choisissez de conserver les ACL, veillez à accorder des autorisations suffisantes au service pour qu’il fonctionne avec votre compte Data Lake Storage Gen2 récepteur. Par exemple, utilisez l’authentification par clé de compte ou attribuez le rôle de propriétaire des données Blob de stockage au principal de service ou à l’identité managée.
 
 Si vous configurez Data Lake Storage Gen1/Gen2 comme source au format binaire ou avec l’option de copie binaire, et Data Lake Storage Gen2 comme récepteur au format binaire ou avec l’option de copie binaire, vous avez l’option **Conserver** dans la page **Paramètres** de l’outil Copier des données ou sous l’onglet **Copier l’activité** > **Paramètres** pour la création de l’activité.
 
-![Conserver les ACL entre Data Lake Storage Gen1/Gen2 et Gen2](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+:::image type="content" source="./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png" alt-text="Conserver les ACL entre Data Lake Storage Gen1/Gen2 et Gen2":::
 
 Voici un exemple de configuration JSON de l'outil Copier l'activité (voir `preserve`) : 
 

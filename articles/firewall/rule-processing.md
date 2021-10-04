@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/28/2021
 ms.author: victorh
-ms.openlocfilehash: 30ae9e7bf915e558a806d9297fbcc35700b64ce1
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 2dbcb4d42372c97b12d4a71ef43ee1e10f1232bf
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111571078"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209544"
 ---
 # <a name="configure-azure-firewall-rules"></a>Configurer des règles de pare-feu Azure
 Vous pouvez configurer des règles NAT, des règles de réseau et des règles d’application sur le Pare-feu Azure à l’aide de règles classiques ou d’une stratégie de pare-feu. Le Pare-feu Azure refuse tout le trafic par défaut, jusqu’à ce que les règles soient configurées manuellement pour autoriser le trafic.
@@ -159,6 +159,14 @@ Les connexions SSH sont refusées, car une collection de règles de réseau de p
 ## <a name="rule-changes"></a>Modification de la règle
 
 Si vous modifiez une règle de façon à refuser du trafic jusqu’ici autorisé, toutes les sessions existantes concernées sont supprimées.
+
+## <a name="3-way-handshake-behavior"></a>Comportement de la négociation à 3 voies
+
+En tant que service avec état, le pare-feu Azure effectue une négociation TCP à 3 voies pour le trafic autorisé, d’une source vers la destination.Par exemple, VNet-A vers VNet-B.
+
+La création d’une règle d’autorisation à partir d’un réseau virtuel-A vers un réseau virtuel-B ne signifie pas que les nouvelles connexions établies entre VNet-B et VNet-A sont autorisées.
+
+Par conséquent, il n’est pas nécessaire de créer une règle de refus explicite de VNet-B vers VNet-A. Si vous créez cette règle de refus, vous interrompez la négociation à trois voies de la règle d’autorisation initiale de VNet-A vers VNet-B. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

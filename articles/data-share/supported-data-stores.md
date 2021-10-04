@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: def73d137f3cc2c79ae8417995ec6bdf6c519b7d
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 09/10/2021
+ms.openlocfilehash: 605405965e4c6bc17321401245866f9b21f3a988
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812621"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760058"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magasins de données pris en charge dans Azure Data Share
 
@@ -68,7 +68,7 @@ Lorsque les consommateurs acceptent des données dans Azure Data Lake Storage Ge
 Pour en savoir plus, consultez [Partager et recevoir des données d’Azure SQL Database et d’Azure Synapse Analytics](how-to-share-from-sql.md).
 
 ## <a name="share-from-data-explorer"></a>Partager depuis Explorateur de données
-Azure Data Share prend en charge la possibilité de partager des bases de données sur place à partir de clusters Azure Data Explorer. Un fournisseur de données peut partager au niveau de la base de données ou du cluster. 
+Azure Data Share prend en charge la possibilité de partager des bases de données sur place à partir de clusters Azure Data Explorer. Un fournisseur de données peut partager au niveau de la base de données ou du cluster. Si vous utilisez l’API Data Share pour partager des données, vous pouvez également partager des tables spécifiques.  
 
 Lorsque les données sont partagées au niveau de la base de données, les consommateurs de données ne peuvent accéder qu’aux bases de données partagées par le fournisseur de données. Lorsqu’un fournisseur partage des données au niveau du cluster, les consommateurs de données peuvent accéder à toutes les bases de données à partir du cluster du fournisseur, y compris toutes les futures bases de données créées par ce fournisseur.
 

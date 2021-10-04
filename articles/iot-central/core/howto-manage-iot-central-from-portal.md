@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 07/06/2021
 ms.topic: how-to
-ms.openlocfilehash: 53d93bf202e896a8c2678e78917c15cdd39d80fb
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 57486312b380fc18cfdb399343535e5e12245bff
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525501"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091558"
 ---
 # <a name="manage-and-monitor-iot-central-from-the-azure-portal"></a>Gérer et superviser IoT Central à partir du portail Azure
 
@@ -33,13 +33,17 @@ Pour créer une application, accédez à la page [Application IoT Central](http
 * **Modèle** est le type d’application IoT Central que vous souhaitez créer. Vous pouvez créer une application à partir de la liste des modèles pertinents pour le secteur pour démarrer rapidement ou partir de zéro à l’aide du modèle **Application personnalisée**.
 
 * L’**Emplacement** correspond à la [zone géographique](https://azure.microsoft.com/global-infrastructure/geographies/) où vous souhaitez créer votre application. D'une façon générale, il est recommandé de choisir l'emplacement qui est physiquement le plus proche de vos appareils pour obtenir des performances optimales. Azure IoT Central est actuellement disponible aux localisations suivantes :
-
-  * Asie-Pacifique
-  * Australie
-  * Europe
-  * Japon
-  * Royaume-Uni
-  * États-Unis
+    
+    * Australie
+    * USA Centre-Est
+    * USA Est
+    * USA Est 2
+    * Japon Est
+    * Europe Nord
+    * Asie Sud-Est
+    * Sud du Royaume-Uni
+    * Europe Ouest
+    * USA Ouest
 
   Une fois que vous avez choisi un emplacement, vous ne pouvez pas par la suite déplacer votre application dans un autre emplacement.
 

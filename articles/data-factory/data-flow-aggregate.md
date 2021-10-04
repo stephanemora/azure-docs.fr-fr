@@ -1,7 +1,7 @@
 ---
 title: Transformation d’agrégation dans le flux de données de mappage
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment agréger des données à grande échelle dans Azure Data Factory avec la transformation d’agrégation de flux de données de mappage.
+description: Découvrez comment agréger des données à grande échelle dans Azure Data Factory et Synapse Analytics avec la transformation d’agrégation de flux de données de mappage.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/14/2020
-ms.openlocfilehash: 7723a7c404b4e2350d9396f017874df49f74d556
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 7edf2ededec8ff15f50ea25f274d0163bc8b0980
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642068"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060363"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformation d’agrégation dans le flux de données de mappage
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 La transformation d’agrégation définit des agrégations de colonnes dans vos flux de données. À l’aide du Générateur d’expressions, vous pouvez définir différents types d’agrégations telles que SUM, MIN, MAX et COUNT regroupées par colonnes calculées ou existantes.
 
@@ -27,7 +29,7 @@ La transformation d’agrégation définit des agrégations de colonnes dans vos
 
 Sélectionnez une colonne existante ou créez une colonne calculée à utiliser en tant que groupe par la clause de votre agrégation. Pour utiliser une colonne existante, sélectionnez-la dans la liste déroulante. Pour créer une colonne calculée, placez le curseur sur la clause et cliquez sur **Colonne calculée**. Cela ouvre le [générateur d’expressions de flux de données](concepts-data-flow-expression-builder.md). Une fois que vous avez créé votre colonne calculée, entrez le nom de colonne de sortie dans le champ **Name as** (Nommer sous). Si vous souhaitez ajouter un groupe supplémentaire par clause, placez le curseur sur une clause existante, puis cliquez sur l’icône plus.
 
-![Regroupement des transformations d’agrégation par paramètres](media/data-flow/agg.png "Regroupement des transformations d’agrégation par paramètres")
+:::image type="content" source="media/data-flow/agg.png" alt-text="Regroupement des transformations d’agrégation par paramètres":::
 
 Un groupe par clause est facultatif dans une transformation d’agrégation.
 
@@ -35,7 +37,7 @@ Un groupe par clause est facultatif dans une transformation d’agrégation.
 
 Accédez à l’onglet **Agrégations** pour créer des expressions d’agrégation. Vous pouvez soit remplacer une colonne existante par une agrégation, soit créer un nouveau champ avec un nouveau nom. L’expression d’agrégation est entrée dans la zone de droite en regard du sélecteur de nom de colonne. Pour modifier l’expression, cliquez sur la zone de texte pour ouvrir le Générateur d’expressions. Pour ajouter des colonnes d’agrégation, cliquez sur **Ajouter** au-dessus de la liste des colonnes ou de l’icône « plus » en regard d’une colonne d’agrégation existante. Choisissez **Ajouter une colonne** ou **Ajouter un modèle de colonne**. Chaque expression d’agrégation doit contenir au moins une fonction d’agrégation.
 
-![Paramètres d’agrégation](media/data-flow/aggregate-columns.png "Paramètres d’agrégation")
+:::image type="content" source="media/data-flow/aggregate-columns.png" alt-text="Paramètres d’agrégation":::
 
 > [!NOTE]
 > En mode Débogage, le Générateur d’expressions ne peut pas produire d’aperçus de données avec des fonctions d’agrégation. Pour afficher des aperçus de données pour les transformations d’agrégation, fermez le Générateur d’expressions et affichez les données via l’onglet Aperçu des données.
@@ -55,7 +57,7 @@ Les transformations d’agrégation sont similaires aux requêtes SQL Aggregate 
 
 Une utilisation courante de la transformation d’agrégation consiste à supprimer ou à identifier les entrées en double dans les données sources. Ce processus est appelé déduplication. Sur la base d’un ensemble de clés Grouper par, utilisez l’euristique de votre choix pour déterminer la ligne dupliquée à conserver. Les euristiques courantes sont `first()`, `last()`, `max()` et `min()`. Utilisez les [modèles de colonne](concepts-data-flow-column-pattern.md) pour appliquer la règle à chaque colonne, à l’exception des colonnes Grouper par.
 
-![Déduplication](media/data-flow/agg-dedupe.png "Déduplication")
+:::image type="content" source="media/data-flow/agg-dedupe.png" alt-text="Déduplication":::
 
 Dans l’exemple ci-dessus, les colonnes `ProductID` et `Name` sont utilisées pour le regroupement. Si deux lignes ont les mêmes valeurs pour ces deux colonnes, elles sont considérées comme des doublons. Dans cette transformation d’agrégation, les valeurs de la première ligne correspondante sont conservées et toutes les autres sont supprimées. À l’aide de la syntaxe du modèle de colonne, toutes les colonnes dont les noms ne sont pas `ProductID` et `Name` sont mappées à leur nom de colonne existant et reçoivent la valeur des premières lignes correspondantes. Le schéma de sortie est le même que le schéma d’entrée.
 
@@ -86,11 +88,11 @@ Pour les scénarios de validation des données, la fonction `count()` peut être
 
 L’exemple ci-dessous prend un flux entrant `MoviesYear` et regroupe les lignes par colonne `year`. La transformation crée une colonne d’agrégation `avgrating` qui correspond à la moyenne de la colonne `Rating`. Cette transformation d’agrégation est nommée `AvgComedyRatingsByYear`.
 
-Dans l’expérience utilisateur Data Factory, cette transformation se présente comme dans l’image ci-dessous :
+Dans l’IU, cette transformation se présente comme dans l’image ci-dessous :
 
-![Exemple Regrouper par](media/data-flow/agg-script1.png "Exemple Regrouper par")
+:::image type="content" source="media/data-flow/agg-script1.png" alt-text="Exemple Regrouper par":::
 
-![Exemple d’agrégat](media/data-flow/agg-script2.png "Exemple d’agrégat")
+:::image type="content" source="media/data-flow/agg-script2.png" alt-text="Exemple d’agrégat":::
 
 Le script de flux de données pour cette transformation se trouve dans l’extrait de code ci-dessous.
 
@@ -101,7 +103,7 @@ MoviesYear aggregate(
             ) ~> AvgComedyRatingByYear
 ```
 
-![Aggregate data flow script](media/data-flow/aggdfs1.png "Agréger le script de flux de données")
+:::image type="content" source="media/data-flow/aggdfs1.png" alt-text="Aggregate data flow script":::
 
 ```MoviesYear```: Colonne dérivée définissant les colonnes Year et Title ```AvgComedyRatingByYear``` : Transformation d’agrégation pour l’évaluation moyenne de comédies regroupées par année ```avgrating``` : Nom de la colonne créée pour contenir la valeur agrégée
 

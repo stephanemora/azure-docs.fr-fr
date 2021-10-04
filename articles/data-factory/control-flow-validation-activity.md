@@ -1,7 +1,7 @@
 ---
-title: Activité Validation dans Azure Data Factory
+title: Activité de validation
 titleSuffix: Azure Data Factory & Azure Synapse
-description: L’activité Validation interrompt l’exécution du pipeline jusqu’à ce qu’elle valide le jeu de données attaché avec certains critères spécifiés par l’utilisateur.
+description: L’activité de validation dans Azure Data Factory et Synapse Analytics retarde l’exécution du pipeline jusqu’à ce qu’un jeu de données soit validé avec des critères définis par l’utilisateur.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.openlocfilehash: 9b4c2802808defd5a252a21f17fde9a769a08fad
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: fa98ef27b5dbcc7949f37bf548c414d015224e4c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641482"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750619"
 ---
-# <a name="validation-activity-in-azure-data-factory"></a>Activité Validation dans Azure Data Factory
+# <a name="validation-activity-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Exécuter l’activité de validation dans les pipelines Azure Data Factory et Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Vous pouvez utiliser une Validation dans un pipeline pour garantir que l’exécution du pipeline se poursuit uniquement une fois qu’elle a confirmé que la référence du jeu de données attaché existe, qu’elle remplit les critères spécifiés ou que le délai d’attente a été atteint.
@@ -71,7 +71,7 @@ minimumSize | Taille minimale d’un fichier en octets. Si aucune valeur n’est
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres activités de flux de contrôle prises en charge par Data Factory :
+Consultez d’autres activités de flux de contrôle prises en charge :
 
 - [Activité IfCondition](control-flow-if-condition-activity.md)
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

@@ -2,13 +2,13 @@
 title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
-ms.date: 07/08/2021
-ms.openlocfilehash: 4beb484a6f3e81fe6baa7cbeba33c0f18639fb18
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 09/27/2021
+ms.openlocfilehash: 12d589088f17e3eeb3bda0fecbb2c1fc24b65203
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527922"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084091"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -26,6 +26,9 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 * **a** à **z** (lettres minuscules)
 * **A** à **Z** (lettres majuscules)
 * **0** à **9** (chiffres)
+
+> [!NOTE]
+> Toutes les ressources avec un point de terminaison public ne peuvent pas inclure de mots réservés ou de marques dans le nom. Pour la liste des mots bloqués, consultez [Résoudre les erreurs de nom de ressource réservé](../templates/error-reserved-resource-name.md).
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -86,9 +89,9 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | locks | étendue de l’affectation | 1-90 | Caractères alphanumériques, points, traits de soulignement, traits d’union et parenthèses.<br><br>Ne peut pas se terminer par un point. |
-> | policyAssignments | étendue de l’affectation | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource)<br><br>1-24 (nom de la ressource dans l’étendue du groupe d’administration) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace. |
-> | policyDefinitions | étendue de la définition | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace. |
-> | policySetDefinitions | étendue de la définition | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource)<br><br>1-24 (nom de la ressource dans l’étendue du groupe d’administration) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace.  |
+> | policyAssignments | étendue de l’affectation | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource)<br><br>1-24 (nom de la ressource dans l’étendue du groupe d’administration) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas utiliser :<br>`<>*%&:\?.+/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un point ou un espace. |
+> | policyDefinitions | étendue de la définition | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas utiliser :<br>`<>*%&:\?.+/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un point ou un espace. |
+> | policySetDefinitions | étendue de la définition | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource)<br><br>1-24 (nom de la ressource dans l’étendue du groupe d’administration) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas utiliser :<br>`<>*%&:\?.+/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un point ou un espace. |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -96,14 +99,14 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | automationAccounts | groupe de ressources et région <br>(Voir la remarque ci-dessous) | 6-50 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre et se terminer par un caractère alphanumérique. |
-> | automationAccounts / certificates | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` <br><br>Ne peut pas se terminer par un espace.  |
-> | automationAccounts / connections | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` <br><br>Ne peut pas se terminer par un espace. |
-> | automationAccounts / credentials | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` <br><br>Ne peut pas se terminer par un espace. |
+> | automationAccounts / certificates | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace.  |
+> | automationAccounts / connections | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace. |
+> | automationAccounts / credentials | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace. |
 > | automationAccounts / runbooks | compte Automation | 1-63 | Caractères alphanumériques, traits de soulignement et traits d’union.<br><br>Doit commencer par une lettre.  |
-> | automationAccounts / schedules | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` <br><br>Ne peut pas se terminer par un espace. |
-> | automationAccounts / variables | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` <br><br>Ne peut pas se terminer par un espace. |
+> | automationAccounts / schedules | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace. |
+> | automationAccounts / variables | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace. |
 > | automationAccounts / watchers | compte Automation | 1-63 |  Caractères alphanumériques, traits de soulignement et traits d’union.<br><br>Doit commencer par une lettre. |
-> | automationAccounts / webhooks | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` <br><br>Ne peut pas se terminer par un espace. |
+> | automationAccounts / webhooks | compte Automation | 1-128 | Impossibilité d’utiliser :<br> `<>*%&:\?.+/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace. |
 
 > [!NOTE]
 > Les noms de compte Automation sont spécifiques à une région et à un groupe de ressources. Les noms des comptes Automation supprimés peuvent ne pas être immédiatement disponibles.
@@ -171,7 +174,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
-> | cloudservices | resource group | 1-15 <br><br>Voir la remarque ci-dessous. | Impossible d’utiliser un espace ou ces caractères :<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
+> | cloudservices | resource group | 1-15 <br><br>Voir la remarque ci-dessous. | Impossible d’utiliser des espaces, des caractères de contrôle ou ces caractères :<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
 > | diskEncryptionSets | resource group | 1-80 | Caractères alphanumériques et traits de soulignement. |
 > | disks | resource group | 1-80 | Caractères alphanumériques, traits de soulignement et traits d’union. |
 > | galleries | resource group | 1-80 | Caractères alphanumériques et points.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
@@ -181,8 +184,8 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | galleries / images / versions | image | Entier de 32 bits | Chiffres et points. |
 > | images | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
 > | snapshots | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossible d’utiliser un espace ou ces caractères :<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Les machines virtuelles Windows ne peuvent pas inclure de point ni se terminer par un tiret.<br><br>Les machines virtuelles Linux ne peuvent pas se terminer par un point ou un trait d’union. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossible d’utiliser un espace ou ces caractères :<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossible d’utiliser des espaces, des caractères de contrôle ou ces caractères :<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Les machines virtuelles Windows ne peuvent pas inclure de point ni se terminer par un tiret.<br><br>Les machines virtuelles Linux ne peuvent pas se terminer par un point ou un trait d’union. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Voir la remarque ci-dessous. | Impossible d’utiliser des espaces, des caractères de contrôle ou ces caractères :<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Ne peut pas commencer par un trait de soulignement. Ne peut pas se terminer par un point ou un trait d’union. |
 
 > [!NOTE]
 > Les machines virtuelles Azure portent deux noms distincts : un nom de ressource et un nom d’hôte. Quand vous créez une machine virtuelle dans le portail, la même valeur est utilisée pour les deux noms. Les restrictions mentionnées dans le tableau précédent concernent le nom d’hôte. Le nom de ressource proprement dit peut comporter jusqu’à 64 caractères.
@@ -192,7 +195,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | communicationServices | globale | 1-63 | Caractères alphanumériques, traits d’union et traits de soulignement. |
+> | communicationServices | globale | 1-63 | Caractères alphanumériques et traits d’union.<br><br>Impossible d’utiliser des traits de soulignement. |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -254,8 +257,8 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | associations | resource group | 1-180 | Impossibilité d’utiliser :<br>`%&\\?/`<br><br>Ne peut pas se terminer par un point ou un espace. |
-> | resourceProviders | resource group | 3-64 | Impossibilité d’utiliser :<br>`%&\\?/`<br><br>Ne peut pas se terminer par un point ou un espace. |
+> | associations | resource group | 1-180 | Impossibilité d’utiliser :<br>`%&\\?/` ou des caractères de contrôle.<br><br>Ne peut pas se terminer par un point ou un espace. |
+> | resourceProviders | resource group | 3-64 | Impossibilité d’utiliser :<br>`%&\\?/` ou des caractères de contrôle.<br><br>Ne peut pas se terminer par un point ou un espace. |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -277,13 +280,13 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | factories | globale | 3-63 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
-> | factories / dataflows | usine | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/`<br><br>Doit commencer par un caractère alphanumérique. |
-> | factories / datasets | usine | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/`<br><br>Doit commencer par un caractère alphanumérique. |
+> | factories / dataflows | usine | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/` ou des caractères de contrôle.<br><br>Doit commencer par un caractère alphanumérique. |
+> | factories / datasets | usine | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/` ou des caractères de contrôle.<br><br>Doit commencer par un caractère alphanumérique. |
 > | factories / integrationRuntimes | usine | 3-63 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
-> | factories / linkedservices | usine | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/`<br><br>Doit commencer par un caractère alphanumérique. |
-> | factories / pipelines | usine | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/`<br><br>Doit commencer par un caractère alphanumérique. |
-> | factories / triggers | usine | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/`<br><br>Doit commencer par un caractère alphanumérique. |
-> | factories / triggers / rerunTriggers | déclencheur | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/`<br><br>Doit commencer par un caractère alphanumérique. |
+> | factories / linkedservices | usine | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/` ou des caractères de contrôle.<br><br>Doit commencer par un caractère alphanumérique. |
+> | factories / pipelines | usine | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/` ou des caractères de contrôle.<br><br>Doit commencer par un caractère alphanumérique. |
+> | factories / triggers | usine | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/` ou des caractères de contrôle.<br><br>Doit commencer par un caractère alphanumérique. |
+> | factories / triggers / rerunTriggers | déclencheur | 1-260 | Impossibilité d’utiliser :<br>`<>*#.%&:\\+?/` ou des caractères de contrôle.<br><br>Doit commencer par un caractère alphanumérique. |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
@@ -389,7 +392,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | clusters | resource group | 6-50 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre. Doit se terminer par une lettre ou un chiffre. |
 > | espaces de noms | globale | 6-50 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre. Doit se terminer par une lettre ou un chiffre. |
 > | namespaces / AuthorizationRules | espace de noms | 1-50 | Caractères alphanumériques, points, traits d’union et traits de soulignement.<br><br>Doit commencer et se terminer par une lettre ou un chiffre. |
-> | namespaces / disasterRecoveryConfigs | espace de noms | 1-50 | Caractères alphanumériques, points, traits d’union et traits de soulignement.<br><br>Doit commencer et se terminer par une lettre ou un chiffre. |
+> | namespaces / disasterRecoveryConfigs | globale | 6-50 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer par une lettre. Doit se terminer par un caractère alphanumérique. |
 > | namespaces / eventhubs | espace de noms | 1-50 | Caractères alphanumériques, points, traits d’union et traits de soulignement.<br><br>Doit commencer et se terminer par une lettre ou un chiffre. |
 > | namespaces / eventhubs / authorizationRules | hub d’événements | 1-50 | Caractères alphanumériques, points, traits d’union et traits de soulignement.<br><br>Doit commencer et se terminer par une lettre ou un chiffre. |
 > | namespaces / eventhubs / consumergroups | hub d’événements | 1-50 | Caractères alphanumériques, points, traits d’union et traits de soulignement.<br><br>Doit commencer et se terminer par une lettre ou un chiffre. |
@@ -413,11 +416,11 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | Impossibilité d’utiliser :<br>`:<>+/&%\?` <br><br>Ne peut pas se terminer par un espace ou un point.  |
-> | components | resource group | 1-260 | Impossibilité d’utiliser :<br>`%&\?/` <br><br>Ne peut pas se terminer par un espace ou un point.  |
-> | scheduledQueryRules | resource group | 1-260 | Impossibilité d’utiliser :<br>`*<>%{}&:\\?/#` <br><br>Ne peut pas se terminer par un espace ou un point.  |
-> | metricAlerts | resource group | 1-260 | Impossibilité d’utiliser :<br>`*#&+:<>?@%{}\/` <br><br>Ne peut pas se terminer par un espace ou un point.  |
-> | activityLogAlerts | resource group | 1-260 | Impossibilité d’utiliser :<br>`<>*%{}&:\\?+/#` <br><br>Ne peut pas se terminer par un espace ou un point.  |
+> | actionGroups | resource group | 1-260 | Impossibilité d’utiliser :<br>`:<>+/&%\?` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace ou un point.  |
+> | components | resource group | 1-260 | Impossibilité d’utiliser :<br>`%&\?/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace ou un point.  |
+> | scheduledQueryRules | resource group | 1-260 | Impossibilité d’utiliser :<br>`*<>%{}&:\\?/#` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace ou un point.  |
+> | metricAlerts | resource group | 1-260 | Impossibilité d’utiliser :<br>`*#&+:<>?@%{}\/` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace ou un point.  |
+> | activityLogAlerts | resource group | 1-260 | Impossibilité d’utiliser :<br>`<>*%{}&:\\?+/#` ou des caractères de contrôle. <br><br>Ne peut pas se terminer par un espace ou un point.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
@@ -467,9 +470,9 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | commitmentPlans | resource group | 1-260 | Impossibilité d’utiliser :<br>`<>*%&:?+/\\`<br><br>Ne peut pas se terminer par un espace. |
-> | webServices | resource group | 1-260 | Impossibilité d’utiliser :<br>`<>*%&:?+/\\`<br><br>Ne peut pas se terminer par un espace. |
-> | workspaces | resource group | 1-260 | Impossibilité d’utiliser :<br>`<>*%&:?+/\\`<br><br>Ne peut pas se terminer par un espace. |
+> | commitmentPlans | resource group | 1-260 | Impossibilité d’utiliser :<br>`<>*%&:?+/\\` ou des caractères de contrôle.<br><br>Ne peut pas se terminer par un espace. |
+> | webServices | resource group | 1-260 | Impossibilité d’utiliser :<br>`<>*%&:?+/\\` ou des caractères de contrôle.<br><br>Ne peut pas se terminer par un espace. |
+> | workspaces | resource group | 1-260 | Impossibilité d’utiliser :<br>`<>*%&:?+/\\` ou des caractères de contrôle.<br><br>Ne peut pas se terminer par un espace. |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
@@ -618,9 +621,33 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | --- | --- | --- | --- |
 > | deployments | resource group | 1-64 | Caractères alphanumériques, traits de soulignement, parenthèses, traits d’union et points. |
 > | resourcegroups | subscription | 1-90 | Caractères alphanumériques, traits de soulignement, parenthèses, traits d’union, points et caractères Unicode correspondant à la [documentation sur l’expression régulière](/rest/api/resources/resourcegroups/createorupdate).<br><br>Ne peut pas se terminer par un point. |
-> | tagNames | resource | 1-512 | Impossibilité d’utiliser :<br>`<>%&\?/` |
+> | tagNames | resource | 1-512 | Impossibilité d’utiliser :<br>`<>%&\?/` ou des caractères de contrôle. |
 > | tagNames / tagValues | nom d’étiquette | 1-256 | Tous les caractères. |
 > | templateSpecs | resource group | 1-90 | Caractères alphanumériques, traits de soulignement, parenthèses, traits d’union et points. |
+
+## <a name="microsoftsecurity"></a>Microsoft.Security
+
+> [!div class="mx-tableFixed"]
+> | Entité | Étendue | Longueur | Caractères valides |
+> | --- | --- | --- | --- |
+> | advancedThreatProtectionSettings | resource group | see value | Doit être `current` |
+> | alertsSuppressionRules | subscription | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | assessmentMetadata | assessment type | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | assessments | assessment type | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | automations | resource group | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | autoProvisioningSettings | subscription | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | connecteurs | subscription | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | deviceSecurityGroups | resource group | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | informationProtectionPolicies | resource group | see values | Utilisez l’un des éléments suivants :<br>`custom`<br>`effective` | 
+> | iotSecuritySolutions | resource group | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | locations / applicationWhitelistings | subscription | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | locations / jitNetworkAccessPolicies | resource group | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | ingestionSettings | subscription | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | pricings | subscription | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | securityContacts | subscription | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
+> | paramètres | subscription | see values | Utilisez l’un des éléments suivants :<br>`MCAS`<br>`Sentinel`<br>`WDATP`<br>`WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW` |
+> | serverVulnerabilityAssessments | type de ressource | see value | Doit être `Default` |
+> | sqlVulnerabilityAssessments / baselineRules | Évaluation des vulnérabilités | 1-260 | Caractères alphanumériques, traits de soulignement et traits d’union. |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
@@ -660,11 +687,11 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | managedInstances | globale | 1-63 | Lettres minuscules, chiffres et traits d’union.<br><br>Ne peut pas commencer ou se terminer par un trait d’union. <br><br> Ne peut pas contenir de caractères spéciaux, tels que `@`. |
 > | servers | globale | 1-63 | Lettres minuscules, chiffres et traits d’union.<br><br>Ne peut pas commencer ou se terminer par un trait d’union. |
 > | servers / administrators | server |  | Doit être `ActiveDirectory`. |
-> | servers / databases | server | 1-128 | Impossibilité d’utiliser :<br>`<>*%&:\/?`<br><br>Ne peut pas se terminer par un point ou un espace. |
+> | servers / databases | server | 1-128 | Impossibilité d’utiliser :<br>`<>*%&:\/?` ou des caractères de contrôle.<br><br>Ne peut pas se terminer par un point ou un espace. |
 > | servers / databases / syncGroups | database | 1-150 | Caractères alphanumériques, traits d’union et traits de soulignement. |
-> | servers / elasticPools | server | 1-128 | Impossibilité d’utiliser :<br>`<>*%&:\/?`<br><br>Ne peut pas se terminer par un point ou un espace. |
+> | servers / elasticPools | server | 1-128 | Impossibilité d’utiliser :<br>`<>*%&:\/?` ou des caractères de contrôle.<br><br>Ne peut pas se terminer par un point ou un espace. |
 > | servers / failoverGroups | globale | 1-63 | Lettres minuscules, chiffres et traits d’union.<br><br>Ne peut pas commencer ou se terminer par un trait d’union. |
-> | servers / firewallRules | server | 1-128 | Impossibilité d’utiliser :<br>`<>*%&:;\/?`<br><br>Ne peut pas se terminer par un point. |
+> | servers / firewallRules | server | 1-128 | Impossibilité d’utiliser :<br>`<>*%&:;\/?` ou des caractères de contrôle.<br><br>Ne peut pas se terminer par un point. |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -712,9 +739,9 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | environments | resource group | 1-90 | Impossibilité d’utiliser :<br>`'<>%&:\?/#` |
-> | environments / accessPolicies | Environnement | 1-90 | Impossibilité d’utiliser :<br> `'<>%&:\?/#` |
-> | environments / eventSources | Environnement | 1-90 | Impossibilité d’utiliser :<br>`'<>%&:\?/#` |
+> | environments | resource group | 1-90 | Impossibilité d’utiliser :<br>`'<>%&:\?/#` ou des caractères de contrôle. |
+> | environments / accessPolicies | Environnement | 1-90 | Impossibilité d’utiliser :<br> `'<>%&:\?/#` ou des caractères de contrôle. |
+> | environments / eventSources | Environnement | 1-90 | Impossibilité d’utiliser :<br>`'<>%&:\?/#` ou des caractères de contrôle. |
 > | environments / referenceDataSets | Environnement | 3-63 | Caractères alphanumériques |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -734,4 +761,6 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir des recommandations sur la façon de nommer des ressources, consultez [Prêt : Conventions de nommage et de catégorisation recommandées](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+* Pour obtenir des recommandations sur la façon de nommer des ressources, consultez [Prêt : Conventions de nommage et de catégorisation recommandées](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+
+* Toutes les ressources avec un point de terminaison public ne peuvent pas inclure de mots réservés ou de marques dans le nom. Pour la liste des mots bloqués, consultez [Résoudre les erreurs de nom de ressource réservé](../templates/error-reserved-resource-name.md).

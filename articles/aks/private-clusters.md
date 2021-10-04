@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 8/30/2021
-ms.openlocfilehash: 39090732df8543fc28d1324882f3817402ad587a
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: dcf969745fcc3c98b5bd0a9ba3681be602b73eb1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214323"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210209"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -70,16 +70,11 @@ Où `--enable-private-cluster` est un indicateur obligatoire pour un cluster pri
 
 Les paramètres suivants peuvent être utilisés pour configurer une zone de DNS privé.
 
-- « System », qui correspond aussi à la valeur par défaut. Si l’argument --private-dns-zone est omis, AKS crée une zone de DNS privé dans le groupe de ressources du nœud.
-- « Aucun », valeur par défaut pour le DNS public qui signifie que AKS ne crée pas de zone DNS privé (PRÉVERSION).  
+- « system », qui correspond aussi à la valeur par défaut. Si l’argument --private-dns-zone est omis, AKS crée une zone de DNS privé dans le groupe de ressources du nœud.
+- « none », valeur par défaut pour le DNS public qui signifie que AKS ne crée pas de zone DNS privé.  
 - « CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID », qui vous oblige à créer une zone DNS privée au format suivant pour le cloud global Azure : `privatelink.<region>.azmk8s.io`. À partir de maintenant, vous allez avoir besoin de l’ID de ressource de la zone DNS privée.  De plus, vous aurez besoin d’une identité affectée par l’utilisateur ou d’un principal de service disposant au minimum des rôles `private dns zone contributor` et `vnet contributor`.
   - Si la zone DNS privé se trouve dans un autre abonnement que le cluster AKS, vous devez inscrire Microsoft.ContainerServices dans les deux abonnements.
   - « fqdn-subdomain » peut être utilisé avec « CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID » uniquement pour fournir des fonctionnalités de sous-domaine à `privatelink.<region>.azmk8s.io`
-
-### <a name="prerequisites"></a>Prérequis
-
-* Préversion AKS 0.5.19 ou ultérieure
-* Version API 2021-05-01 ou ultérieure
 
 ### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Créer un cluster AKS privé avec zone DNS privé
 
@@ -93,18 +88,26 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
 ```
 
-## <a name="create-a-private-aks-cluster-with-a-public-dns-address"></a>Créer un cluster AKS privé avec une adresse DNS public
+## <a name="create-a-private-aks-cluster-with-a-public-fqdn"></a>Créer un cluster AKS privé avec un nom de domaine complet public (FQDN) public
+
+Configuration requise :
+
+* Azure CLI >= 2.28.0 ou Azure CLI avec l’extension aks-preview 0.5.29 ou version ultérieure.
+* Si vous utilisez ARM ou l’API REST, la version de l’API AKS doit être 2021-05-01 ou une version ultérieure.
 
 L’option DNS public peut être utilisée pour simplifier les options de routage pour votre cluster privé.  
 
 ![DNS public](https://user-images.githubusercontent.com/50749048/124776520-82629600-df0d-11eb-8f6b-71c473b6bd01.png)
 
-1. En spécifiant `--enable-public-fqdn` lorsque vous configurer un cluster AKS privé, AKS crée un enregistrement A supplémentaire pour son nom de domaine complet dans DNS public Azure. Les nœuds d’agent utilisent encore un enregistrement A dans la zone DNS privé pour résoudre l’adresse IP privée du point de terminaison privé pour la communication avec le serveur d’API.
+1. Lorsque vous approvisionnez un cluster AKS privé, AKS par défaut crée un nom de domaine complet public supplémentaire et un enregistrement A correspondant dans le DNS public Azure. Les nœuds d’agent utilisent encore un enregistrement A dans la zone DNS privé pour résoudre l’adresse IP privée du point de terminaison privé pour la communication avec le serveur d’API.
 
-2. Si vous utilisez `--enable-public-fqdn` et `--private-dns-zone none`, le cluster n’aura qu’un FQDN public. Quand vous utilisez cette option, aucune zone DNS privé n’est créée ni utilisée pour la résolution de noms du nom de domaine complet du serveur d’API. L’IP de l’API est toujours privé et ne peut pas être routé publiquement.
+2. Si vous utilisez `--private-dns-zone none`, le cluster n’aura qu’un FQDN public. Quand vous utilisez cette option, aucune zone DNS privé n’est créée ni utilisée pour la résolution de noms du nom de domaine complet du serveur d’API. L’IP de l’API est toujours privé et ne peut pas être routé publiquement.
+
+3. Si le FQDN public n’est pas souhaité, vous pouvez utiliser `--disable-public-fqdn` pour le désactiver (la zone DNS privée « none » n’est pas autorisée à désactiver le FQDN public).
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <private-dns-zone-mode> --enable-public-fqdn
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <private-dns-zone-mode> --disable-public-fqdn
+az aks update -n <private-cluster-name> -g <private-cluster-resource-group> --disable-public-fqdn
 ```
 
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Options de connexion au cluster privé
@@ -114,35 +117,17 @@ Le point de terminaison du serveur d’API n’a pas d’adresse IP publique. P
 * Créez une machine virtuelle dans le même réseau virtuel Azure (VNet) que le cluster AKS.
 * Utilisez une machine virtuelle dans un réseau distinct et configurez l'[appairage de réseaux virtuels][virtual-network-peering].  Pour plus d'informations sur cette option, consultez la section ci-dessous.
 * Utilisez une [connexion ExpressRoute ou VPN][express-route-or-VPN].
-* Utilisez la [fonctionnalité Run Command AKS](#aks-run-command-preview).
+* Utilisez la [fonctionnalité Run Command AKS](#aks-run-command).
 
 La création d’une machine virtuelle dans le même réseau virtuel que le cluster AKS constitue l’option la plus simple.  ExpressRoute et les VPN présentent des coûts et une complexité de mise en réseau supplémentaires.  L’appairage de réseaux virtuels implique la planification de vos plages CIDR réseau pour veiller à ce qu'aucune plage ne se chevauche.
 
-### <a name="aks-run-command-preview"></a>Run Command AKS (préversion)
+### <a name="aks-run-command"></a>Run Command AKS
 
 Aujourd’hui, lorsque vous avez besoin d’accéder à un cluster privé, vous devez le faire au sein du réseau virtuel du cluster ou d’un réseau ou d’un ordinateur client homologué. En règle générale, votre machine doit être connectée via un VPN ou Express Route au réseau virtuel du cluster ou à un JumpBox à créer dans le réseau virtuel du cluster. La commande d’exécution AKS vous permet d’appeler des commandes à distance dans un cluster AKS par le biais de l’API AKS. Cette fonctionnalité fournit une API qui vous permet, par exemple, d’exécuter des commandes juste-à-temps à partir d’un ordinateur portable distant pour un cluster privé. Cela peut vous aider à obtenir un accès juste à temps rapide à un cluster privé lorsque la machine client ne se trouve pas sur le réseau privé du cluster tout en conservant et renforçant les mêmes contrôles RBAC et le même serveur d’API privé.
 
-### <a name="register-the-runcommandpreview-preview-feature"></a>Inscrire la fonctionnalité d’évaluation `RunCommandPreview`
+### <a name="prerequisites"></a>Prérequis
 
-Pour utiliser la nouvelle API Run Command, vous devez activer l’indicateur de fonctionnalité `RunCommandPreview` sur votre abonnement.
-
-Inscrivez l’indicateur de fonctionnalité `RunCommandPreview` à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "RunCommandPreview"
-```
-
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vérifiez l’état de l’inscription à l’aide de la commande [az feature list][az-feature-list] :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/RunCommandPreview')].{Name:name,State:properties.state}"
-```
-
-Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+* Azure CLI version 2.24.0 ou ultérieure
 
 ### <a name="use-aks-run-command"></a>Utiliser Run Command AKS
 
@@ -169,6 +154,8 @@ Effectuer une installation Helm et passer le manifeste des valeurs spécifiques
 ```azurecli-interactive
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
 ```
+> [!NOTE]
+> Sécurisez l’accès à la Run Command AKS en créant un rôle personnalisé avec les autorisations « Microsoft.ContainerService/managedClusters/runcommand/action » et attribuez-les à des utilisateurs et/ou des groupes spécifiques avec un accès juste-à-temps ou des stratégies d’accès conditionnel. 
 
 ## <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
@@ -200,7 +187,6 @@ Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à 
 > Si vous utilisez [Apporter votre propre table de routage avec kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) et Apporte votre propre DNS avec un cluster privé, la création du cluster échouera. Vous devez associer le [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) dans le groupe de ressources du nœud au sous-réseau après l’échec de la création du cluster, afin que la création réussisse.
 
 ## <a name="limitations"></a>Limites 
-* AKS-RunCommand ne fonctionne pas sur les clusters avec AAD géré par AKS et Private Link activé.
 * Les plages d’adresses IP autorisées ne peuvent pas être appliquées au point de terminaison du serveur d’API privé, elles sont uniquement applicables au serveur d’API public.
 * Les [limitations du service Azure Private Link][private-link-service] s’appliquent aux clusters privés.
 * Aucune prise en charge des agents hébergés par Microsoft Azure DevOps avec des clusters privés. Envisagez d’utiliser des [agents auto-hébergés](/azure/devops/pipelines/agents/agents?tabs=browser). 

@@ -11,12 +11,12 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 06/22/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 4da4cb933f24a0ca172c6b0fd6b8b9827d615859
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 94eb2beb95a43e422e8bff6c3ab53f7d2e6c208b
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823461"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094706"
 ---
 # <a name="create-a-training-job-with-the-job-creation-ui-preview"></a>Créer un travail d’apprentissage avec l’interface utilisateur de création de travail (préversion)
 
@@ -85,7 +85,7 @@ Après avoir sélectionné une cible de calcul, vous devez spécifier l’enviro
 
 ### <a name="curated-environments"></a>Environnements organisés
 
-Les environnements organisés sont des collections définies par Azure des packages Python utilisés dans les charges de travail ML courantes. Les environnements organisés sont disponibles dans votre espace de travail par défaut. Ces environnements s’appuient sur des images Docker mises en cache, ce qui réduit la surcharge de préparation de l’exécution. Les cartes affichées dans la page « Environnements organisés » affichent les détails de chaque environnement. 
+Les environnements organisés sont des collections définies par Azure des packages Python utilisés dans les charges de travail ML courantes. Les environnements organisés sont disponibles dans votre espace de travail par défaut. Ces environnements s’appuient sur des images Docker mises en cache, ce qui réduit la surcharge de préparation de l’exécution. Les cartes affichées dans la page « Environnements organisés » affichent les détails de chaque environnement. Pour en savoir plus, consultez [les environnements organisés dans Azure Machine Learning](resource-curated-environments.md).
 
  [![Environnements organisés](media/how-to-train-with-ui/curated-env.png)](media/how-to-train-with-ui/curated-env.png)
 

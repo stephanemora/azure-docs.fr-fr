@@ -4,34 +4,33 @@ description: Présentation de l’instrumentation automatique Azure Monitor Appl
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/17/2021
-ms.reviewer: mbullwin
-ms.openlocfilehash: 1c9d3e10ebf02016a0188617567cb2e4e2eeb036
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 08/31/2021
+ms.openlocfilehash: 3f6af0beb887f66f4696707dcc0e0f408004509a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092707"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827627"
 ---
-# <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Qu’est-ce que l’instrumentation automatique ou l’attachement sans code Azure Monitor Application Insights ?
+# <a name="what-is-auto-instrumentation-for-azure-monitor-application-insights"></a>Qu’est-ce que l’instrumentation automatique pour Azure Monitor Application Insights ?
 
-L’auto-instrumentation, ou l’attachement sans code, vous permet d’activer la supervision des applications avec Application Insights sans modifier votre code.  
+L’instrumentation automatique vous permet d’activer la supervision des applications avec Application Insights sans modifier votre code.  
 
-Application Insights est intégré à différents fournisseurs de ressources et fonctionne sur différents environnements. En substance, il vous suffit d’activer et, dans certains cas, de configurer l’agent, qui collecte ensuite automatiquement les données de télémétrie. En un rien de temps, vous voyez les métriques, les données et les dépendances dans votre ressource Application Insights. Ainsi, vous pouvez localiser la source des problèmes potentiels avant qu’ils se produisent et analyser la cause racine avec un affichage des transactions de bout en bout.
+Application Insights est intégré à différents fournisseurs de ressources et fonctionne sur différents environnements. En substance, il vous suffit d’activer et, dans certains cas, de configurer l’agent, qui collecte ensuite automatiquement les données de télémétrie. En un rien de temps, vous voyez les métriques, les requêtes et les dépendances dans votre ressource Application Insights. Ainsi, vous pouvez localiser la source des problèmes potentiels avant qu’ils se produisent et analyser la cause racine avec un affichage des transactions de bout en bout.
 
 ## <a name="supported-environments-languages-and-resource-providers"></a>Environnements, langages et fournisseurs de ressources pris en charge
 
-À mesure que nous ajoutons des intégrations supplémentaires, la matrice des capacités de l’instrumentation automatique gagne en complexité. Le tableau ci-dessous montre l’état actuel de la question de la prise en charge de divers fournisseurs de ressources, langages et environnements.
+À mesure que nous ajoutons de nouvelles intégrations, la matrice des capacités de l’instrumentation automatique gagne en complexité. Le tableau ci-dessous montre l’état actuel de la question de la prise en charge de divers fournisseurs de ressources, langages et environnements.
 
 |Environnement/fournisseur de ressources          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 |Azure App Service sur Windows           | Disponibilité générale, APD*       | Disponibilité générale, consentement      | Version préliminaire publique  | Version préliminaire publique  | Non pris en charge   |
-|Azure App Service sur Linux             | N/A             | Non pris en charge   | Version préliminaire publique  | Version préliminaire publique  | Non pris en charge   |
+|Azure App Service sur Linux             | N/A             | Non pris en charge   | GA              | GA              | Non pris en charge   |
 |Azure Functions - De base                | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       |
-|Azure Functions Windows – Dépendances | Non pris en charge   | Non pris en charge   | Version préliminaire publique  | Non pris en charge   | Non prise en charge   |
+|Azure Functions - Dépendances         | Non pris en charge   | Non pris en charge   | Version préliminaire publique  | Non pris en charge   | Par l’intermédiaire d’[extension](monitor-functions.md#distributed-tracing-for-python-function-apps)   |
 |Azure Spring Cloud                     | Non prise en charge   | Non pris en charge   | Version préliminaire publique  | Non pris en charge   | Non pris en charge   |
-|Azure Kubernetes Service               | N/A             | Intégré       | Via l’agent   | Intégré       | Non pris en charge   |
-|Machines virtuelles Azure - Windows                      | Version préliminaire publique  | Non pris en charge   | Via l’agent | Non pris en charge   | Non pris en charge   |
+|Azure Kubernetes Service               | N/A             | Non pris en charge   | Via l’agent   | Non pris en charge   | Non pris en charge   |
+|Machines virtuelles Azure - Windows                      | Version préliminaire publique  | Non pris en charge   | Via l’agent   | Non pris en charge   | Non pris en charge   |
 |Machines virtuelles locales - Windows                | Disponibilité générale, consentement      | Non pris en charge   | Via l’agent   | Non pris en charge   | Non pris en charge   |
 |Agent autonome - Tous les env.            | Non pris en charge   | Non pris en charge   | GA              | Non pris en charge   | Non pris en charge   |
 
@@ -41,15 +40,15 @@ Application Insights est intégré à différents fournisseurs de ressources et 
 
 ### <a name="windows"></a>Windows
 
-La supervision des applications sur Azure App Service sous Windows est disponible pour les applications **[.NET](./azure-web-apps.md?tabs=net)** (activé par défaut), **[.NET Core](./azure-web-apps.md?tabs=netcore)** , **[Java](./azure-web-apps.md?tabs=java)** (en préversion publique) et **[Node.js](./azure-web-apps.md?tabs=nodejs)** . Pour superviser une application Python, ajoutez le [SDK](./opencensus-python.md) à votre code.
+La supervision des applications sur Azure App Service sous Windows est disponible pour les applications **[ASP.NET](./azure-web-apps-net.md)** (activé par défaut), **[ASP.NET Core](./azure-web-apps-net-core.md)** , **[Java](./azure-web-apps-java.md)** (en préversion publique) et **[Node.js](./azure-web-apps-nodejs.md)** . Pour superviser une application Python, ajoutez le [SDK](./opencensus-python.md) à votre code.
 
 > [!NOTE]
-> La supervision des applications est actuellement disponible pour les applications basées sur du code Windows sur App Service. La supervision des applications sur les conteneurs Windows sur App Service n’est pas encore prise en charge via l’intégration à Application Insights.
+> Pour Windows, la supervision des applications est actuellement disponible pour les services basés sur du code/gérés sur App Service. La supervision des applications sur les conteneurs Windows sur App Service n’est pas encore prise en charge via l’intégration à Application Insights.
 
 ### <a name="linux"></a>Linux
-Vous pouvez activer la supervision des applications **[Java](./azure-web-apps.md?tabs=java)** et **[Node.js](./azure-web-apps.md?tabs=nodejs)** s’exécutant sur Linux dans App Service par le biais du portail : l’expérience pour les deux langages est en préversion publique et disponible dans toutes les régions. 
+Vous pouvez activer la supervision des applications **[Java](./azure-web-apps-java.md?)** , **[Node.js](./azure-web-apps-nodejs.md?tabs=linux)** et **[ASP.NET Core](./azure-web-apps-net-core.md?tabs=linux)(version préliminaire)** s’exécutant sur Linux dans App Service via le portail. 
 
-Pour les autres langages, [.NET Core](./asp-net-core.md) et [Python](./opencensus-python.md), utilisez le SDK.
+Pour [Python](./opencensus-python.md), utilisez le Kit de développement logiciel (SDK).
 
 ## <a name="azure-functions"></a>Azure Functions
 
@@ -66,7 +65,7 @@ L’instrumentation sans code dans Azure Kubernetes Service est actuellement dis
 
 ## <a name="azure-windows-vms-and-virtual-machine-scale-set"></a>Machines virtuelles Windows Azure et groupe de machines virtuelles identiques
 
-L’auto-instrumentation pour les machines virtuelles Azure et le groupe de machines virtuelles identiques est disponible pour [.NET](./azure-vm-vmss-apps.md) et [Java](./java-in-process-agent.md).  
+L’instrumentation automatique pour les machines virtuelles Azure et le groupe de machines virtuelles identiques est disponible pour [.NET](./azure-vm-vmss-apps.md) et [Java](./java-in-process-agent.md) - cette expérience n’est pas intégrée dans le portail. La surveillance est activée en quelques étapes avec une solution autonome et ne nécessite aucune modification du code.  
 
 ## <a name="on-premises-servers"></a>Serveurs locaux
 Vous pouvez facilement activer la supervision de vos [serveurs Windows locaux pour les applications .NET](./status-monitor-v2-overview.md) et pour les [applications Java](./java-in-process-agent.md).

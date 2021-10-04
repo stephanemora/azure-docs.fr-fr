@@ -2,13 +2,14 @@
 title: Vue d’ensemble des coffres de sauvegarde
 description: Une vue d’ensemble des coffres de sauvegarde.
 ms.topic: conceptual
-ms.date: 04/19/2021
-ms.openlocfilehash: 6748121bd85fe6dc26a09c038ab305bcf06e3902
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.date: 09/08/2021
+ms.custom: references_regions
+ms.openlocfilehash: 8d617dd2d2b1fa61a797d14c709ce285dc28b9bf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565952"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799470"
 ---
 # <a name="backup-vaults-overview"></a>Vue d’ensemble des coffres de sauvegarde
 
@@ -121,6 +122,129 @@ Dans la vignette **Travaux**, vous voyez un récapitulatif de tous les travaux l
 La vignette **Instances de sauvegarde** vous montre un récapitulatif de toutes les instances de sauvegarde dans votre coffre de sauvegarde. La sélection de l’un des nombres figurant dans cette vignette vous permet d’afficher des informations supplémentaires sur les instances de sauvegarde pour un type de source de données et un état de protection spécifiques.
 
 ![Travaux de sauvegarde](./media/backup-vault-overview/backup-jobs.png)
+
+## <a name="move-a-backup-vault-across-azure-subscriptionsresource-groups-public-preview"></a>Déplacer un coffre de sauvegarde dans des abonnements/groupes de ressources Azure (Préversion publique)
+
+Cette section explique comment utiliser le portail Azure pour déplacer un coffre de sauvegarde (configuré pour le service Sauvegarde Azure) entre des abonnements et des groupes de ressources Azure.
+
+>[!Note]
+>Vous pouvez également déplacer des coffres de sauvegarde vers un autre groupe de ressources ou un autre abonnement à l’aide de [PowerShell](/powershell/module/az.resources/move-azresource?view=azps-6.3.0&preserve-view=true) et de l’[interface de ligne de commande (CLI)](/cli/azure/resource?view=azure-cli-latest&preserve-view=true#az_resource_move).
+
+### <a name="supported-regions"></a>Régions prises en charge
+
+Le déplacement d’un coffre entre des abonnements et des groupes de ressources est actuellement pris en charge dans les régions suivantes : USA Ouest, USA Centre Sud, Asie Est, Suisse Nord, Afrique du Sud Nord, Royaume-Uni Ouest, USA Centre Nord, Émirats arabes unis Nord, Norvège Est, Australie Sud-Est, Japon Ouest, Canada Est, Corée Centre, Australie Centre, USA Centre-Ouest, Inde Centre, Inde Ouest, Inde Sud, Émirats arabes unis Centre, Afrique du Sud Ouest, Norvège Ouest et Suisse Ouest.
+
+### <a name="use-azure-portal-to-move-backup-vault-to-a-different-resource-group"></a>Utiliser le portail Azure pour déplacer un coffre de sauvegarde vers un autre groupe de ressources
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+
+1. Ouvrez la liste des coffres de sauvegarde, puis sélectionnez le coffre à déplacer.
+
+   Le tableau de bord du coffre affiche les détails du coffre.
+
+   :::image type="content" source="./media/backup-vault-overview/vault-dashboard-to-move-to-resource-group-inline.png" alt-text="Capture d’écran montrant le tableau de bord du coffre à déplacer vers un autre groupe de ressources." lightbox="./media/backup-vault-overview/vault-dashboard-to-move-to-resource-group-expanded.png"::: 
+
+1. Dans le menu de **Vue d’ensemble** du coffre, cliquez sur **Déplacer**, puis sélectionnez **Déplacer vers un autre groupe de ressources**.
+
+   :::image type="content" source="./media/backup-vault-overview/select-move-to-another-resource-group-inline.png" alt-text="Capture d’écran montrant l’option permettant de déplacer un coffre de sauvegarde vers un autre groupe de ressources." lightbox="./media/backup-vault-overview/select-move-to-another-resource-group-expanded.png":::
+   >[!Note]
+   >Seul la personne disposant d’un abonnement Administrateur possède les autorisations requises pour déplacer un coffre.
+
+1. Dans la liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant, ou sélectionnez **Créer** pour créer un groupe de ressources.
+
+   L’abonnement reste le même et est renseigné automatiquement.
+
+   :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-inline.png" alt-text="Capture d’écran de la page Déplacer des ressources où les options permettant de sélectionner un groupe de ressources existant ou de créer un groupe de ressources sont mises en évidence." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-expanded.png":::
+
+1. Sous l’onglet **ressources à déplacer**, le coffre de sauvegarde qui doit être déplacé est soumis à une validation. Ce processus peut prendre quelques minutes. Veuillez attendre la fin de la validation.
+
+   :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-inline.png" alt-text="Capture d’écran montrant l’état de la validation du coffre de sauvegarde." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-expanded.png"::: 
+
+1. Pour confirmer, cochez la case en regard de _Je comprends que les outils et les scripts associés aux ressources déplacées ne fonctionnent pas tant que je ne les mets pas à jour pour utiliser de nouveaux ID de ressource_, puis sélectionnez **Déplacer**.
+ 
+   >[!Note]
+   >Le déplacement du coffre entre des groupes de ressources ou des abonnements modifie le chemin d’accès de la ressource. Veillez à mettre à jour les outils et les scripts avec le nouveau chemin d’accès de la ressource une fois l’opération de déplacement terminée.
+
+Attendez que l’opération de déplacement soit terminée pour effectuer d’autres opérations sur le coffre. Toutes les opérations effectuées sur le coffre de sauvegarde échouent si elles sont effectuées pendant le déplacement. Une fois le processus terminé, le coffre de sauvegarde doit apparaître dans le groupe de ressources cible.
+
+>[!Important]
+>Si vous rencontrez une erreur lors du déplacement du coffre, reportez-vous à la section [Codes d’erreur et résolution des problèmes](#error-codes-and-troubleshooting).  
+
+### <a name="use-azure-portal-to-move-backup-vault-to-a-different-subscription"></a>Utiliser le portail Azure pour déplacer un coffre de sauvegarde vers un autre abonnement
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+
+1. Ouvrez la liste des coffres de sauvegarde, puis sélectionnez le coffre à déplacer.
+   
+   Le tableau de bord du coffre affiche les détails du coffre.
+
+   :::image type="content" source="./media/backup-vault-overview/vault-dashboard-to-move-to-another-subscription-inline.png" alt-text="Capture d’écran montrant le tableau de bord du coffre à déplacer vers un autre abonnement Azure." lightbox="./media/backup-vault-overview/vault-dashboard-to-move-to-another-subscription-expanded.png"::: 
+
+1. Dans le menu **Vue d’ensemble** du coffre, cliquez sur **Déplacer**, puis sélectionnez **Déplacer vers un autre abonnement**.
+
+   :::image type="content" source="./media/backup-vault-overview/select-move-to-another-subscription-inline.png" alt-text="Capture d’écran montrant l’option permettant de déplacer un coffre de sauvegarde vers un autre Abonnement Azure." lightbox="./media/backup-vault-overview/select-move-to-another-subscription-expanded.png"::: 
+   >[!Note]
+   >Seul la personne disposant d’un abonnement Administrateur possède les autorisations requises pour déplacer un coffre.
+
+1. Dans la liste déroulante **Abonnement**, sélectionnez un abonnement existant.
+
+   Pour déplacer des coffres entre des abonnements, il faut que l’abonnement cible se trouve dans le même tenant (locataire) que l’abonnement source. Pour déplacer un coffre vers un autre tenant (locataire), consultez l’article [Transférer un abonnement Azure vers une autre instance Azure AD Directory](/azure/role-based-access-control/transfer-subscription).
+
+1. Dans la liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant, ou sélectionnez **Créer** pour créer un groupe de ressources.
+
+   :::image type="content" source="./media/backup-vault-overview/select-existing-or-create-resource-group-to-move-to-other-subscription-inline.png" alt-text="Capture d’écran de la page Déplacer des ressources où les options permettant de sélectionner un groupe de ressources existant ou de créer un groupe de ressources dans un autre abonnement Azure sont mises en évidence." lightbox="./media/backup-vault-overview/select-existing-or-create-resource-group-to-move-to-other-subscription-expanded.png":::
+
+1. Sous l’onglet **ressources à déplacer**, le coffre de sauvegarde qui doit être déplacé est soumis à une validation. Ce processus peut prendre quelques minutes. Veuillez attendre la fin de la validation.
+
+   :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-inline.png" alt-text="Capture d’écran montrant l’état de la validation du coffre de sauvegarde à déplacer vers un autre abonnement Azure." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-expanded.png"::: 
+
+1. Pour confirmer, cochez la case en regard de _Je comprends que les outils et les scripts associés aux ressources déplacées ne fonctionnent pas tant que je ne les mets pas à jour pour utiliser de nouveaux ID de ressource_, puis sélectionnez **Déplacer**.
+ 
+   >[!Note]
+   >Le déplacement du coffre entre des groupes de ressources ou des abonnements modifie le chemin d’accès de la ressource. Veillez à mettre à jour les outils et les scripts avec le nouveau chemin d’accès de la ressource une fois l’opération de déplacement terminée.
+
+Attendez que l’opération de déplacement soit terminée pour effectuer d’autres opérations sur le coffre. Toutes les opérations effectuées sur le coffre de sauvegarde échouent si elles sont effectuées pendant le déplacement. Une fois le processus terminé, le coffre de sauvegarde doit apparaître dans l’abonnement cible et le groupe de ressources.
+
+>[!Important]
+>Si vous rencontrez une erreur lors du déplacement du coffre, reportez-vous à la section [Codes d’erreur et résolution des problèmes](#error-codes-and-troubleshooting).
+
+### <a name="error-codes-and-troubleshooting"></a>Codes d’erreur et résolution des problèmes
+
+Voici diverses solutions pour vous aider à résoudre les principaux problèmes pouvant survenir lors du déplacement d’un coffre de sauvegarde :
+
+#### <a name="backupvaultmoveresourcespartiallysucceeded"></a>BackupVaultMoveResourcesPartiallySucceeded   
+
+**Cause** : cette erreur risque de survenir lorsque le déplacement du coffre de sauvegarde n’a pas complètement réussi.
+
+**Recommandation** : ce problème doit être résolu automatiquement dans un délai de 36 heures. S’il persiste, contactez le support Microsoft.
+
+#### <a name="backupvaultmoveresourcescriticalfailure"></a>BackupVaultMoveResourcesCriticalFailure 
+
+**Cause** : cette erreur risque de survenir lorsque le déplacement du coffre de sauvegarde a échoué de manière critique. 
+
+**Recommandation** : ce problème doit être résolu automatiquement dans un délai de 36 heures. S’il persiste, contactez le support Microsoft. 
+
+#### <a name="usererrorbackupvaultresourcemoveinprogress"></a>UserErrorBackupVaultResourceMoveInProgress 
+
+**Cause** : cette erreur risque de survenir si vous tentez d’effectuer des opérations sur le coffre de sauvegarde pendant son déplacement. 
+
+**Recommandation** : attendez que l’opération de déplacement soit terminée, puis réessayez. 
+#### <a name="usererrorbackupvaultresourcemovenotallowedformultipleresources"></a>UserErrorBackupVaultResourceMoveNotAllowedForMultipleResources
+
+**Cause** : cette erreur risque de survenir si vous tentez de déplacer plusieurs coffres de sauvegarde en même temps. 
+
+**Recommandation** : veuillez sélectionner un seul coffre de sauvegarde pour chaque opération de déplacement. 
+#### <a name="usererrorbackupvaultresourcemovenotalloweduntilresourceprovisioned"></a>UserErrorBackupVaultResourceMoveNotAllowedUntilResourceProvisioned
+
+**Cause** : cette erreur risque de survenir si le coffre n’est pas encore approvisionné. 
+
+**Recommandation** : veuillez réessayer l’opération un peu plus tard.
+
+#### <a name="backupvaultresourcemoveisnotenabled"></a>BackupVaultResourceMoveIsNotEnabled 
+
+**Cause** : le déplacement de ressources pour le coffre de sauvegarde n’est pas pris en charge dans la région Azure que vous avez sélectionnée.
+
+**Recommandation** : assurez-vous que vous avez sélectionné l’une des régions prises en charge pour déplacer des coffres de sauvegarde. Consultez [Régions prises en charge](#supported-regions).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

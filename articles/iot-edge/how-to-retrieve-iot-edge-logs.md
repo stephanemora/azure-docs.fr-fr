@@ -2,7 +2,6 @@
 title: Récupérer les journaux IoT Edge – Azure IoT Edge
 description: Le module IoT Edge permet de récupérer les journaux et de les charger dans Stockage Blob Azure.
 author: v-tcassi
-manager: philmea
 ms.author: v-tcassi
 ms.date: 11/12/2020
 ms.topic: conceptual
@@ -10,12 +9,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 51a79058ec4456b173b1f50169198d3ea3ba2e93
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 75b89acff320b3083c098a0546882d80bdcfc5ad
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541879"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060893"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Récupérer les journaux des déploiements IoT Edge
 
@@ -35,9 +34,9 @@ Bien qu’il ne soit pas obligatoire, pour une meilleure compatibilité avec cet
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Timestamp}` doit être au format `yyyy-MM-dd hh:mm:ss.fff zzz`, et `{Log Level}` doit suivre le tableau ci-dessous, qui dérive ses niveaux de gravité du [Code de gravité dans la norme Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
+`{Timestamp}` doit être au format `yyyy-MM-dd HH:mm:ss.fff zzz`, et `{Log Level}` doit suivre le tableau ci-dessous, qui dérive ses niveaux de gravité du [Code de gravité dans la norme Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
 
-| Value | Gravité |
+| Valeur | Gravité |
 |-|-|
 | 0 | Urgence |
 | 1 | Alerte |
@@ -386,7 +385,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
 
 | Nom | Type | Description |
 |-|-|-|
-| status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
+| status | string | L’un des `NotStarted`, `Running`, `Completed`, `Failed`, Annulé ou or `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |
 | correlationId | string   | ID à interroger pour obtenir l’état de la demande de chargement. |
 

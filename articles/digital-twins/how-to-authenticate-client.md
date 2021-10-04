@@ -4,27 +4,27 @@ titleSuffix: Azure Digital Twins
 description: Voir comment écrire un code d’authentification dans une application cliente
 author: baanders
 ms.author: baanders
-ms.date: 8/26/2021
+ms.date: 9/1/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a1b2465f29ae659f3e255a4843a2abd5f9ab75b2
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: a1e397acfe8118c339b45d6c786ae2c0b2cc82e8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224862"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827011"
 ---
 # <a name="write-client-app-authentication-code"></a>Écrire le code d’authentification de l’application cliente
 
 Après avoir [configuré une instance et une authentification Azure Digital Twins](how-to-set-up-instance-portal.md), vous pouvez créer une application cliente que vous allez utiliser pour interagir avec l’instance. Après avoir configuré un projet client de démarrage, vous devez **écrire du code dans cette application cliente pour l’authentifier** auprès de l’instance Azure Digital Twins.
 
-Azure Digital Twins effectue l’authentification à l’aide de [jetons de sécurité Azure AD Security basés sur OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Pour authentifier votre kit de développement logiciel (SDK), vous devez obtenir un jeton du porteur avec les autorisations appropriées sur Azure Digital Twins et le transmettre avec vos appels d’API. 
+Azure Digital Twins authentifie à l’aide de [jetons de sécurité Azure AD Security basés sur OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Pour authentifier votre kit de développement logiciel (SDK), vous devez obtenir un jeton du porteur avec les autorisations appropriées sur Azure Digital Twins et le transmettre avec vos appels d’API. 
 
 Cet article explique comment obtenir des informations d’identification à l’aide de la bibliothèque cliente `Azure.Identity`. Bien que cet article présente des exemples de code en C#, tels que ce que vous écrivez pour le [kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), vous pouvez utiliser une version de `Azure.Identity` quel que soit le kit de développement logiciel (SDK) que vous utilisez (pour plus d’informations sur les SDK disponibles pour Azure Digital Twins, consultez [API et SDK Azure Digital Twins](concepts-apis-sdks.md)).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Tout d’abord, terminez les étapes de configuration dans [Configurer une instance et l’authentification](how-to-set-up-instance-portal.md). Cela permet de s’assurer que vous disposez d’une instance Azure Digital Twins et que votre utilisateur dispose d’autorisations d’accès. Une fois cette configuration terminée, vous êtes prêt à écrire le code de l’application cliente.
+Tout d’abord, terminez les étapes de configuration dans [Configurer une instance et l’authentification](how-to-set-up-instance-portal.md). Cette configuration permet de s’assurer que vous disposez d’une instance Azure Digital Twins et que votre utilisateur dispose d’autorisations d’accès. Une fois cette configuration terminée, vous êtes prêt à écrire le code de l’application cliente.
 
 Pour continuer, vous aurez besoin d’un projet d’application cliente dans lequel écrire votre code. Si vous n’avez pas encore configuré de projet d’application cliente, créez un projet de base à utiliser avec ce didacticiel dans le langage de votre choix.
 
@@ -43,7 +43,7 @@ Trois méthodes d’obtention d’informations d’identification courantes dans
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) fonctionne parfaitement lorsqu’il vous faut des [identités managées (MSI)](../active-directory/managed-identities-azure-resources/overview.md) et peut être utilisé avec Azure Functions et pour déployer sur des services Azure.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) est destiné aux applications interactives et peut être utilisé pour créer un client de kit de développement logiciel (SDK) authentifié.
 
-Le reste de cet article explique comment les utiliser avec le [Kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+Le reste de cet article explique comment utiliser ces méthodes avec le [Kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
 ### <a name="add-azureidentity-to-your-net-project"></a>Ajouter Azure.Identity à votre projet .NET
 
@@ -85,7 +85,7 @@ Dans une fonction Azure, vous pouvez utiliser les informations d’identificatio
 
 ### <a name="interactivebrowsercredential-method"></a>Méthode InteractiveBrowserCredential
 
-La méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) est destinée aux applications interactives et affiche un navigateur web pour l’authentification. Vous pouvez l’utiliser à la place de `DefaultAzureCredential` lorsque vous avez besoin d’une authentification interactive.
+La méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) est destinée aux applications interactives et affiche un navigateur web pour l’authentification. Vous pouvez utiliser cette méthode à la place de `DefaultAzureCredential` lorsque vous avez besoin d’une authentification interactive.
 
 Pour utiliser les informations d’identification du navigateur interactif, vous avez besoin d’une **inscription d’application** disposant d’autorisations sur les API Azure Digital Twins. Pour plus d’informations sur la configuration de cette inscription d’application, consultez [Créer une inscription d’application](./how-to-create-app-registration-portal.md). Une fois l’inscription d’application configurée, vous avez besoin de...
 * [l’ID d’application (client) de l’inscription d’application](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
@@ -127,7 +127,7 @@ Lors de l’écriture de la fonction Azure, envisagez d’ajouter ces variables 
 
 * **Un contrôle de valeur Null pour _adtInstanceUrl_.** Ajoutez le contrôle de valeur Null, puis wrappez la logique de votre fonction dans un bloc try/catch pour intercepter toutes les exceptions.
 
-Une fois ces éléments ajoutés à une fonction, votre code de fonction peut ressembler à l’exemple suivant.
+Une fois ces variables ajoutées à une fonction, votre code de fonction peut ressembler à l’exemple suivant.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 

@@ -4,22 +4,31 @@ description: Affichez le journal d’activité Azure et envoyez-le aux journaux 
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/09/2021
 ms.author: bwren
-ms.openlocfilehash: d9628c9d10818b2b7a8a731b14537e4b533af74e
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 61640d3abc371a92d5588c8b14308ba74152a442
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532975"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799754"
 ---
 # <a name="azure-activity-log"></a>Journal d’activité Azure
-Le journal d’activité est un [journal de plateforme](./platform-logs-overview.md) dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Pour obtenir des fonctionnalités supplémentaires, vous devez créer un paramètre de diagnostic permettant d’envoyer le journal d’activité aux [journaux d’activité d’Azure Monitor](../logs/data-platform-logs.md), à Azure Event Hubs pour le transférer en dehors d’Azure ou à Stockage Azure à des fins d’archivage. Cet article fournit des détails sur l’affichage du journal d’activité et son envoi vers différentes destinations.
+Le journal d’activité est un [journal de plateforme](./platform-logs-overview.md) dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI.   Cet article fournit des détails sur l’affichage du journal d’activité et son envoi vers différentes destinations.
+
+Pour obtenir des fonctionnalités supplémentaires, vous devez créer un paramètre de diagnostic pour envoyer le journal d’activité à un ou plusieurs de ces emplacements pour les raisons suivantes : 
+-   vers les [journaux d'activité Azure Monitor](../logs/data-platform-logs.md) pour les requêtes et alertes plus complexes, et les rétentions plus longues (jusqu’à 2 ans) 
+-   vers Azure Event Hubs pour les transferts en dehors d’Azure
+-   vers Stockage Azure pour un archivage à long terme et moins cher
 
 Pour plus d’informations sur la création d’un paramètre de diagnostic, consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](./diagnostic-settings.md).
 
 > [!NOTE]
 > Les entrées du journal d’activité sont générées par le système et ne peuvent pas être modifiées ou supprimées.
+
+## <a name="retention-period"></a>Période de rétention 
+
+Les événements du journal d’activité sont conservés dans Azure pendant **90 jours**, puis supprimés. Les entrées ne sont pas facturées pendant ce temps, quel que soit le volume. Pour obtenir des fonctionnalités supplémentaires telles qu’une augmentation de la durée de rétention, vous devez créer un paramètre de diagnostic et acheminer l’intégralité vers un autre emplacement en fonction de vos besoins. Consultez les critères de la section précédente de cet article. 
 
 ## <a name="view-the-activity-log"></a>Afficher le journal d’activité
 Vous pouvez accéder au journal d’activité à partir de la plupart des menus du portail Azure. Le menu à partir duquel vous l’ouvrez détermine son filtre initial. Si vous l’ouvrez à partir du menu **Monitor**, le seul filtre sera sur l’abonnement. Si vous l’ouvrez à partir du menu d’une ressource, le filtre est défini sur cette ressource. Vous pouvez toujours modifier le filtre pour afficher toutes les autres entrées. Cliquez sur **Ajouter un filtre** pour ajouter des propriétés supplémentaires au filtre.
@@ -59,9 +68,9 @@ Vous pouvez également accéder aux événements du journal d’activité à l�
 - Consolider les entrées de journal de plusieurs abonnements et locataires Azure en un seul endroit pour les analyser ensemble.
 - Utiliser les requêtes de journal pour effectuer des analyses complexes et obtenir des informations détaillées sur les entrées du journal d’activité.
 - Utiliser des alertes de journal avec des entrées d’activité qui permettent une logique d’alerte plus complexe.
-- Stocker les entrées du journal d’activité au-delà de 90 jours.
+- Stockez les entrées du journal d’activité plus longtemps que la période de rétention du journal d’activité.
 - Aucuns frais d’ingestion des données pour les données de journal d’activité stockées dans un espace de travail Log Analytics.
-- Aucuns frais de rétention des données pendant 90 jours pour les données de journal d’activité stockées dans un espace de travail Log Analytics.
+- Aucun frais de rétention des données n’est facturé avant l’expiration de la période de rétention du journal d’activité pour l’ensemble des données.
 
 [Créez un paramètre de diagnostic](./diagnostic-settings.md) pour envoyer le journal d’activité à un espace de travail Log Analytics. Vous pouvez envoyer le journal d’activité d’un abonnement unique vers un maximum de cinq espaces de travail. 
 
@@ -144,8 +153,8 @@ Voici des exemples de données de sortie provenant d’Event Hubs pour un journa
 ```
 
 
-## <a name="send-to--azure-storage"></a>Envoyer à Stockage Azure
-Envoyez le journal d’activité à un compte de stockage Azure si vous souhaitez conserver vos données de journal plus de 90 jours à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours.
+## <a name="send-to-azure-storage"></a>Envoyer au stockage Azure
+Envoyez le journal d’activité à un compte Stockage Azure pour l’audit, l’analyse statique ou la sauvegarde si vous voulez conserver vos données de journal au-delà de la période de rétention du journal d'activité. Il n’est pas nécessaire de configurer le stockage Azure, sauf si vous devez conserver les entrées pour l’une de ces raisons.  
 
 Lorsque vous envoyez le journal d’activité à Azure, un conteneur de stockage est créé dans le compte de stockage dès qu’un événement se produit. Les blobs présents dans le conteneur utilisent la convention d’affectation de noms suivante :
 

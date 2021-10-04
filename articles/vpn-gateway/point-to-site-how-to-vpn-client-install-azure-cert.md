@@ -6,18 +6,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 09/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4643502a16982fc3b3c2a659a4dbc127e515d349
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 917f60440d98924e5339f29fb99587eacf40b415
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531703"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766252"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Installer des certificats client pour des connexions d’authentification par certificat P2S
 
-Quand une passerelle VPN P2S est configurée pour exiger l’authentification par certificat, un certificat client doit être installé localement sur chaque ordinateur client. Cet article vous aide à installer un certificat client.
+Quand une passerelle VPN P2S est configurée pour exiger l’authentification par certificat, un certificat client doit être installé localement sur chaque ordinateur client. Cet article vous aide à installer un certificat client localement sur un ordinateur client. Vous pouvez également utiliser [Intune](/mem/intune/configuration/vpn-settings-configure) pour installer certains profils et certificats de client VPN.
 
 Si vous souhaitez générer un certificat client à partir d’un certificat racine auto-signé, consultez l’un des articles suivants :
 

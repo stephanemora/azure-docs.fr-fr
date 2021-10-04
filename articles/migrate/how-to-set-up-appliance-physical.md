@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: fd3a0f34567467036ff605adedc944e30e9940a1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4c770899c2673926b9db7a676958db56a8ae71be
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587798"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092563"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurer une appliance pour les serveurs physiques
 
@@ -62,7 +62,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
     **Télécharger** | **Valeur de hachage**
     --- | ---
-    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140334) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140334) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 > [!NOTE]
 > Le même script peut être utilisé pour configurer une appliance Physique pour un cloud public Azure ou un cloud Azure Government.

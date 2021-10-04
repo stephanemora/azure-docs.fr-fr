@@ -1,7 +1,7 @@
 ---
-title: Activité Webhook dans Azure Data Factory
+title: Activité de webhook
 titleSuffix: Azure Data Factory & Azure Synapse
-description: L’activité de webhook interrompt l’exécution du pipeline jusqu’à ce qu’elle valide le jeu de données attaché avec certains critères spécifiés par l’utilisateur.
+description: L’activité webhook pour Azure Data Factory et Synapse Analytics contrôle l’exécution de pipelines à l’aide de code personnalisé.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
@@ -9,19 +9,19 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.openlocfilehash: 3c2194aff9296230333c433b65f3be303768f9fb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 8b0443cd44dffeec1ea9a70e460ca0f72e05b24d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641480"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798823"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Activité Webhook dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Une activité de webhook peut contrôler l’exécution des pipelines dans votre code personnalisé. Grâce à l’activité de webhook, le code des clients peut appeler un point de terminaison et lui passer une URL de rappel. L’exécution du pipeline attend l’appel du rappel avant de passer à l’activité suivante.
+Une activité de webhook peut contrôler l’exécution des pipelines dans votre code personnalisé. Grâce à l’activité de webhook, le code des clients peut appeler un point de terminaison et lui transmettre une URL de rappel. L’exécution du pipeline attend l’appel du rappel avant de passer à l’activité suivante.
 
 > [!IMPORTANT]
 > L’activité WebHook vous permet désormais de retracer l’état d’erreur et les messages personnalisés à l’activité et au pipeline. Affectez à _reportStatusOnCallBack_ la valeur true et incluez _StatusCode_ et _Error_ dans la charge utile de rappel. Pour plus d’informations, consultez la section [Remarques supplémentaires](#additional-notes).
@@ -102,7 +102,7 @@ Spécifiez le contenu encodé en Base64 d’un fichier PFX et un mot de passe.
 
 ### <a name="managed-identity"></a>Identité managée
 
-Utilisez l’identité managée de la fabrique de données pour spécifier l’URI de ressource pour lequel le jeton d’accès est demandé. Pour appeler l’API Gestion des ressources Azure, utilisez `https://management.azure.com/`. Pour plus d’informations sur le fonctionnement des identités managées, consultez la [vue d’ensemble des identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Utilisez l’identité managée pour votre fabrique de données ou votre espace de travail Synapse pour spécifier l’URI de la ressource pour laquelle le jeton d’accès est requis. Pour appeler l’API Gestion des ressources Azure, utilisez `https://management.azure.com/`. Pour plus d’informations sur le fonctionnement des identités managées, consultez la [vue d’ensemble des identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -112,11 +112,11 @@ Utilisez l’identité managée de la fabrique de données pour spécifier l’U
 ```
 
 > [!NOTE]
-> Si votre fabrique de données est configurée avec un dépôt Git, vous devez stocker vos informations d’identification dans Azure Key Vault pour utiliser l’authentification de base ou de certificat client. Azure Data Factory ne stocke pas les mots de passe dans Git.
+> Si le service est configuré avec un dépôt Git, vous devez stocker vos informations d’identification dans Azure Key Vault pour utiliser l’authentification de base ou de certificat client. Le service ne stocke pas les mots de passe dans Git.
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 
-Data Factory transmet la propriété supplémentaire **callBackUri** dans le corps envoyé au point de terminaison de l’URL. Data Factory s’attend à ce que cet URI soit appelé avant la valeur de délai d’attente spécifiée. Si l’URI n’est pas appelé, l’activité échoue avec l’état « TimedOut ».
+Le service transmet la propriété supplémentaire **callBackUri** dans le corps envoyé au point de terminaison de l’URL. Le service s’attend à ce que cet URI soit appelé avant la valeur de délai d’attente spécifiée. Si l’URI n’est pas appelé, l’activité échoue avec l’état « TimedOut ».
 
 L’activité de webhook échoue quand l’appel au point de terminaison personnalisé échoue. Tout message d’erreur peut être ajouté au corps du rappel et utilisé dans une activité ultérieure.
 
@@ -145,7 +145,7 @@ Si vous utilisez la propriété **Signaler l’état lors du rappel**, vous deve
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les activités de flux de contrôle suivantes prises en charge par Data Factory :
+Consultez ces activités de flux de contrôle prises en charge :
 
 - [Activité IfCondition](control-flow-if-condition-activity.md)
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

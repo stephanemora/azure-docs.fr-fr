@@ -4,16 +4,16 @@ description: Découvrez comment prépayer vos abonnements logiciels pour faire d
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
-ms.subservice: reserved-instances
+ms.subservice: billing
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 6321058c863b6db190ec987887e61cf20ed8be50
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: c46215bde33f726aba61ad42bf27a14ac2edb4dc
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692682"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216492"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Prépayer les abonnements logiciels Azure
 
@@ -39,6 +39,7 @@ Les coûts initiaux de la réservation sont facturés sur le mode de paiement de
 4. Sélectionnez une étendue. L’étendue peut couvrir un ou plusieurs abonnements (étendue partagée).
     - Abonnement unique : la remise sur l’abonnement est appliquée à l’utilisation correspondante de cet abonnement.
     - Partagé : la remise sur l’abonnement est appliquée aux instances correspondantes de tout abonnement compris dans votre contexte de facturation. Pour les clients Entreprise, le contexte de facturation correspond à l’inscription et comprend tous les abonnements compris dans l’inscription. Pour le forfait individuel avec des clients ayant choisi le paiement à l’utilisation, le contexte de facturation est tous les forfaits individuels avec abonnement à paiement à l’utilisation créés par l’administrateur de compte.
+    - Groupe d’administration : applique la remise de réservation à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation.
     - Groupe de ressources unique : applique la remise sur réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
 5. Sélectionnez un produit pour choisir la taille de machine virtuelle et le type d’image. La remise s’applique à la taille de machine virtuelle sélectionnée uniquement.
 6. Sélectionnez une durée de 1 ou 3 ans.

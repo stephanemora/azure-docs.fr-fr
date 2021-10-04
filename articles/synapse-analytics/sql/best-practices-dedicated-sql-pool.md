@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 03/17/2021
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4d37cabb8b74fea3a72ddafdf3322d20379f8d29
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: c0c436a2e36edbd6feb433074efc2d746ee38f18
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532950"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091822"
 ---
 # <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Meilleures pratiques pour les pools SQL dédiés dans Azure Synapse Analytics
 
-Cet article énumère une série de meilleures pratiques destinées à optimiser les performances des pools SQL dédiés dans Azure Synapse Analytics. Vous trouverez ci-dessous des instructions de base et des aspects importants sur lesquels vous concentrer lorsque vous créez votre solution. Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.
+Cet article énumère une série de meilleures pratiques destinées à optimiser les performances des pools SQL dédiés dans Azure Synapse Analytics.  Si vous utilisez un pool SQL serverless, consultez [Meilleures pratiques pour les pools SQL serverless](best-practices-serverless-sql-pool.md) pour obtenir des instructions spécifiques. Vous trouverez ci-dessous des instructions de base et des zones importantes sur lesquelles vous devez vous concentrer au fur et à mesure que vous créez votre solution. Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.
 
 ## <a name="dedicated-sql-pools-loading"></a>Chargement des pools SQL dédiés
 
@@ -39,12 +39,11 @@ Pour raccourcir le temps de maintenance des statistiques, vous devez sélectionn
 
 Pour plus d’informations sur les statistiques, consultez les articles [Gestion des statistiques sur les tables](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) et [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-## <a name="tune-query-performance-with-new-product-enhancements"></a>Optimiser les performances des requêtes avec de nouvelles améliorations produit
+## <a name="tune-query-performance"></a>Régler les performances des requêtes
 
 - [Réglage des performances avec des vues matérialisées](../sql-data-warehouse/performance-tuning-materialized-views.md)
 - [Réglage des performances avec un index columnstore en cluster ordonné](../sql-data-warehouse/performance-tuning-ordered-cci.md)
 - [Optimisation des performances avec la mise en cache des jeux de résultats](../sql-data-warehouse/performance-tuning-result-set-caching.md)
-
 
 ## <a name="group-insert-statements-into-batches"></a>Regrouper des instructions INSERT dans des lots
 
@@ -79,9 +78,9 @@ Si vous disposez de plusieurs requêtes pour interroger ces données, il est pr�
 
 ## <a name="hash-distribute-large-tables"></a>Hacher et distribuer de grandes tables
 
-Par défaut, les tables sont distribuées par tourniquet (Round Robin).   Cela aide les utilisateurs à commencer à créer leurs tables sans devoir déterminer comment celles-ci doivent être distribuées. Des tables round robin peuvent être suffisamment performantes pour certaines charges de travail. Toutefois, dans la plupart des cas, une colonne de distribution offre de meilleures performances.  
+Par défaut, les tables sont distribuées par tourniquet (Round Robin). Cela aide les utilisateurs à commencer à créer leurs tables sans devoir déterminer comment celles-ci doivent être distribuées. Des tables round robin peuvent être suffisamment performantes pour certaines charges de travail. Toutefois, dans la plupart des cas, une colonne de distribution offre de meilleures performances.  
 
-L’exemple le plus courant de table distribuée par une colonne surpassant les performances d’une table round robin est lorsque deux grandes tables de faits sont jointes.  
+Deux grandes tables de faits jointes constituent l’exemple le plus courant d’une table distribuée par une colonne plus performante qu’une table round robin.  
 
 Par exemple, si vous avez une table de commandes distribuée par order_id, et une table de transactions également distribuée par order_id, lorsque vous joignez votre table de commandes à votre table de transactions sur order_id, cette requête devient une requête directe. Les opérations de déplacement de données sont ensuite éliminées. Moins d’étapes signifie une requête plus rapide. Moins de déplacement des données permet également d’obtenir des requêtes plus rapides.
 
@@ -205,4 +204,3 @@ Si vous avez besoin d’informations non fournies dans cet article, la [page de 
 
 Nous suivons activement ce forum pour vous assurer que vos questions sont traitées par un autre utilisateur ou un membre de notre équipe.  Si vous préférez poser vos questions sur Stack Overflow, nous avons également un [Forum Stack Overflow sur Azure Synapse Analytics](https://stackoverflow.com/questions/tagged/azure-synapse).
 
-Pour les demandes de fonctionnalités, utilisez la page de [Commentaires pour Azure Synapse Analytics](https://feedback.azure.com/forums/307516-sql-data-warehouse).  L’ajout de demandes ou le vote pour d’autres demandes nous aide à nous concentrer sur les fonctionnalités les plus demandées.

@@ -1,18 +1,18 @@
 ---
-title: Création d’une classification et d’une règle de classification personnalisées (préversion)
+title: Création d’une classification et d’une règle de classification personnalisées
 description: Découvrez comment créer des classifications personnalisées pour définir des types de données propres à votre organisation dans Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 3/24/2021
-ms.openlocfilehash: fff9f128e6a533d8a8926093ca58a79ef2e974d3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 12af9165b8393291b67fd0cbe4cb2ced6ae77a17
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532677"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212123"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classifications personnalisées dans Azure Purview
 
@@ -33,9 +33,9 @@ Vous avez également la possibilité de créer des classifications personnalisé
 
 Pour créer une classification personnalisée, procédez comme suit :
 
-1. Dans votre catalogue, sélectionnez **Centre de gestion** dans le menu de gauche.
+1. Dans votre catalogue, sélectionnez **Data Map** dans le menu de gauche.
 
-2. Sélectionnez **Classifications** sous **Gestion des métadonnées**.
+2. Sélectionnez **Classifications** sous **Gestion des annotations**.
 
 3. Sélectionnez **+Nouveau**.
 
@@ -85,15 +85,15 @@ Pour créer une règle de classification personnalisée, procédez comme suit :
 
 1. Créez une classification personnalisée en suivant les instructions de la section précédente. Vous l’ajouterez dans la configuration de la règle de classification afin que le système l’applique lorsqu’il trouve une correspondance dans la colonne.
 
-2. Sélectionnez l’icône **Centre de gestion**.
+2. Sélectionnez l’icône de **Data Map**.
 
 3. Sélectionnez la section **Règles de classification**.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classificationrules.png" alt-text="Vignette Règles de classification" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification-rules.png" alt-text="Vignette Règles de classification" border="true":::
 
 4. Sélectionnez **Nouveau**.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Ajout d’une nouvelle règle de classification" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification-rule.png" alt-text="Ajout d’une nouvelle règle de classification" border="true":::
 
 5. La boîte de dialogue **Nouvelle règle de classification** s’ouvre. Renseignez les champs et déterminez si vous souhaitez créer une **règle d’expression régulière** ou une **règle de dictionnaire**.
 

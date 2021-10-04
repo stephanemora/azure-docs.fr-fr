@@ -8,15 +8,15 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2021
+ms.date: 09/24/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 57a4c866681f9970982a34545081549a407377db
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 7401b7369d766df5513100b30b7b65c324517fbe
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592031"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091981"
 ---
 # <a name="add-or-edit-azure-role-assignment-conditions-using-the-azure-portal-preview"></a>Ajouter ou modifier des conditions d’attribution de rôle Azure à l’aide du portail Azure (préversion)
 
@@ -50,9 +50,9 @@ Il existe deux façons d’ajouter une condition. Vous pouvez ajouter une condit
 
 1. Effectuez les étapes indiquant comment [attribuer des rôles Azure à l’aide du portail Azure](role-assignments-portal.md).
 
-1. Sous l’onglet **Condition**, cliquez sur **Ajouter une condition**.
+1. Sous l’onglet **Conditions (facultatif)** , cliquez sur **Ajouter une condition**.
 
-    Si vous ne voyez pas l’onglet Condition, vérifiez que vous avez sélectionné un rôle qui prend en charge les conditions.
+    Si vous ne voyez pas l’onglet Conditions (facultatif), vérifiez que vous avez sélectionné un rôle qui prend en charge les conditions.
 
    ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Ajouter une condition pour une expérience en préversion.](./media/shared/condition.png)
 

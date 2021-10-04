@@ -1,28 +1,28 @@
 ---
-title: Copier des données de Netezza avec Azure Data Factory
+title: Copier des données depuis Netezza
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données de Netezza vers des banques de données réceptrices prises en charge.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Netezza vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 2a6136d4af030784bac3c45a3a5d631c41830d6c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 588700126d87361e4530c073cdcaf1a5a9339511
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123303766"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828174"
 ---
-# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copier des données de Netezza avec Azure Data Factory
+# <a name="copy-data-from-netezza-by-using-azure-data-factory-or-synapse-analytics"></a>Copier des données de Netezza à l’aide d’Azure Data Factory ou Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de Netezza. Il s’appuie sur l’article [Activité de copie dans Azure Data Factory](copy-activity-overview.md), qui constitue une présentation de l’activité de copie.
+Cet article décrit comment utiliser l’activité de copie dans des pipelines Azure Data Factory ou Azure Synapse Analytics pour copier des données à partir de Netezza. Il s’appuie sur l’article [Activité de copie](copy-activity-overview.md), qui présente une vue d’ensemble de cette activité.
 
 >[!TIP]
->Pour le scénario de migration de données de Netezza vers Azure, consultez [Utiliser Azure Data Factory pour migrer des données du serveur Netezza local vers Azure](data-migration-guidance-netezza-azure-sqldw.md) pour en savoir plus.
+>Pour le scénario de migration de données de Netezza vers Azure, consultez [Migrer des données depuis le serveur Netezza local vers Azure](data-migration-guidance-netezza-azure-sqldw.md) pour en savoir plus.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -36,7 +36,7 @@ Vous pouvez copier les données depuis Netezza vers toute banque de données ré
 
 Le connecteur Netezza prend en charge la copie en parallèle à partir de la source. Pour en savoir plus, consultez [Copie en parallèle à partir de Netezza](#parallel-copy-from-netezza).
 
-Azure Data Factory fournit un pilote intégré pour permettre la connectivité. Vous n’avez pas besoin d’installer un pilote manuellement pour utiliser ce connecteur.
+Le service fournit un pilote intégré pour permettre la connectivité. Vous n’avez pas besoin d’installer un pilote manuellement pour utiliser ce connecteur.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -54,7 +54,7 @@ Utilisez les étapes suivantes pour créer un service lié à Netezza dans l’i
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -71,7 +71,7 @@ Utilisez les étapes suivantes pour créer un service lié à Netezza dans l’i
 
 ## <a name="connector-configuration-details"></a>Informations de configuration du connecteur
 
-Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory propres au connecteur Netezza.
+Les sections suivantes fournissent des informations détaillées sur les propriétés utilisables pour définir les entités propres au connecteur Netezza.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -224,17 +224,17 @@ Pour copier des données à partir de Netezza, définissez le type **source** de
 
 Le connecteur Netezza de Data Factory propose un partitionnement de données intégré pour copier des données à partir de Netezza, en parallèle. Vous trouverez des options de partitionnement de données dans la table **Source** de l’activité de copie.
 
-![Capture d’écran représentant les options de partition](./media/connector-netezza/connector-netezza-partition-options.png)
+:::image type="content" source="./media/connector-netezza/connector-netezza-partition-options.png" alt-text="Capture d’écran représentant les options de partition":::
 
-Lorsque vous activez la copie partitionnée, Data Factory exécute des requêtes en parallèle sur votre source Netezza pour charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre base de données Netezza.
+Lorsque vous activez la copie partitionnée, le service exécute des requêtes en parallèle sur votre source Netezza pour charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, le service génère et exécute simultanément quatre requêtes basées sur l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre base de données Netezza.
 
 Il vous est recommandé d’activer la copie en parallèle avec partitionnement des données notamment lorsque vous chargez une grande quantité de données à partir de votre base de données Netezza. Voici quelques suggestions de configurations pour différents scénarios. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est recommandé de les écrire dans un dossier sous la forme de plusieurs fichiers (spécifiez uniquement le nom du dossier). Les performances seront meilleures qu’avec l’écriture dans un seul fichier.
 
 | Scénario                                                     | Paramètres suggérés                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Chargement complet à partir d’une table volumineuse.                                   | **Option de partition** : Tranche de données. <br><br/>Lors de l’exécution, Data Factory partitionne automatiquement les données en fonction des [tranches de données intégrées de Netezza](https://www.ibm.com/support/knowledgecenter/en/SSULQD_7.2.1/com.ibm.nz.adm.doc/c_sysadm_data_slices_parts_disks.html) et copie les données par partitions. |
-| Chargez une grande quantité de données à l’aide d’une requête personnalisée.                 | **Option de partition** : Tranche de données.<br>**Requête**: `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>`.<br>Lors de l’exécution, Data Factory remplace `?AdfPartitionCount` (par le numéro de copie parallèle défini sur l'activité de copie) et `?AdfDataSliceCondition` par la logique de partition de tranche de données, puis l'envoie à Netezza. |
-| Chargez une grande quantité de données à l’aide d’une requête personnalisée, qui dispose d’une colonne d’entiers avec valeur uniformément distribuée pour le partitionnement par plages de valeurs. | **Options de partition** : Partition dynamique par spécification de plages de valeurs.<br>**Requête**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Colonne de partition** : Spécifiez la colonne utilisée pour partitionner les données. Vous pouvez procéder au partitionnement par rapport à la colonne avec le type de données entier.<br>**Limite supérieure de partition** et **limite inférieure de partition** : Indiquez si vous souhaitez filtrer le contenu par rapport à la colonne de partition pour récupérer uniquement les données entre les plages inférieure et supérieure.<br><br>Lors de l’exécution, Data Factory remplace `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` et `?AdfRangePartitionLowbound` par le nom réel de la colonne et les plages de valeurs de chaque partition, et les envoie à Netezza. <br>Par exemple, si l’ID de la colonne de partition « ID » est défini sur une limite inférieure de 1 et une limite supérieure de 80, avec une copie en parallèle définie sur 4, Data Factory récupère les données via 4 partitions. Les ID sont inclus entre [1,20], [21, 40], [41, 60] et [61, 80], respectivement. |
+| Chargement complet à partir d’une table volumineuse.                                   | **Option de partition** : Tranche de données. <br><br/>Lors de l’exécution, le service partitionne automatiquement les données en fonction des [tranches de données intégrées de Netezza](https://www.ibm.com/support/knowledgecenter/en/SSULQD_7.2.1/com.ibm.nz.adm.doc/c_sysadm_data_slices_parts_disks.html) et copie les données par partitions. |
+| Chargez une grande quantité de données à l’aide d’une requête personnalisée.                 | **Option de partition** : Tranche de données.<br>**Requête**: `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>`.<br>Lors de l’exécution, le service remplace `?AdfPartitionCount` (par le numéro de copie parallèle défini sur l'activité de copie) et `?AdfDataSliceCondition` par la logique de partition de tranche de données, puis l'envoie à Netezza. |
+| Chargez une grande quantité de données à l’aide d’une requête personnalisée, qui dispose d’une colonne d’entiers avec valeur uniformément distribuée pour le partitionnement par plages de valeurs. | **Options de partition** : Partition dynamique par spécification de plages de valeurs.<br>**Requête**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Colonne de partition** : Spécifiez la colonne utilisée pour partitionner les données. Vous pouvez procéder au partitionnement par rapport à la colonne avec le type de données entier.<br>**Limite supérieure de partition** et **limite inférieure de partition** : Indiquez si vous souhaitez filtrer le contenu par rapport à la colonne de partition pour récupérer uniquement les données entre les plages inférieure et supérieure.<br><br>Lors de l’exécution, le service remplace `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` et `?AdfRangePartitionLowbound` par le nom réel de la colonne et les plages de valeurs de chaque partition et les envoie à Netezza. <br>Par exemple, si votre colonne de partition « ID » est définie sur une limite inférieure de 1 et une limite supérieure de 80, avec une copie en parallèle définie sur 4, le service récupère les données via 4 partitions. Les ID sont inclus entre [1,20], [21, 40], [41, 60] et [61, 80], respectivement. |
 
 **Exemple : requête avec partition tranche de données**
 
@@ -268,4 +268,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs pour l’activité de copie, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

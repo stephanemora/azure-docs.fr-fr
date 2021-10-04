@@ -1,26 +1,26 @@
 ---
 title: Vérification de la cohérence des données dans l’activité de copie
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment activer la vérification de la cohérence des données dans l’activité de copie dans Azure Data Factory.
+description: Découvrez comment activer la vérification de la cohérence des données dans une activité de copie dans des pipelines Azure Data Factory et Synapse Analytics.
 author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 09/09/2021
 ms.author: yexu
-ms.openlocfilehash: 3e2bcf4e267a93c9504dfc22e1308f0a4dba890d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a79ec65dd9826db51042a8dfde74de6b563355be
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641478"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798785"
 ---
 #  <a name="data-consistency-verification-in-copy-activity"></a>Vérification de la cohérence des données dans l’activité de copie
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Lorsque vous déplacez des données du magasin source au magasin de destination, l’activité de copie d’Azure Data Factory vous offre la possibilité de faire une vérification supplémentaire de la cohérence des données pour vous assurer que les données sont non seulement copiées du magasin source au magasin de destination, mais également que leur cohérence entre les deux magasins de données est vérifiée. Une fois que des fichiers incohérents ont été détectés pendant le déplacement des données, vous pouvez soit abandonner l’activité de copie, soit continuer à copier le reste en activant le paramètre de tolérance de panne afin d’ignorer les fichiers incohérents. Vous pouvez récupérer les noms de fichiers ignorés en activant le paramètre de journal de session dans l’activité de copie. Pour plus d’informations, reportez-vous au [journal de session dans l’activité de copie](copy-activity-log.md).
+Lorsque vous déplacez des données du magasin source au magasin de destination, l’activité de copie vous offre la possibilité de faire une vérification supplémentaire de la cohérence des données pour vous assurer que les données sont non seulement copiées du magasin source au magasin de destination, mais également que leur cohérence entre les deux magasins de données est vérifiée. Une fois que des fichiers incohérents ont été détectés pendant le déplacement des données, vous pouvez soit abandonner l’activité de copie, soit continuer à copier le reste en activant le paramètre de tolérance de panne afin d’ignorer les fichiers incohérents. Vous pouvez récupérer les noms de fichiers ignorés en activant le paramètre de journal de session dans l’activité de copie. Pour plus d’informations, reportez-vous au [journal de session dans l’activité de copie](copy-activity-log.md).
 
 ## <a name="supported-data-stores-and-scenarios"></a>Magasins de données et scénarios pris en charge
 
@@ -79,8 +79,8 @@ linkedServiceName | Service lié de [Stockage Blob Azure](connector-azure-blob-s
 path | Chemin d’accès des fichiers journaux. | Spécifiez le chemin d’accès que vous souhaitez utiliser pour stocker les fichiers journaux. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
 
 >[!NOTE]
->- Lorsque vous copiez des fichiers binaires depuis ou vers Azure Blob ou Azure Data Lake Storage Gen2, ADF effectue une vérification de la somme de contrôle MD5 au niveau du bloc en tirant parti de l’[API Azure Blob](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true) et de l’[API Azure Data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Si des fichiers ContentMD5 se trouvent dans Azure Blob ou Azure Data Lake Storage Gen2 sous la forme de sources de données, ADF effectue également une vérification de la somme de contrôle MD5 au niveau du fichier après la lecture des fichiers. Après la copie des fichiers vers Azure Blob ou Azure Data Lake Storage Gen2 en tant que destination des données, ADF écrit des données ContentMD5 dans Azure Blob ou Azure Data Lake Storage Gen2, qui pourront être consommées plus tard par les applications en aval en vue de vérifier la cohérence des données.
->- Lorsque vous copiez des fichiers binaires d’un magasin de stockage à l’autre, ADF vérifie la taille de ces fichiers.
+>- Lorsque vous copiez des fichiers binaires depuis ou vers Azure Blob ou Azure Data Lake Storage Gen2, le service effectue une vérification de la somme de contrôle MD5 au niveau du bloc en tirant parti de l’[API Azure Blob](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true) et de l’[API Azure Data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Si des fichiers ContentMD5 se trouvent dans Azure Blob ou Azure Data Lake Storage Gen2 sous la forme de sources de données, le service effectue également une vérification de la somme de contrôle MD5 au niveau du fichier après la lecture des fichiers. Après la copie des fichiers vers Azure Blob ou Azure Data Lake Storage Gen2 en tant que destination des données, le service écrit des données ContentMD5 dans Azure Blob ou Azure Data Lake Storage Gen2, qui pourront être consommées plus tard par les applications en aval en vue de vérifier la cohérence des données.
+>- Lorsque vous copiez des fichiers binaires d’un magasin de stockage à l’autre, le service vérifie la taille de ces fichiers.
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -112,9 +112,9 @@ Valeur de **VerificationResult** :
 -   **Non pris en charge** : la cohérence de vos données copiées n’a pas été vérifiée, car la vérification de la cohérence des données n’est pas prise en charge pour cette paire de copies particulière. 
 
 Valeur d’**InconsistentData** : 
--   **Found** : l’activité de copie ADF a détecté des données incohérentes. 
--   **Ignoré** : l’activité de copie ADF a détecté des données incohérentes et les a ignorées. 
--   **Aucun** : l’activité de copie ADF n’a détecté aucune donnée incohérente. Cela peut être dû au fait que la cohérence de vos données a été vérifiée entre les magasins source et de destination ou parce que vous avez désactivé la propriété validateDataConsistency dans l’activité de copie. 
+-   **Found** (Détectées) : l’activité de copie a détecté des données incohérentes. 
+-   **Skipped** (Ignorées) : l’activité de copie a détecté des données incohérentes et les a ignorées. 
+-   **None** (Aucune) : l’activité de copie n’a détecté aucune donnée incohérente. Cela peut être dû au fait que la cohérence de vos données a été vérifiée entre les magasins source et de destination ou parce que vous avez désactivé la propriété validateDataConsistency dans l’activité de copie. 
 
 ### <a name="session-log-from-copy-activity"></a>Journal de session de l’activité de copie
 
@@ -124,9 +124,9 @@ Le schéma d’un fichier journal est le suivant :
 
 Colonne | Description 
 -------- | -----------  
-Timestamp | Timestamp lorsqu’ADF ignore les fichiers incohérents.
+Timestamp | Timestamp lorsque le service ignore les fichiers incohérents.
 Level | Niveau de journalisation de cet élément. Il sera au niveau « Avertissement » pour l’élément indiquant que le fichier est ignoré.
-NomOpération | Comportement opérationnel de l’activité de copie Azure Data Factory sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
+NomOpération | Comportement opérationnel de l’activité de copie sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
 OperationItem | Nom du fichier à ignorer.
 Message | Plus d’informations pour illustrer la raison pour laquelle les fichiers sont ignorés.
 
@@ -135,7 +135,7 @@ Voici un exemple de fichier journal :
 Timestamp, Level, OperationName, OperationItem, Message
 2020-02-26 06:22:56.3190846, Warning, FileSkip, "sample1.csv", "File is skipped after read 548000000 bytes: ErrorCode=DataConsistencySourceDataChanged,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Source file 'sample1.csv' is changed by other clients during the copy activity run.,Source=,'." 
 ```
-Dans le fichier journal ci-dessus, vous pouvez voir que sample1.csv a été ignoré, car sa cohérence n’a pas été vérifiée entre les magasins source et de destination. Vous pouvez voir plus en détails que l’incohérence de sample1.csv est due au fait que le fichier a été modifié par d’autres applications alors que l’activité de copie ADF était en cours. 
+Dans le fichier journal ci-dessus, vous pouvez voir que sample1.csv a été ignoré, car sa cohérence n’a pas été vérifiée entre les magasins source et de destination. Vous pouvez voir plus en détails que l’incohérence de sample1.csv est due au fait que le fichier a été modifié par d’autres applications alors que l’activité de copie était en cours. 
 
 
 

@@ -7,13 +7,13 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
-ms.openlocfilehash: 0eb7356542eb7016cd27cc76e048857e8d7f9955
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.date: 09/22/2021
+ms.openlocfilehash: 06bdd49df0f8a4d79ffece298fee2ea2691b0796
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598085"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129219208"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -27,7 +27,7 @@ Par défaut, l’interface utilisateur d’Azure Data Factory publie directement
 Pour améliorer l’expérience de création, Azure Data Factory permet de configurer un dépôt Git avec Azure Repos ou GitHub. Git est un système de contrôle de version qui facilite le suivi des modifications et la collaboration. Cet article explique comment configurer et utiliser un référentiel Git, met en évidence les meilleures pratiques et constitue un guide de résolution des problèmes.
 
 > [!NOTE]
-> Pour le cloud Azure Government, seul *GitHub Enterprise Server* est disponible.
+> Nous avons ajouté la prise en charge publique de GitHub sur Azure Gov, Azure Chine. Consultez le [blog de l'annonce](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918).
 
 Pour en savoir plus sur la façon dont Azure Data Factory s’intègre à git, consultez le didacticiel vidéo de 15 minutes ci-dessous :
 
@@ -42,7 +42,7 @@ Voici quelques-uns des avantages que l’intégration Git apporte à l’expéri
     -   Possibilité d’annuler les modifications qui ont introduit de bogues.
 -   **Sauvegardes partielles :** Lorsque vous créez pour le service de fabrique de données, vous ne pouvez pas enregistrer les modifications en tant que brouillon, et toutes les publications doivent passer par la validation de la fabrique de données. Si vos pipelines ne sont pas finis ou si vous ne souhaitez tout simplement pas perdre de modifications en cas de panne de votre ordinateur, l’intégration Git permet d’apporter des modifications incrémentielles aux ressources de la fabrique de données, quel qu’en soit l’état. La configuration d’un dépôt Git vous permet d’enregistrer les modifications, et donc de publier uniquement après que vous avez testé vos modifications et en êtes satisfait.
 -   **Collaboration et contrôle :** Si plusieurs membres de votre équipe contribuent à la même fabrique, vous pouvez leur permettre de collaborer via un processus de révision du code. Vous pouvez également configurer votre fabrique de manière à ce que tous les contributeurs n’aient pas des autorisations égales. Certains membres de l’équipe peuvent n’être autorisés qu’à apporter des modifications via Git, tandis que d’autres sont autorisés à publier les modifications dans la fabrique.
--   **Intégration et livraison continus améliorés :**  Si vous déployez dans plusieurs environnements au travers d’un [processus de livraison continue](continuous-integration-deployment.md), l’intégration Git facilite certaines actions. Certaines de ces actions sont les suivantes :
+-   **Intégration et livraison continus améliorés :**  Si vous déployez dans plusieurs environnements au travers d’un [processus de livraison continue](continuous-integration-delivery.md), l’intégration Git facilite certaines actions. Certaines de ces actions sont les suivantes :
     -   Configurez votre pipeline de mise en production afin qu’il se déclenche automatiquement dès que des modifications sont apportées à votre fabrique « dev ».
     -   Personnalisez les propriétés de votre fabrique disponibles en tant que paramètres dans le modèle Resource Manager. Cela permet de ne conserver que les propriétés requises en tant que paramètres, et de coder en dur tout le reste.
 -   **Meilleures performances :** Une fabrique moyenne avec l’intégration Git se charge 10 fois plus rapidement qu’une création pour le service de fabrique de données. Cette amélioration des performances est due au fait que les ressources sont téléchargées via Git.
@@ -58,19 +58,19 @@ Il existe quatre façons différentes de connecter un référentiel Git à votre
 
 Dans la partie supérieure de la page d’accueil Azure Data Factory, sélectionnez **Configurer le dépôt de code**.
 
-![Configurer un référentiel de code à partir de la page d’accueil](media/doc-common-process/set-up-code-repository.png)
+:::image type="content" source="media/doc-common-process/set-up-code-repository.png" alt-text="Configurer un référentiel de code à partir de la page d’accueil":::
 
 ### <a name="configuration-method-2-authoring-canvas"></a>Méthode de configuration 2 : Zone de travail de création
 
 Dans la zone de travail de création de l’expérience en matière d’interface utilisateur Azure Data Factory, sélectionnez le menu déroulant **Data Factory**, puis **Configurer le dépôt de code**.
 
-![Configurer les paramètres du référentiel de code à partir de la création](media/author-visually/configure-repo-2.png)
+:::image type="content" source="media/author-visually/configure-repo-2.png" alt-text="Configurer les paramètres du référentiel de code à partir de la création":::
 
 ### <a name="configuration-method-3-management-hub"></a>Méthode de configuration 3 : Hub de gestion
 
 Accédez au hub de gestion dans l’expérience utilisateur ADF. Sélectionnez **Configuration Git** dans la section **Contrôle de code source**. Si vous n’avez pas de référentiel connecté, cliquez sur **Configure** (Configurer).
 
-![Configurer les paramètres du référentiel de code à partir du hub de gestion](media/author-visually/configure-repo-3.png)
+:::image type="content" source="media/author-visually/configure-repo-3.png" alt-text="Configurer les paramètres du référentiel de code à partir du hub de gestion":::
 
 ### <a name="configuration-method-4-during-factory-creation"></a>Méthode de configuration 4 : Lors de la création de la fabrique
 
@@ -79,7 +79,7 @@ Lorsque vous créez une fabrique de données dans le Portail Azure, vous pouvez 
 > [!NOTE]
 > Lors de la configuration de Git dans le Portail Azure, il est nécessaire d’entrer manuellement des paramètres tels que le nom du projet et le nom du référentiel, dans une liste déroulante.
 
-![Configurer les paramètres du référentiel de code à partir du Portail Azure](media/author-visually/configure-repo-4.png)
+:::image type="content" source="media/author-visually/configure-repo-4.png" alt-text="Configurer les paramètres du référentiel de code à partir du Portail Azure":::
 
 ## <a name="author-with-azure-repos-git-integration"></a>Créer avec l’intégration Azure Repos Git
 
@@ -90,7 +90,7 @@ La création visuelle avec l’intégration Azure Repos Git prend en charge le c
 
 ### <a name="azure-repos-settings"></a>Paramètres Azure Repos
 
-![Configurer les paramètres du référentiel de code](media/author-visually/repo-settings.png)
+:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Configurer les paramètres du référentiel de code":::
 
 Le volet de configuration affiche les paramètres du dépôt de code Azure Repos suivants :
 
@@ -140,7 +140,7 @@ Pour configurer un dépôt GitHub, vous devez disposer des droits d’administra
 
 ### <a name="github-settings"></a>Paramètres GitHub
 
-![Paramètres du référentiel GitHub](media/author-visually/github-integration-image2.png)
+:::image type="content" source="media/author-visually/github-integration-image2.png" alt-text="Paramètres du référentiel GitHub":::
 
 Le volet de configuration affiche les paramètres du dépôt GitHub suivants :
 
@@ -176,15 +176,15 @@ Si vous êtes déjà connecté à GitHub et que vous avez accordé uniquement l�
 
 1. Accédez à GitHub et ouvrez **Paramètres**.
 
-    ![Ouvrir les paramètres GitHub](media/author-visually/github-settings.png)
+    :::image type="content" source="media/author-visually/github-settings.png" alt-text="Ouvrir les paramètres GitHub":::
 
 1. Sélectionnez **Applications**. Dans l’onglet **Authorized OAuth apps** (Applications OAuth autorisées), vous devez trouver *AzureDataFactory*.
 
-    ![Sélectionner les applications OAuth](media/author-visually/github-organization-select-application.png)
+    :::image type="content" source="media/author-visually/github-organization-select-application.png" alt-text="Sélectionner les applications OAuth":::
 
 1. Sélectionnez l’application et accordez-lui l’accès à votre organisation.
 
-    ![Accorder l'accès](media/author-visually/github-organization-grant.png)
+    :::image type="content" source="media/author-visually/github-organization-grant.png" alt-text="Accorder l'accès":::
 
 Une fois ces étapes effectuées, votre fabrique est en mesure de se connecter aux référentiels publics et privés au sein de votre organisation. 
 
@@ -205,13 +205,17 @@ Les systèmes de contrôle de version (également appelé _contrôle du code sou
 
 ### <a name="creating-feature-branches"></a>Création de branches de fonctionnalités
 
-Chaque dépôt Azure Repos Git associé à une fabrique de données comporte une branche de collaboration. (`main`) est la branche de collaboration par défaut). Les utilisateurs peuvent également créer des branches de fonctionnalités en cliquant sur **+ Nouvelle branche** dans la liste déroulante des branches. Une fois le volet de la nouvelle branche affiché, entrez le nom de votre branche de fonctionnalités.
+Chaque dépôt Azure Repos Git associé à une fabrique de données comporte une branche de collaboration. (`main` est la branche de collaboration par défaut). Les utilisateurs peuvent également créer des branches de fonctionnalités en cliquant sur **+ Nouvelle branche** dans la liste déroulante des branches. 
 
-![Créer une branche](media/author-visually/new-branch.png)
+:::image type="content" source="media/author-visually/new-branch.png" alt-text="Créer une branche":::
+
+Une fois que le volet Nouvelle branche s’affiche, entrez le nom de votre branche de fonctionnalité, puis sélectionnez une branche à partir de laquelle vous souhaitez baser le travail.
+
+:::image type="content" source="media/author-visually/create-branch-from-private-branch.png" alt-text="Capture d’écran montrant comment créer une branche basée sur la branche privée.":::
 
 Lorsque vous êtes prêt à fusionner les modifications de votre branche de fonctionnalités dans votre branche de collaboration, cliquez sur la liste déroulante des branches et sélectionnez **Créer la demande de tirage (pull request)** . Cette action vous dirige vers Azure Repos Git où vous pouvez augmenter les demandes de tirage, procéder à des revues du code et fusionner les modifications dans votre branche de collaboration. (`main` est la valeur par défaut). Vous êtes uniquement autorisé à publier sur le service Data Factory à partir de votre branche de collaboration. 
 
-![Créer une nouvelle demande de tirage (pull request)](media/author-visually/create-pull-request.png)
+:::image type="content" source="media/author-visually/create-pull-request.png" alt-text="Créer une nouvelle demande de tirage (pull request)":::
 
 ### <a name="configure-publishing-settings"></a>Configurer les paramètres de publication
 
@@ -232,11 +236,11 @@ Azure Data Factory ne peut avoir qu’une seule branche de publication à la foi
 
 Après avoir fusionné des modifications dans la branche de collaboration (`main` est la valeur par défaut), cliquez sur **Publier** pour publier manuellement les modifications de votre code dans la branche primaire pour le service Data Factory.
 
-![Publier les modifications apportées au service Data Factory](media/author-visually/publish-changes.png)
+:::image type="content" source="media/author-visually/publish-changes.png" alt-text="Publier les modifications apportées au service Data Factory":::
 
 Un volet latéral s’ouvre, dans lequel vous confirmez que la branche de publication et les modifications en attente sont correctes. Une fois que vous avez vérifié vos modifications, cliquez sur **OK** pour confirmer la publication.
 
-![Confirmer la branche de publication correcte](media/author-visually/configure-publish-branch.png)
+:::image type="content" source="media/author-visually/configure-publish-branch.png" alt-text="Confirmer la branche de publication correcte":::
 
 > [!IMPORTANT]
 > La branche primaire n’est pas représentative de ce qui est déployé dans le service Data Factory. La branche primaire *doit* être publiée manuellement sur le service Data Factory.
@@ -279,7 +283,7 @@ Il publie ou remplace le code de votre branche de collaboration dans le mode en 
 
 <u>*Flux de code :*</u> ***Branche de collaboration -> Mode réel***
 
-![forcer la publication du code à partir de la branche de collaboration](media/author-visually/force-publish-changes-from-collaboration-branch.png)
+:::image type="content" source="media/author-visually/force-publish-changes-from-collaboration-branch.png" alt-text="forcer la publication du code à partir de la branche de collaboration":::
 
 #### <a name="option-2-disconnect-and-reconnect-git-repository"></a>Option 2 : déconnecter le référentiel git et le reconnecter
 
@@ -297,11 +301,11 @@ Choisissez l’une ou l’autre des méthodes en fonction des besoins.
 
 Pour basculer vers un autre référentiel Git, accédez à la page de configuration de Git dans le hub de gestion, sous **Contrôle de code source**. Sélectionnez **Déconnecter**. 
 
-![Icône Git](media/author-visually/remove-repository.png)
+:::image type="content" source="media/author-visually/remove-repository.png" alt-text="Icône Git":::
 
 Entrez le nom de votre fabrique de données, puis cliquez sur **Confirmer** pour supprimer le dépôt Git associé à votre fabrique de données.
 
-![Supprimer l’association au référentiel Git actuel](media/author-visually/remove-repository-2.png)
+:::image type="content" source="media/author-visually/remove-repository-2.png" alt-text="Supprimer l’association au référentiel Git actuel":::
 
 Après avoir supprimé l’association avec le dépôt actuel, vous pouvez configurer vos paramètres Git pour utiliser un autre dépôt, puis importer des ressources Data Factory dans le nouveau dépôt.
 
@@ -311,4 +315,4 @@ Après avoir supprimé l’association avec le dépôt actuel, vous pouvez confi
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la surveillance et la gestion des pipelines, consultez [Surveiller et gérer les pipelines par programmation](monitor-programmatically.md).
-* Pour implémenter l’intégration et le déploiement continus, consultez [Intégration et livraison continues (CI/CD) dans Azure Data Factory](continuous-integration-deployment.md).
+* Pour implémenter l’intégration et le déploiement continus, consultez [Intégration et livraison continues (CI/CD) dans Azure Data Factory](continuous-integration-delivery.md).

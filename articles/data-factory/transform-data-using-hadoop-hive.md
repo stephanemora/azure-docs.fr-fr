@@ -1,22 +1,22 @@
 ---
 title: Transformer des données à l’aide d’une activité Hadoop Hive
+description: Découvrez comment vous pouvez utiliser l’activité Hive dans un pipeline Azure Data Factory ou Synapse Analytics pour exécuter des requêtes Hive sur un cluster HDInsight à la demande ou sur votre propre cluster.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment vous pouvez utiliser l'activité Hive d’une fabrique de données Azure pour exécuter des requêtes Hive sur un cluster HDInsight à la demande/ou votre propre cluster.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 05/08/2019
-ms.openlocfilehash: 337c7d15ba042a49031697e2bc6ea6a54101dbf3
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: 8ae040ee7c90b663b45b10aae4565426e318bcc3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534891"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806132"
 ---
-# <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hadoop Hive dans Azure Data Factory
+# <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory-or-synapse-analytics"></a>Transformer des données à l’aide d’une activité Hadoop Hive dans Azure Data Factory ou Synapse Analytics | Microsoft Docs
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-hive-activity.md)
@@ -24,9 +24,9 @@ ms.locfileid: "122534891"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L’activité Hive HDInsight d’un [pipeline](concepts-pipelines-activities.md) Data Factory exécute des requêtes Hive sur [votre propre](compute-linked-services.md#azure-hdinsight-linked-service) cluster ou sur un cluster [à la demande](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight. Cet article s'appuie sur l'article [Activités de transformation des données](transform-data.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
+L’activité Hive HDInsight d’un [pipeline](concepts-pipelines-activities.md) Azure Data Factory ou Synapse Analytics exécute des requêtes Hive sur [votre propre](compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight ou sur un cluster HDInsight [à la demande](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Cet article s'appuie sur l'article [Activités de transformation des données](transform-data.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
-Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](introduction.md) et suivez le [Didacticiel : Transformer des données](tutorial-transform-data-spark-powershell.md) avant de lire cet article. 
+Si vous découvrez Azure Data Factory et Synapse Analytics, lisez la présentation d’[Azure Data Factory](introduction.md) ou [Synapse Analytics](../synapse-analytics/overview-what-is.md) et suivez le [Didacticiel : Transformer des données](tutorial-transform-data-spark-powershell.md) avant de lire cet article. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -61,7 +61,7 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 | name                | Nom de l’activité                                         | Oui      |
 | description         | Texte décrivant la raison motivant l’activité.                | Non       |
 | type                | Pour l’activité Hive, le type d’activité est HDinsightHive.        | Oui      |
-| linkedServiceName   | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
+| linkedServiceName   | Référence au cluster HDInsight enregistré en tant que service lié. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
 | scriptLinkedService | Référence à un service lié de stockage Azure utilisé pour stocker le script Hive à exécuter. Seuls les services liés **[Stockage Blob Azure](./connector-azure-blob-storage.md)** et **[ADLS Gen2](./connector-azure-data-lake-storage.md)** sont pris en charge ici. Si vous ne spécifiez pas ce service lié, le service lié Stockage Azure défini dans le service lié HDInsight est utilisé.  | Non       |
 | scriptPath          | Indiquez le chemin du fichier de script stocké dans le stockage Azure référencé par scriptLinkedService. Le nom de fichier respecte la casse. | Oui      |
 | getDebugInfo        | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par scriptLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucun. | Non       |

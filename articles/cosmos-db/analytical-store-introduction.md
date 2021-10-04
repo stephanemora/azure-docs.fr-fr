@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: cc12626747aa7ce8a294695e27239fac36ce5cd0
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: b2501631c8ccdb6c61d4f31e9179a7e94c2276cb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824928"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210399"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Qu’est-ce que le magasin analytique Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -149,7 +149,7 @@ Les contraintes suivantes s’appliquent aux données opérationnelles dans Azur
   * La suppression de tous les documents d’une collection ne réinitialise pas le schéma du magasin analytique.
   * Il n’existe pas de contrôle de version de schéma. La dernière version inférée du magasin transactionnel est ce que vous verrez dans le magasin analytique.
 
-* Actuellement, Azure Synapse Spark ne peut pas lire les propriétés qui contiennent des caractères spéciaux dans leurs noms (indiqués ci-dessous). Si c’est votre cas, contactez l’[équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) pour plus d’informations.
+* Actuellement, Azure Synapse Spark ne peut pas lire les propriétés qui contiennent des caractères spéciaux dans leurs noms (indiqués ci-dessous). Azure Synapse SQL serverless n’est pas affecté.
   * : (deux points)
   * ` (accent grave)
   * , (virgule)
@@ -161,6 +161,21 @@ Les contraintes suivantes s’appliquent aux données opérationnelles dans Azur
   * = (signe égal)
   * " (guillemet)
  
+* Si vous avez des noms de propriétés qui utilisent les caractères répertoriés ci-dessus, les alternatives sont les suivantes :
+   * Modifiez votre modèle de données à l’avance pour éviter ces caractères.
+   * Étant donné que nous ne prenons pas en charge la réinitialisation de schéma, vous pouvez modifier votre application pour ajouter une propriété redondante avec un nom similaire, en évitant ces caractères.
+   * Utilisez le flux de modification pour créer une vue matérialisée de votre conteneur sans ces caractères dans les noms de propriétés.
+   * Utilisez la toute nouvelle option `dropColumn`Spark pour ignorer les colonnes affectées lors du chargement des données dans un dataframe. La syntaxe pour la suppression d’une colonne hypothétique nommée « FirstName, LastNAme », qui contient une virgule, est la suivante :
+
+```Python
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.synapse.dropColumn","FirstName,LastName")\
+     .load()
+```
+
 * Azure Synapse Spark prend désormais en charge les propriétés incluant des espaces blancs dans leurs noms.
 
 ### <a name="schema-representation"></a>Représentation du schéma
@@ -335,12 +350,14 @@ Le magasin analytique suit un modèle de tarification basé sur la consommation 
 
 * Opérations de lecture analytique : opérations de lecture effectuées sur le magasin analytique à partir des runtimes du pool Azure Synapse Analytics Spark et du pool SQL serverless.
 
-La tarification du magasin analytique est distincte du modèle de tarification du magasin de transactions. Il n’existe aucun concept d’unités de demande approvisionnées dans le magasin analytique. Pour plus d’informations sur le modèle de tarification du magasin analytique, consultez la [page de tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
+La tarification du magasin analytique est distincte du modèle de tarification du magasin de transactions. Il n’existe aucun concept d’unités de demande approvisionnées dans le magasin analytique. Pour plus d’informations sur le modèle de tarification du magasin analytique, consultez la [page de tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-Afin d’obtenir une estimation précise des coûts d’activation du magasin analytique sur un conteneur Azure Cosmos DB, vous pouvez utiliser l’[outil de planification Azure Cosmos DB Capacity](https://cosmos.azure.com/capacitycalculator/) et obtenir une estimation des coûts de votre magasin analytique et des opérations d’écriture. Les coûts des opérations de lecture analytique dépendent des caractéristiques de la charge de travail analytique mais, selon une estimation précise, l’analyse de 1 To de données dans le magasin analytique entraîne généralement 130 000 opérations de lecture analytique et se traduit par un coût de 0,065 USD.
+Les données dans le magasin d’analytiques sont accessibles uniquement via Azure Synapse Link, qui s’effectue dans les runtimes Azure Synapse Analytics : les pools Apache Spark Azure Synapse et les pools SQL serverless Azure Synapse. Consultez la [page de tarification d’Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/) pour obtenir des informations complètes sur le modèle de tarification pour accéder aux données dans le magasin analytique.
+
+Afin d’obtenir une estimation précise des coûts d’activation du magasin d’analytique sur un conteneur Azure Cosmos DB, du point de vue du magasin analytique, vous pouvez utiliser l’[outil de planification Azure Cosmos DB Capacity](https://cosmos.azure.com/capacitycalculator/) et obtenir une estimation des coûts de votre magasin analytique et des opérations d’écriture. Les coûts des opérations de lecture analytique dépendent des caractéristiques de la charge de travail analytique mais, selon une estimation précise, l’analyse de 1 To de données dans le magasin analytique entraîne généralement 130 000 opérations de lecture analytique et se traduit par un coût de 0,065 USD.
 
 > [!NOTE]
-> Les estimations des opérations de lecture du magasin analytique ne sont pas incluses dans le module de calcul du coût Cosmos DB, car elles sont une fonction de votre charge de travail analytique. Bien que l’estimation ci-dessus soit destinée à l’analyse de 1 To de données dans le magasin analytique, l’application de filtres réduit le volume de données analysées et détermine le nombre exact d’opérations de lecture analytique en fonction du modèle de tarification de la consommation. Une preuve de concept relative à la charge de travail analytique produirait une estimation plus fine des opérations de lecture analytique.
+> Les estimations des opérations de lecture du magasin analytique ne sont pas incluses dans le module de calcul du coût Cosmos DB, car elles sont une fonction de votre charge de travail analytique. Bien que l’estimation ci-dessus soit destinée à l’analyse de 1 To de données dans le magasin analytique, l’application de filtres réduit le volume de données analysées et détermine le nombre exact d’opérations de lecture analytique en fonction du modèle de tarification de la consommation. Une preuve de concept relative à la charge de travail analytique produirait une estimation plus fine des opérations de lecture analytique. Cette estimation n’inclut pas le coût d’Azure Synapse Analytics.
 
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a> Durée de vie (TTL) analytique

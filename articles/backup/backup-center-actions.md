@@ -2,13 +2,13 @@
 title: Effectuer des actions à l’aide du Centre de sauvegarde
 description: Cet article explique comment effectuer des actions à l’aide du Centre de sauvegarde.
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: 8c21475e5a52cdce7e38bbeb9d00df3c3ac3a752
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/22/2021
+ms.openlocfilehash: e8b357c19caeb20c2a50d9a05f9d8d583bd8f640
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506447"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083617"
 ---
 # <a name="perform-actions-using-backup-center"></a>Effectuer des actions à l’aide du Centre de sauvegarde
 
@@ -76,7 +76,7 @@ Selon le type de source de données que vous souhaitez restaurer, suivez les ins
 
     ![Sélectionner une source de données pour restaurer le serveur Azure Database pour PostgreSQL](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 
-3. Choisissez une instance de sauvegarde et sélectionnez **Continuer**. Vous accédez alors à l’expérience de paramètres de restauration qui est identique à celle accessible à partir d’un coffre Recovery Services. [En savoir plus sur la restauration d’un serveur Azure Database pour PostgreSQL avec un coffre Sauvegarde](backup-azure-database-postgresql.md#restore).
+3. Choisissez une instance de sauvegarde et sélectionnez **Continuer**. Vous accédez alors à l’expérience de paramètres de restauration qui est identique à celle accessible à partir d’un coffre Recovery Services. [En savoir plus sur la restauration d’un serveur Azure Database pour PostgreSQL avec un coffre Sauvegarde](restore-azure-database-postgresql.md).
 
 ## <a name="create-a-new-vault"></a>Créer un coffre
 
@@ -116,25 +116,32 @@ Selon le type de source de données que vous souhaitez sauvegarder, suivez les i
 
 Le Centre de sauvegarde vous permet de rechercher des instances de sauvegarde au sein de votre espace de sauvegarde et d’exécuter des opérations de sauvegarde à la demande.
 
-Pour déclencher une sauvegarde à la demande, accédez au Centre de sauvegarde, puis sélectionnez l’élément de menu **Instances de sauvegarde**. La sélection de cette option vous permet d’afficher les détails relatifs à toutes les instances de sauvegarde auxquelles vous avez accès. Vous pouvez rechercher l’instance de sauvegarde que vous souhaitez sauvegarder. Cliquez avec le bouton droit sur un élément de la grille pour ouvrir une liste des actions disponibles. Sélectionnez l’option **Sauvegarder maintenant** pour exécuter une sauvegarde à la demande.
+Pour arrêter la protection, accédez au centre de sauvegarde et sélectionnez l’option de menu **Instances de sauvegarde**. La sélection de cette option vous permet d’afficher les détails relatifs à toutes les instances de sauvegarde auxquelles vous avez accès. Vous pouvez rechercher l’instance de sauvegarde que vous souhaitez sauvegarder. Cliquez avec le bouton droit sur un élément de la grille pour ouvrir une liste des actions disponibles. Sélectionnez l’option **Sauvegarder maintenant** pour exécuter une sauvegarde à la demande.
 
 ![Sauvegarde à la demande](./media/backup-center-actions/backup-center-on-demand-backup.png)
 
 [Apprenez-en davantage sur l’exécution de sauvegardes à la demande pour les machines virtuelles Azure](backup-azure-manage-vms.md#run-an-on-demand-backup).
 
-[Apprenez-en davantage sur l’exécution de sauvegardes à la demande pour le serveurs Azure Database pour PostgreSQL](backup-azure-database-postgresql.md#on-demand-backup).
+[Apprenez-en davantage sur l’exécution de sauvegardes à la demande pour le serveurs Azure Database pour PostgreSQL](backup-azure-database-postgresql.md).
 
 ## <a name="stop-backup-for-a-backup-instance"></a>Arrêter la sauvegarde d’une instance de sauvegarde
 
 Dans certains scénarios, vous pouvez être amené à arrêter la sauvegarde d’une instance de sauvegarde, par exemple lorsque la ressource sous-jacente en cours de sauvegarde n’existe plus.
 
-Pour déclencher une sauvegarde à la demande, accédez au Centre de sauvegarde, puis sélectionnez l’élément de menu **Instances de sauvegarde**. Ce faisant, tous les détails relatifs aux instances de sauvegarde auxquelles vous avez accès s’affichent. Vous pouvez rechercher l’instance de sauvegarde que vous souhaitez sauvegarder. Cliquez avec le bouton droit sur un élément de la grille pour ouvrir une liste des actions disponibles. Sélectionnez l’option **Arrêter la sauvegarde** pour arrêter la sauvegarde de l’instance de sauvegarde.
+Pour arrêter la protection, accédez au centre de sauvegarde et sélectionnez l’option de menu **Instances de sauvegarde**. Ce faisant, tous les détails relatifs aux instances de sauvegarde auxquelles vous avez accès s’affichent. Vous pouvez rechercher l’instance de sauvegarde que vous souhaitez sauvegarder. Cliquez avec le bouton droit sur un élément de la grille pour ouvrir une liste des actions disponibles. Sélectionnez l’option **Arrêter la sauvegarde** pour arrêter la sauvegarde de l’instance de sauvegarde.
 
 ![Arrêter la protection](./media/backup-center-actions/backup-center-stop-protection.png)
 
-[Apprenez-en davantage sur l’arrêt de la sauvegarde des machines virtuelles Azure](backup-azure-manage-vms.md#stop-protecting-a-vm).
+- [Apprenez-en davantage](backup-azure-manage-vms.md#stop-protecting-a-vm) sur l’arrêt de la sauvegarde des machines virtuelles Azure.
+- [Apprenez-en davantage](manage-azure-managed-disks.md#stop-protection-preview) sur l’arrêt de la sauvegarde d’un disque.
+- [Apprenez-en davantage](manage-azure-database-postgresql.md#stop-protection-preview) sur l’arrêt de la sauvegarde du serveur Azure Database pour PostgreSQL.
 
-[Apprenez-en davantage sur l’arrêt de la sauvegarde du serveur Azure Database pour PostgreSQL](backup-azure-database-postgresql.md#stop-protection).
+## <a name="resume-backup"></a>Reprendre la sauvegarde
+
+Vous pouvez reprendre la sauvegarde de vos charges de travail si vous avez conservé les données pendant l’**arrêt de la protection**.
+
+- [Apprenez-en davantage](manage-azure-database-postgresql.md#resume-protection) sur la reprise de la protection de votre disque.
+- [Apprenez-en davantage](manage-azure-managed-disks.md#resume-protection) sur la reprise de la protection pour le serveur Azure Database pour PostgreSQL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

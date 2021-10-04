@@ -7,15 +7,15 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/25/2021
+ms.date: 09/24/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
-ms.openlocfilehash: e6a06c2a2a525e89fd6d7ab61f983f2b91c1cc8a
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: 368a3480af60b4c1a9b819d3b4667f2212e62290
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112989000"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094765"
 ---
 # <a name="assign-azure-roles-using-the-azure-portal"></a>Attribuer des rôles Azure à l’aide du portail Azure
 
@@ -176,23 +176,21 @@ La page **Contrôle d’accès (IAM)** vous permet généralement d’attribuer 
 
    ![Capture d’écran de la fenêtre Sélectionner des membres pour une expérience en préversion.](./media/shared/select-members.png)
 
-1. Cliquez sur **Enregistrer** pour ajouter des utilisateurs, des groupes ou des principaux de service à la liste Membres.
+1. Cliquez sur **Sélectionner** pour ajouter des utilisateurs, des groupes ou des principaux de service à la liste Membres.
 
 1. Pour attribuer le rôle sélectionné à une ou plusieurs identités managées, sélectionnez **Identité managée**.
 
 1. Cliquez sur **Sélectionner des membres**.
 
-1. Dans le volet **Sélectionner des identités gérées**, indiquez si le type est une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md) ou une [identité managée affectée par l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md).
+1. Dans le volet **Sélectionner des identités gérées**, indiquez si le type est une [identité managée affectée par l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md) ou une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md).
 
 1. Recherchez et sélectionnez les identités managées.
 
-    Si vous avez sélectionné une identité managée affectée par le système, vous devez sélectionner l’instance de service Azure où se trouve l’identité managée.
+    Pour les identités managées affectées par le système, vous pouvez sélectionner des identités managées par l’instance de service Azure.
 
-   ![Capture d’écran de l’ajout d’identités managées affectées par le système à l’aide du volet Sélectionner un principal pour une expérience en préversion.](./media/role-assignments-portal/select-managed-identity-system.png)
+   ![Capture d’écran de la fenêtre Sélectionner des identités managées pour une expérience en préversion.](./media/role-assignments-portal/select-managed-identity.png)
 
-   ![Capture d’écran de l’ajout d’identités managées affectées par l’utilisateur à l’aide du volet Sélectionner un principal pour une expérience en préversion.](./media/role-assignments-portal/select-managed-identity-user.png)
-
-1. Cliquez sur **Enregistrer** pour ajouter les identités managées à la liste Membres.
+1. Cliquez sur **Sélectionner** pour ajouter les identités managées à la liste Membres.
 
 1. Dans la zone de texte **Description**, entrez une description facultative pour cette attribution de rôle.
 
@@ -202,7 +200,7 @@ La page **Contrôle d’accès (IAM)** vous permet généralement d’attribuer 
 
 ## <a name="step-5-optional-add-condition-preview"></a>Étape 5 : (Facultatif) Ajouter une condition (préversion)
 
-Si vous avez sélectionné un rôle qui prend en charge les conditions, un onglet **Condition** s’affiche et vous avez la possibilité d’ajouter une condition à votre attribution de rôle. Une [condition](conditions-overview.md) est une vérification supplémentaire que vous pouvez éventuellement ajouter à votre attribution de rôle pour fournir un contrôle d’accès plus précis.
+Si vous avez sélectionné un rôle qui prend en charge les conditions, un onglet **Condition (facultatif)** s’affiche et vous avez la possibilité d’ajouter une condition à votre attribution de rôle. Une [condition](conditions-overview.md) est une vérification supplémentaire que vous pouvez éventuellement ajouter à votre attribution de rôle pour fournir un contrôle d’accès plus précis.
 
 Actuellement, il est possible d’ajouter des conditions à des attributions de rôle intégrées ou personnalisées qui ont des [actions de données Blob de stockage](conditions-format.md#actions). Sont inclus les rôles intégrés suivants :
 

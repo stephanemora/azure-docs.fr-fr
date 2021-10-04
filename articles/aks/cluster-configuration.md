@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3937e0a6c00de78acfa774ab6446d2b3d8e68206
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6c454c23eec0bb5b0fef1ceca3ad8f8e4c52493d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377121"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812598"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurer un cluster AKS
 
@@ -19,62 +19,11 @@ Dans le cadre de la création d’un cluster AKS, vous devrez peut-être person
 
 ## <a name="os-configuration"></a>Configuration du système d’exploitation
 
-AKS prend désormais en charge Ubuntu 18.04 comme système d’exploitation de nœud par défaut (OS) en disponibilité générale (GA) pour les clusters dans les versions de kubernetes supérieures à 1.18. Pour les versions inférieures à 1.18, AKS Ubuntu 16.04 est toujours l’image de base par défaut. À partir de Kubernetes v1.18, la base par défaut est AKS Ubuntu 18.04.
-
-> [!IMPORTANT]
-> Les pools de nœuds créés sur Kubernetes v1.18 ou version ultérieure ont par défaut une image de nœud `AKS Ubuntu 18.04`. Les pools de nœuds sur une version de Kubernetes prise en charge antérieure à 1.18 reçoivent une image de nœud `AKS Ubuntu 16.04`, mais seront mis à jour vers `AKS Ubuntu 18.04` une fois la version de Kubernetes du pool de nœuds mise à jour vers la version 1.18 ou ultérieure.
-> 
-> Il est vivement recommandé de tester vos charges de travail sur les pools de nœuds AKS Ubuntu 18.04 avant d’utiliser des clusters sur la version 1.18 ou ultérieure.
-
-
-### <a name="use-aks-ubuntu-1804-ga-on-new-clusters"></a>Utiliser AKS Ubuntu 18.04 (GA) sur de nouveaux clusters
-
-Les clusters créés sur Kubernetes v1.18 ou version ultérieure ont par défaut l’image de nœud `AKS Ubuntu 18.04`. Les pools de nœuds sur une version de Kubernetes prise en charge antérieure à 1.18 continueront de recevoir l’image de nœud `AKS Ubuntu 16.04`, mais ils seront mis à jour vers `AKS Ubuntu 18.04` une fois la version de Kubernetes du cluster ou pool de nœuds mise à jour vers la version v1.18 ou ultérieure.
-
-Il est vivement recommandé de tester vos charges de travail sur les pools de nœuds AKS Ubuntu 18.04 avant d’utiliser des clusters sur la version 1.18 ou ultérieure.
-
-Pour créer un cluster à l’aide de l’image de nœud `AKS Ubuntu 18.04`, il vous suffit de créer un cluster exécutant Kubernetes v1.18 ou une version ultérieure, comme indiqué ci-dessous
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-### <a name="use-aks-ubuntu-1804-ga-on-existing-clusters"></a>Utiliser AKS Ubuntu 18.04 (GA) sur les clusters existants
-
-Les clusters créés sur Kubernetes v1.18 ou version ultérieure ont par défaut l’image de nœud `AKS Ubuntu 18.04`. Les pools de nœuds sur une version de Kubernetes prise en charge antérieure à 1.18 continueront de recevoir l’image de nœud `AKS Ubuntu 16.04`, mais ils seront mis à jour vers `AKS Ubuntu 18.04` une fois la version de Kubernetes du cluster ou pool de nœuds mise à jour vers la version v1.18 ou ultérieure.
-
-Il est vivement recommandé de tester vos charges de travail sur les pools de nœuds AKS Ubuntu 18.04 avant d’utiliser des clusters sur la version 1.18 ou ultérieure.
-
-Si vos clusters ou pools de nœuds sont prêts pour l’image de nœud `AKS Ubuntu 18.04`, vous pouvez simplement les mettre à niveau vers la version v1.18 ou ultérieure.
-
-```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-Si vous souhaitez mettre à niveau un seul pool de nœuds :
-
-```azurecli
-az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-### <a name="test-aks-ubuntu-1804-ga-on-existing-clusters"></a>Tester AKS Ubuntu 18.04 (GA) sur les clusters existants
-
-Les pools de nœuds créés sur Kubernetes v1.18 ou version ultérieure ont par défaut une image de nœud `AKS Ubuntu 18.04`. Les pools de nœuds sur une version de Kubernetes prise en charge antérieure à 1.18 continuent de recevoir l’image de nœud `AKS Ubuntu 16.04`, mais ils seront mis à jour vers `AKS Ubuntu 18.04` une fois la version de Kubernetes du pool de nœuds mise à jour vers la version v1.18 ou ultérieure.
-
-Il est vivement recommandé de tester vos charges de travail sur les pools de nœuds AKS Ubuntu 18.04 avant de mettre à niveau vos pools de nœuds de production.
-
-Pour créer un pool de nœuds à l’aide de l’image de nœud `AKS Ubuntu 18.04`, créez simplement un pool de nœuds exécutant Kubernetes v 1.18 ou une version ultérieure. Le plan de contrôle de votre cluster doit être au moins égal ou supérieur à v1.18, mais vos autres pools de nœuds peuvent avoir une version plus ancienne de Kubernetes.
-L’exemple ci-dessous montre d’abord la mise à niveau du plan de contrôle, puis la création d’un nouveau pool de nœuds avec v1.18 qui recevra la nouvelle version du système d’exploitation de l’image du nœud.
-
-```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
-
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
+AKS prend désormais en charge Ubuntu 18.04 comme système d’exploitation (SE) du nœud par défaut en disponibilité générale (GA) pour les clusters.
 
 ## <a name="container-runtime-configuration"></a>Configuration du runtime de conteneur
 
-Un runtime de conteneur est un logiciel qui exécute des conteneurs et gère des images conteneur sur un nœud. Le runtime permet d’abstraire les appels système ou les fonctionnalités spécifiques au système d’exploitation pour exécuter des conteneurs sous Linux ou Windows. Pour des pools de nœuds Linux, `containerd` est utilisé pour les pools de nœuds utilisant Kubernetes version 1.19 ou ultérieure, et Docker est utilisé pour les pools de nœuds utilisant Kubernetes version 1.18 ou antérieure. Pour des pools de nœuds Windows Server 2019, `containerd` est disponible en préversion et peut être utilisé dans les pools de nœuds utilisant Kubernetes version 1.20 ou ultérieure, mais Docker est toujours utilisé par défaut.
+Un runtime de conteneur est un logiciel qui exécute des conteneurs et gère des images conteneur sur un nœud. Le runtime permet d’abstraire les appels système ou les fonctionnalités spécifiques au système d’exploitation pour exécuter des conteneurs sous Linux ou Windows. Pour les pools de nœuds Linux, `containerd` est utilisé pour les pools de nœuds utilisant Kubernetes version 1.19 et ultérieure. Pour des pools de nœuds Windows Server 2019, `containerd` est disponible en préversion et peut être utilisé dans les pools de nœuds utilisant Kubernetes version 1.20 ou ultérieure, mais Docker est toujours utilisé par défaut.
 
 [`Containerd`](https://containerd.io/) est un runtime de conteneur principal conforme à la norme [OCI](https://opencontainers.org/) (Open Container Initiative) qui fournit l’ensemble minimal de fonctionnalités requises pour exécuter des conteneurs et gérer des images sur un nœud. Il a été [remis gracieusement](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) à la Cloud Native Compute Foundation (CNCF) en mars 2017. La version actuelle de Moby (Docker amont) qu’utilise AKS s’appuie déjà sur `containerd`, comme indiqué ci-dessus.
 

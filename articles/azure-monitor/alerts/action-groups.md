@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: dukek
-ms.openlocfilehash: ff6d911b85558e5efe9cc8302b9cb857cb7a9706
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: cc5d5aa589b56fb6e6fda1845e50606ff492fbdd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830656"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217880"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor, Service Health et Azure Advisor utilisent des groupes d’actions pour informer les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. 
@@ -24,6 +24,8 @@ Chaque action se compose des propriétés suivantes :
 * **Détails** : détails correspondants qui varient selon le *type*.
 
 Pour plus d’informations sur l’utilisation de modèles Azure Resource Manager pour configurer des groupes d’actions, consultez la page [Modèles Resource Manager de groupes d’actions](./action-groups-create-resource-manager-template.md).
+
+Le groupe d’actions est un service **global**. Il n’existe par conséquent aucune dépendance à une région Azure spécifique. Les demandes du client peuvent être traitées par le service de groupe d’actions dans n’importe quelle région, ce qui signifie que si une région du service est défaillante, le trafic est acheminé et traité automatiquement par d’autres régions. Comme il s’agit d’un *service global*, cela permet aux clients de ne pas se préoccuper de la **récupération d’urgence**. 
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Créer un groupe d’actions à l’aide du Portail Azure
 

@@ -3,14 +3,14 @@ title: Présentation d’Update Management Azure Automation
 description: Cet article présente la fonctionnalité Update Management qui implémente les mises à jour de vos machines Windows et Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 06/24/2021
+ms.date: 09/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0190d5501b95c0c70606978586edf30ff3d39b79
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.openlocfilehash: fed1ce7f236b568458f1eb1b25ce5420c2ad5501
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112676605"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092152"
 ---
 # <a name="update-management-overview"></a>Vue d’ensemble de Update Management
 
@@ -30,19 +30,21 @@ Avant de déployer Update Management et d’activer vos machines pour la gestion
 
 Le schéma suivant illustre la façon dont Update Management évalue les mises à jour de sécurité et les applique à tous les serveurs Windows Server et Linux connectés.
 
-![Workflow Update Management](./media/overview/update-mgmt-updateworkflow.png)
+![Workflow Update Management](./media/overview/update-mgmt-workflow.png)
 
-Update Management s’intègre aux journaux Azure Monitor pour stocker les évaluations de mise à jour et les résultats de déploiement des mises à jour sous la forme de données de journal, depuis des machines Azure et non Azure assignées. Pour collecter ces données, le compte Automation et l’espace de travail Log Analytics sont liés entre eux ; l’agent Log Analytics pour Windows et Linux est nécessaire sur la machine, et il est configuré pour produire des rapports vers cet espace de travail. Update Management prend en charge la collecte d’informations concernant les mises à jour système auprès des agents dans un groupe d’administration SCOM (System Center Operations Manager) connecté à l’espace de travail. L’inscription d’une machine auprès du service Update Management dans plusieurs espaces de travail Log Analytics (également appelé multihébergement) n’est pas prise en charge.
+Update Management s’intègre aux journaux Azure Monitor pour stocker les évaluations de mise à jour et les résultats de déploiement des mises à jour sous la forme de données de journal, depuis des machines Azure et non Azure assignées. Pour collecter ces données, le compte Automation et l’espace de travail Log Analytics sont liés entre eux ; l’agent Log Analytics pour Windows et Linux est nécessaire sur la machine, et il est configuré pour produire des rapports vers cet espace de travail. 
+
+Update Management prend en charge la collecte d’informations concernant les mises à jour système auprès des agents dans un groupe d’administration SCOM (System Center Operations Manager) connecté à l’espace de travail. L’inscription d’une machine auprès du service Update Management dans plusieurs espaces de travail Log Analytics (également appelé multihébergement) n’est pas prise en charge.
 
 Le tableau suivant récapitule les sources connectées prises en charge avec Update Management.
 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
-| Windows |Oui |Update Management collecte des informations concernant les mises à jour système auprès des machines Windows par l’intermédiaire de l’agent Log Analytics et de l’installation des mises à jour obligatoires. |
-| Linux |Oui |Update Management collecte des informations concernant les mises à jour système auprès des machines Linux par l’intermédiaire de l’agent Log Analytics et de l’installation des mises à jour obligatoires sur les distributions prises en charge. |
+| Windows |Oui |Update Management collecte des informations concernant les mises à jour système auprès des machines Windows par l’intermédiaire de l’agent Log Analytics et de l’installation des mises à jour obligatoires.<br> Les ordinateurs doivent envoyer un rapport à Microsoft Update ou Windows Server Update Services (WSUS). |
+| Linux |Oui |Update Management collecte des informations concernant les mises à jour système auprès des machines Linux par l’intermédiaire de l’agent Log Analytics et de l’installation des mises à jour obligatoires sur les distributions prises en charge.<br> Les ordinateurs doivent envoyer un rapport à un référentiel local ou distant. |
 | Groupe d’administration d’Operations Manager |Oui |Update Management collecte des informations concernant les mises à jour logicielles auprès d’agents dans un groupe d’administration connecté.<br/><br/>Une connexion directe entre l’agent Operations Manager et les journaux Azure Monitor n’est pas obligatoire. Les données de journal sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
 
-Les machines affectées à Update Management signalent l’état de mise à jour dans lequel elles se trouvent, en fonction de la source avec laquelle elles sont configurées pour se synchroniser. Les machines Windows peuvent être configurées pour envoyer les rapports à Windows Server Update Services ou à Microsoft Update tandis que les machines Linux peuvent le faire à un référentiel local ou public. Vous pouvez également utiliser Update Management avec Microsoft Endpoint Configuration Manager ; pour en savoir plus, consultez [Intégrer Update Management à Windows Endpoint Configuration Manager](mecmintegration.md). 
+Les machines affectées à Update Management signalent l’état de mise à jour dans lequel elles se trouvent, en fonction de la source avec laquelle elles sont configurées pour se synchroniser. Les machines Windows doivent être configurées pour envoyer des rapports soit à [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus), soit à [Microsoft Update](https://www.update.microsoft.com) tandis que les machines Linux doivent être configurées pour les envoyer à un référentiel local ou public. Vous pouvez également utiliser Update Management avec Microsoft Endpoint Configuration Manager ; pour en savoir plus, consultez [Intégrer Update Management à Windows Endpoint Configuration Manager](mecmintegration.md). 
 
 Si l’agent Windows Update sur la machine Windows est configuré pour transmettre les rapports à WSUS (Windows Server Update Services), en fonction de la date de la dernière synchronisation de WSUS à Microsoft Update, les résultats peuvent être différents de ce qu’indique Microsoft Update. Le comportement est le même pour les machines Linux configurées pour rendre compte à un référentiel local et non pas à un référentiel public. Sur une machine Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut. Sur une machine Linux, l’analyse de conformité est effectuée toutes les heures par défaut. Si l’agent Log Analytics est redémarré, une analyse de conformité est démarrée dans les 15 minutes. À l’issue de l’analyse de conformité de la mise à jour effectuée par la machine, l’agent transfère les informations en bloc aux journaux Azure Monitor. 
 
@@ -77,6 +79,14 @@ Après avoir activé Update Management, toute machine Windows directement connec
 Chaque machine Windows gérée par Update Management est répertoriée dans le volet Groupes de Workers hybrides en tant que Groupe de Workers hybrides système pour le compte Automation. Les groupes utilisent la convention d’affectation de noms `Hostname FQDN_GUID`. Vous ne pouvez pas cibler ces groupes avec des Runbooks dans votre compte. Si vous essayez, la tentative échoue. Ces groupes sont destinés à prendre uniquement en charge Update Management. Pour en savoir plus sur l’affichage de la liste des machines Windows configurées en tant que Runbook Worker hybride, consultez [Afficher les Runbooks Workers hybrides](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
 Vous pouvez ajouter la machine Windows à un groupe Runbook Worker hybride utilisateur dans votre compte Automation, afin de prendre en charge des runbooks Automation, à condition d’utiliser le même compte pour Update Management et pour l’appartenance au groupe Runbook Worker hybride. Cette fonctionnalité a été ajoutée à la version 7.2.12024.0 du Runbook Worker hybride.
+
+### <a name="external-dependencies"></a>Dépendances externes
+
+Azure Automation Update Management dépend des dépendances externes suivantes pour fournir des mises à jour de logiciel.
+
+* Les services WSUS (Windows Server Update Services) ou Microsoft Update sont nécessaires pour les packages de mises à jour logicielles et les analyses de mise en application des mises à jour logicielles sur les ordinateurs Windows.
+* Le client Agent Windows Update (WUA) est nécessaire sur les ordinateurs Windows pour qu’ils puissent se connecter au serveur WSUS ou à Microsoft Update.
+* Un référentiel local ou distant pour récupérer et installer les mises à jour du système d’exploitation sur les ordinateurs Linux.
 
 ### <a name="management-packs"></a>Packs d’administration
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 21012848ba3624df6110eaea182beccc4646d234
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b9ca2a4ba836adacb81a82ad59a11c21ffd6c3fb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609273"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216875"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Interrogation dans Recherche cognitive Azure
 
@@ -89,7 +89,7 @@ Vous pouvez également avoir besoin de filtres pour appeler un formulaire de req
 |-----------------|-------------|
 | Filtres de plage | Dans Recherche cognitive Azure, les requêtes de plage sont créées à l’aide du paramètre de filtre. Pour plus d’informations et d’exemples, consultez [Exemple de filtre de plage](search-query-simple-examples.md#example-5-range-filters). |
 | Recherche sur la localisation | Si un champ pouvant faire l’objet d’une recherche est de [type EDM.GeographyPoint](/rest/api/searchservice/supported-data-types), vous pouvez créer une expression de filtre « rechercher à proximité » ou des contrôles de recherche basés sur une carte. Les champs qui définissent la recherche basée sur la localisation contiennent des coordonnées. Pour plus d’informations et pour obtenir un exemple, consultez [Exemple de recherche sur la localisation](search-query-simple-examples.md#example-6-geo-search). |
-| Navigation à facettes | Une structure de navigation à facettes devient instrumentale dans une navigation définie par l’utilisateur lorsque vous appelez un filtre en réponse à un événement `onclick` sur une facette. Par conséquent, les facettes et les filtres vont de pair. Si vous ajoutez une navigation à facettes, vous aurez besoin de filtres pour compléter l’expérience. Pour plus d’informations, consultez [Comment créer un filtre de facette](search-filters-facets.md). |
+| Navigation à facettes | Dans l’arborescence de [navigation par facettes](search-faceted-navigation.md) , les utilisateurs peuvent sélectionner des facettes, en réduisant les résultats à chaque clic. Chaque facette est associée à un filtre qui exclut les documents qui ne correspondent plus aux critères. |
 
 > [!NOTE]
 > Le texte utilisé dans une expression de filtre n’est pas analysé lors du traitement de la requête. L’entrée de texte est supposée être un modèle textuel de caractères respectant la casse et qui correspond ou non au filtre. Les expressions de filtre sont construites à l’aide de la [syntaxe OData](query-odata-filter-orderby-syntax.md) et passées dans un paramètre **`filter`** dans tous les champs *filtrables* de votre index. Pour plus d’informations, consultez [Filtres dans la Recherche cognitive Azure](search-filters.md).

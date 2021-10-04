@@ -1,5 +1,5 @@
 ---
-title: Surveillance et alertes Azure Key Vault | Microsoft Docs
+title: Alertes de Azure Key Vault
 description: Créez un tableau de bord pour surveiller l'intégrité de votre coffre de clés et configurer des alertes.
 services: key-vault
 author: msmbaldwin
@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 3229e8a3ee482067677cdd5af1fb98b120ef8dd0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4c1f63bdc13822b7eb48dc5410a990dc75f3453e
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082105"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060779"
 ---
-# <a name="monitoring-and-alerting-for-azure-key-vault"></a>Surveillance et alertes Azure Key Vault
+# <a name="alerting-for-azure-key-vault"></a>Génération d’alertes pour Azure Key Vault
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -27,63 +27,6 @@ Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets d
 + Créer des alertes lorsque les seuils spécifiés sont atteints
 
 Azure Monitor pour Key Vault combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. [Apprenez-en davantage sur Azure Monitor pour Key Vault ici](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights)
-
-## <a name="basic-key-vault-metrics-to-monitor"></a>Métriques Key Vault de base à surveiller
-
-+ Disponibilité du coffre  
-+ Saturation du coffre 
-+ Latence de l'API de service 
-+ Nombre total d'accès à l'API de service (filtrer par type d'activité) 
-+ Codes d'erreur (filtrer par code d'état) 
-
-**Disponibilité du coffre** : cette métrique doit toujours être de 100 %. Elle doit impérativement être surveillée car elle peut rapidement vous indiquer si votre coffre de clés a subi une interruption. 
-
-**Saturation du coffre** : le nombre de requêtes par seconde qu'un coffre de clés peut traiter repose sur le type d'opération effectuée. Pour certaines opérations relatives au coffre, le seuil de requêtes par seconde est plus bas. Cette métrique agrège l'utilisation totale de votre coffre de clés, tous types d'opérations confondus, pour fournir une valeur en pourcentage qui indique votre utilisation actuelle du coffre. Pour obtenir la liste complète des limites du service Key Vault, consultez le document suivant. [Limites du service Azure Key Vault](service-limits.md)
-
-**Latence de l’API de service** : cette métrique indique la latence moyenne d’un appel au coffre de clés, telle que mesurée au niveau du service. Elle n’inclut pas le temps consommé par le client ou par le réseau entre le client et le service.
-
-**Nombre total d'accès à l'API** : cette métrique affiche tous les appels passés à votre coffre de clés. Vous pouvez ainsi identifier les applications qui appellent votre coffre de clés. 
-
-**Codes d'erreur** : cette métrique indique si votre coffre de clés rencontre un nombre inhabituel d'erreurs. Pour obtenir la liste complète des codes d'erreur et des conseils de dépannage, consultez le document suivant. [Codes d'erreur de l'API REST Azure Key Vault](rest-error-codes.md)
-
-## <a name="how-to-configure-metrics-and-create-a-dashboard"></a>Configurer les métriques et créer un tableau de bord
-
-1. Connectez-vous au portail Azure.
-2. Accédez à votre coffre de clés.
-3. Sous **Supervision**, sélectionnez **Métriques**. 
-
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran mettant en évidence l'option Métriques dans la section Surveillance.](../media/alert-1.png)
-
-4. Modifiez le titre du graphique en fonction de ce que vous souhaitez voir sur votre tableau de bord. 
-5. Sélectionnez l'étendue. Dans cet exemple, nous allons sélectionner un seul coffre de clés. 
-6. Sélectionnez la métrique **Disponibilité globale du coffre** et l'agrégation **Moy.** 
-7. Remplacez l'intervalle de temps par Dernières 24 heures et la Granularité temporelle par 1 minute. 
-
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran illustrant la métrique Disponibilité globale du coffre.](../media/alert-2.png)
-
-8. Répétez les étapes ci-dessus pour les métriques Saturation du coffre et Latence de l'API de service. Sélectionnez **Épingler au tableau de bord** pour enregistrer vos métriques dans un tableau de bord. 
-
-> [!IMPORTANT]
-> Sélectionnez « Épingler au tableau de bord » et enregistrez toutes les métriques que vous configurez. Si vous quittez la page et que vous y revenez sans l'enregistrer, vos modifications de configuration seront perdues. 
-
-9. Pour surveiller tous les types d'opérations sur le coffre de clés, utilisez la métrique **Nombre total d'accès à l'API de service** et sélectionnez **Appliquer le fractionnement par type d'activité**.
-
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran représentant le bouton Appliquer le fractionnement.](../media/alert-3.png)
-
-10. Pour surveiller les codes d'erreur sur le coffre de clés, utilisez la métrique **Résultats totaux de l'API de service**, puis sélectionnez **Appliquer le fractionnement par type d'activité**.
-
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran dans laquelle la métrique Résultats totaux de l'API de service est sélectionnée.](../media/alert-4.png)
-
-Vous disposez à présent d'un tableau de bord semblable à celui-ci. Vous pouvez cliquer sur les 3 points situés en haut à droite de chaque vignette, et vous pouvez réorganiser et redimensionner les vignettes selon vos besoins. 
-
-Une fois le tableau de bord enregistré et publié, une nouvelle ressource est créée dans votre abonnement Azure. Pour y accéder à tout moment, recherchez « tableau de bord partagé ». 
-
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran représentant le tableau de bord publié.](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Configurer des alertes sur votre coffre de clés 
 
@@ -210,4 +153,9 @@ Veuillez consulter les paramètres de configuration suivants.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Félicitations, vous avez créé un tableau de bord de surveillance et configuré des alertes pour votre coffre de clés ! Lorsque vous aurez suivi toutes les étapes décrites ci-dessus, vous recevrez des alertes par e-mail chaque fois que votre coffre de clés répondra aux critères d'alerte que vous avez configurés. Voici un exemple. Utilisez les outils que vous avez configurés dans cet article pour surveiller activement l'intégrité de votre coffre de clés.
+Félicitations, vous avez créé un tableau de bord de surveillance et configuré des alertes pour votre coffre de clés !
+
+Lorsque vous aurez suivi toutes les étapes décrites ci-dessus, vous recevrez des alertes par e-mail chaque fois que votre coffre de clés répondra aux critères d'alerte que vous avez configurés. Voici un exemple. Utilisez les outils que vous avez configurés dans cet article pour surveiller activement l'intégrité de votre coffre de clés.
+
+- [Superviser Key Vault](monitor-key-vault.md)
+- [Informations de référence sur la supervision des données Key Vault](monitor-key-vault-reference.md)

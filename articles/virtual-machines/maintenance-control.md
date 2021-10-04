@@ -3,17 +3,17 @@ title: Vue d’ensemble du contrôle de maintenance des machines virtuelles Azur
 description: Apprenez à contrôler le moment où la maintenance est appliquée à vos machines virtuelles Azure à l'aide du contrôle de maintenance.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 01152d1e422088503621e684f8908182c5caa3a4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 741a7a73fc7ac4ac468febfd9beec77c3a8c9946
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691675"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216520"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Gestion des mises à jour de plateformes avec le contrôle de maintenance 
 
@@ -32,7 +32,7 @@ Avec le contrôle de maintenance, vous pouvez :
 ## <a name="limitations"></a>Limites
 
 - Les machines virtuelles doivent se trouver sur un [hôte dédié](./dedicated-hosts.md) ou être créées à l’aide d’une [taille de machine virtuelle isolée](isolation.md).
-- La fenêtre de maintenance doit être d’au moins 2 heures. La durée de la fenêtre de maintenance est le temps du moment où le client lance la mise à jour à la fin de son exécution. 
+- La durée de la fenêtre de maintenance peut varier d’un mois à l’autre et peut parfois prendre jusqu’à 2 heures pour appliquer les mises à jour en attente une fois qu’elles sont lancées par l’utilisateur.  
 - Après 35 jours, une mise à jour est automatiquement appliquée.
 - L’utilisateur doit disposer d’un accès **Contributeur de ressource**.
 

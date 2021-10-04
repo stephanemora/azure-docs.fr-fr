@@ -1,18 +1,18 @@
 ---
 title: Comment analyser des pools SQL dédiés
-description: Ce guide pratique explique en détail comment analyser des pools SQL dédiés.
+description: Ce guide pratique explique en détail comment analyser des pools SQL dédiés dans Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 09dc3c20ca95f32ee4c8f01d6b4986adfcd3703e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 26d4327c5763a1296cd492730004b80947269afa
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563310"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218334"
 ---
 # <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Inscrire et analyser des pools SQL dédiés (anciennement SQL DW)
 
@@ -141,7 +141,7 @@ Sur l’écran **Inscrire des sources (Azure Synapse Analytics)** , procédez co
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Sélectionnez la source de pool SQL dédié que vous avez inscrite.
 

@@ -2,18 +2,18 @@
 title: Chiffrement côté serveur de disques managés Azure
 description: Le Stockage Azure protège vos données en les chiffrant au repos avant de les rendre persistantes dans des clusters de stockage. Vous pouvez utiliser des clés gérées par le client pour gérer le chiffrement avec vos propres clés, ou vous appuyer sur des clés gérées par Microsoft pour le chiffrement de vos disques managés.
 author: roygara
-ms.date: 06/29/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7f4ae0dfb8e03add64f450d98c15f85da33eaef3
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 98bbc2f84b0f56c4e50e98e99e7bcaf86588fb48
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696464"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803980"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
 
@@ -92,6 +92,48 @@ Pour activer le chiffrement double au repos pour les disques managés, consultez
 [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) utilise la fonctionnalité [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux et la fonctionnalité [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) de Windows pour chiffrer les disques managés avec des clés gérées par le client au sein de la machine virtuelle invitée.  Le chiffrement côté serveur avec des clés gérées par le client améliore l’utilisation de Azure Disk Encryption en vous permettant d’utiliser des types et des images de système d’exploitation pour vos machines virtuelles en chiffrant les données dans le service de stockage.
 > [!IMPORTANT]
 > Les clés managées par le client s’appuient sur des identités managées pour ressources Azure, une fonctionnalité d’Azure Active Directory (Azure AD). Quand vous configurez des clés gérées par le client, une identité managée est automatiquement affectée à vos ressources à l’arrière plan. Si, par la suite, vous déplacez l’abonnement, le groupe de ressources ou le disque managé d’un répertoire Azure AD à un autre, l’identité managée associée aux disques gérés n’est pas transférée vers le nouveau locataire, de sorte que les clés gérées par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez [Transfert d’un abonnement entre des répertoires Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+**Question : le chiffrement côté serveur est-il activé par défaut lors de la création d’un disque managé ?**
+
+**R :** Oui. Les disques managés sont chiffrés à l’aide du chiffrement côté serveur et des clés managées par la plateforme.
+
+**Question : le volume de démarrage est-il chiffré par défaut sur un disque managé ?**
+
+**R :** Oui. Tous les disques managés sont chiffrés par défaut, y compris le disque du système d’exploitation.
+
+**Q : Qui gère les clés de chiffrement ?**
+
+**Réponse :** les clés managées par la plateforme sont managées par Microsoft. Vous pouvez également utiliser et gérer vos propres clés stockées dans Azure Key Vault.
+
+**Question : puis-je désactiver le chiffrement côté serveur pour mes disques managés ?**
+
+**R :** Non.
+
+**Question : le chiffrement côté serveur est-il uniquement disponible dans des régions spécifiques ?**
+
+**R :** Non. Le chiffrement côté serveur qui utilise à la fois les clés managées par la plateforme et les clés managées par le client est disponible dans toutes les régions où Azure Managed Disks est disponible.
+
+**Question : Azure Site Recovery prend-il en charge le chiffrement côté serveur qui utilise une clé managée par le client pour les scénarios de récupération d’urgence Local vers Azure et Azure vers Azure ?**
+
+**R :** Oui.
+
+**Question : puis-je utiliser le service Sauvegarde Azure pour sauvegarder les disques managés qui sont chiffrés par le chiffrement côté serveur qui utilise des clés managées par le client ?**
+
+**R :** Oui.
+
+**Question : les captures instantanées et les images managées sont-ils chiffrées ?**
+
+**R :** Oui. Toutes les captures instantanées et images managées sont automatiquement chiffrées.
+
+**Question : puis-je convertir des machines virtuelles avec des disques non managés en disques managés si ces disques sont situés sur des comptes de stockage qui sont, ou étaient précédemment, chiffrés ?**
+
+**R :** Oui.
+
+**Question : un disque dur virtuel exporté à partir d’un disque managé ou une capture instantanée seront-ils également chiffrés ?**
+
+**R :** Non. Mais si vous exportez un disque dur virtuel vers un compte de stockage chiffré depuis un disque géré chiffré ou un instantané, il sera chiffré.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

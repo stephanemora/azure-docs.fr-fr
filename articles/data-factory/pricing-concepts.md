@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: a5032ce26fcce2dbee2a95385292c5b455904586
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/07/2021
+ms.openlocfilehash: 38d6f8d8b96526c8ba190559a639985bedf96cff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563223"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798557"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Comprendre les tarifs Data Factory à travers des exemples
 
@@ -36,7 +36,7 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
 
 3. Un déclencheur de planification pour exécuter le pipeline toutes les heures.
 
-   ![Le diagramme illustre un pipeline avec un déclencheur de planification. Dans le pipeline, l’activité de copie est acheminée vers un jeu de données d’entrée, qui est acheminé vers un service lié A W S S3. Elle est également acheminée vers un jeu de données de sortie, qui acheminé vers un service lié de Stockage Azure.](media/pricing-concepts/scenario1.png)
+   :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="Ce diagramme illustre un pipeline avec un déclencheur de planification. Dans le pipeline, l’activité de copie est acheminée vers un jeu de données d’entrée, qui est acheminé vers un service lié A W S S3. Elle est également acheminée vers un jeu de données de sortie, qui acheminé vers un service lié de Stockage Azure.":::
 
 | **Opérations** | **Types et unités** |
 | --- | --- |
@@ -67,7 +67,7 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
 2. Une activité Azure Databricks pour la transformation de données.
 3. Un déclencheur de planification pour exécuter le pipeline toutes les heures.
 
-![Le diagramme illustre un pipeline avec un déclencheur de planification. Dans le pipeline, l’activité de copie est acheminée vers un jeu de données d’entrée, un jeu de données de sortie et une activité DataBricks exécutée sur Azure Databricks. Le jeu de données d’entrée est acheminé vers un service lié A W S S3. Le jeu de données de sortie est acheminé vers un service lié de Stockage Azure.](media/pricing-concepts/scenario2.png)
+:::image type="content" source="media/pricing-concepts/scenario2.png" alt-text="Ce diagramme illustre un pipeline avec un déclencheur de planification. Dans le pipeline, l’activité de copie est acheminée vers un jeu de données d’entrée, un jeu de données de sortie et une activité DataBricks, qui s’exécute sur Azure Databricks. Le jeu de données d’entrée est acheminé vers un service lié A W S S3. Le jeu de données de sortie est acheminé vers un service lié Stockage Azure.":::
 
 | **Opérations** | **Types et unités** |
 | --- | --- |
@@ -101,7 +101,7 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
 3. Une activité Azure Databricks pour la transformation de données.
 4. Un déclencheur de planification pour exécuter le pipeline toutes les heures.
 
-![Le diagramme illustre un pipeline avec un déclencheur de planification. Dans le pipeline, l’activité de copie est acheminée vers un jeu de données d’entrée, un jeu de données de sortie et une activité de recherche qui est acheminée vers une activité DataBricks exécutée sur Azure Databricks. Le jeu de données d’entrée est acheminé vers un service lié A W S S3. Le jeu de données de sortie est acheminé vers un service lié de Stockage Azure.](media/pricing-concepts/scenario3.png)
+:::image type="content" source="media/pricing-concepts/scenario3.png" alt-text="Ce diagramme illustre un pipeline avec un déclencheur de planification. Dans le pipeline, l’activité de copie est acheminée vers un jeu de données d’entrée, un jeu de données de sortie et une activité de recherche qui achemine les données vers une activité DataBricks, qui s’exécute sur Azure Databricks. Le jeu de données d’entrée est acheminé vers un service lié A W S S3. Le jeu de données de sortie est acheminé vers un service lié Stockage Azure.":::
 
 | **Opérations** | **Types et unités** |
 | --- | --- |
@@ -125,6 +125,16 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
   - Activités de déplacement des données = 0,166 $ (au prorata de 10 minutes de durée d’exécution, à 0,25 $/h par Azure Integration Runtime)
   - Activité du pipeline = 0,00003 (au prorata d’1 minute de durée d’exécution, à 0,002 $/h par Azure Integration Runtime)
   - Activité du pipeline externe = 0,000041 $ (au prorata de 10 minutes de durée d’exécution, à 0,00025 $/h par Azure Integration Runtime)
+
+## <a name="run-ssis-packages-on-azure-ssis-integration-runtime"></a>Exécuter des packages SSIS sur le runtime d’intégration Azure-SSIS
+
+Le runtime d’intégration Azure-SSIS (IR) est un cluster spécialisé de machines virtuelles Azure pour les exécutions de packages SSIS dans Azure Data Factory (ADF). Lorsque vous l’approvisionnez, il vous sera dédié. Il sera donc facturé comme n’importe quelle autre machine virtuelle Azure dédiée, à condition que vous l’exécutiez, que vous l’utilisiez ou non pour exécuter des packages SSIS. En ce qui concerne son coût de fonctionnement, l'estimation horaire est affichée sur son volet de configuration dans le portail ADF. Par exemple :  
+
+:::image type="content" source="media/pricing-concepts/ssis-pricing-example.png" alt-text="Exemple de tarif SSIS":::
+
+Dans l’exemple ci-dessus, si vous conservez votre Azure-SSIS IR en cours d’exécution pendant 2 heures, vous êtes facturé : **2 (heures) x US$1.158/heure = US$2.316**.
+
+Pour faire évoluer le coût d’exécution de votre Azure-SSIS IR, vous pouvez réduire la taille de votre machine virtuelle, effectuer un scale-in de la taille de votre cluster, utiliser votre propre licence SQL Server via l’option Azure Hybrid Benefit (AHB) (cela peut vous permettre de faire des économies substantielles, comme l’indique la [page de tarification Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/)) et/ou démarrer et arrêter votre Azure-SSIS IR lorsque vous souhaitez traiter vos charges de travail SSIS, selon un modèle juste-à-temps. Pour en savoir plus, consultez la section [Pour reconfigurer un runtime d’intégration Azure-SSIS](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir) et la page [Guide pratique pour démarrer et arrêter Azure-SSIS Integration Runtime selon une planification](how-to-schedule-azure-ssis-integration-runtime.md).
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Utilisation du débogage des flux de données de mappage pour une journée de travail normale
 
@@ -171,7 +181,8 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
 
 ## <a name="data-integration-in-azure-data-factory-managed-vnet"></a>Intégration de données dans un VNET managé Azure Data Factory
 Dans ce scénario, vous souhaitez supprimer des fichiers d’origine d’un Stockage Blob Azure et copier des données d’Azure SQL Database vers le Stockage Blob Azure. Vous effectuerez cette opération à deux reprises sur des pipelines différents. Le temps d’exécution de ces deux pipelines se chevauche.
-![Scenario4](media/pricing-concepts/scenario-4.png) Pour réaliser ce scénario, vous créez deux pipelines avec les éléments suivants :
+:::image type="content" source="media/pricing-concepts/scenario-4.png" alt-text="Scénario 4":::
+Pour réaliser ce scénario, vous devez créer deux pipelines avec les éléments suivants :
   - Activité de pipeline – Supprimer l’activité.
   - Activité de copie avec un jeu de données d’entrée pour les données à copier à partir du Stockage Blob Azure.
   - Un jeu de données de sortie pour les données sur Azure SQL Database.

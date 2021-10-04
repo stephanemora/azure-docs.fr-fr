@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: f7463b6234c03a9ed79f1c4a9fb310db7067a428
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f7cc091d5e90df67b51bb90e799f6a6c57921756
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043561"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804904"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architecture de connectivité dans Azure Database pour PostgreSQL
 Cet article présente l’architecture de connectivité d’Azure Database pour PostgreSQL, ainsi que la façon dont le trafic est redirigé vers votre instance de base de données Azure Database pour PostgreSQL à partir de clients au sein d’Azure et en dehors.
@@ -30,7 +30,7 @@ Le service de passerelle est hébergé sur un groupe de nœuds de calcul sans é
 
 Dans le cadre de la maintenance de service en cours, nous allons actualiser régulièrement le matériel de calcul hébergeant les passerelles pour nous assurer que nous proposons l’expérience de connexion la plus sûre et la plus performante. Lorsque le matériel de passerelle est actualisé, un nouvel anneau des nœuds de calcul est créé en premier. Ce nouvel anneau gère le trafic pour tous les serveurs Azure Database pour PostgreSQL nouvellement créés. Il a une adresse IP différente des anneaux de passerelle plus anciens dans la même région pour différencier le trafic. Le matériel de passerelle plus ancien continue à servir des serveurs existants, mais son déprovisionnement est prévu à l’avenir. Avant de mettre hors service un matériel de passerelle, les clients qui exécutent leurs serveurs et se connectent à des anneaux de passerelle plus anciens sont avertis par e-mail et dans le portail Azure, trois mois avant la mise hors service. La mise hors service des passerelles peut avoir un impact sur la connectivité de vos serveurs si 
 
-* Vous codez en dur les adresses IP de la passerelle dans la chaîne de connexion de votre application. Elle n’est **pas recommandée**. Vous devez utiliser un nom de domaine complet (FQDN) de votre serveur au format <servername>.postgres.database.azure.com, dans la chaîne de connexion de votre application. 
+* Vous codez en dur les adresses IP de la passerelle dans la chaîne de connexion de votre application. Elle n’est **pas recommandée**. Vous devez utiliser un nom de domaine complet (FQDN) de votre serveur au format `<servername>.postgres.database.azure.com` dans la chaîne de connexion de votre application. 
 * Vous ne mettez pas à jour les adresses IP de passerelle les plus récentes dans le pare-feu côté client pour autoriser le trafic sortant à atteindre nos nouveaux anneaux de passerelle.
 
 Le tableau suivant répertorie les adresses IP de la passerelle Azure Database pour PostgreSQL pour toutes les régions de données. Les informations les plus récentes des adresses IP de la passerelle pour chaque région sont indiquées dans le tableau ci-dessous. Dans le tableau ci-dessous, les colonnes représentent les éléments suivants :
@@ -45,47 +45,47 @@ Le tableau suivant répertorie les adresses IP de la passerelle Azure Database 
 | Centre de l’Australie| 20.36.105.0  | | |
 | Australie Centre 2     | 20.36.113.0  | | |
 | Australie Est | 13.75.149.87, 40.79.161.1     |  | |
-| Sud-Est de l’Australie |191.239.192.109, 13.73.109.251   |  | |
-| Brésil Sud |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
-| Centre du Canada |40.85.224.249  | | |
-| Est du Canada | 40.86.226.166    | | |
+| Sud-Est de l’Australie |191.239.192.109, 13.73.109.251     |  | |
+| Brésil Sud |191.233.201.8, 191.233.200.16     |  | 104.41.11.5|
+| Centre du Canada |40.85.224.249     | | |
+| Est du Canada | 40.86.226.166     | | |
 | USA Centre | 23.99.160.139, 52.182.136.37, 52.182.136.38 | 13.67.215.62 | |
-| Chine orientale | 139.219.130.35    | | |
-| Chine orientale 2 | 40.73.82.1  | | |
-| Chine du Nord | 139.219.15.17    | | |
+| Chine orientale | 139.219.130.35     | | |
+| Chine orientale 2 | 40.73.82.1     | | |
+| Chine du Nord | 139.219.15.17     | | |
 | Chine Nord 2 | 40.73.50.0     | | |
 | Asie Est | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     | | |
 | USA Est |40.71.8.203, 40.71.83.113 |40.121.158.30|191.238.6.43 |
 | USA Est 2 | 40.70.144.38, 52.167.105.38  | 52.177.185.181 | |
-| France Centre | 40.79.137.0, 40.79.129.1  | | |
+| France Centre | 40.79.137.0, 40.79.129.1     | | |
 | France Sud | 40.79.177.0     | | |
 | Centre de l’Allemagne | 51.4.144.100     | | |
 | Allemagne Nord | 51.116.56.0 | |
-| Nord-Est de l’Allemagne | 51.5.144.179  | | |
+| Nord-Est de l’Allemagne | 51.5.144.179     | | |
 | Allemagne Centre-Ouest | 51.116.152.0 | |
 | Inde Centre | 104.211.96.159     | | |
-| Sud de l’Inde | 104.211.224.146  | | |
-| Inde Ouest | 104.211.160.80    | | |
+| Sud de l’Inde | 104.211.224.146     | | |
+| Inde Ouest | 104.211.160.80     | | |
 | Japon Est | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | OuJapon Est | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
-| Centre de la Corée | 52.231.17.13   | 52.231.32.42 | |
+| Centre de la Corée | 52.231.17.13     | 52.231.32.42 | |
 | Corée du Sud | 52.231.145.3     | 52.231.200.86 | |
-| Centre-Nord des États-Unis | 52.162.104.35, 52.162.104.36    | 23.96.178.199 | |
-| Europe Nord | 52.138.224.6, 52.138.224.7  | 40.113.93.91 |191.235.193.75 |
-| Afrique du Sud Nord  | 102.133.152.0    | | |
-| Afrique du Sud Ouest | 102.133.24.0   | | |
+| Centre-Nord des États-Unis | 52.162.104.35, 52.162.104.36     | 23.96.178.199 | |
+| Europe Nord | 52.138.224.6, 52.138.224.7     | 40.113.93.91 |191.235.193.75 |
+| Afrique du Sud Nord  | 102.133.152.0     | | |
+| Afrique du Sud Ouest    | 102.133.24.0     | | |
 | États-Unis - partie centrale méridionale |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
 | Asie Sud-Est | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
 | Suisse Nord | 51.107.56.0 ||
 | Suisse Ouest | 51.107.152.0| ||
-| Émirats arabes unis Centre | 20.37.72.64  | | |
-| Émirats arabes unis Nord | 65.52.248.0    | | |
-| Sud du Royaume-Uni | 51.140.184.11   | | |
-| Ouest du Royaume-Uni | 51.141.8.11  | | |
+| Émirats arabes unis Centre | 20.37.72.64     | | |
+| Émirats arabes unis Nord | 65.52.248.0     | | |
+| Sud du Royaume-Uni | 51.140.184.11     | | |
+| Ouest du Royaume-Uni | 51.141.8.11     | | |
 | Centre-USA Ouest | 13.78.145.25     | | |
 | Europe Ouest |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | USA Ouest |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
-| USA Ouest 2 | 13.66.226.202  | | |
+| USA Ouest 2 | 13.66.226.202     | | |
 ||||
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bb00c2554b17ec68cfd1cffa0902bed421b9e4e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 05ea462d08c50e6483aeb0968b00b6b18d0e7397
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433068"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092673"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Attribuer des étiquettes de sensibilité aux groupes Microsoft 365 dans Azure Active Directory
 
@@ -45,11 +45,13 @@ Pour appliquer des étiquettes publiées à des groupes, vous devez d’abord ac
 1. Récupérez les paramètres de groupe actuels pour l’organisation Azure AD.
 
     ```PowerShell
-    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+    $setting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
+    $template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+    $setting = $template.CreateDirectorySetting()
     ```
 
     > [!NOTE]
-    > Si aucun paramètre de groupe n’a été créé pour cette organisation Azure AD, vous obtenez une erreur dans la cmdlet ci-dessus indiquant « Cannot bind argument to parameter 'Id' because it is null » (Impossible de lier l’argument à l’ID du paramètre, car il est null). Dans ce cas, vous devez d’abord créer les paramètres. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../enterprise-users/groups-settings-cmdlets.md) pour créer des paramètres de groupe pour cette organisation Azure AD.
+    > Si aucun paramètre de groupe n’a été créé pour cette organisation Azure AD, vous obtenez une erreur indiquant « Cannot bind argument to parameter 'Id' because it is null » (Impossible de lier l’argument à l’ID du paramètre, car il est null). Dans ce cas, vous devez d’abord créer les paramètres. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../enterprise-users/groups-settings-cmdlets.md) pour créer des paramètres de groupe pour cette organisation Azure AD.
 
 1. Ensuite, affichez les paramètres de groupe actuels.
 
@@ -66,7 +68,7 @@ Pour appliquer des étiquettes publiées à des groupes, vous devez d’abord ac
 1. Ensuite, enregistrez les modifications et appliquez les paramètres :
 
     ```PowerShell
-    Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
+    New-AzureADDirectorySetting -DirectorySetting $setting
     ```
 
 Vous devrez également synchroniser vos étiquettes de sensibilité dans Azure AD. Pour obtenir des instructions, consultez [Guide pratique pour activer des étiquettes de sensibilité pour des conteneurs et synchroniser des étiquettes](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).

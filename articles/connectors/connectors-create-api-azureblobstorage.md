@@ -3,20 +3,20 @@ title: Se connecter à Stockage Blob Azure
 description: Créer et gérer des objets Blob dans les comptes Stockage Azure avec Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 06/23/2021
 tags: connectors
-ms.openlocfilehash: e3d8730976d623b5304a50341bcf257f35047e25
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 7fc6b33248af8b638218858c95d1c0de8b056e76
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359548"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824855"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Créer et gérer des objets Blob dans Stockage Blob Azure avec Azure Logic Apps
 
-Vous pouvez accéder aux fichiers stockés sous forme d’objet blobs dans votre compte de stockage Azure et les gérer dans Azure Logic Apps à l’aide du [connecteur Stockage Blob Azure](/connectors/azureblobconnector/). Ce connecteur fournit des déclencheurs et des actions pour les opérations d’objet blob au sein de vos workflows d’application logique. Vous pouvez utiliser ces opérations pour automatiser les tâches et les workflows de gestion des fichiers dans votre compte de stockage. Les [actions de connecteur disponibles](/connectors/azureblobconnector/#actions) comprennent la vérification, la suppression, la lecture et le téléchargement d’objets blob. Le [déclencheur disponible ](/connectors/azureblobconnector/#triggers) s’active lorsqu’un objet blob est ajouté ou modifié. 
+Vous pouvez accéder aux fichiers stockés sous forme d’objet blobs dans votre compte de stockage Azure et les gérer dans Azure Logic Apps à l’aide du [connecteur Stockage Blob Azure](/connectors/azureblobconnector/). Ce connecteur fournit des déclencheurs et des actions pour les opérations d’objet blob au sein de vos workflows d’application logique. Vous pouvez utiliser ces opérations pour automatiser les tâches et les workflows de gestion des fichiers dans votre compte de stockage. Les [actions de connecteur disponibles](/connectors/azureblobconnector/#actions) comprennent la vérification, la suppression, la lecture et le téléchargement d’objets blob. Le [déclencheur disponible ](/connectors/azureblobconnector/#triggers) s’active lorsqu’un objet blob est ajouté ou modifié.
 
 Vous pouvez vous connecter au Stockage Blob à partir de types de ressources d’application logique standard et de consommation. Vous pouvez utiliser le connecteur avec des applications logiques dans un environnement monolocataire, mutualisé ou de service d’intégration (ISE). Pour les applications logiques dans un environnement monolocataire, les objets Stockage Blob fournissent des opérations intégrées, ainsi que des opérations de connecteur managées.
 
@@ -40,14 +40,14 @@ Vous pouvez également [utiliser une identité managée avec un déclencheur ou 
 
 - Par défaut, les actions de Stockage Blob peuvent lire ou écrire des fichiers dont la taille est *inférieure ou égale à 50 Mo*. Pour gérer les fichiers d’une taille supérieure à 50 Mo, mais n’excédant pas 1024 Mo, les actions de Stockage Blob prennent en charge la [segmentation du message](../logic-apps/logic-apps-handle-large-messages.md). L’[action **Obtenir le contenu de l’objet blob**](/connectors/azureblobconnector/#get-blob-content) utilise implicitement la segmentation.
 - Les déclencheurs de Stockage Blob ne prennent pas en charge la segmentation. Quand ils demandent du contenu de fichiers, les déclencheurs sélectionnent uniquement des fichiers dont la taille est inférieure ou égale à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle :
-  - Utilisez un déclencheur Stockage Blob qui retourne des propriétés de fichier, comme [**Quand un blob est ajouté ou modifié (propriétés uniquement)** ](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)).
+  - Utilisez un déclencheur Stockage Blob qui retourne des propriétés de fichier, comme [**Quand un blob est ajouté ou modifié (propriétés uniquement)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)).
   - Suivez le déclencheur avec l’[action Stockage Blob **Obtenir le contenu de l’objet blob**](/connectors/azureblobconnector/#get-blob-content), qui lit le fichier complet et utilise implicitement la segmentation.
 
 ## <a name="add-blob-storage-trigger"></a>Ajouter un déclencheur de stockage d’objets blob
 
 Dans Logic Apps, chaque application logique doit démarrer avec un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts), qui s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. 
 
-Ce connecteur dispose d’un déclencheur, appelé soit [**Quand un blob est ajouté ou modifié dans le Stockage Azure** soit **Quand un blob est ajouté ou modifié (propriétés uniquement)** ](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)). Le déclencheur s’active lorsque les propriétés d’un objet blob sont ajoutées ou mises à jour dans votre conteneur de stockage. Chaque fois, le moteur Logic Apps crée une instance d’application logique et lance l’exécution de votre workflow.
+Ce connecteur dispose d’un déclencheur, appelé soit [**Quand un blob est ajouté ou modifié dans le Stockage Azure** soit **Quand un blob est ajouté ou modifié (propriétés uniquement)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)). Le déclencheur s’active lorsque les propriétés d’un objet blob sont ajoutées ou mises à jour dans votre conteneur de stockage. Chaque fois, le moteur Logic Apps crée une instance d’application logique et lance l’exécution de votre workflow.
 
 ### <a name="single-tenant"></a>[Monolocataire](#tab/single-tenant)
 
@@ -169,7 +169,7 @@ Pour les applications logiques dans un environnement multilocataires :
 
 ## <a name="access-storage-accounts-behind-firewalls"></a>Accéder à des comptes de stockage derrière des pare-feu
 
-Vous pouvez ajouter la sécurité réseau à un compte de stockage Azure en restreignant l’accès avec un [pare-feu et des règles de pare-feu](../storage/common/storage-network-security.md). Toutefois, cette configuration crée une difficulté pour Azure et d’autres services Microsoft qui ont besoin d’accéder au compte de stockage. La communication locale dans le centre de données fait abstraction des adresses IP internes, vous ne pouvez donc pas configurer de règles de pare-feu avec des restrictions d’adresse IP. 
+Vous pouvez ajouter la sécurité réseau à un compte de stockage Azure en restreignant l’accès avec un [pare-feu et des règles de pare-feu](../storage/common/storage-network-security.md). Toutefois, cette configuration crée une difficulté pour Azure et d’autres services Microsoft qui ont besoin d’accéder au compte de stockage. La communication locale dans le centre de données fait abstraction des adresses IP internes, vous ne pouvez donc pas configurer de règles de pare-feu avec des restrictions d’adresse IP.
 
 pour accéder aux comptes de stockage derrière des Pare-feu à l’aide du connecteur Stockage Blob :
 
@@ -183,19 +183,24 @@ Autres solutions pour accéder aux comptes de stockage derrière des pare-feu :
 
 ### <a name="access-storage-accounts-in-other-regions"></a>Accéder aux comptes de stockage dans d’autres régions
 
-Les applications logiques n’ont pas directement accès aux comptes de stockage qui sont derrière des pare-feu dans la même région qu’elles. Pour contourner ce problème, placez vos applications logiques dans une région différente de celle de votre compte de stockage. Ensuite, donnez accès aux [adresses IP sortantes pour les connecteurs managés dans votre région](../logic-apps/logic-apps-limits-and-config.md#outbound).
+Les applications logiques n’ont pas directement accès aux comptes de stockage qui sont derrière des pare-feu dans la même région qu’elles. Pour contourner ce problème, placez vos applications logiques dans une région différente de celle de votre compte de stockage. Ensuite, donnez accès aux [adresses IP sortantes pour les connecteurs managés dans votre région](/connectors/common/outbound-ip-addresses#azure-logic-apps).
 
 > [!NOTE]
 > Cette solution ne s’applique pas aux connecteurs Stockage Table Azure et Stockage File d’attente Azure. À la place, pour accéder à votre connecteur Stockage Table ou Stockage File d’attente, [utilisez le déclencheur et les actions HTTP intégrés](../logic-apps/logic-apps-http-endpoint.md).
 
 Pour ajouter vos adresses IP sortantes au Pare-feu de compte de stockage :
 
-1. Notez les [adresses IP sortantes](../logic-apps/logic-apps-limits-and-config.md#outbound) pour la région de votre application logique.
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Ouvrez la page de votre compte de stockage. Dans le menu de navigation, sous **Sécurité + mise en réseau**, sélectionnez **Mise en réseau**. 
-1. Sous **Autoriser l’accès depuis**, sélectionnez l’option **Réseaux sélectionnés**. Les paramètres associés s’affichent désormais sur la page.
-1. Sous **Pare-feu**, ajoutez les adresses ou plages d’adresses IP qui doivent être accessibles. 
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-ip-configure.png" alt-text="Capture d’écran de la page Mise en réseau du compte de stockage d’objets blob dans le portail Azure, montrant les paramètres du pare-feu pour ajouter des adresses IP et des plages à la liste d’autorisation.":::
+1. Notez les [adresses IP sortantes du connecteur managé](/connectors/common/outbound-ip-addresses#azure-logic-apps) pour la région de votre application logique.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et recherchez votre ressource de compte de stockage.
+
+1. Dans le menu de ressource du compte de stockage, sous **Sécurité + réseau**, sélectionnez **Mise en réseau**.
+
+1. Sous **Autoriser l’accès depuis**, cliquez sur **Réseaux sélectionnés**. Les paramètres associés s’affichent désormais sur la page.
+
+1. Sous **Pare-feu**, ajoutez les adresses ou plages d’adresses IP qui doivent être accessibles.
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-ip-configure.png" alt-text="Capture d’écran de la page Mise en réseau du compte de stockage d’objets blob dans le portail Azure, montrant les paramètres du pare-feu pour ajouter des adresses IP et des plages à la liste d’autorisation.":::
 
 ### <a name="access-storage-accounts-through-trusted-virtual-network"></a>Accéder aux comptes de stockage via un réseau virtuel approuvé
 

@@ -3,13 +3,13 @@ title: Restaurer des machines virtuelles avec le Portail Azure
 description: Restaurer une machine virtuelle Azure à partir d’un point de récupération à l’aide du portail Azure, et notamment de la fonctionnalité de restauration inter-régions.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: 75320c54c9496b1c978fdabb8a0a7560087f777c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: cbe511388755e31a2d295a4cf8ed58e78c9afdc2
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524693"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079520"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -85,7 +85,10 @@ Cette [option de restauration](#restore-options) vous permet de créer rapidemen
 1. Dans **Restaurer la machine virtuelle** > **Créer** > **Type de restauration**, sélectionnez **Créer une machine virtuelle**.
 1. Dans **Nom de la machine virtuelle**, spécifiez une machine virtuelle qui n’existe pas dans l’abonnement.
 1. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant pour la nouvelle machine virtuelle ou créez-en un avec un nom global unique. Si vous attribuez un nom qui existe déjà, Azure attribue au groupe le même nom que celui de la machine virtuelle.
-1. Dans **Réseau virtuel**, sélectionnez le réseau virtuel dans lequel la machine virtuelle sera placée. Tous les réseaux virtuels associés à l’abonnement sont affichés. Sélectionnez le sous-réseau. Le premier sous-réseau est sélectionné par défaut.
+1. Dans **Réseau virtuel**, sélectionnez le réseau virtuel dans lequel la machine virtuelle sera placée. Tous les réseaux virtuels associés à l’abonnement au même emplacement que le coffre, qui sont actifs et non attachés à un groupe d’affinités, sont affichés. Sélectionnez le sous-réseau.
+
+   Le premier sous-réseau est sélectionné par défaut.
+
 1. Dans **Emplacement de mise en lots**, spécifiez le compte de stockage pour la machine virtuelle. [Plus d’informations](#storage-accounts)
 
     ![Assistant Restaurer une configuration - Choisir les options de restauration](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)

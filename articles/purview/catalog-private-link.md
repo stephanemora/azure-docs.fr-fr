@@ -6,15 +6,19 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: 37600a101c44f556eed3678910254f9832f77366
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.date: 09/27/2021
+ms.openlocfilehash: 925c556ccc5657af604eb80d5d697ed6ebcb5260
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535392"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210622"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Utiliser des points de terminaison privés pour votre compte Azure Purview
+
+> [!IMPORTANT]
+> Si vous avez créé un point de terminaison privé de _portail_ pour votre compte Purview **avant le 27 septembre 2021 à 15h30 UTC**, vous devez effectuer les actions requises détaillées dans [Reconfigurer DNS pour les points de terminaison privés du portail](#reconfigure-dns-for-portal-private-endpoints). **Ces actions doivent être effectuées avant le 11 octobre 2021. Dans le cas contraire, les points de terminaison privés du portail existants cesseront de fonctionner**.
+
 
 Cet article décrit comment configurer des points de terminaison privés pour Azure Purview.
 
@@ -29,7 +33,7 @@ Vous pouvez déployer des points de terminaison privés _d’ingestion_ si vous 
 
 :::image type="content" source="media/catalog-private-link/purview-private-link-overview.png" alt-text="Capture d’écran montrant Azure Purview avec des points de terminaison privés."::: 
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de déployer des points de terminaison privés pour le compte Azure Purview, vérifiez que vous respectez les prérequis suivants :
 
@@ -42,12 +46,10 @@ Avant de déployer des points de terminaison privés pour le compte Azure Purvie
 
 Utilisez la liste de vérification recommandée suivante pour effectuer le déploiement d’un compte Azure Purview avec des points de terminaison privés :
 
-
 |Scénario  |Objectifs  |
 |---------|---------|
-|**Scénario 1** - [Se connecter de manière privée et sécurisée à votre compte Purview](./catalog-private-link-account-portal.md)   | Vous devez activer l’accès à votre compte Azure Purview, notamment l’accès à _Azure Purview Studio_ et à l’API Atlas via des points de terminaison privés. (Déployez des points de terminaison privés de _compte_ et de _portail_).   |
-|**Scénario 2** - [Analyser vos sources de données de manière privée et sécurisée](./catalog-private-link-ingestion.md)  | Vous devez analyser les sources de données localement et sur Azure derrière un réseau virtuel à l’aide du runtime d’intégration auto-hébergé. (Déployez des points de terminaison privés _d’ingestion_.)    |
-|**Scénario 3** - [Se connecter à Azure Purview et analyser des sources de données de manière privée et sécurisée](./catalog-private-link-end-to-end.md) |Vous devez restreindre l’accès à votre compte Azure Purview uniquement à l’aide d’un point de terminaison privé, notamment à Azure Purview Studio, aux API Atlas et analyser les sources de données localement et sur Azure derrière un réseau virtuel à l’aide du runtime d’intégration auto-hébergé, garantissant ainsi l’isolement réseau de bout en bout. (Déployez des points de terminaison privés de _compte_, de _portail_ et _d’ingestion_.)   |
+|**Scénario 1** - [Se connecter à Azure Purview et analyser des sources de données de manière privée et sécurisée](./catalog-private-link-end-to-end.md) |Vous devez restreindre l’accès à votre compte Azure Purview uniquement à l’aide d’un point de terminaison privé, notamment à Azure Purview Studio, aux API Atlas et analyser les sources de données localement et sur Azure derrière un réseau virtuel à l’aide du runtime d’intégration auto-hébergé, garantissant ainsi l’isolement réseau de bout en bout. (Déployez des points de terminaison privés de _compte_, de _portail_ et _d’ingestion_.)   |
+|**Scénario 2** - [Se connecter de manière privée et sécurisée à votre compte Purview](./catalog-private-link-account-portal.md)   | Vous devez activer l’accès à votre compte Azure Purview, notamment l’accès à _Azure Purview Studio_ et à l’API Atlas via des points de terminaison privés. (Déployez des points de terminaison privés de _compte_ et de _portail_).   |
 
 ## <a name="support-matrix-for-scanning-data-sources-through-_ingestion_-private-endpoint"></a>Matrice de prise en charge pour l’analyse des sources de données via un point de terminaison privé _d’ingestion_
 
@@ -64,6 +66,51 @@ Pour les scénarios où le point de terminaison privé _d’ingestion_ est utili
 |Azure SQL Managed Instance | Runtime d’intégration auto-hébergé| Authentification SQL|
 |Azure Cosmos DB| Runtime d’intégration auto-hébergé| Clé du compte|
 |SQL Server | Runtime d’intégration auto-hébergé| Authentification SQL|
+|Azure Synapse Analytics | Runtime d’intégration auto-hébergé| Principal de service|
+|Azure Synapse Analytics | Runtime d’intégration auto-hébergé| Authentification SQL|
+
+## <a name="reconfigure-dns-for-portal-private-endpoints"></a>Reconfigurer DNS pour les points de terminaison privés du portail
+
+Si vous avez créé un point de terminaison privé de _portail_ pour votre compte Purview **avant le 27 septembre 2021 à 15h30 UTC**, vous devez effectuer les actions requises détaillées dans cette section.
+
+- Si vous **Utilisez un DNS personnalisé ou si vous avez ajouté des enregistrements A DNS requis directement** sur le fichier hôte de vos ordinateurs, **aucune action n’est requise**. 
+
+- Si vous avez **une intégration configurée de la zone de DNS privé Azure** pour votre compte Purview, procédez comme suit pour redéployer les points de terminaison privés afin de reconfigurer les paramètres DNS : 
+
+    1. Déployez un nouveau point de terminaison privé du portail :
+       
+        1. Accédez au [Portail Azure](https://portal.azure.com), puis cliquez sur votre compte Azure Purview, et sous **Paramètres**, sélectionnez **Mise en réseau**, puis sélectionnez **Connexions de point de terminaison privé**.
+
+            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal.png" alt-text="Capture d’écran montrant comment créer un point de terminaison privé de portail.":::
+
+        2. Sélectionnez **+ Point de terminaison privé** pour créer un point de terminaison privé.
+
+        3. Entrez les informations de base.
+
+        4. Sous l’onglet **Ressource**, pour **Type de ressource**, sélectionnez **Microsoft.Purview/portal**.
+
+        5. Pour **Ressource**, sélectionnez le compte Azure Purview et pour **Sous-ressource cible**, sélectionnez **portail**.
+
+        6. Sous l’onglet **Configuration**, sélectionnez le réseau virtuel et, si vous le souhaitez, sélectionnez la zone de DNS privé Azure pour créer une zone Azure DNS.
+            
+            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png" alt-text="Capture d’écran montrant comment créer un point de terminaison privé de portail et des paramètres DNS.":::
+
+        7. Accédez à la page de résumé, puis sélectionnez **Créer** pour créer le point de terminaison privé du portail.
+
+    2. Supprimez le point de terminaison privé du portail précédent associé au compte Purview. 
+
+    3. Assurez-vous qu’une nouvelle zone de DNS privé Azure (privatelink.purviewstudio.azure.com) est créée pendant le déploiement du point de terminaison privé du portail et qu’un enregistrement A correspondant (Web) existe dans la zone de DNS privé. 
+    
+    4. Assurez-vous que vous êtes en mesure de charger correctement Azure Purview Studio. Il faudra peut-être quelques minutes (environ 10 minutes) avant que le nouveau routage DNS ne prenne effet après la reconfiguration du DNS. Vous pouvez patienter quelques minutes et réessayer s’il ne se charge pas immédiatement.
+    
+    5. Si la navigation échoue, exécutez nslookup web.purview.azure.com qui doit être résolu en une adresse IP privée associée au point de terminaison privé du portail.
+  
+    6. Répétez les étapes 1 à 3 ci-dessus pour tous les points de terminaison privés du portail existants. 
+
+- Si vous avez **configuré la résolution DNS locale ou personnalisée** (par exemple, si vous utilisez vos propres serveurs DNS ou si vous avez configuré des fichiers hôtes), effectuez les actions suivantes : 
+
+  - Si votre enregistrement DNS est `web.purview.azure.com`, **aucune action n’est requise**.  
+  - Si votre enregistrement DNS est `web.privatelink.purview.azure.com`, mettez à jour l’enregistrement vers `web.privatelink.purviewstudio.azure.com`. 
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions  
 
@@ -77,4 +124,5 @@ Pour afficher la liste des limitations actuelles liées aux points de terminaiso
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Déployer des points de terminaison privés d’ingestion](./catalog-private-link-ingestion.md)
+- [Déployer un réseau privé de bout en bout](./catalog-private-link-end-to-end.md)
+- [Déployer un réseau privé pour Studio Purview](./catalog-private-link-account-portal.md)

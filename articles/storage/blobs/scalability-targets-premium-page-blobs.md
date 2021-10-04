@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 09/24/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 23a176bfa5e3861dbc4ad5c03ea54fc847d3f56b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9d669d583563e81fa55d3626e6505ebe108340c
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96922535"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153460"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Objectifs d’extensibilité et de performances pour les comptes de stockage d’objets blob de pages Premium
 
@@ -31,11 +31,13 @@ Les objectifs d’extensibilité des comptes de stockage d’objets blob de page
 
 | Capacité totale des comptes                            | Bande passante totale pour un compte de stockage localement redondant                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| Capacité du disque : 4 To (disque individuel)/35 To (total cumulé de tous les disques) <br>Capacité d’instantané : 10 To | Jusqu’à 50 Go par seconde pour les données entrantes <sup>1</sup> et sortantes <sup>2</sup> |
+| Capacité du disque : 4 To (disque individuel)/35 To (total cumulé de tous les disques) <br>Capacité d’instantané : 10 To<sup>3</sup> | Jusqu’à 50 Go par seconde pour les données entrantes <sup>1</sup> et sortantes <sup>2</sup> |
 
 <sup>1</sup> Toutes les données (demandes) envoyées à un compte de stockage
 
 <sup>2</sup> Toutes les données (réponses) reçues d’un compte de stockage
+
+<sup>3</sup> Le nombre total d’instantanés d’un objet blob de pages individuel peut avoir la valeur 100.
 
 Un compte d’objets blob de pages Premium est un compte à usage général configuré pour des performances Premium. Les comptes de stockage v2 à usage général sont recommandés.
 

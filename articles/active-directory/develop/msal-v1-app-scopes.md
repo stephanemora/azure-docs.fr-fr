@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 67273a5e0c29a8a3ba7b7fdfcc3ccba2e5105c7c
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: c1d9c88825dc8460c619131b8f69b5e802a8758b
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535187"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080747"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Étendues pour une API web acceptant des jetons v1.0
 
@@ -83,4 +83,6 @@ var scopes = [ ResourceId + "/.default"];
 
 ## <a name="scopes-to-request-for-a-client-credential-flowdaemon-app"></a>Étendues à demander pour le flux d’informations d’identification d’un client/l’application de démon
 
-En cas de flux d’informations d’identification du client, l’étendue à passer est également `/.default`. Cela indique à Azure AD toutes les autorisations au niveau de l’application que l’administrateur a acceptées dans l’inscription de l’application.
+Pour le flux standard d’informations d’identification du client, utilisez `/.default`. Par exemple : `https://graph.microsoft.com/.default`.
+
+Azure AD inclura automatiquement toutes les autorisations au niveau de l’application auxquelles l’administrateur a consenti dans le jeton d’accès pour le flux d’informations d’identification du client.

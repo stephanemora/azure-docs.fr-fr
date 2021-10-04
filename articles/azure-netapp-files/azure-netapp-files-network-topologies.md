@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 09/28/2021
 ms.author: ramakk
-ms.openlocfilehash: d002932bca51300fa6a031ce7ab0d69186afe9c3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6d82310eea944d91124025c3d894f543448f82e1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311683"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218676"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Consignes pour planifier un réseau Azure NetApp Files
 
@@ -37,7 +37,7 @@ Les fonctionnalités ci-dessous ne sont actuellement pas prises en charge pour A
 
 * Groupes de sécurité réseau (NSG) appliqués au sous-réseau délégué
 * Itinéraires définis par l’utilisateur (UDR) appliqués au sous-réseau délégué
-* Stratégies Azure (par exemple, des stratégies d’affectation de noms personnalisés) sur l’interface Azure NetApp Files
+* Stratégies Azure personnalisées (par exemple, des stratégies d’affectation de noms personnalisés) sur l’interface Azure NetApp Files
 * Équilibreurs de charge pour le trafic d’Azure NetApp Files
 * WAN virtuel Azure 
 * Passerelles de réseau virtuel redondantes dans une zone (références SKU de passerelle avec AZ) 

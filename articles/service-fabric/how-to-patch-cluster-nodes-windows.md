@@ -3,12 +3,12 @@ title: Corriger le système d’exploitation Windows dans votre cluster Service 
 description: Voici comment activer les mises à niveau automatiques de l’image du système d’exploitation pour corriger les nœuds de cluster Service Fabric s’exécutant sur Windows.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: 187217a0d8195917d1dfe7d726b987efbb07f8f8
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 5a3b2c78f0a7a3103c2fc56fe518739ac648ad31
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738984"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796492"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -24,6 +24,8 @@ L’obtention de [mises à niveau automatiques de l’image du système d’expl
 Assurez-vous que les paramètres de durabilité ne sont pas incompatibles avec le cluster Service Fabric et l’extension Service Fabric, car une incompatibilité entraînera des erreurs de mise à niveau. Les niveaux de durabilité peuvent être modifiés selon les instructions indiquées sur[cette page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
 Avec la durabilité Bronze, la mise à jour automatique de l'image du système d'exploitation n'est pas disponible. Bien que l'[application Patch Orchestration](service-fabric-patch-orchestration-application.md) (destinée uniquement aux clusters hébergés non-Azure) *ne soit pas recommandée* pour les niveaux de durabilité Argent ou supérieurs, il s’agit de votre seule option pour automatiser les mises à jour Windows en ce qui concerne les domaines de mise à niveau de Service Fabric.
+
+Si vous souhaitez passer de l’application Patch Orchestration à la mise à niveau automatique de l’image du système d’exploitation, vous devez d’abord interrompre l’utilisation de l’application Patch Orchestration Application.
 
 ## <a name="enable-auto-os-upgrades-and-disable-windows-update"></a>Activer les mises à niveau automatiques du système d’exploitation et désactivez Windows Update
 

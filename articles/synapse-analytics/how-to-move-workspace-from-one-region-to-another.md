@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: phanir
 ms.reviewer: jrasnick
-ms.openlocfilehash: 015128d986ab0e32a1377da8b91c319895264aa9
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 6ad246eefb86c31291d2a9745c6f77e276701744
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310295"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214082"
 ---
 # <a name="move-an-azure-synapse-analytics-workspace-from-one-region-to-another"></a>Déplacer un espace de travail Azure Synapse Analytics d’une région à une autre
 
@@ -54,7 +54,7 @@ Le déplacement d’un espace de travail Azure Synapse d’une région vers une 
 1. Testez le nouvel espace de travail sur la région cible et mettez à jour toutes les entrées DNS qui pointent vers l’espace de travail de la région source.
 1. Si une connexion de point de terminaison privée est créée sur l’espace de travail source, créez-en une dans l’espace de travail de la région cible.
 1. Vous pouvez supprimer l’espace de travail dans la région source après l’avoir testé minutieusement et router toutes les connexions à l’espace de travail de la région cible.
-
+## <a name="prepare"></a>Préparation
 ## <a name="step-1-create-an-azure-synapse-workspace-in-a-target-region"></a>Étape 1 : créer un espace de travail Azure Synapse dans une région cible
 
 Dans cette section, vous allez créer l’espace de travail Azure Synapse à l’aide d’Azure PowerShell, de l’interface CLI Azure et du portail Azure. Vous allez créer un groupe de ressources avec un compte Azure Data Lake Storage Gen2 qui sera utilisé comme stockage par défaut pour l’espace de travail dans le cadre du script PowerShell et du script CLI. Si vous souhaitez automatiser le processus de déploiement, appelez ces scripts PowerShell ou CLI à partir du pipeline de mise en production DevOps.
@@ -289,7 +289,7 @@ New-AzSynapseSparkPool `
 az synapse spark pool create --name $sparkPoolName --workspace-name $workspaceName --resource-group $resourceGroupName `
 --spark-version $sparkVersion --node-count 3 --node-size small
 ```
-
+## <a name="move"></a>Déplacer
 ## <a name="step-4-restore-a-dedicated-sql-pool"></a>Etape 4 : Restaurer un pool SQL dédié 
 
 ### <a name="restore-from-geo-redundant-backups"></a>Restauration à partir de sauvegardes géo-redondantes
@@ -352,7 +352,7 @@ Select-Object Id,Command,JobStateInfo,PSBeginTime,PSEndTime,PSJobTypeName,Error 
 ```
 Une fois le pool SQL dédié restauré, créez toutes les connexions SQL dans Azure Synapse. Pour créer toutes les connexions, suivez les étapes dans [Créer une connexion](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-## <a name="step-5-create-a-serverless-sql-pool-spark-pool-and-objects"></a>Etape 5 : créer un pool SQL sans serveur, un pool Spark et des objets
+## <a name="step-5-create-a-serverless-sql-pool-spark-pool-database-and-objects"></a>Étape 5 : Créer un pool SQL sans serveur, une base de données de pool Spark et des objets
 
 Vous ne pouvez ni sauvegarder ni restaurer les bases de données du pool SQL sans serveur et des pools Spark. En guise de solution de contournement possible, vous pouvez :
 
@@ -364,7 +364,7 @@ Vous ne pouvez ni sauvegarder ni restaurer les bases de données du pool SQL san
 
 ## <a name="step-6-deploy-artifacts-and-pipelines-by-using-cicd"></a>Étape 6 : Déployer des artefacts et des pipelines à l’aide de CI/CD 
 
- Pour savoir comment intégrer un espace de travail Azure Synapse avec Azure DevOps ou GitHub et comment déployer les artefacts dans l’espace de travail d’une région cible, suivez les étapes dans [Intégration continue et de livraison continue (CI/CD) pour un espace de travail Azure Synapse](cicd/continuous-integration-deployment.md). 
+ Pour savoir comment intégrer un espace de travail Azure Synapse avec Azure DevOps ou GitHub et comment déployer les artefacts dans l’espace de travail d’une région cible, suivez les étapes dans [Intégration continue et de livraison continue (CI/CD) pour un espace de travail Azure Synapse](cicd/continuous-integration-delivery.md). 
 
 Une fois que l’espace de travail est intégré à Azure DevOps, vous trouverez une branche portant le nom workspace_publish. Cette branche contient le modèle d’espace de travail qui inclut des définitions pour les artefacts tels que les Blocs-notes, les Scripts SQL, les Jeux de données, les Services liés, les Pipelines, les Déclencheurs et la définition de tâche Spark.
 
@@ -484,6 +484,11 @@ Pour configurer le contrôle d’accès pour l’espace de travail Azure Synapse
 
 Pour recréer les points de terminaison privés managés à partir de l’espace de travail de la région source dans votre espace de travail de la région cible, consultez [Créer un point de terminaison privé managé vers votre source de données](security/how-to-create-managed-private-endpoints.md). 
 
+## <a name="discard"></a>Abandonner
+Si vous souhaitez abandonner l’espace de travail de la région cible, supprimez-le. Pour ce faire, sélectionnez le groupe de ressources à partir de votre tableau de bord dans le portail, puis sélectionnez Supprimer en haut de la page Groupe de ressources.
+
+## <a name="clean-up"></a>Nettoyage
+Pour valider les modifications et terminer le déplacement de l’espace de travail, supprimez l’espace de travail de la région source après avoir testé l’espace de travail dans la région cible. Pour ce faire, sélectionnez le groupe de ressources qui a l’espace de travail de la région source depuis votre tableau de bord dans le portail, puis sélectionnez Supprimer en haut de la page Groupe de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

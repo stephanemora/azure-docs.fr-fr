@@ -1,39 +1,39 @@
 ---
-title: Tolérance de panne de l’activité de copie dans Azure Data Factory
+title: Tolérance de panne de l’activité de copie
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment ajouter une tolérance de panne à l’activité de copie dans Azure Data Factory en ignorant les données incompatibles.
+description: Découvrez comment ajouter une tolérance de panne à l’activité de copie dans des pipelines Azure Data Factory et Synapse Analytics en ignorant les données incompatibles.
 author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 09/09/2021
 ms.author: yexu
-ms.openlocfilehash: 544d298616c8021991fedb1ee47d452cfbc427f3
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: c6b5a08cc4f0cc90f8ae827f4f8c2c7469e92b44
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255033"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767562"
 ---
-#  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
+#  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Tolérance de panne de l’activité de copie dans les pipelines Azure Data Factory et Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Version actuelle](copy-activity-fault-tolerance.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Lorsque vous copiez des données de la source vers le magasin de destination, l’activité de copie d’Azure Data Factory fournit un certain niveau de tolérance de panne pour éviter des interruptions dues à des défaillances survenant au beau milieu d’un déplacement de données. Par exemple, vous procédez à la copie de millions de lignes de la source vers le magasin de destination alors qu’une clé primaire a été créée dans la base de données de destination et qu’aucune clé primaire n’a été définie pour la base de données source. Lorsque vous copierez des lignes dupliquées de la source vers la destination, vous serez confronté à l’échec dû à la violation de la clé primaire sur la base de données de destination. À ce stade, l’activité de copie vous propose deux moyens de gérer ces erreurs : 
+Lorsque vous copiez des données de la source vers le magasin de destination, l’activité de copie fournit un certain niveau de tolérance de panne pour éviter des interruptions dues à des défaillances survenant au beau milieu d’un déplacement de données. Par exemple, vous procédez à la copie de millions de lignes de la source vers le magasin de destination alors qu’une clé primaire a été créée dans la base de données de destination et qu’aucune clé primaire n’a été définie pour la base de données source. Lorsque vous copierez des lignes dupliquées de la source vers la destination, vous serez confronté à l’échec dû à la violation de la clé primaire sur la base de données de destination. À ce stade, l’activité de copie vous propose deux moyens de gérer ces erreurs : 
 - Vous pouvez abandonner l’activité de copie dès qu’un échec est rencontré. 
 - Vous pouvez continuer l’opération de copie en activant la tolérance de panne pour ignorer les données incompatibles. Par exemple, ignorer la ligne dupliquée dans ce cas. De plus, vous pouvez consigner les données ignorées en activant le journal de session dans l’activité de copie. Pour plus d’informations, reportez-vous au [journal de session dans l’activité de copie](copy-activity-log.md) .
 
 ## <a name="copying-binary-files"></a>Copie de fichiers binaires 
 
-Azure Data Factory prend en charge les scénarios de tolérance de panne suivants au cours de la copie de fichiers binaires. Vous pouvez choisir d’abandonner l’activité de copie, ou de continuer à copier le reste des données dans les scénarios suivants :
+Le service prend en charge les scénarios de tolérance de panne suivants au cours de la copie de fichiers binaires. Vous pouvez choisir d’abandonner l’activité de copie, ou de continuer à copier le reste des données dans les scénarios suivants :
 
-1. Les fichiers à copier par Azure Data Factory sont au même moment en cours de suppression par d’autres applications.
-2. Certains dossiers ou fichiers particuliers n’autorisent pas l’accès à Azure Data Factory, car les listes de contrôle d’accès de ces fichiers ou dossiers nécessitent un niveau d’autorisation supérieur à celui des informations de connexion configurées dans Azure Data Factory.
-3. Un ou plusieurs fichiers ne sont pas trouvés cohérents entre les magasins source et de destination si vous activez le paramètre de vérification de cohérence des données dans Azure Data Factory.
+1. Les fichiers à copier par le service sont au même moment en cours de suppression par d’autres applications.
+2. Certains dossiers ou fichiers particuliers n’autorisent pas l’accès au service, car les listes de contrôle d’accès de ces fichiers ou dossiers nécessitent un niveau d’autorisation supérieur à celui des informations de connexion configurées.
+3. Un ou plusieurs fichiers ne sont pas trouvés cohérents entre les magasins source et de destination si vous activez le paramètre de vérification de cohérence des données.
 
 ### <a name="configuration"></a>Configuration 
 Lorsque vous copiez des fichiers binaires entre des magasins de stockage, vous pouvez activer la tolérance de panne de la façon suivante : 
@@ -79,8 +79,8 @@ Lorsque vous copiez des fichiers binaires entre des magasins de stockage, vous p
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | -------- 
 skipErrorFile | Groupe de propriétés permettant de spécifier les types de défaillances que vous souhaitez ignorer pendant le déplacement des données. | | Non
-fileMissing | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer les fichiers qui sont en cours de suppression par d’autres applications lorsque Azure Data Factory procède dans l’intervalle à la copie. <br/> \- True : vous souhaitez copier les fichiers en ignorant ceux qui sont supprimés par d’autres applications. <br/> - False : vous voulez abandonner l’activité de copie lorsque des fichiers sont supprimés du magasin source au cours d’un déplacement de données. <br/>Sachez que cette propriété est définie sur True par défaut. | True(default) <br/>False | Non
-fileForbidden | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer des fichiers particuliers lorsque les listes de contrôle d’accès de ces fichiers ou dossiers nécessitent un niveau d’autorisation plus élevé que celui de la connexion configurée dans Azure Data Factory. <br/> \- True : vous souhaitez effectuer la copie en ignorant ces fichiers. <br/> - False : vous voulez abandonner l’activité de copie lorsque vous êtes confronté au problème d’autorisation sur des dossiers ou des fichiers. | True <br/>False(default) | Non
+fileMissing | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer les fichiers qui sont en cours de suppression par d’autres applications au moment où le service effectue l’opération de copie. <br/> \- True : vous souhaitez copier les fichiers en ignorant ceux qui sont supprimés par d’autres applications. <br/> - False : vous voulez abandonner l’activité de copie lorsque des fichiers sont supprimés du magasin source au cours d’un déplacement de données. <br/>Sachez que cette propriété est définie sur True par défaut. | True(default) <br/>False | Non
+fileForbidden | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer des fichiers particuliers lorsque les listes de contrôle d’accès de ces fichiers ou dossiers nécessitent un niveau d’autorisation plus élevé que celui de la connexion configurée. <br/> \- True : vous souhaitez effectuer la copie en ignorant ces fichiers. <br/> - False : vous voulez abandonner l’activité de copie lorsque vous êtes confronté au problème d’autorisation sur des dossiers ou des fichiers. | True <br/>False(default) | Non
 dataInconsistency | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer les données incohérentes entre les magasins source et de destination. <br/> - True : vous souhaitez effectuer la copie en ignorant les données incohérentes. <br/> - False : vous souhaitez abandonner l’activité de copie lorsque des données incohérentes ont été trouvées. <br/>Sachez que cette propriété n’est valide que lorsque vous définissez validateDataConsistency sur la valeur True. | True <br/>False(default) | Non
 invalidFileName | Une des paires clé-valeur dans le conteneur de propriétés skipErrorFile permettant de déterminer si vous voulez ignorer des fichiers particuliers quand les noms de fichiers ne sont pas valides pour le magasin source. <br/> \- True : vous voulez copier le reste en ignorant les fichiers qui ont des noms de fichiers non valides. <br/> - False : vous voulez abandonner l’activité de copie dès lors qu’un fichier a un nom de fichier non valide. <br/>Notez bien que cette propriété fonctionne seulement lors de la copie de fichiers binaires depuis un magasin de stockage vers ADLS Gen2 ou lors de la copie de fichiers binaires depuis AWS S3 vers n’importe quel magasin de stockage. | True <br/>False(default) | Non
 logSettings  | Groupe de propriétés pouvant être spécifié lorsque vous souhaitez journaliser les noms des objets ignorés. | &nbsp; | Non
@@ -133,9 +133,9 @@ Les fichiers journaux doivent être les fichiers CSV. Le schéma du fichier jou
 
 Colonne | Description 
 -------- | -----------  
-Timestamp | Timestamp lorsqu’Azure Data Factory ignore le fichier.
+Timestamp | Timestamp lorsque le fichier a été ignoré.
 Level | Niveau de journalisation de cet élément. Il sera au niveau « Avertissement » pour l’élément indiquant que le fichier est ignoré.
-NomOpération | Comportement opérationnel de l’activité de copie Azure Data Factory sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
+NomOpération | Comportement opérationnel de l’activité de copie sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
 OperationItem | Noms des fichiers à ignorer.
 Message | Informations supplémentaires permettant d’expliquer la raison pour laquelle le fichier est ignoré.
 
@@ -145,7 +145,7 @@ Timestamp,Level,OperationName,OperationItem,Message
 2020-03-24 05:35:41.0209942,Warning,FileSkip,"bigfile.csv","File is skipped after read 322961408 bytes: ErrorCode=UserErrorSourceBlobNotExist,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=The required Blob is missing. ContainerName: https://transferserviceonebox.blob.core.windows.net/skipfaultyfile, path: bigfile.csv.,Source=Microsoft.DataTransfer.ClientLibrary,'." 
 2020-03-24 05:38:41.2595989,Warning,FileSkip,"3_nopermission.txt","File is skipped after read 0 bytes: ErrorCode=AdlsGen2OperationFailed,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=ADLS Gen2 operation failed for: Operation returned an invalid status code 'Forbidden'. Account: 'adlsgen2perfsource'. FileSystem: 'skipfaultyfilesforbidden'. Path: '3_nopermission.txt'. ErrorCode: 'AuthorizationPermissionMismatch'. Message: 'This request is not authorized to perform this operation using this permission.'. RequestId: '35089f5d-101f-008c-489e-01cce4000000'..,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Operation returned an invalid status code 'Forbidden',Source=,''Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message='Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message=Operation returned an invalid status code 'Forbidden',Source=Microsoft.DataTransfer.ClientLibrary,',Source=Microsoft.DataTransfer.ClientLibrary,'." 
 ```
-Dans le journal ci-dessus, vous pouvez voir que bigfile.csv a été ignoré, car une autre application supprimait ce fichier lors de sa copie par Azure Data Factory. 3_nopermission.txt a été ignoré, car il n’est pas accessible à Azure Data Factory en raison d’un problème d’autorisation.
+Dans le journal ci-dessus, vous pouvez voir que bigfile.csv a été ignoré, car une autre application supprimait ce fichier lors de sa copie par le service. 3_nopermission.txt a été ignoré, car il n’est pas accessible au service en raison d’un problème d’autorisation.
 
 
 ## <a name="copying-tabular-data"></a>Copie de données tabulaires 
@@ -229,9 +229,9 @@ Les fichiers journaux seront les fichiers CSV. Le schéma du fichier journal es
 
 Colonne | Description 
 -------- | -----------  
-Timestamp | Timestamp lorsqu’Azure Data Factory ignore les lignes incompatibles.
+Timestamp | Timestamp lorsque les lignes incompatibles ont été ignorées.
 Level | Niveau de journalisation de cet élément. Il sera au niveau « Avertissement » si cet élément affiche les lignes ignorées
-NomOpération | Comportement opérationnel de l’activité de copie Azure Data Factory sur chaque ligne. Il sera « TabularRowSkip » pour indiquer que la ligne incompatible spécifique a été ignorée
+NomOpération | Comportement opérationnel de l’activité de copie sur chaque ligne. Il sera « TabularRowSkip » pour indiquer que la ligne incompatible spécifique a été ignorée
 OperationItem | Lignes ignorées depuis le magasin de données source.
 Message | Informations supplémentaires permettant d’expliquer la raison de l’incompatibilité de cette ligne particulière.
 

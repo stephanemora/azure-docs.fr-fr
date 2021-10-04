@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 08c0e844b941a8b8bc9ed110300b6bc3e5c1474c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e8176095bb50f4ead8337997669f4856de4b5873
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531568"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811586"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité de procédure stockée dans Azure Data Factory
 
@@ -40,14 +40,14 @@ La première étape consiste à créer une fabrique de données à l’aide du p
 2. Accédez au [portail Azure](https://portal.azure.com). 
 3. Cliquez sur **Nouveau** dans le menu de gauche, puis sur **Données + analyse** et sur **Data Factory**. 
    
-   ![Nouveau -> DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png" alt-text="Nouveau -> DataFactory":::
 2. Dans la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** comme **nom**. 
       
-     ![Page Nouvelle fabrique de données](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
+     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png" alt-text="Page Nouvelle fabrique de données":::
  
    Le nom de la fabrique de données Azure doit être un nom **global unique**. Si l’erreur suivante s’affiche pour le champ du nom, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory). Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
   
-     ![Nom indisponible - erreur](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
+     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png" alt-text="Nom indisponible - erreur":::
 3. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données. 
 4. Pour le **groupe de ressources**, effectuez l’une des opérations suivantes :
      
@@ -61,10 +61,10 @@ La première étape consiste à créer une fabrique de données à l’aide du p
 7. Cliquez sur **Créer**.
 8. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
 
-     ![mosaïque déploiement de fabrique de données](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
+     :::image type="content" source="media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png" alt-text="mosaïque déploiement de fabrique de données":::
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
-     ![Page d’accueil Data Factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png" alt-text="Page d’accueil Data Factory":::
 10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’application d’interface utilisateur (IU) d’Azure Data Factory dans un onglet séparé. 
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Créer un pipeline avec une activité de procédure stockée
@@ -72,14 +72,14 @@ Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory po
 
 1. Dans la page d'accueil, cliquez sur **Orchestrer** : 
 
-    ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
+    :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la page d’accueil ADF.":::
 
 2. Dans la boîte à outils **Activités**, développez **Général** et glissez-déplacez l’activité **Procédure stockée** vers la surface du concepteur de pipeline. 
 
-    ![Glisser-déplacer l’activité de procédure stockée](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png" alt-text="Glisser-déplacer l’activité de procédure stockée":::
 3. Dans la fenêtre de propriétés de l’activité de procédure stockée, basculez vers l’onglet **Compte SQL**, puis cliquez sur **+ Nouveau**. Vous créez une connexion à la base de données dans Azure SQL Database qui héberge le catalogue SSIS (base de données SSIDB). 
    
-    ![Bouton de nouveau service lié](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png" alt-text="Bouton de nouveau service lié":::
 4. Dans la fenêtre **Nouveau service lié**, procédez comme suit : 
 
     1. Sélectionnez **Azure SQL Database** comme **Type**.
@@ -91,7 +91,7 @@ Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory po
     7. Testez la connexion à la base de données en cliquant sur le bouton **Tester la connexion**.
     8. Enregistrez le service lié en cliquant sur le bouton **Enregistrer**. 
 
-        ![Capture d’écran montrant le processus d’ajout d’un nouveau service lié.](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png" alt-text="Capture d’écran montrant le processus d’ajout d’un nouveau service lié.":::
 5. Dans la fenêtre de propriétés, basculez vers l’onglet **Procédure stockée** à partir de l’onglet **Compte SQL** et effectuez les étapes suivantes : 
 
     1. Sélectionnez **Modifier**. 
@@ -107,29 +107,29 @@ Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory po
         DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END
         ```
 
-        ![Service lié Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
+        :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png" alt-text="Service lié Azure SQL Database":::
 6. Pour valider la configuration du pipeline, cliquez sur **Valider** dans la barre d’outils. Pour fermer le **Rapport de validation de pipeline**, cliquez sur **>>** .
 
-    ![Valider le pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png" alt-text="Valider le pipeline":::
 7. Publiez le pipeline dans Data Factory en cliquant sur le bouton **Publier tout**. 
 
-    ![Publish](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png" alt-text="Publier":::    
 
 ### <a name="run-and-monitor-the-pipeline"></a>Exécuter et surveiller le pipeline
 Dans cette section, vous déclenchez une exécution du pipeline puis vous la surveillez. 
 
 1. Pour déclencher une exécution de pipeline, cliquez sur **Déclencher** dans la barre d’outils, puis sur **Déclencher maintenant**. 
 
-    ![Déclencher maintenant](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+    :::image type="content" source="media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png" alt-text="Déclencher maintenant":::
 
 2. Dans la fenêtre **Exécution du pipeline**, sélectionnez **Terminer**. 
 3. Basculez vers l’onglet **Surveiller** sur la gauche. Vous voyez l’exécution de pipeline et son état, ainsi que d’autres informations (telles que l’heure de début d’exécution). Pour actualiser la vue, cliquez sur **Actualiser**.
 
-    ![Exécutions de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png" alt-text="Exécutions de pipeline":::
 
 3. Cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Une seule exécution d’activité est affichée, étant donnée que le pipeline n’a qu’une seule activité (activité de procédure stockée).
 
-    ![Exécutions d’activités](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png" alt-text="Exécutions d’activités":::
 
 4. Vous pouvez exécuter la **requête** suivante sur la base de données SSISDB dans SQL Database pour vérifier que le package s’est exécuté. 
 
@@ -137,7 +137,7 @@ Dans cette section, vous déclenchez une exécution du pipeline puis vous la sur
     select * from catalog.executions
     ```
 
-    ![Vérifier les exécutions de package](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png" alt-text="Vérifier les exécutions de package":::
 
 
 > [!NOTE]
