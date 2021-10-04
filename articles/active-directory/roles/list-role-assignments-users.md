@@ -13,12 +13,12 @@ ms.author: absinh
 ms.reviewer: rolyon
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed1a0906e31691cae86547f165d5b44ac6e1f7c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 58647d37da29066c14457ae6624763c800e6f123
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525377"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776415"
 ---
 # <a name="list-azure-ad-role-assignments-for-a-user"></a>Répertorier les attributions de rôle Azure AD d’un utilisateur
 
@@ -28,7 +28,7 @@ Un rôle peut être attribué à un utilisateur directement ou de manière trans
 
 - Module AzureADPreview (avec PowerShell)
 - Module Microsoft.Graph (avec PowerShell)
-- Consentement administrateur (avec l'Afficheur Graph pour l'API Microsoft Graph)
+- Consentement administrateur lors de l’utilisation de l’Afficheur Graph pour l’API Microsoft Graph
 
 Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
 
@@ -159,6 +159,6 @@ Procédez comme suit pour répertorier les rôles Azure AD attribués à un uti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Répertorier les attributions de rôle Azure AD](view-assignments.md)
-* [Attribuer des rôles Azure AD aux utilisateurs](manage-roles-portal.md)
+* [Lister les attributions de rôle Azure AD](view-assignments.md).
+* [Attribuer des rôles Azure AD aux utilisateurs](manage-roles-portal.md).
 * [Attribuer des rôles Azure AD aux groupes](groups-assign-role.md)

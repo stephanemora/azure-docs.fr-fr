@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5048b78c7d59b3358dbffe2e3e6eedf41decabb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20719182a9b97bc783ef2bdc16ccad327dba79aa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554273"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742574"
 ---
 # <a name="on-demand-provisioning-in-azure-ad-connect-cloud-sync"></a>Approvisionnement à la demande de la synchronisation cloud Azure AD Connect
 
@@ -24,6 +24,10 @@ Vous pouvez utiliser la fonctionnalité de synchronisation cloud d’Azure Activ
 
 > [!IMPORTANT] 
 > Lorsque vous utilisez la configuration à la demande, les filtres d’étendue ne sont pas appliqués à l’utilisateur que vous avez sélectionné. Vous pouvez utiliser l’approvisionnement à la demande sur des utilisateurs extérieurs aux unités d’organisation que vous avez spécifiées.
+
+Pour consulter plus d’informations et un exemple, regardez la vidéo suivante.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mW]
 
 ## <a name="validate-a-user"></a>Valider un utilisateur
 Pour utiliser l’approvisionnement à la demande, procédez comme suit :

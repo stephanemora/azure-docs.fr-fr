@@ -12,12 +12,12 @@ ms.date: 06/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9157b6212adac3c9bfa5f5c00a9c580a615bf8cf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 216123a60a69fc696423ac9d129201201cac8fbc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562203"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124739922"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gérer Azure AD B2C avec Microsoft Graph
 
@@ -25,6 +25,10 @@ Microsoft Graph vous permet de gérer les ressources dans votre répertoire Azur
 
 > [!NOTE]
 > Vous pouvez également créer par programmation un répertoire Azure AD B2C, ainsi que la ressource Azure correspondante liée à un abonnement Azure. Cette fonctionnalité n’est pas exposée via l’API Microsoft Graph, mais via l’API REST Azure. Pour plus d’informations, consultez [Locataires B2C – Créer](/rest/api/activedirectory/b2ctenants/create).
+
+Regardez cette vidéo pour en savoir plus sur la migration des utilisateurs Azure AD B2C à l’aide de l’API Microsoft Graph.
+
+>[!Video https://www.youtube.com/embed/9BRXBtkBzL4]
 
 ## <a name="prerequisites"></a>Prérequis
 

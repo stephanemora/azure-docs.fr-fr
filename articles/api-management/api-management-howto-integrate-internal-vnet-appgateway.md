@@ -4,18 +4,18 @@ titleSuffix: Azure API Management
 description: Installez et configurez le service Gestion des API Azure dans un réseau virtuel interne avec Application Gateway (pare-feu d’applications web) comme serveur frontal.
 services: api-management
 documentationcenter: ''
-author: solankisamir
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.author: sasolank
+ms.author: danlep
 ms.date: 06/10/2021
 ms.custom: devx-track-azurepowershell,contperf-fy21q4
-ms.openlocfilehash: 734dc2a8a2300f2fcccf5780a7ccbd9dfdcae6d4
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: e7db405d43ef41f4ebe90272498dae61bf56d817
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986369"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679539"
 ---
 # <a name="integrate-api-management-in-an-internal-virtual-network-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway
 
@@ -205,7 +205,7 @@ $apimAdminEmail = "admin@contoso.com" # administrator's email address
 $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
-La création et l’activation d’un service Gestion des API à ce niveau peuvent prendre entre 30 et 40 minutes. Une fois la commande exécutée, pour confirmer l’accès, reportez-vous à [Configuration DNS requise pour accéder au service Gestion des API du réseau virtuel interne](api-management-using-with-internal-vnet.md#apim-dns-configuration). 
+La création et l’activation d’un service Gestion des API à ce niveau peuvent prendre entre 30 et 40 minutes. Une fois la commande précédente exécutée, pour confirmer l’accès, reportez-vous à [Configuration DNS requise pour accéder au service Gestion des API du réseau virtuel interne](api-management-using-with-internal-vnet.md#dns-configuration). 
 
 ## <a name="set-up-custom-domain-names-in-api-management"></a>Configurer des noms de domaine personnalisés dans le service Gestion des API
 

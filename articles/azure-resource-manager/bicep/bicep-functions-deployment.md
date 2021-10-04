@@ -4,22 +4,17 @@ description: Décrit les fonctions à utiliser dans un fichier Bicep pour récup
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 53e9f34e2d04f68add7babd8c12b4fd583015847
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: e909ea77da32675beec6d5117430717acf274ab1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026368"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124731105"
 ---
 # <a name="deployment-functions-for-bicep"></a>Fonctions de déploiement pour Bicep
 
-Resource Manager offre les fonctions ci-après pour l’obtention de valeurs associées au déploiement actuel de votre fichier Bicep :
-
-* [deployment](#deployment)
-* [environment](#environment)
-
-Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonnements, consultez [Fonctions de ressource](./bicep-functions-resource.md).
+Cet article décrit les fonctions Bicep permettant d’obtenir les valeurs relatives au déploiement actuel.
 
 ## <a name="deployment"></a>deployment
 
@@ -200,4 +195,4 @@ L’exemple précédent retourne l’objet suivant lorsqu’il est déployé ve
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un fichier Bicep, consultez [comprendre la structure et la syntaxe des fichiers Bicep](./file.md).
+* Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonnements, consultez [Fonctions de ressource](./bicep-functions-resource.md).

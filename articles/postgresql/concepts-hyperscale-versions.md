@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: 299005d8d7c961335decbce46bab8c558d2589a1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8dd0929d56bac0b2f825d976ba07bd0956c0d063
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531966"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755197"
 ---
 # <a name="supported-database-versions-in-azure-database-for-postgresql--hyperscale-citus"></a>Versions de base de données prises en charge dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -22,15 +22,15 @@ La version de PostgreSQL s’exécutant dans un groupe de serveurs hyperscale (C
 
 ### <a name="postgresql-version-13"></a>PostgreSQL version 13
 
-La version mineure actuelle est 13.3. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/13/static/release-13-2.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est 13.4. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/13/release-13-4.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
 
 ### <a name="postgresql-version-12"></a>PostgreSQL version 12
 
-La version mineure actuelle est 12.7. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-6.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est 12.8. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/12/release-12-8.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
 
 ### <a name="postgresql-version-11"></a>PostgreSQL Version 11
 
-La version mineure actuelle est 11.12. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-11.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est 11.13. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/11/release-11-13.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
 
 ### <a name="postgresql-version-10-and-older"></a>PostgreSQL version 10 et antérieures
 

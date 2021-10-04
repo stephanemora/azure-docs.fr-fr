@@ -3,12 +3,12 @@ title: Azure Lab Services - Guide pratique pour apporter une image Linux personn
 description: Explique comment apporter une image Linux personnalisée depuis votre environnement de labo physique.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 919505e31526c3d17d42bd29d9cef3b46758c959
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 9a8591d383ac5230085bc83d1d791e9de830a99e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831394"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771362"
 ---
 # <a name="bring-a-linux-custom-image-from-your-physical-lab-environment"></a>Apporter une image personnalisée Linux depuis votre environnement de labo physique
 
@@ -38,7 +38,7 @@ Les étapes suivantes montrent comment créer une image Ubuntu 16.04\18.04\20.0
     - La machine virtuelle doit être créée en tant que machine virtuelle de **Génération 1**.
     - Utilisez l’option de configuration réseau **Commutateur par défaut** pour permettre à la machine virtuelle de se connecter à Internet.
     - Dans les paramètres **Connecter un disque dur virtuel**, la **taille** du disque *ne doit pas* être supérieure à 128 Go, comme indiqué dans l’image suivante.
-       
+
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Capture de l’écran Connecter un disque dur virtuel.":::
 
     - Dans les paramètres **Options d’installation**, sélectionnez le fichier **.iso** que vous avez téléchargé à partir d’Ubuntu.
@@ -52,7 +52,7 @@ Les étapes suivantes montrent comment créer une image Ubuntu 16.04\18.04\20.0
     Quand vous suivez les étapes précédentes, gardez à l’esprit certains points importants :
     - Les étapes créent une image [généralisée](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) quand vous exécutez la commande **deprovision+user**. Toutefois, cela ne garantit pas que l’image est exempte de toute information sensible ou qu’elle convient pour la redistribution.
     - La dernière étape consiste à convertir le fichier **VHDX** en un fichier **VHD**. Voici les étapes équivalentes qui montrent comment effectuer cette opération avec le **Gestionnaire Hyper-V** :
-        
+
         1. Accédez à **Gestionnaire Hyper-V** > **Action** > **Modifier le disque**.
         1. Ensuite, choisissez de **Convertir** le disque d’un fichier VHDX en disque dur virtuel.
         1. Pour le **Type de disque**, sélectionnez **Taille fixe**.
@@ -61,48 +61,47 @@ Les étapes suivantes montrent comment créer une image Ubuntu 16.04\18.04\20.0
 
 Pour vous aider à redimensionner le disque dur virtuel et à le convertir en un disque VHDX, vous pouvez également utiliser les applets de commande PowerShell suivantes :
 
-- [Resize-VHD](/powershell/module/hyper-v/resize-vhd?view=windowsserver2019-ps)
-- [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps)
+- [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
+- [Convert-VHD](/powershell/module/hyper-v/convert-vhd)
 
 ## <a name="upload-the-custom-image-to-a-shared-image-gallery"></a>Chargez l’image personnalisée sur une galerie d’images partagées
 
 1. Chargez le disque dur virtuel sur Azure pour créer un disque managé.
     1. Vous pouvez utiliser l’Explorateur Stockage ou AzCopy à partir de la ligne de commande, comme démontré dans l’article [Charger un disque dur virtuel sur Azure ou copier un disque managé dans une autre région](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
 
-    1. Après avoir chargé le disque dur virtuel, vous devriez désormais disposer d’un disque managé visible dans le portail Azure. 
-    
+    1. Après avoir chargé le disque dur virtuel, vous devriez désormais disposer d’un disque managé visible dans le portail Azure.
+
     Si votre ordinateur se met en veille ou se verrouille, le processus de chargement peut s’interrompre et échouer. Assurez-vous aussi que quand AzCopy se termine, vous révoquez l’accès SAS au disque. Dans le cas contraire, quand vous tentez de créer une image à partir du disque, vous obtenez une erreur : L’opération « Créer l’image » n’est pas prise en charge avec le disque « nom de votre disque » dans l’état « Chargement actif ». Code d’erreur : OperationNotAllowed*. »
-    
+
     Utilisez l’onglet **Taille+Performances** du portail Azure pour le disque managé pour modifier la taille de votre disque. Comme mentionné précédemment, la taille *ne doit pas* être supérieure à 128 Go.
 
 1. Dans une galerie d’images partagées, créez une définition et une version d’image :
-    1. [Créez une définition d’image](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition) :
+    1. [Créez une définition d’image](../virtual-machines/image-version.md) :
         - Choisissez **Gen 1** pour la **génération de la machine virtuelle**.
         - Choisissez **Linux** comme **Système d’exploitation**.
         - Choisissez **Généralisé** comme **État du système d’exploitation**.
-     
-    Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](../virtual-machines/shared-image-galleries.md#image-definitions). 
-    
+
+    Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](../virtual-machines/shared-image-galleries.md#image-definitions).
+
     Vous pouvez également choisir d’utiliser une définition d’image existante, et créer une nouvelle version de votre image personnalisée.
-    
-1. [Créez une version d’image](../virtual-machines/windows/shared-images-portal.md#create-an-image-version) :
-   - La propriété **Numéro de version** utilise le format suivant : *VersionMajeure.VersionMineure.Patch*. Lorsque vous utilisez Lab Services pour créer un labo et choisir une image personnalisée, la version la plus récente de l’image est automatiquement utilisée. La version la plus récente est choisie en fonction de la valeur la plus élevée de MajorVersion, de MinorVersion, puis de Patch.
+
+1. [Créez une version d’image](../virtual-machines/image-version.md) :
+    - La propriété **Numéro de version** utilise le format suivant : *VersionMajeure.VersionMineure.Patch*. Lorsque vous utilisez Lab Services pour créer un labo et choisir une image personnalisée, la version la plus récente de l’image est automatiquement utilisée. La version la plus récente est choisie en fonction de la valeur la plus élevée de MajorVersion, de MinorVersion, puis de Patch.
     - Pour la **Source**, sélectionnez **Disques et/ou captures instantanées** à partir de la liste déroulante.
     - Pour la propriété **Disque de système d’exploitation**, choisissez le disque que vous avez créé lors des étapes précédentes.
-    
+
     Pour plus d’informations sur les valeurs que vous pouvez spécifier dans une définition d’image, consultez [Versions d’image](../virtual-machines/shared-image-galleries.md#image-versions).
 
 ## <a name="create-a-lab"></a>Création d’un laboratoire
-   
+
 [Créez le labo](tutorial-setup-classroom-lab.md) dans Lab Services et sélectionnez l’image personnalisée à partir de la galerie d’images partagées.
 
-Si vous avez augmenté la taille du disque *après* l’installation du système d’exploitation sur la machine virtuelle Hyper-V d’origine, vous devrez peut-être également étendre la partition dans le système de fichiers de Linux pour utiliser l’espace de disque non alloué :
-- Connectez-vous au modèle de machine virtuelle du labo et suivez les étapes similaires à celles présentées dans [Étendre une partition de disque et un système de fichiers](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
-    
+Si vous avez augmenté la taille du disque *après* l’installation du système d’exploitation sur la machine virtuelle Hyper-V d’origine, vous devrez peut-être également étendre la partition dans le système de fichiers de Linux pour utiliser l’espace de disque non alloué.  Connectez-vous au modèle de machine virtuelle du labo et suivez les étapes similaires à celles présentées dans [Étendre une partition de disque et un système de fichiers](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
+
 Le disque du système d’exploitation se trouve généralement sur la partition **/dev/sad2**. Pour afficher la taille actuelle de la partition du disque du système d’exploitation, utilisez la commande **df -h**.
-    
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble de Shared Image Gallery](../virtual-machines/shared-image-galleries.md)
-* [Attacher ou détacher une galerie d’images partagées](how-to-attach-detach-shared-image-gallery.md)
-* [Utiliser une galerie d’images partagées](how-to-use-shared-image-gallery.md)
+- [Vue d’ensemble de Shared Image Gallery](../virtual-machines/shared-image-galleries.md)
+- [Attacher ou détacher une galerie d’images partagées](how-to-attach-detach-shared-image-gallery.md)
+- [Utiliser une galerie d’images partagées](how-to-use-shared-image-gallery.md)

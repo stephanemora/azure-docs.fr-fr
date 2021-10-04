@@ -8,16 +8,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, capteur, visionneuse, synchronisation externe, retard de phase, profondeur, RVB, caméra, câble audio, enregistreur
-ms.openlocfilehash: 052f6f1ac9f90e764de25d1d4d1b25b3d50a848d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd751c9979cf2dc1fa2698deff0e2b207fe518c5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "85276460"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771381"
 ---
 # <a name="use-azure-kinect-recorder-with-external-synchronized-devices"></a>Utiliser l’enregistreur Kinect Azure avec des appareils externes synchronisés
 
-Cet article fournit des conseils sur la façon dont l’[Enregistreur Azure Kinect](azure-kinect-recorder.md) peut enregistrer des appareils configurés pour une synchronisation externe de données.
+Cet article fournit des conseils sur la façon dont l’[Enregistreur Azure Kinect](azure-kinect-recorder.md) peut enregistrer des données d’appareils configurés pour une synchronisation externe.
 
 ## <a name="prerequisites"></a>Prérequis
 

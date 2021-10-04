@@ -1,24 +1,24 @@
 ---
 title: Prise en main du visuel Power BI Azure Maps | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à utiliser le visuel Microsoft Azure Maps pour Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e57f687622b0878d66bfde5770ed9a97b613a683
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 6a26361cc09a4dd420930725b29a1d346769270a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091354"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744617"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Prise en main du visuel Power BI Azure Maps
 
-<Token>**S’APPLIQUE À :** ![Coche verte.](media/power-bi-visual/yes.png) Service Power BI pour les **_consommateurs_** ![Coche verte.](media/power-bi-visual/yes.png) Service Power BI pour les concepteurs et les développeurs ![Coche verte.](media/power-bi-visual/yes.png) Power BI Desktop ![X signifiant Non.](media/power-bi-visual/no.png) Nécessite une licence Pro ou Premium</Token>
+**S’APPLIQUE À :** ![Coche verte.](media/power-bi-visual/yes.png) Service Power BI pour les **_consommateurs_** ![Coche verte.](media/power-bi-visual/yes.png) Service Power BI pour les concepteurs et les développeurs ![Coche verte.](media/power-bi-visual/yes.png) Power BI Desktop ![X signifiant Non.](media/power-bi-visual/no.png) Nécessite une licence Pro ou Premium
 
 Cet article explique comment utiliser le visuel Microsoft Azure Maps pour Power BI.
 

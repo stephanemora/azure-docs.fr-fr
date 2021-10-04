@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: rolyon
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
-ms.openlocfilehash: de71203ab8b61aa3c81d610b231deedab4c63baa
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 43ee281bc9696740c7909ef6b6758d4542808721
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693672"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755218"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Afficher les journaux d’activité pour voir les changements RBAC Azure
 
@@ -47,7 +47,7 @@ Le journal d’activité dans le portail comporte plusieurs filtres. Voici les f
 | Catégorie d'événements | <ul><li>Administratif</li></ul> |
 | Opération | <ul><li>Créer une attribution de rôle</li><li>Supprimer une attribution de rôle</li><li>Créer ou mettre à jour une définition de rôle personnalisée</li><li>Supprimer la définition de rôle personnalisée</li></ul> |
 
-Pour plus d’informations sur les journaux d’activité, consultez [Afficher les journaux d’activité pour surveiller les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Pour plus d’informations à propos des journaux d’activité, consultez [Journal d’activité Azure](../azure-monitor/essentials/activity-log.md).
 
 
 ## <a name="interpret-a-log-entry"></a>Interpréter une entrée de journal
@@ -235,5 +235,5 @@ AzureActivity
 ![Journaux d’activité à l’aide du portail Analytique avancée : capture d’écran](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Afficher les journaux d’activité pour surveiller les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [Afficher les journaux d’activité pour surveiller les actions sur les ressources](../azure-monitor/essentials/activity-log.md)
 * [Surveiller l’activité d’abonnement avec le journal des activités Azure](../azure-monitor/essentials/platform-logs-overview.md)

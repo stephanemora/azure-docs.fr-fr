@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: be45eaa692b0b8235541c798cf82ca26b14b9f3f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: ec68ca976b52c50c09bf86c90c56304f05051b66
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691537"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740263"
 ---
 # <a name="tutorial-configure-security-analytics-for-azure-active-directory-b2c-data-with-azure-sentinel"></a>Didacticiel : configurer l’analytique de sécurité pour les données Azure Active Directory B2C avec Azure Sentinel
 
@@ -40,7 +40,7 @@ Dans ce tutoriel, vous allez découvrir comment :
 
 Activez les **paramètres de diagnostic** dans Azure AD au sein de votre locataire Azure AD B2C pour définir l’emplacement d’envoi des journaux d’activité et des indicateurs d’une ressource.
 
-Ensuite, [configurez Azure AD B2C pour envoyer les journaux d’activité à Azure Monitor](https://docs.microsoft.com/azure/active-directory-b2c/azure-monitor).
+Ensuite, [configurez Azure AD B2C pour envoyer les journaux d’activité à Azure Monitor](./azure-monitor.md).
 
 ## <a name="deploy-an-azure-sentinel-instance"></a>Déployer un espace de travail Azure Sentinel
 
@@ -73,13 +73,13 @@ Une fois que vous avez configuré votre instance Azure AD B2C pour envoyer des
 
 Maintenant que vous avez activé Azure Sentinel, soyez averti en cas de problème suspect dans votre locataire Azure AD B2C.
 
-Vous pouvez créer des [règles d’analytique personnalisées](../sentinel/tutorial-detect-threats-custom.md) pour vous aider à détecter les menaces et les comportements anormaux dans votre environnement. Ces règles recherchent des événements ou des ensembles d’événements spécifiques, vous alertent lorsque certains seuils d’événement ou certaines conditions sont atteints, puis génèrent des incidents pour plus d’investigation.
+Vous pouvez créer des [règles d’analytique personnalisées](../sentinel/detect-threats-custom.md) pour vous aider à détecter les menaces et les comportements anormaux dans votre environnement. Ces règles recherchent des événements ou des ensembles d’événements spécifiques, vous alertent lorsque certains seuils d’événement ou certaines conditions sont atteints, puis génèrent des incidents pour plus d’investigation.
 
 Dans l’exemple suivant, nous expliquons le scénario dans lequel vous recevez une notification si quelqu’un tente de forcer l’accès à votre environnement, mais qu’il n’y parvient pas. Il peut s’agir d’une attaque par force brute. Vous souhaitez recevoir une notification pour au moins deux tentatives de connexion infructueuses en 60 secondes.
 
 1. Dans le menu de navigation d'Azure Sentinel, sélectionnez **Analytique**.
 
-2. Sur la barre d'action du haut de l'écran, sélectionnez **+Créer**, puis **Règle de requête planifiée**. L’**Assistant Règle analytique** s’ouvre.
+2. Sur la barre d'action du haut de l'écran, sélectionnez **+Créer**, puis **Règle de requête planifiée**. Cette opération ouvre l’**Assistant Règle analytique**.
 
 ![image montrant la sélection d’une règle de création de requête planifiée](./media/azure-sentinel/create-scheduled-rule.png)
 
@@ -116,7 +116,7 @@ Dans la section Planification de la requête, définissez les paramètres suivan
 8. Affichez les résultats de votre nouvelle règle de tentatives de connexion Azure AD B2C infructueuses. Accédez à la page **Incidents**, dans laquelle vous pouvez trier, examiner et corriger les menaces. Un incident peut inclure plusieurs alertes. C’est une agrégation de toutes les preuves pertinentes pour une investigation spécifique. Vous pouvez définir des propriétés telles que la gravité et l’état au niveau incident.
 
 >[!Note]
->Une fonctionnalité clé d’Azure Sentinel est l'[investigation d’un incident.](../sentinel/tutorial-investigate-cases.md)
+>Une fonctionnalité clé d’Azure Sentinel est l'[investigation d’un incident.](../sentinel/investigate-cases.md)
 
 9. Pour commencer une investigation, sélectionnez un incident spécifique. Sur la droite, vous pouvez voir des informations détaillées sur l’incident, notamment sa gravité, les entités impliquées, les événements bruts qui ont déclenché cet incident et l’ID unique de l’incident.
 

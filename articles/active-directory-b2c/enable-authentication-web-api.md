@@ -11,12 +11,12 @@ ms.date: 06/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: cbbaf7d3698a1027ae310f73041e906a55117258
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a67cdd9ba92e3c78c5cb29a827cf537ba2e372ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531417"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740213"
 ---
 # <a name="enable-authentication-in-your-own-web-api-by-using-azure-ad-b2c"></a>Activation de l’authentification dans une API web avec Azure AD B2C
 
@@ -433,8 +433,8 @@ Dans le fichier *appsettings.json*, mettez à jour les propriétés suivantes :
 
 |Section  |Clé  |Valeur  |
 |---------|---------|---------|
-|AzureAdB2C|Instance| Première partie du [nom de locataire](tenant-management.md#get-your-tenant-name) Azure AD B2C (par exemple `https://contoso.b2clogin.com`).|
-|AzureAdB2C|Domain| [Nom complet du locataire](tenant-management.md#get-your-tenant-name) Azure AD B2C (par exemple `contoso.onmicrosoft.com`).|
+|AzureAdB2C|Instance| La première partie du [nom de locataire](tenant-management.md#get-your-tenant-name) Azure AD B2C (par exemple `https://contoso.b2clogin.com`).|
+|AzureAdB2C|Domain| [Nom du locataire](tenant-management.md#get-your-tenant-name) complet Azure AD B2C (par exemple `contoso.onmicrosoft.com`).|
 |AzureAdB2C|ClientId| ID de l’application API web. Dans le [diagramme précédent](#app-registration-overview), il s’agit de l’application *ID d’application : 2*. Pour savoir comment obtenir l’ID d’inscription de votre application API web, consultez [Prérequis](#prerequisites). |
 |AzureAdB2C|SignUpSignInPolicyId|Flux d’utilisateurs ou stratégie personnalisée. Pour savoir comment obtenir votre flux d’utilisateurs ou votre stratégie, consultez [Prérequis](#prerequisites).  |
 
@@ -533,6 +533,10 @@ Ouvrez un navigateur et accédez à `http://localhost:6000/public`. Dans la fen�
 Essayez d’appeler le point de terminaison d’API web protégé sans jeton d’accès. Ouvrez un navigateur et accédez à `http://localhost:6000/hello`. L’API web renvoie un message d’erreur HTTP non autorisé, ce qui confirme qu’elle est bien protégée par un jeton de porteur.
 
 Continuez à configurer votre application pour appeler l’API web. Pour plus d’informations, consultez la section [Prérequis](#prerequisites).
+
+Regardez cette vidéo pour en savoir plus sur certaines des meilleures pratiques à connaître lorsque vous intégrez Azure AD B2C avec une API.
+
+>[!Video https://www.youtube.com/embed/wuUu71RcsIo]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

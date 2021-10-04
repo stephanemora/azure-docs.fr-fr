@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
-ms.openlocfilehash: d016d7b5a88aa5413652fa3ed032c04680030142
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: a5e4f3cb33451b8668b4212fca248d0b7d9c1438
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535137"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734853"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flux d’authentification et scénarios d’applications
 
@@ -133,11 +133,11 @@ Les applications qui s’exécutent sur un appareil sans navigateur peuvent touj
 
 ![Flux de code d’appareil](media/scenarios/device-code-flow-app.svg)
 
-Notez que le [flux Nom d’utilisateur/Mot de passe](scenario-desktop-acquire-token.md#username-and-password) est disponible dans les applications clientes publiques, même si nous ne recommandons pas son utilisation. Ce flux est toujours nécessaire dans certains scénarios comme DevOps.
+Notez que le [flux Nom d’utilisateur/Mot de passe](scenario-desktop-acquire-token-username-password.md) est disponible dans les applications clientes publiques, même si nous ne recommandons pas son utilisation. Ce flux est toujours nécessaire dans certains scénarios comme DevOps.
 
 L’utilisation du flux Nom d’utilisateur/Mot de passe contraint vos applications. Par exemple, les applications ne peuvent pas connecter un utilisateur qui doit utiliser une authentification multifacteur ou l’outil Accès conditionnel dans Azure AD. Vos applications ne bénéficient pas non plus de l’authentification unique. L’authentification à l’aide du flux Nom d’utilisateur/Mot de passe va à l’encontre des principes de l’authentification moderne et n’est fournie que pour des raisons d’héritage.
 
-Dans les applications de bureau, si vous souhaitez que le cache de jetons soit conservé, vous pouvez personnaliser la [sérialisation du cache de jetons](scenario-desktop-acquire-token.md#file-based-token-cache). En implémentant une [double sérialisation du cache de jetons](scenario-desktop-acquire-token.md#dual-token-cache-serialization-msal-unified-cache--adal-v3), vous pouvez utiliser des caches de jetons à compatibilité descendante et ascendante. Ces jetons prennent en charge les générations précédentes de bibliothèques d’authentification. Les bibliothèques spécifiques incluent Azure AD Authentication Library pour .NET (ADAL.NET) version 3 et version 4.
+Dans les applications de bureau, si vous souhaitez que le cache de jetons soit conservé, vous pouvez personnaliser la [sérialisation du cache de jetons](msal-net-token-cache-serialization.md). En implémentant une [double sérialisation du cache de jetons](msal-net-token-cache-serialization.md#dual-token-cache-serialization-msal-unified-cache-and-adal-v3), vous pouvez utiliser des caches de jetons à compatibilité descendante et ascendante. Ces jetons prennent en charge les générations précédentes de bibliothèques d’authentification. Les bibliothèques spécifiques incluent Azure AD Authentication Library pour .NET (ADAL.NET) version 3 et version 4.
 
 Pour plus d’informations, consultez [Application de bureau qui appelle des API web](scenario-desktop-overview.md).
 
@@ -224,7 +224,7 @@ Les scénarios qui impliquent l’acquisition de jetons sont également mappés 
  </tr>
 
   <tr>
-   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
+   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt="Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
    <td rowspan="4"><a href="scenario-desktop-overview.md">Application de bureau qui appelle des API web</a></td>
    <td>Interactif à l’aide de <a href="v2-oauth2-auth-code-flow.md">code d’autorisation</a> avec PKCE</td>
    <td>Comptes professionnels ou scolaires, comptes personnels et Azure AD B2C</td>
@@ -241,7 +241,7 @@ Les scénarios qui impliquent l’acquisition de jetons sont également mappés 
  </tr>
 
   <tr>
-   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="scenario-desktop-acquire-token-device-code-flow.md"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Code d’appareil</a></td>
    <td>Comptes professionnels ou scolaires, comptes personnels mais pas Azure AD B2C</td>
  </tr>

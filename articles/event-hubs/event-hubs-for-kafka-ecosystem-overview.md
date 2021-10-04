@@ -3,12 +3,12 @@ title: Utiliser un hub d’événements à partir de l’application Apache Kafk
 description: Cet article fournit des informations sur la prise en charge d’Apache Kafka par Azure Event Hubs.
 ms.topic: article
 ms.date: 08/30/2021
-ms.openlocfilehash: f0ea6469d17248a0d37a7ababf767d494545fbbb
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 93bf2af561fda849766c1eccdf351917be14f2e3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123250649"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678342"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Utiliser Azure Event Hubs à partir d’applications Apache Kafka
 Event Hubs fournit un point de terminaison compatible avec les API de producteur et de consommateur Apache Kafka® que la plupart des applications clientes Apache Kafka existantes peuvent utiliser comme alternative à l'exécution de votre propre cluster Apache Kafka. Event Hubs prend en charge les clients d'API de producteur et de consommateur Apache Kafka à partir de la version 1.0.
@@ -93,7 +93,7 @@ Pour plus d'**exemples** montrant comment utiliser OAuth avec Event Hubs pour Ka
 
 ## <a name="other-event-hubs-features"></a>Autres fonctionnalités Event Hubs 
 
-La fonctionnalité Event Hubs pour Apache Kafka est l'un des trois protocoles simultanément disponibles sur Azure Event Hubs, en plus de HTTP et d'AMQP. Vous pouvez écrire avec l'un de ces protocoles et lire avec un autre, afin de permettre à vos producteurs Apache Kafka actuels de continuer à publier via Apache Kafka, mais votre lecteur peut bénéficier de l'intégration native à l'interface AMQP d'Event Hubs, comme Azure Stream Analytics ou Azure Functions. À l'inverse, vous pouvez facilement intégrer Azure Event Hubs dans les réseaux de routage AMQP en tant que point de terminaison cible, tout en lisant les données par le biais d'intégrations Apache Kafka.  
+La fonctionnalité Event Hubs pour Apache Kafka est l'un des trois protocoles simultanément disponibles sur Azure Event Hubs, en plus de HTTP et d'AMQP. Vous pouvez écrire avec l'un de ces protocoles et lire avec un autre, afin de permettre à vos producteurs Apache Kafka actuels de continuer à publier via Apache Kafka, mais votre lecteur peut bénéficier de l'intégration native à l'interface AMQP d'Event Hubs, comme Azure Stream Analytics ou Azure Functions. À l’inverse, vous pouvez facilement intégrer Azure Event Hubs dans les réseaux de routage AMQP en tant que point de terminaison cible, tout en lisant les données par le biais d’intégrations Apache Kafka.  
 
 En outre, les fonctionnalités Event Hubs telles que [Capture](event-hubs-capture-overview.md), qui permet un archivage à long terme extrêmement économique via Stockage Blob Azure et Azure Data Lake Storage, et [Géo-reprise d'activité après sinistre](event-hubs-geo-dr.md) sont également compatibles avec Event Hubs pour Kafka.
 

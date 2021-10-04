@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: eee7204413face46870de049b38a79061de28347
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 754a4540bc7164e672abd4fc81d8ecb86e2359a9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929792"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737359"
 ---
 # <a name="get-started-with-azure-application-consistent-snapshot-tool"></a>Bien démarrer avec l’outil Azure Application Consistent Snapshot
 
@@ -164,7 +164,7 @@ Les conseils d’aide suivants sont fournis pour illustrer l’utilisation des o
 
 - [Quels sont les prérequis d’un instantané de stockage](azacsnap-installation.md#prerequisites-for-installation)
   - [Activer la communication avec le stockage](azacsnap-installation.md#enable-communication-with-storage)
-  - [Activer la communication avec SAP HANA](azacsnap-installation.md#enable-communication-with-sap-hana)
+  - [Activer la communication avec la base de données](azacsnap-installation.md#enable-communication-with-database)
 - [Comment prendre des instantanés manuellement](azacsnap-tips.md#take-snapshots-manually)
 - [Comment configurer l’automatisation des sauvegardes basées sur des instantanés](azacsnap-tips.md#setup-automatic-snapshot-backup)
 - [Comment superviser les instantanés](azacsnap-tips.md#monitor-the-snapshots)

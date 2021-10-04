@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 45489d25256d049467dd946922d30606c53f9bed
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: a754656db58b1cc3c1414eb36601c873d8ecc785
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750948"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671101"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installer l’agent Log Analytics sur des ordinateurs Linux
 Cet article fournit des détails sur l’installation de l’agent Log Analytics sur des ordinateurs Linux à l’aide des méthodes suivantes :
@@ -75,10 +75,11 @@ L’agent OMS prend en charge une personnalisation et un durcissement limités 
 
 Les éléments suivants sont actuellement pris en charge : 
 - FIP
+- SELINUX (images de la Place de marché pour CENTOS et RHEL avec leurs paramètres par défaut)
 
 Les éléments suivants ne sont pas pris en charge :
 - CIS
-- SELINUX
+- SELINUX (sécurisation renforcée comme MLS)
 
 La prise en charge du durcissement CIS et SELINUX est prévue pour l’[agent Azure Monitor](./azure-monitor-agent-overview.md). Aucune autre méthode de durcissement ou de personnalisation n’est prise en charge ou prévue pour l’agent OMS.  
 

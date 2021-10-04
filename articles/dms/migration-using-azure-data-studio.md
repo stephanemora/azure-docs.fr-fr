@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: e33c1fc4b5daa3ca2092e63413dcedcc42f82509
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 7a6b1099ea81c7a4a50692496ee044fe4a72bd24
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123354520"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742947"
 ---
 # <a name="migrate-databases-with-azure-sql-migration-extension-for-azure-data-studio-preview"></a>Migrer des bases de données avec l’extension de migration Azure SQL pour Azure Data Studio (version préliminaire)
 
-L’extension de migration Azure SQL pour [Azure Data Studio](/sql/azure-data-studio/what-is-azure-data-studio.md) vous permet d’utiliser la nouvelle fonctionnalité d’évaluation et de migration de SQL Server dans Azure Data Studio.
+L’[extension de migration Azure SQL pour Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) vous permet d’utiliser la nouvelle fonctionnalité d’évaluation et de migration de SQL Server dans Azure Data Studio.
 
 ## <a name="architecture-of-azure-sql-migration-extension-for-azure-data-studio"></a>Architecture de l’extension de migration Azure SQL pour Azure Data Studio
 
@@ -48,8 +48,8 @@ Le flux de travail du processus de migration est illustré ci-dessous.
 
 Les conditions préalables associées à Azure Database Migration Service communes à tous les scénarios de migration pris en charge incluent le besoin de :
 
-* [Télécharger et installer Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio.md)
-* [Installer l’extension de migration Azure SQL](/sql/azure-data-studio/extensions/azure-sql-migration-extension.md) à partir de la place de marché Azure Data Studio
+* [Télécharger et installer Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+* [Installer l’extension de migration Azure SQL](/sql/azure-data-studio/extensions/azure-sql-migration-extension) à partir de la place de marché Azure Data Studio
 * Disposer d’un compte Azure affecté à l’un des rôles intégrés listés ci-dessous :
     - Contributeur pour Azure SQL Managed Instance cible (et compte Stockage pour charger vos fichiers de sauvegarde de base de données à partir d’un partage réseau SMB).
     - Rôle de propriétaire ou de contributeur pour les groupes de ressources Azure contenant Azure SQL Managed Instance cible ou le compte de stockage Azure.
@@ -83,7 +83,7 @@ Les conditions préalables associées à Azure Database Migration Service commun
     > Si vos fichiers de sauvegarde de base de données sont déjà fournis dans un compte de stockage Azure, l’IR auto-hébergé n’est pas requis pendant le processus de migration.
 
 * Lorsque vous utilisez l’IR auto-hébergé, assurez-vous que l’ordinateur sur lequel le runtime est installé peut se connecter à l’instance SQL Server et au partage de fichiers réseau source où se trouvent les fichiers de sauvegarde. Le port de sortie 445 doit être activé pour autoriser l’accès au partage de fichiers réseau.
-* Si vous utilisez l’Azure Database Migration Service pour la première fois, assurez-vous que le fournisseur de ressources Microsoft.DataMigration est inscrit dans votre abonnement. Vous pouvez suivre les étapes pour [inscrire le fournisseur de ressources](/quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
+* Si vous utilisez l’Azure Database Migration Service pour la première fois, assurez-vous que le fournisseur de ressources Microsoft.DataMigration est inscrit dans votre abonnement. Vous pouvez suivre les étapes pour [inscrire le fournisseur de ressources](/azure/dms/quickstart-create-data-migration-service-portal#register-the-resource-provider)
 
 ### <a name="recommendations-for-using-self-hosted-integration-runtime-for-database-migrations"></a>Recommandations pour l’utilisation de l’IR auto-hébergé pour les migrations de base de données
 - Utilisez un seul IR auto-hébergé pour plusieurs bases de données de SQL Server sources.
@@ -140,4 +140,4 @@ Migrez des bases de données SQL Server vers votre Azure SQL Managed Instance ou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir une vue d’ensemble et l’installation de l’extension de migration Azure SQL, consultez [Extension de migration Azure SQL pour Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension.md).
+- Pour obtenir une vue d’ensemble et l’installation de l’extension de migration Azure SQL, consultez [Extension de migration Azure SQL pour Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).

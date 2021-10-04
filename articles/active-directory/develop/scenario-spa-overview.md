@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: be14a8cb9d72c439f5ba127858ccd3a3249b8a14
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 9df07381d620c2176115636852c6ed912dd1fc38
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770769"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786500"
 ---
 # <a name="scenario-single-page-application"></a>Scénario : Application monopage
 
-Découvrez tout ce que vous devez savoir pour créer une application monopage.
+Découvrez tout ce que vous devez savoir pour créer une application monopage. Pour obtenir des instructions concernant Azure Static Web Apps, consultez [Authentification et autorisation pour Static Web Apps](../../static-web-apps/authentication-authorization.md) à la place.
 
 ## <a name="getting-started"></a>Prise en main
 

@@ -13,16 +13,20 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a834d4d30c40b618b1601a7f8901c68143ef4912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccb3876799c0a1473f06c1838536df17eab03398
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648515"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754385"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Résilience par la surveillance et l’analytique
 
 La surveillance optimise la disponibilité et les performances de vos applications et services. Elle offre une solution complète pour collecter, analyser et exploiter la télémétrie de votre infrastructure et de vos applications. Les alertes vous informent de façon proactive lorsque des problèmes sont détectés avec votre service ou vos applications. Elles vous permettent d’identifier et de résoudre les problèmes avant que les utilisateurs finaux de votre service ne les remarquent. [Azure AD Log Analytics](https://azure.microsoft.com/services/monitor/?OCID=AID2100131_SEM_6d16332c03501fc9c1f46c94726d2264:G:s&ef_id=6d16332c03501fc9c1f46c94726d2264:G:s&msclkid=6d16332c03501fc9c1f46c94726d2264#features) vous aide à analyser, à rechercher dans les journaux d’audit et les journaux de connexion et à créer des vues personnalisées.
+
+Regardez cette vidéo pour apprendre à configurer la surveillance et la création de rapports dans Azure AD B2C à l’aide d’Azure Monitor.
+
+>[!Video https://www.youtube.com/embed/Mu9GQy-CbXI]
 
 ## <a name="monitor-and-get-notified-through-alerts"></a>Surveiller et recevoir des notifications par le biais d’alertes
 

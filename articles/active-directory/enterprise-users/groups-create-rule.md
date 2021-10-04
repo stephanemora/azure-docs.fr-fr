@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 09/02/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8525e9a76fa2439692cdb26b36c0bb761d63177c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cff9855b97dc1afc1ba9e4dc1beeb7320e6b1e0b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550227"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785987"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Créer ou mettre à jour un groupe dynamique dans Azure Active Directory
 
 Dans Azure Active Directory (Azure AD), vous pouvez utiliser des règles pour déterminer l’appartenance aux groupes à partir des propriétés de l’utilisateur ou de l’appareil. Cet article explique comment configurer une règle pour un groupe dynamique dans le portail Azure.
-L’appartenance dynamique est prise en charge pour les groupes de sécurité ou les groupes Microsoft 365. Lorsqu’une règle d’appartenance de groupe est appliquée, les correspondances avec la règle d’appartenance des attributs utilisateur et appareil sont évaluées. Lorsqu’un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour tenir compte de toutes les modifications d’appartenance. Les utilisateurs et les appareils sont ajoutés ou supprimés s’ils remplissent les conditions pour un groupe. Les groupes de sécurité peuvent être utilisés pour des appareils ou des utilisateurs, mais les groupes Microsoft 365 ne peuvent être utilisés que par des groupes d’utilisateurs. L’utilisation de groupes dynamiques requiert une licence Azure AD Premium P1. Pour plus d’informations, consultez [Règles d’appartenance dynamique pour les groupes](./groups-dynamic-membership.md). 
+L’appartenance dynamique est prise en charge pour les groupes de sécurité ou les groupes Microsoft 365. Lorsqu’une règle d’appartenance de groupe est appliquée, les correspondances avec la règle d’appartenance des attributs utilisateur et appareil sont évaluées. Lorsqu’un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour tenir compte de toutes les modifications d’appartenance. Les utilisateurs et les appareils sont ajoutés ou supprimés s’ils remplissent les conditions pour un groupe. Les groupes de sécurité peuvent être utilisés pour des appareils ou des utilisateurs, mais les groupes Microsoft 365 ne peuvent être utilisés que par des groupes d’utilisateurs. L’utilisation de groupes dynamiques requiert une licence Azure AD Premium P1 ou Intune pour l’Éducation. Pour plus d’informations, consultez [Règles d’appartenance dynamique pour les groupes](./groups-dynamic-membership.md). 
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Générateur de règles dans le portail Azure
 
