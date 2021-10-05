@@ -1,16 +1,16 @@
 ---
 title: Principaux avantages
 description: En savoir plus sur les concepts de base de Defender pour IoT.
-ms.date: 12/13/2020
+ms.date: 09/09/2021
 ms.topic: article
-ms.openlocfilehash: ca1e5a4d8554b208f5275fd0e7519f2db3fafc08
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: be5c7f31cb652bb40f4bae35fa42b76d7a576276
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018024"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836470"
 ---
-# <a name="basic-concepts"></a>Concepts de base 
+# <a name="basic-concepts"></a>Concepts de base
 
 Cet article décrit les principaux avantages d’Azure Defender pour IoT.
 
@@ -63,9 +63,9 @@ Pour les **capteurs connectés localement**, les informations détectées s’af
 
 ## <a name="air-gapped-networks"></a>Réseaux hermétiques
 
-Si vous travaillez dans un environnement hermétique, la console de gestion sur site de Defender pour IoT offre une vue en temps réel des principaux indicateurs de risque et des alertes de l'IoT et de l'OT dans toutes vos installations. Étroitement intégré à vos workflows SOC et à vos runbooks, il permet de hiérarchiser facilement les activités d’atténuation et de corréler les menaces entre les différents sites.  
+Si vous travaillez dans un environnement hermétique, la console de gestion sur site de Defender pour IoT offre une vue en temps réel des principaux indicateurs de risque et des alertes de l'IoT et de l'OT dans toutes vos installations. Étroitement intégré à vos workflows SOC et à vos runbooks, il permet de hiérarchiser facilement les activités d’atténuation et de corréler les menaces entre les différents sites.
 
-Defender pour IoT fournit une vue détaillée de tous vos appareils. Il fournit également des informations critiques sur les appareils, telles que le type (PLC, RTU, DC, etc.), le fabricant, le modèle et la version du microprogramme, ainsi que des informations sur les alertes.  
+Defender pour IoT fournit une vue détaillée de tous vos appareils. Il fournit également des informations critiques sur les appareils, telles que le type (PLC, RTU, DC, etc.), le fabricant, le modèle et la version du microprogramme, ainsi que des informations sur les alertes.
 
 Defender pour IoT permet une gestion efficace de plusieurs déploiements et une vue unifiée complète du réseau. Defender pour IoT optimise la gestion des alertes et le contrôle de la sécurité du réseau opérationnel.
 
@@ -113,6 +113,7 @@ En outre, l’utilisation des alertes personnalisées Horizon vous permet d’é
 
 L’utilisation de la messagerie et du déclenchement d’alertes basés sur des conditions personnalisées permet d’identifier l’activité réseau et de mettre à jour efficacement vos équipes de sécurité, informatiques et opérationnelles.
 
+Pour obtenir la liste complète des protocoles pris en charge, consultez [Protocoles pris en charge](concept-supported-protocols.md#supported-protocols).
 
 ## <a name="high-availability"></a>Haute disponibilité
 

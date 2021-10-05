@@ -5,16 +5,20 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 7dae6525b457c544c98c59ffd1195f9ec31e2ae7
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 46efbf883e6dc0409e7f8d5f8d379693079acafc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540849"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788436"
 ---
 # <a name="best-practices-for-bicep"></a>Meilleures pratiques en matière de fichiers Bicep
 
 Cet article présente les pratiques à suivre lors du développement de fichiers Bicep. Ces pratiques facilitent la compréhension et l'utilisation des fichiers Bicep.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les meilleures pratiques en lien avec Bicep et pour obtenir des conseils pratiques, consultez [Structurer votre code Bicep pour la collaboration](/learn/modules/structure-bicep-code-collaboration/) dans **Microsoft Learn**.
 
 ## <a name="parameters"></a>Paramètres
 

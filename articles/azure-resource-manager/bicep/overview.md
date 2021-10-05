@@ -2,13 +2,13 @@
 title: Langage Bicep pour le déploiement de ressources Azure
 description: Décrit le langage Bicep pour le déploiement d’infrastructure sur Azure. Il offre une expérience de création améliorée par rapport à l’utilisation de JSON pour développer des modèles.
 ms.topic: conceptual
-ms.date: 08/18/2021
-ms.openlocfilehash: 93aea8ee92d1f15ac45bd5978e7cbf68261e5a69
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.date: 09/09/2021
+ms.openlocfilehash: ace417bb8a71a277bbcb4ef178c6aaf24b97533b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564039"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831942"
 ---
 # <a name="what-is-bicep"></a>Qu’est-ce que Bicep ?
 
@@ -112,8 +112,7 @@ Lorsque vous êtes prêt, vous pouvez [décompiler les fichiers JSON en langage 
 
 ## <a name="known-limitations"></a>Limitations connues
 
-- Aucun support pour les objets et tableaux d’une seule ligne. Par exemple, `['a', 'b', 'c']` n’est pas pris en charge. Pour plus d’informations, consultez [Tableaux](data-types.md#arrays) et [Objets](data-types.md#objects).
-- Aucun support pour la scission des lignes longues en plusieurs lignes. Par exemple :
+- Bicep est sensible aux sauts de ligne. Par exemple :
 
     ```bicep
     resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {

@@ -1,14 +1,14 @@
 ---
 title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 22838cd661e64d4a85debfb4c5ce556a142dc2c2
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: bca5d7535cbbcbf2fc7b6f54e853872c788c723d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122535050"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792274"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -107,14 +107,39 @@ Audit est le dernier effet vérifié par Azure Policy pendant la création ou la
 
 Pour un mode Gestionnaire des ressources, l’effet audit n’a pas d’autres propriétés utilisables dans la condition **then** de la définition de stratégie.
 
-Pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`, l’effet audit contient les sous-propriétés de **details** supplémentaires suivantes.
+Pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`, l’effet audit contient les sous-propriétés de **details** supplémentaires suivantes. L’utilisation de `templateInfo` est requise pour les définitions de stratégie nouvelles ou mises à jour, compte tenu du fait que `constraintTemplate` est déconseillé.
 
-- **constraintTemplate** (obligatoire)
-  - Modèle de contrainte CustomResourceDefinition (CRD) qui définit de nouvelles contraintes. Le modèle définit la logique Rego, le schéma de contrainte et les paramètres de contrainte transmis via des objets **values** (valeurs) d’Azure Policy.
-- **constraint** (obligatoire)
+- **templateInfo** (requis)
+  - Impossible à utiliser avec `constraintTemplate`.
+  - **sourceType** (requis)
+    - Définit le type de source pour le modèle de contrainte. Valeurs autorisées : _PublicURL_ ou _Base64Encoded_.
+    - Si _PublicURL_, associé à la propriété `url` pour fournir l’emplacement du modèle de contrainte. L'emplacement doit être accessible publiquement.
+
+      > [!WARNING]
+      > N’utilisez pas d’URI ou de jetons SAS dans `url` ou tout autre élément susceptible d’exposer un secret.
+
+    - Si _Base64Encoded_, associé à la propriété `content` pour fournir le modèle de contrainte encodé en base 64. Consultez [Créer une définition de stratégie à partir d’un modèle de contrainte](../how-to/extension-for-vscode.md) pour créer une définition personnalisée à partir d’un [modèle de contrainte](https://www.openpolicyagent.org/) [Open Policy Agent (OPA) GateKeeper v3](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
+- **constraint** (facultatif)
+  - Impossible à utiliser avec `templateInfo`.
   - Implémentation CRD du modèle de contrainte. Utilise des paramètres transmis via des **valeurs** telles que `{{ .Values.<valuename> }}`. Dans l’exemple 2 ci-dessous, ces valeurs sont `{{ .Values.excludedNamespaces }}` et `{{ .Values.allowedContainerImagesRegex }}`.
+- **namespaces** (facultatif)
+  - _Tableau_ des [espaces de noms Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) auxquels limiter l’évaluation de la stratégie.
+  - En cas de valeur vide ou manquante, l’évaluation de la stratégie inclut tous les espaces de noms, à l’exception de ceux définis dans _excludedNamespaces_.
+- **excludedNamespaces** (requis)
+  - _Tableau_ des [espaces de noms Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) à exclure de l’évaluation de la stratégie.
+- **labelSelector** (requis)
+  - _Objet_ qui inclut des propriétés _matchLabels_ (objet) et _MatchExpression_ (tableau) pour permettre de spécifier les ressources Kubernetes à inclure pour l’évaluation de stratégie correspondant aux [étiquettes et aux sélecteurs](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) fournis.
+  - En cas de valeur vide ou manquante, l’évaluation de la stratégie inclut tous les sélecteurs et étiquettes, à l’exception de espaces de noms définis dans _excludedNamespaces_.
+- **apiGroups** (requis en cas d’utilisation de _templateInfo_)
+  - _Tableau_ qui inclut les [groupes d’API](https://kubernetes.io/docs/reference/using-api/#api-groups) à mettre en correspondance. Un tableau vide (`[""]`) correspond au groupe d’API principal alors que `["*"]` correspond à tous les groupes d’API.
+- **kinds** (requis en cas d’utilisation de _templateInfo_)
+  - _Tableau_ qui inclut le [type](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields) d’objet Kubernetes auquel limiter l’évaluation.
 - **values** (facultatif)
   - Définit des paramètres et valeurs à transmettre à la contrainte. Chaque valeur doit exister dans le modèle de contrainte CRD.
+- **constraintTemplate** (déconseillé)
+  - Impossible à utiliser avec `templateInfo`.
+  - Doit être remplacé par `templateInfo` lors de la création ou de la mise à jour d’une définition de stratégie.
+  - Modèle de contrainte CustomResourceDefinition (CRD) qui définit de nouvelles contraintes. Le modèle définit la logique Rego, le schéma de contrainte et les paramètres de contrainte transmis via des objets **values** (valeurs) d’Azure Policy.
 
 ### <a name="audit-example"></a>Exemple Audit
 
@@ -126,18 +151,21 @@ Exemple 1 : Utilisation de l’effet audit pour les modes Gestionnaire des resso
 }
 ```
 
-Exemple 2 : Utilisation de l’effet audit pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`. Les informations supplémentaires dans **details** définissent le modèle de contrainte et CRD à utiliser dans Kubernetes pour limiter les images de conteneur autorisées.
+Exemple 2 : Utilisation de l’effet audit pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`. Les informations supplémentaires contenues dans **details.templateInfo** déclarent l’utilisation de _PublicURL_ et définissent `url` sur l’emplacement du modèle de contrainte à utiliser dans Kubernetes pour limiter les images de conteneur autorisées.
 
 ```json
 "then": {
     "effect": "audit",
     "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "templateInfo": {
+            "sourceType": "PublicURL",
+            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+        },
         "values": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
-            "excludedNamespaces": "[parameters('excludedNamespaces')]"
-        }
+            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+        },
+        "apiGroups": [""],
+        "kinds": ["Pod"]
     }
 }
 ```
@@ -174,7 +202,7 @@ La propriété **details** des effets AuditIfNotExists possède toutes les sous-
   - La valeur par défaut est _ResourceGroup_.
 - **EvaluationDelay** (facultatif)
   - Spécifie à quel moment l’existence des ressources associées doit être évaluée. Le délai est utilisé uniquement pour les évaluations qui résultent d’une requête de création ou de mise à jour de ressource.
-  - Les valeurs autorisées sont `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure` ou une durée ISO 8601 comprise entre 10 et 360 minutes.
+  - Les valeurs autorisées sont `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure` ou une durée ISO 8601 comprise entre 0 et 360 minutes.
   - Les valeurs _AfterProvisioning_ inspectent le résultat du provisionnement de la ressource qui a été évaluée dans la condition IF de la règle de stratégie. `AfterProvisioning` s’exécute une fois le provisionnement terminé, quel que soit le résultat. Si le provisionnement prend plus de 6 heures, il est considéré comme un échec lors de la détermination des délais d’évaluation de _AfterProvisioning_.
   - La valeur par défaut est `PT10M` (10 minutes).
   - La spécification d’un délai d’évaluation long peut empêcher la mise à jour de l’état de conformité enregistré de la ressource jusqu’au prochain [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers).
@@ -229,14 +257,39 @@ Lors de l’évaluation des ressources existantes, les ressources qui correspond
 
 Pour un mode Gestionnaire des ressources, l’effet deny n’a pas d’autres propriétés utilisables dans la condition **then** de la définition de stratégie.
 
-Pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`, l’effet deny contient les sous-propriétés de **details** supplémentaires suivantes.
+Pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`, l’effet deny contient les sous-propriétés de **details** supplémentaires suivantes. L’utilisation de `templateInfo` est requise pour les définitions de stratégie nouvelles ou mises à jour, compte tenu du fait que `constraintTemplate` est déconseillé.
 
-- **constraintTemplate** (obligatoire)
-  - Modèle de contrainte CustomResourceDefinition (CRD) qui définit de nouvelles contraintes. Le modèle définit la logique Rego, le schéma de contrainte et les paramètres de contrainte transmis via des objets **values** (valeurs) d’Azure Policy.
-- **constraint** (obligatoire)
+- **templateInfo** (requis)
+  - Impossible à utiliser avec `constraintTemplate`.
+  - **sourceType** (requis)
+    - Définit le type de source pour le modèle de contrainte. Valeurs autorisées : _PublicURL_ ou _Base64Encoded_.
+    - Si _PublicURL_, associé à la propriété `url` pour fournir l’emplacement du modèle de contrainte. L'emplacement doit être accessible publiquement.
+
+      > [!WARNING]
+      > N’utilisez pas d’URI ou de jetons SAS dans `url` ou tout autre élément susceptible d’exposer un secret.
+
+    - Si _Base64Encoded_, associé à la propriété `content` pour fournir le modèle de contrainte encodé en base 64. Consultez [Créer une définition de stratégie à partir d’un modèle de contrainte](../how-to/extension-for-vscode.md) pour créer une définition personnalisée à partir d’un [modèle de contrainte](https://www.openpolicyagent.org/) [Open Policy Agent (OPA) GateKeeper v3](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates).
+- **constraint** (facultatif)
+  - Impossible à utiliser avec `templateInfo`.
   - Implémentation CRD du modèle de contrainte. Utilise des paramètres transmis via des **valeurs** telles que `{{ .Values.<valuename> }}`. Dans l’exemple 2 ci-dessous, ces valeurs sont `{{ .Values.excludedNamespaces }}` et `{{ .Values.allowedContainerImagesRegex }}`.
+- **namespaces** (facultatif)
+  - _Tableau_ des [espaces de noms Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) auxquels limiter l’évaluation de la stratégie.
+  - En cas de valeur vide ou manquante, l’évaluation de la stratégie inclut tous les espaces de noms, à l’exception de ceux définis dans _excludedNamespaces_.
+- **excludedNamespaces** (requis)
+  - _Tableau_ des [espaces de noms Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) à exclure de l’évaluation de la stratégie.
+- **labelSelector** (requis)
+  - _Objet_ qui inclut des propriétés _matchLabels_ (objet) et _MatchExpression_ (tableau) pour permettre de spécifier les ressources Kubernetes à inclure pour l’évaluation de stratégie correspondant aux [étiquettes et aux sélecteurs](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) fournis.
+  - En cas de valeur vide ou manquante, l’évaluation de la stratégie inclut tous les sélecteurs et étiquettes, à l’exception de espaces de noms définis dans _excludedNamespaces_.
+- **apiGroups** (requis en cas d’utilisation de _templateInfo_)
+  - _Tableau_ qui inclut les [groupes d’API](https://kubernetes.io/docs/reference/using-api/#api-groups) à mettre en correspondance. Un tableau vide (`[""]`) correspond au groupe d’API principal alors que `["*"]` correspond à tous les groupes d’API.
+- **kinds** (requis en cas d’utilisation de _templateInfo_)
+  - _Tableau_ qui inclut le [type](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields) d’objet Kubernetes auquel limiter l’évaluation.
 - **values** (facultatif)
   - Définit des paramètres et valeurs à transmettre à la contrainte. Chaque valeur doit exister dans le modèle de contrainte CRD.
+- **constraintTemplate** (déconseillé)
+  - Impossible à utiliser avec `templateInfo`.
+  - Doit être remplacé par `templateInfo` lors de la création ou de la mise à jour d’une définition de stratégie.
+  - Modèle de contrainte CustomResourceDefinition (CRD) qui définit de nouvelles contraintes. Le modèle définit la logique Rego, le schéma de contrainte et les paramètres de contrainte transmis via des objets **values** (valeurs) d’Azure Policy. Il est recommandé d’utiliser le plus récent `templateInfo` pour remplacer `constraintTemplate`.
 
 ### <a name="deny-example"></a>Exemple Deny
 
@@ -248,18 +301,21 @@ Exemple 1 : Utilisation de l’effet deny pour les modes Gestionnaire des ressou
 }
 ```
 
-Exemple 2 : Utilisation de l’effet deny pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`. Les informations supplémentaires dans **details** définissent le modèle de contrainte et CRD à utiliser dans Kubernetes pour limiter les images de conteneur autorisées.
+Exemple 2 : Utilisation de l’effet deny pour le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`. Les informations supplémentaires contenues dans **details.templateInfo** déclarent l’utilisation de _PublicURL_ et définissent `url` sur l’emplacement du modèle de contrainte à utiliser dans Kubernetes pour limiter les images de conteneur autorisées.
 
 ```json
 "then": {
     "effect": "deny",
     "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "templateInfo": {
+            "sourceType": "PublicURL",
+            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+        },
         "values": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
-            "excludedNamespaces": "[parameters('excludedNamespaces')]"
-        }
+            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+        },
+        "apiGroups": [""],
+        "kinds": ["Pod"]
     }
 }
 ```

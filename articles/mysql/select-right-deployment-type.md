@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 4cfa90e2863583cf920df333fd2e5dbd7d7b46c6
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: ee18a405ca6c6a9d2e6a3a6cceb5c0ff89b5cf73
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113084603"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748613"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Choisir l’option MySQL Server appropriée dans Azure
 
@@ -31,44 +31,98 @@ Pour prendre votre décision, envisagez les deux options suivantes :
 
   - Un [serveur flexible (version préliminaire)](flexible-server/overview.md) est un service de base de données entièrement géré conçu pour offrir un contrôle et une flexibilité plus granulaires des fonctions de gestion de base de données et des paramètres de configuration. En général, le service offre davantage de flexibilité et de personnalisations de configuration de serveur par rapport au déploiement de serveur unique en fonction des besoins des utilisateurs. L’architecture de serveur flexible permet aux utilisateurs d’opter pour une haute disponibilité au sein d’une même zone de disponibilité et dans plusieurs zones de disponibilité. Les serveurs flexibles offrent également de meilleurs contrôles d’optimisation des coûts grâce à la possibilité de démarrer/d’arrêter votre serveur et vos références (SKU) expansibles, idéales pour les charges de travail qui n’ont pas besoin en permanence d’une capacité de calcul complète.
 
-  Les serveurs flexibles sont adaptés de façon optimale pour ce qui suit :
+Les serveurs flexibles sont adaptés de façon optimale pour ce qui suit :
 
   - développement d’applications nécessitant un meilleur contrôle et des personnalisations du moteur MySQL ;
   - haute disponibilité redondante interzone ;
   - fenêtres de maintenance managées.
-
-- **MySQL sur des machines virtuelles Azure**. Cette option s’inscrit dans la catégorie de secteur IaaS. Avec ce service, vous pouvez exécuter le serveur MySQL sur une machine virtuelle managée dans le cadre de la plateforme cloud Azure. Toutes les versions et éditions récentes de MySQL peuvent être installées sur la machine virtuelle.
+ 
+  - **MySQL sur des machines virtuelles Azure**. Cette option s’inscrit dans la catégorie de secteur IaaS. Avec ce service, vous pouvez exécuter le serveur MySQL sur une machine virtuelle managée dans le cadre de la plateforme cloud Azure. Toutes les versions et éditions récentes de MySQL peuvent être installées sur la machine virtuelle.
 
 ## <a name="comparing-the-mysql-deployment-options-in-azure"></a>Comparaison des options de déploiement de MySQL dans Azure
 
 Le tableau suivant liste les principales différences entre ces options :
 
-| Attribut          | Azure Database pour MySQL<br/>Serveur unique |Azure Database pour MySQL<br/>Serveur flexible  |MySQL sur des machines virtuelles Azure                      |
-|:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| Prise en charge de la version de MySQL | 5.6, 5.7 et 8.0| 5.7 et 8.0 | Toutes les versions|
+| Attribut          | Azure Database pour MySQL<br/>Serveur unique |Azure Database pour MySQL<br/>Serveur flexible  |MySQL sur des machines virtuelles Azure |
+|:-------------------|:-------------------------------------------|:---------------------------------------------|:------------------|
+| [**Généralités**](flexible-server/overview.md)  | | | |
+| Disponibilité générale | GA depuis 2018 | Version préliminaire publique | GA |
+| Contrat de niveau de service (SLA) | Contrat SLA de disponibilité de 99,99 % |Aucun contrat de niveau de service en préversion| 99,99 % utilisant des zones de disponibilité|
+| SE sous-jacent | Windows | Linux  | Géré par l’utilisateur |
+| Édition MySQL | Community Edition | Community Edition | Édition Community ou Entreprise |
+| Prise en charge de la version de MySQL | 5.6 (mise hors service), 5.7 et 8.0| 5.7 et 8.0 | Toutes les versions|
+| Sélection de la zone de disponibilité pour la colocation d’applications | Non | Oui | Oui |
+| Nom d’utilisateur dans la chaîne de connexion | `<user_name>@server_name`. Par exemple, `mysqlusr@mypgServer` | Nom d’utilisateur uniquement. Par exemple, `mysqlusr` | Nom d’utilisateur uniquement. Par exemple, `mysqlusr` | 
+| [**Calcul et mise à l’échelle du stockage**](flexible-server/concepts-compute-storage.md) | | | |
+| Niveaux de calcul | De base, Usage général, À mémoire optimisée | Burstable, Usage général, À mémoire optimisée | Burstable, Usage général, À mémoire optimisée |
 | Mise à l’échelle du calcul | Pris en charge (la mise à l’échelle de et vers le niveau De base n’est pas prise en charge)| Prise en charge | Prise en charge|
 | Taille de stockage | 5 Gio à 16Tio| De 20 Gio à 16 Tio | De 32 Gio à 32 767 Gio|
-| Mise à l’échelle du stockage en ligne | Prise en charge| Pris en charge| Non pris en charge|
-| Mise à l’échelle du stockage automatique | Prise en charge| Pris en charge| Non pris en charge|
-| Mise à l’échelle des IOPs supplémentaires | Non pris en charge| Prise en charge| Non pris en charge|
+| Mise à l’échelle du stockage en ligne | Prise en charge| Prise en charge| Non pris en charge|
+| Mise à l’échelle du stockage automatique | Prise en charge| Prise en charge| Non pris en charge|
+| Mise à l’échelle des E/S par seconde | Non pris en charge| Prise en charge| Non pris en charge|
+| [**Optimisation des coûts**](https://azure.microsoft.com/pricing/details/mysql/flexible-server/) | | | |
+| Prix ​​des instances réservées | Prise en charge | Prise en charge | Prise en charge |
+| Arrêter/démarrer le serveur pour le développement | Le serveur peut être arrêté jusqu’à 7 jours | Le serveur peut être arrêté jusqu’à 30 jours | Prise en charge |
+| Références SKU Burstable à faible coût | Non pris en charge | Prise en charge | Prise en charge |
+| [**Mise en réseau et sécurité**](concepts-security.md) | | | |
 | Connectivité réseau | - Points de terminaison publics avec pare-feu de serveur.<br/> - Accès privé avec prise en charge de Liaison privée.|- Points de terminaison publics avec pare-feu de serveur.<br/> - Accès privé avec intégration de réseau virtuel.| - Points de terminaison publics avec pare-feu de serveur.<br/> - Accès privé avec prise en charge de Liaison privée.|
-| Contrat de niveau de service (SLA) | Contrat SLA de disponibilité de 99,99 % |Aucun contrat de niveau de service en préversion| 99,99 % utilisant des zones de disponibilité|
-| Mise à jour corrective du système d’exploitation| Automatique  | Automatique avec contrôle de fenêtre de maintenance personnalisée | Géré par les utilisateurs finaux |
-| Mise à jour corrective de MySQL     | Automatique  | Automatique avec contrôle de fenêtre de maintenance personnalisée | Géré par les utilisateurs finaux |
-| Haute disponibilité | Haute disponibilité intégrée à l’intérieur d’une zone de disponibilité unique| Haute disponibilité intégrée à l’intérieur de zones de disponibilité et entre elles | Gestion personnalisée à l’aide d’un clustering, d’une réplication, etc.|
-| Redondance de zone | Non pris en charge | Pris en charge | Prise en charge|
-| Placement de la zone | Non pris en charge | Pris en charge | Prise en charge|
-| Scénarios hybrides | Pris en charge avec [Réplication des données entrantes](./concepts-data-in-replication.md)| Pris en charge avec [Réplication des données entrantes](./flexible-server/concepts-data-in-replication.md) | Géré par les utilisateurs finaux |
-| Réplicas en lecture | Pris en charge (jusqu’à 5 réplicas)| Pris en charge (jusqu’à 10 réplicas)| Géré par les utilisateurs finaux |
-| Sauvegarde | Automatisée avec une rétention de 7 à 35 jours | Automatisée avec une rétention de 1 à 35 jours | Géré par les utilisateurs finaux |
-| Supervision des opérations de base de données | Prise en charge | Prise en charge | Géré par les utilisateurs finaux |
-| Récupération d'urgence | Prise en charge avec le stockage de sauvegarde géo-redondant et les réplicas de lecture inter-régions | Bientôt disponible| Gérée de manière personnalisée avec des technologies de réplication |
-| Query Performance Insight | Prise en charge | Non disponible en préversion| Géré par les utilisateurs finaux |
-| Prix ​​des instances réservées | Prise en charge | Bientôt disponible | Prise en charge |
-| Azure AD Authentication | Prise en charge | Non disponible en préversion | Non pris en charge|
-| Chiffrement des données au repos | Pris en charge avec clés gérées par le client | Pris en charge avec clés gérées par le service | Non pris en charge|
 | SSL/TLS | Activé par défaut avec prise en charge de TLS v1.2, 1.1 et 1.0 | Activé par défaut avec prise en charge de TLS v1.2, 1.1 et 1.0| Pris en charge avec TLS v1.2, 1.1 et 1.0 |
+| Chiffrement des données au repos | Pris en charge avec clés gérées par le client (BYOK) | Pris en charge avec clés gérées par le service | Non pris en charge|
+| Azure AD Authentication | Prise en charge | Non pris en charge | Non pris en charge|
+| Prise en charge Azure Defender | Oui | Non | Non |
+| Audit du serveur | Prise en charge | Prise en charge | Géré par l’utilisateur |
+| [**Mise à jour corrective et maintenance**](flexible-server/concepts-maintenance.md) | | |
+| Mise à jour corrective du système d’exploitation| Automatique  | Automatique  | Géré par l’utilisateur |
+| Mise à niveau d’une version mineure de MySQL  | Automatique  | Automatique | Géré par l’utilisateur |
+| Mise à niveau d’une version majeure sur place de MySQL | Pris en charge de 5.6 à 5.7 | Non pris en charge | Géré par l’utilisateur |
+| Contrôle de la maintenance | Géré par le système | Managée par le client | Géré par l’utilisateur |
+| Fenêtre de maintenance | À tout moment dans la fenêtre de 15 heures | Fenêtre de 1 h | Géré par l’utilisateur |
+| Notification de maintenance planifiée | 3 jours | 5 jours | Géré par l’utilisateur |
+| [**Haute disponibilité**](flexible-server/concepts-high-availability.md) | | | |
+| Haute disponibilité | Haute disponibilité intégrée (sans serveur de secours)| Haute disponibilité intégrée (sans serveur de secours), haute disponibilité dans la même zone et redondante interzone avec serveur de secours | Géré par l’utilisateur |
+| Redondance de zone | Non pris en charge | Prise en charge | Prise en charge|
+| Positionnement de la zone de secours | Non pris en charge | Prise en charge | Prise en charge|
+| Basculement automatique | Oui (tourne un autre serveur)| Oui | Géré par l’utilisateur|
+| basculement forcé | Non | Oui | Géré par l’utilisateur |
+| Basculement d'application transparent | Oui | Oui | Géré par l’utilisateur|
+| [**Réplication**](flexible-server/concepts-read-replicas.md) | | | |
+| Prise en charge des réplicas en lecture | Oui | Oui | Géré par l’utilisateur |
+| Nombre de réplicas en lecture pris en charge | 5 | 10 | Géré par l’utilisateur |
+| Mode de réplication | Asynchrone | Asynchrone | Géré par l’utilisateur |
+| Prise en charge GTID des réplicas en lecture | Prise en charge | Prise en charge | Géré par l’utilisateur |
+| Prise en charge entre régions (géoréplication) | Oui | Non pris en charge | Géré par l’utilisateur |
+| Scénarios hybrides | Pris en charge avec [Réplication des données entrantes](./concepts-data-in-replication.md)| Pris en charge avec [Réplication des données entrantes](./flexible-server/concepts-data-in-replication.md) | Géré par l’utilisateur |
+| Prise en charge GTID pour la réplication de données entrantes | Prise en charge | Non pris en charge | Géré par l’utilisateur |
+| Réplication de données sortantes | Non pris en charge | En préversion | Prise en charge |
+| [**Sauvegarde et récupération**](flexible-server/concepts-backup-restore.md) | | | |
+| Sauvegardes automatisées | Oui | Oui | Non |
+| Rétention des sauvegardes | 7 à 35 jours | 1 à 35 jours | Géré par l’utilisateur |
+| Rétention à long terme des sauvegardes | Géré par l’utilisateur | Géré par l’utilisateur | Géré par l’utilisateur |
+| Exportation des sauvegardes | Prise en charge à l’aide de sauvegardes logiques | Prise en charge à l’aide de sauvegardes logiques | Prise en charge |
+| Limite de restauration dans le temps à tout moment pendant la période de rétention | Oui | Oui | Géré par l’utilisateur |
+| Possibilité de restauration sur une autre zone | Non pris en charge | Oui | Oui |
+| Possibilité de restauration sur un autre réseau virtuel | Non | Oui | Oui |
+| Possibilité de restauration dans une autre région | Oui (Géoredondant) | No | Géré par l’utilisateur |
+| Possibilité de restaurer un serveur supprimé | Oui | Non | Non |
+| [**Récupération d’urgence**](flexible-server/concepts-business-continuity.md) | | | | 
+| DR dans les régions Azure | Utilisation de réplicas en lecture entre les régions, sauvegarde géoredondante | Non pris en charge | Géré par l’utilisateur |
+| Basculement automatique | Non | Non pris en charge | Non |
+| Possibilité d’utiliser le même point de terminaison lecture/écriture | Non | Non pris en charge | Non |
+| [**Surveillance**](flexible-server/concepts-monitoring.md) | | | |
+| Intégration Azure Monitor et alertes | Prise en charge | Prise en charge | Géré par l’utilisateur |
+| Supervision des opérations de base de données | Prise en charge | Prise en charge | Géré par l’utilisateur |
+| Query Performance Insight | Prise en charge | Non pris en charge | Géré par l’utilisateur |
+| Journaux d’activité du serveur | Prise en charge | Prise en charge (à l’aide des journaux de diagnostic) | Géré par l’utilisateur |
+| Journaux d’audit | Prise en charge | Prise en charge | Prise en charge | 
+| Journaux d’activité d’erreurs | Non pris en charge | Prise en charge | Prise en charge |
+| Prise en charge Azure Advisor | Prise en charge | Non pris en charge | Non pris en charge |
+| **Plug-ins** | | | |
+| validate_password | Non pris en charge | En préversion | Prise en charge |
+| caching_sha2_password | Non pris en charge | En préversion | Prise en charge |
+| [**Productivité des développeurs**](flexible-server/quickstart-create-server-cli.md) | | | |
 | Gestion de flotte | Prise en charge avec Azure CLI, PowerShell, REST et Azure Resource Manager | Prise en charge avec Azure CLI, PowerShell, REST et Azure Resource Manager  | Pris en charge pour les machines virtuelles avec Azure CLI, PowerShell, REST et Azure Resource Manager |
+| Prise en charge Terraform | Prise en charge | Non pris en charge | Prise en charge |
+| GitHub Actions | Prise en charge | Prise en charge | Géré par l’utilisateur |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>Motivations métier pour choisir PaaS ou IaaS
 

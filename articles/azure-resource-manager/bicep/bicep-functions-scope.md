@@ -2,22 +2,17 @@
 title: Fonctions Bicep - étendues
 description: Décrit les fonctions à utiliser dans un fichier Bicep pour récupérer les valeurs relatives aux étendues de déploiement.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 2bf09aef4e3b59f6718a96c6ce2650d508872106
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: 4432aa528dbdd565128a15eb79d4b4c01572c924
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026355"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827444"
 ---
 # <a name="scope-functions-for-bicep"></a>Fonctions d’étendue pour Bicep
 
-Resource Manager propose les fonctions suivantes pour obtenir les valeurs d’étendue dans votre fichier Bicep :
-
-* [managementGroup](#managementgroup)
-* [resourceGroup](#resourcegroup)
-* [subscription](#subscription)
-* [client](#tenant)
+Cet article décrit les fonctions Bicep pour l’obtention des valeurs d’étendue.
 
 ## <a name="managementgroup"></a>managementGroup
 

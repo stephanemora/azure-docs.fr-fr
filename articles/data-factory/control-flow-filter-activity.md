@@ -1,7 +1,7 @@
 ---
-title: Activité de filtrage dans Azure Data Factory
+title: Activité de filtre
 titleSuffix: Azure Data Factory & Azure Synapse
-description: L’activité de filtrage permet de filtrer les entrées.
+description: L’activité de filtrage filtre les entrées vers des pipelines Azure Data Factory et Synapse Analytics.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/04/2018
-ms.openlocfilehash: 2ec871aeb6fb7146e66c3d3124ed8bba3400d4c8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: d5a78ca89841abc1d6f060a2f84b7db5ec3758e0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641376"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831630"
 ---
-# <a name="filter-activity-in-azure-data-factory"></a>Activité de filtrage dans Azure Data Factory
+# <a name="filter-activity-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Activité de filtrage dans les pipelines Azure Data Factory et Synapse Analytics
 Vous pouvez utiliser une activité de filtrage dans un pipeline pour appliquer une expression de filtre à un tableau d’entrée. 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -40,7 +40,7 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 name | Nom de l’activité `Filter`. | String | Oui
 type | Doit être défini sur **filter** | String | Oui
-condition | Condition à utiliser pour filtrer l’entrée. | Expression | Yes
+condition | Condition à utiliser pour filtrer l’entrée. | Expression | Oui
 items | Tableau d’entrée sur lequel le filtre sera appliqué. | Expression | Oui
 
 ## <a name="example"></a>Exemple
@@ -112,7 +112,7 @@ Dans cet exemple, le pipeline a deux activités : **filter** et **ForEach**. L�
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
+Consultez d’autres activités de flux de contrôle prises en charge : 
 
 - [Activité IfCondition](control-flow-if-condition-activity.md)
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

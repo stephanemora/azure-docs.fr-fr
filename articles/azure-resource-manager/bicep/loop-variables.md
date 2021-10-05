@@ -5,18 +5,22 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.openlocfilehash: bf182379c9cc10db11e451f908df552a16520b45
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 14721057379217ae9d14b97c94483435dde08203
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225210"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831989"
 ---
 # <a name="variable-iteration-in-bicep"></a>Itération de variable dans Bicep
 
 Cet article explique comment créer plusieurs valeurs pour une variable dans votre fichier Bicep. Vous pouvez ajouter une boucle à la déclaration `variables` et définir de manière dynamique le nombre d’éléments pour une variable. Vous évitez de répéter la syntaxe dans votre fichier Bicep.
 
 Vous pouvez également utiliser l’élément copy avec des [modules](loop-modules.md), des [ressources](loop-resources.md), des [propriétés](loop-properties.md) dans une ressource et des [sorties](loop-outputs.md).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les boucles et pour obtenir des conseils pratiques, consultez [Créer des modèles Bicep flexibles en utilisant des conditions et des boucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) sur **Microsoft Learn**.
 
 ## <a name="syntax"></a>Syntaxe
 

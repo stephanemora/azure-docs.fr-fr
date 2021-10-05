@@ -4,17 +4,17 @@ description: Lorsqu’un objet blob se trouve dans le niveau d’accès archive,
 services: storage
 author: tamram
 ms.author: tamram
-ms.date: 08/24/2021
+ms.date: 08/31/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: 33f29c44e32f1deed0c21e3695e61457a31c7f65
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 2c4eac524ecda8a2b90036748fd2a6f2a389a3cd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829675"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823736"
 ---
 # <a name="overview-of-blob-rehydration-from-the-archive-tier"></a>Vue d’ensemble de la réactivation des objets blob à partir du niveau archive
 
@@ -80,7 +80,7 @@ Une demande [Définir le niveau de l’objet blob](/rest/api/storageservices/set
 Pour savoir comment réactiver un objet blob en remplaçant son niveau par un niveau en ligne, consultez [Réactivation d’un objet blob en modifiant son niveau](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-by-changing-its-tier).
 
 > [!CAUTION]
-> La modification du niveau d’un objet blob n’a pas d’incidence sur son heure de dernière modification. Si une stratégie de [gestion du cycle de vie](storage-lifecycle-management-concepts.md) est en vigueur pour le compte de stockage, le fait de réactiver un objet blob avec **Définir le niveau de l’objet blob** peut donner lieu à un scénario dans lequel la stratégie de cycle de vie déplace l’objet blob vers le niveau archive après la réactivation, car l’heure de dernière modification dépasse le seuil défini pour la stratégie.
+> La modification du niveau d’un objet blob n’a pas d’incidence sur son heure de dernière modification. Si une stratégie de [gestion du cycle de vie](./lifecycle-management-overview.md) est en vigueur pour le compte de stockage, le fait de réactiver un objet blob avec **Définir le niveau de l’objet blob** peut donner lieu à un scénario dans lequel la stratégie de cycle de vie déplace l’objet blob vers le niveau archive après la réactivation, car l’heure de dernière modification dépasse le seuil défini pour la stratégie.
 >
 > Pour éviter ce scénario, réactivez l’objet blob archivé en le copiant (cf. section [Copie d’un objet blob archivé dans un niveau en ligne](#copy-an-archived-blob-to-an-online-tier)). L’opération de copie crée une nouvelle instance de l’objet blob avec une heure de dernière modification mise à jour. Elle ne déclenche pas la stratégie de gestion du cycle de vie.
 

@@ -8,20 +8,28 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6d0432c93a0ab3f47b68e071026301c49e8c670c
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 1824eb31b17ba1a46bd5514797e11a502ac4665a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113567964"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810047"
 ---
 # <a name="configure-permission-classifications"></a>Configurer des classifications d’autorisations
 
 Les classifications d’autorisations vous permettent d’identifier l’impact des différentes autorisations en fonction des stratégies et des évaluations des risques de votre organisation. Par exemple, vous pouvez utiliser des classifications d’autorisations dans des stratégies de consentement afin d’identifier les autorisations que les utilisateurs peuvent accorder.
+
+## <a name="prerequisites"></a>Configuration requise
+
+Pour réaliser les tâches présentées dans ce guide, vous avez besoin de ce qui suit :
+
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Rôle Administrateur général.
+- Configurez Azure AD PowerShell. Voir [Azure AD PowerShell](/powershell/azure/)
 
 ## <a name="manage-permission-classifications"></a>Gérer des classifications d’autorisations
 

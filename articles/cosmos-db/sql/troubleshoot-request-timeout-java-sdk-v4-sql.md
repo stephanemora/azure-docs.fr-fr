@@ -8,12 +8,12 @@ ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 718a0aa96579b3234bfa242408565246602762a6
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 88eabcfa4b8b4eb4e3af4c366939693dc5c92ee1
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123115885"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092012"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Diagnostiquer et résoudre les exceptions de dépassement de délai de demande avec le SDK Java v4 Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ L'erreur HTTP 408 se produit si le SDK n'a pas pu terminer la demande avant l'e
 La liste suivante répertorie les causes connues et les solutions pour les exceptions de dépassement de délai de demande.
 
 ### <a name="existing-issues"></a>Problèmes existants
-Si vous constatez que les requêtes sont bloquées pendant une durée plus longue ou que le délai est plus fréquemment dépassé, mettez à niveau le Kit de développement logiciel (SDK) Java v4 vers la dernière version. REMARQUE :  Nous vous recommandons vivement d’utiliser la version 4.7.0 et les versions supérieures. Pour plus d’informations, consultez les [Notes de publication du Kit de développement logiciel (SDK) Java v4](sql-api-sdk-java-v4.md).
+Si vous constatez que les requêtes sont bloquées pendant une durée plus longue ou que le délai est plus fréquemment dépassé, mettez à niveau le Kit de développement logiciel (SDK) Java v4 vers la dernière version. REMARQUE : Nous vous recommandons vivement d’utiliser la version 4.18.0 ou une version supérieure. Pour plus d’informations, consultez les [Notes de publication du Kit de développement logiciel (SDK) Java v4](sql-api-sdk-java-v4.md).
 
 ### <a name="high-cpu-utilization"></a>Utilisation élevée du processeur
 L'utilisation élevée du processeur est le cas le plus courant. Pour une latence optimale, l'utilisation du processeur doit être d'environ 40 %. Utilisez 10 secondes comme intervalle pour superviser l'utilisation maximale (non moyenne) du processeur. Les pics d'utilisation du processeur sont plus courants avec les requêtes entre partitions où il peut y avoir plusieurs connexions pour une seule requête.

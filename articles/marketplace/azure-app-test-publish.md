@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: cc3c837c4dddf744f141ad930a1e52a5e9f684c7
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 09/27/2021
+ms.openlocfilehash: d7606595adb5c0d20b348bbe323d27af64e8d9cb
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542468"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082096"
 ---
 # <a name="test-and-publish-an-azure-application-offer"></a>Tester et publier une offre d’application Azure
 
@@ -21,7 +21,27 @@ Cet article explique comment utiliser l’Espace partenaires afin de soumettre v
 
 ## <a name="submit-the-offer-for-publishing"></a>Soumettre l’offre pour publication
 
-1. Connectez-vous au tableau de bord de la place de marché commerciale dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+
+    [ ![Illustre la vignette Offres de la Place de marché sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Sur la page d’offres de la Place de marché, sélectionnez l’offre que vous souhaitez publier.
+1. Dans l’angle supérieur droit du portail, sélectionnez **Vérifier et publier**.
+1. Assurez-vous que la colonne **État** de chaque page indique **Complète**. Les états possibles sont les suivants :
+    - **Non démarré** : la page n’est pas démarrée.
+    - **Incomplète** : des informations requises sont manquantes dans la page ou des erreurs doivent être corrigées. Vous devez revenir à la page et la mettre à jour.
+    - **Complète** : la page est complète. Toutes les données requises ont été fournies et il n’existe aucune erreur.
+1. Si l’un des pages présente un État autre que **Complète**, sélectionnez le nom de la page, corrigez le problème, enregistrez la page, puis sélectionnez **Vérifier et publier** à nouveau pour revenir à cette page.
+1. Après avoir compléter toutes les pages, dans la boîte **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour vous assurer que votre application est correctement testée. Fournissez toutes les notes supplémentaires utiles pour comprendre votre demande.
+1. Pour démarrer le processus de publication de votre offre, sélectionnez **Publier**. La page **Vue d’ensemble de l’offre** s’affiche et indique l’**État de publication** de l’offre.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+1. Connectez-vous à la marché commerciale dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 1. Sur la page **Vue d’ensemble**, sélectionnez l’offre que vous souhaitez publier.
 1. Dans l’angle supérieur droit du portail, sélectionnez **Vérifier et publier**.
 1. Assurez-vous que la colonne **État** de chaque page indique **Complète**. Les états possibles sont les suivants :
@@ -31,6 +51,8 @@ Cet article explique comment utiliser l’Espace partenaires afin de soumettre v
 1. Si l’un des pages présente un État autre que **Complète**, sélectionnez le nom de la page, corrigez le problème, enregistrez la page, puis sélectionnez **Vérifier et publier** à nouveau pour revenir à cette page.
 1. Après avoir compléter toutes les pages, dans la boîte **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour vous assurer que votre application est correctement testée. Fournissez toutes les notes supplémentaires utiles pour comprendre votre demande.
 1. Pour démarrer le processus de publication de votre offre, sélectionnez **Publier**. La page **Vue d’ensemble de l’offre** s’affiche et indique l’**État de publication** de l’offre.
+
+---
 
 L’état de publication de votre offre changera à mesure qu’il progressera dans le processus de publication. Pour plus d’informations sur ce processus, consultez [Étapes de validation et de publication](review-publish-offer.md#validation-and-publishing-steps).
 

@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: f3c845757d6cd251905e39999c9858224ee67269
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: be7e52cb093eb9920be5b6e8e9971b7f882f7f06
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562191"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793832"
 ---
 # <a name="conditional-deployment-in-bicep"></a>Déploiement conditionnel dans Bicep
 
@@ -18,6 +18,10 @@ Parfois, vous devez déployer une ressource ou un module de manière conditionne
 
 > [!NOTE]
 > L’exécution du déploiement conditionnel n’inclut pas les [ressources enfants](child-resource-name-type.md). Si vous souhaitez déployer une ressource et ses ressources enfants de manière conditionnelle, vous devez appliquer la même condition à chaque type de ressource.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les conditions et pour obtenir des conseils pratiques, consultez [Créer des modèles Bicep flexibles en utilisant des conditions et des boucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) sur **Microsoft Learn**.
 
 ## <a name="deploy-condition"></a>Condition de déploiement
 

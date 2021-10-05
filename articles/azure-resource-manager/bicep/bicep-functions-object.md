@@ -4,24 +4,17 @@ description: Décrit les fonctions à utiliser dans un fichier Bicep pour utili
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: cc83fcce125a045bbff05147ad22be46a085fe22
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: fd65cc60412d46a734764d3566fa3606a48c7bf6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026356"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758443"
 ---
 # <a name="object-functions-for-bicep"></a>Fonctions d’objet pour Bicep
 
-Resource Manager fournit plusieurs fonctions pour utiliser les objets dans votre fichier Bicep :
-
-* [contains](#contains)
-* [empty](#empty)
-* [intersection](#intersection)
-* [json](#json)
-* [length](#length)
-* [union](#union)
+Cet article décrit les fonctions Bicep pour l’utilisation d’objets.
 
 ## <a name="contains"></a>contains
 
@@ -128,7 +121,7 @@ Retourne un tableau ou un objet unique avec les éléments communs à partir des
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
 | arguments supplémentaires |Non |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Tableau ou objet avec les éléments communs.
 
@@ -288,7 +281,7 @@ Retourne un tableau ou un objet unique avec tous les éléments communs à parti
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
 | arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Objet ou tableau.
 
@@ -333,4 +326,4 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un fichier Bicep, consultez [comprendre la structure et la syntaxe des fichiers Bicep](./file.md).
+* Pour obtenir une description des sections d’un fichier Bicep, consultez [Comprendre la structure et la syntaxe des fichiers Bicep](./file.md).

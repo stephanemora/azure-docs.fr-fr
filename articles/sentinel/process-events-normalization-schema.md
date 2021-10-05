@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: 2f7425d987e878d843271b7222d00f4e326d6478
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: e0afdfcd03bb0b4cc3f8399fa1af79e72b1e4ed8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122566165"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784448"
 ---
 # <a name="azure-sentinel-process-event-normalization-schema-reference-public-preview"></a>Informations de référence sur le schéma de normalisation des événements de processus Azure Sentinel (préversion publique)
 
@@ -107,11 +107,12 @@ Les champs suivants sont générés par Log Analytics pour chaque enregistrement
 | Champ         | Type     | Discussion      |
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | DATETIME | Heure à laquelle l’événement a été généré par l’appareil de création de rapports.|
-| **_ResourceId**   | guid     | ID de ressource Azure de l’appareil ou du service de création de rapports, ou l’ID de ressource de redirecteur de journal pour les événements transférés à l’aide de Syslog, CEF ou WEF. |
+| **_ResourceId**   | guid     | ID de ressource Azure de l’appareil ou du service de création de rapports, ou l’ID de ressource de redirecteur de journal pour les événements transférés avec Syslog, CEF ou WEF. |
+| **Type** | String | La table d’origine à partir de laquelle l’enregistrement a été récupéré. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, et ont les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
 | | | |
 
 > [!NOTE]
-> Log Analytics ajoute également d’autres champs qui sont moins pertinents pour les cas d’usage de sécurité. Pour plus d’informations, consultez [Colonnes standard dans les journaux d’Azure Monitor](../azure-monitor/logs/log-standard-columns.md).
+> Log Analytics ajoute également d’autres champs qui sont moins pertinents pour les cas d’usage de sécurité. Pour plus d’informations, consultez [Colonnes standard dans les journaux Azure Monitor](../azure-monitor/logs/log-standard-columns.md).
 >
 
 ## <a name="event-fields"></a>Champs de l’événement
@@ -121,19 +122,19 @@ Les champs d’événement sont communs à tous les schémas et décrivent l’a
 | Champ               | Classe       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | Facultatif    | Chaîne     |     Message général ou description, inclus dans l’enregistrement ou généré depuis l’enregistrement.   |
-| **EventCount**          | Obligatoire   | Integer    |     Nombre d’événements décrits par l’enregistrement. <br><br>Cette valeur est utilisée lorsque la source prend en charge l’agrégation, et un seul enregistrement peut représenter plusieurs événements. <br><br>Pour les autres sources, affectez à la valeur `1`.   |
+| **EventCount**          | Obligatoire   | Integer    |     Nombre d’événements décrits par l’enregistrement. <br><br>Cette valeur est utilisée quand la source prend en charge l’agrégation, et un seul enregistrement peut représenter plusieurs événements. <br><br>Pour les autres sources, affectez à la valeur `1`.   |
 | **EventStartTime**      | Obligatoire   | Date/heure  |      Si la source prend en charge l’agrégation et que l’enregistrement représente plusieurs événements, ce champ spécifie l’heure à laquelle le premier événement a été généré. Sinon, ce champ associe le champ [TimeGenerated](#timegenerated). |
-| **EventEndTime**        | Obligatoire   | Alias      |      Alias au champ [TimeGenerated](#timegenerated).    |
+| **EventEndTime**        | Obligatoire   | Alias      |      Alias du champ [TimeGenerated](#timegenerated).    |
 | **EventType**           | Obligatoire   | Énuméré |    Décrit l’opération signalée par l’enregistrement. <br><br>Pour les enregistrements de processus, les valeurs prises en charge sont les suivantes : <br>- `ProcessCreated` <br>- `ProcessTerminated` |
 | **EventResult**         | Obligatoire   | Énuméré |  Décrit le résultat de l’événement, normalisé à l’une des valeurs prises en charge suivantes : <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (non applicable) <br><br>La source peut fournir uniquement une valeur pour le champ **EventResultDetails**, qui doit être analysé pour obtenir la valeur **EventResult**.<br><br>**Remarque** : les événements de processus ne font généralement état que des réussites. |
 | **EventOriginalUid**    | Facultatif    | Chaîne     |   ID unique de l’enregistrement d’origine, s’il est fourni par la source.<br><br>Exemple : `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
 | **EventOriginalType**   | Facultatif    | Chaîne     |   Type ou ID d’événement d’origine, s’il est fourni par la source.<br><br>Exemple : `4688`|
-| <a name ="eventproduct"></a>**EventProduct**        | Obligatoire   | Chaîne     |             Produit générant l’événement. <br><br>Exemple : `Sysmon`<br><br>**Remarque** : ce champ n’est peut-être pas disponible dans l’enregistrement source. Dans ce cas, ce champ doit être défini par l’analyseur.           |
+| <a name ="eventproduct"></a>**EventProduct**        | Obligatoire   | Chaîne     |             Produit générant l’événement. <br><br>Exemple : `Sysmon`<br><br>**Remarque** : Ce champ n’est peut-être pas disponible dans l’enregistrement source. Dans ce cas, ce champ doit être défini par l’analyseur.           |
 | **EventProductVersion** | Facultatif    | Chaîne     | Version du produit générant l’événement. <br><br>Exemple : `12.1`      |
-| **EventVendor**         | Obligatoire   | Chaîne     |           Fournisseur du produit générant l’événement. <br><br>Exemple : `Microsoft`  <br><br>**Remarque** : ce champ n’est peut-être pas disponible dans l’enregistrement source. Dans ce cas, ce champ doit être défini par l’analyseur.  |
+| **EventVendor**         | Obligatoire   | Chaîne     |           Fournisseur du produit générant l’événement. <br><br>Exemple : `Microsoft`  <br><br>**Remarque** : Ce champ n’est peut-être pas disponible dans l’enregistrement source. Dans ce cas, ce champ doit être défini par l’analyseur.  |
 | **EventSchemaVersion**  | Obligatoire   | Chaîne     |    Version du schéma. La version du schéma documenté ici est `0.1`         |
 | **EventReportUrl**      | Facultatif    | Chaîne     | URL fournie dans l’événement pour une ressource qui apporte des informations supplémentaires sur l’événement.|
-| **Dvc** | Obligatoire       | Chaîne     |                Identificateur unique de l’appareil sur lequel l’événement s’est produit. <br><br>Ce champ peut prendre l’alias des champs [DvcId](#dvcid), [DvcHostname](#dvchostname) ou [DvcIpAddr](#dvcipaddr). Les sources cloud pour lesquelles il n’y a pas d’appareil apparent, utilisez la même valeur que celle du champ [Event Product](#eventproduct).            |
+| **Dvc** | Obligatoire       | Chaîne     |                Identificateur unique de l’appareil sur lequel l’événement s’est produit. <br><br>Ce champ peut prendre l’alias des champs [DvcId](#dvcid), [DvcHostname](#dvchostname) ou [DvcIpAddr](#dvcipaddr). Pour les sources cloud pour lesquelles il n’y a pas d’appareil apparent, utilisez la même valeur que celle du champ [Event Product](#eventproduct).            |
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommandé | Adresse IP |         Adresse IP de l’appareil sur lequel l’événement de processus s’est produit.  <br><br>Exemple : `45.21.42.12`    |
 | <a name ="dvchostname"></a>**DvcHostname**         | Recommandé | Nom d’hôte   |               Nom d’hôte de l’appareil sur lequel l’événement de processus s’est produit. <br><br>Exemple : `ContosoDc.Contoso.Azure`               |
 | <a name ="dvcid"></a>**DvcId**               | Facultatif    | Chaîne     |  ID unique de l’appareil sur lequel l’événement de processus s’est produit. <br><br>Exemple : `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
@@ -163,9 +164,9 @@ Le schéma d’événement de processus fait référence aux entités suivantes,
 | **Hash**           | Alias        |            |       Alias du meilleur hachage disponible. |
 | <a name="actorusername"></a>**ActorUsername**  | Obligatoire    | Chaîne     | Nom d’utilisateur de l’utilisateur qui a lancé l’événement. <br><br>Exemple : `CONTOSO\WIN-GG82ULGC9GO$`     |
 | **ActorUsernameType**              | Obligatoire    | Énuméré |   Spécifie le type du nom d’utilisateur stocké dans le champ [ActorUsername](#actorusername). Pour plus d’informations, consultez [L’entité utilisateur](normalization-about-schemas.md#the-user-entity). <br><br>Exemple : `Windows`       |
-| <a name="actoruserid"></a>**ActorUserId**    | Recommandé  | Chaîne     |   ID unique de l’intervenant. L’ID spécifique dépend du système qui génère l’événement. Pour plus d’informations, consultez [L’entité utilisateur](normalization-about-schemas.md#the-user-entity).  <br><br>Exemple : `S-1-5-18`    |
+| <a name="actoruserid"></a>**ActorUserId**    | Recommandé  | Chaîne     |   ID unique de l’Intervenant. L’ID spécifique dépend du système qui génère l’événement. Pour plus d’informations, consultez [L’entité utilisateur](normalization-about-schemas.md#the-user-entity).  <br><br>Exemple : `S-1-5-18`    |
 | **ActorUserIdType**| Recommandé  | Chaîne     |  Type de l’ID stocké dans le champ [ActorUserId](#actoruserid). Pour plus d’informations, consultez [L’entité utilisateur](normalization-about-schemas.md#the-user-entity). <br><br>Exemple : `SID`         |
-| **ActorSessionId** | Facultatif     | Chaîne     |   ID unique de la session de connexion de l’intervenant.  <br><br>Exemple : `999`<br><br>**Remarque** : le type est défini en tant que *chaîne* pour la prise en charge de différents systèmes. Cependant, sur Windows, cette valeur doit être numérique. <br><br>Si vous utilisez un ordinateur Windows et avez utilisé un type différent, assurez-vous de convertir les valeurs. Par exemple, si vous avez utilisé une valeur hexadécimale, convertissez-la en valeur décimale.   |
+| **ActorSessionId** | Facultatif     | Chaîne     |   ID unique de la session de connexion de l’Intervenant.  <br><br>Exemple : `999`<br><br>**Remarque** : le type est défini en tant que *chaîne* pour la prise en charge de différents systèmes. Cependant, sur Windows, cette valeur doit être numérique. <br><br>Si vous utilisez un ordinateur Windows et avez utilisé un type différent, assurez-vous de convertir les valeurs. Par exemple, si vous avez utilisé une valeur hexadécimale, convertissez-la en valeur décimale.   |
 | **ActingProcessCommandLine**       | Facultatif     | Chaîne     |   Ligne de commande utilisée pour exécuter le processus agissant. <br><br>Exemple : `"choco.exe" -v`    |
 | **ActingProcessName**              | Facultatif     | string     |   Nom du processus agissant. Ce nom est généralement dérivé de l’image ou du fichier exécutable utilisé pour définir le code et les données initiaux mappés dans l’espace d’adressage virtuel du processus.<br><br>Exemple : `C:\Windows\explorer.exe`  |
 | **ActingProcessFileCompany**       | Facultatif     | Chaîne     |           Société qui a créé le fichier d’image de processus agissant.  <br><br> Exemple : `Microsoft`    |
@@ -241,7 +242,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 - [Normalisation dans Azure Sentinel](normalization.md)
 - [Informations de référence sur le schéma de normalisation de l’authentification Azure Sentinel (préversion publique)](authentication-normalization-schema.md)
-- [Référence de schéma de normalisation du DNS Azure Sentinel](dns-normalization-schema.md)
+- [Informations de référence sur le schéma de normalisation du DNS Azure Sentinel](dns-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation des événements de fichier Azure Sentinel (préversion publique)](file-event-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation du réseau Azure Sentinel](normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation des événements du registre Azure Sentinel (préversion publique)](registry-event-normalization-schema.md)

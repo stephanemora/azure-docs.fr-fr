@@ -4,21 +4,24 @@ description: Cet article décrit les insights dans Azure Purview.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: bd2a8aa4a0296cf67cf754f0d921e2791abdbb4f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ff50729dee893caa7a1c38f57cbd23f0470fc84b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788790"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218847"
 ---
 # <a name="understand-insights-in-azure-purview"></a>Présentation des insights dans Azure Purview
 
 Cet article donne une vue d’ensemble de la fonctionnalité Insights dans Azure Purview.
 
-Les insights sont l’un des piliers dans Purview. Cette fonctionnalité offre aux clients une vue unique de leur catalogue et vise à fournir des insights spécifiques aux administrateurs de source de données, aux utilisateurs professionnels, aux gestionnaires de données, aux responsables de données et aux administrateurs de sécurité. Actuellement, Purview contient les rapports d’insights suivants qui seront disponibles pour les clients dans la version préliminaire publique.
+Les insights sont l’un des piliers dans Purview. Cette fonctionnalité offre aux clients une vue unique de leur catalogue et vise à fournir des insights spécifiques aux administrateurs de source de données, aux utilisateurs professionnels, aux gestionnaires de données, aux responsables de données et aux administrateurs de sécurité. Actuellement, Purview contient les rapports d’insights suivants qui seront disponibles pour les clients dans la préversion publique d’Insight.
+
+> [!IMPORTANT]
+> Les insights Azure Purview sont actuellement disponibles en PRÉVERSION. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
 ## <a name="asset-insights"></a>Insights relatifs aux ressources
 

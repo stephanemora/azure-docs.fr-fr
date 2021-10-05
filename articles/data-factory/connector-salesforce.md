@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: c95643e3853c1034e550ca9fad053171a5db0f67
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/03/2021
+ms.openlocfilehash: 0a7bca44ccee4e836fd5aa8e0ef44412e1fc6985
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307994"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836202"
 ---
 # <a name="copy-data-from-and-to-salesforce-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données de et vers Salesforce à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ Ce connecteur Salesforce prend en charge :
 - Développeur Salesforce, éditions professionnelle, d’entreprise ou illimitées.
 - La copie de données depuis et vers le domaine de production, le bac à sable et le domaine personnalisé de Salesforce.
 
-Le connecteur Salesforce est basé sur l'API REST/en bloc Salesforce. Par défaut, lors de la copie de données à partir de Salesforce, le connecteur utilise [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) et choisit automatiquement entre les API REST et en bloc en fonction de la taille des données : lorsque le jeu de résultats est volumineux, l’API en bloc est utilisée pour de meilleures performances. Lors de l’écriture de données dans Salesforce, le connecteur utilise la version [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) de l’API en bloc. Vous pouvez aussi définir explicitement la version de l’API utilisée pour lire/écrire des données via la [`apiVersion`prorpiété](#linked-service-properties) dans le service lié.
+Le connecteur Salesforce est basé sur l'API REST/en bloc Salesforce. Lors de la copie de données à partir de Salesforce, le connecteur choisit automatiquement entre les API REST et en bloc en fonction de la taille des données : lorsque le jeu de résultats est volumineux, l’API en bloc est utilisée pour de meilleures performances. Vous pouvez explicitement définir la version d’API utilisée pour lire/écrire des données via la [propriété `apiVersion` ](#linked-service-properties) du service lié.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -67,7 +67,7 @@ Utilisez les étapes suivantes pour créer un service lié à Salesforce dans l�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -96,7 +96,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Salesforce
 | username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
 | mot de passe |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. <br/><br/>Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). Le jeton de sécurité peut être uniquement ignoré si vous ajoutez l’adresse IP d'Integration Runtime à la [liste d'adresses IP approuvées](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) sur Salesforce. Lorsque vous utilisez Azure IR, consultez [Adresses IP Azure Integration Runtime](azure-integration-runtime-ip-addresses.md).<br/><br/>Pour des instructions sur l'obtention et la réinitialisation d’un jeton de sécurité, consultez l’article [Obtenir un jeton de sécurité](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non |
-| apiVersion | Spécifiez la version de l’API REST/en bloc de Salesforce à utiliser, par exemple `48.0`. Par défaut, le connecteur utilise [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier les données à partir de Salesforce, et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier les données dans Salesforce. | Non |
+| apiVersion | Spécifiez la version de l’API REST/en bloc de Salesforce à utiliser, par exemple `52.0`. | Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |
 
 **Exemple : Stocker les informations d’identification**
@@ -173,7 +173,7 @@ Pour copier des données depuis et vers Salesforce, définissez la propriété d
 > [!IMPORTANT]
 > La partie « __c » du **nom de l’API** est requise pour tout objet personnalisé.
 
-![Nom d’API de connexion Salesforce](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Nom d’API de connexion Salesforce":::
 
 **Exemple :**
 
@@ -219,7 +219,7 @@ Pour copier des données à partir de Salesforce, définissez le type de source 
 > [!IMPORTANT]
 > La partie « __c » du **nom de l’API** est requise pour tout objet personnalisé.
 
-![Liste de noms d’API de connexion Salesforce](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Liste de noms d’API de connexion Salesforce":::
 
 **Exemple :**
 

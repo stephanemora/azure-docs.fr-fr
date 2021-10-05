@@ -4,19 +4,19 @@ description: Cet article décrit les différentes fonctionnalités et banques de
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 05/17/2021
-ms.openlocfilehash: 398cf852d789b61a1f2b1e7a7e6ef4bad50e329a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 96a51e4ca3ab1f145b5d2820b43290f9a5f98d48
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524146"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214819"
 ---
 # <a name="supported-data-stores"></a>Magasins de données pris en charge
 
-Purview prend en charge les banques de données suivantes. Cliquez sur chaque banque de données pour découvrir les fonctionnalités prises en charge et les configurations correspondantes en détail.
+Purview prend en charge les banques de données suivantes. Sélectionnez chaque banque de données pour découvrir le détail des fonctionnalités prises en charge et des configurations correspondantes.
 
 ## <a name="purview-data-sources"></a>Sources de données Purview
 
@@ -27,9 +27,9 @@ Purview prend en charge les banques de données suivantes. Cliquez sur chaque ba
 ||[Explorateur de données Azure](register-scan-azure-data-explorer.md)|Oui| Oui| Oui| Oui| Oui| Oui|
 ||[Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)|Oui| Oui| Oui| Oui| Oui| Oui|
 ||[Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)|Oui| Oui| Oui| Oui| Oui| Oui|
+||[Pool SQL dédié Azure (anciennement SQL DW)](register-scan-azure-synapse-analytics.md)|Oui| Oui| Non| Oui| Oui| Oui|
 ||[Azure SQL Database](register-scan-azure-sql-database.md)|Oui| Oui| Non| Oui| Oui| Oui|
 ||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Oui| Oui| Non| Oui| Oui| Oui|
-||[Pool SQL dédié Azure (anciennement SQL DW)](register-scan-azure-synapse-analytics.md)|Oui| Oui| Non| Oui| Oui| Oui|
 ||[Azure Synapse Analytics (Espace de travail)](register-scan-synapse-workspace.md)|Oui| Oui| Non| Oui| Oui| Oui|
 |Base de données|[Cassandra](register-scan-cassandra-source.md)|Oui| Oui| Non| Non| Non| Oui|
 ||[Google BigQuery](register-scan-google-bigquery-source.md)|Oui| Oui| Non| Non| Non| Oui|
@@ -37,12 +37,12 @@ Purview prend en charge les banques de données suivantes. Cliquez sur chaque ba
 ||[Oracle DB](register-scan-oracle-source.md)|Oui| Oui| Non| Non| Non| Oui|
 ||[SQL Server](register-scan-on-premises-sql-server.md)|Oui| Oui| Non| Oui| Oui| Oui|
 ||[Teradata](register-scan-teradata-source.md)|Oui| Oui| Non| Non| Non| Oui|
-|Power BI|[Power BI](register-scan-power-bi-tenant.md)|Oui| Oui| Non| Non| Non| Oui|
+|Fichier|[Amazon S3](register-scan-amazon-s3.md)|Oui| Oui| Oui| Oui| Oui| Oui|
 |Services et applications|[Erwin](register-scan-erwin-source.md)|Oui| Oui| Non| Non| Non| Oui|
 ||[Looker](register-scan-looker-source.md)|Oui| Oui| Non| Non| Non| Oui|
+||[Power BI](register-scan-power-bi-tenant.md)|Oui| Oui| Non| Non| Non| Oui|
 ||[SAP ECC](register-scan-sapecc-source.md)|Oui| Oui| Non| Non| Non| Oui|
 ||[SAP S4HANA](register-scan-saps4hana-source.md)|Oui| Oui| Non| Non| Non| Oui|
-|Multi-cloud|[Amazon S3](register-scan-amazon-s3.md)|Oui| Oui| Oui| Oui| Oui| Oui|
 
 ## <a name="scan-regions"></a>Analyser des régions
 Voici une liste de toutes les régions de la source de données Azure (centre de données) sur lesquelles l’analyseur Purview s’exécute. Si votre source de données Azure se trouve dans une région qui ne figure pas dans cette liste, l’analyseur s’exécutera dans la région de votre instance de Purview.

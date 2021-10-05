@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/15/2021
 ms.author: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1944e9f0e8d1ad7a447d12c99aa65a22ccb233d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3c4a9afd9e2470085509c809153fd2abd9a63c27
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562895"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796435"
 ---
 # <a name="security-operations-for-privileged-accounts"></a>Opérations de sécurité pour les comptes privilégiés
 
@@ -36,11 +36,11 @@ Vous êtes entièrement responsable de toutes les couches de sécurité de votre
 
 ## <a name="where-to-look"></a>Emplacement des fichiers
 
-Les fichiers journaux à utiliser pour l’investigation et le monitoring sont les suivants : 
+Les fichiers journaux que vous pouvez utiliser pour investiguer et superviser sont les suivants : 
 
 * [Journaux d’audit Azure AD](../reports-monitoring/concept-audit-logs.md)
 
-* [Journaux d’audit Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Journaux d’audit Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Insights Azure Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md)
 
@@ -133,18 +133,18 @@ Surveillez l’activité de connexion de toutes les comptes privilégiés en uti
 
 Vous pouvez surveiller les événements de connexion à un compte privilégié dans les journaux de connexion Azure AD. Signalez et menez des investigations sur les événements suivants pour les comptes privilégiés.
 
-| Éléments à analyser | Niveau de risque |  Where |  Filtre/sous-filtre | Notes |
+| Éléments à analyser | Niveau de risque |  Where |  Filtre/Sous-filtre | Notes |
 | - | - | - | - | - |
 | Échec de connexion, seuil de mot de passe incorrect | Élevé | Journal de connexions Azure AD | État = échec<br>-et-<br>Code d’erreur = 50126 | Définissez un seuil de ligne de base, puis surveillez et ajustez-le pour l’adapter aux comportements de votre organisation et limiter la génération de fausses alertes. |
 | Échec en raison de l’exigence de l’autorité de certification |Élevé | Journal de connexions Azure AD | État = échec<br>-et-<br>Code d’erreur = 53003<br>-et-<br>Raison de l’échec = bloqué par l’autorité de certification | Cela peut indiquer qu’un attaquant tente d’accéder au compte. |
 | Comptes privilégiés qui ne suivent pas la stratégie d’affectation de noms.| | Abonnement Azure | [Répertorier les attribution de rôle Azure à l’aide du portail Azure – Azure RBAC](../../role-based-access-control/role-assignments-list-portal.md)| Répertoriez les attributions de rôles pour les abonnements et envoyez des alertes lorsque le nom de connexion ne correspond pas au format de votre organisation. Par exemple, ADM_ en tant que préfixe. |
-| Interruption |  Élevé/Moyen | Connexions Azure AD | État = Interrompu<br>-et-<br>Code d’erreur = 50074<br>-et-<br>Raison de l’échec = authentification forte requise<br>État = Interrompu<br>-et-<br>Code d’erreur = 500121<br>Raison de l’échec = échec de l’authentification lors d’une requête d’authentification forte. | Cela peut indiquer qu’un attaquant a le mot de passe du compte, mais ne peut pas réussir la stimulation MFA. |   |   |
+| Interruption |  Élevé/Moyen | Connexions Azure AD | État = Interrompu<br>-et-<br>Code d’erreur = 50074<br>-et-<br>Raison de l’échec = authentification forte requise<br>État = Interrompu<br>-et-<br>Code d’erreur = 500121<br>Raison de l’échec = échec de l’authentification lors d’une requête d’authentification forte. | Cela peut indiquer qu’un attaquant a le mot de passe du compte, mais ne peut pas réussir la stimulation MFA. | 
 | Comptes privilégiés qui ne suivent pas la stratégie d’affectation de noms.| Élevé | Annuaire Azure AD | [Répertorier les attributions de rôle Azure AD](../roles/view-assignments.md)| Répertoriez les attributions de rôles Azure AD et signalez les rôles dont l’UPN ne correspond pas au format de votre organisation. Par exemple, ADM_ en tant que préfixe. |
-| Détectez les comptes privilégiés non inscrits à MFA. | Élevé | API Graph Azure AD| Exécutez la requête IsMFARegistered = false pour les comptes administrateur. [Lister credentialUserRegistrationDetails - Microsoft Graph version bêta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&tabs=http) | Auditez et vérifiez si c’est intentionnel ou si c’est un oubli. |
+| Détectez les comptes privilégiés non inscrits à MFA. | Élevé | API Graph Azure AD| Exécutez la requête IsMFARegistered = false pour les comptes administrateur. [Lister credentialUserRegistrationDetails - Microsoft Graph version bêta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http) | Auditez et vérifiez si c’est intentionnel ou si c’est un oubli. |
 | Verrouillage de compte | Élevé | Journal de connexions Azure AD | État = échec<br>-et-<br>Code d’erreur = 50053 | Définissez un seuil de ligne de base, puis surveillez et ajustez-le pour l’adapter aux comportements de votre organisation et limiter la génération de fausses alertes. |
 | Compte désactivé/bloqué pour les connexions | Faible | Journal de connexions Azure AD | État = échec<br>-et-<br>Cible = UPN de l’utilisateur<br>-et-<br>Code d’erreur = 50057 | Cela peut indiquer qu’un utilisateur tente d’accéder à un compte une fois qu’il a quitté une organisation. Même si le compte est bloqué, il est important d’enregistrer et de signaler cette activité. |
 | Alerte de fraude MFA/bloquer | Élevé | Journal des connexions Azure AD/Azure Log Analytics | Réussite = false<br>-et-<br>Détail du résultat = MFA refusé<br>-et-<br>Cible = Utilisateur | L’utilisateur privilégié a indiqué qu’il n’a pas provoqué l’invite MFA et peut indiquer qu’un attaquant a le mot de passe du compte. |
-| Connexions à des comptes privilégiés en dehors des contrôles attendus. |  | Journal de connexions Azure AD | État = échec<br>UserPricipalName = <Admin account><br>Emplacement = <unapproved location><br>Adresse IP = <unapproved IP><br>Informations sur l’appareil= <navigateur, système d’exploitation non approuvé> | Surveillez et signalez les entrées que vous avez définies comme non approuvées. |
+| Connexions à des comptes privilégiés en dehors des contrôles attendus. |  | Journal de connexions Azure AD | État = échec<br>UserPricipalName = \<Admin account\><br>Emplacement = \<unapproved location\><br>Adresse IP = \<unapproved IP\><br>Informations sur l’appareil= \<unapproved Browser, Operating System\> | Surveillez et signalez les entrées que vous avez définies comme non approuvées. |
 | En dehors des heures de connexion normales | Élevé | Journal de connexions Azure AD | État = réussite<br>-et-<br>Emplacement =<br>-et-<br>Heure = en dehors des heures de travail | Surveillez et signalez les connexions qui se produisent en dehors des périodes attendues. Il est important de trouver le modèle de travail normal pour chaque compte privilégié et de signaler les modifications non planifiées en dehors des périodes de travail normales. Les connexions en dehors des heures de travail normales peuvent indiquer une compromission ou des menaces potentielles provenant d’initiés. | 
 | Risque Identity Protection | Élevé | Journaux Identity Protection | État du risque = risqué<br>-et-<br>Niveau de risque = faible/moyen/élevé<br>-et-<br>Activité = connexion/TOR inhabituels, etc. | Cela indique qu’il existe une anomalie détectée avec la connexion pour le compte et que vous devez recevoir une alerte à ce sujet. | 
 | Modification de mot de passe | Élevé | Journaux d’audit Azure AD | Intervenant de l’activité = admin/libre-service<br>-et-<br>Cible = Utilisateur<br>-et-<br>État = réussite/échec | Signalez les modifications de mot de passe de compte d’administrateur, en particulier pour les administrateurs généraux, les administrateurs d’utilisateurs, les administrateurs d’abonnements et les comptes d’accès d’urgence. Écrivez une requête ciblée sur tous les comptes privilégiés. | 
@@ -165,7 +165,7 @@ Les comptes privilégiés auxquels des autorisations ont été attribuées dans 
 
 * [Auditer l’utilisation de privilèges sensibles](/windows/security/threat-protection/auditing/audit-sensitive-privilege-use)
 
-| Éléments à analyser                                                         | Niveau de risque | Where               | Filtre/sous-filtre                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Notes                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Éléments à analyser                                                         | Niveau de risque | Where               | Filtre/Sous-filtre                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Notes                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |-------------------------------------------------------------------------|------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Modifications tentées et terminées                                  | Élevé       | Journaux d’audit Azure AD | Date et heure<br>-et-<br>Service<br>-et-<br>Catégorie et nom de l’activité (laquelle)<br>-et-<br>État = réussite ou échec<br>-et-<br>Cible<br>-et-<br>Initiateur/intervenant (qui)                                                                                                                                                                                                                                                                                                | Toutes les modifications non planifiées doivent être signalées par une alerte immédiatement. Ces journaux doivent être conservés pour faciliter l’investigation. Toutes les modifications apportées au niveau du locataire doivent être examinées immédiatement (lien vers la documentation Infra) pour réduire la position de sécurité de votre locataire. Par exemple : exclure des comptes de l’authentification MFA ou de l’accès conditionnel. Signalez les [ajouts ou modifications apportés à des applications](security-operations-applications.md). |
 | **EXEMPLE**<br>Tentative de modification ou modification effectuée sur des applications ou des services de grande valeur | Élevé       | Journal d’audit           | Service<br>-et-<br>Catégorie et nom de l’activité                                                                                                                                                                                                                                                                                                                                                                                                                                | <li>Date et heure <li>Service <li>Catégorie et nom de l’activité <li>État = réussite ou échec <li>Cible <li>Initiateur/intervenant (qui)                                                                                                                                                                                                                                                                                        |
@@ -176,18 +176,18 @@ Les comptes privilégiés auxquels des autorisations ont été attribuées dans 
 
 Examinez les modifications apportées aux privilèges et règles d’authentification des comptes privilégiés, en particulier si la modification offre une capacité ou un privilège plus élevé pour effectuer des tâches dans votre environnement Azure AD. 
 
-| Éléments à analyser| Niveau de risque| Where| Filtre/sous-filtre| Notes |
+| Éléments à analyser| Niveau de risque| Where| Filtre/Sous-filtre| Notes |
 | - | - | - | - | - |
 | Création d’un compte privilégié.| Moyenne| Journaux d’audit Azure AD| Service = répertoire principal<br>-et-<br>Catégorie = gestion des utilisateurs<br>-et-<br>Type d’activité = Ajouter un utilisateur<br>-corrélation avec –<br>Type de catégorie = gestion des rôles<br>-et-<br>Type d’activité = ajout d’un membre au rôle<br>-et-<br>Propriétés modifiées = Role.DisplayName| Surveillez la création de comptes privilégiés. Recherchez la corrélation entre la création et la suppression de comptes. |
 | Modifications apportées aux méthodes d’authentification.| Élevé| Journaux d’audit Azure AD| Service = méthode d’authentification<br>-et-<br>Type d’activité = informations de sécurité inscrites par l’utilisateur<br>-et-<br>Catégorie = gestion des utilisateurs| Cela peut être le cas d’une personne malveillante qui ajoute une méthode d’authentification au compte afin d’obtenir un accès en continu. |
-| Signalez les modifications apportées aux autorisations de compte privilégié.| Élevé| Journaux d’audit Azure AD| Catégorie = Gestion des rôles<br>-et-<br>Type d’activité – Ajout d’un membre éligible (permanent)<br>-et-<br>Type d’activité – Ajout d’un membre éligible (éligible)<br>-et-<br>État = Réussite/Échec<br>-et-<br>Propriétés modifiées = Role.DisplayName| Cela est particulièrement vrai pour les comptes auxquels les rôles attribués sont inconnus ou en dehors de leurs responsabilités normales. |
+| Signalez les modifications apportées aux autorisations de compte privilégié.| Élevé| Journaux d’audit Azure AD| Catégorie = Gestion des rôles<br>-et-<br>Type d’activité – Ajout d’un membre éligible (permanent)<br>-et-<br>Type d’activité – Ajout d’un membre éligible (éligible)<br>-et-<br>État = Réussite/Échec<br>-et-<br>Propriétés modifiées = Role.DisplayName| Cela est particulièrement vrai pour les comptes auxquels les rôles attribués sont inconnus ou en dehors de leurs responsabilités normales. |
 | Comptes privilégiés inutilisés.| Moyenne| Révisions d’accès Azure AD| | Passez en revue tous les mois les comptes d’utilisateurs privilégiés inactifs. |
 | Comptes exemptés de l’accès conditionnel| Élevé| Journaux Azure Monitor<br>-ou-<br>Révisions d’accès| Insights et rapports sur l’accès conditionnel| Tout compte exempté de l’autorité de certification contourne probablement les contrôles de sécurité et est plus vulnérable à la compromission. Les comptes de secours sont exemptés. Consultez les informations sur la façon de surveiller les comptes de secours dans une section ultérieure de cet article.|
 
 
 Pour plus d’informations sur la surveillance des exceptions pour les stratégies d’accès conditionnel, consultez [Insights et reporting sur l’accès conditionnel](../conditional-access/howto-conditional-access-insights-reporting.md).
 
-Pour plus d’informations sur la découverte des comptes privilégiés inutilisés, consultez [Créer une révision d’accès des rôles Azure AD dans Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
+Pour plus d’informations sur la découverte des comptes privilégiés inutilisés, consultez [Créer une révision d’accès des rôles Azure AD dans Privileged Identity Management](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
 
  
 ## <a name="assignment-and-elevation"></a>Attribution et élévation
@@ -236,7 +236,7 @@ Nous vous recommandons de prêter une attention particulière aux modifications 
 
 Vous pouvez surveiller les modifications de comptes privilégiés à l’aide de journaux d’audit Azure AD et de journaux Azure Monitor. Plus précisément, nous vous recommandons d’inclure les éléments suivants dans votre processus de surveillance. 
 
-| Éléments à analyser| Niveau de risque| Where| Filtre/sous-filtre| Notes |
+| Éléments à analyser| Niveau de risque| Where| Filtre/Sous-filtre| Notes |
 | - | - | - | - | - |
 | Ajouté au rôle privilégié éligible.| Élevé| Journaux d’audit Azure AD| Service = PIM<br>-et-<br>Catégorie = Gestion des rôles<br>-et-<br>Type d’activité - Ajout de membre au rôle terminé (éligible)<br>-et-<br>État = Réussite/Échec<br>-et-<br>Propriétés modifiées = Role.DisplayName| Tout compte éligible à un rôle reçoit maintenant un accès privilégié. Si l’attribution est inattendue ou est appliquée à un rôle qui n’est pas la responsabilité du titulaire du compte, étudiez le problème. |
 | Rôles attribués hors PIM.| Élevé| Journaux d’audit Azure AD| Service = PIM<br>-et-<br>Catégorie = Gestion des rôles<br>-et-<br>Type d’activité : Ajout d’un membre au rôle (permanent)<br>-et-<br>État = Réussite/Échec<br>-et-<br>Propriétés modifiées = Role.DisplayName| Celles-ci doivent être surveillées et signalées étroitement. Les utilisateurs ne doivent pas se voir attribuer des rôles en dehors de PIM dans la mesure du possible. |
@@ -253,7 +253,7 @@ Pour plus d’informations sur la configuration des alertes pour le rôle Azure,
 
  ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les articles suivants concernant les opérations de sécurité :
+Consultez les articles suivants sur les opérations de sécurité :
 
 [Vue d’ensemble des opérations de sécurité Azure AD](security-operations-introduction.md)
 

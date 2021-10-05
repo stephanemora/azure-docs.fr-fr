@@ -3,12 +3,12 @@ title: Utiliser Bicep pour déployer des ressources sur l’abonnement
 description: Décrit comment créer un fichier Bicep qui déploie des ressources dans l’étendue de l’abonnement Azure. Il montre comment créer un groupe de ressources.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: a683e0c46547be3ecb48a20a88f9a95a5b6c8ef8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: df9938e209e163b19e666a26dec4176e83fc79e6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453423"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793737"
 ---
 # <a name="subscription-deployments-with-bicep-files"></a>Déploiements d’abonnements avec des fichiers Bicep
 
@@ -18,6 +18,10 @@ Pour simplifier la gestion des ressources, vous pouvez déployer des ressources 
 
 > [!NOTE]
 > Vous pouvez déployer sur 800 différents groupes de ressources dans un déploiement de niveau abonnement.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les étendues de déploiement et pour obtenir des conseils pratiques, consultez [Déploiement de ressources dans des abonnements, des groupes d’administration et des locataires avec Bicep](/learn/modules/deploy-resources-scopes-bicep/) sur **Microsoft Learn**.
 
 ## <a name="supported-resources"></a>Ressources prises en charge
 

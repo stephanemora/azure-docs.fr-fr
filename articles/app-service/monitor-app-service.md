@@ -7,19 +7,19 @@ ms.topic: article
 ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
-ms.openlocfilehash: 537173792c4e14ac1dfdb142d8ab15e3e68e5649
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 1c3ff0fb224d5c1f8fe0133f184044b8aa5b30a3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114230583"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124837135"
 ---
 # <a name="monitoring-app-service"></a>Analyse d'App Service
 
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données d’analyse générées par App Service et expédiée à [Azure Monitor](../azure-monitor/overview.md). Vous pouvez également utiliser les [diagnostics intégrés pour analyser les ressources](troubleshoot-diagnostic-logs.md) pour aider au débogage d’une application App Service. Si vous n’êtes pas familiarisé avec les fonctionnalités d’Azure Monitor communes à tous les services Azure qui l’utilisent, lisez [Analyse des ressources Azure avec Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
 
 > [!NOTE]
-> L’intégration d’Azure Monitor à App Service est proposée en [préversion](https://aka.ms/appsvcblog-azmon).
+> L’intégration des paramètres de diagnostic avec App Service est en [préversion](https://aka.ms/appsvcblog-azmon).
 >
 
 ## <a name="monitoring-data"></a>Données de surveillance 

@@ -2,13 +2,13 @@
 title: Fonctions de modèle - Logique
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour déterminer les valeurs logiques.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: c69e10b660d5b7cbf768ea31fda6678d07053224
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/09/2021
+ms.openlocfilehash: b94f7aa38c708278f2ccf54a5592016873fcd285
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959627"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744365"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Fonctions logiques pour les modèles ARM
 
@@ -28,7 +28,7 @@ Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dan
 
 Vérifie si toutes les valeurs de paramètres sont true.
 
-La fonction `and` n’est pas prise en charge dans Bicep. Utilisez l’ [opérateur &&](../bicep/operators-logical.md#and-) à la place.
+La fonction `and` n’est pas prise en charge dans Bicep. Privilégiez l’[opérateur &&](../bicep/operators-logical.md#and-).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -36,7 +36,7 @@ La fonction `and` n’est pas prise en charge dans Bicep. Utilisez l’ [opérat
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |boolean |La première valeur pour vérifier si c’est true. |
 | arg2 |Oui |boolean |La deuxième valeur pour vérifier si c’est true. |
-| arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
+| arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs correspondent à true. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -44,29 +44,9 @@ Retourne **True** si toutes les valeurs sont true ; sinon, renvoie **False**.
 
 ### <a name="examples"></a>Exemples
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) suivant montre comment utiliser des fonctions logiques.
+L’exemple suivant montre comment utiliser des fonctions logiques.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "andExampleOutput": {
-      "type": "bool",
-      "value": "[and(bool('true'), bool('false'))]"
-    },
-    "orExampleOutput": {
-      "type": "bool",
-      "value": "[or(bool('true'), bool('false'))]"
-    },
-    "notExampleOutput": {
-      "type": "bool",
-      "value": "[not(bool('true'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/andornot.json":::
 
 La sortie de l’exemple précédent est :
 
@@ -98,33 +78,9 @@ Vous pouvez également utiliser [true()](#true) et [false()](#false) pour obteni
 
 ### <a name="examples"></a>Exemples
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) suivant montre comment utiliser bool avec une chaîne ou un entier.
+L’exemple suivant montre comment utiliser le booléen avec une chaîne ou un entier.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "trueString": {
-      "type": "bool",
-      "value": "[bool('true')]",
-    },
-    "falseString": {
-      "type": "bool",
-      "value": "[bool('false')]"
-    },
-    "trueInt": {
-      "type": "bool",
-      "value": "[bool(1)]"
-    },
-    "falseInt": {
-      "type": "bool",
-      "value": "[bool(0)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/bool.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -155,19 +111,7 @@ Valeur booléenne qui correspond toujours à false.
 
 L’exemple suivant retourne une valeur de sortie false.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "falseOutput": {
-      "type": "bool",
-      "value": "[false()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/false.json":::
 
 La sortie de l’exemple précédent est :
 
@@ -201,30 +145,9 @@ Lorsque la condition est **True**, seule la valeur true est évaluée. Lorsque l
 
 ### <a name="examples"></a>Exemples
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) suivant montre comment utiliser la fonction `if`.
+L’exemple suivant explique comment utiliser la fonction `if`.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-  ],
-  "outputs": {
-    "yesOutput": {
-      "type": "string",
-      "value": "[if(equals('a', 'a'), 'yes', 'no')]"
-    },
-    "noOutput": {
-      "type": "string",
-      "value": "[if(equals('a', 'b'), 'yes', 'no')]"
-    },
-    "objectOutput": {
-      "type": "object",
-      "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/if.json":::
 
 La sortie de l’exemple précédent est :
 
@@ -288,7 +211,7 @@ L’[exemple de modèle](https://github.com/krnese/AzureDeploy/blob/master/ARM/d
 
 Convertit la valeur booléenne à sa valeur opposée.
 
-La fonction `not` n’est pas prise en charge dans Bicep. Utilisez l’ [opérateur !](../bicep/operators-logical.md#not-) à la place.
+La fonction `not` n’est pas prise en charge dans Bicep. Privilégiez l’[opérateur !](../bicep/operators-logical.md#not-).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -302,29 +225,9 @@ Retourne **True** lorsque le paramètre est **False**. Retourne **False** lorsqu
 
 ### <a name="examples"></a>Exemples
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) suivant montre comment utiliser des fonctions logiques.
+L’exemple suivant montre comment utiliser des fonctions logiques.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "andExampleOutput": {
-      "type": "bool",
-      "value": "[and(bool('true'), bool('false'))]",
-    },
-    "orExampleOutput": {
-      "type": "bool",
-      "value": "[or(bool('true'), bool('false'))]"
-    },
-    "notExampleOutput": {
-      "type": "bool",
-      "value": "[not(bool('true'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/andornot.json":::
 
 La sortie de l’exemple précédent est :
 
@@ -334,22 +237,9 @@ La sortie de l’exemple précédent est :
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) suivant utilise **not** avec [equals](template-functions-comparison.md#equals).
+L’exemple suivant utilise `not` avec[égal à](template-functions-comparison.md#equals).
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-  ],
-  "outputs": {
-    "checkNotEquals": {
-      "type": "bool",
-      "value": "[not(equals(1, 2))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/not-equals.json":::
 
 La sortie de l’exemple précédent est :
 
@@ -363,7 +253,7 @@ La sortie de l’exemple précédent est :
 
 Vérifie si l’une des valeurs du paramètre est true.
 
-La fonction `or` n’est pas prise en charge dans Bicep. Utilisez l’ [opérateur ||](../bicep/operators-logical.md#or-) à la place.
+La fonction `or` n’est pas prise en charge dans Bicep. Privilégiez l’[opérateur ||](../bicep/operators-logical.md#or-).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -371,7 +261,7 @@ La fonction `or` n’est pas prise en charge dans Bicep. Utilisez l’ [opérate
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |boolean |La première valeur pour vérifier si c’est true. |
 | arg2 |Oui |boolean |La deuxième valeur pour vérifier si c’est true. |
-| arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
+| arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs correspondent à true. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -379,29 +269,9 @@ Retourne **True** si l’une des valeurs est true ; sinon, renvoie **False**.
 
 ### <a name="examples"></a>Exemples
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) suivant montre comment utiliser des fonctions logiques.
+L’exemple suivant montre comment utiliser des fonctions logiques.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "andExampleOutput": {
-      "value": "[and(bool('true'), bool('false'))]",
-      "type": "bool"
-    },
-    "orExampleOutput": {
-      "value": "[or(bool('true'), bool('false'))]",
-      "type": "bool"
-    },
-    "notExampleOutput": {
-      "value": "[not(bool('true'))]",
-      "type": "bool"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/andornot.json":::
 
 La sortie de l’exemple précédent est :
 
@@ -431,19 +301,7 @@ Valeur booléenne qui correspond toujours à true.
 
 L’exemple suivant retourne une valeur de sortie true.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "trueOutput": {
-      "type": "bool",
-      "value": "[true()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/logical/true.json":::
 
 La sortie de l’exemple précédent est :
 
