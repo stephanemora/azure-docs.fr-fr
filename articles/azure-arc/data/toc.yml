@@ -13,7 +13,7 @@ items:
         href: privacy-data-collection-and-reporting.md
   - name: Démarrages rapides
     items:
-      - name: Planifier le déploiement des services de données Azure Arc
+      - name: Planifier un déploiement des services de données Azure Arc
         href: plan-azure-arc-data-services.md
   - name: Concepts
     items:

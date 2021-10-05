@@ -4,16 +4,16 @@ description: Apprenez à utiliser des partages de fichiers Azure avec Windows et
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 09/10/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e8b469eb7eb94ad5454f79c4c4893597670867ac
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 8f125a5e1c7a0f26e92ec1e6e2d7afddb4f53a4b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969506"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588634"
 ---
 # <a name="mount-smb-azure-file-share-on-windows"></a>Monter un partage de fichiers SMB Azure sur Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -23,16 +23,17 @@ Pour utiliser un partage de fichiers Azure via le point de terminaison public en
 | Version de Windows | Version SMB | Azure Files SMB Multichannel | Chiffrement maximal du canal SMB |
 |-|-|-|-|
 | Windows Server 2022 | SMB 3.1.1 | Oui | AES-256-GCM |
-| Windows 10, version 21H1 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-256-GCM |
+| Windows 11 | SMB 3.1.1 | Oui | AES-256-GCM |
+| Windows 10, version 21H1 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-128-GCM |
 | Windows Server, version 20H2 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-128-GCM |
 | Windows 10, version 20H2 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-128-GCM |
 | Windows Server, version 2004 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-128-GCM |
 | Windows 10, version 2004 | SMB 3.1.1 | Oui, avec KB5003690 ou plus récent | AES-128-GCM |
 | Windows Server 2019 | SMB 3.1.1 | Oui, avec KB5003703 ou plus récent | AES-128-GCM |
 | Windows 10, version 1809 | SMB 3.1.1 | Oui, avec KB5003703 ou plus récent | AES-128-GCM |
-| Windows Server 2016 | SMB 3.1.1 | Oui, avec KB5004238 ou plus récent | AES-128-GCM |
-| Windows 10, version 1607 | SMB 3.1.1 | Oui, avec KB5004238 ou plus récent | AES-128-GCM |
-| Windows 10, version 1507 | SMB 3.1.1 | Oui, avec KB5004249 ou plus récent | AES-128-GCM |
+| Windows Server 2016 | SMB 3.1.1 | Oui, avec KB5004238 ou une version plus récente et une [clé de registre appliquée](#windows-server-2016-and-windows-10-version-1607). | AES-128-GCM |
+| Windows 10, version 1607 | SMB 3.1.1 | Oui, avec KB5004238 ou une version plus récente et une [clé de registre appliquée](#windows-server-2016-and-windows-10-version-1607). | AES-128-GCM |
+| Windows 10, version 1507 | SMB 3.1.1 | Oui, avec KB5004249 ou une version plus récente et une [clé de registre appliquée](#windows-10-version-1507). | AES-128-GCM |
 | Windows Server 2012 R2 | SMB 3.0 | Non | AES-128-CCM |
 | Windows 8.1 | SMB 3.0 | Non | AES-128-CCM |
 | Windows Server 2012 | SMB 3.0 | Non | AES-128-CCM |
@@ -131,6 +132,31 @@ Vous pouvez sélectionner **Ouvrir** pour ouvrir un instantané particulier.
 Sélectionnez **Restaurer** pour copier à l’emplacement d’origine le contenu de l’ensemble du répertoire de façon récursive à l’heure de création de l’instantané de partage.
 
  ![Bouton Restaurer dans un message d’avertissement](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+
+## <a name="enable-smb-multichannel"></a>Activer SMB Multichannel
+La prise en charge de SMB Multichannel dans Azure Files nécessite de s'assurer que Windows dispose de tous les correctifs pertinents appliqués pour être à jour. Plusieurs anciennes versions de Windows, notamment Windows Server 2016, Windows 10 version 1607 et Windows 10 version 1507, nécessitent la définition de clés de registre supplémentaires pour que tous les correctifs pertinents de SMB Multichannel soient appliqués sur des installations entièrement corrigées. Si vous utilisez une version de Windows plus récente que ces trois versions, aucune action supplémentaire n'est nécessaire.
+
+### <a name="windows-server-2016-and-windows-10-version-1607"></a>Windows Server 2016 et Windows 10 version 1607 :
+Pour activer tous les correctifs de SMB Multichannel pour Windows Server 2016 et Windows 10 version 1607, exécutez la commande PowerShell suivante :
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
+    -Name "2291605642" `
+    -Value 1 `
+    -Force
+```
+
+### <a name="windows-10-version-1507"></a>Windows 10 version 1507
+Pour activer tous les correctifs de SMB Multichannel pour Windows 10 version 1507, exécutez la commande PowerShell suivante :
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:\SYSTEM\CurrentControlSet\Services\MRxSmb\KBSwitch" `
+    -Name "{FFC376AE-A5D2-47DC-A36F-FE9A46D53D75}" `
+    -Value 1 `
+    -Force
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez ces liens pour en savoir plus sur Azure Files :

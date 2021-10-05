@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 04/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 07b106630cffae75c5e4588d14de7ae938945614
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 7d2f09d3990f9e71e55b29b1eac771266627237a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534121"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791286"
 ---
 # <a name="managed-identities-for-azure-resources-frequently-asked-questions---azure-ad"></a>Identités managées pour les ressources Azure - Forum aux questions - Azure AD
 
@@ -38,11 +38,12 @@ Vous pouvez obtenir la liste des ressources qui ont une identité managée affec
 az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
 ```
 
+### <a name="what-azure-rbac-permissions-are-required-to-work-with-managed-identities"></a>Quelles sont les autorisations RBAC Azure nécessaires pour utiliser des identités managées ? 
 
-### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Quelles sont les autorisations runbook automation Azure nécessaires pour une identité managée sur une ressource ? 
-
-- Identité managée affectée par le système : Vous avez besoin d’autorisations en écriture sur la ressource. Ainsi, pour les machines virtuelles vous avez besoin de Microsoft.Compute/virtualMachines/write. Cette action est incluse dans les rôles intégrés spécifiques de la ressource, tel que le [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
-- Identité managée affectée par l’utilisateur : Vous avez besoin d’autorisations en écriture sur la ressource. Ainsi, pour les machines virtuelles vous avez besoin de Microsoft.Compute/virtualMachines/write. En plus de l’attribution de rôle [Opérateur d’identités managées](../../role-based-access-control/built-in-roles.md#managed-identity-operator) sur l’identité managée.
+- Identité managée affectée par le système : Vous avez besoin d’autorisations en écriture sur la ressource. Par exemple, pour les machines virtuelles, vous avez besoin de `Microsoft.Compute/virtualMachines/write`. Cette action est incluse dans les rôles intégrés spécifiques de la ressource, tel que le [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- Attribution d’identités managées affectées par l’utilisateur aux ressources : vous devez disposer d’autorisations en écriture sur la ressource. Par exemple, pour les machines virtuelles, vous avez besoin de `Microsoft.Compute/virtualMachines/write`. Vous aurez également besoin de l’action sur l’identité affectée par l’utilisateur. Cette action est incluse dans le rôle intégré [Opérateur de l’identité managée](../../role-based-access-control/built-in-roles.md#managed-identity-operator).
+- Gestion des identités affectées par l’utilisateur : pour créer ou supprimer des identités managées affectées par l’utilisateur, vous avez besoin de l’attribution de rôle [Contributeur d’identité managée](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
+- Gestion des attributions de rôles pour les identités managées : vous avez besoin de l’attribution de rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#all) ou [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#all) sur la ressource à laquelle vous accordez l’accès. Vous aurez besoin de l’attribution de rôle [Lecteur](../../role-based-access-control/built-in-roles.md#all) à la ressource avec une identité affectée par le système ou à l’identité affectée par l’utilisateur qui reçoit l’attribution de rôle. Si vous n’avez pas d’accès en lecture, vous pouvez effectuer une recherche par « utilisateur, groupe ou principal de service » pour trouver le principal du service de sauvegarde de l’identité au lieu de rechercher par identité managée lors de l’ajout de l’attribution de rôle. [En savoir plus sur l’affectation de rôles Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>Comment empêcher la création d’identités managées affectées par l’utilisateur ?
 

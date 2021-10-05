@@ -25,6 +25,8 @@
   items:
     - name: Installation de la version d’essai d’Azure Defender pour IoT
       href: tutorial-onboarding.md
+    - name: Intégrer ClearPass
+      href: tutorial-clearpass.md
     - name: Intégrer CyberArk
       href: tutorial-cyberark.md
     - name: Intégrer Forescout

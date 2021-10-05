@@ -38,12 +38,14 @@ items:
     items:
       - name: Utiliser Purview Studio
         href: use-purview-studio.md
-      - name: Meilleures pratiques
+      - name: Bonnes pratiques et conseils
         items:
           - name: Bonnes pratiques de déploiement
             href: deployment-best-practices.md
           - name: Architecture des collections
             href: concept-best-practices-collections.md
+          - name: Conseils sur les prix Purview
+            href: concept-guidelines-pricing.md
       - name: Autorisations Purview
         href: catalog-permissions.md
       - name: Data Map
