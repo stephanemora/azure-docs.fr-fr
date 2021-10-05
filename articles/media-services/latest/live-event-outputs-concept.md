@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5269be27a0e31e9626cd26960092356bce0d8ff4
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: fb80374976752961b5c199fc06a8acba572c4d89
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635028"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129054468"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Événements en direct et sorties en direct dans Media Services
 
@@ -221,9 +221,11 @@ Pour plus de détails, consultez [Opérations de longue durée](media-services-a
 
 ## <a name="live-outputs"></a>Sorties en direct
 
-Une fois que le flux transite dans l’événement en direct, vous pouvez commencer l’événement de streaming en créant un [élément multimédia](/rest/api/media/assets), une [sortie en direct](/rest/api/media/liveoutputs) et un [localisateur de streaming](/rest/api/media/streaminglocators). La sortie en direct archive le flux et le met à la disposition des observateurs via le [point de terminaison de streaming](/rest/api/media/streamingendpoints).  
+Une fois que le flux transite dans l’événement en direct, vous pouvez commencer l’événement de streaming en créant un [élément multimédia](/rest/api/media/assets), une [sortie en direct](/rest/api/media/liveoutputs) et un [localisateur de streaming](/rest/api/media/streaminglocators). La sortie en direct archive le flux et le met à la disposition des observateurs via le [point de terminaison de streaming](/rest/api/media/streamingendpoints). 
+
+L’allocation par défaut d’AMS est de 5 événements en direct par compte Media Services. Si vous souhaitez augmenter cette limite, veuillez créer un ticket de support dans le portail Azure. AMS est en mesure d’augmenter votre limite d’événements en temps réel en fonction de votre situation de diffusion en continu et des disponibilités du centre de données régional.
 
 Pour plus d’informations sur les sorties en direct, consultez [Utiliser un magnétoscope numérique cloud](live-event-cloud-dvr-time-how-to.md).
 ## <a name="live-event-output-questions"></a>Questions sur la sortie des événements en direct
 
-Consultez les [questions de la FAQ en lien avec les événements en direct](frequently-asked-questions.yml).
+Consultez les [questions de la FAQ en lien avec les événements en direct](frequently-asked-questions.yml). Pour plus d’informations sur les quotas d’événement en direct, consultez les [quotas et limites](limits-quotas-constraints-reference.md)

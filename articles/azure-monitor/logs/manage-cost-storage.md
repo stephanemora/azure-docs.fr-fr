@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9967eaa374116ac28bd0db830eed6a4fc2becfa0
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 8cedd159c1c4c8a7d5309024d66ddc104c07506b
+ms.sourcegitcommit: 149815030568fb4d4dd2e2025a18dc64fc190d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771789"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129062095"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -166,7 +166,7 @@ Aucun des niveaux tarifaires hérités n’a de tarification régionale.
 
 ## <a name="log-analytics-and-azure-defender-security-center"></a>Log Analytics et Azure Defender (Security Center)
 
-La facturation d’[Azure Defender (Security Center)](../../security-center/index.yml) est étroitement liée à la facturation de Log Analytics. Azure Defender fournit une allocation de 500 Mo/nœud/jour au sous-ensemble suivant de [types de données de sécurité](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) et aux types de données Update et UpdateSummary lorsque la solution Update Management n’est pas exécutée sur l’espace de travail ou que le ciblage de solution est activé ([en savoir plus](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)). Si l’espace de travail est au niveau tarifaire hérité Par nœud, les allocations d’Azure Defender et de Log Analytics sont combinées et appliquées conjointement à toutes les données ingérées facturables.  
+La facturation d’[Azure Defender pour les serveurs (Security Center)](../../security-center/index.yml) est étroitement liée à la facturation de Log Analytics. Azure Defender [applique une facturation au nombre de services surveillés](https://azure.microsoft.com/pricing/details/azure-defender/) et fournit une allocation de données de 500 Mo/serveur/jour qui est appliquée au sous-ensemble suivant de [types de données de sécurité](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) et aux types de données Update et UpdateSummary lorsque la solution Update Management n’est pas exécutée sur l’espace de travail ou que le ciblage de solution est activé ([en savoir plus](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)). Le nombre de serveurs surveillés est calculé sur une granularité horaire. Les contributions quotidiennes à l’allocation de données de chaque serveur surveillé sont agrégées au niveau de l’espace de travail. Si l’espace de travail est au niveau tarifaire hérité Par nœud, les allocations d’Azure Defender et de Log Analytics sont combinées et appliquées conjointement à toutes les données ingérées facturables.  
 
 ## <a name="change-the-data-retention-period"></a>Changer la période de rétention des données
 

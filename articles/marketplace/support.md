@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 01/19/2020
-ms.openlocfilehash: 47ed6f8e8756d8fe317b932edf360b710b58e26b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 09/27/2021
+ms.openlocfilehash: 8866a00c6905ee046ce52177ca6f01874de62548
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706849"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081944"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Support technique pour le programme Place de marché commerciale dans l’Espace partenaires
 
@@ -23,6 +23,42 @@ Microsoft prend en charge un large éventail de produits et services. Le fait de
 - Si vous êtes un éditeur et que vous avez une question relative à votre application ou votre service, examinez les options de support suivantes.
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Obtenir de l’aide ou ouvrir un ticket de support
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home) à l’aide de votre compte professionnel. Si vous ne l’avez pas encore fait, vous devez [créer un compte Espace partenaires](create-account.md).
+
+1. Sur la page d’accueil, sélectionnez la vignette **Aide + Support**.
+
+     [ ![Illustre la page d’accueil de l’Espace partenaires avec la vignette Aide + Support mise en surbrillance.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
+
+1. Sous **Mes demandes de support**, sélectionnez **+ Nouvelle demande**.
+
+1. Dans la zone **Résumé du problème**, entrez une brève description du problème.
+
+1. Dans la zone **Type de problème**, effectuez l’une des actions suivantes :
+
+    - **Option 1** : Entrer des mots clés tels que : marketplace, application Azure, offre SaaS, gestion des comptes, gestion des prospects, problème de déploiement, paiement ou migration de l’offre de co-vente. Sélectionnez ensuite un type de problème dans la liste recommandée qui s’affiche.
+
+    - **Option 2** : Sélectionnez **Parcourir les rubriques** dans la liste **Catégorie**, puis sélectionnez **Marketplace commercial**. Sélectionnez ensuite la **rubrique** et la **sous-rubrique** appropriées.
+
+1. Une fois que vous avez trouvé la rubrique de votre choix, sélectionnez **Examiner les solutions**.
+
+    ![Étape suivante](./media/support/next-step.png)
+
+Les options suivantes s’affichent :
+
+- Pour sélectionner une autre rubrique, cliquez sur **Sélectionner un autre problème**.
+- Pour vous aider à résoudre le problème, examinez les étapes et les documents recommandés, le cas échéant.
+
+    [ ![Illustre la page Solutions recommandées.](./media/support/recommended-solutions.png) ](./media/support/recommended-solutions.png#lightbox)
+
+Si vous ne trouvez pas votre réponse dans l’aide autonome, sélectionnez **Fournir les détails relatifs au problème**. Remplissez tous les champs obligatoires pour accélérer le processus de résolution, puis sélectionnez **Envoyer**.
+
+>[!Note]
+>Si vous n’êtes pas connecté à Espace partenaires, vous devrez peut-être vous connecter avant de pouvoir créer un ticket.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 1. Connectez-vous avec votre compte professionnel. Si vous ne l’avez pas encore fait, vous devez [créer un compte Espace partenaires](create-account.md).
 
@@ -56,9 +92,23 @@ Si vous ne trouvez pas votre réponse dans l’aide autonome, sélectionnez **Fo
 >[!Note]
 >Si vous n’êtes pas connecté à Espace partenaires, vous devrez peut-être vous connecter avant de pouvoir créer un ticket.
 
+---
+
 ## <a name="track-your-existing-support-requests"></a>Suivre vos demandes de support existantes
 
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Pour consulter vos tickets ouverts et fermés, connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home) avec votre compte professionnel.
+
+1. Sur la page d’accueil, sélectionnez la vignette **Aide + Support**.
+
+    [ ![Illustre la page d’accueil de l’Espace partenaires avec la vignette Aide + Support mise en surbrillance.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
 Pour passer en revue vos tickets ouverts et fermés, dans le menu de navigation de gauche, sélectionnez **Marketplace commercial** > **Support**.
+
+---
 
 ## <a name="record-issue-details-with-a-har-file"></a>Enregistrer les détails d’un problème avec un fichier HAR
 
@@ -72,19 +122,19 @@ Pour aider les agents à résoudre votre problème, envisagez de joindre un fich
 Pour générer un fichier HAR à l’aide de **Microsoft Edge** ou de **Google Chrome** :
 
 1. Accédez à la page web dans laquelle vous êtes confronté au problème.
-2. Dans l’angle supérieur droit de la fenêtre, sélectionnez l’icône représentant des points de suspension, puis **Autres outils** > **Outils de développement**. Vous pouvez appuyer sur F12 comme raccourci.
-3. Dans le volet Outils de développement, sélectionnez l’onglet **Réseau**.
-4. Sélectionnez **Stop recording network log** (Arrêter l’enregistrement du journal réseau) et **Clear** (Effacer) pour supprimer les journaux existants. L’icône d’enregistrement devient grise.
+1. Dans l’angle supérieur droit de la fenêtre, sélectionnez l’icône représentant des points de suspension, puis **Autres outils** > **Outils de développement**. Vous pouvez appuyer sur F12 comme raccourci.
+1. Dans le volet Outils de développement, sélectionnez l’onglet **Réseau**.
+1. Sélectionnez **Stop recording network log** (Arrêter l’enregistrement du journal réseau) et **Clear** (Effacer) pour supprimer les journaux existants. L’icône d’enregistrement devient grise.
 
     ![Comment supprimer des journaux existants dans Microsoft Edge ou Google Chrome](media/support/chromium-stop-clear-session.png)
 
-5. Sélectionnez **Record network log** (Enregistrer le journal réseau) pour démarrer l’enregistrement. Lorsque vous démarrez l’enregistrement, l’icône d’enregistrement devient rouge.
+1. Sélectionnez **Record network log** (Enregistrer le journal réseau) pour démarrer l’enregistrement. Lorsque vous démarrez l’enregistrement, l’icône d’enregistrement devient rouge.
 
     ![Comment démarrer l’enregistrement dans Microsoft Edge ou Google Chrome](media/support/chromium-start-session.png)
 
-6. Reproduisez le problème que vous souhaitez résoudre.
-7. Une fois que vous avez reproduit le problème, sélectionnez **Stop recording network log** (Arrêter l’enregistrement du journal réseau).
-8. Sélectionnez l’option **Export HAR** (Exporter en tant que HAR), marquée d’une icône représentant une flèche vers le bas, puis enregistrez le fichier.
+1. Reproduisez le problème que vous souhaitez résoudre.
+1. Une fois que vous avez reproduit le problème, sélectionnez **Stop recording network log** (Arrêter l’enregistrement du journal réseau).
+1. Sélectionnez l’option **Export HAR** (Exporter en tant que HAR), marquée d’une icône représentant une flèche vers le bas, puis enregistrez le fichier.
 
     ![Comment exporter un fichier HAR dans Microsoft Edge ou Google Chrome](media/support/chromium-network-export-har.png)
 

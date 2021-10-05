@@ -1,25 +1,25 @@
 ---
-title: Copier des données de Hive à l’aide d’Azure Data Factory
+title: Copier des données à partir de Hive
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données de Hive vers des banques de données réceptrices prises en charge.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Hive vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: db88b0250a52ea96a116097469e43e1f0c26ece2
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 5f7dc8a3c872214ace79993fd618bfc7ee2b7afd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306044"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831765"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Copier et transformer des données de Hive à l'aide d'Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Hive. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l’activité de copie dans le pipeline Azure Data Factory ou Synapse Analytics pour copier des données de Hive. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -30,7 +30,7 @@ Ce connecteur Hive est pris en charge pour les activités suivantes :
 
 Vous pouvez copier des données de Hive vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
+La service fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -84,7 +84,7 @@ Les propriétés prises en charge pour le service lié Hive sont les suivantes :
 | zooKeeperNameSpace | Espace de noms sur ZooKeeper sous lequel les 2 nœuds du serveur Hive sont ajoutés.  | Non |
 | useNativeQuery | Indique si le pilote doit utiliser les requêtes HiveQL natives ou les convertir dans un format équivalent dans HiveQL.  | Non |
 | username | Nom d’utilisateur utilisé pour accéder au serveur Hive.  | Non |
-| mot de passe | Mot de passe correspondant à l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
+| mot de passe | Mot de passe correspondant à l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 | httpPath | URL partielle correspondant au serveur Hive.  | Non |
 | enableSsl | Indique si les connexions au serveur sont chiffrées à l’aide du protocole TLS. La valeur par défaut est false.  | Non |
 | trustedCertPath | Chemin complet du fichier .pem contenant les certificats d’autorité de certification approuvés permettant de vérifier le serveur en cas de connexion TLS. Cette propriété n’est disponible que si le protocole TLS est utilisé sur un runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non |
@@ -214,7 +214,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 
 Vous trouverez ci-dessous un exemple de configuration de source Hive :
 
-![Exemple de source Hive](media/data-flow/hive-source.png "[Exemple de source Hive")
+:::image type="content" source="media/data-flow/hive-source.png" alt-text="Exemple de source Hive":::
 
 Ces paramètres sont convertis en script de flux de données :
 
@@ -243,4 +243,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

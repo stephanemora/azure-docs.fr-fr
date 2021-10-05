@@ -1,18 +1,18 @@
 ---
-title: Migration d’une application de façon à utiliser le SDK .NET Azure Cosmos DB 3.0 (com.azure.cosmos)
-description: Apprenez à mettre à niveau votre application .NET existante du Kit de développement logiciel (SDK) v2 vers le SDK .NET v3 plus récent (package com.azure.cosmos) pour l’API Core (SQL).
+title: Migration d’une application de façon à utiliser le SDK .NET Azure Cosmos DB 3.0 (Microsoft.Azure.Cosmos)
+description: Apprenez à mettre à niveau votre application .NET existante du Kit de développement logiciel (SDK) v2 vers le SDK .NET v3 plus récent (package Microsoft.Azure.Cosmos) pour l’API Core (SQL).
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.openlocfilehash: 65c2ab23c98ae9b3a2c57a71e52c1df37f182139
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 9ee782734baaf8947aa4e4f930cac874e32a5df6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123115937"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788189"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Migration d’une application de façon à utiliser le SDK .NET Azure Cosmos DB v3
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -710,5 +710,5 @@ private static async Task DeleteItemAsync(DocumentClient client)
 * [Créer une application console](sql-api-get-started.md) pour gérer les données de l’API SQL Azure Cosmos DB avec le Kit de développement logiciel (SDK) v3
 * En savoir plus sur ce que le [Kit de développement logiciel (SDK) v3 vous permet de faire](sql-api-dotnet-v3sdk-samples.md)
 * Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ?
-    * Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
-    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)

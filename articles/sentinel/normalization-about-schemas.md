@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: bb58fcd9f7ddc9f9ef17d031f5a4139f98ae8925
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 828524e225f660cab2c11d23c5657ca82ae8781e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122566129"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796511"
 ---
 # <a name="azure-sentinel-information-model-asim-schemas-public-preview"></a>Schémas du modèle Azure Sentinel Information Model (ASIM) | Microsoft Docs (Préversion publique)
 
@@ -83,23 +83,24 @@ Les champs suivants sont communs à tous les schémas ASIM. Les champs communs s
 | Champ               | Classe       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | <a name="timegenerated"></a>**TimeGenerated** | Intégré | DATETIME | Heure à laquelle l’événement a été généré par l’appareil de création de rapports.|
-| **_ResourceId**   | Intégré |  guid     | ID de ressource Azure de l’appareil ou du service de création de rapports, ou l’ID de ressource de redirecteur de journal pour les événements transférés à l’aide de Syslog, CEF ou WEF. |
+| **_ResourceId**   | Intégré |  guid     | ID de ressource Azure de l’appareil ou du service de création de rapports, ou l’ID de ressource de redirecteur de journal pour les événements transférés avec Syslog, CEF ou WEF. |
+| **Type** | Intégré | String | La table d’origine à partir de laquelle l’enregistrement a été récupéré. Ce champ est utile lorsque le même événement peut être reçu via deux canaux vers différentes tables, mais avec les mêmes valeurs `EventVendor` et `EventProduct`. Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table SecurityEvent. |
 | **EventMessage**        | Facultatif    | Chaîne     |     Message général ou description, inclus dans l’enregistrement ou généré depuis l’enregistrement.   |
-| **EventCount**          | Obligatoire   | Integer    |     Nombre d’événements décrits par l’enregistrement. <br><br>Cette valeur est utilisée lorsque la source prend en charge l’agrégation, et un seul enregistrement peut représenter plusieurs événements. <br><br>Pour les autres sources, affectez à la valeur `1`.   |
+| **EventCount**          | Obligatoire   | Integer    |     Nombre d’événements décrits par l’enregistrement. <br><br>Cette valeur est utilisée quand la source prend en charge l’agrégation, et un seul enregistrement peut représenter plusieurs événements. <br><br>Pour les autres sources, affectez à la valeur `1`.   |
 | **EventStartTime**      | Obligatoire   | Date/heure  |      Si la source prend en charge l’agrégation et que l’enregistrement représente plusieurs événements, ce champ spécifie l’heure à laquelle le premier événement a été généré. <br><br>Sinon, ce champ associe le champ [TimeGenerated](#timegenerated). |
 | **EventEndTime**        | Obligatoire   | Alias      |      Alias au champ [TimeGenerated](#timegenerated).    |
 |  <a name=eventtype></a>**EventType**           | Obligatoire   | Énuméré |    Décrit l’opération signalée par l’enregistrement. Chaque schéma documente la liste des valeurs valides pour ce champ. |
 | **EventSubType** | Facultatif | Énuméré | Décrit une subdivision de l’opération rapportée dans le champ [EventType](#eventtype). Chaque schéma documente la liste des valeurs valides pour ce champ. |
-| <a name="eventresult"></a>**EventResult** | Obligatoire | Énuméré | L’une des valeurs suivantes : **Succès**, **Partiel**, **Échec**, **NA** (Non applicable).<br> <br>La valeur peut être fournie dans l’enregistrement source à l’aide de termes différents, qui doivent être normalisés avec ces valeurs. Sinon, la source peut fournir uniquement le champ [EventResultDetails](#eventresultdetails) qui devrait être analysé pour dériver la valeur EventResult.<br><br>Exemple : `Success`|
+| <a name="eventresult"></a>**EventResult** | Obligatoire | Énuméré | L’une des valeurs suivantes : **Succès**, **Partiel**, **Échec**, **NA** (Non applicable).<br> <br>La valeur peut être fournie dans l’enregistrement source à l’aide de termes différents, qui doivent être normalisés avec ces valeurs. Sinon, la source peut fournir uniquement le champ [EventResultDetails](#eventresultdetails) qui devrait être analysé pour dériver la valeur EventResult.<br><br>Exemple : `Success`|
 | <a name=eventresultdetails></a>**EventResultDetails** | Obligatoire | Alias | Raison ou détails du résultat rapporté dans le champ [**EventResult**](#eventresult). Chaque schéma documente la liste des valeurs valides pour ce champ.<br><br>Exemple : `NXDOMAIN`|
 | **EventOriginalUid**    | Facultatif    | Chaîne     |   ID unique de l’enregistrement d’origine, s’il est fourni par la source.<br><br>Exemple : `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
 | **EventOriginalType**   | Facultatif    | Chaîne     |   Type ou ID d’événement d’origine, s’il est fourni par la source. Par exemple, ce champ sera utilisé pour stocker l’ID d’événement d’origine Windows.<br><br>Exemple : `4624`|
-| <a name ="eventproduct"></a>**EventProduct**        | Obligatoire   | Chaîne     |             Produit générant l’événement. <br><br>Exemple : `Sysmon`<br><br>**Remarque** : ce champ n’est peut-être pas disponible dans l’enregistrement source. Dans ce cas, ce champ doit être défini par l’analyseur.           |
+| <a name ="eventproduct"></a>**EventProduct**        | Obligatoire   | Chaîne     |             Produit générant l’événement. <br><br>Exemple : `Sysmon`<br><br>**Remarque** : Ce champ n’est peut-être pas disponible dans l’enregistrement source. Dans ce cas, ce champ doit être défini par l’analyseur.           |
 | **EventProductVersion** | Facultatif    | Chaîne     | Version du produit générant l’événement. <br><br>Exemple : `12.1`      |
-| **EventVendor**         | Obligatoire   | Chaîne     |           Fournisseur du produit générant l’événement. <br><br>Exemple : `Microsoft`  <br><br>**Remarque** : ce champ n’est peut-être pas disponible dans l’enregistrement source. Dans ce cas, ce champ doit être défini par l’analyseur.  |
+| **EventVendor**         | Obligatoire   | Chaîne     |           Fournisseur du produit générant l’événement. <br><br>Exemple : `Microsoft`  <br><br>**Remarque** : Ce champ n’est peut-être pas disponible dans l’enregistrement source. Dans ce cas, ce champ doit être défini par l’analyseur.  |
 | **EventSchemaVersion**  | Obligatoire   | Chaîne     |    Version du schéma. Chaque schéma documente sa version en cours.         |
 | **EventReportUrl**      | Facultatif    | Chaîne     | URL fournie dans l’événement pour une ressource qui apporte des informations supplémentaires sur l’événement.|
-| **Dvc** | Obligatoire       | Chaîne     |               Identificateur unique de l’appareil sur lequel l’événement s’est produit. <br><br>Ce champ peut prendre l’alias des champs [DvcId](#dvcid), [DvcHostname](#dvchostname) ou [DvcIpAddr](#dvcipaddr). Les sources cloud pour lesquelles il n’y a pas d’appareil apparent, utilisez la même valeur que celle du champ [Event Product](#eventproduct).           |
+| **Dvc** | Obligatoire       | Chaîne     |               Identificateur unique de l’appareil sur lequel l’événement s’est produit. <br><br>Ce champ peut prendre l’alias des champs [DvcId](#dvcid), [DvcHostname](#dvchostname) ou [DvcIpAddr](#dvcipaddr). Pour les sources cloud pour lesquelles il n’y a pas d’appareil apparent, utilisez la même valeur que celle du champ [Event Product](#eventproduct).           |
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommandé | Adresse IP |         Adresse IP de l’appareil sur lequel l’événement s’est produit.  <br><br>Exemple : `45.21.42.12`    |
 | <a name ="dvchostname"></a>**DvcHostname**         | Recommandé | Nom d’hôte   |               Nom d’hôte de l’appareil sur lequel l’événement s’est produit. <br><br>Exemple : `ContosoDc.Contoso.Azure`               |
 | <a name ="dvcid"></a>**DvcId**               | Facultatif    | Chaîne     |  ID unique de l’appareil sur lequel l’événement s’est produit. <br><br>Exemple : `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
@@ -110,7 +111,7 @@ Les champs suivants sont communs à tous les schémas ASIM. Les champs communs s
 | | | | |
 
 > [!NOTE]
-> Log Analytics ajoute également d’autres champs qui sont moins pertinents pour les cas d’usage de sécurité. Pour plus d’informations, consultez [Colonnes standard dans les journaux d’Azure Monitor](/azure/azure-monitor/logs/log-standard-columns).
+> Log Analytics ajoute également d’autres champs qui sont moins pertinents pour les cas d’usage de sécurité. Pour plus d’informations, consultez [Colonnes standard dans les journaux d’Azure Monitor](../azure-monitor/logs/log-standard-columns.md).
 >
 
 

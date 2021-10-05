@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 81ee4dda78fd4444f5e297abacbd2e08f07eaaa8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 528821649c0c212c869ac74f61a5e13e70f1671a
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546531"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153840"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modèle de document d’identification (ID) prédéfini de Form Recognizer
 
@@ -61,12 +61,11 @@ Le service des identités extrait les valeurs clés des passeports internationau
 |  DocumentNumber | string | Numéro de passeport, numéro de permis de conduire, etc. | « 340020013 » |
 |  FirstName | string | Prénom et initiale du second prénom extraits, le cas échéant | « JENNIFER » |
 |  LastName | string | Nom de famille extrait | « BROOKS » |
-|  Nationalité | countryRegion | Code de pays ou de région conforme à la norme ISO 3166 | « USA » |
+|  Nationalité | countryRegion | Code de pays ou de région conforme à la norme ISO 3166 (passeport uniquement) | « USA » |
 |  Sex | string | Les valeurs extraites possibles sont « M », « F » et « X ». | "F" |
-|  MachineReadableZone | object | MRZ du passeport extraite, y compris 2 lignes de 44 caractères chacun | « P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816 » |
-|  DocumentType ; | string | Type de document, par exemple, passeport ou permis de conduire | « passeport » |
+|  MachineReadableZone | object | MRZ du passeport extraite, y compris 2 lignes de 44 caractères chacun (passeport uniquement) | « P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816 » |
 |  Adresse | string | Adresse extraite (permis de conduire uniquement) | « 123 STREET ADDRESS YOUR CITY WA 99999-1234 »|
-|  Region | string | Région, État, province et autres informations extraites (permis de conduire uniquement) | « Washington » |
+|  Région | string | Région, État, province et autres informations extraites (permis de conduire uniquement) | « Washington » |
 
 ### <a name="additional-features"></a>Fonctionnalités supplémentaires
 
@@ -247,11 +246,6 @@ Voici un exemple de réponse JSON correcte (la sortie a été raccourcie à des
               "#/readResults/0/lines/33/words/4",
               "#/readResults/0/lines/34/words/0"
             ]
-          },
-          "DocumentType": {
-            "type": "string",
-            "text": "passport",
-            "confidence": 0.995
           }
         }
       }

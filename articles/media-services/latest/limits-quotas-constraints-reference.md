@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 4c0cb8241f6eb284acecfcb5921db616af336da8
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: a269f2d93730b6219a2d29d797d94c101b5fdc57
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866930"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129052820"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Quotas et limites d'Azure Media Services
@@ -74,9 +74,9 @@ Les enregistrements de travaux de votre compte qui ont plus de 90 jours sont aut
 | Sorties en direct par événement en direct |3 <sup>(5)</sup> |
 | Durée maximale de la sortie en direct | [Taille de la fenêtre DVR](live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> Pour plus d'informations sur les limites relatives aux événements en direct, consultez [Comparaison et limites des types d'événements en direct](live-event-types-comparison-reference.md).
+<sup>4</sup> Pour plus d'informations sur les limites relatives aux événements en direct, consultez [Comparaison et limites des types d'événements en direct](live-event-types-comparison-reference.md). En fonction de votre cas d’usage de diffusion en continu et du centre de données régional choisi, AMS peut gérer plus de 5 événements en direct par compte Media Services. Veuillez déposer une demande de support pour augmenter votre quota de compte.
 
-<sup>5</sup> Les sorties en direct démarrent dès leur création et s'arrêtent lors de leur suppression.
+<sup>5</sup> Les sorties en direct démarrent dès leur création et s’arrêtent lors de leur suppression.
 
 ## <a name="packaging--delivery-limits"></a>Limites relatives à l’empaquetage et à la remise
 

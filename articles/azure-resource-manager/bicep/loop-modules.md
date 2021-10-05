@@ -5,18 +5,22 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/27/2021
-ms.openlocfilehash: 44e5a4356cac0f252b344a7acf8b68a2f51d1ef1
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: f8893fa6716d1b106e54f7eb76002622ce5a4bc3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215242"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793433"
 ---
 # <a name="module-iteration-in-bicep"></a>Itération de module dans Bicep
 
 Cet article explique comment déployer plusieurs instances d’un [module](modules.md) dans votre fichier Bicep. Vous pouvez ajouter une boucle à une déclaration `module` et définir de manière dynamique le nombre de fois où il faut déployer ce module. Vous évitez de répéter la syntaxe dans votre fichier Bicep.
 
 Vous pouvez également utiliser une boucle avec les éléments [resources](loop-resources.md), [properties](loop-properties.md), [variables](loop-variables.md) et [outputs](loop-outputs.md).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les boucles et pour obtenir des conseils pratiques, consultez [Créer des modèles Bicep flexibles en utilisant des conditions et des boucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) sur **Microsoft Learn**.
 
 ## <a name="syntax"></a>Syntaxe
 

@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 04/22/2021
-ms.openlocfilehash: 57b5e5f483ce8076622e4705a3a5b566e2e3aa1f
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 09/10/2021
+ms.openlocfilehash: da746d14d891c875c9bed49c94e8b408d956e29e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987881"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811251"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Résoudre les problèmes courants dans Azure Data Share 
 
@@ -35,6 +35,8 @@ Dans certains cas, lorsque de nouveaux utilisateurs sélectionnent **Accepter l�
 * **L’invitation est envoyée à votre alias de messagerie au lieu de votre e-mail de connexion à Azure.** Si vous avez déjà enregistré le service Azure Data Share ou créé une ressource Data Share dans le locataire Azure, mais que vous ne voyez toujours pas l’invitation, votre alias de messagerie est peut être répertorié comme destinataire. Contactez votre fournisseur de données et assurez-vous que l’invitation sera envoyée à votre adresse e-mail de connexion à Azure et non à votre alias de messagerie.
 
 * **L’invitation est déjà acceptée.** Le lien inclut dans l’e-mail vous amène à la page **Invitations Data Share** dans le portail Azure. Cette page répertorie uniquement les invitations en attente. Les invitations acceptées n’apparaissent pas sur la page. Pour afficher les partages reçus et configurer votre paramètre de cluster Azure Data Explorer cible, accédez à la ressource Data Share utilisée pour accepter l’invitation.
+
+* **Vous êtes un utilisateur invité du locataire.** Si vous êtes un utilisateur invité du locataire, vous devez vérifier votre adresse de messagerie pour le locataire avant d’afficher l’invitation. Une fois la vérification effectuée, elle est valide pendant 12 mois. 
 
 ## <a name="creating-and-receiving-shares"></a>Création et réception de partages
 

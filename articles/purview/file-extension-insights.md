@@ -4,19 +4,22 @@ description: Ce guide pratique explique comment afficher et utiliser les rapport
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 01/17/2021
-ms.openlocfilehash: f581594e6830efcf849f4ba51b218ce849bf3f9c
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.date: 09/27/2021
+ms.openlocfilehash: 706c27603233369836368239645cf28222da8eaa
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527762"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208535"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Insights relatifs aux extensions de fichier de vos données à partir d’Azure Purview 
 
 Ce guide pratique explique comment accéder à des insights relatifs aux extensions de fichier ou aux types de fichiers trouvés dans vos données, les visualiser et les filtrer.
+
+> [!IMPORTANT]
+> Les insights Azure Purview sont actuellement disponibles en PRÉVERSION. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
 Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, compartiments Amazon S3.
 
@@ -26,18 +29,18 @@ Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivan
 > - Afficher les insights relatifs aux extensions de fichier de vos données.
 > - Explorer au niveau du détail pour plus d’informations sur les extensions de fichier de vos données.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effectué les étapes suivantes :
 
 - Configurez vos ressources Azure et alimentez les comptes appropriés avec des données de test
 
-- Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
+- Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
 
 - Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#roles).
 
 
-Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md).
+Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview](manage-data-sources.md).
 
 ## <a name="use-purview-file-extension-insights"></a>Utiliser les insights Purview relatifs aux extensions de fichier
 

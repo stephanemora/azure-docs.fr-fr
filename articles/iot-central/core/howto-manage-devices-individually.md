@@ -3,17 +3,17 @@ title: Gérer les appareils individuellement dans votre application Azure IoT Ce
 description: Découvrez comment gérer des appareils individuellement dans votre application Azure IoT Central. Créer, supprimer et mettre à jour des appareils.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/08/2021
+ms.date: 08/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 22d433a874e1fc53d8b034c3efe1eb2837df485c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0ca2190bf5994edec56dce638d7361d90d2da2de
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114442601"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810632"
 ---
 # <a name="manage-individual-devices-in-your-azure-iot-central-application"></a>Gérer les appareils individuels dans votre application Azure IoT Central
 
@@ -29,13 +29,16 @@ Pour savoir comment gérer des groupes personnalisés d’appareils, consultez [
 
 Pour voir un appareil particulier :
 
-1. Choisissez **Appareils** dans le volet gauche. Vous y voyez la liste complète de vos appareils et modèles d’appareils.
+1. Choisissez **Appareils** dans le volet gauche. Vous voyez ici une liste de vos modèles d’appareil et une liste de tous les appareils auxquels votre organisation a accès.
 
 1. Choisissez un modèle d’appareil.
 
-1. Le volet droit de la page **Appareils** présente la liste des appareils créés à partir de ce modèle d’appareils. Choisissez un des appareils pour afficher la page de détails correspondante :
+1. Le volet droit de la page **Appareils** présente la liste des appareils créés à partir de ce modèle d’appareils auxquels votre organisation a accès. Choisissez un des appareils pour afficher la page de détails correspondante :
 
     :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Capture d’écran montrant la liste des appareils.":::
+
+    > [!TIP]
+    > Vous pouvez utiliser l’outil de filtre de cette page pour afficher les appareils d’une organisation spécifique.
 
 ## <a name="add-a-device"></a>Ajout d’un appareil
 
@@ -51,9 +54,30 @@ Pour ajouter un appareil à votre application Azure IoT Central :
 
 1. Définissez la bascule **Simulé** sur **Activé** ou **Désactivé**. Un appareil réel correspond à un appareil physique que vous connectez à votre application Azure IoT Central. Un appareil simulé a des exemples de données générés par Azure IoT Central.
 
+1. Si votre application utilise des organisations, choisissez celle à laquelle l’appareil appartient.
+
+    > [!TIP]
+    > Vous pouvez définir une [organisation par défaut](howto-create-organizations.md#default-organization) à afficher dans la liste déroulante des organisations.
+
 1. Sélectionnez **Create** (Créer).
 
 1. Cet appareil apparaît maintenant dans la liste des appareils pour ce modèle. Sélectionnez l’appareil pour voir la page de détails correspondante, qui contient toutes les vues relatives à l’appareil.
+
+## <a name="change-organization"></a>Modifier l’organisation
+
+Pour déplacer un appareil vers une autre organisation, vous devez avoir accès aux organisations source et de destination. Pour déplacer un appareil :
+
+1. Choisissez **Appareils** dans le volet gauche.
+
+1. Sélectionnez l’appareil à déplacer dans la liste.
+
+1. Sélectionnez **Organisation**.
+
+1. Sélectionnez la nouvelle organisation pour l’appareil :
+
+    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="Capture d’écran montrant comment déplacer un appareil vers une nouvelle organisation.":::
+
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="migrate-devices-to-a-template"></a>Migrer des appareils vers un modèle
 

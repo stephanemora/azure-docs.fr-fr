@@ -3,20 +3,21 @@ title: Vue d’ensemble de la synthèse vocale – service Speech
 titleSuffix: Azure Cognitive Services
 description: La synthèse vocale du service Speech est une fonctionnalité qui permet à vos applications, outils ou appareils de convertir du texte en parole naturelle synthétisée quasi humaine. Cet article est une vue d’ensemble des avantages et des capacités du service de conversion de texte par synthèse vocale.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/31/2021
-ms.author: lajanuar
+ms.date: 09/01/2020
+ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
 keywords: conversion de texte par synthèse vocale
-ms.openlocfilehash: 84eb522123e5a77de667231b5f91d96a0e7c6a56
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 7be06937cf9f3117d426fd9c19cbb6059826e6ec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272958"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736907"
 ---
 # <a name="what-is-neural-text-to-speech"></a>Qu’est-ce que la synthèse vocale neuronale ?
 
@@ -84,7 +85,7 @@ Pour plus d’informations, consultez la section [Tarification](https://azure.mi
 
 ## <a name="migrate-to-neural-voice"></a>Migrer vers la voix neuronale
 
-Nous retirons les voix standard le **31 août 2024** et elles ne seront plus prises en charge après cette date.L’annonce a été envoyée à tous les abonnements Speech existants avant le **31 août 2021**. Pendant la période de mise hors service (**31 août 2021 au 31 août 2024**), les utilisateurs existants peuvent continuer à utiliser leurs voix standard, tous les nouveaux utilisateurs/nouvelles ressources de reconnaissance vocale doivent passer aux voix neuronales.
+Nous retirons les voix standard le **31 août 2024** et elles ne seront plus prises en charge après cette date.L’annonce a été envoyée à tous les abonnements Speech existants avant le **31 août 2021**. Pendant la période de mise hors service (du **31 août 2021 au 31 août 2024**), les utilisateurs existants des fonctionnalités vocales standard peuvent continuer à utiliser leurs voix standard. Tous les nouveaux utilisateurs/nouvelles ressources de reconnaissance vocale doivent passer aux voix neuronales.
 
 **Action requise**
 

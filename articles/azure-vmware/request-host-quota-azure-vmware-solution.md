@@ -3,13 +3,13 @@ title: Demander un quota hôte pour Azure VMware Solution
 description: Découvrez comment demander un quota ou une capacité d’hôte pour Azure VMware Solution. Vous pouvez également demander plus d’hôtes dans un cloud privé Azure VMware Solution.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 08/06/2021
-ms.openlocfilehash: 92ebc79193525802c1e7c7ede9287e3300799a10
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.date: 09/27/2021
+ms.openlocfilehash: 2b3e2291726f37f3c802d1db24429381e7a2b7d1
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563830"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083236"
 ---
 # <a name="request-host-quota-for-azure-vmware-solution"></a>Demander un quota hôte pour Azure VMware Solution
 
@@ -26,7 +26,7 @@ Vous devez disposer d’un compte Azure dans un abonnement Azure qui adhère à 
 
 - Un abonnement régi par un [Contrat Entreprise (EA) Azure](../cost-management-billing/manage/ea-portal-agreements.md) conclu avec Microsoft.
 - Un abonnement managé par un fournisseur de solutions cloud (CSP) dans le cadre d’un plan Azure ou d’un contrat d’offres Azure CSP.
-- Un [contrat commercial moderne](../cost-management-billing/understand/mca-overview.md) auprès de Microsoft.
+- Un [Contrat client Microsoft](../cost-management-billing/understand/mca-overview.md) avec Microsoft.
 
 ## <a name="request-host-quota-for-ea-customers"></a>Demander un quota d’hôte pour des clients Contrat Entreprise
 

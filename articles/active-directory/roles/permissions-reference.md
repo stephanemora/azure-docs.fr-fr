@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 07/26/2021
+ms.date: 09/14/2021
 ms.author: rolyon
-ms.reviewer: vincesm
+ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e05bfa8a024cb823a552f01e585f1c4843bd6df9
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: a057cbd765e58cf4eca509af38e74e62168cddc2
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866453"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058130"
 ---
 # <a name="azure-ad-built-in-roles"></a>Rôles intégrés Azure AD
 
@@ -70,7 +70,7 @@ Cet article répertorie les rôles intégrés Azure AD que vous pouvez attribuer
 > | [Administrateur d’identité hybride](#hybrid-identity-administrator) | Peut gérer les paramètres d’approvisionnement d’AD au cloud Azure AD, d’Azure AD Connect et de fédération. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Administrateur Identity Governance](#identity-governance-administrator) | Gérez l'accès à l'aide d'Azure AD pour les scénarios de gouvernance des identités. | 45d8d3c5-c802-45c6-b32a-1d70b5e1e86e |
 > | [Administrateur Insights](#insights-administrator) | Dispose d’un accès administratif dans l’application Microsoft 365 Insights. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
-> | [Leader d’entreprise Insights](#insights-business-leader) | Peut voir et partager des tableaux de bord et des insights par le biais de l’application M365 Insights. | 31e939ad-9672-4796-9c2e-873181342d2d |
+> | [Leader d’entreprise Insights](#insights-business-leader) | Peut afficher et partager des tableaux de bord et des insights par le biais de l’application Microsoft 365 Insights. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Administrateur Intune](#intune-administrator) | Peut gérer tous les aspects du produit Intune. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
 > | [Administrateur Kaizala](#kaizala-administrator) | Peut gérer les paramètres de Microsoft Kaizala. | 74ef975b-6605-40af-a5d2-b9539d836353 |
 > | [Administrateur des connaissances](#knowledge-administrator) | Peut configurer les connaissances, l’apprentissage et d’autres fonctionnalités intelligentes. | b5a8dcf3-09d5-43a9-a639-8e29ef291470 |
@@ -135,9 +135,11 @@ Ce rôle permet également de consentir des autorisations déléguées et autori
 > | microsoft.directory/applications/basic/update | Mettre à jour les propriétés de base pour les applications |
 > | microsoft.directory/applications/credentials/update | Mettre à jour les informations d’identification d’application |
 > | microsoft.directory/applications/extensionProperties/update | Mettre à jour les propriétés d’extension sur les applications |
+> | microsoft.directory/applications/notes/update | Mettre à jour les notes d’applications |
 > | microsoft.directory/applications/owners/update | Mettre à jour les propriétaires d’applications |
 > | microsoft.directory/applications/permissions/update | Mettre à jour les autorisations exposées et les autorisations requises sur tous les types d’applications |
 > | microsoft.directory/applications/policies/update | Mettre à jour les stratégies d’applications |
+> | microsoft.directory/applications/tag/update | Mettre à jour les balises d’applications |
 > | microsoft.directory/applications/verification/update | Mettre à jour la propriété applicationsverification |
 > | microsoft.directory/applications/synchronization/standard/read | Lire les paramètres de provisionnement associés à l’objet application |
 > | microsoft.directory/applicationTemplates/instantiate | Instancier des applications de la galerie à partir de modèles d’application |
@@ -174,6 +176,7 @@ Ce rôle permet également de consentir des autorisations déléguées et autori
 > | microsoft.directory/servicePrincipals/authentication/update | Mettre à jour les propriétés d’authentification sur les principaux de service |
 > | microsoft.directory/servicePrincipals/basic/update | Mettre à jour les propriétés de base sur les principaux de service |
 > | microsoft.directory/servicePrincipals/credentials/update | Mettre à jour informations d’identification des principaux de service |
+> | microsoft.directory/servicePrincipals/notes/update | Mettre à jour les notes de principaux de service |
 > | microsoft.directory/servicePrincipals/owners/update | Mettre à jour les propriétaires de principaux de service |
 > | microsoft.directory/servicePrincipals/permissions/update | Mettre à jour les autorisations des principaux de service |
 > | microsoft.directory/servicePrincipals/policies/update | Mettre à jour les stratégies des principaux de service |
@@ -247,8 +250,12 @@ Le rôle [Administrateur de la stratégie d’authentification](#authentication-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/users/authenticationMethods/create | Créer des méthodes d’authentification pour les utilisateurs |
+> | microsoft.directory/users/authenticationMethods/delete | Supprimer les méthodes d’authentification pour les utilisateurs |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Lire les propriétés standard des méthodes d’authentification qui n’incluent pas d’informations d’identification personnelle |
+> | microsoft.directory/users/authenticationMethods/basic/update | Mettre à jour les propriétés de base des méthodes d’authentification pour les utilisateurs |
 > | microsoft.directory/users/invalidateAllRefreshTokens | Forcer la déconnexion en invalidant les jetons d’actualisation de l’utilisateur |
-> | microsoft.directory/users/strongAuthentication/update | Mettre à jour la propriété d’authentification forte pour les utilisateurs |
+> | microsoft.directory/users/password/update | Réinitialiser les mots de passe de tous les utilisateurs |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Lire et configurer Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Créer et gérer les tickets de support Azure |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Lire et configurer Service Health dans le Centre d’administration Microsoft 365 |
@@ -331,7 +338,7 @@ Les utilisateurs avec ce rôle ont toutes les autorisations dans le service Azur
 
 ## <a name="b2c-ief-keyset-administrator"></a>Administrateur de jeux de clés B2C IEF
 
-L’utilisateur peut créer et gérer des clés et secrets de stratégie pour le chiffrement des jetons, la signatures des jetons et le chiffrement/déchiffrement des revendications.  En ajoutant de nouvelles clés aux conteneurs de clés existants, cet administrateur limité peut substituer des secrets en fonction des besoins sans affecter les applications existantes.  Cet utilisateur peut voir le contenu complet de ces secrets et leurs dates d’expiration, même après leur création.
+L’utilisateur peut créer et gérer des clés et secrets de stratégie pour le chiffrement des jetons, la signatures des jetons et le chiffrement/déchiffrement des revendications. En ajoutant de nouvelles clés aux conteneurs de clés existants, cet administrateur limité peut substituer des secrets en fonction des besoins sans affecter les applications existantes.  Cet utilisateur peut voir le contenu complet de ces secrets et leurs dates d’expiration, même après leur création.
 
 > [!IMPORTANT]
 > Il s’agit d’un rôle sensible.  Le rôle d’administrateur de jeux de clés doit être soigneusement audité et attribué avec précaution pendant les périodes de préproduction et de production.
@@ -400,9 +407,11 @@ Ce rôle permet également de consentir des autorisations déléguées et autori
 > | microsoft.directory/applications/basic/update | Mettre à jour les propriétés de base pour les applications |
 > | microsoft.directory/applications/credentials/update | Mettre à jour les informations d’identification d’application |
 > | microsoft.directory/applications/extensionProperties/update | Mettre à jour les propriétés d’extension sur les applications |
+> | microsoft.directory/applications/notes/update | Mettre à jour les notes d’applications |
 > | microsoft.directory/applications/owners/update | Mettre à jour les propriétaires d’applications |
 > | microsoft.directory/applications/permissions/update | Mettre à jour les autorisations exposées et les autorisations requises sur tous les types d’applications |
 > | microsoft.directory/applications/policies/update | Mettre à jour les stratégies d’applications |
+> | microsoft.directory/applications/tag/update | Mettre à jour les balises d’applications |
 > | microsoft.directory/applications/verification/update | Mettre à jour la propriété applicationsverification |
 > | microsoft.directory/applications/synchronization/standard/read | Lire les paramètres de provisionnement associés à l’objet application |
 > | microsoft.directory/applicationTemplates/instantiate | Instancier des applications de la galerie à partir de modèles d’application |
@@ -433,6 +442,7 @@ Ce rôle permet également de consentir des autorisations déléguées et autori
 > | microsoft.directory/servicePrincipals/authentication/update | Mettre à jour les propriétés d’authentification sur les principaux de service |
 > | microsoft.directory/servicePrincipals/basic/update | Mettre à jour les propriétés de base sur les principaux de service |
 > | microsoft.directory/servicePrincipals/credentials/update | Mettre à jour informations d’identification des principaux de service |
+> | microsoft.directory/servicePrincipals/notes/update | Mettre à jour les notes de principaux de service |
 > | microsoft.directory/servicePrincipals/owners/update | Mettre à jour les propriétaires de principaux de service |
 > | microsoft.directory/servicePrincipals/permissions/update | Mettre à jour les autorisations des principaux de service |
 > | microsoft.directory/servicePrincipals/policies/update | Mettre à jour les stratégies des principaux de service |
@@ -638,9 +648,11 @@ Ne pas utiliser. Ce rôle est automatiquement attribué au service Azure AD Conn
 > | microsoft.directory/applications/authentication/update | Mettre à jour l’authentification sur tous les types d’applications |
 > | microsoft.directory/applications/basic/update | Mettre à jour les propriétés de base pour les applications |
 > | microsoft.directory/applications/credentials/update | Mettre à jour les informations d’identification d’application |
+> | microsoft.directory/applications/notes/update | Mettre à jour les notes d’applications |
 > | microsoft.directory/applications/owners/update | Mettre à jour les propriétaires d’applications |
 > | microsoft.directory/applications/permissions/update | Mettre à jour les autorisations exposées et les autorisations requises sur tous les types d’applications |
 > | microsoft.directory/applications/policies/update | Mettre à jour les stratégies d’applications |
+> | microsoft.directory/applications/tag/update | Mettre à jour les balises d’applications |
 > | microsoft.directory/authorizationPolicy/standard/read | Lire les propriétés standard des stratégies d’application |
 > | microsoft.directory/organization/dirSync/update | Mettre à jour la propriété de synchronisation d’annuaire d’organisation |
 > | microsoft.directory/policies/create | Créer des stratégies dans Azure AD |
@@ -670,6 +682,7 @@ Ne pas utiliser. Ce rôle est automatiquement attribué au service Azure AD Conn
 > | microsoft.directory/servicePrincipals/authentication/update | Mettre à jour les propriétés d’authentification sur les principaux de service |
 > | microsoft.directory/servicePrincipals/basic/update | Mettre à jour les propriétés de base sur les principaux de service |
 > | microsoft.directory/servicePrincipals/credentials/update | Mettre à jour informations d’identification des principaux de service |
+> | microsoft.directory/servicePrincipals/notes/update | Mettre à jour les notes de principaux de service |
 > | microsoft.directory/servicePrincipals/owners/update | Mettre à jour les propriétaires de principaux de service |
 > | microsoft.directory/servicePrincipals/permissions/update | Mettre à jour les autorisations des principaux de service |
 > | microsoft.directory/servicePrincipals/policies/update | Mettre à jour les stratégies des principaux de service |
@@ -822,12 +835,16 @@ Les utilisateurs avec ce rôle ont accès à toutes les fonctionnalités d’adm
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/allProperties/allTasks | Créer et supprimer des révisions d’accès, et lire et mettre à jour toutes les propriétés des révisions d’accès dans Azure AD |
+> | microsoft.directory/accessReviews/allProperties/allTasks | Créer et supprimer les révisions d’accès, lire et actualiser toutes les propriétés des révisions d’accès ainsi que gérer les révisions d’accès des groupes dans Azure AD |
 > | microsoft.directory/administrativeUnits/allProperties/allTasks | Créez et gérez des unités administratives (y compris les membres). |
 > | microsoft.directory/applications/allProperties/allTasks | Créer et supprimer des applications, ainsi que lire et mettre à jour toutes les propriétés |
 > | microsoft.directory/applications/synchronization/standard/read | Lire les paramètres de provisionnement associés à l’objet application |
 > | microsoft.directory/applicationTemplates/instantiate | Instancier des applications de la galerie à partir de modèles d’application |
 > | microsoft.directory/auditLogs/allProperties/read | Lire toutes les propriétés dans les journaux d’audit, y compris les propriétés privilégiées |
+> | microsoft.directory/users/authenticationMethods/create | Créer des méthodes d’authentification pour les utilisateurs |
+> | microsoft.directory/users/authenticationMethods/delete | Supprimer les méthodes d’authentification pour les utilisateurs |
+> | microsoft.directory/users/authenticationMethods/standard/read | Lire les propriétés standard des méthodes d’authentification pour les utilisateurs |
+> | microsoft.directory/users/authenticationMethods/basic/update | Mettre à jour les propriétés de base des méthodes d’authentification pour les utilisateurs |
 > | microsoft.directory/authorizationPolicy/allProperties/allTasks | Gérez tous les aspects des stratégies d’autorisation |
 > | microsoft.directory/bitlockerKeys/key/read | Lire les métadonnées et la clé BitLocker sur les appareils |
 > | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Créer et supprimer toutes les ressources, ainsi que lire et mettre à jour les propriétés standard dans Microsoft Cloud App Security |
@@ -901,8 +918,10 @@ Les utilisateurs avec ce rôle ont accès à toutes les fonctionnalités d’adm
 > | microsoft.azure.informationProtection/allEntities/allTasks | Gérer tous les aspects d’Azure Information Protection |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Lire et configurer Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Créer et gérer les tickets de support Azure |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks | Gérer tous les aspects de Windows 365 |
 > | microsoft.commerce.billing/allEntities/allTasks | Gérer tous les aspects de la facturation Office 365 |
 > | microsoft.dynamics365/allEntities/allTasks | Gérez tous les aspects de Dynamics 365 |
+> | microsoft.edge/allEntities/allProperties/allTasks | Gérer tous les aspects de Microsoft Edge |
 > | microsoft.flow/allEntities/allTasks | Gérez tous les aspects de Microsoft Power Automate |
 > | microsoft.intune/allEntities/allTasks | Gérez tous les aspects de Microsoft Intune |
 > | microsoft.office365.complianceManager/allEntities/allTasks | Gérez tous les aspects d’Office 365 Compliance Manager |
@@ -953,51 +972,54 @@ Les utilisateurs affectés à ce rôle peuvent lire les paramètres et les infor
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/allProperties/read |  |
-> | microsoft.directory/administrativeUnits/allProperties/read |  |
+> | microsoft.directory/accessReviews/allProperties/read | Lire toutes les propriétés des révisions d’accès |
+> | microsoft.directory/administrativeUnits/allProperties/read | Lire toutes les propriétés des unités administratives |
 > | microsoft.directory/applications/allProperties/read | Lire toutes les propriétés (y compris les propriétés privilégiées) sur tous les types d’applications |
 > | microsoft.directory/applications/synchronization/standard/read | Lire les paramètres de provisionnement associés à l’objet application |
 > | microsoft.directory/auditLogs/allProperties/read | Lire toutes les propriétés dans les journaux d’audit, y compris les propriétés privilégiées |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Lire les propriétés standard des méthodes d’authentification qui n’incluent pas d’informations d’identification personnelle |
 > | microsoft.directory/authorizationPolicy/standard/read | Lire les propriétés standard des stratégies d’application |
 > | microsoft.directory/bitlockerKeys/key/read | Lire les métadonnées et la clé BitLocker sur les appareils |
-> | microsoft.directory/cloudAppSecurity/allProperties/read |  |
+> | microsoft.directory/cloudAppSecurity/allProperties/read | Lire toutes les propriétés de la sécurité d’application cloud |
 > | microsoft.directory/connectors/allProperties/read | Lire toutes les propriétés des connecteurs de proxy d’application |
 > | microsoft.directory/connectorGroups/allProperties/read | Lire toutes les propriétés des groupes de connecteurs de proxy d’application |
-> | microsoft.directory/contacts/allProperties/read |  |
+> | microsoft.directory/contacts/allProperties/read | Lire toutes les propriétés des contacts |
 > | microsoft.directory/devices/allProperties/read | Lire toutes les propriétés des appareils |
-> | microsoft.directory/directoryRoles/allProperties/read |  |
-> | microsoft.directory/directoryRoleTemplates/allProperties/read |  |
+> | microsoft.directory/directoryRoles/allProperties/read | Lire toutes les propriétés des rôles Azure AD |
+> | microsoft.directory/directoryRoleTemplates/allProperties/read | Lire toutes les propriétés des modèles de rôle |
 > | microsoft.directory/domains/allProperties/read | Lire toutes les propriétés des domaines |
 > | microsoft.directory/entitlementManagement/allProperties/read | Lire toutes les propriétés dans la fonctionnalité de gestion des droits d’utilisation Azure AD |
 > | microsoft.directory/groups/allProperties/read | Lire toutes les propriétés (notamment les propriétés privilégiées) des groupes de Sécurité et des groupes Microsoft 365, notamment les groupes à attribution de rôle |
-> | microsoft.directory/groupSettings/allProperties/read |  |
-> | microsoft.directory/groupSettingTemplates/allProperties/read |  |
+> | microsoft.directory/groupSettings/allProperties/read | Lire toutes les propriétés des paramètres de groupe |
+> | microsoft.directory/groupSettingTemplates/allProperties/read | Lire toutes les propriétés des modèles de paramètre de groupe |
 > | microsoft.directory/identityProtection/allProperties/read | Lire toutes les ressources dans Azure AD Identity Protection |
-> | microsoft.directory/loginOrganizationBranding/allProperties/read |  |
-> | microsoft.directory/oAuth2PermissionGrants/allProperties/read |  |
-> | microsoft.directory/organization/allProperties/read |  |
+> | microsoft.directory/loginOrganizationBranding/allProperties/read | Lire toutes les propriétés de la page de connexion de votre organisation |
+> | microsoft.directory/oAuth2PermissionGrants/allProperties/read | Lire toutes les propriétés des octrois d'autorisation OAuth 2.0 |
+> | microsoft.directory/organization/allProperties/read | Lire toutes les propriétés d’une organisation |
 > | microsoft.directory/permissionGrantPolicies/standard/read | Lire les propriétés standard des stratégies d’octroi d’autorisation |
-> | microsoft.directory/policies/allProperties/read |  |
-> | microsoft.directory/conditionalAccessPolicies/allProperties/read |  |
-> | microsoft.directory/crossTenantAccessPolicies/allProperties/read |  |
+> | microsoft.directory/policies/allProperties/read | Lire toutes les propriétés des stratégies |
+> | microsoft.directory/conditionalAccessPolicies/allProperties/read | Lire toutes les propriétés des stratégies d’accès conditionnel |
+> | microsoft.directory/crossTenantAccessPolicies/allProperties/read | Lire toutes les propriétés des stratégies inter-client |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Lire les propriétés standard sur les stratégies d’application de gestion des appareils |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Lire les propriétés standard sur les stratégies d’inscription des appareils |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Lire toutes les ressources dans Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Lire toutes les propriétés des journaux de provisionnement. |
-> | microsoft.directory/roleAssignments/allProperties/read |  |
-> | microsoft.directory/roleDefinitions/allProperties/read |  |
-> | microsoft.directory/scopedRoleMemberships/allProperties/read |  |
+> | microsoft.directory/roleAssignments/allProperties/read | Lire toutes les propriétés des attributions de rôle |
+> | microsoft.directory/roleDefinitions/allProperties/read | Lire toutes les propriétés des définitions de rôle |
+> | microsoft.directory/scopedRoleMemberships/allProperties/read | Afficher les membres des unités administratives |
 > | microsoft.directory/serviceAction/getAvailableExtentionProperties | Effectuer l’action de service getAvailableExtentionProperties |
 > | microsoft.directory/servicePrincipals/allProperties/read | Lire toutes les propriétés (y compris les propriétés privilégiées) sur servicePrincipals |
 > | microsoft.directory/servicePrincipalCreationPolicies/standard/read | Lire les propriétés standard de stratégies de création de principal de service |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Lire les paramètres de provisionnement associés au principal de service |
 > | microsoft.directory/signInReports/allProperties/read | Lire toutes les propriétés dans les rapports de connexion, y compris les propriétés privilégiées |
-> | microsoft.directory/subscribedSkus/allProperties/read |  |
+> | microsoft.directory/subscribedSkus/allProperties/read | Lire toutes les propriétés des abonnements produits |
 > | microsoft.directory/users/allProperties/read | Lire toutes les propriétés des utilisateurs |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/allProperties/read | Lire une carte de justificatifs vérifiables |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/allProperties/read | Lire un contrat de justificatifs vérifiables |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | Lire la configuration requise pour créer et gérer des justificatifs vérifiables |
+> | microsoft.cloudPC/allEntities/allProperties/read | Lire tous les aspects de Windows 365 |
 > | microsoft.commerce.billing/allEntities/read | Lire toutes les ressources de la facturation d’Office 365 |
+> | microsoft.edge/allEntities/allProperties/read | Lire tous les aspects de Microsoft Edge |
 > | microsoft.office365.exchange/allEntities/standard/read | Lire toutes les ressources d’Exchange Online |
 > | microsoft.office365.messageCenter/messages/read | Lire les messages dans le Centre de messages du Centre d’administration Microsoft 365, à l’exclusion des messages de sécurité |
 > | microsoft.office365.messageCenter/securityMessages/read | Lire les messages de sécurité dans le Centre de messages du Centre d’administration Microsoft 365 |
@@ -1102,9 +1124,11 @@ Les utilisateurs de ce rôle peuvent créer, gérer et déployer la configuratio
 > | microsoft.directory/applications/authentication/update | Mettre à jour l’authentification sur tous les types d’applications |
 > | microsoft.directory/applications/basic/update | Mettre à jour les propriétés de base pour les applications |
 > | microsoft.directory/applications/credentials/update | Mettre à jour les informations d’identification d’application |
+> | microsoft.directory/applications/notes/update | Mettre à jour les notes d’applications |
 > | microsoft.directory/applications/owners/update | Mettre à jour les propriétaires d’applications |
 > | microsoft.directory/applications/permissions/update | Mettre à jour les autorisations exposées et les autorisations requises sur tous les types d’applications |
 > | microsoft.directory/applications/policies/update | Mettre à jour les stratégies d’applications |
+> | microsoft.directory/applications/tag/update | Mettre à jour les balises d’applications |
 > | microsoft.directory/applications/synchronization/standard/read | Lire les paramètres de provisionnement associés à l’objet application |
 > | microsoft.directory/applicationTemplates/instantiate | Instancier des applications de la galerie à partir de modèles d’application |
 > | microsoft.directory/auditLogs/allProperties/read | Lire toutes les propriétés dans les journaux d’audit, y compris les propriétés privilégiées |
@@ -1126,6 +1150,7 @@ Les utilisateurs de ce rôle peuvent créer, gérer et déployer la configuratio
 > | microsoft.directory/servicePrincipals/authentication/update | Mettre à jour les propriétés d’authentification sur les principaux de service |
 > | microsoft.directory/servicePrincipals/basic/update | Mettre à jour les propriétés de base sur les principaux de service |
 > | microsoft.directory/servicePrincipals/credentials/update | Mettre à jour informations d’identification des principaux de service |
+> | microsoft.directory/servicePrincipals/notes/update | Mettre à jour les notes de principaux de service |
 > | microsoft.directory/servicePrincipals/owners/update | Mettre à jour les propriétaires de principaux de service |
 > | microsoft.directory/servicePrincipals/permissions/update | Mettre à jour les autorisations des principaux de service |
 > | microsoft.directory/servicePrincipals/policies/update | Mettre à jour les stratégies des principaux de service |
@@ -1147,14 +1172,13 @@ Les utilisateurs dotés de ce rôle peuvent gérer la configuration de la gouver
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/accessReviews/allProperties/allTasks | Créer et supprimer les révisions d’accès, lire et actualiser toutes les propriétés des révisions d’accès ainsi que gérer les révisions d’accès des groupes dans Azure AD |
-> | microsoft.directory/accessReviews/definitions.applications/allTasks  | Gérer les révisions d’accès des attributions de rôles d’application dans Azure AD | 
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Créer et supprimer des ressources, ainsi que lire et mettre à jour toutes les propriétés dans la gestion des droits d’utilisation Azure AD |
 > | microsoft.directory/groups/members/update | Actualiser la propriété membres des groupes de Sécurité et des groupes Microsoft 365, à l’exception des groupes à attribution de rôle |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Mettre à jour les attributions de rôles des principaux de service |
 
 ## <a name="insights-administrator"></a>Administrateur Insights
 
-Les utilisateurs ayant ce rôle peuvent accéder à l’ensemble des fonctionnalités d’administration de l’[application M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Ce rôle permet de lire les informations de répertoire, de contrôler l’intégrité du service, de soumettre des tickets de support et d’accéder aux aspects des paramètres Administrateur Insights.
+Les utilisateurs ayant ce rôle peuvent accéder à l’ensemble des fonctionnalités d’administration de l’[application Microsoft 365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Ce rôle permet de lire les informations de répertoire, de contrôler l’intégrité du service, de soumettre des tickets de support et d’accéder aux aspects des paramètres Administrateur Insights.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1168,7 +1192,7 @@ Les utilisateurs ayant ce rôle peuvent accéder à l’ensemble des fonctionnal
 
 ## <a name="insights-business-leader"></a>Leader d’entreprise Insights
 
-Les utilisateurs ayant ce rôle peuvent accéder à un ensemble de tableaux de bord et d’insights par le biais de l’[application M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Ceci inclut l’accès total à tous les tableaux de bord et aux insights présentés et la fonctionnalité d’exploration de données. Les utilisateurs ayant ce rôle n’ont pas accès aux paramètres de configuration du produit, lesquels sont de la responsabilité réservée au rôle Administrateur Insights.
+Les utilisateurs ayant ce rôle peuvent accéder à un ensemble de tableaux de bord et d’insights par le biais de l’[application Microsoft 365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Ceci inclut l’accès total à tous les tableaux de bord et aux insights présentés et la fonctionnalité d’exploration de données. Les utilisateurs ayant ce rôle n’ont pas accès aux paramètres de configuration du produit, lesquels sont de la responsabilité réservée au rôle Administrateur Insights.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1217,6 +1241,7 @@ Ce rôle peut créer et gérer tous les groupes de sécurité. Cependant, l’Ad
 > | microsoft.directory/users/manager/update | Mettre à jour le gestionnaire pour les utilisateurs |
 > | microsoft.directory/users/photo/update | Actualiser la photo des utilisateurs |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Créer et gérer les tickets de support Azure |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks | Gérer tous les aspects de Windows 365 |
 > | microsoft.intune/allEntities/allTasks | Gérez tous les aspects de Microsoft Intune |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Créer et gérer des demandes de service Microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Lire les propriétés de base sur toutes les ressources dans le Centre d’administration Microsoft 365 |
@@ -1377,9 +1402,11 @@ Ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’
 > | microsoft.directory/applications/authentication/update | Mettre à jour l’authentification sur tous les types d’applications |
 > | microsoft.directory/applications/basic/update | Mettre à jour les propriétés de base pour les applications |
 > | microsoft.directory/applications/credentials/update | Mettre à jour les informations d’identification d’application |
+> | microsoft.directory/applications/notes/update | Mettre à jour les notes d’applications |
 > | microsoft.directory/applications/owners/update | Mettre à jour les propriétaires d’applications |
 > | microsoft.directory/applications/permissions/update | Mettre à jour les autorisations exposées et les autorisations requises sur tous les types d’applications |
 > | microsoft.directory/applications/policies/update | Mettre à jour les stratégies d’applications |
+> | microsoft.directory/applications/tag/update | Mettre à jour les balises d’applications |
 > | microsoft.directory/contacts/create | Créer des contacts |
 > | microsoft.directory/contacts/delete | Supprimer des contacts |
 > | microsoft.directory/contacts/basic/update | Mettre à jour les propriétés de base sur les contacts |
@@ -1423,9 +1450,11 @@ Ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’
 > | microsoft.directory/applications/authentication/update | Mettre à jour l’authentification sur tous les types d’applications |
 > | microsoft.directory/applications/basic/update | Mettre à jour les propriétés de base pour les applications |
 > | microsoft.directory/applications/credentials/update | Mettre à jour les informations d’identification d’application |
+> | microsoft.directory/applications/notes/update | Mettre à jour les notes d’applications |
 > | microsoft.directory/applications/owners/update | Mettre à jour les propriétaires d’applications |
 > | microsoft.directory/applications/permissions/update | Mettre à jour les autorisations exposées et les autorisations requises sur tous les types d’applications |
 > | microsoft.directory/applications/policies/update | Mettre à jour les stratégies d’applications |
+> | microsoft.directory/applications/tag/update | Mettre à jour les balises d’applications |
 > | microsoft.directory/contacts/create | Créer des contacts |
 > | microsoft.directory/contacts/delete | Supprimer des contacts |
 > | microsoft.directory/contacts/basic/update | Mettre à jour les propriétés de base sur les contacts |
@@ -1555,8 +1584,12 @@ Le rôle [Administrateur de la stratégie d’authentification](#authentication-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/users/authenticationMethods/create | Créer des méthodes d’authentification pour les utilisateurs |
+> | microsoft.directory/users/authenticationMethods/delete | Supprimer les méthodes d’authentification pour les utilisateurs |
+> | microsoft.directory/users/authenticationMethods/standard/read | Lire les propriétés standard des méthodes d’authentification pour les utilisateurs |
+> | microsoft.directory/users/authenticationMethods/basic/update | Mettre à jour les propriétés de base des méthodes d’authentification pour les utilisateurs |
 > | microsoft.directory/users/invalidateAllRefreshTokens | Forcer la déconnexion en invalidant les jetons d’actualisation de l’utilisateur |
-> | microsoft.directory/users/strongAuthentication/update | Mettre à jour la propriété d’authentification forte pour les utilisateurs |
+> | microsoft.directory/users/password/update | Réinitialiser les mots de passe de tous les utilisateurs |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Lire et configurer Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Créer et gérer les tickets de support Azure |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Lire et configurer Service Health dans le Centre d’administration Microsoft 365 |
@@ -1924,7 +1957,7 @@ Les utilisateurs disposant de ce rôle peuvent accéder aux données agrégées 
 
 ## <a name="user-administrator"></a>Administrateur d'utilisateurs
 
-Les utilisateurs dotés de ce rôle peuvent créer des utilisateurs, gérer tous les aspects des utilisateurs avec certaines restrictions (voir le tableau) et mettre à jour les stratégies d’expiration de mot de passe. De plus, les utilisateurs dotés de ce rôle peuvent créer et gérer tous les groupes. Ce rôle inclut également la possibilité de créer et de gérer des affichages utilisateur, de gérer les tickets de support et de surveiller l’état d’intégrité des services. Les Administrateurs d’utilisateurs ne sont pas autorisés à gérer certaines propriétés utilisateur pour les utilisateurs dans la plupart des rôles administrateur. L’utilisateur ayant ce rôle n’est pas autorisé à gérer l’authentification multifacteur. Les rôles qui sont des exceptions à cette restriction sont listés dans le tableau suivant.
+Les utilisateurs dotés de ce rôle peuvent créer des utilisateurs, gérer tous les aspects des utilisateurs avec certaines restrictions (voir le tableau) et mettre à jour les stratégies d’expiration de mot de passe. De plus, les utilisateurs dotés de ce rôle peuvent créer et gérer tous les groupes. Ce rôle inclut également la possibilité de créer et de gérer des affichages utilisateur, de gérer les tickets de support et de surveiller l’état d’intégrité des services. Les Administrateurs d’utilisateurs ne sont pas autorisés à gérer certaines propriétés utilisateur pour les utilisateurs dans la plupart des rôles administrateur. Les administrateurs ayant ce rôle ne sont pas autorisés à gérer l’authentification multifacteur ou à gérer les boîtes aux lettres partagées. Les rôles qui sont des exceptions à cette restriction sont listés dans le tableau suivant.
 
 | Autorisation d’administrateur d’utilisateurs | Notes |
 | --- | --- |

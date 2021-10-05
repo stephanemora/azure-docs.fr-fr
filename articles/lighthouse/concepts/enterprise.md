@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse dans les scénarios d’entreprise
 description: Les fonctionnalités d’Azure Lighthouse peuvent être utilisées pour simplifier la gestion inter-locataire au sein d’une entreprise qui utilise plusieurs locataires Azure AD.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12a6c2f03c06fbd69e77e32b236258bc6a6c8fbe
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: f83e5d84eee0c3ed7f159778630e3598274e4916
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768297"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768778"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse dans les scénarios d’entreprise
 
@@ -20,7 +20,7 @@ Pour la plupart des organisations, la gestion est plus facile avec un seul locat
 
 Certaines organisations peuvent avoir besoin d’utiliser plusieurs locataires Azure AD. Il peut s’agir d’une situation temporaire, comme quand des acquisitions ont eu lieu et qu’une stratégie de consolidation du locataire à long terme n’a pas encore été définie. Parfois, une organisation peut avoir à assurer en permanence la maintenance de plusieurs locataires en raison de filiales totalement indépendantes, de conditions géographiques ou légales, entre autres.
 
-Dans les cas où une architecture multilocataire est nécessaire, Azure Lighthouse contribue à centraliser et simplifier les opérations de gestion. En utilisant la [gestion déléguée des ressources Azure](architecture.md), les utilisateurs d’un locataire gérant peuvent effectuer des [ fonctions de gestion inter-locataires](cross-tenant-management-experience.md) de manière centralisée et évolutive.
+Dans les cas où une architecture multilocataire est nécessaire, Azure Lighthouse contribue à centraliser et simplifier les opérations de gestion. En utilisant Azure Lighthouse, les utilisateurs d’un locataire gérant peuvent effectuer des [fonctions de gestion inter-locataires](cross-tenant-management-experience.md) de manière centralisée et évolutive.
 
 ## <a name="tenant-management-architecture"></a>Architecture de gestion des locataires
 

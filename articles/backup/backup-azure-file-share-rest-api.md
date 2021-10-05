@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure avec l’API REST
 description: Apprenez à utiliser l’API REST pour sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 6a305200feac635c03caa2477a08267c150219b9
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 152613031eb6c3ba7a0c1078d3d53bcf170ce646
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471402"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424165"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Sauvegarder un partage de fichiers Azure à l’aide de Sauvegarde Azure via l’API REST
 
@@ -89,7 +89,7 @@ Effectuez le suivi de l’opération qui en résulte à l’aide de l’en-tête
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/operationResults/cca47745-12d2-42f9-b3a4-75335f18fdf6?api-version=2016-12-01
 ```
 
-Une fois tous les comptes de stockage Azure découverts, la commande GET retourne une réponse 200 (Pas de contenu). Le coffre est maintenant en mesure de découvrir tout compte de stockage avec des partages de fichiers pouvant être sauvegardés au sein de l’abonnement.
+Une fois tous les comptes de stockage Azure détectés, la commande GET retourne une réponse 204 (Pas de contenu). Le coffre est maintenant en mesure de découvrir tout compte de stockage avec des partages de fichiers pouvant être sauvegardés au sein de l’abonnement.
 
 ```http
 HTTP/1.1 200 NoContent

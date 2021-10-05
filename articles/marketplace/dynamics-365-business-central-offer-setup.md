@@ -6,15 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: 43ce147cc1d8cb9cb6bcc389ad02cfcf71038e34
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.date: 09/27/2021
+ms.openlocfilehash: 6056259817c24079ae1a2efc912a8251feeaa1ad
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110547616"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081988"
 ---
-# <a name="how-to-create-a-dynamics-365-for-business-central-offer"></a>Comment créer une offre Dynamics 365 pour Business Central
+# <a name="create-a-dynamics-365-for-business-central-offer"></a>Créer une offre Dynamics 365 pour Business Central
 
 Cet article explique la procédure de création d’une offre [Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central/overview). Ce type d’offre est un service de planification des ressources d’entreprise (ERP) qui prend en charge un vaste éventail de processus d’entreprise, notamment en lien avec les finances, les opérations, la chaîne logistique, la gestion de la relation client, la gestion de projets et le commerce électronique. Toutes les offres pour Dynamics 365 passent par notre processus de certification.
 
@@ -26,18 +26,39 @@ Examinez [Planifier une offre Dynamics 365](marketplace-dynamics-365.md). Cet a
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+
+    [ ![Illustre la vignette Offres de la Place de marché sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Sur la page Offres de la Place de marché, sélectionnez **+ Nouvelle offre** > **Dynamics 365 pour Business Central**.
+
+    [ ![Illustre le bouton « Nouvelle offre ». Le type d’offre Dynamics 365 pour Business Central est mis en surbrillance.](media/dynamics-365/new-offer-dynamics-365-business-central-workspaces.png) ](media/dynamics-365/new-offer-dynamics-365-business-central-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> Après publication d’une offre, les modifications que vous y apportez dans Espace partenaires apparaissent sur Microsoft AppSource uniquement après la republication de l’offre. Veillez à toujours republier une offre après l’avoir modifiée.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
-3. Dans la page Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Dynamics 365 pour Business Central**.
+1. Dans le menu de navigation de gauche, sélectionnez **Marketplace commercial** > **Vue d’ensemble**.
+1. Sur la page Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Dynamics 365 pour Business Central**.
 
     :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-business-central.png" alt-text="Options du menu du volet gauche et bouton « Nouvelle offre »":::
 
 > [!IMPORTANT]
 > Après publication d’une offre, les modifications que vous y apportez dans Espace partenaires apparaissent sur Microsoft AppSource uniquement après la republication de l’offre. Veillez à toujours republier une offre après l’avoir modifiée.
 
+---
+
 ## <a name="new-offer"></a>Nouvelle offre
 
-Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
+Dans la boîte de dialogue qui s’affiche, entrez un **ID de l’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
 
 - Cet ID est visible par les clients dans l’adresse web de l’offre et dans les modèles Azure Resource Manager, le cas échéant.
 - Utilisez uniquement des lettres minuscules et des chiffres. L’ID peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si votre ID d’éditeur est `testpublisherid` et que vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.

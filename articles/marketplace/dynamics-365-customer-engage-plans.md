@@ -6,19 +6,27 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
-ms.openlocfilehash: 086457e916f3eeef41023efe56cc011e714ab343
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 09/27/2021
+ms.openlocfilehash: 4bcd4a2bfc3b9daab502b55fccad63b0fb01be46
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866327"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082855"
 ---
 # <a name="create-dynamics-365-for-customer-engagement--power-apps-plans"></a>Créer des plans Dynamics 365 pour Customer Engagement et Power Apps
 
-Si vous avez activé la gestion des licences d’application pour votre offre, l’onglet **Plans** apparaît comme illustré dans la capture d’écran suivante. Sinon, accédez à [Définir la configuration technique d’une offre Dynamics 365 pour Customer Engagement et Power Apps](dynamics-365-customer-engage-technical-configuration.md).
+Si vous avez activé la gestion des licences d’application pour votre offre, l’onglet **Vue d’ensemble du plan** apparaît comme illustré dans la capture d’écran suivante. Sinon, accédez à [Définir la configuration technique d’une offre Dynamics 365 pour Customer Engagement et Power Apps](dynamics-365-customer-engage-technical-configuration.md).
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+[ ![Capture d’écran de l’onglet Vue d’ensemble du plan pour une offre Dynamics 365 pour Customer Engagement et Power Apps qui a été activée pour les licences d’applications tierces.](./media/third-party-license/plan-tab-d365-workspaces.png) ](./media/third-party-license/plan-tab-d365-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 :::image type="content" source="./media/third-party-license/plan-tab.png" alt-text="Capture d’écran de l’onglet Vue d’ensemble du plan pour une offre Dynamics 365 pour Customer Engagement et Power Apps qui a été activée pour les licences d’applications tierces.":::
+
+---
 
 Vous devez définir au moins un plan si la gestion des licences d’application est activée pour votre offre. Vous pouvez créer divers plans avec différentes options pour la même offre. Ces plans (parfois appelés SKU) peuvent différer en termes de monétisation ou de niveaux de service. Plus tard, vous mapperez les ID de service de ces plans dans votre package de solution pour permettre à la plateforme Dynamics de vérifier la licence de ces plans au moment de l’exécution. Vous allez mapper l’ID de service de chaque plan dans votre package de solution. Cela permet à la plateforme Dynamics d’exécuter une vérification de licence par rapport à ces plans.
 
@@ -33,6 +41,18 @@ Vous devez définir au moins un plan si la gestion des licences d’application 
 
 Dans l’onglet **Liste des plans**, vous pouvez définir le nom et la description du plan comme vous souhaitez qu’ils apparaissent dans la Place de marché commerciale. Ces informations s’affichent dans la page de la liste Microsoft AppSource.
 
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Dans la zone **Nom du plan**, le nom que vous avez fourni précédemment pour ce plan s’affiche. Vous pouvez le modifier à tout moment. Ce nom apparaîtra dans la Place de marché commerciale comme titre du plan logiciel de votre offre.
+1. La zone **Description du plan** permet d’expliquer ce qui rend ce plan logiciel unique et de pointer les différences par rapport aux autres plans dans votre offre. Cette description peut contenir jusqu’à 500 caractères.
+1. Sélectionnez **Enregistrer le brouillon** puis, dans le fil situé en haut de la page, sélectionnez **Plans**.
+
+    [ ![La capture d’écran affiche le lien Vue d’ensemble du plan sur la page Liste des plans d’une offre dans Espace partenaires.](./media/third-party-license/bronze-plan-workspaces.png) ](./media/third-party-license/bronze-plan-workspaces.png#lightbox)
+
+1. Pour créer un autre plan pour cette offre, en haut de la page **Vue d’ensemble du plan**, sélectionnez **+ Créer un plan**. Répétez ensuite les étapes de la section [Créer un plan](#create-a-plan). Sinon, si vous avez fini de créer des plans, passez à la section suivante : Copier les ID de service.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
 1. Dans la zone **Nom du plan**, le nom que vous avez fourni précédemment pour ce plan s’affiche. Vous pouvez le modifier à tout moment. Ce nom apparaîtra dans la Place de marché commerciale comme titre du plan logiciel de votre offre.
 1. La zone **Description du plan** permet d’expliquer ce qui rend ce plan logiciel unique et de pointer les différences par rapport aux autres plans dans votre offre. Cette description peut contenir jusqu’à 500 caractères.
 1. Sélectionnez **Enregistrer le brouillon**, puis, dans l’angle supérieur gauche, sélectionnez **Vue d’ensemble du plan**.
@@ -41,13 +61,25 @@ Dans l’onglet **Liste des plans**, vous pouvez définir le nom et la descripti
 
 1. Pour créer un autre plan pour cette offre, en haut de la page **Vue d’ensemble du plan**, sélectionnez **+ Créer un plan**. Répétez ensuite les étapes de la section [Créer un plan](#create-a-plan). Sinon, si vous avez fini de créer des plans, passez à la section suivante : Copier les ID de service.
 
+---
+
 ## <a name="copy-the-service-ids"></a>Copier les ID de service
 
 Vous devez copier l’ID de service de chaque plan que vous avez créé afin de pouvoir le mapper à votre package de solution à l’étape suivante.
 
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+- Pour chaque plan que vous avez créé, copiez l’ID de service dans un emplacement sécurisé. Vous allez les ajouter à votre package de solution à l’étape suivante. L’ID de service est indiqué sur la page **Vue d’ensemble du plan** sous la forme `ISV name.offer name.plan ID`. Par exemple, Fabrikam.F365.bronze.
+
+    [ ![Capture d’écran de la page Vue d’ensemble du plan. L’ID de service du plan est mis en évidence.](./media/third-party-license/service-id-workspaces.png) ](./media/third-party-license/service-id-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
 - Pour chaque plan que vous avez créé, copiez l’ID de service dans un emplacement sécurisé. Vous allez les ajouter à votre package de solution à l’étape suivante. L’ID de service est indiqué sur la page **Vue d’ensemble du plan** sous la forme `ISV name.offer name.plan ID`. Par exemple, Fabrikam.F365.bronze.
 
     :::image type="content" source="./media/third-party-license/service-id.png" alt-text="Capture d’écran de la page Vue d’ensemble du plan. L’ID de service du plan est mis en évidence.":::
+
+---
 
 ## <a name="add-service-ids-to-your-solution-package"></a>Ajouter des ID de service à votre package de solution
 

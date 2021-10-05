@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 09/27/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 625df6ed5147b77a9829b6e7b3396f4855068d62
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: f97e4ec774dc9ed703a41cdd75fb88747fb627e5
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534869"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129090910"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Réplication inter-région des volumes Azure NetApp Files
 
@@ -35,30 +35,36 @@ La réplication de volume Azure NetApp Files est prise en charge entre différen
 
 ### <a name="azure-regional-pairs"></a>Paires régionales Azure
 
-* USA Est et USA Ouest
-* USA Est 2 et USA Centre
-* Australie Est et Australie Sud-Est
-* Canada Centre et Canada Est
-* Inde Sud et Inde Centre 
-* Allemagne Centre-Ouest et Allemagne Nord
-* Japon Est et Japon Ouest
-* Europe Nord et Europe Ouest
-* Royaume-Uni Sud et Royaume-Uni Ouest
-* Émirats arabes unis Nord, Émirats arabes unis Centre
-* Norvège Est et Norvège Ouest
+| Geography | Paire régionale A | Paire régionale B  |
+|:--- |:--- |:--- |
+| Australie | Australie Est | Sud-Australie Est |
+| Canada | Centre du Canada | Est du Canada |
+| Europe | Europe Nord | Europe Ouest |
+| Allemagne | Allemagne Centre-Ouest | Allemagne Nord |
+| Inde | Inde centrale |Inde Sud |
+| Japon | Japon Est | OuJapon Est |
+| Amérique du Nord | USA Est | USA Ouest |
+| Amérique du Nord | USA Est 2 | USA Centre |
+| Amérique du Nord | Centre-Nord des États-Unis | États-Unis - partie centrale méridionale|
+| Norvège | Norvège Est | Norvège Ouest |
+| Royaume-Uni | Sud du Royaume-Uni | Ouest du Royaume-Uni |
+| Émirats Arabes Unis | Émirats arabes unis Nord | Émirats arabes unis Centre |
+| Gouvernement américain | Gouvernement américain - Virginie | Gouvernement des États-Unis – Texas |
 
 ### <a name="azure-regional-non-standard-pairs"></a>Paires non standard de régions Azure
 
-*   USA Ouest 2 et USA Est
-*   USA Centre Sud et USA Centre
-*   USA Centre Sud et USA Est
-*   USA Centre Sud et USA Est 2
-*   USA Est et USA Est 2
-*   USA Est 2 et USA Est 2
-*   Australie Est et Asie Sud-Est 
-*   Allemagne Centre-Ouest et Royaume-Uni Sud
-*   Allemagne Centre-Ouest et Europe Ouest
-*   Allemagne Centre-Ouest et France Centre
+| Geography | Paire régionale A | Paire régionale B  |
+|:--- |:--- |:--- |
+| Australie/Asie Sud-Est | Australie Est | Asie Sud-Est |
+| Allemagne/Royaume-Uni | Allemagne Centre-Ouest | Sud du Royaume-Uni |
+| Allemagne/Europe | Allemagne Centre-Ouest | Europe Ouest | 
+| Allemagne/France | Allemagne Centre-Ouest | France Centre |
+| Amérique du Nord | USA Est | USA Est 2 |
+| Amérique du Nord | USA Est 2| USA Ouest 2 |
+| Amérique du Nord | États-Unis - partie centrale méridionale | USA Est |
+| Amérique du Nord | États-Unis - partie centrale méridionale | USA Est 2 |
+| Amérique du Nord | États-Unis - partie centrale méridionale | USA Centre |
+| Amérique du Nord | USA Ouest 2 | USA Est |
 
 ## <a name="service-level-objectives"></a>Objectifs de niveau de service
 

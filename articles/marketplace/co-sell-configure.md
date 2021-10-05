@@ -4,16 +4,16 @@ description: Les informations que vous fournissez sous l’onglet Co-vendre avec
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: palanis-MSFT
-ms.author: palanis
+author: sharath-satish-msft
+ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 07/13/2021
-ms.openlocfilehash: 74bc41fb84f63f4705da95f80d6f27dea009ea43
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 09/27/2021
+ms.openlocfilehash: c01e7d909e3227fe672047bca897bfa9d9978f85
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866734"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082140"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configurer la co-vente pour une offre de la Place de marché commerciale
 
@@ -35,6 +35,30 @@ L’option Co-vente est disponible pour les types d’offres suivants.
 
 ## <a name="go-to-the-co-sell-with-microsoft-tab"></a>Accéder à l’onglet Co-vendre avec Microsoft
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+
+     [ ![Illustre la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+    > [!TIP]
+    > Si vous ne voyez pas la vignette **Offre de la Place de marché**, [créez un compte sur la Place de marché commerciale dans l’Espace partenaires](create-account.md), et vérifiez que votre compte est inscrit dans le programme de la Place de marché commerciale.
+
+1. Sur la page d’offres de la Place de marché, sélectionnez l’offre que vous souhaitez co-vendre.
+
+    > [!NOTE]
+    > Vous pouvez configurer la co-vente d’une nouvelle offre qui n’a pas encore été publiée ou d’une offre déjà publiée.
+
+1. Dans le menu de gauche, sélectionnez **Covendre avec Microsoft**.
+
+    [ ![Illustre la page Co-vente avec Microsoft.](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png) ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
     > [!TIP]
@@ -46,6 +70,8 @@ L’option Co-vente est disponible pour les types d’offres suivants.
 1. Dans le menu de gauche, sélectionnez **Covendre avec Microsoft**.
 
     [![Montre le lien Co-vendre avec Microsoft dans le volet de navigation de gauche.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+
+---
 
 ## <a name="co-sell-listings"></a>Référencements de Co-vente
 
@@ -79,11 +105,11 @@ Les types de solution permettent de définir les scénarios pour lesquels votre 
 
 ### <a name="select-solution-areas"></a>Sélectionner des domaines fonctionnels
 
-Les domaines fonctionnels permettent de définir plus précisément votre solution. Cela permet aux équipes de vente Microsoft d’identifier et de comprendre la proposition de valeur de votre solution. Vous devez sélectionner au moins un et au maximum trois domaines fonctionnels pour votre offre. Pour chacun d'eux, vous pouvez choisir deux sous-domaines fonctionnels.
+Les domaines fonctionnels permettent de définir plus précisément votre solution. Cela permet aux équipes de vente Microsoft d’identifier et de comprendre la proposition de valeur de votre solution. Vous devez sélectionner au moins un et au maximum cinq domaines fonctionnels pour votre offre. Pour chacun d'eux, vous pouvez choisir cinq sous-domaines fonctionnels.
 
-1. Sélectionnez le lien **+ Ajouter un domaine fonctionnel (3 max)** .
+1. Sélectionnez le lien **+ Ajouter un domaine fonctionnel (5 max)** .
 1. Sélectionnez un domaine fonctionnel dans la liste déroulante qui s’affiche.
-1. Sélectionnez au moins un et jusqu’à deux sous-domaines fonctionnels. Pour sélectionner plusieurs sous-domaines, utilisez la touche `Ctrl` (sous Windows) ou la touche `Command` (sous macOS).
+1. Sélectionnez au moins un et jusqu’à cinq sous-domaines fonctionnels. Pour sélectionner plusieurs sous-domaines, utilisez la touche `Ctrl` (sous Windows) ou la touche `Command` (sous macOS).
 1. Pour ajouter un autre domaine fonctionnel, répétez les étapes 1 à 3.
 
 ## <a name="upload-documents"></a>Chargement de documents

@@ -2,13 +2,13 @@
 title: Configurer une sauvegarde opérationnelle pour des objets blob Azure
 description: Découvrez comment configurer et gérer une sauvegarde opérationnelle pour des objets blob Azure.
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: b437aa0df073267b07b3e74bc3a778e7aa274031
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/28/2021
+ms.openlocfilehash: 24a0f31a35342b53835563fdcca9754abd5d57ee
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562128"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153897"
 ---
 # <a name="configure-operational-backup-for-azure-blobs"></a>Configurer une sauvegarde opérationnelle pour des objets blob Azure
 
@@ -139,7 +139,7 @@ Pour commencer à configurer une sauvegarde :
 
     1. Sélectionnez **Vérifier + créer** pour créer la stratégie de sauvegarde.
 
-1. Choisissez les comptes de stockage requis pour la configuration de la protection des objets blob. Vous pouvez sélectionner plusieurs comptes de stockage à la fois, puis choisir Sélectionner.<br></br>Toutefois, vérifiez que le coffre que vous avez choisi a le rôle RBAC requis affecté pour configurer la sauvegarde sur les comptes de stockage. Consultez [Accorder au coffre de sauvegarde des autorisations sur des comptes de stockage](#grant-permissions-to-the-backup-vault-on-storage-accounts) pour en savoir plus.<br></br>Si le rôle n’est pas attribué, vous pouvez toujours attribuer le rôle lors de la configuration de la sauvegarde. Consultez l’étape 7.
+1. Choisissez les comptes de stockage requis pour la configuration de la protection des objets blob. Vous pouvez sélectionner plusieurs comptes de stockage à la fois, puis choisir Sélectionner.<br></br>Toutefois, vérifiez que le coffre que vous avez choisi a le rôle de contrôle d’accès en fonction du rôle (RBAC) Azure requis affecté pour configurer la sauvegarde sur les comptes de stockage. Consultez [Accorder au coffre de sauvegarde des autorisations sur des comptes de stockage](#grant-permissions-to-the-backup-vault-on-storage-accounts) pour en savoir plus.<br></br>Si le rôle n’est pas attribué, vous pouvez toujours attribuer le rôle lors de la configuration de la sauvegarde. Consultez l’étape 7.
 
     ![Vérifier les autorisations du coffre](./media/blob-backup-configure-manage/verify-vault-permissions.png)
 

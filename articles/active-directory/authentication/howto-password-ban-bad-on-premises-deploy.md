@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81e40a295d9572fb38a1289d4bdf661095b9ca7a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2bb017cd4532d4739b563d4a22a50a731268407f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449120"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759716"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planifiez et déployez localement la protection par mot de passe Azure Active Directory
 
@@ -95,6 +95,9 @@ Les principales exigences suivantes s’appliquent :
     | --- | --- |
     |`https://login.microsoftonline.com`|Demandes d’authentification|
     |`https://enterpriseregistration.windows.net`|Fonctionnalité de protection par mot de passe Azure AD|
+
+> [!NOTE]
+> Certains points de terminaison, tels que le point de terminaison de la liste de révocation des certificats, ne sont pas traités dans cet article. Pour obtenir la liste de tous les points de terminaison pris en charge, consultez [URL et plages d’adresses IP Microsoft 365](/microsoft-365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
 
 ### <a name="azure-ad-password-protection-dc-agent"></a>agent DC de protection par mot de passe Azure AD
 

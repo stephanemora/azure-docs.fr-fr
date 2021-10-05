@@ -1,18 +1,17 @@
 ---
-title: Guide de l’utilisateur sur la traçabilité Data Catalog (préversion)
+title: Guide de l’utilisateur sur la traçabilité du Data Catalog
 description: Cet article présente la fonctionnalité de traçabilité de catalogue d’Azure Purview.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/25/2021
-ms.openlocfilehash: 38f150a99b2145968569e986ea158b1aa552593a
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.date: 09/27/2021
+ms.openlocfilehash: e2923e29652a92de188366168140bf9def43c082
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968600"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209477"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guide de l’utilisateur sur la traçabilité du Data Catalog dans Azure Purview
 
@@ -112,7 +111,7 @@ Le traitement des données peut prendre un ou plusieurs jeux de données d’ent
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Capture d’écran montrant comment sélectionner l’option de basculement vers la ressource dans une ressource de données de traçabilité." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-2. Le canevas de traçabilité peut devenir complexe pour les jeux de données populaires. Pour éviter tout encombrement, l’affichage par défaut n’affiche que cinq niveaux de traçabilité pour la ressource active. Le reste de la traçabilité peut être développé en cliquant sur les bulles dans le canevas de traçabilité. Les consommateurs de données peuvent également masquer les ressources du canevas qui ne présentent aucun intérêt. Pour réduire davantage l’encombrement, désactivez le bouton bascule **More Lineage (Plus de traçabilité)** en ligne en haut du canevas de traçabilité. Cette action masque toutes les bulles dans le canevas de traçabilité.
+2. Le canevas de traçabilité peut devenir complexe pour les jeux de données populaires. Pour éviter tout encombrement, l’affichage par défaut n’affiche que cinq niveaux de traçabilité pour la ressource active. Le reste de la traçabilité peut être développé en sélectionnant les bulles dans le canevas de traçabilité. Les consommateurs de données peuvent également masquer les ressources du canevas qui ne présentent aucun intérêt. Pour réduire davantage l’encombrement, désactivez le bouton bascule **More Lineage (Plus de traçabilité)** en ligne en haut du canevas de traçabilité. Cette action masque toutes les bulles dans le canevas de traçabilité.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="Capture d’écran montrant comment sélectionner le bouton bascule permettant d’afficher davantage de traçabilité." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 

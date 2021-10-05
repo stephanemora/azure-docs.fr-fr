@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cc06556c72a992efd9f0ebd48a1a2c8585b172c7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 884f70367c7e7edaf546b65b4e0e2825dacf0a07
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664963"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577932"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Empêcher l’accès en lecture public anonyme aux conteneurs et aux blobs
 
@@ -55,7 +55,7 @@ Suivez ces étapes pour créer une métrique qui effectue le suivi des requêtes
 1. Dans la boîte de dialogue **Filtre**, spécifiez les valeurs suivantes :
     1. Définissez la valeur **Propriété** sur *Authentification*.
     1. Affectez au champ **Opérateur** le signe égal (=).
-    1. Définissez le champ **Valeurs** sur *Anonyme*.
+    1. Définissez le champ **Valeurs** sur *Anonyme* en le sélectionnant dans la liste déroulante ou en saisissant dans celui-ci.
 1. Dans l’angle supérieur droit, sélectionnez l’intervalle de temps sur lequel doit porter la métrique. Vous pouvez également indiquer le degré de précision de l’agrégation des demandes, en spécifiant des intervalles compris entre 1 minute et 1 mois.
 
 Une fois que vous avez configuré la métrique, les demandes anonymes commencent à s’afficher sur le graphique. L’illustration suivante montre les demandes anonymes agrégées sur les trente dernières minutes.

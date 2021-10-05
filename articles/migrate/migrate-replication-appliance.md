@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 5f63b033c3995932662fc9b68c1397bf57b0326e
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 4a06267aae473ecc1b42812f7ed07405faafd7aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714971"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607467"
 ---
 # <a name="replication-appliance"></a>Appliance de réplication
 
@@ -58,7 +58,7 @@ Licence | L’appliance est fournie avec une licence d’évaluation Windows Ser
 Paramètres régionaux du système d’exploitation | Anglais (en-us)
 TLS | TLS 1.2 doit être activé.
 .NET Framework | .NET Framework 4.6 ou ultérieur doit être installé sur la machine (avec un chiffrement fort activé).
-MySQL | MySQL doit être installé sur l’appliance.<br/> MySQL doit être installé. Vous pouvez l’installer manuellement ou laisser Site Recovery le faire lors du déploiement de l’appliance.
+MySQL | MySQL doit être installé sur l’appliance.<br/> MySQL doit être installé. Vous pouvez l’installer manuellement ou Azure Migrate peut le faire lors du déploiement de l’appliance.
 Autres applications | N’exécutez pas d’autres applications sur l’appliance de réplication.
 Rôles Windows Server | N’activez pas ces rôles : <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Stratégies de groupe | N’activez pas ces stratégies de groupe : <br> - Empêcher l’accès à l’invite de commandes <br> - Empêcher l’accès aux outils de modification du Registre <br> - Logique de confiance pour les pièces jointes <br> - Activer l’exécution des scripts <br> [En savoir plus](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))

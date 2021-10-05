@@ -5,15 +5,14 @@ metadata:
   author: SunetraVirdi
   ms.author: suvirdi
   ms.service: purview
-  ms.subservice: purview-data-catalog
   ms.topic: conceptual
   ms.date: 05/08/2021
-  ms.openlocfilehash: 14a269e84f3b1241cda85c1849a9478ab8701071
-  ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+  ms.openlocfilehash: cdde004521c6f99136bfa75f33359f3599b675df
+  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/16/2021
-  ms.locfileid: "122525894"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129213444"
 title: Forum Aux Questions (FAQ) sur Azure Purview
 summary: ''
 sections:
@@ -94,7 +93,7 @@ sections:
   - question: >
       Azure Purview analyse-t-il et classe-t-il les e-mails, les PDF, etc. dans mes instances de SharePoint et OneDrive ?
     answer: >
-      L'analyse des sites et bibliothèques SharePoint locaux est assurée par le scanneur Azure Information Protection. Le scanneur peut être utilisé dans le cadre de l'abonnement Microsoft 365 d'un client avec les références SKU suivantes : AIP P1, EMS E3 et M365 E3. Si vous possédez l'une de ces références SKU, vous devez disposer des droits appropriés pour commencer à utiliser le scanneur Azure Information Protection.
+      L'analyse des sites et bibliothèques SharePoint locaux est assurée par le scanneur Azure Information Protection. Le scanneur peut être utilisé dans le cadre de l’abonnement Microsoft 365 d’un client avec les références SKU suivantes : AIP P1, EMS E3 et Microsoft 365 E3. Si vous possédez l'une de ces références SKU, vous devez disposer des droits appropriés pour commencer à utiliser le scanneur Azure Information Protection.
   - question: >
       Quel est le calcul utilisé pour l'analyse ?
     answer: >
@@ -113,7 +112,7 @@ sections:
       Oui, vous pouvez créer plusieurs comptes Azure Purview par abonnement et par locataire. N'hésitez pas à consulter la page [Gérer et augmenter les quotas de ressources avec Azure Purview](how-to-manage-quotas.md).
 
 
-      Des recommandations supplémentaires sur les cas où vous devez ou ne devez pas disposer de plusieurs comptes sont proposées dans [Meilleures pratiques de déploiement d'Azure Purview ](deployment-best-practices.md).
+      Des recommandations supplémentaires sur les cas où vous devez ou ne devez pas disposer de plusieurs comptes sont proposées dans [Meilleures pratiques de déploiement d’Azure Purview ](deployment-best-practices.md).
   - question: >
       Puis-je inscrire plusieurs locataires sur un même compte Azure Purview ?
     answer: >

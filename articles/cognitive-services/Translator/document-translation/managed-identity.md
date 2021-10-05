@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 340121b40845369fe05e36a302556543078629eb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 688fd2391d12f74b46a16954706b3c9e0ee1fb8a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289124"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771823"
 ---
-# <a name="create-and-use-managed-identity-for-document-translation"></a>Créer et utiliser une identité managée pour la traduction de document
+# <a name="create-and-use-managed-identity"></a>Créer et utiliser une identité managée
 
 > [!IMPORTANT]
 >
@@ -24,18 +24,9 @@ ms.locfileid: "114289124"
 
 ## <a name="what-is-managed-identity"></a>Qu’est-ce qu’une identité managée ?
 
- Une identité managée Azure est un principal de service qui crée une identité Azure Active Directory (Azure AD) et des autorisations spécifiques pour les ressources managées Azure. Vous pouvez utiliser une identité managée pour accorder l’accès à une ressource qui prend en charge l’authentification Azure AD. Pour accorder l’accès, attribuez un rôle à une identité managée en utilisant le [contrôle d’accès en fonction du rôle Azure](../../../role-based-access-control/overview.md) (Azure RBAC).  L’utilisation d’une identité managée dans Azure n’occasionne aucun coût supplémentaire.
+ L’identité managée Azure est un principal de service qui crée une identité Azure Active Directory (Azure AD) et des autorisations spécifiques pour les ressources managées Azure. Vous pouvez utiliser une identité managée pour accorder l’accès à une ressource qui prend en charge l’authentification Azure AD. Pour accorder l’accès, attribuez un rôle à une identité managée en utilisant le [contrôle d’accès en fonction du rôle Azure](../../../role-based-access-control/overview.md) (Azure RBAC).  Il n’y a aucun coût supplémentaire pour utiliser l’identité managée dans Azure.
 
-Une identité managée prend en charge les comptes de stockage Blob Azure accessibles en privé et publiquement.  Pour les comptes de stockage avec accès public, vous pouvez choisir d’utiliser une signature d’accès partagé (SAS) pour accorder un accès limité.  Cet article explique comment gérer l’accès à des documents de traduction dans votre compte de stockage Blob Azure à l’aide d’une identité managée affectée par le système.
-
-> [!NOTE]
->
-> Pour toutes les opérations utilisant un compte de stockage Blob Azure disponible sur l’Internet public, vous pouvez fournir une URL de signature d’accès partagé (**SAP**) avec des droits restreints pendant une période limitée, et la transmettre à vos requêtes POST :
->
-> * Pour récupérer votre URL de SAP, accédez à votre ressource de stockage dans le portail Azure, puis sélectionnez l’onglet **Explorateur Stockage**.
-> * Accédez à votre conteneur, cliquez avec le bouton droit, puis sélectionnez **Obtenir une signature d’accès partagé**. Il est important d’obtenir la signature d’accès partagé de votre conteneur, et non celle du compte de stockage.
-> * Vérifiez que les autorisations de **lecture**, d’**écriture**, de **suppression** et de **liste** sont cochées, puis cliquez sur **Créer**.
-> * Copiez ensuite la valeur de la section **URL** dans un emplacement temporaire. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+L’identité managée prend en charge les comptes de stockage Blob Azure accessibles en privé et publiquement.  Pour les comptes de stockage **avec accès public**, vous pouvez choisir d’utiliser une signature d’accès partagé (SAS) pour accorder un accès limité.  Cet article explique comment gérer l’accès à des documents de traduction dans votre compte de stockage Blob Azure à l’aide d’une identité managée affectée par le système.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,11 +36,21 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 * Une ressource [**Traducteur monoservice**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (non une ressource Cognitive Services multiservice) attribuée à une région **non globale**. Pour des instructions détaillées, _consultez_ [Créer une ressource Cognitive Services dans le portail Azure](../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* Un [**compte de stockage Blob Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) dans la même région que votre ressource Traducteur. Vous allez créer des conteneurs pour stocker et organiser vos données d’objet blob dans votre compte de stockage. Si le compte dispose d’un pare-feu, la case à cocher [exception pour les services Azure approuvés](../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) doit être activée.
+* Connaissances générales sur le [**contrôle d’accès en fonction du rôle Azure (Azure RBAC)**](../../../role-based-access-control/role-assignments-portal.md) à l’aide du portail Azure.
+
+* Un [**compte de stockage Blob Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) dans la même région que votre ressource Traducteur. Vous allez créer des conteneurs pour stocker et organiser vos données d’objet blob dans votre compte de stockage. 
+
+* **Si votre compte de stockage se trouve derrière un pare-feu, vous devez activer la configuration suivante** : </br>
+
+  * Dans la page de votre compte de stockage, dans le menu de gauche, sélectionnez **Sécurité + réseau** → **Mise en réseau**.
+    :::image type="content" source="../media/managed-identities/security-and-networking-node.png" alt-text="Capture d’écran : onglet Sécurité + réseau.":::
+
+  * Dans la fenêtre principale, sélectionnez **Autoriser l’accès à partir de réseaux sélectionnés**.
+  :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Capture d’écran : case d’option Réseaux sélectionnés activée.":::
+
+  * Dans la page Réseaux sélectionnés, accédez à la catégorie **Exceptions** et assurez-vous que la case à cocher [**Autoriser les services Azure de la liste des services approuvés à accéder à ce compte de stockage**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) est activée.
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Capture d’écran : case à cocher Autoriser les services approuvés, vue du portail":::
-
-* Connaissances générales sur le [**contrôle d’accès en fonction du rôle Azure (Azure RBAC)** ](../../../role-based-access-control/role-assignments-portal.md) à l’aide du portail Azure.
 
 ## <a name="managed-identity-assignments"></a>Attributions d’identités managées
 
@@ -75,17 +76,17 @@ Dans les étapes suivantes, nous allons activer une identité managée affectée
 
 1. Sous **Autorisations**, sélectionnez **Attributions des rôles Azure** :
 
-    :::image type="content" source="../media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Capture d’écran : activer une identité managée affectée par le système dans le portail Azure.":::
+    :::image type="content" source="../media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Capture d’écran : activer une identité managée affectée par le système dans le portail Azure":::
 
 1. Une page des attributions de rôles Azure s’ouvre. Choisissez votre abonnement dans le menu déroulant, puis sélectionnez **&plus; Ajouter une attribution de rôle**.
 
-    :::image type="content" source="../media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Capture d’écran : page des attributions de rôles Azure dans le portail Azure.":::
+    :::image type="content" source="../media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Capture d’écran : page des attributions de rôles Azure dans le portail Azure":::
 
->[!NOTE]
->
-> Si vous ne parvenez pas à attribuer un rôle dans le portail Azure parce que l’option Ajouter > Ajouter une attribution de rôle est désactivée ou que vous recevez l’erreur d’autorisation « Vous ne disposez pas des autorisations nécessaires pour ajouter une attribution de rôle à cette étendue », vérifiez que vous êtes actuellement connecté en tant qu’utilisateur avec un rôle attribué qui dispose des autorisations Microsoft.Authorization/roleAssignments/write, telles que [**Propriétaire**](../../../role-based-access-control/built-in-roles.md#owner) ou [**Administrateur de l’accès utilisateur**](../../../role-based-access-control/built-in-roles.md#user-access-administrator) dans l’étendue de stockage de la ressource de stockage.
+    >[!NOTE]
+    >
+    > Si vous ne parvenez pas à attribuer un rôle dans le portail Azure parce que l’option Ajouter > Ajouter une attribution de rôle est désactivée ou que vous recevez l’erreur d’autorisation « Vous ne disposez pas des autorisations nécessaires pour ajouter une attribution de rôle à cette étendue », vérifiez que vous êtes actuellement connecté en tant qu’utilisateur avec un rôle attribué qui dispose des autorisations Microsoft.Authorization/roleAssignments/write, telles que [**Propriétaire**](../../../role-based-access-control/built-in-roles.md#owner) ou [**Administrateur de l’accès utilisateur**](../../../role-based-access-control/built-in-roles.md#user-access-administrator) dans l’étendue de stockage de la ressource de stockage.
 
-7. Ensuite, vous allez attribuer un rôle **Contributeur aux données Blob du stockage** à votre ressource de service Traducteur. Dans la fenêtre contextuelle **Ajouter une attribution de rôle**, renseignez les champs comme suit et sélectionnez **Enregistrer** :
+1. Ensuite, vous allez attribuer un rôle **Contributeur aux données Blob du stockage** à votre ressource de service Traducteur. Dans la fenêtre contextuelle **Ajouter une attribution de rôle**, renseignez les champs comme suit et sélectionnez **Enregistrer** :
 
     | Champ | Valeur|
     |------|--------|
@@ -98,7 +99,7 @@ Dans les étapes suivantes, nous allons activer une identité managée affectée
 
 1. Une fois que vous avez reçu le message de confirmation _Attribution de rôle ajoutée_, actualisez la page pour voir l’attribution de rôle ajoutée. 
 
-    :::image type="content" source="../media/managed-identities/add-role-assignment-confirmation.png" alt-text="Capture d’écran : message contextuel de confirmation de l’ajout de l’attribution de rôle.":::
+    :::image type="content" source="../media/managed-identities/add-role-assignment-confirmation.png" alt-text="Capture d’écran : message contextuel de confirmation de l’ajout de l’attribution de rôle":::
 
 1. Si vous ne voyez pas immédiatement la modification, patientez et essayez d’actualiser la page une nouvelle fois. Lorsque vous attribuez des rôles ou supprimez des attributions de rôle, un délai maximal de 30 minutes peut être nécessaire avant que les modifications prennent effet.
 

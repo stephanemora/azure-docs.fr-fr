@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: a899622c22d68217fd4fbf73e495f89885f4d7ba
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 2b1fb9960caf81a51c80dae312979d90f6eb5f4d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527953"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733419"
 ---
 # <a name="set-scope-for-extension-resources-in-bicep"></a>Définir l’étendue des ressources d’extension dans Bicep
 
@@ -22,6 +22,10 @@ Cet article montre comment définir l’étendue d’un type de ressource d’ex
 
 > [!NOTE]
 > La propriété scope est uniquement disponible pour les types de ressources d’extension. Pour spécifier une étendue différente pour un type de ressource qui n’est pas un type d’extension, utilisez un [module](modules.md).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les ressources d’extension et pour obtenir des conseils pratiques, consultez [Déployer des ressources enfants et d’extension à l’aide de Bicep](/learn/modules/child-extension-bicep-templates) sur **Microsoft Learn**.
 
 ## <a name="apply-at-deployment-scope"></a>Appliquer au niveau de l’étendue du déploiement
 

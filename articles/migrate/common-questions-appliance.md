@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: a814cce09a134f007fbd136b8c142a60fb099a1b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 11360af784f456559955152772ba099ad4d48d73
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524457"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123423867"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -57,7 +57,7 @@ L’appliance Azure Migrate profile les serveurs locaux en continu pour mesurer 
 
 ## <a name="can-i-harden-the-appliance"></a>Puis-je renforcer l’appliance ?
 
-Quand vous utilisez le modèle téléchargé pour créer l’appliance, vous pouvez ajouter des composants (par exemple un antivirus) au modèle si vous conservez les règles de communication et de pare-feu nécessaires à l’appliance Azure Migrate.
+Lorsque vous utilisez le modèle téléchargé pour créer l’appliance, vous pouvez ajouter des composants (antivirus, par exemple) au modèle. Assurez-vous que vous avez autorisé l’accès aux [URL](migrate-appliance.md#public-cloud-urls) correctes via le pare-feu Azure et que le dossier *%ProgramData%\MicrosoftAzure* est exclu de l’analyse antivirus.
 
 ## <a name="what-network-connectivity-is-required"></a>Quelle est la connectivité réseau nécessaire ?
 

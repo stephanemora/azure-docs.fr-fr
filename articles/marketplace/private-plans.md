@@ -7,12 +7,12 @@ ms.topic: article
 author: navits09
 ms.author: navits
 ms.date: 08/13/2021
-ms.openlocfilehash: 1048aa89e13f22e6708a3cb86eaa1cb4332bc2a1
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: cc7f4e983ab766577af41497c2e270694361605a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122535023"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784752"
 ---
 # <a name="private-plans-in-the-microsoft-commercial-marketplace"></a>Plans privés dans la place de marché commerciale de Microsoft
 
@@ -45,10 +45,10 @@ Les plans privés sont des composants d’une offre que seuls les clients ciblé
 
 Ils peuvent réutiliser les images de base et offrir des métadonnées déjà publiées pour un plan public. Cette option permet aux éditeurs de créer plusieurs variantes privées d’une offre publique sans avoir à publier plusieurs versions de la même image de base ou à proposer des métadonnées. Dans le cas des offres Machines virtuelles Azure et Azure Application uniquement, quand un plan privé partage une image de base avec un plan public, les modifications apportées à l’image de base de l’offre se propagent sur tous les plans, publics et privés, qui utilisent cette image de base.
 
-Pour les *nouvelles offres qui comportent uniquement des plans privés*, les éditeurs peuvent créer des offres classiques, puis marquer les plans comme privés. Les offres qui ne possèdent que des plans privés ne sont pas détectables ni accessibles dans [Portail Azure](https://azure.microsoft.com/features/azure-portal/) par les clients qui ne sont pas associés à l’offre.
+Pour les *nouvelles offres qui comportent uniquement des plans privés*, les éditeurs peuvent créer des offres classiques, puis marquer les plans comme privés. Les offres qui ne possèdent que des plans privés ne sont pas détectables ni accessibles dans le [portail Azure](https://azure.microsoft.com/features/azure-portal/) ou [Microsoft AppSource](https://appsource.microsoft.com/) par les clients qui ne sont pas associés à l’offre.
 
 >[!NOTE]
->Une offre qui contient uniquement des plans privés ne sera pas visible dans la Place de marché Azure publique, ni dans AppSource.
+>Une offre qui contient uniquement des plans privés ne sera pas visible dans la Place de marché Azure publique.
 
 ## <a name="target-customers-with-private-plans"></a>Cibler des clients avec des plans privés
 
@@ -66,7 +66,7 @@ Une fois connectés au portail Azure, les clients peuvent suivre ces étapes pou
 1. Dans le volet de navigation de gauche, sélectionnez **Plans privés**.
 
 > [!NOTE]
-> Les plans privés sont uniquement découvrables dans le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Ils ne sont pas visibles dans [Microsoft AppSource](https://appsource.microsoft.com/) ni dans la [Place de marché Azure](https://azuremarketplace.microsoft.com). Pour en savoir plus sur la publication sur les différents magasins en ligne du marketplace commercial, consultez [Présentation des options de référencement](./determine-your-listing-type.md).
+> Les plans privés sont uniquement découvrables dans le [portail Azure](https://azure.microsoft.com/features/azure-portal/) ou [Microsoft AppSource](https://appsource.microsoft.com/). Ils ne sont pas visibles dans la [Place de marché Azure](https://azuremarketplace.microsoft.com). Pour en savoir plus sur la publication sur les différents magasins en ligne du marketplace commercial, consultez [Présentation des options de référencement](./determine-your-listing-type.md).
 
 Les plans privés apparaissent également dans les résultats de recherche et peuvent être déployés par le biais d’une ligne de commande et de modèles Azure Resource Manager, comme n’importe quelle autre offre.
 

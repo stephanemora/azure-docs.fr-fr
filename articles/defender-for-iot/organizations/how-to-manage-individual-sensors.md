@@ -1,14 +1,14 @@
 ---
 title: Gérer des capteurs individuels
 description: Découvrez comment gérer des capteurs individuels, y compris comment gérer les fichiers d’activation, exécuter des sauvegardes et mettre à jour un capteur autonome.
-ms.date: 05/26/2021
+ms.date: 08/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 7c54c2eef98cdf3c68f4c03f09f95972d57aba71
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fd708b2ab259b38ea6983c4d4a6dac319e416218
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563025"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424278"
 ---
 # <a name="manage-individual-sensors"></a>Gérer des capteurs individuels
 
@@ -46,7 +46,7 @@ Dans les cas suivants, il se peut que vous deviez charger un nouveau fichier d�
 
 - Vous souhaitez affecter un nouveau hub Defender pour IoT à un capteur connecté au cloud.
 
-Pour ajouter un nouveau fichier d’activation :
+**Pour ajouter un nouveau fichier d’activation :**
 
 1. Accédez à la page **Gestion du capteur**.
 
@@ -86,237 +86,33 @@ Vous recevrez un message d’erreur si le chargement du fichier d’activation a
 
 ## <a name="manage-certificates"></a>Gérer des certificats
 
-Après l’installation du capteur, un certificat auto-signé local est généré et utilisé pour accéder à l’application web du capteur. Lorsqu’ils se connectent au capteur pour la première fois, les utilisateurs administrateurs sont invités à fournir un certificat SSL/TLS.  Pour plus d’informations sur la première configuration, consultez [Se connecter et activer un capteur](how-to-activate-and-set-up-your-sensor.md).
+Après l’installation du capteur, un certificat auto-signé local est généré et utilisé pour accéder à l’application web du capteur. Lorsqu’ils se connectent au capteur pour la première fois, les utilisateurs administrateurs sont invités à fournir un certificat SSL/TLS. 
 
-Cet article fournit des informations sur la mise à jour des certificats, l’utilisation des commandes CLI de certificat et les certificats et paramètres de certificat pris en charge.
+Les administrateurs de capteur peuvent être amenés à mettre à jour les certificats qui ont été téléchargés après la connexion initiale. Cela peut se produire par exemple si un certificat a expiré.
 
-### <a name="about-certificates"></a>À propos des certificats
-
-Azure Defender pour IoT utilise des certificats SSL/TLS pour :
-
-- répondre aux exigences de chiffrement et de certificat spécifiques requises par votre organisation en téléchargeant le certificat signé par une autorité de certification ;
-
-- autoriser la validation entre la console de gestion et les capteurs connectés, et entre une console de gestion et une console de gestion haute disponibilité. Les validations sont évaluées par rapport à une liste de révocation de certificats (CRL), ainsi que par rapport à la date d’expiration du certificat. *En cas d’échec de la validation, la communication entre la console de gestion et le capteur est interrompue et une erreur de validation apparaît sur la console*. Cette option est activée par défaut après l’installation.
-
-- Les règles de transfert tierces, par exemple les informations d’alerte envoyées à SYSLOG, Splunk ou ServiceNow, ou les communications avec Active Directory sont validées.
-
-### <a name="about-crl-servers"></a>À propos des serveurs CRL
-
-Lorsque la validation est activée, l’appliance doit être en mesure d’établir la connexion au serveur CRL défini par le certificat. Par défaut, le certificat fait référence à l’URL CRL sur le port HTTP 80. Certaines stratégies de sécurité de l’organisation peuvent bloquer l’accès à ce port. Si votre organisation n’a pas accès au port 80, vous pouvez :
-1. Définir une autre URL et un port spécifique dans le certificat. 
-- L’URL doit être définie en tant que http:// au lieu de https://.
-- Vérifiez que le serveur CRL de destination peut écouter sur le port que vous avez défini. 
-1. Utiliser un serveur proxy qui accédera à la liste de révocation de certificats sur le port 80.
-1. Ne pas effectuer la validation de la liste de révocation de certificats. Dans ce cas, supprimez la référence de l’URL CRL dans le certificat.
-
-### <a name="about-ssltls-certificates"></a>À propos des certificats SSL/TLS
-
-La console de gestion locale et le capteur Defender pour IoT utilisent des certificats SSL et TLS pour les fonctions suivantes :
-
- - sécuriser les communications entre les utilisateurs et la console web de l’appliance ;
- 
- - sécuriser les communications avec l’API REST sur le capteur et la console de gestion locale ;
- 
- - sécuriser les communications entre les capteurs et une console de gestion locale.
-
-Une fois installée, l’appliance génère un certificat auto-signé local pour permettre un accès préliminaire à la console web.
-
- > [!NOTE]
- > Pour les intégrations et les règles de transfert où l’appliance est le client et l’initiateur de la session, des certificats spécifiques sont utilisés et ne sont pas associés aux certificats du système.  
- >
- >Dans ces cas, les certificats sont généralement reçus du serveur ou utilisent le chiffrement asymétrique lorsqu’un certificat spécifique est fourni pour configurer l’intégration.
-
-Les appliances peuvent utiliser des fichiers de certificat uniques. Si vous devez remplacer un certificat que vous avez chargé :
-
-- À partir de la version 10.0, vous pouvez remplacer le certificat à partir du menu Paramètres système.
-
-- Pour les versions antérieures à la version 10.0, vous pouvez remplacer le certificat SSL à l’aide de l’outil de ligne de commande.
-
-### <a name="update-certificates"></a>Mettre à jour des certificats
-
-Les utilisateurs administrateurs des capteurs peuvent mettre à jour les certificats.
-
-Pour mettre à jour un certificat :  
+**Pour mettre à jour un certificat :**
 
 1. Sélectionnez **Paramètres système**.
 
 1. Sélectionnez **Certificats SSL/TLS**.
-1. Supprimez ou modifiez le certificat et ajoutez-en un nouveau.
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/certificate-upload.png" alt-text="Téléchargement d'un certificat":::
+
+1. Dans la boîte de dialogue certificats SSL/TLS, supprimez le certificat existant et ajoutez-en un nouveau.
 
     - Ajoutez un nom de certificat.
-    
-    - Chargez un fichier CRT et un fichier de clé, puis entrez une phrase secrète.
+    - Téléchargez un fichier CRT et un fichier de clé.
     - Chargez un fichier PEM si nécessaire.
 
-Pour modifier le paramètre de validation :
+Si le téléchargement échoue, contactez votre administrateur informatique ou de sécurité, ou passez en revue les informations contenues dans [à propos des certificats](how-to-deploy-certificates.md).
 
-1. Activez ou désactivez le bouton bascule **Activer la validation du certificat**.
+**Pour modifier le paramètre de validation du certificat :**
+
+1. Activez ou désactivez le bouton bascule **Activer la validation du certificat**. Si cette option est activée et que la validation échoue, la communication entre la console de gestion et le capteur est interrompue et une erreur de validation apparaît sur la console. Si elle est désactivée, la validation de certificat n’est pas effectuée. Pour plus d’informations, consultez [à propos de la validation des certificats](how-to-deploy-certificates.md#about-certificate-validation).
 
 1. Sélectionnez **Enregistrer**.
 
-Si cette option est activée et que la validation échoue, la communication entre la console de gestion et le capteur est interrompue et une erreur de validation apparaît sur la console.
-
-### <a name="certificate-support"></a>Prise en charge des certificats
-
-Les certificats suivants sont pris en charge :
-
-- Infrastructure à clé privée et d’entreprise (PKI privée)
-
-- Infrastructure à clé publique (PKI publique) 
-
-- Généré localement sur l’appliance (auto-signé localement) 
-
-> [!IMPORTANT]
-> Nous vous déconseillons d’utiliser des certificats auto-signés. Cette connexion n’est pas sécurisée et doit être utilisée uniquement pour les environnements de test. Étant donné que le propriétaire du certificat ne peut pas être validé et que la sécurité de votre système ne peut pas être maintenue, les certificats auto-signés ne doivent jamais être utilisés pour les réseaux de production.
-
-### <a name="supported-ssl-certificates"></a>Certificats SSL pris en charge 
-
-Les paramètres suivants sont pris en charge. 
-
-**CRT de certificat**
-
-- Le fichier de certificat principal pour votre nom de domaine
-
-- Algorithme de signature = SHA256RSA
-- Algorithme de hachage de signature = SHA256
-- Valide à partir du = date passée valide
-- Valide jusqu’au = date future valide
-- Clé publique = RSA 2048 bits (minimum) ou 4096 bits
-- Point de distribution de liste de révocation de certificats = URL vers le fichier .crl
-- CN de l’objet = URL, peut être un certificat avec caractères génériques, par exemple, Sensor.contoso.<span>com ou *.contoso.<span>com
-- Pays (C) de l’objet = défini, par exemple, US
-- Unité d’organisation (OU) de l’objet = définie, par exemple, Contoso Labs
-- Organisation (O) de l’objet = définie, par exemple, Contoso Inc
-
-**Fichier de clé**.
-
-- Fichier de clé généré lors de la création du CSR
-
-- RSA 2 048 bits (minimum) ou 4 096 bits
-
- > [!Note]
- > Utilisation d’une longueur de clé de 4 096bits :
- > - L’établissement d'une liaison SSL au début de chaque connexion est plus lente.  
- > - L’utilisation de l’UC augmente pendant l’établissement de liaisons. 
-
-**Chaîne de certificats**
-
-- Fichier de certificat intermédiaire (le cas échéant) qui a été fourni par votre autorité de certification
-
-- Le certificat de l’autorité de certification qui a émis le certificat du serveur doit apparaître en premier dans le fichier, suivi de tous les autres éléments jusqu’à la racine. 
-- Peut inclure des attributs de conteneur.
-
-**Phrase secrète**
-
-- Une clé prise en charge
-
-- Configurez-la lorsque vous importez le certificat.
-
-Les certificats avec d’autres paramètres peuvent fonctionner, mais Microsoft ne les prend pas en charge.
-
-#### <a name="encryption-key-artifacts"></a>Artefacts de clé de chiffrement
-
-**.pem : fichier de conteneur de certificat**
-
-Les fichiers Privacy Enhanced Mail (PEM) étaient le type de fichier général utilisé pour sécuriser les e-mails. De nos jours, les fichiers PEM sont utilisés avec des certificats et utilisent des clés x509 ASN1.  
-
-Le fichier conteneur est défini dans les normes RFC 1421 à 1424, un format de conteneur qui peut inclure le certificat public uniquement. Par exemple, Apache installe un certificat d’autorité de certification, des fichiers, des ETC, des SSL ou des CERTS. Il peut s’agir d’une chaîne de certificats entière incluant une clé publique, une clé privée et des certificats racines.  
-
-Il peut également encoder un CSR, car le format PKCS10 peut être traduit en PEM.
-
-**.cert .cer .crt : fichier de conteneur de certificat**
-
-Fichier au format `.pem` ou `.der` portant une autre extension. Le fichier est reconnu par l’Explorateur Windows comme un certificat. Le fichier `.pem` n’est pas reconnu par l’Explorateur Windows.
-
-**.key : fichier de clé privée**
-
-Un fichier de clé est au même format qu’un fichier PEM, mais son extension est différente.
-
-#### <a name="other-commonly-available-key-artifacts"></a>Autres artefacts de clé couramment disponibles
-
-**.csr : demande de signature de certificat**  
-
-Ce fichier est utilisé pour l’envoi aux autorités de certification. Le format réel est PKCS10, qui est défini dans la norme RFC 2986 et peut inclure tout ou partie des détails de la clé du certificat demandé. Par exemple, l’objet, l’organisation et l’état. Il s’agit de la clé publique du certificat qui est signée par l’autorité de certification et reçoit un certificat en retour.  
-
-Le certificat retourné est le certificat public, qui comprend la clé publique, mais pas la clé privée. 
-
-**.pkcs12 .pfx .p12 : conteneur de mots de passe** 
-
-Initialement définie par RSA dans les normes de chiffrement à clé publique (PKCS), la variante 12 a été améliorée par Microsoft, puis soumise sous la norme RFC 7292.  
-
-Ce format de conteneur requiert un mot de passe qui contient des paires de certificats publics et privés. Contrairement aux fichiers `.pem` , ce conteneur est entièrement chiffré.  
-
-Vous pouvez utiliser OpenSSL pour convertir ceci en fichier `.pem` avec des clés publiques et privées :  `openssl pkcs12 -in file-to-convert.p12 -out converted-file.pem -nodes`.  
-
-**.der : PEM à codage binaire**
-
-Pour encoder la syntaxe ASN.1 en binaire, vous pouvez utiliser un fichier `.pem` , qui est simplement un fichier `.der` encodé en base64. 
-
-OpenSSL peut convertir ces fichiers en `.pem` :  `openssl x509 -inform der -in to-convert.der -out converted.pem`.  
-
-Windows reconnaîtra ces fichiers comme des fichiers de certificat. Par défaut, Windows exporte les certificats sous forme de fichiers `.der` avec une extension différente.  
-
-**.crl : liste de révocation des certificats**  
-Les autorités de certification produisent ces fichiers comme un moyen d’annuler l’autorisation des certificats avant leur expiration.
- 
-##### <a name="cli-commands"></a>Commandes CLI
-
-Utilisez la commande CLI `cyberx-xsense-certificate-import` pour importer des certificats. Pour utiliser cet outil, vous devez charger des fichiers de certificat sur l’appareil à l’aide d’outils tels que WinSCP ou Wget.
-
-La commande prend en charge les indicateurs d’entrée suivants :
-
-- `-h` :  Affiche la syntaxe d’aide de la ligne de commande.
-
-- `--crt` :  Chemin d’accès au fichier de certificat (extension .crt).
-
-- `--key`: Fichier \*.key. La longueur de la clé doit être de 2 048 bits minimum.
-
-- `--chain` :  Chemin d’accès à un fichier de chaîne de certificat (facultatif).
-
-- `--pass` :  Phrase secrète utilisée pour chiffrer le certificat (facultatif).
-
-- `--passphrase-set` :  Valeur par défaut = `False`, inutilisé. Définir sur `True` pour utiliser la phrase secrète précédente fournie avec le certificat précédent (facultatif).
-
-Quand vous utilisez la commande CLI :
-
-- Vérifiez que les fichiers de certificat sont lisibles sur l’appliance.
-
-- Vérifiez que le nom de domaine et l’adresse IP du certificat correspondent à la configuration planifiée par le service informatique.
-
-### <a name="use-openssl-to-manage-certificates"></a>Utiliser OpenSSL pour gérer les certificats
-
-Gérez vos certificats à l’aide des commandes suivantes :
-
-| Description | Commande CLI |
-|--|--|
-| Générer une nouvelle clé privée et une demande de signature de certificat | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
-| Générer un certificat auto-signé | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
-| Générer une demande de signature de certificat (CSR) pour une clé privée existante | `openssl req -out CSR.csr -key privateKey.key -new` |
-| Générer une demande de signature de certificat à partir d’un certificat existant | `openssl x509 -x509toreq -in certificate.crt -out CSR.csr -signkey privateKey.key` |
-| Supprimer une phrase secrète d’une clé privée | `openssl rsa -in privateKey.pem -out newPrivateKey.pem` |
-
-Si vous devez vérifier les informations dans un certificat, une CSR ou une clé privée, utilisez ces commandes :
-
-| Description | Commande CLI |
-|--|--|
-| Vérifier une demande de signature de certificat (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
-| Vérifier une clé privée | `openssl rsa -in privateKey.key -check` |
-| Vérifier un certificat | `openssl x509 -in certificate.crt -text -noout`  |
-
-Si vous recevez une erreur indiquant que la clé privée ne correspond pas au certificat ou qu’un certificat que vous avez installé sur un site n’est pas approuvé, utilisez ces commandes pour corriger l’erreur :
-
-| Description | Commande CLI |
-|--|--|
-| Vérifier un hachage MD5 de la clé publique pour s’assurer qu’il correspond à ce qui se trouve dans une CSR ou une clé privée | 1. `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
-
-Pour convertir des certificats et des clés dans différents formats afin de les rendre compatibles avec des types spécifiques de serveurs ou de logiciels, utilisez ces commandes :
-
-| Description | Commande CLI |
-|--|--|
-| Convertir un fichier DER (.crt .cer .der) en PEM  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
-| Convertir un fichier PEM en DER | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
-| Convertir un fichier PKCS#12 (.pfx .p12) contenant une clé privée et des certificats en PEM | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes` <br />Vous pouvez ajouter `-nocerts` pour générer la privée uniquement ou ajouter `-nokeys` pour générer des certificats uniquement. |
-| Convertir un fichier de certificat PEM et une clé privée en PKCS#12 (.pfx .p12) | `openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt` |
+Pour plus d’informations sur le chargement des certificats pour la première fois, consultez [première connexion et liste de contrôle d’activation](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist)
 
 ## <a name="connect-a-sensor-to-the-management-console"></a>Connecter un capteur à la console de gestion
 

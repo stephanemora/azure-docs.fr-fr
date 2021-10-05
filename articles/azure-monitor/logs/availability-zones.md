@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: c01e83fbbf117c5491e9e12ac24aa0d5d2fa8b67
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 6e10ace3ca0932cf5803719429a68b89a4118dfa
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527962"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059318"
 ---
 # <a name="availability-zones-in-azure-monitor"></a>Zones de disponibilité dans Azure Monitor
 
@@ -49,9 +49,9 @@ La transition vers un nouveau cluster peut être un processus graduel. Ne suppri
 Toutes les requêtes portant sur votre espace de travail interrogent les deux clusters, comme il se doit pour vous fournir un seul jeu de résultats unifié. Cela signifie que toutes les fonctionnalités Azure Monitor qui reposent sur l’espace de travail, telles que les classeurs et les tableaux de bord, continueront à obtenir le jeu de résultats unifié et complet, basé sur les données des deux clusters.
 
 ## <a name="billing"></a>Facturation
-Il existe un [coût d’utilisation pour un cluster dédié](logs-dedicated-clusters.md#create-a-dedicated-cluster). Il nécessite une réservation de capacité quotidienne de 1 000 Go. Cette capacité sera réduite le 4 août 2021 à 500 Go. 
+Il existe un [coût d’utilisation pour un cluster dédié](logs-dedicated-clusters.md#create-a-dedicated-cluster). Il nécessite une réservation de capacité quotidienne de 500 Go. 
 
-Si vous disposez déjà d’un cluster dédié et que vous choisissez de le conserver pour accéder à ses données, les deux clusters dédiés vous seront facturés. À partir du 4 août 2021, la réservation de capacité minimale requise pour les clusters dédiés sera réduite à 500 Go/jour et nous vous recommandons d’appliquer ce minimum à votre ancien cluster pour réduire les frais.
+Si vous disposez déjà d’un cluster dédié et que vous choisissez de le conserver pour accéder à ses données, les deux clusters dédiés vous seront facturés. À partir du 4 août 2021, la réservation de capacité minimale requise pour les clusters dédiés est réduite de 1 000 Go/jour à 500 Go/jour, et nous vous recommandons d’appliquer ce minimum à votre ancien cluster pour réduire les frais.
 
 Le nouveau cluster n’est pas facturé au cours de sa première journée pour éviter une double facturation lors de la configuration. Seules les données ingérées avant la fin de la migration sont encore facturées le jour de la migration. 
 

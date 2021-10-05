@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 862c21e162ce43e6d7de6aa6485b01925edbe465
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 5edab35023afeca68cff20a82307afaf4bbad535
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114288195"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784239"
 ---
 # <a name="azure-security-baseline-for-virtual-network-nat"></a>Base de référence de sécurité Azure pour NAT de réseau virtuel
 
@@ -28,9 +28,9 @@ Pour voir comment le service NAT de réseau virtuel est entièrement mappé au b
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2 : Superviser et journaliser la configuration et le trafic des réseaux virtuels, des sous-réseaux et des cartes réseau
 
-**Conseils** : NAT de réseau virtuel ne prend pas en charge le contrôle du trafic sortant avec les groupes de sécurité réseau (NSG).  Le trafic entrant n’est autorisé qu’en réponse à un flux sortant.
+**Conseils** : un NAT de réseau virtuel prend en charge le contrôle du trafic sortant avec des groupes de sécurité réseau (NSG).  Le trafic entrant n’est autorisé qu’en réponse à un flux sortant.
 
-Toutefois, les journaux de flux de groupe de sécurité réseau (NSG) peuvent être utilisés avec les ressources de passerelle NAT pour superviser le trafic sortant.
+Des journaux de flux de groupe de sécurité réseau (NSG) peuvent également être utilisés avec des ressources de passerelle NAT pour surveiller le trafic sortant.
 
 Utilisez Azure Security Center et suivez les recommandations de protection du réseau pour sécuriser vos ressources réseau Azure. Activez les journaux de flux de groupe de sécurité réseau et envoyez ceux-ci à un compte Stockage Azure à des fins d’audit. Vous pouvez aussi envoyer les journaux de flux à un espace de travail Log Analytics, puis utiliser Traffic Analytics pour obtenir des insights sur les modèles de trafic au sein de votre cloud Azure. Parmi les avantages de Traffic Analytics figure la possibilité de visualiser l’activité réseau, d’identifier les zones réactives et des menaces de sécurité, de comprendre les modèles de flux de trafic, ainsi que d’épingler de mauvaises configurations du réseau. 
 

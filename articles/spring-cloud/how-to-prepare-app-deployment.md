@@ -8,12 +8,12 @@ ms.date: 07/06/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: faa4c57a4fc5e75d0e6262833c27833e9069fb30
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 9def9f39e28851498c7bf87d5b6b2e7d0a26f2c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122563983"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599408"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Préparer une application à un déploiement dans Azure Spring Cloud
 
@@ -157,16 +157,16 @@ Version de Spring Boot | Version de Spring Cloud
 > - Veuillez mettre à niveau Spring Boot vers 2.5.2 et 2.4.8 pour apporter une réponse au rapport CVE suivant [CVE-2021-22119 : attaque par déni de service avec spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). Si vous utilisez la sécurité Spring, veuillez la mettre à niveau vers 5.5.1, 5.4.7, 5.3.10 ou 5.2.11.
 > - Nous avons identifié un problème avec Spring Boot 2.4.0 sur l’authentification TLS entre les applications et le Registre Spring Cloud Service, veuillez utiliser la version 2.4.1 ou une version ultérieure. Référez-vous à la [FAQ](./faq.md?pivots=programming-language-java#development) pour connaitre une solution si vous insistez ou à l’aide de 2.4.0.
 
-### <a name="dependencies-for-spring-boot-version-2223"></a>Dépendances pour Spring Boot version 2.2/2.3
+### <a name="dependencies-for-spring-boot-version-23"></a>Dépendances pour Spring Boot version 2.3
 
-Pour Spring Boot version 2.2, ajoutez les dépendances suivantes au fichier POM de l’application.
+Pour Spring Boot version 2.3, ajoutez les dépendances suivantes au fichier POM de l’application.
 
 ```xml
     <!-- Spring Boot dependencies -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.4.RELEASE</version>
+        <version>2.3.4.RELEASE</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -183,9 +183,9 @@ Pour Spring Boot version 2.2, ajoutez les dépendances suivantes au fichier POM 
     </dependencyManagement>
 ```
 
-### <a name="dependencies-for-spring-boot-version-24"></a>Dépendances pour Spring Boot version 2.4
+### <a name="dependencies-for-spring-boot-version-2425"></a>Dépendances pour Spring Boot version 2.4/2.5
 
-Pour Spring Boot version 2.2, ajoutez les dépendances suivantes au fichier POM de l’application.
+Pour Spring Boot version 2.4/2.5, ajoutez les dépendances suivantes au fichier POM de l’application.
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -292,41 +292,10 @@ Ajoutez la dépendance `spring-boot-starter-actuator` dans la section des dépen
  > [!WARNING]
  > Spécifiez `spring.jmx.enabled=true` dans votre propriété de configuration. Dans le cas contraire, les métriques ne peuvent pas être visualisées dans Portail Azure.
 
-### <a name="distributed-tracing"></a>Suivi distribué
-
-Vous devez également permettre à une instance Azure Application Insights de fonctionner avec votre instance du service Azure Spring Cloud. Pour plus d’informations sur l’utilisation d’Application Insights avec Azure Spring Cloud, consultez la [documentation sur le suivi distribué](./how-to-distributed-tracing.md).
-
-#### <a name="spring-boot-2223"></a>Spring Boot 2.2/2.3
-
-Ajoutez les dépendances `spring-cloud-starter-sleuth` et `spring-cloud-starter-zipkin` suivantes dans la section des dépendances de votre fichier pom.xml :
-
-```xml
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-sleuth</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-zipkin</artifactId>
-</dependency>
-```
-
-#### <a name="spring-boot-24"></a>Spring Boot 2.4
-
-Incluez la dépendance `spring-cloud-sleuth-zipkin` suivante dans la section des dépendances de votre fichier *pom.xml* :
-
-```xml
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-</dependency>
-```
-
 ## <a name="see-also"></a>Voir aussi
 
 * [Analyser les journaux et les métriques des applications](./diagnostic-services.md)
 * [Configurer votre serveur de configuration](./how-to-config-server.md)
-* [Utiliser le suivi distribué avec Azure Spring Cloud](./how-to-distributed-tracing.md)
 * [Guide de démarrage rapide Spring](https://spring.io/quickstart)
 * [Documentation Spring Boot](https://spring.io/projects/spring-boot)
 

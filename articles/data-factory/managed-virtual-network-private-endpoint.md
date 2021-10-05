@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 07/20/2021
-ms.openlocfilehash: 29bd9cf165ef8247a4185b17d479b01c4e14fa87
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/15/2021
+ms.openlocfilehash: 845860e8aaebf7d74f294135f8eec92a8146bd3c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641344"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627612"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Cet article décrit le réseau virtuel managé et les points de terminaison privés managés dans Azure Data Factory.
 
@@ -83,6 +83,9 @@ Les options de création interactive sont utilisées pour des fonctionnalités t
 En raison de sa conception, le runtime d’intégration Azure dans un réseau virtuel managé passe plus de temps en file d’attente qu’un runtime d’intégration Azure public. En effet, comme nous ne réservons pas de nœud de calcul par fabrique de données, il y a un temps de préchauffage (ou mise en route) avant le démarrage de chaque activité, qui se produit principalement au niveau de la jointure de réseau virtuel plutôt que du runtime d’intégration Azure. Pour les activités autres que de copie, dont les activités de pipeline et les activités externes, une durée de vie (TTL) de 60 minutes est appliquée lorsque vous les déclenchez pour la première fois. Dans cette durée de vie, le temps en file d’attente est plus court, car le nœud est déjà préchauffé. 
 > [!NOTE]
 > L’activité de copie ne prend pas encore en compte la durée de vie.
+
+> [!NOTE]
+> 2 DIU pour l’activité de copie n’est pas pris en charge dans le réseau virtuel géré.
 
 ## <a name="create-managed-virtual-network-via-azure-powershell"></a>Créer un réseau virtuel managé via Azure PowerShell
 ```powershell
@@ -157,7 +160,7 @@ Pour accéder à des sources de données locales à partir d’un réseau virtue
 
 ### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Le réseau virtuel managé Azure Data Factory est disponible dans les régions Azure suivantes :
 - Australie Est
-- Sud-Australie Est
+- Australie Sud-Est
 - Brésil Sud
 - Centre du Canada
 - Est du Canada

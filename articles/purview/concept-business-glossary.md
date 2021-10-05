@@ -1,18 +1,18 @@
 ---
-title: Présentation des fonctionnalités de glossaire métier d’Azure Purview (préversion)
+title: Présentation des fonctionnalités de glossaire métier d’Azure Purview
 description: Cet article explique ce qu’est un glossaire métier dans Azure Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/13/2020
-ms.openlocfilehash: 8b391438d8d6605e7ef493a6552af634db840ad5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/27/2021
+ms.openlocfilehash: b332a00f511ea747c2978dafbf60ce20abca36a8
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96550528"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214405"
 ---
 # <a name="understand-business-glossary-features-in-azure-purview"></a>Présentation des fonctionnalités de glossaire métier d’Azure Purview
 
@@ -21,7 +21,6 @@ Cet article donne une vue d’ensemble de la fonctionnalité de glossaire métie
 ## <a name="business-glossary"></a>Glossaire métier
 
 Un glossaire comporte du vocabulaire destiné aux utilisateurs professionnels.  Il se compose de termes métier, potentiellement liés les uns aux autres, et les catégorise de sorte qu’ils soient compréhensibles dans des contextes différents. Il devient alors possible de mettre ces termes en correspondance avec des ressources comme une base de données, des tables, des colonnes, etc. Cela permet d’extraire le jargon technique associé aux référentiels de données, offrant ainsi à l’utilisateur professionnel la possibilité de découvrir et d’utiliser les données dans un vocabulaire qui leur est plus familier.
-
 
 Un glossaire métier est un ensemble de termes. Chaque terme représente un objet dans une organisation. Il est très courant que plusieurs termes représentent le même objet. Par exemple, un client peut également être appelé « acheteur ». Ces termes multiples sont liés, suivant différentes relations possibles, notamment :
 
@@ -65,7 +64,7 @@ Les classifications sont des annotations qui peuvent être attribuées à des en
 - Comprendre la nature des données stockées dans les ressources de données
 - Définir des stratégies de contrôle d’accès
 
-Purview comporte à l’heure actuelle plus de 100 classifieurs système. Vous pouvez par ailleurs définir vos propres classifieurs dans le catalogue. Au cours du processus d’analyse, ces classifications sont automatiquement détectées et appliquées aux ressources de données et aux schémas. Vous pouvez toutefois les écraser à tout moment. Les analyses automatisées ne se substituent jamais aux remplacements manuels.
+Purview comporte à l’heure actuelle plus de 200 classifieurs système. Vous pouvez par ailleurs définir vos propres classifieurs dans le catalogue. Au cours du processus d’analyse, ces classifications sont automatiquement détectées et appliquées aux ressources de données et aux schémas. Vous pouvez toutefois les écraser à tout moment. Les analyses automatisées ne se substituent jamais aux remplacements manuels.
 
 ### <a name="sensitivity-labels"></a>Étiquette de confidentialité
 

@@ -9,14 +9,14 @@ ms.topic: reference
 ms.date: 06/18/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c4f637c00eb0e5c031debeb23538346c540b186d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 52849228540c23f0e9b43e63a681c6140fca765b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123115891"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806462"
 ---
-# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>SDK .NET v2 Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication
+# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes-deprecated"></a>SDK .NET v2 Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication (déconseillé)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "123115891"
 > * [SDK .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK .NET Change Feed v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit de développement logiciel (SDK) Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
@@ -47,6 +47,10 @@ ms.locfileid: "123115891"
 |**Prise en main**|[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-get-started.md)|
 |**Didacticiel d’application web**|[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Infrastructure actuellement prise en charge**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+
+> [!IMPORTANT]
+> Le 31 août 2024, le kit de développement logiciel (SDK) .NET Azure Cosmos DB v2.x sera supprimé. Le SDK et toutes les applications qui l’utilisent continueront à fonctionner. Azure Cosmos DB cessera simplement de fournir une maintenance et un support pour ce SDK. Nous vous recommandons de suivre ces instructions pour migrer vers la dernière version du kit de développement logiciel (SDK) .NET v3.
+>
 
 > [!NOTE]
 > Si vous utilisez .NET Framework, consultez la dernière version 3.x du [SDK .NET](sql-api-sdk-dotnet-standard.md), qui cible .NET Standard.

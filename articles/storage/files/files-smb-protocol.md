@@ -4,15 +4,15 @@ description: En savoir plus sur les partages de fichiers hébergés dans Azure F
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 09/10/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 34f8cd4642a09434eef63db94b2151f013d0383f
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 5a1cc9d12e6a24820b5b84f8a1a275d8451d6247
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966908"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776934"
 ---
 # <a name="smb-file-shares-in-azure-files"></a>Partages de fichiers SMB dans Azure Files
 Azure Files offre deux protocoles standard de l’industrie pour le montage du partage de fichiers Azure : le protocole [SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) et le protocole [NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (préversion). Azure Files vous permet de choisir le protocole de système de fichiers le mieux adapté à votre charge de travail. Les partages de fichiers Azure ne prennent pas en charge l’accès à un partage de fichiers Azure individuel avec les protocoles SMB et NFS, même si vous pouvez créer des partages de fichiers SMB et NFS au sein du même compte de stockage. Pour tous les partages de fichiers, Azure Files propose des partages de fichiers d’entreprise qui peuvent être mis à l’échelle pour répondre à vos besoins de stockage et accessibles simultanément par des milliers de clients.
@@ -45,7 +45,7 @@ Toutes les données stockées dans Azure Files sont chiffrées au repos avec Azu
 
 Par défaut, le chiffrement en transit est activé pour tous les comptes de stockage Azure. Cela signifie que, quand vous montez un partage de fichiers sur SMB (ou y accédez en utilisant le protocole FileREST), Azure Files autorise la connexion uniquement si elle est établie à l’aide des protocoles SMB 3.x avec chiffrement ou HTTPS. Les clients qui ne prennent pas en charge le protocole SMB 3.x avec le chiffrement SMB ne pourront pas monter le partage de fichiers Azure si le chiffrement en transit est activé. 
 
-Azure Files prend en charge l’algorithme AES-256-GCM leader du secteur avec SMB 3.1.1 lorsqu’il est utilisé avec Windows 10, version 21H1. SMB 3.1.1 prend également en charge AES-128-GCM et SMB 3.0 prend en charge AES-128-CCM. AES-128-GCM est négocié par défaut sur Windows 10, version 21H1 pour des raisons de performances.
+Azure Files prend en charge AES-256-GCM avec SMB 3.1.1 lorsqu’il est utilisé avec Windows Server 2022 ou Windows 11. SMB 3.1.1 prend également en charge AES-128-GCM et SMB 3.0 prend en charge AES-128-CCM. AES-128-GCM est négocié par défaut sur Windows 10, version 21H1 pour des raisons de performances.
 
 Vous pouvez désactiver le chiffrement en transit pour un compte de stockage Azure. Quand le chiffrement est désactivé, Azure Files autorise également les protocoles SMB 2.1 et SMB 3.x sans chiffrement. La principale raison justifiant de désactiver le chiffrement en transit est la nécessité de prendre en charge une application héritée devant être exécutée sur un système d’exploitation plus ancien, tel que Windows Server 2008 R2 ou une distribution Linux non récente. Azure Files n’autorise que les connexions SMB 2.1 au sein de la même région Azure que le partage de fichiers Azure. Ainsi, un client SMB 2.1 situé en dehors de la région Azure dans laquelle se trouve le partage de fichiers Azure, par exemple, localement ou dans une autre région Azure, ne peut pas accéder au partage de fichiers.
 
@@ -237,7 +237,7 @@ Get-AzStorageFileServiceProperty -StorageAccount $storageAccount | `
 Selon les exigences de sécurité, de performances et de compatibilité de votre organisation, vous souhaiterez peut-être modifier les paramètres du protocole SMB. La commande PowerShell suivante restreint vos partages de fichiers SMB aux options les plus sécurisées.
 
 > [!Important]  
-> La restriction des partages de fichiers Azure SMB aux options les plus sécurisées peut empêcher certains clients de se connecter s’ils ne satisfont pas à la configuration requise. Par exemple, AES-256-GCM a été introduit comme option pour le chiffrement de canal SMB à partir de Windows 10, version 21H1. Cela signifie que les clients plus anciens qui ne prennent pas en charge AES-256-GCM ne pourront pas se connecter.
+> La restriction des partages de fichiers Azure SMB aux options les plus sécurisées peut empêcher certains clients de se connecter s’ils ne satisfont pas à la configuration requise. Par exemple, AES-256-GCM a été introduit comme option pour le chiffrement de canal SMB dans Windows 2022 et Windows 11. Cela signifie que les clients plus anciens qui ne prennent pas en charge AES-256-GCM ne pourront pas se connecter.
 
 ```PowerShell
 Update-AzStorageFileServiceProperty `
@@ -302,7 +302,7 @@ echo $protocolSettings
 Selon les exigences de sécurité, de performances et de compatibilité de votre organisation, vous souhaiterez peut-être modifier les paramètres du protocole SMB. La commande Azure CLI suivante restreint vos partages de fichiers SMB aux options les plus sécurisées.
 
 > [!Important]  
-> La restriction des partages de fichiers Azure SMB aux options les plus sécurisées peut empêcher certains clients de se connecter s’ils ne satisfont pas à la configuration requise. Par exemple, AES-256-GCM a été introduit comme option pour le chiffrement de canal SMB à partir de Windows 10, version 21H1. Cela signifie que les clients plus anciens qui ne prennent pas en charge AES-256-GCM ne pourront pas se connecter.
+> La restriction des partages de fichiers Azure SMB aux options les plus sécurisées peut empêcher certains clients de se connecter s’ils ne satisfont pas à la configuration requise. Par exemple, AES-256-GCM a été introduit comme option pour le chiffrement de canal SMB dans Windows 2022 et Windows 11. Cela signifie que les clients plus anciens qui ne prennent pas en charge AES-256-GCM ne pourront pas se connecter.
 
 ```bash
 az storage account file-service-properties update \

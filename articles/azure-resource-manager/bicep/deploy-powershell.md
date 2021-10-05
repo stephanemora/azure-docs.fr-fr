@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 27d00d137c2fb178b2bd96732664c08965ce3073
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 3058265fee62143f88bbd87e69c58dd4ff597920
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634493"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793794"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-powershell"></a>Déployer des ressources avec Bicep et Azure PowerShell
 
@@ -88,7 +88,7 @@ Le déploiement peut prendre plusieurs minutes.
 
 ## <a name="deploy-remote-bicep-file"></a>Déployer un fichier Bicep distant
 
-Actuellement, Azure PowerShell ne prend pas en charge le déploiement de fichiers Bicep distants. Utilisez [Bicep CLI](./install.md#development-environment) pour compiler le fichier Bicep dans un modèle JSON, puis chargez le fichier JSON dans l’emplacement distant.
+Actuellement, Azure PowerShell ne prend pas en charge le déploiement de fichiers Bicep distants. Utilisez [Bicep CLI](./install.md#vs-code-and-bicep-extension) pour compiler le fichier Bicep dans un modèle JSON, puis chargez le fichier JSON dans l’emplacement distant.
 
 ## <a name="parameters"></a>Paramètres
 
@@ -157,7 +157,7 @@ Avant de déployer votre fichier Bicep, vous pouvez obtenir un aperçu des chan
 
 ## <a name="deploy-template-specs"></a>Déployer des specs de modèle
 
-Actuellement, Azure PowerShell ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer une spécification de modèle. Voici un [exemple](https://github.com/Azure/azure-docs-bicep-samples/blob/main/create-template-spec-using-bicep/azuredeploy.bicep). Vous pouvez également générer votre fichier Bicep dans le JSON d’un modèle ARM à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
+Actuellement, Azure PowerShell ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer un spec de modèle. L’[exemple de création de spec de modèle](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) montre comment créer un spec de modèle dans un fichier Bicep. Vous pouvez également générer votre fichier Bicep dans le JSON d’un modèle ARM à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
 
 ## <a name="deployment-name"></a>Nom du déploiement
 

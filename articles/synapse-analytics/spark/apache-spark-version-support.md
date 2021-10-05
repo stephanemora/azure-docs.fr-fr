@@ -6,14 +6,14 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
-ms.date: 05/26/2021
+ms.date: 09/22/2021
 ms.author: midesa
-ms.openlocfilehash: c312aad4cd3cea5af3c074c7e32498d9ee30cad5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 9f13a0797caa13f0d4367357308809c97bde0b17
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450222"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577767"
 ---
 # <a name="azure-synapse-runtimes"></a>Runtimes Azure Synapse
 Les pools Apache Spark dans Azure Synapse utilisent des runtimes pour lier des versions des composants essentiels, des optimisations, des packages et des connecteurs d’Azure Synapse à une version Apache Spark spécifique. Ces runtimes sont mis à niveau régulièrement pour inclure les derniers correctifs, améliorations et fonctionnalités. 
@@ -34,7 +34,7 @@ Le tableau suivant répertorie le nom du runtime, la version Apache Spark et la 
 |  Nom du runtime  | Date de publication |  Étape de publication |
 | ----- | ----- | ----- |
 | [Runtime Azure Synapse pour Apache Spark 2.4](./apache-spark-24-runtime.md) | 15 décembre 2020 | GA|
-| [Runtime Azure Synapse pour Apache Spark 3.0](./apache-spark-3-runtime.md) | 26 mai 2021 | PRÉVERSION |
+| [Runtime Azure Synapse pour Apache Spark 3.1](./apache-spark-3-runtime.md) | 26 mai 2021 | GA |
 
 ## <a name="runtime-release-stages"></a>Étapes de mise publication du runtime
 

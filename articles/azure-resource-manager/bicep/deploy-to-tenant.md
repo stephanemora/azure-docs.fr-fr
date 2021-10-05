@@ -3,16 +3,20 @@ title: Utiliser Bicep pour déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un fichier Bicep.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: 3f446670cd85daa5b541cc9b5858ab768ac8411d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fe5b8a1a17af47570bb2399172866a1e720b0bab
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453406"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793718"
 ---
 # <a name="tenant-deployments-with-bicep-file"></a>Déploiements de locataires avec fichier Bicep
 
 À mesure que votre organisation évolue, vous pouvez être amené à définir et attribuer des [stratégies](../../governance/policy/overview.md) ou des [contrôles d’accès basés sur les rôles Azure (Azure RBAC)](../../role-based-access-control/overview.md) dans votre locataire Azure AD. Avec les modèles au niveau du locataire, vous pouvez appliquer de façon déclarative des stratégies et attribuer des rôles à un niveau global.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les étendues de déploiement et pour obtenir des conseils pratiques, consultez [Déploiement de ressources dans des abonnements, des groupes d’administration et des locataires avec Bicep](/learn/modules/deploy-resources-scopes-bicep/) sur **Microsoft Learn**.
 
 ## <a name="supported-resources"></a>Ressources prises en charge
 

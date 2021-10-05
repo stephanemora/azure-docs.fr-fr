@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: c89cb9c43ae274170e0cedb01b1908a874b7317e
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 35415a42f6970a7a0aabc0fb210775a15fc1d481
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039946"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585443"
 ---
 # <a name="modify-the-accounts-supported-by-an-application"></a>Modifier les comptes pris en charge par une application
 
@@ -35,7 +35,7 @@ Dans les sections suivantes, vous allez apprendre à modifier l’inscription de
 Pour spécifier un paramètre différent pour les types de comptes pris en charge par une inscription d’application existante :
 
 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
-1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Annuaires + abonnements** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu supérieur pour basculer vers le locataire dans lequel l’application est inscrite.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications**, puis sélectionnez votre application.
 1. À présent, spécifiez qui peut utiliser l’application, à savoir l’*audience de connexion*.

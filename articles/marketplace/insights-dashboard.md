@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 03/23/2021
-ms.openlocfilehash: a4bd78c15d2015eabf95926e2b4bcf43d6cbcdcb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: a8ee69e0c9c196f42a733c4cb6c3079228238b21
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524561"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082919"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Insights de la Place de marché dans les données d’analytique de la Place de marché commerciale
 
@@ -36,17 +36,45 @@ Le tableau de bord Insights de la Place de marché fournit des données de parco
 > [!NOTE]
 > La latence maximale entre les utilisateurs visitant des offres sur la Place de marché Azure ou AppSource, et la création de rapports dans l’Espace partenaires est de 48 heures.
 
+## <a name="access-the-marketplace-insights-dashboard"></a>Accès au tableau de bord Insights sur la Place de marché
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Sur la page Accueil, sélectionnez la mosaïque **Insights**.
+
+    [ ![Illustre la mosaïque Insights sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. Dans le menu de gauche, sélectionnez **Insights sur la Place de marché**.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Analyser** > **Insights sur la Place de marché**.
+
+---
+
 ## <a name="elements-of-the-marketplace-insights-dashboard"></a>Éléments du tableau de bord Insights sur la Place de marché
 
 Le tableau de bord Insights sur la Place de marché affiche des détails de télémétrie web pour la Place de marché Microsoft Azure et AppSource dans deux onglets distincts. Les sections suivantes expliquent comment utiliser le tableau de bord Insights sur la Place de marché et lire les données.
 
-Pour accéder au tableau de bord **Insights sur la Place de marché** de l’Espace partenaires, sous Place de marché commerciale, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Insights sur la Place de marché**.
-
 ### <a name="month-range"></a>Plage de mois
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Insights sur la Place de marché** en sélectionnant la plage de mois des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
+
+[ ![Illustre les filtres de mois dans le tableau de bord Insights sur la Place de marché.](./media/insights-dashboard/marketplace-insights-filters.png) ](./media/insights-dashboard/marketplace-insights-filters.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Insights sur la Place de marché** en sélectionnant la plage de mois des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
 
 :::image type="content" source="./media/insights-dashboard/month-filters.png" alt-text="Montre les filtres de mois dans le tableau de bord Insights sur la Place de marché.":::
+
+---
 
 > [!NOTE]
 > Toutes les métriques dans les widgets de visualisation et les rapports d’exportation respectent la période de calcul sélectionnée par l’utilisateur.
@@ -63,29 +91,39 @@ Le graphique **Visiteurs** des Insights sur la Place de marché affiche les nomb
 
 ### <a name="call-to-actions-trend"></a>Tendance des appels d’actions
 
-Ce nombre représente le nombre de clics sur le bouton **Appel d’action** effectués dans la page de référencement de l’offre (fiche produit). Les _Appels d’actions_ sont comptabilisés quand des utilisateurs sélectionnent les boutons **Télécharger maintenant**, **Essai gratuit**, **Contactez-moi** et **Version d’évaluation**.
+Ce nombre représente le nombre de clics sur le bouton **Appel d’action** effectués dans la page de référencement de l’offre (fiche produit). Les _Appels d’actions_ sont comptabilisés quand des utilisateurs sélectionnent les boutons **Télécharger maintenant**, **Essai gratuit**, **Contactez-moi** et **Version d’évaluation**. Le *consentement donné* représente le nombre total de clics pour le consentement fourni par le client à Microsoft ou au partenaire, et est égal au nombre de clients acquis pour vos offres. Les deux exemples suivants montrent où les clics de *consentement donné* s’affichent :
 
-[![Montre le graphique Appel d’action dans le tableau de bord Insights sur la Place de marché.](./media/insights-dashboard/call-to-actions-trend.png)](./media/insights-dashboard/call-to-actions-trend.png#lightbox)
+:::image type="content" source="./media/insights-dashboard/consent-screen.png" alt-text="Illustre un emplacement dans lequel un bouton de consentement est sélectionné.":::
+
+Le graphique suivant montre la métrique *CTA* et *Consentement donné* :
+
+:::image type="content" source="./media/insights-dashboard/consent-given-graph.png" alt-text="Montre un exemple de graphique des appels à l’action et au consentement donné.":::
 
 ### <a name="page-visits-and-call-to-actions-against-offers-referral-domains-and-campaign-ids"></a>Visites de page et appels d’actions par rapport aux offres, domaines de référence et ID de campagne
 
-**Domaines de référence** : Si vous sélectionnez un domaine de referral spécifique, la tendance mensuelle des visites de pages et des appels à l’action apparaît sur le graphe à droite.
+#### <a name="offers"></a>Offres
 
-:::image type="content" source="./media/insights-dashboard/referral-domain.png" alt-text="Montre le graphique Domaine de référence dans le tableau de bord Insights sur la Place de marché.":::
+Sélectionnez une offre spécifique pour voir la tendance mensuelle des visites de la page, des appels à l’action et des clics de consentement donné sur le graphique.
 
-**Offres** : sélectionnez une offre spécifique pour voir la tendance mensuelle des visites de la page et des appels d’actions sur le graphique à droite.
+:::image type="content" source="./media/insights-dashboard/offers-funnel-graph.png" alt-text="Montre un exemple de graphique en entonnoir d’offres.":::
 
-:::image type="content" source="./media/insights-dashboard/offer-alias.png" alt-text="Montre le graphique d’alias d’offre dans le tableau de bord Insights sur la Place de marché.":::
+#### <a name="referral-domains"></a>Domaines de référence
 
-**ID de campagne** : en sélectionnant un ID de campagne spécifique, vous devriez être en mesure de comprendre le succès de la campagne. Pour chaque campagne, vous devriez voir la tendance mensuelle des visites de la page et des appels d’actions sur le graphique à droite.
+Si vous sélectionnez un domaine de référence spécifique, la tendance mensuelle des visites de pages, des appels à l’action et des clics de consentement apparaît sur le graphique à droite. En outre, il existe une colonne pour plateforme (site Web et client), qui s’affiche pour les offres AppSource uniquement. La vue en entonnoir illustre les taux de conversion entre les visites de la page, les appels à l’action et les clics de consentement donné sur le graphique.
 
-:::image type="content" source="./media/insights-dashboard/campaign.png" alt-text="Montre le graphique de campagne dans le tableau de bord Insights sur la Place de marché.":::
+:::image type="content" source="./media/insights-dashboard/referral-domains-funnel-graph.png" alt-text="Montre un exemple de graphique en entonnoir de domaines de référence.":::
+
+#### <a name="campaign-ids"></a>ID de campagne
+
+en sélectionnant un ID de campagne spécifique, vous devriez être en mesure de comprendre le succès de la campagne. Pour chaque campagne, vous devriez voir la tendance mensuelle des visites de la page, des appels à l’action et des clics de consentement donné sur le graphique.
+
+:::image type="content" source="./media/insights-dashboard/campaign-id-funnel-graph.png" alt-text="Montre le graphique de campagne dans le tableau de bord Insights sur la Place de marché.":::
 
 ### <a name="marketplace-insights-by-geography"></a>Insights sur la Place de marché par zone géographique
 
 Pour la période de calcul sélectionnée, la carte thermique affiche le nombre de visites de la page, de visiteurs uniques et d’appels d’actions (CTA). Les couleurs, des plus claires aux plus sombres, sur la carte traduisent les nombres, des plus faibles aux plus élevés, de visiteurs uniques. Sélectionnez l’un des enregistrements du tableau pour zoomer sur un pays/une région.
 
-:::image type="content" source="./media/insights-dashboard/geographical-spread.png" alt-text="Montre le graphique de répartition géographique dans le tableau de bord Insights sur la Place de marché.":::
+[ ![Illustre le graphique de répartition géographique dans le tableau de bord Insights sur la Place de marché.](./media/insights-dashboard/geographical-spread.png) ](./media/insights-dashboard/geographical-spread.png#lightbox)
 
 Notez les points suivants :
 
@@ -117,6 +155,8 @@ Ce tableau affiche la liste des visites de page et des appels d’actions des pa
 | Version d’évaluation | Version d’évaluation | Nombre de clics sur le CTA « Test Drive » sur la page de l’offre à une date spécifique. | TestDrive |
 | Version d’évaluation gratuite | Version d’évaluation gratuite | Nombre de clics sur le CTA « Essai gratuit » sur la page de l’offre à une date spécifique. | FreeTrial |
 | Campagne | Nom de la campagne | Capacité à comprendre la télémétrie web (visites de pages et clics CTA) par rapport au nom de la campagne. | Campagne |
+| Consentement donné | Consentement donné | Nombre total de clics pour le consentement fourni par le client à Microsoft ou au partenaire | consentGivenCount |
+| Plateforme | Plateforme | Indique que le site web ou le client (stockage dans le produit) est la source de visite de la page, CTA ou clics de consentement | plateformes |
 | n/a | Site | Nom de la vitrine sur laquelle la visite de la page ou le clic CTA a eu lieu. Les valeurs possibles sont les suivantes :<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Site |
 |
 

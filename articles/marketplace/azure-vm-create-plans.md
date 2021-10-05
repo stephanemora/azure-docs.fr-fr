@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 07/26/2021
-ms.openlocfilehash: a974bf12873d46b7835d861b8c4d7007fb7e72ee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eb94adfa104b68f515374090cfd07f300896a163
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525105"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708811"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Créer des plans pour une offre de machine virtuelle
 
@@ -218,6 +218,9 @@ La génération d’une machine virtuelle définit le matériel virtuel qu’ell
 3. Pour mettre à jour une machine virtuelle existante pour laquelle une machine de 1re génération a déjà été publiée, modifiez les détails sur la page **Configuration technique**.
 
 Pour en savoir plus sur les différences entre les capacités de la 1re génération et de la 2e génération, consultez [Prise en charge des machines virtuelles de génération 2 dans Azure](../virtual-machines/generation-2.md).
+
+> [!NOTE]
+> Une génération publiée requiert qu’au moins une version de l’image reste disponible pour les clients. Pour supprimer l’intégralité du plan (ainsi que l’ensemble des générations et images associées), sélectionnez **Deprecate plan (Déprécier le plan)** dans la page **Vue d’ensemble du plan** (voir la première section de cet article).
 
 ### <a name="vm-images"></a>Images de machine virtuelle
 

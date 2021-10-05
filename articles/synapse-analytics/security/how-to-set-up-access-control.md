@@ -10,12 +10,12 @@ ms.date: 8/05/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 3aa47a247ead1a388ce9fda030f348ac9a6b75c4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 513b2edd432a274f155e79362e715fbc426a9f9e
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588596"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081507"
 ---
 # <a name="how-to-set-up-access-control-for-your-azure-synapse-workspace"></a>Guide pratique pour configurer le contrôle d’accès pour votre espace de travail Azure Synapse 
 
@@ -181,16 +181,16 @@ Le créateur de l'espace de travail est automatiquement configuré comme Adminis
 
 ## <a name="step-7-grant-access-to-sql-pools"></a>ÉTAPE 7 : Accorder l’accès aux pools SQL
 
-Par défaut, tous les utilisateurs disposant du rôle Administrateur Synapse disposent aussi du rôle `db_owner` SQL sur le pool SQL serverless, « Intégré », et toutes ses bases de données.
+Par défaut, tous les utilisateurs disposant du rôle Administrateur Synapse disposent aussi du rôle `db_owner` SQL sur le pool SQL dédié et serverless dans l’espace de travail.
 
 L’accès aux pools SQL pour d’autres utilisateurs et pour l’identité MSI de l’espace de travail est contrôlé à l’aide d’autorisations SQL.  L’attribution d’autorisations SQL nécessite l’exécution de scripts SQL sur chaque bases de données SQL après la création.  Il existe trois cas qui exigent l’exécution de ces scripts :
 1. Octroi à d’autres utilisateurs de l’accès au pool SQL serverless, « Intégré », et à ses bases de données
-2. Octroi à tout utilisateur de l’accès à des bases de données de pools dédiés
+2. Octroi à tout utilisateur de l’accès à des bases de données de pool SQL dédié
 3. Octroi à l’identité MSI de l’espace de travail de l’accès à une base de données de pool SQL afin de permettre aux pipelines qui nécessitent un accès au pool SQL de s’exécuter correctement
 
 Vous trouverez ci-dessous des exemples de scripts SQL.
 
-Pour accorder l’accès à une base de données de pool SQL dédié, les scripts peuvent être exécutés par le créateur de l’espace de travail ou par n’importe quel membre du groupe `workspace1_SQLAdmins`.  
+Pour accorder l’accès à une base de données de pool SQL dédié, les scripts peuvent être exécutés par le créateur de l’espace de travail ou par n’importe quel membre du groupe `workspace1_SQLAdmins` ou du groupe `workspace1_SynapseAdministrators`.  
 
 Pour accorder l’accès au pool SQL serverless, « Intégré », les scripts peuvent être exécutés par n’importe quel membre du groupe `workspace1_SQLAdmins` ou du groupe `workspace1_SynapseAdministrators`. 
 

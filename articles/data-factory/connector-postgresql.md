@@ -1,29 +1,28 @@
 ---
-title: Copier des données à partir de PostgreSQL avec Azure Data Factory
+title: Copier des données à partir de PostgreSQL
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de PostgreSQL vers des banques de données réceptrices prises en charge.
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données de PostgreSQL vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: ff06a443d6bcd6bc2428efdbd7d52ce8ac7cda3f
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 4f9ac376379141f91bacd3c941b15a819f12bb2c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316901"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824722"
 ---
-# <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copier des données de PostgreSQL à l’aide d’Azure Data Factory
+# <a name="copy-data-from-postgresql-using-azure-data-factory-or-synapse-analytics"></a>Copier des données de PostgreSQL à l’aide d’Azure Data Factory ou Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-onprem-postgresql-connector.md)
 > * [Version actuelle](connector-postgresql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données PostgreSQL. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans des pipelines Azure Data Factory et Synapse Analytics pour copier des données à partir d’une base de données PostgreSQL. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -248,4 +247,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

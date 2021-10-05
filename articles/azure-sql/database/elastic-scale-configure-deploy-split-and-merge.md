@@ -11,12 +11,12 @@ author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
 ms.date: 12/04/2018
-ms.openlocfilehash: 8656202685db424cd6047e6a8b58191c6293e9ff
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 99d620847c12d194fbd8cd51b53d8820c32dd0c0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694347"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438207"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Déployer un service de fractionnement et de fusion pour déplacer des données entre bases de données partitionnées
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -185,7 +185,7 @@ Les fichiers de script inclus sont les suivants :
 4. *ShardManagement.psm1* : script d’assistance qui encapsule l’API ShardManagement
 5. *SqlDatabaseHelpers.psm1* : script d’assistance pour la création et la gestion des bases de données dans SQL Database
 
-   <table style="width:100%">
+   <table width="100%">
      <tr>
        <th>Fichier PowerShell</th>
        <th>Étapes</th>
@@ -207,7 +207,7 @@ Les fichiers de script inclus sont les suivants :
        <td>5. Déclare le SchemaInfo pour la table partitionnée.</td>
      </tr>
    </table>
-   <table style="width:100%">
+   <table width="100%">
      <tr>
        <th>Fichier PowerShell</th>
        <th>Étapes</th>
@@ -270,7 +270,7 @@ Les fichiers de script inclus sont les suivants :
     -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
     ```
 
-    Si vous recevez l’erreur ci-dessous, il s’agit probablement d’un problème avec le certificat de votre point de terminaison web. Essayez de vous connecter au point de terminaison web avec votre navigateur web préféré et vérifiez s’il existe une erreur de certificat.
+    Si vous recevez l’erreur ci-dessous, il s’agit probablement d’un problème avec le certificat de votre point de terminaison Web. Essayez de vous connecter au point de terminaison web avec votre navigateur web préféré et vérifiez s’il existe une erreur de certificat.
 
     `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.`
 

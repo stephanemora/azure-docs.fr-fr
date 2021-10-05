@@ -2,14 +2,14 @@
 title: Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge de la sauvegarde de machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 09/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 9244b7c5a62be57b1f8ec9ea0f27918c7aa62457
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 17cd2ca7d4b42e79d1b5012fa36e09a509fa28fe
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770976"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129090967"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -43,7 +43,7 @@ Sauvegarder des disques managés après l’activation d’un verrou de groupe d
 Modifier la stratégie de sauvegarde pour une machine virtuelle | Pris en charge.<br/><br/> La machine virtuelle est sauvegardée selon la planification et les paramètres de conservation de la nouvelle stratégie. Si les paramètres de conservation sont étendus, les points de récupération existants sont marqués et conservés. S’ils sont réduits, les points de récupération existants sont nettoyés lors de la prochaine tâche de nettoyage et ils sont finalement supprimés.
 Annuler un travail de sauvegarde| Pris en charge pendant le processus de capture instantanée.<br/><br/> Non pris en charge quand l’instantané est transféré vers le coffre.
 Sauvegarder la machine virtuelle vers une autre région ou un autre abonnement |Non pris en charge.<br><br>Pour réussir la sauvegarde, les machines virtuelles doivent se trouver dans le même abonnement que le coffre de la sauvegarde.
-Sauvegardes par jour (via l’extension de machine virtuelle Azure) | Une sauvegarde planifiée par jour.<br/><br/>Le service Sauvegarde Azure prend en charge jusqu’à trois sauvegardes à la demande par jour et une sauvegarde planifiée supplémentaire.
+Sauvegardes par jour (via l’extension de machine virtuelle Azure) | Quatre sauvegardes par jour : une sauvegarde planifiée selon la stratégie de sauvegarde, et trois sauvegardes à la demande.    <br><br>    Toutefois, pour permettre à l’utilisateur de réaliser de nouvelles tentatives en cas d’échec, la limite matérielle pour les sauvegardes à la demande est définie à neuf tentatives.
 Sauvegardes par jour (via l’agent MARS) | Trois sauvegardes planifiées par jour.
 Sauvegardes par jour (via DPM/MABS) | Deux sauvegardes planifiées par jour.
 Sauvegarde mensuelle/annuelle| Non pris en charge lors de la sauvegarde avec l’extension de machine virtuelle Azure. Seules les sauvegardes quotidiennes et hebdomadaires sont prises en charge.<br/><br/> Vous pouvez configurer la stratégie pour conserver des sauvegardes quotidiennes/hebdomadaires pour une période de conservation mensuelle/annuelle.
@@ -83,6 +83,15 @@ Pour les sauvegardes de machines virtuelles Azure Linux, Sauvegarde Azure prend 
 - Les autres distributions « Bring-Your-Own-Linux » peuvent fonctionner, dès lors que l’[agent de machine virtuelle Azure pour Linux](../virtual-machines/extensions/agent-linux.md) est disponible sur la machine virtuelle et que Python est pris en charge.
 - La Sauvegarde Azure ne prend pas en charge une machine virtuelle Linux configurée avec un proxy si elle n’a pas Python version 2.7 installé.
 - Le service Sauvegarde Azure ne prend pas en charge la sauvegarde de fichiers NFS montés à partir du stockage, ou de tout autre serveur NFS, sur des ordinateurs Linux ou Windows. Il sauvegarde uniquement les disques attachés localement à la machine virtuelle.
+
+## <a name="support-matrix-for-managed-pre-post-scripts-for-linux-databases"></a>Matrice de prise en charge des scripts de pré-publication managés pour les bases de données Linux
+
+La Sauvegarde Azure permet aux clients de créer leurs propres scripts de pré-publication
+
+|Base de données prise en charge  |Version du SE  |Version de base de données  |
+|---------|---------|---------|
+|Oracle sur machines virtuelles Azure     |   [Oracle Linux](../virtual-machines/linux/endorsed-distros.md)      |    Oracle 12.x ou version ultérieure     |
+
 
 ## <a name="backup-frequency-and-retention"></a>Fréquence et conservation des sauvegardes
 
@@ -231,7 +240,7 @@ Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, co
 **Machine** | **Compresser dans MABS/DPM (TCP)** | **Compresser dans le coffre (HTTPS)**
 --- | --- | ---
 Machines Windows locales sans DPM/MAB | N/D | ![Oui][green]
-Machines virtuelles Azure | NA | N/D
+Machines virtuelles Azure | N/D | N/D
 Machines virtuelles locales/Azure avec DPM | ![Oui][green] | ![Oui][green]
 Machines virtuelles locales/Azure avec MABS | ![Oui][green] | ![Oui][green]
 

@@ -7,21 +7,23 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/15/2021
-ms.openlocfilehash: 0860d59d7d04354b6236d02126492468dec5921b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/22/2021
+ms.openlocfilehash: 73fe862475b866e625d4bf2bdce3c044b6dcc87b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641361"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061577"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flux de données (DFS)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Le script de flux de données (DFS) est constitué des métadonnées sous-jacentes, similaires à un langage de codage, qui sont utilisées pour exécuter les transformations incluses dans un flux de données de mappage. Chaque transformation est représentée par une série de propriétés qui fournissent les informations nécessaires à l’exécution correcte du travail. Le script est visible et modifiable à partir de ADF en cliquant sur le bouton « script » sur le ruban supérieur de l’interface utilisateur du navigateur.
 
-![Bouton script](media/data-flow/scriptbutton.png "Bouton Script")
+:::image type="content" source="media/data-flow/scriptbutton.png" alt-text="Bouton script":::
 
 Par exemple, dans une transformation source `allowSchemaDrift: true,` indique au service d’inclure toutes les colonnes du jeu de données source dans le flux de données, même s’ils ne sont pas inclus dans la projection de schéma.
 
@@ -35,7 +37,7 @@ Voici quelques exemples de cas d’usage :
 
 Quand vous générez un script de flux de données à utiliser avec PowerShell ou une API, vous devez réduire le texte mis en forme pour ne former qu’une seule ligne. Vous pouvez conserver les tabulations et les nouvelles lignes comme des caractères d’échappement. Toutefois, le texte doit être mis en forme pour être intégré à une propriété JSON. Un bouton de l’interface utilisateur de l’éditeur de script situé en bas permet de mettre en forme le script sur une seule ligne.
 
-![Bouton Copier](media/data-flow/copybutton.png "bouton Copier")
+:::image type="content" source="media/data-flow/copybutton.png" alt-text="Bouton Copier":::
 
 ## <a name="how-to-add-transforms"></a>Comment ajouter des transformations
 L’ajout de transformations requiert trois étapes de base : l’ajout des données de transformation principales, la redirection du flux d’entrée, puis celle du flux de sortie. Un exemple sera plus explicite.
@@ -277,6 +279,19 @@ Vous pouvez utiliser ce script pour identifier les colonnes clés et afficher la
 
 ```
 aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
+```
+
+### <a name="compare-previous-or-next-row-values"></a>Comparer les valeurs de ligne précédente ou suivante
+Cet exemple d’extrait de code montre comment la transformation de fenêtre peut être utilisée pour comparer les valeurs de colonne du contexte de ligne actuel avec les valeurs de colonne des lignes antérieures et postérieures à la ligne actuelle. Dans cet exemple, une colonne dérivée est utilisée pour générer une valeur factice afin d’activer une partition de fenêtre sur l’ensemble du jeu de données. Une transformation de clé de substitution est utilisée pour attribuer une valeur de clé unique pour chaque ligne. Lorsque vous appliquez ce modèle à vos transformations de données, vous pouvez supprimer la clé de substitution si vous avez une colonne sur laquelle vous souhaitez trier et vous pouvez supprimer la colonne dérivée si vous avez des colonnes à utiliser sur lesquelles partitionner vos données.
+
+```
+source1 keyGenerate(output(sk as long),
+    startAt: 1L) ~> SurrogateKey1
+SurrogateKey1 derive(dummy = 1) ~> DerivedColumn1
+DerivedColumn1 window(over(dummy),
+    asc(sk, true),
+    prevAndCurr = lag(title,1)+'-'+last(title),
+        nextAndCurr = lead(title,1)+'-'+last(title)) ~> leadAndLag
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

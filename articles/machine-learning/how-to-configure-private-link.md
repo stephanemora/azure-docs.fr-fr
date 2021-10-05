@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/01/2021
-ms.openlocfilehash: 1c07e96a82814e59c635a592313e461d06a6fcc3
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.date: 09/07/2021
+ms.openlocfilehash: df1f492824503c6ab8c63091c93e3d048107cb48
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217464"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129052136"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Configurer un point de terminaison privé pour un espace de travail Azure Machine Learning
 
@@ -39,14 +39,23 @@ Azure Private Link vous permet de vous connecter à votre espace de travail à l
 
 [!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
-* Vous devez disposer d’un réseau virtuel existant dans lequel créer le point de terminaison privé. Vous devez également [désactiver les stratégies réseau pour les points de terminaison privés](../private-link/disable-private-endpoint-network-policy.md) avant d’ajouter le point de terminaison privé.
+* Vous devez disposer d’un réseau virtuel existant dans lequel créer le point de terminaison privé. 
+* [Désactivez les stratégies réseau pour les points de terminaison privés](../private-link/disable-private-endpoint-network-policy.md) avant d’ajouter le point de terminaison privé.
 
 ## <a name="limitations"></a>Limites
 
-* L’utilisation d’un espace de travail Azure Machine Learning avec point de terminaison privé n’est pas disponible dans les régions Azure Government.
-* Si vous activez l’accès public à un espace de travail sécurisé avec point de terminaison privé et utilisez Azure Machine Learning Studio sur l’Internet public, certaines fonctionnalités telles que le concepteur peuvent ne pas parvenir à accéder à vos données. Ce problème se produit quand les données sont stockées sur un service sécurisé derrière le réseau virtuel. Par exemple, un compte de stockage Azure.
+* Si vous activez l’accès public à un espace de travail sécurisé avec point de terminaison privé et utilisez Azure Machine Learning studio sur l’Internet public, certaines fonctionnalités telles que le concepteur peuvent ne pas parvenir à accéder à vos données. Ce problème se produit quand les données sont stockées sur un service sécurisé derrière le réseau virtuel. Par exemple, un compte de stockage Azure.
 * Il se peut que vous rencontriez des problèmes en tentant d’accéder au point de terminaison privé de votre espace de travail si vous utilisez Mozilla Firefox. Un de ces problème peut être lié à DNS sur HTTPS dans Mozilla. Nous vous recommandons d’utiliser Microsoft Edge ou Google Chrome comme solution de contournement.
 * L’utilisation d’un point de terminaison privé n’a pas d’effet sur le plan de contrôle Azure (opérations de gestion), comme la suppression de l’espace de travail ou la gestion des ressources de calcul. Par exemple, la création, la mise à jour ou la suppression d’une cible de calcul. Ces opérations sont effectuées sur l’Internet public comme d’habitude. Les opérations de plan de données telles que l’utilisation du studio Azure Machine Learning, des API (y compris les pipelines publiés) ou du SDK utilisent le point de terminaison privé.
+* Lors de la création d’une instance de calcul ou d’un cluster de calcul dans un espace de travail avec un point de terminaison privé, l’instance de calcul et le cluster de calcul doivent se trouver dans la même région Azure que l’espace de travail.
+* Lors de la création ou de l’attachement d’un cluster Azure Kubernetes Service à un espace de travail avec un point de terminaison privé, le cluster doit se trouver dans la même région que l’espace de travail.
+* Lorsque vous utilisez un espace de travail avec plusieurs points de terminaison privés (préversion), l’un des points de terminaison privés doit se trouver dans le même réseau virtuel que les services de dépendance suivants :
+
+    * compte de stockage Azure qui assure le stockage par défaut de l’espace de travail
+    * Azure Key Vault pour l’espace de travail
+    * Azure Container Registry pour l’espace de travail.
+
+    Par exemple, un réseau virtuel (« services ») contiendrait un point de terminaison privé pour les services de dépendance et l’espace de travail. Cette configuration permet à l’espace de travail de communiquer avec les services. Un autre réseau virtuel (« clients ») pourrait contenir uniquement un point de terminaison privé pour l’espace de travail et être utilisé uniquement pour la communication entre les ordinateurs de développement client et l’espace de travail.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Créer un espace de travail qui utilise un point de terminaison privé
 
@@ -170,14 +179,60 @@ Dans l’espace de travail Azure Machine Learning dans le portail, sélectionnez
 
 ---
 
-## <a name="using-a-workspace-over-a-private-endpoint"></a>Utilisation d’un espace de travail sur un point de terminaison privé
+## <a name="securely-connect-to-your-workspace"></a>Vous connecter à votre espace de travail de manière sécurisée
 
-Étant donné que les communications avec l’espace de travail sont autorisées uniquement à partir du réseau virtuel, tous les environnements de développement qui utilisent l’espace de travail doivent être faire partie du réseau virtuel. Par exemple, une machine virtuelle sur le réseau virtuel.
+[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
+
+## <a name="multiple-private-endpoints-preview"></a>Plusieurs points de terminaison privés (préversion)
+
+En fonctionnalité d’évaluation, Azure Machine Learning prend en charge plusieurs points de terminaison privés pour un espace de travail. Plusieurs points de terminaison privés sont souvent utilisés lorsque vous souhaitez conserver des environnements distincts. Scénarios possibles grâce à l’utilisation de plusieurs points de terminaison privés :
+
+* Environnements de développement client dans un réseau virtuel distinct.
+* Un cluster Azure Kubernetes Service (AKS) dans un réseau virtuel distinct.
+* Autres services Azure dans un réseau virtuel distinct. Par exemple, Azure Synapse et Azure Data Factory peuvent utiliser un réseau virtuel managé par Microsoft. Dans les deux cas, un point de terminaison privé pour l’espace de travail peut être ajouté au réseau virtuel managé utilisé par ces services. Pour plus d’informations sur l’utilisation d’un réseau virtuel managé avec ces services, consultez les articles suivants :
+
+    * [Points de terminaison privés managés Synapse](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints)
+    * [Réseau virtuel managé Azure Data Factory](/azure/data-factory/managed-virtual-network-private-endpoint).
+
+    > [!IMPORTANT]
+    > [La protection contre l’exfiltration des données de Synapse](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) n’est pas prise en charge avec Azure Machine Learning.
 
 > [!IMPORTANT]
-> Pour éviter toute interruption temporaire de la connectivité, Microsoft recommande de vider le cache DNS sur les ordinateurs qui se connectent à l’espace de travail après avoir activé un point de terminaison privé. 
+> Chaque réseau virtuel qui contient un point de terminaison privé pour l’espace de travail doit également être en mesure d’accéder au compte de stockage Azure, à l’Azure Key Vault et à l’Azure Container Registry utilisés par l’espace de travail. Par exemple, vous pouvez créer un point de terminaison privé pour les services dans chaque réseau virtuel.
 
-Pour plus d’informations sur Machines virtuelles Microsoft Azure, consultez la [documentation relative à Machines Virtuelles](../virtual-machines/index.yml).
+La procédure d’ajout de plusieurs points de terminaison est la même que celle décrite dans la section [Ajouter un point de terminaison privé à un espace de travail](#add-a-private-endpoint-to-a-workspace).
+
+### <a name="scenario-isolated-clients"></a>Scénario : clients isolés
+
+Si vous souhaitez isoler les clients de développement, afin qu’ils n’aient pas d’accès direct aux ressources de calcul utilisées par Azure Machine Learning, procédez comme suit :
+
+> [!NOTE]
+> Ces étapes partent du principe que vous disposez d’un espace de travail, d’un compte de stockage Azure, d’Azure Key Vault et d’Azure Container Registry. Chacun de ces services possède des points de terminaison privés dans un réseau virtuel existant.
+
+1. Créez un autre réseau virtuel pour les clients. Ce réseau virtuel peut contenir des machines virtuelles Azure qui jouent le rôle de vos clients, ou il peut contenir une passerelle VPN utilisée par les clients locaux pour se connecter au réseau virtuel.
+1. Ajoutez un nouveau point de terminaison privé pour le compte de stockage Azure, l’Azure Key Vault et l’Azure Container Registry utilisés par votre espace de travail. Ces points de terminaison privés doivent exister dans le réseau virtuel client.
+1. Si vous disposez d’un espace de stockage supplémentaire utilisé par votre espace de travail, ajoutez un nouveau point de terminaison privé pour ce stockage. Le point de terminaison privé doit exister dans le réseau virtuel du client et l’intégration de la zone DNS privée doit y être activée.
+1. Ajoutez un nouveau point de terminaison privé à votre espace de travail. Ce point de terminaison privé doit exister dans le réseau virtuel du client et l’intégration de la zone DNS privée doit y être activée.
+1. Suivez les étapes de l’article [Utiliser Studio dans un réseau virtuel](how-to-enable-studio-virtual-network.md#datastore-azure-storage-account) pour permettre à Studio d’accéder aux comptes de stockage.
+
+Le schéma suivant illustre cette configuration. Le réseau virtuel de __Charge de travail__ contient des calculs créés par l’espace de travail pour l’apprentissage et le déploiement. Le réseau virtuel __Client__ contient des clients ou des connexions ExpressRoute/VPN clientes. Les deux réseaux virtuels contiennent des points de terminaison privés pour l’espace de travail, un compte de stockage Azure, Azure Key Vault et Azure Container Registry.
+
+:::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-client.png" alt-text="Diagramme du réseau virtuel isolé du client":::
+
+### <a name="scenario-isolated-azure-kubernetes-service"></a>Scénario : service Azure Kubernetes isolé
+
+Si vous souhaitez créer un Azure Kubernetes Service isolé utilisé par l’espace de travail, procédez comme suit :
+
+> [!NOTE]
+> Ces étapes partent du principe que vous disposez d’un espace de travail, d’un compte de stockage Azure, d’Azure Key Vault et d’Azure Container Registry. Chacun de ces services possède des points de terminaison privés dans un réseau virtuel existant.
+
+1. Créez une instance Azure Kubernetes Service. Au cours de la création, AKS crée un réseau virtuel qui contient le cluster AKS.
+1. Ajoutez un nouveau point de terminaison privé pour le compte de stockage Azure, l’Azure Key Vault et l’Azure Container Registry utilisés par votre espace de travail. Ces points de terminaison privés doivent exister dans le réseau virtuel client.
+1. Si vous disposez d’un autre espace de stockage utilisé par votre espace de travail, ajoutez un nouveau point de terminaison privé pour ce stockage. Le point de terminaison privé doit exister dans le réseau virtuel du client et l’intégration de la zone DNS privée doit y être activée.
+1. Ajoutez un nouveau point de terminaison privé à votre espace de travail. Ce point de terminaison privé doit exister dans le réseau virtuel du client et l’intégration de la zone DNS privée doit y être activée.
+1. Attachez le cluster AKS à l’espace de travail Azure Machine Learning. Pour plus d’informations, consultez [Créer et attacher un cluster Azure Kubernetes Service](how-to-create-attach-kubernetes.md#attach-an-existing-aks-cluster).
+
+:::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-aks.png" alt-text="Diagramme de réseau virtuel AKS isolé":::
 
 ## <a name="enable-public-access"></a>Activer l’accès public
 
@@ -210,7 +265,6 @@ L’[extension Azure CLI 1.0 pour Machine Learning](reference-azure-machine-lea
 Actuellement, il n’existe aucun moyen d’activer cette fonctionnalité à l’aide du portail.
 
 ---
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

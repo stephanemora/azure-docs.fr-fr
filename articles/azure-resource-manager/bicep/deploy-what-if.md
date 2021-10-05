@@ -3,20 +3,24 @@ title: Scénarios de déploiement Bicep
 description: Déterminez les modifications qui seront apportées à vos ressources avant de déployer un fichier Bicep.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/02/2021
 ms.author: tomfitz
-ms.openlocfilehash: 42e4198f2597ca3708e58bbc7a25545eab96b8c6
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 697a72e33b4f03f7441e51085f2519fa32f88590
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634585"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793680"
 ---
 # <a name="bicep-deployment-what-if-operation"></a>Opération de simulation du déploiement Bicep
 
 Avant de déployer un modèle, vous pouvez obtenir un aperçu des modifications qui se produiront. Azure Resource Manager met à votre disposition l’opération de simulation, qui vous permet de voir comment les ressources changent si vous déployez le fichier Bicep. L’opération de simulation n’apporte aucune modification aux ressources existantes. Au lieu de cela, elle prédit les modifications si le fichier Bicep spécifié est déployé.
 
 Vous pouvez utiliser l’opération de simulation avec des opérations d’Azure PowerShell, d’Azure CLI ou d’API REST. La simulation est prise en charge pour les déploiements de groupe de ressources, d’abonnement et de niveau locataire.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur l’opération de simulation et pour obtenir une aide pratique, consultez [Prévisualiser les modifications du déploiement Azure à l’aide de la simulation](/learn/modules/arm-template-whatif/) sur **Microsoft Learn**.
 
 ## <a name="install-azure-powershell-module"></a>Installer le module Azure PowerShell
 
@@ -196,7 +200,11 @@ Les résultats suivants illustrent les deux formats de sortie :
 
 ### <a name="set-up-environment"></a>Configurer l’environnement
 
-Pour voir comment fonctionne la simulation, nous allons exécuter des tests. Tout d’abord, déployez un [fichier Bicep qui crée un réseau virtuel](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-before.bicep). Vous utiliserez ce réseau virtuel pour tester dans quelle mesure les modifications sont signalées par l’opération de simulation. Téléchargez une copie du fichier Bicep.
+Pour voir comment fonctionne la simulation, nous allons exécuter des tests. Tout d’abord, déployez un fichier Bicep qui crée un réseau virtuel. Vous utiliserez ce réseau virtuel pour tester dans quelle mesure les modifications sont signalées par l’opération de simulation. Téléchargez une copie du fichier Bicep.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-before.bicep":::
+
+Pour déployer le fichier Bicep, utilisez :
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -224,7 +232,11 @@ az deployment group create \
 
 ### <a name="test-modification"></a>Modification de test
 
-Une fois le déploiement terminé, vous êtes prêt à tester l’opération de simulation. Cette fois, vous déployez un [fichier Bicep qui modifie le réseau virtuel](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-after.bicep). Il manque une des balises d’origine, un sous-réseau a été supprimé et le préfixe de l’adresse a changé. Téléchargez une copie du fichier Bicep.
+Une fois le déploiement terminé, vous êtes prêt à tester l’opération de simulation. Cette fois, vous déployez un fichier Bicep qui modifie le réseau virtuel. Il manque une des balises d’origine, un sous-réseau a été supprimé et le préfixe de l’adresse a changé. Téléchargez une copie du fichier Bicep.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-after.bicep":::
+
+Pour afficher les modifications, utilisez :
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -374,6 +386,24 @@ Are you sure you want to execute the deployment?
 ```
 
 Vous voyez les modifications attendues et pouvez confirmer que vous souhaitez que le déploiement s’exécute.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Lorsque vous n’avez plus besoin des exemples de ressources, utilisez Azure CLI ou Azure PowerShell pour supprimer le groupe de ressources.
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
+
+```azurecli
+az group delete --name ExampleGroup
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name ExampleGroup
+```
+
+---
 
 ## <a name="sdks"></a>Kits SDK
 

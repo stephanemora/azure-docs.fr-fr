@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 27c2b5d5af181aea982a6aed735997f5ac866b6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1899f2ff3492bc53957aa31f2cbf9eaa2bf3de0d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562825"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740843"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Sécuriser un environnement d’inférence Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -59,6 +59,10 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 * Lorsque vous utilisez Azure Container Instances dans un réseau virtuel, ce dernier doit se trouver dans le même groupe de ressources que votre espace de travail Azure Machine Learning. Sinon, le réseau virtuel peut se trouver dans un autre groupe de ressources.
 * Si votre espace de travail comporte un __point de terminaison privé__, le réseau virtuel utilisé pour Azure Container Instances doit être identique à celui utilisé par le point de terminaison privé de l’espace de travail.
 * Quand vous utilisez Azure Container Instances à l’intérieur du réseau virtuel, l’instance Azure Container Registry (ACR) de votre espace de travail ne peut pas se trouver dans le réseau virtuel.
+
+### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+* Si votre espace de travail a un __point de terminaison privé__, le cluster Azure Kubernetes Service doit se trouver dans la même région Azure que l’espace de travail.
 
 <a id="aksvnet"></a>
 

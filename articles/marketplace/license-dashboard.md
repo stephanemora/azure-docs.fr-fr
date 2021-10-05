@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 06/10/2021
-ms.openlocfilehash: 6998005024bdbf61fb941ae3ff778be55dc5bb26
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 40323124846bd825b2d0c51d16f7dfa7dc67511f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531715"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082679"
 ---
 # <a name="license-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Licence dans l’analytique de la place de marché commerciale
 
@@ -27,11 +27,31 @@ Cet article fournit des informations sur le tableau de bord Licence dans le prog
 
 ## <a name="check-license-usage"></a>Vérifier l’utilisation des licences
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
 Pour vérifier l’utilisation des licences des applications ISV dans Espace partenaires, procédez comme suit :
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Sur la page Accueil, sélectionnez la vignette **Insights**.
+
+    [ ![Illustre la vignette Insights sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. Dans le menu de gauche, sélectionnez **Licence**.
+
+    [ ![Capture d’écran du tableau de bord Licence dans l’Espace partenaires.](./media/license-dashboard/license-dashboard-workspaces.png) ](./media/license-dashboard/license-dashboard-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+Pour vérifier l’utilisation des licences des applications ISV dans Espace partenaires, procédez comme suit :
+
 1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. Dans le menu de navigation de gauche, sélectionnez **Marketplace commercial** > **Analyser** > **Licence**.
 
 :::image type="content" source="./media/license-dashboard/license-dashboard.png" alt-text="Capture d’écran du tableau de bord Licence dans Espace partenaires.":::
+
+---
 
 ## <a name="elements-of-the-license-dashboard"></a>Éléments du tableau de bord Licence
 
@@ -41,7 +61,15 @@ Les sections suivantes expliquent comment utiliser le tableau de bord Licence et
 
 Une sélection de plages de mois est disponible en haut à droite de la page. Personnalisez la sortie des widgets sur la page en sélectionnant la plage des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
 
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view) 
+
+[ ![Capture d’écran des sélections de plages de mois dans le tableau de bord Licence dans Espace partenaires.](./media/license-dashboard/license-workspace-filters.png) ](./media/license-dashboard/license-workspace-filters.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view) 
+
 :::image type="content" source="./media/license-dashboard/month-range.png" alt-text="Capture d’écran des sélections de plages de mois dans le tableau de bord Licence dans Espace partenaires.":::
+
+---
 
 ## <a name="customers-widget"></a>Widget Clients
 

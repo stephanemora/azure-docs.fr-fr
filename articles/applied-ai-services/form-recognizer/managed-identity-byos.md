@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8ecd6ae9578f719707c3d52ba8348cda5af3e08d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 43220ce85bf02919a0ccf069bc9646a16c3a0a26
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563839"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155350"
 ---
 # <a name="create-and-use-managed-identity-for-your-form-recognizer-resource"></a>Créer et utiliser une identité managée pour votre ressource Form Recognizer
 
@@ -33,7 +33,7 @@ L’identité managée prend en charge les comptes de stockage Blob Azure access
 
 > [!NOTE]
 >
-> * Si vous envisagez d’analyser vos données de stockage à l’aide de l’[**outil d’étiquetage des exemples Form Recognizer (FOTT)** ](https://fott-2-1.azurewebsites.net/), vous devez déployer l’outil derrière votre réseau virtuel ou votre pare-feu.
+> * Si vous envisagez d’analyser vos données de stockage à l’aide de l’[**outil d’étiquetage des exemples Form Recognizer (FOTT)**](https://fott-2-1.azurewebsites.net/), vous devez déployer l’outil derrière votre réseau virtuel ou votre pare-feu.
 >
 > * Les API [**Analyser le reçu**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Analyser la carte de visite**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Analyser  la facture**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**Analyser le document d’identité**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) et [**Analyser le formulaire personnalisé**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) peuvent extraire les données d’un document unique en publiant les demandes en tant que contenu binaire brut. Dans ces scénarios, aucune information d’identification d’identité managée n’est requise.
 
@@ -45,11 +45,20 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 * Une ressource [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) ou [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) dans le portail Azure. Pour des instructions détaillées, _consultez_ [Créer une ressource Cognitive Services dans le portail Azure](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* Un [**compte de stockage Blob Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Vous allez créer des conteneurs pour stocker et organiser vos données de blob dans votre compte de stockage. Si le compte dispose d’un pare-feu, la case à cocher [exception pour les services Azure approuvés](../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) doit être activée.
+* Un [**compte de stockage Blob Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) dans la même région que votre ressource Form Recognizer. Vous allez créer des conteneurs pour stocker et organiser vos données d’objet blob dans votre compte de stockage. 
+
+  * Si votre compte de stockage se trouve derrière un pare-feu, **vous devez activer la configuration suivante** : </br></br>
+
+  * Dans la page de votre compte de stockage, dans le menu de gauche, sélectionnez **Sécurité + réseau** → **Mise en réseau**.
+    :::image type="content" source="media/managed-identities/security-and-networking-node.png" alt-text="Capture d’écran : onglet Sécurité + réseau.":::
+
+  * Dans la fenêtre principale, sélectionnez **Autoriser l’accès à partir de réseaux sélectionnés**.
+  :::image type="content" source="media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Capture d’écran : case d’option Réseaux sélectionnés activée.":::
+
+  * Dans la page Réseaux sélectionnés, accédez à la catégorie **Exceptions** et assurez-vous que la case à cocher [**Autoriser les services Azure de la liste des services approuvés à accéder à ce compte de stockage**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) est activée.
 
     :::image type="content" source="media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Capture d’écran : case à cocher Autoriser les services approuvés, vue du portail":::
-
-* Connaissances générales sur le [**contrôle d’accès en fonction du rôle Azure (Azure RBAC)** ](../../role-based-access-control/role-assignments-portal.md) à l’aide du portail Azure.
+* Connaissances générales sur le [**contrôle d’accès en fonction du rôle Azure (Azure RBAC)**](../../role-based-access-control/role-assignments-portal.md) à l’aide du portail Azure.
 
 ## <a name="managed-identity-assignments"></a>Attributions d’identités managées
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 75e5100c12940083626d94367bb70b280a49711b
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c537e9a9dd733d84161e59999ff17b8b0251f623
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665156"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061178"
 ---
 # <a name="enable-key-vault-logging"></a>Activer la journalisation de Key Vault
 
@@ -229,12 +229,9 @@ Pour télécharger les objets blob de façon sélective, utilisez des caractère
 
 ## <a name="use-azure-monitor-logs"></a>Utiliser les journaux d’activité Azure Monitor
 
-Vous pouvez utiliser la solution Key Vault dans les journaux Azure Monitor pour consulter les journaux `AuditEvent` de Key Vault. Dans les journaux Azure Monitor, vous utilisez des requêtes de journaux pour analyser les données et obtenir les informations dont vous avez besoin.
-
-Pour plus d’informations, notamment sur la procédure de configuration correspondante, consultez [Azure Key Vault dans Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
+Vous pouvez utiliser la solution Key Vault dans les journaux Azure Monitor pour consulter les journaux `AuditEvent` de Key Vault. Dans les journaux Azure Monitor, vous utilisez des requêtes de journaux pour analyser les données et obtenir les informations dont vous avez besoin.  Pour plus d’informations, consultez [Supervision de Key Vault](monitor-key-vault.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir des informations conceptuelles, notamment sur l’interprétation des journaux Key Vault, consultez [Journalisation de Key Vault](logging.md).
-- Pour accéder à un tutoriel utilisant Azure Key Vault dans une application web .NET, consultez l’article [Utilisation d’Azure Key Vault à partir d’une application web](tutorial-net-create-vault-azure-web-app.md).
-- Voir les informations de référence sur la programmation dans le [Guide du développeur Azure Key Vault](developers-guide.md).
+- Pour en savoir plus sur l’utilisation d’Azure Monitor sur votre coffre de clés, consultez [Supervision de Key Vault](monitor-key-vault.md).

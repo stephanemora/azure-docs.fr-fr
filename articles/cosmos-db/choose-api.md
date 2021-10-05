@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/12/2021
-ms.openlocfilehash: 8e512c06901a533ef381bc389def45f07e8a028d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 6d13f5f79da2906d1b994d4ab83e06d0593eaefe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123101995"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586636"
 ---
 # <a name="choose-an-api-in-azure-cosmos-db"></a>Choisir une API dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,8 +51,8 @@ Si vous effectuez une migration à partir d’autres bases de données telles qu
 ### <a name="capacity-planning-for-migration-to-api-for-mongodb"></a>Planification de la capacité pour la migration vers l’API pour MongoDB
 
 Vous essayez de faire de la planification de capacité pour une migration vers Azure Cosmos DB SQL API à partir d'un cluster de base de données existant ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
-    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md). 
-    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
+* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md).
+* Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
 
 ## <a name="api-for-mongodb"></a>API pour MongoDB
 
@@ -65,8 +65,8 @@ L’API pour MongoDB est compatible avec les versions serveur 4.0, 3.6 et 3.2
 ### <a name="capacity-planning-for-migration-to-api-for-mongodb"></a>Planification de la capacité pour la migration vers l’API pour MongoDB
 
 Vous essayez de faire de la planification de capacité pour une migration vers Azure Cosmos DB SQL API à partir d'un cluster de base de données existant ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
-    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
-    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](./mongodb/estimate-ru-capacity-planner.md)
+* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md).
+* Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](./mongodb/estimate-ru-capacity-planner.md).
 
 ## <a name="cassandra-api"></a>API Cassandra
 
@@ -84,7 +84,7 @@ L’API Gremlin d’Azure Cosmos DB repose sur [Apache TinkerPop](https://tinker
 
 Cette API stocke les données au format clé/valeur. Si vous utilisez actuellement le Stockage Table Azure, vous pouvez constater des limitations en matière de latence, de mise à l’échelle, de débit, de distribution à l’échelle mondiale, de gestion des index, et les faibles performances en matière de requêtes. L’API Table surmonte ces limitations et il est recommandé de migrer votre application si vous souhaitez tirer parti des avantages d’Azure Cosmos DB. L’API Table prend en charge uniquement les scénarios OLTP.
 
-Les applications écrites pour le Stockage Table Azure peuvent migrer vers l’API Table avec peu de modification de code, et tirer parti des fonctionnalités Premium. Pour plus d’informations, consultez l’article sur l’[API Table](introduction.md).
+Les applications écrites pour le Stockage Table Azure peuvent migrer vers l’API Table avec peu de modification de code, et tirer parti des fonctionnalités Premium. Pour plus d’informations, consultez l’article sur l’[API Table](table/introduction.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -93,6 +93,6 @@ Les applications écrites pour le Stockage Table Azure peuvent migrer vers l’A
 * [Prise en main de l’API Cassandra Azure Cosmos DB](cassandra/manage-data-dotnet.md)
 * [Prise en main de l’API Gremlin Azure Cosmos DB](create-graph-dotnet.md)
 * [Prise en main de l’API Table Azure Cosmos DB](create-table-dotnet.md)
-* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
-    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
-    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)

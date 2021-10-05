@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 09/28/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba538f4753c2365406bd88286b6d54cff1a9e9ea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f2356235bf70a5fdd3e284c26d421e16ca94fb59
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800820"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208492"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtres dans la Recherche cognitive Azure 
 
 Un *filtre* établit des critères basés sur des valeurs pour sélectionner les documents utilisés dans une requête. Un filtre peut être une valeur unique ou une [expression de filtre](search-query-odata-filter.md) OData. Contrairement à la recherche en texte intégral, une valeur ou une expression de filtre ne renvoie qu’une correspondance stricte.
 
-Certaines expériences de recherche, telles que la [navigation par facettes](search-filters-facets.md), dépendent des filtres dans le cadre de l’implémentation. Toutefois, vous pouvez utiliser des filtres chaque fois que vous souhaitez restreindre une requête à des valeurs spécifiques. Si vous souhaitez plutôt restreindre une requête à des champs spécifiques, il existe d’autres méthodes que nous vous présentons ci-dessous.
+Certaines expériences de recherche, telles que la [navigation par facettes](search-faceted-navigation.md), dépendent des filtres dans le cadre de l’implémentation. Toutefois, vous pouvez utiliser des filtres chaque fois que vous souhaitez restreindre une requête à des valeurs spécifiques. Si vous souhaitez plutôt restreindre une requête à des champs spécifiques, il existe d’autres méthodes que nous vous présentons ci-dessous.
 
 ## <a name="when-to-use-a-filter"></a>Quand utiliser un filtre
 
@@ -88,13 +88,13 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
     var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## <a name="filter-usage-patterns"></a>Filtrer les modèles d’utilisation
+## <a name="filter-patterns"></a>Modèles de filtre
 
 Les exemples suivants illustrent plusieurs modèles d’utilisation pour des scénarios de filtre. Pour d’autres idées, voir [Syntaxe d’expression OData > Exemples](./search-query-odata-filter.md#examples).
 
 + **$filter** autonome, sans chaîne de requête, utile lorsque l’expression de filtre est en mesure de qualifier complètement les documents d’intérêt. À défaut de chaîne de requête, il n’y a ni analyse lexicale ou linguistique, ni notation, ni classement. Notez que la chaîne de recherche comporte uniquement un astérisque, ce qui signifie « faire correspondre tous les documents ».
 
-  ```http
+  ```json
   {
     "search": "*",
     "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu"
@@ -103,7 +103,7 @@ Les exemples suivants illustrent plusieurs modèles d’utilisation pour des sc�
 
 + Combinaison de chaîne de requête et de **$filter**, où le filtre crée le sous-ensemble, et la chaîne de requête fournit les entrées de condition de recherche en texte intégral sur le sous-ensemble filtré. L’ajout de termes (théâtres à distance de marche) introduit des scores de recherche dans les résultats, où les documents qui correspondent le mieux aux termes sont mieux classés. Utiliser un filtre avec une chaîne de requête constitue le modèle d’utilisation le plus courant.
 
-  ```http
+  ```json
   {
     "search": "walking distance theaters",
     "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'"
@@ -111,32 +111,27 @@ Les exemples suivants illustrent plusieurs modèles d’utilisation pour des sc�
 
 + Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
 
-   ```
-   # <a name="match-on-hostels-rated-higher-than-4-or-5-star-motels"></a>Correspondance pour les hôtels mieux notés que les motels 4 ou 5 étoiles.
+   ```http
+   # Match on hostels rated higher than 4 OR 5-star motels.
    $filter=search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
 
-   # <a name="match-on-luxury-or-high-end-in-the-description-field-or-on-category-exactly-equal-to-luxury"></a>Correspondance pour les termes « luxe » ou « haut de gamme » dans le champ « description » OU la catégorie correspondant précisément à « Luxe ».
+   # Match on 'luxury' or 'high-end' in the description field OR on category exactly equal to 'Luxury'.
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  It is also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
+  Il est également possible de combiner la recherche en texte intégral via `search.ismatchscoring` avec des filtres utilisant `and` au lieu de `or`. Toutefois, cette opération équivaut à utiliser les paramètres `search` et `$filter` dans une demande de recherche sur le plan fonctionnel. Par exemple, les deux requêtes suivantes génèrent le même résultat :
 
-  ```
+  ```http
   $filter=search.ismatchscoring('pool') and Rating ge 4
 
   search=pool&$filter=Rating ge 4
   ```
 
-Follow up with these articles for comprehensive guidance on specific use cases:
+## <a name="field-requirements-for-filtering"></a>Conditions requises des champs pour le filtrage
 
-+ [Facet filters](search-filters-facets.md)
-+ [Security trimming](search-security-trimming-for-azure-search.md) 
+Dans l’API REST, la propriété filterable (filtrable) est *activée* par défaut pour les champs simples. Les champs filtrables augmentent la taille de l’index. Veillez à définir `"filterable": false` pour les champs que vous ne prévoyez pas réellement d’utiliser dans un filtre. Pour plus d’informations sur les paramètres des définitions de champ, voir [Create Index](/rest/api/searchservice/create-index) (Créer un index).
 
-## Field requirements for filtering
-
-In the REST API, filterable is *on* by default for simple fields. Filterable fields increase index size; be sure to set `"filterable": false` for fields that you don't plan to actually use in a filter. For more information about settings for field definitions, see [Create Index](/rest/api/searchservice/create-index).
-
-In the .NET SDK, the filterable is *off* by default. You can make a field filterable by setting the [IsFilterable property](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) of the corresponding [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) object to `true`. In the example below, the attribute is set on the `BaseRate` property of a model class that maps to the index definition.
+Dans le Kit de développement logiciel (SDK) .NET, la propriété filterable (filtrable) est *désactivée* par défaut. Vous pouvez rendre un champ filtrable en définissant la [propriété IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) de l’objet [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) correspondant sur `true`. Dans l’exemple ci-dessous, l’attribut est défini sur la propriété `BaseRate` d’une classe de modèle mappant vers la définition d’index.
 
 ```csharp
 [IsFilterable, IsSortable, IsFacetable]

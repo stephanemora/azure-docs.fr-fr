@@ -8,17 +8,17 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: conceptual
-  ms.date: 04/10/2020
-  ms.openlocfilehash: 70fe8e6f82d51ddb55b1763556f4684ef6244ddc
-  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+  ms.date: 09/24/2021
+  ms.openlocfilehash: 782c8d8801935779222903f52d3ffaa6ba6f7007
+  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/22/2021
-  ms.locfileid: "112467913"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129210915"
 title: Recherche cognitive Azure – Questions fréquentes (FAQ)
 summary: Trouvez la réponse aux questions les plus fréquemment posées sur les concepts, le code et les scénarios liés à la Recherche cognitive Azure.
 sections:
-- name: Plateforme
+- name: Service de recherche
   questions:
   - question: >
       En quoi la Recherche cognitive Azure est-elle différente de la recherche en texte intégral de mon système de gestion de base de données (SGBD) ?
@@ -32,7 +32,7 @@ sections:
   questions:
   - question: >
       Déplacer, sauvegarder et restaurer des index ou des instantanés d’index ?
-    answer: "Pendant la phase de développement, vous souhaiterez peut-être déplacer votre index entre les services de recherche. Par exemple, vous pouvez utiliser un niveau tarifaire De base ou Gratuit pour développer votre index, puis le déplacer vers le niveau Standard ou vers un niveau supérieur pour une utilisation en production. \n\nVous pouvez aussi sauvegarder un instantané d’index dans des fichiers qui peuvent être utilisés pour le restaurer ultérieurement. \n\nVous pouvez effectuer toutes ces opérations avec l’exemple de code **index-backup-restore** dans cet [exemple de dépôt .NET Recherche cognitive Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples). \n\nVous pouvez également [obtenir une définition d’index](/rest/api/searchservice/get-index) à tout moment à l’aide de l’API REST Recherche cognitive Azure.\n\nIl n’existe aucune fonctionnalité intégrée d’extraction d’index, de capture instantanée ou de restauration de sauvegarde dans le portail Azure. Toutefois, nous envisageons d’ajouter les fonctionnalités de sauvegarde et de restauration dans une version future. Si vous souhaitez soutenir cette fonctionnalité, votez sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).\n"
+    answer: "Pendant la phase de développement, vous souhaiterez peut-être déplacer votre index entre les services de recherche. Par exemple, vous pouvez utiliser un niveau tarifaire De base ou Gratuit pour développer votre index, puis le déplacer vers le niveau Standard ou vers un niveau supérieur pour une utilisation en production. \n\nVous pouvez aussi sauvegarder un instantané d’index dans des fichiers qui peuvent être utilisés pour le restaurer ultérieurement. \n\nVous pouvez effectuer toutes ces opérations avec l’exemple de code **index-backup-restore** dans cet [exemple de dépôt .NET Recherche cognitive Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples). \n\nVous pouvez également [obtenir une définition d’index](/rest/api/searchservice/get-index) à tout moment à l’aide de l’API REST Recherche cognitive Azure.\n         \n"
   - question: >
       Puis-je restaurer mon index ou mon service une fois qu’il est supprimé ?
     answer: "Non, si vous supprimez un index ou un service Recherche cognitive Azure, il ne peut pas être récupéré. Quand vous supprimez un service Recherche cognitive Azure, tous les index dans le service sont supprimés définitivement. Si vous supprimez un groupe de ressources Azure qui contient un ou plusieurs services Recherche cognitive Azure, tous les services sont supprimés définitivement.  \n\nLa recréation des ressources telles que les index, les indexeurs, les sources de données et les compétences, nécessite de les recréer à partir du code. \n\nPour recréer un index, vous devez réindexer les données à partir de sources externes. Pour cette raison, nous vous recommandons de conserver une copie principale ou une sauvegarde des données d’origine dans un autre magasin de données comme Azure SQL Database ou Cosmos DB.\n\nVous pouvez également utiliser l’exemple de code **index-backup-restore** dans cet [exemple de dépôt .NET Recherche cognitive Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples) pour sauvegarder la définition et l’instantané d’un index dans une série de fichiers JSON. Plus tard, vous pourrez utiliser l’outil et les fichiers pour restaurer l’index, si nécessaire.  \n"
@@ -49,7 +49,7 @@ sections:
   - question: >
       Puis-je limiter l'accès à l'index de recherche en fonction de l'identité de l'utilisateur ?
     answer: >
-      Vous pouvez implémenter des [filtres de sécurité](./search-security-trimming-for-azure-search.md) avec le filtre `search.in()`. Le filtre s’adapte parfaitement aux [services de gestion d’identité comme Azure Active Directory(AAD)](./search-security-trimming-for-azure-search-with-aad.md) afin de réduire les résultats de recherche en fonction de l’appartenance à un groupe d’utilisateurs défini.
+      Vous pouvez implémenter des [filtres de sécurité](./search-security-trimming-for-azure-search.md) avec le filtre `search.in()`. Le filtre s’adapte parfaitement aux [services de gestion d’identité comme Azure Active Directory(Azure AD)](./search-security-trimming-for-azure-search-with-aad.md) afin de réduire les résultats de recherche en fonction de l’appartenance à un groupe d’utilisateurs défini. Vous pouvez également vous inscrire pour [l’accès en fonction du rôle](search-security-rbac.md), actuellement en préversion publique.
   - question: >
       Pourquoi n’ai-je aucun résultat pour des termes dont je sais qu’ils sont valides ?
     answer: >
@@ -60,7 +60,7 @@ sections:
   - question: >
       Mes recherches de caractère générique sont lentes.
     answer: >
-      La plupart des requêtes de recherche de caractère générique, comme les requêtes de préfixe, partielle et d’expression régulière, sont réécrites en interne avec des termes correspondants dans l’index de recherche. Ce traitement supplémentaire d’analyse de l’index de recherche augmente la latence. Par ailleurs, les requêtes de recherche large, comme `a*`, qui sont susceptibles d’être réécrites avec de nombreux termes, peuvent être très lentes. Pour des recherches performantes avec caractère générique, définissez un [analyseur personnalisé](/rest/api/searchservice/custom-analyzers-in-azure-search).
+      La plupart des requêtes de recherche de caractère générique, comme les requêtes de préfixe, partielle et d’expression régulière, sont réécrites en interne avec des termes correspondants dans l’index de recherche. Ce traitement supplémentaire ajoute à la latence. Par ailleurs, les requêtes de recherche large, comme `a*`, qui sont susceptibles d’être réécrites avec de nombreux termes, peuvent être très lentes. Pour des recherches performantes avec caractère générique, définissez un [analyseur personnalisé](/rest/api/searchservice/custom-analyzers-in-azure-search).
   - question: >
       Pourquoi le score du classement de recherche est-il systématiquement égal à 1.0 pour tous les résultats ?
     answer: >
@@ -83,4 +83,4 @@ sections:
       Quelle est la meilleure méthode pour implémenter une recherche localisée ?
     answer: >
       La plupart des clients choisissent des champs dédiés plutôt qu’une collection lorsque plusieurs paramètres régionaux (langues) doivent être pris en charge dans un même index. Les champs spécifiques aux paramètres régionaux permettent d’attribuer un analyseur adapté. Par exemple, vous pouvez affecter l’analyseur de français Microsoft à un champ contenant des chaînes en langue française. Cela simplifie également le filtrage. Si vous savez qu’une requête est exécutée sur une page fr-fr, vous pouvez limiter les résultats de la recherche à ce champ. Sinon, vous pouvez aussi créer un [profil de score](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) afin de donner au champ un poids plus relatif. Le service Recherche cognitive Azure prend en charge plus de [50 analyseurs de langue](./search-language-support.md) sélectionnables.
-additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n   Votre question concerne-t-elle une fonctionnalité manquante ? Demandez cette fonctionnalité sur le [site web UserVoice](https://feedback.azure.com/forums/263029-azure-search).\n        \n## <a name=\"see-also\"></a>Voir aussi\n   [StackOverflow : Recherche cognitive Azure](https://stackoverflow.com/questions/tagged/azure-search)   \n   [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)  \n   [Qu’est-ce que la recherche cognitive Azure ?](search-what-is-azure-search.md)\n"
+additionalContent: "\n## <a name=\"see-also\"></a>Voir aussi\n   [StackOverflow : Recherche cognitive Azure](https://stackoverflow.com/questions/tagged/azure-search)   \n   [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)  \n   [Qu’est-ce que la recherche cognitive Azure ?](search-what-is-azure-search.md)\n"

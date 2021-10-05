@@ -1,20 +1,19 @@
 ---
 title: Gérer la sécurité et les autorisations des rôles dans Azure Automation
 description: Cet article décrit comment utiliser le contrôle d’accès en fonction du rôle Azure (Azure RBAC), qui permet de gérer les accès des ressources Azure.
-keywords: rbac automation, contrôle d’accès en fonction du rôle, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 08/26/2021
-ms.topic: conceptual
+ms.date: 09/10/2021
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 30bc4a306eecf8be3177fb045f9904d775cab9bd
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 67f7076852ffe810e213fcc7d8cb6188d6db405d
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215008"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057849"
 ---
-# <a name="manage-role-permissions-and-security"></a>Gérer la sécurité et les autorisations des rôles
+# <a name="manage-role-permissions-and-security-in-automation"></a>Gérer la sécurité et les autorisations des rôles dans Automation
 
 Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet de gérer les accès des ressources Azure. Grâce à [Azure RBAC](../role-based-access-control/overview.md), vous pouvez répartir les tâches au sein de votre équipe et accorder aux utilisateurs, groupes et applications uniquement les accès nécessaires pour accomplir leur travail. Vous pouvez accorder un accès en fonction du rôle aux utilisateurs à l’aide du Portail Azure, des outils en ligne de commande Azure ou des API de gestion Azure.
 
@@ -80,9 +79,15 @@ Un contributeur Automation peut gérer toutes les ressources du compte Automatio
 |Microsoft.Resources/deployments/*|Créer et gérer les déploiements de groupes de ressources.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Lire les déploiements de groupes de ressources.|
 |Microsoft.Support/*|Créer et gérer les tickets de support.|
+|Microsoft.Insights/ActionGroups/*|Lire/écrire/supprimer des groupes d’actions.|
+|Microsoft.Insights/ActivityLogAlerts/*|Lire/écrire/supprimer des alertes de journal d’activité.|
+|Microsoft.Insights/diagnosticSettings/*|Paramètres de diagnostic en lecture/écriture/suppression.|
+|Microsoft.Insights/MetricAlerts/*|Lire/écrire/supprimer des alertes métriques quasiment en temps réel.|
+|Microsoft.Insights/ScheduledQueryRules/*|Alertes de lecture/écriture/suppression dans le journal Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Répertorier les clés pour un espace de travail Log Analytics|
 
 > [!NOTE]
-> Le rôle Contributeur Automation peut être utilisé pour accéder à n’importe quelle ressource à l’aide de l’identité managée, si les autorisations appropriées sont définies sur la ressource cible ou à l’aide d’un compte d’identification. Un compte d’identification Automation est configuré par défaut avec les droits de Contributeur sur l’abonnement. Suivez le principe des privilèges minimum et attribuez avec précaution les seules autorisations nécessaires pour exécuter votre runbook. Par exemple, si le compte Automation est requis uniquement pour démarrer ou arrêter une machine virtuelle Azure, les autorisations affectées au compte d’identification ou à l’identité managée doivent servir uniquement à démarrer ou arrêter la machine virtuelle. De même, si un runbook lit à partir du stockage blob, attribuez des autorisations en lecture seule.
+> Le rôle Contributeur Automation peut être utilisé pour accéder à n’importe quelle ressource à l’aide de l’identité managée, si les autorisations appropriées sont définies sur la ressource cible ou à l’aide d’un compte d’identification. Un compte d’identification Automation est configuré par défaut avec les droits de Contributeur sur l’abonnement. Suivez le principe des privilèges minimum et attribuez avec précaution les seules autorisations nécessaires pour exécuter votre runbook. Par exemple, si le compte Automation est requis uniquement pour démarrer ou arrêter une machine virtuelle Azure, les autorisations attribuées au compte d’identification ou à l’identité managée doivent servir uniquement à démarrer ou arrêter la machine virtuelle. De même, si un runbook lit à partir du stockage blob, attribuez des autorisations en lecture seule.
 > 
 > Dans le cadre de l’attribution des autorisations, il est recommandé d’utiliser le contrôle d’accès en fonction du rôle Azure affecté à une identité managée. Passez en revue nos recommandations [relatives aux meilleures pratiques](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md) pour l’utilisation d’une identité managée affectée par le système ou par l’utilisateur, notamment en lien avec la gestion et la gouvernance pendant sa durée de vie.
 
@@ -290,15 +295,15 @@ Suivez la procédure qui vous permet de créer un compte personnalisé Azure Aut
 
    ```json
    {
-    "properties": {
-        "roleName": "Automation Account Contributor (Custom)",
-        "description": "Allows access to manage Azure Automation and its resources",
-        "assignableScopes": [
+    "properties": {
+        "roleName": "Automation Account Contributor (Custom)",
+        "description": "Allows access to manage Azure Automation and its resources",
+        "assignableScopes": [
             "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
         ],
-        "permissions": [
+        "permissions": [
             {
-                "actions": [
+                "actions": [
                     "Microsoft.Authorization/*/read",
                     "Microsoft.Insights/alertRules/*",
                     "Microsoft.Insights/metrics/read",
@@ -308,9 +313,9 @@ Suivez la procédure qui vous permet de créer un compte personnalisé Azure Aut
                     "Microsoft.Automation/automationAccounts/*",
                     "Microsoft.Support/*"
                 ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
             }
         ]
       }
@@ -330,28 +335,28 @@ Suivez la procédure qui vous permet de créer un compte personnalisé Azure Aut
 
 1. Copiez et collez la syntaxe JSON suivante dans un fichier. Enregistrez le fichier sur votre ordinateur local ou dans un compte de stockage Azure. Dans le fichier JSON, remplacez la valeur de la propriété **AssignableScopes** par le GUID d’abonnement.
 
-    ```json
-    { 
-        "Name": "Automation account Contributor (custom)",
-        "Id": "",
-        "IsCustom": true,
-        "Description": "Allows access to manage Azure Automation and its resources",
-        "Actions": [
-            "Microsoft.Authorization/*/read",
-            "Microsoft.Insights/alertRules/*",
-            "Microsoft.Insights/metrics/read",
-            "Microsoft.Insights/diagnosticSettings/*",
-            "Microsoft.Resources/deployments/*",
-            "Microsoft.Resources/subscriptions/resourceGroups/read",
-            "Microsoft.Automation/automationAccounts/*",
-            "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "AssignableScopes": [
-            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
-        ] 
-    } 
-    ```
+   ```json
+   { 
+       "Name": "Automation account Contributor (custom)",
+       "Id": "",
+       "IsCustom": true,
+       "Description": "Allows access to manage Azure Automation and its resources",
+       "Actions": [
+           "Microsoft.Authorization/*/read",
+           "Microsoft.Insights/alertRules/*",
+           "Microsoft.Insights/metrics/read",
+           "Microsoft.Insights/diagnosticSettings/*",
+           "Microsoft.Resources/deployments/*",
+           "Microsoft.Resources/subscriptions/resourceGroups/read",
+           "Microsoft.Automation/automationAccounts/*",
+           "Microsoft.Support/*"
+       ],
+       "NotActions": [],
+       "AssignableScopes": [
+           "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+       ] 
+   } 
+   ```
 
 1. Effectuez les étapes restantes comme indiqué dans [Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure PowerShell](./../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template). Plusieurs minutes peuvent s’écouler avant que votre rôle personnalisé s’affiche partout.
 

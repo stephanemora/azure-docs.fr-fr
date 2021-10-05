@@ -8,12 +8,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: b1e7c210dc7e9a0482f6f2471e5079f71a4ac621
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0d9ae624ddc0a4e5a2f5d9ac38428f4f3c10a01e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562887"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124832398"
 ---
 # <a name="plan-to-deploy-azure-arc-enabled-data-services"></a>Planifier le déploiement des services de données Azure Arc
 
@@ -44,6 +44,9 @@ Veillez à disposer des éléments suivants :
 Une fois l’infrastructure préparée, déployez les services de données Azure Arc de la façon suivante :
 1. Créez un contrôleur de données compatible Azure Arc sur l’une des distributions validées d’un cluster Kubernetes
 1. Créez une instance gérée SQL compatible Azure Arc et/ou un groupe de serveur Hyperscale PostgreSQL Azure Arc.
+
+> [!CAUTION]
+> Certains des niveaux et modes des services de données sont [généralement disponibles (GA)](release-notes.md), tandis que d’autres sont en préversion. Nous vous recommandons de ne pas mélanger les services GA et en préversion sur le même contrôleur de données. Si vous mélangez les services GA et en préversion sur le même contrôleur de données, vous ne pouvez pas opérer de mise à niveau sur place. Dans ce scénario, lorsque vous souhaitez opérer une mise à niveau, vous devez supprimer et recréer le contrôleur de données et les services de données.
 
 ## <a name="overview-create-the-azure-arc-enabled-data-controller"></a>Présentation : Créer le contrôleur de données compatible Azure Arc
 
@@ -78,12 +81,12 @@ Quelle que soit l'option choisie, pendant le processus de création, vous devez 
 - **Nom du groupe de ressources Azure** : nom du groupe de ressources dans lequel vous souhaitez que soit créée la ressource de contrôleur de données dans Azure.  Toutes les SQL Managed Instances compatibles Azure Arc et les groupes de serveurs Hyperscale PostgreSQL seront également créés dans ce groupe de ressources.
 - **Emplacement Azure** : emplacement Azure où les métadonnées de la ressource de contrôleur de données seront stockées. Pour obtenir la liste des régions disponibles, consultez [Infrastructure globale Azure / Produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). Les métadonnées et les informations de facturation relatives aux ressources Azure gérées par le contrôleur de données que vous déployez sont stockées uniquement à l’emplacement dans Azure que vous spécifiez comme paramètre d’emplacement. Si vous déployez en mode connecté directement, le paramètre d’emplacement du contrôleur de données sera le même que l’emplacement de la ressource d’emplacement personnalisée que vous ciblez.
 - **Informations du principal de service** : comme décrit dans l’article [Prérequis pour le chargement](upload-metrics-and-logs-to-azure-monitor.md), vous aurez besoin des informations du principal de service pendant la création du contrôleur de données Azure Arc lors du déploiement en mode de connectivité *directe*. Pour le mode de connectivité *indirecte*, le principal du service est toujours nécessaire pour l’exportation et le chargement manuels, mais après la création du contrôleur de données Azure Arc.
-- **Infrastructure** : à des fins de facturation, il est nécessaire d’indiquer l’infrastructure sur laquelle vous exécutez les services de données Arc.  Les options sont : `alibaba`, `aws`, `azure`, `gcp`, `onpremises` ou `other`.
+- **Infrastructure** : à des fins de facturation, il est nécessaire d’indiquer l’infrastructure sur laquelle vous exécutez les services de données avec Azure Arc.  Les options sont : `alibaba`, `aws`, `azure`, `gcp`, `onpremises` ou `other`.
 
 ## <a name="additional-concepts-for-direct-connected-mode"></a>Concepts supplémentaires pour le mode connecté direct
 
 Comme décrit dans les [modes de connectivité](./connectivity.md), le contrôleur de données Azure Arc peut être déployé en modes de connectivité **directe** ou **indirecte**. Le déploiement des services de données Azure Arc en mode de connexion **directe** demande une bonne compréhension de certains concepts et considérations supplémentaires.
-Tout d’abord, le cluster Kubernetes dans lequel les services de données compatibles Arc seront déployés doit être un [cluster Kubernetes compatible Azure Arc](../kubernetes/overview.md). L’intégration du cluster Kubernetes à Azure Arc fournit une connectivité Azure qui est exploitée pour des fonctionnalités telles que le chargement automatique des informations d’utilisation, les journaux, les mesures, etc. La connexion de votre cluster Kubernetes à Azure vous permet également de déployer et de gérer les services de données Azure Arc sur votre cluster directement à partir du portail Azure.
+Tout d’abord, le cluster Kubernetes dans lequel les services de données avec Azure Arc seront déployés doit être un [cluster Kubernetes avec Azure Arc](../kubernetes/overview.md). L’intégration du cluster Kubernetes à Azure Arc fournit une connectivité Azure qui est exploitée pour des fonctionnalités telles que le chargement automatique des informations d’utilisation, les journaux, les mesures, etc. La connexion de votre cluster Kubernetes à Azure vous permet également de déployer et de gérer les services de données Azure Arc sur votre cluster directement à partir du portail Azure.
 
 La connexion de votre cluster Kubernetes à Azure implique les étapes suivantes :
 - [Connecter votre cluster à Azure](../kubernetes/quickstart-connect-cluster.md)
@@ -110,4 +113,3 @@ Plusieurs options sont disponibles pour créer le contrôleur de données Azure 
 - [Créez un contrôleur de données en mode de connexion indirecte avec Azure Data Studio](create-data-controller-indirect-azure-data-studio.md)
 - [Créez un contrôleur de données en mode de connexion indirecte à partir du portail Azure via un notebook Jupyter dans Azure Data Studio](create-data-controller-indirect-azure-portal.md)
 - [Créez un contrôleur de données en mode de connexion indirecte avec des outils Kubernetes tels que kubectl ou oc](create-data-controller-using-kubernetes-native-tools.md)
-

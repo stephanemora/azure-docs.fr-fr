@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: bb441ebac4208afa4d9024787dd14256f36777ed
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 02e5a30da1efe8c3cd669babddff305296077f20
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114445055"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424183"
 ---
 # <a name="apply-the-remote-desktop-extension-to-azure-cloud-services-extended-support"></a>Appliquer le Bureau à distance à Microsoft Azure Cloud Services (support étendu)
 
@@ -47,6 +47,42 @@ Une fois que le Bureau à distance aura été activé sur les rôles, vous pourr
     
 4. Ouvrez le fichier pour vous connecter à l’instance de rôle.
 
+## <a name="update-remote-desktop-extension-using-powershell"></a>Mettre à jour l’extension de Bureau à distance à l’aide de PowerShell
+Suivez les étapes ci-dessous pour mettre à jour votre service Cloud vers le module le plus récent avec une extension RDP
+
+1.  Mettre à jour le module AZ.CloudService vers la [version la plus récente](https://www.powershellgallery.com/packages/Az.CloudService/0.5.0)
+
+```powershell
+Update-Module -Name Az.CloudService 
+```
+ 
+2.  Supprimer l’extension RDP existante du service Cloud 
+
+```powershell
+$resourceGroupName='<Resource Group Name>'  
+$cloudServiceName='<Cloud Service Name>' 
+ 
+# Get existing cloud service  
+$cloudService = Get-AzCloudService -ResourceGroup $resourceGroupName -CloudServiceName $cloudServiceName  
+ 
+# Remove existing RDP Extension from cloud service object  
+$cloudService.ExtensionProfile.Extension = $cloudService.ExtensionProfile.Extension | Where-Object { $_.Type-ne "RDP" }  
+ ```
+ 
+3.  Ajouter une nouvelle extension RDP au service Cloud avec le module le plus récent
+
+```powershell
+# Create new RDP extension object  
+$credential = Get-Credential  
+$expiration='<Expiration Date>'  
+$rdpExtension = New-AzCloudServiceRemoteDesktopExtensionObject -Name "RDPExtension" -Credential $credential -Expiration $expiration -TypeHandlerVersion "1.2.1"  
+ 
+# Add RDP extension to existing cloud service extension object  
+$cloudService.ExtensionProfile.Extension = $cloudService.ExtensionProfile.Extension + $rdpExtension  
+ 
+# Update cloud service  
+$cloudService | Update-AzCloudService  
+```
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).

@@ -7,13 +7,13 @@ ms.reviewer: stmummer
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 02/18/2021
-ms.openlocfilehash: f7dfaf8e8afb4d7a5e39c16cf280c10dcae05859
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 09/22/2021
+ms.openlocfilehash: 63c820a7dd4bcbe1322478a46043963edc45dd2b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133040"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129054259"
 ---
 # <a name="reference-architecture-diagram"></a>Diagramme de l’architecture de référence
 
@@ -24,6 +24,8 @@ Le diagramme d’architecture de référence peut être créé à l’aide de pl
 Un point de départ utile pour créer des diagrammes d’architecture de référence consiste à tirer parti des [modèles d’architecture Azure](/azure/architecture/browse/).
 
 ## <a name="typical-components-of-a-reference-architecture-diagram"></a>Composants types d’un diagramme d’architecture de référence
+
+Le diagramme doit clairement identifier votre adresse IP en tant que code de solution, d’application ou de service déployé et la consommation de Microsoft Azure. Ce code doit être hautement réutilisable et ne pas dépendre d’une personnalisation étendue par déploiement.
 
 - Services cloud qui hébergent votre offre et interagissent avec elle, notamment ceux qui consomment des ressources Azure
 - Connexions de données, couches de données et services de données consommés par votre offre

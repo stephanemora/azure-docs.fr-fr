@@ -4,15 +4,14 @@ description: Cet article présente les meilleures pratiques de déploiement d’
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 4aa2a22f6e7bfef4a04eb65ac6063c81077b6153
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d357a85449a6ae734b3311f2649180b36646d4f4
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562819"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214329"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Meilleures pratiques de déploiement d’Azure Purview
 
@@ -168,7 +167,6 @@ Au cours de cette phase, Purview doit être créé et configuré pour un très p
 |Tâche|Detail|Duration|
 |---------|---------|---------|
 |Regrouper et accepter les exigences|Discutez avec toutes les parties prenantes pour recueillir un ensemble complet d’exigences. Différents personnages doivent participer à l’accord sur un sous-ensemble d’exigences à respecter à chaque phase du projet.|1 semaine|
-|Configurer le starter kit|Consultez le [Démarrage rapide de Purview](create-catalog-portal.md) et configurez le [Starter kit de Purview](tutorial-scan-data.md) pour présenter la démonstration de Purview à toutes les parties prenantes.|1 jour|
 |Naviguer dans Purview|Comprenez comment utiliser Purview à partir de la page d’accueil.|1 jour|
 |Configurer ADF pour la traçabilité|Identifiez les principaux pipelines et ressources de données. Recueillez toutes les informations requises pour se connecter à un compte ADF interne.|1 jour|
 |Analyser une source de données telle qu’Azure Data Lake Storage|Ajoutez la source de données et configurer une analyse. Assurez-vous que l’analyse détecte toutes les ressources.|2 jours|
@@ -199,7 +197,7 @@ Une fois que vous disposez des exigences convenues et des unités commerciales p
 |[Analyser Power BI](register-scan-power-bi-tenant.md)|Si votre organisation utilise Power BI, vous pouvez analyser Power BI afin de collecter toutes les ressources de données qu’utilisent les scientifiques Données ou analystes Données qui ont pour exigence d’inclure la traçabilité à partir de la couche de stockage.|1 à 2 semaines|
 |[Importer les termes de glossaire](how-to-create-import-export-glossary.md)|Dans la plupart des cas, votre organisation peut déjà développer une collection de termes de glossaire et une affectation de termes à des ressources. Cela nécessite un processus d’importation dans Purview via un fichier. csv.|1 semaine|
 |Ajouter des contacts aux ressources|Pour les ressources principales, vous pouvez établir un processus pour permettre à d’autres personnages d’attribuer des contacts ou d’importer via des API REST.|1 semaine|
-|Ajouter des étiquettes sensibles et une analyse|Cela peut être facultatif pour certaines organisations, en fonction de l’utilisation de l’étiquetage à partir de M365.|1 à 2 semaines|
+|Ajouter des étiquettes sensibles et une analyse|Cela peut être facultatif pour certaines organisations, en fonction de l’utilisation de l’étiquetage de Microsoft 365.|1 à 2 semaines|
 |Obtenir une classification et des insights sensibles|Pour créer des rapports et insights dans Purview, vous pouvez accéder à cette fonctionnalité afin d’obtenir divers rapports et de fournir une présentation à la direction.|1 jour|
 |Intégrer des utilisateurs supplémentaires avec des utilisateurs managés par Purview|Cette étape nécessite que l’administrateur Purview collabore avec l’administrateur Azure Active Directory pour établir de nouveaux groupes de sécurité afin d’accorder l’accès à Purview.|1 semaine|
 
@@ -267,5 +265,5 @@ Des étapes de renforcement supplémentaires peuvent être entreprises :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Exécuter le starter kit et analyser les données](tutorial-scan-data.md)
-- [Tutoriel : Parcourir la page d’accueil et rechercher une ressource](tutorial-asset-search.md)
+- [Bonnes pratiques pour les regroupements](concept-best-practices-collections.md)
+- [Parcourir la page d’accueil et rechercher une ressource](tutorial-asset-search.md)

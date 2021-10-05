@@ -3,14 +3,14 @@ title: Plan de déploiement d’Azure Automation Update Management
 description: Cet article décrit les considérations et les décisions à prendre pour préparer le déploiement d’Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4c29ff09b6d353072cb8486e17ffa605ceff9aea
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: bac463aa01a997122d86e32e140b135938d589da
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769353"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093285"
 ---
 # <a name="plan-your-update-management-deployment"></a>Planifier votre déploiement d’Update Management
 
@@ -56,9 +56,9 @@ Si vos stratégies de sécurité informatique n’autorisent pas les machines du
 
 Pour créer et gérer des déploiements de mises à jour, vous devez disposer d’autorisations spécifiques. Pour en savoir plus sur ces autorisations, consultez [Accès en fonction du rôle - Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
-## <a name="step-7---windows-update-client"></a>Étape 7 : Client Windows Update
+## <a name="step-7---windows-update-agent"></a>Étape 7 : Agent Windows Update
 
-Azure Automation Update Management s’appuie sur le client Windows Update pour télécharger et installer les mises à jour de Windows. Des paramètres spécifiques de stratégie de groupe sont utilisés par l’agent Windows Update (WUA) sur les machines pour se connecter à Windows Server Update Services (WSUS) ou Microsoft Update. Ces paramètres de stratégie de groupe sont également utilisés pour analyser la conformité des mises à jour de logiciels et mettre celles-ci à jour automatiquement. Pour passer en revue nos recommandations, consultez [Configurer les paramètres de Windows Update pour Update Management](configure-wuagent.md).
+Azure Automation Update Management s’appuie sur l’agent Windows Update pour télécharger et installer les mises à jour de Windows. Des paramètres spécifiques de stratégie de groupe sont utilisés par l’agent Windows Update (WUA) sur les machines pour se connecter à Windows Server Update Services (WSUS) ou Microsoft Update. Ces paramètres de stratégie de groupe sont également utilisés pour analyser la conformité des mises à jour de logiciels et mettre celles-ci à jour automatiquement. Pour passer en revue nos recommandations, consultez [Configurer les paramètres de Windows Update pour Update Management](configure-wuagent.md).
 
 ## <a name="step-8---linux-repository"></a>Étape 8 : Référentiel Linux
 

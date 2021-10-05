@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 88ac65c35b29c2113576594788f820973331d64b
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 5f92ecca8ccecda0f4ba6e7e87dc0287c75ed41b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122528009"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761616"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migrer d’une stratégie d’accès de coffre vers un modèle d’autorisation de type contrôle d’accès en fonction du rôle Azure
 
@@ -31,7 +31,7 @@ Avantages principaux d’Azure RBAC par rapport aux stratégies d’accès du co
 
 Inconvénients d’Azure RBAC :
 - Latence pour les attributions de rôles : l’application de l’attribution des rôles peut prendre plusieurs minutes. Les stratégies d’accès au coffre sont immédiatement affectées.
-- Nombre limité d’attributions de rôles : 2000 attributions de rôles par abonnement et 1024 stratégies d’accès par Key Vault
+- Nombre limité d’attributions de rôles : le RBAC Azure n’autorise que 2 000 attributions de rôles dans tous les services par abonnement, et 1 024 stratégies d’accès par Key Vault
 
 ## <a name="access-policies-to-azure-roles-mapping"></a>Mappage des stratégies d’accès aux rôles Azure
 

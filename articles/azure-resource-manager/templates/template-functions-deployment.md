@@ -2,13 +2,13 @@
 title: Fonctions et déploiement du modèle
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour récupérer des informations de déploiement.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: a51e11a34e9c5dd51b07bfa1f2d64e1b306f5b31
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/09/2021
+ms.openlocfilehash: 12f449cd70f0ccbeeb0d232299f38fb814a8cb24
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959687"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733329"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Fonctions de déploiement pour les modèles ARM
 
@@ -142,21 +142,9 @@ Si vous redéployez un modèle à partir de l’historique de déploiement dans 
 
 ### <a name="example"></a>Exemple
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) suivant retourne l’objet de déploiement :
+L’exemple suivant retourne un objet de déploiement.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "deploymentOutput": {
-      "type": "object",
-      "value": "[deployment()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/deployment.json":::
 
 L’exemple précédent retourne l’objet suivant :
 
@@ -182,6 +170,10 @@ L’exemple précédent retourne l’objet suivant :
   }
 }
 ```
+
+Dans le cas d’un déploiement d’abonnement, l’exemple suivant retourne un objet de déploiement.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/deploymentsubscription.json":::
 
 ## <a name="environment"></a>Environnement
 
@@ -231,19 +223,7 @@ Cette valeur retourne des propriétés pour l’environnement Azure actuel. L’
 
 L’exemple de modèle suivant retourne l’objet d’environnement.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "environmentOutput": {
-      "type": "object",
-      "value": "[environment()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/environment.json":::
 
 L’exemple précédent retourne l’objet suivant lorsqu’il est déployé vers Azure international :
 
@@ -320,63 +300,9 @@ En général, vous utilisez les paramètres pour définir les valeurs de la ress
 
 ### <a name="example"></a>Exemple
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) suivant montre une utilisation simplifiée de la fonction parameters.
+L'exemple suivant montre une utilisation simplifiée de la fonction parameters.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringParameter": {
-      "type": "string",
-      "defaultValue": "option 1"
-    },
-    "intParameter": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "objectParameter": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b"
-      }
-    },
-    "arrayParameter": {
-      "type": "array",
-      "defaultValue": [ 1, 2, 3 ]
-    },
-    "crossParameter": {
-      "type": "string",
-      "defaultValue": "[parameters('stringParameter')]"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "stringOutput": {
-      "value": "[parameters('stringParameter')]",
-      "type": "string"
-    },
-    "intOutput": {
-      "value": "[parameters('intParameter')]",
-      "type": "int"
-    },
-    "objectOutput": {
-      "value": "[parameters('objectParameter')]",
-      "type": "object"
-    },
-    "arrayOutput": {
-      "value": "[parameters('arrayParameter')]",
-      "type": "array"
-    },
-    "crossOutput": {
-      "value": "[parameters('crossParameter')]",
-      "type": "string"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/parameters.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -435,43 +361,9 @@ En général, vous utilisez les variables pour simplifier votre modèle en créa
 
 ### <a name="example"></a>Exemple
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) suivant retourne différentes valeurs de variables.
+L’exemple suivant retourne différentes valeurs de variables.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "var1": "myVariable",
-    "var2": [ 1, 2, 3, 4 ],
-    "var3": "[ variables('var1') ]",
-    "var4": {
-      "property1": "value1",
-      "property2": "value2"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "exampleOutput1": {
-      "value": "[variables('var1')]",
-      "type": "string"
-    },
-    "exampleOutput2": {
-      "value": "[variables('var2')]",
-      "type": "array"
-    },
-    "exampleOutput3": {
-      "value": "[variables('var3')]",
-      "type": "string"
-    },
-    "exampleOutput4": {
-      "value": "[variables('var4')]",
-      "type": "object"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/variables.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 

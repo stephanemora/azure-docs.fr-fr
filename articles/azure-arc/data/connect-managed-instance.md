@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: c0a64d5756895f18cbb1285586570ac72dd1c12e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 62442749ccff4a588daef57c7e3ecbc374ff5fde
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532555"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061729"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Se connecter à SQL Managed Instance avec Azure Arc
 
@@ -56,6 +56,9 @@ Exemple :
 
 > [!NOTE]
 > Vous pouvez utiliser Azure Data Studio pour [Visualiser les tableaux de bord des instances SQL managées](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards).
+
+> [!NOTE]
+> Pour vous connecter à une instance gérée qui a été créée à l’aide d’un manifeste Kubernetes, le nom d’utilisateur et le mot de passe doivent être fournis à sqlcmd au format encodé en base64.
 
 Pour vous connecter à l’aide de SQLCMD, de Linux ou de Windows, vous pouvez utiliser une commande comme celle-ci. Entrez le mot de passe SQL quand vous y êtes invité :
 

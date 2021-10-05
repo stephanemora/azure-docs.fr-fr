@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
-ms.date: 04/07/2021
-ms.openlocfilehash: 2bd5ae6696c5ce1c2d4ea3be974245fde1053b71
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.date: 09/27/2021
+ms.openlocfilehash: 9e30cc845fbc4ec2aefc062780f53e3bb0f02161
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416287"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082573"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gérer votre compte Place de marché commerciale dans l’Espace partenaires
 
@@ -21,20 +21,40 @@ ms.locfileid: "112416287"
 - Propriétaire
 - Manager
 
-Une fois que vous avez [créé un compte Espace partenaires](./create-account.md), vous pouvez utiliser le [tableau de bord de la Place de marché commerciale](https://go.microsoft.com/fwlink/?linkid=2166002) pour gérer votre compte et les offres.
+Une fois que vous avez [créé un compte Espace partenaires](./create-account.md), vous pouvez utiliser le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour gérer votre compte et les offres.
 
 ## <a name="access-your-account-settings"></a>Accéder à vos paramètres de compte
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+Si ce n’est déjà fait, vous (ou l’administrateur de votre organisation) devez accéder aux [paramètres du compte](https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#mpn) de votre compte Espace partenaires.
+
+1. Connectez-vous au [tableau de bord de la place de marché commerciale](https://partner.microsoft.com/dashboard/home) dans l’Espace partenaires à l’aide du compte auquel vous souhaitez accéder. Si vous êtes membre de plusieurs comptes et que vous vous êtes connecté avec un autre compte, vous pouvez [changer de compte](switch-accounts.md).
+
+1. En haut à droite, sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres du compte**.
+
+    [ ![Capture d’écran du menu Paramètres du compte dans l’Espace partenaires.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
+
+1. Sous **Paramètres du compte**, sélectionnez **Légal**. Sélectionnez ensuite l’onglet **Développeur** pour afficher les détails relatifs à votre compte Place de marché commerciale.
+
+    [ ![Capture d’écran de l’onglet Développeur sur la page Légal dans Paramètres du compte.](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 Si ce n’est déjà fait, vous (ou l’administrateur de votre organisation) devez accéder aux [paramètres du compte](https://go.microsoft.com/fwlink/?linkid=2165291) de votre compte Espace partenaires.
 
 1. Connectez-vous au [tableau de bord de la place de marché commerciale](https://go.microsoft.com/fwlink/?linkid=2165290) dans l’Espace partenaires à l’aide du compte auquel vous souhaitez accéder. Si vous êtes membre de plusieurs comptes et que vous vous êtes connecté avec un autre compte, vous pouvez [changer de compte](switch-accounts.md).
 1. En haut à droite, sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres du compte**.
 
-    [ ![Capture d’écran du menu Paramètres du compte dans l’Espace partenaires.](./media/manage-accounts/settings-account.png) ](./media/manage-accounts/settings-account.png#lightbox)
+   :::image type="content" source="media/manage-accounts/settings-account.png" alt-text="Capture d’écran montrant l’option Paramètres du compte dans l’Espace partenaires.":::
 
 1. Sous **Paramètres du compte**, sélectionnez **Légal**. Sélectionnez ensuite l’onglet **Développeur** pour afficher les détails relatifs à votre compte Place de marché commerciale.
 
-    [ ![Capture d’écran de l’onglet Développeur sur la page Légal dans Paramètres du compte.](./media/manage-accounts/developer-tab.png) ](./media/manage-accounts/developer-tab.png#lightbox)
+   :::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="Capture d’écran montrant l’onglet Développeur." lightbox="media/manage-accounts/developer-tab.png":::
+
+---
 
 ### <a name="account-settings-page"></a>Page Paramètres du compte
 
@@ -110,7 +130,7 @@ La page **Contrats** vous permet d’afficher la liste des contrats de publicati
 
 Pour accéder à la page Contrats :
 
-1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 1. En haut à droite, sélectionnez **Paramètres** > **Paramètres du compte**.
 1. Sous **Paramètres du compte**, sélectionnez **Contrats**.
 
@@ -118,14 +138,38 @@ Les **actions nécessaires** peuvent apparaître en haut de cette page s’il ex
 
 ## <a name="set-up-a-payout-profile"></a>Paramétrer un profil de paiement
 
-Un profil de paiement est le compte bancaire auquel les recettes sont envoyées en fonction de vos ventes. Ce compte bancaire doit se trouver dans le même pays/la même région que celui/celle où vous avez enregistré votre compte Espace partenaires. Pour plus d’informations sur un profil de paiement, consultez [Créer et gérer des profils fiscaux et de paiement des primes incitatives dans l’Espace partenaires](/partner-center/incentives-create-and-manage-your-payout-and-tax-profiles) et [Configurer votre compte de paiement et vos déclarations de taxe](/partner-center/set-up-your-payout-account).
+Un profil de paiement est le compte bancaire auquel les recettes sont envoyées en fonction de vos ventes. Ce compte bancaire doit se trouver dans le même pays/la même région que celui/celle où vous avez enregistré votre compte Espace partenaires. Pour en savoir plus sur les profils de paiement, consultez [Configurer votre compte de paiement et vos déclarations de taxe](/partner-center/set-up-your-payout-account).
 
-Pour configurer votre profil de paiement :
+### <a name="to-set-up-your-payout-profile"></a>Pour configurer votre profil de paiement
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous au [tableau de bord de la place de marché commerciale](https://partner.microsoft.com/dashboard/home) dans l’Espace partenaires à l’aide du compte auquel vous souhaitez accéder.
+
+1. En haut à droite, sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres du compte**.
+
+    [ ![Capture d’écran du menu Paramètres du compte dans l’Espace partenaires.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
+
+1. Dans le menu de gauche, sous **Paiement et taxe**, sélectionnez **Attribution de profil de paiement et de taxe**.
+
+    [ ![Illustre la page Attribution de profil de paiement et de taxe.](./media/manage-accounts/payout-and-tax-profile-assignment.png) ](./media/manage-accounts/payout-and-tax-profile-assignment.png#lightbox)
+
+    > [!NOTE]
+    > Si la section **Paiement et taxe** ne s’affiche pas dans le menu de gauche, contactez votre administrateur global ou votre administrateur de compte pour obtenir des autorisations.
+
+1. Pour en savoir plus sur la configuration de votre profil de paiement, consultez [Configurer votre compte de paiement et vos déclarations de taxe](/partner-center/set-up-your-payout-account).
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 1. Accédez à la page [Vue d’ensemble de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dans l’Espace partenaires.
-2. Dans la section **Profil**, à côté de **Profil de paiement**, sélectionnez **Mettre à jour**.
-3. **Choisir un mode de paiement** : Compte bancaire ou PayPal.
-4. **Ajouter des informations de paiement** : Il peut s’agir du type de compte (courant ou épargne), du nom du titulaire du compte, le numéro de compte, le numéro de routage, l’adresse de facturation, le numéro de téléphone ou l’adresse e-mail PayPal. Pour plus d’informations sur l’utilisation de PayPal comme mode de paiement du compte et pour savoir s’il est pris en charge dans votre marché ou région, consultez [Informations PayPal](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+1. Dans la section **Profil**, à côté de **Profil de paiement**, sélectionnez **Mettre à jour**.
+
+    > [!NOTE]
+    > Si la section **Paiement et taxe** ne s’affiche pas dans le menu de gauche, contactez votre administrateur global ou votre administrateur de compte pour obtenir des autorisations.
+
+1. Pour en savoir plus sur la configuration de votre profil de paiement, consultez [Configurer votre compte de paiement et vos déclarations de taxe](/partner-center/set-up-your-payout-account).
+
+---
 
 > [!IMPORTANT]
 > La modification de votre compte de paiement peut retarder vos paiements jusqu’à un cycle de paiement. Ce retard se produit parce que nous devons vérifier le changement de compte, comme nous l’avons fait lorsque vous avez configuré le compte de paiement pour la première fois. Vous serez payé pour le montant total une fois que votre compte aura été vérifié. Tout paiement dû dans le cycle de paiement actuel sera ajouté au cycle suivant  
@@ -179,17 +223,16 @@ Les paramètres de gestion des appareils ne s’appliquent qu’à la publicatio
 
 ## <a name="create-a-billing-profile"></a>Créer un profil de facturation
 
-Si vous publiez une offre [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) ou [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md), vous devez compléter votre *profil de facturation*.
+Si vous publiez une offre [Dynamics 365 for Customer Engagement & Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md) ou [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md), vous devez compléter votre *profil de facturation*.
 
 L’adresse de facturation est préremplie avec votre entité légale et vous pouvez la mettre à jour ultérieurement. Les champs Taxes et ID TVA sont obligatoires pour certains pays et facultatifs pour d’autres. Le nom du pays/de la région et le nom de la société ne peuvent pas être modifiés.
 
-1. Accédez à **Paramètres du compte**.
+1. En haut à droite, sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres du compte**.
 1. Ensuite, dans le volet de navigation gauche, développez **Profil de l’organisation** et sélectionnez **Profil de facturation**.
-
 
 ## <a name="multi-user-account-management"></a>Gestion des comptes multi-utilisateurs
 
-L’Espace partenaires utilise [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) pour l’accès aux comptes multi-utilisateurs et la gestion de ceux-ci. L’Azure AD de votre organisation est automatiquement associé à votre compte Espace partenaires dans le cadre du processus d’inscription.
+L’Espace partenaires utilise [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) pour l’accès aux comptes multi-utilisateurs et la gestion de ceux-ci. L’Azure AD de votre organisation est automatiquement associé à votre compte Espace partenaires dans le cadre du processus d’inscription.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

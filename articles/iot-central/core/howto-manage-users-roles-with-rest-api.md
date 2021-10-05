@@ -3,16 +3,16 @@ title: Utiliser l’API REST pour gérer les utilisateurs et les rôles dans Azu
 description: Comment utiliser l’API REST IoT Central pour gérer les utilisateurs et les rôles dans une application
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: df4476177175fd5aadc57c3d68bedc97531aee0c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 54917fced3fb561add82d8e1f78078e7562858e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448493"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680449"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-manage-users-and-roles"></a>Comment utiliser l’API REST IoT Central pour gérer les utilisateurs et les rôles
 
@@ -21,6 +21,9 @@ L’API REST IoT Central vous permet de développer des applications clientes qu
 Chaque appel d’API REST IoT Central nécessite un en-tête d’autorisation. Pour plus d’informations, consultez [Comment authentifier et autoriser les appels d’API REST d’IoT Central](howto-authorize-rest-api.md).
 
 Pour obtenir la documentation de référence sur l’API REST IoT Central, consultez [Informations de référence sur l’API REST d’Azure IoT Central](/rest/api/iotcentral/).
+
+> [!TIP]
+> L'[API en préversion](/rest/api/iotcentral/1.1-previewdataplane/users) comprend la prise en charge de la nouvelle [fonctionnalité organisations](howto-create-organizations.md).
 
 ## <a name="manage-roles"></a>Gérer les rôles
 
@@ -183,7 +186,7 @@ La réponse à cette demande se présente comme dans l’exemple suivant. La val
 }
 ```
 
-Vous pouvez également ajouter un utilisateur de principal de service. C’est utile si vous devez utiliser l’authentification du principal du service pour les appels de l’API REST. Pour en savoir plus, consultez [Ajouter ou mettre à jour un utilisateur de principal de service](/rest/api/iotcentral/1.0/users/create#add-or-update-a-service-principal-user).
+Vous pouvez également ajouter un utilisateur de principal de service. C’est utile si vous devez utiliser l’authentification du principal du service pour les appels de l’API REST. Pour en savoir plus, consultez [Ajouter ou mettre à jour un utilisateur de principal de service](/rest/api/iotcentral/1.0dataplane/users/create#add-or-update-a-service-principal-user).
 
 ### <a name="change-the-role-of-a-user"></a>Modifier le rôle d’un utilisateur
 

@@ -4,34 +4,17 @@ description: Décrit les fonctions à utiliser dans un fichier Bicep pour travai
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 06/01/2021
-ms.openlocfilehash: e782ec0d77930651346cc0fc97e52d5c473b9245
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: 69a937a68e2f73eaf911f2cb80cf09bab7d78eed
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026374"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794098"
 ---
 # <a name="array-functions-for-bicep"></a>Tableaux logiques pour Bicep
 
-Resource Manager fournit les fonctions ci-après pour travailler avec des tableaux dans Bicep :
-
-* [array](#array)
-* [concat](#concat)
-* [contains](#contains)
-* [empty](#empty)
-* [first](#first)
-* [intersection](#intersection)
-* [last](#last)
-* [length](#length)
-* [max](#max)
-* [min](#min)
-* [range](#range)
-* [skip](#skip)
-* [take](#take)
-* [union](#union)
-
-Pour obtenir un tableau de valeurs de chaîne délimitée par une valeur, consultez [split](./bicep-functions-string.md#split).
+Cet article décrit les fonctions Bicep pour l’utilisation de tableaux.
 
 ## <a name="array"></a>tableau
 
@@ -259,11 +242,11 @@ Retourne un tableau ou un objet unique avec les éléments communs à partir des
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |objet ou tableau |La première valeur à utiliser pour rechercher des éléments communs. |
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
-| arguments supplémentaires |Non |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
+| arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour rechercher des éléments communs. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
-Tableau ou objet avec les éléments communs.
+Tableau ou objet avec les éléments communs. L’ordre des éléments est déterminé par le premier paramètre de tableau.
 
 ### <a name="example"></a>Exemple
 
@@ -303,6 +286,40 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
+
+Le premier paramètre de tableau détermine l’ordre des éléments croisés. L’exemple suivant montre comment l’ordre des éléments retournés est basé sur le tableau qui figure en première position.
+
+```bicep
+var array1 = [
+  1
+  2
+  3
+  4
+]
+
+var array2 = [
+  3
+  2
+  1
+]
+
+var array3 = [
+  4
+  1
+  3
+  2
+]
+
+output commonUp array = intersection(array1, array2, array3)
+output commonDown array = intersection(array2, array3, array1)
+```
+
+La sortie de l’exemple précédent est :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| commonUp | tableau | [1, 2, 3] |
+| commonDown | tableau | [3, 2, 1] |
 
 ## <a name="last"></a>last
 
@@ -476,7 +493,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `range(startIndex, count)`
 
-Crée un tableau d’entiers à partir d’un entier de départ et contenant un nombre d’éléments.
+Crée un tableau d’entiers à partir d’un entier de départ et contenant le nombre d’éléments.
 
 ### <a name="parameters"></a>Paramètres
 
@@ -517,7 +534,7 @@ Retourne un tableau avec tous les éléments après le nombre spécifié dans le
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
-| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
+| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est retourné. |
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -559,7 +576,7 @@ Retourne un tableau avec le nombre spécifié d’éléments à partir du début
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
-| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
+| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne, tous les éléments du tableau ou de la chaîne sont retournés. |
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -604,7 +621,7 @@ Retourne un tableau ou un objet unique avec tous les éléments communs à parti
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
 | arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Objet ou tableau.
 
@@ -649,4 +666,4 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un fichier Bicep, consultez [comprendre la structure et la syntaxe des fichiers Bicep](./file.md).
+* Pour obtenir un tableau de valeurs de chaîne délimitée par une valeur, consultez [split](./bicep-functions-string.md#split).

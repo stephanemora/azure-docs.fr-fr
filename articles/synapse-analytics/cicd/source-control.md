@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 10df7f8db2a787300787f8995ac0ea3a33736e68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5b03a7c713203dd61eb95fd5422b3002939e9011
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563004"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208734"
 ---
 # <a name="source-control-in-synapse-studio"></a>Contrôle de code source dans Synapse Studio
 
@@ -23,6 +23,9 @@ Cet article explique comment configurer et utiliser un espace de travail Synapse
 
 > [!NOTE]
 > L’intégration Git de Synapse Studio n’est pas disponible dans le cloud Azure Government.
+
+## <a name="prerequisites"></a>Prérequis
+Les utilisateurs doivent disposer au moins du rôle Azure Contributeur (contrôle d’accès en fonction du rôle Azure) sur l’espace de travail Synapse pour configurer, modifier des paramètres et déconnecter un référentiel Git avec Synapse. 
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Configurer le référentiel Git dans Synapse Studio 
 
@@ -39,9 +42,6 @@ Dans la barre globale de Synapse Studio, sélectionnez le menu déroulant **Syna
 Accédez au hub de gestion de Synapse Studio. Sélectionnez **Configuration Git** dans la section **Contrôle de code source**. Si vous n’avez pas de référentiel connecté, cliquez sur **Configure** (Configurer).
 
 ![Configurer les paramètres du référentiel de code à partir du hub de gestion](media/configure-repo-2.png)
-
-> [!NOTE]
-> Les utilisateurs autorisés en tant que contributeur d’espace de travail, propriétaire ou rôle de niveau supérieur peuvent configurer, modifier le paramètre et déconnecter le référentiel Git dans Azure Synapse Studio 
 
 Vous pouvez connecter le référentiel Git Azure DevOps ou GitHub dans votre espace de travail.
 
@@ -161,9 +161,13 @@ Les systèmes de contrôle de version (également appelé _contrôle du code sou
 
 ### <a name="creating-feature-branches"></a>Création de branches de fonctionnalités
 
-Chaque référentiel Git associé à Synapse Studio comporte une branche de collaboration. (`main` ou `master` est la branche de collaboration par défaut). Les utilisateurs peuvent également créer des branches de fonctionnalités en cliquant sur **+ Nouvelle branche** dans la liste déroulante des branches. Une fois le volet de la nouvelle branche affiché, entrez le nom de votre branche de fonctionnalités.
+Chaque référentiel Git associé à Synapse Studio comporte une branche de collaboration. (`main` ou `master` est la branche de collaboration par défaut). Les utilisateurs peuvent également créer des branches de fonctionnalités en cliquant sur **+ Nouvelle branche** dans la liste déroulante des branches. 
 
 ![Créer une branche](media/create-new-branch.png)
+
+Une fois que le volet Nouvelle branche s’affiche, entrez le nom de votre branche de fonctionnalité, puis sélectionnez une branche à partir de laquelle vous souhaitez baser le travail.
+
+![Créer une branche basée sur une branche privée ](media/create-branch-from-private-branch.png)
 
 Lorsque vous êtes prêt à fusionner les modifications de votre branche de fonctionnalités dans votre branche de collaboration, cliquez sur la liste déroulante des branches et sélectionnez **Créer la demande de tirage (pull request)** . Cette action vous dirigera vers un fournisseur Git où vous pouvez augmenter les demandes de tirage, procéder à des révisions du code et fusionner les modifications dans votre branche de collaboration. Vous êtes uniquement autorisé à publier sur le service Synapse à partir de votre branche de collaboration. 
 
@@ -243,4 +247,4 @@ Si la branche de publication n’est pas synchronisée avec la branche de collab
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour implémenter l’intégration et le déploiement continus, consultez [Intégration et livraison continues (CI/CD)](continuous-integration-deployment.md).
+* Pour implémenter l’intégration et le déploiement continus, consultez [Intégration et livraison continues (CI/CD)](continuous-integration-delivery.md).

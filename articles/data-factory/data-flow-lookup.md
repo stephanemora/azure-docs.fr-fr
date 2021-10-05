@@ -1,7 +1,7 @@
 ---
 title: Transformation de recherche dans le flux de données de mappage
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Référencez des données à partir d’une autre source à l’aide de la transformation de recherche dans le flux de données de mappage.
+description: Référencez des données d’une autre source à l’aide de la transformation de recherche dans le flux de données de mappage pour les pipelines Azure Data Factory et Synapse Analytics.
 author: kromerm
 ms.reviewer: daperlov
 ms.author: makromer
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/19/2021
-ms.openlocfilehash: f6250b15f854870d14d9977c8eebd7c71e565635
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 8c5371fee2b0e7c4440762f9d7e609bf2dd496be
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641413"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060116"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformation de recherche dans le flux de données de mappage
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Utilisez la transformation de recherche pour référencer des données provenant d’une autre source dans un flux de données. La transformation de recherche ajoute des colonnes de données mises en correspondance à vos données sources.
 
@@ -29,7 +31,7 @@ Une transformation de recherche est similaire à une jointure externe gauche. To
 
 ## <a name="configuration"></a>Configuration
 
-![Capture d’écran affichant l’onglet Paramètres de recherche avec les étiquettes décrites dans le texte suivant.](media/data-flow/lookup1.png "Recherche")
+:::image type="content" source="media/data-flow/lookup1.png" alt-text="Capture d’écran affichant l’onglet Paramètres de recherche avec les étiquettes décrites dans le texte suivant.":::
 
 **Flux principal :** Le flux de données entrant. Ce flux est équivalent au côté gauche d’une jointure.
 
@@ -47,13 +49,13 @@ Toutes les colonnes des deux flux sont incluses dans les données de sortie. Pou
 
 Pour utiliser un opérateur conditionnel tel que « différent de » (!=) ou « supérieur à » (>) dans vos conditions de recherche, modifiez la liste déroulante des opérateurs entre les deux colonnes. Des jointures différentes nécessitent qu’au moins l’un des deux flux soit diffusés en utilisant la diffusion **fixe** dans l’onglet **Optimiser**.
 
-![Non-equi lookup](media/data-flow/non-equi-lookup.png "Recherche de différence")
+:::image type="content" source="media/data-flow/non-equi-lookup.png" alt-text="Non-equi lookup":::
 
 ## <a name="analyzing-matched-rows"></a>Analyse des lignes correspondantes
 
 Après la transformation de recherche, la fonction `isMatch()` peut être utilisée pour déterminer si la recherche correspond à des lignes individuelles.
 
-![Modèle de recherche](media/data-flow/lookup111.png "Modèle de recherche")
+:::image type="content" source="media/data-flow/lookup111.png" alt-text="Modèle de recherche":::
 
 Un exemple de ce modèle consiste à utiliser la transformation de fractionnement conditionnel pour fractionner sur la fonction `isMatch()`. Dans l’exemple ci-dessus, les lignes correspondantes passent par le flux principal, et les lignes sans correspondance transitent par le flux ```NoMatch```.
 
@@ -63,7 +65,7 @@ Lorsque vous testez la transformation de recherche avec l’aperçu des données
 
 ## <a name="broadcast-optimization"></a>Optimisation de la diffusion
 
-![Jonction de diffusion](media/data-flow/broadcast.png "Jonction de diffusion")
+:::image type="content" source="media/data-flow/broadcast.png" alt-text="Jonction de diffusion":::
 
 Dans les transformations de jointure, de recherche et d’existence, si l’un des flux de données ou les deux tiennent dans la mémoire de nœud Worker, vous pouvez optimiser les performances en activant la **diffusion**. Par défaut, le moteur Spark détermine automatiquement s’il faut diffuser un côté. Pour choisir manuellement le côté à diffuser, sélectionnez **Fixe**.
 
@@ -89,7 +91,7 @@ Si vous effectuez plusieurs petites recherches sur la même source, un récepteu
 ```
 ### <a name="example"></a>Exemple
 
-![Capture d’écran représentant l’onglet Paramètres de recherche pour le code suivant.](media/data-flow/lookup-dsl-example.png "Recherche")
+:::image type="content" source="media/data-flow/lookup-dsl-example.png" alt-text="Capture d’écran représentant l’onglet Paramètres de recherche pour le code suivant.":::
 
 Le script de transmission de données pour la configuration de recherche ci-dessus se trouve dans l’extrait de code suivant.
 

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 09/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1b50fbbdd38d1bb24c1732c465784c3ddb757e3f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 057afd588193a8fdfba020e25d086dc915bb9eaa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114454779"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612830"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Recherche sémantique dans la Recherche cognitive Azure
 
@@ -36,6 +36,13 @@ La recherche sémantique est une fonctionnalité Premium. Nous vous recommandons
 
 La recherche sémantique est un ensemble de fonctionnalités qui améliorent la qualité des résultats de recherche. Lorsqu’elle est activée sur votre service de recherche, elle étend le pipeline d’exécution de requêtes de deux manières. Tout d’abord, elle ajoute le classement secondaire sur un jeu de résultats initial, en promouvant les résultats les plus sémantiquement pertinents en haut de la liste. Deuxièmement, elle extrait et retourne des légendes et des réponses dans la réponse, que vous pouvez afficher sur une page de recherche pour améliorer l’expérience de recherche de l’utilisateur.
 
+| Caractéristique | Description |
+|---------|-------------|
+| [Nouveau classement sémantique](semantic-ranking.md) | Utilise le contexte ou la signification sémantique pour calculer un nouveau score de pertinence par rapport aux résultats existants. |
+| [Légendes et mises en surbrillance sémantiques](semantic-how-to-query-request.md) | Extrait des phrases et morceaux de phrases d’un document qui résument le mieux le contenu, en mettant en évidence les passages clés pour faciliter l’analyse. Les légendes qui synthétisent un résultat sont utiles lorsque les champs de contenu individuels sont trop denses pour la page résultats. Le texte mis en surbrillance élève les termes et expressions les plus pertinents afin que les utilisateurs puissent déterminer rapidement la raison pour laquelle une correspondance a été considérée comme pertinente. |
+| [Réponses sémantiques](semantic-answers.md) | Sous-structure facultative et supplémentaire renvoyée par une requête sémantique. Elle fournit une réponse directe à une requête qui ressemble à une question. Il exige qu’un document comporte du texte avec les caractéristiques d’une réponse. |
+| [Vérification orthographique](speller-how-to-add.md) | Corrige les fautes de frappe avant que les termes de la requête n’atteignent le moteur de recherche. |
+
 ## <a name="how-semantic-ranking-works"></a>Fonctionnement du classement sémantique
 
 Le *classement sémantique* recherche le contexte et la relation entre les termes, en élevant les correspondances plus significatives en fonction de la requête. La compréhension du langage recherche des résumés ou des *légendes* et des *réponses* dans votre contenu et les inclut dans la réponse, qui peut ensuite être affichée sur une page de résultats de recherche pour une expérience de recherche plus productive.
@@ -47,17 +54,6 @@ La technologie sous-jacente est issue de Bing et Microsoft Research, et est int�
 La vidéo suivante fournit une vue des fonctionnalités.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
-
-## <a name="features-in-semantic-search"></a>Fonctionnalités de la recherche sémantique
-
-La recherche sémantique améliore la précision et le rappel grâce à ces nouvelles fonctionnalités :
-
-| Fonctionnalité | Description |
-|---------|-------------|
-| [Vérification orthographique](speller-how-to-add.md) | Corrige les fautes de frappe avant que les termes de la requête n’atteignent le moteur de recherche. |
-| [Classement sémantique](semantic-ranking.md) | Utilise le contexte ou la signification sémantique pour calculer un nouveau score de pertinence. |
-| [Légendes et mises en surbrillance sémantiques](semantic-how-to-query-request.md) | Phrases ou morceaux de phrases d’un document qui résument le mieux le contenu, en mettant en évidence les passages clés pour faciliter l’analyse. Les légendes qui synthétisent un résultat sont utiles lorsque les champs de contenu individuels sont trop denses pour la page résultats. Le texte mis en surbrillance élève les termes et expressions les plus pertinents afin que les utilisateurs puissent déterminer rapidement la raison pour laquelle une correspondance a été considérée comme pertinente. |
-| [Réponses sémantiques](semantic-answers.md) | Sous-structure facultative et supplémentaire renvoyée par une requête sémantique. Elle fournit une réponse directe à une requête qui ressemble à une question. |
 
 ### <a name="order-of-operations"></a>Ordre des opérations
 
@@ -77,15 +73,15 @@ Pour utiliser les fonctionnalités sémantiques dans des requêtes, vous devez a
 
 ## <a name="semantic-capabilities-and-limitations"></a>Fonctionnalités et limitations sémantiques
 
-La recherche sémantique étant une technologie assez récente, il est important de définir des attentes quant à ce qu’elle peut et ne peut pas faire. Elle améliore la qualité des résultats de recherche de deux manières :
+La recherche sémantique étant une technologie assez récente, il est important de définir des attentes quant à ce qu’elle peut et ne peut pas faire. Ce qu’il peut faire est d’améliorer la qualité de la recherche en :
 
 * Tout d’abord, elle promeut des correspondances qui sont sémantiquement plus proches de l’intention de la requête d’origine.
 
-* Deuxièmement, les résultats sont plus faciles à utiliser lorsque les légendes et les réponses éventuelles sont présentes sur la page.
+* Recherche de chaînes dans chaque résultat qui peuvent être utilisées comme légendes, et éventuellement des réponses, qui peuvent être rendues dans une page de résultats de recherche.
 
-La recherche sémantique n’est pas avantageuse dans tous les scénarios, et avant de poursuivre, assurez-vous que vous disposez d’un contenu qui peut utiliser ses fonctionnalités. Les modèles de langage dans la recherche sémantique fonctionnent mieux sur le contenu pouvant faire l’objet d’une recherche, riche en informations et structuré comme PROSE. Par exemple, lors de l’évaluation de votre contenu pour les réponses, les modèles recherchent et extraient une chaîne verbatim ressemblant à une réponse, mais ne composent pas de nouvelles chaînes en tant que réponses à une requête ou en tant que légendes pour un document correspondant. Pour répondre à la question « Quelle voiture a le meilleur kilométrage », un index doit avoir des expressions telles que « Les voitures hybrides offrent le meilleur kilométrage des voitures sur le marché ».
+Ce qu’il ne peut pas faire est de réexécuter la requête sur le corpus entier pour rechercher des résultats sémantiquement pertinents. La recherche sémantique reclasse le jeu de résultats *existant* , constitué des 50 premiers résultats tels qu’ils sont évalués par l’algorithme de classement par défaut. En outre, la recherche sémantique ne peut pas créer de nouvelles informations ou chaînes. Les légendes et les réponses sont extraites textuellement à partir de votre contenu. Par conséquent, si les résultats n’incluent pas de texte de type réponse, les modèles de langage n’en génèreront pas.
 
-La recherche sémantique ne peut pas mettre en corrélation ni déduire des informations à partir d’éléments de contenu différents au sein d’un document ou d’un corpus de documents. Par exemple, si une requête cherche des « hôtels situés dans le désert » sans fournir la moindre indication géographique, le moteur ne trouve aucun hôtel situé en Arizona ou au Nevada, même si ces deux États ont des hôtels et des déserts. De même, si la requête comprend la clause « au cours des 5 dernières années », le moteur ne calcule pas un intervalle de temps en fonction de la date du jour. Dans le service Recherche cognitive, les mécanismes qui peuvent être utiles pour les scénarios ci-dessus incluent des [cartes de synonymes](search-synonyms.md) qui vous permettent de créer des associations entre des termes apparemment différents, ou des [filtres de date](search-query-odata-filter.md) spécifiés sous la forme d’une expression OData.
+Même si la recherche sémantique n’est pas avantageuse dans chaque scénario, certains contenus peuvent tirer parti de ses fonctionnalités. Les modèles de langage dans la recherche sémantique fonctionnent mieux sur le contenu pouvant faire l’objet d’une recherche, riche en informations et structuré comme PROSE. Une base de connaissances, une documentation en ligne ou des documents qui contiennent du contenu descriptif tirent le plus grand parti des fonctionnalités de recherche sémantique.
 
 ## <a name="availability-and-pricing"></a>Disponibilité et tarification
 
@@ -98,7 +94,31 @@ La recherche sémantique est disponible via [l’enregistrement d’inscription]
 
 Vous pouvez utiliser la vérification orthographique sans la recherche sémantique et ce, gratuitement. Des frais de recherche sémantique sont prélevés lorsque les demandes de requête incluent `queryType=semantic` et que la chaîne de recherche n’est pas vide (par exemple, `search=pet friendly hotels in new york`). La recherche vide (requêtes where `search=*`) n’est pas facturée, même si QueryType a la valeur `semantic`.
 
-Si vous ne souhaitez pas la fonctionnalité de recherche sémantique sur votre service de recherche, vous pouvez [désactiver la recherche sémantique](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) pour éviter toute utilisation et facturation accidentelles.
+## <a name="disable-semantic-search"></a>Désactiver la recherche sémantique
+
+Seul un service de recherche pour lequel la fonctionnalité est activée peut engendrer des frais. Toutefois, si vous souhaitez une protection complète contre toute utilisation accidentelle, définissez l' [option désactivé](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
+
+* L’API REST de gestion version 2021-04-01-Préversion fournit cette option
+
+* Des autorisations de propriétaire ou de contributeur sont requises pour désactiver les fonctionnalités
+
+```http
+PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "location": "{{region}}",
+      "sku": {
+        "name": "standard"
+      },
+      "properties": {
+        "semanticSearch": "disabled"
+      }
+    }
+```
+
+Pour réactiver la recherche sémantique, réexécutez la requête ci-dessus, en affectant la valeur « free » (par défaut) ou « standard » à « semanticSearch ».
+
+> [!TIP]
+> Les appels de l’API REST de gestion sont authentifiés via le Répertoire actif Azure. Pour obtenir des conseils sur la configuration d’un principe de sécurité et d’une demande, consultez ce billet de blog [Azure REST API with poster (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). L’exemple précédent a été testé à l’aide des instructions et de la collection de publications fournies dans le billet de blog.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

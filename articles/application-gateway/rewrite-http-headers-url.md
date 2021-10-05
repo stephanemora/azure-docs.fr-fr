@@ -1,18 +1,17 @@
 ---
-title: Réécrire des en-têtes HTTP et une URL avec Azure Application Gateway | Microsoft Docs
+title: Réécrire des en-têtes HTTP et une URL à l’aide d’Azure Application Gateway
 description: Cet article offre une vue d’ensemble de la réécriture d’en-têtes HTTP et d’URL dans Azure Application Gateway
-services: application-gateway
 author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: azhussai
-ms.openlocfilehash: b7cf7c98e71da215eb30dcab556a88d6d2701591
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c4e4af8fb14c48988a593261365dcfde6c7a0657
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789444"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577276"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Réécrire des en-têtes HTTP et une URL à l’aide d’Application Gateway
 
@@ -97,7 +96,7 @@ Si vous souhaitez utiliser la valeur entière, vous ne devez pas mentionner le n
 
 ## <a name="server-variables"></a>Variables de serveur
 
-Application Gateway utilise des variables de serveur pour stocker des informations utiles sur le serveur, la connexion avec le client et la requête active sur la connexion. L’adresse IP du client et le type de navigateur web sont quelques exemples d’informations stockées. Les variables de serveur changent dynamiquement, par exemple, quand une nouvelle page est chargée ou qu’un formulaire est posté. Vous pouvez utiliser ces variables pour évaluer les conditions de réécriture et réécrire des en-têtes. Pour utiliser la valeur des variables de serveur afin de réécrire des en-têtes, vous devez spécifier ces variables dans la syntaxe {var_ *serverVariableName*}.
+Application Gateway utilise des variables de serveur pour stocker des informations utiles sur le serveur, la connexion avec le client et la requête active sur la connexion. L’adresse IP du client et le type de navigateur web sont quelques exemples d’informations stockées. Les variables de serveur changent dynamiquement, par exemple, quand une nouvelle page est chargée ou qu’un formulaire est posté. Vous pouvez utiliser ces variables pour évaluer les conditions de réécriture et réécrire des en-têtes. Pour utiliser la valeur des variables de serveur afin de réécrire des en-têtes, vous devez spécifier ces variables dans la syntaxe {var_ *serverVariableName*}.
 
 Application Gateway prend en charge les variables de serveur suivantes :
 
@@ -123,7 +122,7 @@ Application Gateway prend en charge les variables de serveur suivantes :
 | sent_bytes                | Nombre d’octets envoyés à un client.                        |
 | server_port               | Port du serveur qui a accepté une requête.              |
 | ssl_connection_protocol   | Protocole d’une connexion TLS établie.               |
-| ssl_enabled               | Valeur « On » si la connexion opère en mode TLS. Sinon, chaîne vide. |
+| ssl_enabled               | Valeur « On » si la connexion opère en mode TLS. Sinon, chaîne vide. |
 | uri_path                  | Identifie la ressource spécifique dans l’hôte à laquelle le client web souhaite accéder. Il s’agit de la partie de l’URI de requête sans les arguments. Exemple : dans la requête `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, la valeur uri_path sera `/article.aspx` |
 
 ### <a name="mutual-authentication-server-variables-preview"></a>Variables de serveur d’authentification mutuelle (préversion)
@@ -139,7 +138,7 @@ Application Gateway prend en charge les variables de serveur suivantes pour les 
 | client_certificate_serial | Numéro de série du certificat client pour une connexion SSL établie.  |
 | client_certificate_start_date| Date de début du certificat client. |
 | client_certificate_subject| Chaîne « DN de sujet » du certificat client pour une connexion SSL établie. |
-| client_certificate_verification| Résultat de la vérification du certificat client : *SUCCESS*, *FAILED:<reason>* ou *NONE* si aucun certificat n’est présent. | 
+| client_certificate_verification| Résultat de la vérification du certificat client : *SUCCESS*, *FAILED:\<reason\>* ou *NONE* si aucun certificat n’est présent. | 
 
 ## <a name="rewrite-configuration"></a>Configuration de la réécriture
 

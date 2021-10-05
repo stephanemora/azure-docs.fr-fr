@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 660d233c4fc0690799e8ec25e6a07e516035a90b
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: 11428df3662bb03d7d74decbd7230be0fdffa44f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113506328"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742658"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installer l’agent de provisionnement Azure AD Connect
 Cet article vous guide tout au long du processus d’installation de l’agent d’approvisionnement Azure Active Directory (Azure AD) Connecte, et explique comment le configurer au départ dans le portail Azure.
@@ -26,6 +26,10 @@ Cet article vous guide tout au long du processus d’installation de l’agent d
 
 >[!NOTE]
 >Cet article traite de l’installation de l’agent d’approvisionnement à l’aide de l’Assistant. Pour plus d’informations sur l’installation de l’agent d’approvisionnement d’Azure AD Connect à l’aide d’une interface de ligne de commande (CLI), consultez [Installation de l’agent d’approvisionnement Azure AD Connect à l’aide d’une CLI et de PowerShell](how-to-install-pshell.md).
+
+Pour consulter plus d’informations et un exemple, regardez la vidéo suivante.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mR]
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
 Un compte de service managé de groupe (gMSA) est un compte de domaine managé qui fournit la gestion automatique des mots de passe, la gestion simplifiée du nom de principal du service (SPN) et la possibilité de déléguer la gestion à d’autres administrateurs. Il étend également cette fonctionnalité sur plusieurs serveurs. La synchronisation cloud Azure AD Connect prend en charge et recommande l’utilisation d’un compte de service géré de groupe pour l’exécution de l’agent. Pour plus d’informations sur un groupe Compte de service géré, voir [Groupe Comptes de service géré](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).

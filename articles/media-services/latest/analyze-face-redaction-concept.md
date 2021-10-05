@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 977dcbed29f74e97de3e61842b1b559a05ad8fdb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 2c434720863a7ecff4192720874547f6f8c2e8ed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955473"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621411"
 ---
 # <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Rechercher et éditer (flouter) des visages avec le préréglage de Face Detector
 
@@ -31,7 +31,7 @@ Cet article apporte des précisions sur le **préréglage de Face Detector**, et
 
 ## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
 
-N’oubliez jamais que vous devez vous conformer à la réglementation applicable durant l’utilisation des analyses dans Azure Media Services. Vous ne devez pas utiliser Azure Media Services ou tout autre service Azure d’une manière qui ne respecte pas les droits d’autrui. Avant de charger des vidéos, en particulier des données biométriques, vers le service Azure Media Services à des fins de traitement et de stockage, vous devez disposer de tous les droits appropriés sur ces vidéos, notamment le consentement des personnes qui y figurent. Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Azure Media Services, consultez les [Conditions d’utilisation de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions des Services en Ligne](https://www.microsoft.com/licensing/product-licensing/products) (OST) et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). En utilisant Azure Media Services, vous acceptez d’être lié par les Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité
+N’oubliez jamais que vous devez vous conformer à la réglementation applicable durant l’utilisation des analyses dans Azure Media Services. Vous ne devez pas utiliser Azure Media Services ou tout autre service Azure d’une manière qui ne respecte pas les droits d’autrui. Avant de charger des vidéos, en particulier des données biométriques, vers le service Azure Media Services à des fins de traitement et de stockage, vous devez disposer de tous les droits appropriés sur ces vidéos, notamment le consentement des personnes qui y figurent. Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Azure Media Services, consultez les [Conditions d’utilisation de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions des Services en Ligne](https://www.microsoft.com/licensing/product-licensing/products) (OST) et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml). En utilisant Azure Media Services, vous acceptez d’être lié par les Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité
 
 ## <a name="face-redaction-modes"></a>Modes de rédaction de face
 
@@ -54,12 +54,13 @@ Cela permet d’obtenir un fichier vidéo MP4 édité en une seule passe sans n�
 ### <a name="analyze-mode"></a>Mode Analyser
 
 La passe **Analyze** du workflow en deux passes accepte une entrée vidéo et produit un fichier JSON avec une liste des localisations de visage, des ID de visage et des images jpg de chaque visage détecté.
+Soyez averti qu’il n’est pas garanti que l’ID de visage soit identique lors des exécutions suivantes de la passe d’analyse.
 
 | Étape | Nom de fichier | Notes |
 | --- | --- | --- |
 | Élément multimédia d’entrée |"ignite-sample.mp4" |Vidéo au format WMV, MPV ou MP4 |
 | Configuration du préréglage |Configuration de Face Detector |**mode** : FaceRedactorMode.Analyze, **resolution** : AnalysisResolution.SourceResolution|
-| Élément multimédia de sortie |ignite-sample_annotations.json |Données d’annotation des emplacements de visage au format JSON. Cela peut être modifié par l’utilisateur pour changer les cadres de limitation du flou. Voir l’exemple ci-dessous. |
+| Élément multimédia de sortie |ignite-sample_annotations.json |Données d’annotation des emplacements de visage au format JSON. Il n’est pas garanti que les ID de visage soient identiques lors des exécutions suivantes de la passe d’analyse. Cela peut être modifié par l’utilisateur pour changer les cadres de limitation du flou. Voir l’exemple ci-dessous. |
 | Élément multimédia de sortie |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Une image jpg rognée de chaque visage détecté, où le nombre indique l’ID d’étiquette du visage |
 
 #### <a name="output-example"></a>Exemple de sortie
@@ -132,6 +133,7 @@ La sortie de la passe Analyser n’inclut pas la vidéo d’origine. La vidéo d
 #### <a name="example-output"></a>Exemple de sortie
 
 Il s’agit de la sortie à partir d’une liste d’ID avec un ID sélectionné.
+Il n’est pas garanti que les ID de visage soient identiques lors des exécutions suivantes de la passe d’analyse.
 
 Exemple : foo_IDList.txt
 

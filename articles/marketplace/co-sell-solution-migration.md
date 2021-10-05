@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 07/13/2021
-ms.openlocfilehash: 6ca8c75e5cf6f5290736cf01a20db63a8fb2d077
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.date: 09/27/2021
+ms.openlocfilehash: d80063eeb46938d3f8006f777a3209bc34d7cfcb
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114389080"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083188"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migration de solutions de co-vente de GTM OCP vers le marketplace commercial
 
@@ -67,11 +67,11 @@ Procédez comme suit avant d’importer vos solutions à partir de GTM OCP :
 ## <a name="begin-the-migration-of-your-solutions-from-ocp-gtm"></a>Commencer la migration de vos solutions à partir de GTM OCP
 
 1. Commencez la migration [ici](https://go.microsoft.com/fwlink/?linkid=2165807).
-2. Sélectionnez la page **Vue d’ensemble**, puis **Cliquez ici pour commencer**.
+1. Sélectionnez la page **Vue d’ensemble**, puis **Cliquez ici pour commencer**.
 
     :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="Affiche la page de présentation":::
 
-3. Pour commencer la migration, sélectionnez l’onglet **Solutions**, qui affiche toutes les solutions associées à vos ID MPN.
+1. Pour commencer la migration, sélectionnez l’onglet **Solutions**, qui affiche toutes les solutions associées à vos ID MPN.
 
     :::image type="content" source="media/co-sell-migrate/solutions-tab.png" alt-text="Page Vue d’ensemble d’Espace partenaires, onglet Solutions.":::
 
@@ -80,7 +80,7 @@ Procédez comme suit avant d’importer vos solutions à partir de GTM OCP :
 
     Pour en savoir plus sur l’état de la solution, consultez les info-bulles. Toutes les solutions en attente d’action sont répertoriées sous **Action**.<a name="beginmigration"></a>
 
-4. Sélectionnez **Commencer la migration** (voir l’image ci-dessus) pour la solution que vous souhaitez migrer, puis sélectionnez l’une des options suivantes :
+1. Sélectionnez **Commencer la migration** (voir l’image ci-dessus) pour la solution que vous souhaitez migrer, puis sélectionnez l’une des options suivantes :
 
     :::image type="content" source="media/co-sell-migrate/migration-options.png" alt-text="Trois options pour la migration.":::
 
@@ -93,6 +93,52 @@ Quel est l’intérêt de fusionner votre solution GTM OCP avec une offre publi
 Si vous avez une solution dans GTM OCP que vous souhaitez migrer vers Espace partenaires, vous avez le choix entre deux scénarios. À la fin de ce processus de fusion, votre offre conservera le pipeline de référence, les garanties, l’état de co-vente et les primes d’encouragement.
 
 #### <a name="step-1-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps"></a>Étape 1 : Une offre similaire n’existe pas dans le marketplace commercial. Procédez comme suit
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+Si vous ne disposez pas déjà d’une offre dans le marketplace commercial avec laquelle fusionner une solution dans GTM OCP, vous devez d’abord créer ET PUBLIER une offre sur le marketplace commercial (celle-ci conservera son état de co-vente, ses primes d’encouragement et son pipeline de référence).
+
+1. Créez votre ébauche d’offre dans le marketplace commercial.
+
+   1. Sur la page Vue d’ensemble de la Place de marché commerciale, sélectionnez **+ Nouvelle offre**, puis sélectionnez le type d’offre souhaité.
+
+        [ ![Capture d’écran du bouton Nouvelle offre sur la page Offres de la Place de marché.](media/co-sell-migrate/new-offer-workspaces.png) ](media/co-sell-migrate/new-offer-workspaces.png#lightbox)
+
+   2. Renseignez les informations requises dans chaque onglet.
+      - Les liens **En savoir plus** et des info-bulles vous guident dans les spécifications et les détails.
+      - Si vous le souhaitez, renseignez la page **Revendre via des CSP** (dans le menu de navigation de gauche ci-dessous) pour revendre par le biais du programme Fournisseur de solutions Cloud (CSP).
+
+        [ ![Affiche la page de configuration de l’offre avec les options de vue d’ensemble mises en surbrillance.](media/co-sell-migrate/offer-setup-nav-workspaces.png) ](media/co-sell-migrate/offer-setup-nav-workspaces.png#lightbox)
+
+   3. Sélectionnez **Enregistrer le brouillon**.
+        - Pour obtenir des instructions détaillées sur les informations que vous devez fournir avant de pouvoir publier votre offre, lisez le [guide de publication](./publisher-guide-by-offer-type.md) approprié.
+        - Passez en revue les conditions d’éligibilité dans l’article correspondant à votre type d’offre afin de finaliser la sélection et la configuration de votre offre.
+        - Passez en revue les modèles de publication de chaque magasin en ligne pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.
+        - [Meilleures pratiques pour le référencement d’offres – Marketplace commercial de Microsoft | Microsoft Docs](./gtm-offer-listing-best-practices.md).
+
+    > [!TIP]
+    > Nous vous recommandons de ne *pas renseigner* les données de l’onglet **Co-vendre avec Microsoft**. Pour vous faire gagner du temps, nous nous chargerons de renseigner ces données avec vos garanties existantes dans GTM OCP pendant le processus de fusion.
+
+    Une fois la fusion terminée, vous pouvez revenir à l’onglet Co-vendre avec Microsoft et effectuer des mises à jour le cas échéant. Pour plus d’informations, consultez [Configurer la co-vente pour une offre commerciale de la Place de marché](./co-sell-configure.md).
+1. Lorsque vous avez terminé, sélectionnez **Vérifier et publier**.
+
+    [ ![La page Co-vendre avec Microsoft s’affiche avec les options en surbrillance.](media/co-sell-migrate/co-sell-with-ms-workspaces.png) ](media/co-sell-migrate/co-sell-with-ms-workspaces.png#lightbox)
+
+1. Après avoir examiné toutes les informations envoyées, sélectionnez **Publier** pour soumettre votre ébauche d’offre à l’examen de certification. [En savoir plus sur la phase de certification](./review-publish-offer.md).
+
+    [ ![Affiche la page de révision et de publication.](media/co-sell-migrate/review-and-publish-workspaces.png) ](media/co-sell-migrate/review-and-publish-workspaces.png#lightbox)
+
+1. Suivez l’état de votre envoi dans l’onglet Vue d’ensemble.
+
+    [ ![Illustre l’état de publication d’une offre dans l’Espace partenaires. Le bouton Démarrer est affiché. Le lien Afficher le rapport de validation s’affiche également sous Validation automatique.](./media/review-publish-offer/publish-status-saas.png) ](./media/review-publish-offer/publish-status-saas.png#lightbox)
+
+1. Nous vous informerons lorsque l’examen de certification sera terminé. Si nous fournissons des commentaires actionnables, résolvez-les, puis sélectionnez **Publier** pour lancer une nouvelle certification.
+
+1. Une fois que votre offre est certifiée, affichez un aperçu de l’offre à l’aide du lien fourni et effectuez vos ajustements finaux. Quand vous êtes prêt, sélectionnez **Mettre en ligne** (voir le bouton ci-dessus) pour publier votre offre sur la ou les vitrines pertinentes du marketplace commercial.
+
+1. **Passez au scénario 2 ci-dessous pour terminer le processus de fusion.**
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 Si vous ne disposez pas déjà d’une offre dans le marketplace commercial avec laquelle fusionner une solution dans GTM OCP, vous devez d’abord créer ET PUBLIER une offre sur le marketplace commercial (celle-ci conservera son état de co-vente, ses primes d’encouragement et son pipeline de référence).
 
@@ -128,6 +174,8 @@ Si vous ne disposez pas déjà d’une offre dans le marketplace commercial avec
 1. Une fois que votre offre est certifiée, affichez un aperçu de l’offre à l’aide du lien fourni et effectuez vos ajustements finaux. Quand vous êtes prêt, sélectionnez **Mettre en ligne** (voir le bouton ci-dessus) pour publier votre offre sur la ou les vitrines pertinentes du marketplace commercial.
 
 1. **Passez au scénario 2 ci-dessous pour terminer le processus de fusion.**
+
+---
 
 #### <a name="scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps"></a>Scénario 2 : Une offre similaire existe dans le marketplace commercial. Procédez comme suit
 

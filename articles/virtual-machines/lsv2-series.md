@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-storage
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 77ab092fc62fb3f7a6270a4b5f38aeeed16d60fc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 1af52e4344b7a70331e3b5d9cdc13d9ff4227068
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698863"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129053333"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -49,7 +49,7 @@ Mode rafale : Prise en charge<br>
 
 <sup>1</sup> Les machines virtuelles de la série Lsv2 disposent d’un disque de ressources temporaire SCSI standard pour l’utilisation du fichier d’échange du système d’exploitation (D: sur Windows, /dev/sdb sur Linux). Ce disque offre un stockage de 80 Gio, 4 000 IOPS et un taux de transfert de 80 Mbits/s pour 8 processeurs virtuels (par exemple, Standard_L80s_v2 fournit 800 Gio à 40 000 IOPS et 800 Mbits/s). Ainsi, les lecteurs NVMe peuvent être entièrement dédiés à l’utilisation d’applications. Ce disque est éphémère, et toutes les données seront perdues lors de l'arrêt/la libération.
 
-<sup>2</sup> Les disques NVMe locaux sont éphémères ; les données présentes sur ces disques seront perdues si vous arrêtez/libérez votre machine virtuelle.
+<sup>2</sup> Les disques NVMe locaux sont éphémères ; les données présentes sur ces disques seront perdues si vous arrêtez/libérez votre machine virtuelle. Les disques NVMe ne sont pas chiffrés par le [chiffrement du stockage Azure](disk-encryption.md), même si vous activez le [chiffrement sur l’hôte](disk-encryption.md#supported-vm-sizes).
 
 <sup>3</sup> La technologie Hyper-V NVMe Direct fournit un accès illimité aux disques NVMe locaux mappés de manière sécurisée à l'espace de la machine virtuelle invitée.  Pour atteindre des performances maximales, vous devez utiliser la dernière build WS2019, ou Ubuntu 18.04 ou 16.04, de la Place de marché Azure.  Les performances en écriture varient en fonction de la taille des E/S, de la charge du lecteur et de l’utilisation des fonctionnalités.
 

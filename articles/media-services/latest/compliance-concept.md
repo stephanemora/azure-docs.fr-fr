@@ -1,6 +1,6 @@
 ---
 title: Conformité réglementaire de Media Services
-description: La plateforme Azure Media Services respecte les prescriptions de la plateforme Azure Government.
+description: Les Services Azure Media aident les clients Azure Government à respecter leurs obligations de conformité.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -9,36 +9,42 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/11/2021
 ms.author: inhenkel
-ms.openlocfilehash: 978af4754e6e083e8bf5375ade84891019abccca
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 6e2276fcf06909d46808ebd7971096831dc4d094
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068477"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641318"
 ---
 # <a name="media-services-regulatory-compliance"></a>Conformité réglementaire de Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-La plateforme Media Services répond aux exigences du Federal Risk & Authorization Management Program (FedRAMP) et du US Department of Defense américains, en lien avec les niveaux d’impact 2 à 5. Le déploiement de services protégés comprenant Azure Government, Office 365 pour le gouvernement des États-Unis, et Dynamics 365 Government, permet aux agences fédérales et de défense d’exploiter un vaste éventail de services conformes.
+Les Services Media répondent aux exigences du US Federal Risk & Authorization Management Program (FedRAMP) et du US Department of Defense (DoD) Cloud Computing Security Requirements Guide (SRG) niveaux d’impact (IL) 2, IL4, et IL5. En déployant des services autorisés dans Azure Government, Office 365 Cloud de la communauté du secteur public High et DoD, et Dynamics 365 US government, les agences fédérales et de défense peuvent utiliser une vaste gamme de services Cloud tout en répondant à leurs obligations de conformité.
 
-## <a name="fedramp-and-us-department-of-defense-compliance"></a>Conformité aux prescriptions de FedRAMP et du Ministère de la défense des États-Unis
+## <a name="fedramp-and-dod-compliance"></a>FedRAMP et conformité DoD
 
-Les services Media Services publics sont conformes aux prescriptions Department of Defense Cloud Computing Security Requirements Guide 2 (DoD CC SRG IL 2) et FedRAMP High.
+Les Services Media dans Azure Public maintiennent :
 
-Les services Media Services Government sont conformes aux prescriptions DoD CC SRG IL 2, DoD CC SRG IL 4, DoD CC SRG IL 5 et FedRAMP High.
+- l’autorisation provisoire élevée FedRAMP pour fonctionner (P-ATO)
+- l’autorisation provisoire DoD IL2 (PA)
 
-Une révision de Media Services par 3PAO et JAB n’est pas prévue pour 2020.
+Les Services Media dans Azure Government maintiennent :
 
-Pour en savoir plus sur la conformité des services Azure, consultez l’article [Services Azure par étendue d’audit du FedRAMP et du DoD SRG](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+- FedRAMP niveau élévé P-ATO
+- DoD IL2 PA
+- DoD IL4 PA
+- DoD IL5 PA
+
+Pour plus d’informations sur la couverture de la conformité Azure pour le gouvernement des États-Unis, consultez la documentation Azure [FedRAMP High](/azure/compliance/offerings/offering-fedramp), [DoD IL2](/azure/compliance/offerings/offering-dod-il2), [DoD IL4](/azure/compliance/offerings/offering-dod-il4)et [DoD il5](/azure/compliance/offerings/offering-dod-il5) . Pour FedRAMP et l’étendue d’audit DoD, consultez [services Cloud par étendue d’audit](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ## <a name="azure-compliance-documentation"></a>Documentation sur la conformité Azure
 
-Si votre organisation doit se conformer à des normes légales ou réglementaires internationales, du gouvernement des USA, régionales, ou régissant les secteurs des services financiers, de la santé, des médias et de la fabrication, commencez par la [Documentation sur la conformité Azure](../../compliance/index.yml).
+Pour vous aider à répondre à vos propres obligations de conformité dans les secteurs et marchés réglementés dans le monde entier, Azure gère le plus grand portefeuille de conformité du secteur en termes d’étendue (nombre total d'[offres de conformité](/azure/compliance/offerings/)) et de profondeur (nombre de [services destinés aux clients](https://azure.microsoft.com/services/) dans le cadre de l’évaluation). Pour connaître la disponibilité du service, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/).
 
-Vous y trouverez également des ressources de conformité supplémentaires, telles que des rapports d’audit, une liste de contrôle de la confidentialité en lien avec le Règlement général sur la protection des données (RGPD), des blueprints de conformité, des directives nationales et régionales, des implémentations et des mappages, ainsi que des livres blancs et autres rapports d’analystes.
+Les offres de conformité Azure sont regroupées dans quatre segments : applicables globalement, gouvernement des États-Unis, propres à un secteur d’activité et propres à une région ou un pays.  Les offres de conformité sont basées sur divers types de garanties, notamment des certifications, attestations, validations, autorisations et évaluations officielles créées par des sociétés d’audit tierces indépendantes, ainsi que des modifications contractuelles, des auto-évaluations et des documents de conseils pour les clients créés par Microsoft. Pour plus d’informations, consultez [la documentation sur la conformité Azure](../../compliance/index.yml). Vous y trouverez également des ressources de conformité supplémentaires, telles que des rapports d’audit, une liste de contrôle de la confidentialité en lien avec le Règlement général sur la protection des données (RGPD), des blueprints de conformité, des directives nationales et régionales, des implémentations et des mappages, ainsi que des livres blancs et autres rapports d’analystes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

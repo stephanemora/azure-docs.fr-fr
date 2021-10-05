@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: mijos, rarayudu, azla
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: f3ea6476173e7be1a6239e97ef2e5fbb5257aead
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: db99be325d50f89e6e1c96c1471431815b98936d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563820"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824296"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurer des clés gérées par le client afin de chiffrer les données au repos pour les environnements de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -30,6 +30,8 @@ Cette rubrique montre comment configurer et spécifier votre propre clé de chif
   * Azure Government : Arizona, Virginie et Texas.
 
 * Vous pouvez spécifier une clé gérée par le client *uniquement quand vous créez votre ISE*, pas après. Vous ne pouvez pas désactiver cette clé après la création de votre environnement ISE. Actuellement, il n’existe pas de prise en charge pour faire pivoter une clé gérée par le client pour un ISE.
+
+* Le coffre de clés qui stocke votre clé gérée par le client doit exister dans la même région Azure que votre ISE.
 
 * Pour prendre en charge les clés gérées par le client, votre ISE nécessite que vous activiez l’[identité managée affectée par le système ou par l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Cette identité permet à votre ISE d’authentifier l’accès à des ressources sécurisées, comme des machines virtuelles et d’autres systèmes ou services, qui se trouvent à l’intérieur d’un réseau virtuel Azure ou y sont connectées. De cette façon, vous n’êtes pas obligé de vous connecter avec vos informations d’identification.
 

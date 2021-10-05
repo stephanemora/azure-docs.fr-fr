@@ -4,13 +4,13 @@ description: Décrit les opérateurs Bicep disponibles pour les déploiements Az
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 80fc9e4e1285d86858a476feba30621a7afe1c79
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/10/2021
+ms.openlocfilehash: 13591112171919d6c58959c40dffa1340f3e8ebd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221052"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764311"
 ---
 # <a name="bicep-operators"></a>Opérateurs Bicep
 
@@ -38,7 +38,9 @@ Les opérateurs ci-dessous sont répertoriés par ordre de priorité décroissan
 | `?` `:` | Expression conditionnelle (terniaire) | De droite à gauche
 | `??` | Coalesce | De gauche à droite
 
-La délimitation d’une expression entre `(` et `)` vous permet de substituer la priorité d’opérateur Bicep par défaut. Par exemple, l’expression x + y / z évalue d’abord la division, puis l’addition. Mais l’expression (x + y) / z évalue d’abord l’addition, puis la division.
+## <a name="parentheses"></a>Parenthèses
+
+La délimitation d’une expression entre parenthèses vous permet de substituer la priorité d’opérateur Bicep par défaut. Par exemple, l’expression `x + y / z` évalue d’abord la division, puis l’addition. En revanche, l’expression `(x + y) / z` évalue d’abord l’addition, puis la division.
 
 ## <a name="accessor"></a>Accesseur
 
@@ -74,7 +76,7 @@ Les opérateurs logiques évaluent des valeurs booléennes, renvoient des valeur
 | ---- | ---- | ---- |
 | `&&` | [And](./operators-logical.md#and-) | Renvoie `true` si toutes les valeurs sont vraies. |
 | `||`| [Ou](./operators-logical.md#or-) | Renvoie `true` si une des deux valeurs est vraie. |
-| `!` | [Not](./operators-logical.md#not-) | Inverse une valeur booléenne. |
+| `!` | [Not](./operators-logical.md#not-) | Inverse une valeur booléenne. Accepte un opérande. |
 | `??` | [Coalesce](./operators-logical.md#coalesce-) | Renvoie la première valeur non nulle. |
 | `?` `:` | [Expression conditionnelle](./operators-logical.md#conditional-expression--) | Évalue une condition pour déterminer si elle est vraie ou fausse et renvoie une valeur. |
 
@@ -88,8 +90,8 @@ Les opérateurs numériques utilisent des entiers pour effectuer des calculs et 
 | `/` | [Divide](./operators-numeric.md#divide-) | Divise un entier par un entier. |
 | `%` | [Modulo](./operators-numeric.md#modulo-) | Divise un entier par un entier et retourne le reste. |
 | `+` | [Ajouter](./operators-numeric.md#add-) | Ajoute deux entiers. |
-| `-` | [Soustraire](./operators-numeric.md#subtract--) | Soustrait un entier d’un entier. |
-| `-` | [Moins](./operators-numeric.md#minus--) | Multiplie un entier par `-1`. |
+| `-` | [Soustraire](./operators-numeric.md#subtract--) | Soustrait un entier d’un autre entier. Accepte deux opérandes. |
+| `-` | [Moins](./operators-numeric.md#minus--) (unaire) | Multiplie un entier par `-1`. Accepte un opérande. |
 
 > [!NOTE]
 > Soustraire et Moins utilisent le même opérateur. La fonctionnalité est différente, car Soustraire utilise deux opérandes et Moins en utilise un seul.

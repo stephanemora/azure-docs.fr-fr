@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 11/09/2020
-ms.openlocfilehash: 43332c559c309bc99754467994a4718ece78d3cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 9/27/2021
+ms.openlocfilehash: 7d665b34a112328a742e2ba4ed9816406a58fa30
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524398"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082957"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Clients dans l’analytique de la Place de marché commerciale
 
@@ -38,17 +38,45 @@ Le [tableau de bord Clients](https://go.microsoft.com/fwlink/?linkid=2166011) af
 > [!NOTE]
 > La latence maximale entre l’acquisition du client et la création de rapports dans l’Espace partenaires est de 48 heures.
 
+## <a name="access-the-customers-dashboard"></a>Accéder au tableau de bord Clients
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Sur la page d’accueil, sélectionnez la mosaïque **Insights**.
+
+    [ ![Illustre la mosaïque Insights sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. Dans le menu de gauche, sélectionnez **Clients**.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Analyser** > **Clients**.
+
+---
+
 ## <a name="elements-of-the-customers-dashboard"></a>Éléments du tableau de bord Clients
 
 Les sections suivantes expliquent comment utiliser le tableau de bord Clients et lire les données.
 
-Pour accéder au tableau de bord Clients dans l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Clients**.
-
 ### <a name="month-range"></a>Plage de mois
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Clients** en sélectionnant la plage de mois des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
+
+[ ![Illustre les filtres de mois sur la page Clients.](./media/customer-dashboard/customers-workspace-filters.png) ](./media/customer-dashboard/customers-workspace-filters.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Clients** en sélectionnant la plage de mois des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
 
 :::image type="content" source="./media/customer-dashboard/month-range-filters.png" alt-text="Illustre les filtres de mois sur la page Clients.":::
+
+---
 
 > [!NOTE]
 > Toutes les métriques dans les widgets de visualisation et les rapports d’exportation respectent la période de calcul sélectionnée par l’utilisateur.
@@ -81,7 +109,7 @@ Cette section présente la tendance et le nombre total de clients, nouveaux, exi
 
 Le graphique **Clients par commandes/utilisation** comporte trois onglets : Commandes, Utilisation normalisée et Utilisation brute. Sélectionnez l’onglet **Commandes** pour afficher les détails de la commande.
 
-:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="Illustre l’onglet Commandes du widget Clients par commandes/utilisation de la page Clients.":::
+[ ![Illustre l’onglet Commandes du widget Clients par commandes/utilisation de la page Clients.](./media/customer-dashboard/customers-by-orders-usage.png) ](./media/customer-dashboard/customers-by-orders-usage.png#lightbox)
 
 Notez les points suivants :
 

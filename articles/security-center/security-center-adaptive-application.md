@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 09/09/2021
 ms.author: memildin
-ms.openlocfilehash: 9f1fdfeadd56b070c942c023a7373b43363a1916
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ef37d84d2fcef851e13837ae40da14db9fb2412f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524553"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777447"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utiliser des contrôles d’application adaptatifs pour réduire les surfaces d’attaque de vos machines
 
@@ -30,12 +30,12 @@ Lorsque vous avez activé et configuré des contrôles d’application adaptatif
 
 ## <a name="what-are-the-benefits-of-adaptive-application-controls"></a>Quels sont les avantages des contrôles d’application adaptatifs ?
 
-En définissant des listes d’applications réputées sécurisées, et en générant des alertes lorsque d’autres applications sont exécutées, vous pouvez atteindre plusieurs objectifs de renforcement de la sécurité :
+En définissant des listes d’applications réputées sécurisées, et en générant des alertes lorsque d’autres applications sont exécutées, vous pouvez atteindre plusieurs objectifs de surveillance et de conformité :
 
 - Identifier les programmes malveillants potentiels, y compris ceux qui peuvent être ratés par les logiciels anti-programme malveillant
 - Améliorer la conformité avec les stratégies de sécurité locales qui dictent l’utilisation de logiciels sous licence uniquement
-- Éviter d’exécuter des applications anciennes ou non prises en charge
-- Empêcher les logiciels spécifiques qui sont interdits par votre organisation
+- Identifier les versions obsolètes ou non prises en charge des applications 
+- Identifier les logiciels qui sont interdits par votre organisation, mais qui sont néanmoins exécutés sur vos machines
 - Améliorer la supervision des applications qui accèdent aux données sensibles
 
 Aucune option de mise en œuvre n’est disponible à l’heure actuelle. Les contrôles d’application adaptatifs sont destinés à fournir des alertes de sécurité si une application autre que celles que vous avez définies comme sécurisées s’exécute.

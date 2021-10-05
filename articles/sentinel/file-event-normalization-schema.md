@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: 37671dcb12f2ed1f230e236d68dcf2e6a49bae30
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: da4412d81dfaf6bb88b62aee26dfcd4cfd2402db
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122528037"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810139"
 ---
 # <a name="azure-sentinel-file-event-normalization-schema-reference-public-preview"></a>Informations de référence sur le schéma de normalisation des événements de fichier Azure Sentinel (préversion publique)
 
@@ -54,9 +54,9 @@ Quand vous implémentez des analyseurs personnalisés pour le modèle d’inform
 
 Ajoutez vos fonctions KQL à l’analyseur `imFileEvent` indépendant de la source pour vous assurer que tout contenu utilisant le modèle d’événement de fichier utilise également votre nouvel analyseur.
 
-## <a name="normalized-content-for-process-activity-data"></a>Contenu normalisé pour les données d’activité de processus
+## <a name="normalized-content-for-file-activity-data"></a>Contenu normalisé pour les données d’activité de fichier
 
-La prise en charge du schéma ASIM des activités de fichier comprend également la prise en charge des règles d’analytique intégrées suivantes avec des analyseurs d’authentification normalisés. Outre au travers des liens vers le dépôt GitHub Azure Sentinel fournis ci-dessous comme référence, vous pouvez trouver ces règles dans la [galerie de règles Azure Sentinel Analytics](detect-threats-built-in.md). Utilisez les pages GitHub liées pour copier toutes les requêtes de chasse appropriées pour les règles listées.
+La prise en charge du schéma ASIM des activités de fichier comprend également la prise en charge des règles d’analytique intégrées suivantes avec des analyseurs d’activité de fichier normalisés. Outre au travers des liens vers le dépôt GitHub Azure Sentinel fournis ci-dessous comme référence, vous pouvez trouver ces règles dans la [galerie de règles Azure Sentinel Analytics](detect-threats-built-in.md). Utilisez les pages GitHub liées pour copier toutes les requêtes de chasse appropriées pour les règles listées.
 
 
 - [Hachages de porte dérobée SUNBURST et SUPERNOVA (événements de fichier normalisés)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
@@ -81,6 +81,7 @@ Les champs suivants sont générés par Log Analytics pour chaque enregistrement
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | DATETIME | Heure à laquelle l’événement a été généré par l’appareil de création de rapports.|
 | **_ResourceId**   | guid     | ID de ressource Azure de l’appareil ou du service de création de rapports, ou l’ID de ressource de redirecteur de journal pour les événements transférés avec Syslog, CEF ou WEF. |
+| **Type** | String | La table d’origine à partir de laquelle l’enregistrement a été récupéré. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, et ont les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
 | | | |
 
 > [!NOTE]

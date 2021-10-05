@@ -8,14 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
-ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 63e49c5fa68ca415ffd63e7db64bc7f5f89a7ab6
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 52f4152a8f3ec1d2f812de74ed0bd238fb323330
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688653"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451832"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>Fournir des informations sur le plan d’achat de la Place de marché Azure lors de la création d’images
 
@@ -70,7 +69,7 @@ Créez la définition de l’image en utilisant les paramètres `-PurchasePlanPu
    -PurchasePlanName  $vm.Plan.Name
 ```
 
-Ensuite, créez votre version d’image à l’aide de l’applet de commande [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). Vous pouvez créer une version d’image à partir d’une [machine virtuelle](image-version-vm-powershell.md#create-an-image-version), d’une [image managée](image-version-managed-image-powershell.md#create-an-image-version), d’un [disque dur virtuel/instantané](image-version-snapshot-powershell.md#create-an-image-version) ou d’[une autre version d’image](image-version-another-gallery-powershell.md#create-the-image-version). 
+Ensuite, créez votre [version d’image](image-version.md) à l’aide de l’applet de commande [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion).  
 
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle

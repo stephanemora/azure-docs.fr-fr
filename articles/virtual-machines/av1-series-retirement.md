@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.author: mimckitt
-ms.openlocfilehash: c382954cf54779350e78fdadef7d0f4738dca48f
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: cfc30046d33ad9e6f91b866dc5653fbbcbdbd995
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634663"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577729"
 ---
 # <a name="av1-series-retirement"></a>Mise hors service de la série Av1
 
@@ -24,7 +24,7 @@ Le 31 août 2024, nous procèderons à la mise hors service des machines virtuel
 
 ## <a name="migrate-workloads-from-basic-and-standard-a-series-vms-to-av2-series-vms"></a>Migrer des charges de travail des machines virtuelles des plans De base et Standard de la série A vers des machines virtuelles de la série Av2 
 
-Par exemple, vous pouvez redimensionner vos machines virtuelles vers la série Av2 en utilisant le [portail Azure](https://portal.azure.com), [PowerShell](windows/resize-vm.md) et [CLI](linux/change-vm-size.md). Vous trouverez ci-dessous des exemples de redimensionnement de votre machine virtuelle à l’aide du portail Azure et PowerShell. 
+Par exemple, vous pouvez redimensionner vos machines virtuelles vers la série Av2 en utilisant le [portail Azure, PowerShell ou la CLI](resize-vm.md). Vous trouverez ci-dessous des exemples de redimensionnement de votre machine virtuelle à l’aide du portail Azure et PowerShell. 
 
 > [!IMPORTANT]
 > Le redimensionnement de la machine virtuelle entraîne un redémarrage. Nous vous recommandons d’effectuer des actions qui entraîneront un redémarrage pendant les heures creuses de vos activités. 

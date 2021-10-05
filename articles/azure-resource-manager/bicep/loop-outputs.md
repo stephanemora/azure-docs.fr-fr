@@ -5,18 +5,22 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.openlocfilehash: 67c4a99dbdb370202e4bbf080f32c626b71093b1
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 28aa16d5f65891df063db7b43211e466855dfeec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123213841"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124832051"
 ---
 # <a name="output-iteration-in-bicep"></a>Itération de sortie dans Bicep
 
 Cet article explique comment créer plusieurs valeurs pour une sortie dans votre fichier Bicep. Vous pouvez ajouter une boucle à la section `output` du fichier et retourner dynamiquement plusieurs éléments au cours du déploiement.
 
 Il est également possible d’utiliser une boucle avec des [modules](loop-modules.md), des [ressources](loop-resources.md), des [propriétés dans une ressource](loop-properties.md) et des [variables](loop-variables.md).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les boucles et pour obtenir des conseils pratiques, consultez [Créer des modèles Bicep flexibles en utilisant des conditions et des boucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) sur **Microsoft Learn**.
 
 ## <a name="syntax"></a>Syntaxe
 

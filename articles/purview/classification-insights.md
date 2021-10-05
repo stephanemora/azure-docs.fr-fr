@@ -4,19 +4,21 @@ description: Ce guide pratique explique comment afficher et utiliser les rapport
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/17/2021
-ms.openlocfilehash: 057d097eb66eddffc15bb65bfb9e6fb64209e5f8
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.date: 09/27/2021
+ms.openlocfilehash: 642611a680e0848208aa7e42493fee6fc16fb4d7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527777"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208841"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights relatifs aux classifications de vos données à partir d’Azure Purview
 
 Ce guide pratique explique comment accéder aux rapports Purview « Insights relatifs aux classifications » qui concernent vos données.
+
+> [!IMPORTANT]
+> Les insights Azure Purview sont actuellement disponibles en PRÉVERSION. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
 Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API SQL), Azure Synapse Analytics (anciennement SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, compartiments Amazon S3.
 
@@ -33,11 +35,11 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 
 - Configurez vos ressources Azure et alimentez les comptes appropriés avec des données de test
 
-- Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
+- Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
 
 - Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#roles).
 
-Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md).
+Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview](manage-data-sources.md).
 
 ## <a name="use-purview-classification-insights"></a>Utiliser les insights Purview relatifs aux classifications
 
@@ -52,13 +54,13 @@ Purview utilise les mêmes types d’informations sensibles que Microsoft 365, 
 
 1. Accédez à l’[écran de l’instance **Azure Purview** dans le portail Azure](https://aka.ms/purviewportal) et sélectionnez votre compte Purview.
 
-1. Sur la page **Vue d’ensemble**, dans la section **Démarrer**, sélectionnez la vignette **Lancer le compte Purview**.
+1. Sur la page **Vue d’ensemble**, dans la section **Démarrer**, sélectionnez la mosaïque **Purview Studio**.
 
 1. Dans Purview, sélectionnez l’élément de menu **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: à gauche pour accéder à la zone **Insights**.
 
 1. Dans la zone **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false":::, sélectionnez **Classification** pour afficher le rapport Purview **Insights relatifs aux classifications**.
 
-   :::image type="content" source="./media/insights/select-classification-labeling-small.png" alt-text="Rapport des insights relatifs aux classifications" lightbox="media/insights/select-classification-labeling.png":::
+   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Rapport des insights relatifs aux classifications" lightbox="media/insights/select-classification-labeling.png":::
 
    La page principale d’**Insights relatifs aux classifications** affiche les zones suivantes :
 
@@ -83,7 +85,7 @@ Dans l’un des graphiques **Insights relatifs aux classifications** suivants, s
 
 Par exemple :
 
-:::image type="content" source="media/insights/view-classifications-small.png" alt-text="Afficher toutes les classifications" lightbox="media/insights/view-classifications.png":::
+:::image type="content" source="media/insights/view-classifications-small.png" alt-text="Afficher toutes les classifications":::
 
 Pour en savoir plus, effectuez l’une des actions suivantes :
 

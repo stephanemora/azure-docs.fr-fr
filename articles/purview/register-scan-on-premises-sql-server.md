@@ -1,18 +1,18 @@
 ---
 title: Inscrire et analyser un serveur SQL local
-description: Ce tutoriel explique comment analyser un serveur SQL local à l’aide d’un runtime d’intégration auto-hébergé.
+description: Ce tutoriel explique comment analyser un serveur SQL local à l’aide d’un runtime d’intégration auto-hébergé dans Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/18/2020
-ms.openlocfilehash: 2f07ed4ca7bdb722a2563c5e81f7e30a57c79aeb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 4cef99adecadc73f105dfffcdc72163c8b622cc3
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531367"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208641"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Inscrire et analyser un serveur SQL local
 
@@ -48,16 +48,6 @@ Il n’existe qu’une seule façon de configurer l’authentification pour un s
 
 Le compte SQL doit avoir accès à la base de données **MASTER**. Cela est dû au fait que `sys.databases` se trouve dans la base de données MASTER. Le scanneur Purview doit énumérer `sys.databases` pour rechercher toutes les bases de données SQL sur le serveur.
 
-#### <a name="using-an-existing-server-administrator"></a>Utilisation d’un administrateur de serveur existant
-
-Si vous envisagez d’utiliser un utilisateur administrateur de serveur (sa) existant pour analyser votre serveur SQL local, vérifiez les points suivants :
-
-1. `sa` n’est pas un compte d’authentification Windows.
-
-2. La connexion au niveau du serveur que vous envisagez d’utiliser doit avoir les rôles serveur public et sysadmin. Vous pouvez vérifier cela en vous connectant au serveur, en accédant à SQL Server Management Studio (SSMS), en accédant à la sécurité, en sélectionnant la connexion que vous prévoyez d’utiliser, en cliquant avec le bouton droit sur **Propriétés**, puis en sélectionnant **Rôles serveur**.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Connexion au niveau du serveur.":::
-
 #### <a name="creating-a-new-login-and-user"></a>Création d’une connexion et d’un utilisateur
 
 Si vous souhaitez créer une connexion et un utilisateur pour pouvoir analyser votre serveur SQL, procédez comme suit :
@@ -65,7 +55,7 @@ Si vous souhaitez créer une connexion et un utilisateur pour pouvoir analyser v
 > [!Note]
    > Toutes les étapes ci-dessous peuvent être exécutées à l’aide du code fourni [ici](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
 
-1. Accédez à SQL Server Management Studio (SSMS), connectez-vous au serveur, accédez à la sécurité, cliquez avec le bouton droit sur connexion, puis créez une connexion. Veillez à sélectionner l’authentification SQL.
+1. Accédez à SQL Server Management Studio (SSMS), connectez-vous au serveur, accédez à la sécurité, sélectionnez et maintenez l’appui (ou cliquez avec le bouton droit) sur la connexion et créez une connexion. Veillez à sélectionner l’authentification SQL.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Créer une connexion et un utilisateur.":::
 
@@ -75,9 +65,9 @@ Si vous souhaitez créer une connexion et un utilisateur pour pouvoir analyser v
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="mappage d’utilisateur.":::
 
-4. Cliquez sur OK pour enregistrer.
+4. Sélectionnez OK pour enregistrer.
 
-5. Accédez de nouveau à l’utilisateur que vous avez créé en cliquant avec le bouton droit, puis en sélectionnant **Propriétés**. Entrez un nouveau mot de passe et confirmez-le. Sélectionnez « Spécifier l’ancien mot de passe », puis entrez l’ancien mot de passe. **Vous devez modifier votre mot de passe dès que vous créez une connexion.**
+5. Accédez de nouveau à l’utilisateur que vous avez créé, en sélectionnant et en maintenant l’appui (ou en cliquant avec le bouton droit) et en sélectionnant **Propriétés**. Entrez un nouveau mot de passe et confirmez-le. Sélectionnez « Spécifier l’ancien mot de passe », puis entrez l’ancien mot de passe. **Vous devez modifier votre mot de passe dès que vous créez une connexion.**
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="modifier un mot de passe.":::
 
@@ -109,7 +99,7 @@ Si vous souhaitez créer une connexion et un utilisateur pour pouvoir analyser v
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Sélectionnez la source de serveur SQL que vous avez inscrite.
 

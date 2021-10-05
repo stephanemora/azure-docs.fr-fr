@@ -8,21 +8,21 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6b4f0913813372f6f69f30f98f6969b4f6d66418
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 0a684cec230766119345b8fd8acd3df53cc3f25a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835696"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213011"
 ---
 # <a name="create-and-manage-collections-in-azure-purview"></a>Créer et gérer des regroupements dans Azure Purview
 
 > [!NOTE]
-> À ce stade, ce guide s’applique uniquement aux instances Purview créées **le 18 août 2021 ou après cette date**. Les instances créées avant le 18 août peuvent créer des collections, mais elles ne gèrent pas les autorisations par le biais de ces collections. Pour plus d’informations sur la création d’une collection pour une instance Purview créée avant le 18 août, consultez notre [**guide des collections héritées**](#legacy-collection-guide) en bas de page.
+> À ce stade, ce guide s’applique uniquement aux instances Azure Purview créées **le 18 août 2021 ou après cette date**. Les instances créées avant le 18 août peuvent créer des collections, mais elles ne gèrent pas les autorisations par le biais de ces collections. Pour plus d’informations sur la création d’une collection pour une instance Purview créée avant le 18 août, consultez notre [**guide des collections héritées**](#legacy-collection-guide) en bas de page.
 >
-> Tous les comptes hérités seront automatiquement mis à niveau dans les semaines à venir. Vous recevrez une notification par e-mail lors de la mise à niveau de votre compte Purview. Une fois le compte mis à niveau, toutes les autorisations affectées sont automatiquement redéployées vers la collection racine.
+> Tous les comptes hérités seront automatiquement mis à niveau dans les semaines à venir. Vous recevrez une notification par e-mail lors de la mise à niveau de votre compte Purview. Pour plus d’informations sur ce qui va changer une fois votre compte mis à niveau, consultez notre [Guide des comptes mis à niveau](concept-account-upgrade.md).
 
-Dans Purview, les collections permettent d’organiser les ressources et les sources par le biais du processus de votre entreprise, mais ils constituent également l’outil utilisé pour gérer l’accès dans l’ensemble de Purview. Ce guide vous guide tout au long de la création et de la gestion de ces collections, ainsi que les étapes à suivre pour inscrire des sources et ajouter des ressources à vos collections.
+Dans Azure Purview, les collections permettent d’organiser les ressources et les sources par le biais du processus de votre entreprise, mais ils constituent également l’outil utilisé pour gérer l’accès dans l’ensemble de Purview. Ce guide vous guide tout au long de la création et de la gestion de ces collections, ainsi que les étapes à suivre pour inscrire des sources et ajouter des ressources à vos collections.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,11 +34,11 @@ Dans Purview, les collections permettent d’organiser les ressources et les sou
 
 ### <a name="check-permissions"></a>Vérifiez les autorisations
 
-Pour pouvoir créer et gérer des collections dans Purview, vous devrez être **Administrateur de collections** dans Purview. Nous pouvons vérifier ces autorisations dans [Purview Studio](use-purview-studio.md). Pour ouvrir le studio, accédez à votre ressource Purview dans le [Portail Azure](https://portal.azure.com), puis sélectionnez la mosaïque Open Purview Studio (Ouvrir Purview Studio) dans la page de présentation.
+Pour créer et gérer des collections dans Purview, vous devez être **administrateur de collection**. Nous pouvons vérifier ces autorisations dans [Purview Studio](https://web.purview.azure.com/resource/). Pour ouvrir le studio, accédez à votre ressource Purview dans le [Portail Azure](https://portal.azure.com), puis sélectionnez la mosaïque Open Purview Studio (Ouvrir Purview Studio) dans la page de présentation.
 
 1. Sélectionnez Data Map > Collections dans le volet gauche pour ouvrir la page gestion de la collection.
 
-    :::image type="content" source="./media/how-to-create-and-manage-collections/find-collections.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur le mappage de données, avec l’onglet Collections sélectionné." border="true":::
+    :::image type="content" source="./media/how-to-create-and-manage-collections/find-collections.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur Data Map, avec l’onglet Collections sélectionné." border="true":::
 
 1. Sélectionnez votre collection racine. Il s’agit de la collection supérieure de votre liste de collections qui porte le même nom que votre ressource Purview. Dans notre exemple ci-dessous, elle s’appelle Contoso Purview. Autrement, si des collections existent déjà, vous pouvez sélectionner n’importe quelle collection dans laquelle vous souhaitez créer un sous-groupe.
 
@@ -124,9 +124,9 @@ Tous les rôles attribués s’appliquent aux sources, aux ressources et aux aut
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/select-role-assignments.png" alt-text="Capture d’écran de la fenêtre de collection Purview Studio, avec l’onglet des attributions de rôle mis en surbrillance." border="true":::
 
-1. Sélectionnez **Edit role assignments** (Modifier les attributions de rôle) ou l’icône personne pour modifier chaque rôle de membre.
+1. Sélectionnez **Modifier les attributions de rôles** ou l’icône représentant une personne pour modifier chacun des membres de rôles.
 
-    :::image type="content" source="./media/how-to-create-and-manage-collections/edit-role-assignments.png" alt-text="Capture d’écran de la fenêtre de collection Purview Studio, avec la liste déroulante de modification des attributions de rôle sélectionnée." border="true":::
+    :::image type="content" source="./media/how-to-create-and-manage-collections/edit-role-assignments.png" alt-text="Capture d’écran de la fenêtre de collection Purview Studio, avec la liste déroulante Modifier les attributions de rôles sélectionnée." border="true":::
 
 1. Tapez dans la zone de texte pour rechercher les utilisateurs que vous souhaitez ajouter au membre du rôle. Sélectionnez **X** pour supprimer les membres que vous ne souhaitez pas ajouter.
 
@@ -267,13 +267,13 @@ Les ressources et les sources sont également associées à des collections. Au 
 ## <a name="legacy-collection-guide"></a>Guide de collection héritée
 
 > [!NOTE]
-> Ce guide des autorisations héritées concerne uniquement les instances Purview créées avant le 18 août 2021. Les instances créées après cette date doivent suivre le guide ci-dessus.
+> Ce guide des collections héritées ne concerne que les instances Purview créées avant le 18 août 2021. Les instances créées après cette date doivent suivre le guide ci-dessus.
 
 Les collections héritées organisent uniquement les sources dans le mappage de données et ne gèrent pas les autorisations pour ces sources.
 
 ### <a name="create-a-legacy-collection"></a>Créer une collection héritée
 
-1. Sélectionnez Data Map dans le volet gauche pour ouvrir le mappage de données. En utilisant l’affichage du mappage, vous pouvez voir vos collections et les sources répertoriées sous celles-ci.
+1. Sélectionnez Data Map dans le volet gauche pour ouvrir le mappage de données. Cette vue vous permet de voir vos collections et les sources listées dessous.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-view.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur la Data Map." border="true":::
 
@@ -281,7 +281,7 @@ Les collections héritées organisent uniquement les sources dans le mappage de 
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-create.png" alt-text="Capture d’écran de la fenêtre Purview Studio, ouverte sur la Data Map, avec l’option + Nouvelle collection mise en évidence." border="true":::
 
-1. Nommez votre collection et sélectionnez un parent ou « Aucun ». Sélectionnez **Create** (Créer). Les informations de collection sont reflétées sur le mappage de données.
+1. Donnez un nom à votre collection et sélectionnez un parent ou « Aucun ». Sélectionnez **Create** (Créer). Les informations de collection sont reflétées sur le mappage de données.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-name.png" alt-text="Capture d’écran de la fenêtre Purview Studio, montrant la fenêtre de la nouvelle collection." border="true":::
 

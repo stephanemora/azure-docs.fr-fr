@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: 3f9eb3ccae99bfae472dc135fc4526964b3c3bde
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/27/2021
+ms.openlocfilehash: 6efbd254a74d2432985d451adf67a33b74d2e2c4
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955712"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081912"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Créer une offre Dynamics 365 for Operations
 
@@ -26,14 +26,35 @@ Examinez [Planifier une offre Dynamics 365](marketplace-dynamics-365.md). Cet a
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+
+    [ ![Illustre la vignette Offres de la Place de marché sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Sur la page Offres de la Place de marché, sélectionnez **+ Nouvelle offre** > **Dynamics 365 for Operations**.
+
+    [ ![Capture d’écran du bouton « Nouvelle offre » sur la page des offres de la Place de marché, mettant en évidence le type d’offre Dynamics 365 for Operations.](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png) ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> Après publication d’une offre, les modifications que vous y apportez dans Espace partenaires apparaissent sur Microsoft AppSource uniquement après la republication de l’offre. Veillez à toujours republier une offre après l’avoir modifiée.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
-3. Dans la page Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Dynamics 365 for Operations**.
+1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
+1. Dans la page Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Dynamics 365 for Operations**.
 
     :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-operations.png" alt-text="Options du menu du volet gauche et bouton « Nouvelle offre »":::
 
 > [!IMPORTANT]
 > Après publication d’une offre, les modifications que vous y apportez dans Espace partenaires apparaissent sur Microsoft AppSource uniquement après la republication de l’offre. Veillez à toujours republier une offre après l’avoir modifiée.
+
+---
 
 ## <a name="new-offer"></a>Nouvelle offre
 

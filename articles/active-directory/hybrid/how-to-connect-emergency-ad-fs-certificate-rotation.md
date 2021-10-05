@@ -1,8 +1,6 @@
 ---
 title: Rotation d’urgence des certificats AD FS | Microsoft Docs
 description: Cet article explique comment révoquer et mettre à jour des certificats AD FS immédiatement.
-services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -11,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9741c2e85a7cd3523ffe7fe8262e5f5d821b62c3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7153b33b0019600f58ea678079b553a9ad6c6672
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126594"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823030"
 ---
 # <a name="emergency-rotation-of-the-ad-fs-certificates"></a>Rotation d’urgence des certificats AD FS
 Si vous devez faire pivoter immédiatement les certificats AD FS, vous pouvez suivre les étapes décrites ci-dessous dans cette section.
@@ -31,8 +29,8 @@ Si vous devez faire pivoter immédiatement les certificats AD FS, vous pouvez s
 ## <a name="determine-your-token-signing-certificate-thumbprint"></a>Déterminer l’empreinte de votre certificat de signature de jetons
 Pour révoquer l’ancien certificat de signature de jetons qu’AD FS utilise actuellement, vous devez déterminer l’empreinte du certificat de signature de jetons.  Pour ce faire, effectuez les étapes suivantes ci-dessous :
 
- 1. Se connecter au service en ligne Microsoft `PS C:\>Connect-MsolService`
- 2. Documentez les dates d’expiration et d’empreinte du certificat de signature de jetons Cloud et local.
+ 1.    Se connecter au service en ligne Microsoft `PS C:\>Connect-MsolService`
+ 2.    Documentez les dates d’expiration et d’empreinte du certificat de signature de jetons Cloud et local.
 `PS C:\>Get-MsolFederationProperty -DomainName <domain>` 
  3.  Copiez l’empreinte.  Elle sera utilisée ultérieurement pour supprimer les certificats existants.
 
@@ -106,7 +104,7 @@ Ouvrez le Module Microsoft Azure Active Directory pour Windows PowerShell. Vo
 Connectez-vous à Azure AD en exécutant la commande suivante : `Connect-MsolService`, puis entrez vos informations d’identification d’administrateur général.
 
 >[!Note]
-> Si vous exécutez ces commandes sur un ordinateur qui n'est pas le serveur de fédération principal, entrez d'abord la commande suivante : `Set-MsolADFSContext –Computer <servername>`. Remplacez <servername> par le nom du serveur AD FS. Ensuite, entrez les informations d'identification d'administrateur pour le serveur AD FS lorsque vous y êtes invité.
+> Si vous exécutez ces commandes sur un ordinateur qui n'est pas le serveur de fédération principal, entrez d'abord la commande suivante : `Set-MsolADFSContext –Computer <servername>`. Remplacez \<servername\> par le nom du serveur AD FS. Ensuite, entrez les informations d'identification d'administrateur pour le serveur AD FS lorsque vous y êtes invité.
 
 Vous pouvez également vérifier si une mise à jour est requise en vérifiant les informations de certificat en cours dans Azure AD. Pour ce faire, exécutez la commande suivante : `Get-MsolFederationProperty`. Entrez le nom du domaine fédéré lorsque vous y êtes invité.
 
@@ -122,9 +120,8 @@ La révocation de vos certificats SSL doit être effectuée au niveau de l’aut
 
 Une fois que l’ancien certificat SSL a été révoqué et qu’un nouveau certificat a été émis, vous pouvez remplacer les certificats SSL. Pour plus d’informations, consultez [Remplacement du certificat SSL pour AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
 
-
 ## <a name="remove-your-old-certificates"></a>Supprimer vos anciens certificats
-Une fois que vous avez remplacé vos anciens certificats, vous devez supprimer l’ancien certificat, car il peut toujours être utilisé. . Pour ce faire, procédez comme suit :.  Pour ce faire, procédez comme suit :
+Une fois que vous avez remplacé vos anciens certificats, vous devez supprimer l’ancien certificat, car il peut toujours être utilisé. Pour ce faire, procédez comme suit :
 
 1. Vérifiez que vous êtes connecté au serveur AD FS principal.
 2. Ouvrez Windows PowerShell en tant qu’administrateur. 

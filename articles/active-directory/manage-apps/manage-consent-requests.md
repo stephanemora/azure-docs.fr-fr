@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/27/2019
+ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: 7893a73650e90411aa45f35d014b394eab0ad67d
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: a6bf1ec1616d45edd08b943b55f2859d7942c908
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568511"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425827"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestion du consentement pour les applications et évaluation des demandes de consentement
 
@@ -116,9 +116,9 @@ Pour désactiver toutes les futures opérations de consentement de l’utilisate
 1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
-4. Sélectionnez **Utilisateurs et groupes** dans le menu de navigation.
-5. Sélectionnez **Paramètres utilisateur**.
-6. Désactivez toutes les futures opérations de consentement de l’utilisateur en définissant l’option **Les utilisateurs peuvent autoriser les applications à accéder à leurs données** sur **Non**, puis cliquez sur le bouton **Enregistrer**.
+4. Sélectionnez **Applications d’entreprise** et sélectionnez **Paramètres utilisateur** dans la section **Gérer**.
+:::image type="content" source="media/manage-consent-requests/disable-user-consent-operations.png" alt-text="désactivation des opérations de consentement de l’utilisateur pour toutes les applications.":::
+5. Désactivez toutes les futures opérations de consentement de l’utilisateur en définissant l’option les **Utilisateurs peuvent donner leur consentement aux applications qui accèdent aux données de l’entreprise en leur nom** sur **Non** , puis cliquez sur le bouton **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 09/01/2021
 ms.author: cherylmc
-ms.openlocfilehash: 6d8420f0138dc26e2f265ac7c4f48e646a6bfe69
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 51b254c42f06c3ae6a0609a05e6f36056106139b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165116"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432033"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connecter une passerelle VPN (passerelle de réseau virtuel) à Virtual WAN
 
@@ -45,7 +45,7 @@ Sur la page **Configuration** de la passerelle de réseau virtuel, activez le mo
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Paramètre BGP
 
-Sur la page **Configuration** de la passerelle de réseau virtuel, vous pouvez configurer l’**ASN BGP**. Modifiez l’ASN BGP. L’ASN BGP ne peut pas être 65515. 65515 sera utilisé par Azure Virtual WAN.
+Sur la page **Configuration** de la passerelle de réseau virtuel, vous pouvez (si vous le souhaitez) sélectionner **Configurer l’ASN BGP**. Si vous configurez le protocole BGP, remplacez la valeur par défaut de l’ASN indiquée dans le portail. Pour cette configuration, l’ASN BGP ne peut pas être 65515. 65515 sera utilisé par Azure Virtual WAN.
 
 ![Capture d’écran montrant une page de configuration de passerelle de réseau virtuel avec l’option Configurer l’ASN BGP sélectionnée.](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
@@ -95,6 +95,7 @@ Dans cette section, vous créez deux passerelles de réseau local de passerelle 
 
    * **Adresse IP** : utilisez l’adresse IP Instance0 indiquée pour *gatewayconfiguration* à partir du fichier de configuration.
    * **BGP** : si la connexion est sur BGP, sélectionnez **Configurer les paramètres BGP** et entrez l’ASN « 65515 ». Entrez l’adresse IP homologue BGP Utilisez « Instance0 BgpPeeringAddresses » pour *gatewayconfiguration* à partir du fichier de configuration.
+   * **Espace d’adressage** Si la connexion n’est pas sur BGP, vérifiez que la case à cocher **configurer les paramètres BGP** reste désactivée.  Entrez les espaces d’adressage que vous allez publier du côté de la passerelle de réseau virtuel. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne se chevauchent pas avec les plages d’autres réseaux auxquels vous souhaitez vous connecter. 
    * **Abonnement, Groupe de ressources et Emplacement** sont les mêmes que pour le hub Virtual WAN.
 2. Vérifiez et créez la passerelle de réseau local. Votre passerelle de réseau local doit ressembler à cet exemple.
 

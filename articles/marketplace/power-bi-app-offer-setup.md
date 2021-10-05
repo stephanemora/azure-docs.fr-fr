@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 05/26/2021
-ms.openlocfilehash: e86a97b0f4aa9fef24203128970b8d9cc857cd41
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/27/2021
+ms.openlocfilehash: 6020ff6b6152fa559de5f6afc6f6560f1d7252ba
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955385"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082520"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Créer une offre d’application Power BI
 
@@ -26,6 +26,27 @@ Consultez [Planification d’une offre Power BI](marketplace-power-bi.md). Cet a
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. Sur la page d’accueil, sélectionnez la mosaïque **Offres de la Place de marché**.
+
+    [ ![Illustre la mosaïque Offres de la Place de marché sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Sur la page Offres de la Place de marché, sélectionnez **+ Nouvelle offre** > **Application Power BI**.
+
+    [ ![Illustre le type d’offre d’application Power BI disponible à partir du bouton Nouvelle offre.](./media/power-bi/new-offer-power-bi-app-workspaces.png) ](./media/power-bi/new-offer-power-bi-app-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> Après publication d’une offre, les modifications que vous y apportez dans Espace partenaires apparaissent sur Microsoft AppSource uniquement après la republication de l’offre. Veillez à toujours republier une offre après l’avoir modifiée.
+
+Si **Application Power BI** ne s’affiche pas ou n’est pas activé, cela signifie que votre compte n’est pas autorisé à créer ce type d’offre. Vérifiez que vous remplissez toutes les [exigences](./marketplace-dynamics-365.md) pour ce type d’offre, notamment l’inscription d’un compte de développeur.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
 3. Sur la page Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Application Power BI**.
@@ -36,6 +57,8 @@ Consultez [Planification d’une offre Power BI](marketplace-power-bi.md). Cet a
 > Après publication d’une offre, les modifications que vous y apportez dans Espace partenaires apparaissent sur Microsoft AppSource uniquement après la republication de l’offre. Veillez à toujours republier une offre après l’avoir modifiée.
 
 Si **Application Power BI** ne s’affiche pas ou n’est pas activé, cela signifie que votre compte n’est pas autorisé à créer ce type d’offre. Vérifiez que vous remplissez toutes les [exigences](marketplace-dynamics-365.md) pour ce type d’offre, notamment l’inscription d’un compte de développeur.
+
+---
 
 ## <a name="new-offer"></a>Nouvelle offre
 
