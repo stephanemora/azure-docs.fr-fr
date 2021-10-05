@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: 55b0d4246616dd862cfcf9fb15069f13f130e857
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ae3b89391a4932ac4e77287185c761b4c4e31cea
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638305"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798291"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Copier des données d’une base de données SQL Server vers un stockage Blob Azure
 
@@ -79,7 +79,7 @@ Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage
 
 1. Dans le volet gauche, sélectionnez **Tous les services**. Filtrez à l’aide du mot-clé **Stockage**, puis sélectionnez **Comptes de stockage**.
 
-    ![Recherche de compte de stockage](media/doc-common-process/search-storage-account.png)
+    :::image type="content" source="media/doc-common-process/search-storage-account.png" alt-text="Recherche de compte de stockage":::
 
 1. Dans la liste des comptes de stockage, appliquez un filtre pour votre compte de stockage (si nécessaire). Sélectionnez ensuite votre compte de stockage.
 
@@ -92,7 +92,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 1. Dans la fenêtre **Compte de stockage**, accédez à **Vue d’ensemble**, puis sélectionnez **Conteneurs**.
 
-    ![Sélection de l’option Objets blob](media/tutorial-hybrid-copy-powershell/select-blobs.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/select-blobs.png" alt-text="Sélection de l’option Objets blob":::
 
 1. Dans la fenêtre **Conteneurs**, sélectionnez **+ Conteneur** pour en créer un.
 
@@ -108,7 +108,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 1. Ouvrez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Intégration** > **Data Factory** :
 
-   ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Sélection de Data Factory dans le volet &quot;Nouveau&quot;":::
 
 1. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**.
 
@@ -139,7 +139,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 1. Dans la page d’accueil d’Azure Data Factory, sélectionnez **Orchestrer**. Un pipeline est automatiquement créé pour vous. Le pipeline apparaît dans l’arborescence et son éditeur s’ouvre.
 
-   ![Capture d’écran montrant la page d'accueil Azure Data Factory.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la page d'accueil Azure Data Factory.":::
 
 1. Dans le volet Général, sous **Propriétés**, spécifiez **SQLServerToBlobPipeline** comme **Nom**. Réduisez ensuite le panneau en cliquant sur l’icône Propriétés en haut à droite.
 
@@ -148,7 +148,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 1. Dans la fenêtre **Propriétés**, accédez à l’onglet **Source**, puis sélectionnez **+ Nouveau**.
 
 1. Dans la boîte de dialogue **Nouveau jeu de données**, recherchez **SQL Server**. Sélectionnez **SQL Server**, puis **Continuer**.
-    ![Nouveau jeu de données SqlServer](./media/tutorial-hybrid-copy-portal/create-sqlserver-dataset.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/create-sqlserver-dataset.png" alt-text="Nouveau jeu de données SqlServer":::
 
 1. Dans la boîte de dialogue **Définir les propriétés**, sous **Nom**, entrez **SqlServerDataset**. Sous **Service lié**, sélectionnez **+ Nouveau**. Vous créez une connexion à un magasin de données source (base de données SQL Server) dans cette étape.
 
@@ -159,11 +159,11 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 1. Sous Nom, entrez **TutorialIntegrationRuntime**. Sélectionnez ensuite **Créer**.
 
 1. Pour Paramètres, sélectionnez **Cliquez ici pour lancer l’installation rapide pour cet ordinateur**. Cette action installe le runtime d’intégration sur votre machine et l’inscrit auprès de Data Factory. Vous pouvez également utiliser l’option d’installation manuelle pour télécharger le fichier d’installation, l’exécuter et utiliser la clé pour inscrire le runtime d’intégration.
-    ![Configuration du runtime d’intégration](./media/tutorial-hybrid-copy-portal/intergration-runtime-setup.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/intergration-runtime-setup.png" alt-text="Installation du runtime d’intégration":::
 
 1. Dans la fenêtre **Installation rapide d’Integration Runtime (auto-hébergé)** , sélectionnez **Fermer** quand le processus est terminé.
 
-    ![Installation rapide d'Integration Runtime (auto-hébergé)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png" alt-text="Installation rapide d'Integration Runtime (auto-hébergé)":::
 
 1. Dans la boîte de dialogue **Nouveau service lié (SQL Server)** , vérifiez que **TutorialIntegrationRuntime** est sélectionné sous **Se connecter via le runtime d’intégration**. Ensuite, effectuez les étapes suivantes :
 
@@ -181,7 +181,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
     g. Pour enregistrer le service lié, sélectionnez **Créer**.
  
-    ![Nouveau service lié (SQL Server)](./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png" alt-text="Nouveau service lié (SQL Server)":::
 
 1. Après la création du service lié, vous revenez à la page **Définir les propriétés** pour le jeu de données SqlServer. Procédez comme suit :
 
@@ -199,7 +199,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 1. Dans la boîte de dialogue **Sélectionner le format**, choisissez le type de format de vos données. Sélectionnez **Continuer**.
 
-    ![Sélection du format des données](./media/doc-common-process/select-data-format.png)
+    :::image type="content" source="./media/doc-common-process/select-data-format.png" alt-text="Sélection du format des données":::
 
 1. Dans la boîte de dialogue **Définir les propriétés**, entrez **AzureBlobDataset** comme nom. En regard de la zone de texte **Service lié**, sélectionnez **+ Nouveau**.
 
@@ -214,14 +214,14 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
     b. Dans **Chemin d’accès du fichier**, entrez **adftutorial/fromonprem** pour la partie **Conteneur/répertoire**. Si le dossier de sortie n’existe pas dans le conteneur adftutorial, Data Factory crée automatiquement le dossier de sortie.
 
     c. Pour la partie **Fichier**, sélectionnez **Ajouter du contenu dynamique**.
-    ![expression dynamique pour la résolution du nom de fichier](./media/tutorial-hybrid-copy-portal/file-name.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/file-name.png" alt-text="expression dynamique pour la résolution du nom de fichier":::
 
     d. Ajoutez `@CONCAT(pipeline().RunId, '.txt')`, puis sélectionnez **Terminer**. Cette action a pour effet de renommer le fichier PipelineRunID.txt.
 
 1. Accédez à l’onglet avec le pipeline ouvert ou sélectionnez le pipeline dans l’arborescence. Vérifiez que **AzureBlobDataset** est sélectionné dans le champ **Jeu de données récepteur**.
 
 1. Pour valider les paramètres du pipeline, cliquez sur **Valider** dans la barre d’outils du pipeline. Pour fermer **Sortie de validation de pipeline**, sélectionnez l’icône **>>** .
-    ![valider le pipeline](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/validate-pipeline.png" alt-text="valider le pipeline":::
     
 
 1. Pour publier les entités que vous avez créées sur Data Factory, sélectionnez **Publier tout**.
@@ -237,7 +237,7 @@ Sélectionnez **Ajouter un déclencheur** dans la barre d’outils du pipeline, 
 1. Accédez à l’onglet **Surveiller**. Vous voyez le pipeline que vous avez déclenché manuellement à l’étape précédente.
 
 1. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **SQLServerToBlobPipeline** sous *NOM DU PIPELINE*. 
-    ![Superviser les exécutions de pipelines](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/pipeline-runs.png" alt-text="Superviser les exécutions de pipelines":::
 
 1. Dans la page **Exécutions d’activités**, sélectionnez le lien Détails (image en forme de lunettes) pour afficher des détails sur l’opération de copie. Pour revenir à la vue des exécutions de pipelines, sélectionnez **Toutes les exécutions de pipelines** en haut.
 

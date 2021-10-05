@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 773e0053512026f6a92a2981d43340b68e708186
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: f988fafbdd381c88a3f8da60fb48fa3320a82876
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113757707"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674449"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>Qu’est-ce qu’Azure Virtual Desktop ?
 
@@ -123,6 +123,8 @@ Pour connaître les URL que vous devez débloquer pour utiliser les clients, con
 
 Azure Virtual Desktop suit la [Stratégie de cycle de vie de Microsoft](/lifecycle/) et prend en charge les images de système d’exploitation x64 suivantes :
 
+* Windows 11 Entreprise multisession (préversion)
+* Windows 11 Entreprise (préversion)
 * Windows 10 Entreprise multisession
 * Windows 10 Entreprise
 * Windows 7 Entreprise
@@ -136,6 +138,8 @@ Les options d’automatisation et de déploiement qui sont disponibles dépenden
 
 |Système d’exploitation|Galerie d’images Azure|Déploiement manuel d’une machine virtuelle|Intégration du modèle Azure Resource Manager|Provisionner des pools d’hôtes sur la Place de marché Azure|
 |--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 11 Entreprise multisession (préversion)|Oui|Oui|Oui|Oui|
+|Windows 11 Entreprise (préversion)|Oui|Oui|Oui|Oui|
 |Windows 10 Entreprise multisession, version 1909 et ultérieure|Oui|Oui|Oui|Oui|
 |Windows 10 Entreprise, version 1909 et ultérieure|Oui|Oui|Oui|Oui|
 |Windows 7 Entreprise|Oui|Oui|Non|Non|

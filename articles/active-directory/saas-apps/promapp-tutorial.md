@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/10/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 348d71bec02f70da656b2cc5af262ab31c64d673
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: e6bc2a97e1f7839721b67269b8486fc39f58aa8a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983234"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776136"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nintex-promapp"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Nintex Promapp
 
@@ -39,6 +39,8 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Nintex Promapp prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
 * Nintex Promapp prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+
+* Nintex Promapp prend en charge le [provisionnement d’utilisateurs automatisé](promapp-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -162,6 +164,8 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans Nintex Promapp. Nintex Promapp prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Nintex Promapp, il en est créé un après l’authentification.
 
+Nintex Promapp prend aussi en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./promapp-provisioning-tutorial.md) sur la manière de configurer ce dernier.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -176,7 +180,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le portail Azure. Vous devez alors être automatiquement connecté à l’instance de Nintex Promapp pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Nintex Promapp dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Nintex Promapp pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Nintex Promapp dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Nintex Promapp pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

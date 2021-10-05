@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/02/2021
-ms.openlocfilehash: 6796a53ac05e8db606b29447a8792fa509c03d7e
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.date: 09/27/2021
+ms.openlocfilehash: dfb522e5231072e427c14dfe1c8c16889dd3ff9e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284081"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214188"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Comment créer, importer et exporter des termes de glossaire
 
@@ -22,7 +22,9 @@ Cet article explique comment créer un terme de glossaire métier dans un catalo
 
 Pour créer un terme de glossaire, procédez comme suit :
 
-1. Dans la page de navigation de gauche dans la page d’accueil, sélectionnez l’icône de glossaire pour accéder à la page de liste de termes.
+1. Sélectionnez **Catalogue de données** dans le volet de navigation gauche de la page d’accueil, puis le bouton **Gérer le glossaire** au centre de la page.
+
+    :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Capture d’écran montrant le catalogue de données avec le glossaire mis en surbrillance." border="true":::
 
 2. Dans la page **Termes du glossaire**, sélectionnez **+ Nouveau terme**. Une page s’ouvre avec le modèle **Système par défaut** sélectionné. Choisissez le modèle avec lequel vous souhaitez créer un terme de glossaire, puis sélectionnez **Continuer**.
 

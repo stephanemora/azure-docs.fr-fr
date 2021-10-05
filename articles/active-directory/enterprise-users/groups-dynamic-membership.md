@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 09/24/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9551906dc3a80a07597fc8406228a5869688d317
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: af682b21c60c7746595383d2488e3ad064eda4b5
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750565"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058301"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -31,7 +31,7 @@ Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système �
 - Vous ne pouvez pas créer un groupe d’appareils basé sur des attributs des propriétaires d’appareils. Des règles d’appartenance d’appareil ne peuvent référencer que des attributs d’appareils.
 
 > [!NOTE]
-> Cette fonctionnalité nécessite une licence Azure AD Premium P1 pour chaque utilisateur unique membre d’un ou de plusieurs groupes dynamiques. Vous n’avez pas à attribuer des licences aux utilisateurs pour qu’ils soient membres de groupes dynamiques. Toutefois, vous devez disposer du nombre minimal de licences dans l’organisation Azure AD pour couvrir tous les utilisateurs de ce type. Par exemple, si vous avez un total de 1 000 utilisateurs uniques dans tous les groupes dynamiques de votre organisation, vous devez disposer d’au moins 1 000 licences Azure AD Premium P1 pour répondre aux exigences de licence.
+> Cette fonctionnalité demande une licence Azure AD Premium P1 ou Intune pour l’Éducation pour chaque utilisateur unique membre d’un ou de plusieurs groupes dynamiques. Vous n’avez pas à attribuer des licences aux utilisateurs pour qu’ils soient membres de groupes dynamiques. Toutefois, vous devez disposer du nombre minimal de licences dans l’organisation Azure AD pour couvrir tous les utilisateurs de ce type. Par exemple, si vous avez un total de 1 000 utilisateurs uniques dans tous les groupes dynamiques de votre organisation, vous devez disposer d’au moins 1 000 licences Azure AD Premium P1 pour répondre aux exigences de licence.
 > Aucune licence n’est requise pour les appareils qui sont membres d’un groupe d’appareils dynamique.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Générateur de règles dans le portail Azure
@@ -133,7 +133,7 @@ Concernant les propriétés utilisées pour les règles d’appareils, voir [Rè
 
 ## <a name="supported-expression-operators"></a>Opérateurs d’expression pris en charge
 
-Le tableau suivant répertorie tous les opérateurs pris en charge et leur syntaxe pour une expression unique. Les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union (-).
+Le tableau suivant répertorie tous les opérateurs pris en charge et leur syntaxe pour une expression unique. Les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union (-). L’opérateur **Contains** établit des correspondances partielles de chaînes, les éléments d’une collection ne correspondent pas tous.
 
 | Opérateur | Syntaxe |
 | --- | --- |
@@ -204,7 +204,7 @@ La manière correcte de référencer la valeur null est la suivante :
 
 ## <a name="rules-with-multiple-expressions"></a>Règles comportant plusieurs expressions
 
-Une règle d’appartenance de groupe peut se composer de plusieurs expressions uniques reliées par les opérateurs logiques -and, -or et -not. Des opérateurs logiques peuvent également être utilisés en combinaison. 
+Une règle d’appartenance de groupe peut se composer de plusieurs expressions uniques reliées par les opérateurs logiques -and, -or et -not. Des opérateurs logiques peuvent également être utilisés en combinaison.
 
 Voici des exemples de règles d’appartenance correctement construites avec plusieurs expressions :
 
@@ -396,7 +396,7 @@ Les attributs d’appareil suivants peuvent être utilisés.
  deviceOwnership | Personnel, Entreprise, Inconnu | (device.deviceOwnership -eq "Company")
  enrollmentProfileName | Nom du profil d’inscription d’appareil Apple, nom du profil d’inscription d’appareil dédié appartenant à l’entreprise Android Enterprise ou nom du profil Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
- managementType | Gestion des périphériques mobiles (pour les appareils mobiles).<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
+ managementType | Gestion des périphériques mobiles (pour les appareils mobiles). | (device.managementType -eq "MDM")
  deviceId | Un ID d’appareil Azure AD valide. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | Un ID d’objet Azure AD valide. |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  devicePhysicalIds | toute valeur de chaîne utilisée par AutoPilot, par exemple tous les appareils AutoPilot, OrderID ou PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")

@@ -8,13 +8,13 @@ ms.topic: overview
 author: yorek
 ms.author: damauri
 ms.reviewer: ''
-ms.date: 7/27/2021
-ms.openlocfilehash: 9fa0a964033439a4b1c5276bf4310528dd345ff8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 9/24/2021
+ms.openlocfilehash: e2785f965cdbb94af081e937f0b2290578c04796
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722900"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059527"
 ---
 # <a name="hyperscale-secondary-replicas"></a>Réplicas secondaires Hyperscale
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -22,13 +22,13 @@ ms.locfileid: "121722900"
 Comme décrit dans [Architecture des fonctions distribuées](service-tier-hyperscale.md), Azure SQL Database Hyperscale a deux types différents de nœuds de calcul, également appelés « réplicas » :
 
 - Principal : sert les opérations de lecture et d’écriture
-- Secondaire : fournit le scale-out en lecture, la haute disponibilité et la géoréplication
+- Secondaire : fournit l’[échelle horizontale en lecture](read-scale-out.md), la [haute disponibilité](high-availability-sla.md) et la [géoréplication](active-geo-replication-overview.md)
 
 Les réplicas secondaires sont toujours en lecture seule et peuvent être de trois types différents :
 
 - Réplica de haute disponibilité
-- Réplica nommé (en préversion)
-- Géoréplica (préversion)
+- Réplica nommé (en [préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
+- Géoréplica (en [préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
 
 Chaque type a une architecture, un ensemble de fonctionnalités, un objectif et des coûts différents. En fonction des fonctionnalités dont vous avez besoin, vous pouvez utiliser un seul type comme l’ensemble des trois types.
 
@@ -63,7 +63,7 @@ La différence par rapport aux réplicas de haute disponibilité réside dans le
 - Prennent en charge un maximum de 30 réplicas nommés (pour chaque réplica principal) ;
 - Prennent en charge des processus d’authentification différents pour chaque réplica nommé en créant des connexions différentes sur les serveurs logiques hébergeant les réplicas nommés.
 
-L’objectif principal des réplicas nommés est d’autoriser un scénario de scale-out en lecture OLTP massif et d’améliorer les charges de travail de traitement transactionnel et analytique hybride (HTAP, Hybrid Transactional and Analytical Processing). Des exemples de création de solutions de ce type sont disponibles ici :
+L’objectif principal des réplicas nommés est d’autoriser un scénario d’[échelle horizontale en lecture](read-scale-out.md) OLTP massive et d’améliorer les charges de travail de traitement transactionnel et analytique hybride (HTAP, Hybrid Transactional and Analytical Processing). Des exemples de création de solutions de ce type sont disponibles ici :
 
 - [Exemple de scale-out OLTP](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)
 - [Exemple de scale-out HTAP](https://github.com/Azure-Samples/azure-sql-db-named-replica-htap)

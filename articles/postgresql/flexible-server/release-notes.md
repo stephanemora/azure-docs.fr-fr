@@ -6,13 +6,13 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 07/30/2021
-ms.openlocfilehash: 5423af2f148a56e978bfbe6a1584b3e281f9a1a4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/21/2021
+ms.openlocfilehash: f5b1caaef90a25e6635c30d1e3272438a408393b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740291"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589622"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>Notes de publication - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -20,6 +20,15 @@ Cette page fournit les toutes dernières informations concernant les ajouts de f
 
 > [!IMPORTANT]
 > Le serveur flexible Azure Database pour PostgreSQL est en préversion
+
+## <a name="release-september-2021"></a>Version : septembre 2021
+
+* Prise en charge de [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server).
+* Prise en charge des [nouvelles régions](overview.md#azure-regions) « Inde Centre » et « Japon Ouest ».
+* Prise en charge du mode de connectivité non SSL avec le nouveau paramètre de serveur `require_secure_transport`.
+* Prise en charge du paramètre de serveur `log_line_prefix` qui ajoute la chaîne au début de chaque ligne de journal.
+* Prise en charge de [Azure Resource Health](../../service-health/resource-health-overview.md) pour le diagnostic de l’intégrité du serveur flexible et pour obtenir de l’aide.
+* Plusieurs corrections de bogues, et amélioration de la stabilité et des performances.
 
 ## <a name="release-july-2021"></a>Publication : Juillet 2021
 
@@ -29,7 +38,7 @@ Cette page fournit les toutes dernières informations concernant les ajouts de f
 * Prise en charge de `pg_stat_reset_shared('bgwriter');` et `pg_stat_reset_shared('archiver');` pour réinitialiser les compteurs affichés dans les vues `pg_stat_bgwriter` et `pg_stat_archiver` <sup>$</sup>.
 * Plusieurs corrections de bogues, et amélioration de la stabilité et des performances<sup>$</sup>.
 
-<sup> **$** </sup> Les nouveaux serveurs obtiennent ces fonctionnalités automatiquement. Dans vos serveurs existants, ces fonctionnalités sont activées pendant la prochaine fenêtre de maintenance de votre serveur.
+<sup> **$**</sup> Les nouveaux serveurs obtiennent ces fonctionnalités automatiquement. Dans vos serveurs existants, ces fonctionnalités sont activées pendant la prochaine fenêtre de maintenance de votre serveur.
 
 ## <a name="release-june-2021"></a>Version : juin 2021
 
@@ -41,7 +50,7 @@ Cette page fournit les toutes dernières informations concernant les ajouts de f
 * Prise en charge de l’extension lo. Consultez la [page des extensions](./concepts-extensions.md) pour les versions prises en charge avec chaque version majeure <sup>$</sup>.
 * Plusieurs corrections de bogues, et amélioration de la stabilité et des performances<sup>$</sup>.
   
-<sup> **$** </sup> Les nouveaux serveurs obtiennent ces fonctionnalités automatiquement.  Vos serveurs existants seront automatiquement mis à niveau vers la dernière version mineure prise en charge et les nouvelles fonctionnalités seront également activées lors de la future fenêtre de maintenance de votre serveur.
+<sup> **$**</sup> Les nouveaux serveurs obtiennent ces fonctionnalités automatiquement.  Vos serveurs existants seront automatiquement mis à niveau vers la dernière version mineure prise en charge et les nouvelles fonctionnalités seront également activées lors de la future fenêtre de maintenance de votre serveur.
 
 ## <a name="release-may-2021"></a>Version : mai 2021
 

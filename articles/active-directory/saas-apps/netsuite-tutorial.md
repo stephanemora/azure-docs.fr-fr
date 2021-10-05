@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: d99a19efcef0cae518d8d21d3371adaf37d32ff7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a38d2ced173e74263cdf159a1f3243e00ce0911b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625479"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776549"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutoriel : Intégrer l’authentification unique Azure Active Directory à NetSuite
 
@@ -41,6 +41,7 @@ NetSuite prend en charge :
 
 * L’authentification unique lancée par le fournisseur d’identité.
 * Le provisionnement d’utilisateurs juste-à-temps (JIT).
+* NetSuite prend en charge [l’attribution automatique d’utilisateurs](netsuite-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -56,11 +57,11 @@ Pour configurer l’intégration de NetSuite à Azure AD, ajoutez NetSuite à pa
 1. Dans la section **Ajouter à partir de la galerie**, tapez **NetSuite** dans la zone de recherche.
 1. Dans le volet de résultats, sélectionnez **NetSuite**, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-netsuite"></a>Configurer et tester l’authentification unique Azure AD pour NetSuite
+## <a name="configure-and-test-azure-ad-sso-for-netsuite"></a>Configurer et tester l’authentification unique Azure AD pour NetSuite
 
 Configurez et testez l’authentification unique Azure AD avec NetSuite à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur NetSuite associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec NetSuite, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec NetSuite, vous devez suivre les étapes suivantes :
 
 1. [Configurer l’authentification unique Azure AD](#configure-azure-ad-sso) pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     * [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec l’utilisateur B.Simon.  
@@ -79,23 +80,7 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, dans la zone de texte **URL de réponse**, tapez une URL dans l’un des formats suivants :
-
-    ```https
-    https://<Instance ID>.NetSuite.com/saml2/acs
-    https://<Instance ID>.na1.NetSuite.com/saml2/acs
-    https://<Instance ID>.na2.NetSuite.com/saml2/acs
-    https://<Instance ID>.sandbox.NetSuite.com/saml2/acs
-    https://<Instance ID>.na1.sandbox.NetSuite.com/saml2/acs
-    https://<Instance ID>.na2.sandbox.NetSuite.com/saml2/acs
-    ```
-
-    * Vous obtiendrez la valeur **<`Instance ID`>** dans la section Configuration de NetSuite, qui est expliquée plus loin dans le tutoriel à l’étape 8 sous Configuration de NetSuite. Vous trouverez le domaine exact (par exemple, system.na0.netsuite.com dans le cas présent).
-
-        ![Capture d’écran affichant la page Configuration SAML dans laquelle vous pouvez obtenir les valeurs.](./media/NetSuite-tutorial/domain-value.png)
-
-        > [!NOTE]
-        > Les valeurs des URL précédentes ne sont pas réelles. Mettez-les à jour avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Vous pouvez aussi vous reporter aux formats présentés dans la section **Configuration SAML de base** du portail Azure.
+1. Dans la section **Configuration SAML de base**, dans la zone de texte **URL de réponse**, tapez l’URL : `https://system.netsuite.com/saml2/acs`
 
 1. L’application NetSuite s’attend à recevoir les assertions SAML dans un certain format, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -246,13 +231,15 @@ Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l�
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans NetSuite. NetSuite prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans NetSuite, il en est créé un après l’authentification.
 
+NetSuite prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./netsuite-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
 - Cliquez sur Tester cette application dans le portail Azure et vous devez être connecté automatiquement à l’instance de NetSuite pour laquelle vous avez configuré l’authentification unique
 
-- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette NetSuite dans Mes applications, vous devez être connecté automatiquement à l’instance de NetSuite pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette NetSuite dans Mes applications, vous devez être connecté automatiquement à l’instance de NetSuite pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/26/2021
+ms.date: 09/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management, has-adal-ref
-ms.openlocfilehash: ba222c5d0ae028b606deda08e225085bd42d761c
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 5f70c401799fb0b67f9f4013713eb89525072f45
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966747"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670725"
 ---
 # <a name="introduction-to-azure-ad-connect-v20"></a>Présentation d’Azure AD Connect v 2.0 
 
@@ -40,7 +40,7 @@ SQL Server 2019 requiert le runtime Visual C++ Redist 14. Nous mettons donc
 
 ### <a name="tls-12"></a>TLS 1.2 
 
-TLS 1.0 et TLS 1.1 sont des protocoles jugés peu sûrs et sont déconseillés par Microsoft. Cette version d’Azure AD Connect prend en charge uniquement TLS 1.2. Si votre serveur ne prend pas en charge TLS 1.2, vous devez l’activer avant de pouvoir déployer Azure AD Connect v2.0. Pour plus d’informations, consultez [Application de TLS 1.2 pour Azure AD Connect](reference-connect-tls-enforcement.md).
+TLS 1.0 et TLS 1.1 sont des protocoles jugés peu sûrs et sont déconseillés par Microsoft. Cette version d’Azure AD Connect prend en charge uniquement TLS 1.2. Toutes les versions de Windows Server qui sont prises en charge pour Azure AD Connect V2.0 utilisent déjà le protocole TLS 1.2 par défaut. Si votre serveur ne prend pas en charge TLS 1.2, vous devez l’activer avant de pouvoir déployer Azure AD Connect v2.0. Pour plus d’informations, consultez [Application de TLS 1.2 pour Azure AD Connect](reference-connect-tls-enforcement.md).
 
 ### <a name="all-binaries-signed-with-sha2"></a>Tous les binaires signés avec SHA-2 
 
@@ -60,7 +60,7 @@ Cet [article](/windows-server/get-started-19/install-upgrade-migrate-19) décrit
 
 Cette version d’Azure AD Connect contient plusieurs cmdlets qui nécessitent PowerShell 5.0. Cette exigence est donc un nouveau prérequis pour Azure AD Connect.  
 
-Vous trouverez plus d’informations sur les prérequis de PowerShell [ici](/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements?view=powershell-7.1#windows-powershell-50).
+Vous trouverez plus d’informations sur les prérequis de PowerShell [ici](/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements#windows-powershell-50).
 
  >[!NOTE]
  >PowerShell 5 fait déjà partie de Windows Server 2016. Vous n’avez donc probablement pas besoin d’agir tant que vous utilisez une version récente de Window Server. 
@@ -88,10 +88,10 @@ Oui, c’est possible et c’est un excellent moyen de migrer vers Azure AD Co
 Vous devez effectuer la mise à niveau vers Azure AD Connect v2.0 dès que possible. **__Toutes les versions Azure AD Connect V1 seront supprimées le 31 août 2022.__** Pour le moment, nous continuons à prendre en charge les versions antérieures d’Azure AD Connect, mais il peut s’avérer difficile de fournir une bonne expérience de support si certains des composants d’Azure AD Connect ne sont plus pris en charge. Cette mise à niveau est particulièrement importante pour ADAL et TLS 1.0/1.1, car ces services peuvent cesser de fonctionner de manière inattendue après leur dépréciation. 
 
 **J’utilise une base de données SQL externe et n’utilise pas SQL Server 2012 Base de données locale. Dois-je quand même effectuer la mise à niveau ?** </br>
-Oui, vous devez effectuer la mise à niveau pour conserver un état pris en charge, même si vous n’utilisez pas SQL Server 2012, en raison de la dépréciation de TLS 1.0/1.1 et d’ADAL. 
+Oui, vous devez effectuer la mise à niveau pour conserver un état pris en charge, même si vous n’utilisez pas SQL Server 2012, en raison de la dépréciation de TLS 1.0/1.1 et d’ADAL. Notez que SQL Server 2012 peut toujours être utilisé comme base de données SQL externe avec Azure AD Connect V2.0 - les pilotes SQL 2019 dans Azure AD Connect V2.0 sont compatibles avec SQL Server 2012.
 
 **Après la mise à niveau de mon instance Azure AD Connect vers V2.0, les composants SQL 2012 sont-ils automatiquement désinstallés ?** </br>
-Non, la mise à niveau vers SQL 2019 ne supprime aucun composant SQL 2012 de votre serveur. Si vous n’avez plus besoin de ces composants, vous devez suivre [les instructions de désinstallation de SQL Server](https://docs.microsoft.com/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
+Non, la mise à niveau vers SQL 2019 ne supprime aucun composant SQL 2012 de votre serveur. Si vous n’avez plus besoin de ces composants, vous devez suivre [les instructions de désinstallation de SQL Server](/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
 
 **Que se passe-t-il si je ne fais pas la mise à niveau ?** </br>
 Jusqu’à ce que l’un des composants en cours de mise hors service devienne réellement déconseillé, vous ne verrez aucun impact. Azure AD Connect continuera à fonctionner. 

@@ -4,13 +4,13 @@ description: Décrit les opérateurs Bicep qui permettent de comparer des valeur
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: db9c01cf87fcf2c268e9685589bf13674af27184
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/07/2021
+ms.openlocfilehash: 1a28da26a3c97982bb0e06deebae6ae68b1eb7d9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026529"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744406"
 ---
 # <a name="bicep-comparison-operators"></a>Opérateurs de comparaison Bicep
 
@@ -231,6 +231,82 @@ Résultat de l'exemple :
 | `stringEqual` | boolean | true |
 | `boolEqual` | boolean | true |
 
+Lors de la comparaison de tableaux, les deux tableaux doivent avoir les mêmes éléments et le même ordre. Les tableaux n’ont pas besoin d’être attribués entre eux.
+
+```bicep
+var array1 = [
+  1
+  2
+  3
+]
+
+var array2 = [
+  1
+  2
+  3
+]
+
+var array3 = array2
+
+var array4 = [
+  3
+  2
+  1
+]
+
+output sameElements bool = array1 == array2 // returns true because arrays are defined with same elements
+output assignArray bool = array2 == array3 // returns true because one array was defined as equal to the other array
+output differentOrder bool = array4 == array1 // returns false because order of elements is different
+```
+
+Résultat de l'exemple :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ---- |
+| sameElements | bool | true |
+| assignArray | bool | true |
+| differentOrder | bool | false |
+
+Lors de la comparaison d’objets, les valeurs et les noms de propriété doivent être identiques. Les propriétés n’ont pas besoin d’être définies dans le même ordre.
+
+```bicep
+var object1 = {
+  prop1: 'val1'
+  prop2: 'val2'
+}
+
+var object2 = {
+  prop1: 'val1'
+  prop2: 'val2'
+}
+
+var object3 = {
+  prop2: 'val2'
+  prop1: 'val1'
+}
+
+var object4 = object3
+
+var object5 = {
+  prop1: 'valX'
+  prop2: 'valY'
+}
+
+output sameObjects bool = object1 == object2 // returns true because both objects defined with same properties
+output differentPropertyOrder bool = object3 == object2 // returns true because both objects have same properties even though order is different
+output assignObject bool = object4 == object1 // returns true because one object was defined as equal to the other object
+output differentValues bool = object5 == object1 // returns false because values are different
+```
+
+Résultat de l'exemple :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ---- |
+| sameObjects | bool | true |
+| differentPropertyOrder | bool | true |
+| assignObject | bool | true |
+| differentValues | bool | false |
+
 ## <a name="not-equal-"></a>Différent de !=
 
 `operand1 != operand2`
@@ -274,6 +350,8 @@ Résultat de l'exemple :
 | `intNotEqual` | boolean | true |
 | `stringNotEqual` | boolean | true |
 | `boolNotEqual` | boolean | true |
+
+Pour les tableaux et les objets, consultez les exemples dans la section [Égal à](#equals-).
 
 ## <a name="equal-case-insensitive-"></a>Égal à - insensible à la casse =~
 

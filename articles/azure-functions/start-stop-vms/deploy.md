@@ -5,12 +5,12 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c0b3984629376f11692b727bb28b34c15708c596
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 51488a6694b843821110127640281a2da9986862
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524489"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744758"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>Déployer Start/Stop VMs v2 (préversion)
 
@@ -32,6 +32,10 @@ Pour simplifier la gestion et la suppression, nous vous recommandons de déploye
 
 > [!NOTE]
 > Actuellement, cette préversion ne permet pas de spécifier un compte de stockage ou une ressource Application Insights existants.
+
+
+> [!NOTE]
+> Le format d’affectation de noms pour l’application de fonction et le compte de stockage a changé. Pour garantir l’unicité globale, une chaîne aléatoire et unique est maintenant ajoutée aux noms de ces ressources.
 
 1. Ouvrez votre navigateur et accédez à l’[organisation GitHub](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md) Start/Stop VMs v2.
 1. Sélectionnez l’option de déploiement en fonction de l’environnement cloud Azure dans lequel vos machines virtuelles Azure sont créées. Cela ouvrira la page de déploiement Azure Resource Manager personnalisé dans le portail Azure.
@@ -57,9 +61,6 @@ Pour simplifier la gestion et la suppression, nous vous recommandons de déploye
 1. Sélectionnez **Accédez au groupe de ressources** à partir du volet de notification. Vous devriez voir un écran semblable à :
 
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Liste des ressources de déploiement du modèle Start/Stop VMs":::
-
-> [!NOTE]
-> Le format d’affectation de noms pour l’application de fonction et le compte de stockage a changé. Pour garantir l’unicité globale, une chaîne aléatoire et unique est maintenant ajoutée aux noms de ces ressources.
 
 > [!NOTE]
 > Nous collectons des données de télémétrie des opérations et des pulsations pour vous aider au mieux si vous contactez l’équipe de support pour tout dépannage. Nous collectons également l’historique des événements des machines virtuelles pour vérifier que le service a agi sur une machine virtuelle et déterminer combien de temps une machine virtuelle a été répétée pour connaître l’efficacité du service.
@@ -190,8 +191,11 @@ Pour chaque scénario, vous pouvez cibler l’action sur un ou plusieurs abonnem
           "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
           
         ]
+      }
     }
     ```
+
+1. Dans le volet Vue d’ensemble de l’application logique, sélectionnez **Activer**.  
 
 ## <a name="sequenced-start-and-stop-scenario"></a>Scénario de démarrage et d’arrêt séquencés
 

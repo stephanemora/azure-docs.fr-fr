@@ -10,35 +10,35 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 07/06/2021
-ms.openlocfilehash: f5822a3d5594388627858be22ca9bbc0a43c1739
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.date: 09/23/2021
+ms.openlocfilehash: 46cfef6e2a226e6eb3c369b46a1214943c998bc1
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361078"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059261"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Utiliser des réplicas en lecture seule pour décharger des charges de travail de requêtes en lecture seule
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Dans le cadre d’une [architecture à haute disponibilité](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability), chaque base de données, chaque base de données du pool élastique et chaque instance managée des niveaux de service Premium et Critique pour l’entreprise sont automatiquement provisionnées avec un réplica principal en lecture-écriture et plusieurs réplicas secondaires en lecture seule. Les réplicas secondaires sont approvisionnés avec la même taille de calcul que le réplica principal. La fonctionnalité *Échelle horizontale en lecture* vous permet de décharger les charges de travail en lecture seule à l'aide de la capacité de calcul de l'un des réplicas en lecture seule au lieu de les exécuter sur le réplica en lecture-écriture. De cette façon, certaines charges de travail en lecture seule peuvent être isolées des charges de travail en lecture-écriture et n'affecteront pas leurs performances. Cette fonctionnalité est destinée aux applications qui incluent des charges de travail en lecture seule séparées logiquement, telles que des analyses. Aux niveaux de service Premium et Critique pour l’entreprise, les applications peuvent bénéficier d’avantages en matière de performances en exploitant cette capacité supplémentaire sans coût supplémentaire.
 
-La fonctionnalité *Échelle horizontale en lecture* est également disponible au niveau de service Hyperscale lorsqu'au moins un réplica secondaire est créé. Plusieurs réplicas secondaires peuvent être utilisés pour équilibrer les charges de travail en lecture seule qui nécessitent plus de ressources qu'il n'en existe sur un réplica secondaire.
+La fonctionnalité *Échelle horizontale en lecture* est également disponible au niveau de service Hyperscale lorsqu'au moins un [réplica secondaire](service-tier-hyperscale-replicas.md) est créé. Les [réplicas nommées](service-tier-hyperscale-replicas.md#named-replica-in-preview) secondaires hyperscale offrent une mise à l'échelle indépendante, l'isolation de l'accès, l'isolation de la charge de travail, l'extension massive de la lecture et d'autres avantages. Plusieurs réplicas [HA secondaires](service-tier-hyperscale-replicas.md#high-availability-replica) peuvent être utilisés pour équilibrer les charges de travail en lecture seule qui nécessitent plus de ressources qu'il n'en existe sur un réplica secondaire. 
 
 L’architecture à haute disponibilité des niveaux de service De base, Standard et Usage général n’inclut pas de réplica. La fonctionnalité *Échelle horizontale en lecture* n'est pas disponible à ces niveaux de service.
 
-Le diagramme suivant illustre la fonctionnalité.
+Le diagramme suivant illustre la fonctionnalité de Premium et critique pour l’entreprise des bases de données et des instances managées.
 
 ![Réplicas en lecture seule](./media/read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-La fonctionnalité *Échelle horizontale en lecture* est activée par défaut sur les nouvelles bases de données Premium, Critiques pour l'entreprise et Hyperscale. Pour Hyperscale, un réplica secondaire est créé par défaut pour les nouvelles bases de données. 
+La fonctionnalité *Échelle horizontale en lecture* est activée par défaut sur les nouvelles bases de données Premium, Critiques pour l'entreprise et Hyperscale.
 
 > [!NOTE]
-> L'échelle horizontale en lecture est toujours activée au niveau de service Critique pour l'entreprise de Managed Instance.
+> La mise à l'échelle de la lecture est toujours activée dans le niveau de service Business Critical de Managed Instance, et pour les bases de données Hyperscale avec au moins une réplique secondaire.
 
 Si votre chaîne de connexion SQL est configurée avec `ApplicationIntent=ReadOnly`, l'application est redirigée vers un réplica en lecture seule de cette base de données ou instance gérée. Pour plus d’informations sur la manière d’utiliser la propriété `ApplicationIntent`, voir [Spécification de l’intention de l’application](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-Si vous souhaitez vous assurer que l’application se connecte au réplica principal quel que soit le paramètre `ApplicationIntent` de la chaîne de connexion SQL, vous devez désactiver explicitement l’échelle horizontale en lecture lors de la création de la base de données ou de la modification de sa configuration. Par exemple, si vous mettez à niveau votre base de données du niveau Standard ou General Purpose vers le niveau Premium, Critique pour l'entreprise ou Hyperscale et que vous souhaitez que toutes vos connexions continuent d'être dirigées vers le réplica principal, désactivez la fonctionnalité Échelle horizontale en lecture. Pour plus d'informations sur la désactivation de cette fonctionnalité, consultez [Activer et désactiver l'échelle horizontale en lecture](#enable-and-disable-read-scale-out).
+Si vous souhaitez vous assurer que l’application se connecte au réplica principal quel que soit le paramètre `ApplicationIntent` de la chaîne de connexion SQL, vous devez désactiver explicitement l’échelle horizontale en lecture lors de la création de la base de données ou de la modification de sa configuration. Par exemple, si vous mettez à niveau votre base de données du niveau Standard ou General Purpose au niveau Premium ou Business Critical et que vous voulez vous assurer que toutes vos connexions continuent d'aller vers le réplica primaire, désactivez le read scale-out. Pour plus d'informations sur la façon de le désactiver, consultez la rubrique [Activer et désactiver le transfert en lecture](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
 > Les fonctionnalités Magasin des requêtes et Générateur de profils SQL ne sont pas prises en charge sur les réplicas en lecture seule. 
@@ -85,7 +85,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 Lorsqu'elles sont connectées à un réplica en lecture seule, les vues de gestion dynamique (DMV) reflètent l'état du réplica et peuvent être interrogées à des fins de surveillance et de dépannage. Le moteur de base de données fournit plusieurs affichages pour exposer un large éventail de données de surveillance. 
 
-Les affichages couramment utilisés sont les suivants :
+Les vues suivantes sont couramment utilisées pour la surveillance et le dépannage des répliques :
 
 | Nom | Objectif |
 |:---|:---|
@@ -117,12 +117,14 @@ Dans de rares cas, si une transaction d'isolement de capture instantanée accèd
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Requêtes longues sur les réplicas en lecture seule
 
-Les requêtes exécutées sur les réplicas en lecture seule doivent accéder aux métadonnées des objets référencés dans la requête (tables, index, statistiques, etc.) Dans de rares cas, si un objet de métadonnées est modifié sur le réplica principal alors qu'une requête contient un verrou correspondant au même objet sur le réplica en lecture seule, la requête peut [bloquer](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) le processus qui applique les modifications du réplica principal au réplica en lecture seule. Si une telle requête devait s'exécuter pendant une longue période, elle entraînerait une désynchronisation importante entre le réplica en lecture seule et le réplica principal.
+Les requêtes exécutées sur des répliques en lecture seule doivent accéder aux métadonnées des objets référencés dans la requête (tables, index, statistiques, etc.) Dans de rares cas, si les métadonnées d'un objet sont modifiées sur la réplique primaire alors qu'une requête détient un verrou sur le même objet sur la réplique en lecture seule, la requête peut [bloquer](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) le processus qui applique les modifications de la réplique primaire à la réplique en lecture seule.
 
-Si une requête de longue durée sur un réplica en lecture seule provoque ce type de blocage, elle est automatiquement arrêtée. La session recevra l’erreur 1219 « Votre session a été déconnectée en raison d'une opération DDL de priorité supérieure », ou l’erreur 3947 « La transaction a été abandonnée parce que le calcul secondaire n’a pas réussi à rattraper la restauration. Réessayez d’exécuter la transaction. »
+Traduit avec www.DeepL.com/Translator (version gratuite) Si une telle requête devait s'exécuter pendant une longue période, elle entraînerait une désynchronisation importante entre le réplica en lecture seule et le réplica principal. Pour les répliques qui sont des cibles potentielles de basculement (répliques secondaires dans les niveaux de service Premium et Business Critical, répliques Hyperscale HA et toutes les répliques géographiques), cela retarderait également la récupération de la base de données si un basculement devait se produire, ce qui entraînerait des temps d'arrêt plus longs que prévu.
+
+Si une requête de longue durée sur une réplique en lecture seule provoque directement ou indirectement ce type de blocage, elle peut être automatiquement interrompue pour éviter une latence excessive des données et un impact potentiel sur la disponibilité de la base de données. La session recevra l’erreur 1219 « Votre session a été déconnectée en raison d'une opération DDL de priorité supérieure », ou l’erreur 3947 « La transaction a été abandonnée parce que le calcul secondaire n’a pas réussi à rattraper la restauration. Réessayez d’exécuter la transaction. »
 
 > [!NOTE]
-> Si vous recevez l'erreur 3961, 1219 ou 3947 lors de l'exécution de requêtes sur un réplica en lecture seule, relancez la requête.
+> Si vous recevez l'erreur 3961, 1219 ou 3947 lors de l'exécution de requêtes sur un réplica en lecture seule, relancez la requête. Sinon, évitez les opérations qui modifient les métadonnées des objets (changements de schémas, maintenance des index, mises à jour des statistiques, etc.) sur la réplique primaire pendant que les requêtes de longue durée s'exécutent sur les répliques secondaires.
 
 > [!TIP]
 > Aux niveaux de service Premium et Critique pour l’entreprise, en cas de connexion à un réplica en lecture seule, les colonnes `redo_queue_size` et `redo_rate` de la vue de gestion dynamique [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) peuvent être utilisées pour surveiller le processus de synchronisation des données et servir d’indicateurs de latence de propagation des données sur le réplica en lecture seule.
@@ -130,7 +132,7 @@ Si une requête de longue durée sur un réplica en lecture seule provoque ce ty
 
 ## <a name="enable-and-disable-read-scale-out"></a>Activer et désactiver l’échelle horizontale en lecture
 
-L’échelle horizontale en lecture est activée par défaut sur les niveaux de service Premium, Critique pour l’entreprise et Hyperscale. L’échelle horizontale en lecture ne peut pas être activée au niveau de service De base, Standard ou Usage général. L’échelle horizontale en lecture est automatiquement désactivée sur les bases de données Hyperscale configurées avec zéro réplica.
+L’échelle horizontale en lecture est activée par défaut sur les niveaux de service Premium, Critique pour l’entreprise et Hyperscale. L’échelle horizontale en lecture ne peut pas être activée au niveau de service De base, Standard ou Usage général. La mise à l'échelle en lecture est automatiquement désactivée sur les bases de données Hyperscale configurées avec zéro réplique secondaire.
 
 Vous pouvez désactiver et réactiver l'échelle horizontale en lecture sur des bases de données uniques et des bases de données de pool élastique aux niveaux de service Premium ou Critique pour l’entreprise en utilisant les méthodes suivantes.
 
@@ -186,16 +188,16 @@ Pour plus d’informations, consultez [Bases de données - Créer ou mettre à j
 
 ## <a name="using-the-tempdb-database-on-a-read-only-replica"></a>Utilisation de la base de données `tempdb` sur un réplica en lecture seule
 
-La base de données `tempdb` du réplica principal n'est pas répliquée sur les réplicas en lecture seule. Chaque réplica possède sa propre base de données `tempdb` générée lors de la création du réplica. Il vérifie que la base de données `tempdb` peut être mise à jour et modifiée pendant l'exécution de votre requête. Si votre charge de travail en lecture seule dépend de l'utilisation d'objets `tempdb`, vous devez intégrer ceux-ci dans votre script de requête.
+La base de données `tempdb` du réplica principal n'est pas répliquée sur les réplicas en lecture seule. Chaque réplica possède sa propre base de données `tempdb` générée lors de la création du réplica. Il vérifie que la base de données `tempdb` peut être mise à jour et modifiée pendant l'exécution de votre requête. Si votre charge de travail en lecture seule dépend de l'utilisation d'`tempdb`objets, vous devez créer ces objets dans le cadre de la même charge de travail, tout en étant connecté à une réplique en lecture seule.
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Utilisation de l’échelle horizontale en lecture avec des bases de données géorépliquées
 
-Les bases de données secondaires géorépliquées disposent de la même architecture de haute disponibilité que les bases de données primaires. Si vous vous connectez à la base de données secondaire géorépliquée et que l'échelle horizontale en lecture est activée, vos sessions avec `ApplicationIntent=ReadOnly` sont acheminées vers l'un des réplicas haute disponibilité de la même façon que sur la base de données primaire accessible en écriture. Les sessions sans `ApplicationIntent=ReadOnly` sont routées vers le réplica principal de la base de données secondaire géorépliquée, qui est également en lecture seule. 
+Les bases de données secondaires géo-répliquées ont la même architecture de haute disponibilité que les bases de données primaires. Si vous vous connectez à la base de données secondaire géorépliquée et que l'échelle horizontale en lecture est activée, vos sessions avec `ApplicationIntent=ReadOnly` sont acheminées vers l'un des réplicas haute disponibilité de la même façon que sur la base de données primaire accessible en écriture. Les sessions sans `ApplicationIntent=ReadOnly` sont routées vers le réplica principal de la base de données secondaire géorépliquée, qui est également en lecture seule. 
 
-Ainsi, la création d'un géo-réplica fournit deux autres réplicas en lecture seule pour une base de données primaire en lecture-écriture, soit un total de trois réplicas en lecture seule. Chaque géo-réplica supplémentaire fournit une autre paire de réplicas en lecture seule. Des géo-réplicas peuvent être créés dans n'importe quelle région Azure, y compris dans la région de la base de données primaire.
+De cette façon, la création d'une géo-réplique peut fournir plusieurs répliques supplémentaires en lecture seule pour une base de données primaire en lecture-écriture. Chaque géo-réplique supplémentaire fournit un autre ensemble de répliques en lecture seule. Des géo-réplicas peuvent être créés dans n'importe quelle région Azure, y compris dans la région de la base de données primaire.
 
 > [!NOTE]
-> Il n'y a pas de tourniquet (round robin) automatique ou de routage à charge équilibrée entre les réplicas d'une base de données secondaire géo-répliquée.
+> Il n'y a pas de round-robin automatique ou tout autre routage équilibré en fonction de la charge entre les répliques d'une base de données secondaire géo-répliquée, à l'exception d'une géo-réplique Hyperscale avec plus d'une réplique HA. Dans ce cas, les sessions avec une intention de lecture seule sont distribuées sur toutes les répliques HA d'une géo-réplique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/26/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: fdc6e6839af33a154f331940bba354c05e6b3f64
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: e2d6619f1dce9ad7ef68f07ec614f36d409c6831
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580270"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124746526"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-genesys-cloud-for-azure"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Genesys Cloud
 
@@ -37,7 +37,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Genesys Cloud for Azure prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**.
+* Genesys Cloud for Azure prend en charge l’authentification unique lancée par **le fournisseur de services et par le fournisseur d’identité**.
+
+* Genesys Cloud for Azure prend en charge l’[attribution automatisée d’utilisateurs](purecloud-by-genesys-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -206,6 +208,9 @@ Pour permettre aux utilisateurs d’Azure AD de se connecter à Genesys Cloud�
 
     c. Sélectionnez **Create** (Créer).
 
+> [!NOTE]
+> Genesys Cloud for Azure prend également en charge l’attribution automatique d’utilisateurs. Des informations supplémentaires sur la configuration de cette fonctionnalité sont disponibles [ici](./purecloud-by-genesys-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -220,7 +225,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans Portail Azure : vous devez être connecté automatiquement à l’instance de Genesys Cloud for Azure pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Genesys Cloud for Azure dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Genesys Cloud for Azure pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Genesys Cloud for Azure dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Genesys Cloud for Azure pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/14/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9186c742f34f1c060b57ffdfbf1bf688607b4c03
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1dc4c63d5d19b688a695702a5eb94365ff762a97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125335"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591802"
 ---
 ::: zone target="docs"
 
@@ -283,7 +283,7 @@ Si vous n’avez pas utilisé l’outil Split Copy pour copier les données, vou
 
     > [!TIP]
     > - Réinitialisez l’outil entre deux exécutions.
-    > - Utiliser l’option 1 si vous traitez un grand jeu de données qui contient des petits fichiers (~ Ko). Cette option valide seulement les fichiers, car la génération de la somme de contrôle peut prendre beaucoup de temps et les performances peuvent ralentir considérablement.
+    > - Le processus de somme de contrôle peut prendre plus de temps si vous avez un grand jeu de données contenant de petits fichiers (de l’ordre de plusieurs Ko).  Si vous utilisez l’option 1 et que vous ignorez la création de la somme de contrôle, vous devez vérifier indépendamment l’intégrité des données chargées dans Azure, de préférence via des sommes de contrôle, avant de supprimer les copies des données en votre possession.
 
 3. Si vous utilisez plusieurs disques, exécutez la commande pour chaque disque.
 

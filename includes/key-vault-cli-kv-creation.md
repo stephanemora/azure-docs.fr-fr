@@ -4,19 +4,19 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: a87fbbb276fd8813492cc293bc08b958ee3d6b7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d3c7cdcebc244aefb6ef5b2ceb7b931344a8960
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99070257"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593708"
 ---
 Utilisez la commande Azure CLI [az keyvault create](/cli/azure/keyvault#az_keyvault_create) pour créer un coffre de clés dans le groupe de ressources de l’étape précédente. Vous devrez fournir certaines informations :
 
 - Nom du coffre de clés : chaîne de 3 à 24 caractères qui ne peut contenir que des chiffres (0-9), des lettres (a-z, A-Z) et des traits d’union (-).
 
   > [!Important]
-  > Chaque coffre de clés doit avoir un nom unique. Remplacez <your-unique-keyvault-name> par le nom de votre coffre de clés dans les exemples suivants.
+  > Chaque coffre de clés doit avoir un nom unique. Remplacez \<your-unique-keyvault-name\> par le nom de votre coffre de clés dans les exemples suivants.
 
 - Groupe de ressources nommé : **myResourceGroup**.
 - Localisation : **EastUS**.

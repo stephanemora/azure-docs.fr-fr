@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 08/30/2021
+ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: cd6f2de9d440309662ef47a950f6c1331e30d5fb
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0aa2efb84c207592131d3b7c3060aebc22cc49f6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221098"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668891"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>Tutoriel : Configurer Bastion et se connecter à une machine virtuelle Windows
 
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un réseau virtuel.
+* Un [réseau virtuel](../virtual-network/quick-create-portal.md).
 * Une machine virtuelle Windows hébergée sur le réseau virtuel. Si vous n’avez pas de machine virtuelle, créez-en une à l’aide du guide de [Démarrage rapide : Créer une machine virtuelle](../virtual-machines/windows/quick-create-portal.md).
 * Les rôles requis suivants pour vos ressources :
    * Rôles de machine virtuelle nécessaires :
@@ -94,7 +94,7 @@ Cette section vous aide à créer l’objet bastion dans votre réseau virtuel. 
 
 * **Nom** : Nom de la nouvelle ressource Bastion.
 
-* **Région** : région publique Azure dans laquelle est créée la ressource.
+* **Région** : région publique Azure dans laquelle est créée la ressource. Choisissez la région dans laquelle réside votre réseau virtuel.
 
 * **Niveau :** également appelé **Référence SKU**. Pour ce tutoriel, nous sélectionnons la référence SKU **Standard** dans la liste déroulante. La sélection de la référence SKU Standard vous permet de configurer le nombre d’instances pour la mise à l’échelle de l’hôte. La référence SKU De base ne prend pas en charge la mise à l’échelle de l’hôte. Pour plus d’informations, consultez [Paramètres de configuration – Références SKU](configuration-settings.md#skus). La référence SKU Standard est disponible en préversion.
 
@@ -104,9 +104,9 @@ Cette section vous aide à créer l’objet bastion dans votre réseau virtuel. 
 
 * **Réseau virtuel** : Réseau virtuel dans lequel la ressource Bastion est créée. Vous pouvez créer un réseau virtuel dans le portail au cours de ce processus ou utiliser un réseau virtuel existant. Si vous utilisez un réseau virtuel existant, vérifiez que ce dernier a suffisamment d’espace d’adresse disponible pour prendre en compte les exigences du sous-réseau Bastion. Si vous ne voyez pas votre réseau virtuel dans la liste déroulante, vérifiez que vous avez sélectionné le groupe de ressources approprié.
 
-* **Sous-réseau** : Une fois que vous avez créé ou sélectionné un réseau virtuel, le champ sous-réseau s’affiche dans la page. Il s’agit du sous-réseau dans lequel vos instances Bastion seront déployées. 
+* **Sous-réseau** : Une fois que vous avez créé ou sélectionné un réseau virtuel, le champ sous-réseau s’affiche dans la page. Il s’agit du sous-réseau dans lequel vos instances Bastion seront déployées. Le nom doit être **AzureBastionSubnet**. Pour ajouter le sous-réseau, consultez les étapes suivantes.
 
-#### <a name="add-the-azurebastionsubnet"></a>Ajouter un sous-réseau Azure Bastion
+#### <a name="manage-subnet-configuration"></a>Gérer la configuration du sous-réseau
 
 En règle générale, vous ne disposez pas déjà d’un sous-réseau Azure Bastion configuré. Pour configurer le sous-réseau Bastion : 
 

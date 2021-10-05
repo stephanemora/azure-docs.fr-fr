@@ -1,20 +1,20 @@
 ---
-title: Inscrire Cassandra en tant que source et configurer des analyses dans Azure Purview
+title: Inscrire Cassandra en tant que source et configurer des analyses
 description: Cet article explique comment inscrire le serveur Cassandra dans Azure Purview et configurer une analyse.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 8/06/2021
-ms.openlocfilehash: 8e2136cdb4cca53d81412335f7f5878fd8d70b86
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: dcc0ef65654d8100a1c96cdb0c84a6ac758587a2
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785285"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212725"
 ---
-# <a name="register-and-scan-a-cassandra-source"></a>Inscrire et analyser une source Cassandra 
+# <a name="register-and-scan-a-cassandra-source-preview"></a>Inscrire et analyser une source Cassandra (préversion)
 
 Cet article explique comment inscrire un serveur Cassandra dans Purview et configurer une analyse.
 
@@ -52,14 +52,14 @@ Dans l’écran Inscrire des sources (Cassandra), effectuez les actions suivante
 3. Entrez le port utilisé par le serveur Cassandra dans le champ **Port**.
 4. Sélectionnez une collection ou créez-en une (facultatif).
 
-5.  Cliquez sur **Inscrire**.
+5.  Sélectionnez **Inscription**.
     :::image type="content" source="media/register-scan-cassandra-source/configure-sources.png" alt-text="configurer la source cassandra" border="true":::
 
 ## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1.  Dans le centre d’administration, cliquez sur Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
+1.  Dans le centre d’administration, sélectionnez Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
 
 2.  Accédez aux **Sources**.
 
@@ -96,13 +96,13 @@ L’utilisation de NOT et des caractères spéciaux n’est pas autorisée.
     g. **Mémoire maximale disponible** : mémoire maximale (en Go) disponible sur la machine virtuelle du client pouvant être utilisée par les processus d’analyse. Elle dépend de la taille du serveur Cassandra à analyser.
         :::image type="content" source="media/register-scan-cassandra-source/scan.png" alt-text="analyser la source cassandra" border="true":::
 
-6.  Cliquez sur **Tester la connexion**.
+6.  Sélectionnez **Test Connection** (Tester la connexion).
 
-7.  Cliquez sur **Continuer**.
+7.  Sélectionnez **Continuer**.
 
 8.  Choisissez votre **déclencheur d’analyse**. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
 
-9.  Vérifiez votre analyse et cliquez sur **Enregistrer et exécuter**.
+9.  Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Affichage des analyses et des exécutions d’analyse
 

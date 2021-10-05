@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: e18cd80c0232c4552c0e3dc57a23477d410c5395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a78ae10f7f5f5428f55003af81366c70c4433d81
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92442556"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591935"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hoxhunt"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Hoxhunt
 
@@ -37,7 +37,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Hoxhunt prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Hoxhunt prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Hoxhunt prend en charge l’[attribution automatisée d’utilisateurs](hoxhunt-provisioning-tutorial.md).
 
 ## <a name="adding-hoxhunt-from-the-gallery"></a>Ajout de Hoxhunt depuis la galerie
 
@@ -70,7 +71,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le Portail Azure, accédez à la page d’intégration de l’application **Hoxhunt**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -92,6 +93,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer Hoxhunt**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -124,15 +126,17 @@ Pour configurer l’authentification unique côté **Hoxhunt**, vous devez envoy
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Hoxhunt. Pour ajouter les utilisateurs à la plateforme Hoxhunt, contactez l’[équipe du support Hoxhunt](mailto:support@hoxhunt.com). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+Hoxhunt prend également en charge l’attribution automatique d’utilisateurs. Des informations supplémentaires sur la configuration de cette fonctionnalité sont disponibles [ici](./hoxhunt-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Hoxhunt où vous pouvez lancer le processus de connexion. 
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Hoxhunt où vous pouvez lancer le processus de connexion. 
 
-2. Accédez directement à l’URL de connexion Hoxhunt pour lancer le processus de connexion.
+* Accédez directement à l’URL de connexion Hoxhunt pour lancer le processus de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Hoxhunt dans le volet d’accès vous redirige vers l’URL de connexion Hoxhunt. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Hoxhunt dans Mes applications vous redirige vers l’URL de connexion Hoxhunt. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

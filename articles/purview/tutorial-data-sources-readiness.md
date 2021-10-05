@@ -1,23 +1,20 @@
 ---
-title: Évaluer la préparation nécessaire pour les sources de données à grande échelle (préversion)
+title: Évaluer la préparation nécessaire pour les sources de données à grande échelle
 description: Dans ce tutoriel, vous allez évaluer la préparation nécessaire pour vos sources de données Azure avant de les inscrire et de les analyser dans Azure Purview.
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 05/28/2021
-ms.openlocfilehash: d7dc8ab7987f149747df30834f426ce6d119eb5c
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.date: 09/27/2021
+ms.openlocfilehash: 1eaca951a5abe43bda2621043321537cee2daa13
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105918"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213410"
 ---
-# <a name="tutorial-check-data-source-readiness-at-scale-preview"></a>Tutoriel : Évaluer la préparation nécessaire pour les sources de données à grande échelle (préversion)
-
-> [!IMPORTANT]
-> Azure Purview est actuellement en préversion. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
+# <a name="tutorial-check-data-source-readiness-at-scale"></a>Tutoriel : Évaluer la préparation nécessaire pour les sources de données à grande échelle
 
 Pour analyser des sources de données, Azure Purview doit pouvoir y accéder. Il utilise des informations d’identification pour obtenir cet accès. Les *informations d’identification* permettent à Azure Purview de s’authentifier auprès des sources de données que vous avez inscrites. Il existe plusieurs façons de configurer les informations d’identification pour Azure Purview, notamment : 
 - Une identité managée affectée au compte Azure Purview.
@@ -75,7 +72,7 @@ Pour exécuter le script à partir de votre ordinateur Windows, effectuez les é
 
 1. [Téléchargez le script Azure Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) à l’emplacement de votre choix.
 
-2. Sur votre ordinateur, entrez **PowerShell** dans la zone de recherche de la barre des tâches Windows. Dans la liste des résultats de recherche, cliquez avec le bouton droit sur **Windows PowerShell**, puis sélectionnez **Exécuter en tant qu’administrateur**.
+2. Sur votre ordinateur, entrez **PowerShell** dans la zone de recherche de la barre des tâches Windows. Dans la liste des résultats de recherche, sélectionnez et maintenez l’appui (ou cliquez avec le bouton droit) sur **Windows PowerShell**, puis sélectionnez **Exécuter en tant qu’administrateur**.
 
 3. Dans la fenêtre PowerShell, exécutez la commande suivante. (Remplacez `<path-to-script>` par le chemin du dossier du fichier de script).
 
@@ -88,7 +85,7 @@ Pour exécuter le script à partir de votre ordinateur Windows, effectuez les é
    ```powershell
    Install-Module -Name Az -AllowClobber -Scope CurrentUser
    ```
-6. Si vous voyez l’invite *Le fournisseur NuGet est requis pour continuer*, entrez **Y** puis sélectionnez **Entrée**.
+6. Si vous voyez l’invite *, le fournisseur NuGet est requis pour continuer*, entrez **Y** puis sélectionnez **Entrée**.
 
 7. Si vous voyez l’invite *Référentiel non approuvé*, entrez **A** puis sélectionnez **Entrée**.
 

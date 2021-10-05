@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5cc264171c6c2dc5588156af2d3d0deb21e4fe94
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: e9a5b288976d375d9f773fee3dc1ea671ed902b4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228082"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786519"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Application web qui appelle des API web : Configuration de code
 
@@ -382,7 +382,7 @@ L'utilisation d'assertions de client est un scénario avancé décrit en détail
 ## <a name="token-cache"></a>Cache de jeton
 
 > [!IMPORTANT]
-> L'implémentation du cache de jetons des applications ou API web est différente de l'implémentation relative aux applications de bureau, qui est souvent [basée sur des fichiers](scenario-desktop-acquire-token.md#file-based-token-cache).
+> L'implémentation du cache de jetons des applications ou API web est différente de l'implémentation relative aux applications de bureau, qui est souvent [basée sur des fichiers](msal-net-token-cache-serialization.md).
 > En termes de sécurité et de performances, pour les applications et API web, vous devez impérativement disposer d'un cache de jetons par compte d'utilisateur. Vous devez sérialiser le cache de jetons pour chaque compte.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
@@ -420,13 +420,13 @@ Pour plus d'informations sur les fournisseurs de cache de jetons, consultez éga
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-L'implémentation du cache de jetons des applications ou API web est différente de l'implémentation relative aux applications de bureau, qui est souvent [basée sur des fichiers](scenario-desktop-acquire-token.md#file-based-token-cache).
+L'implémentation du cache de jetons des applications ou API web est différente de l'implémentation relative aux applications de bureau, qui est souvent [basée sur des fichiers](msal-net-token-cache-serialization.md).
 
 L'implémentation des applications web peut utiliser la session ASP.NET ou la mémoire du serveur. Observez, par exemple, comment l'implémentation du cache est accrochée après la création de l'application MSAL.NET dans [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/79e3e1f084cd78f9170a8ca4077869f217735a1a/WebApp/Utils/MsalAppBuilder.cs#L57-L58) :
 
 
 Tout d'abord, pour utiliser ces implémentations :
-- Ajoutez le package Microsoft.Identity.Web Nuget. Ces sérialiseurs de cache de jetons ne sont pas importés directement dans MSAL.NET pour éviter les dépendances indésirables. En plus d'apporter un niveau supérieur pour ASP.NET Core, Microsoft.Identity.Web fournit des classes qui constituent des aides pour MSAL.NET. 
+- Ajoutez le package NuGet Microsoft.Identity.Web. Ces sérialiseurs de cache de jetons ne sont pas importés directement dans MSAL.NET pour éviter les dépendances indésirables. En plus d'apporter un niveau supérieur pour ASP.NET Core, Microsoft.Identity.Web fournit des classes qui constituent des aides pour MSAL.NET. 
 - Dans votre code, utilisez l'espace de noms Microsoft.Identity.Web :
 
   ```csharp

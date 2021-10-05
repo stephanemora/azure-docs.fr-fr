@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/30/2021
+ms.date: 09/03/2021
 ms.author: cynthn
-ms.openlocfilehash: e5ceb8e4db1d2b94d746303a2185bea2015467a0
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 324373fc56ae1a57adfb522ca77f06f2c080074c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691010"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776516"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Linux dans Azure
 
@@ -112,17 +112,12 @@ Dans les machines virtuelles Linux sur lesquelles les performances réseau accé
 Sur Ubuntu 19.10 et versions ultérieures, Red Hat Enterprise Linux et CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) est configuré pour utiliser une horloge de source PTP. Au lieu de Chrony, les versions antérieures de Linux utilisent le démon ntpd (Network Time Protocol Daemon), qui ne prend pas en charge les sources PTP. Pour activer PTP dans ces versions, chrony doit être installé et configuré manuellement (dans chrony.conf) à l’aide de l’instruction suivante :
 
 ```bash
-refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
+refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0 stratum 2
 ```
-Comme mentionné précédemment, si le lien symbolique /dev/ptp_hyperv est disponible, utilisez-le à la place de/dev/ptp0 pour éviter toute confusion avec l’appareil/dev/ptp créé par le pilote Mellanox mlx5.
 
-Pour plus d’informations sur Ubuntu et NTP, consultez [Synchronisation temporelle](https://ubuntu.com/server/docs/network-ntp).
+Si le lien symbolique /dev/ptp_hyperv est disponible, utilisez-le à la place de /dev/ptp0 pour éviter toute confusion avec l’appareil /dev/ptp créé par le pilote Mellanox mlx5.
 
-Pour plus d’informations sur Red Hat et NTP, consultez [Configurer NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
-
-Pour plus d’informations sur chrony, consultez [Utilisation de chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
-
-Si les sources chrony et VMICTimeSync sont activées simultanément, vous pouvez en marquer une comme **favorite**, l’autre devenant alors la source de secours. Étant donné que les services NTP ne mettent pas à jour l’horloge pour les grands décalages, sauf après une longue période, la source VMICTimeSync permet de récupérer l’horloge à partir d’événements de machine virtuelle en pause beaucoup plus rapidement que les outils NTP seuls.
+Les informations de couche ne sont pas automatiquement transmises de l’hôte Azure à l’invité Linux. La ligne de configuration précédente spécifie que la source de temps de l’hôte Azure doit être traitée comme couche 2, ce qui a pour effet d’indiquer à son tour que l’invité Linux se signale comme couche 3. Vous pouvez modifier le paramètre de couche dans la ligne de configuration si vous souhaitez que l’invité Linux se signale différemment.
 
 Par défaut, chronyd accélère ou ralentit l’horloge système pour corriger toute dérive temporelle. En cas de dérive trop importante, chrony n’est pas capable de la résoudre. Pour surmonter cela, le paramètre `makestep` dans **/etc/chrony.conf** peut être modifié pour forcer une synchronisation de l’heure si la dérive dépasse le seuil spécifié.
 
@@ -135,6 +130,12 @@ Ici, chrony force une mise à jour temporelle si la dérive est supérieure à 1
 ```bash
 systemctl restart chronyd
 ```
+
+Pour plus d’informations sur Ubuntu et NTP, consultez [Synchronisation temporelle](https://ubuntu.com/server/docs/network-ntp).
+
+Pour plus d’informations sur Red Hat et NTP, consultez [Configurer NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
+
+Pour plus d’informations sur chrony, consultez [Utilisation de chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
 
 ### <a name="systemd"></a>systemd 
 

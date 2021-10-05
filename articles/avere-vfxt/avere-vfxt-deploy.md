@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 330fa1368c078f1e44dd436cd3bea6407c6f4cc6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92342414"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794649"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Déployer le cluster vFXT
 
@@ -85,7 +85,7 @@ La deuxième page du modèle de déploiement vous permet de définir la taille d
 
 ![Deuxième page du modèle de déploiement](media/avere-vfxt-deploy-2.png)
 
-* **Nombre de nœuds du cluster Avere vFXT** : choisissez le nombre de nœuds dans le cluster. Le minimum est de trois nœuds et le maximum de douze.
+* **Nombre de nœuds du cluster Avere vFXT** : choisissez le nombre de nœuds dans le cluster. Le minimum est de trois nœuds et le maximum de 20.
 
 * **Mot de passe d'administration du cluster** : créez le mot de passe pour l'administration du cluster. Ce mot de passe est utilisé avec le nom d'utilisateur ```admin``` pour vous connecter au panneau de configuration du cluster à partir duquel vous pouvez surveiller le cluster et configurer ses paramètres.
 

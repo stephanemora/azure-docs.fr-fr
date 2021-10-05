@@ -7,20 +7,24 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffdd27b67a122f82cc5fdb5568f11c85387955e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1a8602b18c4ec68eacc37faca941211ee83fd63
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98660794"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742629"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-sync"></a>Création d’une configuration pour la synchronisation cloud Azure AD Connect
 
-Une fois que vous avez installé l’agent de provisionnement Azure AD Connect, vous devez vous connecter au portail Azure et le configurer. Effectuez les étapes suivantes pour activer l’agent.
+Le document suivant vous guide tout au long de la configuration de la synchronisation cloud Azure AD Connect. Pour consulter plus d’informations et un exemple de configuration de la synchronisation cloud, regardez la vidéo ci-dessous.
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWKact]
+
 
 ## <a name="configure-provisioning"></a>Configurer le provisionnement
 Pour configurer le provisionnement, effectuez les étapes suivantes.

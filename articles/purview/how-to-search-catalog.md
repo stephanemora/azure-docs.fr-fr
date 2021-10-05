@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: 178604335968c3664bde51c144759c1c040c359d
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.date: 09/27/2021
+ms.openlocfilehash: 5581a19f001b4caee8ef0e0d93908bd6d98471a0
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107564911"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213597"
 ---
 # <a name="search-the-azure-purview-data-catalog"></a>Effectuer une recherche dans Data Catalog Azure Purview
 
@@ -26,11 +26,11 @@ Dans Azure Purview, la barre de recherche se trouve en haut de l’expérience u
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Capture d’écran montrant l’emplacement de la barre de recherche dans Azure Purview" border="true":::
 
-Lorsque vous cliquez sur la barre de recherche, vous pouvez voir l’historique de vos recherches récentes et les ressources récemment consultées. Sélectionnez « Afficher tout » pour voir toutes les ressources récemment consultées.
+Lorsque vous sélectionnez la barre de recherche, vous pouvez voir l’historique de vos recherches récentes et les ressources récemment consultées. Sélectionnez **Afficher tout** pour voir toutes les ressources récemment consultées.
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Capture d’écran montrant la barre de recherche avant l’entrée de mots clés" border="true":::
 
-Entrez des mots clés qui vous aident à identifier votre ressource, notamment son nom, le type de données, des classifications et des termes du glossaire. Au fur et à mesure que vous saisissez des mots clés relatifs à la ressource souhaitée, Azure Purview affiche des suggestions sur les éléments à rechercher et les possibles correspondances de ressources. Pour terminer votre recherche, cliquez sur « Afficher les résultats de la recherche » ou appuyez sur la touche Entrée.
+Entrez des mots clés qui vous aident à identifier votre ressource, notamment son nom, le type de données, des classifications et des termes du glossaire. Au fur et à mesure que vous saisissez des mots clés relatifs à la ressource souhaitée, Azure Purview affiche des suggestions sur les éléments à rechercher et les possibles correspondances de ressources. Pour terminer votre recherche, sélectionnez **Afficher les résultats** de la recherche ou appuyez sur "Entrée".
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Capture d’écran montrant la barre de recherche lorsqu’un utilisateur entre des mots clés" border="true":::
 
@@ -38,7 +38,7 @@ La page des résultats de la recherche affiche une liste des ressources qui corr
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Capture d’écran montrant les résultats d’une recherche" border="true":::
 
- Cliquez sur la ressource de votre choix pour afficher la page des détails dans laquelle vous pouvez afficher les propriétés, notamment le schéma, la traçabilité des données et les propriétaires de la ressource.
+ Sélectionnez la ressource de votre choix pour afficher la page des détails dans laquelle vous pouvez afficher les propriétés, notamment le schéma, la traçabilité des données et les propriétaires de la ressource.
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Capture d’écran montrant la page de détails de la ressource" border="true":::
 

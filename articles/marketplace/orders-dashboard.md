@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 08/06/2021
-ms.openlocfilehash: 1cc7e76833ac710ae4bdd511efa3033f8cf8fed7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 95d0ced24ee4f7426cac96ff2e550f2be88d8d02
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531448"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083356"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Commandes dans l’analytique de la place de marché commerciale
 
@@ -36,17 +36,45 @@ Le [tableau de bord Commandes](https://go.microsoft.com/fwlink/?linkid=2165914) 
 > [!NOTE]
 > La latence maximale entre l’acquisition du client et la création de rapports dans l’Espace partenaires est de 48 heures.
 
+## <a name="access-the-orders-dashboard"></a>Accéder au tableau de bord Orders
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Sur la page Accueil, sélectionnez la vignette **Insights**.
+
+    [ ![Illustre la vignette Insights sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. Dans le menu de gauche, sélectionnez **Commandes**.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Analyser** > **Commandes**.
+
+---
+
 ## <a name="elements-of-the-orders-dashboard"></a>Éléments du tableau de bord Commandes
 
 Les sections suivantes expliquent comment utiliser le tableau de bord Commandes et lire les données.
 
-Pour accéder au tableau de bord Commandes dans l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Commandes**.
-
 ### <a name="month-range"></a>Plage de mois
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Commandes** en sélectionnant la plage de mois des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
+
+[ ![Illustre les filtres de mois dans le tableau de bord Commandes.](./media/orders-dashboard/order-workspace-filters.png) ](./media/orders-dashboard/order-workspace-filters.png#lightbox)
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Commandes** en sélectionnant la plage de mois des 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
 
 :::image type="content" source="./media/orders-dashboard/month-filters.png" alt-text="Illustre les filtres de mois dans le tableau de bord Commandes.":::
+
+---
 
 > [!NOTE]
 > Toutes les métriques dans les widgets de visualisation et les rapports d’exportation respectent la période de calcul sélectionnée par l’utilisateur.

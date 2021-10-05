@@ -5,15 +5,15 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 03/10/2021
-ms.openlocfilehash: 9c543b1bebfdeb47c1a1e1326f49247d8103191f
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.date: 08/31/2021
+ms.openlocfilehash: 71c348d313c236d438521d70ca135feee647bb32
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525404"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744524"
 ---
-# <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Explication de l’agrégation et de l’affichage des métriques Azure Monitor
+# <a name="azure-monitor-metrics-aggregation-and-display-explained"></a>Explication de l’agrégation et de l’affichage des métriques Azure Monitor
 
 Cet article explique l’agrégation des métriques dans la base de données de série chronologique Azure Monitor où sont sauvegardées les [métriques de plateforme](../data-platform.md) et les [métriques personnalisées](../essentials/metrics-custom-overview.md) Azure Monitor. Cet article s’applique également aux [métriques Application Insights](../app/app-insights-overview.md) standard. 
 

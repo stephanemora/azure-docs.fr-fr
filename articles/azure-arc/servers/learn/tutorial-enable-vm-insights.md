@@ -3,16 +3,16 @@ title: Tutoriel - Superviser une machine hybride avec les insights VM Azure Moni
 description: Découvrez comment collecter et analyser les données d’une machine hybride dans Azure Monitor.
 ms.topic: tutorial
 ms.date: 04/21/2021
-ms.openlocfilehash: 8ab801885e86ed90d5f28c2ce90a994828b358a0
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 5489e459bc4d407b818c1f55afe0f7fa3c9acbb8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772620"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807528"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-vm-insights"></a>Tutoriel : Superviser une machine hybride avec les insights VM
 
-[Azure Monitor](../../../azure-monitor/overview.md) est capable de collecter directement les données de vos machines hybrides, et les afficher dans un espace de travail Log Analytics en vue d’une analyse et d’une mise en corrélation détaillées. En général, cela implique l’installation de l’[agent Log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) sur la machine à l’aide d’un script, manuellement ou d’une méthode automatisée, selon vos normes de gestion de la configuration. Les serveurs avec Arc ont récemment introduit la prise en charge de l’installation des [extensions VM](../manage-vm-extensions.md) d’agent Log Analytics et Dependency Agent pour Windows et Linux, ce qui permet aux [insights VM](../../../azure-monitor/vm/vminsights-overview.md) de collecter les données sur vos machines virtuelles non-Azure.
+[Azure Monitor](../../../azure-monitor/overview.md) est capable de collecter directement les données de vos machines hybrides, et les afficher dans un espace de travail Log Analytics en vue d’une analyse et d’une mise en corrélation détaillées. En général, cela implique l’installation de l’[agent Log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) sur la machine à l’aide d’un script, manuellement ou d’une méthode automatisée, selon vos normes de gestion de la configuration. Les serveurs avec Azure Arc ont récemment introduit la prise en charge de l’installation des [extensions VM](../manage-vm-extensions.md) d’agent Log Analytics et Dependency Agent pour Windows et Linux, ce qui permet aux [insights VM](../../../azure-monitor/vm/vminsights-overview.md) de collecter les données sur vos machines virtuelles non-Azure.
 
 Ce tutoriel vous montre comment configurer et collecter les données de vos machines Linux ou Windows en activant les insights VM à l’aide d’un ensemble d’étapes simplifié qui simplifie l’expérience et permet de gagner du temps.  
 
@@ -34,7 +34,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Lancez le service Azure Arc dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Machines - Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Rechercher Serveurs avec Azure Arc dans Tous les services" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Rechercher des serveurs avec Azure Arc dans Tous les services" border="false":::
 
 1. Dans la page **Machines - Azure Arc**, sélectionnez la machine connectée que vous avez créée dans l’article de [démarrage rapide](quick-enable-hybrid-vm.md).
 

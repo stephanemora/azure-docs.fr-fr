@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/12/2018
+ms.date: 09/09/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7bbd54ed68863a4704319a25af96b6463ad2377b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18f4276c3013f50ceacf74f4c8cec068f0de88cb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98539697"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775528"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Créer un point de terminaison CDN Azure
 Cet article décrit tous les paramètres de création d’un point de terminaison [Azure Content Delivery Network (CDN)](cdn-overview.md) dans un profil CDN existant. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients. Pour créer rapidement un profil et un point de terminaison, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
@@ -100,6 +100,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
     - Dans le cas des profils **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 30 minutes. 
    
     Si vous tentez d’utiliser le nom de domaine CDN avant la propagation de la configuration du point de terminaison aux serveurs de point de présence (POP), vous recevrez probablement un état de réponse HTTP 404. Si plusieurs heures se sont écoulées depuis la création de votre point de terminaison et si vous recevez toujours un état de réponse 404, consultez [Dépannage des points de terminaison de CDN Azure renvoyant un code d’état 404](cdn-troubleshoot-endpoint.md).
+
+> [!NOTE]
+> En ce qui concerne les *points de terminaison CDN Verizon*, lorsqu’un point de terminaison est **désactivé** ou **arrêté** pour une raison quelconque, toutes les ressources configurées via le portail supplémentaire Verizon sont nettoyées. Ces configurations ne peuvent pas être restaurées automatiquement en redémarrant le point de terminaison. Vous devrez réappliquer ces modifications de configuration.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Pour supprimer un point de terminaison qui n’est plus nécessaire, sélectionnez-le, puis sélectionnez **Supprimer**. 

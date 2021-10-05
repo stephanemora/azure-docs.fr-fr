@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 6/16/2021
-ms.openlocfilehash: 4ab409c067d83e44cb22c3a22589eca0a4a7785a
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 4abf1d9236d236f9d19d9336bb3173ca14bb3c61
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114291286"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665166"
 ---
 # <a name="tutorial-using-industrial-iot-to-pull-data-into-azure-data-explorer"></a>Tutoriel : Utilisation d’IoT Industrial pour extraire des données dans Azure Data Explorer
 
@@ -165,7 +165,7 @@ opcua_telemetry
 
 ## <a name="create-line-graph-of-the-data"></a>Créer un graphique en courbes des données
 
-À présent, nous allons créer un graphique en courbes des données en les castant toutes en nombres à virgule flottante. Si le cast échoue, les données sont ignorées. Utilisez pour cela le tableau de bord Azure Data Explorer hébergé. Cliquez sur **Ouvrir dans l’interface utilisateur web** et, dans la nouvelle fenêtre, cliquez sur **Tableaux de bord**, sélectionnez **Créer un tableau de bord**, puis choisissez **Ajouter une vignette**. Sélectionnez ensuite **Source de données**, puis entrez le nom de notre instance Azure Data Explorer sous la forme https://<YourInstanceName>.<Your RegionName>.kusto.windows.net. Sélectionnez votre base de données, puis cliquez sur **Appliquer**. Entrez ensuite la requête suivante.
+À présent, nous allons créer un graphique en courbes des données en les castant toutes en nombres à virgule flottante. Si le cast échoue, les données sont ignorées. Utilisez pour cela le tableau de bord Azure Data Explorer hébergé. Cliquez sur **Ouvrir dans l’interface utilisateur web** et, dans la nouvelle fenêtre, cliquez sur **Tableaux de bord**, sélectionnez **Créer un tableau de bord**, puis choisissez **Ajouter une vignette**. Sélectionnez ensuite **Source de données**, puis entrez le nom de notre instance Azure Data Explorer au format suivant : `https://<YourInstanceName>.<Your RegionName>.kusto.windows.net`. Sélectionnez votre base de données, puis cliquez sur **Appliquer**. Entrez ensuite la requête suivante.
 
 ```
 opcua_telemetry

@@ -9,12 +9,12 @@ ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 4e5abd957f65fd62bd3933c9f67288b063a6274f
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 39e2e9c0258be13698d3569dcc6e64d02bff8f42
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039727"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554498"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connecter une application Mongoose Node.js à Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -54,12 +54,14 @@ Après avoir créé la base de données, vous utiliserez son nom dans la variabl
 
 1. Pour créer une application Node.js dans le dossier de votre choix, exécutez la commande suivante dans une invite de commandes Node.
 
-    ```npm init```
+   `npm init`
 
-    Répondez aux questions et votre projet est prêt à être utilisé.
+   Répondez aux questions et votre projet est prêt à être utilisé.
 
 2. Ajoutez un nouveau fichier dans le dossier et nommez-le ```index.js```.
+
 3. Installez les packages nécessaires à l’aide de l’une des options ```npm install``` :
+
    * Mongoose : ```npm install mongoose@5 --save```
 
      > [!Note]
@@ -70,7 +72,7 @@ Après avoir créé la base de données, vous utiliserez son nom dans la variabl
      >[!Note]
      > L’indicateur ```--save``` ajoute la dépendance au fichier package.json.
 
-4. Importez les dépendances dans votre fichier index.js.
+4. Importez les dépendances dans votre `index.js` fichier.
 
     ```JavaScript
    var mongoose = require('mongoose');
@@ -326,8 +328,8 @@ Comme vous pouvez le constater, il est très simple d’utiliser des discriminat
 - Découvrez comment [utiliser Studio 3T](connect-using-mongochef.md) avec l’API Azure Cosmos DB pour MongoDB.
 - Découvrez comment [utiliser Robo 3T](connect-using-robomongo.md) avec l’API Azure Cosmos DB pour MongoDB.
 - Explorez les [exemples](nodejs-console-app.md) MongoDB avec l’API Azure Cosmos DB pour MongoDB.
-- Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
-    - Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur [estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
-    - Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant [estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
+- Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+    - Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    - Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
 
 [dbleveltp]: ./media/connect-using-mongoose/db-level-throughput.png

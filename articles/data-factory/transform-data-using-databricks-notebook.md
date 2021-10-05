@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
 ms.custom: seo-lt-2019
-ms.date: 08/31/2021
-ms.openlocfilehash: 15e08069be22cc71e228a1ad878e5f2b5424ce89
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 09/08/2021
+ms.openlocfilehash: a2086feece0bb37068c57534740b2c58d072d0ea
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541738"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806362"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Exécuter une instance Databricks Notebook avec l’activité Databricks Notebook dans Azure Data Factory
 
@@ -87,15 +87,15 @@ Dans cette section, vous allez créer un service Databricks lié. Ce service li�
 
 1.  Dans la page d’accueil, basculez vers l’onglet **Gérer** dans le volet gauche.
 
-    ![Capture d’écran montrant l’onglet Gérer.](media/doc-common-process/get-started-page-manage-button.png)
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Capture d’écran montrant l’onglet Gérer.":::
 
 1.  Sélectionnez **Services liés** sous **Connexions**, puis **+ Nouveau**.
     
-    ![Capture d’écran montrant comment créer une connexion.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-6.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-6.png" alt-text="Capture d’écran montrant comment créer une connexion.":::
 
 1.  Dans la fenêtre **Nouveau service lié**, sélectionnez **Calcul** &gt; **Azure Databricks**, puis **Continuer**.
     
-    ![Capture d’écran montrant comment spécifier un service lié Databricks.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-7.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-7.png" alt-text="Capture d’écran montrant comment spécifier un service lié Databricks.":::
 
 1.  Dans la fenêtre **Nouveau service lié**, effectuez les étapes suivantes :
     
@@ -109,7 +109,7 @@ Dans cette section, vous allez créer un service Databricks lié. Ce service li�
 
     1.  Dans le champ **Jeton d’accès**, indiquez le jeton généré à partir de l’espace de travail Azure Databricks. Vous trouverez la procédure [ici](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
-    1.  Dans **Version du cluster**, sélectionnez **4.2** (avec Apache Spark 2.3.1, Scala 2.11).
+    1.  Pour **Version de cluster**, sélectionnez la version que vous souhaitez utiliser.
 
     1.  Dans **Cluster node type** (Type de nœud de cluster), sélectionnez **Standard\_D3\_v2** sous la catégorie **General Purpose (HDD)** (Usage général (HDD)) pour ce didacticiel. 
     
@@ -117,23 +117,23 @@ Dans cette section, vous allez créer un service Databricks lié. Ce service li�
     
     1.  Sélectionnez **Create** (Créer).
 
-        ![Capture d’écran montrant la configuration du nouveau service lié Azure Databricks.](media/transform-data-using-databricks-notebook/new-databricks-linked-service.png)
+        :::image type="content" source="media/transform-data-using-databricks-notebook/new-databricks-linked-service.png" alt-text="Capture d’écran montrant la configuration du nouveau service lié Azure Databricks.":::
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
 
 1.  Cliquez sur le bouton **+** (plus), puis sélectionnez **Pipeline** dans le menu.
 
-    ![Capture d’écran montrant les boutons permettant de créer un pipeline.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-9.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-9.png" alt-text="Capture d’écran montrant les boutons permettant de créer un pipeline.":::
 
 1.  Créez un **paramètre** à utiliser dans le **pipeline**. Vous pourrez ensuite le transmettre à l’activité Databricks Notebook. Dans le pipeline vide, sélectionnez l’onglet **Paramètres**, puis sélectionnez **+ Nouveau** et entrez « **name** » comme nom.
 
-    ![Capture d’écran montrant comment créer un paramètre.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-10.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-10.png" alt-text="Capture d’écran montrant comment créer un paramètre.":::
 
-    ![Capture d’écran montrant comment créer le paramètre name.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-11.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-11.png" alt-text="Capture d’écran montrant comment créer le paramètre name.":::
 
 1.  Dans la boîte à outils **Activités**, étendez **Databricks**. Faites glisser l’activité **Notebook** depuis la boîte à outils **Activités** vers la surface du concepteur de pipeline.
 
-    ![Capture d’écran montrant comment faire glisser le notebook vers la surface du concepteur.](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/new-adf-pipeline.png" alt-text="Capture d’écran montrant comment faire glisser le notebook vers la surface du concepteur.":::
 
 1.  Dans les propriétés de la fenêtre d’activité **Databricks** **Notebook** en bas, effectuez les étapes suivantes :
 
@@ -149,13 +149,13 @@ Dans cette section, vous allez créer un service Databricks lié. Ce service li�
 
        1. Créez un **nouveau dossier** dans l’espace de travail et nommez-le **adftutorial**.
 
-          ![Capture d’écran montrant comment créer un dossier.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png" alt-text="Capture d’écran montrant comment créer un dossier.":::        
 
        1. [Capture d’écran montrant comment créer un notebook.](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) Créez un notebook (Python) nommé **mynotebook** dans le dossier **adftutorial**. Cliquez sur **Créer**.
 
-          ![Capture d’écran montrant comment créer un notebook.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png" alt-text="Capture d’écran montrant comment créer un notebook.":::  
 
-          ![Capture d’écran montrant comment définir les propriétés du nouveau notebook.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png" alt-text="Capture d’écran montrant comment définir les propriétés du nouveau notebook.":::
 
        1. Dans l’instance Notebook récemment créée, mynotebook, ajoutez le code suivant :
 
@@ -168,7 +168,7 @@ Dans cette section, vous allez créer un service Databricks lié. Ce service li�
            print (y)
            ```
 
-           ![Capture d’écran montrant comment créer des widgets pour des paramètres.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png" alt-text="Capture d’écran montrant comment créer des widgets pour des paramètres."::: 
 
        1. Le **chemin du notebook** dans ce cas est **/adftutorial/mynotebook**.
 
@@ -176,51 +176,51 @@ Dans cette section, vous allez créer un service Databricks lié. Ce service li�
 
     a.  Ajoutez un **paramètre** à l’activité Notebook. Utilisez le même paramètre que celui ajouté précédemment au **pipeline**.
 
-       ![Capture d’écran montrant comment ajouter un paramètre.](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
+       :::image type="content" source="media/transform-data-using-databricks-notebook/new-adf-parameters.png" alt-text="Capture d’écran montrant comment ajouter un paramètre.":::
 
     b.  Nommez le paramètre **input** et indiquez la valeur sous la forme de l’expression **\@pipeline().parameters.name**.
 
 1.  Pour valider le pipeline, cliquez sur le bouton **Valider** dans la barre d’outils. Pour fermer la fenêtre de validation, sélectionnez le bouton **Fermer**.
 
-    ![Capture d’écran montrant comment valider le pipeline.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-18.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-18.png" alt-text="Capture d’écran montrant comment valider le pipeline.":::
 
 1.  Sélectionnez **Tout publier**. L’interface utilisateur de Data Factory publie des entités (services liés et pipelines) sur le service Azure Data Factory.
 
-    ![Capture d’écran montrant comment publier les nouvelles entités Data Factory.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-19.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-19.png" alt-text="Capture d’écran montrant comment publier les nouvelles entités Data Factory.":::
 
 ## <a name="trigger-a-pipeline-run"></a>Déclencher une exécution du pipeline
 
 Sélectionnez **Ajouter un déclencheur** dans la barre d’outils, puis **Déclencher maintenant**.
 
-![Capture d’écran montrant comment sélectionner la commande « Déclencher maintenant ».](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-20.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-20.png" alt-text="Capture d’écran montrant comment sélectionner la commande « Déclencher maintenant ».":::
 
 La boîte de dialogue **Exécution de pipeline** invite à saisir le paramètre **name**. Utilisez ici **/path/filename** comme paramètre. Sélectionnez **OK**.
 
-![Capture d’écran montrant comment fournir une valeur pour les paramètres name.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-21.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-21.png" alt-text="Capture d’écran montrant comment fournir une valeur pour les paramètres name.":::
 
 ## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
 
 1.  Basculez vers l’onglet **Surveiller**. Vérifiez qu’un pipeline est exécuté. Il faut compter environ 5 à 8 minutes pour créer un cluster de travaux Databricks, où s’exécute l’instance Notebook.
 
-    ![Capture d’écran montrant comment superviser le pipeline.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-22.png" alt-text="Capture d’écran montrant comment superviser le pipeline."::: 
 
 1.  Cliquez régulièrement sur **Actualiser** pour vérifier l’état de l’exécution des pipelines.
 
-1.  Pour voir les exécutions d’activités associées à l’exécution du pipeline, cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**.
+1.  Pour voir les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **pipeline1** sous la colonne **Nom du pipeline**.
 
-    ![Capture d’écran montrant comment afficher les exécutions d’activités.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
+1. Dans la page **Exécutions de l’activité**, sélectionnez **Sortie** dans la colonne **Nom de l’activité** pour afficher la sortie de chaque activité ; le lien vers les journaux Databricks dans le volet **Sortie** vous donne accès à des journaux Spark plus détaillés.
 
-Vous pouvez basculer vers la vue des exécutions de pipelines en cliquant sur le lien **Pipelines** en haut.
+1. Vous pouvez revenir à l’affichage des exécutions de pipeline en sélectionnant le lien **Toutes les exécutions de pipeline** dans le menu de navigation en haut.
 
 ## <a name="verify-the-output"></a>Vérifier la sortie
 
 Vous pouvez vous connecter à l’**espace de travail Azure Databricks**, accéder à **Clusters** et voir le statut du **Travail** : *en attente d’exécution, en cours d’exécution ou terminé*.
 
-![Capture d’écran montrant comment afficher le cluster de travail et le travail.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png" alt-text="Capture d’écran montrant comment afficher le cluster de travail et le travail."::: 
 
 Vous pouvez cliquer sur le **nom du travail** et naviguer pour afficher plus de détails. Une fois l’exécution réussie, vous pouvez valider les paramètres transmis et la sortie de l’instance Notebook Python.
 
-![Capture d’écran montrant comment afficher les détails et la sortie de l’exécution.](media/transform-data-using-databricks-notebook/databricks-output.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-output.png" alt-text="Capture d’écran montrant comment afficher les détails et la sortie de l’exécution."::: 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

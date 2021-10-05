@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 23abc9cd391548a4a97622e6cb7110de828498f2
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: ca9606f3e4a431a60b1373cae72f1f1b4e427938
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533238"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736928"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos DB – Notes de publication et informations sur le téléchargement
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,6 +26,10 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos D
 |**Prise en main**|[Développer localement avec l’émulateur Azure Cosmos DB](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="2143-8-september-2021"></a>2.14.3 (8 septembre 2021)
+
+ - Cette version met à jour les services d’arrière-plan de l’émulateur Cosmos afin qu’ils correspondent aux dernières fonctionnalités d’Azure Cosmos DB, résout des problèmes liés aux données de télémétrie collectées et réinitialise l’image de base pour l’image Docker de l’émulateur Cosmos Linux.
 
 ### <a name="2142-12-august-2021"></a>2.14.2 (12 août 2021)
 

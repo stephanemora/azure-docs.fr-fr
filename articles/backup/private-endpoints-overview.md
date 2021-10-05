@@ -2,14 +2,14 @@
 title: Vue d’ensemble des points de terminaison privés
 description: Comprenez comment utiliser des points de terminaison privés pour le service Sauvegarde Azure et découvrez les scénarios où l’utilisation des points de terminaison privés contribue à maintenir la sécurité de vos ressources.
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 09/28/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 959929c92ecea5534930df5c23648062256c6ca4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 3070cb72b6e5949b94972f9dad54d4e57e5bf591
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564076"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154961"
 ---
 # <a name="overview-and-concepts-of-private-endpoints-for-azure-backup"></a>Vue d’ensemble et concepts des points de terminaison privés pour le service Sauvegarde Azure
 
@@ -28,7 +28,7 @@ Cet article vous aidera à comprendre comment fonctionnent les points de termina
 - Les réseaux virtuels avec des stratégies réseau ne sont pas compatibles avec les points de terminaison privés. Vous devez donc [désactiver les stratégies réseau](../private-link/disable-private-endpoint-network-policy.md) avant de continuer.
 - Vous devrez réinscrire le fournisseur de ressources Recovery Services auprès de l’abonnement si vous l’avez enregistré avant le 1er mai 2020. Pour réinscrire le fournisseur, accédez à votre abonnement dans le portail Azure, accédez à **Fournisseur de ressources** dans la barre de navigation de gauche, sélectionnez **Microsoft.RecoveryServices**, puis sélectionnez **Réinscrire**.
 - Les [restaurations inter-régions](backup-create-rs-vault.md#set-cross-region-restore) pour les sauvegardes de bases de données SQL et SAP HANA ne sont pas prises en charge si les points de terminaison privés sont activés dans le coffre.
-- Lorsque vous déplacez un coffre Recovery Services utilisant déjà des points de terminaison privés vers un nouveau locataire, vous devez le mettre à jour pour recréer et reconfigurer son identité managée et créer des points de terminaison privés si nécessaire (qui doivent se trouver dans le nouveau locataire). Si cela n’est pas fait, les opérations de sauvegarde et de restauration échoueront. En outre, toutes les autorisations de contrôle d’accès en fonction du rôle (RBAC) configurées dans l’abonnement devront être reconfigurées.
+- Lorsque vous déplacez un coffre Recovery Services utilisant déjà des points de terminaison privés vers un nouveau locataire, vous devez le mettre à jour pour recréer et reconfigurer son identité managée et créer des points de terminaison privés si nécessaire (qui doivent se trouver dans le nouveau locataire). Si cela n’est pas fait, les opérations de sauvegarde et de restauration échoueront. De plus, toutes les autorisations de contrôle d'accès basé sur les rôles Azure (Azure RBAC) configurées dans l'abonnement devront être reconfigurées.
 
 ## <a name="recommended-and-supported-scenarios"></a>Scénarios recommandés et pris en charge
 
@@ -65,12 +65,12 @@ Lorsque l’extension de charge de travail ou l’agent MARS est installé pour 
 >Dans le texte ci-dessus, `<geo>` fait référence au code de région (par exemple, **eus** pour la région USA Est et **ne** pour la région Europe Nord). Consultez les listes suivantes pour connaître les codes de régions :
 >- [Tous les clouds publics](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [Chine](/azure/china/resources-developer-guide#check-endpoints-in-azure)
->- [Allemagne](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [Gouvernement des États-Unis](/azure/azure-government/documentation-government-developer-guide)
+>- [Allemagne](../germany/germany-developer-guide.md#endpoint-mapping)
+>- [Gouvernement des États-Unis](../azure-government/documentation-government-developer-guide.md)
 
 L’accès aux noms de domaine complets de stockage dans les deux scénarios est le même. Toutefois, pour un coffre Recovery Services avec une configuration de point de terminaison privé, la résolution de noms pour ceux-ci doit retourner une adresse IP privée. Pour ce faire, vous pouvez utiliser des zones de DNS privé en créant des entrées DNS pour le compte de stockage dans les fichiers d’hôte, ou en utilisant des redirecteurs conditionnels pour les DNS personnalisés avec des entrées DNS respectives. Les mappages d’adresses IP privées pour le compte de stockage sont répertoriés dans le panneau du point de terminaison privé pour le compte de stockage dans le portail.
 
->Les points de terminaison privés pour les objets blob et les files d’attente suivent un modèle d’attribution de nom standard. Ils commencent par  **\<the name of the private endpoint>_ecs** ou **\<the name of the private endpoint>_prot**, et se terminent respectivement par  **\_blob** et **\_queue** .
+>Les points de terminaison privés pour les objets blob et les files d’attente suivent un modèle d’attribution de nom standard. Ils commencent par  **\<the name of the private endpoint>_ecs** ou **\<the name of the private endpoint>_prot**, et se terminent respectivement par  **\_blob** et  **\_queue** .
 
 Les points de terminaison du service Sauvegarde Azure sont modifiés pour les coffres activés pour les points de terminaison privés.  
 Si vous avez configuré un serveur proxy DNS à l’aide de serveurs proxy et de pare-feu tiers, les noms de domaine ci-dessus doivent être autorisés et redirigés vers un DNS personnalisé (avec des mappages d’adresses IP privées) ou vers 169.63.129.16 avec une liaison de réseau virtuel vers une zone DNS privée avec ces mappages d’adresses IP privées.
@@ -91,14 +91,14 @@ L’extension de sauvegarde de la charge de travail et l’agent MARS s’exécu
 >Dans le texte ci-dessus, `<geo>` fait référence au code de région (par exemple, **eus** pour la région USA Est et **ne** pour la région Europe Nord). Consultez les listes suivantes pour connaître les codes de régions :
 >- [Tous les clouds publics](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [Chine](/azure/china/resources-developer-guide#check-endpoints-in-azure)
->- [Allemagne](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [Gouvernement des États-Unis](/azure/azure-government/documentation-government-developer-guide)
+>- [Allemagne](../germany/germany-developer-guide.md#endpoint-mapping)
+>- [Gouvernement des États-Unis](../azure-government/documentation-government-developer-guide.md)
 
 Les URL modifiées sont spécifiques à un coffre.  Regardez la valeur `<vault_id>` dans le nom de l’URL. Seuls les agents et les extensions inscrits dans ce coffre peuvent communiquer avec le service Sauvegarde Azure via ces points de terminaison. Cela limite l’accès aux clients au sein de ce VNet. L’extension/l’agent communique via `*.privatelink.<geo>.backup.windowsazure.com`, qui doit résoudre l’adresse IP privée correspondante dans la carte d’interface réseau.
 
 Lorsque le point de terminaison privé pour les coffres Recovery Services est créé via le portail Azure avec l’option **intégrer avec la zone DNS privée**, les entrées DNS requises pour les adresses IP privées pour les services de Sauvegarde Microsoft Azure (`*.privatelink.<geo>backup.windowsazure.com`) sont créées automatiquement chaque fois que la ressource est allouée. Dans le cas contraire, vous devez créer les entrées DNS manuellement pour ces noms de domaine complets dans le DNS personnalisé ou dans les fichiers hôtes.
 
-Pour découvrir comment gérer manuellement des enregistrements DNS après la découverte de machines virtuelles pour le canal de communication BLOB/file d’attente, consultez la section [Enregistrements DNS pour les blobs et les files d’attente (uniquement pour les fichiers d’hôtes/serveurs DNS personnalisés) après la première inscription.](/azure/backup/private-endpoints#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration) Pour la gestion manuelle des enregistrements DNS après la première sauvegarde de l’objet blob de compte de stockage de sauvegarde, consultez [enregistrements DNS pour les objets BLOB (uniquement pour les fichiers hôtes/serveurs DNS personnalisés) après la première sauvegarde](/azure/backup/private-endpoints#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
+Pour découvrir comment gérer manuellement des enregistrements DNS après la découverte de machines virtuelles pour le canal de communication BLOB/file d’attente, consultez la section [Enregistrements DNS pour les blobs et les files d’attente (uniquement pour les fichiers d’hôtes/serveurs DNS personnalisés) après la première inscription.](./private-endpoints.md#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration) Pour la gestion manuelle des enregistrements DNS après la première sauvegarde de l’objet blob de compte de stockage de sauvegarde, consultez [enregistrements DNS pour les objets BLOB (uniquement pour les fichiers hôtes/serveurs DNS personnalisés) après la première sauvegarde](./private-endpoints.md#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
 
 >Des adresses IP privées pour les noms de domaine complets sont disponibles dans le panneau du point de terminaison privé pour le point de terminaison privé créé pour le coffre Recovery Services.
 
@@ -120,4 +120,4 @@ Le diagramme suivant illustre le fonctionnement de la résolution de noms pour l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer et utiliser des points de terminaison privés](private-endpoints.md)
+- [Créer et utiliser des points de terminaison privés](private-endpoints.md).

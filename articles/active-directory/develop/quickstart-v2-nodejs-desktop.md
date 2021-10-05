@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: beef869b891fe6e3f0ea2f667763cb310008b2fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e791392386f6a2f74f6d59e7999afeb272249aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653267"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605750"
 ---
 # <a name="quickstart-acquire-an-access-token-and-call-the-microsoft-graph-api-from-an-electron-desktop-app"></a>Démarrage rapide : Acquérir un jeton d’accès et appeler l’API Microsoft Graph depuis une application de bureau Electron
 
@@ -37,7 +37,7 @@ Ce guide de démarrage rapide utilise la [bibliothèque d’authentification Mic
 > Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre solution, procédez comme suit :
 >
 > 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
-> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoires + abonnements** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour basculer vers le locataire dans lequel vous voulez inscrire l’application.
 > 1. Recherchez et sélectionnez **Azure Active Directory**.
 > 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
 > 1. Entrez un **nom** pour votre application (par exemple, `msal-node-desktop`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.

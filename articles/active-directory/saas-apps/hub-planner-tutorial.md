@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Hub Planner | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Hub Planner'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Hub Planner.
 services: active-directory
 author: jeevansd
@@ -9,24 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/12/2020
+ms.date: 09/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 2d9dc483a9d60dc395c0aff52b721690d4fc701d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66cbb4fa8e5f80e56b66b66802fb4c4b7ab8b9d2
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92442420"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091613"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hub-planner"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Hub Planner
+# <a name="tutorial-azure-ad-sso-integration-with-hub-planner"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Hub Planner
 
 Dans ce tutoriel, vous allez apprendre à intégrer Hub Planner à Azure Active Directory (Azure AD). Quand vous intégrez Hub Planner à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à Hub Planner.
 * Permettre à vos utilisateurs de se connecter automatiquement à Hub Planner avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,25 +38,26 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Hub Planner prend en charge l’authentification unique lancée par le **fournisseur de services**.
-* Après avoir configuré Hub Planner, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-hub-planner-from-the-gallery"></a>Ajout de Hub Planner à partir de la galerie
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
+## <a name="add-hub-planner-from-the-gallery"></a>Ajouter Hub Planner à partir de la galerie
 
 Pour configurer l’intégration de Hub Planner à Azure AD, vous devez ajouter Hub Planner à partir de la galerie à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Hub Planner** dans la zone de recherche.
 1. Sélectionnez **Hub Planner** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-hub-planner"></a>Configurer et tester l’authentification unique Azure AD pour Hub Planner
+## <a name="configure-and-test-azure-ad-sso-for-hub-planner"></a>Configurer et tester l’authentification unique Azure AD pour Hub Planner
 
 Configurez et testez l’authentification unique Azure AD avec Hub Planner à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Hub Planner associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Hub Planner, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Hub Planner, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -71,19 +70,19 @@ Pour configurer et tester l’authentification unique Azure AD avec Hub Planner,
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Hub Planner**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Sur le portail Azure, dans la page d’intégration de l’application **Hub Planner**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.hubplanner.com`.
+    a. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://app.hubplanner.com/sso/metadata`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://app.hubplanner.com/sso/metadata`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://app.hubplanner.com/sso/callback`
 
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://app.hubplanner.com/sso/callback`
+    c. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.hubplanner.com`.
 
     > [!NOTE]
     > Ces valeurs sont celles que vous utiliserez. La seule modification que vous devez effectuer consiste à remplacer \<SUBDOMAIN\> dans l’**URL de connexion** par le sous-domaine que vous avez reçu lorsque vous vous êtes inscrit à Hub Planner. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -115,13 +114,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Hub Planner**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
@@ -156,20 +149,14 @@ Si vous voulez ajouter d’autres utilisateurs, accédez à **Paramètres** > **
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Hub Planner dans le volet d’accès, vous devez être connecté automatiquement à l’application Hub Planner pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion Hub Planner, à partir de laquelle vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion Hub Planner pour lancer le flux de connexion.
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Hub Planner dans Mes applications vous redirige vers l’URL de connexion Hub Planner. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer Hub Planner avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Hub Planner avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré Hub Planner, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

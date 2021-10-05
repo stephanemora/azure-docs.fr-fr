@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
-ms.openlocfilehash: abca04eb60538921191b9c632ef6ef2849f959c5
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b7a6cf1bdb490683faa5285811c83d220ac80cca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424903"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662879"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Tutoriel : Connecter un réseau virtuel à un circuit ExpressRoute à l’aide de l’interface CLI
 
@@ -59,6 +59,9 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Connecter un réseau virtuel d’un autre abonnement à un circuit
 
 Vous pouvez partager un circuit ExpressRoute entre plusieurs abonnements. La figure suivante montre un schéma simple sur le fonctionnement du partage de circuits ExpressRoute entre plusieurs abonnements.
+
+> [!NOTE]
+> La connexion de réseaux virtuels entre des clouds souverains Azure et le cloud Azure public n’est pas prise en charge. Vous pouvez uniquement lier des réseaux virtuels provenant de différents abonnements dans le même cloud.
 
 Chacun des petits clouds dans le cloud principal est utilisé pour représenter les abonnements appartenant à différents services au sein d’une organisation. Les départements au sein de l’organisation utilisent leur propre abonnement pour déployer leurs services, mais ils peuvent partager un même circuit ExpressRoute pour se reconnecter à votre réseau local. Un seul service (dans cet exemple : le service informatique) peut détenir le circuit ExpressRoute. D’autres abonnements au sein de l’organisation peuvent utiliser le circuit ExpressRoute.
 
@@ -177,7 +180,7 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 
 ## <a name="enroll-in-expressroute-fastpath-features-preview"></a>S’inscrire aux fonctionnalités d’ExpressRoute FastPath (préversion)
 
-La prise en charge de FastPath pour le peering de réseaux virtuels est désormais en préversion publique. L’inscription est disponible uniquement par le biais d’Azure PowerShell. Pour obtenir des instructions sur l’inscription, consultez [Fonctionnalités en préversion de FastPath](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
+La prise en charge de FastPath pour le peering de réseaux virtuels est désormais en préversion publique. L’inscription est disponible uniquement par le biais d’Azure PowerShell. Pour obtenir des instructions sur l’inscription, consultez [Fonctionnalités d’évaluation de FastPath](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
 
 > [!NOTE] 
 > Toutes les connexions configurées pour FastPath dans l’abonnement cible sont inscrites à cette préversion. Nous ne recommandons pas l’activation de cette préversion dans les abonnements de production.

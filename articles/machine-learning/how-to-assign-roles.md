@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: Blackmist
-ms.author: nigup
-author: nishankgu
+ms.author: johwu
+author: johnwu0604
 ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 2e0b503cd305697a808c08a2fe903d0f27972448
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 51846db6f54baaec89a6a9a1164e2d5001c9dbb9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525022"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679630"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l'accès à un espace de travail Azure Machine Learning
 
@@ -34,19 +34,18 @@ Dans cet article, vous allez apprendre à gérer l’accès (autorisation) à un
 
 ## <a name="default-roles"></a>Rôles par défaut
 
-Un espace de travail Azure Machine Learning est une ressource Azure. Comme toute autre ressource Azure, la création d'un espace de travail Azure Machine Learning s'accompagne de trois rôles par défaut. Vous pouvez ajouter des utilisateurs à l’espace de travail et leur attribuer un de ces rôles intégrés.
+Les espaces de travail Azure Machine Learning ont quatre rôles intégrés qui sont disponibles par défaut. Lorsque vous ajoutez des utilisateurs à un espace de travail, vous pouvez leur attribuer l’un des rôles intégrés décrits ci-dessous.
 
 | Role | Niveau d’accès |
 | --- | --- |
+| **Scientifique des données AzureML** | Peut effectuer toutes les actions au sein d’un espace de travail Azure Machine Learning, à l’exception de la création ou de la suppression des ressources de calcul et de la modification de l’espace de travail lui-même. |
 | **Lecteur** | Actions en lecture seule dans l’espace de travail. Les lecteurs peuvent lister et visualiser des ressources , y compris les informations d'identification du [magasin de données](how-to-access-data.md), dans un espace de travail. Les lecteurs ne peuvent pas créer ou mettre à jour ces ressources. |
 | **Contributeur** | Afficher, créer, modifier ou supprimer (le cas échéant) des ressources dans un espace de travail. À titre d'exemple, les contributeurs peuvent créer une expérience, créer ou joindre un cluster de calcul, envoyer une exécution et déployer un service web. |
 | **Propriétaire** | Accès total à l’espace de travail, avec possibilité d’afficher, de créer, de modifier ou de supprimer (le cas échéant) des ressources dans un espace de travail. Vous pouvez modifier les attributions de rôles. |
-| **Rôle personnalisé** | Vous permet de personnaliser l’accès à des opérations de contrôle ou de plan de données spécifiques au sein d’un espace de travail. Par exemple, l’envoi d’une exécution, la création d’un calcul, le déploiement d’un modèle ou l’inscription d’un jeu de données. |
 
 > [!IMPORTANT]
 > L'accès en fonction du rôle peut être limité à plusieurs niveaux dans Azure. Par exemple, un utilisateur disposant d’un accès propriétaire à un espace de travail peut ne pas disposer d'un accès propriétaire à un groupe de ressources contenu dans cet espace de travail. Pour plus d’informations, consultez [Fonctionnement du contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md#how-azure-rbac-works).
 
-Il n’existe actuellement aucun rôle intégré supplémentaire spécifique à Azure Machine Learning. Pour plus d’informations sur les rôles intégrés, consultez [Rôles intégrés Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="manage-workspace-access"></a>Gérer les accès à l’espace de travail
 
@@ -56,21 +55,6 @@ En tant que propriétaire d’un espace de travail, vous pouvez ajouter et suppr
 - [Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [REST API](../role-based-access-control/role-assignments-rest.md)
 - [Modèles Microsoft Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
-
-Si vous avez installé l'[interface CLI Azure Machine Learning](reference-azure-machine-learning-cli.md), vous pouvez utiliser des commandes CLI pour attribuer des rôles aux utilisateurs :
-
-```azurecli-interactive 
-az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
-```
-
-Le champ `user` correspond à l’adresse e-mail d’un utilisateur présent dans l’instance Azure Active Directory où se trouve l’abonnement parent de l'espace de travail. L’exemple suivant montre comment utiliser cette commande :
-
-```azurecli-interactive 
-az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
-```
-
-> [!NOTE]
-> La commande « az ml workspace share » ne fonctionne pas pour un compte fédéré par Azure Active Directory B2B. Utilisez le portail de l’interface utilisateur Azure à la place de la commande.
 
 ## <a name="create-custom-role"></a>Créer un rôle personnalisé
 
@@ -118,11 +102,7 @@ Pour déployer ce rôle personnalisé, exécutez la commande Azure CLI suivante�
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Une fois déployé, ce rôle est disponible dans l’espace de travail spécifié. Vous pouvez à présent ajouter et attribuer ce rôle dans le portail Azure. Vous pouvez également attribuer ce rôle à un utilisateur à l’aide de la commande CLI `az ml workspace share` suivante :
-
-```azurecli-interactive
-az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist Custom" --user jdoe@contoson.com
-```
+Une fois déployé, ce rôle est disponible dans l’espace de travail spécifié. Vous pouvez à présent ajouter et attribuer ce rôle dans le portail Azure.
 
 Pour plus d’informations sur les rôles personnalisés, consultez [Rôles personnalisés Azure](../role-based-access-control/custom-roles.md). 
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 26e90482ad03406bbf586c7c9a8f2fdcc31cad7c
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 50e5a8fb09a3bd54dd4131f6c60de6b315233e86
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254022"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557652"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Tutoriel : Créer un graphe Azure Digital Twins à l’aide d’Azure CLI
 
@@ -161,6 +161,8 @@ Pour créer un jumeau numérique, utilisez la commande [az dt twin create](/cli/
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat partiel de la requête de jumeau, notamment room0 et Room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 ### <a name="modify-a-digital-twin"></a>Modifier un jumeau numérique
 
 Vous pouvez également modifier les propriétés d’un jumeau que vous avez créé. 
@@ -217,7 +219,7 @@ Pour ajouter une relation, utilisez la commande [az dt twin relationship create]
     
     La sortie de chaque commande affiche des informations sur la relation créée.
 
-1. Vous pouvez vérifier les relations avec l’une des commandes suivantes, qui interrogent les relations dans votre instance Azure Digital Twins.
+1. Vous pouvez vérifier les relations avec l’une des commandes suivantes, qui affichent les relations dans votre instance Azure Digital Twins.
     * Pour voir toutes les relations partant de chaque étage (affichage des relations d’un côté) :
         ```azurecli-interactive
         az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-name> --twin-id floor0
@@ -241,6 +243,8 @@ Les jumeaux et les relations que vous avez configurés dans ce tutoriel forment 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Interroger le graphe de jumeaux pour répondre à des questions environnementales
 
 L’une des principales fonctionnalités d’Azure Digital Twins est la capacité à [interroger facilement et efficacement](concepts-query-language.md) votre graphe de jumeaux pour répondre à des questions sur votre environnement. Dans Azure CLI, cette opération s’effectue à l’aide de la commande [az dt twin query](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query).
+
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 Exécutez les requêtes suivantes dans Cloud Shell pour répondre à certaines questions sur l’exemple d’environnement.
 
@@ -278,7 +282,7 @@ Exécutez les requêtes suivantes dans Cloud Shell pour répondre à certaines q
     :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat de la requête de relation, qui comprend room0." lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
-    > Notez que l’ID d’un jumeau (comme floor0 dans la requête ci-dessus) est interrogé à l’aide du champ de métadonnées `$dtId`. 
+    > L’ID d’un jumeau (comme floor0 dans la requête ci-dessus) est interrogé avec le champ de métadonnées `$dtId`. 
     >
     >Lors de l’utilisation de Cloud Shell pour exécuter une requête avec des champs de métadonnées comme celui-ci qui commencent par `$`, vous devez échapper le `$` avec un backtick (apostrophe inversée) pour signaler à Cloud Shell qu’il ne s’agit pas d’une variable et qu’il doit être consommé comme littéral dans le texte de la requête. Ceci est reflété dans la capture d’écran ci-dessus.
 

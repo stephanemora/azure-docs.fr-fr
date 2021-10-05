@@ -5,12 +5,12 @@ ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bfe1a2d7fb993e51c82f14b508d697900b7a333
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 9b9f8f594fbc85c69a546a82f2857802382eea28
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319752"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556468"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutoriel : Déployer un modèle lié
 
@@ -48,7 +48,7 @@ Le script PowerShell suivant crée un compte de stockage, crée un conteneur et 
 Sélectionnez **Essayer** pour ouvrir Cloud Shell et **Copier** pour copier le script PowerShell, puis cliquez avec le bouton droit sur le volet de l’interpréteur de commandes pour coller le script :
 
 > [!IMPORTANT]
-> Ce nom doit comprendre entre 3 et 24 caractères, uniquement des lettres en minuscules et des nombres. Le nom doit être unique. Dans le modèle, le nom du compte de stockage est le nom du projet auquel **store** est ajouté, et le nom du projet doit comprendre entre 3 et 11 caractères. Le nom du projet doit donc respecter les exigences du nom du compte de stockage et comporter moins de 11 caractères.
+> Ce nom doit être unique et comprendre entre 3 et 24 caractères, uniquement des lettres en **minuscules** et des **nombres**. La variable `storageAccountName` de l’exemple de modèle combine le maximum de 11 caractères du paramètre `projectName` avec une valeur [uniqueString](./template-functions-string.md#uniquestring) de 13 caractères.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.

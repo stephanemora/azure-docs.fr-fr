@@ -1,7 +1,7 @@
 ---
 title: Nouveautés d’Azure Active Directory B2C (Business-to-Customer)
 description: Documentation et nouvelle et mise à jour pour Azure Active Directory B2C (Business-to-Customer)
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,55 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 2b28828cfd21d6847bcf5ebfe4fce1e5f144c118
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a0c5ff9f91f436e7a5ede0c84e1cf5578fc5d500
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531491"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761369"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C : Nouveautés
 
 Bienvenue dans les nouveautés de la documentation Azure Active Directory B2C. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés du service B2C, consultez [Nouveautés d’Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="august-2021"></a>Août 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Déployer des stratégies personnalisées avec GitHub Actions](deploy-custom-policies-github-action.md)
+- [Configurer l’authentification dans un exemple d’application de bureau WPF à l’aide d’Azure AD B2C](configure-authentication-sample-wpf-desktop-app.md)
+- [Activer les options d’authentification dans une application de bureau WPF avec Azure AD B2C](enable-authentication-wpf-desktop-app-options.md)
+- [Ajouter AD FS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C](identity-provider-adfs-saml.md)
+- [Configurer l’authentification dans un exemple d’application web Python à l’aide d’Azure Active Directory B2C](configure-authentication-sample-python-web-app.md)
+- [Configurer les options d’authentification dans une application web Python avec Azure Active Directory B2C](enable-authentication-python-web-app-options.md)
+- [Didacticiel : Comment effectuer des analyses de sécurité pour Azure AD B2C avec Azure Sentinel](azure-sentinel.md)
+- [Enrichir les jetons avec des revendications provenant de sources externes à l’aide de connecteurs API](add-api-connector-token-enrichment.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Personnaliser l’interface utilisateur avec des modèles HTML dans Azure Active Directory B2C](customize-ui-with-html.md)
+- [Configurer l’authentification dans un exemple d’application de bureau WPF à l’aide d’Azure AD B2C](configure-authentication-sample-wpf-desktop-app.md)
+- [Activer les options d’authentification dans une application de bureau WPF avec Azure AD B2C](enable-authentication-wpf-desktop-app-options.md)
+- [Configuration de l’authentification dans un exemple d’application iOS Swift avec Azure AD B2C](configure-authentication-sample-ios-app.md)
+- [Activer les options d’authentification dans une application iOS Swift avec Azure AD B2C](enable-authentication-ios-app-options.md)
+- [Activation de l’authentification dans votre propre application iOS Swift avec Azure AD B2C](enable-authentication-ios-app.md)
+- [Ajouter une application d’API web à votre locataire Azure Active Directory B2C](add-web-api-application.md)
+- [Configurer l'authentification dans une application Android exemple en utilisant Azure AD B2C](configure-authentication-sample-android-app.md)
+- [Configurer les options d’authentification dans une application Android avec Azure AD B2C](enable-authentication-android-app-options.md)
+- [Activer l’authentification dans votre propre application Android avec Azure AD B2C](enable-authentication-android-app.md)
+- [Configuration de l’authentification dans un exemple d’application web à l’aide d’Azure AD B2C](configure-authentication-sample-web-app.md)
+- [Activer les options d’authentification dans une application web avec Azure AD B2C](enable-authentication-web-application-options.md)
+- [Activation de l’authentification dans votre application web avec Azure AD B2C](enable-authentication-web-application.md)
+- [Configurer les options d’authentification dans une application monopage à l’aide d’Azure AD B2C](enable-authentication-spa-app-options.md)
+- [Activer des domaines personnalisés pour Azure Active Directory B2C](custom-domain.md)
+- [Ajouter AD FS en tant que fournisseur d’identité OpenID Connect à l’aide de stratégies personnalisées dans Azure Active Directory B2C](identity-provider-adfs.md)
+- [Configurer les options de fournisseur d’identité SAML avec Azure Active Directory B2C](identity-provider-generic-saml-options.md)
+- [Tutoriel : créer des flux d’utilisateurs et des stratégies personnalisées dans Azure Active Directory B2C](tutorial-create-user-flows.md)
+- [Tutoriel : configurer Azure Active Directory B2C avec BlokSec pour une authentification sans mot de passe](partner-bloksec.md)
+- [Ajouter un connecteur d’API à un workflow d’utilisateur d’inscription](add-api-connector.md)
+- [Utiliser des connecteurs d’API pour personnaliser et étendre les flux d’utilisateurs d’inscription](api-connectors-overview.md)
+- [Configurer l’inscription et la connexion par téléphone pour les flux d’utilisateurs](phone-authentication-user-flows.md)
+
 
 ## <a name="july-2021"></a>Juillet 2021
 

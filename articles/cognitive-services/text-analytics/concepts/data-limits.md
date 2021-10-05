@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/07/2021
+ms.date: 09/16/2021
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: b583caa4fdb2a1e72833d4e24c317282be041513
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: fd8347acf6f5fb67de5c011692d893416d5ac068
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822132"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677508"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de données et de débit pour l’API Analyse de texte
 <a name="data-limits"></a>
@@ -31,10 +31,12 @@ Découvrez dans cet article les limites de taille et de débit auxquelles vous �
 > * Les limites de données et de débit dépendent du nombre de documents envoyés à l’API. Si vous avez besoin d’analyser des documents plus volumineux que la limite autorisée, vous pouvez scinder le texte en blocs de texte plus petits avant de les envoyer à l’API. 
 >   * Un document est une chaîne unique de caractères de texte.  
 
+
+
 | Limite | Valeur |
 |------------------------|---------------|
 | Taille maximale de document | 5 120 caractères mesurés par [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). S’applique également à Analyse de texte pour la santé. |
-| Taille maximale d’un document (point de terminaison `/analyze`)  | 125 000 caractères, mesurés par [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Ne s’applique pas à Analyse de texte pour la santé. |
+| Nombre maximal de caractères par requête (point de terminaison `/analyze`)  | 125 000 caractères pour tous les documents envoyés, tels que mesurés par [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (25 documents maximum). Ne s’applique pas à Analyse de texte pour la santé. |
 | Taille maximale d’une demande | 1 Mo. S’applique également à Analyse de texte pour la santé. |
 
 

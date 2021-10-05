@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/13/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 96794d2ab07f9fe352f611c7d0cf511067928bee
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b10f4c221e0fd45ee942785edfa4b6e157a20077
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413190"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760883"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à New Relic
 
@@ -38,6 +38,8 @@ Pour commencer, vous avez besoin des éléments suivants :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * New Relic prend en charge l’authentification unique lancée par le fournisseur de services ou le fournisseur d’identité.
+
+* New Relic prend en charge l’[attribution automatisée d’utilisateurs](new-relic-by-organization-provisioning-tutorial.md).
 
 ## <a name="add-new-relic-from-the-gallery"></a>Ajouter New Relic depuis la galerie
 
@@ -150,6 +152,9 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans New Re
    
    1. Pour enregistrer l’utilisateur, sélectionnez **Add User** (Ajouter un utilisateur).
 
+> [!NOTE]
+> New Relic prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./new-relic-by-organization-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -164,7 +169,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le portail Azure ; vous devez être connecté automatiquement à l’instance de New Relic pour laquelle vous avez configuré l’authentification unique 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette New Relic dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de New Relic pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette New Relic dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de New Relic pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

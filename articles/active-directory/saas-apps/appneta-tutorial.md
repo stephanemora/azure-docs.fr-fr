@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: dde247ff3ced36b34f9746cd710af3ad2d228ec5
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: ceb7c2fcec92e89c65e03fa11db142af514090af
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108801925"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619853"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appneta-performance-manager"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AppNeta Performance Manager
 
@@ -38,7 +38,6 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 - AppNeta Performance Manager prend en charge l’authentification unique lancée par le **fournisseur de services**
-
 - AppNeta Performance Manager prend en charge l’attribution d’utilisateurs **juste-à-temps**
 
 > [!NOTE]
@@ -76,22 +75,24 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
-   ![Modifier la configuration SAML de base](common/edit-urls.png)
+   ![Modifier la configuration SAML de base](./media/appneta-tutorial/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.pm.appneta.com`
 
+   b. Dans le champ URL de réponse (URL Assertion Consumer Service), entrez : `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
+
    > [!NOTE]
-   > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique AppNeta Performance Manager](mailto:support@appneta.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+   > La valeur de l’URL d’authentification ci-dessus est un exemple. Mettez à jour cette valeur avec l’URL d’authentification réelle. Pour obtenir cette valeur, contactez l’[équipe du support d’AppNeta Performance Manager](mailto:support@appneta.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. L’application AppNeta Performance Manager s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
+1. L’application AppNeta Performance Manager s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut :
 
-   ![image](common/edit-attribute.png)
+   ![Capture d’écran montrant les attributs par défaut pour un jeton SAML.](./media/appneta-tutorial/edit-attribute.png)
 
-1. En plus de ce qui précède, l’application AppNeta Performance Manager s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
+1. En plus de ce qui précède, l’application AppNeta Performance Manager s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les changer en fonction de vos besoins.
 
-   | Nom      | Attribut source       |
+   | Name      | Attribut source       |
    | --------- | ---------------------- |
    | firstName | user.givenname         |
    | lastName  | user.surname           |
@@ -102,30 +103,22 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
    | title     | user.jobtitle          |
    |           |                        |
 
-   > [!NOTE]
-   > L’attribut **groups** désigne le groupe de sécurité dans Appneta qui est mappé sur un **Rôle** dans Azure AD. Reportez-vous à [ce document](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) expliquant comment créer des rôles personnalisés dans Azure AD.
+1. Pour passer correctement les assertions SAML « groups », vous devez configurer des rôles d’application et définir leur valeur pour qu’elle corresponde aux mappages de rôles définis dans AppNeta Performance Manager. Sous **Azure Active Directory** > **Inscriptions des applications** >  **Toutes les applications**, sélectionnez **Appneta Performance Manager**.
+1. Dans le volet de gauche, cliquez sur **Rôles d’application**.
+1. Cliquez sur **Créer un rôle d’application**.
+1. Dans le volet **Créer un rôle d’application**, procédez comme suit :
+   1. Dans **Nom d’affichage**, entrez un nom pour le rôle.
+   1. Dans **Types de membres autorisés**, sélectionnez **Utilisateurs/groupes**.
+   1. Dans **Valeur**, entrez la valeur du groupe de sécurité défini dans vos mappages de rôles AppNeta Performance Manager.
+   1. Dans **Description**, entrez une description pour le rôle.
+   1. Cliquez sur **Appliquer**.
 
-   1. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
-
-   1. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
-
-   1. Laissez le champ **Espace de noms** vide.
-
-   1. Sélectionnez Source comme **Attribut**.
-
-   1. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
-
-   1. Cliquez sur **OK**
-
-   1. Cliquez sur **Enregistrer**.
-
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Après avoir créé les rôles, vous devez les attribuer à vos utilisateurs et groupes. Accédez à **Azure Active Directory** > **Applications d’entreprise** > **Appneta Performance manager** > **Users et groupes**.
+1. Sélectionnez un utilisateur ou un groupe, puis attribuez-lui le rôle d’application approprié.
+1. Une fois que vous avez terminé l’attribution des rôles d’application, accédez à **Azure Active Directory** > **Applications d’entreprise** > **Appneta Performance Manager** > **Authentification unique**.
+1. Dans le volet **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
    ![Lien Téléchargement de certificat](common/metadataxml.png)
-
-1. Dans la section **Configurer AppNeta Performance Manager**, copiez la ou les URL appropriées en fonction de vos besoins.
-
-   ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -151,13 +144,16 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous avez configuré les rôles comme indiqué ci-dessus, vous pouvez en sélectionner un dans la liste déroulante **Sélectionner un rôle**.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
+   > [!NOTE]
+   > En pratique, vous ajouterez des groupes à l’application plutôt que des utilisateurs individuels.
+
 ## <a name="configure-appneta-performance-manager-sso"></a>Configurer l’authentification unique AppNeta Performance Manager
 
-Pour configurer l’authentification unique côté **AppNeta Performance Manager**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique AppNeta Performance Manager](mailto:support@appneta.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **AppNeta Performance Manager**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé à l’[équipe du support d’AppNeta Performance Manager](mailto:support@appneta.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-appneta-performance-manager-test-user"></a>Créer un utilisateur de test AppNeta Performance Manager
 
-Dans cette section, un utilisateur appelé Britta Simon est créé dans AppNeta Performance Manager. AppNeta Performance Manager prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans AppNeta Performance Manager, il en est créé un après l’authentification.
+Dans cette section, un utilisateur appelé B.Simon est créé dans AppNeta Performance Manager. AppNeta Performance Manager prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans AppNeta Performance Manager, il en est créé un après l’authentification.
 
 > [!Note]
 > Si vous devez créer un utilisateur manuellement, contactez l’[équipe du support technique AppNeta Performance Manager](mailto:support@appneta.com).
@@ -166,12 +162,12 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans AppNeta 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-- Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à AppNeta Performance Manager, où vous pouvez lancer le flux de connexion.
+- Dans le portail Azure, sélectionnez **Tester cette application**. Vous êtes alors redirigé vers l’URL d’authentification AppNeta Performance Manager, d’où vous pouvez lancer le processus de connexion.
 
 - Accédez directement à l’URL de connexion à AppNeta Performance Manager pour y lancer le flux de connexion.
 
-- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette AppNeta Performance Manager dans Mes applications, vous êtes redirigé vers l’URL de connexion à AppNeta Performance Manager. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette AppNeta Performance Manager dans le portail Mes applications, vous êtes redirigé vers l’URL d’authentification AppNeta Performance Manager. Pour plus d’informations sur le portail Mes applications, consultez [Introduction à Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré AppNeta Performance Manager, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré AppNeta Performance Manager, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

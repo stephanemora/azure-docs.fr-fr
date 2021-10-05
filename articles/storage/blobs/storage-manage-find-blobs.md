@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 95262d66be9300cc1c88ec80e3da4a5367705c76
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: fa2284e03c8d69bacb40a2fe99d3c3cb10a73828
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969413"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154638"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Gérer et rechercher des données blob Azure dans l’index d’objet blob
 
@@ -28,7 +28,7 @@ Les balises d’index de blob vous permettent d’effectuer les actions suivante
 
 - Spécifier des comportements conditionnels pour les API d’objets blob en fonction de l’évaluation des étiquettes d’index
 
-- Utiliser des balises d’index pour les contrôles avancés sur les fonctionnalités telles que la [gestion du cycle de vie des blobs](storage-lifecycle-management-concepts.md)
+- Utiliser des balises d’index pour les contrôles avancés sur les fonctionnalités telles que la [gestion du cycle de vie des blobs](./lifecycle-management-overview.md)
 
 Imaginez un scénario dans lequel vous avez des millions de blobs dans votre compte de stockage, accessibles par de nombreuses applications différentes. Vous souhaitez rechercher toutes les données associées à un projet. Vous n’êtes pas certain de l’étendue concernée, car les données peuvent être réparties sur plusieurs conteneurs avec des conventions d’affectation de noms différentes. Toutefois, vos applications chargent toutes les données avec des balises en fonction de leur projet. Au lieu de rechercher parmi des millions de blobs et de comparer les noms et les propriétés, vous pouvez utiliser `Project = Contoso` comme critère de découverte. Un index de blob filtrera tous les conteneurs sur l’ensemble de votre compte de stockage pour rechercher et renvoyer rapidement un simple ensemble de 50 blobs à partir de `Project = Contoso`.
 
@@ -67,10 +67,7 @@ Vous pouvez appliquer une étiquette individuelle à votre objet blob pour décr
 
 Vous pouvez appliquer plusieurs étiquettes à votre objet blob pour mieux décrire les données.
 
-> "Project" = 'Contoso'  
-> "Classified" = 'True'  
-> "Status" = 'Unprocessed'  
-> "Priority" = '01'
+> "Project" = 'Contoso' "Classified" = 'True' "Status" = 'Unprocessed' "Priority" = '01'
 
 Pour modifier les attributs de balise d’index existants, récupérez les attributs de balise existants, modifiez-les et remplacez-les à l’aide d’une opération [Set Blob Tags](/rest/api/storageservices/set-blob-tags). Pour supprimer toutes les balises d’index du blob, appelez l’opération `Set Blob Tags` sans spécifier d’attributs de balise. Comme les balises d’index de blob sont une sous-ressource du contenu des données blob, `Set Blob Tags` ne modifie pas le contenu sous-jacent ni la propriété Last-Modified-Time ou l’ETag du blob. Vous pouvez créer ou modifier des balises d’index pour tous les blobs de base actuels. Les balises d'index sont également conservées pour les versions précédentes, mais elles ne sont pas transmises au moteur d'indexation des blobs. Vous ne pouvez donc pas interroger les balises d'index pour retrouver les versions précédentes. Les balises sur les instantanés ou les blobs supprimés de manière réversible ne peuvent pas être modifiées.
 
@@ -179,7 +176,7 @@ Le tableau ci-dessous montre les opérateurs valides pour les opérations condit
 
 ## <a name="platform-integrations-with-blob-index-tags"></a>Intégrations de plateforme avec des étiquettes d’index d’objet blob
 
-Les balises d’index de blob vous permettent non seulement de classer, de gérer et de rechercher vos données blob, mais également d’intégrer d’autres fonctionnalités de Stockage Blob, telles que la [gestion du cycle de vie](storage-lifecycle-management-concepts.md).
+Les balises d’index de blob vous permettent non seulement de classer, de gérer et de rechercher vos données blob, mais également d’intégrer d’autres fonctionnalités de Stockage Blob, telles que la [gestion du cycle de vie](./lifecycle-management-overview.md).
 
 ### <a name="lifecycle-management"></a>Gestion du cycle de vie
 
@@ -260,7 +257,7 @@ Les appelants utilisant une [identité Azure AD](../common/authorize-data-access
 | [Obtenir les étiquettes d’objet blob](/rest/api/storageservices/get-blob-tags)           | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read     |
 | [Rechercher des objets blob par étiquettes](/rest/api/storageservices/find-blobs-by-tags) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 
-Des autorisations supplémentaires, distinctes des données blob sous-jacentes, sont requises pour effectuer des opérations sur les balises d’index. Le rôle [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) dispose des autorisations pour les trois opérations de balises d’index de blob. Le [lecteur des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) reçoit uniquement des autorisations pour les opérations `Find Blobs by Tags` et `Get Blob Tags`.
+Des autorisations supplémentaires, distinctes des données blob sous-jacentes, sont requises pour effectuer des opérations sur les balises d’index. Le rôle [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) dispose des autorisations pour les trois opérations de balises d’index de blob. 
 
 ### <a name="sas-permissions"></a>Autorisations SAS
 
@@ -306,18 +303,18 @@ Le tableau suivant récapitule les différences entre les métadonnées et les �
 
 Vous êtes facturé pour le nombre moyen mensuel de balises d’index dans un compte de stockage. Aucun coût ne s’applique au moteur d’indexation. Les demandes pour Définir des étiquettes de blob, Obtenir des étiquettes de blob et Rechercher des étiquettes de blob sont facturées aux tarifs de transaction respectifs actuels. Notez que le nombre de transactions de liste consommées lors de la réalisation d’une transaction Rechercher des blobs par étiquette est égal au nombre de clauses dans la demande. Par exemple, la requête (StoreID = 100) est une transaction de liste.  La requête (StoreID = 100 AND SKU = 10010) est deux transactions de liste. Consultez [Tarification d’objet blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/) pour en savoir plus.
 
-## <a name="regional-availability-and-storage-account-support"></a>Disponibilité régionale et prise en charge des comptes de stockage
+<a id="regional-availability-and-storage-account-support"></a>
 
-Les balises d’index de blob sont disponibles uniquement sur des comptes v2 universels sur lesquels l’espace de noms hiérarchique est désactivé. Les comptes v1 universels ne sont pas pris en charge mais vous pouvez les mettre à niveau vers des comptes v2 universels.
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
 
-Les balises d’index ne sont pas prises en charge sur les comptes de stockage Premium. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
 
-Les balises d’index d’objets blob sont actuellement disponibles dans toutes les régions publiques.
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Non](../media/icons/no-icon.png)|![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
 
-Pour commencer, consultez [Utiliser des balises d’index de blob pour gérer et rechercher des données](storage-blob-index-how-to.md).
-
-> [!IMPORTANT]
-> Consultez la section [Conditions et problèmes connus](#conditions-and-known-issues) de cet article.
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
 ## <a name="conditions-and-known-issues"></a>Conditions et problèmes connus
 
@@ -327,7 +324,7 @@ Cette section décrit les problèmes connus et les conditions dans lesquelles il
 
 - Le chargement d’objets blob de pages avec des balises d’index ne conserve pas les balises. Définissez les balises après le chargement d’un objet blob de pages.
 
-- Si le contrôle de version est activé, vous pouvez continuer à utiliser des balises d’index dans la version actuelle. Les balises d'index sont conservées pour les versions précédentes, mais ces balises ne sont pas transmises au moteur d'indexation des blobs, de sorte que vous ne pouvez pas les utiliser pour retrouver les versions précédentes. Si vous promouvez une version antérieure à la version actuelle, les balises de cette version antérieure deviennent les balises de la version actuelle. Comme ces balises sont associées à la version actuelle, elles sont transmises au moteur d'indexation des blobs et vous pouvez les interroger. 
+- Si le contrôle de version est activé, vous pouvez continuer à utiliser des balises d’index dans la version actuelle. Les balises d'index sont conservées pour les versions précédentes, mais ces balises ne sont pas transmises au moteur d'indexation des blobs, de sorte que vous ne pouvez pas les utiliser pour retrouver les versions précédentes. Si vous promouvez une version antérieure à la version actuelle, les balises de cette version antérieure deviennent les balises de la version actuelle. Comme ces balises sont associées à la version actuelle, elles sont transmises au moteur d'indexation des blobs et vous pouvez les interroger.
 
 - Il n’existe aucune API permettant de déterminer si les balises d’index sont indexées.
 
@@ -353,4 +350,4 @@ Non, les étiquettes Resource Manager aident à organiser les ressources de plan
 
 Pour obtenir un exemple d’utilisation d’un index de blob, consultez [Utiliser un index de blob pour gérer et rechercher des données](storage-blob-index-how-to.md).
 
-En savoir plus sur la [gestion de cycle de vie](storage-lifecycle-management-concepts.md) et définir une règle avec correspondance d’index de blob.
+En savoir plus sur la [gestion de cycle de vie](./lifecycle-management-overview.md) et définir une règle avec correspondance d’index de blob.

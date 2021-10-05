@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 544275ce4c9ab31fa65fe17351eed495895569e2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ece8300ee9d44699dfcce8fd89b1e07b94d99df9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432159"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823281"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
 
@@ -53,25 +53,25 @@ Un hub est un réseau virtuel qui peut contenir des passerelles pour offrir des 
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-## <a name="create-site-to-site-vpn-gateway"></a><a name="gateway"></a>Créer une passerelle VPN de site à site
+## <a name="configure-a-site-to-site-gateway"></a><a name="gateway"></a>Configurer une passerelle de site à site
 
-Dans cette section, vous allez configurer les paramètres de connectivité de site à site, puis procéder à la création du hub et de la passerelle S2S VPN. La création d’un hub et d’une passerelle peut prendre environ 30 minutes.
+Dans cette section, vous allez configurer les paramètres de connectivité de site à site, puis procéder à la création du hub et de la passerelle VPN de site à site. La création d’un hub et d’une passerelle peut prendre environ 30 minutes.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
-## <a name="create-site"></a><a name="site"></a>Créer un site
+## <a name="create-a-site"></a><a name="site"></a>Créer un site
 
 Dans cette section, vous allez créer un site. Les sites correspondent à vos emplacements physiques. Créez autant de sites qu’il vous faut. Par exemple, si vous avez une succursale à New York, une autre à Londres et une autre à LA, vous créeriez trois sites distincts. Ces sites contiennent vos points de terminaison du périphérique VPN local. Vous pouvez créer jusqu’à 1000 sites par hub virtuel dans un WAN virtuel. Si vous aviez plusieurs hubs, vous pouvez créer 1 000 sites pour chacun de ces hubs. Si vous avez un appareil CPE de partenaire Virtual WAN, contactez ce dernier pour en savoir plus sur son automatisation sur Azure. En général, l’automatisation permet d’exporter en un seul clic des informations de branche à grande échelle dans Azure, et de configurer la connectivité entre l’appareil CPE et la passerelle VPN Azure Virtual WAN. Pour plus d’informations, consultez [Guide d’automatisation Azure à l’intention des partenaires CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
-## <a name="connect-vpn-site-to-hub"></a><a name="connectsites"></a>Connexion de site VPN à concentrateur
+## <a name="connect-the-vpn-site-to-a-hub"></a><a name="connectsites"></a>Connecter le site VPN à un hub
 
 Dans cette section, vous connectez votre site VPN au hub.
 
 [!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
-## <a name="connect-vnet-to-hub"></a><a name="vnet"></a>Connecter un réseau virtuel à un hub
+## <a name="connect-a-vnet-to-the-hub"></a><a name="vnet"></a>Connecter un réseau virtuel au hub
 
 Dans cette section, vous créez une connexion entre le hub et votre réseau virtuel.
 

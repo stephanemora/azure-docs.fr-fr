@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6744970ec7aadfc4a9cb967c479307b441f4fb1b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 71f7bde0dcae54916c9657b724290778bb01652b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453048"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430069"
 ---
 # <a name="query-csv-files"></a>Interroger des fichiers CSV
 
@@ -336,6 +336,24 @@ WITH (
     --[population] bigint
 ) AS [r]
 ```
+
+## <a name="querying-appendable-files"></a>Interrogation de fichiers annexes
+
+Les fichiers CSV utilisés dans la requête ne doivent pas être modifiés pendant l'exécution de la requête. Dans la requête de longue durée, le pool SQL peut retenter des lectures, lire des parties de fichiers ou même lire un fichier plusieurs fois. La modification du contenu du fichier pourrait entraîner des résultats incorrects. Par conséquent, le pool SQL fait échouer la requête s’il détecte que l’heure de modification d’un fichier a changé pendant l’exécution de la requête.
+
+Dans certains scénarios, vous souhaiterez peut-être créer une table dans des fichiers auxquels des données sont constamment ajoutées. Pour éviter les échecs de requêtes dus à des fichiers constamment ajoutés, vous pouvez permettre à la `OPENROWSET`fonction d'ignorer les lectures potentiellement incohérentes en utilisant le `ROWSET_OPTIONS` paramètre.
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    format = 'csv',
+    parser_version = '2.0',
+    firstrow = 2,
+    ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}') as rows
+```
+
+L'`ALLOW_INCONSISTENT_READS`option de lecture désactive la vérification du temps de modification du fichier pendant le cycle de vie de la requête et lit tout ce qui est disponible dans le fichier. Dans les fichiers annexes, le contenu existant n'est pas mis à jour, et seules de nouvelles lignes sont ajoutées. Par conséquent, la probabilité de résultats incorrects est réduite par rapport aux fichiers avec modification des données. Cette option peut vous permettre de lire les fichiers auxquels des données sont fréquemment ajoutées sans gérer les erreurs. Dans la plupart des scénarios, le pool SQL ignorera simplement certaines lignes qui sont ajoutées aux fichiers pendant l'exécution de la requête.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

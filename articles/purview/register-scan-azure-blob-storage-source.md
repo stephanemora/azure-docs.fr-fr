@@ -1,18 +1,18 @@
 ---
-title: Comment analyser un blob Stockage Azure
+title: Comment enregistrer et analyser un blob de stockage Azure
 description: Découvrez comment analyser Stockage Blob Azure dans votre catalogue de données Azure Purview.
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 7b295fd67052d91c229977571056b3ea95d56773
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 40105f18cce8fe515350903837f49d273bd39d03
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525581"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209981"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Inscrire et analyser Stockage Blob Azure
 
@@ -116,7 +116,7 @@ Il est nécessaire de récupérer l’ID d’application et le secret du princip
 
 Pour inscrire un nouveau compte blob dans votre catalogue de données, procédez comme suit :
 
-1. Accédez à Purview Studio à partir de votre compte Purview dans le portail.
+1. Accédez à [Purview Studio](https://web.purview.azure.com/resource/) à partir de votre compte Purview dans le portail.
 1. Sélectionnez **Registres sources** sur la page d’accueil de Purview Studio.
 1. Sélectionnez **Inscrire**.
 1. Sous **Inscrire des sources**, sélectionnez **Stockage Blob Azure**
@@ -136,7 +136,7 @@ Dans l’écran **Inscrire des sources (Stockage Blob Azure)** , procédez comme
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Sélectionnez la source de données Azure Blob que vous avez inscrite.
 

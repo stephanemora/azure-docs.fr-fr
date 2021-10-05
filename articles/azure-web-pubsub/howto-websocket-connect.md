@@ -1,28 +1,29 @@
 ---
-title: Comment démarrer une connexion WebSocket au service Azure Web PubSub
-description: Instruction sur la façon de démarrer une connexion WebSocket au service Azure Web PubSub dans différentes langues
+title: Comment démarrer une connexion WebSocket à Azure Web PubSub
+description: Découvrez comment démarrer une connexion WebSocket au service Azure Web PubSub dans différents langages
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.openlocfilehash: 91d326197737ab6dde07bbb72584648cfe025b05
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 939bc5b6c4b272174d99787e89f04a7431a45d68
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116026"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827474"
 ---
-#  <a name="how-to-start-websocket-connection-to-the-azure-web-pubsub-service"></a>Comment démarrer une connexion WebSocket au service Azure Web PubSub
+#  <a name="start-a-websocket-connection-to-azure-web-pubsub"></a>Démarrer une connexion WebSocket à Azure Web PubSub
 
-Les clients se connectent au service Azure Web PubSub à l’aide du protocole [WebSocket](https://tools.ietf.org/html/rfc6455) standard. Les langages prenant en charge le client WebSocket peuvent donc être utilisés pour écrire un client pour le service. Dans les sections ci-dessous, nous montrons plusieurs exemples de clients WebSocket dans différents langages.
+Les clients se connectent au service Azure Web PubSub à l’aide du protocole [WebSocket](https://tools.ietf.org/html/rfc6455) standard. Vous pouvez utiliser des langages qui prennent en charge le client WebSocket pour écrire un client pour le service. Cet article présente plusieurs exemples de clients WebSocket dans différents langages.
 
-## <a name="auth"></a>Auth
-Le service Web PubSub utilise un [jeton JWT](https://tools.ietf.org/html/rfc7519.html) pour valider et authentifier les clients. Les clients peuvent placer le jeton dans le paramètre de requête `access_token` ou dans l’en-tête `Authorization` lors de la connexion au service.
+## <a name="authorization"></a>Autorisation
 
-Dans un workflow classique, le client communique d’abord avec son serveur d’applications pour obtenir l’URL du service et le jeton. Le client ouvre ensuite la connexion WebSocket au service à l’aide de l’URL et du jeton qu’il reçoit.
+Web PubSub utilise une [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519.html) pour valider et autoriser les clients. Les clients peuvent placer le jeton dans le paramètre de requête `access_token` ou dans l’en-tête `Authorization` lors de la connexion au service.
 
-Le portail fournit également une *URL de client* générée de manière dynamique pour que les clients démarrent un test rapide :
+Généralement, le client communique d’abord avec son serveur d’applications pour obtenir l’URL du service et le jeton. Ensuite, il ouvre la connexion WebSocket au service à l’aide de l’URL et du jeton qu’il reçoit.
+
+Le portail fournit également un outil permettant de générer l’URL du client avec le jeton de manière dynamique. Cet outil peut être utile pour effectuer un test rapide.
 
 :::image type="content" source="./media/howto-websocket-connect/generate-client-url.png" alt-text="Capture d’écran montrant où trouver le générateur d’URL de client.":::
 
@@ -30,9 +31,9 @@ Le portail fournit également une *URL de client* générée de manière dynamiq
 > Veillez à n’inclure que les rôles nécessaires lors de la génération du jeton.
 >
 
-Pour simplifier l’exemple de workflow, dans les sections ci-dessous, nous utilisons cette URL générée temporairement à partir du portail pour que le client se connecte, à l’aide de `<Client_URL_From_Portal>` pour représenter la valeur. Le jeton généré expire par défaut dans un délai de 50 minutes. N’oubliez donc pas d’en régénérer un lorsque le jeton expire.
+Dans les sections suivantes, pour simplifier l’exemple de flux de travail, nous utilisons cette URL générée temporairement à partir du portail pour que le client se connecte. Nous utilisons `<Client_URL_From_Portal>` pour représenter la valeur. Le jeton généré expire par défaut dans un délai de 50 minutes. N’oubliez donc pas d’en régénérer un lorsque le jeton expire.
 
-Le service prend en charge deux types de clients WebSocket : l’un est le client WebSocket simple et l’autre est le client WebSocket PubSub. Nous montrons ici comment ces deux types de clients se connectent au service. Pour plus d’informations sur ces deux types de clients, consultez [Protocoles de client WebSocket pour Azure Web PubSub](./concept-client-protocols.md).
+Le service prend en charge deux types de clients WebSocket : l’un est le client WebSocket simple et l’autre est le client WebSocket PubSub. Nous montrons ici comment ces deux types de clients se connectent au service. Pour plus d’informations sur ces clients, consultez [Protocoles clients WebSocket pour Azure Web PubSub](./concept-client-protocols.md).
 
 ## <a name="dependency"></a>Dépendance
 
@@ -41,7 +42,7 @@ Dans la plupart des navigateurs modernes, l’API `WebSocket` est prise en charg
 
 # <a name="nodejs"></a>[Node.JS](#tab/javascript)
 
-* [Node.js 12.x ou version ultérieure](https://nodejs.org)
+* [Node.js 12.x ou version ultérieure](https://nodejs.org)
 * `npm install ws`
 
 # <a name="python"></a>[Python](#tab/python)
@@ -52,10 +53,10 @@ Dans la plupart des navigateurs modernes, l’API `WebSocket` est prise en charg
 
 * [.NET Core 2.1 ou version ultérieure](https://dotnet.microsoft.com/download)
 * `dotnet add package Websocket.Client`
-    * [WebSocket.Client](https://github.com/Marfusios/websocket-client) est un client WebSocket tiers avec une reconnexion et une gestion des erreurs intégrées
+    * [WebSocket.Client](https://github.com/Marfusios/websocket-client) est un client WebSocket tiers avec une reconnexion et une gestion des erreurs intégrées.
 
 # <a name="java"></a>[Java](#tab/java)
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 ou ultérieure.
+- [Kit de développement Java (JDK)](/java/azure/jdk/), version 8 ou ultérieure
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ---
@@ -129,7 +130,7 @@ namespace subscriber
             // Don't forget to replace this <Client_URL_From_Portal> with the value fetched from the portal
             using (var client = new WebsocketClient(new Uri("<Client_URL_From_Portal>")))
             {
-                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even no data comes in
+                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even if no data comes in
                 client.ReconnectTimeout = null;
                 client.MessageReceived.Subscribe(msg => Console.WriteLine($"Message received: {msg}"));
                 await client.Start();
@@ -270,7 +271,7 @@ namespace subscriber
                 return inner;
             }))
             {
-                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even no data comes in
+                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even if no data comes in
                 client.ReconnectTimeout = null;
                 client.MessageReceived.Subscribe(msg => Console.WriteLine($"Message received: {msg}"));
                 await client.Start();
@@ -340,9 +341,9 @@ public final class SubprotocolClient {
 
 ---
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, nous montrons comment se connecter au service à l’aide de l’URL générée à partir du portail.  Consultez les tutoriels ci-dessous pour voir comment les clients communiquent avec le serveur d’applications pour obtenir l’URL dans des applications réelles.
+Dans cet article, vous avez appris à vous connecter au service à l’aide de l’URL générée à partir du portail. Pour voir comment les clients communiquent avec le serveur d’applications pour obtenir l’URL dans des applications réelles, lisez ces didacticiels et examinez les exemples.
 
 > [!div class="nextstepaction"]
 > [Tutoriel : créer un salon de conversation avec Azure Web PubSub](./tutorial-build-chat.md)

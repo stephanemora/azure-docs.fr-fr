@@ -1,15 +1,16 @@
 ---
-title: Exemple de script Azure CLI - Exécuter une tâche Batch
-description: Ce script crée une tâche Batch et ajoute une série de tâches au travail. Il explique également comment surveiller un travail et ses tâches.
+title: Exemple de script Azure CLI - Exécution d’une tâche Batch | Microsoft Docs
+description: Découvrez comment créer un programme de traitement par lots et ajouter une série de tâches au travail à l’aide de l’interface Azure CLI. Cet article montre également comment superviser un travail et ses tâches.
 ms.topic: sample
-ms.date: 12/12/2019
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8e51fa96370b46c9a5a5d5ed6fd7593a06e45430
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: lot, traitement, programme de traitement par lots, superviser un travail, exemples azure cli, exemples de code azure cli, exemples de scripts azure cli
+ms.openlocfilehash: 293e517a528b6a1630ff8597f4fa17c87008a78f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768158"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595173"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Exemple CLI : Exécution d’un travail et de tâches avec Azure Batch
 

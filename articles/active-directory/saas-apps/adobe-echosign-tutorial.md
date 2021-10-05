@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Adobe Sign | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Adobe Sign | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Adobe Sign.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2021
+ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 7162c38aae2fec4ea21aae56fa8c3649f7a55425
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62791850857770cba44eabf54719176e80cea48b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649954"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803402"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Didacticiel : Intégration d’Azure Active Directory à Adobe Sign
+# <a name="tutorial-azure-ad-sso-integration-with-adobe-sign"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Adobe Sign
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Adobe Sign à Azure Active Directory (Azure AD). Quand vous intégrez Adobe Sign à Azure AD, vous pouvez :
 
@@ -37,7 +37,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Adobe Sign prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Adobe Sign prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 ## <a name="add-adobe-sign-from-the-gallery"></a>Ajouter Adobe Sign à partir de la galerie
 
@@ -64,7 +64,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Adobe Sign, 
     1. **[Créer un utilisateur de test Adobe Sign](#create-adobe-sign-test-user)** pour avoir dans Adobe Sign un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
@@ -119,9 +119,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="configure-adobe-sign-sso"></a>Configurer l’authentification unique Adobe Sign
+## <a name="configure-adobe-sign-sso"></a>Configurer l’authentification unique Adobe Sign
 
-1. Avant la configuration, contactez l’[équipe du support technique Adobe Sign](https://helpx.adobe.com/in/contact/support.html) pour ajouter votre domaine à la liste verte Adobe Sign. Voici comment ajouter le domaine :
+1. Avant la configuration, contactez l’[équipe du support technique d’Adobe Sign](https://helpx.adobe.com/in/contact/support.html) pour ajouter votre domaine à la liste verte d’Adobe Sign. Voici comment ajouter le domaine :
 
     a. L’[équipe de support client d’Adobe Sign](https://helpx.adobe.com/in/contact/support.html) vous enverra un jeton généré aléatoirement. Pour votre domaine, le jeton sera dans ce format : **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
@@ -144,13 +144,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans le menu SAML, sélectionnez **Paramètres de compte** > **Paramètres SAML**.
 
-    ![Capture d’écran de la page Paramètres SAML d’Adobe Sign](./media/adobe-echosign-tutorial/settings.png "Compte")
+    ![Capture d’écran de la page Paramètres SAML d’Adobe Sign.](./media/adobe-echosign-tutorial/settings.png "Compte")
 
 1. Dans la section **SAML Settings** (Paramètres SAML), procédez comme suit :
 
-    ![Capture d’écran mettant en évidence les paramètres SAML, notamment SAML Mandatory.](./media/adobe-echosign-tutorial/saml1.png "SAML Settings")
+    ![Capture d’écran mettant en évidence les paramètres SAML, notamment SAML Mandatory.](./media/adobe-echosign-tutorial/profile.png "SAML Settings")
 
-   ![Capture d’écran des paramètres SAML](./media/adobe-echosign-tutorial/saml.png "SAML Settings")
+   ![Capture d’écran des paramètres SAML.](./media/adobe-echosign-tutorial/certificate.png "SAML Settings")
 
    a. Sous **Mode SAML**, sélectionnez **SAML obligatoire**.
 
@@ -200,7 +200,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Adobe Sign pour lancer le flux de connexion à partir de là.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Adobe Sign dans Mes applications, vous devez être connecté automatiquement à l’application Adobe Sign pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Adobe Sign dans Mes applications, vous devez être connecté automatiquement à l’application Adobe Sign pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

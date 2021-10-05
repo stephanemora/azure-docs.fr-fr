@@ -3,14 +3,14 @@ title: Rechercher les erreurs de travail et de tâche
 description: Découvrez les erreurs à rechercher et comment résoudre les problèmes liés aux travaux et aux tâches.
 author: mscurrell
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 09/08/2021
 ms.author: markscu
-ms.openlocfilehash: d8cf3b5e28d4455e00e0bdcbae2063771d3e8acd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31ca874ebb4e3d11d46ff47e775605ffdd015f63
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95736797"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815370"
 ---
 # <a name="job-and-task-error-checking"></a>Vérification des erreurs de travail et de tâche
 
@@ -25,7 +25,7 @@ Un travail est un regroupement d’une ou plusieurs tâches, ces dernières spé
 Lorsque vous ajoutez un travail, les paramètres suivants peuvent être spécifiés, influençant éventuellement la façon dont le travail peut échouer :
 
 - [Contraintes de travail](/rest/api/batchservice/job/add#jobconstraints)
-  - La propriété `maxWallClockTime` peut être spécifiée de manière facultative pour définir la durée maximale pendant laquelle un travail peut être actif ou en cours d’exécution. En cas de dépassement, le travail sera terminé avec la propriété `terminateReason` définie dans le champ [executionInfo](/rest/api/batchservice/job/get#cloudjob) du travail.
+  - La propriété `maxWallClockTime` peut être spécifiée de manière facultative pour définir la durée maximale pendant laquelle un travail peut être actif ou en cours d’exécution. En cas de dépassement, le travail sera terminé avec la propriété `terminateReason` définie dans le champ [executionInfo](/rest/api/batchservice/job/get#jobexecutioninformation) du travail.
 - [Tâche de préparation du travail](/rest/api/batchservice/job/add#jobpreparationtask)
   - Si elle est spécifiée, une tâche de préparation du travail est exécutée lors de la première exécution d’une tâche pour un travail sur un nœud. La tâche de préparation du travail peut échouer, ce qui se traduira par le fait que la tâche ne sera pas exécutée et que le travail ne sera pas finalisé.
 - [Tâche de validation du travail](/rest/api/batchservice/job/add#jobreleasetask)
@@ -41,7 +41,7 @@ Les propriétés de travail suivantes doivent être vérifiées afin de détecte
 
 ### <a name="job-preparation-tasks"></a>Tâches de préparation du travail
 
-Si une tâche de préparation du travail est spécifiée pour un travail, une instance de cette tâche est alors exécutée la première fois qu’une tâche du travail est exécutée sur un nœud. La tâche de préparation du travail configurée sur le travail peut être considérée comme un modèle de tâche, doté de plusieurs instances de tâche de préparation du travail en cours d’exécution, pouvant aller jusqu’au nombre de nœuds dans un pool.
+Si une [tâche de préparation du travail](batch-job-prep-release.md#job-preparation-task) est spécifiée pour un travail, une instance de cette tâche est alors exécutée la première fois qu’une tâche du travail est exécutée sur un nœud. La tâche de préparation du travail configurée sur le travail peut être considérée comme un modèle de tâche, doté de plusieurs instances de tâche de préparation du travail en cours d’exécution, pouvant aller jusqu’au nombre de nœuds dans un pool.
 
 Les instances de tâche de préparation du travail doivent être vérifiées pour déterminer si des erreurs se sont produites :
 
@@ -51,7 +51,7 @@ Les instances de tâche de préparation du travail doivent être vérifiées pou
 
 ### <a name="job-release-tasks"></a>Tâches de validation du travail
 
-Si une tâche de validation de travail est spécifiée pour un travail, lorsqu’un travail est en cours d’achèvement, une instance de la tâche de validation du travail est exécutée sur chacun des nœuds du pool où une tâche de préparation du travail a été exécutée. Les instances de tâche de validation du travail doivent être vérifiées pour déterminer si des erreurs se sont produites :
+Si une [tâche de validation de travail](batch-job-prep-release.md#job-release-task) est spécifiée pour un travail, lorsqu’un travail est en cours d’achèvement, une instance de la tâche de validation du travail est exécutée sur chacun des nœuds du pool où une tâche de préparation du travail a été exécutée. Les instances de tâche de validation du travail doivent être vérifiées pour déterminer si des erreurs se sont produites :
 
 - Toutes les instances de la tâche de validation du travail qui ont été exécutées peuvent être obtenues à partir du travail à l’aide de l’API [Répertorier l’état des tâches de préparation et de validation](/rest/api/batchservice/job/listpreparationandreleasetaskstatus). Comme pour n’importe quelle tâche, des [informations d’exécution](/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) sont disponibles avec des propriétés telles que `failureInfo`, `exitCode` et `result`.
 - Si une ou plusieurs tâches de validation du travail échouent, le travail sera tout de même terminé et passera à l’état `completed`.
@@ -92,4 +92,4 @@ Les lignes de commande exécutées par les tâches sur les nœuds de calcul ne s
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vérifiez que votre application implémente une vérification complète des erreurs. Il peut être essentiel de détecter et de diagnostiquer rapidement les problèmes.
-- Apprenez-en davantage sur [les travaux et les tâches](jobs-and-tasks.md).
+- En savoir plus sur [les travaux et les tâches](jobs-and-tasks.md), ainsi que sur [la préparation du travail et les tâches de publication](batch-job-prep-release.md).

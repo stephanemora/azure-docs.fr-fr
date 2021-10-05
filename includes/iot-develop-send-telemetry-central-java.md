@@ -1,18 +1,18 @@
 ---
-title: Fichier Include
-description: inclure fichier
+title: fichier descriptif
+description: Fichier include
 author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: f01d02fb2d11f6d2ec7e068d8f8aea5191734371
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: bade266f219acfbd1636ba6650b2554383b5a4c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114712950"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910542"
 ---
 [![Parcourir le code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
 
@@ -30,7 +30,7 @@ Dans cette section, vous allez configurer votre environnement local, installer l
 
 ### <a name="configure-your-environment"></a>Configurer votre environnement
 
-1. Ouvrez une console à l’aide de Windows CMD, PowerShell ou Bash.
+1. Ouvrez une console telle que Windows CMD, PowerShell ou Bash.
 
 1. Définissez les variables d’environnement suivantes à l’aide des commandes appropriées pour votre console. L’appareil simulé utilise ces valeurs pour se connecter à IoT Central. Pour `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` et `IOTHUB_DEVICE_DPS_DEVICE_ID`, utilisez les valeurs de connexion d’appareil que vous avez enregistrées précédemment.
 

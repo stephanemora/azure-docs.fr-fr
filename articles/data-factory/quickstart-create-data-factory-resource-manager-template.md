@@ -10,12 +10,12 @@ ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 07/05/2021
-ms.openlocfilehash: b6489f692dc8fabf63daab0cf13f1036e944e77e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9a567c5b61449cdfd72fac1a946760bccce2bebe
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731529"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769709"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Démarrage rapide : Créer une fabrique de données Azure à l’aide d’un modèle ARM
 
@@ -34,7 +34,7 @@ Ce démarrage rapide décrit comment utiliser un modèle Azure Resource Manager 
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+[:::image type="content" source="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json" alt-text="Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)":::
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -73,7 +73,7 @@ Vous trouverez d’autres exemples de modèles Azure Data Factory dans la [galer
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un compte Azure Data Factory, un compte de stockage et un conteneur d’objets blob.
 
-    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+    [:::image type="content" source="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json" alt-text="Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)":::
 
 2. Sélectionnez ou entrez les valeurs suivantes.
 

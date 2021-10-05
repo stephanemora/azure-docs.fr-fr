@@ -1,15 +1,15 @@
 ---
 title: Liste des initiatives de stratégie intégrées
 description: Liste les initiatives de stratégie intégrées pour Azure Policy. Les catégories incluent Conformité réglementaire, Configuration d’invité et plus encore.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 857f1ef3c01bb3261f201e5da5defdc8ffa602fc
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 69ac7fd7e6803172e09f21f45444a70444326090
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123474738"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618332"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Définitions d’initiative Azure Policy intégrées
 
@@ -44,6 +44,10 @@ Le lien associé au nom de chaque définition intégrée mène à la source de d
 ## <a name="security-center"></a>Security Center
 
 [!INCLUDE [azure-policy-reference-policysets-security-center](../../../../includes/policy/reference/bycat/policysets-security-center.md)]
+
+## <a name="trusted-launch"></a>Lancement fiable
+
+[!INCLUDE [azure-policy-reference-policysets-trusted-launch](../../../../includes/policy/reference/bycat/policysets-trusted-launch.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

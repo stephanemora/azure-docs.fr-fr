@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 6f124c6bb0dccb2fb1f8d808932ac9f8775f7f7e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1203562d088efeafd20a0b6c58698fcfe10b79e6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466283"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816193"
 ---
 # <a name="introduction-to-azure-active-directory-verifiable-credentials-preview"></a>Présentation des justificatifs vérifiables Azure Active Directory (préversion)
 
@@ -26,7 +26,7 @@ ms.locfileid: "110466283"
 
 Les vies numériques et physiques sont de plus en plus liées aux applications, services et appareils que nous utilisons pour accéder à un ensemble complet d’expériences. Cette transformation numérique nous permet d’interagir avec des centaines de sociétés et des milliers utilisateurs de manière autrefois inimaginables.
 
-Cela étant, les données d’identité sont souvent la cible de violations de la sécurité. Ces violations ont un impact sur chacun et affectent notre vie sociale, professionnelle et financière. Microsoft pense qu’il existe un meilleur moyen de faire. Chacun a le droit à une identité qu’il possède et contrôle, une identité qui stocke en toute sécurité les éléments de son identité numérique et préserve sa confidentialité. Ce manuel explique comment nous allons collaborer avec une communauté aussi diverse que variée pour créer une solution d’identité décentralisée, fiable, interopérable et normalisée pour les particuliers et les organisations.
+Cela étant, les données d’identité sont souvent la cible de violations de la sécurité. Ces violations affectent nos vies sociales, professionnelles et financières. Microsoft pense qu’il existe un meilleur moyen de faire. Chacun a le droit à une identité qu’il possède et contrôle, une identité qui stocke en toute sécurité les éléments de son identité numérique et préserve sa confidentialité. Ce manuel explique comment nous allons collaborer avec une communauté aussi diverse que variée pour créer une solution d’identité décentralisée, fiable, interopérable et normalisée pour les particuliers et les organisations.
 
 ## <a name="why-we-need-decentralized-identity"></a>Pourquoi l’identité décentralisée est-elle nécessaire ?
 
@@ -34,7 +34,7 @@ Aujourd’hui, nous utilisons notre identité numérique au travail, chez nous, 
 
 En règle générale, les utilisateurs donnent leur consentement à plusieurs applications et appareils. Une telle approche implique un degré élevé de vigilance de la part de l’utilisateur pour savoir qui a accès à quelles informations. Au niveau de l’entreprise, la collaboration avec les consommateurs et les partenaires requiert une orchestration poussée pour échanger des données en toute sécurité de manière à préserver la confidentialité et la sécurité de toutes les parties impliquées.
 
-Nous pensons qu'un système d'identité décentralisée basé sur des normes peut ouvrir la voie à de nouvelles expériences permettant aux utilisateurs et aux organisations de mieux contrôler leurs données, et offrir un degré plus élevé de confiance et de sécurité pour les applications, les appareils et les fournisseurs de services.
+Nous pensons qu’un système d’identité décentralisée basé sur des normes peut ouvrir la voie à de nouvelles expériences permettant aux utilisateurs et aux organisations de mieux contrôler leurs données, et offrir un degré plus élevé de confiance et de sécurité pour les applications, les appareils et les fournisseurs de services.
 
 ## <a name="lead-with-open-standards"></a>Prospect avec normes ouvertes
 
@@ -56,10 +56,11 @@ Avant de comprendre ce que sont les DID, il apparaît utile de les comparer aux 
 
 Les identificateurs décentralisés (DID) sont différents. Les DID sont des identificateurs globaux uniques générés par l’utilisateur et associés à une racine dans des systèmes décentralisés comme ION. Ils possèdent des caractéristiques uniques, telles qu’une meilleure garantie d’immuabilité, de résistance à la censure et d'inviolabilité. Ces attributs sont essentiels pour tout système d'identification destiné à offrir indépendance et contrôle utilisateur. 
 
-La solution de justificatifs vérifiables de Microsoft utilise des informations d’identification décentralisées (DID) pour signer par chiffrement et prouver qu’une partie de confiance (vérificateur) atteste d’informations témoignant du fait qu’elle est propriétaire de justificatifs vérifiables. Dès lors, il est recommandé de comprendre les bases des identificateurs décentralisés pour créer une solution de justificatifs vérifiables reposant sur l’offre Microsoft.
+La solution de justificatifs vérifiables de Microsoft utilise des informations d’identification décentralisées (DID) pour signer par chiffrement et prouver qu’une partie de confiance (vérificateur) atteste d’informations témoignant du fait qu’elle est propriétaire de justificatifs vérifiables. Il est recommandé de comprendre les bases des identificateurs décentralisés pour créer une solution de justificatifs vérifiables reposant sur l’offre Microsoft.
+
 ## <a name="what-are-verifiable-credentials"></a>Que sont les justificatifs vérifiables ?
 
- Nous utilisons des ID dans notre vie quotidienne. Nous avons des permis de conduire pour prouver que nous sommes capables de conduire une voiture. Les universités nous décernent des diplômes pour prouver que nous avons atteint un certain niveau d’étude. Nous utilisons des passeports pour prouver qui nous sommes lorsque nous franchissons des frontières. Le modèle de données décrit la manière dont nous pourrions gérer ces types de scénarios lorsque nous utilisons Internet, mais de façon sécurisée tout en respectant la confidentialité de l’utilisateur. Pour plus d’informations, consultez [Modèle de données des justificatifs vérifiables 1.0](https://www.w3.org/TR/vc-data-model/).
+Nous utilisons des ID dans notre vie quotidienne. Nous avons des permis de conduire pour prouver que nous sommes capables de conduire une voiture. Les universités nous décernent des diplômes pour prouver que nous avons atteint un certain niveau d’étude. Nous utilisons des passeports pour prouver qui nous sommes lorsque nous franchissons des frontières. Le modèle de données décrit la manière dont nous pourrions gérer ces types de scénarios lorsque nous utilisons Internet, mais de façon sécurisée tout en respectant la vie privée de l’utilisateur. Pour plus d’informations, consultez [Modèle de données des justificatifs vérifiables 1.0](https://www.w3.org/TR/vc-data-model/).
 
 En résumé, les justificatifs vérifiables sont des objets de données constitués de revendications formulées par l’émetteur attestant des informations sur un sujet. Ces revendications sont identifiées par un schéma et incluent le DID, l’émetteur et le sujet. Le DID de l’émetteur créé une signature numérique en guise de preuve attestant de ces informations.
 

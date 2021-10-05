@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 4ab3cf1a9f57dc549868cb3d6aa04e48a6e31318
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae5d39edd30363ad970aeac27c5d6ad7ba7a81ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731169"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749790"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-proware"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Proware
 
@@ -37,7 +37,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Proware prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
+* Proware prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+
+* Proware prend en charge le [provisionnement d’utilisateurs automatisé](proware-provisioning-tutorial.md).
 
 ## <a name="adding-proware-from-the-gallery"></a>Ajout de Proware à partir de la galerie
 
@@ -49,7 +51,6 @@ Pour configurer l’intégration de Proware à Azure AD, vous devez ajouter Pro
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Proware** dans la zone de recherche.
 1. Sélectionnez **Proware** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-proware"></a>Configurer et tester l’authentification unique Azure AD pour Proware
 
@@ -70,7 +71,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Proware**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -94,6 +95,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer Proware**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -126,6 +128,8 @@ Pour configurer l’authentification unique côté **Proware**, vous devez envoy
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Proware. Collaborez avec l’[équipe du support technique de Proware](mailto:helpdesk@metaware.nl) pour ajouter les utilisateurs à la plateforme Proware. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+Proware prend aussi en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./proware-provisioning-tutorial.md) sur la manière de configurer ce dernier.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -138,9 +142,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité
 
-* Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance de Proware pour laquelle vous avez configuré l’authentification unique 
+* Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance de Proware pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Proware dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Proware pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Proware dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Proware pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

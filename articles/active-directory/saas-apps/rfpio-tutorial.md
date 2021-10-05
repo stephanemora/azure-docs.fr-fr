@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à RFPIO | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à RFPIO'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RFPIO.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 09/27/2021
 ms.author: jeedes
-ms.openlocfilehash: f3bed54fb44e73742f05796e98984519462d9123
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1a4786945c388c1b81b7e36c8d155f92968e04ac
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728248"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093304"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Didacticiel : Intégration d’Azure Active Directory à RFPIO
+# <a name="tutorial-azure-ad-sso-integration-with-rfpio"></a>Tutoriel : Intégration de l’authentification unique Azure AD à RFPIO
 
 Dans ce tutoriel, vous allez apprendre à intégrer RFPIO à Azure Active Directory (Azure AD). Quand vous intégrez RFPIO à Azure AD, vous pouvez :
 
@@ -38,6 +38,8 @@ Pour configurer l’intégration d’Azure AD avec RFPIO, vous avez besoin des 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * RFPIO prend en charge l’authentification unique lancée par le **fournisseur de services et le point de distribution d’émission**.
+
+* RFPIO prend en charge l’[attribution automatique d’utilisateurs](rfpio-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -76,7 +78,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez une l’URL : `https://www.rfpio.com`
 
@@ -84,15 +86,26 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     c. Dans la zone de texte **État de relais**, entrez une valeur de chaîne. Contactez l’[équipe de support technique de RFPIO](https://www.rfpio.com/contact/) pour obtenir cette valeur.
 
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     Dans la zone de texte **URL de connexion**, tapez l’URL : `https://www.app.rfpio.com`
 
-6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+1. L’application RFPIO s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
+
+    ![image](common/default-attributes.png)
+
+1. En plus de ce qui précède, l’application RFPIO s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
+
+    | Nom | Attribut source|
+    | ------- | --------- |
+    | first_name | user.givenname |
+    | last_name | user.surname |
+
+1. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-7. Dans la section **Configurer RFPIO**, copiez l’URL ou les URL appropriées en fonction de vos exigences.
+1. Dans la section **Configurer RFPIO**, copiez l’URL ou les URL appropriées en fonction de vos exigences.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -188,6 +201,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     > [!NOTE]
     > Le titulaire du compte Azure Active Directory reçoit un e-mail contenant un lien à suivre pour confirmer son compte et l’activer.
 
+> [!NOTE]
+> RFPIO prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./rfpio-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.  
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -202,7 +218,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le Portail Azure. Vous devez être connecté automatiquement à l’application RFPIO pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la mosaïque RFPIO dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’application RFPIO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la mosaïque RFPIO dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’application RFPIO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

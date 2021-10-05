@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/10/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: fbe50ecdc116a203b09d023312a18686f43b7aef
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 928aa9bc71fefce85ffea5dbf230a9b072b7070c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099997"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Tutoriel : Intégration d’Azure Active Directory à AuditBoard
 
@@ -38,6 +38,7 @@ Pour configurer l’intégration d’Azure AD à AuditBoard, vous avez besoin d
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * AuditBoard prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**.
+* AuditBoard prend en charge le [provisionnement automatisé des utilisateurs](auditboard-provisioning-tutorial.md).
 
 ## <a name="add-auditboard-from-the-gallery"></a>Ajouter AuditBoard à partir de la galerie
 
@@ -122,6 +123,8 @@ Pour configurer l’authentification unique côté **AuditBoard**, vous devez en
 
 Dans cette section, vous créez un utilisateur appelé Britta Simon dans AuditBoard. Collaborez avec [l’équipe de support technique AuditBoard](mailto:support@auditboard.com) pour ajouter des utilisateurs dans la plateforme AuditBoard. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+AuditBoard prend également en charge le provisionnement automatique des utilisateurs. Vous trouverez [ici](./auditboard-provisioning-tutorial.md) plus d’informations sur la façon de configurer le provisionnement automatique des utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -136,7 +139,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance AuditBoard pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette AuditBoard dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance AuditBoard pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette AuditBoard dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance AuditBoard pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

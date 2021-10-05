@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/23/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 39dd221210b558a3b6ce59200aebaa4aa2278fb5
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 1c645e50a49a268d762b1195e91484783a73367c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688141"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562547"
 ---
 # <a name="soft-delete-for-blobs"></a>Suppression réversible pour les objets blob
 
@@ -26,7 +26,6 @@ La suppression réversible d’objets blob protège un objet blob, un instantan�
 >
 >
 > Pour vous inscrire à la préversion, voir [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOVRVOUpDRUtHVUtDUUtMVTZUR0tUMjZWNy4u).
-
 
 ## <a name="recommended-data-protection-configuration"></a>Configuration recommandée de la protection des données
 
@@ -69,13 +68,13 @@ Si un objet blob a des instantanés, il ne peut pas être supprimé, à moins de
 
 Vous pouvez également supprimer un ou plusieurs instantanés actifs sans supprimer l’objet blob de base. Dans ce cas, l’instantané est supprimé de manière réversible.
 
-Si un répertoire est supprimé dans un compte où la fonctionnalité d’espace de noms hiérarchique est activée, le répertoire et tout son contenu sont marqués comme étant supprimés de manière réversible. 
+Si un répertoire est supprimé dans un compte où la fonctionnalité d’espace de noms hiérarchique est activée, le répertoire et tout son contenu sont marqués comme étant supprimés de manière réversible.
 
 Les objets supprimés de manière réversible sont invisibles, sauf s’ils sont explicitement affichés ou répertoriés. Pour plus d’informations sur la façon de répertorier les objets supprimés de manière réversible, consultez [Gérer et restaurer des objets blob supprimés de manière réversible](soft-delete-blob-manage.md).
 
 ### <a name="how-overwrites-are-handled-when-soft-delete-is-enabled"></a>Traitement des remplacements lorsque la suppression réversible est activée
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Cette section ne s’applique pas aux comptes qui ont un espace de noms hiérarchique.
 
 L’appel d’une opération telle que [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list)ou [Copy Blob](/rest/api/storageservices/copy-blob) remplace les données dans un objet blob. Lorsque la suppression réversible d’objets blob est activée, le remplacement d’un objet blob crée automatiquement un instantané supprimé de manière réversible de l’état de l’objet blob avant l’opération d’écriture. Lorsque la période de conservation expire, l’instantané supprimé de manière réversible est définitivement supprimé.
@@ -106,7 +105,7 @@ Pour plus d’informations sur la façon de restaurer les objets supprimés de m
 
 ## <a name="blob-soft-delete-and-versioning"></a>Suppression réversible d’objets blob et contrôle de version
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Le contrôle de version n’est pas pris en charge pour les comptes qui ont un espace de noms hiérarchique.
 
 Si le contrôle de version des objets blob et la suppression réversible d’objets blob sont tous deux activés sur un compte de stockage, alors le remplacement d’un objet blob crée automatiquement une nouvelle version. La nouvelle version n’est pas supprimée de manière réversible et n’est pas supprimée à l’expiration de la période de rétention de la suppression réversible. Aucun instantané supprimé de manière réversible n’est créé. Lorsque vous supprimez un objet blob, la version actuelle de l’objet blob devient la version antérieure et qu’il n’y a plus de version actuelle. Aucune nouvelle version n’est créée et aucun instantané supprimé de manière réversible n’est créé.
@@ -122,7 +121,7 @@ Microsoft recommande d’activer le contrôle de version et la suppression réve
 
 ## <a name="blob-soft-delete-protection-by-operation"></a>Protection contre la suppression réversible d’objets blob par opération
 
-Le tableau suivant décrit le comportement attendu pour les opérations de suppression et d’écriture lorsque la suppression réversible d’objets blob est activée, avec ou sans le contrôle de version d’objet blob. 
+Le tableau suivant décrit le comportement attendu pour les opérations de suppression et d’écriture lorsque la suppression réversible d’objets blob est activée, avec ou sans le contrôle de version d’objet blob.
 
 ### <a name="storage-account-no-hierarchical-namespace"></a>Compte de stockage (sans espace de noms hiérarchique)
 
@@ -148,6 +147,21 @@ Le tableau suivant décrit le comportement attendu pour les opérations de suppr
 |[Delete Blob](/rest/api/storageservices/delete-blob)|Un objet supprimé de manière réversible est créé. L’objet supprimé de manière réversible est supprimé après la période de rétention. La suppression réversible n’est pas prise en charge pour les objets blob comportant des instantanés, ni pour les instantanés en soi.|
 |[Path - Create](/rest/api/storageservices/datalakestoragegen2/path/create), cette opération permet de renommer un objet blob ou un répertoire | Un objet blob de destination existant ou un répertoire vide sera supprimé de manière réversible et remplacé par la source. L’objet supprimé de manière réversible est supprimé après la période de rétention.|
 
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui ](../media/icons/yes-icon.png) <sup>2</sup> <sup>3</sup>            | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Oui ](../media/icons/yes-icon.png) <sup>2</sup> <sup>3</sup>            | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
+
+<sup>2</sup> La fonctionnalité est prise en charge dans la préversion.
+
+<sup>3</sup> Pour plus d'informations, consultez [la section Problèmes connus avec Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md). Ces problèmes s'appliquent à tous les comptes pour lesquels la fonction d'espace de noms hiérarchique est activée.
+
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
 Toutes les données supprimées de manière réversible sont facturées au même tarif que des données actives. Vous ne serez pas facturé pour des données supprimées définitivement à l’issue de la période de conservation.
@@ -160,7 +174,7 @@ Vous n’êtes pas facturé pour les transactions liées à la génération auto
 
 Pour plus d’informations sur la tarification du Stockage Blob, consultez la page [Tarification du Stockage Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="blob-soft-delete-and-virtual-machine-disks"></a>Suppression réversible d’objets blob et disques de machine virtuelle  
+## <a name="blob-soft-delete-and-virtual-machine-disks"></a>Suppression réversible d’objets blob et disques de machine virtuelle
 
 La suppression réversible d’objets blob est disponible pour les disques non managés Standard et Premium, qui sont des objets blob de pages en arrière-plan. La suppression réversible peut vous aider à récupérer des données supprimées ou remplacées par les opérations [Delete Blob](/rest/api/storageservices/delete-blob), [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list) et [Copy Blob](/rest/api/storageservices/copy-blob) uniquement.
 

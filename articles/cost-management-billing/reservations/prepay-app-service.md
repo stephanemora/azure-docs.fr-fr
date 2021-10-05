@@ -1,20 +1,20 @@
 ---
 title: Réduire les coûts d’Azure App Service avec une capacité réservée
 description: Découvrez comment économiser les coûts des instances réservées Azure App Service Premium v3 et Premium v2, ainsi que des Frais de timbre isolé.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 09/20/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: f80619f1eeb7cdd970e4e3ee64491453c790149d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 305849e104c3d8fb48b5d661d3d21f589fd69516
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378523"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664425"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Réaliser des économies avec les instances réservées Azure App Service
 
@@ -63,7 +63,7 @@ Si vous avez un Accord Entreprise, vous pouvez utiliser l’option **Ajouter** p
 | **Champ** | **Description** |
 |---|---|
 | Abonnement | Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P or MS-AZR-0148P) ou Microsoft Customer Agreement (MCA) ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Les frais sont déduits du solde de l’engagement financier, si disponibles, ou facturés comme un dépassement. Pour un abonnement payable à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou facture défini sur l’abonnement. |
-| Étendue | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>**Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement. </li><li>**Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li>**Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li></ul> |
+| Étendue | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>**Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement. </li><li>**Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li>**Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li><li>**Groupe d’administration** : applique la remise de réservation à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation.</li></ul> |
 | Région | Région Azure couverte par la réservation. |
 | Taille des instances réservées Premium v3 | Taille des instances réservées Premium v3. |
 | Terme | Une année ou trois ans. Une durée de 5 ans est également disponible uniquement pour les instances réservées Premium v3 HBv2. |
@@ -89,7 +89,7 @@ Si vous avez un Accord Entreprise, vous pouvez utiliser l’option **Ajouter** p
 | **Champ** | **Description** |
 | --- | --- |
 | Abonnement | Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P or MS-AZR-0148P) ou Microsoft Customer Agreement (MCA) ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Les frais sont déduits du solde de l’engagement financier, si disponibles, ou facturés comme un dépassement. Pour un abonnement payable à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou facture défini sur l’abonnement. |
-| Étendue | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<UL><LI>**Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li>**Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li>**Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li> |
+| Étendue | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<UL><LI>**Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li>**Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li>**Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li><li>**Groupe d’administration** : applique la remise de réservation à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation.</li></ul> |
 | Région | Région Azure couverte par la réservation. |
 | Taille d’instance réservée Isolé v2 | Taille des instances réservées Isolé v2. |
 | Terme | Une année ou trois ans. Il y a également un terme de 5 ans disponible uniquement pour les instances réservées HBv2 Isolé v2. |
@@ -134,6 +134,7 @@ Vous pouvez acheter une capacité réservée d’horodatage Isolé dans le [port
     - **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
     - **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
     - **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
+    - **Groupe d’administration** : applique la remise de réservation à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation.
 1. Sélectionnez une **région** éligible pour la capacité réservée et ajoutez la réservation au panier.
 1. Sélectionnez un type de plan Isolé, puis cliquez sur **Sélectionner**.  
     ![Exemple](./media/prepay-app-service/app-service-isolated-stamp-select.png)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à BenQ IAM | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à BenQ IAM'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BenQ IAM.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2021
+ms.date: 09/16/2021
 ms.author: jeedes
-ms.openlocfilehash: cbe0dbe25956c097abd780f8f8da6213d231a3c4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1adfc67567176be0d5cda6124392f8069e7b962e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121784011"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629992"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benq-iam"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à BenQ IAM
+# <a name="tutorial-azure-ad-sso-integration-with-benq-iam"></a>Tutoriel : Intégration de l’authentification unique Azure AD à BenQ IAM
 
 Dans ce tutoriel, vous allez apprendre à intégrer BenQ IAM à Azure Active Directory (Azure AD). Quand vous intégrez BenQ IAM à Azure AD, vous pouvez :
 
@@ -75,9 +75,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://service-portaltest.benq.com/saml/init/<ID>`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://service-portal.benq.com/saml/init/<ID>`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://service-portaltest.benq.com/saml/consume/<ID>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://service-portal.benq.com/saml/consume/<ID>`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
@@ -131,7 +131,30 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-benq-iam-sso"></a>Configurer l’authentification unique BenQ IAM
 
-Pour configurer l’authentification unique côté **BenQ IAM**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées depuis le Portail Azure à l’[équipe du support technique BenQ IAM](mailto:benqcare.us@benq.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Connectez-vous à BenQ IAM avec un compte admin BenQ et cliquez sur **SSO Setting** dans la section de gestion des comptes.
+
+    ![Capture d’écran de SSO Setting](./media/benq-iam-tutorial/sso-setting.png)
+
+1. Sélectionnez **SSO by SAML** comme paramètre SSO dans la fenêtre contextuelle, puis cliquez sur **Next**.
+
+    ![Capture d’écran de SSO by SAML](./media/benq-iam-tutorial/sso-by-saml.png)
+
+1. Effectuez les étapes suivantes dans la page **SSO Setting**.
+
+    ![Capture d’écran de la configuration SSO](./media/benq-iam-tutorial/saml-configuration.png)
+
+    a. Dans la zone de texte **Login/SSO URL**, collez la valeur **Login URL** que vous avez copiée à partir du portail Azure.
+
+    b. Dans la zone de texte **Identifier/Entity ID**, collez la valeur **Identifier** que vous avez copiée à partir du portail Azure.
+
+    c. Ouvrez le **Certificat (Base64)** que vous avez téléchargé sur le Portail Azure dans le Bloc-notes et collez le contenu dans la zone de texte **Certificat (Base64)** .
+
+    d. Copiez la valeur **Identifier** et collez-la dans la zone de texte **Identificateur** de la section **Configuration SAML de base** du portail Azure.
+
+    e. Copiez la valeur du champ **Reply URL**, puis collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
+
+    f. Cliquez sur **Suivant**.
+
 
 ### <a name="create-benq-iam-test-user"></a>Créer un utilisateur de test BenQ IAM
 
@@ -151,7 +174,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance BenQ IAM pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette BenQ IAM dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance Benchling pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette BenQ IAM dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance Benchling pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

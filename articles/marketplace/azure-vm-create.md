@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/08/2021
-ms.openlocfilehash: 6565fff19d68b42aa102431c6e1afe7bb4b3b4d7
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.date: 09/27/2021
+ms.openlocfilehash: f29e9a41872c64598d53ff2b6110e5ffffd5d690
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601059"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083299"
 ---
 # <a name="create-a-virtual-machine-offer-on-azure-marketplace"></a>Créer une offre de machine virtuelle sur la Place de marché Azure
 
@@ -25,6 +25,37 @@ Avant de commencer, [créez un compte Place de marché commerciale dans l’Espa
 Si vous ne l’avez pas encore fait, passez en revue [Planifier une offre de machine virtuelle](marketplace-virtual-machines.md). Elle explique les exigences techniques de votre machine virtuelle et répertorie les informations et les ressources dont vous aurez besoin lors de la création de votre offre.
 
 ## <a name="create-a-new-offer"></a>Créer une offre
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+
+    [ ![Illustre la vignette Offres de la Place de marché sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Sur la page Offres de la Place de marché, sélectionnez **+ Nouvelle offre** > **Machine virtuelle Azure**.
+
+    [![Capture d’écran montrant les options du menu du volet gauche et le bouton « Nouvelle offre ».](./media/create-vm/new-offer-azure-virtual-machine-workspaces.png)](./media/create-vm/new-offer-azure-virtual-machine-workspaces.png#lightbox)
+
+> [!NOTE]
+> Après publication d’une offre, les modifications que vous y apportez dans l’Espace partenaires apparaissent sur la Place de marché Azure uniquement après la republication de l’offre. Veillez à toujours republier une offre après y avoir apporté des modifications.
+
+Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
+
+- Cet ID est visible par les clients dans l’adresse web de l’offre de la Place de marché Azure ainsi que dans Azure PowerShell et Azure CLI, le cas échéant.
+- Utilisez uniquement des lettres minuscules et des chiffres. L’ID peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
+
+Entrez un **Alias d’offre**. L’alias d’offre est le nom attribué à l’offre dans l’Espace partenaires.
+
+- Ce nom n’est pas utilisé sur la Place de marché Azure. Il est différent du nom de l’offre et des autres valeurs présentées aux clients.
+
+Sélectionnez **Créer** pour générer l’offre et continuer. Espace partenaires ouvre la page **Configuration de l’offre**.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 2. Dans le volet gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
@@ -46,6 +77,8 @@ Entrez un **Alias d’offre**. L’alias d’offre est le nom attribué à l’o
 - Ce nom n’est pas utilisé sur la Place de marché Azure. Il est différent du nom de l’offre et des autres valeurs présentées aux clients.
 
 Sélectionnez **Créer** pour générer l’offre et continuer. Espace partenaires ouvre la page **Configuration de l’offre**.
+
+---
 
 ## <a name="test-drive-optional"></a>Vestion d’évaluation (facultatif)
 

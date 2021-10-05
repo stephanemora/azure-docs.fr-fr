@@ -1,24 +1,26 @@
 ---
 title: Transformation de sélection dans le flux de données de mappage
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Transformation de sélection (Select) de mappage de Data Flow pour Azure Data Factory
+description: Découvrez le flux de données de mappage Select Transformation dans les pipelines Azure Data Factory et Synapse Analytics.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/02/2020
-ms.openlocfilehash: 073299ee4c42ec43f71b16ecaa6499cd7c16f55f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 47965d920738a8b0a20ac33446224af84041aa0c
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641256"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061615"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Transformation de sélection dans le flux de données de mappage
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Utilisez une transformation de sélection pour renommer, supprimer ou réorganiser les colonnes. Cette transformation ne modifie pas les données de ligne, mais choisit les colonnes qui sont propagées en aval. 
 
@@ -28,7 +30,7 @@ Dans une transformation de sélection, les utilisateurs peuvent spécifier des m
 
 S’il y a moins de 50 colonnes définies dans votre projection, toutes les colonnes définies ont un mappage fixe par défaut. Un mappage fixe prend une colonne entrante définie et la mappe à un nom exact.
 
-![Mappage fixe](media/data-flow/fixedmapping.png "Mappage fixe")
+:::image type="content" source="media/data-flow/fixedmapping.png" alt-text="Mappage fixe":::
 
 > [!NOTE]
 > Vous ne pouvez pas mapper ou renommer une colonne dérivée à l’aide d’un mappage fixe
@@ -37,7 +39,7 @@ S’il y a moins de 50 colonnes définies dans votre projection, toutes les col
 
 Les mappages fixes peuvent être utilisés pour mapper une sous-colonne d’une colonne hiérarchique à une colonne de niveau supérieur. Si vous avez une hiérarchie définie, utilisez la liste déroulante de la colonne pour sélectionner une sous-colonne. La transformation de sélection crée une colonne avec la valeur et le type de données de la sous-colonne.
 
-![Mappage hiérarchique](media/data-flow/select-hierarchy.png "Mappage hiérarchique")
+:::image type="content" source="media/data-flow/select-hierarchy.png" alt-text="Mappage hiérarchique":::
 
 ## <a name="rule-based-mapping"></a>Mappage basé sur des règles
 
@@ -48,11 +50,11 @@ Si vous voulez mapper plusieurs colonnes à la fois ou passer des colonnes déri
 
 Pour ajouter un mappage basé sur les règles, cliquez sur **Ajouter un mappage** et sélectionnez **Mappage basé sur les règles**.
 
-![Capture d’écran montrant l’option Mappage basé sur les règles sélectionnée dans Ajouter un mappage.](media/data-flow/rule2.png "Mappage basé sur des règles")
+:::image type="content" source="media/data-flow/rule2.png" alt-text="Capture d’écran montrant l’option Mappage basé sur les règles sélectionnée dans Ajouter un mappage.":::
 
 Chaque mappage basé sur des règles nécessite deux entrées : la condition à rechercher et le nom de chaque colonne mappée. Les deux valeurs sont entrées par l’intermédiaire du [générateur d’expressions](concepts-data-flow-expression-builder.md). Dans la zone d’expression de gauche, entrez votre condition de correspondance booléenne. Dans la zone d’expression de droite, indiquez ce à quoi la colonne correspondante sera mappée.
 
-![Capture d’écran montrant un mappage.](media/data-flow/rule-based-mapping.png "Mappage basé sur des règles")
+:::image type="content" source="media/data-flow/rule-based-mapping.png" alt-text="Capture d’écran montrant un mappage.":::
 
 Utilisez la syntaxe `$$` pour référencer le nom d’entrée d’une colonne correspondante. Prenons l’image ci-dessus comme exemple et imaginons qu’un utilisateur souhaite faire correspondre toutes les colonnes de chaîne dont les noms ont moins de six caractères. Si une colonne entrante a été nommée `test`, l’expression `$$ + '_short'` renomme la colonne en `test_short`. Si c’est le seul mappage qui existe, toutes les colonnes qui ne répondent pas à la condition sont supprimées des données générées.
 
@@ -62,7 +64,7 @@ Les modèles correspondent à la fois aux colonnes dérivées et définies. Pour
 
 Si vous cliquez sur l’icône du chevron pointant vers le bas, vous pouvez spécifier une condition de mappage regex. Une condition de mappage regex correspond à tous les noms de colonne qui correspondent à la condition regex spécifiée. Elle peut être utilisée en association avec les mappages standard basés sur des règles.
 
-![Capture d’écran montrant la condition regex-mapping avec des correspondances de niveau de hiérarchie et de nom.](media/data-flow/regex-matching.png "Mappage basé sur des règles")
+:::image type="content" source="media/data-flow/regex-matching.png" alt-text="Capture d’écran montrant la condition regex-mapping avec des correspondances de niveau de hiérarchie et de nom.":::
 
 L’exemple ci-dessus correspond au modèle regex `(r)` ou à tout nom de colonne qui contient un r minuscule. À l’instar du mappage standard basé sur des règles, toutes les colonnes correspondantes sont modifiées par la condition à droite à l’aide de la syntaxe `$$`.
 
@@ -72,7 +74,7 @@ Si vous avez plusieurs correspondances regex dans votre nom de colonne, vous pou
 
 Si votre projection définie a une hiérarchie, vous pouvez utiliser le mappage basé sur des règles pour mapper les sous-colonnes de hiérarchies. Spécifiez une condition de correspondance et la colonne complexe dont vous souhaitez mapper les sous-colonnes. Chaque sous-colonne correspondante est générée à l’aide de la règle « Nommer » spécifiée à droite.
 
-![Capture d’écran montrant un mappage basé sur les règles et utilisant une hiérarchie.](media/data-flow/rule-based-hierarchy.png "Mappage basé sur des règles")
+:::image type="content" source="media/data-flow/rule-based-hierarchy.png" alt-text="Capture d’écran montrant un mappage basé sur les règles et utilisant une hiérarchie.":::
 
 L’exemple ci-dessus correspond à toutes les sous-colonnes de la colonne complexe `a`. `a` contient deux sous-colonnes `b` et `c`. Le schéma de sortie inclut deux colonnes `b` et `c`, car la condition « Nommer » est `$$`.
 
@@ -84,7 +86,7 @@ Vous pouvez paramétrer des noms de colonne à l’aide d’un mappage basé sur
 
 Quand vous ajoutez une transformation de sélection, vous pouvez activer le **mappage automatique** en basculant le curseur de mappage automatique. Avec le mappage automatique, la transformation de sélection mappe toutes les colonnes entrantes, à l’exception des doublons, au même nom que leur entrée. Il s’agit notamment des colonnes dérivées, ce qui signifie que les données de sortie peuvent contenir des colonnes non définies dans votre schéma. Pour plus d’informations sur les colonnes dérivées, consultez [Dérive de schéma](concepts-data-flow-schema-drift.md).
 
-![Mappage automatique](media/data-flow/automap.png "Mappage automatique")
+:::image type="content" source="media/data-flow/automap.png" alt-text="Mappage automatique":::
 
 Si le mappage automatique est activé, la transformation de sélection respecte les paramètres indiquant d’ignorer les doublons et fournit un nouvel alias pour les colonnes existantes. L’utilisation d’alias est utile quand vous effectuez plusieurs jointures ou recherches sur le même flux et dans les scénarios d’auto-jointure. 
 
@@ -92,7 +94,7 @@ Si le mappage automatique est activé, la transformation de sélection respecte 
 
 Par défaut, la transformation de sélection supprime les colonnes en double dans la projection d’entrée et de sortie. Les colonnes d’entrée en double proviennent souvent de transformations de jointure et de recherche, où les noms de colonne sont dupliqués de chaque côté de la jointure. Les colonnes de sortie en double peuvent se produire si vous mappez deux colonnes d’entrée différentes au même nom. Indiquez si vous souhaitez supprimer ou passer les colonnes en double en activant/désactivant la case à cocher.
 
-![Ignorer les doublons](media/data-flow/select-skip-dup.png "Ignorer les doublons")
+:::image type="content" source="media/data-flow/select-skip-dup.png" alt-text="Ignorer les doublons":::
 
 ## <a name="ordering-of-columns"></a>Classement des colonnes
 
@@ -119,7 +121,7 @@ L’ordre des mappages détermine l’ordre des colonnes de sortie. Si une colon
 
 Voici un exemple de mappage de sélection et son script de flux de données :
 
-![Exemple de script de sélection](media/data-flow/select-script-example.png "Exemple de script de sélection")
+:::image type="content" source="media/data-flow/select-script-example.png" alt-text="Exemple de script de sélection":::
 
 ```
 DerivedColumn1 select(mapColumn(

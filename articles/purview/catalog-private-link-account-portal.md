@@ -6,20 +6,23 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: 26b98ad9c4c042c1e6bf60889625a4d23090f6f5
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.date: 09/27/2021
+ms.openlocfilehash: 0da3f53c41296f3cb467c00bb13649288ebd53c6
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535409"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213828"
 ---
 # <a name="connect-privately-and-securely-to-your-purview-account"></a>Se connecter de manière privée et sécurisée à votre compte Purview
-Dans ce guide, vous allez apprendre à déployer des points de terminaison privés pour votre compte Purview pour vous permettre de vous connecter à celui-ci à partir de réseaux virtuels et de réseaux privés. Pour atteindre cet objectif, vous devez déployer des points de terminaison de _compte_, _portail_ et _ingestion_ privés pour votre compte Azure Purview.
+Dans ce guide, vous allez apprendre à déployer des points de terminaison privés pour votre compte Purview pour vous permettre de vous connecter à celui-ci à partir de réseaux virtuels et de réseaux privés. Pour atteindre cet objectif, vous devez déployer des points d'extrémité privés de _compte_ et de _portail_ pour votre compte Azure Purview.
 
 Le point de terminaison privé du _compte_ Azure Purview est utilisé pour ajouter une couche de sécurité supplémentaire en permettant des scénarios où seuls les appels client provenant du réseau virtuel sont autorisés à accéder au compte Azure Purview. Ce point de terminaison privé est également un prérequis pour le point de terminaison privé du portail.
 
-Le point de terminaison privé du _portail_ Azure Purview doit permettre la connectivité à Azure Purview Studio au moyen d’un réseau privé.
+Le point de terminaison privé du _portail_ Azure Purview doit permettre la connectivité à [Azure Purview Studio](https://web.purview.azure.com/resource/) au moyen d’un réseau privé.
+
+> [!NOTE]
+> Si vous créez uniquement des points de terminaison privés de _compte_ et de _portail_ , vous ne pourrez pas exécuter d’analyses. Pour permettre l'analyse sur un réseau privé, vous devez également [créer un point de terminaison privé d'ingestion](catalog-private-link-end-to-end.md).
 
    :::image type="content" source="media/catalog-private-link/purview-private-link-account-portal.png" alt-text="Diagramme qui affiche l’architecture d’Azure Purview et Private Link.":::
 
@@ -29,7 +32,7 @@ Pour en savoir plus sur le service Azure Private Link, consultez [Liens privés 
 À l’aide de l’une des options de déploiement expliquées dans ce guide, vous pouvez déployer un nouveau compte Azure Purview avec des points de terminaison privés de _compte_ et de _portail_, ou vous pouvez choisir de déployer ces points de terminaison privés pour un compte Azure Purview existant :
 
 1. Choisissez un réseau virtuel Azure approprié et un sous-réseau pour déployer des points de terminaison privés Azure Purview. Sélectionnez l’une des options suivantes :
-   - Déployez un [réseau virtuel](../virtual-network/quick-create-portal.md) dans votre abonnement Azure.
+   - Déployez un [nouveau réseau virtuel](../virtual-network/quick-create-portal.md) dans votre abonnement Azure.
    - Localisez un réseau virtuel Azure existant et un sous-réseau dans votre abonnement Azure.
   
 2. Définissez une [méthode de résolution de noms DNS](./catalog-private-link-name-resolution.md#deployment-options) appropriée afin que le compte Azure Purview et le portail web puissent être accessibles par le biais d’adresses IP privées. Vous pouvez utiliser une des options suivantes :
@@ -49,30 +52,32 @@ Pour en savoir plus sur le service Azure Private Link, consultez [Liens privés 
 
 3. Sous **Compte et portail**, sélectionnez **+ Ajouter** afin d’ajouter un point de terminaison privé pour votre compte Azure Purview.
 
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-1.png" alt-text="Capture d’écran montrant la création d’un point de terminaison privé pour les sélections de page de portail et de compte.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account-portal.png" alt-text="Capture d’écran montrant la création d’un point de terminaison privé pour les sélections de page de portail et de compte.":::
 
 4. Sur la page **Créer un point de terminaison privé**, pour la **sous-ressource Purview**, choisissez votre emplacement, fournissez un nom pour le point de terminaison privé du _compte_ et sélectionnez **compte**. Sous **mise en réseau**, sélectionnez votre réseau virtuel et votre sous-réseau, puis, si vous le souhaitez, sélectionnez **Intégrer à une zone DNS privé** pour créer une zone DNS privé Azure. 
    
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-2.png" alt-text="Capture d’écran montrant la page créer un point de terminaison privé de compte.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account.png" alt-text="Capture d’écran montrant la page créer un point de terminaison privé de compte.":::
 
-
-   > [!NOTE]
-   > Vous pouvez également utiliser vos zones Azure DNS privé existantes ou créer des enregistrements DNS dans vos serveurs DNS manuellement par la suite. Pour plus d’informations, consultez [Configurer la résolution de noms DNS pour les points de terminaison privés](./catalog-private-link-name-resolution.md).
+      > [!NOTE]
+      > Vous pouvez également utiliser vos zones Azure DNS privé existantes ou créer des enregistrements DNS dans vos serveurs DNS manuellement par la suite. Pour plus d’informations, consultez [Configurer la résolution de noms DNS pour les points de terminaison privés](./catalog-private-link-name-resolution.md).
 
 5. Sélectionnez **OK**.
    
 6. Dans l’Assistant de **création d’un compte Purview**, sélectionnez à nouveau **+Ajouter** pour ajouter un point de terminaison privé de _portail_.
      
 7. Sur la page **Créer un point de terminaison privé**, pour la **sous-ressource Purview**, choisissez votre emplacement, fournissez un nom pour le point de terminaison privé du _portail_ et sélectionnez **portail**. Sous **mise en réseau**, sélectionnez votre réseau virtuel et votre sous-réseau, puis, si vous le souhaitez, sélectionnez **Intégrer à une zone DNS privé** pour créer une zone DNS privé Azure. 
+
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-portal.png" alt-text="Capture d’écran montrant comment créer un point de terminaison privé de portail.":::
    
    > [!NOTE]
    > Vous pouvez également utiliser vos zones Azure DNS privé existantes ou créer des enregistrements DNS dans vos serveurs DNS manuellement par la suite. Pour plus d’informations, consultez [Configurer la résolution de noms DNS pour les points de terminaison privés](./catalog-private-link-name-resolution.md).
 
 8.  Sélectionnez **OK**.
    
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-3.png" alt-text="Capture d’écran montrant la page de révision de la création d’un point de terminaison privé.":::
-
 9.  Sélectionnez **Vérifier + créer**. Sur la page **Revoir + créer**, Azure valide votre configuration.
+      
+      :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account-portal-2.png" alt-text="Capture d’écran montrant la page de révision de la création d’un point de terminaison privé.":::
+
 
 10. Quand le message « Validation réussie » s’affiche, sélectionnez **Créer**.
 
@@ -87,7 +92,7 @@ Il existe deux façons d’ajouter des points de terminaison privés de _compte_
 
 1. Accédez au [Portail Azure](https://portal.azure.com), puis cliquez sur votre compte Azure Purview, et sous **Paramètres**, sélectionnez **Mise en réseau**, puis sélectionnez **Connexions de point de terminaison privé**.
 
-    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Capture d’écran montrant comment créer un point de terminaison privé de compte.":::
+    :::image type="content" source="media/catalog-private-link/purview-pe-add-to-existing.png" alt-text="Capture d’écran montrant comment créer un point de terminaison privé de compte.":::
 
 2. Sélectionnez **+ Point de terminaison privé** pour créer un point de terminaison privé.
 
@@ -97,7 +102,7 @@ Il existe deux façons d’ajouter des points de terminaison privés de _compte_
 
 5. Pour **Ressource**, sélectionnez le compte Azure Purview et pour **Sous-ressource cible**, sélectionnez **compte**.
 
-6. Sous l’onglet **Configuration**, sélectionnez le réseau virtuel et, si vous le souhaitez, sélectionnez Zone DNS privé Azure pour créer une zone Azure DNS.
+6. Sous l’onglet **Configuration**, sélectionnez le réseau virtuel et, si vous le souhaitez, sélectionnez Zone DNS privé Azure pour créer une zone DNS Azure.
    
    > [!NOTE]
    > Pour la configuration DNS, vous pouvez également utiliser vos zones DNS privé Azure existantes à partir de la liste déroulante ou ajouter manuellement les enregistrements DNS requis à vos serveurs DNS ultérieurement. Pour plus d’informations, consultez [Configurer la résolution de noms DNS pour les points de terminaison privés](./catalog-private-link-name-resolution.md).
@@ -158,9 +163,9 @@ Les instructions permettent d’accéder à Azure Purview en toute sécurité à
 
    :::image type="content" source="media/catalog-private-link/aadcdn-rule.png" alt-text="Capture d’écran montrant la règle du réseau de distribution de contenu Azure AD.":::
 
-1. Une fois la nouvelle règle créée, revenez à la machine virtuelle et essayez de vous connecter à l’aide de vos informations d’identification Azure AD. Si la connexion réussit, le portail Purview est prêt à être utilisé. Toutefois, dans certains cas, Azure AD effectue une redirection vers d’autres domaines pour se connecter en fonction du type de compte d’un client. Par exemple, pour un compte live.com, Azure AD effectue une redirection vers live.com pour se connecter, puis ces requêtes sont à nouveau bloquées. Pour les comptes d’employés Microsoft, Azure AD accède à msft.sts.microsoft.com pour obtenir des informations de connexion.
+1. Une fois la nouvelle règle créée, revenez à la machine virtuelle et essayez de vous connecter à l’aide de vos informations d’identification Azure AD. Si la connexion réussit, le portail Azure Purview est prêt à être utilisé. Toutefois, dans certains cas, Azure AD effectue une redirection vers d’autres domaines pour se connecter en fonction du type de compte d’un client. Par exemple, pour un compte live.com, Azure AD effectue une redirection vers live.com pour se connecter, puis ces requêtes sont à nouveau bloquées. Pour les comptes d’employés Microsoft, Azure AD accède à msft.sts.microsoft.com pour obtenir des informations de connexion.
 
-   Vérifiez les demandes de mise en réseau sous l’onglet de **Mise en réseau** du navigateur pour afficher les demandes du domaine qui sont bloquées, recommencez l’étape précédente pour obtenir son adresse IP, puis ajoutez des règles de port de sortie dans le groupe de sécurité réseau afin d’autoriser les demandes pour cette adresse IP. Si possible, ajoutez l’URL et l’adresse IP au fichier hôte de la machine virtuelle pour corriger la résolution DNS. Si vous connaissez les plages exactes d’adresses IP du domaine de connexion, vous pouvez également les ajouter directement dans les règles de mise en réseau.
+   Vérifiez les requêtes de mise en réseau sous l’onglet **Mise en réseau** du navigateur pour afficher les requêtes du domaine qui sont bloquées, recommencez l’étape précédente pour obtenir son adresse IP, puis ajoutez des règles de port de sortie dans le groupe de sécurité réseau afin d’autoriser les requêtes pour cette adresse IP. Si possible, ajoutez l’URL et l’adresse IP au fichier hôte de la machine virtuelle pour corriger la résolution DNS. Si vous connaissez les plages exactes d’adresses IP du domaine de connexion, vous pouvez également les ajouter directement dans les règles de mise en réseau.
 
 1. Votre connexion Azure AD doit maintenant réussir. Le portail Azure Purview va se charger correctement, mais la liste de tous les comptes Azure Purview ne s’affichera pas, car il ne peut accéder qu’à un compte Azure Purview spécifique. Entrez `web.purview.azure.com/resource/{PurviewAccountName}` pour accéder directement au compte Azure Purview pour lequel vous avez correctement configuré un point de terminaison privé.
 
@@ -168,4 +173,4 @@ Les instructions permettent d’accéder à Azure Purview en toute sécurité à
 
 -  [Vérifier la résolution des points de terminaison privés](./catalog-private-link-name-resolution.md)
 -  [Gérer des sources de données dans Azure Purview](./manage-data-sources.md)
--  [Résolution des problèmes de configuration de point de terminaison privé pour votre compte Azure Purview](./catalog-private-link-troubleshoot.md)
+-  [Résolution des problèmes de configuration des point de terminaison privés pour votre compte Azure Purview](./catalog-private-link-troubleshoot.md)

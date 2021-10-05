@@ -1,26 +1,26 @@
 ---
 title: Requête en texte intégral et architecture du moteur d’indexation (Lucene)
 titleSuffix: Azure Cognitive Search
-description: Aborde les concepts de traitement des requêtes et d’extraction de documents Lucene pour la recherche en texte intégral, liée à Recherche cognitive Azure.
+description: Explorez les concepts de traitement des requêtes et d’extraction de documents Lucene pour la recherche en texte intégral, liée à Recherche cognitive Azure.
 manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/28/2021
+ms.openlocfilehash: b070cc197de1a3e4390d3957cda5b2bd65c754f3
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96002746"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210418"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Recherche en texte intégral dans Recherche cognitive Azure
 
 Cet article est destiné aux développeurs qui ont besoin d’une compréhension approfondie du fonctionnement de la recherche en texte intégral Lucene dans la Recherche cognitive Azure. Pour les requêtes de texte, la Recherche cognitive Azure. fournit en toute transparence les résultats attendus dans la plupart des scénarios, mais il se peut que vous obteniez un résultat « étrange » dans certains cas. Dans ce cas, le fait d’avoir une connaissance des quatre phases d’exécution des requêtes Lucene (analyse des requêtes, analyse lexicale, mise en correspondance des documents et notation) peut vous permettre d’identifier les modifications spécifiques des paramètres de requête ou de la configuration d’index qui permettront d’obtenir le résultat souhaité. 
 
 > [!Note] 
-> La Recherche cognitive Azure utilise Lucene pour la recherche en texte intégral, mais l’intégration Lucene n’est pas exhaustive. Nous exposons et étendons la fonctionnalité Lucene de façon sélective pour activer les scénarios importants dans la Recherche cognitive Azure. 
+> La Recherche cognitive Azure utilise [Apache Lucene](https://lucene.apache.org/) pour la recherche en texte intégral, mais l’intégration Lucene n’est pas exhaustive. Nous exposons et étendons la fonctionnalité Lucene de façon sélective pour activer les scénarios importants dans la Recherche cognitive Azure. 
 
 ## <a name="architecture-overview-and-diagram"></a>Présentation et diagramme de l’architecture
 

@@ -8,30 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 09/01/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, conteneur
-ms.openlocfilehash: a78408759492cdba97bca8b6e4b71411af192f9f
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: a1f82384d7191c65293c85bdc3ef70347c6646f5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224117"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799032"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installer et exécuter des conteneurs Docker pour les API du service Speech 
 
-Les conteneurs vous permettent d’exécuter certaines des API du service Speech dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter un conteneur Speech.
+Les conteneurs vous permettent d’exécuter _certaines_ des API du service Speech dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter un conteneur Speech.
 
 Les conteneurs Speech permettent aux clients de créer une architecture d’application Speech optimisée pour tirer parti des fonctionnalités robustes du cloud et de la localité en périphérie. Plusieurs conteneurs sont disponibles ; leurs [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) sont identiques à ceux des services Azure Speech basés sur le cloud.
 
+> [!IMPORTANT]
+> Nous avons mis hors service les voix de synthèse vocale standard et le conteneur de conversion de texte par synthèse vocale le 31 août 2021. Envisagez de migrer vos applications pour utiliser le conteneur de conversion de texte par synthèse vocale à la place. Pour plus d’informations sur la mise à jour de votre application, [procédez comme suit](./text-to-speech.md#migrate-to-neural-voice).
+
 | Conteneur | Fonctionnalités | Latest | État de la version |
 |--|--|--|--|
-| Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.13.0 | Mise à la disposition générale |
-| Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.13.0 | Mise à la disposition générale |
-| Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.14.1 | Mise à la disposition générale |
+| Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.14.0 | Mise à la disposition générale |
+| Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.14.0 | Mise à la disposition générale |
+| Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.15.0 | Mise à la disposition générale |
 | Identification de la langue parlée | Permet de détecter la langue parlée en fichiers audio. | 1.3.0 | preview |
-| Synthèse vocale neuronale | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. | 1.8.0 | Mise à la disposition générale |
+| Synthèse vocale neuronale | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. | 1.9.0 | Mise à la disposition générale |
 
 ## <a name="prerequisites"></a>Prérequis
 

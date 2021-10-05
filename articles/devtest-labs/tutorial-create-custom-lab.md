@@ -1,14 +1,14 @@
 ---
-title: Créer un laboratoire à l’aide de Azure DevTest Labs | Microsoft Docs
+title: Créer un tutoriel de labo
 description: Dans ce tutoriel, vous créez un laboratoire dans Azure DevTest Labs à l’aide du portail Azure. Un administrateur de laboratoire définit un laboratoire, crée dans celui-ci des machines virtuelles et configure des stratégies.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52640469ff02fd167b0add4210ddec11db05af97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91324278"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655597"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Didacticiel : configurer un laboratoire à l’aide de Azure DevTest Labs
 Dans ce didacticiel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
@@ -103,4 +103,3 @@ Dans ce didacticiel, vous avez créé un laboratoire avec une machine virtuelle 
 
 > [!div class="nextstepaction"]
 > [Didacticiel : Accéder au laboratoire](tutorial-use-custom-lab.md)
-

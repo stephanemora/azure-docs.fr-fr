@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 5a631d9ae7a7d1792e3c4e4a2cbf8281e1168283
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7d62b6fa3523accbeba9a083c74330ff344e2ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99226015"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786367"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutoriel : Créer une application Blazor Server qui utilise la plateforme d’identité Microsoft pour l’authentification
 
@@ -40,7 +40,7 @@ Chaque application qui utilise Azure Active Directory (Azure AD) pour l’authen
 - Pour les **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel**.
 - Laissez le champ déroulant **URI de redirection** défini sur **Web** et entrez `https://localhost:5001/signin-oidc`. Le port par défaut pour une application s’exécutant sur Kestrel est 5001. Si l’application est disponible sur un autre port, spécifiez ce numéro de port au lieu de `5001`.
 
-Sous **Gérer**, sélectionnez **Authentification** > **Octroi implicite et flux hybrides**. Sélectionnez **Jetons d’accès** et **Jetons d’ID**, puis **Enregistrer**.
+Sous **Gérer**, sélectionnez **Authentification** > **Octroi implicite et flux hybrides**. Sélectionnez **Jetons d’ID**, puis **Enregistrer**.
 
 Enfin, étant donné que l’application appelle une API protégée (dans ce cas, Microsoft Graph), elle a besoin d’une clé secrète client afin de vérifier son identité lorsqu’elle demande un jeton d’accès pour appeler cette API.
 
@@ -53,13 +53,13 @@ Enfin, étant donné que l’application appelle une API protégée (dans ce cas
 Exécutez la commande suivante pour télécharger les modèles pour Microsoft.Identity.Web, que nous utiliserons dans ce tutoriel.
 
 ```dotnetcli
-dotnet new --install Microsoft.Identity.Web.ProjectTemplates::0.4.0-preview
+dotnet new --install Microsoft.Identity.Web.ProjectTemplates
 ```
 
 Exécutez ensuite la commande suivante pour créer l’application. Remplacez les espaces réservés dans la commande par les informations appropriées extraites de la page de présentation de votre application et exécutez la commande dans un interpréteur de commandes. L’emplacement de sortie spécifié avec l’option `-o|--output` crée un dossier de projet s’il n’existe pas et devient partie intégrante du nom de l’application.
 
 ```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}"
+dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}" --domain "{DOMAIN}"
 ```
 
 | Espace réservé   | Nom du portail Azure       | Exemple                                |
@@ -67,6 +67,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 | `{APP NAME}`  | &mdash;                 | `BlazorSample`                         |
 | `{CLIENT ID}` | ID d’application (client) | `41451fa7-0000-0000-0000-69eff5a761fd` |
 | `{TENANT ID}` | ID de l’annuaire (locataire)   | `e86c78e2-0000-0000-0000-918e0565a45e` |
+| `{DOMAIN}`    | Domaine principal          | `tenantname.onmicrosoft.com`           |
 
 Accédez à présent à votre nouvelle application Blazor dans votre éditeur et ajoutez la clé secrète client au fichier *appsettings.json*, en remplaçant le texte « secret-from-app-registration ».
 

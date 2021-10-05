@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/20/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 5e2f5689b476e4b6bf1c707c2c630879af4962fc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0717ed4934bd2a8ff9c0dbc4b893710aaaff870b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471758"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650797"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coda"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Coda
 
@@ -40,6 +40,8 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Coda prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
 
 * Coda prend en charge l’attribution d’utilisateurs **juste-à-temps**.
+
+* Coda prend en charge le [provisionnement automatisé des utilisateurs](coda-provisioning-tutorial.md).
 
 ## <a name="add-coda-from-the-gallery"></a>Ajouter Coda depuis la galerie
 
@@ -155,13 +157,15 @@ Cela termine le travail nécessaire pour la configuration de la connexion d’au
 
 Dans cette section, un utilisateur appelé Britta Simon est créé dans Coda. Coda prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Coda, il en est créé un après l’authentification.
 
+Coda prend également en charge le provisionnement automatique des utilisateurs. Vous trouverez [ici](./coda-provisioning-tutorial.md) plus d’informations sur la façon de configurer le provisionnement automatique des utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
 * Cliquez sur Tester cette application dans le portail Azure : vous devez être connecté automatiquement à l’instance de Coda pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Coda dans Mes applications, vous devez être connecté automatiquement à l’application Coda pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Coda dans Mes applications, vous devez être connecté automatiquement à l’application Coda pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

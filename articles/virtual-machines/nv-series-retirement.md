@@ -7,26 +7,26 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: fcd0d460837195817018882d92b94b0012a14a6f
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 666b681d33c41482bcf33947c38be33aeee29783
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534771"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436443"
 ---
 # <a name="migrate-your-nv-and-nv_promo-series-virtual-machines-by-august-31-2022"></a>Migrer vos machines virtuelles de la série NV et NV_Promo le 31 août 2022
-Étant donné que nous continuons à intégrer des instances de machines virtuelles modernes et optimisées à Azure à l’aide des dernières innovations en matière de technologies des centres de données, nous avons planifié intelligemment la mise hors service du matériel vieillissant.
-En tenant compte de cela, nous mettons nos tailles de Machines virtuelles de la série NV Azure hors service le 01 septembre 2022.
 
-## <a name="how-does-the-nv-series-migration-affect-me"></a>En quoi la migration de la série NV m’impacte-t-elle ?  
+Nous continuons à apporter des instances de machines virtuelles (VM) modernes et optimisées à Azure en utilisant les dernières innovations en matière de technologies de centres de données. Tout en innovant, nous planifions également de manière réfléchie la mise au rebut de notre matériel vieillissant. C'est dans ce contexte que nous retirons nos tailles de VM Azure de la série NV le 1er septembre 2022.
 
-Après le 1er septembre 2022, les machines virtuelles de taille NV et NV_Promo restantes de votre abonnement seront définies sur un état désalloué. Ces machines virtuelles seront arrêtées et supprimées de l’hôte. Ces machines virtuelles ne seront plus facturées dans l’État désalloué. 
+## <a name="how-does-the-nv-series-migration-affect-me"></a>En quoi la migration de la série NV m’impacte-t-elle ?
 
-La mise hors service de la taille de machine virtuelle actuelle n’affecte que les tailles de machine virtuelle dans la [série NV](nv-series.md). Cela n’affecte en rien les machines virtuelles des séries [NVv3](nvv3-series.md) et [NVv4](nvv4-series.md). 
+Après le 1er septembre 12022, les machines virtuelles de taille NV et NV_Promo restantes de votre abonnement seront définies sur un état désalloué. Ces machines virtuelles seront arrêtées et supprimées de l’hôte. Ces machines virtuelles ne seront plus facturées dans l’état désalloué. 
 
-## <a name="what-actions-should-i-take"></a>Que dois-je faire ?  
+La mise hors service de la taille de machine virtuelle actuelle n’affecte que les tailles de machine virtuelle dans la [série NV](nv-series.md). Ce retrait n’affecte pas les machines virtuelles de la série [NVv3](nvv3-series.md) et [NVv4](nvv4-series.md) . 
 
-Vous devrez redimensionner ou désallouer vos machines virtuelles NV. Nous vous recommandons de déplacer vos charges de travail de visualisation/graphique GPU vers une autre [taille de Machine virtuelle accélérée par GPU](sizes-gpu.md).
+## <a name="what-actions-should-i-take"></a>Que dois-je faire ?
+
+Vous devez redimensionner ou libérer vos machines virtuelles NV. Nous vous recommandons de déplacer vos visualisations GPU ou vos charges de travail graphiques vers une autre [taille de VM accélérée par le GPU](sizes-gpu.md).
 
 [En savoir plus](nv-series-migration-guide.md) sur la migration de vos charges de travail vers d’autres tailles de Machines virtuelles Azure GPU. 
 

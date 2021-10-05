@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Achieve3000 | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Achieve3000'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Achieve3000.
 services: active-directory
 author: jeevansd
@@ -9,24 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 09/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 9af00fef9c15ada44a5475bb419387b32b06d139
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 92a6d77820e1b37d98b005ecc9be4750f73a1a31
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92313366"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647895"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Achieve3000
+# <a name="tutorial-azure-ad-sso-integration-with-achieve3000"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Achieve3000
 
 Ce tutoriel explique comment intégrer Achieve3000 avec Azure Active Directory (Azure AD). Quand vous intégrez Achieve3000 à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à Achieve3000.
 * Permettre à vos utilisateurs de se connecter automatiquement à Achieve3000 avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,27 +37,27 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Achieve3000 prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Achieve3000 prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="adding-achieve3000-from-the-gallery"></a>Ajout d’Achieve3000 à partir de la galerie
+## <a name="add-achieve3000-from-the-gallery"></a>Ajouter Achieve3000 à partir de la galerie
 
 Pour configurer l’intégration d’Achieve3000 dans Azure AD, vous devez ajouter Achieve3000 à partir de la galerie dans votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Achieve3000** dans la zone de recherche.
 1. Sélectionnez **Achieve3000** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-achieve3000"></a>Configurer et tester l’authentification unique Azure AD pour Achieve3000
+## <a name="configure-and-test-azure-ad-sso-for-achieve3000"></a>Configurer et tester l’authentification unique Azure AD pour Achieve3000
 
 Configurez et testez l’authentification unique Azure AD avec Achieve3000 à l’aide d’un utilisateur de test appelé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Achieve3000 associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Achieve3000, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Achieve3000, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -72,17 +70,17 @@ Pour configurer et tester l’authentification unique Azure AD avec Achieve3000,
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Achieve3000**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Achieve3000**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://saml.achieve3000.com/district/<District Identifier>`
+    a. Dans la zone de texte **Identificateur (ID d’entité)**, tapez la valeur : `achieve3000-saml`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une valeur : `achieve3000-saml`
+    b. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://saml.achieve3000.com/district/<District Identifier>`
 
     > [!NOTE]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique Achieve3000](https://www.achieve3000.com/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -124,13 +122,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Achieve3000**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
@@ -145,16 +137,14 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Achiev
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Achieve3000 dans le volet d’accès, vous devez vous connecter automatiquement à l’application Achieve3000 pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Achieve3000, d’où vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion à Achieve3000 pour lancer le flux de connexion.
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Achieve3000 dans Mes applications vous redirige vers l’URL de connexion à Achieve3000. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer Achieve3000 avec Azure AD](https://aad.portal.azure.com/)
+Après avoir configuré Achieve3000, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

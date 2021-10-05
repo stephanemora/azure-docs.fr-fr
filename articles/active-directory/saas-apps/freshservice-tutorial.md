@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: fb8b12cdb8fd9ed37ac4086d213183e800d6febc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c45c00354d0bc60b5a9656c24dd998e324294b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651747"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581588"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Freshservice
 
@@ -40,7 +40,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Freshservice prend en charge l’authentification unique initiée par le **fournisseur de services**
+* Freshservice prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Freshservice prend en charge l’[attribution automatisée d’utilisateurs](freshservice-provisioning-tutorial.md).
 
 ## <a name="add-freshservice-from-the-gallery"></a>Ajouter Freshservice à partir de la galerie
 
@@ -187,6 +188,9 @@ Pour permettre aux utilisateurs Azure AD de se connecter à FreshService, vous 
 
     > [!NOTE]
     > Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par FreshService pour provisionner des comptes d’utilisateurs Azure AD.
+   
+> [!NOTE]
+>Freshservice prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./freshservice-provisioning-tutorial.md).
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
@@ -196,7 +200,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL d’authentification Freshservice pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Freshservice dans Mes applications doit vous connecter automatiquement à l’application Freshservice pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Freshservice dans Mes applications doit vous connecter automatiquement à l’application Freshservice pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

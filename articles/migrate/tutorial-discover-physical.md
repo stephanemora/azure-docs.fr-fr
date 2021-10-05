@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: f925eb888c1955212a762eb46c63300afd17d77d
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 89548cf1c98e360569255b9028b26230fedf5ed2
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427726"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092335"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir des serveurs physiques avec l’outil de découverte et d’évaluation d’Azure Migrate
 
@@ -194,26 +194,28 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Exécuter le script du programme d’installation Azure Migrate
 
 1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
-2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
-3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
-4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
+
+3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
+
+4. Exécutez le script nommé `AzureMigrateInstaller.ps1` via la commande suivante :
+
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Sélectionnez parmi les options de scénario, de cloud et de connectivité pour déployer une appliance avec la configuration souhaitée. Par exemple, la sélection présentée ci-dessous configure une appliance pour découvrir et évaluer des **serveurs physiques** _(ou des serveurs qui s’exécutent sur d’autres clouds comme AWS, GCP, Xen, etc.)_ dans un projet Azure Migrate avec une **connectivité par défaut _(point de terminaison public)_** sur le **cloud public Azure**.
 
-    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Capture d’écran montrant comment configurer l’appliance avec la configuration souhaitée" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
+   :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Capture d’écran montrant comment configurer l’appliance avec la configuration souhaitée" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
 
 6. Le script du programme d’installation effectue les opérations suivantes :
 
- - Installe les agents et une application web.
- - Installe des rôles Windows, notamment le service d’activation Windows, IIS et PowerShell ISE.
- - Télécharge et installe un module réinscriptible IIS.
- - Met à jour une clé de Registre (HKLM) avec les détails de paramètres persistants pour Azure Migrate.
- - Crée les fichiers suivants sous le chemin :
-    - **Fichiers de configuration** : %Programdata%\Microsoft Azure\Config
-    - **Fichiers journaux** : %Programdata%\Microsoft Azure\Logs
+   - Installe les agents et une application web.
+   - Installe des rôles Windows, notamment le service d’activation Windows, IIS et PowerShell ISE.
+   - Télécharge et installe un module réinscriptible IIS.
+   - Met à jour une clé de Registre (HKLM) avec les détails de paramètres persistants pour Azure Migrate.
+   - Crée les fichiers suivants sous le chemin :
+     - **Fichiers de configuration :** `%ProgramData%\Microsoft Azure\Config`
+     - **Fichiers journal :** `%ProgramData%\Microsoft Azure\Logs`
 
 Une fois que le script a été exécuté avec succès, le gestionnaire de configuration de l’appliance est lancé automatiquement.
 
@@ -231,15 +233,15 @@ Configurez l’appliance pour la première fois.
 1. Ouvrez un navigateur sur un serveur qui peut se connecter à l’appliance, puis ouvrez l’URL de l’application web de l’appliance : **https://*nom ou adresse IP de l’appliance* : 44368**.
 
    Vous pouvez aussi ouvrir l’application à partir du bureau en cliquant sur le raccourci de l’application.
-2. Acceptez les **termes du contrat de licence** et lisez les informations relatives aux tiers.
+1. Acceptez les **termes du contrat de licence** et lisez les informations relatives aux tiers.
 1. Dans l’application web > **Configurer les prérequis**, procédez comme suit :
-    - **Connectivité** : L’application vérifie que le serveur a accès à Internet. Si le serveur utilise un proxy :
-        - Cliquez sur **Configurer le proxy** et spécifiez l’adresse du proxy (sous la forme http://ProxyIPAddress ou http://ProxyFQDN) ) et le port d’écoute.
-        - Spécifiez les informations d’identification si le proxy nécessite une authentification.
-        - Seuls les proxys HTTP sont pris en charge.
-        - Si vous avez ajouté des détails de proxy ou désactivé le proxy et/ou l’authentification, cliquez sur **Enregistrer** pour relancer la vérification de la connectivité.
-    - **Synchronisation de l’heure** : L’heure est vérifiée. L’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte de serveur fonctionne correctement.
-    - **Installer les mises à jour** : Azure Migrate: Discovery and assessment vérifie que les dernières mises à jour sont installées sur l’appliance. Une fois la vérification terminée, vous pouvez cliquer sur **Afficher les services de l’appliance** pour voir l’état et les versions des composants s’exécutant sur l’appliance.
+   - **Connectivité** : L’application vérifie que le serveur a accès à Internet. Si le serveur utilise un proxy :
+     - Cliquez sur **Configurer le proxy** et spécifiez l’adresse du proxy (sous la forme http://ProxyIPAddress ou http://ProxyFQDN) ) et le port d’écoute.
+     - Spécifiez les informations d’identification si le proxy nécessite une authentification.
+     - Seuls les proxys HTTP sont pris en charge.
+     - Si vous avez ajouté des détails de proxy ou désactivé le proxy et/ou l’authentification, cliquez sur **Enregistrer** pour relancer la vérification de la connectivité.
+   - **Synchronisation de l’heure** : L’heure est vérifiée. L’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte de serveur fonctionne correctement.
+   - **Installer les mises à jour** : Azure Migrate: Discovery and assessment vérifie que les dernières mises à jour sont installées sur l’appliance. Une fois la vérification terminée, vous pouvez cliquer sur **Afficher les services de l’appliance** pour voir l’état et les versions des composants s’exécutant sur l’appliance.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
@@ -249,14 +251,11 @@ Configurez l’appliance pour la première fois.
     ![Boîte de dialogue modale indiquant le code de l’appareil](./media/tutorial-discover-vmware/device-code.png)
 
 1. Cliquez sur **Copier le code et se connecter** pour copier le code de l’appareil et ouvrir une invite de connexion Azure dans un nouvel onglet de navigateur. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
-1. Sous le nouvel onglet, collez le code de l’appareil, puis connectez-vous avec votre nom d’utilisateur et votre mot de passe Azure.
-   
-   La connexion avec un code PIN n’est pas prise en charge.
-3. Si vous avez fermé accidentellement l’onglet Connexion avant de vous être connecté, vous devrez actualiser l’onglet Appliance Configuration Manager pour réactiver le bouton de connexion.
+1. Sous le nouvel onglet, collez le code de l’appareil, puis connectez-vous avec votre nom d’utilisateur et votre mot de passe Azure. La connexion avec un code PIN n’est pas prise en charge.
+1. Si vous avez fermé accidentellement l’onglet Connexion avant de vous être connecté, vous devrez actualiser l’onglet Appliance Configuration Manager pour réactiver le bouton de connexion.
 1. Une fois connecté, revenez à l’onglet précédent, c’est-à-dire, l’onglet Appliance Configuration Manager.
-4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations]() adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
+1. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations]() adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
 1. Une fois l'appliance inscrite, vous pouvez consulter les détails de l'inscription en cliquant sur **Afficher les détails**.
-
 
 ## <a name="start-continuous-discovery"></a>Démarrer la découverte en continu
 
@@ -289,8 +288,7 @@ Configurez l’appliance pour la première fois.
 1. Vous pouvez **revalider** la connectivité aux serveurs à tout moment avant de lancer la découverte.
 1. Cliquez sur **Démarrer la découverte** pour lancer la découverte des serveurs validés. Une fois la découverte lancée, vous pouvez vérifier l’état de la découverte de chaque serveur dans le tableau.
 
-
-Ceci démarre la découverte. Il faut environ deux minutes par serveur pour que les métadonnées du serveur détecté s’affichent sur le portail Azure.
+Il faut environ 2 minutes pour effectuer la détection de 100 serveurs et pour que leurs métadonnées s’affichent dans le portail Azure.
 
 ## <a name="verify-servers-in-the-portal"></a>Vérifier les serveurs dans le portail
 
@@ -298,6 +296,13 @@ Une fois la découverte terminée, vous pouvez vérifier que les serveurs appara
 
 1. Ouvrez le tableau de bord Azure Migrate.
 2. Dans la page **Azure Migrate - Serveurs** > **Azure Migrate : découverte et évaluation**, cliquez sur l’icône qui affiche le nombre de **Serveurs découverts**.
+
+## <a name="delete-servers"></a>Supprimer des serveurs
+Une fois la découverte lancée, vous pouvez supprimer tous les serveurs ajoutés du gestionnaire de configuration de l’appliance en recherchant le nom des serveurs dans le tableau **Add discovery source** (Ajouter la source de découverte) puis en cliquant sur **Supprimer**.
+
+>[!NOTE]
+> Si vous choisissez de supprimer un serveur sur lequel la découverte a été lancée, celui-ci arrêtera la découverte et l’évaluation en cours, ce qui pourra avoir un impact sur le niveau de confiance de l’évaluation qui inclut ce serveur. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2171565)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Évaluer des serveurs physiques](tutorial-assess-physical.md) en vue de leur migration vers des machines virtuelles Azure

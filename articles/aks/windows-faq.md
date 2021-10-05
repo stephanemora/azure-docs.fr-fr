@@ -5,12 +5,12 @@ description: Consultez la foire aux questions lorsque vous exécutez des pools d
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: b278be45af62d50c8df85ed833ebbeb99dd5c35d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c11ca69e11ee3f9b429414c2caf5b71a947d6a31
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525140"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595291"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Foire aux questions relative aux pools de nœuds Windows Server dans AKS
 
@@ -191,6 +191,13 @@ Set-TimeZone -Id "Russian Standard Time"
 ```
 
 Pour afficher le fuseau horaire actuel du conteneur en cours d’exécution ou une liste de fuseaux horaires disponible, utilisez [Get-TimeZone](/powershell/module/microsoft.powershell.management/get-timezone).
+
+## <a name="can-i-maintain-session-affinity-from-client-connections-to-pods-with-windows-containers"></a>Puis-je maintenir l'affinité de session des connexions des clients aux pods avec Windows Containers ?
+Bien que cela soit pris en charge dans la version du système d'exploitation WS2022, la manière actuelle de réaliser l'affinité de session par l'IP du client consiste à limiter votre pod souhaité à une seule instance par nœud et à configurer votre service Kubernetes pour diriger le trafic vers le pod sur le nœud local. Pour ce faire, vous pouvez utiliser la configuration suivante :
+1. Cluster AKS exécutant une version minimale de 1,20.
+1. Limitez votre pod à une seule instance par nœud Windows. Cela peut être réalisé en utilisant l'anti-affinité dans votre configuration de déploiement.
+1. Dans la configuration de votre service Kubernetes, définissez "externalTrafficPolicy=Local". Cela garantit que le service Kubernetes ne dirige le trafic que vers les pods du nœud local.
+1. Dans la configuration de votre service Kubernetes, définissez "sessionAffinity : ClientIP". Cela permet de s’assurer que la Azure Load Balancer est configurée avec l’affinité de session.
 
 ## <a name="what-if-i-need-a-feature-thats-not-supported"></a>Que se passe-t-il si j’ai besoin d’une fonctionnalité qui n’est pas prise en charge ?
 

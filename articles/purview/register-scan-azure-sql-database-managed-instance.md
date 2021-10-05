@@ -1,18 +1,18 @@
 ---
 title: Inscrire et analyser Azure SQL Database Managed Instance
-description: Ce tutoriel explique comment analyser Azure SQL Database Managed Instance.
+description: Ce tutoriel explique comment analyser Azure SQL Database Managed Instance dans Azure Purview.
 author: hophanms
 ms.author: hophan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
 ms.date: 05/08/2021
-ms.openlocfilehash: 06f3ee8b820d732c0f605adc3201cff57fa70b42
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c633d95c615298876a8bedd76ecbd9c96a4f54da
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739085"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209684"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Inscrire et analyser une instance Azure SQL Database Managed Instance
 
@@ -31,8 +31,9 @@ La source de données Azure SQL Database Managed Instance prend en charge les fo
 - Créez un compte Purview si vous n’en avez pas déjà un.
 
 - [Configurer un point de terminaison public dans Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md)
+
     > [!Note]
-    > Votre organisation doit pouvoir autoriser un point de terminaison public car le **point de terminaison privé n’est pas encore pris en charge** par Purview. Si vous utilisez un point de terminaison privé, l’analyse n’aboutira pas.
+    > Nous prenons désormais en charge l’analyse des instances Azure SQL Database Managed Instance qui sont configurées avec des points de terminaison privés à l’aide de points de terminaison privés d’ingestion Azure Purview et d’une machine virtuelle de runtime d’intégration auto-hébergé. Pour plus d’informations sur les prérequis, consultez [Se connecter à Azure Purview et analyser des sources de données de manière privée et sécurisée](./catalog-private-link-end-to-end.md).
 
 ### <a name="setting-up-authentication-for-a-scan"></a>Configuration de l’authentification pour une analyse
 

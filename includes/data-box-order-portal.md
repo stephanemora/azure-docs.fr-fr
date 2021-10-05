@@ -3,15 +3,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox
 ms.topic: include
-ms.date: 08/26/2021
+ms.date: 09/08/2021
 ms.author: alkohli
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: cce8075187517377efc406ce3b452e8a5c33a817
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 6f784c075d24fe26b7ec1ea9d5921dfb460e5298
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123468560"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743332"
 ---
 Effectuez les étapes suivantes dans le portail Azure pour commander un appareil :
 
@@ -36,9 +36,13 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
     [ ![Démarrage d’une commande d’importation Azure Data Box](media/data-box-order-portal/data-box-import-03.png) ](media/data-box-order-portal/data-box-import-03.png#lightbox)
 
-5. Sélectionnez le produit **Data Box** à commander, c’est-à-dire Data Box, comme indiqué ci-dessous, ou Data Box Heavy. Pour Data Box, la capacité maximale utilisable pour une commande est de 80 To. Pour Data Box Heavy, la capacité maximale utilisable pour une commande est de 770 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
+5. Sélectionnez le produit **Data Box** à commander, c’est-à-dire Data Box, comme indiqué ci-dessous, ou Data Box Heavy. 
 
     [ ![Capture d’écran montrant la page de sélection d’un produit Azure Data Box. Le bouton Sélectionner de Data Box est mis en évidence.](media/data-box-order-portal/data-box-import-04.png) ](media/data-box-order-portal/data-box-import-04.png#lightbox)
+
+    Pour Data Box, la capacité maximale utilisable pour une commande est de 80 To. Pour Data Box Heavy, la capacité maximale utilisable pour une commande est de 770 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
+
+    Si vous sélectionnez **Data Box Heavy**, l’équipe Data Box vérifie la disponibilité des appareils dans votre région. Elle vous informera quand vous pourrez poursuivre la commande.
 
 6. Dans **Commande**, accédez à l’onglet **Informations de base**. Entrez ou sélectionnez les informations suivantes. Ensuite, sélectionnez **Suivant : Destination des données>** .
 

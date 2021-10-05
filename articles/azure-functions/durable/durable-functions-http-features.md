@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 67a28bccf3353ed7e33826b0ef5b82fc1cc5f981
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8f661ea1462ad00cdf0ddc5caa802b53d5d8fc20
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376879"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480441"
 ---
 # <a name="http-features"></a>Fonctionnalités HTTP
 
@@ -277,7 +277,8 @@ La capacité à consommer les API HTTP directement à partir des fonctions d’o
 L’API « call HTTP » peut implémenter automatiquement le côté client du modèle d’interrogation de consommateur. Si une API appelée renvoie une réponse HTTP 202 avec un en-tête Location, la fonction d’orchestrateur interroge automatiquement la ressource Location jusqu’à recevoir une réponse autre que 202. Cette réponse est celle renvoyée au code de la fonction d’orchestrateur.
 
 > [!NOTE]
-> Les fonctions d’orchestrateur prennent également en charge en mode natif le modèle d’interrogation de consommateur côté serveur, comme décrit dans [Suivi de l’opération asynchrone](#async-operation-tracking). Cette prise en charge signifie que les orchestrations au sein d’une application de fonction peuvent facilement coordonner les fonctions d’orchestrateur dans d’autres applications de fonction. Cela est similaire au concept de [sous-orchestration](durable-functions-sub-orchestrations.md), mais avec la prise en charge des communications entre applications. Cette prise en charge s’avère particulièrement utile pour le développement d’applications de type microservice.
+> 1. Les fonctions d’orchestrateur prennent également en charge en mode natif le modèle d’interrogation de consommateur côté serveur, comme décrit dans [Suivi de l’opération asynchrone](#async-operation-tracking). Cette prise en charge signifie que les orchestrations au sein d’une application de fonction peuvent facilement coordonner les fonctions d’orchestrateur dans d’autres applications de fonction. Cela est similaire au concept de [sous-orchestration](durable-functions-sub-orchestrations.md), mais avec la prise en charge des communications entre applications. Cette prise en charge s’avère particulièrement utile pour le développement d’applications de type microservice.
+> 2. En raison d'une limitation temporaire, le modèle d'interrogation HTTP intégré n'est pas actuellement disponible en JavaScript/TypeScript et Python.
 
 ### <a name="managed-identities"></a>Identités managées
 

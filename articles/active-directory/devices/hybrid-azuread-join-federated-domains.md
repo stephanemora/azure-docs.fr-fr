@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 05/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ea75273694eb5c13b5cd8c4812aa58508fa9f62
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c6a9b193983d58bb8e9cc2964e3ae45160056c4c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130677"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592847"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutoriel : Configurer la jointure hybride Azure Active Directory pour des domaines fédérés
 
@@ -192,6 +192,8 @@ Voici trois méthodes pour rechercher et vérifier l’état de l’appareil :
 2. Entrez `dsregcmd /status`.
 3. Vérifiez que **AzureAdJoined** et **DomainJoined** ont la valeur **OUI**.
 4. Vous pouvez utiliser le **DeviceId** et comparer l’état du service à l’aide du portail Azure ou de PowerShell.
+
+Pour les appareils de bas niveau, consultez l’article [Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md#step-1-retrieve-the-registration-status).
 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 

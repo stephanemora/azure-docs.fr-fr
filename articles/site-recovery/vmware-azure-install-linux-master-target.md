@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
 ms.date: 05/27/2021
-ms.openlocfilehash: b8264221db1fcfee8d47ac0d8f159d6b7a6140fe
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: d766903d6de975a10dfd29bdf367ac2831321e50
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577084"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777428"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -195,7 +195,12 @@ Si votre serveur cible maître est connecté à Internet, vous pouvez utiliser l
 
 #### <a name="download-the-master-target-installation-packages"></a>Télécharger les packages d’installation du serveur maître cible
 
-[Téléchargez les éléments d’installation du serveur maître cible Linux](https://aka.ms/latestlinuxmobsvc).
+[Téléchargez](https://aka.ms/latestlinuxmobsvc) les éléments d’installation les plus récents du serveur maître cible Linux pour Ubuntu 20.04.
+
+[Téléchargez](https://aka.ms/oldlinuxmobsvc) les éléments d’installation les plus anciens du serveur maître cible Linux pour Ubuntu 16.04.
+
+> [!NOTE]
+> Il est recommandé d’utiliser la dernière version du système d’exploitation Ubuntu pour configurer le serveur cible maître.
 
 Pour le télécharger avec Linux, tapez :
 

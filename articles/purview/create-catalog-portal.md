@@ -1,34 +1,29 @@
 ---
-title: 'Démarrage rapide : Créer un compte Azure Purview dans le portail Azure'
+title: 'Démarrage rapide : Créer un compte Purview dans le portail Azure'
 description: Ce guide de démarrage rapide explique comment créer un compte Azure Purview et configurer des autorisations pour commencer à l’utiliser.
 author: nayenama
 ms.author: nayenama
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 4f0ef5010a0862b1fa5514d83f6570eefa2c4e10
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: c1a8b47df487cb3159ee1ac7492cf5eb04c1dec6
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102530"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217426"
 ---
-# <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Azure Purview dans le portail Azure.
+# <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Azure Purview dans le portail Azure
 
-Azure Purview est un outil de gouvernance unifiée des données qui vous aide à gérer votre paysage de données. Ce guide de démarrage rapide décrit les étapes de création d’un compte Azure Purview dans le portail Azure et la prise en main du processus de classification, de sécurisation et de découverte de vos données dans Purview.
+Ce guide de démarrage rapide décrit les étapes de création d’un compte Azure Purview dans le portail Azure et la prise en main du processus de classification, de sécurisation et de découverte de vos données dans Purview.
 
-## <a name="prerequisites"></a>Prérequis
+Azure Purview est un service de gouvernance de données qui vous aide à gérer et régir votre paysage de données. En vous connectant aux données de vos sources locales, multiclouds et SaaS (software-as-a-service), Purview crée un mappage à jour de vos informations. Il identifie et classe les données sensibles, et fournit un lignage de bout en bout. Les consommateurs de données peuvent découvrir des données au sein de votre organisation, et les administrateurs de données sont en mesure d’auditer, de sécuriser et de garantir l’utilisation appropriée de vos données.
 
-* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Pour plus d’informations sur Purview, [consultez notre page de présentation](overview.md). Pour plus d’informations sur le déploiement de Purview dans votre organisation, [consultez nos bonnes pratiques de déploiement](deployment-best-practices.md).
 
-* Le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être Contributeur ou Propriétaire, ou être administrateur de l’abonnement Azure.
-
-* Votre propre [locataire Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
-
-* Pas de [Stratégies Azure](../governance/policy/overview.md) empêchant la création de **comptes de stockage** ou d’**espaces de noms Event Hub**. Purview déploie un compte Stockage géré et un Event Hub lors de sa création. Si une politique de blocage existe et doit rester en place, veuillez suivre notre [Guide de marquage des exceptions Purview](create-purview-portal-faq.md) pour préparer votre environnement.
+[!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
 ## <a name="create-an-azure-purview-account"></a>Créer un compte Azure Purview
 
@@ -42,7 +37,7 @@ Azure Purview est un outil de gouvernance unifiée des données qui vous aide à
   
       Vous pouvez aussi aller sur la Place de marché, rechercher **Azure Purview**, et sélectionner **Créer**.
 
-     :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Capture d’écran montrant Azure Purview sur la Place de marché Azure, avec le bouton de création en évidence.":::
+     :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Capture d’écran montrant Azure Purview sur la Place de marché Azure, avec le bouton Créer encadré":::
 
 1. Sur la nouvelle page Créer un compte Purview, sous l’onglet **Général**, sélectionnez l’abonnement Azure dans lequel vous souhaitez créer votre compte Purview.
 

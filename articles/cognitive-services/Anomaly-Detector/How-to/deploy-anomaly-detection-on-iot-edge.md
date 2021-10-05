@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0fd02fbdd8f6c02ce86a4e0c1ee3eabec69e56c3
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
+ms.openlocfilehash: 21dd554388616b2cd4882a5a550b4de74f5d9be3
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113296718"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059207"
 ---
 # <a name="deploy-an-anomaly-detector-univariate-module-to-iot-edge"></a>Déployer un module Détecteur d’anomalies univarié sur IoT Edge
 
@@ -58,7 +58,7 @@ Découvrez comment déployer le module Cognitive Services [Détecteur d’anomal
 
 6. Sélectionnez **Update** (Mettre à jour).
 
-7. Sélectionnez **Suivant : Routes** pour définir votre route. Ici, vous spécifiez que tous les messages en provenance de tous les modules sont acheminés à Azure IoT Hub.
+7. Sélectionnez **Suivant : Routes** pour définir votre route. Ici, vous spécifiez que tous les messages en provenance de tous les modules sont acheminés à Azure IoT Hub. Pour savoir comment déclarer un itinéraire, consultez [Établir des itinéraires dans IOT Edge](../../../iot-edge/module-composition.md?view=iotedge-2020-11).
 
 8. Sélectionnez **Suivant : Vérifier + créer**. Ici, vous pouvez afficher un aperçu du fichier JSON qui définit tous les modules déployés sur votre appareil IoT Edge.
     

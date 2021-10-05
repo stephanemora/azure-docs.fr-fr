@@ -1,22 +1,22 @@
 ---
-title: Activité Wait dans Azure Data Factory
+title: Activité d’attente
 titleSuffix: Azure Data Factory & Azure Synapse
-description: L’activité Wait suspend l’exécution du pipeline pendant la période spécifiée.
+description: L’activité d’attente dans Azure Data Factory et Synapse Analytics interrompt l’exécution d’un pipeline pour une période spécifiée.
 author: chez-charlie
 ms.author: chez
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/12/2018
-ms.openlocfilehash: b5f4835be17a28fabe9b8d553226baebef76a6d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: dfc74e9ada7715f9c954123892a93611df7eca9d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641481"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798918"
 ---
-# <a name="execute-wait-activity-in-azure-data-factory"></a>Exécuter l’activité Wait dans Azure Data Factory
+# <a name="execute-wait-activity-in-azure-data-factory-and-synapse-analytics"></a>Exécuter l’activité d’attente dans Azure Data Factory et Synapse Analytics
 Quand vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant la période spécifiée avant de poursuivre l’exécution des activités suivantes. 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -46,7 +46,7 @@ waitTimeInSeconds | Nombre de secondes pendant lesquelles le pipeline attend ava
 ## <a name="example"></a>Exemple
 
 > [!NOTE]
-> Cette section fournit des définitions JSON et des exemples de commandes PowerShell pour exécuter le pipeline. Pour une procédure pas à pas avec des instructions détaillées permettant de créer un pipeline Data Factory en utilisant des définitions JSON et Azure PowerShell, consultez [Didacticiel : créer une fabrique de données avec Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Cette section fournit des définitions JSON et des exemples de commandes PowerShell pour exécuter le pipeline. Pour une procédure pas à pas avec des instructions détaillées permettant de créer un pipeline en utilisant des définitions JSON et Azure PowerShell, consultez [Didacticiel : créer une fabrique de données avec Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-wait-activity"></a>Pipeline avec l’activité Wait
 Dans cet exemple, le pipeline a deux activités : **Until** et **Wait**. L’activité Wait est configurée pour attendre pendant une seconde. Le pipeline exécute l’activité Web dans une boucle avec une attente d’une seconde entre chaque exécution. 
@@ -100,7 +100,7 @@ Dans cet exemple, le pipeline a deux activités : **Until** et **Wait**. L’act
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
+Consultez d’autres activités de flux de contrôle prises en charge : 
 
 - [Activité IfCondition](control-flow-if-condition-activity.md)
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

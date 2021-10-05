@@ -9,12 +9,12 @@ ms.date: 07/30/2021
 ms.topic: reference
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: c58819707eb5987bddeb0d8983c29e7519b69818
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 12252e0bfa9d52da1b70de15b42a0b7014183202
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562788"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794573"
 ---
 # <a name="az-postgres-arc-server"></a>az postgres arc-server
 ## <a name="commands"></a>Commandes
@@ -22,7 +22,7 @@ ms.locfileid: "122562788"
 | --- | --- |
 [az postgres arc-server create](#az-postgres-arc-server-create) | Créer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
 [az postgres arc-server edit](#az-postgres-arc-server-edit) | Modifier la configuration d’un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
-[az postgres arc-server delete](#az-postgres-arc-server-delete) | Supprimer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
+[az postgres arc-server delete](#az-postgres-arc-server-delete) | Supprimer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
 [az postgres arc-server show](#az-postgres-arc-server-show) | Afficher les détails d’un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
 [az postgres arc-server list](#az-postgres-arc-server-list) | Lister les groupes de serveurs PostgreSQL Hyperscale avec Azure Arc.
 [az postgres arc-server endpoint](reference-az-postgres-arc-server-endpoint.md) | Gérer les points de terminaison de groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
@@ -103,13 +103,13 @@ Chemin du fichier JSON source du groupe de serveurs PostgreSQL Hyperscale avec A
 #### `--k8s-namespace -k`
 Espace de noms Kubernetes où le groupe de serveurs PostgreSQL Hyperscale avec Azure Arc est déployé. Si aucun espace de noms n’est spécifié, l’espace de noms défini dans kubeconfig sera utilisé.
 #### `--cores-limit`
-Nombre maximal de cœurs de processeur pour le groupe de serveurs PostgreSQL Hyperscale avec Azure Arc qui peuvent être utilisés par nœud. Les cœurs fractionnels sont pris en charge. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format <role>=<value>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
+Nombre maximal de cœurs de processeur pour le groupe de serveurs PostgreSQL Hyperscale avec Azure Arc qui peuvent être utilisés par nœud. Les cœurs fractionnels sont pris en charge. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format \<role\>=\<value\>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
 #### `--cores-request`
-Nombre minimum de cœurs du processeur qui doivent être disponibles par nœud pour planifier le service. Les cœurs fractionnels sont pris en charge. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format <role>=<value>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
+Nombre minimum de cœurs du processeur qui doivent être disponibles par nœud pour planifier le service. Les cœurs fractionnels sont pris en charge. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format \<role\>=\<value\>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
 #### `--memory-limit`
-Limite de mémoire du groupe de serveurs PostgreSQL Hyperscale avec Azure Arc, sous la forme d’un nombre suivi de Ko (kilo-octets), de Mo (mégaoctets) ou de Go (gigaoctets). Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format <role>=<value>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
+Limite de mémoire du groupe de serveurs PostgreSQL Hyperscale avec Azure Arc, sous la forme d’un nombre suivi de Ko (kilo-octets), de Mo (mégaoctets) ou de Go (gigaoctets). Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format \<role\>=\<value\>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
 #### `--memory-request`
-Demande de mémoire du groupe de serveurs PostgreSQL Hyperscale avec Azure Arc, sous la forme d’un nombre suivi de Ko (kilo-octets), de Mo (mégaoctets) ou de Go (gigaoctets). Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format <role>=<value>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
+Demande de mémoire du groupe de serveurs PostgreSQL Hyperscale avec Azure Arc, sous la forme d’un nombre suivi de Ko (kilo-octets), de Mo (mégaoctets) ou de Go (gigaoctets). Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format \<role\>=\<value\>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
 #### `--storage-class-data`
 Classe de stockage à utiliser pour les volumes persistants de données.
 #### `--storage-class-logs`
@@ -117,7 +117,7 @@ Classe de stockage à utiliser pour les volumes persistants de journaux.
 #### `--storage-class-backups`
 Classe de stockage à utiliser pour les volumes persistants de sauvegarde.
 #### `--volume-claim-mounts`
-Liste de montages de revendications de volume séparés par des virgules. Un montage de revendication de volume est une paire constituée d’une revendication de volume persistant existante (dans le même espace de noms) et du type de volume (et des métadonnées facultatives suivant le type de volume), séparés par le signe deux-points. Le volume persistant est monté dans chaque pod pour le groupe de serveurs PostgreSQL. Le chemin de montage peut dépendre du type de volume.
+Liste de montages de revendications de volume séparés par des virgules. Un montage de revendication de volume est une paire constituée d’une revendication de volume persistant existante (dans le même espace de noms) et du type de volume (et des métadonnées facultatives selon le type de volume), séparés par le signe deux-points. Le volume persistant est monté dans chaque pod pour le groupe de serveurs PostgreSQL. Le chemin de montage peut dépendre du type de volume.
 #### `--extensions`
 Liste séparée par des virgules des extensions Postgres à charger au démarrage. Reportez-vous à la documentation Postgres pour les valeurs prises en charge.
 #### `--volume-size-data`
@@ -218,13 +218,13 @@ Chemin du fichier JSON source du groupe de serveurs PostgreSQL Hyperscale avec A
 #### `--workers -w`
 Nombre de nœuds worker à provisionner dans un groupe de serveurs. En préversion, la réduction du nombre de nœuds worker n’est pas prise en charge. Pour plus de détails, reportez-vous à la documentation.
 #### `--cores-limit`
-Nombre maximal de cœurs de processeur pour le groupe de serveurs PostgreSQL Hyperscale avec Azure Arc qui peuvent être utilisés par nœud. Les cœurs fractionnels sont pris en charge. Pour supprimer la cores_limit, spécifiez sa valeur en tant que chaîne vide. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format <role>=<value>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
+Nombre maximal de cœurs de processeur pour le groupe de serveurs PostgreSQL Hyperscale avec Azure Arc qui peuvent être utilisés par nœud. Les cœurs fractionnels sont pris en charge. Pour supprimer la cores_limit, spécifiez sa valeur en tant que chaîne vide. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format \<role\>=\<value\>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
 #### `--cores-request`
-Nombre minimum de cœurs du processeur qui doivent être disponibles par nœud pour planifier le service ; les cœurs fractionnels sont pris en charge. Pour supprimer la cores_request, spécifiez sa valeur en tant que chaîne vide. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format <role>=<value>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
+Nombre minimum de cœurs du processeur qui doivent être disponibles par nœud pour planifier le service ; les cœurs fractionnels sont pris en charge. Pour supprimer la cores_request, spécifiez sa valeur en tant que chaîne vide. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format \<role\>=\<value\>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
 #### `--memory-limit`
-Limite de mémoire pour le groupe de serveurs PostgreSQL Hyperscale avec Azure Arc, sous la forme d’un nombre suivi de Ko (kilo-octets), de Mo (mégaoctets) ou de Go (gigaoctets). Pour supprimer la memory_limit, spécifiez sa valeur en tant que chaîne vide. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format <role>=<value>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
+Limite de mémoire pour le groupe de serveurs PostgreSQL Hyperscale avec Azure Arc, sous la forme d’un nombre suivi de Ko (kilo-octets), de Mo (mégaoctets) ou de Go (gigaoctets). Pour supprimer la memory_limit, spécifiez sa valeur en tant que chaîne vide. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format \<role\>=\<value\>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
 #### `--memory-request`
-Demande de mémoire pour le groupe de serveurs PostgreSQL Hyperscale avec Azure Arc, sous la forme d’un nombre suivi de Ko (kilo-octets), de Mo (mégaoctets) ou de Go (gigaoctets). Pour supprimer la memory_request, spécifiez sa valeur en tant que chaîne vide. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format <role>=<value>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
+Demande de mémoire pour le groupe de serveurs PostgreSQL Hyperscale avec Azure Arc, sous la forme d’un nombre suivi de Ko (kilo-octets), de Mo (mégaoctets) ou de Go (gigaoctets). Pour supprimer la memory_request, spécifiez sa valeur en tant que chaîne vide. Éventuellement, une liste de rôles séparés par des virgules avec des valeurs peut être spécifiée au format \<role\>=\<value\>. Les rôles valides sont : « coordinateur » ou « c », « worker » ou « w ». Si aucun rôle n’est spécifié, les paramètres s’appliquent à tous les nœuds du groupe de serveurs PostgreSQL Hyperscale.
 #### `--extensions`
 Liste séparée par des virgules des extensions Postgres à charger au démarrage. Reportez-vous à la documentation Postgres pour les valeurs prises en charge.
 #### `--port`
@@ -257,7 +257,7 @@ Nom ou ID de l’abonnement. Vous pouvez configurer l’abonnement par défaut e
 #### `--verbose`
 Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets.
 ## <a name="az-postgres-arc-server-delete"></a>az postgres arc-server delete
-Supprimer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
+Supprimer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
 ```bash
 az postgres arc-server delete --name -n 
                               [--k8s-namespace -k]  
@@ -267,7 +267,7 @@ az postgres arc-server delete --name -n
 [--use-k8s]
 ```
 ### <a name="examples"></a>Exemples
-Supprimer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
+Supprimer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc.
 ```bash
 az postgres arc-server delete -n pg1 --k8s-namespace namespace --use-k8s
 ```

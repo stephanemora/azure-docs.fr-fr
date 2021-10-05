@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Tutoriel permettant de mettre en œuvre un scénario Azure Digital Twins à l’aide d’un exemple d’application en ligne de commande.
 author: baanders
 ms.author: baanders
-ms.date: 6/1/2021
+ms.date: 9/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e795b8d34b46fc3df0e31e12a1de0bccdab74e6a
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 4d75685ce62258c18d3c501ae08acd2678e177a6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252705"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658371"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Tutoriel : Créer un graphe Azure Digital Twins à l’aide d’un exemple d’application cliente
 
@@ -69,11 +69,11 @@ Sélectionnez *Room.json* pour l’ouvrir dans la fenêtre d’édition, puis mo
 
 ### <a name="upload-models-to-azure-digital-twins"></a>Charger des modèles sur Azure Digital Twins
 
-Après avoir conçu les modèles, vous devez les charger sur votre instance Azure Digital Twins. Cela configure votre instance du service Azure Digital Twins avec votre propre vocabulaire de domaine personnalisé. Une fois que vous avez chargé les modèles, vous pouvez créer des instances de jumeau qui les utilisent.
+Après avoir conçu les modèles, vous devez les charger sur votre instance Azure Digital Twins. Cette action configure votre instance du service Azure Digital Twins avec votre propre vocabulaire de domaine personnalisé. Une fois que vous avez chargé les modèles, vous pouvez créer des instances de jumeau qui les utilisent.
 
 1. Après avoir modifié le fichier Room.json dans la section précédente, relancez l’application console.
 
-1. Dans la fenêtre de console du projet, exécutez la commande suivante pour charger votre modèle Room mis à jour, ainsi qu’un modèle Floor que vous utiliserez aussi dans la section suivante pour créer différents types de jumeaux.
+1. Dans la fenêtre de console du projet, exécutez la commande suivante pour charger votre modèle Room mis à jour avec un modèle Floor que vous utiliserez aussi dans la section suivante pour créer différents types de jumeaux.
 
     ```cmd/sh
     CreateModels Room Floor
@@ -81,7 +81,7 @@ Après avoir conçu les modèles, vous devez les charger sur votre instance Azur
     
     La sortie doit indiquer que les modèles ont été créés avec succès.
 
-1. Vérifiez que les modèles ont été créés en exécutant la commande `GetModels true`. Cette opération interroge l’instance Azure Digital Twins pour identifier tous les modèles qui ont été chargés, puis affiche leurs informations complètes. Recherchez le modèle Room modifié dans les résultats :
+1. Vérifiez que les modèles ont été créés en exécutant la commande `GetModels true`. Cette commande affiche toutes les informations pour tous les modèles qui ont été chargés sur votre instance Azure Digital Twins. Recherchez le modèle Room modifié dans les résultats :
 
     :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Capture d’écran du résultat de GetModels, montrant le modèle Room mis à jour." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
@@ -89,13 +89,13 @@ Après avoir conçu les modèles, vous devez les charger sur votre instance Azur
 
 L’exemple d’application gère également les erreurs du service. 
 
-Réexécutez la commande `CreateModels` pour essayer de recharger l’un des modèles que vous venez de charger :
+Réexécutez la commande `CreateModels` pour essayer de recharger l’un des modèles que vous avez chargés :
 
 ```cmd/sh
 CreateModels Room
 ```
 
-Comme les modèles ne peuvent pas être remplacés, une erreur de service est désormais retournée.
+Comme les modèles ne peuvent pas être remplacés, cette commande retourne désormais une erreur de service.
 Pour plus d’informations sur la façon de supprimer des modèles existants, consultez [Gérer des modèles DTDL](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
@@ -132,6 +132,8 @@ Pour créer un jumeau numérique, utilisez la commande `CreateDigitalTwin`. Vous
 
 1. Vous pouvez vérifier que les jumeaux ont été créés en exécutant la commande `Query`. Cette commande interroge votre instance Azure Digital Twins pour obtenir tous les jumeaux numériques qu’elle contient. Recherchez les jumeaux room0, room1, floor0 et floor1 dans les résultats.
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 ### <a name="modify-a-digital-twin"></a>Modifier un jumeau numérique
 
 Vous pouvez également modifier les propriétés d’un jumeau que vous avez créé. 
@@ -160,7 +162,7 @@ Vous pouvez également modifier les propriétés d’un jumeau que vous avez cr�
 
 Ensuite, vous pouvez créer des **relations** entre ces jumeaux, afin de les raccorder sur un [graphe de jumeaux](concepts-twins-graph.md). Les graphes de jumeaux servent à représenter un environnement entier. 
 
-Les types de relations que vous pouvez créer d’un jumeau à un autre sont définis dans les [modèles](#model-a-physical-environment-with-dtdl) que vous avez chargés. La [définition de modèle pour Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) spécifie que les étages peuvent avoir un type de relation nommé *contains*. Cela permet de créer une relation de type *contains* entre chaque jumeau Floor et la pièce correspondante qu’il contient.
+Les types de relations que vous pouvez créer d’un jumeau à un autre sont définis dans les [modèles](#model-a-physical-environment-with-dtdl) que vous avez chargés. La [définition de modèle pour Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) spécifie que les étages peuvent avoir un type de relation nommé *contains*, ce qui permet de créer une relation de type *contains* entre chaque jumeau Floor et la pièce correspondante qu’il contient.
 
 Pour ajouter une relation, utilisez la commande `CreateRelationship`. Spécifiez le jumeau d’où provient la relation, le type de relation, et le jumeau avec lequel la relation établit une connexion. Pour finir, attribuez un ID unique à la relation.
 
@@ -182,7 +184,7 @@ Pour ajouter une relation, utilisez la commande `CreateRelationship`. Spécifiez
     
     :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Capture d’écran d’un extrait du résultat des commandes CreateRelationship, qui comprend relationship0 et relationship1." lightbox="media/tutorial-command-line/app/output-create-relationship.png":::
 
-1. Vous pouvez vérifier les relations avec l’une des commandes suivantes, qui interrogent les relations dans votre instance Azure Digital Twins.
+1. Vous pouvez vérifier les relations avec l’une des commandes suivantes, qui affichent les relations dans votre instance Azure Digital Twins.
     * Pour voir toutes les relations partant de chaque étage (affichage des relations d’un côté) :
         ```cmd/sh
         GetRelationships floor0
@@ -207,6 +209,8 @@ Les jumeaux et les relations que vous avez configurés dans ce tutoriel forment 
 
 L’une des principales fonctionnalités d’Azure Digital Twins est la capacité à [interroger facilement et efficacement](concepts-query-language.md) votre graphe de jumeaux pour répondre à des questions sur votre environnement. 
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 Exécutez les commandes suivantes dans la console de projet en cours d’exécution pour répondre à certaines questions à propos de l’exemple d’environnement.
 
 1. **Quelles sont les entités de mon environnement représentées dans Azure Digital Twins ?** (interroger tout)
@@ -215,11 +219,11 @@ Exécutez les commandes suivantes dans la console de projet en cours d’exécut
     Query
     ```
 
-    Cela vous permet d’évaluer votre environnement en un coup d’œil et de vérifier que tout est représenté comme vous le souhaitez dans Azure Digital Twins. Le résultat est une sortie contenant chaque jumeau numérique avec ses détails. Voici un extrait :
+    Cette commande vous permet d’évaluer votre environnement en un coup d’œil et de vérifier que tout est représenté comme vous le souhaitez dans Azure Digital Twins. Le résultat de cette commande est une sortie contenant chaque jumeau numérique avec ses détails. Voici un extrait :
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Capture d’écran montrant un résultat partiel de la requête de jumeau, qui comprend room0 et floor1.":::
 
-    >[!NOTE]
+    >[!TIP]
     >Dans l’exemple de projet, la commande `Query` sans argument supplémentaire équivaut à `Query SELECT * FROM DIGITALTWINS`. Pour interroger tous les jumeaux dans votre instance à l’aide des [API de requête](/rest/api/digital-twins/dataplane/query) ou des [commandes CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), utilisez la requête la plus longue (complète).
 
 1. **Quelles sont les pièces dans mon environnement ?** (requête par modèle)

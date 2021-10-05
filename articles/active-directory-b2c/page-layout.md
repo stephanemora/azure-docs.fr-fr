@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/25/2021
+ms.date: 09/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa60cf86a8bc59b9eed2adc8ac0ba2cfb89be584
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: b095b0e53b7d9cd76a7bb0cb92258dc9bda34b3d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835609"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588919"
 ---
 # <a name="page-layout-versions"></a>Versions des mises en page
 
@@ -56,6 +56,23 @@ La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèqu
 
 ## <a name="self-asserted-page-selfasserted"></a>Page autodéclarée (selfasserted)
 
+**2.1.8**
+
+- Le nom de la revendication est ajouté à l' `class` attribut de l' `<li>` élément HTML qui entoure les éléments d’entrée d’attribut de l’utilisateur. Le nom de la classe vous permet de créer un sélecteur CSS pour sélectionner le parent `<li>` d’un élément d’entrée d’attribut utilisateur donné. Le balisage HTML suivant montre l’attribut de classe de la page d’inscription :
+  
+  ```html
+  <div id="attributeList" class="attr">
+    <ul>
+      <li class="EmailBox email_li">...</li>
+      <li class="Password newPassword_li">...</li>
+      <li class="Password reenterPassword_li">...</li>
+      <li class="TextBox displayName_li">...</li>
+      <li class="TextBox givenName_li">...</li>
+      <li class="TextBox surname_li">...</li>
+      <li class="TextBox extension_age_li">...</li>
+    </ul>
+  </div>
+  ```
 **2.1.7**
 - Correction d’un problème d’encodage linguistique qui provoque l’échec de la requête.
 - Correction d’un bogue d’accessibilité pour afficher des messages d’erreur inclus uniquement lors de l’envoi d’un formulaire.

@@ -4,15 +4,15 @@ description: Cet article explique comment inscrire une source Oracle dans Azure 
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
-ms.openlocfilehash: a9234a2bcce6a754a96d1f323af9f08a9697ff03
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 1a8956971e48529c75f07db54c196867a6c5955e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725236"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216938"
 ---
 # <a name="register-and-scan-oracle-source"></a>Inscrire et analyser une source Oracle
 
@@ -104,7 +104,7 @@ Dans l’écran **Inscrire des sources (Oracle)** , procédez comme suit :
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1.  Dans le centre d’administration, cliquez sur Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour créer un runtime d’intégration auto-hébergé.
+1.  Dans le centre d’administration, sélectionnez Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour créer un runtime d’intégration auto-hébergé.
 
 2.  Accédez aux **Sources**.
 
@@ -143,11 +143,11 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
 
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="Analyser Oracle" border="true":::
 
-8.  Cliquez sur **Continuer**.
+8.  Sélectionnez **Continuer**.
 
 9.  Choisissez votre **déclencheur d’analyse**. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
 
-10.  Vérifiez votre analyse et cliquez sur **Enregistrer et exécuter**.
+10.  Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Affichage des analyses et des exécutions d’analyse
 

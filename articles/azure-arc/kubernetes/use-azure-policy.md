@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs
-ms.openlocfilehash: 7a6892c4b89128abe698573960b61d08c2ac2f35
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 986af919b4cd61f6f180232598a74561c00a6954
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609627"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799792"
 ---
 # <a name="use-azure-policy-to-apply-gitops-configurations-at-scale"></a>Utiliser Azure Policy pour appliquer des configurations GitOps à grande échelle
 
@@ -74,4 +74,4 @@ Pour les clusters existants, vous devez exécuter manuellement une tâche de cor
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Configurer Azure Monitor pour des conteneurs avec des clusters Kubernetes compatibles avec Azure Arc](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).
+[Configurer Azure Monitor pour des conteneurs incluant des clusters Kubernetes avec Azure Arc](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).

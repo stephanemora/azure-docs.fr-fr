@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 9879b6a5e70af9aff6a2f7a97321f996a8aa209b
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 3c7e455377ab243f8140ac346c6f924a3b04f0d8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033328"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554162"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version serveur 4.0) : fonctionnalités et syntaxe prises en charge
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -313,9 +313,9 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 | $dateToString | Oui |
 | $isoDayOfWeek | Oui |
 | $isoWeek | Oui |
-| $dateFromParts | Non | 
-| $dateToParts | Non |
-| $dateFromString | Non |
+| $dateFromParts | Oui | 
+| $dateToParts | Oui |
+| $dateFromString | Oui |
 | $isoWeekYear | Oui |
 
 ### <a name="conditional-expressions"></a>Expressions conditionnelles
@@ -534,34 +534,8 @@ $polygon | Non |
 
 Lorsque vous utilisez l’opération `findOneAndUpdate`, les opérations de tri sur un champ unique sont prises en charge, mais les opérations à effectuer sur plusieurs champs ne le sont pas.
 
-## <a name="unique-indexes"></a>Index uniques
-
-Les [index uniques](mongodb-indexing.md#unique-indexes) garantissent qu’un champ spécifique ne présente aucune valeur en double dans l’ensemble des documents d’une collection. Cette approche est semblable à la façon dont l’unicité est conservée dans la clé « _id » par défaut. Vous pouvez créer des index uniques dans Azure Cosmos DB à l’aide de la commande `createIndex` avec le paramètre de contrainte `unique` :
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
-{
-    "_t" : "CreateIndexesResponse",
-    "ok" : 1,
-    "createdCollectionAutomatically" : false,
-    "numIndexesBefore" : 1,
-    "numIndexesAfter" : 4
-}
-```
-
-## <a name="compound-indexes"></a>Index composés
-
-Les [index composés](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) permettent de créer un index pour des groupes de huit champs au maximum. Ce type d’index diffère des index composés MongoDB natifs. Dans Azure Cosmos DB, les index composés sont utilisés pour le tri des opérations appliquées à plusieurs champs. Pour créer un index composé, vous devez spécifier plusieurs propriétés en tant que paramètre :
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
-{
-    "createdCollectionAutomatically" : false, 
-    "numIndexesBefore" : 1,
-    "numIndexesAfter" : 2,
-    "ok" : 1
-}
-```
+## <a name="indexing"></a>Indexation
+L’API pour MongoDB [prend en charge un grand nombre d’index](mongodb-indexing.md) pour permettre le tri sur plusieurs champs, améliorer les performances des requêtes et garantir l’unicité.
 
 ## <a name="gridfs"></a>GridFS
 
@@ -605,5 +579,5 @@ Certaines applications utilisent un élément [Write Concern](https://docs.mongo
 - Découvrez comment [utiliser Robo 3T](connect-using-robomongo.md) avec l’API Azure Cosmos DB pour MongoDB.
 - Explorez les [exemples](nodejs-console-app.md) MongoDB avec l’API Azure Cosmos DB pour MongoDB.
 - Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
-    - Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
-    - Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
+    - Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    - Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)

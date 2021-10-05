@@ -3,16 +3,16 @@ title: 'Tutoriel : Nouvelle affectation de stratégie avec le portail Azure'
 description: Dans ce tutoriel, vous allez utiliser le portail Azure pour créer une attribution Azure Policy afin d’identifier les ressources non conformes.
 ms.topic: tutorial
 ms.date: 04/21/2021
-ms.openlocfilehash: be7752b5ccf73269b1e4715fc05c85162b4ea546
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: e1d131c6419fcc0bed866a3334a065e46e399c78
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770340"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807506"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutoriel : Créer une affectation de stratégie pour identifier les ressources non conformes
 
-La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Azure Policy prend en charge l’audit de l’état de votre serveur activé pour Arc avec des stratégies de configuration d’invité. Les définitions de configuration d’invité d’Azure Policy peuvent vérifier ou appliquer des paramètres à l’intérieur de la machine. Ce tutoriel vous guide tout au long du processus de création et d’affectation d’une stratégie, en identifiant les serveurs activés pour Arc où l’agent Log Analytics n’est pas installé.
+La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Azure Policy prend en charge l’audit de l’état de votre serveur avec Azure Arc avec des stratégies de configuration d’invité. Les définitions de configuration d’invité d’Azure Policy peuvent vérifier ou appliquer des paramètres à l’intérieur de la machine. Ce tutoriel vous guide tout au long du processus de création et d’affectation d’une stratégie, en identifiant les serveurs avec Azure Arc où l’agent Log Analytics n’est pas installé.
 
 À la fin de ce processus, vous identifierez correctement les machines sur lesquelles l’agent Log Analytics pour Windows ou Linux n’est pas installé. Elles sont _non conformes_ à l’attribution de stratégie.
 

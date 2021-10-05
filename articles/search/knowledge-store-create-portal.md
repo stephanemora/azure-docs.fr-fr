@@ -8,23 +8,21 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/02/2021
-ms.openlocfilehash: 4e23862e78fb6b3de9dd360ee54bb229c76bc8b4
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: f80a4a5961c0506f423da4d4f1578b8cf8999b51
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537969"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755241"
 ---
 # <a name="quickstart-create-a-knowledge-store-in-the-azure-portal"></a>Démarrage rapide : Créer une base de connaissances dans le portail Azure
 
-La base de connaissances est une fonctionnalité du service Recherche cognitive Azure, qui envoie la sortie d’un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) au Stockage Azure pour analyse ou pour un traitement en aval.
+La [base de connaissances](knowledge-store-concept-intro.md) est une fonctionnalité du service Recherche cognitive Azure, qui envoie la sortie d’un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) au Stockage Azure. Les enrichissements créés par le pipeline (tels que le texte traduit, le texte OCR, les entités reconnues et d’autres enrichissements) sont projetés dans des tables ou des objets blob, où les applications ou charges de travail qui se connectent au Stockage Azure peuvent y accéder.
 
-Un pipeline d’enrichissement accepte du contenu texte et image non structuré, applique un traitement à base d’IA effectué par Cognitive Services, et produit de nouvelles structures et informations qui n’existaient pas auparavant. Une des structures de données physiques créées par un pipeline est une [base de connaissances](knowledge-store-concept-intro.md), à laquelle vous pouvez accéder via n’importe quel outil, application ou processus qui se connecte au Stockage Azure.
-
-Dans ce guide de démarrage rapide, vous allez configurer vos données, puis exécuter l’Assistant **Importation de données** pour créer un pipeline d’enrichissement qui génère aussi une base de connaissances. La base de connaissances contient le contenu texte d’origine extrait de la source, plus le contenu généré par l’IA, qui comprend une étiquette de sentiment, l’extraction des expressions clés et la traduction texte des commentaires des clients non anglophones.
+Dans ce guide de démarrage rapide, vous allez configurer vos données, puis exécuter l’Assistant **Importation de données** pour créer un pipeline d’enrichissement qui génère aussi une base de connaissances. La base de connaissances contient le contenu texte d’origine extrait de la source (évaluations d’un hôtel par les clients), plus le contenu généré par l’IA, qui comprend une étiquette de sentiment, l’extraction d’expressions clés et la traduction textuelle des commentaires des clients non francophones.
 
 > [!NOTE]
-> Ce guide de démarrage rapide est le moyen le plus rapide d’obtenir une base de connaissances finalisée dans le Stockage Azure. Pour des informations plus détaillées, consultez [Créer une base de connaissances dans REST](knowledge-store-create-rest.md).
+> Ce guide de démarrage rapide vous montre le chemin le plus rapide vers une base de connaissances finalisée dans le Stockage Azure. Pour obtenir des explications plus détaillées de chaque étape, consultez plutôt [Créer une base de connaissances dans REST](knowledge-store-create-rest.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -161,27 +159,19 @@ Dans la page **Vue d’ensemble**, ouvrez l’onglet **Indexeurs** au milieu de 
 
 Dans le portail Azure, passez à votre compte de stockage Azure et utilisez l’**Explorateur Stockage** pour visualiser les nouvelles tables. Vous devez voir trois tables, une pour chaque projection proposée dans la section « Enregistrer les enrichissements » de la page « Ajouter des enrichissements ».
 
-+ La table des documents contient tous les nœuds de premier niveau de l’arborescence d’enrichissement d’un document.
++ `hotelReviewssDocument` contient tous les nœuds de premier niveau de l’arborescence d’enrichissement d’un document, qui ne sont pas des collections.
 
-+ Une table de pages (ou une table de phrases) est créée si vous spécifiez le niveau de précision « pages » ou « phrases ». Les compétences qui s’exécutent au niveau des pages ou de la phrase auront une sortie projetée dans cette table.
++ `hotelReviewssPages` contient des champs enrichis créés sur chaque page ayant été séparée du document. Les enrichissements au niveau de la page sont constitués d’une étiquette de sentiment et de texte traduit. Une table de pages (ou une table de phrases si vous spécifiez ce niveau de granularité particulier) est créée lorsque vous choisissez la granularité « pages » dans la définition des compétences. Les compétences qui s’exécutent au niveau des pages ou de la phrase auront une sortie projetée dans cette table.
 
-+ Les compétences qui produisent des collections (tableaux), comme des expressions et des entités clés, auront une sortie dans une table autonome.
++ `hotelReviewssKeyPhrases` contient une longue liste des expressions clés extraites de toutes les évaluations. La sortie des compétences qui génèrent en sortie des collections (tableaux), comme les expressions clés et les entités, est envoyée vers une table autonome.
 
-Toutes les tables au sein du même groupe de projection contiennent des informations de référence croisée pour prendre en charge les relations entre les tables dans d’autres outils et applications.
+Toutes ces tables contiennent des colonnes d’ID pour prendre en charge les relations entre tables dans d’autres outils et applications. Quand vous ouvrez une table, faites défiler au-delà de ces champs pour voir les champs de contenu ajoutés par le pipeline.
 
 Dans ce guide de démarrage rapide, votre table doit être similaire à la capture d’écran suivante :
 
    :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Capture d’écran des tables générées dans l’Explorateur Stockage" border="true":::
 
-Chaque table est générée avec les ID nécessaires à la liaison croisée des tables dans les requêtes. Quand vous ouvrez une table, faites défiler au-delà de ces champs pour voir les champs de contenu ajoutés par le pipeline.
-
-| Table de charge de travail | Description |
-|-------|-------------|
-| hotelReviewssDocument | Contient des champs provenant du fichier CSV, comme reviews_date et reviews_text. |
-| hotelReviewssPages | Contient des champs enrichis créés par l’ensemble de compétences, comme l’étiquette de sentiment et le texte traduit. |
-| hotelReviewssKeyPhrases | Contient une longue liste des expressions clés uniquement. |
-
-## <a name="clean-up"></a>Nettoyer
+## <a name="clean-up"></a>Nettoyage
 
 Lorsque vous travaillez dans votre propre abonnement, il est judicieux à la fin d’un projet de déterminer si vous avez encore besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 

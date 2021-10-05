@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 06/10/2020
-ms.openlocfilehash: 8c0cba39c2fe299a2cc822309b0063d2d4fe2f71
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.date: 09/27/2021
+ms.openlocfilehash: ff4600cd1b107fb041123191f80f9da4f50af5ac
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113431516"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081171"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Service de détection d’anomalie pour la facturation à l’usage
 
@@ -67,7 +67,26 @@ Si l’un des cas suivants s’applique, vous pouvez ajuster le montant d’util
 
 Pour envoyer un ticket de support lié à des anomalies de facturation mesurée :
 
-1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290) à l’aide de votre compte professionnel.
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home) à l’aide de votre compte professionnel.
+1. Sur la page d’accueil, sélectionnez la vignette **Aide + Support**.
+
+    [ ![Vignette Aide et support sur la page d’accueil de l’Espace partenaires.](../media/workspaces/partner-center-help-support-tile.png) ](../media/workspaces/partner-center-help-support-tile.png#lightbox)
+
+1. Sous **Mes demandes de support**, sélectionnez **+ Nouvelle demande**.
+1. Dans la zone **Résumé du problème**, entrez **Facturation mesurée**.
+1. Dans la zone **Type de problème**, sélectionnez l’une des options suivantes :
+    - **Place de marché commerciale > Facturation mesurée > Chiffres d’utilisation incorrects envoyés pour l’offre Applications Azure**
+    - **Place de marché commerciale > Facturation mesurée > Chiffres d’utilisation incorrects envoyés pour une offre SaaS**
+1. Sous **Étape suivante**, sélectionnez **Passer les solutions en revue**.
+1. Passez en revue les documents recommandés éventuels ou sélectionnez **Fournir les détails du problème** pour envoyer un ticket de support.
+
+Pour plus d’options de support à destination des éditeurs, consultez [Support technique pour le programme du marketplace commercial dans Espace partenaires](../support.md).
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home) à l’aide de votre compte professionnel.
 1. Dans le menu en haut à droite de la page, sélectionnez l’icône **Support**. Le volet **Aide et support** s’affiche sur le côté droit de la page.
 1. Pour obtenir de l’aide concernant le marketplace commercial, sélectionnez **Marketplace commercial**.
    ![Illustre le volet de support.](../media/support/commercial-marketplace-support-pane.png)
@@ -79,6 +98,8 @@ Pour envoyer un ticket de support lié à des anomalies de facturation mesurée�
 1. Passez en revue les documents recommandés éventuels ou sélectionnez **Fournir les détails du problème** pour envoyer un ticket de support.
 
 Pour plus d’options de support à destination des éditeurs, consultez [Support technique pour le programme du marketplace commercial dans Espace partenaires](../support.md).
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,15 +6,15 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 08/24/2021
+  ms.date: 09/07/2021
   ms.author: alkohli
   ms.subservice: common
-  ms.openlocfilehash: bfdbb966783e4f95945933c074265d8c45ee1f61
-  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+  ms.openlocfilehash: 7a4344ed0aa7346d3c87d36d96e4772c08080327
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/25/2021
-  ms.locfileid: "122867608"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124763554"
 title: 'Service Azure Import/Export : Questions fréquentes (FAQ)'
 summary: >
   Vous trouverez ci-dessous des questions et réponses relatives à l’utilisation du service Azure Import/Export pour le transfert de données vers le Stockage Azure.
@@ -88,18 +88,7 @@ sections:
       Mettez uniquement vos disques durs dans le colis à expédier. N’incluez pas d’accessoires tels que des câbles d’alimentation ou USB.
   - question: >
       Dois-je expédier mes disques par FedEx ou DHL ?
-    answer: >
-      Vous pouvez expédier des disques au centre de données Azure en faisant appel à n’importe quel transporteur connu, par exemple FedEx, DHL, UPS ou La Poste. Toutefois, pour la réexpédition de disques depuis le centre de données, vous devez fournir :
-
-
-      - Un numéro de compte FedEx aux États-Unis et dans l’UE, ou
-
-      - Un numéro de compte DHL en Asie et en Australie
-
-
-      > [!NOTE]
-
-      > Les centres de données en Inde exigent une lettre de déclaration sur papier à en-tête au nom de votre organisation (bon de livraison connu sous le nom de « challan ») pour le renvoi des disques. Pour obtenir le laissez-passer obligatoire, vous devez aussi organiser l’enlèvement avec le transporteur choisi et partager les détails avec le centre de données.
+    answer: "Vous pouvez expédier des disques au Centre de données Azure en faisant appel à n’importe quel transporteur. Nous vous recommandons d’utiliser FedEx, DHL ou UPS. Si vous utilisez les services postaux américains, notez que l’appareil sera livré à l’agence la plus proche et non au centre de données, ce qui peut entraîner des retards importants.\n\nPour la réexpédition de disques depuis le centre de données, vous devez fournir : \n\n- Un numéro de compte FedEx aux États-Unis et dans l’UE, ou\n- Un numéro de compte DHL en Asie et en Australie\n\n> [!NOTE]\n> Les centres de données en Inde exigent une lettre de déclaration sur papier à en-tête au nom de votre organisation (bon de livraison connu sous le nom de « challan ») pour le renvoi des disques. Pour obtenir le laissez-passer obligatoire, vous devez aussi organiser l’enlèvement avec le transporteur choisi et partager les détails avec le centre de données.\n    \n"
   - question: >
       Existe-t-il des restrictions concernant l’expédition et le retour de mon disque à l’étranger ?
     answer: >

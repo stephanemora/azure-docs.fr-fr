@@ -7,23 +7,23 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 3a8a235e204826c26f20cc146003e9290331fe07
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.date: 09/08/2021
+ms.openlocfilehash: 082ece269fa0e07419ff44c736fdeb19aaf30bdc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091534"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735337"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Ajouter des analyseurs de langue à des champs de chaîne dans l’index de Recherche cognitive Azure
 
-Un *analyseur linguistique* est un type spécifique d’[analyseur de texte](search-analyzers.md) qui effectue une analyse lexicale selon les règles linguistiques de la langue cible. Chaque champ pouvant faire l’objet d’une recherche dispose d’une propriété **analyzer**. Si votre contenu est constitué de chaînes traduites, par exemple des champs distincts pour le texte en anglais et le texte en chinois, vous pouvez spécifier des analyseurs linguistiques sur chaque champ pour accéder aux riches fonctionnalités linguistiques de ces analyseurs.
+Un *analyseur linguistique* est un type spécifique d’[analyseur de texte](search-analyzers.md) qui effectue une analyse lexicale selon les règles linguistiques de la langue cible. Chaque champ de chaîne pouvant faire l’objet d’une recherche dispose d’une propriété **analyzer**. Si votre contenu est constitué de chaînes traduites, par exemple des champs distincts pour le texte en anglais et le texte en chinois, vous pouvez spécifier des analyseurs linguistiques sur chaque champ pour accéder aux riches fonctionnalités linguistiques de ces analyseurs.
 
 ## <a name="when-to-use-a-language-analyzer"></a>Quand utiliser un analyseur linguistique ?
 
 Vous devez envisager le recours à un analyseur linguistique quand la reconnaissance de la structure des mots ou des phrases ajoute de la valeur à l’analyse du texte. Un exemple courant est l’association de formes de verbes irréguliers (« bring » et « brought ») ou de noms au pluriel (« mice » et « mouse »). Sans reconnaissance linguistique, ces chaînes sont analysées uniquement sur des caractéristiques physiques, et l’association n’est pas détectée. Étant donné que les grands segments de texte sont plus susceptibles de présenter ce contenu, les champs composés de descriptions, d’évaluations ou de résumés sont de bons candidats pour un analyseur linguistique.
 
-Vous devez également prendre en compte le recours aux analyseurs linguistiques quand le contenu est constitué de chaînes en langue non occidentale. Bien que l’[analyseur par défaut](search-analyzers.md#default-analyzer) soit indépendant de la langue, le concept d’utilisation d’espaces et de caractères spéciaux (traits d’union et barres obliques) pour séparer les chaînes tend à s’appliquer davantage aux langues occidentales qu’aux autres. 
+Vous devez également prendre en compte le recours aux analyseurs linguistiques quand le contenu est constitué de chaînes en langue non occidentale. Bien que l’[analyseur par défaut (Standard Lucene)](search-analyzers.md#default-analyzer) soit indépendant de la langue, le concept d’utilisation d’espaces et de caractères spéciaux (traits d’union et barres obliques) pour séparer les chaînes s’applique davantage aux langues occidentales qu’aux autres. 
 
 Par exemple, en chinois, japonais, coréen (CJK) et d’autres langues asiatiques, un espace n’est pas nécessairement un délimiteur de mots. Prenons la chaîne suivante en japonais. Étant donné qu’il n’y a pas d’espace, un analyseur indépendant de la langue analysera probablement la chaîne entière comme un seul jeton, alors qu’il s’agit en fait d’une phrase.
 
@@ -54,9 +54,17 @@ L’analyseur par défaut est Lucene Standard, qui fonctionne bien pour l’angl
 
 ## <a name="how-to-specify-a-language-analyzer"></a>Comment spécifier un analyseur de langage
 
-Définissez un analyseur de langage sur les champs de type Edm.String pouvant faire l’objet d’une recherche durant leur définition.
+Définissez l’analyseur lors de la création de l’index avant qu’il ne soit chargé avec les données.
 
-Bien que les définitions de champs comptent plusieurs propriétés liées à l’analyse, seule la propriété « analyzer » peut être utilisée pour des analyseurs de langage. La valeur de « analyzer » doit être l’un des analyseurs de langage figurant dans la liste des analyseurs pris en charge.
+1. Dans la définition de champ, vérifiez que le champ est attribué avec la valeur « pouvant faire l’objet d’une recherche » et qu’il est de type Edm.String.
+
+1. Définissez la propriété « analyzer » sur l’un des analyseurs de langue de la [liste des analyseurs pris en charge](#language-analyzer-list).
+
+   La propriété « analyzer » est la seule propriété qui accepte un analyseur de langue, et elle est utilisée à la fois pour l’indexation et les requêtes. Les autres propriétés associées à l’analyseur (« searchAnalyzer » et « indexAnalyzer ») n’acceptent pas un analyseur de langue.
+
+Les analyseurs de langue ne peuvent pas être personnalisés. Si un analyseur ne répond pas à vos besoins, vous pouvez essayer de créer un [analyseur personnalisé](cognitive-search-working-with-skillsets.md) avec microsoft_language_tokenizer ou microsoft_language_stemming_tokenizer, et d’ajouter des filtres pour le traitement avant et après segmentation du texte en unités lexicales.
+
+L’exemple suivant illustre une spécification de l’analyseur de langue dans un index :
 
 ```json
 {

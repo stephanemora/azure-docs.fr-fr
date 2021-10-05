@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 07/19/2021
-ms.openlocfilehash: 4a7fdf12ecf123c1fb741dcbd2706f7ca9a1d5c2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/15/2021
+ms.openlocfilehash: ce9de190c5754102b9ac66602818b25e960ae8dd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524439"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570252"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Superviser Azure AD B2C avec Azure Monitor
 
@@ -34,6 +34,10 @@ Dans cet article, vous allez apprendre à transférer les journaux vers un espac
 
 > [!IMPORTANT]
 > Lorsque vous envisagez de transférer des journaux Azure AD B2C vers différentes solutions de surveillance ou vers le référentiel, prenez en compte les éléments suivants. Les journaux Azure AD B2C contiennent des données personnelles. Ces données doivent être traitées de manière à garantir une sécurité appropriée des données personnelles, y compris la protection contre un traitement non autorisé ou illégal, en utilisant des mesures techniques ou organisationnelles appropriées.
+
+Regardez cette vidéo pour apprendre à configurer la surveillance pour Azure AD B2C à l'aide d'Azure Monitor.  
+
+>[!Video https://www.youtube.com/embed/tF2JS6TGc3g]
 
 ## <a name="deployment-overview"></a>Vue d’ensemble du déploiement
 
@@ -60,7 +64,8 @@ En résumé, vous allez utiliser Azure Lighthouse pour permettre à un utilisate
 Tout d’abord, créez ou choisissez un groupe de ressources qui contient l’espace de travail Log Analytics de destination qui recevra les données d’Azure AD B2C. Spécifiez le nom du groupe de ressources lorsque vous déployez le modèle Azure Resource Manager.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre **locataire Azure AD**.
+1. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. [Créez un groupe de ressources](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) ou utilisez un groupe existant. Cet exemple utilise un groupe de ressources nommé _azure-ad-b2c-monitor_.
 
 ## <a name="2-create-a-log-analytics-workspace"></a>2. Créer un espace de travail Log Analytics
@@ -68,7 +73,8 @@ Tout d’abord, créez ou choisissez un groupe de ressources qui contient l’es
 Un **espace de travail Log Analytics** est un environnement unique pour les données de journal d’activité Azure Monitor. Vous utiliserez cet espace de travail Log Analytics pour collecter des données à partir des [journaux d’audit](view-audit-logs.md) Azure AD B2C, puis pour les visualiser avec des requêtes et des classeurs ou pour créer des alertes.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre **locataire Azure AD**.
+1. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. [Créez un espace de travail Log Analytics](../azure-monitor/logs/quick-create-workspace.md). Cet exemple utilise un espace de travail Log Analytics nommé _AzureAdB2C_, dans un groupe de ressources nommé _azure-ad-b2c-monitor_.
 
 ## <a name="3-delegate-resource-management"></a>3. Gestion des ressources déléguées
@@ -80,7 +86,8 @@ Au cours de cette étape, vous choisissez votre locataire Azure AD B2C en tant q
 Commencez par obtenir l’**ID de locataire** de votre annuaire Azure AD B2C (également appelé ID d’annuaire).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire **Azure AD B2C**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sélectionnez **Azure Active Directory**, puis **Vue d’ensemble**.
 1. Enregistrez l’**ID de locataire**.
 
@@ -101,12 +108,13 @@ Pour faciliter la gestion, nous vous recommandons d’utiliser des _groupes_ d�
 Pour créer l’autorisation et la délégation personnalisées dans Azure Lighthouse, nous utilisons un modèle Resource Manager qui accorde l’accès Azure AD B2C au groupe de ressources Azure AD que vous avez créé précédemment (par exemple, _azure-ad-b2c-monitor_). Déployez le modèle à partir de l’exemple GitHub à l’aide du bouton **Déployer sur Azure**, qui ouvre le portail Azure et vous permet de configurer et de déployer le modèle directement dans le portail. Pour cette procédure, assurez-vous que vous êtes connecté à votre locataire Azure AD (et non au locataire Azure AD B2C).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire **Azure AD**.
-3. Le bouton **Déployer sur Azure** permet d’ouvrir le portail Azure et de déployer le modèle directement dans le portail. Pour plus d’informations, consultez [Créer un modèle Azure Resource Manager](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
+1. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Le bouton **Déployer sur Azure** permet d’ouvrir le portail Azure et de déployer le modèle directement dans le portail. Pour plus d’informations, consultez [Créer un modèle Azure Resource Manager](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
 
    [![Déployer sur Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
-4. Sur la page **Déploiement personnalisé**, entrez les informations suivantes :
+1. Sur la page **Déploiement personnalisé**, entrez les informations suivantes :
 
    | Champ                 | Définition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
    | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -137,15 +145,10 @@ Une fois le modèle déployé, quelques minutes peuvent être nécessaires (gén
 Une fois que vous avez déployé le modèle et patienté quelques minutes pour que la projection des ressources s’effectue, procédez comme suit pour associer votre abonnement à votre annuaire Azure AD B2C.
 
 1. Déconnectez-vous du portail Azure si vous êtes actuellement connecté (cela permet l’actualisation des informations d’identification de votre session à l’étape suivante).
-2. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte d’administrateur **Azure AD B2C**. Ce compte doit être membre du groupe de sécurité que vous avez spécifié à l’étape [Gestion des ressources déléguées](#3-delegate-resource-management) .
-3. Sélectionnez l’icône **Répertoire + abonnement** dans la barre d’outils du portail.
-4. Sélectionnez l’annuaire Azure AD qui contient l’abonnement Azure et le groupe de ressources _azure-ad-b2c-monitor_ que vous avez créé.
-
-   ![Changer d’annuaire](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
-
-5. Vérifiez que vous avez sélectionné l’annuaire et l’abonnement appropriés. Dans cet exemple, tous les annuaires et tous les abonnements sont sélectionnés.
-
-   ![Option Tous les annuaires sélectionnée dans le filtre Annuaire et abonnement](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte d’administrateur **Azure AD B2C**. Ce compte doit être membre du groupe de sécurité que vous avez spécifié à l’étape [Gestion des ressources déléguées](#3-delegate-resource-management) .
+1. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Dans les **paramètres du portail | Répertoires + abonnements** , dans la liste **nom du répertoire** , recherchez votre répertoire Azure ad qui contient l’abonnement Azure et le groupe de ressources _Azure-ad-B2C-Monitor_ que vous avez créé, puis sélectionnez **basculer**.
+1. Vérifiez que vous avez sélectionné l’annuaire et l’abonnement appropriés.
 
 ## <a name="5-configure-diagnostic-settings"></a>5. Configurer les paramètres de diagnostic
 
@@ -164,7 +167,8 @@ Vous êtes maintenant prêt à [créer des paramètres de diagnostic](../active-
 Pour configurer les paramètres de supervision des journaux d’activité Azure AD B2C :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre compte d’administrateur Azure AD B2C. Ce compte doit être membre du groupe de sécurité que vous avez spécifié à l’étape [Sélectionnez un groupe de sécurité](#32-select-a-security-group).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sélectionnez **Azure Active Directory**.
 1. Sous **Supervision**, sélectionnez **Paramètres de diagnostic**.
 1. Si des paramètres sont définis pour la ressource, la liste des paramètres configurés s’affiche. Sélectionnez **Ajouter un paramètre de diagnostic** pour ajouter un paramètre ou **Modifier** pour modifier un paramètre existant. Chaque paramètre ne peut pas avoir plus d’un type de destination.

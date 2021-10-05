@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 1d0459e8ac0002f69ac0e4d33a921bd64fc385d5
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 2d02399daf6a7ea56c41f936544697f9df91a62c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533114"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601270"
 ---
 # <a name="azure-storage-migration-overview"></a>Présentation de la migration de données Stockage Azure
 
@@ -53,8 +53,7 @@ La phase d’évaluation est essentielle pour comprendre les options disponibles
 |--------------------------------------------|----------------------------------------------------------------------------------|
 | **Choisir un service de stockage cible**            | - Stockage Blob Azure et Data Lake Storage<br>- Azure Files<br>- Azure NetApp Files<br>- Solutions pour fournisseur de logiciel indépendant |
 | **Choisir une méthode de migration**                  | - En ligne<br>- Hors connexion<br> - Combinaison des deux                                  |
-| **Choisir le meilleur outil de migration pour cette tâche** | - Outils disponibles à l’achat (auprès de Microsoft Azure ou d’un fournisseur de logiciel indépendant)<br> - Open source                             
-
+| **Choisir le meilleur outil de migration pour cette tâche** | - Outils disponibles à l’achat (auprès de Microsoft Azure ou d’un fournisseur de logiciel indépendant)<br> - Open source
 
 Il existe plusieurs outils disponibles à l’achat, auprès d’un fournisseur de logiciel indépendant, capable de vous aider lors de la phase d’évaluation. Consultez notre [tableau comparatif](../solution-integration/validated-partners/data-management/migration-tools-comparison.md).
 
@@ -116,7 +115,9 @@ La durée de la migration des données non structurées dépend de plusieurs asp
 
 La migration des appareils basés sur des blocs s’effectue généralement dans le cadre d’une migration d’ordinateur virtuel ou d’hôte physique. C’est une erreur courante de repousser toute prise de décision concernant le stockage de bloc jusqu’à avoir effectué la migration. En effet, prendre ces décisions à l’avance en prenant en considération les exigences relatives à chaque charge de travail facilite la migration vers le cloud.
 
-Pour savoir quelles sont les charges de travail à migrer et connaître l’approche à adopter pour leur migration, consultez [cet article de la documentation](../../virtual-machines/disks-types.md), ainsi que les ressources disponibles sur la [page du produit Stockage sur disque Azure](https://azure.microsoft.com/services/storage/disks/#resources). Vous pourrez ainsi savoir quels disques peuvent répondre à vos besoins et vous tenir informé sur les dernières fonctionnalités disponibles, comme le [bursting de disque](../../virtual-machines/disk-bursting.md). Pour plus d’informations sur la migration des machines virtuelles avec les appareils sous-jacents basés sur des blocs, consultez la documentation [Azure Migrate](../../migrate/index.yml) .
+Pour savoir quelles sont les charges de travail à migrer et connaître l’approche à adopter pour leur migration, consultez [cet article de la documentation](../../virtual-machines/disks-types.md), ainsi que les ressources disponibles sur la [page du produit Stockage sur disque Azure](https://azure.microsoft.com/services/storage/disks/#resources). Vous pourrez ainsi savoir quels disques peuvent répondre à vos besoins et vous tenir informé sur les dernières fonctionnalités disponibles, comme le [bursting de disque](../../virtual-machines/disk-bursting.md). La migration des dispositifs à base de blocs peut se faire de deux manières ::
+- Pour la migration de machines virtuelles complètes avec les dispositifs à base de blocs sous-jacents, voir la documentation [Azure Migrate](../../migrate/index.yml).
+- Pour la migration d'appareils basés sur des blocs uniquement, et pour des cas d'utilisation plus complexes, utilisez [Cirrus Migrate Cloud](../solution-integration/validated-partners/data-management/cirrus-data-migration-guide.md).
 
 ## <a name="see-also"></a>Voir aussi
 

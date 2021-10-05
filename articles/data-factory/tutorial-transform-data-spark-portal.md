@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: nabhishek
 ms.author: abnarain
 ms.date: 06/07/2021
-ms.openlocfilehash: b417b4bb45c4c5ace4985c2bcf221dcd998896de
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 22b6aad6d57fd2dc6e53313ea65a1813781ead9f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726828"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769671"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformer des données dans le cloud à l’aide d’une activité Spark dans Azure Data Factory
 
@@ -85,14 +85,14 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Sélectionnez **Nouveau** dans le menu de gauche, sélectionnez **Données + Analytique**, puis **Data Factory**. 
    
-   ![Sélection Data Factory dans le volet « Nouveau »](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png" alt-text="Sélection de Data Factory dans le volet &quot;Nouveau&quot;":::
 1. Dans le volet **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** sous **Nom**. 
       
-   ![Page « Nouvelle fabrique de données »](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png" alt-text="Volet &quot;Nouvelle fabrique de données&quot;":::
  
    Le nom de la fabrique de données Azure doit être un nom *global unique*. Si vous voyez l’erreur suivante, modifiez le nom de la fabrique de données. Par exemple, utilisez **&lt;votrenom&gt;ADFTutorialDataFactory**. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour en savoir plus sur les règles d’affectation des noms d’artefacts Data Factory.
   
-   ![Erreur quand le nom n’est pas disponible](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/name-not-available-error.png" alt-text="Erreur quand le nom n’est pas disponible":::
 1. Pour **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous voulez créer la fabrique de données. 
 1. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
      
@@ -109,7 +109,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 1. Une fois la création terminée, la page **Data Factory** s’affiche. Sélectionnez la vignette **Créer et surveiller** pour démarrer l’application d’interface utilisateur (IU) de Data Factory dans un onglet séparé.
 
-    ![Page d’accueil de la fabrique de données, avec la vignette « Créer et surveiller »](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
+    :::image type="content" source="./media/tutorial-transform-data-spark-portal/data-factory-home-page.png" alt-text="Page d’accueil de la fabrique de données, avec la vignette &quot;Créer et superviser&quot;":::
 
 ## <a name="create-linked-services"></a>Créez des services liés
 Vous créez deux services liés dans cette section : 
@@ -121,17 +121,17 @@ Vous créez deux services liés dans cette section :
 
 1. Dans la page d’accueil, basculez vers l’onglet **Gérer** dans le volet gauche. 
 
-   ![Capture d’écran montrant l’onglet Gérer.](media/doc-common-process/get-started-page-manage-button.png)
+   :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Capture d’écran montrant l’onglet Gérer.":::
 
 1. Cliquez sur **Connexions** au bas de la fenêtre, puis cliquez sur **+ Nouveau**. 
 
-   ![Boutons pour la création d’une nouvelle connexion](./media/tutorial-transform-data-spark-portal/new-connection.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-connection.png" alt-text="Boutons pour la création d’une nouvelle connexion":::
 1. Dans la fenêtre **Nouveau service lié**, sélectionnez **Magasin de données** > **Stockage Blob Azure**, puis cliquez sur **Continuer**. 
 
-   ![Sélectionner la vignette « Stockage Blob Azure »](./media/tutorial-transform-data-spark-portal/select-azure-storage.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/select-azure-storage.png" alt-text="Sélectionner la vignette &quot;Stockage Blob Azure&quot;":::
 1. Pour **Nom du compte de stockage**, sélectionnez le nom dans la liste, puis cliquez sur **Enregistrer**. 
 
-   ![Zone pour spécifier le nom du compte de stockage](./media/tutorial-transform-data-spark-portal/new-azure-storage-linked-service.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-azure-storage-linked-service.png" alt-text="Zone pour spécifier le nom du compte de stockage":::
 
 
 ### <a name="create-an-on-demand-hdinsight-linked-service"></a>Créer un service lié HDInsight à la demande
@@ -139,7 +139,7 @@ Vous créez deux services liés dans cette section :
 1. Cliquez de nouveau sur le bouton **+ Nouveau** pour créer un nouveau service lié. 
 1. Dans la fenêtre **Nouveau service lié**, sélectionnez **Calcul** > **Azure HDInsight**, puis cliquez sur **Continuer**. 
 
-   ![Sélectionner la vignette « Azure HDInsight »](./media/tutorial-transform-data-spark-portal/select-azure-hdinsight.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/select-azure-hdinsight.png" alt-text="Sélectionner la vignette &quot;Azure HDInsight&quot;":::
 1. Dans la fenêtre **Nouveau service lié**, procédez comme suit : 
 
    a. Entrez **AzureHDInsightLinkedService** pour le **Nom**.
@@ -166,7 +166,7 @@ Vous créez deux services liés dans cette section :
    
    k. Sélectionnez **Terminer**. 
 
-   ![Paramètres du service lié HDInsight](./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png" alt-text="Paramètres du service lié HDInsight":::
 
 > [!NOTE]
 > Azure HDInsight présente une limite relative au nombre total de cœurs que vous pouvez utiliser dans chaque région Azure prise en charge. Pour le service lié HDInsight à la demande, le cluster HDInsight est créé au même emplacement de stockage Azure que celui utilisé comme stockage principal. Vérifiez que vous disposez des quotas de cœurs suffisants pour pouvoir créer le cluster avec succès. Pour plus d’informations, reportez-vous à l’article [Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). 
@@ -175,39 +175,39 @@ Vous créez deux services liés dans cette section :
 
 1. Cliquez sur le bouton **+** (plus), puis sélectionnez **Pipeline** dans le menu.
 
-   ![Boutons pour créer un nouveau pipeline](./media/tutorial-transform-data-spark-portal/new-pipeline-menu.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/new-pipeline-menu.png" alt-text="Boutons pour créer un nouveau pipeline":::
 1. Dans la boîte à outils **Activités**, étendez le **HDInsight**. Faites glisser l’activité **Spark** depuis la boîte à outils **Activités** vers la surface du concepteur de pipeline. 
 
-   ![Faire glisser l’activité Spark](./media/tutorial-transform-data-spark-portal/drag-drop-spark-activity.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/drag-drop-spark-activity.png" alt-text="Faire glisser l’activité Spark":::
 1. Dans les propriétés de la fenêtre d’activité **Spark** en bas, procédez comme suit : 
 
    a. Basculez vers l’onglet **Cluster HDI**.
    
    b. Sélectionnez **AzureHDInsightLinkedService** créé lors de la procédure précédente. 
         
-   ![Spécifier le service lié HDInsight](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png" alt-text="Spécifier le service lié HDInsight":::
 1. Basculez vers l’onglet **Script/Jar**, et procédez comme suit : 
 
    a. Sélectionnez **AzureBlobStorage1** pour **Service lié au travail**.
    
    b. Cliquez sur **Parcourir le stockage**.
 
-   ![Spécifier le script Spark dans l’onglet « Script/Jar »](./media/tutorial-transform-data-spark-portal/specify-spark-script.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/specify-spark-script.png" alt-text="Spécifier le script Spark dans l’onglet &quot;Script/Jar&quot; tab":::
    
    c. Accédez au dossier **adftutorial/spark/script**, sélectionnez **WordCount_Spark.py**, puis cliquez sur **Terminer**.      
 
 1. Pour valider le pipeline, cliquez sur le bouton **Valider** dans la barre d’outils. Cliquez sur le bouton **>>** flèche droite (>>) pour fermer la fenêtre de validation. 
     
-   ![Bouton de validation](./media/tutorial-transform-data-spark-portal/validate-button.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/validate-button.png" alt-text="Bouton de &quot;validation&quot;":::
 1. Sélectionnez **Publier tout**. L’interface utilisateur de Data Factory publie des entités (services liés et pipelines) sur le service Azure Data Factory. 
     
-   ![Bouton Publier tout](./media/tutorial-transform-data-spark-portal/publish-button.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/publish-button.png" alt-text="Bouton &quot;Publier tout&quot;":::
 
 
 ## <a name="trigger-a-pipeline-run"></a>Déclencher une exécution du pipeline
 Sélectionnez **Ajouter déclencheur** dans la barre d’outils, puis **Déclencher maintenant**. 
 
-![Boutons Déclencher et Déclencher maintenant](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
+:::image type="content" source="./media/tutorial-transform-data-spark-portal/trigger-now-menu.png" alt-text="Boutons &quot;Déclencher&quot; et &quot;Déclencher maintenant&quot;":::
 
 ## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
 
@@ -215,20 +215,20 @@ Sélectionnez **Ajouter déclencheur** dans la barre d’outils, puis **Déclenc
    
 1. Cliquez régulièrement sur **Actualiser** pour vérifier l’état de l’exécution des pipelines. 
 
-   ![Onglet de Surveillance des exécutions de pipelines, avec le bouton « Actualiser »](./media/tutorial-transform-data-spark-portal/monitor-tab.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/monitor-tab.png" alt-text="Onglet de supervision des exécutions de pipelines, avec le bouton &quot;Actualiser&quot;":::
 
 1. Pour voir les exécutions d’activités associées à l’exécution du pipeline, cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**.
 
-   ![État de l’exécution de pipelines](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png" alt-text="État de l’exécution de pipelines"::: 
 
    Vous pouvez basculer vers la vue des exécutions de pipelines en cliquant sur le lien **Toutes les exécutions de pipeline** en haut.
 
-   ![Vue des exécutions d’activités](./media/tutorial-transform-data-spark-portal/activity-runs.png)
+   :::image type="content" source="./media/tutorial-transform-data-spark-portal/activity-runs.png" alt-text="Vue des &quot;exécutions d’activités&quot;":::
 
 ## <a name="verify-the-output"></a>Vérifier la sortie
 Vérifiez que le fichier de sortie est créé dans le dossier spark/otuputfiles/wordcount du conteneur adftutorial. 
 
-![Emplacement du fichier de sortie](./media/tutorial-transform-data-spark-portal/verity-output.png)
+:::image type="content" source="./media/tutorial-transform-data-spark-portal/verity-output.png" alt-text="Emplacement du fichier de sortie":::
 
 Le fichier doit contenir chaque mot du fichier texte entrée et le nombre d’apparitions du mot dans le fichier. Par exemple : 
 

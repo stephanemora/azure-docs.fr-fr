@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/15/2020
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: fa46d6e5c7f1007e3a90e22eb9d4f46e18251a28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f66c2019e85640f1eaaeded5040fb925d070044a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98729828"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655787"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Cloud Academy - SSO
 
@@ -39,6 +39,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification SSO Azure
 
 * Cloud Academy - SSO prend en charge l’authentification unique lancée par le **fournisseur de services**
 * Cloud Academy - SSO prend en charge l’attribution d’utilisateurs **juste-à-temps**
+* Cloud Academy - SSO prend en charge l’[attribution automatisée d’utilisateurs](cloud-academy-sso-provisioning-tutorial.md).
 
 ## <a name="add-cloud-academy---sso-from-the-gallery"></a>Ajouter Cloud Academy - SSO à partir de la galerie
 
@@ -153,6 +154,8 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 Dans cette section, un utilisateur appelé Britta Simon est créé dans Cloud Academy - SSO. Cloud Academy - SSO prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Cloud Academy - SSO, un utilisateur est créé après l’authentification.
 
+Cloud Academy - SSO prend également en charge l’attribution automatique d’utilisateurs. Des informations supplémentaires sur la configuration de cette fonctionnalité sont disponibles [ici](./cloud-academy-sso-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -161,7 +164,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Cloud Academy - SSO pour y lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Cloud Academy - SSO dans Mes applications vous redirige vers l’URL de connexion Cloud Academy - SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Cloud Academy - SSO dans Mes applications vous redirige vers l’URL de connexion Cloud Academy - SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

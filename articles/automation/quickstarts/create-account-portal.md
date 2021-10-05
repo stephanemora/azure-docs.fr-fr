@@ -6,12 +6,12 @@ ms.date: 09/07/2021
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5d73da041b5ecb5dd2b7089ee898b5bffbe4f512
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: f0f93a43fd74ba38b8be17636b695e287354ed5a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542992"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218272"
 ---
 # <a name="quickstart-create-an-automation-account-using-the-azure-portal"></a>Démarrage rapide : Créer un compte Automation en utilisant le portail Azure
 
@@ -27,7 +27,7 @@ Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://a
 
 1. Dans le menu du haut, sélectionnez **+ Créer une ressource**.
 
-1. Sous Catégories**, sélectionnez **Informatique et outils de gestion**, puis **Automation**.
+1. Sous **Catégories**, sélectionnez **Informatique et outils de gestion**, puis **Automation**.
 
    :::image type="content" source="./media/create-account-portal/automation-account-portal.png" alt-text="Recherche de comptes Automation dans le portail.":::
 

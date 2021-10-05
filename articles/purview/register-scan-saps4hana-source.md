@@ -4,15 +4,15 @@ description: Cet article explique comment inscrire une source SAP S/4HANA dans 
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
-ms.openlocfilehash: 811078d18d6659e600cb5b0931dcf2a217a8856e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 45ea054394c5f74a6a3a34b9a69df5c5b07a632f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751895"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212588"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source"></a>Inscrire et analyser une source SAP S/4HANA
 
@@ -78,7 +78,7 @@ Dans l’écran **Inscrire des sources (SAP S/4HANA)** , procédez comme suit 
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1.  Dans le centre d’administration, cliquez sur Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour créer un runtime d’intégration auto-hébergé
+1.  Dans le centre d’administration, sélectionnez Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour créer un runtime d’intégration auto-hébergé
 
 2.  Accédez aux **Sources.**
 
@@ -108,11 +108,11 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="Analyser SAP S/4HANA" border="true":::
 
-6.  Cliquez sur **Continuer**.
+6.  Sélectionnez **Continuer**.
 
 7.  Choisissez votre **déclencheur d’analyse**. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
 
-8.  Vérifiez votre analyse et cliquez sur **Enregistrer et exécuter**.
+8.  Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Affichage des analyses et des exécutions d’analyse
 

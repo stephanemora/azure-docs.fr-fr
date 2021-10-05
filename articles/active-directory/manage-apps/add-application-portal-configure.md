@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Configurer les propriétés d’une application'
+title: 'Démarrage rapide : Configurer les propriétés d’une application d’entreprise'
 titleSuffix: Azure AD
-description: Ce guide de démarrage rapide utilise le portail Azure pour configurer une application inscrite auprès de votre locataire Azure Active Directory (Azure AD).
+description: Configurez les propriétés d’une application d’entreprise dans Azure Active Directory.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,95 +9,80 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: b043867dad8e9571421fe67a83844f8d13a04212
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: f6325dfceaa0ee6cedc60e5555b177e1f7a25d6c
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669418"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058260"
 ---
-# <a name="quickstart-configure-properties-for-an-application"></a>Démarrage rapide : Configurer les propriétés d’une application
+# <a name="quickstart-configure-enterprise-application-properties-in-azure-active-directory"></a>Démarrage rapide : Configurer les propriétés d’une application d’entreprise dans Azure Active Directory
 
-Dans le guide de démarrage rapide précédent, vous avez ajouté une application à votre locataire Azure Active Directory (Azure AD). Quand vous ajoutez une application, vous indiquez à votre locataire Azure AD qu’il fait office de fournisseur d’identité pour l’application. À présent, vous allez configurer certaines des propriétés de l’application.
+Dans ce guide de démarrage rapide, vous utilisez le Centre d’administration Azure Active Directory pour configurer les propriétés d’une application d’entreprise que vous avez précédemment ajoutée à votre locataire Azure Active Directory (Azure AD).
+
+Vous pouvez configurer les attributs communs suivants d’une application d’entreprise :
+
+- **Connexion permise pour les utilisateurs ?** - Détermine si les utilisateurs affectés à l’application peuvent se connecter.
+- **Assignation requise de utilisateur ?** - Détermine si les utilisateurs non affectés à l’application peuvent se connecter.
+- **Visible par les utilisateurs ?** - Détermine si les utilisateurs affectés à une application peuvent voir cette dernière dans Mes applications et le lanceur d’applications Microsoft 365. (Voir le menu Gaufre en haut à gauche d’un site web Microsoft 365.)
+- **Logo** - Détermine le logo qui représente l’application.
+- **Notes** - Fournit un emplacement pour ajouter des notes qui ont trait à l’application.
+
+Il est recommandé d’utiliser un environnement de non-production pour tester les étapes de ce guide de démarrage rapide.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer les propriétés d’une application dans votre locataire Azure AD, vous avez besoin des éléments suivants :
+Pour configurer les propriétés d’une application d’entreprise, vous avez besoin des éléments suivants :
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un des rôles suivants : Administrateur général, Administrateur d’application cloud, Administrateur d’application ou propriétaire du principal de service.
-- Facultatif : effectuer [Voir vos applications](view-applications-portal.md).
-- Facultatif : effectuer [Ajouter une application](add-application-portal.md).
+- Réalisation des étapes décrites dans [Démarrage rapide : Ajouter une application d’entreprise](add-application-portal.md).
 
->[!IMPORTANT]
->Pour tester les étapes de ce guide de démarrage rapide, utilisez un environnement de non-production.
+## <a name="configure-application-properties"></a>Configurer les propriétés de l’application
 
-## <a name="configure-app-properties"></a>Configurer les propriétés de l’application
-
-Lorsque vous avez terminé l’ajout d’une application à votre locataire Azure AD, la page de vue d’ensemble correspondante s’affiche. Si vous configurez une application qui a déjà été ajoutée, consultez le premier guide de démarrage rapide. Il vous explique étape par étape comment afficher les applications ajoutées à votre locataire.
+Les propriétés d’une application déterminent la façon dont l’application est représentée et comment y accéder.
 
 Pour modifier les propriétés de l’application :
 
-1. Dans le portail Azure AD, sélectionnez **Applications d’entreprise**. Ensuite, recherchez et sélectionnez l’application que vous souhaitez configurer.
-2. Dans la section **Gérer**, sélectionnez **Propriétés** pour ouvrir le volet **Propriétés** à des fins de modification.
-3. Prenez le temps de comprendre les options disponibles. Les options disponibles dépendent de la façon dont l’application est intégrée à Azure AD. Par exemple, une application qui utilise l’authentification unique basée sur SAML disposera de champs comme *URL de l’accès utilisateur*, au contraire d’une application qui utilise l’authentification unique basée sur OIDC. De même, notez que les applications ajoutées via **Azure Active Directory > Inscriptions des applications** sont par défaut des applications basées sur OIDC. En revanche, les applications ajoutées via **Azure Active Directory > Applications d’entreprise** peuvent utiliser un des différents standards d’authentification unique. Toutes les applications disposeront de champs permettant de configurer à quel moment une application apparaît et quand elle peut être utilisée. Ces champs sont les suivants :
-    - **Connexion permise pour les utilisateurs** détermine si les utilisateurs assignés à l’application peuvent se connecter.
-    - **Affectation de l’utilisateur requise** détermine si les utilisateurs qui ne sont pas assignés à l’application peuvent se connecter.
-    - **Visible par les utilisateurs ?** détermine si les utilisateurs affectés à une application peuvent la voir dans [Mes applications](https://myapps.microsoft.com) et le lanceur d’applications Microsoft 365. (Voir le menu Gaufre en haut à gauche d’un site web Microsoft 365.)
+1. Accédez au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) et connectez-vous avec l’un des rôles listés dans les prérequis.
+1. Dans le menu de gauche, sélectionnez **Applications d’entreprise**. Le volet **Toutes les applications** s’ouvre et affiche une liste des applications de votre locataire Azure AD. Recherchez et sélectionnez l’application que vous souhaitez utiliser. Par exemple, **Azure AD SAML Toolkit 1**.
+1. Dans la section **Gérer**, sélectionnez **Propriétés** pour ouvrir le volet **Propriétés** à des fins de modification.
+1. Sélectionnez **Oui** ou **Non** pour déterminer si l’application est activée pour que les utilisateurs s’y connectent.
+1. Sélectionnez **Oui** ou **Non** pour déterminer si seuls les comptes d’utilisateur qui ont été affectés à l’application peuvent se connecter.
+1. Sélectionnez **Oui** ou **Non** pour déterminer si les utilisateurs affectés à une application peuvent voir cette dernière dans les portails Mes applications et Microsoft 365. 
 
-    > [!TIP]
-    > L’attribution d’utilisateurs intervient dans la section de navigation **Utilisateurs et groupes**.
-
-    Les trois options peuvent être activées indépendamment les unes des autres et le comportement qui en résulte n’est pas toujours évident. Voici un tableau susceptible de vous aider :
-
-    | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Comportement des utilisateurs attribués ou non à l’application. |
-    |---|---|---|---|
-    | Oui | Oui | Oui | Les utilisateurs attribués peuvent voir l’application et se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
-    | Oui | Oui | Non  | Les utilisations attribuées ne peuvent pas voir l’application, mais peuvent se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
-    | Oui | Non  | Oui | Les utilisateurs attribués peuvent voir l’application et se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application, mais peuvent se connecter. |
-    | Oui | Non  | Non  | Les utilisateurs attribués ne peuvent pas voir l’application, mais peuvent se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application, mais peuvent se connecter. |
-    | Non  | Oui | Oui | Les utilisateurs attribués ne peuvent pas voir l’application ni se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
-    | Non  | Oui | Non  | Les utilisateurs attribués ne peuvent pas voir l’application ni se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
-    | Non  | Non  | Oui | Les utilisateurs attribués ne peuvent pas voir l’application ni se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
-    | Non  | Non  | Non  | Les utilisateurs attribués ne peuvent pas voir l’application ni se connecter.<br>Les utilisateurs non attribués ne peuvent pas voir l’application ni se connecter. |
-
-4. Quand vous avez terminé, Sélectionnez **Enregistrer**.
+    :::image type="content" source="media/add-application-portal-configure/configure-properties.png" alt-text="Configurez les propriétés d’une application d’entreprise.":::
 
 ## <a name="use-a-custom-logo"></a>Utiliser un logo personnalisé
+
+Le logo de l’application apparaît dans les portails Mes applications et Microsoft 365, et quand les administrateurs affichent cette application dans la galerie d’applications d’entreprise. Les logos personnalisés doivent avoir exactement une taille de 215x215 pixels et être au format PNG. Il est recommandé d’utiliser un arrière-plan de couleur unie et sans transparence dans le logo de votre application afin qu’il soit bien visible pour les utilisateurs.
 
 Pour utiliser un logo personnalisé :
 
 1. Créez un logo de 215 x 215 pixels et enregistrez-le au format .png.
-2. Dans le portail Azure AD, sélectionnez **Applications d’entreprise**. Ensuite, recherchez et sélectionnez l’application que vous souhaitez configurer.
-3. Dans la section **Gérer**, sélectionnez **Propriétés** pour ouvrir le volet **Propriétés** à des fins de modification.
-4. Sélectionnez l’icône permettant de charger le logo.
-5. Quand vous avez terminé, Sélectionnez **Enregistrer**.
+1. Sélectionnez l’icône dans **Sélectionner un fichier** pour charger le logo.
+1. Quand vous avez terminé, Sélectionnez **Enregistrer**.
 
-    :::image type="content" source="media/add-application-portal/change-logo.png" alt-text="Capture d’écran de l’écran Propriétés illustrant le changement de logo.":::
-
-   > [!NOTE]
-   > La miniature affichée dans ce volet **Propriétés** n’est pas mise à jour immédiatement. Vous pouvez fermer et rouvrir le volet **Propriétés** pour voir l’icône mise à jour.
-
-> [!TIP]
-> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](/graph/application-saml-sso-configure-api).
+La miniature du logo ne se met pas à jour tout de suite. Vous pouvez fermer et rouvrir le volet **Propriétés** pour voir la miniature mise à jour.
 
 ## <a name="add-notes"></a>Ajouter des notes
 
-Vous pouvez utiliser le champ Notes pour ajouter toutes les informations pertinentes pour la gestion de l’application dans Azure AD. Notes est un champ de texte libre d’une taille maximale de 1 024 caractères.
+Vous pouvez utiliser la propriété **Notes** pour ajouter toute information relative à la gestion de l’application dans Azure AD. La propriété **Notes** est un champ de texte libre d’une taille maximale de 1 024 caractères.
 
-1. Dans le portail Azure AD, sélectionnez **Applications d’entreprise**. Ensuite, recherchez et sélectionnez l’application que vous souhaitez configurer.
-2. Dans la section **Gérer**, sélectionnez **Propriétés** pour ouvrir le volet **Propriétés** à des fins de modification.
-3. Mettez à jour le champ Notes, puis sélectionnez **Enregistrer**.
+Pour entrer des notes pour l’application :
+
+1. Entrez les notes que vous souhaitez conserver avec l’application.
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous n’envisagez pas de poursuivre la série de guides de démarrage rapide, pensez à supprimer l’application pour nettoyer votre locataire de test. La suppression de l’application est traitée dans le dernier guide de démarrage rapide de cette série : consultez [Supprimer une application](delete-application-portal.md).
+Si vous envisagez de suivre le prochain guide de démarrage rapide, gardez l’application d’entreprise que vous avez créée. Dans le cas contraire, vous pouvez la supprimer pour nettoyer votre locataire. Pour plus d’informations, consultez [Supprimer une application](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez à l’article suivant pour découvrir comment affecter des utilisateurs à l’application.
+Découvrez comment rechercher et afficher les applications dans votre locataire Azure AD.
 > [!div class="nextstepaction"]
-> [Affecter des utilisateurs à une application](add-application-portal-assign-users.md)
+> [Afficher les applications](view-applications-portal.md)

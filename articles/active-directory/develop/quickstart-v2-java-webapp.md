@@ -3,21 +3,21 @@ title: 'Démarrage rapide : Ajouter la connexion Microsoft sur une application 
 titleSuffix: Microsoft identity platform
 description: Dans ce guide de démarrage rapide, vous allez apprendre à ajouter une connexion avec Microsoft à une application web Java en utilisant OpenID Connect.
 services: active-directory
-author: sangonzal
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/09/2019
-ms.author: sagonzal
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 6ba0052aec7e0938443560f5f0868431907c1b27
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 196500eb70a559339bd237670434ad8f562eda8c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580851"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551167"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Java
 
@@ -49,7 +49,7 @@ Pour exécuter cet exemple, vous avec besoin de ce qui suit :
 > Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à celle-ci, effectuez les étapes suivantes :
 >
 > 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
-> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire l’application.
+> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoires + abonnements** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour basculer vers le locataire dans lequel vous voulez inscrire l’application.
 > 1. Recherchez et sélectionnez **Azure Active Directory**.
 > 1. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
 > 1. Sélectionnez **Nouvelle inscription**.

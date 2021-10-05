@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
+title: fichier descriptif
 description: Fichier Include
 services: app-service
 author: msangapu
 ms.service: app-service
 ms.topic: include
-ms.date: 02/27/2019
+ms.date: 09/14/2021
 ms.author: msangapu
 ms.custom: include file
-ms.openlocfilehash: d26b8d131d5a8ff54b12fc5817718ddd381b720b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: afaacb79906c07893d835d654b00815ea97199d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "122643132"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577320"
 ---
 > [!NOTE]
 > La commande `az webapp up` exécute les actions suivantes :
@@ -24,5 +24,7 @@ ms.locfileid: "122643132"
 >
 >- [Créer une application](/cli/azure/webapp#az_webapp_create) avec le nom spécifié.
 >
->- [Déployez les fichiers zip](../articles/app-service/deploy-zip.md) à partir du répertoire de travail actif sur l’application web.
+>- [Décompresser](../articles/app-service/deploy-zip.md#deploy-a-zip-package) tous les fichiers à partir du répertoire de travail actuel, [avec l’automatisation de build activée](../articles/app-service/deploy-zip.md#enable-build-automation-for-zip-deploy).
+>
+>- Mettre en cache les paramètres localement dans le fichier *.azure/config* afin de ne pas avoir à les spécifier à nouveau lors du déploiement ultérieur avec `az webapp up` ou d’autres commandes Azure CLI. Les valeurs mises en cache sont utilisées automatiquement par défaut.
 >

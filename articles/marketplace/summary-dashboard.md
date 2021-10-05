@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 08/06/2021
-ms.openlocfilehash: b9b3a1e651e6207cc037ab8e4c70f81a176c3d82
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: ebf0a77eb4b0e79931af4f33a8adad4f6c115c22
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525104"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081532"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Résumé dans l’analytique de la Place de marché commerciale
 
@@ -31,17 +31,45 @@ Le [tableau de bord Résumé](https://go.microsoft.com/fwlink/?linkid=2165765) p
 - Utilisation des offres par les clients
 - Pages visitées par les clients sur la Place de marché Azure et dans AppSource
 
+## <a name="access-the-summary-dashboard"></a>Accéder au tableau de bord récapitulatif
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Sur la page Accueil, sélectionnez la vignette **Insights**.
+
+    [ ![Illustre la vignette Insights sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. Dans le menu de gauche, sélectionnez **Résumé**.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Analyser** > **Résumé**.
+
+---
+
 ## <a name="elements-of-the-summary-dashboard"></a>Éléments du tableau de bord Résumé
 
 Les sections suivantes expliquent comment utiliser le tableau de bord Résumé et lire les données.
 
-Pour accéder au tableau de bord Résumé de l’Espace partenaires, sous **Place de marché commerciale**, sélectionnez **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Résumé**.
-
 ### <a name="month-range"></a>Plage de mois
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphiques de la page **Résumé** en sélectionnant une plage de mois basée sur le nombre de mois passés spécifié, ou en sélectionnant une plage de mois personnalisée avec une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
+
+[ ![Illustre les options de plage mensuelle sur le tableau de bord récapitulatif](./media/summary-dashboard/summary-dashboard-filters.png) ](./media/summary-dashboard/summary-dashboard-filters.png#lightbox).
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
 
 Une sélection par plage de mois est disponible en haut à droite de chaque page. Personnalisez la sortie des graphes de la page **Résumé** en sélectionnant la plage de mois des 3, 6 ou 12 derniers mois, ou une plage de mois personnalisée d’une durée maximale de 12 mois. La plage de mois par défaut (période de calcul) est de six mois.
 
 :::image type="content" source="./media/summary-dashboard/summary-dashboard.png" alt-text="Illustre les options de plage de mois dans le tableau de bord Résumé.":::
+
+---
 
 > [!NOTE]
 > Toutes les métriques dans les widgets de visualisation et les rapports d’exportation respectent la période de calcul sélectionnée par l’utilisateur.

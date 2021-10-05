@@ -3,12 +3,12 @@ title: Vue d’ensemble des serveurs avec Azure Arc
 description: Découvrez comment utiliser les serveurs avec Azure Arc afin de gérer les serveurs hébergés en dehors d’Azure comme une ressource Azure.
 ms.date: 08/27/2021
 ms.topic: overview
-ms.openlocfilehash: 2a6ed9eb865ed588653cd9ce5a41863af2db6de4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 5bca2ec2bdf46f27ca83c4747c5ecb5688fa1708
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108713"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807139"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Qu’est-ce qu’un serveur avec Azure Arc ?
 
@@ -45,7 +45,7 @@ Les données de journal collectées et stockées dans un espace de travail Log A
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
-Pour en savoir plus sur la façon dont les serveurs avec Arc peuvent être utilisés pour implémenter les services de supervision, de sécurité et de mise à jour Azure dans des environnements hybrides et multiclouds, consultez la vidéo suivante.
+Pour en savoir plus sur la façon dont les serveurs avec Azure Arc peuvent être utilisés pour implémenter les services de supervision, de sécurité et de mise à jour Azure dans des environnements hybrides et multiclouds, visionnez la vidéo suivante.
 
 > [!VIDEO https://www.youtube.com/embed/mJnmXBrU1ao]
 
@@ -66,10 +66,10 @@ Par exemple, si la machine est inscrite auprès d’Azure Arc dans la région U
 
 ### <a name="supported-environments"></a>Environnements pris en charge
 
-Les serveurs avec Arc prennent en charge la gestion des serveurs physiques et des machines virtuelles hébergés *en dehors* d’Azure. Pour plus d’informations sur les environnements de cloud hybride hébergeant des machines virtuelles qui sont pris en charge, consultez [Prérequis de l’agent Connected Machine](agent-overview.md#supported-environments).
+Les serveurs avec Azure Arc prennent en charge la gestion des serveurs physiques et des machines virtuelles hébergés *en dehors* d’Azure. Pour plus d’informations sur les environnements de cloud hybride hébergeant des machines virtuelles qui sont pris en charge, consultez [Prérequis de l’agent Connected Machine](agent-overview.md#supported-environments).
 
 > [!NOTE]
-> Les serveurs avec Arc ne sont pas conçus ni pris en charge pour permettre la gestion des machines virtuelles s’exécutant dans Azure.
+> Les serveurs avec Azure Arc ne sont pas conçus ni pris en charge pour permettre la gestion des machines virtuelles s’exécutant dans Azure.
 
 ### <a name="agent-status"></a>État de l’agent
 
@@ -77,6 +77,6 @@ L’agent Connected Machine envoie des messages de pulsation au service de faço
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Avant d’évaluer ou d’activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d’ensemble de l’agent Machine connectée](agent-overview.md) pour en savoir plus sur les exigences et les détails techniques relatifs à l’agent, ainsi que sur les méthodes de déploiement.
+* Avant d’évaluer ou d’activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d’ensemble de l’agent Machine connectée](agent-overview.md) pour en savoir plus sur les spécifications et les détails techniques relatifs à l’agent, ainsi que sur les méthodes de déploiement.
 
 * Consultez le [Guide de planification et de déploiement](plan-at-scale-deployment.md) pour planifier le déploiement de serveurs avec Azure Arc à n’importe quelle échelle et implémenter la gestion et la supervision centralisées.

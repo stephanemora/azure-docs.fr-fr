@@ -7,15 +7,14 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: 8b62437fc8bcad406750101eb72b1ef8d48c102f
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: a325f248a4f634657d9b73e3d4b7929e0614a023
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322203"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820729"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutoriel : Implémenter une CI/CD avec GitOps à l’aide de clusters Kubernetes avec Azure Arc
-
 
 Dans ce tutoriel, vous allez configurer une solution CI/CD à l’aide de GitOps avec des clusters Kubernetes avec Azure Arc. À l’aide de l’exemple d’application Azure Vote, vous allez :
 
@@ -40,10 +39,10 @@ Ce tutoriel suppose que vous maîtrisez Azure DevOps, Azure Repos et Pipelines, 
 * Suivez le [tutoriel précédent](./tutorial-use-gitops-connected-cluster.md) pour apprendre à déployer GitOps pour votre environnement CI/CD.
 * Connaissez [les avantages et l’architecture](./conceptual-configurations.md) de cette fonctionnalité.
 * Vérifiez que vous disposez des éléments suivants :
-  * Un [cluster Kubernetes avec Azure Arc](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster) nommé **arc-cicd-cluster**.
+  * Un [cluster Kubernetes avec Azure Arc connecté](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster) nommé **arc-cicd-cluster**.
   * Une instance d’Azure Container Registry connectée (ACR) connectée avec une [intégration AKS](../../aks/cluster-container-registry-integration.md) ou une [authentification de cluster non AKS](../../container-registry/container-registry-auth-kubernetes.md).
   * Des autorisations « Administrateur de build » et « Administrateur de projet » pour [Azure Repos](/azure/devops/repos/get-started/what-is-repos) et [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
-* Installez les extensions CLI de Kubernetes avec Azure Arc versions 1.0.0 et ultérieures :
+* Installez les extensions CLI de Kubernetes avec Azure Arc versions 1.0.0 et ultérieures suivantes :
 
   ```azurecli
   az extension add --name connectedk8s

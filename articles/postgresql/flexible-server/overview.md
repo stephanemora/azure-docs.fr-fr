@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 08/24/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: ae7ef0d0ff3cb946bc8c900517a8975bb618ad3c
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 4f125035bdb71302681f84fd04b25767828f1490
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768141"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589660"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -29,7 +29,7 @@ Cet article contient une vue d'ensemble et une présentation des concepts de bas
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure Database pour PostgreSQL - Serveur flexible est un service de base de données entièrement géré conçu pour offrir un contrôle et une flexibilité plus granulaires des fonctions de gestion de base de données et des paramètres de configuration. En général, le service fournit des personnalisations en termes de flexibilité et configuration de serveur suivant les besoins de l’utilisateur. L’architecture de serveur flexible permet de colocaliser le moteur de base de données avec le niveau client pour une latence plus faible, et d’opter pour une haute disponibilité au sein d’une même zone de disponibilité et dans plusieurs zones de disponibilité. Les serveurs flexibles offrent également de meilleurs contrôles d’optimisation des coûts grâce à la possibilité de d’arrêter/de démarrer votre serveur et un niveau de calcul expansible, ce qui est idéal pour les charges de travail ne nécessitant pas en permanence une capacité de calcul complète. Le service prend actuellement en charge la version de la communauté de PostgreSQL 11 et 12. Le service, en préversion, est aujourd'hui généralement disponible dans un grand nombre de [régions Azure](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database pour PostgreSQL - Serveur flexible est un service de base de données entièrement géré conçu pour offrir un contrôle et une flexibilité plus granulaires des fonctions de gestion de base de données et des paramètres de configuration. En général, le service fournit des personnalisations en termes de flexibilité et configuration de serveur suivant les besoins de l’utilisateur. L’architecture de serveur flexible permet de colocaliser le moteur de base de données avec le niveau client pour une latence plus faible, et d’opter pour une haute disponibilité au sein d’une même zone de disponibilité et dans plusieurs zones de disponibilité. Les serveurs flexibles offrent également de meilleurs contrôles d’optimisation des coûts grâce à la possibilité de d’arrêter/de démarrer votre serveur et un niveau de calcul expansible, ce qui est idéal pour les charges de travail ne nécessitant pas en permanence une capacité de calcul complète. Le service prend actuellement en charge la version de la communauté de PostgreSQL 11, 12 et 13. Le service, en préversion, est aujourd'hui généralement disponible dans un grand nombre de [régions Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
 ![Serveur flexible - Vue d’ensemble](./media/overview/overview-flexible-server.png)
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 0223b78ac34d2cfffa6a307f220c4d207c7f8b15
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 450eca8a589f6184bcac5e5d986fc7a5f4d49128
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068461"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124745137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler One
 
@@ -40,6 +40,8 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 * Zscaler One prend en charge l'authentification unique lancée par le **fournisseur de services**.
 
 * Zscaler One prend en charge l'approvisionnement des utilisateurs **juste-à-temps**.
+
+* Zscaler One prend en charge le [provisionnement d’utilisateurs automatisé](zscaler-one-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -91,7 +93,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application Zscaler One s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
-   | Nom     | Attribut source   |
+   | Name     | Attribut source   |
    | -------- | ------------------ |
    | memberOf | user.assignedroles |
 
@@ -229,6 +231,9 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Zscaler 
 > [!Note]
 > Si vous devez créer un utilisateur manuellement, contactez l’[équipe de support Zscaler One](https://www.zscaler.com/company/contact).
 
+> [!NOTE]
+> Zscaler One prend aussi en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./zscaler-one-provisioning-tutorial.md) sur la manière de configurer ce dernier.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -237,7 +242,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Zscaler One pour y lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Zscaler One dans Mes applications, vous êtes redirigé vers l’URL de connexion à Zscaler One. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Zscaler One dans Mes applications, vous êtes redirigé vers l’URL de connexion à Zscaler One. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

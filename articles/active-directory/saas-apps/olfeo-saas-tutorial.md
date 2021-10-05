@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 2c711188343be5ee52e1bac217f8b31dc6756d3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45ec57871be8160c2bfde34c20137bd6c7afd6c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101654389"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124738589"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-olfeo-saas"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Olfeo SAAS
 
@@ -37,7 +37,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Olfeo SAAS prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Olfeo SAAS prend en charge l’authentification unique lancée par le **fournisseur de services**.
+
+* Olfeo SAAS prend en charge le [provisionnement d’utilisateurs automatisé](olfeo-saas-provisioning-tutorial.md).
 
 ## <a name="adding-olfeo-saas-from-the-gallery"></a>Ajout d’Olfeo SAAS à partir de la galerie
 
@@ -49,7 +51,6 @@ Pour configurer l’intégration d’Olfeo SAAS à Azure AD, vous devez ajouter
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Olfeo SAAS** dans la zone de recherche.
 1. Sélectionnez **Olfeo SAAS** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-olfeo-saas"></a>Configurer et tester l’authentification unique Azure AD pour Olfeo SAAS
 
@@ -121,6 +122,8 @@ Pour configurer l’authentification unique côté **Olfeo SAAS**, vous devez en
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Olfeo SAAS. Contactez l’[équipe du support technique d’Olfeo SAAS](mailto:equipe-rd@olfeo.com) pour ajouter les utilisateurs à la plateforme Olfeo SAAS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+Olfeo SAAS prend aussi en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./olfeo-saas-provisioning-tutorial.md) sur la manière de configurer ce dernier.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -129,8 +132,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Olfeo SAAS, puis lancez le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Olfeo SAAS dans Mes applications, vous êtes redirigé vers l’URL de connexion à Olfeo SAAS. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
-
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Olfeo SAAS dans Mes applications, vous êtes redirigé vers l’URL de connexion à Olfeo SAAS. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

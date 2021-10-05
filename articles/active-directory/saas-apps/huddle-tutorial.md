@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Huddle | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Huddle'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Huddle.
 services: active-directory
 author: jeevansd
@@ -9,242 +9,190 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 09/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 481b11305ff99661487b83c7588b184ef502d7ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81d3c8382573683c09978dab11f355bf51a19c50
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92460714"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669909"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Didacticiel : Intégration d’Azure Active Directory avec Huddle
+# <a name="tutorial-azure-ad-sso-integration-with-huddle"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Huddle
 
-Dans ce didacticiel, vous allez apprendre à intégrer Huddle à Azure Active Directory (Azure AD).
-L’intégration de Huddle dans Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez découvrir comment intégrer Huddle à Azure Active Directory (Azure AD). Quand vous intégrez Huddle à Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Huddle.
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Huddle (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Contrôler dans Azure AD qui a accès à Huddle.
+* Autoriser les utilisateurs à se connecter automatiquement à Huddle avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="prerequisites"></a>Conditions préalables requises
+Pour commencer, vous devez disposer de ce qui suit :
 
-Pour configurer l’intégration d’Azure AD avec Huddle, vous avez besoin des éléments suivants :
-
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Un abonnement Huddle pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Huddle pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Huddle prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
+* Huddle prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
 
-## <a name="adding-huddle-from-the-gallery"></a>Ajout de Huddle depuis la galerie
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
+## <a name="add-huddle-from-the-gallery"></a>Ajouter Huddle à partir de la galerie
 
 Pour configurer l’intégration de Huddle avec Azure AD, vous devez ajouter Huddle à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-**Pour ajouter Huddle à partir de la galerie, procédez comme suit :**
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Huddle** dans la zone de recherche.
+1. Sélectionnez **Huddle** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-huddle"></a>Configurer et tester l’authentification unique Azure AD pour Huddle
 
-    ![Bouton Azure Active Directory](common/select-azuread.png)
+Configurez et testez l’authentification unique Azure AD avec Huddle pour un utilisateur test appelé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur correspondant dans Huddle.
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
+Pour configurer et tester l’authentification unique Azure AD avec Huddle, effectuez les étapes suivantes :
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique Huddle](#configure-huddle-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur test Huddle](#create-huddle-test-user)** pour avoir, dans Huddle, un équivalent de B. Simon lié à la représentation Azure AD de l’utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-    ![Bouton Nouvelle application](common/add-new-app.png)
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-4. Dans la zone de recherche, tapez **Huddle**, sélectionnez **Huddle** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Huddle**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
-     ![Huddle dans la liste des résultats](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
-
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Huddle pour un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Huddle associé doit être établie.
-
-Pour configurer et tester l’authentification unique Azure AD avec Huddle, vous devez suivre les indications des sections suivantes :
-
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Huddle](#configure-huddle-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Huddle](#create-huddle-test-user)** pour obtenir un équivalent de Britta Simon dans Huddle lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
-
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
-
-Pour configurer l’authentification unique Azure AD avec Huddle, effectuez les étapes suivantes :
-
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Huddle**, sélectionnez **Authentification unique**.
-
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
     > [!NOTE]
     > Votre instance Huddle est automatiquement détectée à partir du domaine que vous entrez ci-dessous.
 
-    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
+    a. Dans la zone de texte **Identificateur**, tapez l’une des URL suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL :
+    | **Identificateur** |
+    |------|
+    | `https://login.huddle.net` |
+    | `https://login.huddle.com` |
 
-    ```http
-    https://login.huddle.net
-    https://login.huddle.com
-    ```
+    b. Dans la zone de texte **URL de réponse**, tapez l’une des URL suivantes :
 
-    b. Dans la zone de texte **URL de réponse**, tapez l’URL :
-
-    ```http
-    https://login.huddle.net/saml/browser-sso
-    https://login.huddle.com/saml/browser-sso
-    https://login.huddle.com/saml/idp-initiated-sso
-    ```
+    | **URL de réponse** |
+    |----|
+    | `https://login.huddle.net/saml/browser-sso` |
+    | `https://login.huddle.com/saml/browser-sso` |
+    | `https://login.huddle.com/saml/idp-initiated-sso` |
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
-
     Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
 
-    ```http
-    https://<customsubdomain>.huddle.com
-    https://us.huddle.com
-        ```
-
+    | **URL d’authentification** |
+    |----|
+    | `https://<customsubdomain>.huddle.com` |
+    | `https://us.huddle.com` |
+      
     > [!NOTE]
-    > The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Huddle Client support team](https://huddle.zendesk.com) to get this value.
+    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Contactez [l’équipe de support technique Huddle](https://huddle.zendesk.com) pour obtenir cette valeur.
 
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![The Certificate download link](common/certificatebase64.png)
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-7. On the **Set up Huddle** section, copy the appropriate URL(s) as per your requirement.
+7. Dans la section **Configurer Huddle**, copiez la ou les URL appropriées en fonction de vos besoins.
 
-    ![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    a. Login URL
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-    b. Azure Ad Identifier
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-    c. Logout URL
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B. Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B. Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
-### Configure Huddle Single Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-To configure single sign-on on **Huddle** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Huddle support team](https://huddle.zendesk.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+Dans cette section, vous allez autoriser B. Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Huddle.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Huddle**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-huddle-sso"></a>Configurer l’authentification unique Huddle
+
+Pour configurer l’authentification unique côté **Huddle**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support technique Huddle](https://huddle.zendesk.com/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!NOTE]
-> Single sign-on needs to be enabled by the Huddle support team. You get a notification when the configuration has been completed.
+> L’authentification unique doit être activée par l’équipe du support technique Huddle. Vous recevrez une notification une fois la configuration terminée.
 
-### Create an Azure AD test user
+### <a name="create-huddle-test-user"></a>Créer un utilisateur de test Huddle
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+Pour se connecter à Huddle, les utilisateurs d’Azure AD doivent être configurés dans Huddle. Dans le cas de Huddle, l’approvisionnement est une tâche manuelle.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+**Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :**
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+1. Connectez-vous à votre site d'entreprise **Huddle** en tant qu'administrateur.
 
-2. Select **New user** at the top of the screen.
+2. Cliquez sur **Espace de travail**.
 
-    ![New user Button](common/new-user.png)
+3. Cliquez sur **People \> Invite People**.
 
-3. In the User properties, perform the following steps.
+    ![Personnes](./media/huddle-tutorial/tasks.png "Personnes")
 
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
+4. Dans la section **Créer une invitation**, procédez comme suit :
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Huddle.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Huddle**.
-
-    ![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **Huddle**.
-
-    ![The Huddle link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
-
-### Create Huddle test user
-
-To enable Azure AD users to log in to Huddle, they must be provisioned into Huddle. In the case of Huddle, provisioning is a manual task.
-
-**To configure user provisioning, perform the following steps:**
-
-1. Log in to your **Huddle** company site as administrator.
-
-2. Click **Workspace**.
-
-3. Click **People \> Invite People**.
-
-    ![People](./media/huddle-tutorial/ic787838.png "People")
-
-4. In the **Create a new invitation** section, perform the following steps:
+    ![Nouvelle invitation](./media/huddle-tutorial/team.png "Nouvelle invitation")
   
-    ![New Invitation](./media/huddle-tutorial/ic787839.png "New Invitation")
-  
-    a. In the **Choose a team to invite people to join** list, select **team**.
+    a. Dans la liste **Choisir une équipe pour inviter des personnes à la rejoindre**, sélectionnez **Équipe**.
 
-    b. Type the **Email Address** of a valid Azure AD account you want to provision in to **Enter email address for people you'd like to invite** textbox.
+    b. Entrez l’**adresse e-mail** associée au compte Azure AD valide que vous souhaitez configurer dans la zone de texte **Entrer l’adresse e-mail des personnes que vous souhaitez inviter**.
 
-    c. Click **Invite**.
+    c. Cliquez sur **Invite**.
 
     > [!NOTE]
-    > The Azure AD account holder will receive an email including a link to confirm the account before it becomes active.
+    > Le titulaire du compte Azure AD reçoit alors un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
 
 > [!NOTE]
-> You can use any other Huddle user account creation tools or APIs provided by Huddle to provision Azure AD user accounts.
+> Vous pouvez utiliser n’importe quels autres outils ou API de création de compte d’utilisateur Huddle fourni par ce site pour configurer des comptes d’utilisateurs Azure AD.
 
-### Test single sign-on
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-When you click the Huddle tile in the Access Panel, you should be automatically signed in to the Huddle for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## Additional Resources
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL d’authentification Huddle, à partir de laquelle vous pouvez lancer le processus de connexion.  
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
+* Accédez directement à l’URL d’authentification Huddle pour lancer le processus de connexion.
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors automatiquement connecté à l’application Huddle pour laquelle vous avez configuré l’authentification unique. 
+
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Huddle dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page d’authentification de l’application pour lancer le processus de connexion. Si le mode Fournisseur d’identité est configuré, vous devriez être automatiquement connecté à l’application Huddle pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Une fois que vous avez configuré Huddle, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1131b42b58e1ed751a7563b4c59e71981b722305
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0d95def7048b3077232bb728a97c28107ec80313
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643188"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128654462"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Tutoriel : Créer un serveur flexible Azure Database pour MySQL (préversion) avec une application web App Services dans le même réseau virtuel
 
@@ -21,7 +21,7 @@ ms.locfileid: "122643188"
 
 
 > [!IMPORTANT]
-> Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
+> Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
 
 
 Ce didacticiel vous montre comment créer une application web Azure App Service avec un serveur flexible MySQL (préversion) à l’intérieur d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md).
@@ -36,7 +36,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 Cet article nécessite que vous exécutiez localement Azure CLI version 2.0 ou ultérieure. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
@@ -88,8 +88,8 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 ```
 
 > [!NOTE]
-> - Pour l’argument --location, utilisez le même emplacement que pour la base de données dans la section précédente.
-> - Remplacez _&lt;app-name>_ par le nom unique dans Azure (le point de terminaison du serveur est https://\<app-name>.azurewebsites.net). Les caractères autorisés pour <app-name> sont A-Z, 0-9 et -. Un bon modèle consiste à utiliser une combinaison du nom de votre société et d’un identificateur d’application.
+> - Pour l'argument --location, utilisez le même emplacement que pour la base de données de la section précédente.
+> - Remplacez _\<app-name\>_ par un nom unique dans l’ensemble d’Azure (le point de terminaison de serveur est `https://\<app-name>.azurewebsites.net`). Les caractères autorisés pour \<app-name\> sont A-Z, 0-9, et -. Un bon modèle consiste à utiliser une combinaison du nom de votre société et d’un identificateur d’application.
 > - Le niveau De base App Service ne prend pas en charge l’intégration au réseau virtuel. Utilisez le niveau Standard ou Premium. 
 
 Cette commande effectue les actions suivantes qui peuvent prendre quelques minutes :

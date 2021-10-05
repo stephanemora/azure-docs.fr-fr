@@ -6,16 +6,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/24/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2591e3468999bfb48fc125bd6edfe17da8eecefd
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: be0dc81d20bf62eb0033691e5d4eac5f406a7c0f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114728141"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214615"
 ---
-# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios d’enrichissement de l’IA
+# <a name="extract-text-and-information-from-images-in-ai-enrichment-scenarios"></a>Extraire du texte et des informations d’images dans des scénarios d’enrichissement par IA
 
 La Recherche cognitive Azure intègre plusieurs fonctionnalités pour l’utilisation d’images et de fichiers image. Pendant le *craquage de document*, vous pouvez utiliser le paramètre [imageAction](search-indexer-overview.md#document-cracking) pour extraire du texte de photos ou d’images contenant du texte alphanumérique, tel que le mot « STOP » dans le panneau de signalisation d’arrêt. D’autres scénarios incluent la génération d’une représentation textuelle d’une image, telle que « pissenlit » pour une photo de pissenlit ou la couleur « jaune ». Vous pouvez également extraire des métadonnées de l’image, telles que sa taille.
 

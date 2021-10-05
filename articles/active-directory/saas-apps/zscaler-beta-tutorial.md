@@ -9,37 +9,38 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 080217c511470422d563b64f7609d71a4f9a6594
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 7670be8fa34a304d0c7bce3f6a6f3d456d2be397
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802735"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Didacticiel : Intégration d’Active Directory à Zscaler Beta
 
 Dans ce didacticiel, vous allez découvrir comment intégrer Zscaler Beta à Azure Active Directory (Azure AD).
 Quand vous intégrez Zscaler Beta à Azure AD, vous pouvez :
 
-- Contrôler dans Azure AD qui a accès à Zscaler Beta.
-- Permettre aux utilisateurs de se connecter automatiquement à Zscaler Beta avec leur compte Azure AD. Ce contrôle d’accès porte le nom d’authentification unique (SSO).
-- Gérer vos comptes à partir d’un emplacement centralisé à l’aide du portail Azure.
+* Contrôler dans Azure AD qui a accès à Zscaler Beta.
+* Permettre aux utilisateurs de se connecter automatiquement à Zscaler Beta avec leur compte Azure AD. Ce contrôle d’accès porte le nom d’authentification unique (SSO).
+* Gérer vos comptes à partir d’un emplacement centralisé à l’aide du portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Zscaler Beta, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
-- Un abonnement Zscaler Beta qui utilise l’authentification unique.
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Zscaler Beta qui utilise l’authentification unique.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-- Zscaler Beta prend en charge l’authentification SSO lancée par le fournisseur de services (**SP**).
-- Zscaler Beta prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+* Zscaler Beta prend en charge l’authentification SSO lancée par le fournisseur de services (**SP**).
+* Zscaler Beta prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+* Zscaler Beta prend en charge l’[attribution automatique d’utilisateurs](zscaler-beta-provisioning-tutorial.md).
 
 ## <a name="adding-zscaler-beta-from-the-gallery"></a>Ajouter Zscaler Beta à partir de la galerie
 
@@ -155,13 +156,13 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 4. Accédez à **Administration** > **Authentication** > **Authentication Settings** et effectuez les étapes suivantes.
 
-   ![Administration](./media/zscaler-beta-tutorial/ic800206.png "Administration")
+   ![Administration](./media/zscaler-beta-tutorial/settings.png "Administration")
 
    a. Sous **Authentication Type** (Type d’authentification), sélectionnez **SAML**.
 
    b. Sélectionnez **Configure SAML** (Configurer SAML).
 
-5. Dans la fenêtre **Edit SAML** (Modifier SAML), effectuez les étapes suivantes : ![Manage Users & Authentication](./media/zscaler-beta-tutorial/ic800208.png "Manage Users & Authentication") (Gérer les utilisateurs et l’authentification)
+5. Dans la fenêtre **Edit SAML** (Modifier SAML), effectuez les étapes suivantes : ![Manage Users & Authentication](./media/zscaler-beta-tutorial/certificate.png "Manage Users & Authentication") (Gérer les utilisateurs et l’authentification)
 
    a. Dans la zone **SAML Portal URL** (URL du portail SAML), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
@@ -181,7 +182,7 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 6. Dans la page **Configure User Authentication** (Configurer l’authentification utilisateur), effectuez les étapes suivantes :
 
-   ![Menu Activation et bouton Activer](./media/zscaler-beta-tutorial/ic800207.png)
+   ![Menu Activation et bouton Activer](./media/zscaler-beta-tutorial/status.png)
 
    a. Passez la souris sur le menu **Activation** en bas à gauche.
 
@@ -195,17 +196,17 @@ Pour configurer les paramètres de proxy dans Internet Explorer, effectuez les 
 
 2. Dans le menu **Outils**, sélectionnez **Options Internet** pour ouvrir la boîte de dialogue **Options Internet**.
 
-   ![Boîte de dialogue Options Internet](./media/zscaler-beta-tutorial/ic769492.png &quot;Options Internet")
+   ![Boîte de dialogue Options Internet](./media/zscaler-beta-tutorial/connection.png &quot;Options Internet")
 
 3. Sélectionnez l’onglet **Connexions** .
 
-   ![Onglet Connexions](./media/zscaler-beta-tutorial/ic769493.png "Connexions")
+   ![Onglet Connexions](./media/zscaler-beta-tutorial/server.png "Connexions")
 
 4. Sélectionnez **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres du réseau local**.
 
 5. Dans la section **Serveur proxy**, effectuez les étapes suivantes :
 
-   ![Section Serveur proxy](./media/zscaler-beta-tutorial/ic769494.png "Serveur proxy")
+   ![Section Serveur proxy](./media/zscaler-beta-tutorial/network.png "Serveur proxy")
 
    a. Cochez la case **Utiliser un serveur proxy pour le réseau local**.
 
@@ -226,15 +227,18 @@ Dans cette section, l’utilisateur Britta Simon est créé dans Zscaler Beta. Z
 > [!Note]
 > Pour créer un utilisateur manuellement, contactez l’[équipe de support technique Zscaler Beta](https://www.zscaler.com/company/contact).
 
+> [!NOTE]
+> Zscaler Beta prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./zscaler-beta-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-- Cliquez sur **Tester cette application** dans le portail Azure. Cette opération effectue une redirection vers l’URL de connexion à Zscaler Beta, où vous pouvez lancer le flux de connexion.
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération effectue une redirection vers l’URL de connexion à Zscaler Beta, où vous pouvez lancer le flux de connexion.
 
-- Accédez directement à l’URL de connexion à Zscaler Beta, puis lancez le flux de connexion à partir de cet emplacement.
+* Accédez directement à l’URL de connexion à Zscaler Beta, puis lancez le flux de connexion à partir de cet emplacement.
 
-- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Zscaler Beta dans Mes applications, une redirection est effectuée vers l’URL de connexion à Zscaler Beta. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Zscaler Beta dans Mes applications, une redirection est effectuée vers l’URL de connexion à Zscaler Beta. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

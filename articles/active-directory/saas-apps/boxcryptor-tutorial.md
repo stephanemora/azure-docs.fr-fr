@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: d1c479bf51536d89d0705cd585870638b23f1ceb
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: cce864b104b421a205c8a1231f49a2abf707f55e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892433"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650493"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Didacticiel : Intégration d’Azure Active Directory à Boxcryptor
 
@@ -39,6 +39,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 * Boxcryptor prend en charge l’authentification unique (SSO) lancée par le **fournisseur de services**.
 * Boxcryptor prend en charge l’attribution d’utilisateurs **juste-à-temps**.
+* Boxcryptor prend en charge le [provisionnement automatisé des utilisateurs](boxcryptor-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -123,6 +124,8 @@ Pour configurer l’authentification unique côté **Boxcryptor**, vous devez en
 
 Dans cette section, un utilisateur nommé B.Simon est créé dans Boxcryptor. Boxcryptor prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Boxcryptor, il en est créé un après l’authentification.
 
+Boxcryptor prend également en charge le provisionnement automatique des utilisateurs. Vous trouverez plus d’informations [ici](./boxcryptor-provisioning-tutorial.md) sur la façon de configurer le provisionnement automatique des utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -131,7 +134,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Boxcryptor pour démarrer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Boxcryptor dans Mes applications vous redirige vers l’URL de connexion Boxcryptor. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Boxcryptor dans Mes applications vous redirige vers l’URL de connexion Boxcryptor. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

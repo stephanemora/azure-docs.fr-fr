@@ -4,13 +4,13 @@ metadata:
   description: Dans cet article, découvrez des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
   ms.topic: article
   ms.service: backup
-  ms.date: 06/23/2021
-  ms.openlocfilehash: 5983508897520ad6fe5b91df3bd6abf26244d09f
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.date: 09/27/2021
+  ms.openlocfilehash: 2b1a7e39c1cf4a7e6c5b1da6f748c7e143608104
+  ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122534864"
+  ms.lasthandoff: 09/27/2021
+  ms.locfileid: "129080683"
 title: Forum aux questions – Sauvegarde de bases de données SAP HANA sur des machines virtuelles Azure
 summary: Cet article fournit des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 sections:
@@ -34,9 +34,16 @@ sections:
     answer: >
       Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. [Découvrez comment](backup-azure-monitoring-built-in-monitor.md) utiliser le portail Azure pour afficher les alertes de sauvegarde.
   - question: >
+      Comment vérifier si ma sauvegarde (planifiée/à la demande) est exécutée avec succès ?
+    answer: "Vous pouvez vérifier l’état de vos sauvegardes (planifiées/à la demande) à partir de l’un des emplacements suivants :\n\n1. **Travaux de sauvegarde** : Sauvegarde Azure affiche tous les travaux déclenchés manuellement dans la section Travaux de sauvegarde sur le portail Azure.  <br><br>   Les travaux que vous voyez dans le portail Azure incluent des opérations de découverte, d’inscription, de sauvegarde et de restauration de base de données. Les travaux planifiés, notamment les sauvegardes de fichiers journaux, n’apparaissent pas dans cette section. Les sauvegardes déclenchées manuellement à partir des clients natifs SAP HANA (Studio/Cockpit/DBA Cockpit) ne sont pas non plus indiquées ici.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png\" alt-text=\"Capture d’écran montrant des travaux déclenchés manuellement dans la section Travaux de sauvegarde du portail Azure.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png\" alt-text=\"Capture d’écran montrant des travaux, dont des opérations de découverte, d’inscription, de sauvegarde et de restauration de base de données.\":::\n \n1. **Alertes de sauvegarde** : les alertes vous aident à surveiller les sauvegardes des bases de données SAP HANA. Elles vous aident à vous concentrer sur les événements requis, vous épargnant ainsi l’effort de vérification fréquente de la multitude d’événements qu’une sauvegarde génère. Pour plus d’informations, consultez [Afficher les alertes de sauvegarde](/azure/backup/sap-hana-db-manage#view-backup-alerts).\n\n1. **Rapports de sauvegarde** : les rapports constituent une autre manière d’afficher l’état de vos travaux de sauvegarde. Vous rapports se présenteront comme suit :\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports.png\" alt-text=\"Capture d’écran montrant un type de rapport dans le portail Azure.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png\" alt-text=\"Capture d’écran montrant l’autre type de rapport dans le portail Azure.\":::\n\n   Découvrez [Comment configurer des rapports de sauvegarde Azure](/azure/backup/configure-reports).\n\n1. **Clients natifs SAP Hana** : si vous êtes un client de SAP Hana, vous pouvez également utiliser HANA Studio, l’un des clients HANA les plus courants. Dans ce client, accédez à **Console de sauvegarde** -> **Catalogue de sauvegarde** pour voir l’**état de la sauvegarde**.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png\" alt-text=\"Capture d’écran montrant des rapports dans des clients natifs SAP HANA.\":::\n"
+  - question: >
       Les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux de sauvegarde ?
     answer: >
       Le menu Tâche de sauvegarde affiche uniquement les tâches de sauvegarde à la demande en cours, ayant réussi ou échoué. Pour les tâches planifiées, utilisez [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+  - question: >
+      Quelle est la période de rétention des sauvegardes complètes de réparation automatique déclenchées en raison des erreurs LSNValidation ?
+    answer: >
+      Le service Sauvegarde Azure ne définit pas une période de rétention explicite sur les sauvegardes complètes de réparation automatique. Cette sauvegarde est conservée aussi longtemps que vous conservez les sauvegardes Delta (différentielles ou incrémentielles) et les sauvegardes de journaux dépendantes. Une fois que vous avez supprimé la dernière sauvegarde dépendante sur cette sauvegarde de réparation automatique, celle-ci est également supprimée.
   - question: >
       Les bases de données futures sont-elles automatiquement ajoutées pour la sauvegarde ?
     answer: >
@@ -106,7 +113,7 @@ sections:
 
       - [Arrêtez la protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (avec conservation des données) sur le nœud principal
 
-      - Exécutez le [script de pré-inscription](https://aka.ms/scriptforpermsonhana) sur le nœud secondaire
+      - Exécutez le [script de pré-inscription](https://go.microsoft.com/fwlink/?linkid=2173610) sur le nœud secondaire
 
       - [Détectez les bases de données](tutorial-backup-sap-hana-db.md#discover-the-databases) sur le nœud secondaire et [configurez les sauvegardes](tutorial-backup-sap-hana-db.md#configure-backup) sur celles-ci
 
@@ -144,6 +151,37 @@ sections:
 
 
       Ensuite, une sauvegarde complète est déclenchée de nouveau sur le nœud 1 et, une fois celle-ci terminée, les sauvegardes de fichiers journaux démarrent.
+
+
+      >[!Note]
+
+      >L’[exécution du script de préinscription](./tutorial-backup-sap-hana-db.md#prerequisites) avec un utilisateur de sauvegarde personnalisé comme entrée peut vous aider à mieux gérer vos sauvegardes HSR. Cela est dû au fait que les nœuds du HSR configurés ont la même clé de sauvegarde, ce qui réduit les problèmes de synchronisation et d’échec de sauvegarde.
+  - question: >
+      Que se passe-t-il si je n’arrête pas la protection (avec conservation des données) sur le nœud secondaire/inactif de la configuration HSR ?
+    answer: >
+      1. Pour la réplication de système HANA (HSR), le nœud secondaire n’accepte aucune connexion. Une fois la sauvegarde configurée, le service Sauvegarde Azure effectue un test ping périodique et échoue. Parfois, ces échecs de tentatives sont reflétés sur le nœud principal. Après plusieurs défaillances, l’utilisateur est bloqué, puis le nœud principal commence à échouer avec l’erreur _ODBCConnectionError_.   <br><br>Nous avons remarqué que tous les utilisateurs ne rencontrent pas ce problème. Nous vous recommandons d’examiner la raison pour laquelle les utilisateurs sont bloqués dans le nœud principal quand la connexion utilisateur échoue sur le nœud secondaire.
+
+
+      1. Une fois que vous avez exécuté le script de préinscription, les informations utilisateur sont mises à jour avec le nouveau nœud principal. Ensuite, la connexion pour tenter la sauvegarde est rétablie. Toutefois, il se peut que vous soyez à nouveau confronté au même scénario.
+
+
+      1. En outre, les sauvegardes (sauvegardes complètes) qui échouent sur le nœud secondaire créent des alertes.
+
+
+      Pour éviter les problèmes ci-dessus, nous vous recommandons d’arrêter la protection d’un nœud une fois qu’il devient secondaire (afin qu’aucune connexion ne soit tentée et que l’utilisateur ne soit pas bloqué), et de reprendre la protection de ce nœud une fois qu’il devient principal. Si vous ne rencontrez pas cette situation de verrouillage sur les configurations HSR et que vous êtes familiarisé avec les alertes générées, vous pouvez configurer des sauvegardes sur les deux nœuds afin que le service gère la reprise et la restauration automatique.
+  - question: >
+      Quelles sont les performances en matière de débit de sauvegarde et de restauration fournies par le service Sauvegarde Azure et comment configurer mon système HANA pour utiliser ce débit maximal ?
+    answer: >
+      Reportez-vous aux [performances de débit de sauvegarde et de restauration](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) qu’offre le service Sauvegarde Azure pour les charges de travail HANA. <br><br> Pour configurer votre système HANA afin de tirer parti des performances améliorées, utilisez les ressources suivantes :
+
+       - [Sélectionner un type de disque pour les machines virtuelles Azure IaaS - disques managés](/azure/virtual-machines/disks-types#premium-ssd)
+       - [Niveaux de performance des disques managés Azure](/azure/virtual-machines/disks-change-performance)
+       - [Série M](/azure/virtual-machines/m-series)
+       - [Configurations du stockage des machines virtuelles SAP HANA Azure](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+
+      >[!Note]
+
+      >Vous pouvez également limiter les performances de débit de sauvegarde. [Plus d’informations](/azure/backup/tutorial-backup-sap-hana-db#limiting-backup-throughput-performance)
 - name: Restaurer
   questions:
   - question: >

@@ -4,16 +4,16 @@ description: Cet article fournit des informations conceptuelles relatives aux so
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 09/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: e5b2c5eaca13b26504c4229ef990abc4adce23c9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1d484bce594d5894052ffeb4f1ff4a1dbf202d50
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524085"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215241"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Sources de données et types de fichiers pris en charge dans Azure Purview
 
@@ -35,7 +35,7 @@ Les types de fichiers suivants sont pris en charge pour l’analyse, ainsi que p
 > Chaque fichier Gzip doit être mappé à un seul fichier csv contenu. Les fichiers Gzip sont soumis à des règles système et personnalisées de classification. Actuellement, nous ne prenons pas en charge l’analyse d’un fichier gzip mappé à plusieurs fichiers contenus, ou à n’importe quel autre type de fichier qui n’est pas csv. En outre, l’analyseur Purview prend en charge l’analyse des types PARQUET compressés avec Snappy pour l’extraction et la classification des schémas. 
 
 > [!Note]
-> L’analyseur Purview ne prend pas en charge les types de données complexes dans les types de fichiers AVRO, ORC et PARQUET pour l’extraction des schémas.   
+> L’analyseur Purview ne prend pas en charge les types de données complexes (par exemple, MAP, LIST, STRUCT) dans les types de fichiers AVRO, ORC et PARQUET pour l’extraction des schémas.   
 
 ## <a name="sampling-within-a-file"></a>Échantillonnage dans un fichier
 
@@ -69,5 +69,5 @@ Toutes les 206 règles de classification système s’appliquent aux formats de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Exécuter le starter kit et analyser les données](tutorial-scan-data.md)
-- [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md)
+- [Analyses et ingestion dans Purview](concept-scans-and-ingestion.md)
+- [Gérer des sources de données dans Azure Purview](manage-data-sources.md)

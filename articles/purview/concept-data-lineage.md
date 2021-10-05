@@ -1,18 +1,17 @@
 ---
-title: Traçabilité des données dans Azure Purview (préversion)
+title: Lignage de données dans Azure Purview
 description: Décrit les concepts relatifs à la traçabilité des données.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: da2f34014f3c789762cc2743b971aa76ad1049a9
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.date: 09/27/2021
+ms.openlocfilehash: 37cffe89fc0e0cb10aaadbb8d63f9aa12d0589eb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112574431"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207447"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Traçabilité des données dans le client Data Catalog Azure Purview
 
@@ -67,4 +66,4 @@ La traçabilité est une fonctionnalité critique de Data Catalog Purview visant
 
 * [Démarrage rapide : Créer un compte Azure Purview dans le portail Azure](create-catalog-portal.md)
 * [Démarrage rapide : Créer un compte Azure Purview à l’aide d’Azure PowerShell ou d’Azure CLI](create-catalog-powershell.md)
-* [Démarrage rapide : Utiliser Purview Studio](use-purview-studio.md)
+* [Utilisation de Purview Studio](use-purview-studio.md)

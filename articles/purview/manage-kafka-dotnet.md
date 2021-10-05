@@ -7,13 +7,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: dotnet
-ms.date: 04/15/2021
-ms.openlocfilehash: 468c02d9384fb2c8a4723c179fde9a44be76dd50
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.date: 09/27/2021
+ms.openlocfilehash: 670e7425c8b56732a32e1deb0b664bc6544eda0c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123476283"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209620"
 ---
 # <a name="publish-messages-to-and-process-messages-from-azure-purviews-atlas-kafka-topics-via-event-hubs-using-net"></a>Publier et traiter des messages dans les rubriques Atlas Kafka d’Azure Purview via Event Hubs à l’aide de .NET 
 Ce guide de démarrage rapide montre comment recevoir des événements provenant des rubriques Atlas Kafka d’Azure Purview et leur en envoyer, à l’aide de la bibliothèque .NET **Azure.Messaging.EventHubs**. 
@@ -133,101 +133,109 @@ Créez ensuite une application console .NET en C# dans Visual Studio :
 ```json
     
     {
-    "msgCreatedBy": "nayenama",
-    "message": {
-    "entities": {
-    "referredEntities": {
-        "-1102395743156037": {
-            "typeName": "azure_sql_column",
-            "attributes": {
-                "owner": null,
-                "userTypeId": 61,
-                "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderID",
-                "precision": 23,
-                "length": 8,
-                "description": "Sales Order ID",
-                "scale": 3,
-                "name": "OrderID",
-                "data_type": "int",
-                "table": {
-                    "guid": "-1102395743156036",
-                    "typeName": "azure_sql_table",
-                    "entityStatus": "ACTIVE",
-                    "displayText": "SalesOrderTable",
-                    "uniqueAttributes": {
-                                "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable"
-                    }
-            }
-            },
-            "guid": "-1102395743156037",
-            "version": 2
-        },
-        "-1102395743156038": {
-         "typeName": "azure_sql_column",
-            "attributes": {
-                "owner": null,
-                "userTypeId": 61,
-                "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderDate",
-                "description": "Sales Order Date",
-                "scale": 3,
-                "name": "OrderDate",
-                "data_type": "datetime",
-                "table": {
-                    "guid": "-1102395743156036",
-                    "typeName": "azure_sql_table",
-                    "entityStatus": "ACTIVE",
-                    "displayText": "SalesOrderTable",
-                    "uniqueAttributes": {
-                                "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable"
-                    }
-            }
-            },
-            "guid": "-1102395743156038",
-            "status": "ACTIVE",
-            "createdBy": "ServiceAdmin",
-            "version": 0
-        }
-        },
-        "entity": 
+    "msgCreatedBy":"nayenama",
+    "message":{
+        "type":"ENTITY_CREATE_V2",
+        "user":"admin",
+        "entities":{
+            "entities":[
                 {
-                    "typeName": "azure_sql_table",
-                    "attributes": {
-                        "owner": "admin",
-                        "temporary": false,
-                        "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable",
-                        "name" : "SalesOrderTable",
-                        "description": "Sales Order Table added via Kafka",
-                        "columns": [
+                    "typeName":"azure_sql_table",
+                    "attributes":{
+                        "owner":"admin",
+                        "temporary":false,
+                        "qualifiedName":"mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable",
+                        "name":"SalesOrderTable",
+                        "description":"Sales Order Table added via Kafka"
+                    },
+                    "relationshipAttributes":{
+                        "columns":[
                             {
-                                "guid": "-1102395743156037",
-                                "typeName": "azure_sql_column",
-                                "uniqueAttributes": {
-                                    "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderID"
+                                "guid":"-1102395743156037",
+                                "typeName":"azure_sql_column",
+                                "uniqueAttributes":{
+                                    "qualifiedName":"mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderID"
                                 }
                             },
                             {
-                                "guid": "-1102395743156038",
-                                "typeName": "azure_sql_column",
-                                "uniqueAttributes": {
-                                    "qualifiedName": "mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderDate"
+                                "guid":"-1102395743156038",
+                                "typeName":"azure_sql_column",
+                                "uniqueAttributes":{
+                                    "qualifiedName":"mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderDate"
                                 }
                             }
                         ]
-                        },
-                        "guid": "-1102395743156036",
-                    "version": 0                
-                    }
+                    },
+                    "guid":"-1102395743156036",
+                    "version":0
+                }
+            ],
+            "referredEntities":{
+                "-1102395743156037":{
+                    "typeName":"azure_sql_column",
+                    "attributes":{
+                        "owner":null,
+                        "userTypeId":61,
+                        "qualifiedName":"mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderID",
+                        "precision":23,
+                        "length":8,
+                        "description":"Sales Order ID",
+                        "scale":3,
+                        "name":"OrderID",
+                        "data_type":"int"
+                    },
+                    "relationshipAttributes":{
+                        "table":{
+                            "guid":"-1102395743156036",
+                            "typeName":"azure_sql_table",
+                            "entityStatus":"ACTIVE",
+                            "displayText":"SalesOrderTable",
+                            "uniqueAttributes":{
+                                "qualifiedName":"mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable"
+                            }
+                        }
+                    },
+                    "guid":"-1102395743156037",
+                    "version":2
                 },
-        "type": "ENTITY_CREATE_V2",
-        "user": "admin"
+                "-1102395743156038":{
+                    "typeName":"azure_sql_column",
+                    "attributes":{
+                        "owner":null,
+                        "userTypeId":61,
+                        "qualifiedName":"mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable#OrderDate",
+                        "description":"Sales Order Date",
+                        "scale":3,
+                        "name":"OrderDate",
+                        "data_type":"datetime"
+                    },
+                    "relationshipAttributes":{
+                        "table":{
+                            "guid":"-1102395743156036",
+                            "typeName":"azure_sql_table",
+                            "entityStatus":"ACTIVE",
+                            "displayText":"SalesOrderTable",
+                            "uniqueAttributes":{
+                                "qualifiedName":"mssql://nayenamakafka.eventhub.sql.net/salespool/dbo/SalesOrderTable"
+                            }
+                        }
+                    },
+                    "guid":"-1102395743156038",
+                    "status":"ACTIVE",
+                    "createdBy":"ServiceAdmin",
+                    "version":0
+                }
+            }
+        }
     },
-    "version": {
-        "version": "1.0.0"
+    "version":{
+        "version":"1.0.0"
     },
-    "msgCompressionKind": "NONE",
-    "msgSplitIdx": 1,
-    "msgSplitCount": 1
+    "msgCompressionKind":"NONE",
+    "msgSplitIdx":1,
+    "msgSplitCount":1
 }
+
 
 ``` 
 
@@ -252,7 +260,7 @@ Dans ce guide de démarrage rapide, vous utilisez Stockage Azure comme magasin d
 
 ### <a name="create-a-project-for-the-receiver"></a>Créer un projet pour le récepteur
 
-1. Dans la fenêtre Explorateur de solutions, cliquez avec le bouton droit sur la solution **EventHubQuickStart**, pointez sur **Ajouter**, puis sélectionnez **Nouveau projet**. 
+1. Dans la fenêtre Explorateur de solutions, sélectionnez et maintenez l’appui (ou cliquez avec le bouton droit) sur la solution **EventHubQuickStart**, pointez sur **Ajouter**, puis sélectionnez **Nouveau projet**. 
 1. Sélectionnez **Application console (.NET Core)** , puis sélectionnez **Suivant**. 
 1. Entrez **PurviewKafkaConsumer** pour **Nom du projet**, puis sélectionnez **Créer**. 
 

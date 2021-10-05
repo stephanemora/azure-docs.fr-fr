@@ -9,12 +9,12 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 916f1b268e8fc8a3b765e4362190a2db78ec306a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 6b8286ca8cac5ec2a16015d2171f224a60a58fb3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698481"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596806"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Linux dans Azure avec Azure PowerShell
 
@@ -49,7 +49,7 @@ Quelques minutes sont nécessaires pour le déploiement de votre machine virtuel
 Azure Disk Encryption stocke sa clé de chiffrement dans Azure Key Vault. Créez un coffre de clés avec [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). Pour activer le stockage des clés de chiffrement dans Key Vault, utilisez le paramètre -EnabledForDiskEncryption.
 
 > [!Important]
-> Chaque coffre de clés doit avoir un nom unique dans Azure. Dans les exemples ci-dessous, remplacez <votre-nom-de-coffre-de-clés-unique> par le nom de votre choix.
+> Chaque coffre de clés doit avoir un nom unique dans Azure. Dans les exemples ci-dessous, remplacez \<your-unique-keyvault-name\> par le nom de votre choix.
 
 ```azurepowershell-interactive
 New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location EastUS -EnabledForDiskEncryption

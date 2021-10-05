@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 08/30/2021
-ms.openlocfilehash: cad2ac9319eb674cb8022ff5ce3d2df2a57df648
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/22/2021
+ms.openlocfilehash: 4897b557626be5071a21d2cc1a6a8194eaed8994
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224691"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154277"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Créer et gérer une instance de calcul Azure Machine Learning
 
@@ -123,10 +123,11 @@ Pour plus d’informations, consultez la documentation de référence sur [az ml
 1. <a name="advanced-settings"></a> Sélectionnez **Suivant : Paramètres avancés** si vous souhaitez :
 
     * Activer l’accès SSH.  Suivez les [instructions d’accès SSH détaillées](#enable-ssh) ci-dessous.
-    * Activer le réseau virtuel. Pour créer l’instance de calcul à l’intérieur d’un réseau virtuel Azure (vnet), spécifiez le **Groupe de ressources**, le **Réseau virtuel** et le **Sous-réseau**. Pour plus d’informations, consultez la [configuration requise](./how-to-secure-training-vnet.md) pour le réseau virtuel. 
+    * Activer le réseau virtuel. Pour créer l’instance de calcul à l’intérieur d’un réseau virtuel Azure (vnet), spécifiez le **Groupe de ressources**, le **Réseau virtuel** et le **Sous-réseau**. Vous pouvez également sélectionner __Aucune adresse IP publique__ (préversion) pour empêcher la création d’une adresse IP publique, ce qui nécessite un espace de travail de lien privé. Vous devez également satisfaire ces [exigences de réseau](./how-to-secure-training-vnet.md) pour la configuration du réseau virtuel. 
     * Affecter l’ordinateur à un autre utilisateur. Pour plus d’informations sur l’affectation à d’autres utilisateurs, consultez [Créer au nom de](#on-behalf).
     * Provisionner avec un script de configuration (préversion) : pour plus d’informations sur la création et l’utilisation d’un script de configuration, consultez [Personnalisation de l’instance de calcul avec un script](#setup-script).
     * Ajouter une planification (préversion). Planifiez le démarrage et/ou l’arrêt automatiques de l’instance de calcul. Consultez [Planifier les détails](#schedule) ci-dessous.
+
 
 ---
 
@@ -265,8 +266,50 @@ Utilisez ensuite les expressions cron ou LogicApps pour définir la planificatio
     // the ranges shown above or two numbers in the range separated by a 
     // hyphen (meaning an inclusive range). 
     ```
-
+### <a name="azure-policy-support-to-default-a-schedule"></a>Azure Policy la prise en charge d’une planification par défaut
 Utilisez Azure Policy afin d’appliquer une planification d’arrêt qui existe pour chaque instance de calcul dans un abonnement ou d’utiliser une planification par défaut.
+Voici un exemple de politique pour définir par défaut un horaire d'arrêt à 22 heures PST.
+```json
+{
+    "mode": "All",
+    "policyRule": {
+     "if": {
+      "allOf": [
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+        "equals": "ComputeInstance"
+       },
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/schedules",
+        "exists": "false"
+       }
+      ]
+     },
+     "then": {
+      "effect": "append",
+      "details": [
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/schedules",
+        "value": {
+         "computeStartStop": [
+          {
+           "triggerType": "Cron",
+           "cron": {
+            "startTime": "2021-03-10T21:21:07",
+            "timeZone": "Pacific Standard Time",
+            "expression": "0 22 * * *"
+           },
+           "action": "Stop",
+           "status": "Enabled"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+}    
+```
 
 ## <a name="customize-the-compute-instance-with-a-script-preview"></a><a name="setup-script"></a> Personnalisation de l’instance de calcul avec un script (préversion)
 

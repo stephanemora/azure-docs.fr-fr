@@ -1,62 +1,35 @@
 ---
-title: 'Démarrage rapide : Créer un compte Azure Purview en utilisant Azure PowerShell ou Azure CLI (préversion)'
+title: 'Démarrage rapide : Créer un compte Purview avec PowerShell/Azure CLI'
 description: Ce guide de démarrage rapide détaille la création d’un compte Azure Purview avec Azure PowerShell ou Azure CLI.
 author: hophanms
 ms.author: hophan
-ms.date: 11/23/2020
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.custom:
 - mode-api
-ms.openlocfilehash: 6266aedaec8f171a1a6ff3e0d15abdad0263767a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0e3cb8399e42dc651a48ada6018c58cb4f48e5d8
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530872"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217350"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Démarrage rapide : Créer un compte Azure Purview en utilisant Azure PowerShell ou Azure CLI
 
-> [!IMPORTANT]
-> Azure Purview est actuellement disponible en PRÉVERSION. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
+Dans ce guide de démarrage rapide, vous allez créer un compte Azure Purview en utilisant Azure PowerShell ou l’interface Azure CLI. La [référence PowerShell pour Purview](/powershell/module/az.purview/) est disponible, mais cet article vous guide dans les étapes à suivre pour créer un compte avec PowerShell.
 
-Dans ce guide de démarrage rapide, vous créez un compte Azure Purview en utilisant Azure PowerShell ou Azure CLI.
+Azure Purview est un service de gouvernance de données qui vous aide à gérer et régir votre paysage de données. En vous connectant aux données de vos sources locales, multiclouds et SaaS (software-as-a-service), Purview crée un mappage à jour de vos informations. Il identifie et classe les données sensibles, et fournit un lignage de bout en bout. Les consommateurs de données peuvent découvrir des données au sein de votre organisation, et les administrateurs de données sont en mesure d’auditer, de sécuriser et de garantir l’utilisation appropriée de vos données.
 
-## <a name="prerequisites"></a>Prérequis
+Pour plus d’informations sur Purview, [consultez notre page de présentation](overview.md). Pour plus d’informations sur le déploiement de Purview dans votre organisation, [consultez nos bonnes pratiques de déploiement](deployment-best-practices.md).
 
-* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
-* Le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre du rôle Contributeur ou Propriétaire, ou être administrateur de l’abonnement Azure.
+### <a name="install-powershell"></a>Installer PowerShell
 
-* Votre propre [locataire Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+ Installez Azure PowerShell ou Azure CLI dans votre machine cliente pour déployer le modèle : [Déploiement en ligne de commande](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
-* Installez Azure PowerShell ou Azure CLI dans votre machine cliente pour déployer le modèle : [Déploiement en ligne de commande](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
-
-## <a name="sign-in-to-azure"></a>Connexion à Azure
-
-Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Azure.
-
-## <a name="configure-your-subscription"></a>Configurer votre abonnement
-
-Si nécessaire, suivez ces étapes qui permettent de configurer votre abonnement en vue d’autoriser l’exécution d’Azure Purview dans votre abonnement :
-
-   1. Dans le portail Azure, recherchez et sélectionnez **Abonnements**.
-
-   1. Dans la liste des abonnements, sélectionnez l’abonnement que vous souhaitez utiliser. L’autorisation d’accès administratif pour l’abonnement est nécessaire.
-
-      :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Capture d’écran illustrant la sélection d’un abonnement dans le portail Azure.":::
-
-   1. Sur votre abonnement, sélectionnez **Fournisseurs de ressources**. Dans le volet **Fournisseurs de ressources**, recherchez et inscrivez les trois fournisseurs de ressources : 
-       1. **Microsoft.Purview**
-       1. **Microsoft.Storage**
-       1. **Microsoft.EventHub** 
-      
-      S’ils ne sont pas inscrits, inscrivez-les en sélectionnant **Inscrire**.
-
-      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Capture d’écran illustrant l’inscription du fournisseur de ressources Microsoft.Azure Purview dans le portail Azure.":::
-
-## <a name="create-an-azure-purview-account-instance"></a>Créer une instance de compte Azure Purview
+## <a name="create-an-azure-purview-account"></a>Créer un compte Azure Purview
 
 1. Se connecter avec des informations d’identification Azure
 
@@ -166,7 +139,8 @@ Si nécessaire, suivez ces étapes qui permettent de configurer votre abonnement
 
 Dans ce guide de démarrage rapide, vous avez vu comment créer un compte Azure Purview.
 
-Passez à l’article suivant pour savoir comment autoriser les utilisateurs à accéder à votre compte Azure Purview. 
+Lisez les articles suivants pour apprendre à naviguer dans Purview Studio, à créer une collection et à accorder l’accès à Purview.
 
-> [!div class="nextstepaction"]
-> [Ajouter des utilisateurs à votre compte Azure Purview](catalog-permissions.md)
+* [Comment utiliser Purview Studio](use-purview-studio.md)
+* [Création d'une collection](quickstart-create-collection.md)
+* [Ajouter des utilisateurs à votre compte Azure Purview](catalog-permissions.md)

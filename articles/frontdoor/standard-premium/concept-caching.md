@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 24a925b0d16dc1650398e6211aaff42cd47620eb
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: a8adfef720d446c3ae2a45d27cee72a8135edb70
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112369408"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595044"
 ---
 # <a name="caching-with-azure-front-door-standardpremium-preview"></a>Mise en cache avec Azure Front Door Standard/Premium (préversion)
 
@@ -42,7 +42,7 @@ Front Door met en cache les blocs au fur et à mesure de leur réception, ce qui
 
 ## <a name="file-compression"></a>Compression de fichiers
 
-Reportez-vous à la documentation sur l’amélioration des performances en compressant les fichiers dans Azure Front Door.
+Reportez-vous à la documentation sur [l’amélioration des performances en compressant les fichiers](how-to-compression.md) dans Azure Front Door.
 
 ## <a name="query-string-behavior"></a>Comportement des chaînes de requête
 
@@ -71,9 +71,20 @@ Les en-têtes de demande suivants ne sont pas transférés à une origine quand 
 * Content-Length
 * Transfer-Encoding
 
-## <a name="cache-duration"></a>Durée du cache
+## <a name="cache-behavior-and-duration"></a>Comportement et durée du cache
 
-La durée du cache peut être configurée dans l’ensemble de règles. La durée du cache définie par le biais de l’ensemble de règles est un véritable remplacement de cache. Cela signifie qu’elle utilise la valeur de remplacement, quelle que soit l’en-tête de réponse d’origine.
+La durée du cache peut être configurée à la fois dans le concepteur Front Door et dans Rules Engine. La configuration de la mise en cache du moteur de règles aura toujours priorité sur la configuration des règles de routage du concepteur Front Door.
+
+* Lorsque la *mise en cache* est **désactivée**, Front Door ne met pas en cache le contenu de la réponse, quelles que soient les directives de réponse d'origine.
+
+* Lorsque la *mise en cache* est **activée**, le comportement du cache est différent selon les valeurs de la *durée d’utilisation par défaut du cache*.
+    * Lorsque l' *option utiliser la durée par défaut du cache* est définie sur **Oui**, la porte d’entrée respecte toujours la directive d’en-tête de réponse d’origine. Si la directive Origin est manquante, la porte d’entrée met en cache le contenu en tout lieu de 1 à 3 jours.
+    * Lorsque l' *option utiliser la durée par défaut du cache* est définie sur **non**, la porte est toujours remplacée par la *durée du cache* (champs obligatoires), ce qui signifie qu’elle met en cache le contenu pour la durée du cache en ignorant les valeurs des directives de réponse d’origine. 
+
+> [!NOTE]
+> * La *durée du cache* définie dans le concepteur Front Door correspond à la **durée minimale du cache**. Cette dérogation ne fonctionnera pas si l'en-tête de contrôle du cache provenant de l'origine a un TTL supérieur à la valeur de dérogation.
+> * Les contenus mis en cache peuvent être évincés de la porte d'entrée Azure avant leur expiration s'ils ne sont pas demandés aussi fréquemment, afin de faire de la place pour des contenus plus fréquemment demandés.Le contenu mis en cache peut être supprimé de la porte d’entrée Azure avant d’expirer si le contenu n’est pas demandé fréquemment pour faire de la place pour le contenu le plus fréquemment demandé.
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

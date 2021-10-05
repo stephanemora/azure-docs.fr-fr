@@ -1,14 +1,14 @@
 ---
-title: Chiffrer un compte de stockage Azure utilisé par un labo dans Azure DevTest Labs
+title: Cryptage d'un compte de stockage Azure utilisé par un laboratoire
 description: Découvrez comment configurer le chiffrement d’un compte de stockage Azure utilisé par un labo dans Azure DevTest Labs
 ms.topic: how-to
 ms.date: 07/29/2020
-ms.openlocfilehash: dcede89fb23c532742e41121688bcb51a5a73833
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 337cd45b20b9fe52bb487a3b36bde905541f840b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92149304"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552582"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Chiffrer un compte de stockage Azure utilisé par un labo dans Azure DevTest Labs
 Chaque labo créé dans Azure DevTest Labs est créé avec un compte de stockage Azure associé. Ce compte de stockage est utilisé pour les raisons suivantes : 
@@ -65,7 +65,7 @@ Ces documents sont utilisés pour prendre en charge l’option permettant de cr�
 - Création d’une machine virtuelle à partir d’une formule.
 
 ### <a name="artifact-results"></a>Résultats d’artefact
-À mesure que les artefacts sont appliqués, la taille des résultats d’artefact respectifs peut augmenter au fil du temps en fonction du nombre et du type d’artefacts exécutés sur les machines virtuelles du labo. Ainsi, en tant que propriétaire du labo, vous pouvez contrôler le cycle de vie de ces documents. Pour plus d’informations, consultez [Gérer le cycle de vie du Stockage Blob Azure](../storage/blobs/storage-lifecycle-management-concepts.md).
+À mesure que les artefacts sont appliqués, la taille des résultats d’artefact respectifs peut augmenter au fil du temps en fonction du nombre et du type d’artefacts exécutés sur les machines virtuelles du labo. Ainsi, en tant que propriétaire du labo, vous pouvez contrôler le cycle de vie de ces documents. Pour plus d’informations, consultez [Gérer le cycle de vie du Stockage Blob Azure](../storage/blobs/lifecycle-management-overview.md).
 
 > [!IMPORTANT]
 > Nous vous recommandons d’effectuer cette étape pour réduire les dépenses associées au compte de stockage Azure. 

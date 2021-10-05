@@ -3,13 +3,13 @@ title: Déployer une appliance de réplication Azure Site Recovery - Préversion
 description: Cet article décrit le support et la configuration requise lors du déploiement de l’appliance de réplication pour la récupération d’urgence de VMware sur Azure avec Azure Site Recovery - Préversion
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
-ms.openlocfilehash: e4021aa0f5572a51ca4d3ddda37f64f4da46a3b4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 09/01/2021
+ms.openlocfilehash: 940cfb52985e956a283e8278c572569e4f350f55
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535350"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084186"
 ---
 # <a name="deploy-azure-site-recovery-replication-appliance---preview"></a>Déployer une appliance de réplication Azure Site Recovery - Préversion
 
@@ -19,7 +19,10 @@ ms.locfileid: "122535350"
 >[!NOTE]
 > Assurez-vous de créer un coffre Recovery Services pour configurer l’appliance de préversion. N’utilisez pas un coffre existant.
 
-Vous devez déployer une appliance de réplication locale quand vous utilisez [Azure Site Recovery](site-recovery-overview.md) pour la récupération d’urgence de machines virtuelles VMware et de serveurs physiques sur Azure.
+>[!NOTE]
+> L’activation de la réplication pour les machines physiques n’est pas prise en charge avec cette version préliminaire. 
+
+Vous devez déployer une appliance de réplication locale quand vous utilisez [Azure Site Recovery](site-recovery-overview.md) pour la récupération d’urgence de machines virtuelles VMware sur Azure.
 
 - L’appliance de réplication coordonne les communications entre les machines locales VMware et Azure. Il gère également la réplication des données.
 - [En savoir plus](vmware-azure-architecture-preview.md) sur les composants et processus de l’appliance de réplication Azure Site Recovery.
@@ -47,7 +50,7 @@ FIPS (Federal Information Processing Standard) | Ne pas activer le mode FIPS|
 
 |**Composant** | **Prérequis**|
 |--- | ---|
-|Type d’adresse IP | statique|
+|Nom de domaine complet (FQDN) | statique|
 |Ports | 443 (Orchestration du canal de contrôle)<br>9443 (Transport de données)|
 |Type de carte réseau | VMXNET3 (si l’appliance est une machine virtuelle VMware)|
 
@@ -61,25 +64,49 @@ Assurez-vous que les URL suivantes sont autorisées et accessibles à partir de 
   | portal.azure.com          | Accédez au portail Azure.              |
   | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | Pour vous connecter à votre abonnement Azure.  |
   |`*.microsoftonline.com `|Créez des applications Azure Active Directory (AD) pour que l’appliance communique avec Azure Site Recovery. |
-  |management.azure.com |Créez des applications Azure AD pour que l’appliance communique avec le service Azure Azure Site Recovery. |
+  |management.azure.com |Créez des applications Azure AD pour que l’appliance communique avec le service Azure Site Recovery. |
   |`*.services.visualstudio.com `|Chargez les journaux d’applications utilisés pour la supervision interne. |
   |`*.vault.azure.net `|Gérez les secrets dans Azure Key Vault. Remarque : Vérifiez que les machines à répliquer y ont accès. |
   |aka.ms |Autorisez l’accès aux liens. Utilisé pour les mises à jour de l’appliance Azure Site Recovery. |
   |download.microsoft.com/download |Autoriser les téléchargements à partir du téléchargement Microsoft. |
   |`*.servicebus.windows.net `|Communication entre l’appliance et le service Azure Site Recovery. |
-  |`*.discoverysrv.windowsazure.com `|Se connecter à l’URL du service de découverte Azure Site Recovery. |
-  |`*.hypervrecoverymanager.windowsazure.com `|Se connecter aux URL du micro-service Azure Site Recovery.  |
-  |`*.blob.core.windows.net `|Télécharger des données vers le stockage Azure qui est utilisé pour créer des disques cibles |
-  |`*.backup.windowsazure.com `|URL du service de protection : microservice utilisé par Azure Site Recovery pour le traitement et la création de disques répliqués dans Azure |
+  |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Se connecter aux URL du micro-service Azure Site Recovery.
+  |`*.blob.core.windows.net `|Télécharger des données vers le stockage Azure qui est utilisé pour créer des disques cibles. |
+
 
 > [!NOTE]
 > Les liens privés ne sont pas pris en charge avec la version préliminaire.
 
-## <a name="prepare-azure-account"></a>Préparer le compte Azure
+## <a name="folder-exclusions-from-antivirus-program"></a>Exclusions de dossiers du programme antivirus
 
-Pour créer et inscrire l’appliance de réplication Azure Site Recovery, vous avez besoin d’un compte Azure avec :
+### <a name="if-antivirus-software-is-active-on-appliance"></a>Si un logiciel antivirus est actif sur l’appliance
 
-- Des autorisations de niveau Contributeur ou Propriétaire sur l’abonnement Azure.
+Excluez les dossiers suivants du logiciel antivirus pour une réplication sans heurts et afin d’éviter les problèmes de connectivité.
+
+C:\ProgramData\Microsoft Azure <br>
+C:\ProgramData\ASRLogs <br>
+C:\Windows\Temp\MicrosoftAzure C:\Program Files\Microsoft Azure Appliance Auto Update <br>
+C:\Program Files\Microsoft Azure Appliance Configuration Manager <br>
+C:\Program Files\Microsoft Azure Push Install Agent <br>
+C:\Program Files\Microsoft Azure RCM Proxy Agent <br>
+C:\Program Files\Microsoft Azure Recovery Services Agent <br>
+C:\Program Files\Microsoft Azure Server Discovery Service <br>
+C:\Program Files\Microsoft Azure Site Recovery Process Server <br>
+C:\Program Files\Microsoft Azure Site Recovery Provider <br>
+C:\Program Files\Microsoft Azure Site Recovery Process Server <br>
+C:\Program Files\Microsoft Azure VMware Discovery Service <br>
+C:\Program Files\Microsoft On-Premise to Azure Replication agent <br>
+E:\ <br>
+
+### <a name="if-antivirus-software-is-active-on-source-machine"></a>Si un logiciel antivirus est actif sur l’ordinateur source
+
+Si l’ordinateur source est doté d’un logiciel antivirus actif, le dossier d’installation doit être exclu. Par conséquent, excluez le dossier C:\ProgramData\ASR\agent pour une réplication sans heurts.
+
+## <a name="prepare-azure-account"></a>Préparer un compte Azure
+
+Pour créer et inscrire l’appliance de réplication Azure Site Recovery, il vous faut un compte doté des autorisations suivantes :
+
+- Autorisations Contributeur ou Propriétaire sur l’abonnement Azure
 - Des autorisations permettant d’inscrire des applications Azure Active Directory (AAD).
 - Des autorisations de niveau Contributeur ou Propriétaire, ainsi que des autorisations d’administrateur d’accès utilisateur sur l’abonnement Azure pour créer un coffre de clés, utilisé lors de l’inscription de l’appliance de réplication Azure Site Recovery avec Azure.
 
@@ -148,6 +175,9 @@ Le modèle OVF tourne sur une machine avec les spécifications requises.
 4. Sélectionnez **Finaliser**, le système redémarre et vous pouvez vous connecter avec le compte d'utilisateur d’administrateur.
 
 ### <a name="set-up-the-appliance-through-powershell"></a>Configurer l’appliance via PowerShell
+
+>[!NOTE]
+> L’activation de la réplication pour les machines physiques n’est pas prise en charge avec cette version préliminaire. 
 
 En cas de restrictions organisationnelles, vous pouvez configurer manuellement l’appliance de réplication Site Recovery par le biais de PowerShell. Procédez comme suit :
 
@@ -240,6 +270,9 @@ En cas de restrictions organisationnelles, vous pouvez configurer manuellement l
 
     Veillez à ne pas fermer le navigateur pendant que la configuration est en cours.
 
+    >[!NOTE]
+    > Le clonage d’appliance n’est pas pris en charge dans cette préversion. Si vous essayez de cloner, cela peut perturber le processus de récupération.
+
 
 ## <a name="view-azure-site-recovery-replication-appliance-in-azure-portal"></a>Afficher l’appliance de réplication Azure Site Recovery dans le portail Azure
 
@@ -267,4 +300,4 @@ Une appliance qui utilise un serveur de processus intégré pour protéger la ch
 Pour plus d’informations sur l’utilisation de plusieurs appliances et le basculement d’une appliance de réplication, consultez cet [article](switch-replication-appliance-preview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Configurez la récupération d’urgence des [machines virtuelles VMware](vmware-azure-tutorial.md) vers Azure.
+Configurez la récupération d’urgence des [machines virtuelles VMware](vmware-azure-set-up-replication-tutorial-preview.md) vers Azure.

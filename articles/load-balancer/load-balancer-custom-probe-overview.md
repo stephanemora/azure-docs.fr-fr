@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: c6dbfd0020598c280e006e863467a4dfa9b29a0c
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 57be98a76621d04ec14af04166117a5f62a40227
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284522"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061862"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -251,14 +251,15 @@ N’activez pas les [horodatages TCP](https://tools.ietf.org/html/rfc1323).  L�
 
 ## <a name="monitoring"></a>Surveillance
 
-Les [Standard Load Balancer](./load-balancer-overview.md) publics et internes exposent l’état des sondes d’intégrité par point de terminaison et par point de terminaison back-end comme des métriques multidimensionnelles par le biais d’Azure Monitor. Ces métriques peuvent être utilisées par d’autres services Azure ou par des applications partenaires. 
+Les [Standard Load Balancer](./load-balancer-overview.md) publics et internes exposent l’état des sondes d’intégrité par point de terminaison et par point de terminaison back-end comme des métriques multidimensionnelles par le biais d’[Azure Monitor](./monitor-load-balancer.md). Ces métriques peuvent être utilisées par d’autres services Azure ou par des applications partenaires. 
 
-Une instance Load Balancer publique de base expose l’état de la sonde d’intégrité résumé, par pool principal, via les journaux Azure Monitor.  Les journaux Azure Monitor ne sont pas disponibles pour les instances Load Balancer de base internes.  Vous pouvez utiliser les [journaux Azure Monitor](./monitor-load-balancer.md) pour vérifier le nombre et l’état d’intégrité des sondes d’équilibreurs de charge publics. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
+Les journaux d'Azure Monitor ne sont pas disponibles pour les équilibreurs de charge de base publics et internes.
 
 ## <a name="limitations"></a>Limites
 
 - Les sondes HTTPS ne prennent pas en charge l’authentification mutuelle avec un certificat client.
 - Vous pouvez supposer que les sondes d’intégrité échoueront lorsque les timestamp TCP sont activés.
+- Une sonde de santé de base de l'équilibreur de charge SKU n'est pas prise en charge avec un ensemble d'échelles de machines virtuelles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

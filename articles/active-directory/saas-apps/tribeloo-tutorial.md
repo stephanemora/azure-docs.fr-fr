@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: c14af3698826405244b65bc8fef6f241f7f0032f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d1f276723b6ea48aeed474c1893fb5cfe3ad881
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181342"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124808215"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tribeloo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Tribeloo
 
@@ -37,7 +37,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Tribeloo prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Tribeloo prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Tribeloo prend en charge l’[attribution automatisée d’utilisateurs](tribeloo-provisioning-tutorial.md).
 
 ## <a name="adding-tribeloo-from-the-gallery"></a>Ajout de Tribeloo à partir de la galerie
 
@@ -49,7 +50,6 @@ Pour configurer l’intégration de Tribeloo dans Azure AD, vous devez ajouter 
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Tribeloo** dans la zone de recherche.
 1. Sélectionnez **Tribeloo** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-tribeloo"></a>Configurer et tester l’authentification unique Azure AD pour Tribeloo
 
@@ -70,7 +70,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Tribeloo**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -85,6 +85,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer Tribeloo**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -117,6 +118,8 @@ Pour configurer l’authentification unique côté **Tribeloo**, vous devez envo
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Tribeloo. Rapprochez-vous de l’[équipe du support technique Tribeloo](mailto:support@tribeloo.com) pour ajouter les utilisateurs dans la plateforme Tribeloo. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+Tribeloo prend également en charge l’attribution automatique d’utilisateurs. Des informations supplémentaires sur la configuration de cette fonctionnalité sont disponibles [ici](./tribeloo-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -125,8 +128,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Tribeloo pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Tribeloo dans Mes applications vous redirige vers l’URL de connexion Tribeloo. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
-
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Tribeloo dans Mes applications vous redirige vers l’URL de connexion Tribeloo. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

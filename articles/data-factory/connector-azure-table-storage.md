@@ -1,22 +1,22 @@
 ---
 title: Copier des données depuis et vers Stockage Table Azure
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser Azure Data Factory pour copier des données de banques de données sources prises en charge vers le stockage Table Azure ou du stockage Table Azure vers des banques de données réceptrices prises en charge.
+description: Découvrez comment utiliser des pipelines Azure Data Factory ou Synapse Analytics pour copier des données de banques de données sources prises en charge vers le stockage Table Azure ou du stockage Table Azure vers des banques de données réceptrices prises en charge.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: d61d2b7799ab715532b703b5c73ad045e8be6226
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: e88b4cfc2d49aa072021ed81dc4c1eb7105c6112
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313925"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811944"
 ---
-# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copier des données depuis et vers le stockage Table Azure à l’aide d’Azure Data Factory
+# <a name="copy-data-to-and-from-azure-table-storage-using-azure-data-factory-or-synapse-analytics"></a>Copier des données depuis et vers le stockage Table Azure à l’aide d’Azure Data Factory de Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-azure-table-connector.md)
@@ -24,7 +24,7 @@ ms.locfileid: "123313925"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers et depuis le stockage Table Azure. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l'activité de copie dans les pipelines Azure Data Factory et Synapse Analytics pour copier des données depuis et vers le stockage Azure Table. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -51,7 +51,7 @@ Utilisez les étapes suivantes pour créer un service lié Stockage Table Azure 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -73,7 +73,7 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 ### <a name="use-an-account-key"></a>Utiliser une clé de compte
 
-Vous pouvez créer un service lié Stockage Azure à l’aide de la clé de compte. La fabrique de données dispose ainsi d’un accès global au stockage. Les propriétés suivantes sont prises en charge.
+Vous pouvez créer un service lié Stockage Azure à l’aide de la clé de compte. Le service dispose ainsi d’un accès global au stockage. Les propriétés suivantes sont prises en charge.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -130,12 +130,12 @@ Vous pouvez créer un service lié Stockage Azure à l’aide de la clé de comp
 
 ### <a name="use-shared-access-signature-authentication"></a>Utiliser l’authentification avec une signature d’accès partagé
 
-Vous pouvez également créer un service lié de stockage à l’aide d’une signature d’accès partagé. Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources dans le stockage.
+Vous pouvez également créer un service lié de stockage à l’aide d’une signature d’accès partagé. Ainsi, le service dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources dans le stockage.
 
 Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Vous pouvez l’utiliser pour octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous n’êtes pas obligé de partager vos clés d’accès de compte. La signature d’accès partagé est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour obtenir un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d’accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur approprié. Pour plus d’informations sur les signatures d’accès partagé, consultez [Signatures d’accès partagé : Comprendre le modèle de signature d’accès partagé](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> Azure Data Factory prend désormais en charge les **signatures d’accès partagé de service** et les **signatures d’accès partagé de compte**. Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md). 
+> Les **signatures d’accès partagé de service** et les **signatures d’accès partagé de compte** sont désormais prises en charge. Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md). 
 
 > [!TIP]
 > Pour générer une signature d’accès partagé de service pour votre compte de stockage, vous pouvez exécuter les commandes PowerShell suivantes. Remplacez les espaces réservés et octroyez l’autorisation nécessaire.
@@ -147,7 +147,7 @@ Pour utiliser l’authentification par signature d’accès partagé, les propri
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété de type doit être définie sur **AzureTableStorage**. |Oui |
-| sasUri | Spécifiez l’URI SAS de l’URI de signature d’accès partagé dans la table. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également placer un jeton SAS dans Azure Key Vault pour activer la rotation automatique et supprimer la partie du jeton. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| sasUri | Spécifiez l’URI SAS de l’URI de signature d’accès partagé dans la table. <br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité. Vous pouvez également placer un jeton SAS dans Azure Key Vault pour activer la rotation automatique et supprimer la partie du jeton. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou Integration Runtime auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 >[!NOTE]
@@ -205,7 +205,7 @@ Pour utiliser l’authentification par signature d’accès partagé, les propri
 
 Lorsque vous créez un URI de signature d’accès partagé, prenez en compte les points suivants :
 
-- Définissez des autorisations de lecture/écriture appropriées sur les objets en fonction de l’utilisation du service lié (lecture, écriture, lecture/écriture) dans votre fabrique de données.
+- Définissez des autorisations de lecture/écriture appropriées sur les objets en fonction de l’utilisation du service lié (lecture, écriture, lecture/écriture).
 - Définissez le paramètre **Heure d’expiration** correctement. Assurez-vous que l’accès aux objets du stockage n’expire pas pendant la période active du pipeline.
 - L’URI doit être créé au niveau table approprié en fonction des besoins.
 
@@ -240,12 +240,12 @@ Pour copier des données vers et depuis Table Azure, définissez la propriété 
 }
 ```
 
-### <a name="schema-by-data-factory"></a>Schéma par Data Factory
+### <a name="schema-inference-by-the-service"></a>Inférence de schéma par le service
 
-Pour les banques de données sans schéma comme Azure Table, Azure Data Factory déduit le schéma de l’une des manières suivantes :
+Pour les magasins de données sans schéma comme Azure Table, le service déduit le schéma de l’une des manières suivantes :
 
-* Si vous spécifiez le mappage de colonnes dans l’activité de copie, Data Factory utilise la liste de colonnes côté source pour récupérer des données. Dans ce cas, si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
-* Si vous ne spécifiez pas le mappage de colonnes dans l’activité de copie, Data Factory déduit le schéma à l’aide de la première ligne des données. Dans ce cas, si la première ligne ne contient pas le schéma complet (par exemple, si des colonnes ont la valeur Null), certaines colonnes ne sont pas incluses dans le résultat de l’opération de copie.
+* Si vous spécifiez le mappage de colonnes dans l’activité de copie, le service utilise la liste de colonnes côté source pour récupérer des données. Dans ce cas, si une ligne ne contient pas de valeur pour une colonne, une valeur null est fournie pour celle-ci.
+* Si vous ne spécifiez pas le mappage de colonnes dans l’activité de copie, le service déduit le schéma à l’aide de la première ligne des données. Dans ce cas, si la première ligne ne contient pas le schéma complet (par exemple, si des colonnes ont la valeur Null), certaines colonnes ne sont pas incluses dans le résultat de l’opération de copie.
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
@@ -266,7 +266,7 @@ Pour copier des données de Table Azure, définissez **AzureTableSource** comme 
 >[!NOTE]
 >L’opération de requête Table Azure expire dans 30 secondes, [conformément au service de Table Azure](/rest/api/storageservices/setting-timeouts-for-table-service-operations). Découvrez comment optimiser la requête dans l’article [Conception pour l’interrogation](../storage/tables/table-storage-design-for-query.md).
 
-Dans Azure Data Factory, si vous souhaitez filtrer les données par rapport à une colonne de type DateHeure, reportez-vous à l’exemple suivant :
+Si vous souhaitez filtrer les données par rapport à une colonne de type DateHeure, reportez-vous à l’exemple suivant :
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
@@ -352,11 +352,11 @@ Dans l’exemple suivant, la colonne source DivisionID est mappée sur la colonn
 
 ## <a name="data-type-mapping-for-azure-table"></a>Mappage de type de données pour Table Azure
 
-Lorsque vous copiez des données depuis et vers Table Azure, les mappages suivants sont utilisés entre les types de données Table Azure et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
+Lorsque vous copiez des données depuis et vers Azure Table, les mappages suivants sont utilisés entre les types de données Azure Table et les types de données intermédiaires utilisés en interne dans le service. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
 
 Pendant le déplacement de données depuis et vers Table Azure, les [mappages suivants définis par Table Azure](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) sont utilisés à partir des types OData Table Azure vers le type .NET et vice versa.
 
-| Type de données de Table Azure | Type de données intermédiaires d’Azure Data Factory | Détails |
+| Type de données de Table Azure | Type de données de service intermédiaire | Détails |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Tableau d’octets jusqu’à 64 Ko. |
 | Edm.Boolean |bool |Valeur booléenne. |
@@ -372,4 +372,4 @@ Pendant le déplacement de données depuis et vers Table Azure, les [mappages su
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats) pour obtenir la liste des sources et magasins de données pris en charge en tant que récepteurs par l’activité de copie.

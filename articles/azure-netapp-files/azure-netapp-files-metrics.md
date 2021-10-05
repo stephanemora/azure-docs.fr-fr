@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 13a63da9abf37f57842b34f32c3ff442f4214062
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: b4ea507087bbed2ee3ac49f3c58d81bbac24c90b
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114402772"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094269"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métriques pour Azure NetApp Files
 
@@ -122,6 +122,22 @@ Vous pouvez rechercher des métriques pour un pool de capacité ou un volume en 
 * *Autre débit*   
     Autre débit (qui n’est pas en lecture ou en écriture) en octets par seconde.
 
+## <a name="volume-backup-metrics"></a>Métriques de sauvegarde d’un volume  
+
+* *La sauvegarde des volumes est-elle activée*   
+    Indique si la sauvegarde est activée pour le volume. `1` est activé. `0` indique qu'ils sont désactivés.
+
+* *L'opération de sauvegarde du volume est-elle terminée*   
+    Indique si la dernière opération de sauvegarde ou de restauration de volume s'est déroulée avec succès.  `1` a réussi. `0` n’a pas réussi.
+
+* *La sauvegarde des volumes est-elle suspendue*   
+    Indique si la stratégie de sauvegarde est suspendue pour le volume.  `1` n’est pas suspendu. `0` est suspendu.
+
+* *Octets de sauvegarde du volume*   
+    Nombre total d’octets sauvegardés pour ce volume.
+
+* *Sauvegarde du volume Derniers octets transférés*   
+    Nombre total d’octets transférés pour la dernière opération de sauvegarde ou de restauration  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

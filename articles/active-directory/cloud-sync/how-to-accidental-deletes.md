@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da54bd28c1d9ea933e88b6c86cf6092c10d036a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5055b847eab1ee53688abfa308b5969f7526f668
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98785183"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742665"
 ---
 # <a name="accidental-delete-prevention"></a>Prévention des suppressions accidentelles
 
@@ -27,6 +27,10 @@ Le document suivant décrit la fonctionnalité de suppression accidentelle pour 
 - Configurer une adresse e-mail pour qu’elle puisse recevoir une notification une fois que le travail de synchronisation en question est placé en quarantaine pour ce scénario. 
 
 Pour utiliser cette fonctionnalité, vous définissez le seuil pour le nombre d’objets. Si ce nombre d’objets est supprimé, la synchronisation s’arrête.  Ainsi, si ce nombre est atteint, la synchronisation s’arrête et une notification est envoyée à l’adresse e-mail spécifiée.  Cette notification vous permet d’examiner ce qui se passe.
+
+Pour consulter plus d’informations et un exemple, regardez la vidéo suivante.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mV]
 
 
 ## <a name="configure-accidental-delete-prevention"></a>Configurer la prévention des suppressions accidentelles

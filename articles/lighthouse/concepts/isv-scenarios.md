@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse dans les scénarios d’ISV
 description: Les capacités d’Azure Lighthouse peuvent être utilisées par les éditeurs de logiciels indépendants pour une plus grande flexibilité dans les offres aux clients.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9fc8c261f49e8a12189708ada1d0da31965e5159
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 9266b8d026446600cf25d2f141785c3a461ad0e8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788676"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768683"
 ---
 # <a name="azure-lighthouse-in-isv-scenarios"></a>Azure Lighthouse dans les scénarios d’ISV
 

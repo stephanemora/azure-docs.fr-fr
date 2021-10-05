@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a1033799be8a01462ea065dc09499fb02a8dc61c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a719487f991784d2641fd92c9ada4b7d45bd30c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92457229"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610880"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-betterworks"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à BetterWorks
 
@@ -89,6 +89,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     Dans la zone de texte **URL de connexion**, tapez une URL : `https://app.betterworks.com`
 
+   > [!NOTE]
+   > Si vous êtes client de BetterWorks dans l’Union européenne, utilisez `eu.betterworks.com` comme nom de domaine plutôt que `app.betterworks.com` dans ces URL.
+
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
@@ -139,7 +142,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans B
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette BetterWorks dans le panneau d’accès doit vous connecter automatiquement à l’application BetterWorks pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Le fait de cliquer sur la vignette BetterWorks dans le panneau d’accès doit vous connecter automatiquement à l’application BetterWorks pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

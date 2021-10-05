@@ -3,13 +3,13 @@ title: Planifier le déploiement d’Azure VMware Solution
 description: Découvrez comment planifier votre déploiement Azure VMware Solution.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 07/07/2021
-ms.openlocfilehash: 4f0f59a01ff53646a23809efa129a154bfba81ee
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 09/27/2021
+ms.openlocfilehash: 6528727fda867f5f07d7d83b09df1bbf70df6b92
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444211"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079463"
 ---
 # <a name="plan-the-azure-vmware-solution-deployment"></a>Planifier le déploiement d’Azure VMware Solution
 
@@ -34,7 +34,7 @@ Une fois que vous avez terminé, effectuez les étapes suivantes recommandées �
 Identifiez l’abonnement que vous prévoyez d’utiliser pour déployer Azure VMware Solution.  Vous pouvez créer un nouvel abonnement ou utiliser un abonnement existant.
 
 >[!NOTE]
->L’abonnement doit être associé à un Contrat Entreprise (EA) Microsoft ou à un plan Azure pour fournisseurs de solutions cloud (CSP). Pour plus d’informations, consultez les [critères d’éligibilité](request-host-quota-azure-vmware-solution.md#eligibility-criteria).
+>L’abonnement doit être associé à un Contrat Entreprise (EA) Microsoft, à un plan Azure pour fournisseurs de solutions cloud (CSP) ou à un Contrat client Microsoft (MCA). Pour plus d’informations, consultez les [critères d’éligibilité](request-host-quota-azure-vmware-solution.md#eligibility-criteria).
 
 ## <a name="identify-the-resource-group"></a>Identifier le groupe de ressources
 
@@ -65,7 +65,7 @@ Votre premier déploiement d’Azure VMware Solution est constitué d’un cloud
 
 
 >[!NOTE]
->Pour en savoir plus sur les limites du nombre d’hôtes par cluster, le nombre de clusters par cloud privé et le nombre d’hôtes par cloud privé, consultez [Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits).
+>Pour en savoir plus sur les limites du nombre d’hôtes par cluster, le nombre de clusters par cloud privé et le nombre d’hôtes par cloud privé, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-vmware-solution-limits).
 
 ## <a name="request-a-host-quota"></a>Demander un quota d’hôte 
 

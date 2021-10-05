@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 03/24/2021
-ms.openlocfilehash: d063a0870616b5b977df18c56d9d66515b03d0a5
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 09/10/2021
+ms.openlocfilehash: 035b6c9b12df69395409c1c0aa70be219bc2533e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870856"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760191"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutoriel : Accepter et recevoir des données avec Azure Data Share  
 
@@ -94,9 +94,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
    Pour ouvrir l’invitation directement à partir du portail Azure, recherchez **Invitations Azure Data Share** dans le portail Azure. Cette action vous dirige vers la liste des invitations Data Share.
 
+   Si vous êtes utilisateur invité d’un locataire, il vous est demandé de vérifier votre adresse e-mail pour le locataire avant d’afficher l’invitation Data Share pour la première fois. Une fois la vérification effectuée, l’invitation est valide pendant 12 mois.
+
    ![Liste des invitations](./media/invitations.png "Liste des invitations") 
 
-1. Sélectionnez le partage que vous souhaitez voir. 
+1. Sélectionnez l’invitation que vous souhaitez afficher. 
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

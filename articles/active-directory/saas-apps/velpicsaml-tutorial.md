@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 81523a1c11b6a3da4e7d1db5d8249921ad5047ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45917f0bda43b44b53f73a8d38d9a59e277654c4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92635862"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812845"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-velpic-saml"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Velpic SAML
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer Velpic SAML à Azure Active 
 * Contrôler dans Azure AD qui a accès à Velpic SAML.
 * Permettre à vos utilisateurs de se connecter automatiquement à Velpic SAML avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,24 +37,25 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Velpic SAML prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Velpic SAML prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Velpic SAML prend en charge l’[attribution automatisée d’utilisateurs](velpic-provisioning-tutorial.md).
 
 ## <a name="adding-velpic-saml-from-the-gallery"></a>Ajout de Velpic SAML à partir de la galerie
 
 Pour configurer l’intégration de Velpic SAML à Azure AD, vous devez ajouter Velpic SAML à partir de la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Velpic SAML** dans la zone de recherche.
 1. Sélectionnez **Velpic SAML** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.    
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-velpic-saml"></a>Configurer et tester l’authentification unique Azure AD pour Velpic SAML
+## <a name="configure-and-test-azure-ad-sso-for-velpic-saml"></a>Configurer et tester l’authentification unique Azure AD pour Velpic SAML
 
 Configurez et testez l’authentification unique Azure AD avec Velpic SAML à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Velpic SAML associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Velpic SAML, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Velpic SAML, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -69,13 +68,13 @@ Pour configurer et tester l’authentification unique Azure AD avec Velpic SAML
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Velpic SAML**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Velpic SAML**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<sub-domain>.velpicsaml.net`
 
@@ -111,13 +110,7 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Velpic SAML**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
@@ -136,23 +129,23 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 4. Cliquez sur l’onglet **Gérer** et accédez à la section **Intégration** dans laquelle vous devez cliquer sur **Plug-ins** afin de créer le nouveau plug-in pour la connexion.
 
-    ![Capture d’écran montrant la page Integration dans laquelle vous pouvez sélectionner Plugins](./media/velpicsaml-tutorial/velpic_1.png)
+    ![Capture d’écran montrant la page Integration dans laquelle vous pouvez sélectionner Plugins](./media/velpicsaml-tutorial/plugin.png)
 
 5. Cliquez sur le bouton **Ajouter un plug-in**.
     
-    ![Capture d’écran montrant le bouton Add Plugin sélectionné](./media/velpicsaml-tutorial/velpic_2.png)
+    ![Capture d’écran montrant le bouton Add Plugin sélectionné](./media/velpicsaml-tutorial/add-button.png)
 
 6. Cliquez sur la mosaïque **SAML** dans la page Ajouter un plug-in.
     
-    ![Capture d’écran montrant SAML sélectionné dans la page Add Plugin](./media/velpicsaml-tutorial/velpic_3.png)
+    ![Capture d’écran montrant SAML sélectionné dans la page Add Plugin](./media/velpicsaml-tutorial/integration.png)
 
-7. Entrez le nom du nouveau plug-in SAML puis cliquez sur le bouton **Ajouter**.
+7. Entrez le nom du nouveau plug-in SAML et cliquez sur le bouton **Ajouter**.
 
-    ![Capture d’écran montrant la boîte de dialogue Add new SAML plugin avec Azure AD entré](./media/velpicsaml-tutorial/velpic_4.png)
+    ![Capture d’écran montrant la boîte de dialogue Add new SAML plugin avec Azure AD entré](./media/velpicsaml-tutorial/new-plugin.png)
 
 8. Entrez les informations comme suit :
 
-    ![Capture d’écran montrant la page Azure AD dans laquelle vous pouvez indiquer les valeurs décrites](./media/velpicsaml-tutorial/velpic_5.png)
+    ![Capture d’écran montrant la page Azure AD dans laquelle vous pouvez indiquer les valeurs décrites](./media/velpicsaml-tutorial/details.png)
 
     a. Dans la zone de texte **Nom**, saisissez le nom du plug-in SAML.
 
@@ -160,7 +153,7 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
     c. Dans la section **Configuration des métadonnées du fournisseur**, téléchargez le fichier XML de métadonnées que vous avez téléchargé à partir du portail Azure.
 
-    d. Vous pouvez également choisir d’activer l’approvisionnement immédiat SAML en cochant la case **Créer automatiquement les nouveaux utilisateurs**. Si un utilisateur n’existe pas dans Velpic et que cet indicateur n’est pas activé, la connexion à partir d’Azure échouera. Si l’indicateur est activé, l’utilisateur sera automatiquement approvisionné dans Velpic au moment de la connexion. 
+    d. Vous pouvez également choisir d’activer l’attribution juste-à-temps SAML en cochant la case **Créer automatiquement les nouveaux utilisateurs**. Si un utilisateur n’existe pas dans Velpic et que cet indicateur n’est pas activé, la connexion à partir d’Azure échouera. Si l’indicateur est activé, l’utilisateur sera automatiquement approvisionné dans Velpic au moment de la connexion. 
 
     e. Copiez l **’URL d’authentification unique** à partir de la zone de texte et collez-la dans le portail Azure.
     
@@ -174,11 +167,11 @@ Connectez-vous au site de votre entreprise Velpic SAML en tant qu’administrate
     
 1. Cliquez sur l’onglet Gérer et accédez à la section Utilisateurs, puis cliquez sur le bouton Nouveau pour ajouter des utilisateurs.
 
-    ![ajouter un utilisateur](./media/velpicsaml-tutorial/velpic_7.png)
+    ![Ajouter un utilisateur](./media/velpicsaml-tutorial/new-user.png)
 
 2. Dans la boîte de dialogue **Create New User**, procédez comme suit.
 
-    ![utilisateur](./media/velpicsaml-tutorial/velpic_8.png)
+    ![Utilisateur](./media/velpicsaml-tutorial/create-user.png)
     
     a. Dans la zone de texte **Prénom**, tapez le prénom de B.
 
@@ -192,22 +185,19 @@ Connectez-vous au site de votre entreprise Velpic SAML en tant qu’administrate
     
     f. Cliquez sur **ENREGISTRER**.
 
+> [!NOTE]
+> Velpic SAML prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./velpic-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide de Mes applications.
 
-1. Lorsque vous cliquez sur la mosaïque Velpic SAML dans le volet d’accès, la page de connexion de l’application Velpic SAML devrait apparaître. Vous devriez voir le bouton **Se connecter à Azure AD** sur la page de connexion.
+1. Lorsque vous cliquez sur la vignette Velpic SAML dans Mes applications, vous devriez voir la page de connexion de l’application Velpic SAML apparaître. Vous devriez voir le bouton **Se connecter avec Azure AD** dans la page de connexion.
 
-    ![Capture d’écran montrant la boîte de dialogue Learning Portal avec l’option Log In With Azure AD sélectionnée](./media/velpicsaml-tutorial/velpic_6.png)
+    ![Capture d’écran montrant la boîte de dialogue Learning Portal avec l’option Log In With Azure AD sélectionnée](./media/velpicsaml-tutorial/login.png)
 
-1. Cliquez sur le bouton **Se connecter à Azure AD** pour vous connecter à Velpic à l’aide de votre compte Azure AD.
+1. Cliquez sur le bouton **Se connecter avec Azure AD** pour vous connecter à Velpic en utilisant votre compte Azure AD.
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
-
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer Velpic SAML avec Azure AD](https://aad.portal.azure.com/)
+Une fois que vous avez configuré Velpic SAML, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

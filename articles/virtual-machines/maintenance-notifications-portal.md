@@ -3,17 +3,17 @@ title: Utiliser le portail pour les notifications de maintenance
 description: Affichez les notifications de maintenance pour les machines virtuelles s’exécutant dans Azure et démarrez la maintenance en libre-service à l’aide du portail.
 author: shants123
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 11/19/2019
+ms.date: 09/08/2021
 ms.author: shants
-ms.openlocfilehash: 8ec87f5377fad1e42ad5b6e96f32a4dae241a4ca
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a027014500fa9e4a6ca1f68e2da5fb62df37e5ec
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698789"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216040"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Gestion de notifications de maintenance planifiée à l’aide du portail
 
@@ -27,9 +27,7 @@ Vous pouvez utiliser le portail Azure et rechercher les machines virtuelles sur 
 
 2. Dans la barre de navigation de gauche, cliquez sur **Machines virtuelles**.
 
-3. Dans le volet Machines virtuelles, sélectionnez le bouton **Modifier les colonnes** pour ouvrir la liste des colonnes disponibles.
-
-4. Sélectionnez et ajoutez les colonnes suivantes :
+3. Dans le volet Machines virtuelles, sélectionnez **Maintenance-> bouton Maintenance de la machine virtuelle** pour ouvrir la liste avec les colonnes de maintenance.
 
    **État de la maintenance** : Affiche l’état de maintenance de la machine virtuelle. Les valeurs potentielles sont les suivantes :
       

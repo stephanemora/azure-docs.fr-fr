@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 4fde975c0649a0ba9da32ed53983e3632d5535ca
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 9b41b546b80106956221b39274501d33cc5fdaf9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690524"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603882"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Vue d’ensemble de la mise à l’échelle automatique avec des groupes de machines virtuelles identiques Azure
 
@@ -106,7 +106,7 @@ Lorsqu’une règle de mise à l’échelle automatique est déclenchée, votre 
 | Augmenter le pourcentage de | Une augmentation basée sur des pourcentages des instances de machine virtuelle. Utile dans des groupes identiques plus grands, lorsqu’une augmentation fixe peut ne pas améliorer considérablement les performances. |
 | Augmenter le nombre à   | Créer le nombre d’instances de machines virtuelles requis pour atteindre le nombre maximal souhaité.                                                            |
 | Diminuer le nombre de   | Un nombre fixe d’instances de machines virtuelles à supprimer. Utile dans des groupes identiques avec un petit nombre de machines virtuelles.                                           |
-| Diminuer le pourcentage de | Une diminution basée sur des pourcentages des instances de machines virtuelles. Utile dans des groupes identiques plus grands, lorsqu’une augmentation fixe peut ne pas réduire considérablement la consommation de ressources et les coûts. |
+| Diminuer le pourcentage de | Une diminution basée sur des pourcentages des instances de machines virtuelles. Utile dans des groupes identiques plus grands, où une diminution fixe ne réduira pas considérablement la consommation de ressources et les coûts. |
 | Réduire le nombre à   | Supprimer le nombre d’instances de machines virtuelles requis pour atteindre le nombre minimal souhaité.                                                            |
 
 

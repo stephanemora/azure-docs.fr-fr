@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3a2f51d0d15ebd00335f7685d3983e527a3e8b7d
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 8e85133b8c476f2de046a8396ba171d563751bd7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643191"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128579762"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Tutoriel : Créer une application PHP (Laravel) et Serveur flexible MySQL (préversion) dans Azure App Service
 
@@ -33,7 +33,8 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Mise à jour du modèle de données et redéploiement de l’application
 > * Gérer l’application dans le portail Azure
 
-Si vous n’avez pas [d’abonnement Azure](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -284,7 +285,7 @@ Vous pouvez déployer le protocole FTP et Git local sur une application web Azur
 
 Pour configurer l’utilisateur de déploiement, exécutez la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) dans Azure Cloud Shell. Remplacez _&lt;username>_ and _&lt;password>_ par le nom d’utilisateur et le mot de passe de votre déploiement.
 
-Le nom d’utilisateur doit être unique dans Azure et, pour les push Git locaux, ne doit pas contenir le symbole « @ ».
+Le nom d’utilisateur doit être unique dans Azure et, pour les envois (push) Git locaux, il ne doit pas contenir le symbole « @ ».
 Le mot de passe doit comporter au moins huit caractères et inclure deux des trois éléments suivants : lettres, chiffres et symboles.
 
 ```bash
@@ -332,7 +333,7 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
 Vous avez créé une application web vide, avec le déploiement Git activé.
 
 > [!NOTE]
-> L’URL du Git distant est indiquée dans la propriété deploymentLocalGitUrl, au format https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git. Enregistrez cette URL, car vous en aurez besoin ultérieurement.
+> L’URL du Git distant est indiquée dans la propriété deploymentLocalGitUrl, au format suivant : `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Enregistrez cette URL, car vous en aurez besoin ultérieurement.
 
 ### <a name="configure-database-settings"></a>Configuration des paramètres de la base de données
 

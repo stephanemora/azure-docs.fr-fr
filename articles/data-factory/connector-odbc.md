@@ -1,22 +1,22 @@
 ---
-title: Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory
+title: Copier des données depuis/vers des banques de données ODBC
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données vers et à partir de magasins de données ODBC.
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données vers et à partir de magasins de données ODBC.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 880f9f330ef11abef1573f52f355c0073b38d84c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 7eccf28b0d8c5791fc8f23f6453f1b139291c890
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311798"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787828"
 ---
-# <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory
+# <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory-or-synapse-analytics"></a>Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory ou de Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-odbc-connector.md)
 > * [Version actuelle](connector-odbc.md)
@@ -33,7 +33,7 @@ Ce connecteur ODBC est pris en charge pour les activités suivantes :
 
 Vous pouvez copier des données d’une source ODBC vers toute banque de données réceptrice prise en charge, ou à partir de toute banque de données source prise en charge vers un récepteur ODBC. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Plus précisément, ce connecteur ODBC prend en charge la copie de données depuis/vers **toute banque de données compatible ODBC** à l’aide d’une authentification **De base** ou **Anonyme**. Un **pilote ODBC 64 bits** est requis. Pour le récepteur ODBC, ADF prend en charge ODBC version 2.0 standard.
+Plus précisément, ce connecteur ODBC prend en charge la copie de données depuis/vers **toute banque de données compatible ODBC** à l’aide d’une authentification **De base** ou **Anonyme**. Un **pilote ODBC 64 bits** est requis. Pour le récepteur ODBC, le service prend en charge ODBC version 2.0 standard.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -54,7 +54,7 @@ Utilisez les étapes suivantes pour créer un service lié à un magasin de donn
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -82,7 +82,7 @@ Les propriétés prises en charge pour le service lié ODBC sont les suivantes 
 | connectionString | Chaîne de connexion sans la partie contenant les informations d’identification. Vous pouvez spécifier la chaîne de connexion avec un modèle comme `Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;`, ou utiliser le nom de source de données (DSN) du système que vous avez configuré sur la machine de l’Integration Runtime avec `DSN=<name of the DSN on IR machine>;` (vous devez toujours spécifier la partie informations d’identification dans le service lié en conséquence).<br>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez la section [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md).| Oui |
 | authenticationType | Type d’authentification utilisé pour se connecter au magasin de données ODBC.<br/>Les valeurs autorisées sont les suivantes : **De base** et **Anonyme**. | Oui |
 | userName | Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. | Non |
-| mot de passe | Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
+| mot de passe | Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 | credential | Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote. Exemple : `"RefreshToken=<secret refresh token>;"`. Marquez ce champ comme SecureString. | Non |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
@@ -273,4 +273,4 @@ Pour résoudre les problèmes de connexion, utilisez l’onglet **Diagnostics** 
 5. Cliquez sur **Tester la connexion** pour tester la connexion au magasin de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

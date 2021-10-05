@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/22/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: b0c73206d69f8902fdd9ef9306a35b3fccacc8ec
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: c9addd08254ceedd0938448084120456f20a9d4e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888268"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598096"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clebex"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Clebex
 
@@ -41,8 +41,10 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Clebex prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
+* Clebex prend en charge l’[attribution automatique d’utilisateurs](clebex-provisioning-tutorial.md).
 
-## <a name="adding-clebex-from-the-gallery"></a>Ajout de Clebex à partir de la galerie
+
+## <a name="add-clebex-from-the-gallery"></a>Ajouter Clebex à partir de la galerie
 
 Pour configurer l’intégration de Clebex à Azure AD, vous devez ajouter Clebex à votre liste d’applications SaaS managées à partir de la galerie.
 
@@ -148,6 +150,8 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 Dans cette section, un utilisateur nommé Britta Simon est créé dans Clebex. Clebex prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’y a pas d’utilisateur dans Clebex, il est créé après l’authentification.
 
+Clebex prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./clebex-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -156,7 +160,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion de Clebex pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Clebex dans Mes applications, vous êtes redirigé vers l’URL de connexion de Clebex. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Clebex dans Mes applications, vous êtes redirigé vers l’URL de connexion de Clebex. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

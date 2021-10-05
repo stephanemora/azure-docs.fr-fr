@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Bien démarrer'
 description: Suivez ce guide de démarrage rapide pour vous familiariser avec le workflow de base du déploiement de Defender pour IoT.
 ms.topic: quickstart
 ms.date: 06/06/2021
-ms.openlocfilehash: cae5b1db400cebe341463dbc752fe5559b779380
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 32565bfcf87facb957dc4e8b1fc73f52eb1c7ac2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437658"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836413"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Démarrage rapide : Bien démarrer avec Defender pour IoT
 
@@ -63,6 +63,8 @@ L’inscription comprend plusieurs opérations :
 - Définition des appareils validés
 - Téléchargement d’un fichier d’activation pour la console de gestion locale
 
+Vous pouvez également utiliser un abonnement d’évaluation pour superviser 1000 appareils gratuitement pendant 30 jours. Pour plus d’informations, consultez [Intégrer un abonnement d’évaluation](how-to-manage-subscriptions.md#onboard-a-trial-subscription).
+
 **Pour vous inscrire** :
 
 1. Accédez au portail Azure Defender pour IoT.
@@ -74,6 +76,8 @@ L’inscription comprend plusieurs opérations :
 1. Sélectionnez l’onglet **Téléchargez la console de gestion locale** et enregistrez le fichier d’activation téléchargé. Ce fichier contient les appareils validés agrégés que vous avez définis. Il sera chargé dans la console de gestion après la connexion initiale.
 
 Pour plus d’informations sur la manière de désactiver un abonnement, consultez [Désactiver un abonnement](how-to-manage-subscriptions.md#offboard-a-subscription).
+
+
 
 ## <a name="install-and-set-up-the-on-premises-management-console"></a>Installation et configuration de la console de gestion locale
 

@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 3e2ffebf0b414d4b59178fe04fb109530365786b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68f4437ce75bfe2a9017133ed523bb5e9ce10a8c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98064706"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787127"
 ---
 # <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instancier une application cliente publique avec des options de configuration à l’aide de MSAL.NET
 
@@ -30,6 +30,25 @@ Avant d’initialiser une application, vous devez d’abord [l’inscrire](quick
 - L’URL du fournisseur d’identité (l’instance) et l’audience de connexion pour votre application. Ces deux paramètres représentent collectivement l’autorité.
 - L’ID locataire si vous écrivez une application métier uniquement pour votre organisation (également nommée application à locataire unique).
 - Pour les applications web et parfois pour les applications clientes publiques (en particulier lorsque votre application doit utiliser un répartiteur), vous devez également avoir défini l’URI de redirection auquel le fournisseur d’identité recontactera votre application avec les jetons de sécurité.
+
+## <a name="default-reply-uri"></a>URI de réponse par défaut
+
+Dans MSAL.NET 4.1+, l’URI de redirection par défaut (URI de réponse) peut maintenant être défini à l’aide de la méthode `public PublicClientApplicationBuilder WithDefaultRedirectUri()`. Cette méthode permet de définir la propriété d’URI de redirection de l’application cliente publique sur la valeur par défaut recommandée.
+
+Le comportement de cette méthode dépend de la plateforme que vous utilisez à ce moment-là. Voici un tableau qui décrit l’URI de redirection qui est défini sur certaines plateformes :
+
+Plateforme  | URI de redirection  
+---------  | --------------
+Application de bureau (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+UWP | Valeur de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`
+.NET Core | `http://localhost`
+
+Pour la plateforme UWP, l’expérience a été améliorée en activant l’authentification unique avec le navigateur en définissant la valeur sur le résultat de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. 
+
+Pour .NET Core, MSAL.Net définit la valeur sur l’hôte local pour permettre à l’utilisateur d’utiliser le navigateur système pour l’authentification interactive.
+
+> [!NOTE]
+> Pour les navigateurs incorporés dans les scénarios de bureau, l’URI de redirection utilisé est intercepté par MSAL pour détecter qu’une réponse est retournée par le fournisseur d’identité pour retourner un code d’authentification. Cet URI peut donc être utilisé dans n’importe quel cloud sans voir une redirection réelle vers cet URI. Cela signifie que vous pouvez et devez utiliser `https://login.microsoftonline.com/common/oauth2/nativeclient` dans n’importe quel cloud. Si vous préférez, vous pouvez également utiliser un autre URI tant que vous configurez correctement l’URI de redirection avec MSAL et dans l’inscription de l’application. La spécification de l’URI par défaut dans l’inscription de l’application signifie qu’il y a un paramétrage moindre dans MSAL.
 
 
 Une application de console .NET Core peut avoir le fichier de configuration *appsettings.json* suivant :

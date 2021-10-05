@@ -2,13 +2,13 @@
 title: Services et catégories pris en charge des journaux de ressources Azure Monitor
 description: Référence d’Azure Monitor Comprendre les services et le schéma d’événement pris en charge pour les journaux de ressource Azure.
 ms.topic: reference
-ms.date: 08/04/2021
-ms.openlocfilehash: 2cbe701f3fbedacf29124c823743966be1f7ba32
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.date: 09/10/2021
+ms.openlocfilehash: c92f20d4a757ef69d334345619bdc2d585648d5d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525819"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211249"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure
 
@@ -19,7 +19,7 @@ Les [journaux de ressource Azure Monitor](../essentials/platform-logs-overview.m
 
 Les journaux de ressource étaient auparavant appelés journaux de diagnostic. Le nom a été modifié en octobre 2019 parce que les types de journaux collectés par Azure Monitor ont évolué pour inclure plus que la seule ressource Azure.
 
-Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Il existe un schéma commun pour tous les journaux de ressources comportant des champs propres aux services ajoutés pour différentes catégories de journaux. Pour plus d’informations, consultez [Schémas commun et propres aux services pour les journaux de ressources Azure]().
+Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Il existe un schéma commun pour tous les journaux de ressources comportant des champs propres aux services ajoutés pour différentes catégories de journaux. Pour plus d’informations, consultez [Schémas commun et propres aux services pour les journaux de ressources Azure](/azure/azure-monitor/essentials/resource-logs-schema).
 
 ## <a name="costs"></a>Coûts
 
@@ -58,6 +58,18 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |SignIn|SignIn|Oui|
 
 
+## <a name="microsoftagfoodplatformfarmbeats"></a>Microsoft.AgFoodPlatform/farmBeats
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|ApplicationAuditLogs|Journaux d’audit des applications|Oui|
+|FarmManagementLogs|Journaux de gestion de la ferme|Oui|
+|FarmOperationLogs|Journaux d'exploitation de la ferme|Oui|
+|ProviderAuthLogs|Journaux d’authentification du fournisseur|Oui|
+|SatelliteLogs|Journaux satellites|Oui|
+|WeatherLogs|Journaux météo|Oui|
+
+
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
@@ -71,6 +83,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |GatewayLogs|Journaux d’activité relatifs à la passerelle ApiManagement|Non|
+|WebSocketConnectionLogs|Journaux liés aux connexions WebSocket|Oui|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -86,6 +99,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |ApplicationConsole|Application console|Non|
+|IngressLogs|Journaux d’entrée|Oui|
 |SystemLogs|Journaux système|Non|
 
 
@@ -103,9 +117,10 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
-|DscNodeStatus|État du nœud DSC|Non|
-|JobLogs|Journaux d’activité de travail|Non|
-|JobStreams|Flux de travail|Non|
+|AuditEvent|AuditEvent|Oui|
+|DscNodeStatus|DscNodeStatus|Non|
+|JobLogs|JobLogs|Non|
+|JobStreams|JobStreams|Non|
 
 
 ## <a name="microsoftautonomousdevelopmentplatformaccounts"></a>Microsoft.AutonomousDevelopmentPlatform/accounts
@@ -117,11 +132,26 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Requête|Requête|Oui|
 
 
+## <a name="microsoftavsprivateclouds"></a>microsoft.avs/privateClouds
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|vmwaresyslog|VMware VCenter Syslog|Oui|
+
+
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |ServiceLog|Journaux d’activité de service|Non|
+
+
+## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|BaiClusterEvent|BaiClusterEvent|Non|
+|BaiClusterNodeEvent|BaiClusterNodeEvent|Non|
+|BaiJobEvent|BaiJobEvent|Non|
 
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
@@ -146,6 +176,13 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |BotRequest|Demandes des canaux au bot|Non|
+
+
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|ConnectedClientList|Liste des clients connectés|Oui|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -396,6 +433,13 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Gestion|Gestion|Non|
 
 
+## <a name="microsoftdesktopvirtualizationscalingplans"></a>Microsoft.DesktopVirtualization/scalingplans
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|Mise à l’échelle automatique|Mise à l’échelle automatique des journaux|Oui|
+
+
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft.DesktopVirtualization/workspaces
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
@@ -535,7 +579,16 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
+|ExPCompute|ExPCompute|Oui|
 |Requête|Requête|Non|
+
+
+## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|AuditLogs|Journaux d’audit|Non|
+|DiagnosticLogs|Journaux de diagnostic|Oui|
 
 
 ## <a name="microsofthealthcareapisworkspacesdicomservices"></a>Microsoft.HealthcareApis/workspaces/dicomservices
@@ -598,6 +651,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Commande|Commande|Non|
 |FailedIngestion|Opérations d’ingestion ayant échoué|Non|
 |IngestionBatching|Traitement par lot de l’ingestion|Non|
+|Journal|Journal|Oui|
 |Requête|Requête|Non|
 |SucceededIngestion|Opérations d’ingestion réussies|Non|
 |TableDetails|Détails de la table|Non|
@@ -656,6 +710,14 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |---|---|---|
 |KeyDeliveryRequests|Service de remise de clé|Non|
 |MediaAccount|État d’intégrité du compte multimédia|Yes|
+
+
+## <a name="microsoftmediavideoanalyzers"></a>microsoft.media/videoanalyzers
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|PipelineDiagnostics|Journaux de diagnostic de pipeline|Oui|
+|PipelineOperational|Journaux des opérations de pipeline|Yes|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
@@ -768,6 +830,13 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |TunnelDiagnosticLog|Journaux de diagnostic de tunnel|Non|
 
 
+## <a name="microsoftnetworkfunctionazuretrafficcollectors"></a>Microsoft.NetworkFunction/azureTrafficCollectors
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|ExpressRouteCircuitIpfix|Enregistrements de flux IPFIX du circuit de route express|Oui|
+
+
 ## <a name="microsoftnotificationhubsnamespaces"></a>Microsoft.NotificationHubs/namespaces
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
@@ -787,6 +856,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |Moteur|Moteur|Non|
+
 
 ## <a name="microsoftpowerbitenantsworkspaces"></a>Microsoft.PowerBI/tenants/workspaces
 
@@ -808,6 +878,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |---|---|---|
 |DataSensitivityLogEvent|DataSensitivity|Yes|
 |ScanStatusLogEvent|ScanStatus|Non|
+|Sécurité|PurviewAccountAuditEvents|Oui|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
@@ -845,6 +916,14 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |OperationLogs|Journaux d’activité des opérations|Non|
 
 
+## <a name="microsoftsecurityinsightssettings"></a>microsoft.securityinsights/settings
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|Analytics|Analytics|Oui|
+|DataConnectors|Collecte de données – connecteurs|Oui|
+
+
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
@@ -863,7 +942,9 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
-|AllLogs|Journaux du service Azure Web PubSub|Oui|
+|ConnectivityLogs|Journaux de connectivité pour le service Azure Web PubSub.|Oui|
+|HttpRequestLogs|Journaux de requêtes Http pour le service Azure Web PubSub.|Oui|
+|MessagingLogs|Journaux de messagerie pour le service Azure Web PubSub.|Oui|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances

@@ -9,19 +9,19 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 448a646b4fd615967e63c6d13b16940441478971
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9346c4e060e5cf4dcd3db7ee58f093f61cc2c646
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532169"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818819"
 ---
 # <a name="monitoring-azure-table-storage"></a>Supervision du stockage Table Azure
 
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par le stockage Table Azure, et explique comment utiliser les fonctionnalités d’Azure Monitor pour analyser les alertes sur ces données.
 
 > [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
+> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public et du Gouvernement américain. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
 ## <a name="monitor-overview"></a>Présentation de Monitor
 
@@ -69,7 +69,7 @@ Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, Po
 Pour obtenir des instructions générales, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 > [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
+> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public et du Gouvernement américain. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
 ### <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
@@ -264,7 +264,7 @@ Pour afficher un modèle Azure Resource Manager qui crée un paramètre de diagn
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
-Vous pouvez créer un paramètre de diagnostic à l’aide d’une définition de stratégie. De cette façon, vous pouvez vous assurer qu’un paramètre de diagnostic est créé pour chaque compte créé ou mis à jour. Voir [Définitions intégrées d’Azure Policy pour le stockage Azure](../common/policy-reference.md).
+Vous pouvez créer un paramètre de diagnostic en utilisant une définition de stratégie. De cette façon, vous pouvez vous assurer qu’un paramètre de diagnostic est créé pour chaque compte créé ou mis à jour. Consultez [Définitions intégrées d’Azure Policy pour le stockage Azure](../common/policy-reference.md).
 
 ---
 
@@ -494,7 +494,7 @@ Vous pouvez accéder aux journaux des ressources en tant qu’objet blob dans un
 Pour obtenir des informations de référence détaillées sur les champs qui apparaissent dans ces journaux, consultez [Informations de référence sur les données de supervision du stockage Table Azure](monitor-table-storage-reference.md).
 
 > [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux pour les objets blob (qui comprennent Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
+> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public et du Gouvernement américain. Cette préversion active les journaux pour les objets blob (qui comprennent Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
 
 Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage a une activité dans son point de terminaison de table, mais pas dans ses points de terminaison de blob ou de file d’attente, seuls les journaux d’activité qui appartiennent au service Table sont créés. Les journaux de stockage Azure contiennent des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage. Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort.
 

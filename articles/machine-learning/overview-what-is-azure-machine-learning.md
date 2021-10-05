@@ -10,12 +10,12 @@ author: cjgronlund
 ms.date: 08/03/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 6709309bed5546dacdadc1ba412954e83310e183
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: f0b798db68ee15ffeb393c30f7a7ccc81e4cf386
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446559"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606244"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -52,7 +52,7 @@ Les développeurs trouveront des interfaces familières dans Azure Machine Learn
 
 ### <a name="studio-ui"></a>Interface utilisateur du studio 
 
-Azure Machine Learning studio est une interface graphique utilisateur pour l’espace de travail d’un projet. Il permet d’effectuer les actions suivantes :
+[Azure Machine Learning studio](https://ml.azure.com) est une interface graphique utilisateur utilisée pour l’espace de travail d’un projet. Il permet d’effectuer les actions suivantes :
 
 - Afficher les exécutions, les métriques, les journaux, les sorties, etc.
 - Créer et modifier des blocs-notes et des fichiers
@@ -66,9 +66,11 @@ Azure Machine Learning studio est une interface graphique utilisateur pour l’e
 
 En outre, le concepteur comporte une interface de type glisser-déplacer permettant d’effectuer l’apprentissage des modèles et de les déployer. 
 
+Si vous êtes un utilisateur de ML Studio (classique), [obtenez des informations sur la dépréciation de Studio (classique) et sur ce qui le différencie d’Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
+
 ## <a name="enterprise-readiness-and-security"></a>Préparation pour l’entreprise et sécurité
 
-Azure Machine Learning s’intègre à la plateforme cloud Azure pour ajouter de la sécurité aux projets de ML. 
+Azure Machine Learning s’intègre à la plateforme cloud Azure pour ajouter un niveau de sécurité supplémentaire aux projets de ML. 
 
 Les intégrations de sécurité sont les suivantes :
 

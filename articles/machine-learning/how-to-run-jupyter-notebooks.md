@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/22/2021
-ms.openlocfilehash: 890330700e21c34b1a3d9ae78068f577f5f64c6b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 28b616d0e0e4730fe96e5366a590ea84e5fa39cf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562828"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777751"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Exécuter des notebooks Jupyter dans votre espace de travail
 
@@ -188,7 +188,7 @@ Ces actions ne modifient pas l’état du bloc-notes ou les valeurs des variable
 
 Les actions ci-après ont pour effet de réinitialiser l’état du bloc-notes et toutes les variables dans celui-ci.
 
-|Action  |Résultat  |
+|Action  |Résultats  |
 |---------|---------| --------|
 | Modifier le noyau | Le bloc-notes utilise le nouveau noyau. |
 | Changer d’instance de calcul    |     Le bloc-notes utilise automatiquement la nouvelle instance de calcul. |
@@ -313,7 +313,7 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 
 * Si vous ne pouvez pas vous connecter à un notebook, vérifiez que la communication avec le socket web n’est **pas** désactivée. Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, la communication avec le socket web doit être activée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms. 
 
-* Quand l’instance de calcul est déployée dans un espace de travail avec un point de terminaison privé, elle est uniquement [accessible à partir d’un réseau virtuel](./how-to-secure-training-vnet.md#compute-instance). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.< région >.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
+* Quand une instance de calcul est déployée dans un espace de travail avec un point de terminaison privé, elle est uniquement [accessible à partir d’un réseau virtuel](./how-to-secure-training-vnet.md). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour < nom-instance >.< région >.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de votre espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
 
 * Si votre noyau a planté et a été redémarré, vous pouvez exécuter la commande suivante pour consulter le journal jupyter et obtenir plus de détails: `sudo journalctl -u jupyter`. Si les problèmes de noyau persistent, n’hésitez pas à utiliser une instance de calcul offrant davantage de mémoire.
 
@@ -323,4 +323,4 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 
 * [Exécuter votre première expérience](tutorial-1st-experiment-sdk-train.md)
 * [Sauvegarder votre stockage de fichiers avec des captures instantanées](../storage/files/storage-snapshots-files.md)
-* [Utilisation des environnements sécurisés](./how-to-secure-training-vnet.md#compute-instance)
+* [Utilisation des environnements sécurisés](./how-to-secure-training-vnet.md#compute-cluster)

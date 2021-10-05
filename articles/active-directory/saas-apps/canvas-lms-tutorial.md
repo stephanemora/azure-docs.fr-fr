@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Canvas | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Canvas'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Canvas.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 09/09/2021
 ms.author: jeedes
-ms.openlocfilehash: a71dac55c860348f31ce8da27ab050a6c71a5c68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b91f6c186be774110b52fab75b742dcb73925f03
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653029"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622191"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutoriel : Intégration d’Azure Active Directory à Canvas
+# <a name="tutorial-azure-ad-sso-integration-with-canvas"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Canvas
 
 Dans ce tutoriel, vous allez apprendre à intégrer Canvas à Azure Active Directory (Azure AD). Quand vous intégrez Canvas à Azure AD, vous pouvez :
 
@@ -37,7 +37,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Canvas prend en charge l’authentification unique initiée par le **fournisseur de services**
+* Canvas prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 ## <a name="add-canvas-from-the-gallery"></a>Ajouter Canvas à partir de la galerie
 
@@ -63,7 +63,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Canvas, eff
     1. **[Créer un utilisateur de test Canvas](#create-canvas-test-user)** pour avoir dans Canvas un équivalent de B.Simon lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
@@ -75,14 +75,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Canvas](common/sp-identifier.png)
+    b. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenant-name>.instructure.com`
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenant-name>.instructure.com`
-
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<tenant-name>.instructure.com/saml2`
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<tenant-name>.instructure.com/saml2`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Canvas](https://community.canvaslms.com/community/help). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Canvas](https://community.canvaslms.com/community/help). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Certificat de signature SAML**.
 
@@ -120,17 +118,17 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name=&quot;configure-canvas-sso&quot;></a>Configurer l’authentification unique Canvas
+## <a name=&quot;configure-canvas-sso&quot;></a>Configurer l’authentification unique Canvas
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Canvas en tant qu’administrateur.
 
 2. Accédez à **Courses \> Managed Accounts \> Microsoft**.
 
-    ![Canevas](./media/canvas-lms-tutorial/ic775990.png &quot;Canevas")
+    ![Canevas](./media/canvas-lms-tutorial/course.png &quot;Canevas")
 
 3. Dans le volet de navigation sur la gauche, sélectionnez **Authentication**, puis cliquez sur **Add New SAML Config**.
 
-    ![Authentification](./media/canvas-lms-tutorial/ic775991.png "Authentification")
+    ![Authentification](./media/canvas-lms-tutorial/tools.png "Authentification")
 
 4. Dans la page Intégration actuelle, procédez comme suit :
 
@@ -162,19 +160,19 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Canvas, vous devez l
 
 2. Accédez à **Courses \> Managed Accounts \> Microsoft**.
 
-   ![Canevas](./media/canvas-lms-tutorial/ic775990.png "Canevas")
+   ![Canevas](./media/canvas-lms-tutorial/course.png "Canevas")
 
 3. Cliquez sur **Utilisateurs**.
 
-   ![Capture d’écran montrant le menu Canvas avec Users sélectionné.](./media/canvas-lms-tutorial/ic775995.png "Utilisateurs")
+   ![Capture d’écran montrant le menu Canvas avec Users sélectionné.](./media/canvas-lms-tutorial/user.png "Utilisateurs")
 
 4. Cliquez sur **Add New User**.
 
-   ![Capture d’écran montrant la page Add a new User.](./media/canvas-lms-tutorial/ic775996.png "Utilisateurs")
+   ![Capture d’écran montrant la page Add a new User.](./media/canvas-lms-tutorial/add-user.png "Utilisateurs")
 
 5. Dans la page Ajouter un nouvel utilisateur, procédez comme suit :
 
-   ![Ajouter un utilisateur](./media/canvas-lms-tutorial/ic775997.png "Ajouter un utilisateur")
+   ![Ajouter un utilisateur](./media/canvas-lms-tutorial/name.png "Ajouter un utilisateur")
 
    a. Dans la zone de texte **Full Name** (Nom complet), entrez le nom d’un utilisateur, par exemple **Britta Simon**.
 
@@ -189,7 +187,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Canvas, vous devez l
 > [!NOTE]
 > Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Canvas pour provisionner des comptes d’utilisateurs Azure AD.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
@@ -197,7 +195,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Canvas pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Canvas dans Mes applications, vous devez être connecté automatiquement à l’application Canvas pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Canvas dans Mes applications, vous devez être connecté automatiquement à l’application Canvas pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

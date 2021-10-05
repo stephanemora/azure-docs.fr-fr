@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: bae0f764df3951150d438c790c326429b5adb5a2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4a97b89957a4f451aaa9c7305535f87980234db2
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614160"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094288"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -51,6 +51,10 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 |  Débit minimum attribué pour un volume avec Qualité de service manuelle     |    1 Mio/s   |    Non    |    
 |  Débit maximum attribué pour un volume avec Qualité de service manuelle     |    4 500 Mio/s    |    Non    |    
 |  Nombre de volumes de protection des données de réplication inter-région (volumes de destination)     |    10    |    Oui    |     
+|  Nombre maximum de sauvegardes basées sur des politiques (planifiées) par volume  | <ul><li> Nombre de rétention quotidienne : 1 (minimum) à 1019 (maximum) </li> <li> Nombre de rétention hebdomadaire : 1 (minimum) à 1019 (maximum) </li> <li> Nombre de rétention mensuelle : 1 (minimum) à 1019 (maximum) </ol></li> <br> Les nombres maximaux de rétentions de sauvegarde quotidiens, hebdomadaires et mensuels *combinés* sont 1019.  |  N  |
+|  Taille maximale du volume protégé  |  100 Tio  |  N  |
+|  Nombre maximal de volumes pouvant être sauvegardés par abonnement   |  5  |  Y  |
+|  Nombre maximal de sauvegardes manuelles par volume et par jour |  5  |  Y  |
 
 Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la gestion de la capacité](azure-netapp-files-faqs.md#capacity-management-faqs).
 

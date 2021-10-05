@@ -1,23 +1,22 @@
 ---
 title: Inscrire et analyser une base de données Azure MySQL Database
-description: Ce tutoriel explique comment analyser une base de données Azure MySQL.
+description: Ce tutoriel explique comment inscrire et analyser une base de données Azure MySQL dans Azure Purview.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 06/30/2021
-ms.openlocfilehash: ed3a0abc6bdd99e5c86e67a410d7c9ecadf7a718
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 8f4a5480b76e03a57ff810c88a0a1660ae561071
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737649"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209854"
 ---
 # <a name="register-and-scan-an-azure-mysql-database"></a>Inscrire et analyser une base de données Azure MySQL Database
 
 Cet article explique comment inscrire et analyser une base de données Azure MySQL.
-
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 - **Analyses complètes et incrémentielles** pour capturer les métadonnées et la classification dans des bases de données Azure MySQL.
@@ -73,7 +72,7 @@ Dans l’écran **Inscrire des sources (Azure MySQL Database)** , procédez comm
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Sélectionnez la source Azure Database pour MySQL que vous avez inscrite.
 

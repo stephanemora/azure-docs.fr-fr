@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 09/13/2021
 ms.author: rolyon
-ms.reviewer: vincesm
+ms.reviewer: abhijeetsinha
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f376a8e5d61b9bb3fda39184f4ff0873c48c8b43
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 21e1b91c10d687b0b82626372510dcaf2a0611ef
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732331"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601789"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Vue d’ensemble du contrôle d’accès en fonction du rôle dans Azure Active Directory
 
@@ -52,23 +52,23 @@ Voici les principales étapes suivies par Azure AD pour déterminer si vous avez
 
 ## <a name="role-assignment"></a>Attribution de rôle
 
-Une attribution de rôle est une ressource Azure AD qui associe une *définition de rôle* à un *utilisateur* dans une *étendue* particulière pour accorder l’accès aux ressources Azure AD. La création d’une attribution de rôle permet d’accorder un accès, qui peut être révoqué par la suppression d’une attribution de rôle. À son cœur, une attribution de rôle se compose de trois éléments :
+Une attribution de rôle est une ressource Azure AD qui attache une *définition de rôle* à un *principal de sécurité* dans une *étendue* donnée pour accorder l’accès aux ressources Azure AD. La création d’une attribution de rôle permet d’accorder un accès, qui peut être révoqué par la suppression d’une attribution de rôle. À son cœur, une attribution de rôle se compose de trois éléments :
 
-- Utilisateur Azure AD
-- Définition de rôle
-- Étendue des ressources
+- Principal de sécurité - identité qui obtient les autorisations. Il peut s’agir d’un utilisateur, d’un groupe ou d’un principal de service. 
+- Définition de rôle - collection d’autorisations. 
+- Étendue - moyen de limiter où ces autorisations peuvent être appliquées.
 
-Vous pouvez [créer des attributions de rôles](custom-create.md) à l’aide du portail Azure, d’Azure AD PowerShell ou de l’API Graph. Vous pouvez également [énumérer les attributions de rôles](view-assignments.md).
+Vous pouvez [créer des attributions de rôles](manage-roles-portal.md) à l’aide du portail Azure, d’Azure AD PowerShell ou de l’API Graph. Vous pouvez également [énumérer les attributions de rôles](view-assignments.md).
 
-Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exemple, Chris Green s’est vu attribuer le rôle personnalisé d’administrateur d’inscription des applications dans l’étendue de l’inscription de l’application Contoso Widget Builder. Cette attribution accorde à Chris les autorisations du rôle administrateur d’inscription d’application sur cette inscription d’application spécifique uniquement.
+Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exemple, Chris s’est vu attribuer le rôle personnalisé Administrateur d’inscription d’application dans l’étendue de l’inscription de l’application Contoso Widget Builder. Cette attribution accorde à Chris les autorisations du rôle Administrateur d’inscription d’application sur cette inscription d’application spécifique uniquement.
 
-![L’attribution de rôle est la manière dont les autorisations sont appliquées et comporte trois parties.](./media/custom-overview/rbac-overview.png)
+![L’attribution de rôle est le moyen dont les autorisations sont appliquées et comporte trois parties.](./media/custom-overview/rbac-overview.png)
 
 ### <a name="security-principal"></a>Principal de sécurité
 
-Un principal de sécurité représente l’utilisateur auquel l’accès aux ressources Azure AD doit être attribué. Un utilisateur est une personne disposant d’un profil utilisateur dans Azure Active Directory.
+Un principal de sécurité représente un utilisateur, un groupe ou un principal de service à qui l’accès aux ressources Azure AD est attribué. Un utilisateur est une personne disposant d’un profil utilisateur dans Azure Active Directory. Un groupe est un nouveau groupe Microsoft 365 ou de sécurité dont la propriété isAssignableToRole a la valeur true (actuellement en préversion). Un principal de service est une identité créée pour être utilisée avec des applications, des services hébergés et des outils automatisés pour accéder aux ressources Azure AD.
 
-### <a name="role"></a>Role
+### <a name="role-definition"></a>Définition de rôle
 
 Une définition de rôle, ou rôle, est une collection d’autorisations. Une définition de rôle répertorie les opérations qui peuvent être effectuées sur des ressources Azure AD, telles que créer, lire, mettre à jour et supprimer. Il existe deux types de rôles dans Azure AD :
 
@@ -77,7 +77,21 @@ Une définition de rôle, ou rôle, est une collection d’autorisations. Une d�
 
 ### <a name="scope"></a>Étendue
 
-Une étendue est la restriction des actions autorisées à une ressource Azure AD particulière dans le cadre d’une attribution de rôle. Lorsque vous attribuez un rôle, vous pouvez spécifier une étendue qui limite l’accès de l’administrateur à une ressource spécifique. Par exemple, si vous souhaitez accorder à un développeur un rôle personnalisé, mais uniquement pour gérer une inscription d’application spécifique, vous pouvez inclure l’inscription d’application spécifique en tant qu’étendue dans l’attribution de rôle.
+Une étendue est un moyen de limiter les actions autorisées à un ensemble spécifique de ressources lors d’une attribution de rôle. Par exemple, si vous souhaitez accorder un rôle personnalisé à un développeur, mais uniquement pour gérer une inscription d’application spécifique, vous pouvez inclure l’inscription d’application spécifique comme étendue dans l’attribution de rôle.
+
+Lorsque vous attribuez un rôle, vous spécifiez l’un des types d’étendue suivants :
+
+- Locataire
+- [Unité administrative](administrative-units.md)
+- Ressource Azure AD
+
+Si vous spécifiez une ressource Azure AD comme étendue, cela peut être des :
+
+- Groupes Azure AD
+- Applications d’entreprise
+- Inscriptions d’applications
+
+Pour plus d’informations, consultez [Attribuer des rôles Azure AD à différentes étendues](assign-roles-different-scopes.md).
 
 ## <a name="license-requirements"></a>Conditions de licence :
 
@@ -86,5 +100,5 @@ L’utilisation de rôles intégrés dans Azure AD est gratuite, par contre les 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Comprendre les rôles Azure AD](concept-understand-roles.md)
-- Créer des attributions de rôles personnalisés à l’aide du [portail Azure, d’Azure AD PowerShell et de l’API Graph](custom-create.md)
-- [Répertorier les attributions de rôles](view-assignments.md)
+- [Attribuer des rôles Azure AD aux utilisateurs](manage-roles-portal.md)
+- [Créer et affecter un rôle personnalisé](custom-create.md)

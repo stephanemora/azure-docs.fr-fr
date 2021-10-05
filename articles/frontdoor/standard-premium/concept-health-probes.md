@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 30a8208babab2991c9d9e86cc419ac50e1530d7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a856ae7d38439d11ba0ddd65ebecdda7a3d2ce48
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101097806"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750205"
 ---
 # <a name="azure-front-door-standardpremium-preview-health-probe-monitoring"></a>Supervision de la sonde d’intégrité Azure Front Door Standard/Premium (préversion)
 
@@ -62,6 +62,8 @@ Pour déterminer l’intégrité, le service Azure Front Door utilise le même p
 
 1. Front Door mesure et maintient la latence (durée aller-retour) pour chaque ensemble de backends considérés comme sains.
 
+> [!NOTE]
+> Si un seul point de terminaison est membre de plusieurs pools principaux, Azure Front Door optimise le nombre de sondes d’intégrité envoyées au serveur principal pour réduire la charge sur le serveur principal. Les demandes de sonde d’intégrité sont envoyées en fonction de l’intervalle d’échantillonnage configuré le plus bas. L’intégrité du point de terminaison dans tous les pools est déterminée par les réponses des mêmes sondes d’intégrité.
 
 ## <a name="complete-health-probe-failure"></a>Mettre fin à l’échec des sondes d’intégrité
 
@@ -75,4 +77,4 @@ Si vous avez un seul back-end dans votre pool de back-ends ou si un seul back-en
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [créer une instance Front Door Standard/Premium](create-front-door-portal.md).
+Découvrez comment [créer une instance Front Door Standard/Premium](create-front-door-portal.md).

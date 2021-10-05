@@ -10,12 +10,12 @@ ms.author: justinha
 author: calui
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 0a4ad5d9aaa9bb851a651ddc77bd1acb773b6019
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 0e925e520b5136750dc7ef9151d7e5741176525c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113485704"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595614"
 ---
 # <a name="sign-in-to-azure-ad-with-email-as-an-alternate-login-id-preview"></a>Se connecter à Azure AD avec un e-mail comme autre ID de connexion (préversion)
 
@@ -70,7 +70,8 @@ Dans la préversion actuelle, les limitations suivantes s’appliquent à l’ut
     * Skype Entreprise
     * Microsoft Office sur macOS
     * Microsoft Teams sur le web
-    * OneDrive, quand le flux de connexion n’implique pas l’authentification multifacteur
+    * OneDrive, quand le flux de connexion n’implique pas l’authentification multifacteur.
+    * Portail d’administration Microsoft 365
 
 * **Applications non prises en charge** : certaines applications tierces peuvent ne pas fonctionner comme prévu si elles partent du principe que les revendications `unique_name` ou `preferred_username` sont immuables ou correspondent toujours à un attribut utilisateur spécifique, tel que UPN.
 

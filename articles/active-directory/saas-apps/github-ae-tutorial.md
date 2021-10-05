@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 721c13ea31f812dd5f5b5c335373884766764c80
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9e542c7d9e78ea73dc96809d7d1fa06d60f15283
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750696"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599997"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à GitHub AE
 
@@ -37,8 +37,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* GitHub AE prend en charge l’authentification unique lancée par le **fournisseur de services** et le **fournisseur d’identité**
-* GitHub prend en charge l’attribution d’utilisateurs **juste-à-temps**
+* GitHub AE prend en charge l’authentification unique lancée par le **fournisseur de services** et le **fournisseur d’identité**.
+* GitHub AE prend en charge l’attribution d’utilisateurs **juste-à-temps**.
+* GitHub AE prend en charge l’[attribution automatisée d’utilisateurs](github-ae-provisioning-tutorial.md).
 
 ## <a name="adding-github-ae-from-the-gallery"></a>Ajout de GitHub AE à partir de la galerie
 
@@ -150,6 +151,8 @@ Pour configurer l’authentification unique côté GitHub AE, vous devez suivre 
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans GitHub AE. GitHub AE prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans GitHub AE, il en est créé un après l’authentification.
 
+GitHub AE prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./github-ae-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -164,7 +167,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Sur le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance de GitHub AE pour laquelle vous avez configuré l’authentification unique 
 
-Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette GitHub AE dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de GitHub AE pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette GitHub AE dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page d’authentification de l’application pour lancer le processus de connexion. Si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’application GitHub AE pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

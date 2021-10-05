@@ -1,5 +1,5 @@
 ---
-title: Didacticiel :Intégration d’Azure Active Directory à TalentLMS | Microsoft Docs
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à TalentLMS'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TalentLMS.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/25/2021
+ms.date: 09/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 84d50d19a8356418a5cbf1f93784e5b8816d4be5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 055c3774acfa3930e7fa1663a46629e80448c25f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101689349"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606016"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Didacticiel : Intégration d’Azure Active Directory à TalentLMS
+# <a name="tutorial-azure-ad-sso-integration-with-talentlms"></a>Tutoriel : Intégration de l’authentification unique Azure AD à TalentLMS
 
 Dans ce tutoriel, vous allez apprendre à intégrer TalentLMS à Azure Active Directory (Azure AD). Quand vous intégrez TalentLMS à Azure AD, vous pouvez :
 
@@ -37,7 +37,7 @@ Pour configurer l’intégration d’Azure AD à TalentLMS, vous avez besoin des
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* TalentLMS prend en charge l’authentification unique lancée par le **fournisseur de services**
+* TalentLMS prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 ## <a name="add-talentlms-from-the-gallery"></a>Ajouter TalentLMS à partir de la galerie
 
@@ -63,7 +63,7 @@ Pour configurer et tester l’authentification unique Azure AD avec TalentLMS, 
     1. **[Créer un utilisateur de test TalentLMS](#create-talentlms-test-user)** pour avoir dans TalentLMS un équivalent de B.Simon lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
@@ -75,14 +75,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL TalentLMS](common/sp-identifier.png)
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `http://<tenant-name>.talentlms.com`
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenant-name>.TalentLMSapp.com`
-
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `http://<tenant-name>.talentlms.com`
+    b. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenant-name>.TalentLMSapp.com`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support client de TalentLMS](https://www.talentlms.com/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support client de TalentLMS](https://www.talentlms.com/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Certificat de signature SAML**.
 
@@ -120,19 +118,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="configure-talentlms-sso"></a>Configurer l’authentification unique TalentLMS
+## <a name="configure-talentlms-sso"></a>Configurer l’authentification unique TalentLMS
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise TalentLMS en tant qu’administrateur.
 
 1. Dans la section **Account & Settings (Compte et paramètres)**, cliquez sur l’onglet **Users (Utilisateurs)**.
 
-    ![Accounts & Setting](./media/talentlms-tutorial/IC777296.png "Account & Settings") (Comptes et paramètres)
+    ![Accounts & Setting](./media/talentlms-tutorial/user.png "Account & Settings") (Comptes et paramètres)
 
 1. Cliquez sur **Authentification unique (SSO)**.
 
 1. Dans la section Single Sign-On, procédez comme suit :
 
-    ![Authentification unique](./media/talentlms-tutorial/saml.png "Authentification unique")
+    ![Authentification unique](./media/talentlms-tutorial/certificate.png "Authentification unique")
 
     a. Dans la liste **Type d'intégration SSO**, sélectionnez **SAML 2.0**.
 
@@ -168,7 +166,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à TalentLMS, vous deve
 
 1. Dans la page de boîte de dialogue **Ajouter un utilisateur**, procédez comme suit :
 
-    ![Ajouter un utilisateur](./media/talentlms-tutorial/IC777299.png "Ajouter un utilisateur")  
+    ![Ajouter un utilisateur](./media/talentlms-tutorial/account.png "Ajouter un utilisateur")  
 
     a. Dans la zone de texte **First Name**, entrez le prénom de l’utilisateur, par exemple `Britta`.
 
@@ -181,7 +179,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à TalentLMS, vous deve
 > [!NOTE]
 > Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par TalentLMS pour provisionner des comptes d’utilisateurs Azure AD.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
@@ -189,7 +187,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à TalentLMS pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette TalentLMS dans Mes applications, vous êtes redirigé vers l’URL de connexion à TalentLMS. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette TalentLMS dans Mes applications, vous êtes redirigé vers l’URL de connexion à TalentLMS. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

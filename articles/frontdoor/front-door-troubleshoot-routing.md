@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/30/2020
+ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: 15cdcefe628a392704e650b560243e2f6a134ec2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed47d310f418936b84c505fcf254947a67f0eb6d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629986"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824393"
 ---
 # <a name="troubleshooting-common-routing-problems"></a>Résolution des problèmes de routage courants
 
@@ -29,19 +29,27 @@ Cet article explique comment résoudre les problèmes de routage courants que vo
 
 * Les requêtes régulières envoyées à votre back-end sans passer par Azure Front Door s’effectuent correctement. Le transit via Azure Front Door génère des réponses d’erreur 503.
 * L’échec avec Azure Front Door survient généralement après environ 30 secondes.
+* Erreurs 503 intermittentes avec le journal `ErrorInfo: OriginInvalidResponse`.
 
 ### <a name="cause"></a>Cause
 
-La cause de ce problème peut être l’une des deux possibilités suivantes :
+La cause de ce problème peut être liée à l’une des trois possibilités suivantes :
  
 * Votre back-end prend plus de temps que le délai d’expiration configuré (la valeur par défaut est de 30 secondes) pour recevoir la requête de l’instance Azure Front Door.
-* Le temps nécessaire pour envoyer une réponse à la requête provenant d’Azure Front Door prend plus de temps que la valeur du délai d’attente. 
+* Le temps nécessaire pour envoyer une réponse à la requête provenant d’Azure Front Door prend plus de temps que la valeur du délai d’attente.
+* Le client a envoyé une demande de plage d’octets avec `Accept-Encoding header` (compression activée).
 
 ### <a name="troubleshooting-steps"></a>Étapes de dépannage
 
 * Envoyez la requête directement à votre back-end (sans passer par Azure Front Door). Découvrez combien de temps il faut généralement à votre back-end pour répondre.
 * Envoyez la requête via Azure Front Door et vérifiez si vous obtenez des réponses 503. Si ce n’est pas le cas, il est possible qu’il ne s’agisse pas d’un problème de délai d’expiration. Contactez le support technique.
-* Si le passage par Azure Front Door aboutit à un code de réponse d’erreur 503, configurez le champ `sendReceiveTimeout` pour Azure Front Door. Vous pouvez étendre le délai d’expiration par défaut jusqu’à 4 minutes (240 secondes). Le paramètre se trouve sous `backendPoolSettings` et est appelé `sendRecvTimeoutSeconds`. 
+* Si les requêtes qui passent par Azure Front Door génèrent un code de réponse d’erreur 503, configurez le paramètre **Délai d’attente d’envoi/de réception (en secondes)** pour Azure Front Door. Vous pouvez étendre le délai d’expiration par défaut jusqu’à 4 minutes (240 secondes). Le paramètre peut être configuré en accédant au *concepteur Front Door* et en sélectionnant **Paramètres**.
+
+    :::image type="content" source=".\media\troubleshoot-route-issues\send-receive-timeout.png" alt-text="Capture d’écran du champ délai d’expiration d’envoi/réception dans le concepteur Front Door.":::
+
+* Si le délai d’expiration ne résout pas le problème, utilisez un outil, tel que Fiddler ou l’outil de développement de votre navigateur, pour vérifier si le client envoie des demandes de plages d’octets avec des en-têtes Accept-Encoding, ce qui conduit à l’origine qui répond avec des longueurs de contenu différentes. Si c’est le cas, vous pouvez soit désactiver la compression sur l’origine/Azure Front Door, soit créer une règle de jeu de règles pour supprimer `accept-encoding` de la requête pour les demandes de plages d’octets.
+
+    :::image type="content" source=".\media\troubleshoot-route-issues\remove-encoding-rule.png" alt-text="Capture d’écran de la règle d’acceptation d’encodage dans le moteur de règles.":::
 
 ## <a name="requests-sent-to-the-custom-domain-return-a-400-status-code"></a>Les requêtes envoyées au domaine personnalisé retournent un code d’état 400
 

@@ -3,12 +3,12 @@ title: Gestion des extensions de machine virtuelle avec des serveurs activés pa
 description: Les serveurs activés par Azure Arc peuvent gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration post-déploiement sur des machines virtuelles non Azure.
 ms.date: 08/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: b09a5ecc2121d2ff1cc377bde7619b834a58e474
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: bc19255d7e234b3ca4ada1bc2f9356dc52b3e4dc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824640"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807255"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestion des extensions de machine virtuelle avec des serveurs activés par Azure Arc
 
@@ -50,7 +50,7 @@ Dans cette version, nous prenons en charge les extensions de machine virtuelle s
 Pour découvrir le package d’agent Azure Connected Machine et obtenir des détails sur le composant Agent Extension, consultez [Vue d’ensemble de l’agent](agent-overview.md#agent-component-details).
 
 > [!NOTE]
-> La prise en charge récente de l’extension de machine virtuelle DSC a été supprimée pour les serveurs avec Arc. Nous vous recommandons également d’utiliser l’extension de script personnalisé pour gérer la configuration post-déploiement de votre serveur ou de votre machine.
+> La prise en charge récente de l’extension de machine virtuelle DSC a été supprimée pour les serveurs Azure Arc. Nous vous recommandons également d’utiliser l’extension de script personnalisé pour gérer la configuration post-déploiement de votre serveur ou de votre machine.
 
 Les serveurs compatibles avec les arcs prennent en charge le déplacement des machines avec une ou plusieurs extensions de machine virtuelle installées entre les groupes de ressources ou un autre abonnement Azure sans impact sur leur configuration. Les abonnements source et de destination doivent exister dans le même [client Azure Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md). Cette prise en charge est activée à partir de la version de l’agent de machine connectée **1.8.21197.005**. Pour plus d’informations sur le déplacement de ressources et les considérations avant l’exécution, voir [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 

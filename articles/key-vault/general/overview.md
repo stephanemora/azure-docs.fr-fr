@@ -10,20 +10,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d88f3ed4dbeafc935e58096fb094518b8b0274b4
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b4635b461441b4ac4ed193a48cbd8e14790ac835
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411500"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060665"
 ---
 # <a name="about-azure-key-vault"></a>À propos d’Azure Key Vault
 
 Azure Key Vault aide à résoudre les problèmes suivants :
 
 - **Gestion des secrets** : Azure Key Vault peut être utilisé pour stocker en toute sécurité les jetons, mots de passe, certificats, clés API et autres secrets, et pour en contrôler étroitement l’accès.
-- **Gestion des clés** : Azure Key Vault peut également servir de solution de gestion de clés. Azure Key Vault simplifie la création et le contrôle des clés de chiffrement utilisées pour chiffrer vos données. 
-- **Gestion des certificats** : Azure Key Vault est également un service qui vous permet d’inscrire, de gérer et de déployer facilement des certificats TLS/SSL publics et privés pour une utilisation avec Azure et vos ressources connectées internes.
+- **Gestion des clés** : Azure Key Vault peut servir de solution de gestion de clés. Azure Key Vault simplifie la création et le contrôle des clés de chiffrement utilisées pour chiffrer vos données.
+- **Gestion des certificats** : Azure Key Vault vous permet de provisionner, gérer et déployer facilement des certificats SSL/TLS publics et privés pour une utilisation avec Azure et vos ressources connectées internes.
 
 Azure Key Vault a deux niveaux de service : Standard, qui chiffre avec une clé logicielle, et Premium, qui inclut des clés protégées par HSM (module de sécurité matériel). Pour obtenir une comparaison entre les niveaux Standard et Premium, consultez la page de [tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 

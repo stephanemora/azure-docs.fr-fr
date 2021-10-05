@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 02/10/2021
 ms.author: seshin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 11127453c67a41dd4b5f8677d02a10f749f516f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 103aaa913511c8d61e8e2a28ede81973fca98d1a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532483"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774636"
 ---
 # <a name="connect-to-a-secure-azure-storage-account-from-your-synapse-workspace"></a>Se connecter à un compte de stockage Azure sécurisé à partir de votre espace de travail Azure Synapse
 
@@ -29,7 +29,13 @@ Lorsque vous créez un espace de travail Azure Synapse, vous pouvez choisir d’
 ## <a name="access-a-secured-storage-account"></a>Accéder à un compte de stockage sécurisé
 Azure Synapse fonctionne à partir de réseaux qui ne peuvent pas être inclus dans vos règles de réseau. Vous devez effectuer les opérations suivantes pour permettre l’accès à votre compte de stockage sécurisé depuis votre espace de travail :
 
-* Créez un espace de travail Azure Synapse avec un réseau virtuel géré qui lui est associé et créez des points de terminaison privés gérés entre celui-ci et le compte de stockage sécurisé.
+* Créez un espace de travail Azure Synapse avec un réseau virtuel géré qui lui est associé et créez des points de terminaison privés gérés entre celui-ci et le compte de stockage sécurisé. 
+
+    Si vous utilisez le portail Azure pour créer votre espace de travail, vous pouvez activer le réseau virtuel géré sous l’onglet **Mise en réseau** comme indiqué ci-dessous. Si vous activez le réseau virtuel géré ou si Synapse détermine que le compte de stockage principal est un compte de stockage sécurisé, vous pouvez créer une demande de connexion de point de terminaison privé géré au compte de stockage sécurisé, comme indiqué ci-dessous. Le propriétaire du compte de stockage doit approuver la demande de connexion pour établir la liaison privée. Synapse peut également approuver cette demande de connexion si l’utilisateur qui crée un pool Apache Spark dans l’espace de travail dispose des privilèges suffisants pour approuver la demande de connexion.
+![Activer le réseau virtuel managé et le point de terminaison privé géré](./media/connect-to-a-secure-storage-account/enable-managed-virtual-network-managed-private-endpoint.png) 
+    
+
+
 * Accordez à votre espace de travail Azure Synapse l’accès à votre compte de stockage sécurisé en tant que service Azure approuvé. En tant que service de confiance, Azure Synapse utilisera alors une authentification forte pour se connecter en toute sécurité à votre compte de stockage.   
 
 ### <a name="create-a-synapse-workspace-with-a-managed-virtual-network-and-create-managed-private-endpoints-to-your-storage-account"></a>Créer un espace de travail Azure Synapse avec un réseau virtuel géré et créer des points de terminaison privés gérés sur votre compte de stockage

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: ed91fcaf566e31df2a1c9b57178c2e60d9206ad5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dd7a38070b13cb762bc22e954c47703ef5366b84
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637725"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805472"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copier des données à partir d’un stockage Blob Azure vers une base de données dans Azure SQL Database en utilisant Azure Data Factory
 
@@ -111,13 +111,13 @@ Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des
 
 1. Dans la page d’accueil, sélectionnez **Orchestrer**.
 
-   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la page d’accueil ADF.":::
 
 1. Dans le panneau Général, sous **Propriétés**, spécifiez **CopyPipeline** comme **Nom**. Réduisez ensuite le panneau en cliquant sur l’icône Propriétés en haut à droite.
 
 1. Dans la boîte à outils **Activités**, développez la catégorie **Déplacer et transformer**, puis faites glisser l’activité **Copier les données** de la boîte à outils vers l’aire du concepteur de pipeline. Spécifiez **CopyFromBlobToSql** pour le **Nom**.
 
-    ![Activité de copie](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/drag-drop-copy-activity.png" alt-text="Activité de copie":::
 
 ### <a name="configure-source"></a>Configurer la source
 
@@ -141,7 +141,7 @@ Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des
 
 1. Sélectionnez **OK**. La page du pipeline s’affiche automatiquement. Sous l’onglet **Source**, vérifiez que **SourceBlobDataset** est sélectionné. Pour afficher un aperçu des données dans cette page, sélectionnez **Aperçu des données**.
 
-    ![Jeu de données source](./media/tutorial-copy-data-portal/source-dataset-selected.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/source-dataset-selected.png" alt-text="Jeu de données source":::
 
 ### <a name="configure-sink"></a>Configurer le récepteur
 >[!TIP]
@@ -170,13 +170,13 @@ Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des
 
     g. Sélectionnez **Créer** pour déployer le service lié.
 
-    ![Enregistrer le nouveau service lié](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png" alt-text="Enregistrer le nouveau service lié":::
 
 1. La boîte de dialogue **Définir les propriétés** s’affiche automatiquement. Sélectionnez **[dbo].[emp]** dans le champ **Table**. Sélectionnez ensuite **OK**.
 
 1. Accédez à l’onglet avec le pipeline, puis dans **Jeu de données récepteur**, vérifiez que l’option **OutputSqlDataset** est sélectionnée.
 
-    ![Onglet Pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+    :::image type="content" source="./media/tutorial-copy-data-portal/pipeline-tab-2.png" alt-text="Onglet Pipeline":::       
 
 Si vous le souhaitez, vous pouvez mapper le schéma de la source au schéma correspondant de la destination en suivant les instructions mentionnées dans [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
 
@@ -201,11 +201,11 @@ Dans cette étape, vous déclenchez manuellement le pipeline que vous avez publi
 
 1. Accédez à l’onglet **Surveiller** sur la gauche. Vous voyez un pipeline qui est déclenché par un déclencheur manuel. Vous pouvez utiliser les liens sous la colonne **NOM DU PIPELINE** pour voir les détails de l’activité et réexécuter le pipeline.
 
-    [![Superviser les exécutions de pipelines](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox" alt-text="Superviser les exécutions de pipeline](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)":::
 
 1. Pour voir les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **CopyPipeline** sous la colonne **NOM DU PIPELINE**. Dans cet exemple, il n’y a qu’une seule activité, vous ne voyez donc qu’une seule entrée dans la liste. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **NOM DE L’ACTIVITÉ**. Sélectionnez **Toutes les exécutions de pipelines** en haut pour revenir à la vue Exécutions de pipelines. Sélectionnez **Actualiser** pour actualiser l’affichage.
 
-    [![Superviser des exécutions d’activités](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox" alt-text="Superviser les exécutions d’activité](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)":::
 
 1. Vérifiez que deux lignes supplémentaires sont ajoutées à la table **emp** dans la base de données.
 
@@ -243,7 +243,7 @@ Dans cette planification, vous créez un déclencheur de planificateur pour le p
 
 1. Accédez à l’onglet **Surveiller** sur la gauche pour voir les exécutions du pipeline déclenchées.
 
-    [![Exécutions du pipeline déclenchées](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox" alt-text="Exécution de pipeline déclenchées](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)":::
 
 1. Pour passer de la vue **Exécutions de pipeline** à la vue **Exécutions de déclencheur**, sélectionnez **Exécutions de déclencheur** sur le côté gauche de la fenêtre.
 

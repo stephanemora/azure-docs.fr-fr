@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 1401108a594e30790e842ec379724603f11d493f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7beb615307b602789b845e10cee28ca402acf9e9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100524045"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217179"
 ---
 # <a name="content-moderator-encryption-of-data-at-rest"></a>Chiffrement des données au repos de Content Moderator
 
@@ -25,7 +25,7 @@ Content Moderator chiffre automatiquement vos données lorsqu'elles sont conserv
 > [!IMPORTANT]
 > Les clés gérées par le client sont disponibles uniquement au niveau tarifaire E0. Pour demander la possibilité d’utiliser des clés gérées par le client, complétez et envoyez le [formulaire de demande de clé gérée par le client Content Moderator](https://aka.ms/cogsvc-cmk). Comptez environ 3 à 5 jours ouvrables pour obtenir des nouvelles sur le statut de votre demande. Selon la demande, vous pouvez être placé dans une file d’attente et approuvé lorsque de l’espace devient disponible. Une fois approuvé pour l’utilisation d’une clé CMK avec le service Content Moderator, vous devez créer une ressource Content Moderator et sélectionner E0 comme niveau tarifaire. Une fois que votre ressource Content Moderator avec le niveau tarifaire E0 est créée, vous pouvez utiliser Azure Key Vault pour configurer votre identité managée.
 
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
+Les clés gérées par le client sont disponibles dans toutes les régions Azure.
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

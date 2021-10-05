@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/16/2021
+ms.date: 08/26/2021
 ms.author: jeedes
-ms.openlocfilehash: bcbf68523fda8ccd8041d5147f9904f0b8520521
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 36829f44d818356bbe61fe3f37265c2a76ed6f8a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147964"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617979"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-exium"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Exium
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Exium prend en charge l’authentification SSO lancée par le fournisseur de services (**SP**).
+* Exium prend en charge l’[attribution automatique d’utilisateurs](exium-provisioning-tutorial.md).
 
 ## <a name="adding-exium-from-the-gallery"></a>Ajout d’Exium à partir de la galerie
 
@@ -149,6 +150,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![capture d’écran montrant la création d’un utilisateur de test avec les champs obligatoires et le bouton Save mis en évidence](./media/exium-tutorial/add-user-2.png)
 
+> [!NOTE]
+>Exium prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./exium-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -157,7 +161,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Exium pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Exium dans Mes applications, vous êtes redirigé vers l’URL de connexion à Exium. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Exium dans Mes applications, vous êtes redirigé vers l’URL de connexion à Exium. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

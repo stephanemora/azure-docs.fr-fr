@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 30593c51f17b99989409ddd22c9c1caa28468039
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: f70c35f55256ef98dd261a13058f1b6ad5330d9f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720829"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616799"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-the-microsoft-identity-platform"></a>Démarrage rapide : Protéger une API web ASP.NET Core avec la plateforme d’identités Microsoft
 
@@ -36,7 +36,7 @@ Dans ce guide de démarrage rapide, vous téléchargez un exemple de code d’AP
 > Tout d’abord, inscrivez l’API web dans votre locataire Azure AD, puis ajoutez une étendue en effectuant les étapes suivantes :
 >
 > 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
-> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoires + abonnements** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour basculer vers le locataire dans lequel vous voulez inscrire l’application.
 > 1. Recherchez et sélectionnez **Azure Active Directory**.
 > 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
 > 1. Pour **Nom**, entrez un nom pour votre application. Par exemple, entrez **AspNetCoreWebApi-Quickstart**. Les utilisateurs de votre application verront ce nom, que vous pourrez changer ultérieurement.

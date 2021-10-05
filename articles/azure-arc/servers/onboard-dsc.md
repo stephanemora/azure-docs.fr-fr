@@ -3,12 +3,12 @@ title: Installer l’agent Connected Machine à l’aide de DSC Windows PowerShe
 description: Dans cet article, vous allez apprendre à connecter des machines à Azure à l’aide de serveurs avec Azure Arc en utilisant DSC Windows PowerShell.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a6e955df43e3589c97091cb111699ce402723d0
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 357d89a989efbc3b8deded193808d47753b722d9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534989"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789082"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Guide pratique pour installer l’agent Connected Machine à l’aide de DSC Windows PowerShell
 
@@ -90,4 +90,4 @@ Le module [CompositeResource](https://www.powershellgallery.com/packages/composi
 
 * Consultez le [Guide de planification et de déploiement](plan-at-scale-deployment.md) pour planifier le déploiement de serveurs avec Azure Arc à n’importe quelle échelle et implémenter la gestion et la supervision centralisées.
 
-* Découvrez comment gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration d’invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, en vérifiant que la machine crée des rapports sur l’espace de travail Log Analytics prévu, activez la supervision avec [VM Insights](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.
+* Découvrez comment gérer votre machine à l’aide de [Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, en vérifiant que la machine crée des rapports sur l’espace de travail Log Analytics prévu, activez l’analyse avec [Insights de machines virtuelles](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.

@@ -1,7 +1,7 @@
 ---
 title: Transformation du classement dans le flux de données de mappage
+description: Découvrez comment utiliser une transformation du classement du flux de données de mappage pour générer une colonne de classement dans des pipelines Azure Data Factory ou Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Comment utiliser la transformation de classement du flux de données de mappage d’Azure Data Factory pour générer une colonne de classement
 author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/05/2020
-ms.openlocfilehash: 6577425827668f0eaddb19b276e940fff7dafa1a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: c3af0355a02badb5aaa5d5b13a51b74392c931d8
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642017"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059872"
 ---
 # <a name="rank-transformation-in-mapping-data-flow"></a>Transformation du classement dans le flux de données de mappage 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Utilisez la transformation de classement pour générer un classement ordonné en fonction des conditions de tri spécifiées par l’utilisateur. 
 
@@ -27,7 +29,7 @@ Utilisez la transformation de classement pour générer un classement ordonné e
 
 ## <a name="configuration"></a>Configuration
 
-![Rank settings](media/data-flow/rank-configuration.png "Paramètres de classement")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="Rank settings":::
 
 **Insensible à la casse :** Si une colonne de tri est de type chaîne, la casse sera factorisée dans le classement. 
 
@@ -57,7 +59,7 @@ La configuration ci-dessus accepte les données de basket-ball entrantes et cré
 
 ### <a name="example"></a>Exemple
 
-![Rank settings](media/data-flow/rank-configuration.png "Paramètres de classement")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="Rank settings":::
 
 Le script de flux de données correspondant à la configuration de classement ci-dessus est présenté dans l’extrait de code suivant.
 

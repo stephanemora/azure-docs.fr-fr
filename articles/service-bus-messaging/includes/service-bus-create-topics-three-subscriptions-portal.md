@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: fichier descriptif
 description: Fichier include
 services: service-bus-messaging
 author: spelluru
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ace42278269ff6af31902dbecead81329815af12
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 3a5413591ba637364bbb42a7e7aedf77b40fb898
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112413777"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565680"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>Créer une rubrique à l’aide du Portail Azure
 1. Dans la page **Espace de noms Service Bus**, sélectionnez **Rubriques** dans le menu de gauche.
@@ -30,7 +30,10 @@ ms.locfileid: "112413777"
 2. Dans la page **Rubrique Service Bus**, sélectionnez **Abonnements** dans le menu de gauche, puis **+ Abonnement** dans la barre d’outils. 
     
     ![Bouton Ajouter un abonnement](./media/service-bus-create-topics-subscriptions-portal/add-subscription-button.png)
-3. Dans la page **Créer un abonnement**, entrez **S1** comme **nom** d’abonnement, puis sélectionnez **Créer**. 
+3. Dans la page **Créer un abonnement**, procédez comme suit :
+    1. Entrez **S1** pour le **nom** de l’abonnement.
+    1. Entrez **3** pour **Nombre maximal de remises**.
+    1. Ensuite, sélectionnez **Créer** pour créer l’abonnement. 
 
-    ![Page Créer un abonnement](./media/service-bus-create-topics-subscriptions-portal/create-subscription-page.png)
+        ![Page Créer un abonnement](./media/service-bus-create-topics-subscriptions-portal/create-subscription-page.png)
 4. Répétez la dernière étape deux autre fois pour créer des abonnements nommés **S2** et **S3**.

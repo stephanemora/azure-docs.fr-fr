@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
 ms.date: 06/11/2021
-ms.openlocfilehash: 87ee8e4b5d28628ae09eec83d7f72f44e762e34f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 26a83b28fd6e1fdaded9884deb0d7197e0a59a6f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122563622"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784884"
 ---
 # <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Configurer AutoML pour effectuer l’apprentissage d’un modèle de prévision de série chronologique avec Python
 
@@ -360,7 +360,7 @@ ws = Workspace.from_config()
 experiment = Experiment(ws, "Tutorial-automl-forecasting")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
-```
+``` 
  
 ## <a name="forecasting-with-best-model"></a>Prévision avec le meilleur modèle
 
@@ -413,6 +413,95 @@ Répétez les étapes nécessaires pour charger ces données futures dans une tr
 
 > [!NOTE]
 > Les prédictions de l’exemple ne sont pas prises en charge pour les prévisions avec le ML automatisé lorsque `target_lags` et/ou `target_rolling_window_size` sont activés.
+
+## <a name="forecasting-at-scale"></a>Prévisions à grande échelle 
+
+Il existe des scénarios dans lesquels un modèle Machine Learning unique est insuffisant et plusieurs modèles sont nécessaires. Par exemple, en prédisant les ventes pour chaque magasin individuel d’une marque, ou en adaptant une expérience à des utilisateurs individuels. La création d’un modèle pour chaque instance peut aboutir à des résultats améliorés sur de nombreux problèmes de Machine Learning. 
+
+Le regroupement est un concept dans les prévisions de série chronologique qui permet de combiner des séries chronologiques pour former un modèle individuel par groupe. Cette approche peut être particulièrement utile si vous avez des séries chronologiques qui nécessitent un lissage, un remplissage ou des entités dans le groupe pouvant tirer parti de l’historique ou des tendances d’autres entités. De nombreux modèles et prévisions de série chronologique sont des solutions optimisées par Machine Learning automatisé pour ces scénarios de prévision à grande échelle. 
+
+### <a name="many-models"></a>Nombreux modèles
+
+La solution de nombreux modèles Azure Machine Learning avec Machine Learning automatisé permet aux utilisateurs d’effectuer l’apprentissage de millions de modèles en parallèle, ainsi que de les gérer. Nombreux modèles L’accélérateur de solution tire parti de [pipelines Azure Machine Learning](concept-ml-pipelines.md) pour effectuer l’apprentissage du modèle. Plus précisément, un objet [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) et [ParalleRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) sont utilisés et requièrent des paramètres de configuration spécifiques définis par le biais de [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig). 
+
+
+Le diagramme suivant montre le flux de travail de la solution de nombreux modèles. 
+
+![Diagramme du concept de nombreux modèles](./media/how-to-auto-train-forecast/many-models.svg)
+
+Le code suivant illustre les paramètres de clé dont les utilisateurs ont besoin pour configurer l’exécution de leurs nombreux modèles.
+
+```python
+from azureml.train.automl.runtime._many_models.many_models_parameters import ManyModelsTrainParameters
+
+partition_column_names = ['Store', 'Brand']
+automl_settings = {"task" : 'forecasting',
+                   "primary_metric" : 'normalized_root_mean_squared_error',
+                   "iteration_timeout_minutes" : 10, #This needs to be changed based on the dataset. Explore how long training is taking before setting this value 
+                   "iterations" : 15,
+                   "experiment_timeout_hours" : 1,
+                   "label_column_name" : 'Quantity',
+                   "n_cross_validations" : 3,
+                   "time_column_name": 'WeekStarting',
+                   "max_horizon" : 6,
+                   "track_child_runs": False,
+                   "pipeline_fetch_max_batch_size": 15,}
+
+mm_paramters = ManyModelsTrainParameters(automl_settings=automl_settings, partition_column_names=partition_column_names)
+
+```
+
+### <a name="hierarchical-time-series-forecasting"></a>Prévision de série chronologique hiérarchique
+
+Dans la plupart des applications, les clients ont besoin de comprendre leurs prévisions au niveau macro et au niveau micro de l’entreprise, qu’il s’agisse de prédire des ventes de produits dans différents emplacements géographiques ou de comprendre la demande de main-d’œuvre attendue pour différentes organisations d’une société. La possibilité d’effectuer l’apprentissage d’un modèle Machine Learning pour faire de prévisions intelligentes sur la base de données de hiérarchie est essentielle. 
+
+Une série chronologique hiérarchique est une structure dans laquelle chacune des séries uniques est organisée dans une hiérarchie basée sur des dimensions telles que la géographie ou le type de produit. L’exemple suivant montre des données avec des attributs uniques formant une hiérarchie. Notre hiérarchie est définie par : le type de produit (par exemple, casque ou tablette), la catégorie de produit qui fractionne les types de produits en accessoires et appareils, et la région dans laquelle les produits sont vendus. 
+
+![Exemple de table de données brutes pour des données hiérarchiques](./media/how-to-auto-train-forecast/hierarchy-data-table.svg)
+ 
+Pour mieux visualiser cela, les niveaux feuille de la hiérarchie contiennent toutes les séries chronologiques avec des combinaisons uniques de valeurs d’attribut. Chaque niveau supérieur dans la hiérarchie considère une dimension de moins pour la définition de la série chronologique, et agrège chaque ensemble de nœuds enfants à partir du niveau inférieur dans un nœud parent.
+ 
+![Visuel de la hiérarchie pour les données](./media/how-to-auto-train-forecast/data-tree.svg)
+
+La solution de série chronologique hiérarchique s’appuie sur la solution de nombreux modèles et partage une configuration similaire.
+
+Le code suivant illustre les paramètres clés pour configurer les exécutions de prévision de séries chronologiques hiérarchiques. 
+
+```python
+
+from azureml.train.automl.runtime._hts.hts_parameters import HTSTrainParameters
+
+model_explainability = True
+
+engineered_explanations = False # Define your hierarchy. Adjust the settings below based on your dataset.
+hierarchy = ["state", "store_id", "product_category", "SKU"]
+training_level = "SKU"# Set your forecast parameters. Adjust the settings below based on your dataset.
+time_column_name = "date"
+label_column_name = "quantity"
+forecast_horizon = 7
+
+
+automl_settings = {"task" : "forecasting",
+                   "primary_metric" : "normalized_root_mean_squared_error",
+                   "label_column_name": label_column_name,
+                   "time_column_name": time_column_name,
+                   "forecast_horizon": forecast_horizon,
+                   "hierarchy_column_names": hierarchy,
+                   "hierarchy_training_level": training_level,
+                   "track_child_runs": False,
+                   "pipeline_fetch_max_batch_size": 15,
+                   "model_explainability": model_explainability,# The following settings are specific to this sample and should be adjusted according to your own needs.
+                   "iteration_timeout_minutes" : 10,
+                   "iterations" : 10,
+                   "n_cross_validations": 2}
+
+hts_parameters = HTSTrainParameters(
+    automl_settings=automl_settings,
+    hierarchy_column_names=hierarchy,
+    training_level=training_level,
+    enable_engineered_explanations=engineered_explanations
+)
+```
 
 ## <a name="example-notebooks"></a>Exemples de notebooks
 

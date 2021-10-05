@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/11/2021
+ms.date: 09/01/2021
 ms.author: victorh
-ms.openlocfilehash: f28092c050e58c6ef90a3faf07034be21198008a
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 1aaea272e83bf39f2f4aa7e373b26ae28aadbda0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017196"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430321"
 ---
 # <a name="use-fqdn-filtering-in-network-rules"></a>Utiliser le filtrage de nom de domaine complet dans les règles de réseau
 
 Un nom de domaine complet (FQDN) représente le nom de domaine d’un hôte ou d’une adresse IP. Vous pouvez utiliser des noms de domaine complets dans les règles de réseau basées sur la résolution DNS dans le pare-feu et la stratégie de pare-feu Azure. Cette fonctionnalité vous permet de filtrer le trafic sortant avec n’importe quel protocole TCP/UDP (y compris NTP, SSH, RDP, etc.). Pour utiliser des noms de domaine complet (FQDN) dans des règles de réseau, vous devez activer le proxy DNS. Pour plus d’informations, consultez [Paramètres DNS du Pare-feu Azure](dns-settings.md).
 
 > [!NOTE]
-> Par conception, le filtrage FQDN ne prend pas en charge les caractères génériques.
+> Par conception, le filtrage FQDN dans les règles de réseau ne prend pas en charge les caractères de remplacement.
 
 ## <a name="how-it-works"></a>Fonctionnement
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/02/2021
-ms.openlocfilehash: acad54727ecb441cce64021ecba395d41820659a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: a19fd4aad4ee8e5bac7dc7cde2a5be4609a346fc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535259"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796568"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Créer une base de connaissances à l’aide de REST et Postman
 
@@ -380,7 +380,7 @@ Chaque table est générée avec les ID nécessaires à la liaison croisée des 
 
    :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Capture d’écran des tables de la base de connaissances dans l’Explorateur Stockage" border="true":::
 
-Dans cette procédure pas à pas, la base de connaissances se compose de différentes tables montrant différentes façons de mettre en forme et de structurer une table. Le premier ensemble de trois montre des tables qui utilisent la sortie d’une compétence Modélisateur pour déterminer les colonnes et les lignes. Le deuxième ensemble montre des commandes de mise en forme incluses, incorporées dans la projection elle-même. Vous pouvez utiliser l’une ou l’autre approche pour obtenir le même résultat.
+Dans cette procédure pas à pas, la base de connaissances se compose de différentes tables montrant différentes façons de mettre en forme et de structurer une table. Les tables un à trois utilisent la sortie d’une compétence Modélisateur pour déterminer les colonnes et les lignes. Les tables quatre à six sont créées à partir d’instructions de mise en forme incluse, incorporées dans la projection elle-même. Vous pouvez utiliser l’une ou l’autre approche pour obtenir le même résultat.
 
 | Table de charge de travail | Description |
 |-------|-------------|

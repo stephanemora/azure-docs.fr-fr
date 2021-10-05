@@ -1,25 +1,26 @@
 ---
-title: Copier des données de Oracle Cloud Storage à l’aide d’Azure Data Factory
+title: Copier des données à partir d’Oracle Cloud Storage
+description: Découvrez comment utiliser un pipeline Azure Data Factory ou Synapse Analytics pour copier des données d’Oracle Cloud Storage vers des banques de données réceptrices prises en charge.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser Azure Data Factory pour copier des données de Oracle Cloud Storage vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: caf817d8b31743f091a4655f6b9ddcfc0007e130
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 3ace2498c568d5193d110845bc7927983fd419ff
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311939"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678741"
 ---
-# <a name="copy-data-from-oracle-cloud-storage-by-using-azure-data-factory"></a>Copier des données de Oracle Cloud Storage à l’aide d’Azure Data Factory
+# <a name="copy-data-from-oracle-cloud-storage-using-azure-data-factory-or-synapse-analytics"></a>Copier des données à partir d’Oracle Cloud Storage avec Azure Data Factory ou Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment copier des données à partir d’Oracle Cloud Storage. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article explique comment copier des données à partir d’Oracle Cloud Storage. Pour plus d’informations, consultez les articles de présentation d’[Azure Data Factory](introduction.md) et de [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -49,7 +50,7 @@ Utilisez les étapes suivantes pour créer un service lié à Oracle Cloud Stora
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -66,7 +67,7 @@ Utilisez les étapes suivantes pour créer un service lié à Oracle Cloud Stora
 
 ## <a name="connector-configuration-details"></a>Détails de configuration des connecteurs 
 
-Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Oracle Cloud Storage.
+Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités propres à Oracle Cloud Storage.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -76,7 +77,7 @@ Les propriétés prises en charge pour les services liés Oracle Cloud Storage s
 |:--- |:--- |:--- |
 | type | La propriété **type** doit être définie sur **OracleCloudStorage**. | Oui |
 | accessKeyId | ID de la clé d’accès secrète. Pour trouver la clé d’accès et le secret, consultez [Prérequis](#prerequisites). |Oui |
-| secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | serviceUrl | Spécifiez le point de terminaison personnalisé en tant que `https://<namespace>.compat.objectstorage.<region identifier>.oraclecloud.com`. Pour plus de détails, reportez-vous [ici](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/s3compatibleapi.htm) | Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. |Non |
 
@@ -157,7 +158,7 @@ Les propriétés prises en charge pour Oracle Cloud Storage sous les paramètres
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | La propriété **type** sous `storeSettings` doit être définie sur **OracleCloudStorageReadSettings**. | Oui                                                         |
 | ***Recherchez les fichiers à copier :*** |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
+| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : préfixe Oracle Cloud Storage<br>- prefix | Préfixe du nom de la clé Oracle Cloud Storage sous le compartiment donné configuré dans le jeu de données pour filtrer les fichiers source Oracle Cloud Storage. Les clés sélectionnées sont les clés Oracle Cloud Storage dont le nom commence par `bucket_in_dataset/this_prefix`. Elles utilisent le filtre côté service d’Oracle Cloud Storage, qui offre de meilleures performances qu’un filtre de caractères génériques. | Non |
 | OPTION 3 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques sous le compartiment donné configuré dans le jeu de données pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre dossier contient un caractère générique ou ce caractère d’échappement. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 3 : caractère générique<br>- wildcardFileName | Nom de fichier avec caractères génériques sous le compartiment et le chemin d’accès du dossier donnés (ou chemin d’accès du dossier en caractères génériques) pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre fichier contient un caractère générique ou ce caractère d’échappement.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
@@ -229,7 +230,7 @@ Cette section décrit le comportement résultant de l’utilisation d’un chemi
 
 Supposons que vous disposez de la structure de dossiers sources suivante et que vous souhaitez copier les fichiers en gras :
 
-| Exemple de structure source                                      | Contenu de FileListToCopy.txt                             | Configuration de Data Factory                                            |
+| Exemple de structure source                                      | Contenu de FileListToCopy.txt                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | Compartiment<br/>&nbsp;&nbsp;&nbsp;&nbsp;DossierA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sousdossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Métadonnées<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **Dans le jeu de données :**<br>- compartiment : `bucket`<br>- chemin d’accès du dossier : `FolderA`<br><br>**Dans la source de l’activité de copie :**<br>- chemin d’accès à la liste de fichiers : `bucket/Metadata/FileListToCopy.txt` <br><br>Le chemin d’accès de la liste de fichiers pointe vers un fichier texte dans le même magasin de données, qui contient la liste de fichiers que vous voulez copier, un fichier par ligne indiquant le chemin d’accès relatif configuré dans le jeu de données. |
 
@@ -247,4 +248,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des magasins de données pris en charge par l’activité Copy dans Azure Data Factory en tant que sources et récepteurs, consultez [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir la liste des magasins de données pris en charge par l'activité Copy en tant que sources et récepteurs, consultez [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

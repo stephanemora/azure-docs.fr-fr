@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/03/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 9c13ffc597349cdd2b304889d142ca7c2f89c713
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 344d513f823c3eb04e869c66ca79bfb611c3eb6a
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861532"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079748"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utiliser le service Azure Import/Export pour importer des données dans Azure Files
 
@@ -96,19 +96,19 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 5. Utilisez l’option `PrepImport` pour copier et préparer des données sur le lecteur de disque. Pendant la première session de copie, pour copier des répertoires et/ou des fichiers dans une nouvelle session de copie, exécutez la commande suivante :
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
+    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
     ```
 
    Voici un exemple d’importation.
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+    .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
     ```
 
 6. Un fichier journal avec le nom fourni incluant le paramètre `/j:` est créé pour chaque exécution de la ligne de commande. Chaque lecteur que vous préparez a un fichier journal qui doit être chargé au moment de la création de la tâche d’importation. Les lecteurs sans fichier journal ne sont pas traités.
 
     > [!IMPORTANT]
-    > - Ne modifiez ni les données sur les lecteurs de disque ni le fichier journal après la préparation du disque.
+    > Ne modifiez pas les fichiers journaux ou les données sur les lecteurs de disque, et ne reformatez pas les disques après avoir finalisé la préparation du disque.
 
 Pour plus d’exemples, accédez à [Exemples de fichiers journaux](#samples-for-journal-files).
 
@@ -154,7 +154,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le P
 
    Sélectionnez **Suivant : Expédition >** pour continuer.
 
-4. Dans **Expédition** :
+6. Dans **Expédition** :
 
     1. Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un autre transporteur que FedEx/DHL, choisissez une option existante dans la liste déroulante. Contactez l’équipe des opérations Azure Data Box à l’adresse `adbops@microsoft.com` pour lui indiquer le nom de l’opérateur auquel vous envisagez de faire appel.
     1. Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée.
@@ -167,7 +167,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le P
 
    Sélectionnez **Vérifier + créer** pour continuer.
 
-5. Dans le résumé de la commande :
+7. Dans le résumé de la commande :
 
    1. Consultez les **Conditions** et sélectionnez « Je reconnais que toutes les informations fournies sont correctes et j’accepte les conditions générales. » La validation est ensuite effectuée.
    1. Passez en revue les informations de tâche dans le récapitulatif. Notez le nom de la tâche et l’adresse du centre de données Azure pour réexpédier les disques à Azure. Ces informations sont utilisées par la suite sur l’étiquette d’expédition.

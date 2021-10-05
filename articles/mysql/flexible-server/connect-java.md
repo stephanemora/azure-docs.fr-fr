@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 01/16/2021
-ms.openlocfilehash: 857de601019e7e8778795f5de7939b461e86df07
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: bb78b1ec37541d96d6ad5440ec0e0f3624d90de6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288839"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604819"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql-flexible-server"></a>Démarrage rapide : Utiliser Java et JDBC avec un serveur flexible Azure Database pour MySQL
 
@@ -23,7 +23,9 @@ Cette rubrique illustre la création d’un exemple d’application qui utilise 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un compte Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/free/).
+- Compte Azure avec un abonnement actif. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - [Azure Cloud Shell](../../cloud-shell/quickstart.md) ou [Azure CLI](/cli/azure/install-azure-cli). Nous vous recommandons d’utiliser Azure Cloud Shell. Vous serez ainsi connecté automatiquement et vous aurez accès à tous les outils dont vous avez besoin.
 - Un [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure) pris en charge, version 8 (inclus dans Azure Cloud Shell).
 - L’outil de build [Apache Maven](https://maven.apache.org/).
@@ -85,7 +87,7 @@ az mysql flexible-server create \
   	| jq
 ```
 
-Veillez à entrer <VOTRE-ADRESSE-IP> pour accéder au serveur à partir de votre ordinateur local. Cette commande crée un serveur flexible MySQL de niveau Expansible adapté au développement.
+Veillez à entrer \<YOUR-IP-ADDRESS\> pour accéder au serveur à partir de votre ordinateur local. Cette commande crée un serveur flexible MySQL de niveau Expansible adapté au développement.
 
 Le serveur MySQL que vous avez créé contient une base de données vide appelée **flexibleserverdb**. Nous allons utiliser cette base de données pour cet article.
 

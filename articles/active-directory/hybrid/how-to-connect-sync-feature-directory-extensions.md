@@ -16,12 +16,12 @@ ms.date: 08/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2415ad3109863a9cd80df413723b317e880a7063
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3ab5eba7cebe03ff59cfa442c454da855788ebad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532860"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768607"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
 Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions](/graph/extensibility-overview
@@ -47,9 +47,8 @@ L’installation affiche les attributs suivants, qui sont des candidats valides 
 * Attributs à valeur unique : chaîne, booléen, entier, binaire
 * Attributs à valeurs multiples : chaîne, binaire
 
-
->[!NOTE]
-> Une fois qu’Azure AD Connect a synchronisé l’attribut Active Directory à valeurs multiples à Azure AD en tant qu’extension d’attribut à valeurs multiples, il est possible d’inclure l’attribut à la revendication SAML. Toutefois, il n’est pas possible d’utiliser ces données par le biais d’un appel d’API.
+> [!NOTE]
+> Toutes les fonctionnalités d’Azure Active Directory ne prennent pas en charge les attributs d’extension à valeurs multiples. Reportez-vous à la documentation de la fonctionnalité dans laquelle vous envisagez d’utiliser ces attributs pour vérifier qu’ils sont pris en charge.
 
 La liste des attributs est lue à partir du cache du schéma qui est créé pendant l’installation d’Azure AD Connect. Si vous avez étendu le schéma Active Directory avec des attributs supplémentaires, vous devez [actualiser le schéma](how-to-connect-installation-wizard.md#refresh-directory-schema) pour que ces nouveaux attributs soient visibles.
 

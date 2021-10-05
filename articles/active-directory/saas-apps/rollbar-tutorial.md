@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: b7a4ca6b6ece95f2f7270e2de6fc72ec8fc6ca04
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 778916c50909e62d6bc7dfa8a6daddc0de7ffa02
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111568976"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Didacticiel : Intégration d’Azure AD à Rollbar
 
@@ -38,6 +38,7 @@ Pour configurer l’intégration d’Azure AD à Rollbar, vous avez besoin des 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Rollbar prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**.
+* Rollbar prend en charge l’[attribution automatisée d’utilisateurs](rollbar-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -149,8 +150,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     > [!NOTE]
     > Pour exécuter l’étape suivante, vous devez d’abord vous ajouter vous-même comme utilisateur dans l’application Rollbar dans Azure.
-    >
-
+    
     a. Si vous voulez que tous les utilisateurs s’authentifient via Azure, cliquez sur **log in via your identity provider (Se connecter via votre fournisseur d’identité)** pour vous authentifier une nouvelle fois via Azure.  
 
     b.  Une fois que vous êtes revenu sur l’écran, sélectionnez la case à cocher **Demander la connexion via un fournisseur d’identité SAML**.
@@ -183,6 +183,9 @@ Pour permettre aux utilisateurs d’Azure AD de se connecter à Rollbar, vous de
 
 1. L’utilisateur reçoit une invitation et, après l’avoir acceptée, il est créé dans le système.
 
+> [!NOTE]
+> Rollbar prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./rollbar-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -197,7 +200,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans Portail Azure : vous devez être connecté automatiquement à l’instance de Rollbar pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Rollbar dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Rollbar pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Rollbar dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Rollbar pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

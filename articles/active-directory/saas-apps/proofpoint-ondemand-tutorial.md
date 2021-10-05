@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Proofpoint on Demand | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Proofpoint on Demand'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Proofpoint on Demand.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/29/2021
+ms.date: 09/09/2021
 ms.author: jeedes
-ms.openlocfilehash: e9beb2c9e265982a9e10f3e6abee6bc3cba4a4a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09a7544db8717b2d26d495bbecda04df4c88cfd7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648456"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676634"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Didacticiel : Intégration d’Azure Active Directory avec Proofpoint on Demand
+# <a name="tutorial-azure-ad-sso-integration-with-proofpoint-on-demand"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Proofpoint on Demand
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Proofpoint on Demand avec Azure Active Directory (Azure AD). Quand vous intégrez Proofpoint on Demand avec Azure AD, vous pouvez :
 
@@ -40,7 +40,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Proofpoint on Demand prend en charge l’authentification unique initiée par le **fournisseur de services**
+* Proofpoint on Demand prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 ## <a name="add-proofpoint-on-demand-from-the-gallery"></a>Ajouter Proofpoint on Demand à partir de la galerie
 
@@ -66,7 +66,7 @@ Pour configurer et tester l’authentification SSO Azure AD avec Proofpoint on 
     1. **[Créer une utilisatrice de test pour Proofpoint on Demand](#create-proofpoint-on-demand-test-user)** afin de disposer dans Proofpoint on Demand d’un équivalent de B.Simon lié à la représentation Azure AD de l’utilisatrice.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
@@ -78,16 +78,14 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Proofpoint on Demand](common/sp-identifier-reply.png)
+    a. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<hostname>.pphosted.com/ppssamlsp`
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<hostname>.pphosted.com/ppssamlsp_hostname`.
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<hostname>.pphosted.com/ppssamlsp`
-
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
+    c. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<hostname>.pphosted.com/ppssamlsp_hostname`.
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Proofpoint on Demand](https://www.proofpoint.com/us/support-services). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Proofpoint on Demand](https://www.proofpoint.com/us/support-services). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -121,7 +119,7 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="configure-proofpoint-on-demand-sso"></a>Configurer l’authentification SSO pour Proofpoint on Demand
+## <a name="configure-proofpoint-on-demand-sso"></a>Configurer l’authentification SSO pour Proofpoint on Demand
 
 Pour configurer l’authentification unique côté **Proofpoint on Demand**, vous devez envoyer le **Certificat (Base64)** téléchargé et les URL correspondantes copiées depuis le portail Azure à [l’équipe du support technique Proofpoint on Demand](https://www.proofpoint.com/us/support-services). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -129,7 +127,7 @@ Pour configurer l’authentification unique côté **Proofpoint on Demand**, vou
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Proofpoint on Demand. Collaborez avec l’[équipe de support aux clients Proofpoint on Demand](https://www.proofpoint.com/us/support-services) pour ajouter des utilisateurs sur la plateforme Proofpoint on Demand.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
@@ -137,8 +135,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Proofpoint on Demand, puis lancez le flux de connexion à partir de cet emplacement.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Proofpoint on Demand dans Mes applications, vous devez être automatiquement connecté à l’instance de Proofpoint on Demand pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Proofpoint on Demand dans Mes applications, vous êtes redirigé vers l’URL d’authentification Proofpoint on Demand. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré Proofpoint on Demand, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Une fois que vous avez configuré Proofpoint on Demand, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

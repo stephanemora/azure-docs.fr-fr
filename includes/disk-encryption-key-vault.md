@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: fichier descriptif
 description: Fichier include
 services: virtual-machines
 author: msmbaldwin
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: fa16db2472daaa98f972460d691c07f700ec3447
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1e0ec6d37990fbddcdebf7a1d2efd063cd9e4ea6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110720514"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909607"
 ---
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -42,7 +42,7 @@ Créez un coffre de clés à l’aide de la commande Azure CLI [az keyvault crea
 >[!WARNING]
 > Votre coffre de clés et vos machines virtuelles doivent se trouver dans le même abonnement. De plus, pour garantir que les secrets de chiffrement ne franchissent pas les limites régionales, Azure Disk Encryption exige que le coffre de clés se trouve dans la même région que les machines virtuelles. Créez et utilisez un coffre de clés situé dans les mêmes abonnement et région que les machines virtuelles à chiffrer. 
 
-Chaque coffre de clés doit avoir un nom unique. Remplacez <your-unique-keyvault-name> par le nom de votre coffre de clés dans les exemples suivants.
+Chaque coffre de clés doit avoir un nom unique. Remplacez \<your-unique-keyvault-name\> par le nom de votre coffre de clés dans les exemples suivants.
 
 ### <a name="azure-cli"></a>Azure CLI
 

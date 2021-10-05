@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à VIDA | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à VIDA'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et VIDA.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 09/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 6d75ea3bae1561df1d60beb068c352131ff565fa
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 7d7c07227741487bc62b1a6ef01680ccf326efd7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112305755"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672895"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vida"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à VIDA
+# <a name="tutorial-azure-ad-sso-integration-with-vida"></a>Tutoriel : Intégration de l’authentification unique Azure AD à VIDA
 
 Dans ce tutoriel, vous allez apprendre à intégrer VIDA à Azure Active Directory (Azure AD). Quand vous intégrez VIDA à Azure AD, vous pouvez :
 
@@ -78,10 +78,16 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://vitruevida.com/?teamid=<ID>&idp=<IDP_NAME>`
+    a. Dans la zone de texte **Identificateur (ID d’entité)**, tapez la valeur : `urn:amazon:cognito:sp:eu-west-2_IDmTxjGr6`
+    
+    b. Dans la zone **URL de réponse**, tapez l’URL : `https://vitruevida.auth.eu-west-2.amazoncognito.com/saml2/idpresponse`
+    
+    c. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
+    
+    `https://vitruevida.com/?teamid=<ID>&idp=<IDP_NAME>`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de VIDA](mailto:support@vitruehealth.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de VIDA](mailto:support@vitruehealth.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application VIDA s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -128,6 +134,105 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
+## <a name="configure-role-based-single-sign-on-in-vida"></a>Configurer l’authentification unique en fonction du rôle dans VIDA
+
+1. Pour associer un rôle VIDA à l’utilisateur Azure AD, vous devez créer un rôle dans Azure AD en procédant comme suit :
+
+    a. Connectez-vous à [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+
+    b. Cliquez sur **Modify permissions** (Modifier les autorisations) pour obtenir les autorisations requises pour la création d’un rôle.
+
+    ![Configuration de Graph 1](./media/vida-tutorial/graph.png)
+
+    c. Sélectionnez les autorisations suivantes dans la liste, puis cliquez sur **Modify permissions** (Modifier les autorisations) , comme illustré dans la figure suivante.
+
+    ![Configuration de Graph 2](./media/vida-tutorial/modify-permissions.png)
+
+    >[!NOTE]
+    >Une fois les autorisations accordées, reconnectez-vous à l’Afficheur Graph.
+
+    d. Dans la page de l’Afficheur Graph, sélectionnez **GET** (OBTENIR) dans la première liste déroulante, puis **beta** (bêta) dans la deuxième. Ensuite, entrez `https://graph.microsoft.com/beta/servicePrincipals` dans le champ en regard des listes déroulantes, puis cliquez sur **Run Query** (Exécuter la requête).
+
+    ![Configuration de Graph.](./media/vida-tutorial/get-beta.png)
+
+    >[!NOTE]
+    >Si vous utilisez plusieurs répertoires, vous pouvez entrer `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` dans le champ de la requête.
+
+    e. Dans la section **Response Preview** (Aperçu de la réponse), extrayez la propriété appRoles à partir de « Service Principal » (Principal du service) en vue d’un usage ultérieur.
+
+    ![Response Preview.](./media/vida-tutorial/preview.png)
+
+    >[!NOTE]
+    >Vous pouvez localiser la propriété appRoles en entrant `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` dans le champ de la requête. Notez que `objectID` est l’ID d’objet que vous avez copié à partir de la page **Propriétés** d’Azure AD.
+
+    f. Revenez à l’Afficheur Graph, modifiez la méthode **GET** (OBTENIR) en **PATCH** (CORRIGER), collez le contenu suivant dans la section **Request Body** (Corps de la demande), puis cliquez sur **Run Query** (Exécuter la requête) :
+    
+   ```
+   { 
+   "appRoles": [
+       {
+           "allowedMemberTypes": [
+           "User"
+           ],
+           "description": "User",
+           "displayName": "User",
+           "id": "18d14569-c3bd-439b-9a66-3a2aee01****",
+           "isEnabled": true,
+           "origin": "Application",
+           "value": null
+       },
+       {
+           "allowedMemberTypes": [
+           "User"
+           ],
+           "description": "msiam_access",
+           "displayName": "msiam_access",
+           "id": "b9632174-c057-4f7e-951b-be3adc52****",
+           "isEnabled": true,
+           "origin": "Application",
+           "value": null
+       },
+       {
+       "allowedMemberTypes": [
+           "User"
+       ],
+       "description": "VIDACompanyAdmin",
+       "displayName": "VIDACompanyAdmin",
+       "id": "293414bb-2215-48b4-9864-64520937d437",
+       "isEnabled": true,
+       "origin": "ServicePrincipal",
+       "value": "VIDACompanyAdmin"
+       },
+       {
+       "allowedMemberTypes": [
+           "User"
+       ],
+       "description": "VIDATeamAdmin",
+       "displayName": "VIDATeamAdmin",
+       "id": "2884f1ae-5c0d-4afd-bf28-d7d11a3d7b2c",
+       "isEnabled": true,
+       "origin": "ServicePrincipal",
+       "value": "VIDATeamAdmin"
+       },
+       {
+       "allowedMemberTypes": [
+           "User"
+       ],
+       "description": "VIDAUser",
+       "displayName": "VIDAUser",
+       "id": "37b3218c-0c06-484f-90e6-4390ce5a8787",
+       "isEnabled": true,
+       "origin": "ServicePrincipal",
+       "value": "VIDAUser"
+       }
+   ]
+   }
+   ```
+   > [!NOTE]
+   > Azure AD enverra la valeur de ces rôles en tant que valeur de revendication dans la réponse SAML. Cependant, vous ne pouvez ajouter de nouveaux rôles qu’après la partie `msiam_access` de l’opération de correction. Pour faciliter le processus de création, nous vous recommandons d’utiliser un générateur d’ID tels que Générateur de GUID pour générer des ID en temps réel.
+
+   g. Une fois le « Service Principal » (principal du service) corrigé avec le rôle requis, associez le rôle à l’utilisateur Azure AD (B.Simon) en suivant la procédure décrite dans la section **Affecter l’utilisateur test Azure AD** du tutoriel.
+
 ## <a name="configure-vida-sso"></a>Configurer l’authentification unique de VIDA
 
 Pour configurer l’authentification unique côté **VIDA**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de VIDA](mailto:support@vitruehealth.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
@@ -149,5 +254,4 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez configuré VIDA, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
-
 

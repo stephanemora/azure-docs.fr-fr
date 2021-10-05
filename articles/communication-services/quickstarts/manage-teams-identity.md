@@ -9,17 +9,18 @@ ms.author: tchladek
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 8718573de0742e69bee723f34ff94fcb20656be4
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: identity
+ms.openlocfilehash: 5fb6632fa31143c26d3cad84d42d1417aaf97496
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251127"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081336"
 ---
 # <a name="quickstart-set-up-and-manage-teams-access-tokens"></a>Démarrage rapide : Configurer et gérer des jetons d’accès Teams
 
 > [!IMPORTANT]
-> Pour activer ou désactiver l’expérience de point de terminaison personnalisé Teams, [complétez et envoyez ce formulaire](https://forms.office.com/r/B8p5KqCH19).
+> Cette fonctionnalité est disponible en préversion uniquement. Pour activer ou désactiver l’expérience de point de terminaison personnalisé Teams, [complétez et envoyez ce formulaire](https://forms.office.com/r/B8p5KqCH19).
 
 Dans ce guide de démarrage rapide, vous allez créer une application console .NET pour authentifier un utilisateur Microsoft 365 en utilisant la bibliothèque d’authentification Microsoft (MSAL) et en récupérant un jeton utilisateur Azure Active Directory (Azure AD). Vous échangerez ensuite ce jeton contre un jeton d’accès Teams avec le kit SDK Azure Communication Services Identity. Le jeton d’accès Teams peut ensuite être utilisé par le kit SDK Communication Services Calling pour créer un point de terminaison personnalisé Teams.
 
@@ -191,6 +192,9 @@ Alors que vous êtes toujours dans le répertoire de l’application, installez 
 dotnet add package Azure.Communication.Identity
 dotnet add package Microsoft.Identity.Client
 ```
+
+> [!NOTE]
+> Les packages de la préversion privée ne sont pas disponibles dans les dépôts de packages officiels, tels que NPM ou NuGet. org. Vous trouverez les kits SDK dans les référentiels de packages [.net](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&package=Azure.Communication.Identity&protocolType=NuGet&version=1.1.0-alpha.20210531.2) et [javaScript](https://www.npmjs.com/package/@azure/communication-identity/v/1.1.0-alpha.20210531.1) suivants.
 
 #### <a name="set-up-the-app-framework"></a>Configurer le framework d’application
 

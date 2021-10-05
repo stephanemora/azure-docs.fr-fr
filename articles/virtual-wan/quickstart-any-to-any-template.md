@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Créer une configuration Any-to-any à l’aide d’un modèle ARM'
+title: 'Démarrage rapide : Créer une configuration any-to-any à l’aide d’un modèle ARM'
 titleSuffix: Azure Virtual WAN
-description: Ce guide de démarrage rapide vous montre comment créer une configuration Any-to-any à l’aide d’un modèle Azure Resource Manager (modèle ARM).
+description: Ce guide de démarrage rapide vous montre comment créer une configuration any-to-any à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: 8981d305fff1970b58b569d95c6f16e933b2ca10
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: ee1814d70395be3c084513d7bf59537ba426471a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812889"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559094"
 ---
-# <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>Démarrage rapide : Créer une configuration Any-to-any à l’aide d’un modèle ARM
+# <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>Démarrage rapide : Créer une configuration any-to-any à l’aide d’un modèle ARM
 
-Ce guide de démarrage rapide explique comment utiliser un modèle Azure Resource Manager (modèle ARM) pour créer un scénario Any-to-any dans lequel un spoke quelconque peut atteindre n’importe quel autre spoke.
+Ce guide de démarrage rapide explique comment utiliser un modèle Azure Resource Manager (modèle ARM) pour créer un scénario any-to-any dans lequel un spoke quelconque peut atteindre n’importe quel autre spoke.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

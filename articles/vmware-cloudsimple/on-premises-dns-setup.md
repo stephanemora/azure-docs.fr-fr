@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f7537790c22bf09da89cd02ba213b1573f19d9c
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: a14d99a81aaad48c8daf0c0bf0d49b3a7e229f3d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177419"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600282"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurer DNS pour la résolution de noms pour l’accès à vCenter sur cloud privé à partir de stations de travail locales
 
@@ -43,10 +43,10 @@ Vous pouvez configurer une zone en tant que zone de stub et pointer vers les ser
 
 Le fichier et les paramètres spécifiques à configurer peuvent varier en fonction de votre configuration DNS individuelle.
 
-Par exemple, pour la configuration de serveur BIND par défaut, modifiez le fichier /etc/named.conf sur votre serveur DNS et ajoutez les informations de zone suivantes.
+Par exemple, pour la configuration par défaut du serveur BIND, modifiez le `/etc/named.conf`fichier sur votre serveur DNS et ajoutez les informations de zone suivantes.
 
 > [!NOTE]
->Cet article contient des références au terme esclave, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+>Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ```
 zone "az.cloudsimple.io"

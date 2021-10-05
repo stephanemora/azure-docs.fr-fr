@@ -3,150 +3,272 @@ title: 'Démarrage rapide : Créer une application web Node.js'
 description: Déployez votre premier programme Hello World Node.js dans Azure App Service en quelques minutes.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 08/01/2020
+ms.date: 09/14/2021
 ms.custom: mvc, devcenter, seodec18
-zone_pivot_groups: app-service-platform-windows-linux
+zone_pivot_groups: app-service-ide-oss
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-nodejs-uiex
-ms.openlocfilehash: 3b1ff02d6a9b3e8c7b7abaf1b185a9becd2be12b
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 6368e186e280262b7901fa3b2c259b44c40c460d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105831"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657842"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Créer une application web Node.js dans Azure
 
-::: zone pivot="platform-windows"  
+Dans ce guide de démarrage rapide, vous allez apprendre à créer et déployer votre première application web Node.js ([Express](https://www.expressjs.com)) sur [Azure App Service](overview.md). App Service prend en charge diverses versions de Node.js à la fois sur Linux et Windows. 
 
-Commencez avec Azure App Service en créant une application Node.js/Express localement à l’aide de Visual Studio Code et en la déployant dans le cloud. Comme vous utilisez un niveau App Service gratuit, vous pouvez suivre ce guide de démarrage rapide gratuitement.
+Ce guide de démarrage rapide configure une application App Service dans le niveau **Gratuit** et n’implique aucun coût pour votre abonnement Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="set-up-your-initial-environment"></a>Configurer votre environnement initial
 
-- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-- <a href="https://git-scm.com/" target="_blank">Installez Git</a>
-- [Node.js et npm](https://nodejs.org). Exécutez la commande `node --version` pour vérifier que Node.js est installé.
-- [Visual Studio Code](https://code.visualstudio.com/).
+:::zone target="docs" pivot="development-environment-vscode"
+
+- Vous devez disposer d’un compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- Installez [Node.js et npm](https://nodejs.org). Exécutez la commande `node --version` pour vérifier que Node.js est installé.
+- Installez [Visual Studio Code](https://code.visualstudio.com/).
 - [Extension Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) pour Visual Studio Code.
+ <!-- - <a href="https://git-scm.com/" target="_blank">Install Git</a> -->
 
-## <a name="clone-and-run-a-local-nodejs-application"></a>Cloner et exécuter une application Node.js locale
+::: zone-end
 
-1. Sur votre ordinateur local, ouvrez un terminal et clonez l’exemple de référentiel :
+:::zone target="docs" pivot="development-environment-cli"
+
+- Vous devez disposer d’un compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- Installez [Node.js et npm](https://nodejs.org). Exécutez la commande `node --version` pour vérifier que Node.js est installé.
+- Installez <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, avec laquelle vous exécutez des commandes dans n’importe quel interpréteur de commandes pour provisionner et configurer des ressources Azure.
+
+::: zone-end
+
+## <a name="create-your-nodejs-application"></a>Créer votre application Node.js
+
+Pendant cette étape, vous allez créer une application Node.js de démarrage et vérifier qu’elle s’exécute sur votre ordinateur.
+
+> [!TIP]
+> Si vous avez déjà terminé le [tutoriel Node.js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), vous pouvez passer directement à la section [Déployer sur Azure](#deploy-to-azure).
+
+1. Créez une application Node.js simple à l’aide du [Générateur Express](https://expressjs.com/starter/generator.html), installé par défaut avec Node.js et NPM.
 
     ```bash
-    git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
+    npx express-generator myExpressApp --view pug
     ```
 
-1. Accédez au nouveau dossier de l’application :
+1. Accédez au répertoire de l’application et installez les packages NPM.
 
     ```bash
-    cd nodejs-docs-hello-world
+    cd myExpressApp
+    npm install
     ```
 
-1. Démarrez l’application pour la tester localement :
+1. Démarrez le serveur de développement.
 
     ```bash
     npm start
     ```
-    
-1. Ouvrez votre navigateur et accédez à `http://localhost:1337`. Le navigateur doit afficher le message « Hello World! ».
 
-1. Appuyez sur **Ctrl**+**C** dans le terminal pour arrêter le serveur.
+1. Dans un navigateur, accédez à `http://localhost:3000`. Un résultat semblable à celui-ci doit s’afficher :
 
+    ![Exécution de l’application Express](./media/quickstart-nodejs/express.png)
+
+:::zone target="docs" pivot="development-environment-vscode"
 > [!div class="nextstepaction"]
 > [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
+::: zone-end
 
-## <a name="deploy-the-app-to-azure"></a>Déploiement de l’application dans Azure
+## <a name="deploy-to-azure"></a>Déployer dans Azure
 
-Dans cette section, vous déployez votre application Node.js sur Azure à l’aide de VS Code et de l’extension Azure App Service.
+Avant de continuer, assurez-vous que tous les composants requis ont bien été installés et configurés.
 
-1. Dans le terminal, vérifiez que vous vous trouvez dans le dossier *nodejs-docs-hello-world*, puis démarrez Visual Studio Code à l’aide de la commande suivante :
+> [!NOTE]
+> Pour que votre application Node.js s’exécute dans Azure, elle a besoin d’écouter le port fourni par la variable d’environnement `PORT`. Dans votre application Express générée, cette variable d’environnement est déjà utilisée dans le script de démarrage *bin/www* (recherchez `process.env.PORT`).
+>
+
+:::zone target="docs" pivot="development-environment-vscode"
+
+#### <a name="sign-in-to-azure"></a>Connexion à Azure
+
+1. Dans le terminal, veillez à être dans le dossier *myExpressApp*, puis démarrez Visual Studio Code à l’aide de la commande suivante :
 
     ```bash
     code .
     ```
 
-1. Dans la barre d’activité de VS Code, sélectionnez le logo Azure pour afficher l’explorateur **AZURE APP SERVICE**. Sélectionnez **Se connecter à Azure...** et suivez les instructions. (Consultez la section [Résolution des problèmes de connexion à Azure](#troubleshooting-azure-sign-in) plus bas si vous rencontrez des erreurs.) Quand vous êtes connecté, l’explorateur doit afficher le nom de votre abonnement Azure.
+1. Dans Visual Studio Code, dans la [barre d’activités](https://code.visualstudio.com/docs/getstarted/userinterface), sélectionnez le logo **Azure**.
 
-    ![Connexion à Azure](media/quickstart-nodejs/sign-in.png)
+1. Dans l’explorateur **App Service**, sélectionnez **Se connecter à Azure...** , puis suivez les instructions.
 
-1. Dans l’explorateur **AZURE APP SERVICE** de VS Code, sélectionnez l’icône représentant une flèche bleue pointant vers le haut pour déployer votre application sur Azure. (Vous pouvez également appeler la même commande à partir de la **palette de commandes** (**Ctrl**+**Maj**+**P**) en tapant « déployer sur l’application web » et en choisissant **Azure App Service : Déployer sur l’application web**).
+    Dans Visual Studio Code, vous devez voir votre adresse e-mail Azure dans la barre d’état et votre abonnement dans l’explorateur **AZURE APP SERVICE**.
 
-    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Capture d’écran d’Azure App Service dans VS Code montrant l’icône de flèche bleue sélectionnée.":::
+    ![se connecter à Azure](./media/quickstart-nodejs/sign-in.png)
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
+
+#### <a name="configure-the-app-service-app-and-deploy-code"></a>Configurer l’application App Service et déployer du code
+
+1. Dans l’explorateur **App Service**, sélectionnez l’icône **Déployer sur l’application web**.
+
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Capture d’écran d’Azure App Service dans Visual Studio Code montrant l’icône de flèche bleue sélectionnée.":::
         
-1. Choisissez le dossier *nodejs-docs-hello-world*.
+1. Choisissez le dossier *myExpressApp*.
 
-1. Choisissez une option de création basée sur le système d’exploitation sur lequel vous souhaitez effectuer le déploiement :
+# <a name="deploy-to-linux"></a>[Déployer sur Linux](#tab/linux)
 
-    - Linux : Sélectionnez **Créer une application web**.
-    - Windows : Sélectionnez **Créer une application web... Avancé**
-
+3. Sélectionnez **Créer une application Web**. Un conteneur Linux est utilisé par défaut.
 1. Saisissez un nom unique pour votre application web et appuyez sur **Entrée**. Le nom doit être unique sur l’ensemble d’Azure et comporter uniquement des caractères alphanumériques (« A-Z », « a-z » et « 0-9 ») et des traits d’union (« - »).
+1. Dans Sélectionner une pile d’exécution, sélectionnez la version de Node.js souhaitée. Une version **LTS** est recommandée.
+1. Dans Sélectionner un niveau de tarification, sélectionnez **Gratuit (F1)** et attendez que les ressources soient provisionnées dans Azure.
+1. Dans le menu contextuel **Toujours déployer l’espace de travail « myExpressApp » sur \<app-name>** , sélectionnez **Oui**. Ainsi, tant que vous êtes dans le même espace de travail, Visual Studio Code se déploie chaque fois sur la même application App Service.
 
-1. Si vous ciblez Linux, sélectionnez une version de Node.js quand vous y êtes invité. Une version **LTS** est recommandée.
+    Pendant que Visual Studio Code provisionne les ressources Azure et déploie le code, des [notifications de progression](https://code.visualstudio.com/api/references/extension-guidelines#notifications) s’affichent.
 
-1. Si vous ciblez Windows, suivez les invites supplémentaires :
-    1. Sélectionnez **Créer un groupe de ressources** et entrez un nom pour le groupe de ressources, par exemple `AppServiceQS-rg`.
-    1. Sélectionnez **Windows** comme système d’exploitation.
-    1. Sélectionnez **Créer un plan App Service**, entrez un nom pour le plan (par exemple, `AppServiceQS-plan`), puis sélectionnez le niveau tarifaire **F1 Gratuit**.
-    1. À l’invite Application Insights, choisissez **Ignorer pour le moment**.
-    1. Choisissez une région près de chez vous ou à proximité des ressources auxquelles vous souhaitez accéder.
+1. Une fois le déploiement terminé, sélectionnez **Parcourir le site web** dans le message de notification. Le navigateur doit afficher la page par défaut Express.
 
-1. Quand vous avez répondu à toutes les invites, VS Code affiche les ressources Azure qui sont créées pour votre application dans sa fenêtre de notification.
+# <a name="deploy-to-windows"></a>[Déployer sur Windows](#tab/windows)
 
-    Si vous effectuez un déploiement dans Linux, sélectionnez **Oui** quand vous êtes invité à mettre à jour votre configuration pour exécuter `npm install` sur le serveur Linux cible.
+3. Choisissez **Créer une application web... Avancé**.
+1. Saisissez un nom unique pour votre application web et appuyez sur **Entrée**. Le nom doit être unique sur l’ensemble d’Azure et comporter uniquement des caractères alphanumériques (« A-Z », « a-z » et « 0-9 ») et des traits d’union (« - »).
+1. Sélectionnez **Créer un groupe de ressources** et entrez un nom pour le groupe de ressources, par exemple *AppServiceQS-rg*.
+1. Sélectionnez la version de Node.js souhaitée. Une version **LTS** est recommandée.
+1. Sélectionnez **Windows** comme système d’exploitation.
+1. Sélectionnez l’emplacement à partir duquel vous voulez servir votre application. Par exemple, *Europe Ouest*.
+1. Sélectionnez **Créer un plan App Service**, entrez un nom pour le plan (par exemple, *AppServiceQS-plan*), puis sélectionnez le niveau tarifaire **F1 Gratuit**.
+1. Pour **Sélectionner une ressource Application Insights pour votre application**, sélectionnez **Ignorer pour l’instant** et attendez que les ressources soient provisionnées dans Azure.
+1. Dans le menu contextuel **Toujours déployer l’espace de travail « myExpressApp » sur \<app-name>** , sélectionnez **Oui**. Ainsi, tant que vous êtes dans le même espace de travail, Visual Studio Code se déploie chaque fois sur la même application App Service.
 
-    ![Invite concernant la mise à jour de la configuration sur le serveur Linux cible](media/quickstart-nodejs/server-build.png)
+    Pendant que Visual Studio Code provisionne les ressources Azure et déploie le code, des [notifications de progression](https://code.visualstudio.com/api/references/extension-guidelines#notifications) s’affichent.
 
-1. Sélectionnez **Oui** quand le message suivant s’affiche : **Toujours déployer l’espace de travail "nodejs-docs-hello-world" sur (nom de l’application)"** . Quand vous sélectionnez **Oui**, vous indiquez à VS Code de cibler automatiquement la même application web App Service pour les déploiements suivants.
+    > [!NOTE]
+    > Une fois le déploiement terminé, votre application Azure ne s’exécute pas encore, car la racine de votre projet n’a pas de fichier *web.config*. Suivez les étapes restantes pour le générer automatiquement. Pour plus d’informations, consultez [Vous n’êtes pas autorisé à afficher ce répertoire ou cette page](configure-language-nodejs.md#you-do-not-have-permission-to-view-this-directory-or-page).
 
-1. Si vous effectuez le déploiement sur Linux, à l’issue du déploiement, sélectionnez **Parcourir le site Web** dans l’invite pour voir l’application web que vous venez de déployer. Le navigateur doit afficher le message « Hello World! ».
+1. Dans l’explorateur **App Service** de Visual Studio Code, développez le nœud de la nouvelle application, cliquez avec le bouton droit sur **Paramètres de l’application**, puis sélectionnez **Ajouter un nouveau paramètre** :
 
-1. Si vous effectuez le déploiement sur Windows, vous devez d’abord définir le numéro de version Node.js pour l’application web :
+    ![Commande d’ajout de paramètre d’application](media/quickstart-nodejs/add-setting.png)
 
-    1. Dans VS Code, développez le nœud de votre nouveau service d’application, cliquez avec le bouton droit sur **Paramètres de l’application**, puis sélectionnez **Ajouter un nouveau paramètre...**  :
+1. Entrez `SCM_DO_BUILD_DURING_DEPLOYMENT` pour la clé du paramètre.
+1. Entrez `true` pour la valeur du paramètre.
 
-        ![Commande d’ajout de paramètre d’application](media/quickstart-nodejs/add-setting.png)
+    Ce paramètre d’application permet d’automatiser la génération au moment du déploiement, ce qui détecte automatiquement le script de démarrage et génère le fichier *web.config* en même temps.
 
-    1. Entrez `WEBSITE_NODE_DEFAULT_VERSION` pour la clé du paramètre.
-    1. Entrez `10.15.2` pour la valeur du paramètre.
-    1. Cliquez avec le bouton droit sur le nœud du service d’application et sélectionnez **Redémarrer**.
+1. Dans l’explorateur **App Service**, sélectionnez encore l’icône **Déployer sur l’application web**, puis confirmez en recliquant sur **Déployer**.
+1. Attendez la fin du déploiement, puis sélectionnez **Parcourir le site web** dans le message de notification. Le navigateur doit afficher la page par défaut Express.
 
-        ![Commande de redémarrage du service d’application](media/quickstart-nodejs/restart.png)
-
-    1. Cliquez de nouveau sur le nœud du service d’application avec le bouton droit et sélectionnez **Parcourir le site Web**.
+-----
 
 > [!div class="nextstepaction"]
 > [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
 
-### <a name="troubleshooting-azure-sign-in"></a>Résolution des problèmes de connexion à Azure
+::: zone-end
 
-Si vous rencontrez l’erreur **« Cannot find subscription with name [subscription ID] »** (L’abonnement avec le nom [ID d’abonnement] est introuvable) quand vous vous connectez à Azure, cela peut être dû au fait que vous vous trouvez derrière un proxy qui vous empêche d’atteindre l’API Azure. Configurez les variables d’environnement `HTTP_PROXY` et `HTTPS_PROXY` avec vos informations de proxy dans votre terminal à l’aide de `export`.
+:::zone target="docs" pivot="development-environment-cli"
 
-```bash
-export HTTPS_PROXY=https://username:password@proxy:8080
-export HTTP_PROXY=http://username:password@proxy:8080
+Dans le terminal, vérifiez que vous êtes dans le répertoire *myExpressApp* et déployez le code dans votre dossier local (*myExpressApp*) à l’aide de la commande `az webapp up` :
+
+# <a name="deploy-to-linux"></a>[Déployer sur Linux](#tab/linux)
+
+```azurecli
+az webapp up --sku F1 --name <app-name>
 ```
 
-Si la définition des variables d’environnement ne corrige pas le problème, contactez-nous en sélectionnant le bouton **J’ai rencontré un problème** plus haut.
+# <a name="deploy-to-windows"></a>[Déployer sur Windows](#tab/windows)
 
-### <a name="update-the-app"></a>Mettre à jour l’application
+```azurecli
+az webapp up --sku F1 --name <app-name> --os-type Windows
+```
 
-Pour déployer les modifications apportées à cette application, vous pouvez effectuer les modifications dans VS Code, enregistrer vos fichiers, puis appliquer la procédure suivie précédemment en choisissant l’application existante au lieu d’en créer une nouvelle.
+-----
 
-## <a name="viewing-logs"></a>Consultation des journaux
+- Si la commande `az` n’est pas reconnue, vérifiez qu’Azure CLI est installé, comme décrit dans [Configurer votre environnement initial](#set-up-your-initial-environment).
+- Remplacez `<app_name>` par un nom unique sur l’ensemble d’Azure (*les caractères valides sont `a-z`, `0-9` et `-`* ). Un bon modèle consiste à utiliser une combinaison du nom de votre société et d’un identificateur d’application.
+- L’argument `--sku F1` crée l’application web sur le niveau tarifaire Gratuit, qui n’entraîne aucun coût.
+- Vous pouvez éventuellement inclure l’argument `--location <location-name>` où `<location_name>` est une région Azure disponible. Vous pouvez récupérer une liste de régions autorisées pour votre compte Azure en exécutant la commande [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations).
+- La commande crée une application Linux pour Node.js par défaut. Pour créer plutôt une application Windows, utilisez l’argument `--os-type`. 
+- Si vous voyez l’erreur « Impossible de détecter automatiquement la pile d’exécution de votre application », vérifiez que vous exécutez la commande dans le répertoire *myExpressApp* (consultez [Résolution des problèmes de détection automatique avec az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
 
-Vous pouvez voir la sortie de journal (appels à `console.log`) à partir de l’application directement dans la fenêtre de sortie de VS Code.
+La commande peut prendre quelques minutes. Lors de son exécution, elle fournit des messages sur la création du groupe de ressources, du plan App Service et de la ressource d’application, sur la configuration de la journalisation et sur le déploiement ZIP. Elle affiche ensuite le message « Vous pouvez lancer l’application sur http://&lt;app-name&gt;.azurewebsites.net », qui est l’URL de l’application sur Azure.
 
-1. Dans l’explorateur **AZURE APP SERVICE**, cliquez avec le bouton droit sur le nœud de l’application, puis choisissez **Commencer le streaming des journaux**.
+<pre>
+The webapp '&lt;app-name>' doesn't exist
+Creating Resource group '&lt;group-name>' ...
+Resource group creation complete
+Creating AppServicePlan '&lt;app-service-plan-name>' ...
+Creating webapp '&lt;app-name>' ...
+Configuring default logging for the app, if not already enabled
+Creating zip with contents of dir /home/cephas/myExpressApp ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://&lt;app-name>.azurewebsites.net
+{
+  "URL": "http://&lt;app-name>.azurewebsites.net",
+  "appserviceplan": "&lt;app-service-plan-name>",
+  "location": "centralus",
+  "name": "&lt;app-name>",
+  "os": "&lt;os-type>",
+  "resourcegroup": "&lt;group-name>",
+  "runtime_version": "node|10.14",
+  "runtime_version_detected": "0.0",
+  "sku": "FREE",
+  "src_path": "//home//cephas//myExpressApp"
+}
+</pre>
+
+[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
+
+::: zone-end
+
+## <a name="redeploy-updates"></a>Redéployer les mises à jour
+
+Vous pouvez déployer des modifications apportées à cette application en effectuant des modifications dans Visual Studio Code et en enregistrant vos fichiers, avant de les redéployer sur votre application Azure. Par exemple :
+
+1. À partir de l’exemple de projet, ouvrez *views/index.pug* et remplacez
+
+    ```PUG
+    p Welcome to #{title}
+    ```
+
+    to
+    
+    ```PUG
+    p Welcome to Azure!
+    ```
+
+:::zone target="docs" pivot="development-environment-vscode"
+
+2. Dans l’explorateur **App Service**, sélectionnez encore l’icône **Déployer sur l’application web**, puis confirmez en recliquant sur **Déployer**.
+
+1. Attendez la fin du déploiement, puis sélectionnez **Parcourir le site web** dans le message de notification. Vous devez voir que le message `Welcome to Express` a été remplacé par `Welcome to Azure!`.
+
+::: zone-end
+
+:::zone target="docs" pivot="development-environment-cli"
+
+2. Enregistrez vos modifications, puis redéployez l’application en réutilisant la commande `az webapp up` sans aucun argument :
+
+    ```azurecli
+    az webapp up
+    ```
+    
+    Cette commande utilise des valeurs mises en cache localement dans le fichier *.azure/config*, notamment le nom de l’application, le groupe de ressources et le plan App Service.
+    
+1. Une fois le déploiement terminé, actualisez la page web `http://<app-name>.azurewebsites.net`. Vous devez voir que le message `Welcome to Express` a été remplacé par `Welcome to Azure!`.
+
+::: zone-end
+
+## <a name="stream-logs"></a>Diffuser en continu des journaux
+
+:::zone target="docs" pivot="development-environment-vscode"
+
+Vous pouvez diffuser en streaming la sortie de journal (appels à `console.log()`) à partir de l’application Azure directement dans la fenêtre de sortie Visual Studio Code.
+
+1. Dans l’explorateur **App Service**, cliquez avec le bouton droit sur le nœud de l’application, puis choisissez **Commencer le streaming des journaux**.
 
     ![Commencer le streaming des journaux](media/quickstart-nodejs/view-logs.png)
 
-1. Lorsque vous y êtes invité, choisissez d’activer la journalisation et de redémarrer l’application. Une fois l’application redémarrée, la fenêtre de résultats de VS Code s’ouvre avec une connexion au flux de journaux. 
-
-    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Capture d’écran de l’invite de Visual Studio Code pour activer la journalisation et redémarrer l’application avec le bouton Oui sélectionné.":::
+1. Si vous êtes invité à redémarrer l’application, cliquez sur **Oui**. Une fois l’application redémarrée, la fenêtre de sortie Visual Studio Code s’ouvre avec une connexion au flux de journaux. 
 
 1. Après quelques secondes, la fenêtre de sortie affiche un message indiquant que vous êtes connecté au service de streaming de journaux. Vous pouvez générer plus d’activités de sortie en actualisant la page dans le navigateur.
 
@@ -158,6 +280,64 @@ Vous pouvez voir la sortie de journal (appels à `console.log`) à partir de l�
 
 > [!div class="nextstepaction"]
 > [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)
+
+::: zone-end
+
+:::zone target="docs" pivot="development-environment-cli"
+
+Vous pouvez accéder aux journaux de la console générés à l’intérieur de l’application et au conteneur dans lequel elle s’exécute. Les journaux incluent toutes les sorties générées par les appels à `console.log()`.
+
+Pour activer le streaming des journaux, exécutez la commande [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) :
+
+```azurecli
+az webapp log tail
+```
+
+La commande utilise le nom du groupe de ressources mis en cache dans le fichier *.azure/config*.
+
+Vous pouvez aussi inclure le paramètre `--logs` dans la commande `az webapp up` pour ouvrir automatiquement le stream des journaux lors du déploiement.
+
+Actualisez l’application dans le navigateur pour générer des journaux de console, qui incluent des messages décrivant les requêtes HTTP envoyées à l’application. Si aucune sortie ne s’affiche immédiatement, réessayez dans 30 secondes.
+
+Pour arrêter le streaming des journaux à tout moment, appuyez sur **Ctrl**+**C** dans le terminal.
+
+::: zone-end
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+:::zone target="docs" pivot="development-environment-vscode"
+
+Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Les étapes de création indiquées dans ce guide de démarrage rapide placent toutes les ressources dans ce groupe de ressources. Pour effectuer un nettoyage, il vous suffit simplement de supprimer le groupe de ressources.
+
+
+1. Dans l’extension Azure de Visual Studio, développez l’explorateur **Groupes de ressources**.
+
+1. Développez l’abonnement, cliquez avec le bouton droit sur le groupe de ressources que vous avez créé précédemment, puis sélectionnez **Supprimer**.
+
+    :::image type="content" source="media/quickstart-nodejs/clean-up.png" alt-text="Capture d’écran de la navigation dans Visual Studio Code pour supprimer une ressource qui contient des ressources App Service.":::
+
+1. À l’invite, confirmez la suppression en entrant le nom du groupe de ressources que vous supprimez. Une fois que vous avez confirmé, le groupe de ressources est supprimé et une [notification](https://code.visualstudio.com/api/references/extension-guidelines#notifications) s’affiche une fois l’opération terminée.
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=clean-up)
+
+::: zone-end
+
+:::zone target="docs" pivot="development-environment-cli"
+
+Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Le groupe de ressources a un nom tel que « appsvc_rg_Linux_CentralUS » en fonction de votre emplacement.
+
+Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources en exécutant la commande suivante :
+
+```azurecli
+az group delete --no-wait
+```
+
+La commande utilise le nom du groupe de ressources mis en cache dans le fichier *.azure/config*.
+
+Avec l’argument `--no-wait`, la commande peut retourner une sortie avant la fin de l’opération.
+
+::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -178,174 +358,3 @@ Consultez les autres extensions Azure.
 * [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 Vous pouvez également tous les obtenir en installant le pack d’extension [Pack de nœuds pour Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
-::: zone-end
-
-::: zone pivot="platform-linux"  
-## <a name="prerequisites"></a>Prérequis
-
-Si vous n’avez pas de compte Azure, [inscrivez-vous dès maintenant](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) pour obtenir un compte gratuit avec 200 $ de crédits Azure, ce qui vous permettra d’essayer toutes les combinaisons de services.
-
-Vous devez avoir installé [Visual Studio Code](https://code.visualstudio.com/) ainsi que [Node.js et npm](https://nodejs.org/en/download), le gestionnaire de package Node.js.
-
-Vous devez également installer l’[extension Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), que vous pouvez utiliser pour créer, gérer et déployer des Web Apps Linux sur la plateforme PaaS (Platform as a Service) Azure.
-
-### <a name="sign-in"></a>Se connecter
-
-Une fois l’extension installée, connectez-vous à votre compte Azure. Dans la barre d’activité, sélectionnez le logo Azure pour afficher l’Explorateur **AZURE APP SERVICE**. Sélectionnez **Se connecter à Azure...** et suivez les instructions.
-
-![se connecter à Azure](./media/quickstart-nodejs/sign-in.png)
-
-### <a name="troubleshooting"></a>Dépannage
-
-Si vous rencontrez l’erreur **« Cannot find subscription with name [subscription ID] »** (L’abonnement avec le nom [ID d’abonnement] est introuvable), cela peut être dû au fait que vous vous trouvez derrière un proxy qui vous empêche d’atteindre l’API Azure. Configurez les variables d’environnement `HTTP_PROXY` et `HTTPS_PROXY` avec vos informations de proxy dans votre terminal à l’aide de `export`.
-
-```sh
-export HTTPS_PROXY=https://username:password@proxy:8080
-export HTTP_PROXY=http://username:password@proxy:8080
-```
-
-Si la définition des variables d’environnement ne corrige pas le problème, contactez-nous en sélectionnant le bouton **J’ai rencontré un problème** ci-dessous.
-
-### <a name="prerequisite-check"></a>Vérification du prérequis
-
-Avant de continuer, assurez-vous que tous les composants requis ont bien été installés et configurés.
-
-Dans VS Code, vous devriez voir votre adresse e-mail Azure dans la barre d’État et votre abonnement dans l’Explorateur **AZURE APP SERVICE**.
-
-> [!div class="nextstepaction"]
-> [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
-
-## <a name="create-your-nodejs-application"></a>Créer votre application Node.js
-
-Créez ensuite une application Node.js pouvant être déployée dans le Cloud. Ce démarrage rapide utilise un générateur d’applications pour déployer rapidement l’application depuis un terminal.
-
-> [!TIP]
-> Si vous avez déjà terminé le [tutoriel Node.js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), vous pouvez passer directement à la section [Déployer sur Azure](#deploy-to-azure).
-
-### <a name="scaffold-a-new-application-with-the-express-generator"></a>Structurer une nouvelle application avec le générateur Express
-
-[Express](https://www.expressjs.com) est un framework couramment utilisé pour la création et l’exécution des applications Node.js. Vous pouvez créer/définir la structure d’une nouvelle application Express à l'aide de l’outil [Générateur Express](https://expressjs.com/en/starter/generator.html). Le générateur Express est fourni en tant que module npm et peut être exécuté directement (sans installation) à l’aide de l’outil en ligne de commande npm `npx`.
-
-```bash
-npx express-generator myExpressApp --view pug --git
-```
-
-Les paramètres `--view pug --git` indiquent au générateur qu’il doit utiliser le moteur de modèle [pug](https://pugjs.org/api/getting-started.html) (auparavant appelé `jade`) et créer un fichier `.gitignore`.
-
-Pour installer toutes les dépendances de l’application, accédez au nouveau dossier et exécutez `npm install`.
-
-```bash
-cd myExpressApp
-npm install
-```
-
-### <a name="run-the-application"></a>Exécution de l'application
-
-Assurez-vous ensuite que l’application s’exécute. À partir du terminal, démarrez l’application à l’aide de la commande `npm start` pour démarrer le serveur.
-
-```bash
-npm start
-```
-
-À présent, ouvrez votre navigateur et accédez à `http://localhost:3000`. Voici ce que vous devriez obtenir :
-
-![Exécution de l’application Express](./media/quickstart-nodejs/express.png)
-
-> [!div class="nextstepaction"]
-> [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
-
-## <a name="deploy-to-azure"></a>Déployer dans Azure
-
-Dans cette section, vous déployez votre application Node.js à l’aide de VS Code et de l’extension Azure App Service. Ce démarrage rapide utilise le modèle de déploiement le plus basique dans lequel votre application est compressée et déployée sur une application Web Azure sur Linux.
-
-### <a name="deploy-using-azure-app-service"></a>Déployer à l’aide d’Azure App Service
-
-Tout d’abord, ouvrez le dossier de votre application dans VS Code.
-
-```bash
-code .
-```
-
-Dans l’explorateur **AZURE APP SERVICE**, sélectionnez l’icône représentant une flèche bleue pointant vers le haut pour déployer votre application sur Azure.
-
-:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Capture d’écran du menu Azure App Service dans Visual Studio Code avec la flèche bleue Déployer sélectionnée.":::
-
-> [!TIP]
-> Vous pouvez également effectuer le déploiement à partir de la **palette de commandes** (Ctrl + Maj + P) en tapant « déployer sur l'application web » et en exécutant l’**Azure App Service : Commande Déployer sur l'application web**.
-
-1. Choisissez le répertoire actuellement ouvert, `myExpressApp`.
-
-1. Choisissez **Créer une application web** pour déployer sur App Service sur Linux par défaut.
-
-1. Saisissez un nom unique pour votre application Web et appuyez sur Entrée. Les caractères valides dans un nom d’application sont les suivants : « a-z », « 0-9 » et « - ».
-
-1. Choisissez votre **version Node.js** (LTS est recommandé).
-
-    Le canal de notification affiche les ressources Azure qui sont créées pour votre application.
-
-1. Sélectionnez **Oui** lorsque vous êtes invité à mettre à jour votre configuration pour exécuter `npm install` sur le serveur cible. Votre application est alors déployée.
-
-    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Capture d’écran de l’invite de mise à jour de votre configuration sur le serveur cible avec le bouton Oui sélectionné.":::
-
-1. Lorsque le déploiement démarre, vous êtes invité à mettre à jour votre espace de travail afin que les déploiements ultérieurs ciblent automatiquement la même application web App Service. Choisissez **Oui** pour vous assurer que vos modifications sont déployées sur la bonne application.
-
-    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Capture d’écran de l’invite de mise à jour de votre espace de travail avec le bouton Oui sélectionné.":::
-
-> [!TIP]
-> Assurez-vous que votre application utilise le port d’écoute fourni par la variable d’environnement PORT `process.env.PORT`.
-
-### <a name="browse-the-app-in-azure"></a>Accéder à l’application dans Azure
-
-Une fois le déploiement terminé, sélectionnez **Parcourir le site web** dans l’invite pour afficher l’application web que vous venez de déployer.
-
-### <a name="troubleshooting"></a>Dépannage
-
-Si vous voyez s’afficher le message d’erreur **« Vous n’êtes pas autorisé à afficher ce répertoire ou cette page. »** , c’est que l’application n’a probablement pas réussi à démarrer correctement. Accédez à la section suivante et affichez la sortie du journal pour rechercher et corriger l’erreur. Si vous n’êtes pas en mesure de la corriger, contactez-nous en sélectionnant le bouton **J’ai rencontré un problème** ci-dessous. Nous sommes là pour vous aider !
-
-> [!div class="nextstepaction"]
-> [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
-
-### <a name="update-the-app"></a>Mettre à jour l’application
-
-Vous pouvez déployer les modifications apportées à cette application en utilisant le même procédure et en choisissant l’application existante au lieu d’en créer une nouvelle.
-
-## <a name="viewing-logs"></a>Consultation des journaux
-
-Dans cette section, vous allez apprendre à visionner les journaux à partir de l’application App Service en cours d’exécution. Tous les appels à `console.log` dans l’application sont affichés dans la fenêtre de résultats de Visual Studio Code.
-
-Recherchez l’application dans l’explorateur **AZURE APP SERVICE**, cliquez dessus avec le bouton droit, puis choisissez **Commencer le streaming des journaux**.
-
-La fenêtre de résultats de VS Code s’ouvre avec une connexion au flux de journaux.
-
-![Commencer le streaming des journaux](./media/quickstart-nodejs/view-logs.png)
-
-:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Capture d’écran de l’invite de VS Code pour permettre la journalisation des fichiers et le redémarrage de l’application web avec le bouton Oui sélectionné.":::
-
-Après quelques secondes, vous verrez s’afficher un message indiquant que vous êtes connecté au service de diffusion en continu de journaux. Actualisez la page plusieurs fois pour voir davantage d’activité.
-
-<pre>
-2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
-2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
-2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
-2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
-</pre>
-
-> [!div class="nextstepaction"]
-> [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Félicitations, vous avez terminé ce démarrage rapide !
-
-Consultez ensuite les autres extensions Azure.
-
-* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-* [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-* [Outils Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
-* [Outils Azure CLI](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
-* [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-
-Vous pouvez également tous les obtenir en installant le pack d’extension [Pack de nœuds pour Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
-
-
-::: zone-end

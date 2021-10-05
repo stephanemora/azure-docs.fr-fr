@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.author: esarroyo
 author: StefArroyo
-ms.date: 01/07/2021
-ms.openlocfilehash: d3fe29f94cf874d7ede2b5d7f85199c2d9df65f2
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.date: 09/16/2021
+ms.openlocfilehash: e7e52208602ed2e82fed8201d1b4ba91c295946d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359656"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593854"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Comment surveiller des unités de requête normalisée par seconde pour un conteneur ou un compte Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -38,17 +38,17 @@ En résumé, la mesure **Consommation d’unités de requête normalisée** perm
 
 2. Sélectionnez **Surveillance** dans la barre de navigation gauche, puis sélectionnez **Métriques**.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Volet Métriques dans Azure Monitor":::
+   :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Volet Métriques dans Azure Monitor" border="true":::
 
 3. À partir du volet **Métriques** > **Sélectionner une ressource** > choisissez l’**abonnement** exigé, puis **Groupe de ressources**. Pour le **type de ressource**, sélectionnez **Comptes Azure Cosmos DB**, choisissez une de vos comptes Azure Cosmos existants, puis sélectionnez **Appliquer**.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Choisir un compte Azure Cosmos pour afficher les métriques":::
+   :::image type="content" source="./media/monitor-account-key-updates/select-account-scope.png" alt-text="Sélectionner l’étendue du compte pour afficher les métriques" border="true":::
 
 4. Ensuite, vous pouvez sélectionner une métrique dans la liste des métriques disponibles. Vous pouvez sélectionner des métriques propres aux unités de requête, au stockage, à la latence, à la disponibilité, à Cassandra, etc. Pour découvrir de plus près toutes les métriques disponibles dans cette liste, consultez l’article [Métriques par catégorie](monitor-cosmos-db-reference.md). Dans cet exemple, nous allons sélectionner la métrique **Normalized RU Consumption** (Consommation d’unités de requête normalisée) et la valeur d’agrégation **Max**.
 
    En plus de ces détails, vous pouvez également sélectionner l’**intervalle de temps** et la **granularité temporelle** des métriques. Au maximum, vous pouvez voir les métriques des 30 derniers jours.  Une fois que vous avez appliqué le filtre, un graphique s’affiche.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Choisir une métrique à partir du portail Azure":::
+   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Choisir une métrique à partir du portail Azure" border="true":::
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filtres pour la consommation d’unités de requête normalisée
 
@@ -58,7 +58,7 @@ Vous pouvez regrouper des métriques à l’aide de l’option **Appliquer la di
 
 La métrique de consommation des unités de requête normalisées pour chaque conteneur s’affiche comme indiqué dans l’image suivante :
 
-:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Appliquer des filtres à la métrique de consommation d’unités de requête normalisée":::
+:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Appliquer des filtres à la métrique de consommation d’unités de requête normalisée" border="true":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

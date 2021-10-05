@@ -1,16 +1,16 @@
 ---
 title: Déployer Azure Blockchain Workbench Preview
 description: Guide pratique pour déployer Azure Blockchain Workbench Preview
-ms.date: 07/16/2020
+ms.date: 09/15/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
-ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09767c1270593738efaf00ea6fc0b8e35f529239
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87077028"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581073"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Déployer Azure Blockchain Workbench Preview
 
@@ -74,27 +74,14 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
 
 1. Sélectionnez **OK** à la fin de la section de configuration du paramètre de base.
 
-1. Dans **Paramètres avancés**, choisissez si vous souhaitez créer un réseau blockchain ou utiliser un réseau blockchain de preuve d’autorité existant.
+1. Dans **Paramètres avancés** , choisissez le réseau de blockchain Ethereum proof-of-authority existant, les paramètres Active Directory et la taille de VM préférée pour les composants Blockchain Workbench.
 
-    Pour **Créer** :
-
-    L’option *Créer* déploie un registre Azure Blockchain Service Quorum avec la référence SKU de base par défaut.
-
-    ![Paramètres avancés pour le nouveau réseau blockchain](media/deploy/advanced-blockchain-settings-new.png)
-
-    | Paramètre | Description  |
-    |---------|--------------|
-    | Niveau tarifaire d’Azure Blockchain Service | Choisissez le niveau **De base** ou **Standard** d’Azure Blockchain Service qui est utilisé pour Blockchain Workbench |
-    | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, optez pour *Ajouter maintenant*. |
-    | Sélection de machine virtuelle | Sélectionnez le niveau de performance de stockage préféré et la taille de machine virtuelle pour votre réseau blockchain. Choisissez une plus petite taille de machine virtuelle, comme *Standard DS1 v2*, si vous êtes sur un abonnement doté de limites de service faibles, tel que l’abonnement gratuit d’Azure. |
-
-    Pour **Utiliser l’existant** :
-
-    L’option *Utiliser l’existant* vous permet de spécifier un réseau blockchain Ethereum Proof-of-Authority (PoA). Les points de terminaison doivent répondre aux exigences suivantes.
+    Le point de terminaison RPC Ethereum présente les exigences suivantes :
 
    * Le point de terminaison doit être un réseau blockchain Ethereum Proof-of-Authority (PoA).
    * Le point de terminaison doit être accessible publiquement sur le réseau.
    * Le réseau blockchain PoA doit être configuré de sorte que le prix du gaz soit défini sur la valeur zéro.
+   * Le point de terminaison commence par `https://` ou `http://` et se termine par un numéro de port. Par exemple : `http<s>://<network-url>:<port>` 
 
      > [!NOTE]
      > Les comptes Blockchain Workbench ne sont pas financés. Si des fonds sont requis, les transactions échouent.
@@ -103,7 +90,7 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
 
      | Paramètre | Description  |
      |---------|--------------|
-     | Point de terminaison Ethereum RPC | Indiquez le point de terminaison RPC d’un réseau blockchain PoA existant. Le point de terminaison commence par https:// ou http:// et se termine par un numéro de port. Par exemple : `http<s>://<network-url>:<port>` |
+     | Point de terminaison Ethereum RPC | Indiquez le point de terminaison RPC d’un réseau blockchain PoA existant. |
      | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, optez pour *Ajouter maintenant*. |
      | Sélection de machine virtuelle | Sélectionnez le niveau de performance de stockage préféré et la taille de machine virtuelle pour votre réseau blockchain. Choisissez une plus petite taille de machine virtuelle, comme *Standard DS1 v2*, si vous êtes sur un abonnement doté de limites de service faibles, tel que l’abonnement gratuit d’Azure. |
 

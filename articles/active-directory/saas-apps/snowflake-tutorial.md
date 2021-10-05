@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Snowflake | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Snowflake'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Snowflake.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 09/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 3e16dde56b2fd136eb6c76528e1c0ba406219628
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 32e150a9a3db521fb097426f1c5ec5fb38fa6064
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182944"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677944"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutoriel : Intégration d’Azure Active Directory avec Snowflake
+# <a name="tutorial-azure-ad-sso-integration-with-snowflake"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Snowflake
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Snowflake à Azure Active Directory (Azure AD). Quand vous intégrez Snowflake à Azure AD, vous pouvez :
 
@@ -30,17 +30,20 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Snowflake à Azure Act
 
 Pour configurer l’intégration d’Azure AD avec Snowflake, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement Snowflake pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
+* Abonnement Snowflake pour lequel l’authentification unique est activée.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-- Snowflake prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**
-- Snowflake prend en charge [l’attribution d’utilisateurs et la suppression des privilèges d’accès automatisées](snowflake-provisioning-tutorial.md) (recommandé)
+* Snowflake prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* Snowflake prend en charge l’[attribution et la désattribution automatisées d’utilisateurs](snowflake-provisioning-tutorial.md) (recommandé).
 
-## <a name="adding-snowflake-from-the-gallery"></a>Ajout de Snowflake depuis la galerie
+## <a name="add-snowflake-from-the-gallery"></a>Ajouter Snowflake depuis la galerie
 
 Pour configurer l’intégration de Snowflake dans Azure AD, vous devez ajouter Snowflake à partir de la galerie à votre liste d’applications SaaS gérées.
 
@@ -55,7 +58,7 @@ Pour configurer l’intégration de Snowflake dans Azure AD, vous devez ajouter
 
 Configurez et testez l’authentification unique Azure AD avec Snowflake pour un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Snowflake associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Snowflake, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Snowflake, vous devez suivre les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -64,7 +67,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Snowflake, 
     1. **[Créer un utilisateur de test Snowflake](#create-snowflake-test-user)** pour avoir un équivalent de B.Simon dans Snowflake lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
@@ -96,7 +99,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 6. Dans la section **Configurer Snowflake**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
-
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -131,11 +133,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     > [!NOTE]
     > Ce n’est pas dans le même contexte que vous avez sélectionné en haut à droite, sous votre nom d’utilisateur.
     
-    ![L’administrateur Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![L’administrateur Snowflake](./media/snowflake-tutorial/account.png)
 
 1. Ouvrez le **certificat Base 64 téléchargé** dans le Bloc-notes. Copiez la valeur entre « -----BEGIN CERTIFICATE----- » et « -----END CERTIFICATE----- », et collez-la entre les guillemets situés à côté de **certificate** ci-dessous. Dans **ssoUrl**, collez la valeur de l’**URL de connexion** que vous avez copiée sur le portail Azure. Sélectionnez **Toutes les requêtes** et cliquez sur **Exécuter**.
 
-   ![Snowflake sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
+   ![Snowflake sql](./media/snowflake-tutorial/certificate.png)
 
    ```
    use role accountadmin;
@@ -148,7 +150,6 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
    alter account set sso_login_page = TRUE;
    ```
 
-
 ### <a name="create-snowflake-test-user"></a>Créer un utilisateur de test Snowflake
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Snowflake, vous devez les approvisionner dans Snowflake. Dans Snowflake, l’approvisionnement est une tâche manuelle.
@@ -159,18 +160,18 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Snowflake, vous deve
 
 2. **Sélectionnez le rôle** **ACCOUNTADMIN** en cliquant sur **profil** en haut à droite de la page.  
 
-    ![L’administrateur Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![L’administrateur Snowflake](./media/snowflake-tutorial/account.png)
 
 3. Créez l’utilisateur en exécutant la requête SQL ci-dessous. Vérifiez que la valeur de « LOGIN_NAME » correspond au nom d’utilisateur Azure AD sur la feuille de calcul, comme indiqué ci-dessous.
 
-    ![L’adminsql Snowflake](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![L’adminsql Snowflake](./media/snowflake-tutorial/user.png)
 
     ```
     use role accountadmin;
     CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
     ```
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
@@ -182,11 +183,10 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-* Cliquez sur **Tester cette application** sur le portail Azure ; vous êtes alors connecté automatiquement à l’instance de Snowflake pour laquelle vous avez configuré l’authentification unique. 
+* Cliquez sur **Tester cette application** dans le portail Azure, ce qui devrait vous connecter automatiquement à l’application Snowflake pour laquelle vous avez configuré l’authentification unique. 
 
 Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Snowflake dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Snowflake pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré Snowflake, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Une fois que vous avez configuré Snowflake, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

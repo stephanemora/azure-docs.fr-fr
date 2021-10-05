@@ -1,14 +1,14 @@
 ---
 title: Meilleures pratiques en matière de sécurité et de conformité par lots
 description: Découvrez les bonnes pratiques et des conseils utiles pour l’amélioration de la sécurité avec vos solutions Azure Batch.
-ms.date: 12/18/2020
+ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6ec4a1d89ebaa9318986fc0d51e832652ba51683
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9bfbeb7a89e3ca1bc71001b173926302548a988
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98723810"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435543"
 ---
 # <a name="batch-security-and-compliance-best-practices"></a>Meilleures pratiques en matière de sécurité et de conformité par lots
 
@@ -32,13 +32,13 @@ De nombreuses fonctionnalités de sécurité sont uniquement disponibles pour le
 
 L’accès au compte Batch prend en charge deux méthodes d’authentification : Clé partagée et [Azure Active Directory (Azure AD)](batch-aad-auth.md).
 
-Nous vous recommandons vivement d’utiliser Azure AD pour l’authentification par compte Batch. Certaines fonctionnalités Batch nécessitent cette méthode d’authentification, y compris un grand nombre de fonctionnalités liées à la sécurité présentées ici.
+Nous vous recommandons vivement d’utiliser Azure AD pour l’authentification par compte Batch. Certaines fonctionnalités Batch nécessitent cette méthode d’authentification, y compris un grand nombre de fonctionnalités liées à la sécurité présentées ici. Le mécanisme d'authentification de l'API de service pour un compte Batch peut être limité à Azure AD en utilisant la propriété [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create). Lorsque cette propriété est définie, les appels d'API utilisant l'authentification par clé partagée seront rejetés.
 
 ### <a name="batch-account-pool-allocation-mode"></a>Mode d’allocation de pool de compte Batch
 
 Lorsque vous créez un compte Batch, vous pouvez choisir entre deux [modes de répartition de pool](accounts.md#batch-accounts) :
 
-- **Service Batch** : L’option par défaut, dans laquelle les ressources du service cloud sous-jacent ou du groupe de machines virtuelles identiques utilisées pour allouer et gérer des nœuds de pool sont créées dans des abonnements internes et ne sont pas directement visibles dans le Portail Azure. Seuls les pools et les nœuds batch sont visibles. 
+- **Service Batch** : L’option par défaut, dans laquelle les ressources du service cloud sous-jacent ou du groupe de machines virtuelles identiques utilisées pour allouer et gérer des nœuds de pool sont créées dans des abonnements internes et ne sont pas directement visibles dans le Portail Azure. Seuls les pools et les nœuds batch sont visibles.
 - **Abonnement utilisateur** : Les ressources du service cloud sous-jacent ou du groupe de machines virtuelles identiques sont créées dans le même abonnement que le compte Batch. Ces ressources sont donc visibles dans l’abonnement, en plus des ressources Batch correspondantes.
 
 Avec le mode d’abonnement utilisateur, des machines virtuelles Batch et autres ressources sont créées directement dans l’abonnement lors de la création d’un pool. Le mode abonnement utilisateur est requis si vous souhaitez créer des pools Batch à l’aide de Azure Reserved VM Instances, utiliser Azure Policy sur des ressources de groupe de machines virtuelles identiques et/ou gérer le quota principal de l’abonnement (partagé par tous les comptes Batch de l’abonnement). Pour créer un compte Batch dans le mode abonnement utilisateur, vous devez également inscrire votre abonnement auprès d’Azure Batch et associer le compte avec une Azure Key Vault.
@@ -143,13 +143,13 @@ Pour une sécurité accrue, chiffrez ces disques à l’aide de l’une de ces f
 
 ## <a name="securely-access-services-from-compute-nodes"></a>Services d’accès sécurisé à partir de nœuds de calcul
 
-Les nœuds Batch peuvent [accéder en toute sécurité aux informations d’identification et aux secrets](credential-access-key-vault.md) stockés dans [Azure Key Vault](../key-vault/general/overview.md), qui peuvent être utilisés par les applications de tâche pour accéder à d’autres services. Un certificat est utilisé pour accorder l’accès aux nœuds du pool à Key Vault.
+Les nœuds de lots peuvent accéder en toute sécurité aux informations d'identification stockées dans [Azure Key Vault](../key-vault/general/overview.md), qui peuvent être utilisées par les applications de tâches pour accéder à d'autres services. Un certificat est utilisé pour accorder l’accès aux nœuds du pool à Key Vault. En [activant la rotation automatique des certificats dans votre pool Batch](automatic-certificate-rotation.md), les informations d'identification seront automatiquement renouvelées. Il s'agit de l'option recommandée pour les nœuds Batch afin d'accéder aux informations d'identification stockées dans Azure Key Vault, bien que vous puissiez également [configurer les nœuds Batch pour accéder de manière sécurisée aux informations d'identification et aux secrets avec un certificat](credential-access-key-vault.md) sans rotation automatique des certificats.
 
 ## <a name="governance-and-compliance"></a>Gouvernance et conformité
 
 ### <a name="compliance"></a>Compatibilité
 
-Pour aider les clients à répondre à leurs propres obligations de conformité dans les secteurs et marchés réglementés dans le monde entier, Azure gère un [large éventail d’offres de conformité](https://azure.microsoft.com/overview/trusted-cloud/compliance). 
+Pour aider les clients à répondre à leurs propres obligations de conformité dans les secteurs et marchés réglementés dans le monde entier, Azure gère un [large éventail d’offres de conformité](https://azure.microsoft.com/overview/trusted-cloud/compliance).
 
 Ces offres sont basées sur divers types de garanties, notamment des certifications, attestations, validations, autorisations et évaluations officielles créées par des sociétés d’audit tierces indépendantes, ainsi que des modifications contractuelles, des auto-évaluations et des documents d’aide pour les clients créés par Microsoft. Consultez la [vue d’ensemble complète des offres de conformité](https://aka.ms/AzureCompliance) pour déterminer celles qui peuvent être pertinentes pour vos solutions Batch.
 

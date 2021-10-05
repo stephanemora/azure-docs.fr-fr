@@ -1,50 +1,64 @@
 ---
-title: Fichier include
+title: fichier descriptif
 description: Fichier include
 author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 08/03/2021
+ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 7241fcd0026d33518bdbaa99b7f08c64a437c70d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e19743a7ae754296992f4cb281c10c1d44cbe25c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744413"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094043"
 ---
 [![Parcourir le code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
 
-Dans ce guide de démarrage rapide, vous allez découvrir un workflow simple de développement d’application Azure IoT. Vous utilisez Azure CLI pour créer un hub Azure IoT et un appareil. Ensuite, vous utilisez un exemple Azure IoT device SDK pour exécuter un contrôleur de température simulé, le connecter en toute sécurité au hub et envoyer des données de télémétrie.
+Dans ce guide de démarrage rapide, vous allez découvrir un workflow simple de développement d’application Azure IoT. Vous utilisez l’interface Azure CLI pour créer un hub Azure IoT et un appareil. Ensuite, vous utilisez un exemple Azure IoT device SDK pour exécuter un contrôleur de température simulé, le connecter en toute sécurité au hub et envoyer des données de télémétrie.
 
 ## <a name="prerequisites"></a>Prérequis
+Ce guide de démarrage rapide s’exécute sur Windows, Linux et Raspberry Pi. Il a été testé sur les versions de système d’exploitation et d’appareil suivantes :
+
+- Windows 10
+- Ubuntu 20.04 LTS exécuté sur le sous-système Windows pour Linux (WSL)
+- Système d’exploitation Raspberry Pi version 10 (Raspian) exécuté sur un Raspberry Pi 3 modèle B+
+
+Installez les prérequis suivants sur votre ordinateur de développement, sauf mention prévue pour Raspberry Pi :
+
 - Si vous n’avez pas d’abonnement Azure, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - [Git](https://git-scm.com/downloads).
 - [Node.js](https://nodejs.org) version 10 ou ultérieure. Pour vérifier la version de Node, exécutez `node --version`.
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) : utilitaire multiplateforme pour surveiller et gérer Azure IoT 
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) : utilitaire multiplateforme basé sur l’interface graphique utilisateur permettant de surveiller et gérer Azure IoT. Si vous utilisez Raspberry Pi comme plateforme de développement, nous vous recommandons d’installer IoT Explorer sur un autre ordinateur. Si vous ne souhaitez pas installer IoT Explorer, vous pouvez utiliser l’interface Azure CLI pour effectuer la même procédure. 
 - Azure CLI. Vous avez le choix entre deux options pour exécuter les commandes Azure CLI dans ce guide de démarrage rapide :
     - Utilisez Azure Cloud Shell, un interpréteur de commandes interactif qui exécute des commandes CLI dans votre navigateur. Cette option est recommandée, car vous n’avez pas besoin d’installer quoi que ce soit. Si vous utilisez Cloud Shell pour la première fois, connectez-vous au [portail Azure](https://portal.azure.com). Suivez les étapes décrites dans [Démarrage rapide de Cloud Shell](../articles/cloud-shell/quickstart.md) pour **démarrer Cloud Shell** et **sélectionner l’environnement Bash**.
-    - Si vous le souhaitez, exécutez Azure CLI sur votre ordinateur local. Si l’interface de ligne de commande Azure est déjà installée, exécutez `az upgrade` pour la mettre à niveau, ainsi que les extensions, vers la version actuelle. Pour installer l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure]( /cli/azure/install-azure-cli).
+    - Si vous le souhaitez, exécutez Azure CLI sur votre ordinateur local. Si l’interface de ligne de commande Azure est déjà installée, exécutez `az upgrade` pour la mettre à niveau, ainsi que les extensions, vers la version actuelle. Pour installer l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure]( /cli/azure/install-azure-cli). Si vous utilisez Raspberry Pi comme plateforme de développement, nous vous recommandons d’utiliser Azure Cloud Shell ou d’installer Azure CLI sur un autre ordinateur.
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## <a name="run-a-simulated-device"></a>Exécuter un appareil simulé
 Dans cette section, vous allez utiliser le kit SDK Node.js pour envoyer des messages d’un appareil simulé à votre hub IoT. Vous allez exécuter un exemple qui implémente un contrôleur de température avec deux capteurs de thermostat.
 
-1. Ouvrez une nouvelle fenêtre de console. Vous allez utiliser cette console pour installer le kit SDK Node.js et travailler avec un exemple de code Node.js.
+1. Ouvrez une nouvelle console telle que Windows CMD, PowerShell ou Bash. Dans la procédure suivante, vous allez utiliser cette console pour installer le kit SDK Node.js et travailler avec un exemple de code Node.js.
 
     > [!NOTE]
     > Si vous utilisez une installation locale d’Azure CLI, vous avez peut-être maintenant deux fenêtres de console ouvertes. Veillez à entrer les commandes de cette section dans la console que vous venez d’ouvrir et non dans celle que vous avez utilisée pour l’interface CLI.
 
-1. Dans votre console Node, clonez les [exemples du kit SDK Node.js d’appareil Azure IoT](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples) sur votre ordinateur local :
+1. Clonez les [exemples d’appareils Azure IoT avec kit SDK Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples) sur votre ordinateur local :
 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-node
     ```
 
-1. Accédez au répertoire *azure-iot-sdk-node/device/samples/pnp* :
+1. Accédez au répertoire des exemples :
 
+    **Windows**
+    ```console
+    cd azure-iot-sdk-node\device\samples\pnp
+    ```
+
+    **Système d’exploitation Linux ou Raspberry Pi**
     ```console
     cd azure-iot-sdk-node/device/samples/pnp
     ```
@@ -61,7 +75,7 @@ Dans cette section, vous allez utiliser le kit SDK Node.js pour envoyer des mes
     * Définissez une variable d’environnement appelée `IOTHUB_DEVICE_CONNECTION_STRING`. Pour la valeur de la variable, utilisez la chaîne de connexion de l’appareil que vous avez enregistrée dans la section précédente.
     * Définissez une variable d’environnement appelée `IOTHUB_DEVICE_SECURITY_TYPE`. Pour la variable, utilisez la valeur de chaîne littérale `connectionString`.
 
-    **Windows (cmd)**
+    **CMD (Windows)**
 
     ```console
     set IOTHUB_DEVICE_CONNECTION_STRING=<your connection string here>
@@ -78,15 +92,14 @@ Dans cette section, vous allez utiliser le kit SDK Node.js pour envoyer des mes
     $env:IOTHUB_DEVICE_SECURITY_TYPE='connectionString'
     ```
 
-    **Bash (Linux ou Windows)**
+    **Bash**
 
     ```bash
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
-1. Dans votre console Node, exécutez le code de l’exemple de fichier suivant. 
+1. Exécutez l’exemple de code suivant :
 
-    Pour exécuter l’exemple Node.js à partir du terminal :
     ```console
     node pnpTemperatureController.js
     ```
@@ -120,7 +133,7 @@ Pour lire les données de télémétrie envoyées par les composants d’apparei
 
 Pour afficher la télémétrie de l’appareil avec Azure CLI :
 
-1. Dans votre application CLI, exécutez la commande [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) pour surveiller les événements envoyés par l’appareil simulé à votre hub IoT. Utilisez les noms que vous avez créés précédemment dans Azure IoT pour votre appareil et le hub IoT.
+1. Exécutez la commande [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) pour surveiller les événements envoyés par l’appareil simulé à votre hub IoT. Utilisez les noms que vous avez créés précédemment dans Azure IoT pour votre appareil et le hub IoT.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

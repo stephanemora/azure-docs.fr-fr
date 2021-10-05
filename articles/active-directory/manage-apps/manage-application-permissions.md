@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/10/2020
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7585ad6816a8d9fd0a331ae9fcb1e1cea81ddbac
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab20521ea61820a7518529c4940837ab08ae3a4f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532385"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124822978"
 ---
-# <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Mesures relatives aux applications surprivilégiées ou suspectes dans Azure Active Directory.
+# <a name="take-action-on-over-privileged-or-suspicious-applications-in-azure-active-directory"></a>Mesures relatives aux applications surprivilégiées ou suspectes dans Azure Active Directory.
 
 Apprenez à examiner et gérer les autorisations relatives à une application. Cet article propose différentes mesures pour sécuriser votre application en fonction du scénario. Ces mesures s’appliquent à toutes les applications qui ont été ajoutées à votre locataire Azure Active Directory (Azure AD), avec consentement utilisateur ou administrateur.
 
@@ -28,6 +28,8 @@ Pour plus d’informations sur le consentement des applications, consultez [Infr
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les actions suivantes, vous devez vous connecter en tant qu’administrateur général, administrateur d’application ou administrateur d’application cloud.
+
+- Configurez Azure AD PowerShell. Consulter [Azure AD PowerShell](/powershell/azure/)
 
 Pour restreindre l’accès aux applications, vous devez demander l’affectation d’utilisateurs, puis affecter des utilisateurs ou des groupes à l’application.  Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](./assign-user-or-group-access-portal.md).
 
@@ -98,12 +100,8 @@ Nous vous recommandons de désactiver l’application pour bloquer l’accès de
 
 Récupérez l’ID d’objet du principal de service.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général, administrateur d’application ou administrateur d’application cloud.
-2. Sélectionnez **Azure Active Directory (Azure Active Directory)**  > **Enterprise applications (Applications d’entreprise)** .
-3. Sélectionnez l’application dont vous souhaitez restreindre l’accès.
-4. Sélectionnez **Propriétés**, puis copiez l’ID d’objet.
-
    ```powershell
+   $app_name = "<Your App's display name>"
    $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
    $sp.ObjectId
    ```

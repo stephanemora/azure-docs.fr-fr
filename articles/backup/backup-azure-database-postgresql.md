@@ -2,14 +2,14 @@
 title: Sauvegarder Azure Database pour PostgreSQL
 description: Découvrir la sauvegarde Azure Database pour PostgreSQL avec conservation à long terme (préversion)
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 09/06/2021
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 8c3540ee686eb69304f95e31126a1a29a48aeea8
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 1896f836d9eeb2f4d32e4b0784424837a2f80d0c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213900"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081830"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Sauvegarde Azure Database pour PostgreSQL avec conservation à long terme (préversion)
 
@@ -67,7 +67,7 @@ Sauvegarde Azure suit des recommandations strictes en matière de sécurité. Bi
 
 8. Une fois le transfert de données terminé, le coordinateur confirme la validation auprès du service de sauvegarde.
 
-    ![Processus de sauvegarde](./media/backup-azure-database-postgresql/backup-process.png)
+    ![Processus de sauvegarde](./media/backup-azure-database-postgresql-overview/backup-process.png)
 
 ## <a name="configure-backup-on-azure-postgresql-databases"></a>Configurer la sauvegarde sur des bases de données Azure PostgreSQL
 
@@ -162,21 +162,22 @@ Vous pouvez restaurer une base de données sur n’importe quel serveur Azure Po
 Suivez ce guide pas à pas pour déclencher une restauration :
 
 1. Il existe deux façons de démarrer le processus de restauration :
-    1. Accédez à [Centre de sauvegarde](backup-center-overview.md) -> **Vue d’ensemble** -> **Restaurer**.
 
-    ![Sélectionner Restaurer dans le Centre de sauvegarde](./media/backup-azure-database-postgresql/backup-center-restore.png)
+   1. Accédez à [Centre de sauvegarde](backup-center-overview.md) -> **Vue d’ensemble** -> **Restaurer**.
 
-    Sous **Lancer : Restaurer**, sélectionnez le **Type de source de données** **Azure Database pour PostgreSQL**. Sélectionnez l’**Instance de sauvegarde**.
+      ![Sélectionner Restaurer dans le Centre de sauvegarde](./media/backup-azure-database-postgresql/backup-center-restore.png)
 
-    ![Sélectionner Type de source de données dans Lancer : Restaurer](./media/backup-azure-database-postgresql/initiate-restore.png)
+      Sous **Lancer : Restaurer**, sélectionnez le **Type de source de données** **Azure Database pour PostgreSQL**. Sélectionnez l’**Instance de sauvegarde**.
 
-    1. Vous pouvez aussi accéder directement à **Coffre de sauvegarde** -> **Instances de sauvegarde**. Sélectionnez l’**Instance de sauvegarde** correspondant à la base de données que vous voulez restaurer.
+      ![Sélectionner Type de source de données dans Lancer : Restaurer](./media/backup-azure-database-postgresql/initiate-restore.png)
 
-    ![Instances de sauvegarde pour la restauration](./media/backup-azure-database-postgresql/backup-instances-restore.png)
+   1. Vous pouvez aussi accéder directement à **Coffre de sauvegarde** -> **Instances de sauvegarde**. Sélectionnez l’**Instance de sauvegarde** correspondant à la base de données que vous voulez restaurer.
 
-    ![Liste des instances de sauvegarde](./media/backup-azure-database-postgresql/list-backup-instances.png)
+      ![Instances de sauvegarde pour la restauration](./media/backup-azure-database-postgresql/backup-instances-restore.png)
 
-    ![Sélectionnez Restaurer](./media/backup-azure-database-postgresql/select-restore.png)
+      ![Liste des instances de sauvegarde](./media/backup-azure-database-postgresql/list-backup-instances.png)
+
+      ![Sélectionnez Restaurer](./media/backup-azure-database-postgresql/select-restore.png)
 
 1. **Sélectionnez le point de récupération** dans la liste de toutes les sauvegardes complètes disponibles pour l’instance de sauvegarde sélectionnée. Le dernier point de récupération est sélectionné par défaut.
 
@@ -232,12 +233,6 @@ Choisissez dans la liste des règles de conservation qui ont été définies dan
 ![Déclencher une sauvegarde maintenant](./media/backup-azure-database-postgresql/backup-now.png)
 
 ![Choisir dans la liste des règles de conservation](./media/backup-azure-database-postgresql/retention-rules.png)
-
-### <a name="stop-protection"></a>Arrêter la protection
-
-Vous pouvez arrêter la protection sur un élément de sauvegarde. Ceci va également supprimer les points de récupération associés à cet élément de sauvegarde. Si les points de récupération ne sont pas dans le niveau archive pendant un minimum de six mois, la suppression de ces points de récupération entraînera un coût de suppression anticipé. Nous ne fournissons pas encore la possibilité d’arrêter la protection tout en conservant les points de récupération existants.
-
-![Arrêter la protection](./media/backup-azure-database-postgresql/stop-protection.png)
 
 ### <a name="change-policy"></a>Changer la stratégie
 
@@ -306,6 +301,9 @@ Reportez-vous à [ce document](https://download.microsoft.com/download/7/4/d/74d
 ### <a name="usererrormissingnetworksecuritypermissions"></a>UserErrorMissingNetworkSecurityPermissions
 
 Établissez une visibilité du réseau en activant l’indicateur **Autoriser l’accès aux services Azure** dans la vue du serveur. Dans la vue du serveur, sous le volet **Sécurité de la connexion**, définissez l’indicateur **Autoriser l’accès aux services Azure** sur **Oui**.
+
+>[!Note]
+>Avant d’activer cet indicateur, veillez à définir **Refuser l’accès au réseau public** avec la valeur **Non**.
 
 ![Autoriser l’accès aux services Azure](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 

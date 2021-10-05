@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/08/2021
 ms.author: banders
-ms.openlocfilehash: 5d945c421dc0a4abed17b3a355339c131dd922df
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 60c7acf1f88f37d44ef38516480640eeebd220b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728047"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662036"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
@@ -42,7 +42,7 @@ Cette section ne s’applique pas aux clients Azure en Australie, au Japon ou à
 Vous recevez une facture Azure si l’un des événements suivants se produit au cours de la période de facturation :
 
 - **Dépassement de service** : les frais d’utilisation de votre organisation dépassent votre solde de crédit.
-- **Frais facturés séparément** : les services utilisés par votre organisation ne sont pas couverts par le crédit. Les services suivants vous sont facturés, malgré votre solde de crédit :
+- **Frais facturés séparément** : les services utilisés par votre organisation ne sont pas couverts par le crédit. Les services suivants vous sont facturés, malgré votre solde de crédit. Les services affichés sont des exemples de frais facturés séparément. Vous pouvez obtenir la liste complète des services dont les frais sont facturés séparément en soumettant une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -75,7 +75,7 @@ Cette section s’applique uniquement aux clients Azure en Australie, au Japon o
 Vous recevez une ou plusieurs factures Azure dans les cas suivants :
 
 - **Dépassement de service** : les frais d’utilisation de votre organisation dépassent votre solde de crédit.
-- **Frais facturés séparément** : les services utilisés par votre organisation ne sont pas couverts par le crédit. Les services suivants vous sont facturés :
+- **Frais facturés séparément** : les services utilisés par votre organisation ne sont pas couverts par le crédit. Les services suivants vous sont facturés. Les services affichés sont des exemples de frais facturés séparément. Vous pouvez obtenir la liste complète des services dont les frais sont facturés séparément en soumettant une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -368,7 +368,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 ### <a name="to-access-microsoft-azure-consumption-insights"></a>Pour accéder à Microsoft Azure Consumption Insights :
 
-1. Accédez à [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Accédez à Microsoft Azure Consumption Insights.
 1. Sélectionnez **Obtenir maintenant**.
 1. Indiquez un numéro d'inscription et le nombre de mois, puis sélectionnez **Suivant**.
 1. Fournissez votre clé d’accès API pour la connexion. Vous pouvez trouver la clé de votre inscription dans le [portail Enterprise](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).

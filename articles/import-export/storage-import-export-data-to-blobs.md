@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 39eb6c164751ebdfa293798850a8d663fe988b82
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 51e70fb16988c0f72cb9b1a35444f55e164839c9
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875680"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451796"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -73,7 +73,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
-
+    
     Un fichier journal est créé dans le même dossier où vous avez exécuté l’outil. Deux autres fichiers sont également créés : un fichier *.xml* (dossier où vous exécutez l’outil) et un fichier *drive-manifest.xml* (dossier où se trouvent les données).
 
     Les paramètres utilisés sont décrits dans le tableau suivant :
@@ -89,11 +89,16 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
     |/blobtype:     |Cette option spécifie le type d’objets blob vers lequel vous souhaitez importer les données. Pour des objets blob de blocs, le type de blob est `BlockBlob`, et pour des objet blob de pages, `PageBlob`.         |
     |/skipwrite:     | Indique qu’aucune nouvelle donnée ne doit être copiée et que les données existantes sur le disque doivent être préparées.          |
     |/enablecontentmd5:     |Lorsqu’elle est activée, cette option garantit que MD5 est calculté et défini comme propriété `Content-md5` sur chaque objet blob. Utilisez cette option uniquement si vous souhaitez utiliser le champ `Content-md5` une fois que les données sont téléchargées vers Azure. <br> Cette option n’affecte pas la vérification d’intégrité des données (ce qui se produit par défaut). Le paramètre augmente le temps nécessaire au chargement des données dans le cloud.          |
-8. Répétez l’étape précédente pour chaque disque à expédier. Un fichier journal avec le nom fourni est créé pour chaque exécution de la ligne de commande.
 
-    > [!IMPORTANT]
-    > * En plus du fichier journal, un fichier `<Journal file name>_DriveInfo_<Drive serial ID>.xml` est également créé dans le même dossier où se trouve l’outil. Le fichier .xml est utilisé à la place du fichier journal quand vous créez une tâche si le fichier journal est trop volumineux.
-   > * La taille maximale du fichier journal que le portail autorise est de 2 Mo. Si le fichier journal dépasse cette limite, une erreur se produit.
+8. Répétez l’étape précédente pour chaque disque à expédier. 
+
+   Un fichier journal avec le nom fourni est créé pour chaque exécution de la ligne de commande. 
+
+   En plus du fichier journal, un fichier `<Journal file name>_DriveInfo_<Drive serial ID>.xml` est également créé dans le même dossier où se trouve l’outil. Le fichier .xml est utilisé à la place du fichier journal quand vous créez une tâche si le fichier journal est trop volumineux.
+
+> [!IMPORTANT]
+> * Ne modifiez pas les fichiers journaux ou les données sur les disques, et ne reformatez aucun disque, après avoir terminé la préparation du disque.
+> * La taille maximale du fichier journal que le portail autorise est de 2 Mo. Si le fichier journal dépasse cette limite, une erreur se produit.
 
 ## <a name="step-2-create-an-import-job"></a>Étape 2 : Créer une tâche d’importation
 

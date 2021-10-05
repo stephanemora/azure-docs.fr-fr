@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 7c01da0df248579fb6d0bd4563f15e67cd05d3f8
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: a81a2ebba0f55eda9b7b3e18eff73b15553ee1bb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112201443"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616305"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Didacticiel : Intégration d’Azure Active Directory à Jostle
 
@@ -38,6 +38,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Jostle prend en charge l’authentification unique initiée par le **fournisseur de services**.
+
+* Jostle prend en charge l’[attribution automatique d’utilisateurs](jostle-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -124,6 +126,8 @@ Pour configurer l’authentification unique côté **Jostle**, vous devez envoye
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Jostle. Collaborez avec l’[équipe du support technique de Jostle](mailto:support@jostle.me) pour ajouter des utilisateurs à la plateforme Jostle. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+Jostle prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./jostle-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 > [!NOTE]
 > Le titulaire du compte Azure Active Directory reçoit un e-mail contenant un lien à suivre pour confirmer son compte et l’activer.
 
@@ -135,7 +139,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion de Jostle pour initier le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Jostle dans Mes applications, vous êtes redirigé vers l’URL de connexion de Jostle. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Jostle dans Mes applications, vous êtes redirigé vers l’URL de connexion de Jostle. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

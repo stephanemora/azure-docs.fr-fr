@@ -4,13 +4,13 @@ description: Décrit l’opérateur d’accès aux ressources Bicep et l’opér
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: b5eebb9b5dd6d39ae790b8fda7133e94ecd0cdb5
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/10/2021
+ms.openlocfilehash: f3ed1ca46c2dfbcab8bfbdc720ff7ab448cbc742
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224281"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744451"
 ---
 # <a name="bicep-accessor-operators"></a>Opérateurs d’accesseur Bicep
 
@@ -25,11 +25,15 @@ Les opérateurs d’accesseur sont utilisés pour accéder aux ressources et pro
 
 ## <a name="index-accessor"></a>Accesseur d’index
 
-`array[index]`
+`array[integerIndex]`
 
-`object['index']`
+`object['stringIndex']`
 
-Pour récupérer un élément dans un tableau, utilisez `[index]` et fournissez un entier pour l’index.
+Utilisez l’accesseur d’index pour obtenir un élément d’un tableau ou une propriété d’un objet.
+
+Pour un **tableau**, fournissez l’index sous la forme d’un **entier**. L’entier correspond à la position de base zéro de l’élément à récupérer.
+
+Pour un **objet**, fournissez l’index sous la forme d’une **chaîne**. La chaîne correspond au nom de l’objet à récupérer.
 
 L’exemple suivant récupère un élément dans un tableau.
 
@@ -49,7 +53,7 @@ Résultat de l'exemple :
 | ---- | ---- | ---- |
 | accessorResult | string | 'Contoso' |
 
-Vous pouvez également utiliser l’accesseur d’index pour récupérer une propriété d’objet par nom. Vous devez utiliser une chaîne pour l’index, et non un entier. L’exemple suivant récupère une propriété sur un objet.
+L’exemple suivant récupère une propriété sur un objet.
 
 ```bicep
 var environmentSettings = {

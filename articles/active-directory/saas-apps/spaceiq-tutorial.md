@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: c88ff4b65e9655ec931ee663641a446a1838772b
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 22206e91842a71e4dd41102a4ba9a86e11649201
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062529"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Didacticiel : Intégration d’Azure AD avec SpaceIQ
 
@@ -38,6 +38,7 @@ Pour configurer l’intégration d’Azure AD à SpaceIQ, vous avez besoin des �
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * SpaceIQ prend en charge l’authentification unique lancée par le **point de distribution d’émission**.
+* SpaceIQ prend en charge le [provisionnement d’utilisateurs automatisé](spaceiq-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -147,13 +148,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SpaceIQ. Collaborez avec l’[équipe de support technique de SpaceIQ](mailto:eng@spaceiq.com) pour ajouter les utilisateurs dans la plateforme SpaceIQ. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+SpaceIQ prend également en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./spaceiq-provisioning-tutorial.md) sur la façon de configurer ce dernier.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
 * Sur le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance de SpaceIQ pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette SpaceIQ dans Mes applications, vous devez être connecté automatiquement à l’application SpaceIQ pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette SpaceIQ dans Mes applications, vous devez être connecté automatiquement à l’application SpaceIQ pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

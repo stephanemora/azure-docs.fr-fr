@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b8500ed6c43149e47a82b58e9b25a07ac7eef59
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 06817450cb0957e845b5b9fecde21d94080183ac
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258043"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060988"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilité des régions et résidence des données
 
@@ -22,6 +22,9 @@ Azure Communication Services s’engage à aider nos clients à respecter leurs 
 ## <a name="data-residency"></a>Résidence des données
 
 Quand vous créez une ressource Communication Services, vous spécifiez une **zone géographique** (et non un centre de données Azure). Tous les messages de conservation et données de ressources stockés par Communication Services au repos sont conservés dans cette zone géographique, au sein d’un centre de données sélectionné en interne par Communication Services. Les données peuvent transiter ou être traitées dans d’autres zones géographiques. Ces points de terminaison globaux sont nécessaires pour fournir de hautes performances et une faible latence aux utilisateurs finaux, où qu’ils se trouvent.
+
+> [!NOTE]
+> Pour les RTPC et les SMS, les enregistrements de données d’appel et de message nécessaires à l’exploitation et à la facturation du service peuvent être stockés aux États-Unis.
 
 ## <a name="data-collection"></a>Collecte de données
 
@@ -75,11 +78,11 @@ Les SMS envoyés et reçus sont temporairement traités par le service et ne son
 
 ### <a name="pstn-voice-calling"></a>Appel vocal RTC
 
-La communication audio et vidéo est traitée temporairement par le service et aucune donnée n’est conservée dans votre ressource, à l’exception des journaux Azure Monitor.
+La communication audio et vidéo est traitée temporairement par le service et aucune donnée de traitement d’appel n’est conservée dans votre ressource, à l’exception des journaux Azure Monitor.
 
 ### <a name="internet-voice-and-video-calling"></a>Appel vocal et appel vidéo par Internet
 
-La communication audio et vidéo est traitée temporairement par le service et aucune donnée n’est conservée dans votre ressource, à l’exception des journaux Azure Monitor.
+La communication audio et vidéo est traitée temporairement par le service et aucune donnée de traitement d’appel n’est conservée dans votre ressource, à l’exception des journaux Azure Monitor.
 
 ### <a name="call-recording"></a>Enregistrement d’appel
 

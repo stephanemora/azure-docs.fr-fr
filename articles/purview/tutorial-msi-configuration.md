@@ -1,23 +1,20 @@
 ---
-title: Configurer l’accès aux sources de données pour Azure Purview MSI à grande échelle (préversion)
+title: Configurer l’accès aux sources de données pour Azure Purview MSI à grande échelle
 description: Dans ce tutoriel, vous allez configurer les paramètres MSI Azure sur vos abonnements à une source de données Azure.
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 05/28/2021
-ms.openlocfilehash: 952f69d7d33ae695103ee42de4462bdaa30c2538
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.date: 09/27/2021
+ms.openlocfilehash: 101d18cdecdc4fc7d4fb33b824500350f53b7b3f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109194"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213391"
 ---
-# <a name="tutorial-configure-access-to-data-sources-for-azure-purview-msi-at-scale-preview"></a>Tutoriel : Configurer l’accès aux sources de données pour Azure Purview MSI à grande échelle (préversion)
-
-> [!IMPORTANT]
-> Azure Purview est actuellement disponible en préversion. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
+# <a name="tutorial-configure-access-to-data-sources-for-azure-purview-msi-at-scale"></a>Tutoriel : Configurer l’accès aux sources de données pour Azure Purview MSI à grande échelle
 
 Pour analyser des sources de données, Azure Purview doit pouvoir y accéder. Ce tutoriel s’adresse aux propriétaires d’abonnements Azure et aux administrateurs de sources de données Azure Purview. Il vous aide à identifier les accès requis et à configurer les règles d’authentification et de réseau requises pour Azure Purview dans les sources de données Azure.
 
@@ -70,7 +67,7 @@ Pour exécuter le script à partir de votre ordinateur Windows, effectuez les é
 
 1. Téléchargez le script de [configuration Azure Purview MSI](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-MSI-Configuration) à l’emplacement de votre choix.
 
-2. Sur votre ordinateur, entrez **PowerShell** dans la zone de recherche de la barre des tâches Windows. Dans la liste des résultats de recherche, cliquez avec le bouton droit sur **Windows PowerShell**, puis sélectionnez **Exécuter en tant qu’administrateur**.
+2. Sur votre ordinateur, entrez **PowerShell** dans la zone de recherche de la barre des tâches Windows. Dans la liste des résultats de recherche, sélectionnez et maintenez l’appui (ou cliquez avec le bouton droit) sur **Windows PowerShell**, puis sélectionnez **Exécuter en tant qu’administrateur**.
 
 3. Dans la fenêtre PowerShell, exécutez la commande suivante. (Remplacez `<path-to-script>` par le chemin du dossier du fichier de script).
 

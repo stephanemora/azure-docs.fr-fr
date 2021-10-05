@@ -3,14 +3,14 @@ title: Fonctionnalités du système d’exploitation
 description: Découvrez les fonctionnalités du système d’exploitation dans Azure App Service sur Windows. Découvrez les types de fichiers, de réseaux et d’accès au registre dont bénéficie votre application.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 09/09/2021
 ms.custom: seodec18
-ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4242ae2afb79f44452c51a971a64632e0d7f098
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001505"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769918"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
 Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](./overview.md). Ces fonctionnalités englobent notamment l’accès aux fichiers, l’accès réseau et l’accès au registre, ainsi que les journaux d’activité et événements de diagnostic. 
@@ -33,7 +33,7 @@ Dans la mesure où App Service offre une expérience de mise à l’échelle tra
 ## <a name="development-frameworks"></a>Infrastructures de développement
 Les niveaux tarifaires d’App Service déterminent la quantité de ressources de calcul (processeur, stockage sur disque, mémoire et sortie réseau) accessible aux applications. Toutefois, l’étendue des fonctionnalités d’infrastructure accessibles aux applications reste la même, quel que soit le niveau de mise à l’échelle.
 
-App Service prend en charge différentes infrastructures de développement, telles qu’ASP.NET, ASP classique, node.js, PHP et Python (toutes exécutées en tant qu’extensions sous IIS). Pour simplifier et normaliser la configuration de sécurité, les applications App Service exécutent généralement les différentes infrastructures de développement avec leurs paramètres par défaut. Une approche de la configuration des applications aurait pu consister à personnaliser les fonctionnalités et la surface d’exposition des API de chaque infrastructure de développement. L’approche retenue pour App Service est plus générale puisqu’elle offre une base commune de fonctionnalités de système d’exploitation, quelle que soit l’infrastructure de développement d’une application.
+App Service prend en charge différentes infrastructures de développement, telles qu’ASP.NET, ASP classique, Node.js, PHP et Python (toutes exécutées en tant qu’extensions sous IIS). Pour simplifier et normaliser la configuration de sécurité, les applications App Service exécutent généralement les différentes infrastructures de développement avec leurs paramètres par défaut. Une approche de la configuration des applications aurait pu consister à personnaliser les fonctionnalités et la surface d’exposition des API de chaque infrastructure de développement. L’approche retenue pour App Service est plus générale puisqu’elle offre une base commune de fonctionnalités de système d’exploitation, quelle que soit l’infrastructure de développement d’une application.
 
 Les sections suivantes présentent brièvement les principaux types de fonctionnalités de système d’exploitation accessibles aux applications App Service.
 
@@ -47,9 +47,8 @@ Différents lecteurs sont disponibles dans App Service, notamment les lecteurs l
 ### <a name="local-drives"></a>Lecteurs locaux
 App Service est un service qui s’exécute essentiellement au sommet de l’infrastructure PaaS (Platform as a Service) d’Azure. Par conséquent, les disques locaux « associés » à une machine virtuelle correspondent aux types de lecteurs accessibles à tous les rôles de travail exécutés sous Azure. notamment :
 
-- Un lecteur de système d’exploitation (lecteur D:\)
-- Un lecteur d’application contenant les fichiers cspkg du package Azure exclusivement utilisés par App Service (et non accessibles aux clients)
-- Un lecteur « utilisateur » (lecteur C:\) dont la taille dépend de celle de la machine virtuelle 
+- Un lecteur de système d’exploitation (`%SystemDrive%`) dont la taille dépend de celle de la machine virtuelle.
+- Un lecteur de ressources (`%ResourceDrive%`) utilisé par App Service en interne.
 
 Il est important de surveiller l’utilisation du disque à mesure du développement de votre application. Si le quota du disque est atteint, le fonctionnement de votre application peut s’en trouver modifié. Par exemple : 
 
@@ -61,27 +60,34 @@ Il est important de surveiller l’utilisation du disque à mesure du développe
 <a id="NetworkDrives"></a>
 
 ### <a name="network-drives-unc-shares"></a>Lecteurs réseau (partages UNC)
-Pour simplifier le déploiement et la maintenance d’applications, App Service stocke tout le contenu utilisateur sur un ensemble de partages UNC. Ce modèle s’adapte bien au modèle commun de stockage de contenu utilisé par les environnements d’hébergement web locaux dotés de plusieurs serveurs à charge équilibrée. 
+Pour simplifier le déploiement et la maintenance d’applications, App Service stocke tous les partages de contenu utilisateur sur un ensemble de partages UNC. Ce modèle s’adapte bien au modèle commun de stockage de contenu utilisé par les environnements d’hébergement web locaux dotés de plusieurs serveurs à charge équilibrée. 
 
-App Service intègre un certain nombre de partages UNC créés dans chaque centre de données. Un certain pourcentage du contenu de l'ensemble des utilisateurs de chaque centre de données est alloué à chacun des partages UNC. En outre, le contenu de tous les fichiers associés à l'abonnement d'un client est systématiquement placé sur le même partage UNC. 
+App Service intègre un certain nombre de partages UNC créés dans chaque centre de données. Un certain pourcentage du contenu de l'ensemble des utilisateurs de chaque centre de données est alloué à chacun des partages UNC. L’abonnement de chaque client comporte une structure de répertoires réservée sur un partage UNC spécifique dans un centre de données. Un client peut disposer de plusieurs applications créées dans un centre de données spécifique, ainsi tous les répertoires appartenant à un abonnement client sont créés sur le même partage UNC. 
 
-En raison du mode de fonctionnement des services Azure, la machine virtuelle chargée d’héberger un partage UNC changera au fil du temps. Les partages UNC seront en effet associés à différentes machines virtuelles à mesure que celles-ci seront intégrées et écartées lors de l’évolution normale des opérations Azure. C'est la raison pour laquelle les applications ne doivent jamais partir du principe que les informations machine présentes dans un chemin de fichier UNC resteront stables au fil du temps. Elles doivent utiliser le *faux* chemin d’accès absolu **D:\home\site** fourni par App Service. Ce faux chemin d’accès absolu offre une méthode « portable » qui n’est pas propre à l’application ni à l’utilisateur pour faire référence à une application particulière. L’utilisation du chemin **D:\home\site** permet de transférer les fichiers partagés d’une application vers une autre sans avoir à configurer un nouveau chemin d’accès absolu à chaque transfert.
+En raison du mode de fonctionnement des services Azure, la machine virtuelle chargée d’héberger un partage UNC changera au fil du temps. Les partages UNC seront en effet associés à différentes machines virtuelles à mesure que celles-ci seront intégrées et écartées lors de l’évolution normale des opérations Azure. C'est la raison pour laquelle les applications ne doivent jamais partir du principe que les informations machine présentes dans un chemin de fichier UNC resteront stables au fil du temps. Elles doivent utiliser le *faux* chemin d’accès absolu `%HOME%\site` fourni par App Service. Ce faux chemin d’accès absolu offre une méthode « portable » qui n’est pas propre à l’application ni à l’utilisateur pour faire référence à une application particulière. L’utilisation du chemin `%HOME%\site` permet de transférer les fichiers partagés d’une application vers une autre sans avoir à configurer un nouveau chemin d’accès absolu à chaque transfert.
 
 <a id="TypesOfFileAccess"></a>
 
 ### <a name="types-of-file-access-granted-to-an-app"></a>Types d'accès aux fichiers octroyés à une application
-L’abonnement de chaque client comporte une structure de répertoires réservée sur un partage UNC spécifique dans un centre de données. Un client peut disposer de plusieurs applications créées dans un centre de données spécifique, ainsi tous les répertoires appartenant à un abonnement client sont créés sur le même partage UNC. Le partage peut inclure des répertoires tels que ceux destinés au contenu, aux journaux d’activité d’erreurs et de diagnostic et aux précédentes versions de l’application créées par le contrôle du code source. Les répertoires de l’application d’un client sont accessibles en lecture et en écriture lors de l’exécution par le code d’application de l’application.
+Le répertoire `%HOME%` d’une application est mappé à un partage de contenu dans le Stockage Azure dédié pour cette application, et sa taille est définie par votre [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/). Il peut inclure des répertoires tels que ceux destinés au contenu, aux journaux d’activité d’erreurs et de diagnostic et aux précédentes versions de l’application créées par le contrôle du code source. Ces répertoires sont accessibles au code de l’application au moment de l’exécution pour l’accès en lecture et en écriture. Étant donné que les fichiers ne sont pas stockés localement, ils sont persistants entre les redémarrages de l’application.
 
-Sur les lecteurs locaux associés à la machine virtuelle qui exécute une application, App Service réserve une partie de l’espace sur le lecteur C:\ au stockage local temporaire propre à l’application. Bien qu’une application dispose d’un accès en lecture/écriture complet à son propre stockage local temporaire, ce stockage n’est pas destiné à être directement utilisé par le code d’application. Il a pour but de fournir un stockage de fichiers temporaire à IIS et aux infrastructures d'applications Web. App Service limite également le stockage local temporaire accessible à chaque application pour empêcher que différentes applications n’utilisent une part excessive du stockage de fichiers local.
+Sur le lecteur système, App Service réserve `%SystemDrive%\local` pour le stockage local temporaire spécifique de l’application. Les modifications apportées aux fichiers dans ce répertoire *ne sont pas* persistantes entre les redémarrages de l’application. Bien qu’une application dispose d’un accès en lecture/écriture complet à son propre stockage local temporaire, ce stockage n’est pas destiné à être directement utilisé par le code d’application. Il a pour but de fournir un stockage de fichiers temporaire à IIS et aux infrastructures d'applications Web. App Service limite également le stockage dans `%SystemDrive%\local` pour chaque application afin d’empêcher que différentes applications n’utilisent une part excessive du stockage de fichiers local. Pour les niveaux **Gratuit**, **Partagé** et **Consommation** (Azure Functions), la limite est de 500 Mo. Pour les autres niveaux, consultez le tableau suivant :
 
-Deux exemples illustrent la façon dont App Service utilise le stockage local temporaire : le répertoire de fichiers temporaires ASP.NET et le répertoire de fichiers compressés IIS. Le système de compilation ASP.NET utilise le répertoire de fichiers temporaires « Temporary ASP.NET Files » comme emplacement de cache de compilation temporaire. IIS utilise le répertoire de fichiers compressés « IIS Temporary Compressed Files » pour stocker les réponses compressées. Ces deux types d’utilisation de fichiers (et d’autres) sont de nouveau mappés dans App Service sur un stockage local temporaire par application. Ce nouveau mappage préserve les fonctionnalités.
+| Famille de références | B1/S1/etc. | B2/S2/etc. | B3/S3/etc. |
+| - | - | - | - |
+|De base, Standard, Premium | 11 Go | 15 Go | 58 Go |
+| PremiumV2, PremiumV3, Isolé | 21 Go | 61 Go | 140 Go |
 
-Chaque application dans App Service est exécutée sous une identité de processus de travail à faibles privilèges unique et aléatoire appelée « identité du pool d’applications », comme décrit plus en détail ici : [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). Le code d'application utilise cette identité pour l'accès en lecture seule de base au lecteur du système d'exploitation (lecteur D:\). Le code d'application peut ainsi dresser la liste les structures de répertoires communes et lire les fichiers communs sur le lecteur du système d'exploitation. Bien que ce niveau d'accès puisse sembler étendu, les mêmes répertoires et fichiers sont accessibles lorsque vous approvisionnez un rôle de travail dans le service hébergé Azure et lisez le contenu du lecteur. 
+Deux exemples illustrent la façon dont App Service utilise le stockage local temporaire : le répertoire de fichiers temporaires ASP.NET et le répertoire de fichiers compressés IIS. Le système de compilation ASP.NET utilise le répertoire `%SystemDrive%\local\Temporary ASP.NET Files` comme emplacement de cache de compilation temporaire. IIS utilise le répertoire `%SystemDrive%\local\IIS Temporary Compressed Files` pour stocker les réponses compressées. Ces deux types d’utilisation de fichiers (et d’autres) sont de nouveau mappés dans App Service sur un stockage local temporaire par application. Ce nouveau mappage préserve les fonctionnalités.
+
+Chaque application dans App Service est exécutée sous une identité de processus de travail à faibles privilèges unique et aléatoire appelée « identité du pool d’applications », comme décrit plus en détail ici : [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). Le code d’application utilise cette identité pour l’accès en lecture seule de base au lecteur du système d’exploitation. Le code d'application peut ainsi dresser la liste les structures de répertoires communes et lire les fichiers communs sur le lecteur du système d'exploitation. Bien que ce niveau d'accès puisse sembler étendu, les mêmes répertoires et fichiers sont accessibles lorsque vous approvisionnez un rôle de travail dans le service hébergé Azure et lisez le contenu du lecteur. 
 
 <a name="multipleinstances"></a>
 
 ### <a name="file-access-across-multiple-instances"></a>Accès aux fichiers sur plusieurs instances
-Le répertoire de base comprend le contenu d’une application, et le code d’application peut y accéder en écriture. Si une application est exécutée sur plusieurs instances, le répertoire de base est partagé entre toutes les instances afin que celles-ci voient toutes le même répertoire. Ainsi, par exemple, si une application enregistre des fichiers chargés dans le répertoire de base, ces fichiers sont immédiatement accessibles à toutes les instances. 
+Le répertoire du partage de contenu (`%HOME%`) comprend le contenu d’une application, et le code d’application peut y accéder en écriture. Si une application est exécutée sur plusieurs instances, le répertoire `%HOME%` est partagé entre toutes les instances afin que celles-ci voient toutes le même répertoire. Ainsi, par exemple, si une application enregistre des fichiers chargés dans le répertoire `%HOME%`, ces fichiers sont immédiatement accessibles à toutes les instances. 
+
+Le répertoire de stockage local temporaire (`%SystemDrive%\local`) n’est pas partagé entre les instances, ni partagé entre l’application et son [application Kudu](resources-kudu.md).
 
 <a id="NetworkAccess"></a>
 

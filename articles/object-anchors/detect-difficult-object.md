@@ -4,15 +4,15 @@ description: Décrivez les mécanismes qui peuvent être configurés pour détec
 author: rgarcia
 manager: vrivera
 ms.author: rgarcia
-ms.date: 05/28/2021
-ms.topic: overview
+ms.date: 09/08/2021
+ms.topic: troubleshooting
 ms.service: azure-object-anchors
-ms.openlocfilehash: f7ebff2a9fb45831842b9390e3e72cdbfe58e794
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: cbdf29aa7bb9c342e08b64af0745c689910b26bd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111987828"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791970"
 ---
 # <a name="how-to-detect-a-difficult-object"></a>Procédure de détection d’un objet difficile
 
@@ -21,6 +21,8 @@ Parfois, un objet peut s’avérer plus difficile à détecter. Par exemple :
 - Lorsqu’une grande surface d’exposition n’est pas accessible parce que l’objet est adossé à un mur
 - Lorsqu’un objet est trop volumineux et qu’il faut trop de temps pour le contourner
 - Lorsque la surface de l’objet n’est pas détectée par les capteurs d’appareil
+
+## <a name="adjusting-object-query-values"></a>Ajustement des valeurs de requête d’objet
 
 Voici quelques mécanismes offerts par le kit de développement logiciel (SDK) Azure Object Anchors qui peuvent être utiles dans ces cas :
 
@@ -40,3 +42,11 @@ Voici quelques mécanismes offerts par le kit de développement logiciel (SDK) A
   - Une sphère, à l’aide de `ObjectSearchArea.FromSphere`.
 
 Pour plus d’informations, consultez la classe `ObjectQuery` pour [Unity](/dotnet/api/microsoft.azure.objectanchors.objectquery) ou [HoloLens C++/WinRT](/cpp/api/object-anchors/winrt/objectquery).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce guide de dépannage, vous avez appris à résoudre les problèmes de détection d’objets difficiles à détecter.
+Voici quelques articles connexes :
+
+> [!div class="nextstepaction"]
+> [Résolution des problèmes de détection d’objets](./troubleshoot/object-detection.md)

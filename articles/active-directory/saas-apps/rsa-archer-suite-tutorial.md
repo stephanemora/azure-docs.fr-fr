@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à RSA Archer Suite | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à RSA Archer Suite'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RSA Archer Suite.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2021
+ms.date: 09/14/2021
 ms.author: jeedes
-ms.openlocfilehash: d96f1e0413dac8477e2fc40bf84e88318abf3f9d
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 38694ff8bdbe041d582af3b8bfb9d0c9fffe9e62
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284960"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656585"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à RSA Archer Suite
+# <a name="tutorial-azure-ad-sso-integration-with-rsa-archer-suite"></a>Tutoriel : Intégration de l’authentification unique Azure AD à RSA Archer Suite
 
 Dans ce tutoriel, vous allez apprendre à intégrer RSA Archer Suite à Azure Active Directory (Azure AD). Quand vous intégrez RSA Archer Suite à Azure AD, vous pouvez :
 
@@ -77,11 +77,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<BASE_URL>/default.aspx?IDP=<REALM_NAME>`
+    a. Dans la zone de texte **Identificateur (ID d’entité)**, tapez la valeur : `RSAArcherSuite_TENANT_STRING`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez la valeur : `RSAArcherSuite_TENANT_STRING`
+    b. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<BASE_URL>/default.aspx?IDP=<REALM_NAME>`
 
     > [!NOTE]
     > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Contactez l’[équipe du support technique RSA Archer Suite](mailto:archersupport@rsa.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -140,7 +140,7 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 1. Effectuez les étapes ci-après dans la page suivante.
 
-    ![Configurer l’authentification unique RSA Archer Suite](./media/rsa-archer-suite-tutorial/configuration.png)
+    ![Configurez l’authentification unique pour RSA Archer Suite.](./media/rsa-archer-suite-tutorial/configuration.png)
 
     a. Accédez à l’onglet **Single Sign-On** (Authentification unique), puis sélectionnez **SAML** pour **Single Sign-On Mode** (Mode d’authentification unique) dans la liste déroulante.
 
@@ -162,12 +162,12 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans RSA Archer Su
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion RSA Archer Suite où vous pouvez lancer le processus de connexion. 
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion RSA Archer Suite où vous pouvez lancer le processus de connexion. 
 
-2. Accédez directement à l’URL d’authentification unique de RSA Archer Suite pour lancer le flux de connexion.
+* Accédez directement à l’URL d’authentification unique de RSA Archer Suite pour lancer le flux de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Quand vous cliquez sur la vignette RSA Archer Suite dans le volet d’accès, vous devez être connecté automatiquement à l’application RSA Archer Suite pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette RSA Archer Suite dans Mes applications, vous êtes redirigé vers l’URL de connexion à RSA Archer Suite. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- Après avoir configuré RSA Archer Suite, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré RSA Archer Suite, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

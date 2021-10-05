@@ -1,5 +1,5 @@
 ---
-title: Examiner la sortie d’Azure Video Analyzer for Media (anciennement Video Indexer) générée par l’API v2 - Azure
+title: Examinez la sortie API v2 d'Azure Video Analyzer for Media (anciennement Video Indexer).
 titleSuffix: Azure Video Analyzer for Media
 description: Cette rubrique examine la sortie d’Azure Video Analyzer for Media (anciennement Video Indexer) générée par l’API v2.
 services: azure-video-analyzer
@@ -9,12 +9,12 @@ ms.topic: article
 ms.subservice: azure-video-analyzer-media
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 11fcc36ec8ad6d5feb030d00be4fbf470237634f
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: b60eb67b734bfc6d180153e88144282a431f0f6f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115251"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431347"
 ---
 # <a name="examine-the-video-analyzer-for-media-output"></a>Examiner la sortie d’Azure Video Analyzer for Media
 
@@ -855,7 +855,7 @@ Video Analyzer for Media fait des inférences des principales rubriques à parti
 |Nom|Description|
 |---|---|
 |id|ID de l’intervenant.|
-|name|Nom de l’intervenant sous la forme « Speaker # *<number>*  », par exemple : « Speaker #1 ».|
+|name|Nom de l’intervenant sous la forme « Speaker # *\<number\>*  », par exemple : « Speaker #1 ».|
 |instances |Liste des intervalles de temps pendant lesquels cet intervenant est apparu.|
 
 ```json

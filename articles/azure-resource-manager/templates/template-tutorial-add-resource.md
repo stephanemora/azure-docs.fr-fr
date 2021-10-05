@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 49cee5c98c4099e214a732371269e935db353152
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82c6b6cd0dde6b321e4de8a87f99e1adad69040d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97106969"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662112"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>Tutoriel : Ajouter une ressource à votre modèle ARM
 
@@ -50,7 +50,7 @@ La plupart des ressources possèdent également une propriété `location`, qui 
 
 Les autres propriétés varient selon le type de la ressource et la version de l’API. Il est important de comprendre le lien existant entre la version de l’API et les propriétés disponibles. Voyons donc cela d’un peu plus près.
 
-Dans ce tutoriel, vous avez ajouté un compte de stockage au modèle. Vous pouvez voir cette version d’API à la page [storageAccounts 2019-04-01](/azure/templates/microsoft.storage/2019-04-01/storageaccounts). Notez que vous n’avez pas ajouté toutes les propriétés à votre modèle. Beaucoup de ces propriétés sont facultatives. Le fournisseur de ressources `Microsoft.Storage` peut publier une nouvelle version de l’API, pour autant la version que vous déployez ne doit pas nécessairement être changée. Vous pouvez continuer à utiliser cette version tout en sachant que les résultats de votre déploiement seront cohérents.
+Dans ce tutoriel, vous avez ajouté un compte de stockage au modèle. Vous pouvez voir cette version d’API à la page [storageAccounts 2021-04-01](/azure/templates/microsoft.storage/2021-04-01/storageaccounts). Notez que vous n’avez pas ajouté toutes les propriétés à votre modèle. Beaucoup de ces propriétés sont facultatives. Le fournisseur de ressources `Microsoft.Storage` peut publier une nouvelle version de l’API, pour autant la version que vous déployez ne doit pas nécessairement être changée. Vous pouvez continuer à utiliser cette version tout en sachant que les résultats de votre déploiement seront cohérents.
 
 Si vous affichez une ancienne version de l’API, par exemple [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), vous remarquerez qu’un ensemble de propriétés plus restreint est disponible.
 

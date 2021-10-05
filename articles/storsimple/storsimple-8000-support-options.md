@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 55cc3049e437cc18eac6dc537de3ee1c0d894c23
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 69b24272d2a04d19eb8fc419a6a2cbda744f24ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87070341"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588577"
 ---
 # <a name="storsimple-solution-support"></a>Support de la solution StorSimple
 
@@ -111,16 +111,9 @@ La manière dont le support des baies de stockage de la série StorSimple 8000 e
 
 
 
-*<text> * La couverture premium n’est pas disponible partout. Pour connaître la couverture géographique avant d’acheter le support Premium StorSimple, contactez Microsoft à l’adresse SSSupOps\@microsoft.com.*
+\*La couverture des primes n'est pas disponible dans tous les endroits. Pour connaître la couverture géographique avant d’acheter le support Premium StorSimple, contactez Microsoft à l’adresse SSSupOps\@microsoft.com.
 
-***Pour pouvoir bénéficier d’une mise à niveau gratuite vers le support StorSimple premium, l’appliance StorSimple doit être déployée dans une région où le client est couvert par le support Premier.*
+\** L'appliance StorSimple doit être déployée dans une région où le client est couvert par l'assistance Premier afin de pouvoir bénéficier d'une mise à niveau gratuite vers l'assistance Premium StorSimple.
 
 
 Les clients ASAP+ peuvent basculer vers le modèle d’abonnement incluant le support standard. Utilisez la calculatrice de prix StorSimple pour déterminer la tarification de l’abonnement et contactez SSSupOps@microsoft.com pour toute question. La commutation est unidirectionnelle uniquement d’ASAP+ à un abonnement.
-
-
-
-
-
-
- 

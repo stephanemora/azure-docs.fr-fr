@@ -11,12 +11,12 @@ ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 5e0590dd524c516b2c6b909184de1f2d65f0074c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: f5dba6b81befd569523111b997c29e54b3e82881
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257037"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774611"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Présentation des utilitaires Microsoft Spark
 
@@ -453,9 +453,17 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 ::: zone-end
 
-:::zone pivot = "programming-language-python"
+
 
 ## <a name="notebook-utilities"></a>Utilitaires de notebook 
+
+:::zone pivot = "programming-language-csharp"
+
+Non pris en charge.
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
 
 Vous pouvez utiliser les utilitaires notebook MSSparkUtils pour exécuter un notebook ou quitter un notebook avec une valeur. Exécutez la commande suivante pour obtenir une vue d’ensemble des méthodes disponibles :
 
@@ -472,8 +480,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### <a name="run-a-notebook"></a>Exécuter un notebook
-Exécute un notebook et renvoie sa valeur de sortie. Vous pouvez exécuter des appels de fonction d’imbrication dans un notebook de manière interactive ou dans un pipeline. Le notebook référencé s’exécutera sur le pool Spark duquel le notebook appelle cette fonction.  
+### <a name="reference-a-notebook"></a>Référencer un notebook
+Référence un notebook et renvoie sa valeur de sortie. Vous pouvez exécuter des appels de fonction d’imbrication dans un notebook de manière interactive ou dans un pipeline. Le notebook référencé s’exécutera sur le pool Spark duquel le notebook appelle cette fonction.  
 
 ```python
 
@@ -537,10 +545,7 @@ Sample1 run success with input is 20
 ```
 ::: zone-end
 
-
 :::zone pivot = "programming-language-scala"
-
-## <a name="notebook-utilities"></a>Utilitaires de notebook 
 
 Vous pouvez utiliser les utilitaires notebook MSSparkUtils pour exécuter un notebook ou quitter un notebook avec une valeur. Exécutez la commande suivante pour obtenir une vue d’ensemble des méthodes disponibles :
 
@@ -557,8 +562,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### <a name="run-a-notebook"></a>Exécuter un notebook
-Exécute un notebook et renvoie sa valeur de sortie. Vous pouvez exécuter des appels de fonction d’imbrication dans un notebook de manière interactive ou dans un pipeline. Le notebook référencé s’exécutera sur le pool Spark duquel le notebook appelle cette fonction.  
+### <a name="reference-a-notebook"></a>Référencer un notebook
+Référence un notebook et renvoie sa valeur de sortie. Vous pouvez exécuter des appels de fonction d’imbrication dans un notebook de manière interactive ou dans un pipeline. Le notebook référencé s’exécutera sur le pool Spark duquel le notebook appelle cette fonction.  
 
 ```scala
 
@@ -675,7 +680,7 @@ Renvoie un jeton Azure AD pour un public donné, (nom facultatif). Le tableau ci
 |--|--|
 |Type de résolution de l’audience|« Audience »|
 |Ressource d’audience de stockage|« Storage »|
-|Ressource d’audience d’entrepôt de données|« DW »|
+|Pools SQL dédiés (Data Warehouse)|« DW »|
 |Ressource d’audience de lac de données|« AzureManagement »|
 |Ressource d’audience de coffre|« DataLakeStore »|
 |Ressource d’audience Azure OSSDB|« AzureOSSDB »|
@@ -1086,6 +1091,31 @@ mssparkutils.env.getClusterId()
 Env.GetClusterId()
 ```
 
+::: zone-end
+
+
+## <a name="runtime-context"></a>Contexte d’exécution
+
+Les utilitaires d’exécution Mssparkutils ont exposé trois propriétés d’exécution. Vous pouvez utiliser le contexte d’exécution mssparkutils pour récupérer les propriétés répertoriées comme ci-dessous :
+- **Notebookname** : nom du notebook actuel, renvoie toujours la valeur pour le mode interactif et le mode pipeline.
+- **Pipelinejobid** : ID d’exécution du pipeline, renvoie la valeur en mode pipeline et renvoie une chaîne vide en mode interactif.
+- **Activityrunid** : ID d’exécution de l’activité de notebook, renvoie la valeur en mode pipeline et renvoie une chaîne vide en mode interactif.
+
+Actuellement, le contexte d’exécution prend en charge Python et Scala.
+
+:::zone pivot = "programming-language-python"
+
+```python
+mssparkutils.runtime.context
+```
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+mssparkutils.runtime.context
+```
 ::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9025038727c6f71022f30f80ee67db6ccc5289b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6ed309637c03fc4701f2b973f64b2473f43b0d2a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740318"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734879"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers Parquet à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Assurez-vous que vous pouvez accéder à ce fichier. Si votre fichier est proté
 > Une incompatibilité entre l’encodage de texte dans le fichier PARQUET et le classement peut entraîner des erreurs de conversion inattendues.
 > Vous pouvez facilement modifier le classement par défaut de la base de données actuelle à l’aide de l’instruction T-SQL suivante : `alter database current collate Latin1_General_100_BIN2_UTF8`.
 
-Si vous utilisez un classement _BIN2, vous bénéficiez d’une amélioration des performances. Le classement BIN2 est compatible avec les règles de tri des chaînes Parquet, ce qui nous permet d’éliminer certaines parties des fichiers Parquet qui ne contiendront pas de données nécessaires aux requêtes (nettoyage de segments de fichier/colonne). Si vous utilisez un classement non BIN2, toutes les données du fichier Parquet sont chargées dans Synapse SQL, le filtrage se produisant dans le processus SQL, ce qui peut être beaucoup plus lent que lors de l’élimination des données inutiles dans le fichier. Le classement BIN2 offre une optimisation supplémentaire des performances qui fonctionne uniquement pour Parquet et CosmosDB. L’inconvénient est que vous perdez les règles de comparaison affinées, par exemple le non-respect de la casse.
+Si vous utilisez le classement `Latin1_General_100_BIN2_UTF8`, vous obtiendrez un renforcement des performances supplémentaire par rapport aux autres classements. Le classement `Latin1_General_100_BIN2_UTF8` est compatible avec les règles de tri de chaîne Parquet. Le pool SQL est en mesure d’éliminer certaines parties des fichiers Parquet qui ne contiennent pas les données nécessaires dans les requêtes (nettoyage de segment de fichier/colonne). Si vous utilisez d’autres classements, toutes les données des fichiers Parquet sont chargées dans Synapse SQL et le filtrage se produit dans le processus SQL. Le classement `Latin1_General_100_BIN2_UTF8` offre une optimisation supplémentaire des performances qui fonctionne uniquement pour Parquet et CosmosDB. L’inconvénient est que vous perdez les règles de comparaison affinées, par exemple le non-respect de la casse.
 
 ### <a name="data-source-usage"></a>Utilisation d’une source de données
 

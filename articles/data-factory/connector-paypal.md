@@ -1,25 +1,25 @@
 ---
-title: Copier des données de PayPal avec Azure Data Factory (préversion)
+title: Copier des données à partir de PayPal (préversion)
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données de PayPal vers des banques de données réceptrices prises en charge.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie pour copier des données de PayPal vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: db9861fbefff2613a2989ee379f487d6c3a644e6
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: bbe4197276b7e407155ee46aad65463df8d538ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123317369"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824804"
 ---
-# <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copier des données de PayPal avec Azure Data Factory (préversion)
+# <a name="copy-data-from-paypal-using-azure-data-factory-or-synapse-analytics-preview"></a>Copier des données à partir de PayPal à l’aide d’Azure Data Factory ou de Synapse Analytics (préversion)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de PayPal. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l’activité de copie dans le pipeline Azure Data Factory ou Synapse Analytics pour copier des données de PayPal. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!IMPORTANT]
 > Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
@@ -33,7 +33,7 @@ Ce connecteur PayPal est pris en charge pour les activités suivantes :
 
 Vous pouvez copier des données de PayPal vers n’importe quel magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
+Le service fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -47,7 +47,7 @@ Utilisez les étapes suivantes pour créer un service lié à PayPal dans l’in
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -75,7 +75,7 @@ Les propriétés suivantes sont prises en charge pour le service lié PayPal :
 | type | La propriété type doit être définie sur : **PayPal**. | Oui |
 | host | URL de l’instance PayPal (c’est-à-dire api.sandbox.paypal.com).  | Oui |
 | clientId | ID client associé à l’application PayPal.  | Oui |
-| clientSecret | Clé secrète client associée à l’application PayPal. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| clientSecret | Clé secrète client associée à l’application PayPal. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion TLS. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion TLS. La valeur par défaut est true.  | Non |
@@ -178,4 +178,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

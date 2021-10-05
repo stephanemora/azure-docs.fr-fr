@@ -4,15 +4,15 @@ description: Découvrez les étapes permettant de créer et de gérer des inform
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 14b11cca3eca6f3d0b89889a4eb1abf3f04f5715
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: f3367883b35e35a4dd726b92af48a92f863cfa5d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487648"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207846"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Informations d'identification pour l'authentification des sources dans Azure Purview
 
@@ -52,7 +52,7 @@ Si vous utilisez l'identité managée Purview pour configurer des analyses, vous
 
 Avant de pouvoir créer des informations d’identification, vous devez d’abord associer une ou plusieurs de vos instances Azure Key Vault existantes à votre compte Azure Purview.
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre compte Azure Purview et ouvrez Azure Purview Studio. Accédez au **Centre de gestion** sur Azure Purview Studio, puis à  **Identifiants**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre compte Azure Purview et ouvrez [Purview Studio](https://web.purview.azure.com/resource/). Accédez au **Centre de gestion**, puis aux **informations d’identification**.
 
 2. Dans la page **Informations d’identification**, sélectionnez **Gérer les connexions Key Vault**.
 

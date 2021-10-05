@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f76a82715bd4599b17e0ea164a1282b92a13aa3c
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 6375d522089f7ff4d77761f941a8b754cfa528bc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287533"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748681"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Démarrage rapide : Bibliothèque cliente des clés Azure Key Vault pour Python
 
@@ -141,15 +141,15 @@ python kv_keys.py
 ```
 
 - Si vous rencontrez des erreurs d’autorisation, vérifiez que vous avez exécuté la commande [`az keyvault set-policy`](#grant-access-to-your-key-vault).
-- Le fait de réexécuter le code avec le même nom de clé a pour effet de générer l’erreur « La clé (en conflit) <name> est actuellement à l’état supprimé mais récupérable. » Utilisez un nom de clé différent.
+- Le fait de réexécuter le code avec le même nom de clé a pour effet de générer l’erreur « La clé (en conflit) \<name\> est actuellement à l’état supprimé mais récupérable. » Utilisez un nom de clé différent.
 
 ## <a name="code-details"></a>Détails du code
 
 ### <a name="authenticate-and-create-a-client"></a>Authentifier et créer un client
 
-Dans ce guide de démarrage rapide, l’utilisateur connecté est utilisé pour l’authentification auprès du coffre de clés, qui est la méthode recommandée pour le développement local. Pour les applications déployées sur Azure, l’identité managée doit être affectée à App Service ou à une machine virtuelle. Pour plus d’informations, consultez [Vue d’ensemble des identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Dans ce guide de démarrage rapide, l’utilisateur connecté est utilisé pour l’authentification auprès du coffre de clés, qui est la méthode recommandée pour le développement local. Pour les applications déployées sur Azure, l’identité managée doit être affectée à App Service ou à une machine virtuelle. Pour plus d’informations, consultez [Vue d’ensemble des identités managées](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Dans l’exemple ci-dessous, le nom de votre coffre de clés est étendu à l’URI du coffre de clés, au format « https://\<your-key-vault-name\>.vault.azure.net ». Cet exemple utilise la classe [« DefaultAzureCredential() »](/python/api/azure-identity/azure.identity.defaultazurecredential), qui permet d’utiliser le même code dans différents environnements avec des options différentes pour fournir une identité. Pour plus d’informations, consultez [Authentification des informations d’identification Azure par défaut](https://docs.microsoft.com/python/api/overview/azure/identity-readme). 
+Dans l’exemple ci-dessous, le nom de votre coffre de clés est étendu à l’URI du coffre de clés, au format `https://\<your-key-vault-name\>.vault.azure.net`. Cet exemple utilise la classe [« DefaultAzureCredential() »](/python/api/azure-identity/azure.identity.defaultazurecredential), qui permet d’utiliser le même code dans différents environnements avec des options différentes pour fournir une identité. Pour plus d’informations, consultez [Authentification des informations d’identification Azure par défaut](/python/api/overview/azure/identity-readme). 
 
 
 ```python

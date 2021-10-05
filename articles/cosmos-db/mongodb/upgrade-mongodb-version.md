@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: a90a5d7ad7696844f735a1bed2f618846758fff3
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 2880bc5fc9c367a5ab3cb02db3e3d5901861d789
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035808"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439377"
 ---
 # <a name="upgrade-the-api-version-of-your-azure-cosmos-db-api-for-mongodb-account"></a>Mettre à niveau la version de l’API de votre compte API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -62,6 +62,8 @@ Si vous effectuez une mise à niveau à partir de la version 3.2, le suffixe du
 
 Si vous effectuez une mise à niveau à partir de la version 3.2, vous devrez remplacer le point de terminaison existant dans vos applications et pilotes qui se connectent à ce compte de base de données. **Seules les connexions qui utilisent le nouveau point de terminaison auront accès aux fonctionnalités fournies dans la nouvelle version de l’API**. Le point de terminaison de la version 3.2 précédente doit avoir le suffixe `.documents.azure.com`.
 
+Lors de la mise à niveau de 3.2 vers des versions plus récentes, les [index composés](mongodb-indexing.md) sont désormais requis pour effectuer des opérations de tri sur plusieurs champs afin de garantir des performances élevées et stables pour ces requêtes. Assurez-vous que ces index composés sont créés de façon à ce que vos tris multichamps soient exécutés correctement. 
+
 >[!Note]
 > Le point de terminaison peut être légèrement différent si votre compte se trouve dans un cloud Azure souverain, gouvernemental ou limité.
 
@@ -103,5 +105,5 @@ Si vous avez effectué une mise à niveau de la version 3.2 vers la version 4.0 
 - Découvrez les [fonctionnalités prises en charge et non prises en charge de MongoDB version 3.6](feature-support-36.md).
 - Pour plus d’informations, consultez [Fonctionnalités de Mongo version 3.6](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
 - Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
-    - Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
-    - Si vous connaissez les taux de requêtes types de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
+    - Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    - Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)

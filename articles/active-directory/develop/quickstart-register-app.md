@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/14/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4
-ms.openlocfilehash: 340e7f1b026605a06799dcc79f9fe99e2ad080cf
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: c608856e6238844638e63c3a719b3d534b98d33b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112578952"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615317"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -43,7 +43,7 @@ L’inscription de votre application établit une relation d’approbation entre
 Effectuez les étapes suivantes pour créer l’inscription d’application :
 
 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
-1. Si vous avez accès à plusieurs locataires, dans le menu supérieur, utilisez le filtre **Annuaire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoires + abonnements** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour basculer vers le locataire dans lequel vous voulez inscrire l’application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
 1. Entrez un **nom** d’affichage pour votre application. Les utilisateurs de votre application peuvent voir le nom d’affichage lorsqu’ils l’utilisent, par exemple lors de la connexion.
@@ -65,7 +65,7 @@ Effectuez les étapes suivantes pour créer l’inscription d’application :
 Une fois l’inscription terminée, le portail Azure affiche le volet **Vue d’ensemble** de l’inscription de l’application. Vous voyez l’**ID d’application (client)** . Aussi appelée _ID client_, cette valeur identifie de manière unique votre application dans la plateforme d’identités Microsoft.
 
 > [!IMPORTANT]
-> Par défaut, les inscriptions de nouvelles applications sont masquées aux utilisateurs. Quand vous êtes prêt pour rendre l’application visible aux utilisateurs dans la [page Mes applications](../user-help/my-apps-portal-end-user-access.md), vous pouvez l’activer. Pour activer l’application, dans le portail Azure, accédez à **Azure Active Directory** > **Applications d’entreprise**, puis sélectionnez l’application. Puis, dans la page **Propriétés**, basculez **Visible pour les utilisateurs ?** sur Oui.
+> Par défaut, les inscriptions de nouvelles applications sont masquées aux utilisateurs. Quand vous êtes prêt pour rendre l’application visible aux utilisateurs dans la [page Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510), vous pouvez l’activer. Pour activer l’application, dans le portail Azure, accédez à **Azure Active Directory** > **Applications d’entreprise**, puis sélectionnez l’application. Puis, dans la page **Propriétés**, basculez **Visible pour les utilisateurs ?** sur Oui.
 
 Le code de votre application, ou plus généralement une bibliothèque d’authentification servant dans votre application, utilise également l’ID client. L’ID est utilisé dans le cadre de la validation des jetons de sécurité reçus de la plateforme d’identités.
 

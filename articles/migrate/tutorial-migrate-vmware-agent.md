@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: be43dda1e1fdf6d23031f2d2bf75a7f126ddef7a
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 7e16fd0d1c6370cb0ab973760c988c600f42888c
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272832"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153517"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrer des machines virtuelles VMware vers Azure (migration basée sur un agent)
 
@@ -103,7 +103,7 @@ Le service Mobilité doit être installé sur les machines virtuelles que vous s
 Préparez le compte comme suit :
 
 1. Préparez un domaine ou un compte local avec les autorisations nécessaires pour l’installation sur la machine virtuelle.
-2. Pour les machines virtuelles Windows, si vous n’utilisez pas de compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale. Pour cela, ajoutez l’entrée DWORD **LocalAccountTokenFilterPolicy** dans le Registre, sous **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**.
+2. Pour les machines virtuelles Windows, si vous n’utilisez pas de compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale. Pour cela, ajoutez l’entrée DWORD **LocalAccountTokenFilterPolicy** avec une valeur de 1 dans le Registre, sous **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**.
 3. Pour des machines virtuelles Linux, préparez un compte racine sur le serveur Linux source.
 
 
@@ -354,7 +354,7 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
 
 ## <a name="complete-the-migration"></a>Effectuer la migration
 
-1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la migration**. Cette opération effectue les actions suivantes :
+1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la réplication**. Cette opération effectue les actions suivantes :
     - Arrête la réplication pour l’ordinateur local.
     - Supprime l’ordinateur du nombre **Réplication de serveurs** dans Azure Migrate : Server Migration.
     - Nettoie les informations d’état de réplication pour la machine virtuelle.

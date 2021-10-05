@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 05/21/2021
-ms.openlocfilehash: 13557124999faeb68cbe009e4bbc3531023c12f9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/27/2021
+ms.openlocfilehash: 4817502ac03074bd1521724fe1d5e76259f3add4
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971312"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084002"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Création d’une offre de module IoT Edge
 
@@ -26,6 +26,23 @@ Consultez [Planification d’une offre de module IoT Edge](marketplace-iot-edge.
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+
+    [ ![Illustre la vignette Offres de la Place de marché sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Sur la page des offres de la place de marché, sélectionnez **+ New offer**  > **IoT Edge module**.
+
+    [![Les options du menu du volet gauche et le bouton "Nouvelle offre".](./media/iot-edge/new-offer-iot-edge-workspaces.png)](./media/iot-edge/new-offer-iot-edge-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> Après publication d’une offre, les modifications que vous y apportez dans l’Espace partenaires apparaissent sur la Place de marché Azure uniquement après la republication de l’offre. Veillez à toujours republier une offre après l’avoir modifiée.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
 3. Dans la page de présentation, sélectionnez **+ Nouvelle offre** > **Module IoT Edge**.
@@ -34,6 +51,8 @@ Consultez [Planification d’une offre de module IoT Edge](marketplace-iot-edge.
 
 > [!IMPORTANT]
 > Après publication d’une offre, les modifications que vous y apportez dans l’Espace partenaires apparaissent sur la Place de marché Azure uniquement après la republication de l’offre. Veillez à toujours republier une offre après l’avoir modifiée.
+
+---
 
 ## <a name="new-offer"></a>Nouvelle offre
 

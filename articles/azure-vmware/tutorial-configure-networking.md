@@ -4,12 +4,12 @@ description: Découvrir comment créer et configurer le réseau nécessaire au d
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
 ms.date: 07/30/2021
-ms.openlocfilehash: 61a1c1c45455c9edc402aca1e5471f3ed95a8d66
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 99389c55ab13b6c6c181a4d7d1bcf14c3b8ba08d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122069551"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597794"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutoriel : Configurer le réseau pour votre cloud privé VMware dans Azure
 
@@ -27,8 +27,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 >[!NOTE]
 >Avant de créer un nouveau réseau virtuel, évaluez si vous disposez déjà d’un réseau virtuel dans Azure et envisagez de l’utiliser pour vous connecter à Azure VMware Solution, ou si vous souhaitez créer un nouveau réseau virtuel entièrement.  
->* Pour utiliser un réseau virtuel existant, utilisez l’onglet **[Azure vNet Connect](#select-an-existing-vnet)** sous **Connectivité**. 
->* Pour créer un réseau virtuel, utilisez l’onglet **[Azure vNet Connect](#create-a-new-vnet)** ou créez-en un [manuellement](#create-a-vnet-manually).
+>* Pour utiliser un réseau virtuel existant dans le même abonnement Azure que celui d’Azure VMware Solution, utilisez l’onglet **[Connexion à Azure vNet](#select-an-existing-vnet)** sous **Connectivité**. 
+>* Pour utiliser un réseau virtuel existant dans un autre abonnement Azure que celui d’Azure VMware Solution, utilisez les conseils de **[Se connecter au cloud privé manuellement](#connect-to-the-private-cloud-manually)** . 
+>* Pour créer un nouveau réseau virtuel dans le même abonnement Azure que celui d’Azure VMware Solution, utilisez l’onglet **[Connexion à Azure vNet](#create-a-new-vnet)** ou créez-en un [manuellement](#create-a-vnet-manually).
 
 ## <a name="connect-with-the-azure-vnet-connect-feature"></a>Se connecter avec la fonctionnalité Azure vNet Connect
 

@@ -2,13 +2,13 @@
 title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
-ms.date: 09/01/2021
-ms.openlocfilehash: 3cfbd89e9df6cf2d0d30d744ee8e437e3c364094
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/27/2021
+ms.openlocfilehash: 629465100106ff3a2403a27cae9bb00e1350bf5e
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434247"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082723"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -38,8 +38,8 @@ Avant de configurer les sauvegardes, prenez soin d’effectuer les opérations s
   * Elle doit disposer des informations d’identification nécessaires pour ajouter et supprimer des utilisateurs.
   * Notez que cette clé peut être supprimée après l’exécution du script de préinscription
 * Vous pouvez également choisir de créer une clé pour l’utilisateur HANA SYSTSEM existant dans **hdbuserstore** au lieu de créer une clé personnalisée comme indiqué dans l’étape ci-dessus.
-* Exécutez le script de configuration de sauvegarde SAP HANA (script de préinscription) dans la machine virtuelle où HANA est installé en tant qu’utilisateur racine. [Ce script](https://aka.ms/scriptforpermsonhana) prépare le système HANA pour la sauvegarde et nécessite que la clé créée dans les étapes ci-dessus soit passée en entrée. Pour comprendre comment passer cette entrée au script en tant que paramètre, consultez la section [Ce que fait le script de préinscription](#what-the-pre-registration-script-does). Vous verrez également ce que fait le script de préinscription.
-* Si votre configuration HANA utilise des points de terminaison privés, exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) avec le paramètre *-sn* ou *--skip-network-checks*.
+* Exécutez le script de configuration de sauvegarde SAP HANA (script de préinscription) dans la machine virtuelle où HANA est installé en tant qu’utilisateur racine. [Ce script](https://go.microsoft.com/fwlink/?linkid=2173610) prépare le système HANA pour la sauvegarde et nécessite que la clé créée dans les étapes ci-dessus soit passée en entrée. Pour comprendre comment passer cette entrée au script en tant que paramètre, consultez la section [Ce que fait le script de préinscription](#what-the-pre-registration-script-does). Vous verrez également ce que fait le script de préinscription.
+* Si votre configuration HANA utilise des points de terminaison privés, exécutez le [script de préinscription](https://go.microsoft.com/fwlink/?linkid=2173610) avec le paramètre *-sn* ou *--skip-network-checks*.
 
 >[!NOTE]
 >Le script de préinscription installe **compat-unixODBC234** pour les charges de travail SAP HANA s’exécutant sur RHEL (7.4, 7.6 et 7.7) et **unixODBC** pour RHEL 8.1. [Ce package se trouve dans le dépôt des services de mise à jour de RHEL for SAP HANA (pour RHEL 7 Server) pour les solutions SAP (RPM)](https://access.redhat.com/solutions/5094721).  Pour une image RHEL de la Place de marché Azure, le dépôt est **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
@@ -57,12 +57,14 @@ Le tableau suivant répertorie les différentes alternatives que vous pouvez uti
 | Balises FQDN de Pare-feu Azure          | Plus faciles à gérer, car les FQDN requis sont gérés automatiquement | Utilisabes avec Pare-feu Azure uniquement                         |
 | Autoriser l’accès aux FQDN/adresses IP du service | Aucun coût supplémentaire   <br><br>  Fonctionne avec toutes les appliances de sécurité réseau et tous les pare-feu | Il peut être nécessaire d’accéder à un large éventail d’adresses IP ou de FQDN   |
 | Utiliser un proxy HTTP                 | Un seul point d’accès Internet aux machines virtuelles                       | Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy         |
+| [Point de terminaison de service de réseau virtuel](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Peut être utilisé pour le stockage Azure (= coffre Recovery Services).     <br><br>     Offre un avantage important pour optimiser les performances du trafic du plan de données.          |         Ne peut pas être utilisé pour Azure AD, le service de sauvegarde Azure.    |
+| Appliance virtuelle réseau      |      Peut être utilisé pour le stockage Azure, Azure AD, le service de sauvegarde Azure. <br><br> **Plan de données**   <ul><li>      Stockage Azure : `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **Plan de gestion**  <ul><li>  Azure AD : autorisez l’accès aux noms de domaine complets mentionnés dans les sections 56 et 59 de [Services communs Microsoft 365 et Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Service de sauvegarde Azure : `.backup.windowsazure.com` </li></ul> <br>Apprenez-en davantage sur les [Étiquettes de service du Pare-feu Azure](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.).       |  Ajoute une surcharge au trafic du plan de données et réduit le débit/les performances.  |
 
 De plus amples informations sur l’utilisation de ces options sont disponibles ci-dessous :
 
 ### <a name="private-endpoints"></a>Instances Private Endpoint
 
-Les points de terminaison privés vous permettent de vous connecter en toute sécurité à votre coffre Recovery Services à partir de serveurs situés dans un réseau virtuel. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre coffre. Le trafic réseau entre vos ressources dans le réseau virtuel et le coffre transite via votre réseau virtuel et une liaison privée sur le réseau principal de Microsoft. Cela élimine l’exposition de l’Internet public. Pour en savoir plus sur les points de terminaison privés pour Sauvegarde Azure, cliquez [ici](./private-endpoints.md).
+Les points de terminaison privés vous permettent de vous connecter en toute sécurité à votre coffre Recovery Services à partir de serveurs situés dans un réseau virtuel. Le point de terminaison privé utilise une adresse IP privée de l’espace d’adressage du réseau virtuel pour votre coffre. Le trafic réseau entre vos ressources dans le réseau virtuel et le coffre transite via votre réseau virtuel et une liaison privée sur le réseau principal de Microsoft. Cela élimine l’exposition de l’Internet public. Un point de terminaison privé est attribué à un sous-réseau spécifique d’un réseau virtuel et ne peut pas être utilisé pour Azure Active Directory. Pour en savoir plus sur les points de terminaison privés pour Sauvegarde Azure, cliquez [ici](./private-endpoints.md).
 
 ### <a name="nsg-tags"></a>Balises NSG
 
@@ -102,17 +104,19 @@ Lorsque vous sauvegardez une base de données SAP HANA qui s’exécute sur une 
 
 ## <a name="understanding-backup-and-restore-throughput-performance"></a>Présentation de la performance de débit des sauvegardes et des restaurations
 
-Les sauvegardes (de fichiers journaux et autres) dans les machines virtuelles Azure SAP HANA fournies par le biais de Backint sont des flux vers les coffres Azure Recovery Services. Il est donc important de comprendre la méthodologie de streaming employée.
+Les sauvegardes (de fichiers journaux et autres) dans les machines virtuelles Azure avec SAP HANA, fournies par le biais de Backint, sont des flux vers les coffres Azure Recovery Services (qui en interne utilisent Azure Storage Blob). Il est donc important de comprendre la méthodologie de streaming employée.
 
-Le composant Backint de HANA fournit les « canaux » (un pour la lecture et un pour l’écriture), connectés aux disques sous-jacents où résident les fichiers de base de données, qui sont ensuite lus par le service Sauvegarde Azure et transportés jusqu’au coffre Azure Recovery Services. En plus des contrôles de validation natifs de Backint, le service Sauvegarde Azure effectue une somme de contrôle pour valider les flux. Ces validations permettent de vérifier que les données présentes dans le coffre Azure Recovery Services sont bien fiables et récupérables.
+Le composant Backint de HANA fournit les « canaux » (un pour la lecture et un pour l’écriture), connectés aux disques sous-jacents où résident les fichiers de base de données, qui sont alors lus par le service de sauvegarde Azure et transportés jusqu’au coffre Azure Recovery Services, un compte de stockage Azure distant. En plus des contrôles de validation natifs de Backint, le service Sauvegarde Azure effectue une somme de contrôle pour valider les flux. Ces validations permettent de vérifier que les données présentes dans le coffre Azure Recovery Services sont bien fiables et récupérables.
 
-Étant donné que les flux traitent principalement des disques, vous devez comprendre les performances de disque pour évaluer les performances de sauvegarde et de restauration. Consultez [cet article](../virtual-machines/disks-performance.md) pour examiner en détail le débit et les performances des disques dans les machines virtuelles Azure. Ces informations s’appliquent également aux performances de sauvegarde et de restauration.
+À partir du moment où les flux gèrent principalement des disques, vous devez comprendre les performances de disque, en termes de performances de lecture et de réseau pour transférer les données de sauvegarde, pour évaluer aussi les performances de sauvegarde et de restauration. Référez-vous à [cet article](../virtual-machines/disks-performance.md) pour approfondir votre connaissance du débit et des performances de disque ou de réseau dans les machines virtuelles Azure. Ces informations s’appliquent également aux performances de sauvegarde et de restauration.
 
 **Le service Sauvegarde Azure tente d’atteindre environ 420 Mbits/s pour les sauvegardes sans fichiers journaux (complètes, différentielles, incrémentielles, etc.) et jusqu’à 100 Mbits/s pour les sauvegardes de fichiers journaux pour HANA**. Comme indiqué ci-dessus, ces vitesses ne sont pas garanties et dépendent des facteurs suivants :
 
-* Débit de disque maximal sans mise en cache de la machine virtuelle
-* Type de disque sous-jacent et son débit
-* Nombre de processus tentant de lire et d’écrire sur le même disque en même temps.
+- Débit de disque maximal sans mise en cache, de la machine virtuelle : lecture à partir de données ou d’une zone de journaux.
+- Type de disque sous-jacent et son débit : lecture à partir de données ou d’une zone de journaux.
+- Débit maximal du réseau de la machine virtuelle : écriture dans le coffre Recovery Services.
+- Si le réseau virtuel est équipé d’une appliance virtuelle réseau ou d’un pare-feu, il s’agit du débit réseau.
+- Si les données/les journaux sont sur Azure NetApp Files : lecture à partir de ANF, écriture dans le coffre, et consommation du réseau de la machine virtuelle.
 
 > [!IMPORTANT]
 > Dans les machines virtuelles plus petites où le débit de disque non mis en cache est très proche de 400 Mbits/s (ou inférieur à cette valeur), une préoccupation est que le service de sauvegarde consomme la totalité des IOPS du disque, ce qui pourrait affecter les opérations de SAP HANA liées à la lecture/écriture des disques. Dans ce cas, pour limiter la consommation du service de sauvegarde à la valeur maximale, reportez-vous à la section suivante.
@@ -176,13 +180,19 @@ La sortie de commande doit afficher la clé {SID} {DBNAME} avec l’utilisateur 
 
 Voici un récapitulatif des étapes requises pour effectuer l’exécution du script de préinscription. Notez que dans ce flux, nous fournissons la clé utilisateur SYSTEM en tant que paramètre d’entrée au script de préinscription.
 
-|Qui  |Du  |À exécuter  |Commentaires  |
-|---------|---------|---------|---------|
-|```<sid>```adm (OS)     |  Système d’exploitation HANA       |   Lire le tutoriel et télécharger le script de pré-inscription      |   Lire les [prérequis ci-dessus](#prerequisites)    Télécharger le script de pré-inscription [ici](https://aka.ms/scriptforpermsonhana)  |
-|```<sid>```adm (OS) et utilisateur SYSTEM (HANA)    |      Système d’exploitation HANA   |   Exécuter la commande hdbuserstore Set      |   Par exemple, hdbuserstore Set SYSTEM hostname>:3```<Instance#>```13 SYSTEM ```<password>``` **Remarque :**  Veillez à utiliser le nom d’hôte au lieu de l’adresse IP ou du nom de domaine complet      |
-|```<sid>```adm (OS)    |   Système d’exploitation HANA      |  Exécuter la commande hdbuserstore List       |   Vérifiez si le résultat comprend le magasin par défaut comme ci-dessous : ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
-|Root (OS)     |   Système d’exploitation HANA        |    Exécuter le script de pré-inscription HANA de Sauvegarde Azure      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
-|```<sid>```adm (OS)    |  Système d’exploitation HANA       |   Exécuter la commande hdbuserstore List      |    Vérifiez si le résultat comprend de nouvelles lignes, comme indiqué ci-dessous :  ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```     |
+| Qui     |    Du    |    À exécuter    |    Commentaires    |
+| --- | --- | --- | --- |
+| `<sid>`adm (OS) |    Système d’exploitation HANA   | Lisez le tutoriel et téléchargez le script de pré-inscription.  |    Tutoriel : [Sauvegarder des bases de données HANA dans une machine virtuelle Azure](/azure/backup/tutorial-backup-sap-hana-db)   <br><br>    Téléchargez le [script de préinscription](https://go.microsoft.com/fwlink/?linkid=2173610). |
+| `<sid>`adm (OS)    |    Système d’exploitation HANA    |   Démarrez HANA (HDB start)    |   Avant de configurer, assurez-vous que HANA est opérationnel.   |
+| `<sid>`adm (OS)   |   Système d’exploitation HANA  |    Exécutez la commande suivante : <br>  `hdbuserstore Set`   |  `hdbuserstore Set SYSTEM <hostname>:3<Instance#>13 SYSTEM <password>`  <br><br>   **Remarque** <br>  Veillez à utiliser le nom d’hôte au lieu de l’adresse IP ou du nom de domaine complet.   |
+| `<sid>`adm (OS)   |  Système d’exploitation HANA    |   Exécutez la commande suivante :<br> `hdbuserstore List`   |  Vérifiez si le résultat comprend le magasin par défaut, comme ci-dessous : <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
+| Root (OS)   |   Système d’exploitation HANA    |    Exécutez le [script de pré-inscription HANA de la sauvegarde Azure](https://go.microsoft.com/fwlink/?linkid=2173610).     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
+| `<sid>`adm (OS)   |   Système d’exploitation HANA   |    Exécutez la commande suivante : <br> `hdbuserstore List`   |   Vérifiez si le résultat comprend de nouvelles lignes, comme indiqué ci-dessous : <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
+| Contributeur Azure     |    Portail Azure    |   Configurez NSG, l’appliance virtuelle réseau, le pare-feu Azure, etc. pour autoriser le trafic sortant vers le service de sauvegarde Azure, Azure AD et le stockage Azure.     |    [Configurer la connectivité réseau](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)    |
+| Contributeur Azure |   Portail Azure    |   Créez ou ouvrez un coffre Recovery Services, puis sélectionnez Sauvegarde HANA.   |   Recherchez toutes les machines virtuelles HANA cibles à sauvegarder.   |
+| Contributeur Azure    |   Portail Azure    |   Découvrez les bases de données HANA et configurez la stratégie de sauvegarde.   |  Par exemple : <br><br>  Sauvegarde hebdomadaire : tous les dimanches à 2:00 ; conservation des données, hebdomadaire 12 semaines, mensuelle 12 mois, annuelle 3 ans   <br>   Différentielle ou incrémentielle : tous les jours, à l’exception du dimanche    <br>   Journal : toutes les 15 minutes, conservé pendant 35 jours    |
+| Contributeur Azure  |   Portail Azure    |    Coffre Recovery Service – Éléments de sauvegarde – SAP HANA     |   Vérifiez les tâches de sauvegarde (charge de travail Azure).    |
+| Administrateur HANA    | HANA Studio   | Vérifiez la console de sauvegarde, le catalogue de sauvegarde, backup.log, backint.log et globa.ini   |    SYSTEMDB et base de données locataire.   |
 
 Après avoir exécuté le script de pré-inscription et procédé à la vérification, vous pouvez vérifier [les exigences de connectivité](#set-up-network-connectivity), puis [configurer la sauvegarde](#discover-the-databases) à partir du coffre Recovery Services.
 
@@ -221,6 +231,12 @@ Pour créer un archivage de Recovery Services :
    ![Sélectionner Vérifier + créer](./media/tutorial-backup-sap-hana-db/review-create.png)
 
 Le coffre Recovery Services est maintenant créé.
+
+## <a name="enable-cross-region-restore"></a>Activer la restauration inter-région
+
+Dans le coffre Recovery Services, vous pouvez activer la restauration inter-région. Vous devez activer la restauration inter-région avant de configurer et de protéger les sauvegardes sur vos bases de données HANA. Découvrez l’[activation de la restauration inter-région](/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+
+[Apprenez-en davantage](/azure/backup/backup-azure-recovery-services-vault-overview) sur la restauration inter-région.
 
 ## <a name="discover-the-databases"></a>Détecter les bases de données
 

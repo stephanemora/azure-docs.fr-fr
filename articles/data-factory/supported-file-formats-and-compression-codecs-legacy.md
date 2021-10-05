@@ -1,29 +1,29 @@
 ---
-title: Formats de fichier pris en charge dans Azure Data Factory (hérité)
+title: Formats de fichiers pris en charge (hérités)
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Cette rubrique décrit les formats de fichier et les codes de compression pris en charge par les connecteurs basés sur des fichiers dans Azure Data Factory.
+description: Découvrez les formats de fichiers et les codecs de compression pris en charge par les connecteurs basés sur des fichiers dans Azure Data Factory et Synapse Analytics.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: cf1df8645a6b5c7a33305c87732a9c3b108b523d
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/09/2021
+ms.openlocfilehash: c998e64656ed26a3fa42761169c70b81270628dc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256632"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792749"
 ---
-# <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory (hérité)
+# <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-and-synapse-analytics-legacy"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory et Synapse Analytics (hérité)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 *Cet article s’applique aux connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Stockage Fichier Azure](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md).*
 
 >[!IMPORTANT]
->Data Factory a introduit un nouveau modèle de jeu de données en fonction du format. Pour plus d’informations, consultez l’article relatif à chaque format : <br>- [Format Avro](format-avro.md)<br>- [Format binaire](format-binary.md)<br>- [Format de texte délimité](format-delimited-text.md)<br>- [Format JSON](format-json.md)<br>- [Format ORC](format-orc.md)<br>- [Format Parquet](format-parquet.md)<br>Les autres configurations mentionnées dans cet article sont toujours prises en charge telles quelles pour des raisons de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir. 
+>Le service a introduit un nouveau modèle de jeu de données en fonction du format. Pour plus d’informations, consultez l’article relatif à chaque format : <br>- [Format Avro](format-avro.md)<br>- [Format binaire](format-binary.md)<br>- [Format de texte délimité](format-delimited-text.md)<br>- [Format JSON](format-json.md)<br>- [Format ORC](format-orc.md)<br>- [Format Parquet](format-parquet.md)<br>Les autres configurations mentionnées dans cet article sont toujours prises en charge telles quelles pour des raisons de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir. 
 
 ## <a name="text-format-legacy"></a><a name="text-format"></a> Format texte (hérité)
 
@@ -40,7 +40,7 @@ Si vous souhaitez lire ou écrire des données dans un fichier texte, définisse
 | quoteChar |caractère utilisé pour mettre entre guillemets une valeur de chaîne. Les délimiteurs de colonnes et de lignes à l’intérieur des guillemets seraient considérés comme faisant partie de la valeur de chaîne. Cette propriété s’applique aux jeux de données d’entrée et de sortie.<br/><br/>Vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. |Un seul caractère est autorisé. Pas de valeur par défaut. <br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (par exemple : « Hello, world »), vous pouvez définir " (guillemet droit) comme caractère de guillemet et utiliser la chaîne "Hello, world" dans la source. |Non |
 | nullValue |un ou plusieurs caractères utilisés pour représenter une valeur Null. |Un ou plusieurs caractères. Les valeurs **par défaut** sont **« \N » et « NULL »** en lecture, et **« \N »** en écriture. |Non |
 | encodingName |spécifiez le nom du codage. |Une liste de noms d’encodage valides. Consultez : [Propriété Encoding.EncodingName](/dotnet/api/system.text.encoding). Exemple : windows-1250 ou shift_jis. La valeur **par défaut** est **UTF-8**. |Non |
-| firstRowAsHeader |Spécifie si la première ligne doit être considérée comme un en-tête. Pour un jeu de données d’entrée, Data Factory lit la première ligne comme un en-tête. Pour un jeu de données de sortie, Data Factory écrit la première ligne comme un en-tête. <br/><br/>Voir [Scénarios d’utilisation de `firstRowAsHeader` et `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) pour obtenir des exemples de scénarios. |True<br/><b>false (valeur par défaut)</b> |Non |
+| firstRowAsHeader |Spécifie si la première ligne doit être considérée comme un en-tête. Pour un jeu de données d’entrée, le service lit la première ligne comme un en-tête. Pour un jeu de données de sortie, le service écrit la première ligne comme un en-tête. <br/><br/>Voir [Scénarios d’utilisation de `firstRowAsHeader` et `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) pour obtenir des exemples de scénarios. |True<br/><b>false (valeur par défaut)</b> |Non |
 | skipLineCount |Indique le nombre de lignes **non vides** à ignorer lors de la lecture des données à partir des fichiers d’entrée. Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-têtes sont lues à partir du fichier d’entrée. <br/><br/>Voir [Scénarios d’utilisation de `firstRowAsHeader` et `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) pour obtenir des exemples de scénarios. |Integer |Non |
 | treatEmptyAsNull |spécifie s’il faut traiter une chaîne Null ou vide comme une valeur Null lors de la lecture des données à partir d’un fichier d’entrée. |**True (valeur par défaut)**<br/>False |Non |
 
@@ -347,7 +347,7 @@ Le jeu de données d’entrée présentant le type **JsonFormat** est défini co
 
 **Notez les points suivants :**
 
-* Si les éléments `structure` et `jsonPathDefinition` ne sont pas définis dans le jeu de données Data Factory, l’activité de copie détecte le schéma à partir du premier objet et aplatit l’objet entier.
+* Si les éléments `structure` et `jsonPathDefinition` ne sont pas définis dans le jeu de données, l’activité de copie détecte le schéma à partir du premier objet et aplatit l’objet entier.
 * Si l’entrée JSON contient un tableau, l’activité de copie convertit la valeur du tableau entier en une chaîne, par défaut. Vous pouvez choisir d’extraire des données de cette dernière à l’aide de `jsonNodeReference` et/ou `jsonPathDefinition`, ou ignorer cette opération en ne la spécifiant pas dans `jsonPathDefinition`.
 * S’il y a plusieurs noms identiques au même niveau, l’activité de copie sélectionne le dernier nom.
 * Les noms de propriété respectent la casse. Quand deux propriétés de même nom ont une casse différente, elles sont considérées comme deux propriétés distinctes.
@@ -424,12 +424,12 @@ Notez les points suivants :
 
 * Les types de données complexes ne sont pas pris en charge (MAP, LIST).
 * Les espaces blancs dans le nom de colonne ne sont pas pris en charge.
-* Le fichier Parquet a les options liées à la compression suivantes : NONE, SNAPPY, GZIP et LZO. Data Factory prend en charge la lecture des données à partir de fichier Parquet dans tous ces formats compressés sauf LZO ; il utilise le codec de compression dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier Parquet, Data Factory choisit SNAPPY, qui est la valeur par défaut pour le format Parquet. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
+* Le fichier Parquet a les options liées à la compression suivantes : NONE, SNAPPY, GZIP et LZO. Le service prend en charge la lecture des données à partir de fichier Parquet dans tous ces formats compressés sauf LZO ; il utilise le codec de compression dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier Parquet, le service choisit SNAPPY, qui est la valeur par défaut pour le format Parquet. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
 
 > [!IMPORTANT]
 > Dans le cas de copies permises par Integration Runtime (auto-hébergé), par exemple, entre des magasins de données locaux et cloud, si vous ne copiez pas les fichiers Parquet **tels quels**, vous devez installer **JRE 8 64 bits (Java Runtime Environment) ou OpenJDK** sur votre machine de runtime d’intégration. Consultez le paragraphe suivant pour plus de détails.
 
-Dans le cas de copies s’exécutant sur l’IR auto-hébergé avec sérialisation/désérialisation des fichiers Parquet, ADF localise le runtime Java en vérifiant d’abord le registre *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* pour JRE puis, s’il ne le trouve pas, en vérifiant la variable système *`JAVA_HOME`* pour OpenJDK.
+Dans le cas de copies s’exécutant sur l’IR auto-hébergé avec sérialisation/désérialisation des fichiers Parquet, le service localise le runtime Java en vérifiant d’abord le registre *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* pour JRE puis, s’il ne le trouve pas, en vérifiant la variable système *`JAVA_HOME`* pour OpenJDK.
 
 - **Pour utiliser JRE** : Le runtime d’intégration de 64 bits requiert la version 64 bits de JRE. Vous pouvez la récupérer [ici](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Pour utiliser OpenJDK** : il est pris en charge depuis la version 3.13 du runtime d’intégration. Empaquetez jvm.dll avec tous les autres assemblys requis d’OpenJDK dans la machine d’IR auto-hébergé et définissez la variable d’environnement système JAVA_HOME en conséquence.
@@ -437,13 +437,13 @@ Dans le cas de copies s’exécutant sur l’IR auto-hébergé avec sérialisati
 >[!TIP]
 >Si, en copiant des données au format Parquet avec le runtime d’intégration auto-hébergé, vous obtenez une erreur indiquant « An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space** », vous pouvez ajouter une variable d’environnement `_JAVA_OPTIONS` sur l’ordinateur qui héberge le runtime d’intégration auto-hébergé afin d’ajuster la taille de segment de mémoire minimale/maximale nécessaire pour que la machine virtuelle Java puisse effectuer une copie de ce type, puis réexécuter le pipeline.
 
-![Définir la taille de segment de mémoire JVM sur le runtime d’intégration auto-hébergé](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+:::image type="content" source="./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png" alt-text="Définir la taille de segment de mémoire JVM sur le runtime d’intégration auto-hébergé":::
 
-Exemple : donnez la valeur `-Xms256m -Xmx16g` à la variable `_JAVA_OPTIONS`. L’indicateur `Xms` spécifie le pool d’allocation de mémoire initial pour une Machine virtuelle Java (JVM), tandis que `Xmx` spécifie le pool d’allocation de mémoire maximal. En d’autres termes, JVM démarrera avec la quantité de mémoire `Xms` et pourra au maximum utiliser la quantité de mémoire `Xmx`. Par défaut, ADF applique un minimum de 64 Mo et un maximum de 1 Go.
+Exemple : donnez la valeur `-Xms256m -Xmx16g` à la variable `_JAVA_OPTIONS`. L’indicateur `Xms` spécifie le pool d’allocation de mémoire initial pour une Machine virtuelle Java (JVM), tandis que `Xmx` spécifie le pool d’allocation de mémoire maximal. En d’autres termes, JVM démarrera avec la quantité de mémoire `Xms` et pourra au maximum utiliser la quantité de mémoire `Xmx`. Par défaut, le service applique un minimum de 64 Mo et un maximum de 1 Go.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Mappage de type de données pour les fichiers Parquet
 
-| Type de données intermédiaires de Data Factory | Type primitif Parquet | Type d’origine Parquet (désérialiser) | Type d’origine Parquet (sérialiser) |
+| Type de données de service intermédiaire | Type primitif Parquet | Type d’origine Parquet (désérialiser) | Type d’origine Parquet (sérialiser) |
 |:--- |:--- |:--- |:--- |
 | Boolean | Boolean | N/A | N/A |
 | SByte | Int32 | Int8 | Int8 |
@@ -484,19 +484,19 @@ Notez les points suivants :
 
 * Les types de données complexes ne sont pas pris en charge (STRUCT, MAP, LIST, UNION).
 * Les espaces blancs dans le nom de colonne ne sont pas pris en charge.
-* Le fichier ORC a trois [options liées à la compression](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) : NONE, ZLIB, SNAPPY. Data Factory prend en charge la lecture des données du fichier ORC dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier ORC, Data Factory choisit ZLIB, qui est la valeur par défaut pour ORC. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
+* Le fichier ORC a trois [options liées à la compression](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) : NONE, ZLIB, SNAPPY. Le service prend en charge la lecture des données du fichier ORC dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier ORC, le service choisit ZLIB, qui est la valeur par défaut pour ORC. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
 
 > [!IMPORTANT]
 > Dans le cas de copies permises par Integration Runtime (auto-hébergé), par exemple, entre des magasins de données locaux et cloud, si vous ne copiez pas les fichiers ORC **tels quels**, vous devez installer **JRE 8 64 bits (Java Runtime Environment) ou OpenJDK** sur votre machine de runtime d’intégration. Consultez le paragraphe suivant pour plus de détails.
 
-Dans le cas de copies s’exécutant sur l’IR auto-hébergé avec sérialisation/désérialisation des fichiers ORC, ADF localise le runtime Java en vérifiant d’abord le registre *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* pour JRE puis, s’il ne le trouve pas, en vérifiant la variable système *`JAVA_HOME`* pour OpenJDK.
+Dans le cas de copies s’exécutant sur l’IR auto-hébergé avec sérialisation/désérialisation des fichiers ORC, le service localise le runtime Java en vérifiant d’abord le registre *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* pour JRE puis, s’il ne le trouve pas, en vérifiant la variable système *`JAVA_HOME`* pour OpenJDK.
 
 - **Pour utiliser JRE** : Le runtime d’intégration de 64 bits requiert la version 64 bits de JRE. Vous pouvez la récupérer [ici](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Pour utiliser OpenJDK** : il est pris en charge depuis la version 3.13 du runtime d’intégration. Empaquetez jvm.dll avec tous les autres assemblys requis d’OpenJDK dans la machine d’IR auto-hébergé et définissez la variable d’environnement système JAVA_HOME en conséquence.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Mappage de type de données pour fichiers Oracle
 
-| Type de données intermédiaires de Data Factory | Types ORC |
+| Type de données de service intermédiaire | Types ORC |
 |:--- |:--- |
 | Boolean | Boolean |
 | SByte | Byte |
@@ -540,7 +540,7 @@ Notez les points suivants :
 
 ## <a name="compression-support-legacy"></a><a name="compression-support"></a> Prise en charge de la compression (hérité)
 
-Azure Data Factory prend en charge la compression/décompression des données pendant la copie. Quand vous spécifiez la propriété `compression` dans un jeu de données d’entrée, l’activité de copie lit les données compressées à partir de la source, puis les décompresse. Quand vous spécifiez la propriété dans un jeu de données de sortie, l’activité de copie compresse les données, puis les écrit dans le récepteur. Voici quelques exemples de scénarios :
+Le service prend en charge la compression/décompression des données pendant la copie. Quand vous spécifiez la propriété `compression` dans un jeu de données d’entrée, l’activité de copie lit les données compressées à partir de la source, puis les décompresse. Quand vous spécifiez la propriété dans un jeu de données de sortie, l’activité de copie compresse les données, puis les écrit dans le récepteur. Voici quelques exemples de scénarios :
 
 * Lire les données compressées GZIP à partir d’un objet blob Azure, les décompresser et écrire des données du résultat dans une Azure SQL Database. Le jeu de données Azure Blob d’entrée est défini avec la propriété `compression` `type` GZip.
 * Lire les données d’un fichier de texte brut dans le système de fichiers local, les compresser en utilisant le format GZIP et écrire les données compressées dans un objet blob Azure. Un jeu de données Azure Blob de sortie est défini avec la propriété `compression` `type` GZip.
@@ -584,11 +584,11 @@ La section **compression** a deux propriétés :
     Pour plus d’informations, consultez la rubrique [Niveau de compression](/dotnet/api/system.io.compression.compressionlevel) .
 
 > [!NOTE]
-> Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat**, **OrcFormat** ou **ParquetFormat**. Data Factory détecte et utilise le codec de compression se trouvant dans les métadonnées pour lire des fichiers présentant ces formats. Lors de l’écriture dans des fichiers présentant ces formats, Data Factory choisit le code de la compression par défaut pour ce format. Par exemple, ZLIB pour OrcFormat et SNAPPY pour ParquetFormat.
+> Les paramètres de compression ne sont pas pris en charge pour les données au format **AvroFormat**, **OrcFormat** ou **ParquetFormat**. Le service détecte et utilise le codec de compression se trouvant dans les métadonnées pour lire des fichiers présentant ces formats. Lors de l’écriture dans des fichiers présentant ces formats, le service choisit le code de la compression par défaut pour ce format. Par exemple, ZLIB pour OrcFormat et SNAPPY pour ParquetFormat.
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>Types de fichiers et formats de compression non pris en charge
 
-Vous pouvez utiliser les fonctionnalités d’extensibilité d’Azure Data Factory pour transformer les fichiers non pris en charge.
+Vous pouvez utiliser les fonctionnalités d’extensibilité pour transformer les fichiers non pris en charge.
 Parmi les deux options disponibles figurent Azure Functions et les tâches personnalisées par Azure Batch.
 
 Vous pouvez consulter un exemple utilisant une fonction Azure pour [extraire le contenu d’un fichier tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Pour plus d’informations, consultez [Activité Azure Functions](./control-flow-azure-function-activity.md).

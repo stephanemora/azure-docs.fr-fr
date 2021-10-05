@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 08c53f816b151026c03068451aa440f12a2cbc15
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.openlocfilehash: 0c648ae229db1ebe6ae50131c23e292c616b2820
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112677801"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633485"
 ---
 # <a name="quickstart-aspnet-web-app-that-signs-in-azure-ad-users"></a>Démarrage rapide : Application web ASP.NET qui connecte des utilisateurs Azure AD
 
@@ -50,7 +50,7 @@ Dans ce guide de démarrage rapide, vous allez télécharger et exécuter un exe
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 >
 > 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
-> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Annuaire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire l’application.
+> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoires + abonnements** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour basculer vers le locataire dans lequel vous voulez inscrire l’application.
 > 1. Recherchez et sélectionnez **Azure Active Directory**.
 > 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
 > 1. Pour **Nom**, entrez un nom pour votre application. Par exemple, entrez **ASPNET-Quickstart**. Les utilisateurs de votre application verront ce nom, que vous pourrez changer ultérieurement.

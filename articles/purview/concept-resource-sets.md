@@ -6,24 +6,22 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 07/23/2021
-ms.openlocfilehash: 6c51a118b0581759f456b243b6dde25890b36f39
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.date: 09/24/2021
+ms.openlocfilehash: d1d15fb4ff3bc2d820311b4f847c21236d83b6f3
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114668473"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708748"
 ---
 # <a name="understanding-resource-sets"></a>Présentation des jeux de ressources
 
 Cet article vous aide à comprendre comment Azure Purview utilise des jeux de ressources pour mapper des ressources de données à des ressources logiques.
 ## <a name="background-info"></a>Informations générales
 
-Les systèmes de traitement de données à l’échelle stockent généralement une table unique sur un disque en tant que fichiers multiples. Ce concept est représenté dans Azure Purview à l’aide de jeux de ressources. Un jeu de ressources est un objet unique dans le catalogue qui représente un grand nombre de ressources dans le stockage.
+Les systèmes de traitement de données à grande échelle stockent généralement une table unique sur un stockage en tant que fichiers multiples. Dans le catalogue de données Azure Purview, ce concept est représenté à l’aide de jeux de ressources. Un jeu de ressources est un objet unique dans le catalogue qui représente un grand nombre de ressources dans le stockage.
 
 Supposons par exemple que votre cluster Spark a rendu persistant un DataFrame dans une source de données Azure Data Lake Storage (ADLS) Gen2. Bien que dans Spark, le tableau ressemble à une ressource logique unique, sur le disque, il y a probablement des milliers de fichiers Parquet, chacun représentant une partition du contenu total de DataFrame. Les données IoT et les données de journal web sont confrontées au même défi. Imaginez que vous avez un capteur qui génère des fichiers journaux plusieurs fois par seconde. Cela ne prendra pas trop de temps tant que vous n’aurez pas de centaines de milliers de fichiers journaux à partir de ce capteur unique.
-
-Pour résoudre le problème de mappage d’un grand nombre de ressources de données à une seule ressource logique, Azure Purview utilise des jeux de ressources.
 
 ## <a name="how-azure-purview-detects-resource-sets"></a>Comment Azure Purview détecte les jeux de ressources
 
@@ -41,23 +39,44 @@ Ou, pour une URL telle que `https://myaccount.blob.core.windows.net/mycontainer/
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/cy_gb/234.json`
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/de_Ch/23434.json`
 
-## <a name="file-types-that-azure-purview-will-not-detect-as-resource-sets"></a>Types de fichiers qui ne seront pas détectés par Azure Purview en tant que jeux de ressources
+### <a name="file-types-that-azure-purview-will-not-detect-as-resource-sets"></a>Types de fichiers qui ne seront pas détectés par Azure Purview en tant que jeux de ressources
 
 Purview ne tente pas de classer la plupart des types de fichiers de document tels que Word, Excel ou PDF comme jeux de ressources. L’exception est le format CSV, car il s’agit d’un format de fichier partitionné courant.
 
 ## <a name="how-azure-purview-scans-resource-sets"></a>Comment Azure Purview analyse les jeux de ressources
 
-Quand Azure Purview détecte des ressources qu’il considère comme faisant partie d’un jeu de ressources, il passe d’une analyse complète à un exemple d’analyse. Dans un exemple d’analyse, il ouvre uniquement un sous-ensemble des fichiers qu’il pense se trouver dans le jeu de ressources. Pour chaque fichier qu’il ouvre, il utilise son schéma et exécute ses classifieurs. Azure Purview recherche ensuite la ressource la plus récente parmi les ressources ouvertes et utilise le schéma et les classifications de cette ressource dans l’entrée pour l’ensemble des ressources dans le catalogue.
+Quand Azure Purview détecte des ressources qu’il considère comme faisant partie d’un jeu de ressources, il passe d’une analyse complète à un exemple d’analyse. Un exemple d’analyse ouvre uniquement un sous-ensemble des fichiers qu’il pense se trouver dans le jeu de ressources. Pour chaque fichier qu’il ouvre, il utilise son schéma et exécute ses classifieurs. Azure Purview recherche ensuite la ressource la plus récente parmi les ressources ouvertes et utilise le schéma et les classifications de cette ressource dans l’entrée pour l’ensemble des ressources dans le catalogue.
 
-## <a name="what-azure-purview-stores-about-resource-sets"></a>Contenu stocké par Azure Purview sur les jeux de ressources
+## <a name="advanced-resource-sets"></a>Jeux de ressources avancés
 
-Outre le schéma unique et les classifications, Azure Purview stocke les informations suivantes sur les groupes de ressources :
+Par défaut, Azure Purview détermine le schéma et les classifications des jeux de ressources en fonction des [règles d’échantillonnage du fichier de jeu de ressources](sources-and-scans.md#resource-set-file-sampling). Azure Purview peut personnaliser et enrichir davantage vos ressources de jeu de ressources grâce à la fonctionnalité **Jeux de ressources avancés**. Lorsque les jeux de ressources avancés sont activés, Azure Purview exécute des agrégations supplémentaires pour calculer les informations suivantes sur les ressources de jeu de ressources :
 
-- Données de la dernière ressource de partition analysée en profondeur.
-- Informations agrégées sur les ressources de partition qui composent le jeu de ressources.
-- Nombre de partitions qui indique le nombre de ressources de partition trouvées.
-- Nombre de schémas qui indique le nombre de schémas uniques trouvés dans l’ensemble d’exemples sur lequel les analyses approfondies ont été réalisées. Cette valeur est un nombre compris entre 1 et 5, ou pour les valeurs supérieures à 5, 5+.
+- Schéma et classifications les plus à jour pour refléter avec précision la dérive du schéma des métadonnées modifiées.
+- Exemple de chemin d’accès à partir d’un fichier qui inclut le jeu de ressources.
+- Nombre de partitions qui indique le nombre de fichiers qui composent le jeu de ressources. 
+- Nombre de schémas qui affiche combien de schémas uniques ont été trouvés. Cette valeur est un nombre compris entre 1 et 5, ou pour les valeurs supérieures à 5, 5+.
 - Liste de types de partition lorsque plusieurs types de partition sont inclus dans l’ensemble de ressources. Par exemple, un capteur IoT peut produire à la fois des fichiers XML et JSON, bien que les deux soient logiquement intégrés au même jeu de ressources.
+- Taille totale de tous les fichiers qui composent le jeu de ressources. 
+
+Ces propriétés se trouvent sur la page de détails de la ressource du jeu de ressources.
+
+:::image type="content" source="media/concept-resource-sets/resource-set-properties.png" alt-text="Les propriétés calculées lorsque les jeux de ressources avancés sont activés" border="true":::
+
+L’activation des jeux de ressources avancés permet également de créer des [règles de modèle de jeu de ressources](how-to-resource-set-pattern-rules.md) qui permettent de personnaliser la façon dont Azure Purview regroupe les jeux de ressources lors de l’analyse. 
+
+### <a name="turning-on-advanced-resource-sets"></a>Activation des jeux de ressources avancés
+
+Les jeux de ressources avancés sont désactivés par défaut dans toutes les nouvelles instances Azure Purview. Les jeux de ressources avancés peuvent être activés à partir des **informations de compte** dans le hub de gestion.
+
+> [!NOTE]
+> Toutes les instances Purview créées avant le 19 août 2021 disposent d’un jeu de ressources avancé activé par défaut.
+
+:::image type="content" source="media/concept-resource-sets/advanced-resource-set-toggle.png" alt-text="Activez un jeu de ressources avancé." border="true":::
+
+Après l’activation des jeux de ressources avancés, les enrichissements supplémentaires se produisent sur toutes les ressources nouvellement ingérées. L’équipe Azure Purview recommande d’attendre une heure avant d’analyser les nouvelles données du lac de données après avoir activé la fonctionnalité.
+
+> [!IMPORTANT]
+> L’activation de jeux de ressources avancés aura un impact sur le taux d’actualisation des informations sur les ressources et la classification. Lorsque les jeux de ressources avancées sont activés, les informations sur les ressources et la classification ne sont mises à jour que deux fois par jour.
 
 ## <a name="built-in-resource-set-patterns"></a>Modèles de jeu de ressources intégrés
 
@@ -80,7 +99,7 @@ Azure Purview prend en charge les modèles de jeu de ressources suivants. Ces mo
 | Date(yyyy/mm/dd)InPath  | {Year}/{Month}/{Day} | Modèle année/mois/jour couvrant plusieurs dossiers |
 
 
-## <a name="how-resource-sets-are-displayed-in-the-azure-purview-catalog"></a>Affichage des jeux de ressources dans le catalogue Azure Purview
+## <a name="how-resource-sets-are-displayed-in-the-azure-purview-data-catalog"></a>Affichage des jeux de ressources dans le catalogue de données Azure Purview
 
 Quand Azure Purview correspond à un groupe de ressources dans un jeu de ressources, il tente d’extraire les informations les plus utiles à utiliser comme nom d’affichage dans le catalogue. Voici quelques exemples de la convention d’affectation de noms par défaut : 
 

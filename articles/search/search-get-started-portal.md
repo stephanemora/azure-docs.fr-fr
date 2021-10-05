@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: 9bb3bdc7254fb3f9da62936df6429d8cba6b3bd5
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: f9dacea4d80591b6ec5b83ae93564cd8b03aff9c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450056"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212453"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 
@@ -200,7 +200,7 @@ Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez 
 
 + Seuls les champs filtrables peuvent être désignés comme étant à facettes. Les résultats ne peuvent renvoyer que les champs récupérables.
 
-+ Le champ *Évaluation* est un champ à virgule flottante et double précision, et le regroupement se fera par valeur précise. Pour plus d’informations sur le regroupement par intervalle (par exemple « 3 étoiles », « 4 étoiles », etc.), consultez [Guide pratique pour implémenter une navigation par facettes dans la Recherche cognitive Azure](./search-faceted-navigation.md#filter-based-on-a-range).
++ Le champ *Évaluation* est un champ à virgule flottante et double précision, et le regroupement se fera par valeur précise. Pour plus d’informations sur le regroupement par intervalle (par exemple, « 3 étoiles », « 4 étoiles », etc.), consultez [« Paramètres de requête » dans l’API REST](/rest/api/searchservice/search-documents#query-parameters).
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a>Mettre en surbrillance les termes de recherche
 

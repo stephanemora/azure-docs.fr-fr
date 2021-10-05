@@ -1,25 +1,25 @@
 ---
-title: Copier des données de Zoho à l’aide d’Azure Data Factory (préversion)
+title: Copier des données à partir de Zoho (préversion)
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données de Zoho vers des banques de données réceptrices prises en charge.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Zoho vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 9dff844b3922742fb2790a7b0fca22b4b12bbb2c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 65ce2a9e4f1fa8c83f11f391d16deb7512667cee
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311055"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779746"
 ---
-# <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copier des données de Zoho à l’aide d’Azure Data Factory (préversion)
+# <a name="copy-data-from-zoho-using-azure-data-factory-or-synapse-analytics-preview"></a>Copier des données à partir de Zoho à l’aide d’Azure Data Factory Synapse Analytics (préversion)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Zoho. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l’activité de copie dans le pipeline Azure Data Factory ou Synapse Analytics pour copier des données de Zoho. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!IMPORTANT]
 > Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
@@ -36,7 +36,7 @@ Vous pouvez copier les données depuis Zoho vers une banque de données réceptr
 
 Ce connecteur prend en charge l’authentification par jeton d’accès Xero et l’authentification OAuth 2.0.
 
-Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
+Le service fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -81,9 +81,9 @@ Les propriétés prises en charge pour le service lié Zoho sont les suivantes :
 | endpoint | Le point de terminaison du serveur Zoho (`crm.zoho.com/crm/private`). | Oui |
 | authenticationType | Les valeurs autorisées sont `OAuth_2.0` et `Access Token`. | Oui |
 | clientId | L’ID client associé à votre application Zoho. | Oui pour l’authentification OAuth 2.0 | 
-| clientSecrect | Le secret client associé à votre application Zoho. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui pour l’authentification OAuth 2.0 | 
-| refreshToken | Le jeton d’actualisation OAuth 2.0 associé à votre application Zoho et utilisé pour actualiser le jeton d’accès quand il expire. Le jeton d’actualisation n’expire jamais. Pour obtenir un jeton d’actualisation, vous devez demander le paramètre access_type `offline`. Apprenez-en davantage dans [cet article](https://www.zoho.com/crm/developer/docs/api/auth-request.html). <br>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).| Oui pour l’authentification OAuth 2.0 |
-| accessToken | Le jeton d’accès pour l’authentification Zoho. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| clientSecrect | Le secret client associé à votre application Zoho. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui pour l’authentification OAuth 2.0 | 
+| refreshToken | Le jeton d’actualisation OAuth 2.0 associé à votre application Zoho et utilisé pour actualiser le jeton d’accès quand il expire. Le jeton d’actualisation n’expire jamais. Pour obtenir un jeton d’actualisation, vous devez demander le paramètre access_type `offline`. Apprenez-en davantage dans [cet article](https://www.zoho.com/crm/developer/docs/api/auth-request.html). <br>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).| Oui pour l’authentification OAuth 2.0 |
+| accessToken | Le jeton d’accès pour l’authentification Zoho. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion TLS. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion TLS. La valeur par défaut est true.  | Non |
@@ -223,4 +223,4 @@ Pour copier des données de Zoho, définissez le type de source dans l’activit
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

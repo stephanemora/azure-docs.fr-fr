@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 1006f29544bf2708277c6b5a975836a31bcdeff9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6f8812e4894a9ba0daa4423fae77b43bcdb758d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959286"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643989"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutoriel : Ajouter des fonctions de modèle à votre modèle ARM
 
@@ -29,11 +29,11 @@ Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Man
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
-L’emplacement du compte de stockage est codé en dur sur **USA Est**. Toutefois, vous pouvez avoir besoin de déployer le compte de stockage dans d’autres régions. Vous êtes à nouveau confronté à un manque de flexibilité de votre modèle. L’ajout d’un paramètre pour l’emplacement serait envisageable, mais si sa valeur par défaut était plus logique qu’une simple valeur codée en dur, ce serait sensationnel.
+L’emplacement du compte de stockage est codé en dur sur **eastus**. Toutefois, vous pouvez avoir besoin de déployer le compte de stockage dans d’autres régions. Vous êtes à nouveau confronté à un manque de flexibilité de votre modèle. L’ajout d’un paramètre pour l’emplacement serait envisageable, mais si sa valeur par défaut était plus logique qu’une simple valeur codée en dur, ce serait sensationnel.
 
 ## <a name="use-function"></a>Utiliser une fonction
 
-Si vous avez suivi le tutoriel précédent de cette série, vous vous êtes déjà servi d’une fonction. Quand vous avez ajouté `"[parameters('storageName')]"`, vous avez utilisé la fonction [parameters](template-functions-deployment.md#parameters). Les crochets indiquent que la syntaxe à l’intérieur des crochets est une [expression de modèle](template-expressions.md). Resource Manager résout la syntaxe au lieu de la traiter en tant que valeur littérale.
+Si vous avez suivi le [tutoriel sur les paramètres](./template-tutorial-add-parameters.md#make-template-reusable), vous avez utilisé une fonction. Quand vous avez ajouté `"[parameters('storageName')]"`, vous avez utilisé la fonction [parameters](template-functions-deployment.md#parameters). Les crochets indiquent que la syntaxe à l’intérieur des crochets est une [expression de modèle](template-expressions.md). Resource Manager résout la syntaxe au lieu de la traiter en tant que valeur littérale.
 
 Les fonctions ajoutent de la flexibilité à votre modèle en obtenant de manière dynamique des valeurs pendant le déploiement. Dans ce tutoriel, vous utilisez une fonction pour obtenir l’emplacement du groupe de ressources que vous utilisez pour le déploiement.
 

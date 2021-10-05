@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 02/18/2021
-ms.openlocfilehash: bc6c64c7ce8f3a836e1a2fc002e423536f55e48c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: be4aa228ff5882f0068bb0a7ffb436359e62f80a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638881"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771609"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Charger de façon incrémentielle des données d’Azure SQL Database sur le Stockage Blob Azure en utilisant des informations de suivi des modifications avec PowerShell
 
@@ -57,13 +57,13 @@ Dans ce didacticiel, vous créez deux pipelines qui effectuent les deux opérati
 
 1. **Chargement initial :** vous créez un pipeline avec une activité de copie qui copie l’ensemble des données du magasin de données source (Azure SQL Database) dans le magasin de données de destination (Stockage Blob Azure).
 
-    ![Chargement complet des données](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png" alt-text="Chargement complet des données":::
 1.  **Chargement incrémentiel :** vous créez un pipeline avec les activités suivantes, et vous l’exécutez régulièrement.
     1. Créez **deux activités de recherche** pour obtenir les valeurs SYS_CHANGE_VERSION anciennes et nouvelles dans Azure SQL Database et les transmettre à l’activité de copie.
     2. Créez **une activité de copie** pour copier les données insérées/mises à jour/supprimées entre deux valeurs SYS_CHANGE_VERSION d’Azure SQL Database dans Stockage Blob Azure.
     3. Créez **une activité de procédure stockée** pour mettre à jour la valeur de SYS_CHANGE_VERSION pour la prochaine exécution du pipeline.
 
-    ![Diagramme de flux de chargement incrémentiel](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png" alt-text="Diagramme de flux de chargement incrémentiel":::
 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -441,26 +441,26 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Tous les services**, effectuez une recherche avec le mot clé `data factories`, puis sélectionnez **Fabriques de données**.
 
-    ![Menu Fabriques de données](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png" alt-text="Menu Fabriques de données":::
 3. Recherchez **votre fabrique de données** dans la liste des fabriques de données et sélectionnez-la pour ouvrir la page de la fabrique de données.
 
-    ![Rechercher votre fabrique de données](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png" alt-text="Rechercher votre fabrique de données":::
 4. Sur la page Fabrique de données, cliquez sur la vignette **Surveiller et gérer**.
 
-    ![Vignette Surveiller et gérer](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png" alt-text="Vignette Superviser et gérer":::    
 5. L’**application d’intégration des données** démarre dans un onglet séparé. Vous pouvez voir toutes les **exécutions de pipeline** et leurs états. Notez que dans l’exemple suivant, l’état d’exécution de pipeline est **Réussite**. Vous pouvez vérifier les paramètres transmis au pipeline en cliquant sur le lien dans la colonne **Paramètres**. Si une erreur s’est produite, vous voyez un lien dans la colonne **Erreur**. Cliquez sur le lien dans la colonne **Actions**.
 
-    ![Capture d’écran montrant les exécutions de pipeline pour une fabrique de données.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png" alt-text="Capture d’écran montrant les exécutions de pipeline pour une fabrique de données.":::    
 6. Lorsque vous cliquez sur le lien dans la colonne **Actions**, la page suivante affiche toutes les **exécutions d’activité** du pipeline.
 
-    ![Capture d’écran montrant les exécutions d’activités pour une fabrique de données avec le lien Pipelines sélectionné.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png" alt-text="Capture d’écran montrant les exécutions d’activités pour une fabrique de données avec le lien Pipelines sélectionné.":::
 7. Pour revenir à la vue **Exécutions de pipeline**, cliquez sur **Pipelines** comme illustré dans l’image.
 
 
 ### <a name="review-the-results"></a>Passer en revue les résultats.
 Vous voyez un fichier nommé `incremental-<GUID>.txt` dans le dossier `incchgtracking` du conteneur `adftutorial`.
 
-![Fichier de sortie d’une copie complète](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png" alt-text="Fichier de sortie d’une copie complète":::
 
 Le fichier doit contenir les données de votre base de données :
 
@@ -626,16 +626,16 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Surveiller le pipeline de copie incrémentielle
 1. Dans l’**Application d’intégration de données**, actualisez la vue **Exécutions de pipeline**. Vérifiez que IncrementalCopyPipeline apparaît dans la liste. Cliquez sur le lien dans la colonne **Actions**.  
 
-    ![Capture d’écran montrant les exécutions de pipeline pour une fabrique de données incluant votre pipeline.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png" alt-text="Capture d’écran montrant les exécutions de pipeline pour une fabrique de données incluant votre pipeline.":::    
 2. Lorsque vous cliquez sur le lien dans la colonne **Actions**, la page suivante affiche toutes les **exécutions d’activité** du pipeline.
 
-    ![Capture d’écran montrant des exécutions de pipeline pour une fabrique de données avec plusieurs exécutions marquées comme ayant réussi.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png" alt-text="Capture d’écran montrant des exécutions de pipeline pour une fabrique de données avec plusieurs exécutions marquées comme ayant réussi.":::
 3. Pour revenir à la vue **Exécutions de pipeline**, cliquez sur **Pipelines** comme illustré dans l’image.
 
 ### <a name="review-the-results"></a>Passer en revue les résultats.
 Vous voyez le second fichier dans le dossier `incchgtracking` du conteneur `adftutorial`.
 
-![Fichier de sortie de la copie incrémentielle](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png" alt-text="Fichier de sortie de la copie incrémentielle":::
 
 Le fichier ne doit contenir que les données delta de votre base de données. L’enregistrement avec `U` correspond à la ligne mise à jour dans la base de données et `I` à la ligne ajoutée.
 

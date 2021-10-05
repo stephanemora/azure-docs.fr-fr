@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 08/15/2020
 ms.author: iafinder
-ms.openlocfilehash: 7ba99bca79fe25a740d11cfe5d87937d13ccdfd0
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 574118d9bd8c400eccb48ed551d6059c0dfc7bf2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527655"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551678"
 ---
 # <a name="migration-guide-for-gpu-compute-workloads-in-azure"></a>Guide de migration des charges de travail de calcul GPU dans Azure
 
@@ -30,7 +30,7 @@ Azure reconnaît que les clients ont une multitude d’impératifs qui peuvent d
 
 Dans le même temps, l’accélération GPU est un nouveau domaine dont l’évolution est rapide.
 
-Ainsi, il n’existe pas de véritables recommandations d’aide universelles pour ce domaine de produits. Une migration est le moment idéal pour réévaluer les changements potentiellement importants apportés à une charge de travail, par exemple le passage d’un modèle de déploiement en cluster à une seule machine virtuelle à 8 GPU (ou l’inverse), l’exploitation de types de données à précision réduite, l’adoption de fonctionnalités telles que le GPU multi-instance, etc.
+Par conséquent, il n'existe pas d'orientation unique pour ce domaine de produits, et une migration est le moment idéal pour réévaluer les changements potentiellement spectaculaires apportés à une charge de travail - comme le passage d'un modèle de déploiement en grappe à une seule grande VM à 8 GPU ou vice versa, l'exploitation de types de données de précision réduite, l'adoption de fonctionnalités telles que le GPU multi-instance, et bien plus encore.
 
 Les considérations de ce genre, qui sont effectuées dans le contexte d’améliorations déjà considérables des performances des GPU par génération, et où une fonctionnalité telle que l’ajout de cœurs Tensor peut accroître les performances selon un ordre de grandeur, dépendent fortement de la charge de travail.
 
@@ -112,7 +112,7 @@ Suivez le guide permettant de [demander une augmentation du quota de processeurs
 
 #### <a name="resize-the-current-virtual-machine"></a>Redimensionner la machine virtuelle actuelle
 
-Vous pouvez [redimensionner la machine virtuelle via le portail Azure ou PowerShell](./windows/resize-vm.md). Vous pouvez également [redimensionner la machine virtuelle à l’aide d’Azure CLI](./linux/change-vm-size.md).
+Vous pouvez [redimensionner la machine virtuelle](resize-vm.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

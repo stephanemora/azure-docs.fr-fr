@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 08/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5c8918870274cb0ea443dd1f4c93f39c301c6287
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: d91b14057937275338ee1c96ee4025d66af6251d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527978"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794595"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services"></a>Notes de publication – Services de données activés par Azure Arc
 
@@ -140,7 +140,7 @@ Utilisez les outils suivants :
 
 ##### <a name="point-in-time-restorepitr-supportability-and-limitations"></a>Prise en charge de la restauration à un instant dans le passé et limites :
     
--  Ne prend pas en charge la restauration d’une instance gérée SQL avec Azure Arc vers une autre instance gérée SQL avec Azure Arc.  La base de données peut uniquement être restaurée sur la même instance gérée SQL avec Azure Arc où les sauvegardes ont été créées.
+-  Ne prend pas en charge la restauration d’une SQL Managed Instance avec Azure Arc vers une autre SQL Managed Instance avec Azure Arc.  La base de données peut uniquement être restaurée sur la même instance gérée SQL avec Azure Arc où les sauvegardes ont été créées.
 -  Le changement de nom d’une base de données n’est actuellement pas pris en charge, à des fins de limite de restauration dans le temps.
 -  Actuellement, il n’existe pas de commande CLI ni d’API pour fournir des informations sur la fenêtre de temps autorisée pour une limite de restauration dans le temps. Vous pouvez fournir une heure dans une fenêtre raisonnable, depuis la création de la base de données, et, si le timestamp est valide, la restauration fonctionne. Si le timestamp n’est pas valide, la fenêtre de temps autorisée sera fournie par l’intermédiaire d’un message d’erreur.
 -  Aucune prise en charge de la restauration d’une base de données avec TDE.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 42d25619ef8f704e49e9001969b2b76dd921e9fb
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: a823506f47e5faa49ae736883df8aeabb122e248
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112463798"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758678"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-readcube-papers"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ReadCube Papers
 
@@ -78,9 +78,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, effectuez l’étape suivante :
+    1. Dans la zone **URL de réponse (URL ACS)** , tapez l’URL : `https://connect.liblynx.com/saml/module.php/saml/sp/saml2-acs.php/dsrsi`
+    2. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.readcube.com`
 
-    a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.readcube.com`
+        ![Capture d’écran montrant des exemples de paramètres dans le volet Configuration SAML.](./media/readcube-papers-tutorial/configure-saml.png)
 
+         
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
@@ -115,7 +118,7 @@ Pour configurer l’authentification unique côté **ReadCube Papers**, vous dev
 
 ### <a name="create-readcube-papers-test-user"></a>Créer un utilisateur de test ReadCube Papers
 
-Dans cette section, un utilisateur appelé Britta Simon est créé dans ReadCube Papers. ReadCube Papers prend en charge l’attribution d’utilisateurs juste-à-temps (option activée par défaut). Vous n’avez aucune opération à effectuer dans cette section. Si l’utilisateur souhaité n’existe pas déjà dans ReadCube Papers, un utilisateur est créé après l’authentification.
+Dans cette section, une utilisatrice appelée B.Simon est créée dans ReadCube Papers. ReadCube Papers prend en charge l’attribution d’utilisateurs juste-à-temps (option activée par défaut). Vous n’avez aucune opération à effectuer dans cette section. Si l’utilisateur souhaité n’existe pas déjà dans ReadCube Papers, un utilisateur est créé après l’authentification.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -128,7 +131,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à ReadCube Papers, puis lancez le flux de connexion à partir de cet emplacement.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette ReadCube Papers dans Mes applications vous redirige vers l’URL de connexion à ReadCube Papers. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette ReadCube Papers dans le portail Mes applications, vous êtes redirigé vers l’URL de connexion à ReadCube Papers. Pour plus d’informations sur le portail Mes applications, consultez [Introduction à Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 01cca2f2233ed5cdfb3003bb44c40f481bcf9bda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e103af26d62518dabb5314c79c61335a2791417a
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94699404"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479865"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Configuration IP flottante d’Azure Load Balancer
 
@@ -24,15 +24,16 @@ L’équilibreur de charge offre plusieurs fonctionnalités pour les application
 
 ## <a name="floating-ip"></a>IP flottante
 
-Dans certains scénarios d’application, il est préférable ou nécessaire que plusieurs instances d’application utilisent le même port sur une machine virtuelle du pool principal. Des exemples courants de réutilisation de port incluent le clustering pour la haute disponibilité, les appliances réseau virtuelles, ainsi que l’exposition de plusieurs points de terminaison TLS sans nouveau chiffrement. Si vous souhaitez réutiliser le port principal pour plusieurs règles, vous devez activer la fonctionnalité d’adresse IP flottante dans la définition des règles.
+Dans certains scénarios d’application, il est préférable ou nécessaire que plusieurs instances d’application utilisent le même port sur une machine virtuelle du pool principal. Exemples courants de réutilisation de port : 
+- mise en grappe pour la haute disponibilité
+- appliances virtuelles réseau
+- exposition de plusieurs points de terminaison TLS sans rechiffrement. 
 
-**Adresse IP flottante** est le terme Azure désignant une partie de ce que l’on appelle le « retour direct du serveur » (Direct Server Return, DSR). La configuration DSR comprend deux parties :
+Si vous souhaitez réutiliser le port principal pour plusieurs règles, vous devez activer la fonctionnalité d’adresse IP flottante dans la définition des règles.
 
-- une topologie de flux ;
-- un schéma de mappage d’adresses IP.
+Lorsque l'IP flottante est activée, Azure modifie le mappage de l'adresse IP à l'adresse IP du frontend de l'équilibreur de charge au lieu de l'IP de l'instance backend. 
 
-Du point de vue de la plate-forme, Azure Load Balancer fonctionne toujours dans une topologie de flux DSR, que l’adresse IP flottante soit activée ou non. Cela signifie que la partie sortante d’un flux est toujours correctement réécrite pour retourner directement à l’origine.
-À défaut d’adresse IP flottante, Azure expose un schéma de mappage d’adresse IP d’équilibrage de charge traditionnel pour faciliter l’utilisation (adresse IP des instances de machine virtuelle). L’activation de l’adresse IP flottante modifie le mappage de l’adresse IP à l’adresse IP frontale de l’équilibreur de charge afin de permettre davantage de flexibilité. En savoir plus [ici](load-balancer-multivip-overview.md).
+Sans IP flottante, Azure expose l'IP des instances VM. L’activation de l’adresse IP flottante modifie le mappage de l’adresse IP à l’adresse IP frontale de l’équilibreur de charge afin de permettre davantage de flexibilité. En savoir plus [ici](load-balancer-multivip-overview.md).
 
 ## <a name="limitations"></a><a name = "limitations"></a>Limitations
 

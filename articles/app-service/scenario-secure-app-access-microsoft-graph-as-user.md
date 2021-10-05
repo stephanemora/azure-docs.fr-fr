@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/21/2021
+ms.date: 09/23/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: ff35dc6211992bd3d89161dede2745c2e366ee8f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 332552d361c4c8c43b7b4bfa981050c829a79762
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112463816"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624517"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Tutoriel : Accéder à Microsoft Graph à partir d’une application sécurisée en tant qu’utilisateur
 
@@ -53,7 +53,7 @@ Sélectionnez **Autorisations déléguées**, puis **Utilisateur.Lecture** dans 
 
 ## <a name="configure-app-service-to-return-a-usable-access-token"></a>Configurer App Service pour renvoyer un jeton d’accès utilisable
 
-L’application web dispose maintenant des autorisations nécessaires pour accéder à Microsoft Graph en tant qu’utilisateur connecté. Lors de cette étape, vous allez configurer l’authentification et l’autorisation App Service afin d’obtenir un jeton d’accès utilisable pour accéder à Microsoft Graph. Pour cette étape, vous avez besoin de l’ID d’application/client du service en aval (Microsoft Graph). L’ID d’application pour Microsoft Graph est *00000003-0000-0000-c000-000000000000*.
+L’application web dispose maintenant des autorisations nécessaires pour accéder à Microsoft Graph en tant qu’utilisateur connecté. Lors de cette étape, vous allez configurer l’authentification et l’autorisation App Service afin d’obtenir un jeton d’accès utilisable pour accéder à Microsoft Graph. Pour cette étape, vous devez ajouter l’étendue User.Read pour le service en aval (Microsoft Graph) : `https://graph.microsoft.com/User.Read`.
 
 > [!IMPORTANT]
 > Si vous ne configurez pas App Service pour retourner un jeton d’accès utilisable, vous recevez une erreur ```CompactToken parsing failed with error code: 80049217``` lorsque vous appelez des API Microsoft Graph dans votre code.
@@ -65,7 +65,7 @@ Azure Resource Explorer est désormais ouvert avec votre application web sélect
 
 Dans le navigateur de gauche, descendez dans la hiérarchie jusqu’à **config** > **authsettingsV2**.
 
-Dans la vue **authsettingsV2**, sélectionnez **Modifier**. Recherchez la section **login** de **identityProviders** -> **azureActiveDirectory** et ajoutez les paramètres **loginParameters** suivants : `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]`.
+Dans la vue **authsettingsV2**, sélectionnez **Modifier**. Recherchez la section **login** de **identityProviders** -> **azureActiveDirectory** et ajoutez les paramètres **loginParameters** suivants : `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]`.
 
 ```json
 "identityProviders": {
@@ -74,7 +74,7 @@ Dans la vue **authsettingsV2**, sélectionnez **Modifier**. Recherchez la sectio
       "login": {
         "loginParameters":[
           "response_type=code id_token",
-          "resource=00000003-0000-0000-c000-000000000000"
+          "scope=openid offline_access profile https://graph.microsoft.com/User.Read"
         ]
       }
     }
@@ -98,7 +98,7 @@ Récupérez les paramètres « config/authsettingsv2 » existants et enregistr
 az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2/list?api-version=2020-06-01' > authsettings.json
 ```
 
-Ouvrez le fichier authsettings.js à l’aide de votre éditeur de texte par défaut. Recherchez la section **login** de **identityProviders** -> **azureActiveDirectory** et ajoutez les paramètres **loginParameters** suivants : `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]`.
+Ouvrez le fichier authsettings.js à l’aide de votre éditeur de texte par défaut. Recherchez la section **login** de **identityProviders** -> **azureActiveDirectory** et ajoutez les paramètres **loginParameters** suivants : `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]`.
 
 ```json
 "identityProviders": {
@@ -107,7 +107,7 @@ Ouvrez le fichier authsettings.js à l’aide de votre éditeur de texte par dé
       "login": {
         "loginParameters":[
           "response_type=code id_token",
-          "resource=00000003-0000-0000-c000-000000000000"
+          "scope=openid offline_access profile https://graph.microsoft.com/User.Read"
         ]
       }
     }
@@ -121,13 +121,6 @@ Enregistrez vos modifications dans le fichier *authsettings.js* et chargez les p
 az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2?api-version=2020-06-01' --body @./authsettings.json
 ```
 ---
-
-## <a name="update-the-issuer-url"></a>Mettre à jour l’URL de l’émetteur
-Dans le [Portail Azure](https://portal.azure.com), accédez à votre App service puis au panneau **Authentification**.
-
-Cliquez sur le lien **Modifier** en regard du fournisseur d’identité Microsoft.
-
-Vérifiez l’**URL de l’émetteur** sous l’onglet **De base**. Si l’**URL de l’émetteur** se termine par « /v2.0 », supprimez ce suffixe et cliquez sur **Enregistrer**. Si vous ne supprimez pas « /v2.0 », le message *AADSTS901002: The ’resource’ request parameter is not supported* (Le paramètre de la requête « Ressource » n’est pas pris en charge) s’affiche lorsque vous vous connectez à l’application web.
 
 ## <a name="call-microsoft-graph-net"></a>Appeler Microsoft Graph (.NET)
 

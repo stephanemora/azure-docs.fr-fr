@@ -1,22 +1,22 @@
 ---
 title: 'Tutoriel : Déployer des configurations à l’aide de GitOps sur un cluster Kubernetes avec Azure Arc'
-description: Ce tutoriel montre comment appliquer des configurations sur un cluster Kubernetes avec Azure Arc. Pour une interprétation conceptuelle de ce processus, consultez l’article Configurations et GitOps - Kubernetes avec Azure Arc.
+description: Ce tutoriel montre comment appliquer des configurations sur un cluster Kubernetes avec Azure Arc. Pour une interprétation conceptuelle de ce processus, consultez l’article Configurations et GitOps – Kubernetes avec Azure Arc.
 author: shashankbarsin
 ms.author: shasb
 ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial , devx-track-azurecli
-ms.openlocfilehash: c98a912394bf660f7a2f09c25c10629fd9810434
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: c40720eccde3c075c422d478c1b0cbf493b5196f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123098300"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820629"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutoriel : Déployer des configurations à l’aide de GitOps sur un cluster Kubernetes avec Azure Arc 
 
-Dans ce tutoriel, vous allez appliquer des configurations à l’aide de GitOps sur un cluster Kubernetes avec Azure Arc. Vous découvrirez comment effectuer les actions suivantes :
+Dans ce tutoriel, vous allez appliquer des configurations à l’aide de GitOps sur un cluster Kubernetes avec Azure Arc. Vous allez découvrir comment :
 
 > [!div class="checklist"]
 > * Créer une configuration sur un cluster Kubernetes avec Azure Arc à l’aide d’un exemple de dépôt Git.
@@ -29,7 +29,7 @@ Dans ce tutoriel, vous allez appliquer des configurations à l’aide de GitOps 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Cluster Kubernetes avec Azure Arc connecté.
     - Si vous n’avez pas encore connecté de cluster, consultez notre [guide de démarrage rapide sur la connexion d’un cluster Kubernetes avec Azure Arc](quickstart-connect-cluster.md).
-- Compréhension suffisante des avantages et de l’architecture de cette fonctionnalité. Pour plus d’informations, consultez l’article [Configurations et GitOps - Kubernetes avec Azure Arc](conceptual-configurations.md).
+- Compréhension suffisante des avantages et de l’architecture de cette fonctionnalité. Pour plus d’informations, consultez l’article [Configurations et GitOps – Kubernetes avec Azure Arc](conceptual-configurations.md).
 - Installez l'extension `k8s-configuration` d'Azure CLI, version >= 1.0.0 :
   
   ```azurecli

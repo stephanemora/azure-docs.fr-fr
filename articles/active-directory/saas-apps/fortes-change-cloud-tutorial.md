@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 025d8d2007501f858b0f80e770ce6b8a230650bf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d7e2c61dc4d725ec98cf3267cf62ffc3e3d99c47
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130554"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648351"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortes-change-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Fortes Change Cloud
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Fortes Change Cloud prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
+* Fortes Change Cloud prend en charge l’[attribution automatisée d’utilisateurs](fortes-change-cloud-provisioning-tutorial.md).
 
 ## <a name="adding-fortes-change-cloud-from-the-gallery"></a>Ajout de Fortes Change Cloud à partir de la galerie
 
@@ -126,6 +127,8 @@ Pour configurer l’authentification unique côté **Fortes Change Cloud**, vous
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Fortes Change Cloud. Rapprochez-vous de l’[équipe de support Fortes Change Cloud](mailto:support@fortes.nl) pour ajouter les utilisateurs dans la plateforme Fortes Change Cloud. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+Fortes Change Cloud prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./fortes-change-cloud-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -140,7 +143,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors automatiquement connecté à l’instance Fortes Change Cloud pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Fortes Change Cloud dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance Fortes Change Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Fortes Change Cloud dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance Fortes Change Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

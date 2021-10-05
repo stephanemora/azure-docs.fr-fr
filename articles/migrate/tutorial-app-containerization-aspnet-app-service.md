@@ -2,17 +2,17 @@
 title: Azure App, conteneurisation, ASP.NET ; conteneurisation et migration d’applications ASP.NET vers Azure App Service.
 description: 'Tutoriel : Conteneuriser des applications ASP.NET et les migrer vers Azure App Service.'
 services: ''
-author: rahugup
+author: rahug1190
 manager: bsiva
 ms.topic: tutorial
 ms.date: 07/02/2021
 ms.author: rahugup
-ms.openlocfilehash: fd0a7d3e1af6bb0a0dad10f9a92194b495b13b91
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: e574b7b71f9ea2c968020a11c7b18c3ff4f0a64b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253105"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621437"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-app-service"></a>Conteneurisation d’applications ASP.NET et leur migration vers Azure App Service
 
@@ -153,7 +153,8 @@ L’outil d’assistance Conteneurisation d’applications se connecte à distan
 1. Spécifiez l’**adresse IP ou le FQDN et les informations d’identification** du serveur exécutant l’application ASP.NET à utiliser pour se connecter à distance au serveur pour la découverte d’applications.
     - Les informations d’identification fournies doivent celles d’un administrateur local (Windows) sur le serveur d’applications.
     - Pour les comptes de domaine (l’utilisateur doit être un administrateur sur le serveur d’applications), préfixez le nom d’utilisateur avec le nom de domaine au format *<domaine\nom_utilisateur>* .
-    - Vous pouvez exécuter une découverte d’applications pour cinq serveurs à la fois.
+    - Pour les comptes locaux (l’utilisateur doit être un administrateur sur le serveur d’applications), préfixez le nom d’utilisateur avec le nom d’hôte au format *<domaine\nom_utilisateur>* .
+    - Vous pouvez exécuter une découverte d’applications pour cinq serveurs à la fois.
 
 2. Cliquez sur **Valider** pour vérifier que le serveur d’applications est accessible à partir de la machine exécutant l’outil et que les informations d’identification sont valides. Une fois la validation réussie, la colonne d’état indique l’état **Mappé**.  
 
@@ -166,8 +167,8 @@ L’outil d’assistance Conteneurisation d’applications se connecte à distan
     ![Capture d’écran de l’application ASP.NET découverte.](./media/tutorial-containerize-apps-aks/discovered-app-asp.png)
 
 
-4. Utilisez la case à cocher pour sélectionner les applications à conteneuriser.
-5. **Spécifier le nom du conteneur** : spécifiez un nom pour le conteneur cible pour chaque application sélectionnée. Vous devez spécifier le nom du conteneur sous la forme <*nom:étiquette*> où l’étiquette est utilisée pour l’image conteneur. Par exemple, vous pouvez spécifier le nom du conteneur cible comme *nom_app:v1*.   
+5. Utilisez la case à cocher pour sélectionner les applications à conteneuriser.
+6. **Spécifier le nom du conteneur** : spécifiez un nom pour le conteneur cible pour chaque application sélectionnée. Vous devez spécifier le nom du conteneur sous la forme <*nom:étiquette*> où l’étiquette est utilisée pour l’image conteneur. Par exemple, vous pouvez spécifier le nom du conteneur cible comme *nom_app:v1*.   
 
 ### <a name="parameterize-application-configurations"></a>Paramétrer les configurations de l’application
 Paramétrer la configuration a pour effet de rendre celle-ci disponible en tant que paramètre d’heure de déploiement. Vous pouvez ainsi configurer ce paramètre lors du déploiement de l’application, par opposition au codage en dur d’une valeur spécifique dans l’image conteneur. Par exemple, cette option est utile pour des paramètres tels que des chaînes de connexion de base de données.

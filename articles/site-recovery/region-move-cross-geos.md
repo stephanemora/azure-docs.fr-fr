@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: a76ebf95b92b6e1251a04daa9ffb48a9abe15b50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24f3d5bfa5883477b436956d90b7af70142311aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89425345"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587743"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Déplacer des machines virtuelles Azure entre Azure Government et des régions publiques 
 
@@ -79,7 +79,7 @@ Le service Mobilité doit être installé sur chaque serveur que vous souhaitez 
 
 - Vous pouvez utiliser un compte local ou de domaine
 - Pour les machines virtuelles Windows, si vous n’utilisez pas un compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale. Pour cela, dans le registre situé sous **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, ajoutez l’entrée DWORD **LocalAccountTokenFilterPolicy** avec une valeur de 1.
-- Pour ajouter l’entrée de registre pour désactiver le paramètre à partir d’une interface CLI, tapez :       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Pour ajouter l’entrée de registre afin de désactiver le paramètre à partir d’une interface CLI, tapez : `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`
 - Pour Linux, le compte doit être un utilisateur racine sur le serveur Linux source.
 
 

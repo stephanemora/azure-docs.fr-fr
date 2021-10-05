@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 08e9b63c8ec56ddba1899372d0d6b1d2c8bc423f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2fcaaf038ec7a619ec36a68fdd720ac7599da25f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121784187"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649716"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version 3.6) : fonctionnalités et syntaxe prises en charge
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -295,9 +295,9 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 | $dateToString | Oui |
 | $isoDayOfWeek | Oui |
 | $isoWeek | Oui |
-| $dateFromParts | Non | 
-| $dateToParts | Non |
-| $dateFromString | Non |
+| $dateFromParts | Oui | 
+| $dateToParts | Oui |
+| $dateFromString | Oui |
 | $isoWeekYear | Oui |
 
 ### <a name="conditional-expressions"></a>Expressions conditionnelles
@@ -417,7 +417,7 @@ Dans les requêtes $regex, les expressions ancrées à gauche autorisent la rech
 
 Lorsqu’il est nécessaire d’inclure « $ » ou « | », il est préférable de créer deux requêtes regex (ou plus). Par exemple, étant donné la requête d’origine suivante : ```find({x:{$regex: /^abc$/})```, elle doit être modifiée comme suit :
 
-```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```
+`find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})`
 
 La première partie utilise l’index pour limiter la recherche aux documents commençant par ^abc et la deuxième partie correspond aux entrées exactes. L’opérateur à barre « | » agit comme une fonction « OR », la requête ```find({x:{$regex: /^abc |^def/})``` correspond aux documents dont le champ « x » comporte une valeur commençant par « abc » ou « def ». Pour utiliser l’index, il est recommandé de diviser la requête en deux requêtes différentes jointes par l’opérateur $or : ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
@@ -513,34 +513,8 @@ $polygon | Non |
 
 Lorsque vous utilisez l’opération `findOneAndUpdate`, les opérations de tri sur un champ unique sont prises en charge, mais les opérations à effectuer sur plusieurs champs ne le sont pas.
 
-## <a name="unique-indexes"></a>Index uniques
-
-Les [index uniques](mongodb-indexing.md#unique-indexes) garantissent qu’un champ spécifique ne présente aucune valeur en double dans l’ensemble des documents d’une collection. Cette approche est semblable à la façon dont l’unicité est conservée dans la clé « _id » par défaut. Vous pouvez créer des index uniques dans Cosmos DB à l’aide de la commande `createIndex` avec le paramètre de contrainte `unique` :
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
-{
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
-}
-```
-
-## <a name="compound-indexes"></a>Index composés
-
-Les [index composés](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) permettent de créer un index pour des groupes de champs pour un maximum de 8 champs. Ce type d’index diffère des index composés MongoDB natifs. Dans Azure Cosmos DB, les index composés sont utilisés pour le tri des opérations appliquées à plusieurs champs. Pour créer un index composé, vous devez spécifier plusieurs propriétés en tant que paramètre :
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
-{
-        "createdCollectionAutomatically" : false, 
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 2,
-        "ok" : 1
-}
-```
+## <a name="indexing"></a>Indexation
+L’API pour MongoDB [prend en charge un grand nombre d’index](mongodb-indexing.md) pour permettre le tri sur plusieurs champs, améliorer les performances des requêtes et garantir l’unicité.
 
 ## <a name="gridfs"></a>GridFS
 
@@ -549,10 +523,6 @@ Azure Cosmos DB prend en charge GridFS par le biais de n’importe quel pilote M
 ## <a name="replication"></a>Réplication
 
 Cosmos DB prend en charge la réplication automatique et native des couches inférieures. Cette logique est prolongée pour obtenir également la réplication globale et à faible latence. Cosmos DB ne prend pas en charge les commandes de réplication manuelle.
-
-
-
-
 
 ## <a name="retryable-writes"></a>Écritures renouvelables
 

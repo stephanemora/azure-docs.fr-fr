@@ -1,18 +1,18 @@
 ---
-title: Guide pratique pour analyser des fichiers Azure
-description: Ce guide pratique explique en détail comment analyser des fichiers Azure.
+title: Comment enregistrer et analyser les fichiers Azure
+description: Ce guide pratique décrit en détail comment analyser les fichiers Azure dans Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 06/22/2021
-ms.openlocfilehash: dbb29fea5253bbd00e66f0ed3d123ddc38533b8e
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 2db2b5343b8a55e29881bf0908fded0a48b90b78
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256435"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209905"
 ---
 # <a name="register-and-scan-azure-files"></a>Inscription et analyse de fichiers Azure Files
 
@@ -77,7 +77,7 @@ Sur l’écran **Inscrire des sources (Azure Files)** , suivez ces étapes :
 
 Pour créer et exécuter une nouvelle analyse, procédez comme suit :
 
-1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Sélectionnez la source Azure Files que vous avez inscrite.
 

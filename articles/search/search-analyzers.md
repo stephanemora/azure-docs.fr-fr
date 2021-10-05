@@ -7,18 +7,18 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 09/08/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d40dd0b91f9dcfb7bf5b6e8f084f25ee4f90d780
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68b6f6794a690313648dfaaaaf49fdd3150b6171
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596550"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735314"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analyseurs pour le traitement de texte dans la Recherche cognitive Azure
 
-Un *analyseur* est un composant de [recherche en texte intégral](search-lucene-query-architecture.md) chargé de traiter le texte dans les chaînes de requête et les documents indexés. Le traitement du texte (également appelé analyse lexicale) est à l’origine de transformations. Il modifie une chaîne de requête via des actions telles que celles-ci :
+Un *analyseur* est un composant du [moteur de recherche en texte intégral](search-lucene-query-architecture.md) chargé de traiter les chaînes durant l’indexation et l’exécution des requêtes. Le traitement du texte (également appelé analyse lexicale) est à l’origine de transformations. Il modifie une chaîne via des actions telles que celles-ci :
 
 + Supprimer les mots (mots vides) et la ponctuation non essentiels
 + Segmenter des expressions et des mots avec tirets en différents composants
@@ -27,7 +27,7 @@ Un *analyseur* est un composant de [recherche en texte intégral](search-lucene-
 
 L’analyse s’applique à des champs `Edm.String` marqués comme étant « interrogeables », ce qui indique une recherche en texte intégral. 
 
-Pour les champs avec cette configuration, l’analyse a lieu pendant l’indexation lors de la création de jetons, puis à nouveau lors de l’exécution de requêtes lorsque ces dernières sont analysées et que le moteur recherche les jetons correspondants. Une correspondance est plus probable lorsque le même analyseur est utilisé à la fois pour l’indexation et pour les requêtes, mais vous pouvez définir l’analyseur de manière indépendante pour chaque charge de travail, en fonction de vos besoins.
+Pour les champs ayant cette configuration, l’analyse a lieu pendant l’indexation lors de la création de jetons, puis à nouveau lors de l’exécution de requêtes lorsque ces dernières sont analysées et que le moteur recherche les jetons correspondants. Une correspondance est plus probable lorsque le même analyseur est utilisé à la fois pour l’indexation et pour les requêtes, mais vous pouvez définir l’analyseur de manière indépendante pour chaque charge de travail, en fonction de vos besoins.
 
 Les types de requêtes qui *ne sont pas* une recherche en texte intégral, comme les filtres ou la recherche approximative, ne passent pas par la phase d’analyse du côté de la requête. Au lieu de cela, l’analyseur envoie ces chaînes directement au moteur de recherche, à l’aide du modèle que vous fournissez comme base pour la correspondance. Ces formulaires de requête nécessitent généralement des jetons de chaîne entière pour effectuer un travail de correspondance de modèle. Pour s’assurer de jetons de termes complets pendant l’indexation, vous aurez peut-être besoin d’[analyseurs personnalisés](index-add-custom-analyzers.md). Pour plus d’informations sur le moment et la raison de l’analyse des termes de la requête, consultez [Recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md).
 
@@ -37,7 +37,7 @@ Pour plus d’informations sur l’analyse lexicale, regardez le clip vidéo sui
 
 ## <a name="default-analyzer"></a>Analyseur par défaut  
 
-Dans les requêtes de la Recherche cognitive Azure, un analyseur est automatiquement appelé sur tous les champs de chaînes marqués comme pouvant faire l’objet d’une recherche. 
+Dans Recherche cognitive Azure, un analyseur est automatiquement appelé sur tous les champs de chaînes marqués comme pouvant faire l’objet d’une recherche. 
 
 Par défaut, la Recherche cognitive Azure utilise l’[analyseur Apache Lucene Standard (lucene standard)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), qui décompose le texte en éléments en suivant les règles de la [« Segmentation du texte Unicode »](https://unicode.org/reports/tr29/). Par ailleurs, l'analyseur standard convertit tous les caractères en minuscules. Les documents indexés et les termes de recherche sont analysés pendant l'indexation et le traitement des requêtes.  
 
@@ -99,7 +99,7 @@ La phase de développement actif est le meilleur moment pour ajouter et affecter
 
 Étant donné que les analyseurs sont utilisés pour créer des jetons pour les termes, vous devez affecter un analyseur lors de la création du champ. En fait, l’attribution d’une propriété « analyzer » ou « indexAnalyzer » à un champ déjà créé physiquement n’est pas autorisée, même si vous pouvez modifier la propriété searchAnalyzer à tout moment sans aucun impact sur l’index.
 
-Pour modifier l’analyseur d’un champ existant, vous devez [recréer entièrement l’index](search-howto-reindex.md) (vous ne pouvez pas recréer des champs individuels). Pour les index en production, vous devez retarder une regénération en créant un champ avec la nouvelle affectation d’analyseur et commencer à l’utiliser à la place de l’ancien. Utilisez [Mettre à jour l’index](/rest/api/searchservice/update-index) pour incorporer le nouveau champ et [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) pour le remplir. Par la suite, pendant l’opération de maintenance planifiée de l’index, vous pouvez le nettoyer de façon à supprimer les champs obsolètes.
+Pour modifier l’analyseur d’un champ existant, vous devez ignorer et recréer entièrement l’index (vous ne pouvez pas recréer des champs individuels). Pour les index en production, vous devez retarder une regénération en créant un champ avec la nouvelle affectation d’analyseur et commencer à l’utiliser à la place de l’ancien. Utilisez [Mettre à jour l’index](/rest/api/searchservice/update-index) pour incorporer le nouveau champ et [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) pour le remplir. Par la suite, pendant l’opération de maintenance planifiée de l’index, vous pouvez le nettoyer de façon à supprimer les champs obsolètes.
 
 Pour ajouter un nouveau champ à un index existant, appelez [Mettre à jour l’index](/rest/api/searchservice/update-index) et [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) pour le remplir.
 
@@ -382,7 +382,7 @@ Vous trouverez une description détaillée de l’exécution des requêtes dans 
 
 Pour en savoir plus sur les analyseurs, consultez les articles suivants :
 
-+ [Analyseurs de langage](index-add-language-analyzers.md)
-+ [Analyseurs personnalisés](index-add-custom-analyzers.md)
++ [Ajouter un analyseur de langage](index-add-language-analyzers.md)
++ [Ajouter un analyseur personnalisé](index-add-custom-analyzers.md)
 + [Créer un index de recherche](search-what-is-an-index.md)
 + [Créer un index multilingue](search-language-support.md)

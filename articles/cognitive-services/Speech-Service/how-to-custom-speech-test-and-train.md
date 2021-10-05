@@ -3,19 +3,19 @@ title: Préparer des données pour Custom Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Lors du test de la précision de la reconnaissance vocale Microsoft ou de l’apprentissage de vos modèles personnalisés, vous aurez besoin de données audio et texte. Dans cette page, nous nous intéressons aux types de données, à la façon dont ils sont utilisés et à leur gestion.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.author: lajanuar
-ms.openlocfilehash: cd1fbd5d0ae9a917ff96fed0af9c14d4c7fc0a7a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/16/2021
+ms.author: pafarley
+ms.openlocfilehash: 046499f32050bf856e6eb39874f3f7b0f0fa2e51
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256342"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569489"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -153,7 +153,8 @@ Par ailleurs, vous devez prendre en compte les restrictions suivantes :
 
 ## <a name="pronunciation-data-for-training"></a>Données de prononciation pour la formation
 
-Si vos utilisateurs sont appelés à rencontrer ou à utiliser des termes peu communs qui se prononcent d’une façon particulière, vous pouvez fournir un fichier de prononciation personnalisé pour améliorer la reconnaissance. 
+Si vos utilisateurs sont appelés à rencontrer ou à utiliser des termes peu communs qui se prononcent d’une façon particulière, vous pouvez fournir un fichier de prononciation personnalisé pour améliorer la reconnaissance. Pour obtenir la liste des langues qui prennent en charge la prononciation personnalisée, consultez **prononciation** dans la colonne **personnalisations** de [la table Speech-to-Text](language-support.md#speech-to-text).
+
 > [!IMPORTANT]
 > Il est déconseillé d’utiliser des fichiers de prononciation personnalisée pour altérer la prononciation des mots communs.
 
@@ -166,13 +167,6 @@ Fournissez des prononciations dans un fichier texte unique. Ce tableau contient 
 | IEEE | i triple e |
 
 La forme orale est la séquence phonétique décomposée. Elle peut être constituée de lettres, de mots, de syllabes ou d’une combinaison des trois.
-
-La prononciation personnalisée est disponible en anglais (`en-US`) et en allemand (`de-DE`). Ce tableau présente les caractères pris en charge par langue :
-
-| Langage | Paramètres régionaux | Caractères |
-|----------|--------|------------|
-| Anglais | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-| Allemand | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Utilisez le tableau suivant pour vérifier que votre fichier de données associées est correctement mis en forme. Les fichiers de prononciation sont petits et doivent se limiter à quelques Ko.
 

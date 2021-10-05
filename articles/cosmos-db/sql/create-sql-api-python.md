@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 190f1eeb27d4e9a86b3104b977f1068a3da4d3b1
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: d8f2176065b8a9726cc0496756a22ccefbf0f0c8
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117327"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155455"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application Python à l’aide d’un compte d’API SQL Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -49,7 +49,11 @@ Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’AP
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Extension Python pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
-- [SQL API SDK Azure Cosmos DB pour Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
+- [SDK Python Azure Cosmos DB pour l’API SQL](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
+
+## <a name="important-update-on-python-2x-support"></a>Mise à jour importante sur la prise en charge de Python 2.x
+
+Les nouvelles versions de ce kit SDK ne prendront pas en charge Python 2.x à compter du 1er janvier 2022. Consultez le [JOURNAL DES MODIFICATIONS](./sql-api-sdk-python.md) pour plus d’informations.
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
@@ -218,8 +222,8 @@ Tous les extraits de code suivants proviennent du fichier *cosmos_get_started.py
 
 Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer un conteneur à l’aide de l’Explorateur de données et à exécuter une application Python dans Visual Studio Code. Vous pouvez maintenant importer des données supplémentaires dans votre compte Azure Cosmos DB. 
 
-Vous tentez d’effectuer une planification de capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
-* Si vous ne connaissez que le nombre de vCore et de serveurs dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide des vCore ou des processeurs virtuels](../convert-vcore-to-request-unit.md) 
+Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
 * Si vous connaissez les taux de requête typiques de votre charge de travail actuelle, lisez la section [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]

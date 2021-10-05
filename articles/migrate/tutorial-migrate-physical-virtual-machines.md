@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: a3ff769b8f879246a47228f03f5a1b9a5b5fb84d
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 6c392d1af427c7a9837519ea8443efc5773aa6db
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272472"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154809"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrer des machines en tant que serveurs physiques vers Azure
 
@@ -340,7 +340,7 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
 
 ## <a name="complete-the-migration"></a>Effectuer la migration
 
-1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la migration**. Cette opération effectue les actions suivantes :
+1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la réplication**. Cette opération effectue les actions suivantes :
     - Arrête la réplication pour l’ordinateur local.
     - Supprime l’ordinateur du nombre **Réplication de serveurs** dans Azure Migrate : Server Migration.
     - Nettoie les informations d’état de réplication pour la machine.

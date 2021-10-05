@@ -2,14 +2,14 @@
 title: Chiffrer un registre avec une clé gérée par le client
 description: Apprenez-en davantage sur le chiffrement au repos de votre registre de conteneurs Azure et sur la façon de chiffrer votre registre Premium avec une clé gérée par le client, stockée dans Azure Key Vault
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/13/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 399b1940ff3d87fa862e234948742a35d814f558
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: a5fd3140474b1d6d7c36d686c14f2dc4e6a9ef73
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634900"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561600"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Chiffrer un registre à l’aide d’une clé gérée par le client
 
@@ -564,6 +564,12 @@ Si ce problème se produit avec une identité affectée par le système, veuille
 Si vous activez un pare-feu de coffre de clés ou un réseau virtuel après avoir créé un registre chiffré, vous pouvez voir HTTP 403 ou d’autres erreurs avec l’importation d’image ou la rotation de clé automatisée. Pour corriger ce problème, reconfigurez l’identité et la clé managées que vous avez utilisées initialement pour le chiffrement. Consultez les étapes dans [Rotation de clé](#rotate-key). 
 
 Si le problème persiste, veuillez contacter le support Azure.
+
+### <a name="accidental-deletion-of-key-vault-or-key"></a>Suppression accidentelle du coffre à clés ou de la clé
+
+La suppression de la chambre forte, ou de la clé, utilisée pour chiffrer un registre avec une clé gérée par le client rendra le contenu du registre inaccessible. Si la [suppression douce](../key-vault/general/soft-delete-overview.md) est activée dans le coffre-fort de clés (option par défaut), vous pouvez récupérer un objet de coffre-fort ou de coffre-fort de clés supprimé et reprendre les opérations de registre.
+
+Pour les scénarios de suppression et de récupération des coffres à clés, voir [Gestion de la récupération des coffres à clés Azure avec protection contre la suppression douce et la purge](../key-vault/general/key-vault-recovery.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

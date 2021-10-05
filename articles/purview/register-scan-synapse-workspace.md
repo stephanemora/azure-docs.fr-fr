@@ -1,18 +1,18 @@
 ---
-title: Comment analyser des espaces de travail Azure Synapse Analytics
+title: Comment Inscrire et analyser des espaces de travail Azure Synapse Analytics
 description: Découvrez comment analyser un espace de travail Azure Synapse dans votre catalogue de données Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/18/2021
-ms.openlocfilehash: a74e88d72d1e7109b6e0acfa81485476eed9e00b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 8a7b23089e9b17e35b56b04991c76b37baedf231
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562430"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207789"
 ---
 # <a name="register-and-scan-azure-synapse-analytics-workspaces"></a>Inscrire et analyser des espaces de travail Azure Synapse Analytics
 
@@ -138,6 +138,7 @@ Vous pouvez configurer l’authentification pour une source Azure Synapse de deu
     EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
+
 #### <a name="use-a-managed-identity-for-serverless-sql-databases"></a>Utiliser une identité managée pour les bases de données SQL serverless
 
 1. Accédez à votre espace de travail Azure Synapse.
@@ -148,6 +149,14 @@ Vous pouvez configurer l’authentification pour une source Azure Synapse de deu
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
+
+#### <a name="grant-permission-to-use-credentials-for-external-tables"></a>Accorder l’autorisation d’utiliser les informations d’identification pour les tables externes
+
+Si l’espace de travail Azure Synapse contient des tables externes, l’identité managée Azure Purview doit disposer de l’autorisation Références sur les informations d’identification délimitées à la table externe. Avec l’autorisation Références, Azure Purview peut lire les données à partir de tables externes.
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
+```
 
 #### <a name="use-a-service-principal-for-dedicated-sql-databases"></a>Utiliser un principal de service pour les bases de données SQL dédiées
 
@@ -199,7 +208,7 @@ Vous pouvez configurer l’authentification pour une source Azure Synapse de deu
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Sélectionnez la source de données que vous avez inscrite.
 
@@ -232,11 +241,11 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
 
     * La **barre d’état** présente un bref résumé de l’état d’exécution des ressources enfants. L’état de l’analyse de l’espace de travail est affiché.  
     * Le vert indique une exécution de l’analyse réussie, le rouge indique l’échec de l’analyse et le gris indique que l’exécution de l’analyse est toujours en cours.  
-    * Vous pouvez afficher des informations plus détaillées sur les exécutions d’analyse en cliquant dessus.
+    * Vous pouvez afficher des informations plus détaillées sur les exécutions d’analyse en les sélectionnant.
 
       :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Capture d’écran de la page de détails de l’analyse Azure Synapse Analytics." lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
 
-    * En bas de la page de **détails de la source**, vous pouvez consulter un résumé des exécutions d’analyse récentes ayant échoué. Ici aussi, vous pouvez cliquer sur les exécutions d’analyse pour accéder à des informations plus détaillées sur ces dernières.
+    * En bas de la page de **détails de la source**, vous pouvez consulter un résumé des exécutions d’analyse récentes ayant échoué. En outre, vous pouvez afficher des informations plus détaillées sur les exécutions d’analyse en les sélectionnant.
 
 #### <a name="manage-your-scans"></a>Gestion de vos analyses
 

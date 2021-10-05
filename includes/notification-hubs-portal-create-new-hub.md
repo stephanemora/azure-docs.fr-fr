@@ -1,19 +1,19 @@
 ---
-title: Fichier include
+title: fichier descriptif
 description: Fichier Include
 services: notification-hubs
-author: jwargo
+author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 01/17/2019
-ms.author: jowargo
+ms.date: 09/07/2021
+ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 2ec602f056b339a1b1dcb78d6b8d7583aeaf0434
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d33df05e54d9cdeb97631ca479dd8ac9869343c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009101"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056687"
 ---
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -21,19 +21,19 @@ ms.locfileid: "96009101"
 
       ![Portail Azure - sélectionner Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
 
-1. Dans la page **Notification Hubs**, sélectionnez **Ajouter** dans la barre d’outils.
+1. Dans la page **Notification Hubs**, sélectionnez **Créer** dans la barre d’outils.
 
-      ![Notification Hubs - bouton Ajouter dans la barre d’outils](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
+      ![Notification Hubs - bouton Ajouter dans la barre d’outils](./media/notification-hubs-portal-create-new-hub/create-toolbar-button.png)
 
-1. Dans la page **Notification Hub**, effectuez les étapes suivantes :
+1. Sous l’onglet **Informations de base** de la page **Notification Hub**, effectuez les étapes suivantes :
 
-    1. Entrez un nom dans **Notification Hub**.  
+    1. Dans **Abonnement**, sélectionnez le nom de l’abonnement Azure que vous souhaitez utiliser, puis sélectionnez un groupe de ressources existant ou créez-en un.  
 
-    1. Entrez un nom dans **Créer un espace de noms**. Un espace de noms contient un ou plusieurs hubs.
+    1. Entrez un nom unique pour le nouvel espace de noms dans **Détails de l’espace de noms**. 
+    
+    1. Un espace de noms contient un ou plusieurs hubs de notification, donc tapez un nom pour le hub dans **Détails du hub de notification**. Ou sélectionnez un espace de noms existant dans la liste déroulante.
 
     1. Sélectionnez une valeur dans la zone de liste déroulante **Emplacement**. Cette valeur spécifie l’emplacement où vous voulez créer le hub.
-
-    1. Sélectionnez un groupe de ressources existant dans **Groupe de ressources**, ou créez un nom pour un nouveau groupe.
 
     1. Sélectionnez **Create** (Créer).
 

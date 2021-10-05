@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à LinkedIn Learning | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à LinkedIn Learning'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LinkedIn Learning.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: c5f43467a281f9c7fdca20f49750a0ac81307237
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: 1a80caceb0edbb5e297ff70726843d838d0937df
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114363066"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124832985"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-learning"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à LinkedIn Learning
+# <a name="tutorial-azure-ad-sso-integration-with-linkedin-learning"></a>Tutoriel : Intégration de l’authentification unique Azure AD à LinkedIn Learning
 
 Dans ce tutoriel, vous allez apprendre à intégrer LinkedIn Learning à Azure AD (Azure Active Directory). Quand vous intégrez LinkedIn Learning à Azure AD, vous pouvez :
 
@@ -39,6 +39,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * LinkedIn Learning prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**.
 * LinkedIn Learning prend en charge l’attribution d’utilisateurs **Juste-à-temps**.
+* LinkedIn Learning prend en charge l’[attribution automatique d’utilisateurs](linkedin-learning-provisioning-tutorial.md).
 
 ## <a name="add-linkedin-learning-from-the-gallery"></a>Ajouter LinkedIn Learning à partir de la galerie
 
@@ -195,7 +196,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance de LinkedIn Learning pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette LinkedIn Learning dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance LinkedIn Learning pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette LinkedIn Learning dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance LinkedIn Learning pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: b524827585cdf652cbdda8b329754a0ed995ef24
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: c2363088479c591c97ccc17be0966dca125d38c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602978"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Didacticiel : Intégration d’Azure Active Directory avec Fuze
 
@@ -40,6 +40,8 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 * Fuze prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 * Fuze prend en charge l’attribution d’utilisateurs **juste-à-temps**.
+
+* Fuze prend en charge l’[attribution automatisée d’utilisateurs](fuze-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -122,7 +124,9 @@ Pour configurer l’authentification unique côté **Fuze**, vous devez envoyer 
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans Fuze. Fuze prend en charge l’attribution d’utilisateurs juste-à-temps, qui est activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Fuze, il en est créé un après l’authentification.
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+Fuze prend également en charge l’attribution automatique d’utilisateurs. Des informations supplémentaires sur la configuration de cette fonctionnalité sont disponibles [ici](./fuze-provisioning-tutorial.md).
+
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
@@ -130,7 +134,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Fuze pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Fuze dans Mes applications, vous êtes redirigé vers l’URL de connexion à Fuze. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Fuze dans Mes applications, vous êtes redirigé vers l’URL de connexion à Fuze. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

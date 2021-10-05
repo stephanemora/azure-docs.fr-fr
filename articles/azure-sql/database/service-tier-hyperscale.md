@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 7/8/2021
-ms.openlocfilehash: bd5a9d64b237fe8c6591cac841b13f96a9c16f1d
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 9/9/2021
+ms.openlocfilehash: f5cc4321f49a2cee75f8111bd975f750f075680f
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864451"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094176"
 ---
 # <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Le niveau de service Hyperscale dans Azure SQL Database fournit les fonctionnali
 - Prise en charge d’une taille de base de données pouvant atteindre 100 To
 - Sauvegardes de base de données quasi instantanées (basées sur des instantanés de fichiers conservés dans le Stockage Blob Azure), quel que soit leur taille, sans impact des E/S sur les ressources de calcul  
 - Restaurations de base de données rapides (basées sur des instantanés de fichiers) en minutes plutôt qu’en heures ou en jours (opération qui ne dépend pas de la taille des données)
-- Meilleures performances générales en raison d’un débit de journal plus élevé et de temps de validation de transaction plus rapides, quels que soient les volumes de données
+- Des performances globales plus élevées grâce à un débit plus important du journal des transactions et à des temps de validation des transactions plus rapides, quel que soit le volume des données
 - Effectuer un scale-out rapide : vous pouvez provisionner un ou plusieurs [réplicas en lecture seule](service-tier-hyperscale-replicas.md) pour déplacer votre charge de travail de lecture et les utiliser comme serveurs de secours
 - Scale-up rapide : vous pouvez, en temps constant, augmenter la puissance de vos ressources de calcul pour prendre en charge des charges de travail lourdes en cas de besoin, puis la diminuer à nouveau.
 
@@ -96,11 +96,11 @@ Le moteur de base de données s’exécutant sur des nœuds de calcul Hyperscale
 
 ### <a name="page-server"></a>Serveur de pages
 
-Les serveurs de pages sont des systèmes qui représentent un moteur de stockage scale-out.  Chaque serveur de pages est responsable d’un sous-ensemble de pages dans la base de données.  Nominalement, chaque serveur de pages contrôle entre 128 Go et 1 To de données. Aucune donnée n’est partagée sur plusieurs serveurs de pages (en dehors des réplicas de serveur de page qui sont conservés pour la redondance et la disponibilité). Le travail d’un serveur de pages est de servir à la demande des pages de base de données aux nœuds de calcul et d’actualiser les pages à mesure que les transactions mettent à jour les données. Les serveurs de pages sont actualisés en lisant les enregistrements du journal à partir du service de journalisation. Les serveurs de pages entretiennent aussi les caches SSD de couverture pour améliorer les performances. Le stockage à long terme des pages de données s’effectue dans le Stockage Azure pour une meilleure fiabilité.
+Les serveurs de pages sont des systèmes qui représentent un moteur de stockage scale-out.  Chaque serveur de pages est responsable d’un sous-ensemble de pages dans la base de données.  Nominalement, chaque serveur de pages contrôle entre 128 Go et 1 To de données. Aucune donnée n’est partagée sur plusieurs serveurs de pages (en dehors des réplicas de serveur de page qui sont conservés pour la redondance et la disponibilité). Le travail d’un serveur de pages est de servir à la demande des pages de base de données aux nœuds de calcul et d’actualiser les pages à mesure que les transactions mettent à jour les données. Les serveurs de pages sont maintenus à jour en jouant les enregistrements du journal des transactions à partir du service de journal. Les serveurs de pages entretiennent aussi les caches SSD de couverture pour améliorer les performances. Le stockage à long terme des pages de données s’effectue dans le Stockage Azure pour une meilleure fiabilité.
 
 ### <a name="log-service"></a>Service de journal
 
-Le service de journal accepte les enregistrements de journal du réplica de calcul principal, les conserve dans un cache durable et les transfère au reste des réplicas de calcul (afin qu’ils mettent à jour leurs caches) ainsi qu’aux serveurs de pages appropriés afin que les données y soient mises à jour. De cette façon, tous les changements de données dans le réplica de calcul principal sont propagés par le biais du service de journal à tous les réplicas de calcul secondaires et les serveurs de pages. Pour finir, les enregistrements de journal sont poussés vers un stockage à long terme dans Stockage Azure, qui est un dépôt de stockage pratiquement infini. Avec ce mécanisme, vous n’avez plus besoin de tronquer fréquemment le journal. Le service de journal a aussi une mémoire locale et des caches SSD pour accélérer l’accès aux enregistrements de journal.
+Le service de journalisation accepte les enregistrements du journal des transactions de la réplique primaire de l'ordinateur, les conserve dans un cache durable et les transmet aux autres répliques de l'ordinateur (afin qu'elles puissent mettre à jour leurs caches) ainsi qu'au(x) serveur(s) de pages concerné(s), afin que les données puissent y être mises à jour. De cette façon, tous les changements de données dans le réplica de calcul principal sont propagés par le biais du service de journal à tous les réplicas de calcul secondaires et les serveurs de pages. Enfin, les enregistrements du journal des transactions sont poussés vers le stockage à long terme dans Azure Storage, qui est un référentiel de stockage virtuellement infini. Avec ce mécanisme, vous n’avez plus besoin de tronquer fréquemment le journal. Le service de journal a aussi une mémoire locale et des caches SSD pour accélérer l’accès aux enregistrements de journal.
 
 ### <a name="azure-storage"></a>Stockage Azure
 
@@ -167,49 +167,12 @@ Si vous avec besoin de restaurer une base de données Hyperscale dans Azure SQL 
 
 ## <a name="available-regions"></a><a name=regions></a>Régions disponibles
 
-Le niveau Hyperscale d’Azure SQL Database est disponible dans toutes les régions, mais il est activé par défaut dans les régions suivantes. Si vous souhaitez créer une base de données Hyperscale dans une région où Hyperscale n’est pas activé par défaut, vous pouvez envoyer une requête d’intégration via le portail Azure. Pour obtenir des instructions, consultez [Demander des augmentations de quota pour Azure SQL Database](quota-increase-request.md). Quand vous soumettez votre demande, suivez les instructions ci-après :
+Le niveau Hyperscale d'Azure SQL Database est activé dans la grande majorité des régions Azure. Si vous souhaitez créer une base de données Hyperscale dans une région où Hyperscale n’est pas activé par défaut, vous pouvez envoyer une requête d’intégration via le portail Azure. Pour obtenir des instructions, consultez [Demander des augmentations de quota pour Azure SQL Database](quota-increase-request.md). Quand vous soumettez votre demande, suivez les instructions ci-après :
 
 - Utilisez le type de quota [Accès à une région](quota-increase-request.md#region) SQL Database.
 - Dans la description, ajoutez la référence SKU de calcul/le nombre total de cœurs, y compris les réplicas nommés et à haute disponibilité, et indiquez que vous demandez une capacité Hyperscale.
 - Spécifiez également une projection de la taille totale de toutes les bases de données dans le temps en To.
 
-Régions prises en charge :
-- Australie Est
-- Sud-Australie Est
-- Centre de l’Australie
-- Brésil Sud
-- Centre du Canada
-- Est du Canada
-- USA Centre
-- Chine orientale 2
-- Chine Nord 2
-- Asie Est
-- USA Est
-- USA Est 2
-- France Centre
-- Allemagne Centre-Ouest
-- Japon Est
-- OuJapon Est
-- Centre de la Corée
-- Corée du Sud
-- Centre-Nord des États-Unis
-- Europe Nord
-- Norvège Est
-- Norvège Ouest
-- Afrique du Sud Nord
-- États-Unis - partie centrale méridionale
-- Asie Sud-Est
-- Suisse Ouest
-- Sud du Royaume-Uni
-- Ouest du Royaume-Uni
-- Centre des États-Unis – US DoD
-- Est des États-Unis – US DoD
-- Us Govt Arizona
-- US Gov Texas
-- Centre-USA Ouest
-- Europe Ouest
-- USA Ouest
-- USA Ouest 2
 
 ## <a name="known-limitations"></a>Limitations connues
 

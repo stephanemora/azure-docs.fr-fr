@@ -4,15 +4,15 @@ description: Cet article explique les étapes à suivre pour résoudre les probl
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/04/2021
-ms.openlocfilehash: 95e1dd0a75ce233ed531b331783738d72c661c40
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: cfcac68bfc09a4c3b6d4794469734d0634b3ad0c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594798"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213455"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Résoudre les problèmes liés à vos connexions dans Azure Purview
 
@@ -76,7 +76,7 @@ Pour ce faire, procédez comme suit :
 1. Accédez à votre coffre de clés.
 1. Sélectionnez **Paramètres** > **Secrets**.
 1. Sélectionnez le secret que vous utilisez pour vous authentifier auprès de votre source de données à des fins d’analyse.
-1. Sélectionnez la version que vous prévoyez d’utiliser et vérifiez que le mot de passe ou la clé de compte est correct en cliquant sur **Afficher la valeur du secret**. 
+1. Sélectionnez la version que vous avez l'intention d'utiliser et vérifiez que le mot de passe ou la clé de compte est correct en sélectionnant **Afficher la valeur secrète** . 
 
 ## <a name="verify-permissions-for-the-purview-managed-identity-on-your-azure-key-vault"></a>Vérifier les autorisations de l’identité managée Purview sur votre coffre Azure Key Vault
 

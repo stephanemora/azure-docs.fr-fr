@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 07/01/2021
 ms.author: allensu
-ms.openlocfilehash: 78412ba9e71465761d68899e0d48e95864f444f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e17bc129268f8bc93d107492912c868e8efebae1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531842"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671143"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>Utilisation de SNAT (Source Network Address Translation) pour les connexions sortantes
 
-Certains scénarios requièrent des machines virtuelles ou des instances de calcul pour disposer d’une connectivité sortante à Internet. Les adresses IP front-end d’un équilibreur de charge public Azure peuvent être utilisées pour fournir une connectivité sortante à Internet pour des instances back-end. Cette configuration utilise la **traduction d’adresses réseau source (SNAT)** , car l’adresse IP de la machine virtuelle ou de la **source** est traduite en adresse IP publique. La SNAT mappe l’adresse IP du back-end sur l’adresse IP publique de votre équilibreur de charge. SNAT permet d’empêcher des sources externes d’avoir une adresse directe vers les instances principales.  
+Certains scénarios requièrent des machines virtuelles ou des instances de calcul pour disposer d’une connectivité sortante à Internet. Les adresses IP front-end d’un équilibreur de charge public Azure peuvent être utilisées pour fournir une connectivité sortante à Internet pour des instances back-end. Cette configuration utilise la **traduction d’adresses réseau source (SNAT)** pour traduire l’adresse IP de la machine virtuelle en adresse IP publique d’équilibreur de charge. La SNAT mappe l’adresse IP du back-end sur l’adresse IP publique de votre équilibreur de charge. SNAT permet d’empêcher des sources externes d’avoir une adresse directe vers les instances principales.  
 
 ## <a name="azures-outbound-connectivity-methods"></a><a name="scenarios"></a>Méthodes de connectivité sortante d’Azure
 
@@ -41,7 +41,7 @@ Cette configuration vous permet d’utiliser la ou les adresse(s) IP publique(s)
 Cette configuration permet :
 
 - L’usurpation d’adresse IP
-- La simplification de vos listes d’autorisation.
+- Simplification de vos listes d’autorisation
 - La réduction du nombre de ressources IP publiques pour le déploiement
 
 Avec les règles de trafic sortant, vous disposez d’un contrôle déclaratif complet sur la connectivité Internet sortante. Les règles de trafic sortant vous permettent de mettre à l’échelle et de régler cette capacité en fonction de vos besoins spécifiques.
@@ -92,13 +92,13 @@ Une ressource sans :
 * Passerelle NAT configurée
 * un équilibreur de charge
 
-crée des connexions sortantes par le biais de SNAT par défaut. C’est ce que l’on appelle l’accès sortant par défaut. Un autre exemple de scénario utilisant le SNAT par défaut est une machine virtuelle dans Azure (sans les associations mentionnées ci-dessus). Dans ce cas, la connectivité sortante est fournie par l’adresse IP d’accès sortant par défaut. Il s’agit d’une adresse IP dynamique affectée par Azure que vous ne pouvez pas contrôler. SNAT par défaut n’est pas recommandé pour les charges de travail de production
+crée des connexions sortantes par le biais de SNAT par défaut. C’est ce que l’on appelle l’accès sortant par défaut. Un autre exemple de scénario utilisant la fonctionnalité SNAT par défaut est une machine virtuelle dans Azure (sans les associations mentionnées ci-dessus). Dans ce cas, la connectivité sortante est fournie par l’adresse IP d’accès sortant par défaut. Il s’agit d’une adresse IP dynamique affectée par Azure que vous ne pouvez pas contrôler. La fonctionnalité SNAT par défaut n’est pas recommandée pour les charges de travail de production.
 
 ### <a name="what-are-snat-ports"></a>Que sont les ports SNAT ?
 
 Les ports sont utilisés pour générer des identificateurs uniques, eux-mêmes utilisés pour gérer des flux distincts. Internet utilise cinq tuples pour fournir cette distinction.
 
-Si un port est utilisé pour des connexions entrantes, il a un **écouteur** pour les requêtes de connexions entrantes sur ce port. Ce port ne peut pas être utilisé pour les connexions sortantes. Pour établir une connexion sortante, utilisez un **port éphémère** pour fournir un port à la destination, afin de communiquer et de maintenir un flux de trafic distinct. Quand ces ports éphémères sont utilisés pour SNAT, ils sont appelés **ports SNAT** 
+Si un port est utilisé pour des connexions entrantes, il a un **écouteur** pour les requêtes de connexions entrantes sur ce port. Ce port ne peut pas être utilisé pour les connexions sortantes. Pour établir une connexion sortante, utilisez un **port éphémère** pour fournir un port à la destination, afin de communiquer et de maintenir un flux de trafic distinct. Quand ces ports éphémères sont utilisés pour SNAT, ils sont appelés **ports SNAT**
 
 Par définition, chaque adresse IP a 65 535 ports. Chaque port peut être utilisé pour les connexions entrantes ou sortantes pour les protocoles TCP (Transmission Control Protocol) et UDP (User Datagram Protocol). Quand une adresse IP publique est ajoutée en tant qu’IP frontale à un équilibreur de charge, 64 000 ports sont éligibles pour SNAT.
 
@@ -175,6 +175,14 @@ Le tableau suivant <a name="snatporttable"></a>présente les préaffectations de
 | 201-400 | 128 |
 | 401-800 | 64 |
 | 801-1 000 | 32 | 
+
+## <a name="manual-port-allocation"></a><a name="preallocatedports"></a> Allocation manuelle des ports
+
+L’allocation manuelle du port SNAT en fonction de la taille du pool backend et du nombre de configurations d’adresses IP frontales peut permettre d’éviter l’épuisement des SNAT. 
+
+Vous pouvez allouer manuellement les ports SNAT en fonction des « ports par instance » ou du « nombre maximal d’instances backend ». Si vous avez des machines virtuelles dans le backend, il est recommandé d’allouer des ports en fonction des « ports par instance » pour obtenir une utilisation maximale du port SNAT. Les ports par instance doivent être calculés comme indiqué ci-dessous : nombre d’adresses IP frontales * 64 K/nombre d’instances backend. Dans le cas contraire, si vous avez Virtual Machine Scale Sets dans le backend, il est recommandé d’allouer des ports en fonction du « nombre maximal d’instances backend ». 
+
+Toutefois, si le nombre de machines virtuelles ajoutées au backend est supérieur aux ports SNAT restants autorisés, il est possible que l’opération de scale-up de VMSS soit bloquée ou que les nouvelles machines virtuelles ne reçoivent pas suffisamment de ports SNAT. 
 
 ## <a name="constraints"></a>Contraintes
 

@@ -7,12 +7,12 @@ ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 525ae8e08965a63b79ed23a706795472743a00c2
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 2e3a51430ef2f57f3d9ea095dee8b297d01187a2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222557"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758386"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -170,30 +170,21 @@ Pour connaître l’historique des versions antérieures, cliquez sur [Kubernete
 
 |  Version de K8s | Sortie en amont  | Préversion d’AKS  | Version GA d’AKS  | Fin de vie |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.18  | 23 mars 20  | Mai 2020   | Août 2020  | *1.21 GA |
 | 1,19  | 4 août 20  | Septembre 2020   | Nov. 2020  | 1.22 GA |
 | 1.20  | 8 décembre2020  | Janvier 2021   | Mars 2021  | 1.23 GA |
 | 1.21  | 8 avril 2021 | Mai 2021   | Juil. 2021  | 1.24 GA |
 | 1,22  | 04 août 21 | Septembre 2021   | Octobre 2021  | 1.25 GA |
 | 1.23  | Décembre 2021 | Janvier 2022   | Février 2022  | 1.26 GA |
 
->[!NOTE]
->AKS version 1,18 restera disponible jusqu’au 31 juillet 2021. Après cette date, AKS retourne à sa prise en charge habituelle de trois versions. Il est important de noter les points suivants, car le support sera limité dans l’étendue du 30 juin au 31 juillet 2021. La liste ci-dessous indique ce à quoi les utilisateurs seront limités :
-> - Création de nouveaux clusters et nodepools sur 1.18.
-> - Opérations CRUD sur les clusters 1.18.
-> - Prise en charge par Azure des problèmes de plateforme non relatifs à Kubernetes. Les problèmes de plateforme incluent des problèmes de mise en réseau, de stockage ou de calcul exécutés sur Azure. Toutes les requêtes de support pour la mise à jour corrective de K8s et la résolution des problèmes seront demandées pour effectuer une mise à niveau vers une version prise en charge.
-
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **Comment Microsoft m’informe-t-il des nouvelles versions de Kubernetes ?**
 
-L’équipe d’AKS publie des annonces préalables avec les dates prévues des nouvelles versions de Kubernetes dans notre documentation, sur notre [GitHub](https://github.com/Azure/AKS/releases) ainsi que dans des e-mails adressés aux administrateurs d’abonnements qui possèdent des clusters qui ne seront plus pris en charge.  Outre les annonces, AKS utilise également [Azure Advisor](../advisor/advisor-overview.md) pour informer le client dans le portail Azure afin de prévenir les utilisateurs s’ils ne sont plus pris en charge, ainsi que pour les avertir des API déconseillées qui auront une incidence sur leur application ou leur processus de développement.
+L’équipe d’AKS publie des annonces préalables avec les dates prévues des nouvelles versions de Kubernetes dans notre documentation, sur notre [GitHub](https://github.com/Azure/AKS/releases) ainsi que dans des e-mails adressés aux administrateurs d’abonnements qui possèdent des clusters qui ne seront plus pris en charge.  Outre les annonces, AKS utilise également [Azure Advisor](../advisor/advisor-overview.md) pour informer le client dans le Portail Microsoft Azure afin de prévenir les utilisateurs s’ils ne sont plus pris en charge, ainsi que pour les avertir des API déconseillées qui auront une incidence sur leur application ou leur processus de développement.
 
 **À quelle fréquence dois-je prévoir de mettre à niveau les versions de Kubernetes pour continuer à bénéficier de la prise en charge ?**
 
 Avec Kubernetes 1.19, la [communauté open source a étendu la durée de prise en charge à une année](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS s’engage à activer les correctifs et à prendre en charge le respect des engagements en amont. Pour les clusters AKS sur 1.19 et versions ultérieures, vous pourrez effectuer une mise à niveau au moins une fois par an pour rester sur une version prise en charge.
-
-Pour les versions sur 1.18 ou version antérieure, la fenêtre de prise en charge reste à 9 mois, ce qui nécessite une mise à niveau tous les 9 mois afin de rester sur une version prise en charge. Vérifiez régulièrement l’existence de nouvelles versions et préparez-vous à la mise à niveau vers des versions plus récentes afin de capturer les dernières améliorations stables dans Kubernetes.
 
 **Que se passe-t-il quand un utilisateur met à niveau un cluster Kubernetes avec une version mineure non prise en charge ?**
 

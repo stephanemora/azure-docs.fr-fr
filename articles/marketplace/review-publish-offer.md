@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/05/2021
-ms.openlocfilehash: a7dfe0b24143b9a92c10d1b1c876eabb200f2270
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.date: 09/27/2021
+ms.openlocfilehash: 0f0f5782f387b40a0ca4ee4ab17002b06698fffd
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598249"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083502"
 ---
 # <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Consulter et publier une offre sur la place de marché commerciale
 
@@ -156,7 +156,7 @@ Une fois que l’offre est prête à être revue et approuvée, nous vous enverr
 
 La capture d’écran suivante montre la page **Vue d’ensemble de l’offre** dans le programme du marketplace commercial d’Espace partenaires. Les étapes de validation que vous verrez sur cette page varient en fonction du type d’offre et des sélections que vous avez apportées lors de la création de l’offre. La phase de certification peut intervenir pendant la soumission à la préversion ou à la mise en ligne selon le type d’offre.
 
-![Illustre la page Vue d’ensemble de l’offre pour une offre dans l’Espace partenaires. Le bouton Go Live et les liens d’aperçu s’affichent.](./media/publish-status-publisher-signoff.png)
+[ ![Illustre la page Vue d’ensemble de l’offre pour une offre dans l’Espace partenaires. Le bouton Démarrer et les liens d’aperçu sont affichés.](./media/publish-status-publisher-signoff.png) ](./media/publish-status-publisher-signoff.png#lightbox)
 
 ### <a name="previewing-and-approving-your-offer"></a>Aperçu et approbation de votre offre
 
@@ -200,14 +200,52 @@ Une fois ces vérifications terminées, votre offre est publiée sur la place de
 
 ## <a name="publishing-history"></a>Historique de publication
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
 La page **Historique** dans Espace partenaires affiche les événements de publication de vos offres sur le marketplace commercial. Pour chaque événement, la page affiche l’utilisateur qui a initié l’action, le type d’événement et la date et l’heure de l’événement. Les [étapes de validation et de publication](#validation-and-publishing-steps) sont répertoriées avec la date et l’heure d’achèvement.
 
 Pour afficher l’historique de votre offre :
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-2. Dans le menu de navigation situé à gauche, sélectionnez **Marketplace commercial** > **Vue d’ensemble**.
-3. Sélectionnez votre offre.
-4. Sélectionnez l’onglet **Historique** dans le menu de navigation à gauche. La page fournit des détails sur les événements suivants, en fonction de votre offre :
+
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+
+    [ ![Illustre la vignette Offres de la Place de marché sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Sur la page Offres de la Place de marché, sélectionnez l’offre.
+1. Sélectionnez l’onglet **Historique** dans le menu de navigation à gauche. La page fournit des détails sur les événements suivants, en fonction de votre offre :
+
+|Événement    |Description    |
+|---------|---------------|
+|Offre créée | L’offre a été créée dans Espace partenaires. Un utilisateur a sélectionné le type d'offre, l'ID de l'offre et l'alias de l'offre sur la page de **Présentation** du marché commercial.    |
+|Plan créé : *nom du plan*    |Un utilisateur a créé un nouveau plan en entrant l’ID et le nom du plan dans l’onglet **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Plan supprimé    |Un utilisateur a supprimé un plan brouillon qui n’avait pas été publié en sélectionnant **Supprimer le brouillon** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Initiation d'un plan de fin de distribution : *nom du plan*    |Un utilisateur a initié un plan de fin de distribution en sélectionnant **Arrêter la distribution** sur la page **Vue d'ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Reprendre la distribution : *nom du plan*    |Un utilisateur a annulé un plan de fin de distribution en sélectionnant **Reprendre la distribution** sur la page **Vue d'ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Offre soumise à la préversion    |Un utilisateur a soumis l’offre à la préversion en sélectionnant **Publier** dans la page **Vérifier et publier**.    |
+|Annulation de la soumission initiée à la préversion    |Un utilisateur a demandé l’annulation de la publication de l’offre en préversion en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après la soumission à la préversion.</br>*Cet événement s’affiche lorsque la demande d’annulation est en cours de traitement*.    |
+|Annulation de la soumission à la préversion    |Un utilisateur a annulé la publication de l’offre en préversion en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après la soumission à la préversion.</br>*Cet événement s’affiche une fois que la demande d’annulation a été traitée*.    |
+|Approbation de la mise en ligne    |Un utilisateur a publié l’offre sur le marketplace commercial en sélectionnant **Mise en ligne** dans la page **Vue d’ensemble de l’offre**.    |
+|Annulation de la publication initiée sur le marketplace    |Un utilisateur a demandé l’annulation de la publication de l’offre en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après l’approbation de la mise en ligne.</br>*Cet événement s’affiche lorsque la demande d’annulation est en cours de traitement*.    |
+|Annulation de la publication sur le marketplace commercial    |Un utilisateur a annulé la publication de l’offre en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après l’approbation de la mise en ligne.</br>*Cet événement s’affiche une fois que la demande d’annulation a été traitée*.    |
+|Synchronisation des audiences privées    |Un utilisateur a mis à jour et synchronisé l’audience privée en sélectionnant **Synchroniser l’audience privée** dans la page **Vue d’ensemble du plan** dans la page **Tarification et disponibilité du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans privés*.    |
+|Cesser de distribuer une offre    |Un utilisateur a interrompu la vente de l'offre en sélectionnant **Arrêter la distribution** sur la page **Vue d'ensemble de l'offre**.    |
+
+> [!NOTE]
+> La page Historique n’indique pas quand un brouillon d’offre a été enregistré.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+La page **Historique** dans Espace partenaires affiche les événements de publication de vos offres sur le marketplace commercial. Pour chaque événement, la page affiche l’utilisateur qui a initié l’action, le type d’événement et la date et l’heure de l’événement. Les [étapes de validation et de publication](#validation-and-publishing-steps) sont répertoriées avec la date et l’heure d’achèvement.
+
+Pour afficher l’historique de votre offre :
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Dans le menu de navigation situé à gauche, sélectionnez **Marketplace commercial** > **Vue d’ensemble**.
+1. Sélectionnez votre offre.
+1. Sélectionnez l’onglet **Historique** dans le menu de navigation à gauche. La page fournit des détails sur les événements suivants, en fonction de votre offre :
 
 |Événement    |Description    |
 |---------|---------------|
@@ -227,6 +265,8 @@ Pour afficher l’historique de votre offre :
 
 > [!NOTE]
 > La page Historique n’indique pas quand un brouillon d’offre a été enregistré.
+
+---
 
 ### <a name="filter-options"></a>Options de filtre
 

@@ -9,37 +9,39 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/06/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: d440a765ba9504ecae351477c1583a45f293b967
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 8e8395fc16d4228969d8fd90eccbc50ceeddfc36
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804410"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler Two
 
 L’objectif de ce tutoriel est de montrer comment intégrer Zscaler Two à Azure Active Directory (Azure AD). Quand vous intégrez Zscaler Two à Azure AD, vous pouvez :
 
-- Contrôler dans Azure AD qui a accès à Zscaler Two.
-- Permettre à vos utilisateurs de se connecter automatiquement à Zscaler Two avec leur compte Azure AD.
-- Gérer vos comptes à un emplacement central : le Portail Azure.
+* Contrôler dans Azure AD qui a accès à Zscaler Two.
+* Permettre à vos utilisateurs de se connecter automatiquement à Zscaler Two avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Zscaler Two, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
-- Un abonnement Zscaler Two pour lequel l’authentification unique est activée.
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Zscaler Two pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-- Zscaler Two prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Zscaler Two prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-- Zscaler Two prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+* Zscaler Two prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+
+* Zscaler Two prend en charge l’[attribution automatique d’utilisateurs](zscaler-two-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -233,15 +235,18 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Zscaler 
 > [!Note]
 > Si vous devez créer un utilisateur manuellement, contactez l’[équipe du support Zscaler Two](https://www.zscaler.com/company/contact).
 
+> [!NOTE]
+> Zscaler Two prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./zscaler-two-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-- Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Zscaler Two, où vous pouvez lancer le flux de connexion.
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Zscaler Two, où vous pouvez lancer le flux de connexion.
 
-- Accédez directement à l’URL de connexion à Zscaler Two pour y lancer le flux de connexion.
+* Accédez directement à l’URL de connexion à Zscaler Two pour y lancer le flux de connexion.
 
-- Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Zscaler Two dans Mes applications, vous êtes redirigé vers l’URL de connexion à Zscaler Two. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Zscaler Two dans Mes applications, vous êtes redirigé vers l’URL de connexion à Zscaler Two. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

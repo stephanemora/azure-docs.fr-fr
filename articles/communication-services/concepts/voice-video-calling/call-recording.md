@@ -10,12 +10,13 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: fef4972271046f7435140fd2d9ba3d18c7c3b11c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: calling
+ms.openlocfilehash: a6e5f1ecb5686145718d83febf3faf5c520db6fe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254758"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609514"
 ---
 # <a name="calling-recording-overview"></a>Vue d’ensemble de l’enregistrement d’appel
 
@@ -55,7 +56,7 @@ Les API de contrôle à l’exécution peuvent être utilisées pour gérer l’
 Une notification Event Grid `Microsoft.Communication.RecordingFileStatusUpdated` est publiée lorsqu’un enregistrement est prêt pour la récupération, en général quelques minutes après la fin du processus d’enregistrement (par exemple, réunion terminée, enregistrement arrêté). Les notifications d’événements d’enregistrement incluent des éléments `contentLocation` et `metadataLocation` utilisés pour récupérer les informations multimédias enregistrées et un fichier de métadonnées d’enregistrement.
 
 ### <a name="notification-schema-reference"></a>Référence du schéma de notification
-```
+```typescript
 {
     "id": string, // Unique guid for event
     "topic": string, // Azure Communication Services resource id
@@ -89,6 +90,6 @@ De nombreux pays et états ont des lois et des réglementations qui s’applique
 Les réglementations relatives à la maintenance des données personnelles exigent la possibilité d’exporter des données utilisateur. Afin de prendre en charge ces exigences, l’enregistrement des fichiers de métadonnées inclut l’ID participant de chaque participant à un appel dans le tableau `participants`. Vous pouvez croiser les MRI dans le tableau `participants` avec vos identités d’utilisateur internes pour identifier les participants dans un appel. Un exemple de fichier de métadonnées d’enregistrement est fourni ci-dessous pour référence.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez [Exemple de démarrage rapide d’enregistrement d’appel](../../quickstarts/voice-video-calling/call-recording-sample.md).
+Pour en savoir plus, consultez [Démarrage rapide sur l’enregistrement d’appel](../../quickstarts/voice-video-calling/call-recording-sample.md).
 
 En savoir plus sur les [API d’automatisation des appels](./call-automation-apis.md).

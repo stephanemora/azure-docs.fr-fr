@@ -1,26 +1,26 @@
 ---
-title: Copier des données de Xero à l’aide d’Azure Data Factory
+title: Copier des données de Xero
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données de Xero vers des banques de données réceptrices prises en charge.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Xero vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: c95efb768dc66dd35a88d0cd57d37e4d7e43ce3c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 17b92068145ac07833f7e73cc4d694a89f39ad7f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311121"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779841"
 ---
-# <a name="copy-data-from-xero-using-azure-data-factory"></a>Copier des données de Xero à l’aide d’Azure Data Factory
+# <a name="copy-data-from-xero-using-azure-data-factory-or-synapse-analytics"></a>Copier des données de Xero à l’aide d’Azure Data Factory ou de Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Xero. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l’activité de copie dans le pipeline Azure Data Factory ou Synapse Analytics pour copier des données de Xero. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -78,10 +78,10 @@ Les propriétés prises en charge pour le service lié Xero sont les suivantes :
 | ***Sous `connectionProperties`:*** | | |
 | host | Le point de terminaison du serveur Xero (`api.xero.com`).  | Oui |
 | authenticationType | Les valeurs autorisées sont `OAuth_2.0` et `OAuth_1.0`. | Oui |
-| consumerKey | Pour OAuth 2.0, spécifiez l'**ID client** de votre application Xero.<br>Pour OAuth 1.0, spécifiez la clé de consommateur associée à l’application Xero.<br>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| privateKey | Pour OAuth 2.0, spécifiez la **clé secrète client** pour votre application Xero.<br>For OAuth 1.0, spécifiez la clé privée provenant du fichier .pem qui a été généré pour votre application privée Xero, consultez [Créer une paire de clés publique/privée](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Remarque : Pour **générer privatekey.pem avec un nombre de bits de 512** avec `openssl genrsa -out privatekey.pem 512`, la valeur 1024 n’est pas prise en charge. Inclut tout le texte du fichier .pem, y compris les fins de ligne Unix (\n), voir l’exemple ci-dessous.<br/><br>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| consumerKey | Pour OAuth 2.0, spécifiez l'**ID client** de votre application Xero.<br>Pour OAuth 1.0, spécifiez la clé de consommateur associée à l’application Xero.<br>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| privateKey | Pour OAuth 2.0, spécifiez la **clé secrète client** pour votre application Xero.<br>For OAuth 1.0, spécifiez la clé privée provenant du fichier .pem qui a été généré pour votre application privée Xero, consultez [Créer une paire de clés publique/privée](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Remarque : Pour **générer privatekey.pem avec un nombre de bits de 512** avec `openssl genrsa -out privatekey.pem 512`, la valeur 1024 n’est pas prise en charge. Inclut tout le texte du fichier .pem, y compris les fins de ligne Unix (\n), voir l’exemple ci-dessous.<br/><br>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | tenantId | L’ID de locataire associé à votre application Xero. S’applique à l’authentification OAuth 2.0.<br>Découvrez comment obtenir l’ID de locataire dans la section [Check the tenants you’re authorized to access](https://developer.xero.com/documentation/oauth2/auth-flow). | Oui pour l’authentification OAuth 2.0 |
-| refreshToken | S’applique à l’authentification OAuth 2.0.<br/>Le jeton d’actualisation OAuth 2.0 est associé à l’application Xero et utilisé pour actualiser le jeton d’accès ; celui-ci expire après 30 minutes. Découvrez comment fonctionne le flux d’autorisation Xero et comment obtenir le jeton d'actualisation dans [cet article](https://developer.xero.com/documentation/oauth2/auth-flow). Pour obtenir un jeton d’actualisation, vous devez demander l’[étendue offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Limitation** : Notez que Xero réinitialise le jeton d’actualisation après utilisation. Pour une charge de travail opérationnalisée, avant chaque exécution de l’activité de copie, vous devez définir un jeton d’actualisation valide pour l’utilisation d’ADF.<br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui pour l’authentification OAuth 2.0 |
+| refreshToken | S’applique à l’authentification OAuth 2.0.<br/>Le jeton d’actualisation OAuth 2.0 est associé à l’application Xero et utilisé pour actualiser le jeton d’accès ; celui-ci expire après 30 minutes. Découvrez comment fonctionne le flux d’autorisation Xero et comment obtenir le jeton d'actualisation dans [cet article](https://developer.xero.com/documentation/oauth2/auth-flow). Pour obtenir un jeton d’actualisation, vous devez demander l’[étendue offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Limitation** : Notez que Xero réinitialise le jeton d’actualisation après utilisation. Pour une charge de travail opérationnalisée, avant chaque exécution de l’activité de copie, vous devez définir un jeton d’actualisation valide pour l’utilisation du service.<br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui pour l’authentification OAuth 2.0 |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte est requis dans le certificat de serveur et doit correspondre au nom d’hôte du serveur lors de la connexion via le protocole TLS. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion TLS. La valeur par défaut est true.  | Non |

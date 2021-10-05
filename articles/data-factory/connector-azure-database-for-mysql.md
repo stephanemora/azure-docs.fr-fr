@@ -1,26 +1,26 @@
 ---
 title: Copier et transformer des données dans Azure Database pour MySQL
+description: Apprenez à copier et à transformer des données dans Azure Database pour MySQL à l’aide de pipelines Azure Data Factory ou Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Apprenez à copier et à transformer des données dans Azure Database pour MySQL à l’aide d’Azure Data Factory.
-ms.author: susabat
-author: ssabat
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 5495feb3e4cfe8080b9be4ee1ec0bc3804232089
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: b9f5f5046e3c03ec0ee7057553b49ca26f18061c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314315"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761870"
 ---
-# <a name="copy-and-transform-data-in-azure-database-for-mysql-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Database pour MySQL à l’aide d’Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-database-for-mysql-using-azure-data-factory-or-synapse-analytics"></a>Copier et à transformer des données dans Azure Database pour MySQL à l’aide d’Azure Data Factory ou de Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment utiliser l’activité Copy dans Azure Data Factory pour copier des données depuis et vers Azure Database pour MySQL, et utiliser Data Flow pour transformer les données dans Azure Database pour MySQL. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article explique comment utiliser l’activité de copie dans les pipelines Azure Data Factory ou Synapse Analytics pour copier des données depuis et vers Azure Database pour MySQL, et utiliser Data Flow pour transformer les données dans Azure Database pour MySQL. Pour en savoir plus, lisez les articles d’introduction d’[Azure Data Factory](introduction.md) et de [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 Ce connecteur est spécialisé pour le [service Azure Database pour MySQL](../mysql/overview.md). Pour copier des données à partir d’une base de données MySQL générique située localement ou dans le cloud, utilisez le [connecteur MySQL](connector-mysql.md).
 
@@ -44,7 +44,7 @@ Utilisez les étapes suivantes pour créer un service lié à Azure Database pou
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur d’Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Créez un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -306,9 +306,9 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 
 ## <a name="data-type-mapping-for-azure-database-for-mysql"></a>Mappage de type de données pour Azure Database pour MySQL
 
-Lors de la copie de données à partir d’Azure Database pour MySQL, les mappages suivants sont utilisés entre les types de données MySQL et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
+Lors de la copie de données à partir d’Azure Database pour MySQL, les mappages suivants sont utilisés entre les types de données MySQL et les types de données intermédiaires utilisés dans le service. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
-| Type de données Azure Database pour MySQL | Type de données intermédiaires de Data Factory |
+| Type de données Azure Database pour MySQL | Type de données de service intermédiaire |
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
@@ -352,4 +352,4 @@ Lors de la copie de données à partir d’Azure Database pour MySQL, les mappag
 | `year` |`Int32` |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

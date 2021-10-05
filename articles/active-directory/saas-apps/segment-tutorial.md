@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: ab3afec6b849288a87ba8aa194d5b180a49dc184
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 52b944e60edbdc3eb784fcc91736bfca531340a0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557652"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801635"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Segment
 
@@ -39,6 +39,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Segment prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**.
 * Segment prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+* Segment prend en charge l’[attribution automatique d’utilisateurs](segment-provisioning-tutorial.md).
 
 ## <a name="add-segment-from-the-gallery"></a>Ajout de Segment à partir de la galerie
 
@@ -76,7 +77,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `urn:auth0:segment-prod:samlp-<CUSTOMER_VALUE>`
+    a. Dans la zone de texte **Identificateur**, tapez une valeur au format suivant : `urn:auth0:segment-prod:samlp-<CUSTOMER_VALUE>`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://segment-prod.auth0.com/login/callback?connection=<CUSTOMER_VALUE>`
 
@@ -85,7 +86,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.segment.com`
 
     > [!NOTE]
-    > Ces valeurs sont des espaces réservés. Vous devez utiliser l’identificateur, l’URL de réponse et l’URL de connexion exacts. Vous trouverez plus loin dans ce tutoriel les étapes permettant d’obtenir ces valeurs.
+    > Ces valeurs sont des espaces réservés. Vous devez les remplacer par les valeurs réelles de l’identificateur et de l’URL de réponse. Vous trouverez plus loin dans ce tutoriel les étapes permettant d’obtenir ces valeurs.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -157,6 +158,8 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans Segment. Segment prend en charge le provisionnement d’utilisateurs juste-à-temps, lequel est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Segment, il en est créé un après l’authentification.
 
+Segment prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./segment-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -171,7 +174,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance de Segment pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Segment dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Segment pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Segment dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Segment pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

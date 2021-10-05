@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 3bc61bdbca64b8a4aacc8aa8937d74081029d9f2
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: dac9007716d156816836c338fbad08902bb282cd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112286195"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675703"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Didacticiel : Intégration d’Azure Active Directory avec Bonusly
 
@@ -38,6 +38,7 @@ Pour configurer l’intégration d’Azure AD avec Bonusly, vous avez besoin des
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Bonusly prend en charge l’authentification unique initiée par le **fournisseur d’identité**.
+* Bonusly prend en charge l’[attribution automatique d’utilisateurs](bonusly-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -182,7 +183,10 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bonusly, vous devez
     d. Cliquez sur **Enregistrer**.
 
     > [!NOTE]
-    > Le titulaire du compte Azure AD reçoit alors un e-mail contenant un lien pour confirmer le compte avant qu’il ne soit activé.  
+    > Le titulaire du compte Azure AD reçoit alors un e-mail contenant un lien pour confirmer le compte avant qu’il ne soit activé.
+
+> [!NOTE]
+>Bonusly prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./bonusly-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
@@ -190,7 +194,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans Portail Azure : vous devez être connecté automatiquement à l’instance de Bonusly pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Bonusly dans Mes applications, vous êtes automatiquement connecté à l’instance de Bonusly pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Bonusly dans Mes applications, vous êtes automatiquement connecté à l’instance de Bonusly pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

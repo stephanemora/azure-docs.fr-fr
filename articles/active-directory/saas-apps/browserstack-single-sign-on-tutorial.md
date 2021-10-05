@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 4f86124a687d668359b5f51433ddb91d93cd4370
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 4c6f2e6abec3baa674123adacc0b522c1e0a01f7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965665"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619204"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-browserstack-single-sign-on"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à BrowserStack Single Sign-on
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * BrowserStack Single Sign-on prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* BrowserStack Single Sign-on prend en charge le [provisionnement automatisé des utilisateurs](browserstack-single-sign-on-provisioning-tutorial.md).
 
 ## <a name="add-browserstack-single-sign-on-from-the-gallery"></a>Ajouter BrowserStack Single Sign-on à partir de la galerie
 
@@ -128,6 +129,8 @@ Pour configurer l’authentification unique côté **BrowserStack Single Sign-on
 
 Dans cette section, vous allez créer un utilisateur appelé B.Simon dans BrowserStack Single Sign-on. Travaillez en collaboration avec l’[équipe de support technique BrowserStack Single Sign-on](mailto:support@browserstack.com) pour ajouter les utilisateurs dans la plateforme BrowserStack Single Sign-on. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+BrowserStack Single Sign-on prend également en charge le provisionnement automatique des utilisateurs. Vous trouverez plus d’informations [ici](./browserstack-single-sign-on-provisioning-tutorial.md) sur la façon de configurer le provisionnement automatique des utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -142,7 +145,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance de BrowserStack Single Sign-on pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette BrowserStack Single Sign-on dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. S’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de BrowserStack Single Sign-on pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette BrowserStack Single Sign-on dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. S’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de BrowserStack Single Sign-on pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

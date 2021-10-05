@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 91873a2d6a498712773bfe721653e64c3364666f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89730779485b4dd74297e2e1137b8e1217f4ef5a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92674822"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671485"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Prise en main du connecteur de base de données Oracle
 
@@ -34,14 +34,14 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 
 * Versions d’Oracle prises en charge : 
     * Oracle 9 et versions ultérieures
-    * Logiciel client Oracle 8.1.7 et versions ultérieures
+    * ODAC (Oracle Data Access Client) 11.2 et versions ultérieures
 
 * Installez la passerelle de données locale. [Connexion à des données locales à partir d’applications logiques](../logic-apps/logic-apps-gateway-connection.md) répertorie les étapes à suivre. La passerelle vous permet de vous connecter à une base de données Oracle locale ou à une machine virtuelle Azure sur laquelle la base de données Oracle est installée. 
 
     > [!NOTE]
     > La passerelle de données locale agit comme un pont et fournit un transfert de données sécurisé entre les données locales (qui ne sont pas sur le cloud) et vos applications logiques. La même passerelle peut être utilisée avec plusieurs services et plusieurs sources de données.  Par conséquent, il vous suffira peut-être d’installer la passerelle une seule fois.
 
-* Installez le client Oracle sur l’ordinateur où vous avez installé la passerelle de données locale.  Veillez à installer le fournisseur de données Oracle 64 bits pour .NET à partir d’Oracle :  
+* Installez le client Oracle sur l’ordinateur où vous avez installé la passerelle de données locale. Veillez à installer le fournisseur de données Oracle 64 bits pour .NET à partir d’Oracle, puis sélectionnez la version du programme d’installation Windows, car la version `xcopy` ne fonctionne pas avec la passerelle de données locale :  
 
   [ODAC 12C version 4 (12.1.0.2.4) 64 bits pour Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 

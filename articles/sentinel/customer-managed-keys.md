@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2021
 ms.author: yelevin
-ms.openlocfilehash: 66b9f5a2e4a0c62ab6847b9e851f8d04b1dbd0f8
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: d9f6ce8b85aae451fbab318b85f50fb0da7919a6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122525938"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541294"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurer une clé gérée par le client Azure Sentinel
 
@@ -27,7 +27,7 @@ Cet article fournit des informations générales et des étapes indiquant commen
 
 ## <a name="prerequisites"></a>Configuration requise
 
-- La capacité CMK nécessite un cluster Log Analytics dédié avec au moins un niveau d’engagement de 1 To/jour. Plusieurs espaces de travail peuvent être liés au même cluster dédié et ils partageront la même clé gérée par le client.
+- La fonction CMK nécessite un cluster dédié à Log Analytics avec un niveau d'engagement d'au moins 500 Go/jour. Plusieurs espaces de travail peuvent être liés au même cluster dédié et ils partageront la même clé gérée par le client.
 
 - Une fois que vous avez effectué les étapes de ce guide et avant d’utiliser l’espace de travail, pour la confirmation de l’intégration, contactez le [Groupe produits Azure Sentinel](mailto:azuresentinelCMK@microsoft.com).
 

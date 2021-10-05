@@ -1,18 +1,18 @@
 ---
 title: Inscrire et analyser une base de données Azure pour PostgreSQL
-description: Ce tutoriel explique comment analyser une base de données Azure pour PostgreSQL
+description: Ce tutoriel explique comment analyser une base de données Azure pour PostgreSQL dans Azure Purview.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
 ms.date: 06/30/2021
-ms.openlocfilehash: 622e89392dc10f12fe81ed1c1085e5b9cc524999
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: abc676fbff551781f720db5937a9c35c7c8f81ea
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181296"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209797"
 ---
 # <a name="register-and-scan-an-azure-database-for-postgresql"></a>Inscrire et analyser une base de données Azure pour PostgreSQL
 
@@ -73,7 +73,7 @@ Dans l’écran **Inscrire des sources de base de données Azure pour PostgreSQL
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Sélectionnez la source Azure Database pour PostgreSQL que vous avez inscrite.
 

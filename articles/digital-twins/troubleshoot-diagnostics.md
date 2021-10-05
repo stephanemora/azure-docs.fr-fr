@@ -1,28 +1,27 @@
 ---
-title: Activer et interroger les journaux de diagnostic
+title: Utiliser des journaux de diagnostic.
 titleSuffix: Azure Digital Twins
-description: Découvrez comment activer la journalisation avec les paramètres de diagnostic et comment interroger les journaux pour un affichage immédiat.
+description: Découvrez comment activer la journalisation avec les paramètres de diagnostic et comment interroger les journaux pour un affichage immédiat. Découvrez également les catégories de journaux et leurs schémas.
 author: baanders
 ms.author: baanders
-ms.date: 8/24/2021
+ms.date: 9/15/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1479e2b6b715e8f80ea9e02b0b57a3995da2bfd9
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: contperf-fy22q1
+ms.openlocfilehash: c868f0c8418f6b265e3de5b4d8ea0c6b7312a33e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219709"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593646"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Dépannage d’Azure Digital Twins : Journalisation des diagnostics
 
-Azure Digital Twins peut collecter les journaux de votre instance de service pour superviser ses performances, son accès et d’autres données. Vous pouvez utiliser ces journaux pour obtenir un aperçu de ce qui se passe dans votre instance Azure Digital Twins et analyser des causes racines sur des problèmes sans avoir besoin de contacter le support Azure.
+Azure Digital Twins peut collecter les **journaux** de votre instance de service pour superviser ses performances, son accès et d’autres données. Vous pouvez utiliser ces journaux pour obtenir un aperçu de ce qui se passe dans votre instance Azure Digital Twins et analyser des causes racines sur des problèmes sans avoir besoin de contacter le support Azure.
 
-Cet article explique comment [configurer les paramètres de diagnostic](#turn-on-diagnostic-settings) dans le [portail Azure](https://portal.azure.com) pour commencer à collecter des journaux à partir de votre instance Azure Digital Twins. Vous pouvez également spécifier l’emplacement de stockage des journaux (comme Log Analytics ou un compte de stockage de votre choix).
+Cet article vous montre comment configurer les paramètres de diagnostic dans le [portail Azure](https://portal.azure.com), y compris les types de journaux à collecter et où les stocker (comme Log Analytics ou un compte de stockage de votre choix). Ensuite, vous pouvez interroger les journaux pour obtenir rapidement des informations personnalisées.
 
-Cet article contient aussi les listes de toutes les [catégories de journaux](#log-categories) et tous les [schémas de journalisation](#log-schemas) qu’Azure Digital Twins collecte.
-
-Après avoir configuré les journaux, vous pouvez aussi les [interroger](#view-and-query-logs) pour collecter rapidement des insights personnalisés.
+Cet article contient également des informations sur toutes les **catégories de journaux** que les jumeaux numériques Azure peuvent collecter, ainsi que leurs **schémas**.
 
 ## <a name="turn-on-diagnostic-settings"></a>Activer les paramètres de diagnostic 
 
@@ -58,6 +57,32 @@ Activez les paramètres de diagnostic pour démarrer la collecte des journaux su
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux réapparaissent dans la cible configurée sur la page **Paramètres de diagnostic** de votre instance. 
 
 Pour plus d’informations sur les paramètres de diagnostic et leurs options de configuration, vous pouvez consulter [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../azure-monitor/essentials/diagnostic-settings.md).
+
+## <a name="view-and-query-logs"></a>Afficher et interroger les journaux
+
+Après avoir configuré les détails de stockage de vos journaux Azure Digital Twins, vous pouvez écrire des **requêtes personnalisées** pour eux afin de générer des informations et de résoudre les problèmes. Le service fournit également quelques exemples de requêtes qui peuvent vous aider à démarrer, en répondant aux questions courantes que les clients peuvent se poser sur leurs instances.
+
+Voici comment interroger les journaux de votre instance.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre instance Azure Digital Twins. Vous pouvez la trouver en tapant son nom dans la barre de recherche du portail. 
+
+2. Sélectionnez **Journaux** dans le menu pour ouvrir la page d’interrogation de journal. Cette page s’ouvre dans une fenêtre nommée *Requêtes*.
+
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Capture d’écran montrant la page Journaux pour une instance Azure Digital Twins dans le portail Azure avec la fenêtre Requêtes superposée, montrant les requêtes prédéfinies" lightbox="media/troubleshoot-diagnostics/logs.png":::
+
+    Il s’agit d’exemples de requêtes prédéfinies écrites pour divers journaux. Vous pouvez sélectionner l’une des requêtes pour la charger dans l’éditeur de requête, puis l’exécuter afin de voir ces journaux pour votre instance.
+
+    Vous pouvez aussi fermer la fenêtre *Requêtes* sans rien exécuter pour accéder directement à la page de l’éditeur de requête, où vous pouvez écrire ou modifier du code de requête personnalisé.
+
+3. Après avoir quitté la fenêtre *Requêtes*, la page principale de l’éditeur de requête s’affiche. Ici, vous pouvez voir et modifier le texte des exemples de requêtes, ou écrire vos propres requêtes ex nihilo.
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Capture d’écran montrant la page Journaux pour une instance Azure Digital Twins dans le portail Azure. Elle comprend la liste des journaux, le code de requête et l’historique des requêtes." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+
+    Dans le volet gauche : 
+    - L’onglet *Tables* présente les différentes [catégories de journaux](#log-categories) Azure Digital Twins utilisables dans vos requêtes. 
+    - L’onglet *Requêtes* contient les exemples de requêtes que vous pouvez charger dans l’éditeur.
+    - L’onglet *Filtre* vous permet de personnaliser une vue filtrée des données retournées par la requête.
+
+Pour plus d’informations sur les requêtes de journal et sur la façon de les écrire, vous pouvez consulter [Vue d’ensemble des requêtes de journal dans Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="log-categories"></a>Catégories de journal
 
@@ -338,34 +363,6 @@ Voici un exemple de corps JSON pour une `ADTEventRoutesOperation` qui est de typ
   }
 },
 ```
-
-## <a name="view-and-query-logs"></a>Afficher et interroger les journaux
-
-Plus haut dans cet article, vous avez configuré les types de journaux à stocker et spécifié leur emplacement de stockage.
-
-Pour résoudre le problème et générer des insights à partir de ces journaux, vous pouvez générer des **requêtes personnalisées**. Pour commencer, vous pouvez aussi tirer parti de quelques exemples de requêtes fournis par le service, qui répondent aux questions courantes que les clients peuvent se poser sur leur instance.
-
-Voici comment interroger les journaux de votre instance.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre instance Azure Digital Twins. Vous pouvez la trouver en tapant son nom dans la barre de recherche du portail. 
-
-2. Sélectionnez **Journaux** dans le menu pour ouvrir la page d’interrogation de journal. Cette page s’ouvre dans une fenêtre nommée *Requêtes*.
-
-    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Capture d’écran montrant la page Journaux pour une instance Azure Digital Twins dans le portail Azure avec la fenêtre Requêtes superposée, montrant les requêtes prédéfinies" lightbox="media/troubleshoot-diagnostics/logs.png":::
-
-    Il s’agit d’exemples de requêtes prédéfinies écrites pour divers journaux. Vous pouvez sélectionner l’une des requêtes pour la charger dans l’éditeur de requête, puis l’exécuter afin de voir ces journaux pour votre instance.
-
-    Vous pouvez aussi fermer la fenêtre *Requêtes* sans rien exécuter pour accéder directement à la page de l’éditeur de requête, où vous pouvez écrire ou modifier du code de requête personnalisé.
-
-3. Après avoir quitté la fenêtre *Requêtes*, la page principale de l’éditeur de requête s’affiche. Ici, vous pouvez voir et modifier le texte des exemples de requêtes, ou écrire vos propres requêtes ex nihilo.
-    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Capture d’écran montrant la page Journaux pour une instance Azure Digital Twins dans le portail Azure. Elle comprend la liste des journaux, le code de requête et l’historique des requêtes." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
-
-    Dans le volet gauche : 
-    - L’onglet *Tables* présente les différentes [catégories de journaux](#log-categories) Azure Digital Twins utilisables dans vos requêtes. 
-    - L’onglet *Requêtes* contient les exemples de requêtes que vous pouvez charger dans l’éditeur.
-    - L’onglet *Filtre* vous permet de personnaliser une vue filtrée des données retournées par la requête.
-
-Pour plus d’informations sur les requêtes de journal et sur la façon de les écrire, vous pouvez consulter [Vue d’ensemble des requêtes de journal dans Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

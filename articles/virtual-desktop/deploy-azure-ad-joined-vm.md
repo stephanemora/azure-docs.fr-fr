@@ -6,26 +6,21 @@ author: Heidilohr
 manager: lizross
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 09/15/2021
 ms.author: helohr
-ms.openlocfilehash: c7767ad85fabf748a442644f6c7c6701375d58c0
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: e6325c6511c6df9c3f3c021bc24a3f66b2e56c0f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122534746"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207732"
 ---
 # <a name="deploy-azure-ad-joined-virtual-machines-in-azure-virtual-desktop"></a>Déployer des machines virtuelles jointes Azure AD dans Azure Virtual Desktop
-
-> [!IMPORTANT]
-> La prise en charge des machines virtuelles Azure AD jointe est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article vous guide tout au long du processus de déploiement et d’accès aux machines virtuelles jointes à Azure Active Directory dans Azure Virtual Desktop. Les machines virtuelles jointes à Azure AD suppriment la nécessité de devoir contrôler la connexion entre la machine virtuelle et un contrôleur de domaine Active Directory (DC) local ou virtualisé, ou de déployer Azure AD Domain services (Azure AD DS). Dans certains cas, il évite de recourir à un contrôleur de domaine, ce qui simplifie le déploiement et la gestion de l’environnement. Ces machines virtuelles peuvent également être inscrites automatiquement dans Intune pour faciliter la gestion.
 
 > [!NOTE]
-> Azure Virtual Desktop (classique) ne prend pas en charge cette fonctionnalité.
+> Les machines virtuelles jointes Azure AD ne sont actuellement prises en charge que dans le Cloud commercial Azure.
 
 ## <a name="supported-configurations"></a>Configurations prises en charge
 
@@ -35,12 +30,20 @@ Les configurations suivantes sont actuellement prises en charge avec les machine
 - Postes de travail mis en pool utilisés comme zone de renvoi. Dans cette configuration, les utilisateurs accèdent d’abord à la machine virtuelle Azure Virtual Desktop avant de se connecter à un autre ordinateur sur le réseau. Les utilisateurs ne doivent pas enregistrer de données sur la machine virtuelle.
 - Des applications ou des bureaux mis en pool dans lesquels les utilisateurs n’ont pas besoin d’enregistrer des données sur la machine virtuelle. Par exemple, pour les applications qui enregistrent des données en ligne ou se connectent à une base de données distante.
 
-Les comptes d’utilisateurs peuvent être des utilisateurs du cloud uniquement ou hybrides du même locataire Azure AD. Les utilisateurs externes ne sont pas pris en charge pour le moment.
+Les comptes d’utilisateurs peuvent être des utilisateurs du cloud uniquement ou hybrides du même locataire Azure AD.
+
+## <a name="known-limitations"></a>Limitations connues
+
+Les limitations connues suivantes peuvent avoir un impact sur l’accès à vos ressources locales ou Active Directory jointes à un domaine, et doivent être prises en compte pour décider si des machines virtuelles jointes Azure AD sont appropriées pour votre environnement. Nous recommandons actuellement des machines virtuelles jointes Azure AD pour les scénarios où les utilisateurs ont uniquement besoin d’accéder à des ressources cloud ou à une authentification basée sur Azure AD.
+
+- Azure Virtual Desktop (classique) ne prend pas en charge les machines virtuelles jointes à Azure AD.
+- Les machines virtuelles jointes à Azure AD ne prennent actuellement pas en charge les utilisateurs externes.
+- Les machines virtuelles jointes Azure AD prennent en charge les profils utilisateur locaux pour l’instant.
+- Les machines virtuelles jointes Azure AD ne peuvent pas accéder aux partages de fichiers Azure Files pour FSLogix ou l’attachement d’application MSIX. Vous aurez besoin de l’authentification Kerberos pour accéder à l’une de ces fonctionnalités.
+- Le client du Store Windows ne prend actuellement pas en charge les machines virtuelles jointes à Azure AD.
+- Azure Virtual Desktop ne prend pas actuellement en charge l’authentification unique pour les machines virtuelles jointes à Azure AD.
 
 ## <a name="deploy-azure-ad-joined-vms"></a>Déployer des machines virtuelles jointes Azure AD
-
-> [!IMPORTANT]
-> Pendant la préversion publique, vous devez configurer votre pool d’hôtes pour qu’il se trouve dans l’[environnement de validation](create-validation-host-pool.md).
 
 Vous pouvez déployer des machines virtuelles jointes à Azure AD directement à partir du Portail Azure lors de la [création d’un pool hôte](create-host-pools-azure-marketplace.md) ou de l’[extension d’un pool hôte existant](expand-existing-host-pool.md). Dans l’onglet Machines virtuelles, indiquez si vous souhaitez joindre la machine virtuelle à Active Directory ou à Azure Active Directory. En sélectionnant **Azure Active Directory** vous avez la possibilité d’**inscrire la machine virtuelle à Intune** automatiquement afin de pouvoir gérer facilement les machines virtuelles [Windows 10 Entreprise](/mem/intune/fundamentals/windows-virtual-desktop) et [Windows 10 Enterprise multi-session](/mem/intune/fundamentals/windows-virtual-desktop-multi-session). N’oubliez pas que l’option Azure Active Directory joint des machines virtuelles au même locataire Azure AD que l’abonnement dans lequel vous vous trouvez.
 
@@ -48,24 +51,20 @@ Vous pouvez déployer des machines virtuelles jointes à Azure AD directement �
 > - Les pools hôtes doivent contenir uniquement des machines virtuelles du même type de jonction de domaine. Par exemple, les machines virtuelles jointes à Active Directory doivent uniquement être associées à d’autres machines virtuelles AD, et vice versa.
 > - Les machines virtuelles du pool hôte doivent être de type Windows 10 session unique ou multisession, version 2004 ou ultérieure.
 
-Une fois que vous avez créé le pool d’ordinateurs hôtes, vous devez affecter l’accès utilisateur. Pour les machines virtuelles jointes à Azure AD, vous devez effectuer deux opérations :
+### <a name="assign-user-access-to-host-pools"></a>Affecter l’accès utilisateur aux pools d’ordinateurs hôtes
 
-- Ajoutez des utilisateurs au groupe d’applications pour leur accorder l’accès aux ressources.
-- Accordez aux utilisateurs le rôle de connexion de l’utilisateur de la machine virtuelle pour qu’ils puissent se connecter aux machines virtuelles.
+Une fois que vous avez créé votre pool d’ordinateurs hôtes, vous devez affecter aux utilisateurs l’accès leur permettant d’accéder à leurs ressources. Pour accorder l’accès aux ressources, ajoutez chaque utilisateur au groupe d’applications. Suivez les instructions dans [Gérer des groupes d’applications](manage-app-groups.md) pour affecter l’accès utilisateur aux applications et aux ordinateurs de bureau. Nous vous recommandons d’utiliser des groupes d’utilisateurs plutôt que des utilisateurs individuels dans la mesure du possible.
 
-Suivez les instructions dans [Gérer des groupes d’applications](manage-app-groups.md) pour affecter l’accès utilisateur aux applications et aux ordinateurs de bureau. Nous vous recommandons d’utiliser des groupes d’utilisateurs plutôt que des utilisateurs individuels dans la mesure du possible.
+Pour les machines virtuelles jointes à Azure AD, vous devez effectuer deux tâches supplémentaires en plus de la configuration requise pour les déploiements basés sur des Services de domaine Active Directory ou Azure Active Directory :  
+
+- Accordez aux utilisateurs le rôle **Connexion de l’utilisateur à la machine virtuelle** pour qu’ils puissent se connecter aux machines virtuelles.
+- Affectez aux administrateurs qui ont besoin de privilèges d’administrateur local le rôle **Connexion administrateur à l’ordinateur virtuel** .
 
 Pour accorder aux utilisateurs l’accès à des machines virtuelles jointes à Azure AD, vous devez [configurer des attributions de rôles pour la machine virtuelle](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#configure-role-assignments-for-the-vm). Vous pouvez affecter la **connexion utilisateur à la machine virtuelle** ou la **connexion administrateur à la machine virtuelle** sur les machines virtuelles, le groupe de ressources contenant les machines virtuelles ou l’abonnement. Nous vous recommandons d’attribuer le rôle de connexion de l’utilisateur de la machine virtuelle au groupe d’utilisateurs que vous avez utilisé pour le groupe d’applications au niveau du groupe de ressources afin qu’il s’applique à toutes les machines virtuelles du pool hôte.
 
 ## <a name="access-azure-ad-joined-vms"></a>Accéder aux machines virtuelles jointes à Azure AD
 
 Cette section explique comment accéder à des machines virtuelles jointes à Azure AD à partir de différents clients Azure Virtual Desktop.
-
-> [!NOTE]
-> La connexion à des machines virtuelles jointes à Azure AD n’est pas prise en charge actuellement par le client Windows Store.
-
-> [!NOTE]
-> Azure Virtual Desktop ne prend pas actuellement en charge l’authentification unique pour les machines virtuelles jointes à Azure AD.
 
 ### <a name="connect-using-the-windows-desktop-client"></a>Se connecter à l’aide du client Windows Desktop
 
@@ -83,7 +82,7 @@ Pour accéder aux machines virtuelles jointes à Azure AD à l’aide des client
 
 ### <a name="enabling-mfa-for-azure-ad-joined-vms"></a>Activation de l’authentification multifacteur pour les machines virtuelles jointes à Azure AD
 
-Vous pouvez activer l’[authentification multifacteur](set-up-mfa.md) pour les machines virtuelles jointes à Azure AD en définissant une stratégie d’accès conditionnel sur l’application Azure Virtual Desktop. Pour que les connexions fonctionnent, [désactivez l’authentification multifacteur par utilisateur héritée](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#using-conditional-access). Si vous ne souhaitez pas limiter la connexion à des méthodes d’authentification forte comme Windows Hello Entreprise, vous devez également [exclure l’application de connexion de machine virtuelle Azure Windows](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) de votre stratégie d’accès conditionnel.
+Vous pouvez activer l’[authentification multifacteur](set-up-mfa.md) pour les machines virtuelles jointes à Azure AD en définissant une stratégie d’accès conditionnel sur l’application Azure Virtual Desktop. Pour que les connexions fonctionnent, vous devez [désactiver l’authentification multifacteur par utilisateur héritée](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required). Si vous ne souhaitez pas limiter la connexion à des méthodes d’authentification forte comme Windows Hello Entreprise, vous devez également [exclure l’application de connexion de machine virtuelle Azure Windows](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) de votre stratégie d’accès conditionnel.
 
 ## <a name="user-profiles"></a>Profils utilisateur
 

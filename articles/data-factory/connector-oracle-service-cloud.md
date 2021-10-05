@@ -1,25 +1,25 @@
 ---
 title: Copier des données depuis Oracle Service Cloud (préversion)
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données de Oracle Service Cloud vers des banques de données réceptrices prises en charge.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’Oracle Service Cloud vers des magasins de données récepteurs pris en charge.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 4a74b89a2954c658a41eabb75d70941efc50a86a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: f16487eb6483204c26a9ac96d2a42cff4c787629
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311764"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827123"
 ---
-# <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copier des données d’Oracle Service Cloud à l’aide d’Azure Data Factory (préversion)
+# <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-or-synapse-analytics-preview"></a>Copier des données d’Oracle Service Cloud à l’aide d’Azure Data Factory ou de Synapse Analytics (préversion)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’Oracle Service Cloud. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l’activité de copie dans Azure Data Factory ou Synapse Analytics pour copier des données d’Oracle Service Cloud. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!IMPORTANT]
 > Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
@@ -33,7 +33,7 @@ Ce connecteur Oracle Service Cloud est pris en charge pour les activités suivan
 
 Il est possible de copier des données d’Oracle Service Cloud vers n’importe quel magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
+Le service fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -75,7 +75,7 @@ Les propriétés prises en charge pour le service lié Oracle Service Cloud sont
 | type | La propriété type doit être définie sur : **OracleServiceCloud** | Oui |
 | host | L’URL de l’instance Oracle Service Cloud.  | Oui |
 | username | Nom d’utilisateur utilisé pour accéder au server Oracle Service Cloud.  | Oui |
-| mot de passe | Mot de passe correspondant au nom d’utilisateur indiqué dans la clé username. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d'application, ou stocker le mot de passe dans Azure Key Vault et laisser l'activité de copie ADF en tirer (pull) les données lors de la copie. Pour plus d'informations, consultez la page [Stocker des informations d'identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
+| mot de passe | Mot de passe correspondant au nom d’utilisateur indiqué dans la clé username. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le service, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie de service en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion TLS. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion TLS. La valeur par défaut est true.  | Non |
@@ -183,4 +183,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

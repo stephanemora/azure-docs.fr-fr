@@ -16,12 +16,12 @@ ms.date: 06/30/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 936351dd9f2b19fab4ea95012b118d00d0c87299
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1c53899c8a513d623fc11d7494c3473cf2878d71
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532714"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609913"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell pour les rôles Azure AD dans Privileged Identity Management
 
@@ -49,7 +49,7 @@ Cet article contient des instructions concernant l’utilisation des applets de 
     ![Rechercher l’ID d’organisation dans les propriétés de l’organisation Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> Les sections suivantes sont des exemples simples qui peuvent vous aider à démarrer. Vous trouverez plus d’informations sur les applets de commande suivantes sur [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management). Toutefois, vous devez remplacer « azureResources » dans le paramètre providerID par « aadRoles ». Vous devez également vous souvenir d’utiliser l’ID de locataire pour votre organisation Azure AD en tant que paramètre resourceId.
+> Les sections suivantes sont des exemples simples qui peuvent vous aider à démarrer. Vous pouvez trouver une documentation plus détaillée concernant les cmdlets suivants à l'adresse [/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management). Toutefois, vous devez remplacer « azureResources » dans le paramètre providerID par « aadRoles ». Vous devez également vous souvenir d’utiliser l’ID de locataire pour votre organisation Azure AD en tant que paramètre resourceId.
 
 ## <a name="retrieving-role-definitions"></a>Récupération des définitions de rôles
 
@@ -112,10 +112,16 @@ $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
 
 ## <a name="activate-a-role-assignment"></a>Activer une attribution de rôle
 
-Utilisez l’applet de commande suivante pour activer une attribution éligible.
+Utilisez le cmdlet suivant pour activer une affectation admissible dans le contexte d'un utilisateur régulier :
 
 ```powershell
-Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas"
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -Schedule $schedule -Reason "Business Justification for the role assignment"
+``` 
+
+Si vous devez activer une affectation éligible en tant qu'administrateur, pour le `Type`paramètre, spécifiez`adminAdd` :
+
+```powershell
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'adminAdd' -AssignmentState 'Active' -Schedule $schedule -Reason "Business Justification for the role assignment"
 ``` 
 
 Cette applet de commande est presque identique à l’applet de commande permettant de créer une attribution de rôle. La principale différence entre les cmdlets réside dans le fait que pour le paramètre –Type, l’activation est « userAdd » au lieu de « adminAdd ». L’autre différence tient au fait que le paramètre –AssignmentState a pour valeur « Active » au lieu de « Eligible ».

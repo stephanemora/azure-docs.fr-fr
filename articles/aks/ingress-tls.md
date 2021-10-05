@@ -5,12 +5,12 @@ description: Découvrez comment installer et configurer un contrôleur d’entr�
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: e93cfd95464d43b70ef8ade7b6380ba2c67cd9d4
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 8c83e3bd2cb9243744c13cb70ed0488a108bc979
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534967"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588178"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée HTTPS dans Azure Kubernetes Service (AKS)
 
@@ -164,7 +164,7 @@ az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --outpu
  ```
 
 #### <a name="method-2-set-the-dns-label-using-helm-chart-settings"></a>Méthode 2 : Définir l’étiquette DNS à l’aide des paramètres du chart Helm
-Vous pouvez transmettre un paramètre d’annotation à votre configuration de chart Helm à l’aide du paramètre `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"`.  Ce paramètre peut être défini lors du premier déploiement du contrôleur d’entrée ou être configuré ultérieurement.
+Vous pouvez transmettre un paramètre d'annotation à la configuration de votre graphique de barre en utilisant le `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"`paramètre.  Ce paramètre peut être défini lors du premier déploiement du contrôleur d’entrée ou être configuré ultérieurement.
 L’exemple suivant montre comment mettre à jour ce paramètre après le déploiement du contrôleur.
 
 ```

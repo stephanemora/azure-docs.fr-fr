@@ -5,12 +5,12 @@ ms.date: 02/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6737e2500b96d1c1872432c39761f8578de0ba02
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 9450a140d6c2fec93ccd836309690e15337b588b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319734"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638802"
 ---
 # <a name="tutorial-deploy-a-local-arm-template"></a>Tutoriel : Déployer un modèle ARM local
 
@@ -44,7 +44,7 @@ Le modèle déploie un compte de stockage, un plan App Service et une applicatio
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Ce nom doit comprendre entre 3 et 24 caractères, uniquement des lettres en minuscules et des nombres. Le nom doit être unique. Dans le modèle, le nom du compte de stockage est le nom du projet auquel **store** est ajouté, et le nom du projet doit comprendre entre 3 et 11 caractères. Le nom du projet doit donc respecter les exigences du nom du compte de stockage et comporter moins de 11 caractères.
+> Ce nom doit être unique et comprendre entre 3 et 24 caractères, uniquement des lettres en **minuscules** et des **nombres**. La variable `storageAccountName` de l’exemple de modèle combine le maximum de 11 caractères du paramètre `projectName` avec une valeur [uniqueString](./template-functions-string.md#uniquestring) de 13 caractères.
 
 Enregistrez une copie du modèle sur votre ordinateur local avec l’extension _.json_, par exemple _azuredeploy.json_. Vous allez déployer ce modèle ultérieurement dans le tutoriel.
 

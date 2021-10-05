@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 06/23/2021
-ms.openlocfilehash: 2aa4fe3e7e2f7637060996b53748391da03879ec
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 07a47b432470b683680c315f2d1d741cc607774f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123032279"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214596"
 ---
 # <a name="whats-new-in-anomaly-detector"></a>Nouveautés du Détecteur d’anomalies
 
@@ -19,6 +19,10 @@ Découvrir les nouveautés du service. Ces éléments incluent des notes de publ
 Nous avons également ajouté des liens vers du contenu généré par les utilisateurs. Ces éléments sont marqués avec l’étiquette **[Contenu utilisateur]** . Certains sont hébergés sur des sites web qui sont externes à Microsoft, et Microsoft n’est pas responsable de leur contenu. Faites preuve de discernement lorsque vous faites référence à ces ressources. Contactez AnomalyDetector@microsoft.com ou créez un problème sur GitHub si vous souhaitez supprimer le contenu.
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="september-2021"></a>Septembre 2021
+* Détecteur d’anomalies (univarié) disponible dans Jio Inde Ouest.
+* API de détection d’anomalie multivariée, déployées dans cinq régions supplémentaires : Asie Est, USA Ouest, Inde Centre, Corée Centre, Allemagne Centre-Ouest.
 
 ### <a name="august-2021"></a>Août 2021
 
@@ -70,9 +74,6 @@ Nous avons également ajouté des liens vers du contenu généré par les utilis
 * 20 août 2019 [Placer un détecteur d’anomalies sur site avec prise en charge des conteneurs](https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - Présentation IA avec Qun Ying et Seth Juarez
 * 13 août 2019 [Présentation du détecteur d’anomalies Azure](https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - Présentation IA avec Qun Ying et Seth Juarez
 
-## <a name="open-source-projects"></a>Projets open source
-
-* 3 juin 2019 **[Contenu utilisateur]** [Bloc-notes Jupyter illustrant la détection d’anomalies et la diffusion vers Power BI](https://github.com/marvinbuss/MS-AnomalyDetector) - Marvin Buss
 
 ## <a name="service-updates"></a>Mises à jour de service
 

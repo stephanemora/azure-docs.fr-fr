@@ -3,12 +3,12 @@ title: Connecter une machine hybride avec serveurs avec Azure Arc
 description: Découvrez comment connecter et inscrire votre machine hybride auprès des serveurs avec Azure Arc.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: d5f1699447093f148b0dadbdd23857c9e16e13a3
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: fc645f930fe37f8a3eca10d1647d40eb9c7a2280
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772656"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807643"
 ---
 # <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Démarrage rapide : Connecter des machines hybrides avec serveurs avec Azure Arc
 
@@ -18,7 +18,7 @@ ms.locfileid: "122772656"
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Pour déployer l’agent Hybrid Connected Machine des serveurs avec Arc, vous devez disposer d’autorisations d’administrateur sur la machine où vous installez et configurez l’agent. Vous utilisez le compte racine sous Linux et, sous Windows, un compte membre du groupe Administrateurs local.
+* Pour déployer l’agent Hybrid Connected Machine des serveurs avec Azure Arc, vous devez disposer d’autorisations d’administrateur sur la machine où vous installez et configurez l’agent. Vous utilisez le compte racine sous Linux et, sous Windows, un compte membre du groupe Administrateurs local.
 
 * Avant de commencer, veillez à passer en revue les [conditions préalables](../agent-overview.md#prerequisites) de l’agent et à vérifier les éléments suivants :
 
@@ -56,7 +56,7 @@ Le script permettant d’automatiser le téléchargement et l’installation, ai
 
 1. Lancez le service Azure Arc dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et sélectionnant **Serveurs - Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Rechercher des serveurs avec Arc dans Tous les services" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Rechercher des serveurs avec Azure Arc dans Tous les services" border="false":::
 
 1. Dans la page **Serveurs - Azure Arc**, sélectionnez **Ajouter** en haut à gauche.
 

@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 07/22/2021
-ms.openlocfilehash: 9f058cfc97821dc9ddcbedeeed1acf9ebb9919d3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/14/2021
+ms.openlocfilehash: bf37cfc156d45eb668a7f7da240e8a9437aa51d9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532831"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216970"
 ---
 # <a name="maintenance-window-preview"></a>Fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,32 +76,42 @@ Le choix d’une fenêtre de maintenance autre que celle par défaut est disponi
 
 Le choix d’une fenêtre de maintenance autre que celle par défaut est actuellement disponible dans les régions suivantes :
 
-- Australie Est
-- Australie Sud-Est
-- Brésil Sud
-- Centre du Canada
-- Est du Canada
-- Inde centrale
-- USA Centre
-- USA Est
-- USA Est 2
-- Asie Est
-- France Sud
-- Allemagne Centre-Ouest
-- Japon Est
-- Corée Centre*
-- NorthCentral US
-- Europe Nord
-- USA Centre Sud
-- Asie Sud-Est
-- Sud du Royaume-Uni
-- Ouest du Royaume-Uni
-- Centre-USA Ouest
-- Europe Ouest
-- USA Ouest
-- USA Ouest 2
-
-*Disponible uniquement pour Azure SQL Managed Instance
+| Région Azure | Instance managée SQL | SQL Database | Base de données SQL dans une [zone de disponibilité Azure](high-availability-sla.md) | 
+|:---|:---|:---|:---|
+| Australie Est | Oui | Oui | Oui |
+| Australie Sud-Est | Oui | Oui | |
+| Brésil Sud | Oui | Oui |  |
+| Centre du Canada | Oui | Oui | Oui |
+| Est du Canada | Oui | Oui | |
+| Inde Centre | Oui | Oui | |
+| USA Centre | Oui | Oui | Oui |
+| Chine orientale 2 |Oui | Oui ||
+| Chine Nord 2 |Oui|Oui ||
+| USA Est | Oui | Oui | Oui |
+| USA Est 2 | Oui | Oui | Oui |
+| Asie Est | Oui | Oui | |
+| France Centre | Oui | Oui | |
+| France Sud | Oui | Oui | |
+| Allemagne Centre-Ouest | Oui | Oui |  |
+| Japon Est | Oui | Oui | Oui |
+| OuJapon Est | Oui | Oui | |
+| Centre de la Corée | Oui | | |
+| Corée du Sud | Oui | | |
+| Centre-Nord des États-Unis | Oui | Oui | |
+| Europe Nord | Oui | Oui | Oui |
+| Afrique du Sud Nord | Oui | | | 
+| États-Unis - partie centrale méridionale | Oui | Oui | Oui |
+| Inde Sud | Oui | Oui | |
+| Asie Sud-Est | Oui | Oui | Oui |
+| Suisse Nord | Oui | Oui | |
+| Émirats arabes unis Centre | Oui | | |
+| Sud du Royaume-Uni | Oui | Oui | Oui |
+| Ouest du Royaume-Uni | Oui | Oui | |
+| Centre-USA Ouest | Oui | Oui | |
+| Europe Ouest | Oui | Oui | Oui |
+| USA Ouest | Oui | Oui |  |
+| USA Ouest 2 | Oui | Oui | Oui |
+| | | | | 
 
 ## <a name="gateway-maintenance-for-azure-sql-database"></a>Maintenance de la passerelle pour Azure SQL Database
 
@@ -136,13 +146,15 @@ La configuration et la modification de la fenêtre de maintenance entraînent la
 >  Vérifiez que le groupe de sécurité réseau et les règles de pare-feu ne bloquent pas le trafic des données après la modification. 
 
 ### <a name="serialization-of-virtual-cluster-management-operations"></a>Sérialisation des opérations de gestion des clusters virtuels
+
 Les opérations relatives au cluster virtuel, comme les mises à niveau de service et le redimensionnement du cluster virtuel (ajout ou suppression de nœuds de calcul inutiles) sont sérialisées. En d’autres termes, une nouvelle opération de gestion de cluster virtuel ne peut pas démarrer tant que la précédente n’est pas terminée. Si la fenêtre de maintenance se ferme avant que la mise à niveau de service ou l’opération de maintenance en cours ne soit terminée, toute autre opération de gestion de cluster virtuel soumise entre-temps sera mise en attente jusqu’à ce que la fenêtre de maintenance suivante s’ouvre et que la mise à niveau de service ou l’opération de maintenance soit terminée. Il n’est pas courant qu’une opération de maintenance prenne plus de temps qu’une seule fenêtre par cluster virtuel, mais cela peut arriver dans le cas d’opérations de maintenance très complexes.
+
 La sérialisation des opérations de gestion des clusters virtuels est un comportement général qui s’applique également à la stratégie de maintenance par défaut. Une fois la planification de la fenêtre de maintenance configurée, la période entre deux fenêtres adjacentes peut être de quelques jours. Les opérations soumises peuvent également être mises en attente pendant quelques jours si l’opération de maintenance s’étend sur deux fenêtres. Ce cas est très rare, mais la création de nouvelles instances ou le redimensionnement des instances existantes (si des nœuds de calcul supplémentaires sont nécessaires) peuvent être bloqués pendant cette période.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Notifications préalables](advance-notifications.md)
 * [Configurer la fenêtre de maintenance](maintenance-window-configure.md)
+* [Notifications préalables](advance-notifications.md)
 
 ## <a name="learn-more"></a>En savoir plus
 

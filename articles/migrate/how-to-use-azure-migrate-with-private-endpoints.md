@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 5c0c9a44126ed5bd16544e8f5819eeb3add4a789
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: efe9f6ce21e59df3d7f8009b7ff540a77b4cc50a
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678304"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094497"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>Utiliser Azure Migrate avec des points de terminaison privés
 
@@ -27,7 +27,7 @@ Passez en revue les autorisations requises suivantes, ainsi que les scénarios e
 
 ### <a name="supported-geographies"></a>Zones géographiques prises en charge
 
-Cette fonctionnalité est actuellement en préversion dans toutes les [régions du cloud public](./migrate-support-matrix.md#supported-geographies-public-cloud).
+La fonctionnalité est désormais disponible en préversion dans les zones géographiques du [cloud public](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) et du [cloud du secteur public](/azure/migrate-support-matrix#supported-geographies-azure-government) prises en charge.
 
 ### <a name="required-permissions"></a>Autorisations requises
 
@@ -121,7 +121,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
     **Télécharger** | **Valeur de hachage**
     --- | ---
-    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2160648) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2160648) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 > [!NOTE]
 > Le même script peut être utilisé pour configurer une appliance avec une connectivité de point de terminaison privé pour l’un des scénarios choisis, tels que VMware, Hyper-V, physique ou autre pour déployer une appliance avec la configuration souhaitée.

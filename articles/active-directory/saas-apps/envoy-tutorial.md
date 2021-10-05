@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/25/2021
+ms.date: 08/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 3342198600c3549a7ce5e1e52111233d4fa920d8
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 2b28456a15227ab41a2e4c3c07c6df9125409ca9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110176"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645357"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Envoy
 
@@ -40,6 +40,8 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Envoy prend en charge l'authentification unique initiée par le **fournisseur de services**.
 
 * Envoy prend en charge l'attribution d'utilisateurs **juste-à-temps**.
+
+* Envoy prend en charge l’[attribution automatique d’utilisateurs](envoy-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -154,6 +156,8 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 Dans cette section, un utilisateur appelé Britta Simon est créé dans Envoy. Envoy prend en charge le provisionnement d’utilisateurs juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Envoy, il en est créé un après l’authentification.
 
+Envoy prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./envoy-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -162,7 +166,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l'URL de connexion à Envoy pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Envoy dans Mes applications vous redirige vers l'URL de connexion à Envoy. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Envoy dans Mes applications vous redirige vers l'URL de connexion à Envoy. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

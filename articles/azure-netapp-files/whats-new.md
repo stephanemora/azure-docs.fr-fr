@@ -12,18 +12,28 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 0bf972cd5b597d4cf0fb608eee8481cb72080425
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: cae4e16f42d9031040060a33bb8a5795f7695f56
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769338"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092126"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Nouveautés d’Azure NetApp Files
 
 Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les dernières fonctionnalités et améliorations. 
+
+## <a name="september-2021"></a>Septembre 2021
+
+* [Sauvegarde Azure NetApp Files](backup-introduction.md) (préversion)
+
+    Les instantanés en ligne Azure NetApp Files sont désormais perfectionnés grâce à la sauvegarde. Avec cette nouvelle fonctionnalité de sauvegarde, vous pouvez archiver rapidement vos instantanés Azure NetApp Files dans un stockage Azure redondant interzone rentable, en protégeant vos données contre une suppression accidentelle. La sauvegarde Azure NetApp Files développe la technologie de capture instantanée intégrée d’ONTAP. Quand des instantanés sont archivés dans le stockage Azure, seuls les blocs modifiés par rapport aux instantanés précédemment archivés sont copiés et stockés, dans un format efficace. Toutefois, les instantanés archivés sont toujours représentés dans leur totalité et peuvent être restaurés sur un nouveau volume individuellement et directement, ce qui élimine le besoin d’un processus de récupération itératif et incrémentiel complet. Cette technologie avancée minimise la quantité de données nécessaires pour stocker et récupérer des données dans le stockage Azure, ce qui permet de réduire les coûts de stockage et de transfert de données. Elle réduit également le temps d’archivage de la sauvegarde, ce qui vous permet d’obtenir un objectif de point de restauration (RPO) inférieur. Vous pouvez maintenant choisir de conserver un nombre minimal d’instantanés en ligne sur le service Azure NetApp Files pour les besoins de récupération de données les plus immédiats et quasi instantanés, ainsi que de créer un historique plus long d’instantanés à un coût inférieur à des fins de conservation à long terme dans le coffre de sauvegarde Azure NetApp Files. Pour plus d’informations, consultez [Fonctionnement des instantanés Azure NetApp Files](snapshots-introduction.md).
+
+* Option [**Administrateurs**](create-active-directory-connections.md#create-an-active-directory-connection) dans les connexions Active Directory (préversion)
+
+    La page des connexions Active Directory inclut désormais un champ **Administrateurs**. Vous pouvez spécifier des utilisateurs ou groupes auxquels des privilèges d’administrateur seront accordés sur le volume.
 
 ## <a name="august-2021"></a>Août 2021
 
@@ -31,7 +41,7 @@ Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les 
 
     Vous pouvez déjà activer la fonctionnalité de disponibilité continue SMB lors de la [création d’un volume SMB](azure-netapp-files-create-volumes-smb.md#continuous-availability). Vous pouvez maintenant également activer l’autorité de certification SMB sur un volume SMB existant. Consultez [Activer la disponibilité continue sur des volumes SMB existants](enable-continuous-availability-existing-SMB.md).
 
-* La [stratégie d’instantané](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) est désormais en disponibilité générale (GA)  
+* La [stratégie d’instantané](snapshots-manage-policy.md) est désormais en disponibilité générale (GA)  
 
     La fonctionnalité de stratégie d’instantané est désormais en disponibilité générale. Il n’est plus nécessaire de l’inscrire pour pouvoir l’utiliser.
 
@@ -148,7 +158,7 @@ Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les 
 
 ## <a name="november-2020"></a>Novembre 2020
 
-* [Restauration d’instantané](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+* [Restauration d’instantané](snapshots-revert-volume.md)
 
     La fonctionnalité de restauration d’instantané vous permet de restaurer rapidement un volume à l’état dans lequel il se trouvait lors de la prise d’un instantané particulier. Dans la plupart des cas, le rétablissement d’un volume est beaucoup plus rapide que la restauration de fichiers individuels, d’un instantané vers le système de fichiers actif. La gestion de l’espace est également mieux optimisée comparé à la restauration d’un instantané sur un nouveau volume.
 
@@ -192,15 +202,15 @@ Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les 
 
     Le cloud permet la flexibilité des dépenses informatiques. Vous pouvez désormais modifier le niveau de service d’un volume Azure NetApp Files existant en déplaçant le volume vers un autre pool de capacité qui utilise le niveau de service souhaité pour le volume. Cette modification sur place du niveau du service pour le volume ne nécessite pas de migration des données. Elle n’affecte pas non plus l’accès de plan de données au volume. Vous pouvez modifier un volume existant pour utiliser un niveau de service supérieur afin d’améliorer les performances, ou pour utiliser un niveau de service inférieur afin d’optimiser les coûts. Cette fonctionnalité est gratuite (en revanche, le [coût normal du stockage Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) s’applique). Elle est actuellement en préversion. Vous pouvez vous inscrire à la préversion de la fonctionnalité en suivant la [documentation sur la modification du niveau de service d’un volume dynamique](dynamic-change-volume-service-level.md).
 
-* [Stratégie d’instantané de volume](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) (préversion) 
+* [Stratégie d’instantané de volume](snapshots-manage-policy.md) (préversion) 
 
-    Azure NetApp Files vous permet de créer des instantanés de vos volumes à un point dans le temps. Vous pouvez désormais créer une stratégie d’instantané pour permettre à Azure NetApp Files de créer automatiquement des instantanés de volume à la fréquence de votre choix. Vous avez la possibilité de planifier les instantanés en cycles horaires, quotidiens, hebdomadaires ou mensuels. Vous pouvez également spécifier le nombre maximal d’instantanés à conserver dans le cadre de la stratégie d’instantané. Actuellement en préversion, cette fonctionnalité est gratuite (le [coût de stockage Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) normal s’applique). Vous pouvez vous inscrire à la préversion de la fonctionnalité en suivant la [documentation sur la stratégie d’instantané de volume](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+    Azure NetApp Files vous permet de créer des instantanés de vos volumes à un point dans le temps. Vous pouvez désormais créer une stratégie d’instantané pour permettre à Azure NetApp Files de créer automatiquement des instantanés de volume à la fréquence de votre choix. Vous avez la possibilité de planifier les instantanés en cycles horaires, quotidiens, hebdomadaires ou mensuels. Vous pouvez également spécifier le nombre maximal d’instantanés à conserver dans le cadre de la stratégie d’instantané. Actuellement en préversion, cette fonctionnalité est gratuite (le [coût de stockage Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) normal s’applique). Vous pouvez vous inscrire à la préversion de la fonctionnalité en suivant la [documentation sur la stratégie d’instantané de volume](snapshots-manage-policy.md).
 
 * [Stratégie d’exportation de l’accès à la racine NFS](azure-netapp-files-configure-export-policy.md)
 
     Azure NetApp Files vous permet désormais de spécifier si le compte racine peut accéder au volume. 
 
-* [Masquer le chemin d'instantané](azure-netapp-files-manage-snapshots.md#restore-a-file-from-a-snapshot-using-a-client)
+* [Masquer le chemin d'instantané](snapshots-edit-hide-path.md)
 
     Azure NetApp Files vous permet désormais de spécifier si un utilisateur peut voir et accéder au `.snapshot` répertoire (clients NFS) ou `~snapshot` dossier (clients SMB) sur un volume monté.
 

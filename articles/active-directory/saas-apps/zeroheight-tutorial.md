@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 8dd140b65e1ad4940d207011014f4e6d4e28bc7d
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: fd1447abfeab0cd7ab77df42fff19e092713e156
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603059"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604743"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zeroheight"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à zeroheight
 
@@ -84,15 +84,16 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique zeroheight](mailto:support@zeroheight.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. L’application zeroheight attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
+1. L’application zeroheight s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La section suivante présente les attributs par défaut.
 
     ![image](common/default-attributes.png)
 
-1. En plus de ce qui précède, l’application zeroheight s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient retournés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
+1. zeroheight n’utilise aucun des attributs par défaut. À la place, ajoutez les attributs suivants à repasser dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les changer en fonction de vos besoins.
     
-    | Nom |  Attribut source|
+    | Name |  Attribut source|
     | ---------- | --------- |
     | email | user.mail |
+    | FirstName | user.givenname |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
@@ -138,7 +139,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion zeroheight pour lancer le flux de connexion à partir de là.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette zeroheight dans Mes applications vous redirige vers l’URL de connexion zeroheight. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette zeroheight dans Mes applications vous redirige vers l’URL de connexion zeroheight. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

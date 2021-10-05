@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/26/2021
 ms.author: v-doeris
 ms.custom: has-adal-ref
-ms.openlocfilehash: 55cf58924bca9839225eafaa3e4084d60db5f898
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 663898ea4c1bc4a881a84956c227a4ca7719b55b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564038"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786861"
 ---
 # <a name="how-to-migrate-a-nodejs-app-from-adal-to-msal"></a>Migration d’une application Node.js d’ADAL vers MSAL
 
@@ -125,7 +125,7 @@ const msalConfig = {
     auth: {
         clientId: "YOUR_CLIENT_ID",
         authority: "https://login.microsoftonline.com/YOUR_TENANT_ID",
-        clientSecret: "YOUR_TENANT_ID",
+        clientSecret: "YOUR_CLIENT_SECRET",
         knownAuthorities: [], 
     },
     cache: {
@@ -297,7 +297,7 @@ var authorityURI = "https://login.microsoftonline.com/common";
 var context = new AuthenticationContext(authorityURI, true, cache);
 ```
 
-MSAL Node utilise un cache de jeton en mémoire par défaut. Vous n’avez pas besoin de l’importer explicitement, car il est exposé dans le cadre des classes `ConfidentialClientApplication` et `PublicClientApplication`.
+MSAL Node utilise un cache de jeton en mémoire par défaut. Vous n’avez pas besoin de l’importer explicitement. Le cache de jeton en mémoire est exposé dans le cadre des classes `ConfidentialClientApplication` et `PublicClientApplication`.
 
 ```javascript
 const msalTokenCache = publicClientApplication.getTokenCache();

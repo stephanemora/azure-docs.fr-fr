@@ -1,7 +1,6 @@
 ---
-title: Tutoriel pour vérifier le chargement de données à partir d’un disque Azure Data Box vers un compte de stockage | Microsoft Docs
+title: Tutoriel pour vérifier le chargement de données à partir d’un disque Azure Data Box vers un compte de stockage
 description: Utilisez ce tutoriel pour savoir comment vérifier les données chargées à partir de votre disque Azure Data Box vers un compte de stockage Azure.
-services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.localizationpriority: high
 ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: abe09cf10e241ec95ceed767e7038cde07667fc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53e2db3728d92a862fce64ba1fc379a2ae2205ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322731"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591631"
 ---
 ::: zone target="docs"
 
@@ -85,9 +84,9 @@ Une fois les données chargées sur Azure, vérifiez que vos données se trouven
 
 - Votre ou vos comptes de stockage Azure. Lorsque vous copiez les données sur Data Box, selon le type, les données sont chargées vers l’un des chemins d’accès ci-après dans votre compte Stockage Azure.
 
-    - **Pour les objets blob de blocs et de pages** : https://<nom_compte_stockage>.blob.core.windows.net/<containername>/files/a.txt
+    - **Pour les objets blob de blocs et les objets blob de pages** : `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
 
-    - **Pour Azure Files** : https://<nom_compte_stockage>.file.core.windows.net/<sharename>/files/a.txt
+    - **Pour les Fichiers Azure** : `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
 - Votre ou vos groupes de ressources spécifiés pour les disques managés. Quand vous créez des disques managés, les disques durs virtuels sont chargés en tant qu’objets blob de pages, puis convertis en disques managés. Les disques managés sont attachés aux groupes de ressources spécifiés au moment de la création de la commande.
 

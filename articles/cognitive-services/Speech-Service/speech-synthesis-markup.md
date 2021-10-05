@@ -3,26 +3,26 @@ title: Langage SSML - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Utilisation du langage de balisage de synthèse vocale pour contrôler la prononciation et la prosodie dans la synthèse vocale.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b71d0d114388c25f3f14c85d37f0568ceed49337
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: a43758b1c20b3983b4b2c0920481549ddccb0328
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527833"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708849"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
 Le langage de balisage de synthèse vocale (SSML) est un langage de balisage basé sur XML qui permet aux développeurs de spécifier la manière dont un texte en entrée est converti en parole synthétisée via le service de synthèse vocale. Comparé à du texte brut, le SSML permet aux développeurs de régler finement la tonalité, la prononciation, le débit, le volume et d’autres paramètres de la synthèse vocale. La ponctuation normale, telle que la pause après un point ou l’utilisation de l’intonation correcte quand une phrase se termine par un point d’interrogation, est traitée automatiquement.
 
-L’implémentation par SSML du service Speech est basée sur le [langage SSML version 1.0](https://www.w3.org/TR/speech-synthesis) du World Wide Web Consortium.
+L’implémentation par SSML du service Speech est basée sur le [langage SSML version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/) du World Wide Web Consortium.
 
 > [!IMPORTANT]
 > Les caractères chinois, japonais et coréens comptent pour deux en matière de facturation. Pour plus d’informations, voir la [tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -127,6 +127,8 @@ Actuellement, les ajustements de style oral suivants sont pris en charge pour ce
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
+* `en-US-SaraNeural`
+* `ja-JP-NanamiNeural`
 * `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
@@ -136,6 +138,7 @@ Actuellement, les ajustements de style oral suivants sont pris en charge pour ce
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 * `zh-CN-XiaoruiNeural`
+* `zh-CN-XiaoshuangNeural`
 
 L’intensité du style d’élocution peut être modifiée pour mieux correspondre à votre cas d’usage. Vous pouvez spécifier un style plus fort ou plus doux avec `styledegree` pour rendre la voix plus expressive ou feutrée. Actuellement, les ajustements de style oral sont pris en charge pour les voix neuronales en chinois (mandarin, simplifié).
 
@@ -183,6 +186,12 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 |                         | `style="assistant"`       | Exprime un ton chaud et détendu pour les assistants numériques    |
 |                         | `style="newscast"`        | Exprime un ton polyvalent et décontracté pour la diffusion d’informations générales   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Exprime un ton formel et professionnel pour la présentation des actualités |
+| `en-US-SaraNeural`      | `style="cheerful"`        | Exprime un ton positif et joyeux    |
+|                         | `style="sad"`             | Exprime un ton triste   |
+|                         | `style="angry"`           | Exprime un ton en colère et contrarié   |
+| `ja-JP-NanamiNeural`    | `style="cheerful"`        | Exprime un ton positif et joyeux   |
+|                         | `style="chat"`            | Exprime un ton informel et détendu   |
+|                         | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique    |
 | `pt-BR-FranciscaNeural` | `style="calm"`            | Exprime une attitude sympathique, calme et posée dans une conversation. Le ton, la hauteur de la voix, la prosodie sont bien plus uniformes par rapport aux autres types de voix.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Exprime un ton formel et professionnel pour la présentation des actualités |
 |                         | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  |
@@ -243,6 +252,7 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 | `zh-CN-XiaoruiNeural`   | `style="sad"`             | Exprime un ton triste, avec une plus grande hauteur de voix, une intensité moindre et une énergie vocale plus faible. Les gémissements ou les pleurs pendant l’élocution indiquent généralement cette émotion.         |
 |                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
 |                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                       |
+| `zh-CN-XiaoshuangNeural`   | `style="chat"` | Exprime un ton informel et détendu |
 
 Utilisez ce tableau pour vérifier les rôles pris en charge et leurs définitions.
 
@@ -564,6 +574,9 @@ Pour définir le mode de lecture de plusieurs entités, vous pouvez créer un le
 
 L’élément `lexicon` contient au moins un élément `lexeme`. Chaque élément `lexeme` contient au moins un élément `grapheme` et un ou plusieurs éléments `grapheme`, `alias` et `phoneme`. L’élément `grapheme` contient le texte décrivant l’<a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthographe </a>. Les éléments `alias` sont utilisés pour indiquer la prononciation d’un acronyme ou d’un terme abrégé. L’élément `phoneme` fournit du texte décrivant la façon dont le `lexeme` est prononcé. Lorsque les éléments `alias` et `phoneme` sont fournis avec le même élément `grapheme`, `alias` est prioritaire.
 
+> [!IMPORTANT]
+> L’élément `lexeme` respecte la casse dans le lexique personnalisé. Par exemple, si vous fournissez uniquement un phonème pour `lexeme` « Hello », il ne fonctionnera pas pour `lexeme` « hello ».
+
 Le lexique contient l'attribut `xml:lang` nécessaire pour indiquer les paramètres régionaux pour lesquels il doit être appliqué. Un lexique personnalisé est limité à un seul paramètre régional par conception. Il ne fonctionnera donc pas si vous l'appliquez à un autre paramètre régional.
 
 Il est important de noter que vous ne pouvez pas définir directement la prononciation d’une phrase à l’aide du lexique personnalisé. Si vous devez définir la prononciation d’un acronyme ou d’un terme abrégé, fournissez d’abord un `alias`, puis associez `phoneme` à `alias`. Par exemple :
@@ -578,6 +591,8 @@ Il est important de noter que vous ne pouvez pas définir directement la prononc
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
   </lexeme>
 ```
+> [!Note]
+> La limite de syllabe est « . » dans l’alphabet phonétique international.
 
 Vous pouvez également fournir directement l’`alias` attendu pour l’acronyme ou le terme abrégé. Par exemple :
 ```xml
@@ -612,6 +627,8 @@ Une fois que vous avez publié votre lexique personnalisé, vous pouvez le réf�
 ```
 
 Lors de l’utilisation de ce lexique personnalisé, « BTW » est prononcé comme « by the way ». « Benigni » sera prononcé « bɛˈniːnji » avec l’alphabet phonétique international fourni.
+
+Étant donné qu’il est facile de faire des erreurs dans un lexique personnalisé, Microsoft a fourni un [outil de validation pour le lexique personnalisé](https://github.com/jiajzhan/Custom-Lexicon-Validation). Il fournit des messages d’erreur détaillés qui vous aident à trouver des erreurs. Avant d’envoyer SSML avec un lexique personnalisé au service de reconnaissance vocale, vous devez vérifier votre lexique personnalisé à l’aide de cet outil. 
 
 **Limitations**
 - Taille du fichier : la limite maximale de la taille du fichier de lexique personnalisé est de 100 Ko. Au-delà, la demande de synthèse échoue.

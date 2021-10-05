@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 8/31/2021
+ms.date: 9/23/2021
 ms.author: stefanazaric
-ms.reviewer: jrasnick
-ms.openlocfilehash: 906f6a7a8e64c255c8b87219ef0549a553821783
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: 35803ad7d63e107f71e71c6ce8292c5608740eec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536478"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555251"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Aide autonome pour le pool SQL serverless
 
@@ -53,7 +53,7 @@ Au lieu d’accorder le rôle Contributeur aux données Blob du stockage, vous p
 
 > [!NOTE]
 > L’autorisation Execute au niveau du conteneur doit être définie dans Azure Data Lake Gen2.
-> Les autorisations sur le dossier peuvent être définies dans Synapse. 
+> Les autorisations sur le dossier peuvent être définies dans Azure Synapse. 
 
 
 Si vous souhaitez interroger data2.csv dans cet exemple, les autorisations suivantes sont nécessaires : 
@@ -63,7 +63,7 @@ Si vous souhaitez interroger data2.csv dans cet exemple, les autorisations suiva
 
 ![Dessin présentant la structure d’une autorisation sur le lac de données.](./media/resources-self-help-sql-on-demand/folder-structure-data-lake.png)
 
-* Connectez-vous à Synapse avec un utilisateur administrateur disposant d’autorisations complètes sur les données auxquelles vous souhaitez accéder.
+* Connectez-vous à Azure Synapse avec un utilisateur administrateur disposant d’autorisations complètes sur les données auxquelles vous souhaitez accéder.
 
 * Dans le volet des données, cliquez avec le bouton droit sur le fichier et sélectionnez GÉRER L'ACCÈS.
 
@@ -75,7 +75,7 @@ Si vous souhaitez interroger data2.csv dans cet exemple, les autorisations suiva
 ![Capture d’écran montrant l’interface utilisateur d’octroi d’autorisations de lecture](./media/resources-self-help-sql-on-demand/grant-permission.png)
 
 > [!NOTE]
-> Pour les utilisateurs invités, cette opération doit être effectuée directement avec le service Azure Data Lake, car elle ne peut pas être effectuée directement par le biais de Synapse. 
+> Pour les utilisateurs invités, cette opération doit être effectuée directement avec le service Azure Data Lake, car elle ne peut pas être effectuée directement par le biais d’Azure Synapse. 
 
 ### <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>La requête échoue, car elle ne peut pas être exécutée en raison de contraintes de ressources 
 
@@ -100,7 +100,7 @@ Appliquez la même atténuation et les meilleures pratiques avant de soumettre u
 Si votre requête échoue avec le message d’erreur « Erreur de gestion du fichier externe : nombre maximal d’erreurs atteint », cela signifie qu’il existe une incompatibilité entre un type de colonne spécifié et les données à charger. Pour obtenir plus d’informations sur l’erreur et les lignes et colonnes à examiner, remplacez la version de l’analyseur « 2.0 » par « 1.0 ». 
 
 #### <a name="example"></a>Exemple
-Si vous souhaitez interroger le fichier « names.csv » à l’aide de la requête 1, Synapse SQL Serverless retourne ce type d’erreur. 
+Si vous souhaitez interroger le fichier « names.csv » à l’aide de la requête 1, Azure Synapse SQL serverless retourne ce type d’erreur. 
 
 names.csv
 ```csv
@@ -133,11 +133,11 @@ FROM
 ```
 causes :
 
-```Error handling external file: ‘Max error count reached’. File/External table name: [filepath].```
+`Error handling external file: ‘Max error count reached’. File/External table name: [filepath].`
 
 Dès que la version de l’analyseur passe de la version 2.0 à la version 1.0, les messages d’erreur permettent d’identifier le problème. Le nouveau message d’erreur est désormais : 
 
-```Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]```
+`Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]`
 
 La troncation nous indique que le type de colonne est trop petit pour contenir nos données. Le prénom le plus long dans ce fichier « names.csv » comporte sept caractères. Par conséquent, le type de données suivant à utiliser doit être au moins VARCHAR(7). L’erreur est provoquée par cette ligne de code : 
 
@@ -171,7 +171,7 @@ Si votre requête échoue avec le message d’erreur « Erreur de conversion de
 Par exemple, si vous prévoyez uniquement des entiers dans vos données, mais que dans la ligne n, il peut y avoir une chaîne, c’est le message d’erreur que vous obtiendrez. Pour résoudre ce problème, examinez le fichier et les types de données correspondants que vous avez choisis. Vérifiez également si vos paramètres de délimiteur de ligne et de marque de fin de champ sont corrects. L’exemple suivant montre comment l’inspection peut être effectuée à l’aide du type de colonne VARCHAR. Pour en savoir plus sur les marques de fin de champ, les délimiteurs de ligne et les guillemets d’échappement, cliquez [ici](query-single-csv-file.md). 
 
 #### <a name="example"></a>Exemple 
-Si vous souhaitez interroger le fichier « names.csv » à l’aide de la requête 1, Synapse SQL Serverless retourne ce type d’erreur. 
+Si vous souhaitez interroger le fichier « names.csv » à l’aide de la requête 1, Azure Synapse SQL serverless retourne ce type d’erreur. 
 
 names.csv
 ```csv
@@ -203,7 +203,7 @@ FROM
     AS [result]
 ```
 
-cause de cette erreur : ```Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]```
+cause de cette erreur : `Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]`
 
 Il est nécessaire de parcourir les données et de prendre une décision en toute connaissance de cause pour gérer ce problème. Avant d’examiner les données à l’origine de ce problème, vous devez modifier le type de données. Au lieu d’interroger la colonne « ID » avec le type de données « SMALLINT », VARCHAR(100) est maintenant utilisé pour analyser ce problème. Si vous utilisez cette requête 2 légèrement modifiée, vous pouvez maintenant traiter les données et afficher la liste des noms. 
 
@@ -247,7 +247,7 @@ Il semble que les données comportent des valeurs inattendues pour l’ID dans l
 Si votre requête n’échoue pas, mais que vous constatez que votre table de résultats n’est pas chargée comme prévu, il est probable que le délimiteur de ligne ou que la marque de fin de champ choisie soit incorrecte. Pour résoudre ce problème, il est nécessaire de réexaminer les données et de modifier ces paramètres. Une table de résultats étant affichée, il est aisé de déboguer cette requête, comme dans l’exemple qui suit. 
 
 #### <a name="example"></a>Exemple
-Si vous souhaitez interroger le fichier « names.csv » à l’aide de cette requête 1, Synapse SQL Serverless retourne la table des résultats qui semble étrange. 
+Si vous souhaitez interroger le fichier « names.csv » à l’aide de cette requête 1, Azure Synapse SQL serverless retourne la table de résultats qui semble étrange. 
 
 names.csv
 ```csv
@@ -340,7 +340,7 @@ Si votre requête échoue avec le message d’erreur « La colonne [nom_colonne
 Pour résoudre ce problème, examinez le fichier et les types de données correspondants que vous avez choisis. Cette [table de mappage](develop-openrowset.md#type-mapping-for-parquet) permet de choisir un type de données SQL. Conseil de meilleure pratique : ne spécifiez le mappage que pour les colonnes qui pourraient résoudre le type de données VARCHAR. Si c’est possible, éviter VARCHAR permet d’améliorer les performances des requêtes. 
 
 #### <a name="example"></a>Exemple
-Si vous souhaitez interroger le fichier « taxi-data.parquet » à l’aide de cette requête 1, Synapse SQL Serverless retourne ce type d’erreur.
+Si vous souhaitez interroger le fichier « taxi-data.parquet » à l’aide de cette requête 1, Azure Synapse SQL serverless retourne ce type d’erreur.
 
 taxi-data.parquet :
 
@@ -369,9 +369,10 @@ FROM
 
     AS [result]
 ```
+
 cause de cette erreur : 
 
-```Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.```
+`Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.`
 
 Ce message d’erreur indique que les types de données ne sont pas compatibles et s’accompagne déjà de la suggestion d’utiliser FLOAT au lieu de INT. L’erreur est donc provoquée par cette ligne de code : 
 
@@ -480,7 +481,7 @@ Un pool SQL serverless retourne un avertissement au moment de la compilation si 
 
 ### <a name="query-returns-null-values"></a>La requête retourne des valeurs `NULL`
 
-Synapse SQL retourne `NULL` au lieu des valeurs que vous voyez dans le magasin de transactions dans les cas suivants :
+Azure Synapse SQL retourne `NULL` à la place des valeurs que vous voyez dans le magasin de transactions dans les cas suivants :
 - Il existe un délai de synchronisation entre les magasins transactionnels et analytiques. La valeur que vous avez entrée dans le magasin transactionnel Cosmos DB peut apparaître dans le magasin analytique après 2-3 minutes.
 - Possibilité d’une erreur de nom de colonne ou d’expression de chemin d’accès dans la clause `WITH`. Le nom de colonne (ou l’expression de chemin d’accès après le type de colonne) dans la clause `WITH` doit correspondre aux noms de propriété dans la collection Cosmos DB. La comparaison respecte la casse (par exemple, `productCode` et `ProductCode` sont des propriétés différentes). Assurez-vous que les noms de colonne correspondent exactement aux noms de propriété Cosmos DB.
 - La propriété ne peut pas être déplacée vers le stockage analytique, car elle enfreint certaines [contraintes de schéma](../../cosmos-db/analytical-store-introduction.md#schema-constraints), comme plus de 1 000 propriétés ou plus de 127 niveaux d’imbrication.
@@ -505,14 +506,12 @@ La prise en charge de Delta Lake est actuellement disponible en préversion publ
 - Assurez-vous que vous référencez le dossier racine Delta Lake dans la fonction [OPENROWSET](./develop-openrowset.md) ou l’emplacement de la table externe.
   - Le dossier racine doit contenir un sous-dossier nommé `_delta_log`. La requête échoue en l’absence de dossier `_delta_log`. Si vous ne voyez pas ce dossier, vous référencez des fichiers Parquet bruts qui doivent être [convertis au format Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) à l’aide de pools Apache Spark.
   - Ne spécifiez pas de caractères génériques pour décrire le schéma de partition. La requête Delta Lake identifie automatiquement les partitions Delta Lake. 
-- Les tables Delta Lake créées dans les pools Apache Spark ne sont pas disponibles automatiquement dans le pool SQL serverless. Pour effectuer une requête sur ces tables Delta Lake à l’aide du langage T-SQL, exécutez l’instruction[CREATE EXTERNAL TABLE](https://docs.microsoft.com/azure/synapse-analytics/sql/create-use-external-tables#delta-lake-external-table) et spécifiez le format Delta.
+- Les tables Delta Lake créées dans les pools Apache Spark ne sont pas disponibles automatiquement dans le pool SQL serverless. Pour effectuer une requête sur ces tables Delta Lake à l’aide du langage T-SQL, exécutez l’instruction[CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) et spécifiez le format Delta.
 - Les tables externes ne prennent pas en charge le partitionnement. Utilisez des [vues partitionnées](create-use-views.md#delta-lake-partitioned-views) dans le dossier Delta Lake pour tirer parti de l’élimination des partitions. Consulez les roblèmes connus et solutions de contournement ci-dessous.
 - Les pools SQL serverless ne prennent pas en charge les requêtes de voyage dans le temps. Vous pouvez voter pour cette fonctionnalité sur le [site de commentaires Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Utilisez les pools Apache Spark dans Azure Synapse Analytics pour [lire les données historiques](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Les pools SQL serverless ne prennent pas en charge la mise à jour des fichiers Delta Lake. Vous pouvez utiliser un pool SQL serverless pour interroger la dernière version de Delta Lake. Utilisez les pools Apache Spark dans Azure Synapse Analytics pour [mettre à jour Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
-- Les pools SQL serverless dans Synapse Analytics ne prennent pas en charge les ensembles de données avec le [filtre BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+- Les pools SQL serverless dans Azure Synapse Analytics ne prennent pas en charge les ensembles de données avec le [filtre BLOOM](/azure/databricks/delta/optimizations/bloom-filters).
 - La prise en charge de Delta Lake n’est pas disponible dans les pools SQL dédiés. Assurez-vous que vous utilisez des pools serverless pour interroger les fichiers Delta Lake.
-
-Vous pouvez proposer des idées et des améliorations sur la [page de commentaires Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
 
 ### <a name="content-of-directory-on-path-cannot-be-listed"></a>Impossible de lister le contenu du répertoire de ce chemin d’accès
 
@@ -605,7 +604,7 @@ Msg 16513, Level 16, State 0, Line 1
 Error reading external metadata.
 ```
 Tout d’abord, assurez-vous que votre jeu de données Delta Lake n’est pas endommagé.
-- Vérifiez que vous pouvez lire le contenu du dossier Delta Lake à l’aide du pool Apache Spark dans Synapse ou le cluster Databricks. De cette façon, vous vous assurez que le fichier `_delta_log` n’est pas endommagé.
+- Vérifiez que vous pouvez lire le contenu du dossier Delta Lake à l’aide du pool Apache Spark dans Azure Synapse ou le cluster Databricks. De cette façon, vous vous assurez que le fichier `_delta_log` n’est pas endommagé.
 - Vérifiez que vous pouvez lire le contenu des fichiers de données en spécifiant `FORMAT='PARQUET'` et en utilisant un caractère générique récursif `/**` à la fin du chemin de l’URI. Si vous pouvez lire tous les fichiers Parquet, le problème se trouve dans le dossier du journal des transactions `_delta_log`.
 
 Quelques erreurs courantes et solutions de contournement :
@@ -632,11 +631,42 @@ L’équipe Azure examine le contenu du fichier `delta_log` et fournit plus d’
 ### <a name="resolving-delta-log-on-path--failed-with-error-cannot-parse-json-object-from-log-file"></a>Résolution du chemin d’accès du journal delta... Échec avec l’erreur : Impossible d’analyser l’objet JSON à partir du fichier journal
 
 Cette erreur peut se produire pour les raisons suivantes/à cause de fonctionnalités non prises en charge :
-- [Filtre BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters) sur le jeu de données Delta Lake. Les pools SQL serverless dans Synapse Analytics ne prennent pas en charge les ensembles de données avec le [filtre BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters).
+- [Filtre BLOOM](/azure/databricks/delta/optimizations/bloom-filters) sur le jeu de données Delta Lake. Les pools SQL serverless dans Azure Synapse Analytics ne prennent pas en charge les ensembles de données avec le [filtre BLOOM](/azure/databricks/delta/optimizations/bloom-filters).
 - Colonne float dans le jeu de données Delta Lake avec des statistiques.
 - Jeu de données partitionné sur une colonne de type float.
 
-**Solution de contournement** : [Supprimez le filtre BLOOM](https://docs.microsoft.com/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) si vous souhaitez lire le dossier Delta Lake à l’aide du pool SQL serverless. Si vous avez des `float` colonnes à l’origine du problème, vous devez repartitionner le jeu de données ou supprimer les statistiques.
+**Solution de contournement** : [Supprimez le filtre BLOOM](/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) si vous souhaitez lire le dossier Delta Lake à l’aide du pool SQL serverless. Si vous avez des `float` colonnes à l’origine du problème, vous devez repartitionner le jeu de données ou supprimer les statistiques.
+
+## <a name="performance"></a>Performances
+
+Les pools SQL serverless affectent les ressources aux requêtes en fonction de la taille des données définie et de la complexité des requêtes. Vous ne pouvez pas affecter ou limiter les ressources fournies aux requêtes. Dans certains cas, il se peut que vous rencontriez des dégradations de performances de requête inattendues et que vous identifiiez les causes racines.
+
+### <a name="query-duration-is-very-long"></a>La durée des requêtes est très longue 
+
+Si vous utilisez Synapse Studio, essayez d’utiliser un client de bureau comme SQL Server Management Studio ou Azure Data Studio. Synapse Studio est un client web qui se connecte au pool serverless avec le protocole HTTP, ce qui est généralement plus lent que les connexions SQL natives utilisées dans SQL Server Management Studio ou Azure Data Studio.
+Si vous avez des requêtes d’une durée supérieure à 30 minutes, cela indique que le retour de résultats au client est lent. Le pool SQL serverless a une limite d’exécution de 30 minutes et tout temps additionnel est consacré au streaming des résultats.
+-   Assurez-vous que les applications clientes sont colocalisées avec le point de terminaison du pool SQL serverless. L’exécution d’une requête dans la région peut entraîner une latence supplémentaire et ralentir le streaming du jeu de résultats.
+-   Veillez à ne pas avoir de problèmes de réseau susceptibles de provoquer un ralentissement du streaming du jeu de résultats. 
+-   Veillez à ce que l’application cliente dispose de suffisamment de ressources (par exemple, en n’utilisant pas 100 % du processeur). Consultez les bonnes pratiques pour [colocaliser les ressources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
+
+### <a name="high-variations-in-query-durations"></a>Variations élevées des durées des requêtes
+
+Si vous exécutez la même requête et observez des variations des durées des requêtes, ce comportement peut avoir plusieurs raisons :  
+- Vérifiez s’il s’agit de la première exécution d’une requête. La première exécution d’une requête collecte les statistiques nécessaires à la création d’un plan. Ces statistiques sont collectées en analysant les fichiers sous-jacents et peuvent allonger la durée de la requête. Dans Synapse Studio, vous verrez des requêtes de « création de statistiques globales » supplémentaires dans la liste des demandes SQL, qui sont exécutées avant votre requête.
+- Les statistiques peuvent expirer après un certain temps, ce qui peut avoir un impact sur les performances, car le pool serverless doit analyser et recréer les statistiques. Vous pouvez remarquer des requêtes de « création de statistiques globales » supplémentaires dans la liste des demandes SQL, qui sont exécutées avant votre requête.
+- Vérifiez si des charges de travail supplémentaires s’exécutent sur le même point de terminaison lorsque vous exécutez la requête avec la plus longue durée. Le point de terminaison SQL serverless alloue de manière égale les ressources à toutes les requêtes exécutées en parallèle, et la requête peut être retardée.
+
+## <a name="connections"></a>Connexions
+
+### <a name="sql-on-demand-is-currently-unavailable"></a>SQL à la demande n’est pas disponible actuellement
+
+Le point de terminaison du pool SQL serverless est automatiquement désactivé lorsqu’il n’est pas utilisé. Le point de terminaison est automatiquement activé lors de la réception de la demande SQL suivante à partir d’un client quelconque. Dans certains cas, le point de terminaison peut ne pas démarrer correctement quand une première requête est exécutée. Dans la plupart des cas de ce type, il s’agit d’une erreur temporaire. Répéter la requête activera l’instance.
+
+Si vous voyez ce message pendant plus longtemps, soumettez un ticket de support via le portail Azure.
+
+### <a name="cannot-connect-from-synapse-studio"></a>Impossible de se connecter à partir de Synapse Studio
+
+Reportez-vous à la [section Synapse Studio](#synapse-studio).
 
 ## <a name="security"></a>Sécurité
 
@@ -645,7 +675,7 @@ Si vous souhaitez créer une attribution de rôle pour l’application d’ident
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-Pour les principaux de service, la connexion doit être créée avec l’ID d’application en tant que SID (et non avec l’ID d’objet). Il existe une limitation connue pour les principaux de service qui empêche le service Synapse de récupérer l’ID d’application à partir d’Azure AD Graph lors de la création de l’attribution de rôle pour un autre SPI/application.  
+Pour les principaux de service, la connexion doit être créée avec l’ID d’application en tant que SID (et non avec l’ID d’objet). Il existe une limitation connue pour les principaux de service qui empêche le service Azure Synapse de récupérer l’ID d’application à partir d’Azure AD Graph lors de la création de l’attribution de rôle pour un autre SPI ou une autre application.  
 
 #### <a name="solution-1"></a>Solution no 1
 Accédez au portail Azure > Synapse Studio > Gérer > Contrôle d’accès et ajoutez manuellement Administrateur Synapse ou Administrateur Synapse SQL pour le principal de service souhaité.

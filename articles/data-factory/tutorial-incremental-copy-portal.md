@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: e884869b77398ab32987363bb85367d46a958380
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 738c60663f80fd036f50c7bd354ca0e3b1d9284e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638389"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757817"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Charger de façon incrémentielle les données depuis Azure SQL Database dans le stockage Blob Azure par le biais du portail Azure
 
@@ -40,7 +40,7 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 ## <a name="overview"></a>Vue d’ensemble
 Voici le diagramme général de la solution :
 
-![Chargement incrémentiel de données](media/tutorial-Incremental-copy-portal/incrementally-load.png)
+:::image type="content" source="media/tutorial-Incremental-copy-portal/incrementally-load.png" alt-text="Chargement incrémentiel de données":::
 
 Voici les étapes importantes à suivre pour créer cette solution :
 
@@ -151,7 +151,7 @@ END
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Intégration** > **Data Factory** :
 
-   ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Sélection de Data Factory dans le volet &quot;Nouveau&quot;":::
 
 3. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialOnPremDF** comme **nom**.
 
@@ -179,12 +179,12 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
 1. Dans la page d’accueil de l’interface utilisateur de Data Factory, cliquez sur la vignette **Orchestrer**.
 
-   ![Capture d’écran montrant la page d’accueil de l’interface utilisateur de Data Factory.](./media/doc-common-process/get-started-page.png)    
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la page d’accueil de l’interface utilisateur de Data Factory.":::    
 3. Dans le volet Général, sous **Propriétés**, spécifiez **IncrementalCopyPipeline** comme **Nom**. Réduisez ensuite le panneau en cliquant sur l’icône Propriétés en haut à droite.
 
 4. Vous allez ajouter la première activité de recherche pour obtenir l’ancienne valeur de filigrane. Dans la boîte à outils **Activités**, Développez **Général**, puis faites glisser et déposez une activité **Recherche** sur la surface du concepteur de pipeline. Changez le nom de l’activité par **LookupOldWaterMarkActivity**.
 
-   ![Première activité de recherche - nom](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-portal/first-lookup-name.png" alt-text="Première activité de recherche - nom":::
 5. Basculez vers l’onglet **Paramètres**, puis cliquez sur **+ Nouveau** comme **jeu de données source**. Dans cette étape, vous créez un jeu de données pour représenter des données dans la **table filigrane**. Cette table contient l’ancien filigrane utilisé dans l’opération de copie précédente.
 
 6. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Azure SQL Database**, puis cliquez sur **Continuer**. Vous voyez une nouvelle fenêtre ouverte pour le jeu de données.
@@ -201,11 +201,11 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     6. Cliquez sur **Terminer**.
     7. Vérifiez que **AzureSqlDatabaseLinkedService** est sélectionné comme **service lié**.
 
-        ![Fenêtre du nouveau service lié](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png" alt-text="Fenêtre du nouveau service lié":::
     8. Sélectionnez **Terminer**.
 9. Sous l’onglet **Connexion**, sélectionnez **[dbo].[watermarktable]** pour **Table**. Si vous souhaitez afficher un aperçu des données de la table, cliquez sur **Aperçu des données**.
 
-    ![Jeu de données de filigrane - paramètres de connexion](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png" alt-text="Jeu de données de filigrane - paramètres de connexion":::
 10. Basculez vers l’éditeur de pipeline en cliquant sur l’onglet du pipeline en haut ou bien en cliquant sur le nom du pipeline dans l’arborescence à gauche. Dans la fenêtre Propriétés pour l’activité de **recherche**, vérifiez que **WatermarkDataset** est sélectionné dans le champ **Jeu de données source**.
 
 11. Dans la boîte à outils **Activités**, développez **Général** et faites glisser et déposez une autre activité de **recherche** sur la surface du concepteur de pipeline, puis saisissez le nom **LookupNewWaterMarkActivity** dans l’onglet **Général** de la fenêtre Propriétés. Cette activité de recherche obtient la nouvelle valeur de filigrane à partir de la table avec les données sources à copier vers la destination.
@@ -223,12 +223,12 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
     ```
 
-    ![Deuxième activité de recherche - requête](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/query-for-new-watermark.png" alt-text="Deuxième activité de recherche - requête":::
 19. Dans la boîte à outils **Activités**, développez **Déplacer et transformer**, glissez-déposez l’activité de **copie** à partir de la boîte à outils Activités, puis définissez le nom **IncrementalCopyActivity**.
 
 20. **Connecter les deux activités de recherche à l’activité de copie** en faisant glisser le **bouton vert** attaché aux activités de recherche vers l’activité de copie. Relâchez le bouton de la souris lorsque la couleur de bordure de l’activité de copie passe en bleu.
 
-    ![Connexion des activités de recherche à l’activité de copie](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png" alt-text="Connexion des activités de recherche à l’activité de copie":::
 21. Sélectionnez l’**activité de copie** et vérifiez que vous vouez les propriétés de l’activité dans la fenêtre **Propriétés**.
 
 22. Basculez vers l’onglet **Source** dans la fenêtre **Propriétés**, et procédez comme suit :
@@ -241,7 +241,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
         select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'
         ```
 
-        ![Activité de copie - source](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/copy-activity-source.png" alt-text="Activité de copie - source":::
 23. Basculez vers l’onglet **Récepteur**, puis cliquez sur **+ Nouveau** pour le champ **Jeu de données récepteur**.
 
 24. Dans ce didacticiel, le magasin de données récepteur est de type Stockage Blob Azure. Par conséquent, sélectionnez **Stockage Blob Azure**, puis cliquez sur **Continuer** dans la fenêtre **Nouveau jeu de données**.
@@ -275,7 +275,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-        ![Activité de procédure stockée- paramètres de procédure stockée](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png" alt-text="Activité de procédure stockée- paramètres de procédure stockée":::
 27. Pour valider les paramètres du pipeline, cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Pour fermer la fenêtre **Rapport de validation de pipeline**, cliquez sur >>.   
 
 28. Publiez des entités (services liés, jeux de données et pipelines) pour le service Azure Data Factory en sélectionnant le bouton **Publier tout**. Patientez jusqu’à voir le message de réussite de la publication.
@@ -296,7 +296,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 ## <a name="review-the-results"></a>Passer en revue les résultats.
 1. Connectez-vous à votre compte de Stockage Azure à l’aide des outils tels que [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Vérifiez qu’un fichier de sortie est créé dans le dossier **incrementalcopy** du conteneur **adftutorial**.
 
-    ![Premier fichier de sortie](./media/tutorial-incremental-copy-portal/first-output-file.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/first-output-file.png" alt-text="Premier fichier de sortie":::
 2. Ouvrez le fichier de sortie et notez que toutes les données sont copiées à partir de la **data_source_table** dans le fichier de l’objet blob.
 
     ```

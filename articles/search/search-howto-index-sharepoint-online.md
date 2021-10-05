@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 61e9787c0a85ad412d3e70cfb2452d288a48d36a
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 3a6bb0fd360b334299c6cd1be2795121a3b53203
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112983047"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777523"
 ---
 # <a name="index-data-from-sharepoint-online"></a>indexer des données à partir de SharePoint Online
 
@@ -28,7 +28,6 @@ Cet article explique comment utiliser le service Recherche cognitive Azure pour 
 
 Dans le service Recherche cognitive Azure, un indexeur est un robot qui extrait des données et métadonnées pouvant faire l’objet d’une recherche à partir d’une source de données. L’indexeur SharePoint Online se connecte à votre site SharePoint Online et indexe des documents d’une ou plusieurs bibliothèques de documents. L’indexeur offre les fonctionnalités suivantes :
 + Indexer le contenu d’une ou plusieurs bibliothèques de documents SharePoint Online.
-+ Indexer le contenu des bibliothèques de documents SharePoint Online qui se trouvent dans le même locataire que votre service Recherche cognitive Azure. L’indexeur ne fonctionne pas avec les sites SharePoint qui se trouvent dans un locataire différent de votre service Recherche cognitive Azure. 
 + L’indexeur prend en charge l’indexation incrémentielle : il identifie le contenu modifié de la bibliothèque de documents et indexe uniquement le contenu mis à jour au cours des prochaines exécutions d’indexation. Prenons l’exemple de 5 fichiers PDF initialement indexés par l’indexeur. Si l’un d’eux est mis à jour et que l’indexeur s’exécute à nouveau, ce dernier indexe uniquement le fichier PDF qui a été mis à jour.
 + Par défaut, les images texte et normalisées sont extraites des documents qui sont indexés. Vous pouvez éventuellement ajouter un ensemble de compétences au pipeline pour améliorer l’enrichissement du contenu. Pour plus d’informations sur les ensembles de compétences, consultez l’article [Concepts des ensembles de compétences dans Recherche cognitive Azure](cognitive-search-working-with-skillsets.md).
 
@@ -50,8 +49,11 @@ Pour configurer l’indexeur SharePoint Online, vous devez effectuer certaines a
  
 > [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
-### <a name="step-1-enable-system-assigned-managed-identity"></a>Étape 1 : Activer l’identité managée affectée par le système
-Quand une identité managée affectée par le système est activée, Azure crée une identité pour votre service de recherche, qui peut être utilisée par l’indexeur.
+### <a name="step-1-optional-enable-system-assigned-managed-identity"></a>Étape 1 (facultatif) : activer l’identité managée affectée par le système
+
+Quand une identité managée affectée par le système est activée, Azure crée une identité pour votre service de recherche, qui peut être utilisée par l’indexeur. Cette identité est utilisée pour détecter automatiquement le locataire dans lequel le service de recherche est approvisionné.
+
+Si le site SharePoint Online se trouve dans le même locataire que le service de recherche, vous devrez activer l’identité managée affectée par le système pour le service de recherche. Si le site SharePoint Online se trouve dans un autre locataire que le service de recherche, il n’est pas nécessaire d’activer l’identité managée affectée par le système.
 
 ![Activer l’identité managée affectée par le système](media/search-howto-index-sharepoint-online/enable-managed-identity.png "Activer l’identité managée affectée par le système")
 
@@ -117,10 +119,13 @@ api-key: [admin key]
 {
     "name" : "sharepoint-datasource",
     "type" : "sharepoint",
-    "credentials" : { "connectionString" : "SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[AAD App ID]" },
+    "credentials" : { "connectionString" : "SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[AAD App ID];TenantId=[SharePoint Online site tenant id]" },
     "container" : { "name" : "defaultSiteLibrary", "query" : null }
 }
 ```
+
+> [!NOTE]
+> Si le site SharePoint Online se trouve dans le même locataire que le service de recherche et si l’identité managée affectée par le système est activée, il n’est pas nécessaire d’inclure `TenantId` dans la chaîne de connexion. Si le site SharePoint Online se trouve dans un autre locataire du service de recherche, `TenantId` doit être inclus.
 
 ### <a name="step-4-create-an-index"></a>Étape 4 : Créer un index
 L’index spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.

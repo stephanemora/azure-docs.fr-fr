@@ -2,15 +2,15 @@
 title: Résoudre des problèmes de runbook Azure Automation
 description: Cet article explique comment dépanner et résoudre des problèmes liés aux runbooks Azure Automation.
 services: automation
-ms.date: 07/27/2021
+ms.date: 09/16/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.openlocfilehash: a7711d30a71cc5b637a1fc755609d3f5c48683d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 436282ad8a2816e3307d2ad270209980b2fa0427
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524707"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058434"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Résoudre les problèmes de runbook
 
@@ -210,26 +210,11 @@ Cette erreur peut se produire si :
 * Le nom de l’abonnement n’est pas valide.
 * L’utilisateur Azure AD qui tente d’obtenir les détails de l’abonnement n’est pas configuré comme administrateur de l’abonnement.
 * L’applet de commande n’est pas disponible.
+* Le changement de contexte s’est produit.
 
 ### <a name="resolution"></a>Résolution
 
-Suivez ces étapes pour déterminer si vous vous êtes correctement authentifié auprès d’Azure, et si vous avez accès à l’abonnement que vous souhaitez sélectionner :
-
-1. Pour vérifier qu’il fonctionne de façon autonome, testez votre script en dehors d’Azure Automation.
-1. Vérifiez que votre script exécute la cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) avant d’exécuter la cmdlet `Select-*`.
-1. Ajoutez `Disable-AzContextAutosave -Scope Process` au début de votre runbook. Cette applet de commande permet de s'assurer que les informations d’identification s’appliquent uniquement à l’exécution du runbook actuel.
-1. Si le message d’erreur persiste, modifiez votre code en ajoutant le paramètre `AzContext` pour `Connect-AzAccount`, puis exécutez le code.
-
-   ```powershell
-   Disable-AzContextAutosave -Scope Process
-
-   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-
-   $context = Get-AzContext
-
-   Get-AzVM -ResourceGroupName myResourceGroup -AzContext $context
-    ```
+Pour le changement de contexte, voir [Changement de contexte dans Azure Automation](../context-switching.md).
 
 ## <a name="scenario-runbooks-fail-when-dealing-with-multiple-subscriptions"></a><a name="runbook-auth-failure"></a>Scénario : Les runbooks échouent lors du traitement de plusieurs abonnements
 
@@ -251,33 +236,19 @@ Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automat
    ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
 ```
 
+ou comme celle-ci :
+
+```error
+Get-AzureRmResource : Resource group "SomeResourceGroupName" could not be found.
+... resources = Get-AzResource -ResourceGroupName $group.ResourceGro ...
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Get-AzResource], CloudException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.ResourceManager.Cmdlets.Implementation.GetAzureResourceCmdlet
+```
+
 ### <a name="resolution"></a>Résolution
 
-Le contexte de l’abonnement peut être perdu lorsqu’un runbook appelle plusieurs runbooks. Pour éviter d’essayer accidentellement d’accéder à un abonnement incorrect, vous devez suivre les instructions ci-dessous.
-
-* Pour éviter de faire référence à un abonnement incorrect, désactivez l’enregistrement du contexte dans vos runbooks Automation en ajoutant le code suivant au début de chaque runbook.
-
-   ```azurepowershell-interactive
-   Disable-AzContextAutosave -Scope Process
-   ```
-
-* Les applets de commande Azure PowerShell prennent en charge le paramètre `-DefaultProfile`. Il a été ajouté à toutes les applets de commande Az et AzureRm pour prendre en charge l’exécution de plusieurs scripts PowerShell dans le même processus, ce qui vous permet de spécifier le contexte et l’abonnement à utiliser pour chaque applet de commande. Avec votre runbooks, vous devez enregistrer l’objet de contexte dans votre runbook lorsque le runbook est créé (autrement dit, lorsqu’un compte se connecte) et chaque fois qu’il est modifié, et référencez le contexte lorsque vous spécifiez une applet de commande Az.
-
-   > [!NOTE]
-   > Vous devez passer un objet de contexte même lors de la manipulation directe du contexte à l’aide d’applets de commande, par exemple [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) ou [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription).
-
-   ```azurepowershell-interactive
-   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
-   $context = Add-AzAccount `
-             -ServicePrincipal `
-             -TenantId $servicePrincipalConnection.TenantId `
-             -ApplicationId $servicePrincipalConnection.ApplicationId `
-             -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
-             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-   $context = Set-AzContext -SubscriptionName $subscription `
-       -DefaultProfile $context
-   Get-AzVm -DefaultProfile $context
-   ```
+Pour éviter d'essayer accidentellement d'accéder à l'abonnement incorrect, voir [Changement de contexte dans Azure Automation](../context-switching.md).
   
 ## <a name="scenario-authentication-to-azure-fails-because-multifactor-authentication-is-enabled"></a><a name="auth-failed-mfa"></a>Scénario : L’authentification auprès d’Azure échoue parce que l’authentification multifacteur est activée
 
@@ -693,7 +664,7 @@ Les causes possibles de ce problème sont :
 
 #### <a name="not-using-a-run-as-account"></a>N’utilise pas un compte d’identification.
 
-Suivez les instruction de l’[Étape 5 : Ajouter l’authentification pour gérer les ressources Azure](../learn/automation-tutorial-runbook-textual-powershell.md#step-5---add-authentication-to-manage-azure-resources) pour vous vérifier que vous utilisez un compte d’identification pour accéder à Key Vault.
+Suivez les instruction de l’[Étape 5 : Ajouter l’authentification pour gérer les ressources Azure](../learn/powershell-runbook-managed-identity.md#assign-permissions-to-managed-identities) pour vous vérifier que vous utilisez un compte d’identification pour accéder à Key Vault.
 
 #### <a name="insufficient-permissions"></a>Autorisations insuffisantes
 

@@ -2,14 +2,14 @@
 title: Déplacer un coffre Azure Recovery Services Azure vers une autre région
 description: Cet article explique comment veiller au maintien des sauvegardes continues après avoir déplacé des ressources d’une région à une autre.
 ms.topic: conceptual
-ms.date: 08/27/2021
-ms.custom: references_regions
-ms.openlocfilehash: faf6ad49234d9753a0479151bf931714a1eba226
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 09/24/2021
+ms.custom: how-to
+ms.openlocfilehash: 658b4965c008105957165a858987442f23630c14
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116321"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058877"
 ---
 # <a name="back-up-resources-in-recovery-services-vault-after-moving-across-regions"></a>Sauvegarder des ressources dans un coffre Recovery Services après déplacement de celui-ci vers une autre région
 
@@ -22,48 +22,86 @@ Pour comprendre les étapes détaillées à suivre à cette fin, reportez-vous a
 
 ## <a name="back-up-azure-virtual-machine-after-moving-across-regions"></a>Sauvegarder une machine virtuelle Azure après déplacement entre les régions
 
-Quand une machine virtuelle Azure protégée par un coffre Recovery Services est déplacée d’une région vers une autre, elle ne peut plus être sauvegardée dans l’ancien coffre. Les sauvegardes dans l’ancien coffre échouent avec les erreurs **BCMV2VMNotFound** ou [**ResourceNotFound**](/azure/backup/backup-azure-vms-troubleshoot#320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found).
+Quand une machine virtuelle Azure protégée par un coffre Recovery Services est déplacée d’une région vers une autre, elle ne peut plus être sauvegardée dans l’ancien coffre. Les sauvegardes dans l’ancien coffre échouent avec les erreurs **BCMV2VMNotFound** ou [**ResourceNotFound**](./backup-azure-vms-troubleshoot.md#320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found). Pour plus d’informations sur la façon de protéger vos machines virtuelles dans la nouvelle région, consultez les sections suivantes.
 
-Pour protéger votre machine virtuelle dans la nouvelle région, procédez comme suit :
+### <a name="prepare-to-move-azure-vms"></a>Préparer le déplacement de machines virtuelles Azure
 
-1. Avant de déplacer la machine virtuelle, [sélectionnez la machine virtuelle sous l’onglet **Éléments de sauvegarde**](/azure/backup/backup-azure-delete-vault#delete-protected-items-in-the-cloud) du tableau de bord du coffre existant, sélectionnez **Arrêter la protection**, puis choisissez de conserver ou supprimer les données en fonction de vos besoins. Lorsque la sauvegarde des données d’une machine virtuelle est arrêtée avec conservation des données, les points de récupération restent indéfiniment et n’adhèrent à aucune stratégie. Cela garantit que vos données de sauvegarde sont toujours prêtes pour restauration.
+Avant de déplacer une machine virtuelle, assurez-vous que les conditions préalables suivantes sont remplies :
 
+1. Consultez les [conditions préalables associées au déplacement de machine virtuelle](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) et assurez-vous que la machine virtuelle est éligible pour un déplacement.
+1. [Sélectionnez la machine virtuelle sous l’onglet **Éléments de sauvegarde**](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) du tableau de bord du coffre existant, sélectionnez **Arrêter la protection**, puis choisissez de conserver ou supprimer les données en fonction de vos besoins. Lorsque la sauvegarde des données d’une machine virtuelle est arrêtée avec conservation des données, les points de récupération restent indéfiniment et n’adhèrent à aucune stratégie. Cela garantit que vos données de sauvegarde sont toujours prêtes pour restauration.
    >[!Note]
-   >La conservation des données dans l’ancien coffre entraîne des frais de sauvegarde. Si vous ne souhaitez plus conserver les données pour éviter la facturation, vous devez supprimer les données de sauvegarde conservées à l’aide de l’[option Supprimer les données](/azure/backup/backup-azure-manage-vms#delete-backup-data).
+   >La conservation des données dans l’ancien coffre entraîne des frais de sauvegarde. Si vous ne souhaitez plus conserver les données pour éviter la facturation, vous devez supprimer les données de sauvegarde conservées à l’aide de l’[option Supprimer les données](./backup-azure-manage-vms.md#delete-backup-data).
+1. Vérifiez que les machines virtuelles sont activées. Tous les disques de machines virtuelles qui doivent être disponibles dans la région de destination sont attachés et initialisés dans les machines virtuelles.
+1. Vérifiez que les machines virtuelles disposent des certificats racines approuvés les plus récents et d’une liste de révocation de certificats (CRL) mise à jour. Pour cela, procédez de la façon suivante :
+   - Sur les machines virtuelles Windows, installez les dernières mises à jour Windows.
+   - Sur les machines virtuelles Linux, suivez les instructions du distributeur pour vous assurer que les machines disposent des derniers certificats et des listes de révocation de certificats les plus récentes.
+1. Autorisez une connexion sortante à partir des machines virtuelles :
+   - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connexion sortante, autorisez l’accès à [ces URL](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
+   - Si vous utilisez des règles de groupe de sécurité réseau (NSG) pour contrôler la connexion sortante, créez [ces règles d’étiquette de service](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
 
-1. Déplacez votre machine virtuelle vers la nouvelle région à l’aide d’[Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines).
+### <a name="move-azure-vms"></a>Déplacer des machines virtuelles Azure
 
-1. Commencez à protéger votre machine virtuelle dans un coffre Recovery Services nouveau ou existant dans la nouvelle région.
-   Lorsque vous devez effectuer une restauration de vos anciennes sauvegardes, vous pouvez toujours le faire à partir de votre ancien coffre Recovery Services si vous aviez choisi de conserver les données de sauvegarde. 
+Déplacez votre machine virtuelle vers la nouvelle région à l’aide d’[Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md).
+
+### <a name="protect-azure-vms-using-azure-backup"></a>Protéger des machines virtuelles Azure à l’aide du service Sauvegarde Azure
+
+Commencez à protéger votre machine virtuelle dans un coffre Recovery Services nouveau ou existant dans la nouvelle région. Lorsque vous devez effectuer une restauration de vos anciennes sauvegardes, vous pouvez toujours le faire à partir de votre ancien coffre Recovery Services si vous aviez choisi de conserver les données de sauvegarde. 
 
 Les étapes ci-dessus vous aideront à veiller à ce que vos ressources soient également sauvegardées dans la nouvelle région.
 
 ## <a name="back-up-azure-file-share-after-moving-across-regions"></a>Sauvegarder un partage de fichiers Azure après déplacement entre régions
 
-Pour déplacer vos comptes de stockage avec les partages de fichiers qu’ils contiennent d’une région à une autre, consultez [Déplacer un compte Stockage Azure vers une autre région](/azure/storage/common/storage-account-move).
+Le service Sauvegarde Azure offre à présent une [solution de gestion des captures instantanées](./backup-afs.md) pour Azure Files. Cela signifie que vous ne déplacez pas les données de partage de fichiers dans les coffres Recovery Services. Par ailleurs, étant donné que les captures instantanées ne sont pas déplacées avec votre compte de stockage, toutes vos sauvegardes (captures instantanées) sont conservées uniquement dans la région existante, et protégées par le coffre existant. Toutefois, si vous déplacez vos comptes de stockage avec les partages de fichiers entre régions ou si vous créez de nouveaux partages de fichiers dans la nouvelle région, consultez les sections suivantes pour vous assurer qu’elles sont protégées par le service Sauvegarde Azure.
+
+### <a name="prepare-to-move-azure-file-share"></a>Préparer le déplacement d’un partage de fichiers Azure
+
+Avant de déplacer le compte de stockage, assurez-vous que les conditions préalables suivantes sont remplies :
+
+1.  Consultez les [conditions préalables pour déplacer un compte de stockage](/azure/storage/common/storage-account-move?tabs=azure-portal#prerequisites). 
+1. Exportez et modifiez un modèle de déplacement de ressource. Pour plus d’informations, consultez [Préparer le compte Stockage à un changement de région](/azure/storage/common/storage-account-move?tabs=azure-portal#prepare).
+
+### <a name="move-azure-file-share"></a>Déplacer un partage de fichiers Azure
+
+Pour déplacer vos comptes Stockage et les partages de fichiers qu’ils contiennent d’une région à une autre, consultez [Déplacer un compte Stockage Azure vers une autre région](../storage/common/storage-account-move.md).
 
 >[!Note]
->Quand un partage de fichiers Azure est copié entre régions, les captures instantanées qui lui sont associés ne sont pas déplacées en même temps. Pour déplacer les données des captures instantanées vers la nouvelle région, vous devez déplacer les fichiers et répertoires individuels de celles-ci vers le compte de stockage dans la nouvelle région à l’aide de la commande [AzCopy](/azure/storage/common/storage-use-azcopy-files#copy-all-file-shares-directories-and-files-to-another-storage-account).
+>Quand un partage de fichiers Azure est copié entre régions, les captures instantanées qui lui sont associés ne sont pas déplacées en même temps. Pour déplacer les données des captures instantanées vers la nouvelle région, vous devez déplacer les fichiers et répertoires individuels de celles-ci vers le compte de stockage dans la nouvelle région à l’aide de la commande [AzCopy](../storage/common/storage-use-azcopy-files.md#copy-all-file-shares-directories-and-files-to-another-storage-account).
 
-Le service Sauvegarde Azure offre à présent une [solution de gestion des captures instantanées](/azure/backup/backup-afs#discover-file-shares-and-configure-backup) pour Azure Files. Cela signifie que vous ne déplacez pas les données de partage de fichiers dans les coffres Recovery Services. Par ailleurs, étant donné que les captures instantanées ne sont pas déplacées avec votre compte de stockage, toutes vos sauvegardes (captures instantanées) sont conservées uniquement dans la région existante, et protégées par le coffre existant. Toutefois, vous pouvez veiller à ce que les nouveaux partages de fichiers que vous créez dans la nouvelle région soient protégés par le service Sauvegarde Azure en procédant comme suit :
+### <a name="protect-azure-file-share-using-azure-backup"></a>Protéger le partage de fichiers Azure à l’aide de Sauvegarde Azure
 
-1. Commencez à protéger le partage de fichiers Azure copié dans le nouveau compte de stockage dans un coffre Recovery Services nouveau ou existant dans la nouvelle région.  
+Commencez à protéger le partage de fichiers Azure copié dans le nouveau compte de stockage dans un coffre Recovery Services nouveau ou existant dans la nouvelle région.  
 
-1. Une fois le partage de fichiers Azure copié dans la nouvelle région, vous pouvez choisir d’arrêter la protection et de conserver ou supprimer les captures instantanées (et les points de récupération correspondants) du partage de fichiers Azure d’origine en fonction de vos besoins. Pour ce faire, vous pouvez sélectionner votre partage de fichiers sous l’[onglet Éléments de sauvegarde](/azure/backup/backup-azure-delete-vault#delete-protected-items-in-the-cloud) du tableau de bord du coffre d’origine. Lorsque la sauvegarde des données du partage de fichiers Azure est arrêtée avec conservation des données, les points de récupération restent indéfiniment et n’adhèrent à aucune stratégie.
+Une fois le partage de fichiers Azure copié dans la nouvelle région, vous pouvez choisir d’arrêter la protection et de conserver ou supprimer les captures instantanées (et les points de récupération correspondants) du partage de fichiers Azure d’origine en fonction de vos besoins. Pour ce faire, vous pouvez sélectionner votre partage de fichiers sous l’[onglet Éléments de sauvegarde](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) du tableau de bord du coffre d’origine. Lorsque la sauvegarde des données du partage de fichiers Azure est arrêtée avec conservation des données, les points de récupération restent indéfiniment et n’adhèrent à aucune stratégie.
    
-   Cela garantit que vos instantanés seront toujours prêts pour restauration à partir de l’ancien coffre. 
+Cela garantit que vos instantanés seront toujours prêts pour restauration à partir de l’ancien coffre. 
  
-## <a name="back-up-sql-server-in-azure-vmsap-hana-in-azure-vm"></a>Sauvegarder SQL Server ou SAP HANA dans une machine virtuelle Azure
+## <a name="back-up-sql-serversap-hana-in-azure-vm-after-moving-across-regions"></a>Sauvegarder SQL Server/SAP HANA sur une machine virtuelle Azure après un changement de région
 
-Lorsque vous déplacez une machine virtuelle exécutant des serveurs SQL ou SAP HANA vers une autre région, les bases de données SQL et SAP HANA dans ces machines virtuelles ne peuvent plus être sauvegardées dans le coffre de la région précédente. Pour protéger les serveurs SQL et SAP HANA qui s’exécutent dans la machine virtuelle Azure dans la nouvelle région, procédez comme suit :
- 
-1. Avant de déplacer une machine virtuelle exécutant SQL Server ou SAP HANA vers une nouvelle région, sélectionnez-la sous l’[onglet Éléments de sauvegarde](/azure/backup/backup-azure-delete-vault#delete-protected-items-in-the-cloud) du tableau de bord du coffre existant, puis sélectionnez les _bases de données_ dont la sauvegarde doit être arrêtée. Sélectionnez **Arrêter la protection**, puis choisissez de conserver ou supprimer les données selon vos besoins. Lorsque la sauvegarde des données est arrêtée avec conservation des données, les points de récupération restent indéfiniment et n’adhèrent à aucune stratégie. Cela garantit que vos données de sauvegarde sont toujours prêtes pour restauration.
+Lorsque vous déplacez une machine virtuelle exécutant des serveurs SQL ou SAP HANA vers une autre région, les bases de données SQL et SAP HANA dans ces machines virtuelles ne peuvent plus être sauvegardées dans le coffre de la région précédente. Pour protéger les serveurs SQL et SAP HANA s’exécutant sur une machine virtuelle Azure dans la nouvelle région, consultez les sections suivantes.
 
+### <a name="prepare-to-move-sql-serversap-hana-in-azure-vm"></a>Préparer le déplacement de SQL Server/SAP HANA sur une machine virtuelle Azure
+
+Avant de déplacer SQL Server/SAP HANA s’exécutant sur une machine virtuelle vers une nouvelle région, vérifiez que les prérequis suivants sont remplis :
+
+1. Consultez les [conditions préalables associées au déplacement de machine virtuelle](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) et assurez-vous que la machine virtuelle est éligible pour un déplacement. 
+1. Sélectionnez la machine virtuelle sous l’onglet [Éléments de sauvegarde](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) du tableau de bord du coffre existant, puis sélectionnez les _bases de données_ dont la sauvegarde doit être arrêtée. Sélectionnez **Arrêter la protection**, puis choisissez de conserver ou supprimer les données selon vos besoins. Lorsque la sauvegarde des données est arrêtée avec conservation des données, les points de récupération restent indéfiniment et n’adhèrent à aucune stratégie. Cela garantit que vos données de sauvegarde sont toujours prêtes pour restauration.
    >[!Note]
-   >La conservation des données dans l’ancien coffre entraîne des frais de sauvegarde. Si vous ne souhaitez plus conserver les données pour éviter la facturation, vous devez supprimer les données de sauvegarde conservées à l’aide de l’[option Supprimer les données](/azure/backup/backup-azure-manage-vms#delete-backup-data).
+   >La conservation des données dans l’ancien coffre entraîne des frais de sauvegarde. Si vous ne souhaitez plus conserver les données pour éviter la facturation, vous devez supprimer les données de sauvegarde conservées à l’aide de l’[option Supprimer les données](./backup-azure-manage-vms.md#delete-backup-data).
+1. Vérifiez que les machines virtuelles à déplacer sont sous tension. Tous les disques de machines virtuelles qui doivent être disponibles dans la région de destination sont attachés et initialisés dans les machines virtuelles.
+1. Vérifiez que les machines virtuelles disposent des certificats racines approuvés les plus récents et d’une liste de révocation de certificats (CRL) mise à jour. Pour cela, procédez de la façon suivante :
+   - Sur les machines virtuelles Windows, installez les dernières mises à jour Windows.
+   - Sur des machines virtuelles Linux, suivez les conseils d’aide du distributeur pour vérifier qu’elles disposent des derniers certificats et des dernières listes de révocation de certificats.
+1. Autorisez une connexion sortante à partir des machines virtuelles :
+   - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connexion sortante, autorisez l’accès à [ces URL](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
+   - Si vous utilisez des règles de groupe de sécurité réseau (NSG) pour contrôler la connexion sortante, créez [ces règles d’étiquette de service](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
 
-1. Déplacez la machine virtuelle exécutant SQL Server/SAP HANA vers la nouvelle région à l’aide d’[Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines).
+### <a name="move-sql-serversap-hana-in-azure-vm"></a>Déplacer SQL Server/SAP HANA dans une machine virtuelle Azure
 
-1. Commencez à protéger la machine virtuelle dans un coffre Recovery Services nouveau ou existant dans la nouvelle région. Lorsque vous devez restaurer d’anciennes sauvegardes, vous pouvez toujours le faire à partir de votre ancien coffre Recovery Services.
+Déplacez votre machine virtuelle vers la nouvelle région à l’aide d’[Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md).
+
+### <a name="protect-sql-serversap-hana-in-azure-vm-using-azure-backup"></a>Protéger SQL Server/SAP HANA sur une machine virtuelle Azure à l’aide de Sauvegarde Azure
+
+Commencez à protéger la machine virtuelle dans un coffre Recovery Services nouveau ou existant dans la nouvelle région. Lorsque vous devez restaurer d’anciennes sauvegardes, vous pouvez toujours le faire à partir de votre ancien coffre Recovery Services.
  
 Les étapes ci-dessus vous aideront à veiller à ce que vos ressources soient également sauvegardées dans la nouvelle région.

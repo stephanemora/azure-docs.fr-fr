@@ -5,18 +5,21 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: overview
-ms.date: 09/01/2021
+ms.date: 09/27/2021
 ms.author: duau
-ms.openlocfilehash: f2c4a31f4c1c0ec53e76ffaf6f4670d9179e9505
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 34835f8f3e536b875c7eb4afd176ab00fb1f417c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436785"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091423"
 ---
 # <a name="what-is-azure-route-server"></a>Qu’est-ce qu’Azure Route Server ? 
 
 Azure Route Server simplifie le routage dynamique entre votre appliance virtuelle réseau (NVA) et votre réseau virtuel. Il vous permet d’échanger des informations de routage directement par le biais du protocole de routage BGP (Border Gateway Protocol) entre n’importe quelle NVA qui prend en charge ce protocole et le SDN (Software Defined Network) Azure dans le réseau virtuel Azure sans devoir configurer ou gérer de tables de routage manuellement. Azure Route Server est un service complètement managé qui est configuré avec une haute disponibilité.
+
+> [!IMPORTANT]
+> Si vous avez un serveur de routes Azure créé avant le 1er septembre et qu’il n’a pas d’adresse IP publique associée, vous devez recréer le serveur de routes pour qu’il puisse obtenir une adresse IP à des fins de gestion.
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 

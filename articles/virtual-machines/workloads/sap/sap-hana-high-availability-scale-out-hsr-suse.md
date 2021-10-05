@@ -1,13 +1,9 @@
 ---
 title: Montée en charge SAP HANA avec HSR et Pacemaker sur SLES | Microsoft Docs
 description: Montée en charge SAP HANA avec HSR et Pacemaker sur SLES.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/26/2021
 ms.author: radeltch
-ms.openlocfilehash: 211fa45626a8ca4db8e555795adccc55bc6c0a3e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: ab66bcdc834fd894d7d258ab9c7c08a0049b07ed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534459"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673138"
 ---
 # <a name="high-availability-for-sap-hana-scale-out-system-with-hsr-on-suse-linux-enterprise-server"></a>Haute disponibilité pour système scale-out SAP HANA avec montée en puissance parallèle avec HSR sur SUSE Linux Enterprise Server 
 
@@ -30,7 +26,6 @@ ms.locfileid: "110534459"
 
 [anf-azure-doc]:../../../azure-netapp-files/index.yml
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -622,11 +617,11 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration de mon
      * Pour **Entrer le nom d’utilisateur racine [root]**  : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Sélectionner des rôles pour l’hôte 'hana-s1-db2' [1]**  : 1 (pour le Worker)
      * Pour **Entrer le groupe de basculement hôte pour l’hôte 'hana-s1-db2' [par défaut]**  : appuyer sur Entrée pour accepter la valeur par défaut
-     * Pour **Entrer le numéro de partition de stockage pour l’hôte 'hana-s1-db2' [<<assign automatically>>]**  : appuyer sur Entrée pour accepter la valeur par défaut
+     * Pour **Entrer le numéro de partition de stockage pour l’hôte 'hana-s1-db2' [\<\<assign automatically\>\>]**  : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Entrer le groupe de basculement hôte pour l’hôte 'hana-s1-db2' [par défaut]**  : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Sélectionner des rôles pour l’hôte 'hana-s1-db3' [1]**  : 1 (pour le Worker)
      * Pour **Entrer le groupe de basculement hôte pour l’hôte 'hana-s1-db3' [par défaut]**  : appuyer sur Entrée pour accepter la valeur par défaut
-     * Pour **Entrer le numéro de partition de stockage pour l’hôte 'hana-s1-db3' [<<assign automatically>>]**  : appuyer sur Entrée pour accepter la valeur par défaut
+     * Pour **Entrer le numéro de partition de stockage pour l’hôte 'hana-s1-db3' [\<\<assign automatically\>\>]**  : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Entrer le groupe de Worker hôte pour l’hôte 'hana-s1-db3' [par défaut]**  : appuyer sur Entrée pour accepter la valeur par défaut
      * Pour **Mot de passe de l’administrateur système (hn1adm)**  : entrer le mot de passe
      * Pour **Entrer le mot de passe (sapadm) utilisateur de l’agent hôte SAP** : entrer le mot de passe

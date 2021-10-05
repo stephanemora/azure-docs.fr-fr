@@ -2,13 +2,13 @@
 title: Définir des filtres d’abonnement dans Azure Service Bus | Microsoft Docs
 description: Cet article fournit des exemples qui permettent de définir des filtres et des actions sur les abonnements aux rubriques Azure Service Bus.
 ms.topic: how-to
-ms.date: 02/17/2021
-ms.openlocfilehash: 8146e1be1af354b820ea0d3fed7ba9434a4d4e1d
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.date: 09/07/2021
+ms.openlocfilehash: d73a8cdade8600a793911acfefc54a8e1e1530b6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302605"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754972"
 ---
 # <a name="set-subscription-filters-azure-service-bus"></a>Définir des filtres d’abonnement (Azure Service Bus)
 Cet article fournit quelques exemples de définition de filtres sur les abonnements aux rubriques Service Bus. Pour obtenir des informations conceptuelles sur les filtres, consultez [Filtres](topic-filters.md).
@@ -72,7 +72,9 @@ sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','S
 Pour un exemple C#, consultez [Exemple de filtres de rubrique sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
 
 
-## <a name="correlation-filter-using-correlationid"></a>Filtre de corrélation utilisant CorrelationID
+## <a name="correlation-filters"></a>Filtres de corrélation
+
+### <a name="correlation-filter-using-correlationid"></a>Filtre de corrélation utilisant CorrelationID
 
 ```csharp
 new CorrelationFilter("Contoso");
@@ -80,16 +82,24 @@ new CorrelationFilter("Contoso");
 
 Il filtre les messages avec `CorrelationID` défini sur `Contoso`. 
 
-## <a name="correlation-filter-using-system-and-user-properties"></a>Filtre de corrélation utilisant les propriétés system et user
+> [!NOTE]
+> La classe [CorrelationRuleFilter](/dotnet/api/azure.messaging.servicebus.administration.correlationrulefilter) dans .NET se trouve dans l’espace de noms [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration). Pour obtenir un exemple de code qui montre comment créer des filtres en général à l’aide de .NET, consultez [ce code sur GitHub](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters/Program.cs#L179).
+
+
+### <a name="correlation-filter-using-system-and-user-properties"></a>Filtre de corrélation utilisant les propriétés system et user
 
 ```csharp
-var filter = new CorrelationFilter();
+var filter = new CorrelationRuleFilter();
 filter.Label = "Important";
 filter.ReplyTo = "johndoe@contoso.com";
 filter.Properties["color"] = "Red";
 ```
 
 Il est équivalent à : `sys.ReplyTo = 'johndoe@contoso.com' AND sys.Label = 'Important' AND color = 'Red'`
+
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les exemples suivants : 

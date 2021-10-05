@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/13/2021
-ms.openlocfilehash: 519181594bd98068cd66413a114a61d794b4d411
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 79bb517faffdda7e9d7ddef45e7b52f5e81dc201
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122533379"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589679"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Établir des connexions d’indexeurs via un point de terminaison privé
 
@@ -43,6 +43,7 @@ Le tableau suivant dresse la liste des ressources Azure pour lesquelles des poin
 | Ressource Azure | ID de groupe |
 | --- | --- |
 | Stockage Azure - Blob | `blob`|
+| Azure Storage - Data Lake Storage Gen2 | `dfs` et `blob` |
 | Stockage Azure - Tables | `table`|
 | Azure Cosmos DB - API SQL | `Sql`|
 | Azure SQL Database | `sqlServer`|
@@ -53,6 +54,9 @@ Le tableau suivant dresse la liste des ressources Azure pour lesquelles des poin
 Vous pouvez également envoyer une requête à propos des ressources Azure pour lesquelles les connexions par point de terminaison privé sortant sont prises en charge en utilisant [la liste des API prises en charge](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
 Dans le reste de cet article, une combinaison du portail Azure (ou d’[Azure CLI](/cli/azure/) si vous préférez) et de [Postman](https://www.postman.com/) (ou tout autre client HTTP, comme [curl](https://curl.se/), si vous préférez) est utilisée pour illustrer les appels de l’API REST.
+
+> [!NOTE]
+> Pour créer une connexion de point de terminaison privé à Azure Data Lake Storage Gen2, vous devez créer deux points de terminaison privés. Un point d'extrémité privé avec le groupID 'dfs' et un autre point d'extrémité privé avec le groupID 'blob'.
 
 ## <a name="set-up-indexer-connection-through-private-endpoint"></a>Configurer la connexion de l’indexeur via un point de terminaison privé
 

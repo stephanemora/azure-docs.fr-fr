@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à HireVue | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à HireVue'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HireVue.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 09/13/2021
 ms.author: jeedes
-ms.openlocfilehash: e5305a5abbddc6db68925d1c5a7abffb5e949193
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 073b6bde981bd9395470aca9e77e44674d2a546f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572242"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573912"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Didacticiel : Intégration d’Azure AD à HireVue
+# <a name="tutorial-azure-ad-sso-integration-with-hirevue"></a>Tutoriel : Intégration de l’authentification unique Azure AD à HireVue
 
 Dans ce tutoriel, vous allez apprendre à intégrer HireVue à Azure Active Directory (Azure AD). Quand vous intégrez HireVue à Azure AD, vous pouvez :
 
@@ -32,6 +32,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement HireVue pour lequel l’authentification unique est activée.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 

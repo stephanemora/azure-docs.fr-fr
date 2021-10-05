@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 01/14/2021
+ms.date: 09/09/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 1ce5a7e2532fd150b5445e3b243c841d797b4157
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: ca3f20e3d59b993056684773025fd21661879924
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226866"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639106"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Démarrage rapide : Connecter et obtenir un jeton d’accès dans une application monopage (SPA) React à l’aide du flux du code d’authentification
 
-Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application monopage (SPA) React JavaScript peut connecter des utilisateurs et appeler Microsoft Graph en utilisant le flux du code d’autorisation. L’exemple de code montre comment obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou n’importe quelle API web. 
+Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application monopage (SPA) React JavaScript peut connecter des utilisateurs et appeler Microsoft Graph en utilisant le flux du code d’autorisation. L’exemple de code montre comment obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou n’importe quelle API web.
 
 Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
@@ -49,7 +49,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 >
 > 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
-> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoires + abonnements** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour basculer vers le locataire dans lequel vous voulez inscrire l’application.
 > 1. Recherchez et sélectionnez **Azure Active Directory**.
 > 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
 > 1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
@@ -57,7 +57,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > 1. Sélectionnez **Inscription**. Dans la page **Vue d’ensemble**, notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
 > 1. Sous **Gérer**, sélectionnez **Authentification**.
 > 1. Sous **Configurations de plateformes**, sélectionnez **Ajouter une plateforme**. Dans le volet qui s’ouvre, sélectionnez **Application monopage**.
-> 1. Définissez la valeur **URI de redirection** sur `http://localhost:3000/`. Il s’agit du port par défaut que NodeJS écoutera sur votre machine locale. Nous renverrons la réponse d’authentification à cet URI une fois que l’utilisateur aura été authentifié. 
+> 1. Définissez la valeur **URI de redirection** sur `http://localhost:3000/`. Il s’agit du port par défaut que NodeJS écoutera sur votre machine locale. Nous renverrons la réponse d’authentification à cet URI une fois que l’utilisateur aura été authentifié.
 > 1. Sélectionnez **Configurer** pour appliquer les modifications.
 > 1. Sous **Configurations de plateforme**, développez **Application monopage**.
 > 1. Vérifiez que sous **Types d’octroi** ![Déjà configuré](media/quickstart-v2-javascript/green-check.png), votre URI de redirection est éligible pour le flux du code d’autorisation avec PKCE.
@@ -89,14 +89,14 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 >
 > ```javascript
 > /**
-> * Configuration object to be passed to MSAL instance on creation. 
+> * Configuration object to be passed to MSAL instance on creation.
 > * For a full list of MSAL.js configuration parameters, visit:
-> * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md 
+> * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md
 > */
 > export const msalConfig = {
 >    auth: {
 >        clientId: "Enter_the_Application_Id_Here",
->        authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+>        authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >        redirectUri: "Enter_the_Redirect_Uri_Here"
 >    },
 >    cache: {
@@ -116,7 +116,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > - `Enter_the_Application_Id_Here` est **l’ID d’application (client)** de l’application que vous avez inscrite.
 >
 >    Pour connaître les valeurs de l’**ID d’application (client)** , consultez la page **Vue d’ensemble** de l’inscription d’application dans le portail Azure.
-> - `Enter_the_Cloud_Instance_Id_Here` est l’instance du cloud Azure. Pour le cloud Azure principal ou mondial, entrez `https://login.microsoftonline.com/`. Pour les clouds **nationaux** (par exemple, Chine), consultez [Clouds nationaux](authentication-national-cloud.md).
+> - `Enter_the_Cloud_Instance_Id_Here` est l’instance du cloud Azure. Pour le cloud Azure principal ou mondial, entrez `https://login.microsoftonline.com`. Pour les clouds **nationaux** (par exemple, Chine), consultez [Clouds nationaux](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` est défini de la façon suivante :
 >   - Si votre application prend en charge les *comptes dans cet annuaire organisationnel*, remplacez cette valeur par l’**ID de locataire** ou le **Nom du locataire**. Par exemple : `contoso.microsoft.com`.
 >
@@ -140,7 +140,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 
 > [!div renderon="docs"]
 >
-> Faites défiler le contenu du même fichier et mettez à jour la valeur `graphMeEndpoint`. 
+> Faites défiler le contenu du même fichier et mettez à jour la valeur `graphMeEndpoint`.
 > - Remplacez la chaîne `Enter_the_Graph_Endpoint_Herev1.0/me` par `https://graph.microsoft.com/v1.0/me`
 > - `Enter_the_Graph_Endpoint_Herev1.0/me` est le point de terminaison sur lequel les appels d’API seront effectués. Pour le service API Microsoft Graph principal (mondial), entrez `https://graph.microsoft.com/` (en incluant la barre oblique de fin). Pour plus d’informations, consultez la [documentation](/graph/deployments).
 >

@@ -4,15 +4,15 @@ description: Cet article explique comment inscrire une base de données de metas
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 5/17/2021
-ms.openlocfilehash: 0a7d8a22cf8f9dcdaac9d3fe07bd6ab006e61818
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 7552b562e930e39ba4a0f848ba095762d3838c22
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751905"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214102"
 ---
 # <a name="register-and-scan-hive-metastore-database"></a>Inscrire et analyser une base de données de metastore Hive
 
@@ -75,7 +75,7 @@ Dans l’écran Inscrire des sources (Metastore Hive), effectuez les actions sui
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1.  Dans le centre d’administration, cliquez sur Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
+1.  Dans le centre d’administration, sélectionnez Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
 
 2.  Accédez aux **Sources**.
 
@@ -161,11 +161,11 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
 
         :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="analyser une source Hive" border="true":::
 
-6.  Cliquez sur **Continuer**.
+6.  Sélectionnez **Continuer**.
 
 7.  Choisissez votre **déclencheur d’analyse**. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
 
-8.  Vérifiez votre analyse et cliquez sur **Enregistrer et exécuter**.
+8.  Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Affichage des analyses et des exécutions d’analyse
 

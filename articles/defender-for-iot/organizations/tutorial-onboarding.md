@@ -4,14 +4,14 @@ description: Dans ce tutoriel, vous allez apprendre à intégrer à Azure Defend
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/06/2021
+ms.date: 09/23/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 66d95f5700cb3445aa5e2facabe12ea7c70ef92e
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: cd62dfaa3a90c6efde1f758bec3e7062ce3e858c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544560"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642146"
 ---
 # <a name="tutorial-azure-defender-for-iot-trial-setup"></a>Tutoriel : Installation d’un essai d’Azure Defender pour IoT
 
@@ -247,6 +247,8 @@ Pour la validation post-installation, vous devez effectuer des tests pour vérif
 ## <a name="configure-a-span-port"></a>Configurer un port SPAN
 
 Un commutateur virtuel ne dispose pas de capacités de mise en miroir, mais vous pouvez utiliser une solution de contournement pour implémenter un port SPAN. Vous pouvez implémenter la solution de contournement avec ESXi ou Hyper-V.
+
+:::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="Capture d’écran de l’emplacement du capteur dans votre architecture.":::
 
 ### <a name="configure-a-span-port-with-esxi"></a>Configurer un port SPAN avec ESXi
 

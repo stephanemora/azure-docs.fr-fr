@@ -4,17 +4,17 @@ description: Cet article explique comment inscrire une source Looker dans Azure 
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 7/16/2021
-ms.openlocfilehash: ed524382bf1fcc0c93fc61dd1c0450d69a16b74c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 1f39a1d261b4c8ed4223d66ebb34c94be7310b2e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749409"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214772"
 ---
-# <a name="register-and-scan-lookerpreview"></a>Inscrire et analyser Looker (préversion)
+# <a name="register-and-scan-looker-preview"></a>Inscrire et analyser Looker (préversion)
 
 Cet article explique comment inscrire un serveur Looker dans Purview et configurer une analyse.
 
@@ -67,7 +67,7 @@ Sur l’écran Inscrire des sources (Looker), procédez comme suit :
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Dans le centre d’administration, cliquez sur Runtimes d’intégration. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
+1. Dans le centre d’administration, sélectionnez Runtimes d’intégration. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
 
 2. Accédez aux **Sources**.
 
@@ -89,7 +89,7 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
     - Indiquez l’ID client de votre clé API3 dans le champ Nom d’utilisateur
     - Enregistrez la clé secrète client de votre clé API3 dans le coffre de clés.
 
-    **Remarque :** Pour accéder à l’ID client et à la clé secrète, accédez à Looker- \> Admin- \> Utilisateurs- \> cliquez sur **Modifier**. Pour un utilisateur \> cliquez sur **Modifier les clés** -\> Utilisez l’ID client et la clé secrète client, ou créez-en un.
+    **Remarque :** Pour accéder à l’ID client et à la clé secrète client, accédez à Looker -\>Admin -\> Utilisateurs -\> sélectionnez **Modifier** sur un utilisateur -\> sélectionnez **Modifier les clés** -\> utilisez l’ID client et la clé secrète client, ou créez-en un nouveau.
     :::image type="content" source="media/register-scan-looker-source/looker-details.png" alt-text="obtenir des détails sur Looker" border="true":::
     
 
@@ -101,13 +101,13 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
 
     :::image type="content" source="media/register-scan-looker-source/setup-scan.png" alt-text="Déclencher une analyse" border="true":::
 
-6. Cliquez sur **Tester la connexion**.
+6. Sélectionnez **Test Connection** (Tester la connexion).
 
-7. Cliquez sur **Continuer**.
+7. Sélectionnez **Continuer**.
 
 8. Choisissez votre **déclencheur d’analyse**. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
 
-9. Vérifiez votre analyse et cliquez sur **Enregistrer et exécuter**.
+9. Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Affichage des analyses et des exécutions d’analyse
 

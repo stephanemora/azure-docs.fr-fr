@@ -7,13 +7,13 @@ ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/12/2021
-ms.openlocfilehash: 0d5c178010012546bfcf786be7106f980289d6eb
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.date: 09/27/2021
+ms.openlocfilehash: 545e868a902390929254ae6c03d668f8e0d1d10f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204479"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079716"
 ---
 # <a name="create-a-managed-service-offer-for-the-commercial-marketplace"></a>Créer une offre de service managé pour la place de marché commerciale
 
@@ -23,20 +23,47 @@ Pour publier une offre de service managé, vous devez avoir acquis une compéten
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
-3. Dans l’onglet Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Service géré**.
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-:::image type="content" source="./media/new-offer-managed-service.png" alt-text="Illustre le menu de navigation de gauche.":::
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
 
-4. Dans la boîte de dialogue **Nouvelle offre**, entrez l’**ID de l’offre**. Il s’agit d’un identificateur unique par offre dans votre compte. Cet ID est visible dans l’URL du référencement de la place de marché commercial et des modèles Azure Resource Manager, le cas échéant. Par exemple, si vous entrez test-offer-1 dans cette zone, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+
+    [ ![Illustre la vignette Offres de la Place de marché sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Sur la page Offres de la Place de marché, sélectionnez **+ Nouvelle offre** > **Service géré**.
+
+    [ ![Illustre l’option de type d’offre Service géré.](./media/new-offer-managed-service-workspaces.png) ](./media/new-offer-managed-service-workspaces.png#lightbox)
+
+1. Dans la boîte de dialogue **Nouveau service géré**, entrez l’**ID de l’offre**. Il s’agit d’un identificateur unique par offre dans votre compte. Cet ID est visible dans l’URL du référencement de la place de marché commercial et des modèles Azure Resource Manager, le cas échéant. Par exemple, si vous entrez test-offer-1 dans cette zone, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
     - Chaque offre au sein de votre compte doit avoir un ID d’offre unique.
     - Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères.
     - L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
-5. Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires. Il n’est pas visible dans les magasins en ligne et est différent du nom de l’offre présenté aux clients.
-6. Pour générer l’offre et continuer, sélectionnez **Créer**.
+1. Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires. Il n’est pas visible dans les magasins en ligne et est différent du nom de l’offre présenté aux clients.
+1. Pour générer l’offre et continuer, sélectionnez **Créer**.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
+1. Dans l’onglet Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Service géré**.
+
+    :::image type="content" source="./media/new-offer-managed-service.png" alt-text="Illustre le menu de navigation de gauche.":::
+
+1. Dans la boîte de dialogue **Nouvelle offre**, entrez l’**ID de l’offre**. Il s’agit d’un identificateur unique par offre dans votre compte. Cet ID est visible dans l’URL du référencement de la place de marché commercial et des modèles Azure Resource Manager, le cas échéant. Par exemple, si vous entrez test-offer-1 dans cette zone, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+
+    - Chaque offre au sein de votre compte doit avoir un ID d’offre unique.
+    - Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères.
+    - L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
+
+1. Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires. Il n’est pas visible dans les magasins en ligne et est différent du nom de l’offre présenté aux clients.
+1. Pour générer l’offre et continuer, sélectionnez **Créer**.
+
+---
 
 ## <a name="setup-details"></a>Détails de la configuration
 

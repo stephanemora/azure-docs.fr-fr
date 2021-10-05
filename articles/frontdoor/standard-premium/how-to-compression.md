@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: 4b526d82465862b1c0d27aed6443c6d7199bfb5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca9c2e3b4e9873d4880385479b701d36c92238b0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101097654"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750185"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-front-door-standardpremium-preview"></a>Améliorer les performances en compressant les fichiers dans Azure Front Door Standard/Premium (préversion)
 
@@ -29,6 +29,9 @@ Il existe deux façons d’activer la compression de fichiers :
 
 - Activation de la compression sur votre serveur d’origine. Azure Front Door fait transiter les fichiers compressés et les remet aux clients qui les demandent.
 - Activation de la compression directement sur les serveurs POP Azure Front Door (*compression à la volée*). Dans ce cas, Azure Front Door compresse les fichiers et les envoie aux utilisateurs finaux.
+
+> [!NOTE]
+> Les demandes de plage peuvent être compressées dans différentes tailles. Azure Front Door requiert que les valeurs de longueur de contenu soient identiques pour toute requête HTTP GET. Si les clients envoient des demandes de plage d’octets avec l’en-tête `accept-encoding` qui amène Origin à répondre avec des longueurs de contenu différentes, alors Azure Front Door renvoie une erreur 503. Vous pouvez soit désactiver la compression sur Origin/Azure Front Door, soit créer une règle Ensemble de règles pour supprimer `accept-encoding` de la requête pour les demandes de plage d’octets.
 
 > [!IMPORTANT]
 > La propagation sur le réseau des modifications apportées à la configuration Azure Front Door prend jusqu’à 10 minutes. Si vous configurez la compression de votre point de terminaison CDN pour la première fois, patientez 1 à 2 heures avant de chercher à résoudre un problème, pour être certain que les paramètres de compression ont été propagés à tous les POP.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 9d7c018319003ef9671d9403c2e17642ec70a5d4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: bd6b11956ffe32a2ae59cd6d6ab262ab3013832f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476416"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Didacticiel : Intégration d’Azure Active Directory à Reward Gateway
 
@@ -38,6 +38,8 @@ Pour configurer l’intégration d’Azure AD à Reward Gateway, vous avez beso
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Reward Gateway prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
+
+* Reward Gateway prend en charge le [provisionnement d’utilisateurs automatisé](reward-gateway-provisioning-tutorial.md).
 
 ## <a name="add-reward-gateway-from-the-gallery"></a>Ajouter Reward Gateway à partir de la galerie
 
@@ -138,13 +140,15 @@ Pour configurer l’authentification unique côté **Reward Gateway**, commencez
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Reward Gateway. Collaborez avec l’[équipe de support Reward Gateway](mailto:clientsupport@rewardgateway.com) pour ajouter des utilisateurs à la plateforme Reward Gateway. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+Reward Gateway prend aussi en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./reward-gateway-provisioning-tutorial.md) sur la manière de configurer ce dernier.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
 * Cliquez sur Tester cette application dans le portail Azure : vous devez être connecté automatiquement à l’instance de Reward Gateway pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Reward Gateway dans Mes applications, vous devez être connecté automatiquement à l’application Reward Gateway pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Reward Gateway dans Mes applications, vous devez être connecté automatiquement à l’application Reward Gateway pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

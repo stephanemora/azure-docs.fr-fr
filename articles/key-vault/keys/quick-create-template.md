@@ -10,26 +10,24 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs, devx-track-azurepowershell
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 4994e345b55e5b7fe77e116475fa2e5a29a9751f
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 8e8a0e931a2c33883bf18ad92a367110d9be093e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669993"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572960"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Démarrage rapide : Créer un coffre de clés Azure et une clé à l’aide d’un modèle ARM 
 
 [Azure Key Vault](../general/overview.md) est un service cloud qui propose un magasin sécurisé pour les secrets, comme les clés, les mots de passe, les certificats et autres secrets. Ce guide de démarrage rapide porte essentiellement sur le déploiement d’un modèle Azure Resource Manager (modèle ARM) en vue de créer un coffre de clés et une clé.
 
-> [!NOTE]
-> Cette fonctionnalité n’est pas disponible pour Azure Government.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article :
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-- Un rôle intégré Azure doit être attribué à l’utilisateur, par exemple Contributeur. [En savoir plus ici](../../role-based-access-control/role-assignments-portal.md)
+- Un rôle intégré Azure doit être attribué à l’utilisateur. Rôle recommandé : **Contributeur**. [En savoir plus ici](../../role-based-access-control/role-assignments-portal.md)
 - Le modèle requiert votre ID objet utilisateur Azure AD pour la configuration des autorisations. La procédure suivante permet d’obtenir l’ID de l’objet (GUID).
 
     1. Exécutez la commande Azure PowerShell ou Azure CLI ci-dessous en sélectionnant **Essayer**, puis collez le script dans le volet de l’interpréteur de commandes. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller**.
@@ -171,7 +169,7 @@ Vous trouverez d’autres exemples de modèles Azure Key Vault dans [Modèles de
 
 |Paramètre  |Définition  |
 |---------|---------|
-|**Keysize**  | Spécifie les opérations qui peuvent être effectuées à l’aide de la clé. Si vous ne spécifiez pas ce paramètre, toutes les opérations peuvent être effectuées. Les valeurs acceptables pour ce paramètre figurent dans une liste séparée par des virgules des opérations clés définies par la spécification de la [clé web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41) : <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
+|**keyOps**  | Spécifie les opérations qui peuvent être effectuées à l’aide de la clé. Si vous ne spécifiez pas ce paramètre, toutes les opérations peuvent être effectuées. Les valeurs acceptables pour ce paramètre figurent dans une liste séparée par des virgules des opérations clés définies par la spécification de la [clé web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41) : <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
 |**CurveName**  |  Nom de la courbe elliptique pour le type de clé EC. Consultez [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename) |
 |**Kty**  |  Type de clé à créer. Pour connaître les valeurs valides, consultez [JsonWebKeyType](/rest/api/keyvault/createkey/createkey#jsonwebkeytype) |
 |**Balises** | Métadonnées spécifiques d’application sous la forme de paires clé/valeur.  |

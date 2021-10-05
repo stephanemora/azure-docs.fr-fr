@@ -8,12 +8,12 @@ ms.date: 08/26/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
-ms.openlocfilehash: f9708a9287ee8ff40de6044249e35ad26b938316
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 270c0fd585c2232b86011673e460737173106b09
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039304"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479073"
 ---
 # <a name="migrate-an-azure-cosmos-db-account-from-periodic-to-continuous-backup-mode"></a>Migrer un compte Azure Cosmos DB du mode de sauvegarde périodique vers le mode de sauvegarde continue
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -175,7 +175,7 @@ Pour restaurer à une heure après t5 parce que votre compte est maintenant en m
 Pour effectuer une restauration jusqu’à une heure antérieure à t1, vous pouvez ouvrir un ticket de support comme vous le feriez normalement avec le compte de sauvegarde périodique. Après la migration, vous avez jusqu’à 30 jours pour effectuer la restauration périodique.  Pendant ces 30 jours, vous pouvez restaurer en fonction de la rétention/l’intervalle de sauvegarde de votre compte avant la migration.  Par exemple, si la configuration de sauvegarde devait conserver 24 copies par intervalle de 1 heure, vous pouvez restaurer à tout moment entre [t1 – 24 heures] et [t1].
 
 #### <a name="which-account-level-control-plane-operations-are-blocked-during-migration"></a>Quelles opérations du plan de contrôle au niveau du compte sont bloquées pendant la migration ?
-Les opérations telles que l’ajout/la suppression de régions, le basculement, la réplication, la modification de la stratégie de sauvegarde, les modifications de débit résultant du déplacement des données sont bloquées pendant la migration.
+Les opérations telles que l'ajout/la suppression d'une région, le basculement, la modification de la politique de sauvegarde, les changements de débit entraînant un déplacement des données sont bloquées pendant la migration.
 
 #### <a name="if-the-migration-fails-for-some-underlying-issue-would-it-still-block-the-control-plane-operation-until-it-is-retried-and-completed-successfully"></a>Si la migration échoue pour un problème sous-jacent, est-ce qu’elle bloque toujours l’opération de plan de contrôle jusqu’à ce qu’elle soit retentée et terminée correctement ?
 L’échec de la migration ne bloque pas les opérations du plan de contrôle. Si la migration échoue, il est recommandé de réessayer jusqu’à ce qu’elle réussisse avant d’effectuer d’autres opérations de plan de contrôle.
@@ -202,5 +202,5 @@ Pour en savoir plus sur le mode de sauvegarde continue, consultez les articles s
 * Restaurez un compte à l’aide du [portail Azure](restore-account-continuous-backup.md#restore-account-portal), de [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), de l’interface [CLI](restore-account-continuous-backup.md#restore-account-cli) ou d’[Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
 
 Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ?
-   * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
-   * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
+   * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+   * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)

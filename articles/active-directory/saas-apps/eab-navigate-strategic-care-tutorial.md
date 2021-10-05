@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à EAB Navigate Strategic Care | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à EAB Navigate Strategic Care'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et EAB Navigate Strategic Care.
 services: active-directory
 author: jeevansd
@@ -9,24 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 09/20/2021
 ms.author: jeedes
-ms.openlocfilehash: d443f1f85caf53a40d5cd80b4f9438427d18a4fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24fe3f80065806b48881e82206bca0dfb833fc80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92454502"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661383"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-strategic-care"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à EAB Navigate Strategic Care
+# <a name="tutorial-azure-ad-sso-integration-with-eab-navigate-strategic-care"></a>Tutoriel : Intégration de l’authentification unique Azure AD à EAB Navigate Strategic Care
 
 Dans ce tutoriel, vous allez apprendre à intégrer EAB Navigate Strategic Care à Azure Active Directory (Azure AD). Quand vous intégrez EAB Navigate Strategic Care à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à EAB Navigate Strategic Care.
 * Permettre à vos utilisateurs de se connecter automatiquement à EAB Navigate Strategic Care avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,25 +37,27 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* EAB Navigate Strategic Care prend en charge l’authentification unique (SSO) lancée par le **fournisseur de services**
+* EAB Navigate Strategic Care prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-## <a name="adding-eab-navigate-strategic-care-from-the-gallery"></a>Ajout d’EAB Navigate Strategic Care à partir de la galerie
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
+## <a name="add-eab-navigate-strategic-care-from-the-gallery"></a>Ajouter EAB Navigate Strategic Care à partir de la galerie
 
 Pour configurer l’intégration d’EAB Navigate Strategic Care à Azure AD, vous devez ajouter EAB Navigate Strategic Care de la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **EAB Navigate Strategic Care** dans la zone de recherche.
 1. Sélectionnez **EAB Navigate Strategic Care** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-eab-navigate-strategic-care"></a>Configurer et tester l’authentification unique Azure AD pour EAB Navigate Strategic Care
+## <a name="configure-and-test-azure-ad-sso-for-eab-navigate-strategic-care"></a>Configurer et tester l’authentification unique Azure AD pour EAB Navigate Strategic Care
 
 Configurez et testez l’authentification unique (SSO) Azure AD avec EAB Navigate Strategic Care pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique (SSO) fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur EAB Navigate Strategic Care associé.
 
-Pour configurer et tester l’authentification unique (SSO) Azure AD avec EAB Navigate Strategic Care, suivez les modules suivants :
+Pour configurer et tester l'authentification unique Azure AD avec EAB Navigate Strategic Care, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -70,13 +70,13 @@ Pour configurer et tester l’authentification unique (SSO) Azure AD avec EAB N
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans la page d’intégration de l’application **EAB Navigate Strategic Care** du [portail Azure](https://portal.azure.com/), recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **EAB Navigate Strategic Care**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez l’étape suivante :
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<CUSTOMERURL>.eab.com`
 
@@ -106,13 +106,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **EAB Navigate Strategic Care**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
@@ -127,16 +121,14 @@ Dans cette section, vous créez un utilisateur appelé B.Simon dans EAB Navigate
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Le fait de cliquer sur la vignette EAB Navigate Strategic Care dans le volet d’accès doit vous connecter automatiquement à l’application EAB Navigate Strategic Care pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL d’authentification EAB Navigate Strategic Care, d’où vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL d’authentification EAB Navigate Strategic Care pour lancer le flux de connexion.
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette EAB Navigate Strategic Care dans Mes applications, vous êtes redirigé vers l’URL d’authentification EAB Navigate Strategic Care. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer EAB Navigate Strategic Care avec Azure AD](https://aad.portal.azure.com/)
+Après avoir configuré EAB Navigate Strategic Care, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 3c8126c051457d740d1a5414a130b4ee3fffcd8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f18ebeb71f597bc7988c8f97840ac1a1e38ebb9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954120"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124830320"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutoriel : Intégrer RingCentral à Azure Active Directory
 
@@ -41,6 +41,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * RingCentral prend en charge l’authentification unique initiée par **un fournisseur d’identité**.
+
+* RingCentral prend en charge l’[attribution automatique d’utilisateurs](ringcentral-provisioning-tutorial.md).
 
 ## <a name="add-ringcentral-from-the-gallery"></a>Ajouter RingCentral à partir de la galerie
 
@@ -183,13 +185,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans RingCentral. Collaborez avec l’[équipe de support technique RingCentral](https://success.ringcentral.com/RCContactSupp) pour ajouter les utilisateurs dans la plateforme RingCentral. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+RingCentral prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./ringcentral-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
 * Dans le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance de RingCentral pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette RingCentral dans Mes applications, vous êtes connecté automatiquement à l’instance de RingCentral pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette RingCentral dans Mes applications, vous êtes connecté automatiquement à l’instance de RingCentral pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

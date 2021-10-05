@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Profit.co| Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Profit.co'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Profit.co.
 services: active-directory
 author: jeevansd
@@ -9,24 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 09/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 027fb66538dfcead24470507b8080f2e0aacb469
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c95eae59edc75e5d4394d4bbd9b07d6168f7b566
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92515200"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548765"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-profitco"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Profit.co
+# <a name="tutorial-azure-ad-sso-integration-with-profitco"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Profit.co
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Profit.co à Azure Active Directory (Azure AD). Quand vous intégrez Profit.co à Azure AD, vous pouvez :
 
 * Contrôler qui dans Azure AD a accès à Profit.co.
 * Permettre aux utilisateurs de se connecter automatiquement à Profit.co avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central, le portail Azure.
-
-Pour en savoir plus sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,20 +39,18 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Profit.co prend en charge l’authentification unique initiée par le fournisseur d’identité.
 
-* Après avoir configuré Profit.co, vous pouvez appliquer le contrôle de session. Cela protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
 ## <a name="add-profitco-from-the-gallery"></a>Ajouter Profit.co à partir de la galerie
 
 Pour configurer l’intégration de Profit.co dans Azure AD, vous devez ajouter Profit.co à votre liste d’applications SaaS gérées à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Profit.co** dans la zone de recherche.
 1. Sélectionnez **Profit.co** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-profitco"></a>Configurer et tester l’authentification unique Azure AD pour Profit.co
+## <a name="configure-and-test-azure-ad-sso-for-profitco"></a>Configurer et tester l’authentification unique Azure AD pour Profit.co
 
 Configurez et testez l’authentification unique (SSO) Azure AD avec Profit.co à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, établissez un lien entre un utilisateur Azure AD et l’utilisateur Profit.co associé.
 
@@ -64,14 +60,14 @@ Voici la procédure générale pour configurer et tester l’authentification un
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Profit.co](#configure-profitco-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test Profit.co](#create-a-profitco-test-user)** pour avoir un équivalent de B.Simon dans Profit.co. Cet équivalent est lié à la représentation Azure AD de l’utilisateur.
+    1. **[Créer un utilisateur de test Profit.co](#create-a-profitco-test-user)** pour avoir un équivalent de B.Simon dans Profit.co lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Sur le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Profit.co** et recherchez la section **Gérer**. Sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Profit.co** et recherchez la section **Gérer**. Sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
@@ -102,13 +98,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Profit.co**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Capture d’écran de la section Gérer, avec Utilisateurs et groupes mis en évidence](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
-
-    ![Capture d’écran de la page Utilisateurs et groupes, avec Ajouter un utilisateur mis en évidence](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste des utilisateurs. Ensuite, choisissez le bouton **Sélectionner** en bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Ensuite, choisissez le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
@@ -123,20 +113,12 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Profit
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-Quand vous sélectionnez la vignette Profit.co dans le volet d’accès, vous devez être connecté automatiquement à l’application Profit.co pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Présentation du volet d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur Tester cette application dans le portail Azure. Vous êtes alors automatiquement connecté à l’instance Profit.co pour laquelle vous avez configuré l’authentification unique.
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Profit.co dans Mes applications, vous devez être connecté automatiquement à l’application Profit.co pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer Profit.co avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Profit.co avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré Profit.co, vous pouvez appliquer le contrôle de session, qui protège votre organisation contre l’exfiltration et l’infiltration de ses données sensibles en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

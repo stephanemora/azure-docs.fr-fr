@@ -3,17 +3,17 @@ title: Support Azure pour les machines virtuelles de 2e génération
 description: Vue d’ensemble de la prise en charge Azure pour les machines virtuelles de 2e génération
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: generation-2-vm
+ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 284b4bc69446e12f70c3f0310fa494723aff1f1d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 48dd300148cdcccc9caf754a5e5bcc69e7c5c0e7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696345"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216552"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -27,7 +27,7 @@ Les machines virtuelles de 2e génération utilisent la nouvelle architecture de
 
 ## <a name="generation-2-vm-sizes"></a>Tailles des machines virtuelles de 2e génération
 
-Les machines virtuelles de 1ère génération sont prises en charge dans toutes les tailles de machines virtuelles dans Azure (sauf les machines virtuelles de série Mv2). Azure prend désormais en charge la 2e génération de machines virtuelles des séries sélectionnées suivantes :
+Azure prend désormais en charge la 2e génération de machines virtuelles des séries sélectionnées suivantes :
 
 
 * [Série B](sizes-b-series-burstable.md)
@@ -49,14 +49,17 @@ Les machines virtuelles de 1ère génération sont prises en charge dans toutes 
 * [Série Lsv2](lsv2-series.md)
 * [Série M](m-series.md)
 * [Série Mv2](mv2-series.md)<sup>1</sup>
+* [Séries de mémoire moyenne Msv2 et Mdsv2](msv2-mdsv2-series.md)<sup>1</sup>
 * [Série NCv2](ncv2-series.md) 
 * [Série NCv3](ncv3-series.md)
 * [Série ND](nd-series.md)
+* [ND A100 v4-series](nda100-v4-series.md)
+* [Série NDv2](ndv2-series.md)
 * [Série NVv3](nvv3-series.md)
 * [Série NVv4](nvv4-series.md)
 * [NCasT4_v3-series](nct4-v3-series.md)
 
-<sup>1</sup> La série MV2 ne prend pas en charge les images de machine virtuelle de 1re génération et ne prend en charge qu’un sous-ensemble d’images de 2e génération. Pour plus d’informations, consultez la [documentation de la série MV2](mv2-series.md).
+<sup>1</sup> Les séries Mv2, DC, NDv2, et de mémoire moyenne Msv2 et Mdsv2 ne prennent pas en charge les images de machine virtuelle de génération 1 et ne prennent en charge qu’un sous-ensemble d’images de génération 2. Pour plus d’informations, consultez la [documentation relative à la série Mv2](mv2-series.md), à la [série DSv2](dv2-dsv2-series.md), à la [série ND A100 v4](nda100-v4-series.md), à la [série NDv2](ndv2-series.md) et aux [séries de mémoire moyenne Msv2 et Mdsv2](msv2-mdsv2-series.md).
 
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Images de machine virtuelle de 2e génération dans la Place de marché Azure
@@ -73,7 +76,7 @@ Les machines virtuelles de 2e génération prennent en charge les images de la P
 * Oracle Linux 7.7, 7.7-CI, 7.8
 
 > [!NOTE]
-> Les tailles de machine virtuelle spécifiques telles que la série MV2 ne peuvent prendre en charge qu’un sous-ensemble de ces images. Pour plus d’informations, consultez la documentation appropriée sur la taille de machine virtuelle.
+> Les tailles de machine virtuelle spécifiques telles que les séries Mv2, DC, ND A100 v4, NDv2, Msv2 et Mdsv2 ne peuvent prendre en charge qu’un sous-ensemble de ces images. Pour plus d’informations, consultez la documentation appropriée sur la taille de machine virtuelle.
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Local Machines virtuelles de 2e génération Azure
 

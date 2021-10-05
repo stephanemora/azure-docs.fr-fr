@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 119540738ac2703afd79891d9bf8a4a9ff0c7472
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47215f936ebc43b7aa720bc68f2caba294f03d46
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595348"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Détecter un problème à l’aide de l’outil What If dans l’accès conditionnel
 
@@ -67,6 +67,9 @@ Vous ne pouvez sélectionner qu’un seul utilisateur. Il s’agit du seul champ
 ### <a name="cloud-apps"></a>Applications cloud
 
 La valeur par défaut pour ce paramètre est **Toutes les applications cloud**. Le paramètre par défaut effectue une évaluation de toutes les stratégies disponibles dans votre environnement. Vous pouvez limiter l’étendue aux stratégies qui affectent des applications cloud spécifiques.
+
+> [!NOTE]
+> Lorsque l'outil "What If" est utilisé, il ne teste pas les [dépendances du service d'accès conditionnel](service-dependencies.md). Par exemple, si vous utilisez la méthode "What If" pour tester une politique d'accès conditionnel pour Microsoft Teams, le résultat ne tiendra pas compte d'une politique qui s'appliquerait à Office 365 Exchange Online, une dépendance du service d'accès conditionnel pour Microsoft Teams.
 
 ### <a name="ip-address"></a>Adresse IP
 

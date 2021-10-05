@@ -1,18 +1,17 @@
 ---
-title: Autorisations du catalogue (préversion)
-description: Cet article donne une vue d’ensemble de la configuration du contrôle d’accès en fonction du rôle (RBAC) dans Azure Purview
+title: Comprendre les accès et les autorisations
+description: Cet article offre une vue d’ensemble des autorisations, du contrôle d’accès et des collections dans Azure Purview. Le contrôle d’accès en fonction du rôle (RBAC) est géré dans Azure Purview lui-même. Ce guide couvre donc les bases pour sécuriser vos informations.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/18/2020
-ms.openlocfilehash: 06ed84bf63f79087efef33b1061e21b61315e78e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.date: 09/27/2021
+ms.openlocfilehash: fc2ea92f8e5a3d727db130cc4dce7c13c449a9fa
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969454"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209050"
 ---
 # <a name="access-control-in-azure-purview"></a>Contrôle d’accès dans Azure Purview
 
@@ -21,9 +20,9 @@ Azure Purview utilise des **collections** pour organiser et gérer l’accès à
 > [!NOTE]
 > À ce stade, ces informations s’appliquent uniquement aux comptes Azure Purview créés **à partir du 18 août 2021**. Les instances créées avant le 18 août peuvent créer des collections, mais elles ne gèrent pas les autorisations par le biais de ces collections. Pour plus d’informations sur le contrôle d’accès pour une instance Purview créée avant le 18 août, consultez notre [**guide des autorisations héritées**](#legacy-permission-guide) en bas de page.
 >
-> Tous les comptes hérités seront automatiquement mis à niveau dans les semaines à venir. Vous recevrez une notification par e-mail lors de la mise à niveau de votre compte Purview. Une fois le compte mis à niveau, toutes les autorisations affectées sont automatiquement redéployées vers la collection racine. À ce moment-là, les autorisations doivent être gérées par le biais de collections et non par celui d’Access Control (IAM). Les autorisations IAM ne s’appliquent plus aux artefacts Purview.
+> Tous les comptes hérités seront automatiquement mis à niveau dans les semaines à venir. Vous recevrez une notification par e-mail lors de la mise à niveau de votre compte Purview. Pour plus d’informations sur ce qui va changer une fois votre compte mis à niveau, consultez notre [Guide des comptes mis à niveau](concept-account-upgrade.md).
 
-## <a name="collections"></a>Regroupements
+## <a name="collections"></a>Collections
 
 Une collection est un outil utilisé par Azure Purview pour regrouper des ressources, des sources et d’autres artefacts dans une hiérarchie afin de faciliter la détection et de gérer le contrôle d’accès. Tous les accès aux ressources de Purview sont gérés à partir de collections dans le compte Purview lui-même.
 
@@ -31,10 +30,10 @@ Une collection est un outil utilisé par Azure Purview pour regrouper des ressou
 
 Azure Purview utilise un ensemble de rôles prédéfinis pour contrôler qui peut accéder à quoi dans le compte. Ces rôles sont actuellement les suivants :
 
-- **Administrateurs de collections** : ils peuvent modifier les collections Purview, leurs détails et ajouter des sous-collections. Ils peuvent également ajouter des utilisateurs dans d’autres rôles Purview sur les collections dont ils sont administrateurs.
-- **Administrateurs de sources de données** : ils peuvent gérer les sources de données et les analyses de données.
-- **Conservateurs de données** : ils peuvent créer, lire, modifier et supprimer les ressources de données du catalogue et établir des relations entre les ressources.
-- **Lecteurs de données** : ils peuvent accéder aux ressources de données du catalogue, mais pas les modifier.
+- **Administrateurs de collection** : rôle pour les utilisateurs qui doivent attribuer des rôles à d’autres utilisateurs dans Azure Purview ou gérer des collections. Les administrateurs de collection peuvent ajouter des utilisateurs à des rôles sur des collections dont ils sont administrateurs. Ils peuvent également modifier des collections et leurs détails, et ajouter des sous-groupes.
+- **Conservateurs de données** : rôle qui fournit l’accès au catalogue de données pour gérer les ressources, configurer des classifications personnalisées, définir des termes de glossaire et consulter des informations. Les conservateurs de données peuvent créer des ressources, les lire, les modifier, les déplacer, les supprimer et y ajouter des annotations.
+- **Administrateurs de source de données** : rôle qui peut gérer les sources et analyses de données. Un utilisateur ayant seulement le rôle d’administrateur de source de données n’a pas accès à Azure Purview Studio. La combinaison de ce rôle avec ceux de lecteur de données ou conservateur de données fournit un accès plus large.
+- **Lecteurs de données** : rôle qui fournit un accès en lecture seule aux ressources de données, aux classifications, aux règles de classification, aux collections, au glossaire et aux informations.
 
 ## <a name="who-should-be-assigned-to-what-role"></a>Qui doit être affecté à quelle rôle ?
 
@@ -52,7 +51,7 @@ Azure Purview utilise un ensemble de rôles prédéfinis pour contrôler qui peu
 
 ## <a name="understand-how-to-use-azure-purviews-roles-and-collections"></a>Comprendre comment utiliser les rôles et les collections d’Azure Purview
 
-Tout le contrôle d’accès est géré dans les collections de Purview. Les collections de Purview se trouvent dans le [studio Purview](use-purview-studio.md). Ouvrez votre compte Purview dans le [portail Azure](https://portal.azure.com) et sélectionnez la vignette Purview Studio sur la page Vue d’ensemble. De là, accédez à la carte de données dans le menu de gauche, puis sélectionnez l’onglet « Collections ».
+Tout le contrôle d’accès est géré dans les collections de Purview. Les collections de Purview se trouvent dans le [studio Purview](https://web.purview.azure.com/resource/). Ouvrez votre compte Purview dans le [portail Azure](https://portal.azure.com) et sélectionnez la vignette Purview Studio sur la page Vue d’ensemble. De là, accédez à la carte de données dans le menu de gauche, puis sélectionnez l’onglet « Collections ».
 
 Lorsqu’un compte Azure Purview est créé, il commence par une collection racine qui porte le même nom que le compte Purview lui-même. Le créateur du compte Purview est automatiquement ajouté en tant qu’Administrateur de collections, Administrateur de sources de données, Conservateur de données et Lecteur de données sur cette collection racine, et il peut modifier et gérer cette collection.
 
@@ -91,7 +90,7 @@ De même, avec les rôles Conservateur de données et Administrateur de sources 
 
 ### <a name="add-users-to-roles"></a>Ajouter des utilisateurs aux rôles
 
-L’attribution de rôle est gérée par les collections. Seul un utilisateur ayant le [rôle d’administrateur de collections](#roles) peut accorder des autorisations aux autres utilisateurs de cette collection. Lorsque de nouvelles autorisations doivent être ajoutées, un administrateur de collections accède à Purview Studio, à Data Map, puis à l’onglet Collections, et sélectionne la collection dans laquelle un utilisateur doit être ajouté. Dans l’onglet Attributions de rôle, il pourra ajouter et gérer les utilisateurs qui ont besoin d’autorisations.
+L’attribution de rôle est gérée par les collections. Seul un utilisateur ayant le [rôle d’administrateur de collections](#roles) peut accorder des autorisations aux autres utilisateurs de cette collection. Lorsque de nouvelles autorisations doivent être ajoutées, un administrateur de collection accède à [Purview Studio](https://web.purview.azure.com/resource/), à la carte de données, puis à l’onglet Collections, et sélectionne la collection dans laquelle un utilisateur doit être ajouté. Dans l’onglet Attributions de rôle, il pourra ajouter et gérer les utilisateurs qui ont besoin d’autorisations.
 
 Pour obtenir des instructions complètes, consultez notre [guide pratique sur l’ajout d’attributions de rôle](how-to-create-and-manage-collections.md#add-role-assignments).
 
@@ -136,7 +135,7 @@ Seuls deux rôles de plan de contrôle intégrés dans Azure peuvent affecter de
 #### <a name="an-example-of-assigning-someone-to-a-legacy-role"></a>Exemple d’affectation d’une personne à un rôle hérité
 
 1. Accédez à https://portal.azure.com et accédez à votre compte Azure Purview.
-1. Sur le côté gauche, cliquez sur « Contrôle d’accès (IAM) ».
+1. Sur le côté gauche, sélectionnez **Contrôle d’accès (IAM)**
 1. Suivez ensuite les instructions générales fournies [ici](../role-based-access-control/quickstart-assign-role-user-portal.md#create-a-resource-group).
 
 ### <a name="legacy-role-definitions-and-actions"></a>Définitions et actions des rôles hérités
@@ -147,7 +146,7 @@ Un rôle est défini comme une collection d’actions. Reportez-vous [ici](../ro
 
 Si vous souhaitez avoir accès à un compte Azure Purview pour pouvoir utiliser son studio ou appeler ses API, vous devez l’ajouter à un rôle de plan de données Azure Purview. Les seules personnes habilitées sont celles qui sont propriétaires ou administrateurs de l’accès utilisateur sur le compte Azure Purview. Pour la plupart des utilisateurs, l’étape suivante consiste à trouver un administrateur local qui peut aider à trouver les personnes permettant d’avoir accès.
 
-En ce qui concerne les utilisateurs qui ont accès au [Portail Azure](https://portal.azure.com) de leur entreprise, ils peuvent rechercher le compte Azure Purview particulier qu’ils souhaitent rejoindre, cliquer sur l’onglet « Contrôle d’accès (IAM) » et découvrir qui sont les propriétaires ou les administrateurs de l’accès utilisateur (UAA). Toutefois, notez que dans certains cas, les groupes Azure Active Directory ou les principaux de service peuvent être utilisés comme propriétaires ou UAA, auquel cas il n’est pas possible de les contacter directement. Au lieu de cela, il faut trouver un administrateur pouvant fournir une aide.
+En ce qui concerne les utilisateurs qui ont accès au [Portail Azure](https://portal.azure.com) de leur entreprise, ils peuvent rechercher le compte Azure Purview particulier qu’ils souhaitent rejoindre, sélectionner son onglet **Contrôle d’accès (IAM)** et découvrir qui sont les propriétaires ou les administrateurs de l’accès utilisateur (UAA). Toutefois, notez que dans certains cas, les groupes Azure Active Directory ou les principaux de service peuvent être utilisés comme propriétaires ou UAA, auquel cas il n’est pas possible de les contacter directement. Au lieu de cela, il faut trouver un administrateur pouvant fournir une aide.
 
 ### <a name="legacy---who-should-be-assigned-to-what-role"></a>Héritage : qui doit être affecté à quel rôle ?
 

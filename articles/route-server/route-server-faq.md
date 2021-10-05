@@ -5,21 +5,16 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/23/2021
 ms.author: duau
-ms.openlocfilehash: f76c996f75dce0ea1f6aae8dc8c86ac80f6006a5
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: fa5ea8f191c0b2ea9c7db483eb4d7b9c5a679be0
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253874"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094364"
 ---
-# <a name="azure-route-server-preview-faq"></a>Forum aux questions sur Azure Route Server (préversion)
-
-> [!IMPORTANT]
-> Azure Route Server (préversion) est en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-route-server-faq"></a>Forum aux questions sur Serveur de routes Azure
 
 ## <a name="what-is-azure-route-server"></a>Qu’est-ce qu’Azure Route Server ?
 
@@ -53,6 +48,10 @@ Non. Serveur de routes Azure échange uniquement les itinéraires BGP avec votr
 
 Serveur de routes Azure doit garantir la connectivité au service back-end qui gère la configuration de Serveur de routes, car une telle adresse IP publique est nécessaire. 
 
+### <a name="does-azure-route-server-support-ipv6"></a>Le serveur Azure Route prend-il en charge l'IPv6 ?
+
+Non. Nous ajouterons le support IPv6 dans le futur. 
+
 ### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-how-does-it-handle-them"></a>Si le serveur de routes Azure reçoit la même route de plusieurs appliances virtuelles réseau, comment la gère-t-il ?
 
 Si la route a à la même longueur de chemin AS, le serveur de routes Azure va programmer plusieurs copies de la route, chacune avec un tronçon suivant différent, vers les machines virtuelles du réseau virtuel. Quand les machines virtuelles envoient le trafic vers la destination de cette route, les hôtes de machines virtuelles effectuent un routage ECMP (Equal-Cost Multi-Path). Cependant, si une appliance virtuelle réseau envoie la route avec une longueur de chemin AS plus courte que celle d’autres appliances virtuelles réseau, le serveur de routes Azure programme seulement la route dont le tronçon suivant est défini sur cette appliance virtuelle réseau pour les machines virtuelles du réseau virtuel.
@@ -60,6 +59,9 @@ Si la route a à la même longueur de chemin AS, le serveur de routes Azure va p
 ### <a name="does-azure-route-server-preserve-the-bgp-communities-of-the-route-it-receives"></a>Le serveur de routes Azure conserve-t-il les communautés BGP de la route qu’il reçoit ?
 
 Oui, le serveur de routes Azure propage la route telle quelle avec les communautés BGP.
+
+### <a name="what-is-the-bgp-timer-setting-of-azure-route-server"></a>Quel est le paramètre de temporisation BGP du serveur Azure Route ?
+Le délai d'attente est fixé à 60 secondes et le délai d'attente à 180 secondes.
 
 ### <a name="what-autonomous-system-numbers-asns-can-i-use"></a>Est-ce que je peux utiliser des numéros ASN (Autonomous System Numbers) ?
 
@@ -76,9 +78,13 @@ Les ASN suivants sont réservés par Azure ou l’IANA :
 
 Non, Azure Route Server ne prend en charge que les numéros ASN 16 bits (2 octets).
 
-### <a name="can-i-configure-a-user-defined-route-udr-in-the-azurerouteserver-subnet"></a>Puis-je configurer une route définie par l’utilisateur dans le sous-réseau AzureRouteServer ?
+### <a name="can-i-associate-a-user-defined-route-udr-to-the-routeserversubnet"></a>Puis-je associer une route définie par l'utilisateur (UDR) au RouteServerSubnet ?
 
-Non, Serveur de routes Azure ne prend pas en charge la configuration d’une route définie par l’utilisateur dans le sous-réseau AzureRouteServer.
+Non, Azure Route Server ne prend pas en charge la configuration d'un UDR sur le RouteServerSubnet.
+
+### <a name="can-i-associate-a-network-security-group-nsg-to-the-routeserversubnet"></a>Puis-je associer un groupe de sécurité réseau (NSG) au RouteServerSubnet ?
+
+Non, Azure route Server ne prend pas en charge l’Association NSG à RouteServerSubnet.
 
 ### <a name="can-i-peer-two-route-servers-in-two-peered-virtual-networks-and-enable-the-nvas-connected-to-the-route-servers-to-talk-to-each-other"></a>Puis-je homologuer deux serveurs de routage dans deux réseaux virtuels homologués et autoriser les appliances virtuelles réseau connectés aux serveurs de routage à communiquer entre eux ? 
 
@@ -93,11 +99,14 @@ Azure Route Server présente les limites suivantes (par déploiement).
 | Ressource | Limite |
 |----------|-------|
 | Nombre de pairs BGP pris en charge | 8 |
-| Nombre de routes que chaque pair BGP peut publier sur Azure Route Server | 200 |
+| Nombre de routes que chaque pair BGP peut publier sur Azure Route Server | 1 000 |
 | Nombre de routes qu’Azure Route Server peut publier sur ExpressRoute ou la passerelle VPN | 200 |
-| Nombre de machines virtuelles du réseau virtuel (réseaux virtuels appairés compris) que Serveur de routes Azure peut prendre en charge | 6000 |
+| Nombre de machines virtuelles du réseau virtuel (réseaux virtuels appairés compris) que Serveur de routes Azure peut prendre en charge | 2000 |
+
+Le nombre de machines virtuelles qu'Azure Route Server peut prendre en charge n'est pas une limite stricte. Cela dépend de la manière dont l'infrastructure Route Server est déployée dans une région Azure.
 
 Si votre appliance virtuelle réseau publie plus de routes que la limite, la session BGP est abandonnée. Dans le cas où la session BGP d’événement est abandonnée entre la passerelle et Serveur de routes Azure, vous perdez la connectivité entre votre réseau local et Azure. Pour plus d’informations, consultez [Diagnostiquer un problème de routage sur une machine virtuelle Azure](../virtual-network/diagnose-network-routing-problem.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

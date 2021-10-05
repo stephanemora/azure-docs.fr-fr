@@ -1,18 +1,18 @@
 ---
-title: Guide pratique pour analyser Azure Data Explorer
-description: Ce guide pratique explique en détail comment analyser Azure Data Explorer.
+title: Comment enregistrer et analyser Azure Data Explorer
+description: Ce guide pratique décrit les détails de l'analyse d'Azure Data Explorer dans Azure Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
-ms.openlocfilehash: adf9f3da66908dc473388f9b3da14439de86ddcb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 28ed2e82108cce48ac7ce6988bd9e9833253855a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562866"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209930"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Inscription et analyse d’Azure Data Explorer
 
@@ -63,9 +63,7 @@ Il est nécessaire de récupérer l’ID d’application et le secret du princip
 
 1. Accédez au portail Azure. Ensuite, accédez à votre instance Azure Data Explorer.
 
-1. Ajoutez le principal du service au rôle **AllDatabasesViewer** dans l’onglet **Autorisations** (cf. capture d’écran suivante).
-
-    :::image type="content" source="./media/register-scan-azure-data-explorer/permissions-auth.png" alt-text="Capture d’écran montrant comment ajouter un principal de service dans les autorisations" border="true":::
+1. Ajoutez le principal du service au rôle **AllDatabasesViewer** dans l’onglet **Autorisations**.
 
 ## <a name="register-an-azure-data-explorer-account"></a>Inscription d’un compte Azure Data Explorer
 
@@ -93,7 +91,7 @@ Sur l’écran **Inscrire des sources (Azure Data Explorer (Kusto))** , procéde
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Sélectionnez la source Azure Data Explorer que vous avez inscrite.
 

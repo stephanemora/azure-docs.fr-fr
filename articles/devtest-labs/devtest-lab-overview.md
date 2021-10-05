@@ -1,14 +1,14 @@
 ---
-title: À propos d’Azure DevTest Labs | Microsoft Docs
+title: À propos d’Azure DevTest Labs
 description: Découvrez comment DevTest Labs peut faciliter la création, la gestion et la surveillance des machines virtuelles Azure
-ms.topic: article
+ms.topic: overview
 ms.date: 08/20/2021
-ms.openlocfilehash: 2d15bfd34e37036e95e06529e6c14588da15b34d
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: cad1bb218722c72d6b7f7c2d28ad92a460e3d051
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969860"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563167"
 ---
 # <a name="about-azure-devtest-labs"></a>À propos d’Azure DevTest Labs
 Azure DevTest Labs permet aux développeurs au sein d’équipes de gérer eux-mêmes efficacement les machines virtuelles et les ressources PaaS sans attendre les approbations.
@@ -40,13 +40,13 @@ Dev/Test Labs fournit les fonctionnalités suivantes pour les développeurs trav
 - Choisir parmi une liste de modèles Resource Manager qui sont configurés et autorisés par le responsable d’équipe ou le département informatique central.
 - Créer un groupe de ressources vide (bac à sable) en utilisant un modèle Resource Manager pour explorer Azure dans le contexte d’un labo.
 
-DevTest Labs permet également au département informatique central de contrôler les pertes, d’optimiser les coûts sur les ressources et de respecter les budgets en effectuant les tâches suivantes :  
+DevTest Labs permet également au département informatique central de limiter le gaspillage, d’optimiser les coûts sur les ressources et de respecter les budgets en effectuant les tâches suivantes :  
 
-- Définition de planifications d’arrêt automatique et de démarrage automatique sur des machines virtuelles.
-- Définition de stratégies quant au nombre de machines virtuelles que les utilisateurs peuvent créer.
-- Définition de stratégies quant aux tailles de machines virtuelles et aux images de la galerie que les utilisateurs peuvent choisir.
-- Suivi des coûts et définition de cibles sur les labos.
-- Notification des coûts élevés prévus pour des labos, de façon à pouvoir prendre les actions nécessaires.
+- Définir des planifications d’arrêt automatique et de démarrage automatique sur des machines virtuelles.
+- Définir des stratégies sur le nombre de machines virtuelles que les utilisateurs peuvent créer.
+- Définir des stratégies sur les tailles de machines virtuelles et les images de la galerie que les utilisateurs peuvent choisir.
+- Suivre les coûts et définir des cibles dans les labos.
+- Avertir des coûts élevés prévus pour les labos de façon à pouvoir prendre les mesures nécessaires.
 
 DevTest Labs offre les avantages suivants lors de la création, de la configuration et de la gestion d’environnements dans le cloud.
 

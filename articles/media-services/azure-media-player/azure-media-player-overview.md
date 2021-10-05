@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/05/2021
-ms.openlocfilehash: ec36f6bd19728d47b73a0186fb1fb192ba57f4cf
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: faf5bc8a96cb3781ed1d48e9d7f0d1fd7cbc386e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449815"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679576"
 ---
 # <a name="azure-media-player-overview"></a>Présentation du lecteur multimédia Azure #
 
@@ -19,7 +19,7 @@ Le Lecteur multimédia Azure est un lecteur vidéo web qui peut lire du contenu 
 
 Microsoft Azure Media Services permet la distribution de contenu dans les formats de streaming DASH, Smooth Streaming et HLS pour la lecture. Azure Media Player prend en compte des différents formats et lit automatiquement le lien le mieux adapté aux capacités de la plateforme/du navigateur. Microsoft Azure Media Services assure également le chiffrement dynamique des ressources avec le chiffrement commun (PlayReady ou Widevine) ou le chiffrement d’enveloppe AES 128 bits. Lorsqu’il est configuré de manière appropriée, Azure Media Player permet le déchiffrement du contenu chiffré avec PlayReady et AES 128 bits.  Pour savoir comment configurer le lecteur, consultez la section [Contenu protégé](azure-media-player-protected-content.md).
 
-Pour demander de nouvelles fonctionnalités ou nous faire part de vos idées ou commentaires, écrivez-nous sur [UserVoice pour le Lecteur multimédia Azure](https://aka.ms/ampuservoice). Si vous avez des problèmes ou des questions spécifiques, ou si vous détectez des bogues, contactez-nous à l’adresse ampinfo@microsoft.com.
+Si vous avez des problèmes, ou si vous trouvez des bogues, [créez un ticket de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) en utilisant la catégorie Lecture sur le client.
 
 > [!NOTE]
 > Notez que Lecteur multimédia Azure ne prend en charge que les flux multimédias provenant d’Azure Media Services.

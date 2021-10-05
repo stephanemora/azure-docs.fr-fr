@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 154680d5f62140b95e7ada3a37678ee3be1c5b24
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: de9488a475998b50d06d26f1d8b02bcdb1b21290
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533020"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780829"
 ---
 # <a name="about-virtual-hub-routing"></a>À propos du routage de hub virtuel
 
@@ -112,7 +112,7 @@ Lors de la configuration du routage de Virtual WAN, tenez compte de ce qui suit�
 * Toutes les connexions de branche doivent propager leurs itinéraires vers le même jeu de tables de routage. Par exemple, si vous décidez que les branches doivent propager vers la table de routage par défaut, cette configuration doit être cohérente dans toutes les branches. Par conséquent, toutes les connexions associées à la table de routage par défaut seront en mesure d’atteindre toutes les branches.
 * La propagation de branche à branche via le Pare-feu Azure n’est actuellement pas pris en charge.
 * Lorsque vous utilisez le Pare-feu Azure dans plusieurs régions, tous les réseaux virtuels en étoile doivent être associés à la même table de routage. Par exemple, il n’est pas possible d’avoir un sous-ensemble de réseaux virtuels transitant par le Pare-feu Azure, tandis que d’autres réseaux virtuels contournent celui-ci dans le même hub virtuel.
-* Vous ne pouvez configurer qu'une seule adresse IP par connexion de réseau virtuel pour le tronçon suivant.
+* Vous pouvez spécifier plusieurs adresses IP de tronçon suivant sur une seule connexion de réseau virtuel. Toutefois, la connexion de réseau virtuel ne prend pas en charge l’adresse IP de tronçon suivant « multiple/unique » pour l’appliance virtuelle de réseau « same » dans un réseau virtuel SPOKE « si » l’un des itinéraires avec l’adresse IP de tronçon suivant est indiqué comme adresse IP publique ou 0.0.0.0/0 (Internet)
 * Toutes les informations relatives à l'itinéraire 0.0.0.0/0 sont limitées à la table de routage d'un hub local. Cet itinéraire ne se propage pas entre les hubs.
 ## <a name="next-steps"></a>Étapes suivantes
 

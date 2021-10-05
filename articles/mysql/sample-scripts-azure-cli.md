@@ -1,19 +1,20 @@
 ---
-title: Exemples Azure CLI - Azure Database pour MySQL
+title: Exemples Azure CLI - Azure Database pour MySQL | Microsoft Docs
 description: Cet article répertorie les exemples de code de commande de la CLI Azure disponibles pour l’interaction avec Azure Database pour MySQL.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
-ms.date: 12/02/2019
-ms.openlocfilehash: ca1ab660323d6e47775d752b4801f3d74839a457
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.custom: mvc, devx-track-azurecli, seo-azure-cli
+ms.date: 09/17/2021
+keywords: exemples azure cli, exemples de code azure cli, exemples de scripts azure cli
+ms.openlocfilehash: 7da385482f77c37aa6f48e74f833e0c9b6e5f691
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643172"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651633"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Exemples de CLI Azure pour Azure Database pour MySQL 
 

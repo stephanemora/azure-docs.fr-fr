@@ -6,13 +6,13 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/13/2020
-ms.openlocfilehash: 9bd3c315fcc15317a9fa483289fdc326ca6aa47f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 09/27/2021
+ms.openlocfilehash: f235e4b293c47c9d2833732fa6333a350a1fd272
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614358"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210342"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>Déployer le module de fonction ABAP d’extraction des métadonnées pour la famille de ponts SAP R3
 
@@ -65,7 +65,7 @@ Dans le Navigateur d’objets, sélectionnez **Groupe de fonctions** dans la lis
 
 1. Une fois le groupe de fonctions créé, sélectionnez-le.
 
-2. Cliquez avec le bouton droit sur le nom du groupe de fonctions dans l’explorateur de référentiels et sélectionnez **Créer**, puis **Module de fonction**.
+2. Sélectionnez et maintenez (ou cliquez avec le bouton droit de la souris) sur le nom du groupe de fonctions dans le navigateur de référentiel, puis sélectionnez **Créer**, puis **Module de fonctions**.
 
 3. Dans le champ **Module de fonction**, entrez `Z_MITI_DOWNLOAD`. Remplissez l’entrée **Texte abrégé** avec une description appropriée.
 

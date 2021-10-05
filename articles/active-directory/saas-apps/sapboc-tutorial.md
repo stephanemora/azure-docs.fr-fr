@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 19bdb6d2a586dcb279687673c7fa4e302dc4928b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da2bd04dceb158d2fbd5b73530ff0e6083c52e9a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101652638"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124813198"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Tutoriel : Intégrer SAP Analytics Cloud à Azure Active Directory
 
@@ -38,6 +38,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * SAP Analytics Cloud prend en charge l’authentification unique lancée par le **fournisseur de services**.
+
+* SAP Analytics Cloud prend en charge l’[attribution automatique d’utilisateurs](sap-analytics-cloud-provisioning-tutorial.md). 
 
 ## <a name="add-sap-analytics-cloud-from-the-gallery"></a>Ajouter SAP Analytics Cloud à partir de la galerie
 
@@ -75,18 +77,22 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant un des modèles suivants :
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une valeur en utilisant un des modèles suivants :
 
-    - `https://<sub-domain>.sapanalytics.cloud/`
-    - `https://<sub-domain>.sapbusinessobjects.cloud/`
+    | **URL d’identificateur** |
+    |----|
+    | `<sub-domain>.sapbusinessobjects.cloud` |
+    | `<sub-domain>.sapanalytics.cloud` |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant un des modèles suivants :
-
-    - `<sub-domain>.sapbusinessobjects.cloud`
-    - `<sub-domain>.sapanalytics.cloud`
+    b. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant un des modèles suivants :
+    
+    | **URL d’authentification** |
+    |------|
+    | `https://<sub-domain>.sapanalytics.cloud/` |
+    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
     > [!NOTE] 
-    > Les valeurs de ces URL servent uniquement à des fins de démonstration. Mettez à jour les valeurs avec les URL de connexion et de l’identificateur réels. Pour obtenir l’URL de connexion, contactez [l’équipe du support client SAP Analytics Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Vous pouvez obtenir l’URL de l’identificateur en téléchargeant les métadonnées de SAP Analytics Cloud depuis la console d’administration. Une explication sera fournie plus loin dans ce didacticiel.
+    > Les valeurs de ces URL servent uniquement à des fins de démonstration. Mettez à jour les valeurs avec le vrai identificateur et la vraie URL d’authentification. Pour obtenir l’URL de connexion, contactez [l’équipe du support client SAP Analytics Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Vous pouvez obtenir l’URL de l’identificateur en téléchargeant les métadonnées de SAP Analytics Cloud depuis la console d’administration. Une explication sera fournie plus loin dans ce didacticiel.
 
 4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -190,6 +196,9 @@ Pour approvisionner un compte d’utilisateur :
 
     1. Sélectionnez l’icône **Enregistrer**.
 
+> [!NOTE]
+> SAP Analytics Cloud prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./sap-analytics-cloud-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -198,7 +207,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion SAP Analytics Cloud pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette SAP Analytics Cloud dans Mes applications vous redirige vers l’URL de connexion SAP Analytics Cloud. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette SAP Analytics Cloud dans Mes applications vous redirige vers l’URL de connexion SAP Analytics Cloud. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

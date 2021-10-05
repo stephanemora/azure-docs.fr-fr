@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 74403365fe48584fa5d1db0e349c9dfc3772d874
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8213ca39f85a50d7e5354948467f3fbd66cb4797
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652848"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094725"
 ---
 # <a name="system-tables-and-views"></a>Tables système et vues
 
@@ -482,7 +482,38 @@ Le champ `query` affiche les données copiées en dehors de la partition à comp
 > Si une requête de routeur (par exemple, un locataire unique dans une application multi-entité, `SELECT
 > * FROM_table_WHERE_tenant_id = X’) est exécutée sans bloc de transaction, alors les colonnes de master\_query\_host\_name et master\_query\_host\_port seront NULL dans citus\_worker\_stat\_activity.
 
-Pour voir comment `citus_lock_waits` fonctionne, nous pouvons générer une situation de verrouillage manuellement. Tout d\'abord, nous allons configurer une table de test à partir du coordinateur :
+Voici des exemples de requêtes utiles que vous pouvez générer à l’aide de `citus_worker_stat_activity` :
+
+```postgresql
+-- active queries' wait events on a certain node
+
+SELECT query, wait_event_type, wait_event
+  FROM citus_worker_stat_activity
+ WHERE query_hostname = 'xxxx' and state='active';
+
+-- active queries' top wait events
+
+SELECT wait_event, wait_event_type, count(*)
+  FROM citus_worker_stat_activity
+ WHERE state='active'
+ GROUP BY wait_event, wait_event_type
+ ORDER BY count(*) desc;
+
+-- total internal connections generated per node by Citus
+
+SELECT query_hostname, count(*)
+  FROM citus_worker_stat_activity
+ GROUP BY query_hostname;
+
+-- total internal active connections generated per node by Citus
+
+SELECT query_hostname, count(*)
+  FROM citus_worker_stat_activity
+ WHERE state='active'
+ GROUP BY query_hostname;
+```
+
+La vue suivante est `citus_lock_waits`. Pour voir comment elle fonctionne, nous pouvons générer une situation de verrouillage manuellement. Tout d’abord, nous allons configurer une table de test à partir du coordinateur :
 
 ```postgresql
 CREATE TABLE numbers AS

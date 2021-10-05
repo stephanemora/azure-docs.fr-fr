@@ -1,25 +1,25 @@
 ---
-title: 'Tutoriel : Ajouter l’authentification et des autorisations à votre application lors de l’utilisation du service Azure Web PubSub'
-description: Tutoriel montrant comment ajouter l’authentification et des autorisations à votre application lors de l’utilisation du service Azure Web PubSub
+title: 'Tutoriel : Ajouter une authentification et des autorisations à votre application lors de l’utilisation d’Azure Web PubSub'
+description: Découvrez comment ajouter une authentification et des autorisations à votre application lors de l’utilisation d’Azure Web PubSub.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 08/26/2021
-ms.openlocfilehash: cca4951aac8844c13f36ebb58f8c326cec7b6104
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: e2f2b7ec00250287b71b3882b7078b249262db70
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117368"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769861"
 ---
-# <a name="tutorial-add-authentication-and-permissions-to-your-application-when-using-azure-web-pubsub-service"></a>Tutoriel : Ajouter l’authentification et des autorisations à votre application lors de l’utilisation du service Azure Web PubSub
+# <a name="tutorial-add-authentication-and-permissions-to-your-application-when-using-azure-web-pubsub"></a>Tutoriel : Ajouter une authentification et des autorisations à votre application lors de l’utilisation d’Azure Web PubSub
 
-Dans le [tutoriel Créer une application de conversation](./tutorial-build-chat.md), vous avez appris à utiliser des API WebSocket pour envoyer et recevoir des données avec Azure Web PubSub. Vous avez peut-être remarqué que, pour rester simple, cela ne nécessite aucune authentification. Même si Azure Web PubSub nécessite un jeton d’accès pour la connexion, l’API `negotiate` que nous avons utilisée dans le tutoriel pour générer un jeton d’accès n’a pas besoin d’authentification, de sorte que tout le monde peut appeler cette API pour obtenir un jeton d’accès.
+Dans [Créer une application de conversation](./tutorial-build-chat.md), vous avez appris à utiliser les API WebSocket pour envoyer et recevoir des données avec Azure Web PubSub. Vous avez peut-être remarqué que, pour simplifier, aucune authentification n’est exigée. Même si Azure Web PubSub exige un jeton d’accès pour se connecter, l’API `negotiate` utilisée dans le tutoriel pour générer le jeton d’accès n’a pas besoin d’authentification. N’importe qui peut donc appeler cette API pour obtenir un jeton d’accès.
 
-Dans une application réelle, il est courant que vous souhaitiez que l’utilisateur se connecte avant de pouvoir utiliser votre application pour la protéger contre un abus. Dans ce tutoriel, vous allez apprendre à intégrer Azure Web PubSub au système d’authentification/d’autorisation de votre application pour la rendre plus sécurisée.
+Dans une application réelle, il est généralement préférable que l’utilisateur se connecte d’abord, avant de pouvoir utiliser l’application. Dans ce tutoriel, vous allez apprendre à intégrer Web PubSub au système d’authentification et d’autorisation de votre application, afin de la rendre plus sécurisée.
 
-L’exemple de code complet de ce tutoriel est disponible [ici][code].
+L’exemple de code complet de ce tutoriel est disponible sur [GitHub][code].
 
 Dans ce tutoriel, vous apprenez à effectuer les opérations suivantes :
 
@@ -30,13 +30,13 @@ Dans ce tutoriel, vous apprenez à effectuer les opérations suivantes :
 
 ## <a name="add-authentication-to-the-chat-room-app"></a>Ajouter l’authentification à l’application de la salle de conversation
 
-Ce tutoriel réutilise l’application de conversation créée dans le [tutoriel Créer une application de conversation](./tutorial-build-chat.md). Vous pouvez également cloner l’exemple de code complet pour l’application de conversation à partir d’[ici][chat-js]. 
+Ce tutoriel réutilise l’application de conversation créée dans [Créer une application de conversation](./tutorial-build-chat.md). Vous pouvez également cloner l’exemple de code complet de l’application de conversation à partir de [GitHub][chat-js]. 
 
-Dans ce tutoriel, nous allons ajouter l’authentification à l’application de conversation et l’intégrer au service Azure Web PubSub.
+Dans ce tutoriel, vous ajoutez une authentification à l’application de conversation et vous l’intégrez à Web PubSub.
 
-Tout d’abord, nous allons ajouter l’authentification GitHub à la salle de conversation afin que l’utilisateur puisse utiliser un compte GitHub pour se connecter.
+En premier lieu, ajoutez l’authentification GitHub à la salle de conversation, afin que l’utilisateur puisse utiliser un compte GitHub pour se connecter.
 
-1.  Installer des dépendances
+1.  Installez des dépendances.
 
     ```bash
     npm install --save cookie-parser
@@ -45,7 +45,7 @@ Tout d’abord, nous allons ajouter l’authentification GitHub à la salle de c
     npm install --save passport-github2
     ```
 
-2.  Ajoutez le code suivant à `server.js` pour activer l’authentification GitHub.
+1.  Activez l’authentification GitHub en ajoutant le code suivant à `server.js` :
 
     ```javascript
     const app = express();
@@ -83,11 +83,11 @@ Tout d’abord, nous allons ajouter l’authentification GitHub à la salle de c
     app.get('/auth/github/callback', passport.authenticate('github', { successRedirect: '/' }));
     ```
 
-    Le code ci-dessus utilise [Passport.js](http://www.passportjs.org/) pour activer l’authentification GitHub. Voici une illustration simple de son fonctionnement :
+    Le code précédent utilise [Passport.js](http://www.passportjs.org/) pour activer l’authentification GitHub. Voici une illustration simple de son fonctionnement :
 
-    1. `/auth/github` effectue une redirection vers github.com pour la connexion.
-    2. Une fois la connexion effectuée, GitHub vous redirige vers `/auth/github/callback` avec un code permettant à votre application d’effectuer l’authentification (le rappel de vérification dans `passport.use()` montre comment le profil retourné à partir de GitHub est vérifié et conservé sur le serveur).
-    3. Une fois l’authentification effectuée, vous êtes redirigé vers la page d’accueil (`/`) du site.
+    1. `/auth/github` redirige vers github.com pour la connexion.
+    1. Une fois que vous êtes connecté, GitHub vous redirige vers `/auth/github/callback` avec un code pour que votre application achève l’authentification. (Pour voir comment le profil retourné par GitHub est vérifié et conservé sur le serveur, consultez le rappel de vérification dans `passport.use()`.)
+    1. Dès l’authentification effectuée, vous êtes redirigé vers la page d’accueil (`/`) du site.
  
     Pour plus d’informations sur GitHub OAuth et Passport.js, consultez les articles suivants :
 
@@ -96,14 +96,14 @@ Tout d’abord, nous allons ajouter l’authentification GitHub à la salle de c
 
     Pour tester cela, vous devez d’abord créer une application GitHub OAuth :
 
-    1. Accédez à https://www.github.com, ouvrez votre profil -> Settings (Paramètres) -> Developer settings (Paramètres de développement).
-    2. Accédez à OAuth Apps (Applications OAuth), puis cliquez sur « New OAuth App » (Nouvelle application OAuth).
-    3. Renseignez le nom de l’application, l’URL de la page d’accueil (ce que vous souhaitez) et définissez l’URL de rappel d’autorisation sur `http://localhost:8080/auth/github/callback`(qui correspond à l’API de rappel que vous avez exposée sur le serveur).
-    4. Une fois l’application inscrite, copiez l’ID client et cliquez sur « Generate a new client secret » (Générer un nouveau secret client) pour générer un nouveau secret client.
+    1. Accédez à https://www.github.com, ouvrez votre profil et sélectionnez **Settings (Paramètres)**  > **Developer settings (Paramètres de développement)** .
+    1. Accédez à OAuth Apps (Applications OAuth) et sélectionnez **New OAuth App** (Nouvelle application OAuth).
+    1. Renseignez le nom de l’application et l’URL de la page d’accueil (l’URL peut être ce que vous voulez), puis définissez **Authorization callback URL** (URL de rappel d’autorisation) sur `http://localhost:8080/auth/github/callback`. Cette URL correspond à l’API de rappel que vous avez exposée sur le serveur.
+    1. Une fois l’application inscrite, copiez l’ID client et sélectionnez **Generate a new client secret** (Générer un nouveau secret client).
 
-    Ensuite, exécutez `node server <connection-string> <client-id> <client-secret>` et ouvrez `http://localhost:8080/auth/github` ; vous êtes alors redirigé vers GitHub pour vous connecter. Une fois la connexion réussie, vous êtes redirigé vers l’application de conversation.
+    Ensuite, exécutez `node server <connection-string> <client-id> <client-secret>` et ouvrez `http://localhost:8080/auth/github`. Vous êtes redirigé vers GitHub pour vous connecter. Une fois connecté, vous êtes redirigé vers l’application de conversation.
 
-3.  Nous allons ensuite mettre à jour la salle de conversation pour utiliser l’identité que nous avons obtenue à partir de GitHub, au lieu d’afficher une boîte de dialogue pour demander le nom d’utilisateur.
+1.  Mettez à jour la salle de conversation pour utiliser l’identité obtenue à partir de GitHub, plutôt que de demander à l’utilisateur un nom d’utilisateur.
 
     Mettez à jour `public/index.html` pour appeler directement `/negotiate` sans passer un identifiant utilisateur.
 
@@ -120,7 +120,7 @@ Tout d’abord, nous allons ajouter l’authentification GitHub à la salle de c
     let ws = new WebSocket(data.url);
     ```
 
-    Quand un utilisateur est connecté, la demande utilise automatiquement l’identité de l’utilisateur par le biais d’un cookie. Nous devons simplement vérifier si l’utilisateur existe dans l’objet `req` et ajouter le nom d’utilisateur au jeton d’accès Web PubSub :
+    Quand un utilisateur est connecté, la requête utilise automatiquement l’identité de l’utilisateur par le biais d’un cookie. Vous devez simplement vérifier si l’utilisateur existe dans l’objet `req`, et ajouter le nom d’utilisateur au jeton d’accès Web PubSub :
 
     ```javascript
     app.get('/negotiate', async (req, res) => {
@@ -138,28 +138,28 @@ Tout d’abord, nous allons ajouter l’authentification GitHub à la salle de c
     });
     ```
 
-    À présent, réexécutez le serveur ; un message de type « non autorisé » s’affiche la première fois que vous ouvrez la salle de conversation. Cliquez sur le lien de connexion pour vous connecter ; vous verrez qu’elle fonctionne comme avant.
+    À présent, réexécutez le serveur ; un message de type « non autorisé » s’affiche la première fois que vous ouvrez la salle de conversation. Sélectionnez le lien de connexion pour vous connecter, vous verrez alors que tout fonctionne comme avant.
 
-## <a name="working-with-permissions"></a>Utilisation des autorisations
+## <a name="work-with-permissions"></a>Utiliser des autorisations
 
-Dans les tutoriels précédents, vous avez appris à utiliser `WebSocket.send()` pour publier directement des messages sur d’autres clients avec un sous-protocole. Dans une application réelle, vous pouvez ne pas souhaiter que le client soit en mesure de publier sur un groupe, ou de s’y abonner, sans contrôle d’autorisation. Dans cette section, vous allez apprendre à contrôler les clients avec le système d’autorisation d’Azure Web PubSub.
+Dans les tutoriels précédents, vous avez appris à utiliser `WebSocket.send()` pour publier directement des messages sur d’autres clients en utilisant un sous-protocole. Dans une application réelle, vous n’avez peut-être pas envie que le client soit en mesure de publier sur un groupe ou de s’y abonner, sans contrôle d’autorisation. Dans cette section, vous allez apprendre à contrôler les clients en utilisant le système d’autorisation de Web PubSub.
 
-Dans Azure Web PubSub, il existe trois types d’opérations qu’un client peut faire avec un sous-protocole :
+Dans Web PubSub, un client peut effectuer les types d’opérations suivants avec un sous-protocole :
 
-- Envoyer des événements au serveur
-- Publier des messages dans un groupe
-- Se joindre (s’abonner) à un groupe
+- Envoyer des événements au serveur.
+- Publier des messages dans un groupe.
+- Se joindre (s’abonner) à un groupe.
 
-L’envoi d’un événement au serveur est l’opération par défaut du client même si aucun protocole n’est utilisé ; il est donc toujours autorisé. Pour publier sur un groupe et s’y abonner, le client doit obtenir une autorisation. Il existe deux façons pour le serveur d’accorder l’autorisation aux clients :
+L’envoi d’un événement au serveur est l’opération par défaut du client. Aucun protocole n’étant utilisé, il est donc toujours autorisé. Pour publier sur un groupe et s’y abonner, le client doit obtenir une autorisation. Il existe deux façons pour le serveur d’accorder une autorisation aux clients :
 
-- Spécifier les rôles quand un client est connecté (le rôle est un concept qui représente les autorisations initiales quand un client est connecté)
-- Utiliser une API pour accorder une autorisation à un client après sa connexion
+- Spécifier des rôles quand un client est connecté (le *rôle* est un concept permettant de représenter les autorisations initiales quand un client est connecté).
+- Utiliser une API pour accorder une autorisation à un client après sa connexion.
 
-Une fois qu’il a obtenu l’autorisation de rejoindre un groupe, le client ne peut le faire qu’en utilisant un message prévu à cet effet. Ou le serveur peut utiliser l’API pour ajouter le client à un groupe même s’il ne dispose pas de l’autorisation de le rejoindre.
+Une fois qu’il en a obtenu l’autorisation, le client doit rejoindre le groupe en utilisant le message « Rejoindre le groupe ». Sinon, le serveur peut aussi utiliser une API pour ajouter le client à un groupe, même s’il ne dispose pas de l’autorisation de le rejoindre.
 
-Utilisons maintenant ce système d’autorisation pour ajouter une nouvelle fonctionnalité à la salle de conversation. Nous allons ajouter un nouveau type d’utilisateur appelé administrateur à la salle de conversation. Nous allons autoriser l’administrateur à envoyer un message système (le message commence par « [SYSTEM] ») directement à partir du client.
+Utilisons maintenant ce système d’autorisation pour ajouter une nouvelle fonctionnalité à la salle de conversation. Vous allez ajouter un nouveau type d’utilisateur appelé *administrateur* à la salle de conversation. Vous allez autoriser l’administrateur à envoyer des messages système (des messages commençant par « [SYSTEM] ») directement à partir du client.
 
-Tout d’abord, nous devons séparer les messages système et les messages utilisateur en deux groupes différents afin que leurs autorisations puissent être contrôlées séparément.
+Tout d’abord, vous devez diviser les messages système et les messages utilisateur en deux groupes distincts afin de pouvoir contrôler leurs autorisations séparément.
 
 Changez `server.js` pour envoyer les différents messages aux différents groupes :
 
@@ -187,17 +187,17 @@ let handler = new WebPubSubEventHandler(hubName, ['*'], {
 });
 ```
 
-Vous pouvez voir que le code ci-dessus utilise `WebPubSubServiceClient.group().sendToAll()` pour envoyer un message au groupe au lieu du hub.
+Le code précédent utilise `WebPubSubServiceClient.group().sendToAll()` au lieu du concentrateur pour envoyer le message à un groupe.
 
-Étant donné que le message est désormais envoyé à des groupes, nous devons ajouter des clients aux groupes afin qu’ils puissent continuer à recevoir des messages. Cette opération est effectuée dans le gestionnaire `handleConnect`.
+Comme le message est désormais envoyé à des groupes, vous devez ajouter les clients aux groupes, pour qu’ils puissent continuer à recevoir des messages. Utilisez le gestionnaire `handleConnect` pour ajouter des clients à des groupes.
 
 > [!Note]
-> `handleConnect` est déclenché quand un client tente de se connecter à Azure Web PubSub. Dans ce gestionnaire, vous pouvez retourner des groupes et des rôles, de sorte que le service peut ajouter une connexion à des groupes ou accorder des rôles, dès que la connexion est établie. Il peut également `res.fail()` refuser la connexion.
+> `handleConnect` est déclenché quand un client tente de se connecter à Web PubSub. Dans ce gestionnaire, vous pouvez retourner des groupes et des rôles, si bien que le service peut ajouter une connexion à des groupes, ou accorder des rôles, dès que la connexion est établie. Le service peut également utiliser `res.fail()` pour refuser la connexion.
 >
 
-Pour que `handleConnect` soit déclenché, accédez aux paramètres du gestionnaire d’événements dans le portail Azure et vérifiez `connect` dans les événements système.
+Pour déclencher `handleConnect`, accédez aux paramètres du gestionnaire d’événements dans le portail Azure et sélectionnez **connect** (connecter) dans les événements système.
 
-Nous devons également mettre à jour le code HTML du client, car le serveur envoie désormais des messages JSON au lieu de texte brut :
+Vous devez également mettre à jour le code HTML du client, car le serveur envoie désormais des messages JSON au lieu de texte brut :
 
 ```javascript
 let ws = new WebSocket(data.url, 'json.webpubsub.azure.v1');
@@ -228,7 +228,7 @@ message.addEventListener('keypress', e => {
 });
 ```
 
-Changez ensuite le code client à envoyer au groupe système quand l’utilisateur clique sur « system message » :
+Changez ensuite le code client à envoyer au groupe système quand l’utilisateur sélectionne **message système** :
 
 ```html
 <button id="system">system message</button>
@@ -250,7 +250,7 @@ Changez ensuite le code client à envoyer au groupe système quand l’utilisate
 </script>
 ```
 
-Le client n’ayant pas, par défaut, l’autorisation d’envoi à un groupe, mettez à jour le code du serveur pour accorder l’autorisation à l’utilisateur administrateur (par souci de simplicité, l’ID de l’administrateur est fourni en tant qu’argument de ligne de commande).
+Par défaut, le client n’a pas l’autorisation d’envoi à un groupe. Mettez à jour le code du serveur pour accorder l’autorisation à l’utilisateur administrateur (par souci de simplicité, l’ID de l’administrateur est fourni sous forme d’argument de ligne de commande).
 
 ```javascript
 app.get('/negotiate', async (req, res) => {
@@ -260,11 +260,11 @@ app.get('/negotiate', async (req, res) => {
 });
 ```
 
-À présent, exécutez `node server <connection-string> <client-id> <client-secret> <admin-id>` ; vous verrez que vous pouvez envoyer un message système à chaque client quand vous vous connectez en tant que `<admin-id>`.
+À présent, exécutez `node server <connection-string> <client-id> <client-secret> <admin-id>`. Vous verrez que vous pouvez envoyer un message système à chaque client quand vous vous connectez en tant que `<admin-id>`.
 
-Toutefois, si vous vous connectez en tant qu’utilisateur différent, quand vous cliquez sur « system message », rien ne se produit. Vous pouvez vous attendre à ce que le service vous indique une erreur pour vous informer que l’opération n’est pas autorisée. Pour configurer cette fonctionnalité, vous pouvez définir un `ackId` lors de la publication du message. Chaque fois que `ackId` est spécifié, Azure Web PubSub retourne un message d’accusé de réception avec un `ackId` correspondant pour indiquer si l’opération a réussi ou non.
+Toutefois, si vous vous connectez en tant qu’utilisateur différent, quand vous sélectionnez **message système**, rien ne se produit. Vous pouvez vous attendre à ce que le service vous signale une erreur pour vous informer que l’opération n’est pas autorisée. Pour fournir ce commentaire, vous pouvez définir `ackId` au moment où vous publiez le message. Chaque fois que `ackId` est spécifié, Web PubSub retourne un message avec un `ackId` correspondant pour indiquer si l’opération a réussi ou non.
 
-Remplacez le code d’envoi du message système par le code suivant :
+Remplacez le code d’envoi d’un message système par le code suivant :
 
 ```javascript
 let ackId = 0;
@@ -280,7 +280,7 @@ system.addEventListener('click', e => {
 });
 ```
 
-Changez également le code de traitement des messages de manière à gérer le message d’accusé de réception :
+Changez également le code de traitement des messages de manière à gérer un message `ack` :
 
 ```javascript
 ws.onmessage = event => {
@@ -293,15 +293,15 @@ ws.onmessage = event => {
 };
 ```
 
-À présent, réexécutez le serveur et connectez-vous en tant qu’utilisateur différent ; un message d’erreur s’affiche quand vous tentez d’envoyer un message système.
+À présent, réexécutez le serveur et connectez-vous sous un autre nom d’utilisateur. Un message d’erreur s’affiche lorsque vous essayez d’envoyer un message système.
 
-L’exemple de code complet de ce tutoriel est disponible [ici][code].
+L’exemple de code complet de ce tutoriel est disponible sur [GitHub][code].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel vous donne une idée de base de la façon de se connecter au service Web PubSub et de publier des messages sur les clients connectés en utilisant un sous-protocole.
+Ce tutoriel vous donne une première idée de la procédure à suivre pour se connecter au service Web PubSub et publier des messages sur les clients connectés en utilisant un sous-protocole.
 
-Pour plus d’informations sur l’utilisation du service, consultez les autres tutoriels.
+Pour en apprendre davantage sur l’utilisation du service Web PubSub, consultez les autres tutoriels disponibles dans la documentation.
 
 > [!div class="nextstepaction"]
 > [Explorer d’autres exemples Azure Web PubSub](https://aka.ms/awps/samples)

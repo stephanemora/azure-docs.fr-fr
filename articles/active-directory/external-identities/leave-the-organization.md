@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 09/10/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 239778455f049822bd92a92c811fcacad270ae3e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 547c27b8faf9f282c836bdda2d57bf9d13603423
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076507"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780696"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Quitter une organisation en tant qu’utilisateur invité
 
@@ -31,9 +31,9 @@ Pour quitter une organisation, procédez comme suit.
 
 1. Accédez à votre page **Mon compte** en procédant de l’une des manières suivantes :
 - Si vous utilisez un compte professionnel ou scolaire, accédez à https://myaccount.microsoft.com et connectez-vous.
-- Si vous utilisez un compte personnel, accédez à https://myapps.microsoft.com et connectez-vous, puis cliquez sur l’icône de votre compte dans le coin supérieur droit et sélectionnez **Afficher le compte**.
+- Si vous utilisez un compte personnel, accédez à https://myapps.microsoft.com et connectez-vous, puis cliquez sur l’icône de votre compte dans le coin supérieur droit et sélectionnez **Afficher le compte**. Vous pouvez également utiliser une URL Mon compte qui inclut les informations de votre locataire pour accéder directement à la page Mon compte (des exemples sont présentés dans la remarque suivante).  
    > [!NOTE]
-   > Quand vous utilisez un compte personnel, une autre option consiste à accéder directement à la page Mon compte en ajoutant le nom du locataire ou l’ID de locataire à l’URL, par exemple : `https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com` ou `https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789`.
+   > Si vous utilisez la fonctionnalité d’envoi par e-mail de code secret à usage unique lors de la connexion, vous devez utiliser une URL Mon compte qui inclut le nom de votre locataire ou l’ID de locataire, par exemple : `https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com` ou `https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789`.
 
 2. Sous **Organisations**, recherchez l’organisation que vous voulez quitter, puis sélectionnez **Quitter l’organisation**.
 

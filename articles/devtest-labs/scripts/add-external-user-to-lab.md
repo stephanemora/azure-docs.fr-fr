@@ -1,15 +1,15 @@
 ---
-title: PowerShell - Ajouter un utilisateur externe à un lab dans Azure DevTest Labs
+title: PowerShell - Ajouter un utilisateur externe à un labo
 description: Cet article fournit un script Azure PowerShell qui ajoute un utilisateur externe à un lab dans Azure DevTest Labs.
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: 76fbb5e4d7f5db39a0aadba9098ebf1064b3cda5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3268e124e72e7532709bf9278d644fade0c205a9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96022392"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651101"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Utiliser PowerShell pour ajouter un utilisateur externe à un lab dans Azure DevTest Labs
 

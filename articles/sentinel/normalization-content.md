@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 89c4d530c6b64880f3046982baadfa208875b8b4
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: deb5377aef61736a14ce8110e96c16e5352096cd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535376"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552252"
 ---
 # <a name="azure-sentinel-information-model-asim-security-content--public-preview"></a>Contenu de sécurité d’Azure Sentinel Information Model (ASIM) (préversion publique)
 
@@ -30,8 +30,12 @@ Le contenu de sécurité normalisé dans Azure Sentinel comprend des règles d�
 
 Cet article répertorie les contenus Azure Sentinel intégrés qui ont été configurés pour prendre en charge ASIM.  Alors que des liens vers le référentiel GitHub Azure Sentinel sont fournis ci-dessous comme référence, vous pouvez également trouver ces règles dans la [galerie de règles Azure Sentinel Analytics](detect-threats-built-in.md). Utilisez les pages GitHub liées pour copier toutes les requêtes de chasse appropriées.
 
+> [!TIP]
+> Regardez également le [webinaire de formation approfondie sur la normalisation des analyseurs et le contenu normalisé Azure Sentinel](https://www.youtube.com/watch?v=zaqblyjQW6k) ou passez en revue les [diapositives](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). Pour plus d’informations, consultez [Étapes suivantes](#next-steps).
+>
+
 > [!IMPORTANT]
-> ASIM est actuellement disponible en PRÉVERSION. Les [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore disponibles dans la version en disponibilité générale.
+> ASIM n’est actuellement disponible qu’en PRÉVERSION. Les [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore disponibles dans la version en disponibilité générale.
 >
 
 ## <a name="authentication-security-content"></a>Contenu de sécurité de l’authentification
@@ -52,7 +56,10 @@ Le contenu de requête DNS intégré suivant est pris en charge pour la normalis
 
 ### <a name="analytics-rules"></a>Règles analytiques
 
- - [Trop de requêtes DNS NXDOMAIN (DNS normalisé)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
+ - (Préversion) TI mappe l'entité Domain aux événements DNS (DNS normalisé)
+ - (Préversion) TI mappe l'entité IP aux événements DNS (DNS normalisé)
+ - [DGA potentielle détecté (ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
+  - [Trop de requêtes DNS NXDOMAIN (DNS normalisé)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
  - [Événements DNS liés aux pools d’exploration (DNS normalisé)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
  - [Événements DNS liés aux proxys ToR (DNS normalisé)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
  - [Domaines Barium connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumDomainIOC112020.yaml)
@@ -62,7 +69,7 @@ Le contenu de requête DNS intégré suivant est pris en charge pour la normalis
  - [Known IRIDIUM IP (Adresse IP IRIDIUM connue)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
  - [NOBELIUM - Domaine et IOC IP - Mars 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
  - [Domaines/adresses IP de groupe Phosphorus connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
- - [Domaines de groupe STRONTIUM connus – Juillet 2019](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+ - [Domaines de groupe STRONTIUM connus – Juillet 2019](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
  - [Balise réseau Solorigate](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
  - [Domaines THALLIUM inclus dans DCU](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
  - [Codes de hachage de programme malveillant Comebacker et Klackring de ZINC connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
@@ -149,6 +156,29 @@ InfobloxNIOS
 Le code suivant est la version indépendante de la source, qui utilise la normalisation pour fournir la même détection pour toute source fournissant des événements de requête DNS :
 
 ```kusto
+imDns(responsecodename='NXDOMAIN')
+| summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
+| where count_ > threshold
+| join kind=inner (imDns(responsecodename='NXDOMAIN')) on SrcIpAddr
+| extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr```
+```
+
+La version normalisée, indépendante de la source, présente les différences suivantes :
+
+- L'`imDns`analyseur normalisé est utilisé à la place de l’analyseur Infoblox.
+
+- `imDns` récupère uniquement les événements de requête DNS. Il n’est donc pas nécessaire de vérifier le type d’événement, tel qu’il est effectué par `where ProcessName =~ "named" and Log_Type =~ "client"` dans la version Infoblox.
+
+- Le `SrcIpAddr` champ est utilisé à la place de `Client_IP` .
+ 
+- Le filtrage des paramètres de l'analyseur est utilisé pour ResponseCodeName, ce qui élimine le besoin de clauses where explicites.
+
+
+Outre la prise en charge d’une source DNS normalisée, la version normalisée est plus concise et plus facile à comprendre. 
+
+Si le schéma ou les analyseurs ne prennent pas en charge le filtrage des paramètres, les modifications sont similaires, à l’exclusion de la dernière. Au lieu de cela, les conditions de filtrage sont conservées à partir de la requête d’origine, comme indiqué ci-dessous :
+
+```kusto
 let threshold = 200;
 imDns
 | where isnotempty(ResponseCodeName)
@@ -162,20 +192,13 @@ imDns
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
 ```
 
-La version normalisée, indépendante de la source, présente les différences suivantes :
-
-- L'`imDns`analyseur normalisé est utilisé à la place de l’analyseur Infoblox.
-
-- `imDns` récupère uniquement les événements de requête DNS. Il n’est donc pas nécessaire de vérifier le type d’événement, tel qu’il est effectué par `where ProcessName =~ "named" and Log_Type =~ "client"` dans la version Infoblox.
-
-- Les champs `ResponseCodeName` et `SrcIpAddr` sont utilisés à la place de `ResponseCode` et `Client_IP`, respectivement.
-
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="next-steps"></a>Étapes suivantes
 
 Cet article présente le contenu du modèle ASIM (Azure Sentinel Information Model).
 
 Pour plus d'informations, consultez les pages suivantes :
 
+- Regardez également le [webinaire de formation approfondie sur la normalisation des analyseurs et le contenu normalisé Azure Sentinel](https://www.youtube.com/watch?v=zaqblyjQW6k) ou passez en revue les [diapositives](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
 - [Vue d’ensemble du modèle Azure Sentinel Information Model](normalization.md)
 - [Schémas du modèle Azure Sentinel Information Model](normalization-about-schemas.md)
 - [Analyseurs du modèle Azure Sentinel Information Model](normalization-about-parsers.md)

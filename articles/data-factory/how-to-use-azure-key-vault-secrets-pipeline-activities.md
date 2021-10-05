@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 7ea57756eb272da42470fa60af2e4a0d5cd1abea
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b94ceb3bc190f57e3e5190e89e1018fc8a6e77f6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642062"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831149"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Utiliser des secrets Azure Key Vault dans les activités de pipeline
 
@@ -28,19 +28,19 @@ Cette fonctionnalité repose sur l’identité managée de la fabrique de donné
 
 1. Ouvrez les propriétés de votre fabrique de données et copiez la valeur ID de l’application d’identité managée.
 
-    ![Valeur de l’identité managée](media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png" alt-text="Valeur de l’identité managée":::
 
 2. Ouvrez les stratégies d’accès Key Vault et ajoutez les autorisations d’identité managée pour récupérer et répertorier les secrets.
 
-    ![Capture d'écran représentant la page « Stratégies d'accès », sur laquelle l'action « Ajouter une stratégie d'accès » est en surbrillance.](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png" alt-text="Capture d’écran représentant la page &quot;Stratégies d’accès&quot;, sur laquelle l’action &quot;Ajouter une stratégie d’accès&quot; est en surbrillance.":::
 
-    ![Stratégies d’accès Key Vault](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png" alt-text="Stratégies d’accès Key Vault":::
 
     Cliquez sur **Ajouter**, puis sur **Enregistrer**.
 
 3. Accédez à votre secret Key Vault et copiez l’identificateur de secret.
 
-    ![Identificateur de secret](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png" alt-text="Identificateur de secret":::
 
     Prenez note de l’URI de secret que vous souhaitez obtenir lors de l’exécution de votre pipeline Data Factory.
 
@@ -54,7 +54,7 @@ Cette fonctionnalité repose sur l’identité managée de la fabrique de donné
     |Authentification     |MSI         |
     |Ressource        |https://vault.azure.net       |
 
-    ![Activité web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png" alt-text="Activité Web":::
 
     > [!IMPORTANT]
     > Vous devez ajouter la chaîne **?api-version=7.0** à la fin de votre URI de secret.  
@@ -64,7 +64,7 @@ Cette fonctionnalité repose sur l’identité managée de la fabrique de donné
 
 5. Pour utiliser la valeur dans une autre activité, utilisez l’expression de code suivante : **@activity('Web1').output.value**.
 
-    ![Expression de code](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png" alt-text="Expression de code":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

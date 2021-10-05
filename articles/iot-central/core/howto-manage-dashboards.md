@@ -3,34 +3,39 @@ title: Créer et gérer des tableaux de bord Azure IoT Central | Microsoft Docs
 description: Découvrez comment créer et gérer des tableaux de bord d’application et personnels dans Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/17/2019
+ms.date: 08/19/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 723af65800674fcb539c5f3003b9504b02969e6f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: bcd9b0f4aa1b4a7f89479270ebce65fba9968e56
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696723"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810749"
 ---
 # <a name="create-and-manage-dashboards"></a>Créer et gérer des tableaux de bord
 
-Lorsque vous accédez à votre application pour la première fois, la page *Tableau de bord d’application* par défaut se charge. En tant qu’administrateur, vous pouvez créer jusqu’à 10 tableaux de bord d’application qui sont visibles par tous les utilisateurs de l’application. Seuls les administrateurs peuvent créer, modifier et supprimer des tableaux de bord de niveau application.
+Lorsque vous accédez à votre application pour la première fois, la page *Tableau de bord de l’organisation* par défaut se charge. En tant qu’administrateur, vous pouvez créer des tableaux de bord d’organisation supplémentaires associés à une organisation spécifique. Un tableau de bord d’organisation n’est visible que par des utilisateurs ayant accès à l’organisation à laquelle le tableau de bord est associé. Seuls les utilisateurs appartenant à un rôle disposant d’[autorisations d’accès au tableau de bord de l’organisation](howto-manage-users-roles.md#customizing-the-app) peuvent créer, modifier et supprimer des tableaux de bord d’organisation.
 
-Tous les utilisateurs peuvent créer leurs propres *tableaux de bord personnels*. Les utilisateurs peuvent basculer entre les tableaux de bord d’application et les tableaux de bord personnels.
+> [!TIP]
+> Vous pouvez voir l’organisation à laquelle un tableau de bord est associé dans les paramètres du tableau de bord.
+
+Tous les utilisateurs peuvent créer leurs propres *tableaux de bord personnels*. Les utilisateurs peuvent basculer entre les tableaux de bord d’organisation et les tableaux de bord personnels.
 
 ## <a name="create-a-dashboard"></a>Création d’un tableau de bord
 
-La capture d’écran suivante montre le tableau de bord dans une application créée à partir du modèle Application personnalisée. Vous pouvez remplacer le tableau de bord par défaut de l’application par un tableau de bord personnalisé. Si vous êtes un administrateur, vous pouvez également le remplacer par un autre tableau de bord au niveau de l’application. Pour ce faire, sélectionnez **Nouveau tableau de bord** dans l’angle supérieur gauche de la page :
+La capture d’écran suivante montre le tableau de bord dans une application créée à partir du modèle **Application personnalisée**. Si vous êtes titulaire d’un rôle disposant des autorisations appropriées, vous pouvez personnaliser le tableau de bord par défaut. Pour créer un tableau de bord, sélectionnez **Nouveau tableau de bord** dans l’angle supérieur gauche de la page :
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="Capture d’écran montrant le bouton Nouveau tableau de bord.":::
 
-Sélectionnez **Nouveau tableau de bord** pour ouvrir l’éditeur du tableau de bord. Dans l’éditeur, nommez votre tableau de bord et choisissez des éléments dans la bibliothèque. La bibliothèque contient les vignettes et les primitives de tableau de bord que vous pouvez utiliser pour personnaliser le tableau de bord :
+Dans le panneau **Créer un tableau de bord**, donnez un nom à votre tableau de bord, puis sélectionnez **Organisation** ou **Personnel** comme type de tableau de bord. Si vous créez un tableau de bord d’organisation, choisissez l’[organisation](howto-create-organizations.md) à laquelle le tableau de bord est associé. Un tableau de bord d’organisation et ses vignettes affichent uniquement les appareils visibles par l’organisation et l’une de ses sous-organisations.
+
+Après avoir créé le tableau de bord, choisissez dans la bibliothèque les éléments à ajouter au tableau de bord. La bibliothèque contient les vignettes et les primitives de tableau de bord que vous utilisez pour personnaliser celui-ci :
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-library.png" alt-text="Capture d’écran qui montre la bibliothèque pour le tableau de bord.":::
 
-Si vous êtes un administrateur, vous pouvez créer un tableau de bord personnel ou un tableau de bord d’application. Tous les utilisateurs de l’application peuvent voir les tableaux de bord d’application créés par l’administrateur. Tous les utilisateurs peuvent créer des tableaux de bord personnels qu’ils sont les seuls à pouvoir afficher.
+Si vous êtes un administrateur, vous pouvez créer un tableau de bord personnel ou un tableau de bord d’organisation. Les utilisateurs voient les tableaux de bord d’organisation associés à l’organisation à laquelle ils sont affectés. Tous les utilisateurs peuvent créer des tableaux de bord personnels qu’ils sont les seuls à pouvoir afficher.
 
 Entrez un titre et sélectionnez le type de tableau de bord que vous souhaitez créer. [Ajoutez des vignettes](#add-tiles) pour personnaliser votre tableau de bord.
 
@@ -39,17 +44,21 @@ Entrez un titre et sélectionnez le type de tableau de bord que vous souhaitez c
 
 ## <a name="manage-dashboards"></a>Gérer les tableaux de bord
 
-Vous pouvez disposer de plusieurs tableaux de bord personnels et basculer de l’un à l’autre, ou choisir l’un des tableaux de bord d’application :
+Vous pouvez disposer de plusieurs tableaux de bord personnels et basculer de l’un à l’autre, ou choisir l’un des tableaux de bord d’organisation :
 
 :::image type="content" source="media/howto-manage-dashboards/switch-dashboards.png" alt-text="Capture d’écran qui montre comment basculer entre les tableaux de bord.":::
 
-Vous pouvez modifier vos tableaux de bord personnels et supprimer ceux dont vous n’avez plus besoin. Si vous êtes administrateur, vous pouvez également modifier et supprimer des tableaux de bord de niveau application.
+Vous pouvez modifier vos tableaux de bord personnels et supprimer ceux dont vous n’avez plus besoin. Si vous disposez des [autorisations](howto-manage-users-roles.md#customizing-the-app)appropriées, vous pouvez également modifier ou supprimer des tableaux de bord d’organisation.
 
 :::image type="content" source="media/howto-manage-dashboards/delete-dashboards.png" alt-text="Capture d’écran qui montre comment supprimer un tableau de bord.":::
 
+Pour renommer un tableau de bord ou voir l’organisation à laquelle il est attribué, sélectionnez **Paramètres du tableau de bord** :
+
+:::image type="content" source="media/howto-manage-dashboards/rename-dashboards.png" alt-text="Capture d’écran montrant comment renommer un tableau de bord.":::
+
 ## <a name="add-tiles"></a>Ajouter des vignettes
 
-La capture d’écran suivante montre le tableau de bord dans une application créée à partir du modèle Application personnalisée. Pour personnaliser le tableau de bord actif, sélectionnez **Modifier**. Pour ajouter un tableau de bord personnel ou d’application, sélectionnez **Nouveau tableau de bord** :
+La capture d’écran suivante montre le tableau de bord dans une application créée à partir du modèle **Application personnalisée**. Pour personnaliser le tableau de bord actif, sélectionnez **Modifier**. Pour ajouter un tableau de bord personnel ou d’organisation, sélectionnez **Nouveau tableau de bord** :
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-sample-contoso.png" alt-text="Capture d’écran montrant un tableau de bord pour applications basées sur le modèle d’application personnalisée.":::
 

@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–393165–A/B–Docs/PythonQuickstart–CLIvsPortal–FY21Q4
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-portal
-ms.openlocfilehash: aad4765dbfeeec7c0be6f7565573937a092864b1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a148cf813ff2a3fcf5e9815dff01ef836d725ef9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "122643130"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577321"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Démarrage rapide : Créer une application Python en utilisant Azure App Service sur Linux
 
@@ -24,7 +24,7 @@ Dans ce démarrage rapide, vous déployez une application web Python dans [App S
 
 1. Vous devez disposer d’un compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Installez <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 ou une version ultérieure</a>.
-1. Installez l’interface <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>2.0.80 ou ultérieur, avec laquelle vous exécutez des commandes dans n’importe quel interpréteur de commandes pour provisionner et configurer des ressources Azure.
+1. Installez <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, avec laquelle vous exécutez des commandes dans n’importe quel interpréteur de commandes pour provisionner et configurer des ressources Azure.
 
 Ouvrez une fenêtre de terminal et vérifiez que la version de Python est bien la version 3.6 ou une version ultérieure :
 

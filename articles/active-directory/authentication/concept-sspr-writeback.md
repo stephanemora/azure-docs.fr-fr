@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f27cee969d666d8605c0c87552eed1f305e1e4c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2a48a9f4ded6386b4b5a4ea2d02d796b8e5ed4f7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524974"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213911"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Comment fonctionne la réécriture de la réinitialisation de mot de passe en libre-service dans Azure Active Directory ?
 
@@ -105,7 +105,7 @@ La réécriture du mot de passe est un service hautement sécurisé. Pour garant
 Lorsqu’un utilisateur soumet une réinitialisation de mot de passe, cette demande transite via plusieurs étapes de chiffrement avant son arrivée dans votre environnement local. Ces étapes de chiffrement garantissent une sécurité et une fiabilité maximales. En voici le détail :
 
 1. **Chiffrement de mot de passe avec clé RSA de 2 048 bits** : Lorsqu’un utilisateur envoie un mot de passe en vue de sa réécriture en local, celui-ci est préalablement chiffré avec une clé RSA de 2 048 bits.
-1. **Chiffrement au niveau du package avec AES-GCM** : La méthode AES-GCM permet de chiffrer la totalité du package, avec le mot de passe et les métadonnées nécessaires. Ce chiffrement empêche quiconque ayant un accès direct au canal Service Bus sous-jacent de visualiser ou de falsifier le contenu.
+1. **Chiffrement de niveau package avec AES-GCM de 256 bits** : l'ensemble du paquet, le mot de passe et les métadonnées requises, est crypté à l'aide du protocole AES-GCM (avec une clé de 256 bits). Ce chiffrement empêche quiconque ayant un accès direct au canal Service Bus sous-jacent de visualiser ou de falsifier le contenu.
 1. **Toutes les communications passent par une connexion TLS/SSL** : Toutes les communications avec Service Bus ont lieu dans un canal SSL/TLS. Ce chiffrement protège le contenu contre les tiers non autorisés.
 1. **Substitution de clé automatique tous les six mois** : Tous les 6 mois ou chaque fois que la réécriture du mot de passe est désactivée puis réactivée sur Azure AD Connect, nous renouvelons automatiquement toutes les clés afin d’assurer la sécurité et la protection maximales du service.
 

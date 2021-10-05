@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: cb66b9ad3106b9cad5b9b22cbe32838e13f56c28
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0df95d90d0119f8bc513fe2a26ed731d87401b3d
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524610"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154258"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Résoudre les problèmes de connectivité d’Azure Private Endpoint
 
@@ -119,7 +119,19 @@ Passez en revue ces étapes pour vous assurer que toutes les configurations habi
       - Connectez-vous au point de terminaison privé à partir d’une autre source. Vous pourrez ainsi isoler les problèmes propres aux machines virtuelles. 
       - Connectez-vous à n’importe quelle machine virtuelle faisant partie du même réseau virtuel que le point de terminaison privé.  
 
-1. Si votre problème n’est toujours pas résolu et que les difficultés de connectivité persistent, contactez l’équipe [Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+1. Si le point d'extrémité privé est lié à un [service de liaison privé](./troubleshoot-private-link-connectivity.md) qui est lié à un équilibreur de charge, vérifiez si le pool backend est sain. La correction de l'état de santé de l'équilibreur de charge résoudra le problème de la connexion au point d'extrémité privé.
+
+    - Vous pouvez voir un diagramme visuel ou une [vue des dépendances](../azure-monitor/insights/network-insights-overview.md#dependency-view) des ressources, métriques et Insights associés en accédant à :
+        - Azure Monitor
+        - Réseaux
+        - Instances Private Endpoint
+        - Affichage des dépendances 
+
+![Superviser les réseaux](https://user-images.githubusercontent.com/20302679/134994620-0660b9e2-e2a3-4233-8953-d3e49b93e2f2.png)
+
+![DependencyView](https://user-images.githubusercontent.com/20302679/134994637-fb8b4a1a-81d5-4723-b1c3-d7bdc72162f3.png)
+
+9. Si votre problème n’est toujours pas résolu et que les difficultés de connectivité persistent, contactez l’équipe [Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: 7d2f32b4bb730d0c698950ecdf82283d1bf88274
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c3770c9d0d9e051417ca160e454976599f3bb334
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638919"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771742"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Charger de façon incrémentielle des données d’Azure SQL Database sur le Stockage Blob Azure en utilisant les informations de suivi des modifications sur le portail Azure
 
@@ -54,13 +54,13 @@ Dans ce didacticiel, vous créez deux pipelines qui effectuent les deux opérati
 
 1. **Chargement initial :** vous créez un pipeline avec une activité de copie qui copie l’ensemble des données du magasin de données source (Azure SQL Database) dans le magasin de données de destination (Stockage Blob Azure).
 
-    ![Chargement complet des données](media/tutorial-incremental-copy-change-tracking-feature-portal/full-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/full-load-flow-diagram.png" alt-text="Chargement complet des données":::
 1.  **Chargement incrémentiel :** vous créez un pipeline avec les activités suivantes, et vous l’exécutez régulièrement.
     1. Créez **deux activités de recherche** pour obtenir les valeurs SYS_CHANGE_VERSION anciennes et nouvelles dans Azure SQL Database et les transmettre à l’activité de copie.
     2. Créez **une activité de copie** pour copier les données insérées/mises à jour/supprimées entre deux valeurs SYS_CHANGE_VERSION d’Azure SQL Database dans Stockage Blob Azure.
     3. Créez **une activité de procédure stockée** pour mettre à jour la valeur de SYS_CHANGE_VERSION pour la prochaine exécution du pipeline.
 
-    ![Diagramme de flux de chargement incrémentiel](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-load-flow-diagram.png" alt-text="Diagramme de flux de chargement incrémentiel":::
 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -154,11 +154,11 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Données + Analytique** > **Data Factory** :
 
-   ![Sélection Data Factory dans le volet « Nouveau »](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png" alt-text="Sélection de Data Factory dans le volet &quot;Nouveau&quot;":::
 
 2. Dans la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** comme **nom**.
 
-     ![Page Nouvelle fabrique de données](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
+     :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png" alt-text="Page Nouvelle fabrique de données":::
 
    Le nom de la fabrique de données Azure doit être **globalement unique**. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 
@@ -176,7 +176,7 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 7. Cliquez sur **Créer**.      
 8. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**.
 
-    ![mosaïque déploiement de fabrique de données](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png" alt-text="mosaïque déploiement de fabrique de données":::
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
 
    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la vignette Ouvrir Azure Data Factory Studio.":::
@@ -184,7 +184,7 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 10. Sélectionnez **Ouvrir** dans la vignette **Ouvrir Azure Data Factory Studio** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet distinct.
 11. Dans la page d’accueil, basculez vers l’onglet **Gérer** dans le volet gauche comme illustré dans l’image suivante :
 
-    ![Capture d’écran montrant le bouton Gérer.](media/doc-common-process/get-started-page-manage-button.png)
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Capture d’écran montrant le bouton Gérer.":::
 
 ## <a name="create-linked-services"></a>Créez des services liés
 Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous allez créer des services liés à votre compte de stockage Azure et à votre base de données dans Azure SQL Database.
@@ -194,17 +194,17 @@ Dans cette étape, vous liez votre compte Stockage Azure à la fabrique de donn�
 
 1. Cliquez sur **Connexions**, puis sur **+ Nouveau**.
 
-   ![Bouton Nouvelle connexion](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png" alt-text="Bouton Nouvelle connexion":::
 2. Dans la fenêtre **Nouveau service lié**, sélectionnez **Stockage Blob Azure**, puis cliquez sur **Continuer**.
 
-   ![Sélectionner le stockage Blob Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-storage.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-storage.png" alt-text="Sélectionner le stockage Blob Azure":::
 3. Dans la fenêtre **Nouveau service lié**, procédez comme suit :
 
     1. Entrez **AzureStorageLinkedService** pour **Nom**.
     2. Sélectionnez votre compte de stockage Azure comme **Nom du compte de stockage**.
     3. Cliquez sur **Enregistrer**.
 
-   ![Paramètres du compte de stockage Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png" alt-text="Paramètres du compte de stockage Azure":::
 
 
 ### <a name="create-azure-sql-database-linked-service"></a>Créez le service lié Azure SQL Database.
@@ -222,7 +222,7 @@ Dans cette étape, vous liez votre base de données à la fabrique de données.
     6. Cliquez sur **Tester la connexion** pour tester la connexion.
     7. Cliquez sur **Enregistrer** pour enregistrer le service lié.
 
-       ![Paramètres du service lié Azure SQL Database](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png)
+       :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png" alt-text="Paramètres du service lié Azure SQL Database":::
 
 ## <a name="create-datasets"></a>Créez les jeux de données
 Dans cette étape, vous créez des jeux de données pour représenter la source de données et la destination de données. et l’emplacement pour stocker SYS_CHANGE_VERSION.
@@ -232,39 +232,39 @@ Dans cette étape, vous créez un jeu de données pour représenter les données
 
 1. Dans l’arborescence, cliquez sur **+ (plus)** , puis sur **Jeu de données**.
 
-   ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png" alt-text="Menu Nouveau jeu de données":::
 2. Sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**.
 
-   ![Type de jeu de données source - Azure SQL Database](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-sql-database.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-sql-database.png" alt-text="Type de jeu de données source - Azure SQL Database":::
 3. Vous voyez un nouvel onglet pour configurer le jeu de données. Vous voyez également le jeu de données dans l’arborescence. Dans la fenêtre **Propriétés**, renommez le jeu de données en **SourceDataset**.
 
-   ![Nom du jeu de données source](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png" alt-text="Nom du jeu de données source":::    
 4. Basculez vers l’onglet **Connexions**, et procédez comme suit :
 
     1. Sélectionnez **AzureSqlDatabaseLinkedService** pour **Service lié**.
     2. Sélectionnez **[dbo].[ data_source_table]** pour **Table**.
 
-   ![Connexion source](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png" alt-text="Connexion source":::
 
 ### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>Créez un jeu de données pour représenter les données copiées dans le magasin de données récepteur.
 Dans cette étape, vous créez un jeu de données pour représenter les données copiées à partir du magasin de données source. Vous avez créé le conteneur adftutorial dans votre stockage Blob Azure dans le cadre des conditions préalables. Créez le conteneur s’il n’existe pas (ou) attribuez-lui le nom d’un conteneur existant. Dans ce didacticiel, le nom de fichier de sortie est généré dynamiquement à l’aide de l’expression : `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 1. Dans l’arborescence, cliquez sur **+ (plus)** , puis sur **Jeu de données**.
 
-   ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png" alt-text="Menu Nouveau jeu de données":::
 2. Sélectionnez **Stockage Blob Azure**, puis cliquez sur **Terminer**.
 
-   ![Type de jeu de données récepteur - Stockage Blob Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-type.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-type.png" alt-text="Type de jeu de données récepteur - Stockage Blob Azure":::
 3. Vous voyez un nouvel onglet pour configurer le jeu de données. Vous voyez également le jeu de données dans l’arborescence. Dans la fenêtre **Propriétés**, renommez le jeu de données en **SinkDataset**.
 
-   ![Jeu de données récepteur - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png" alt-text="Jeu de données récepteur - nom":::
 4. Basculez vers l’onglet **Connexions** dans la fenêtre Propriétés, et procédez comme suit :
 
     1. Sélectionnez **AzureStorageLinkedService** pour **Service lié**.
     2. Entrez **adftutorial/incchgtracking** pour la partie **dossier** de **filePath**.
     3. Entrez **\@CONCAT('Incremental-', pipeline().RunId, '.txt')** pour la partie **fichier** de **filePath**.  
 
-       ![Jeu de données récepteur - connexion](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
+       :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png" alt-text="Jeu de données récepteur - connexion":::
 
 ### <a name="create-a-dataset-to-represent-change-tracking-data"></a>Créer un jeu de données pour représenter les données de suivi des modifications
 Dans cette étape, vous créez un jeu de données pour stocker la version de suivi des modifications.  Vous avez créé la table table_store_ChangeTracking_version dans le cadre des conditions préalables.
@@ -282,51 +282,51 @@ Dans cette étape, vous créez un pipeline avec une activité de copie qui copie
 
 1. Cliquez sur **+ (plus)** dans le volet gauche, puis cliquez sur **Pipeline**.
 
-    ![Capture d’écran montrant l’option de pipeline pour une fabrique de données.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png" alt-text="Capture d’écran montrant l’option de pipeline pour une fabrique de données.":::
 2. Vous voyez un nouvel onglet pour configurer le pipeline. Vous voyez également le pipeline dans l’arborescence. Dans la fenêtre **Propriétés**, renommez le pipeline en **FullCopyPipeline**.
 
-    ![Capture d’écran montrant un pipeline avec un nom entré.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png" alt-text="Capture d’écran montrant un pipeline avec un nom entré.":::
 3. Dans la boîte à outils **Activités**, développez **Flux de données** et glissez-déposez l’activité **Copie** vers la surface du concepteur de pipeline, puis définissez le nom **FullCopyActivity**.
 
-    ![Activité de copie complète - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png" alt-text="Activité de copie complète - nom":::
 4. Basculez vers l’onglet **Source** et sélectionnez **SourceDataset** pour le champ **Jeu de données source**.
 
-    ![Activité de copie - source](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-source.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-source.png" alt-text="Activité de copie - source":::
 5. Basculez vers l’onglet **Récepteur** et sélectionnez **SinkDataset** pour le champ **Jeu de données récepteur**.
 
-    ![Activité de copie - récepteur](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png" alt-text="Activité de copie - récepteur":::
 6. Pour valider la définition du pipeline, cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>** .
 
-    ![Valider le pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png" alt-text="Valider le pipeline":::
 7. Pour publier des entités (services liés, jeux de données et pipelines), cliquez sur **Publier**. Patientez jusqu’à ce que la publication réussisse.
 
-    ![Capture d’écran affichant la fabrique de données avec le bouton Publier tout sélectionné.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png" alt-text="Capture d’écran affichant la fabrique de données avec le bouton Publier tout sélectionné.":::
 8. Patientez jusqu’à voir le message **Publication réussie**.
 
-    ![Publication réussie](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png" alt-text="Publication réussie":::
 9. Vous pouvez également voir des notifications en cliquant sur le bouton **Afficher les Notifications** à gauche. Pour fermer la fenêtre de notifications, cliquez sur **X**.
 
-    ![Afficher les notifications](./media/tutorial-incremental-copy-change-tracking-feature-portal/show-notifications.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/show-notifications.png" alt-text="Afficher les notifications":::
 
 
 ### <a name="run-the-full-copy-pipeline"></a>Exécuter le pipeline de copie complète
 Cliquez sur **Déclencher** dans la barre d’outils du pipeline, puis cliquez sur **Déclencher maintenant**.
 
-![Capture d’écran montre l’option Déclencher maintenant sélectionnée dans le menu du déclencheur.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
+:::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png" alt-text="Capture d’écran montre l’option Déclencher maintenant sélectionnée dans le menu du déclencheur.":::
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Surveiller le pipeline de copie complète
 
 1. Cliquez sur l’onglet **Surveiller** sur la gauche. Vous voyez l’exécution du pipeline dans la liste et son état. Pour actualiser la liste, cliquez sur **Actualiser**. Les liens dans la colonne Actions vous permettent de visualiser les exécutions d’activités associées à l’exécution du pipeline et de réexécuter le pipeline.
 
-    ![Capture d’écran montrant les exécutions de pipeline pour une fabrique de données.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png" alt-text="Capture d’écran montrant les exécutions de pipeline pour une fabrique de données.":::
 2. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Il n’y a qu’une seule activité dans le pipeline, vous ne voyez donc qu’une seule entrée dans la liste. Pour revenir à l’affichage des exécutions du pipeline, cliquez sur le lien **Pipelines** en haut.
 
-    ![Capture d’écran montrant les exécutions d’activités pour une fabrique de données avec le lien Pipelines sélectionné.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png" alt-text="Capture d’écran montrant les exécutions d’activités pour une fabrique de données avec le lien Pipelines sélectionné.":::
 
 ### <a name="review-the-results"></a>Passer en revue les résultats.
 Vous voyez un fichier nommé `incremental-<GUID>.txt` dans le dossier `incchgtracking` du conteneur `adftutorial`.
 
-![Fichier de sortie d’une copie complète](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png" alt-text="Fichier de sortie d’une copie complète":::
 
 Le fichier doit contenir les données de votre base de données :
 
@@ -359,19 +359,19 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
 
 1. Dans l’interface utilisateur de Data Factory, basculez vers l’onglet **Modifier**. Cliquez sur **+ (plus)** dans le volet gauche, puis cliquez sur **Pipeline**.
 
-    ![Capture d’écran montrant comment créer un pipeline dans une fabrique de données.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png" alt-text="Capture d’écran montrant comment créer un pipeline dans une fabrique de données.":::
 2. Vous voyez un nouvel onglet pour configurer le pipeline. Vous voyez également le pipeline dans l’arborescence. Dans la fenêtre **Propriétés**, renommez le pipeline en **IncrementalCopyPipeline**.
 
-    ![Nom du pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png" alt-text="Nom du pipeline":::
 3. Développez **Général** dans la boîte à outils **Activités**, puis faites glisser et déposez une activité **Recherche** sur la surface du concepteur de pipeline. Définissez le nom de l’activité sur **LookupLastChangeTrackingVersionActivity**. Cette activité permet d’obtenir la version de suivi des modifications utilisée dans la dernière opération de copie qui est stockée dans la table **table_store_ChangeTracking_version**.
 
-    ![Capture d’écran montrant un pipeline avec une activité de recherche.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png" alt-text="Capture d’écran montrant un pipeline avec une activité de recherche.":::
 4. Basculez vers **Paramètres** dans la fenêtre **Propriétés**, puis sélectionnez **ChangeTrackingDataset** pour le champ **Jeu de données source**.
 
-    ![Capture d’écran montrant l’onglet Paramètres dans la fenêtre Propriétés.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png" alt-text="Capture d’écran montrant l’onglet Paramètres dans la fenêtre Propriétés.":::
 5. Glissez-déposez l’activité **Recherche** de la boîte à outils **Activités** vers la surface du concepteur de pipeline. Définissez le nom de l’activité sur **LookupCurrentChangeTrackingVersionActivity**. Cette activité permet d’obtenir la version de suivi des modifications en cours.
 
-    ![Capture d’écran montrant un pipeline avec deux activités de recherche.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png" alt-text="Capture d’écran montrant un pipeline avec deux activités de recherche.":::
 6. Basculez vers les **Paramètres** dans la fenêtre **Propriétés**, et procédez comme suit :
 
    1. Sélectionnez **SourceDataset** pour le champ **Jeu de données source**.
@@ -382,10 +382,10 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
        ```
 
-      ![Capture d’écran montrant une requête ajoutée à l’onglet Paramètres dans la fenêtre Propriétés.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png" alt-text="Capture d’écran montrant une requête ajoutée à l’onglet Paramètres dans la fenêtre Propriétés.":::
 7. Dans la boîte à outils **Activités**, développez **Flux de données** et glissez-déposez l’activité **Copie** vers la surface du concepteur de pipeline. Définissez le nom de l’activité sur **IncrementalCopyActivity**. Cette activité permet de copier les données entre la dernière version de suivi des modifications et la version de suivi des modifications en cours dans le magasin de données de destination.
 
-    ![Activité de copie - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png" alt-text="Activité de copie - nom":::
 8. Basculez vers l’onglet **Source** dans la fenêtre **Propriétés**, et procédez comme suit :
 
    1. Sélectionnez **SourceDataset** pour **Jeu de données source**.
@@ -396,19 +396,19 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
        select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
        ```
 
-      ![Activité de copie - paramètres de la source](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+      :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png" alt-text="Activité de copie - paramètres de la source":::
 9. Basculez vers l’onglet **Récepteur** et sélectionnez **SinkDataset** pour le champ **Jeu de données récepteur**.
 
-    ![Activité de copie - paramètres du récepteur](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png" alt-text="Activité de copie - paramètres du récepteur":::
 10. **Connectez les deux activités de recherche à l’activité de copie** une par une. Faites glisser le bouton **vert** associé à l’activité **Recherche** vers l’activité **Copie**.
 
-    ![Connecter des activités de recherche et de copie](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-lookup-and-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-lookup-and-copy.png" alt-text="Connecter des activités de recherche et de copie":::
 11. Glissez-déposez l’activité **Procédure stockée** de la boîte à outils **Activités** vers la surface du concepteur de pipeline. Définissez le nom de l’activité sur **StoredProceduretoUpdateChangeTrackingActivity**. Cette activité permet de mettre à jour la version de suivi des modifications dans la table **table_store_ChangeTracking_version**.
 
-    ![Activité de procédure stockée - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-activity-name.png" alt-text="Activité de procédure stockée - nom":::
 12. Basculez vers l’onglet *Compte SQL** et sélectionnez **AzureSqlDatabaseLinkedService** pour **Service lié**.
 
-    ![Activité de procédure stockée - Compte SQL](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png" alt-text="Activité de procédure stockée - Compte SQL":::
 13. Basculez vers l’onglet **Procédure stockée**, et procédez comme suit :
 
     1. Pour **Nom de la procédure stockée**, sélectionnez **Update_ChangeTracking_Version**.  
@@ -420,36 +420,36 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
         | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
-        ![Activité de procédure stockée - Paramètres](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png" alt-text="Activité de procédure stockée - Paramètres":::
 14. **Connectez l’activité de copie à l’activité de procédure stockée**. Glissez-déposez le bouton **vert** associé à l’activité de copie l’activité de procédure stockée.
 
-    ![Connecter les activités de copie et de procédure stockée](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png" alt-text="Connecter les activités de copie et de procédure stockée":::
 15. Cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>** .
 
-    ![Bouton de validation](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png" alt-text="Bouton de validation":::
 16. Publiez des entités (services liés, jeux de données et pipelines) sur le service Data Factory en cliquant sur le bouton **Publish All** (Tout publier). Patientez jusqu’à ce que le message **Publication réussie** s’affiche.
 
-       ![Capture d’écran montrant le bouton Publier tout pour une fabrique de données.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png" alt-text="Capture d’écran montrant le bouton Publier tout pour une fabrique de données.":::    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Exécuter le pipeline de copie incrémentielle
 1. Cliquez sur **Déclencher** dans la barre d’outils du pipeline, puis cliquez sur **Déclencher maintenant**.
 
-    ![Capture d’écran montrant un pipeline avec des activités, avec l’option Déclencher maintenant sélectionnée dans le menu du déclencheur.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png" alt-text="Capture d’écran montrant un pipeline avec des activités, avec l’option Déclencher maintenant sélectionnée dans le menu du déclencheur.":::
 2. Dans la fenêtre **Exécution du pipeline**, sélectionnez **Terminer**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Surveiller le pipeline de copie incrémentielle
 1. Cliquez sur l’onglet **Surveiller** sur la gauche. Vous voyez l’exécution du pipeline dans la liste et son état. Pour actualiser la liste, cliquez sur **Actualiser**. Les liens dans la colonne **Actions** vous permettent de visualiser les exécutions d’activités associées à l’exécution du pipeline et de réexécuter le pipeline.
 
-    ![Capture d’écran montrant les exécutions de pipeline pour une fabrique de données incluant votre pipeline.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png" alt-text="Capture d’écran montrant les exécutions de pipeline pour une fabrique de données incluant votre pipeline.":::
 2. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Il n’y a qu’une seule activité dans le pipeline, vous ne voyez donc qu’une seule entrée dans la liste. Pour revenir à l’affichage des exécutions du pipeline, cliquez sur le lien **Pipelines** en haut.
 
-    ![Capture d’écran montrant des exécutions de pipeline pour une fabrique de données avec plusieurs exécutions marquées comme ayant réussi.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png" alt-text="Capture d’écran montrant des exécutions de pipeline pour une fabrique de données avec plusieurs exécutions marquées comme ayant réussi.":::
 
 
 ### <a name="review-the-results"></a>Passer en revue les résultats.
 Vous voyez le second fichier dans le dossier `incchgtracking` du conteneur `adftutorial`.
 
-![Fichier de sortie de la copie incrémentielle](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png" alt-text="Fichier de sortie de la copie incrémentielle":::
 
 Le fichier ne doit contenir que les données delta de votre base de données. L’enregistrement avec `U` correspond à la ligne mise à jour dans la base de données et `I` à la ligne ajoutée.
 

@@ -1,29 +1,29 @@
 ---
-title: Copier des données de Cassandra à l’aide d’Azure Data Factory
+title: Copier des données de Cassandra
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données de Cassandra vers des banques de données réceptrices prises en charge.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Cassandra vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 062aa5a27c0d080cebeb644deed4b42dbcf67e00
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 6979f8224513b3a2db5468cb18e8d5fb2f6d6bbc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313776"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811939"
 ---
-# <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copier des données de Cassandra à l’aide d’Azure Data Factory
+# <a name="copy-data-from-cassandra-using-azure-data-factory-or-synapse-analytics"></a>Copier des données de Cassandra à l’aide d’Azure Data Factory ou de Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Version actuelle](connector-cassandra.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données Cassandra. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données à partir d’une base de données Cassandra. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -60,7 +60,7 @@ Utilisez les étapes suivantes pour créer un service lié à Cassandra dans l�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -90,7 +90,7 @@ Les propriétés prises en charge pour le service lié Cassandra sont les suivan
 | port |Le port TCP utilisé par le serveur Cassandra pour écouter les connexions clientes. |Non (la valeur par défaut 9042) |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données Cassandra.<br/>Les valeurs autorisées sont les suivantes : **De base**, et **Anonyme**. |Oui |
 | username |Spécifiez le nom d’utilisateur du compte d’utilisateur. |Oui, si authenticationType est défini sur De base. |
-| mot de passe |Spécifiez le mot de passe du compte d'utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui, si authenticationType est défini sur De base. |
+| mot de passe |Spécifiez le mot de passe du compte d'utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui, si authenticationType est défini sur De base. |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 >[!NOTE]
@@ -201,9 +201,9 @@ Pour copier des données de Cassandra, définissez **Source** comme type source 
 
 ## <a name="data-type-mapping-for-cassandra"></a>Mappage de type de données pour Cassandra
 
-Lors de la copie de données de Cassandra, les mappages suivants sont utilisés entre les types de données Cassandra et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
+Lors de la copie de données à partir de Cassandra, les mappages suivants sont utilisés entre les types de données Cassandra et les types de données intermédiaires utilisés en interne dans le service. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
-| Type de données Cassandra | Type de données intermédiaires de Data Factory |
+| Type de données Cassandra | Type de données de service intermédiaire |
 |:--- |:--- |
 | ASCII |String |
 | bigint |Int64 |
@@ -231,7 +231,7 @@ Lors de la copie de données de Cassandra, les mappages suivants sont utilisés 
 
 ## <a name="work-with-collections-using-virtual-table"></a>Travailler avec des collections à l’aide d’une table virtuelle
 
-Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à votre base de données Cassandra et copier des données à partir de cette dernière. Pour les types de collection, notamment les cartes, ensembles et listes, le pilote renormalise les données dans des tables virtuelles correspondantes. En particulier, si une table contient des colonnes de n’importe quelle collection, le pilote génère les tables virtuelles suivantes :
+Le service utilise un pilote ODBC intégré pour assurer la connexion à votre base de données Cassandra et copier des données à partir de cette dernière. Pour les types de collection, notamment les cartes, ensembles et listes, le pilote renormalise les données dans des tables virtuelles correspondantes. En particulier, si une table contient des colonnes de n’importe quelle collection, le pilote génère les tables virtuelles suivantes :
 
 * Une **table de base**, qui contient les mêmes données que la table réelle, à l’exception des colonnes de collection. La table de base utilise le même nom que la table réelle qu’elle représente.
 * Une **table virtuelle** pour chaque colonne de collection, qui étend les données imbriquées. Le nom des tables virtuelles qui représentent des collections est composé du nom de la table réelle, du séparateur « *vt* » et du nom de la colonne.
@@ -295,4 +295,4 @@ Les tableaux suivants montrent les tables virtuelles qui renormalisent les donn�
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

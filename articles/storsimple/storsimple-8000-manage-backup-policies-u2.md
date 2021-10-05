@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/05/2017
+ms.date: 09/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 9ec2bbef88ed185c3927676ad2596269783d1850
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fde4e0784e81c2127dd8097495b48ce506059bf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85515628"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589368"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegarde
 
@@ -76,6 +76,23 @@ Vous pouvez ajouter ou modifier une planification associée à une stratégie de
 
 [!INCLUDE [storsimple-8000-add-modify-backup-schedule](../../includes/storsimple-8000-add-modify-backup-schedule-u2.md)]
 
+## <a name="disable-a-schedule"></a>Désactiver une planification
+
+Utilisez la procédure suivante si vous devez désactiver une politique de retour. Par exemple, vous pouvez désactiver une planification qui a atteint le maximum de 64 sauvegardes, puis ajouter une nouvelle planification pour effectuer davantage de sauvegardes.
+
+Pour désactiver une stratégie de sauvegarde, procédez comme suit :
+
+1.  Accédez à votre appareil StorSimple et cliquez sur **Stratégie de sauvegarde**.
+
+1.  Explorez la stratégie de sauvegarde jusqu’à la planification que vous souhaitez désactiver :
+
+    1. Cliquez sur la stratégie de sauvegarde pour ouvrir les **planifications** de la stratégie. 
+
+    1. Cliquez à nouveau sur la stratégie pour ouvrir la boîte de dialogue **planifications** .
+
+    1. Cliquez sur la planification que vous souhaitez désactiver pour ouvrir **configurer la planification**. Dans le champ **État** , sélectionnez **désactivé**.
+
+  [ ![Illustration montrant la procédure de désactivation d’une planification pour une stratégie de sauvegarde sur un appareil StorSimple. Chaque étape est numérotée, avec l’étiquette d’écran et l’élément traité en surbrillance. ](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png) ](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png#lightbox)
 
 ## <a name="add-or-remove-a-volume"></a>Ajouter ou supprimer un volume
 

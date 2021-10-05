@@ -1,7 +1,6 @@
 ---
 title: Tutoriel - Utiliser Azure Key Vault avec une machine virtuelle dans Python | Microsoft Docs
 description: Dans ce tutoriel, vous allez configurer sur une machine virtuelle une application Python pour lire un secret dans votre coffre de clés.
-services: key-vault
 author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 25182105db831724565c6bf3dbbbb79832b677f7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 463474d13f0df50aebd775e119918e0db7ad65c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772057"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597307"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle dans Python
 
@@ -109,7 +108,7 @@ az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<system
 Pour vous connecter à la machine virtuelle, suivez les instructions de [Se connecter à une machine virtuelle Linux dans Azure](../../virtual-machines/linux/login-using-aad.md) ou [Connexion à une machine virtuelle Azure exécutant Windows](../../virtual-machines/windows/connect-logon.md).
 
 
-Pour vous connecter à une machine virtuelle Linux, vous pouvez utiliser la commande ssh avec le paramètre « <publicIpAddress> » indiqué à l’étape [Créer une machine virtuelle](#create-a-virtual-machine) :
+Pour vous connecter à une machine virtuelle Linux, vous pouvez utiliser la commande ssh avec le paramètre \<publicIpAddress\> indiqué à l’étape [Créer une machine virtuelle](#create-a-virtual-machine) :
 
 ```terminal
 ssh azureuser@<PublicIpAddress>
@@ -129,7 +128,7 @@ pip3 install azure.identity
 
 ## <a name="create-and-edit-the-sample-python-script"></a>Créer et modifier l’exemple de script Python
 
-Sur la machine virtuelle, créez un fichier Python nommé **sample.py**. Modifiez le fichier pour y inclure le code suivant en remplaçant <your-unique-keyvault-name> par le nom de votre coffre de clés :
+Sur la machine virtuelle, créez un fichier Python nommé **sample.py**. Modifiez le fichier pour y inclure le code suivant en remplaçant \<your-unique-keyvault-name\> par le nom de votre coffre de clés :
 
 ```python
 from azure.keyvault.secrets import SecretClient

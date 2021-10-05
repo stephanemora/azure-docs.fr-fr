@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 2feee9beb6232320cc5265227754b0803d248bae
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: a5cb80924daf3328da6a3a9fd7fc1c7c7212bed6
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028232"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129090929"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Démarrage rapide : Créer un équilibreur de charge public pour équilibrer la charge de machines virtuelles à l’aide d’un modèle Resource Manager
 
@@ -140,4 +140,4 @@ Dans ce guide de démarrage rapide, vous :
 Pour en savoir plus, passez aux tutoriels concernant Azure Load Balancer.
 
 > [!div class="nextstepaction"]
-> [Didacticiels Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Didacticiels Azure Load Balancer](./quickstart-load-balancer-standard-public-portal.md)

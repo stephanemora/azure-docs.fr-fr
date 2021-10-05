@@ -1,5 +1,5 @@
 ---
-title: Listes de contrôle d’accès dans Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Listes de contrôle d'accès dans Azure Data Lake Storage Gen2
 description: Comprendre le fonctionnement des listes de contrôle d’accès POSIX dans Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 41afd3cf3720c5fa86acf75acadc07e60fa2f3cc
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: aee02d46f0932a084dccb4b1bc4c8f288a372104
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968843"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552271"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listes de contrôle d’accès (ACL) dans Azure Data Lake Storage Gen2
 
@@ -26,7 +26,7 @@ Azure Data Lake Storage Gen2 implémente un modèle de contrôle d’accès qui 
 Vous pouvez associer un [principal de sécurité](../../role-based-access-control/overview.md#security-principal) à un niveau d’accès pour les fichiers et répertoires. Chaque association est capturée comme une entrée d’une *liste de contrôle d’accès*. Chaque fichier et répertoire de votre compte de stockage a une liste de contrôle d’accès. Lorsqu’un principal de sécurité tente une opération sur un fichier ou un répertoire, une vérification de la liste de contrôle d’accès détermine si ce principal de sécurité (utilisateur, groupe, principal du service ou identité managée) a le niveau d’autorisation approprié pour effectuer l’opération.
 
 > [!NOTE]
-> Les listes de contrôle d’accès s’appliquent uniquement aux principaux de sécurité dans le même locataire et ne s’appliquent pas aux utilisateurs qui utilisent l’authentification par jeton de clé partagée ou de signature d’accès partagé (SAS). En effet, aucune identité n’est associée à l’appelant. Par conséquent, aucune permission basée sur une autorisation de principal de sécurité ne peut être accordée.  
+> Les listes de contrôle d’accès s’appliquent uniquement aux principaux de sécurité dans le même locataire et ne s’appliquent pas aux utilisateurs qui utilisent l’authentification par jeton de clé partagée ou de signature d’accès partagé (SAS). En effet, aucune identité n’est associée à l’appelant. Par conséquent, aucune permission basée sur une autorisation de principal de sécurité ne peut être accordée.
 
 <a id="set-access-control-lists"></a>
 
@@ -92,9 +92,9 @@ Dans le modèle POSIX utilisé par Data Lake Storage Gen2, les autorisations d�
 
 ## <a name="common-scenarios-related-to-acl-permissions"></a>Scénarios courants liés aux autorisations de liste de contrôle d'accès
 
-Le tableau suivant vous montre les entrées de liste de contrôle d’accès requises pour permettre à un principal de sécurité d’effectuer les opérations indiquées dans la colonne **Opérations**. 
+Le tableau suivant vous montre les entrées de liste de contrôle d’accès requises pour permettre à un principal de sécurité d’effectuer les opérations indiquées dans la colonne **Opérations**.
 
-Ce tableau présente une colonne qui illustre chaque niveau d’une hiérarchie de répertoires fictifs. Il existe une colonne pour le répertoire racine du conteneur (`/`), un sous-répertoire nommé **Oregon**, un sous-répertoire du répertoire Oregon nommé **Portland** et un fichier texte dans le répertoire Portland nommé **Data. txt**. 
+Ce tableau présente une colonne qui illustre chaque niveau d’une hiérarchie de répertoires fictifs. Il existe une colonne pour le répertoire racine du conteneur (`/`), un sous-répertoire nommé **Oregon**, un sous-répertoire du répertoire Oregon nommé **Portland** et un fichier texte dans le répertoire Portland nommé **Data. txt**.
 
 > [!IMPORTANT]
 > Ce tableau suppose que vous utilisez **uniquement** des ACL sans attributions de rôle Azure. Pour voir une table similaire qui combine Azure RBAC avec des ACL, consultez [Tableau des autorisations : Combinaison d’Azure RBAC et ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
@@ -130,8 +130,8 @@ Les identités des utilisateurs et des groupes sont des identités Azure Active 
 
 L’utilisateur qui a créé l’élément est automatiquement l’utilisateur propriétaire de l’élément. Les utilisateurs propriétaires peuvent :
 
-* modifier les autorisations de leurs fichiers ;
-* modifier le groupe propriétaire d’un fichier détenu, tant que l’utilisateur propriétaire est également membre du groupe cible.
+- modifier les autorisations de leurs fichiers ;
+- modifier le groupe propriétaire d’un fichier détenu, tant que l’utilisateur propriétaire est également membre du groupe cible.
 
 > [!NOTE]
 > L’utilisateur propriétaire *ne peut pas* modifier l’utilisateur propriétaire d’un fichier ou d’un répertoire. Seuls les super utilisateurs peuvent modifier l’utilisateur propriétaire d’un fichier ou d’un répertoire.
@@ -142,21 +142,22 @@ Dans les ACL POSIX, chaque utilisateur est associé à un *groupe principal*. Pa
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Affectation du groupe propriétaire pour un nouveau fichier ou répertoire
 
-* **Cas n° 1** : Répertoire racine "/". Ce répertoire est créé lors de la création d’un conteneur Data Lake Storage Gen2. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le conteneur si l’opération est réalisée avec OAuth. Si le conteneur est créé à l’aide d’une clé partagée, d’une SAS de compte ou d’une SAS de service, le propriétaire et le groupe propriétaire sont définis avec la valeur **$superuser**.
-* **Cas 2** (tous les autres cas) : lorsqu’un nouvel élément est créé, le groupe propriétaire est copié à partir du répertoire parent.
+- **Cas 1 :**  Le répertoire racine `/`. Ce répertoire est créé lors de la création d’un conteneur Data Lake Storage Gen2. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le conteneur si l’opération est réalisée avec OAuth. Si le conteneur est créé à l’aide d’une clé partagée, d’une SAS de compte ou d’une SAS de service, le propriétaire et le groupe propriétaire sont définis avec la valeur `$superuser`.
+- **Cas 2 (tous les autres cas) :**  lorsqu’un nouvel élément est créé, le groupe propriétaire est copié à partir du répertoire parent.
 
 #### <a name="changing-the-owning-group"></a>Modification du groupe propriétaire
 
 Le groupe propriétaire peut être modifié par :
-* un super utilisateur ;
-* l’utilisateur propriétaire, si l’utilisateur propriétaire est également membre du groupe cible.
+
+- un super utilisateur ;
+- l’utilisateur propriétaire, si l’utilisateur propriétaire est également membre du groupe cible.
 
 > [!NOTE]
-> Le groupe propriétaire ne peut pas modifier les ACL d’un fichier ou d’un répertoire.  Alors que le groupe d’appartenance est défini sur l’utilisateur qui a créé le compte dans le cas du répertoire racine, **Cas 1** ci-dessus, un seul compte d’utilisateur n’est pas valide pour accorder des autorisations via le groupe d’appartenance. Si applicable, vous pouvez assigner cette autorisation à un groupe d’utilisateurs valide.
+> Le groupe propriétaire ne peut pas modifier les ACL d’un fichier ou d’un répertoire. Alors que le groupe d’appartenance est défini sur l’utilisateur qui a créé le compte dans le cas du répertoire racine, **Cas 1** ci-dessus, un seul compte d’utilisateur n’est pas valide pour accorder des autorisations via le groupe d’appartenance. Si applicable, vous pouvez assigner cette autorisation à un groupe d’utilisateurs valide.
 
 ## <a name="how-permissions-are-evaluated"></a>Évaluation des autorisations
 
-Les identités sont évaluées dans l’ordre suivant : 
+Les identités sont évaluées dans l’ordre suivant :
 
 1. Superutilisateur
 2. Utilisateur propriétaire
@@ -169,13 +170,13 @@ Si plusieurs de ces identités s’appliquent à un principal de sécurité, le 
 Le pseudocode suivant représente l’algorithme de vérification des accès pour les comptes de stockage. Cet algorithme indique l’ordre dans lequel les identités sont évaluées.
 
 ```python
-def access_check( user, desired_perms, path ) : 
+def access_check( user, desired_perms, path ) :
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
   # desired_perms is a simple integer with values from 0 to 7 ( R=4, W=2, X=1). User desires these permissions
   # path is the file or directory
   # Note: the "sticky bit" isn't illustrated in this algorithm
-  
+
   # Handle super users.
   if (is_superuser(user)) :
     return True
@@ -200,8 +201,8 @@ def access_check( user, desired_perms, path ) :
   for entry in entries:
     if (user_is_member_of_group(user, entry.identity)) :
         if ((desired_perms & entry.permissions & mask) == desired_perms)
-            return True 
-        
+            return True
+
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
@@ -210,7 +211,7 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="the-mask"></a>Le masque
 
-Comme illustré dans l’algorithme de vérification des accès, le masque limite l’accès pour les utilisateurs nommés, le groupe propriétaire et les groupes nommés.  
+Comme illustré dans l’algorithme de vérification des accès, le masque limite l’accès pour les utilisateurs nommés, le groupe propriétaire et les groupes nommés.
 
 Pour un nouveau conteneur Data Lake Storage Gen2, la valeur par défaut du masque d’ACL du répertoire racine ("/") est de **750** pour les répertoires et **640** pour les fichiers. Le tableau suivant présente la notation symbolique de ces niveaux d’autorisation.
 
@@ -220,7 +221,7 @@ Pour un nouveau conteneur Data Lake Storage Gen2, la valeur par défaut du masqu
 |groupe propriétaire|`r-x`|`r--`|
 |Autre|`---`|`---`|
 
-Les fichiers ne reçoivent pas le bit X, car il est sans importance pour les fichiers dans un système de stockage uniquement. 
+Les fichiers ne reçoivent pas le bit X, car il est sans importance pour les fichiers dans un système de stockage uniquement.
 
 Le masque peut être spécifié par appel. Ainsi, différents systèmes de consommation, tels que les clusters, peuvent être associés à différents masques plus efficaces pour leurs opérations de fichier. Si un masque est spécifié sur une requête donnée, il remplace complètement le masque par défaut.
 
@@ -245,11 +246,11 @@ L’umask pour Azure Data Lake Storage Gen2 est une valeur constante définie su
 
 | Composant umask     | Forme numérique | Forme abrégée | Signification |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   `---`      | Pour l’utilisateur propriétaire, copiez l’ACL par défaut du parent dans l’ACL d’accès de l’enfant | 
-| umask.owning_group  |    0         |   `---`      | Pour le groupe propriétaire, copiez l’ACL par défaut du parent dans l’ACL d’accès de l’enfant | 
+| umask.owning_user   |    0         |   `---`      | Pour l’utilisateur propriétaire, copiez l’ACL par défaut du parent dans l’ACL d’accès de l’enfant |
+| umask.owning_group  |    0         |   `---`      | Pour le groupe propriétaire, copiez l’ACL par défaut du parent dans l’ACL d’accès de l’enfant |
 | umask.other         |    7         |   `RWX`      | Pour d’autres rôles, supprimez toutes les autorisations de l’ACL d’accès de l’enfant |
 
-La valeur umask utilisée par Azure Data Lake Storage Gen2 signifie effectivement que la valeur pour d’**autres** rôles n’est jamais transmise par défaut sur les nouveaux enfants, sauf si une ACL par défaut est définie sur le répertoire parent. Dans ce cas, umask est effectivement ignoré et les autorisations définies par l’ACL par défaut sont appliquées à l’élément enfant. 
+La valeur umask utilisée par Azure Data Lake Storage Gen2 signifie effectivement que la valeur pour d’**autres** rôles n’est jamais transmise par défaut sur les nouveaux enfants, sauf si une ACL par défaut est définie sur le répertoire parent. Dans ce cas, umask est effectivement ignoré et les autorisations définies par l’ACL par défaut sont appliquées à l’élément enfant.
 
 Le pseudocode suivant montre comment l’umask est appliqué lors de la création des ACL pour un élément enfant.
 
@@ -279,7 +280,7 @@ Si cette fonctionnalité est désactivée, les règles d’autorisation Azure RB
 
 ### <a name="what-is-the-best-way-to-apply-acls"></a>Quelle est la meilleure façon d’appliquer des ACL ?
 
-[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)] 
+[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)]
 
 ### <a name="how-are-azure-rbac-and-acl-permissions-evaluated"></a>Comment les autorisations Azure RBAC et ACL sont-elles évaluées ?
 
@@ -287,9 +288,9 @@ Pour savoir comment le système évalue le RBAC et les ACL Azure pour prendre de
 
 ### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Quelles sont les limites sur les affectations de rôle Azure et les entrées ACL ?
 
-Le tableau suivant fournit une vue de synthèse des limites à prendre en compte lors de l’utilisation d’Azure RBAC pour gérer les autorisations « grossièrement granulaires » (autorisations qui s’appliquent aux comptes de stockage ou aux conteneurs) et l’utilisation des ACL pour gérer les autorisations « affinées » (autorisations qui s’appliquent aux fichiers et aux répertoires). Utilisez des groupes de sécurité pour les attributions des ACL. En utilisant des groupes, vous êtes moins susceptible de dépasser le nombre maximal d’attributions de rôles par abonnement et le nombre maximal d’entrées ACL par fichier ou par répertoire. 
+Le tableau suivant fournit une vue de synthèse des limites à prendre en compte lors de l’utilisation d’Azure RBAC pour gérer les autorisations « grossièrement granulaires » (autorisations qui s’appliquent aux comptes de stockage ou aux conteneurs) et l’utilisation des ACL pour gérer les autorisations « affinées » (autorisations qui s’appliquent aux fichiers et aux répertoires). Utilisez des groupes de sécurité pour les attributions des ACL. En utilisant des groupes, vous êtes moins susceptible de dépasser le nombre maximal d’attributions de rôles par abonnement et le nombre maximal d’entrées ACL par fichier ou par répertoire.
 
-[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
+[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)]
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-azure-rbac"></a>Data Lake Storage Gen2 prend-il en charge l’héritage d’Azure RBAC ?
 
@@ -297,7 +298,7 @@ Les affectations de rôle Azure peuvent être héritées. Les affectations passe
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 prend-il en charge l’héritage des ACL ?
 
-Les ACL par défaut peuvent être utilisées pour définir les ACL des sous-répertoires et fichiers enfants nouvellement créés sous le répertoire parent. Pour mettre à jour les listes de contrôle d’accès pour les éléments enfants existants, vous devez ajouter, mettre à jour ou supprimer les listes de contrôle d’accès de manière récursive pour la hiérarchie de répertoires souhaitée. Pour obtenir de l’aide, consultez la section [Comment définir des listes de contrôle d’accès](#set-access-control-lists) de cet article. 
+Les ACL par défaut peuvent être utilisées pour définir les ACL des sous-répertoires et fichiers enfants nouvellement créés sous le répertoire parent. Pour mettre à jour les listes de contrôle d’accès pour les éléments enfants existants, vous devez ajouter, mettre à jour ou supprimer les listes de contrôle d’accès de manière récursive pour la hiérarchie de répertoires souhaitée. Pour obtenir de l’aide, consultez la section [Comment définir des listes de contrôle d’accès](#set-access-control-lists) de cet article.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quelles sont les autorisations nécessaires pour supprimer de manière récursive un répertoire et son contenu ?
 
@@ -343,20 +344,20 @@ Si vous avez le bon OID pour le principal du service, accédez à la page **Gér
 
 ### <a name="can-i-set-the-acl-of-a-container"></a>Puis-je définir la liste de contrôle d’accès d’un conteneur ?
 
-Non. Un conteneur n’a pas de liste de contrôle d'accès. Toutefois, vous pouvez définir la liste de contrôle d’accès du répertoire racine du conteneur. Chaque conteneur possède un répertoire racine et il partage le même nom que le conteneur. Par exemple, si le conteneur est nommé `my-container`, le répertoire racine est nommé `my-container/`. 
+Non. Un conteneur n’a pas de liste de contrôle d'accès. Toutefois, vous pouvez définir la liste de contrôle d’accès du répertoire racine du conteneur. Chaque conteneur possède un répertoire racine et il partage le même nom que le conteneur. Par exemple, si le conteneur est nommé `my-container`, le répertoire racine est nommé `my-container/`.
 
-L’API REST de stockage Azure contient une opération nommée [Set Container ACL](/rest/api/storageservices/set-container-acl), mais cette opération ne peut pas être utilisée pour définir la liste de contrôle d’accès d’un conteneur ou le répertoire racine d’un conteneur. Au lieu de cela, cette opération est utilisée pour indiquer si les objets blob dans un conteneur [sont accessibles publiquement](anonymous-read-access-configure.md). 
+L’API REST de stockage Azure contient une opération nommée [Set Container ACL](/rest/api/storageservices/set-container-acl), mais cette opération ne peut pas être utilisée pour définir la liste de contrôle d’accès d’un conteneur ou le répertoire racine d’un conteneur. Au lieu de cela, cette opération est utilisée pour indiquer si les objets blob dans un conteneur [sont accessibles publiquement](anonymous-read-access-configure.md).
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Comment en savoir plus sur le modèle de contrôle d’accès POSIX ?
 
-* [Listes de contrôle d’accès (ACL) POSIX sur Linux](https://www.linux.com/news/posix-acls-linux)
-* [HDFS Permission Guide (Guide des autorisations HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [Forum aux questions POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-* [ACL POSIX sous Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL using access control lists on Linux (ACL utilisant des listes de contrôle d’accès sous Linux)](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+- [Listes de contrôle d’accès (ACL) POSIX sur Linux](https://www.linux.com/news/posix-acls-linux)
+- [HDFS Permission Guide (Guide des autorisations HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+- [Forum aux questions POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
+- [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+- [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+- [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+- [ACL POSIX sous Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
+- [ACL using access control lists on Linux (ACL utilisant des listes de contrôle d’accès sous Linux)](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>Voir aussi
 

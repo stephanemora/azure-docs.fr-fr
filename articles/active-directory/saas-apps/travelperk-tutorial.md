@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/11/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 1ab437afbd8e0dd3035837da47bbbb89e358103f
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 38ab873af949d2cf648ba0a129fd548cd6dbc534
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272305"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800495"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-travelperk"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TravelPerk
 
@@ -40,6 +40,8 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * TravelPerk prend en charge l’authentification unique (SSO) lancée par le **fournisseur de services**.
 
 * TravelPerk prend en charge l’attribution d’utilisateurs **juste-à-temps**.
+
+* TravelPerk prend en charge l’[attribution automatique d’utilisateurs](travelperk-provisioning-tutorial.md).
 
 ## <a name="add-travelperk-from-the-gallery"></a>Ajouter TravelPerk à partir de la galerie
 
@@ -130,6 +132,8 @@ Pour configurer l’authentification unique côté **TravelPerk**, vous devez en
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans TravelPerk. TravelPerk prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans TravelPerk, il en est créé un quand vous tentez d’y accéder.
 
+TravelPerk prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./travelperk-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -138,7 +142,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion TravelPerk pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette TravelPerk dans Mes applications, vous êtes redirigé vers l’URL de connexion TravelPerk. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette TravelPerk dans Mes applications, vous êtes redirigé vers l’URL de connexion TravelPerk. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

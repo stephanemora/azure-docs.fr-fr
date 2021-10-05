@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
-ms.date: 05/06/2021
-ms.openlocfilehash: 3e5e46e15a7885eb5e3f4828cb8298355a116fd8
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.date: 09/24/2021
+ms.openlocfilehash: 0ab670b9ef6309b8db01f4a53f41c703dea69423
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300486"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092271"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-the-azure-portal-preview"></a>Tutoriel : Ajouter une condition d’attribution de rôle pour restreindre l’accès aux objets blob en utilisant le portail Azure (préversion)
 
@@ -29,8 +29,8 @@ Dans la plupart des cas, une attribution de rôle accorde les autorisations dont
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Ajouter une condition à une attribution de rôle
-> * Restreindre l’accès aux objets blob en fonction d’une étiquette d’index d’objets blob
+> - Ajouter une condition à une attribution de rôle
+> - Restreindre l’accès aux objets blob en fonction d’une étiquette d’index d’objets blob
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -67,7 +67,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
 1. Connectez-vous au portail Azure en tant que propriétaire d’un abonnement.
 
 1. Cliquez sur **Azure Active Directory**.
-    
+
 1. Créez un utilisateur ou recherchez un utilisateur existant. Ce tutoriel utilise Chandra comme exemple.
 
 ## <a name="step-2-set-up-storage"></a>Étape 2 : Configurer le stockage
@@ -87,7 +87,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
     Si vous ne voyez pas la section Étiquettes d’index d’objets blob et que vous venez d’inscrire votre abonnement, vous devrez peut-être attendre quelques minutes que les modifications se propagent. Pour plus d’informations, consultez [Utiliser des étiquettes d’index de blob (préversion) pour gérer et rechercher des données sur Stockage Blob Azure](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Les objets blob prennent également en charge la possibilité de stocker des métadonnées clé/valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions. 
+    > Les objets blob prennent également en charge la possibilité de stocker des métadonnées clé/valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions.
 
     | Clé | Valeur |
     | --- | --- |
@@ -133,7 +133,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
 
 ## <a name="step-4-add-a-condition"></a>Étape 4 : Ajouter une condition
 
-1. Sous l’onglet **Condition**, cliquez sur **Ajouter une condition**.
+1. Sous l’onglet **Conditions (facultatif)** , cliquez sur **Ajouter une condition**.
 
     ![Capture d’écran de la page Ajouter une condition d’attribution de rôle pour une nouvelle condition.](./media/storage-auth-abac-portal/condition-add-new.png)
 
@@ -141,7 +141,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
 
 1. Dans la section Ajouter une action, cliquez sur **Sélectionner des actions**.
 
-    Le volet Sélectionner une action s’affiche. Ce volet est une liste filtrée d’actions de données basée sur l’attribution de rôle destinée à être la cible de votre condition. 
+    Le volet Sélectionner une action s’affiche. Ce volet est une liste filtrée d’actions de données basée sur l’attribution de rôle destinée à être la cible de votre condition.
 
     ![Capture d’écran du volet Sélectionner une action, avec une action sélectionnée.](./media/storage-auth-abac-portal/condition-actions-select.png)
 
@@ -213,7 +213,7 @@ Pour tester la condition, vous devez utiliser Azure PowerShell.
     ```
 
     Voici un exemple de sortie. Notez que vous **ne pouvez pas** lire le fichier en raison de la condition que vous avez ajoutée.
-    
+
     ```azurepowershell
     Get-AzStorageBlob: This request is not authorized to perform this operation using this permission. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation using this permission.
     ErrorCode: AuthorizationPermissionMismatch
@@ -221,7 +221,7 @@ Pour tester la condition, vous devez utiliser Azure PowerShell.
     RequestId: <requestId>
     Time: Sun, 13 Sep 2020 12:33:42 GMT
     ```
-    
+
 1. Lisez le fichier du projet Cascade.
 
     ```azurepowershell
@@ -229,10 +229,10 @@ Pour tester la condition, vous devez utiliser Azure PowerShell.
     ```
 
     Voici un exemple de sortie. Notez que vous pouvez lire le fichier, car il a l’étiquette Project=Cascade.
-    
+
     ```azurepowershell
        AccountName: <storageAccountName>, ContainerName: <containerName>
-    
+
     Name                 BlobType  Length          ContentType                    LastModified         AccessTier SnapshotT
                                                                                                                   ime
     ----                 --------  ------          -----------                    ------------         ---------- ---------

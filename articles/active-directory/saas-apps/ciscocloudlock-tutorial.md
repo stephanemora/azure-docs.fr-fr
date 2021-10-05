@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec The Cloud Security Fabric | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à The Cloud Security Fabric'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et The Cloud Security Fabric.
 services: active-directory
 author: jeevansd
@@ -9,24 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/18/2019
+ms.date: 09/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 7025b948615efcf6ace3ca0fb6a2daecdd75c702
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a3b787b3ed320c5c5c1381831c7b0a24a33c1186
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92456035"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619739"
 ---
-# <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>Tutoriel : Intégrer The Cloud Security Fabric à Azure Active Directory
+# <a name="tutorial-azure-ad-sso-integration-with-the-cloud-security-fabric"></a>Tutoriel : Intégration de l’authentification unique Azure AD à The Cloud Security Fabric
 
 Dans ce tutoriel, vous allez découvrir comment intégrer The Cloud Security Fabric avec Azure Active Directory (Azure AD). Quand vous intégrez The Cloud Security Fabric à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à The Cloud Security Fabric.
 * Permettre à vos utilisateurs de se connecter automatiquement à The Cloud Security Fabric avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,59 +37,58 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* The Cloud Security Fabric prend en charge l’authentification unique lancée par le **fournisseur de services**
+* The Cloud Security Fabric prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-## <a name="adding-the-cloud-security-fabric-from-the-gallery"></a>Ajouter The Cloud Security Fabric à partir de la galerie
+## <a name="add-the-cloud-security-fabric-from-the-gallery"></a>Ajouter The Cloud Security Fabric à partir de la galerie
 
 Pour configurer l’intégration de The Cloud Security Fabric à Azure AD, vous devrez ajouter The Cloud Security Fabric à votre liste d’applications SaaS gérées à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **The Cloud Security Fabric** dans la zone de recherche.
 1. Sélectionnez **The Cloud Security Fabric** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-the-cloud-security-fabric"></a>Configurer et tester l’authentification unique Azure AD pour The Cloud Security Fabric
 
 Configurez et testez l’authentification unique Azure AD avec The Cloud Security Fabric avec un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur The Cloud Security Fabric associé.
 
-Pour configurer et tester l’authentification unique (SSO) Azure AD avec The Cloud Security Fabric, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec The Cloud Security Fabric, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique The Cloud Security Fabric](#configure-the-cloud-security-fabric-sso)**  : pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test The Cloud Security Fabric](#create-the-cloud-security-fabric-test-user)**  : pour avoir un équivalent de B.Simon dans The Cloud Security Fabric lié à la représentation Azure AD associée.
-6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique The Cloud Security Fabric](#configure-the-cloud-security-fabric-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test The Cloud Security Fabric](#create-the-cloud-security-fabric-test-user)**  : pour avoir un équivalent de B.Simon dans The Cloud Security Fabric lié à la représentation Azure AD associée.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **The Cloud Security Fabric**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **The Cloud Security Fabric**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL : 
+    a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant un des modèles suivants :
 
-      ```http
-      https://platform.cloudlock.com
-      https://app.cloudlock.com
-      ```
+      | **URL d’authentification** |
+      |--------|
+      | `https://platform.cloudlock.com` |
+      | `https://app.cloudlock.com` |
+      
+   b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant un des modèles suivants :
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
-
-      ```http
-      https://platform.cloudlock.com/gate/saml/sso/<subdomain>
-      https://app.cloudlock.com/gate/saml/sso/<subdomain>
-      ```
-
+      | **Identificateur** |
+      |---------|
+      | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
+      | `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
+     
     > [!NOTE]
     > La valeur de l'identificateur n'est pas réelle. Mettez à jour cette valeur avec l’identificateur réel. Contactez [l’équipe de support client de The Cloud Security Fabric](mailto:support@cloudlock.com) pour obtenir cette valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
@@ -113,9 +110,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-### <a name="configure-the-cloud-security-fabric-sso"></a>Configurer l’authentification unique The Cloud Security Fabric
-
-Pour configurer l’authentification unique côté **The Cloud Security Fabric**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique The Cloud Security Fabric](mailto:support@cloudlock.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -135,31 +129,29 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **The Cloud Security Fabric**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-the-cloud-security-fabric-sso"></a>Configurer l’authentification unique The Cloud Security Fabric
+
+Pour configurer l’authentification unique côté **The Cloud Security Fabric**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique The Cloud Security Fabric](mailto:support@cloudlock.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-the-cloud-security-fabric-test-user"></a>Créer un utilisateur de test The Cloud Security Fabric
 
 Dans cette section, vous allez créer un utilisateur nommé B.Simon dans The Cloud Security Fabric. Travaillez en collaboration avec [l’équipe de support de The Cloud Security Fabric](mailto:support@cloudlock.com) pour ajouter des utilisateurs à la plateforme The Cloud Security Fabric. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette The Cloud Security Fabric dans le volet d’accès, vous devez être connecté automatiquement à l’application The Cloud Security Fabric pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à The Cloud Security Fabric, d’où vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion à The Cloud Security Fabric pour lancer le flux de connexion.
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette The Cloud Security Fabric dans Mes applications vous redirige vers l’URL de connexion à The Cloud Security Fabric. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+Après avoir configuré The Cloud Security Fabric, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

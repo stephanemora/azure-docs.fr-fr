@@ -11,12 +11,12 @@ author: MarkusVi
 manager: mtillman
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad33236812329014851a7397488025a4df558cd
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 267c7ae20f9d424d03897e0ee31b7ad990ed261d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528717"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754097"
 ---
 # <a name="quickstart-access-azure-ad-logs-with-the-microsoft-graph-api"></a>Démarrage rapide : Accéder aux journaux d’Azure AD avec l’API Microsoft Graph 
 
@@ -47,15 +47,15 @@ L’objectif de cette étape est de créer un enregistrement d’échec de conne
 
 Cette section vous fournit les étapes à suivre pour obtenir des informations sur votre connexion à l’aide de l’API Graph.
 
- ![Requête Afficheur Graph](./media/quickstart-access-log-with-graph-api/graph-explorer-query.png)   
+ ![Requête de l’Afficheur Microsoft Graph](./media/quickstart-access-log-with-graph-api/graph-explorer-query.png)   
 
 **Pour examiner l’échec de connexion :**
 
-1. Accédez à l’[explorateur Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer).
+1. Accédez à l’[Afficheur Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer).
 
 2. Connectez-vous à votre locataire en tant qu’administrateur général.
 
-    ![Authentification dans l’explorateur Microsoft Graph](./media/quickstart-access-log-with-graph-api/graph-explorer-authentication.png)   
+    ![Authentification dans l’Afficheur Microsoft Graph](./media/quickstart-access-log-with-graph-api/graph-explorer-authentication.png)   
 
 3. Dans la **liste déroulante des verbes HTTP**, sélectionnez **GET**.
 
@@ -67,7 +67,7 @@ Cette section vous fournit les étapes à suivre pour obtenir des informations s
 
 Examinez le résultat de votre requête.
 
- ![Aperçu de la réponse de l’explorateur Microsoft Graph](./media/quickstart-access-log-with-graph-api/response-preview.png)   
+ ![Aperçu de la réponse de l’Afficheur Microsoft Graph](./media/quickstart-access-log-with-graph-api/response-preview.png)   
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

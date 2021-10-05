@@ -1,18 +1,18 @@
 ---
 title: Inscrire et analyser Azure SQL Database
-description: Ce tutoriel explique comment analyser Azure SQL Database.
+description: Ce tutoriel explique comment analyser Azure SQL Database dans Azure Purview.
 author: hophanms
 ms.author: hophan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 06/08/2021
-ms.openlocfilehash: 83fd36ca1f352371e4d0717968512d791443d590
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.date: 09/27/2021
+ms.openlocfilehash: a84de6dcdf3abebad1267382fa990fcc1cb0b3a4
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515533"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209735"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Inscrire et analyser une base de données Azure SQL
 
@@ -35,7 +35,6 @@ La source de données Azure SQL Database prend en charge les fonctionnalités su
 1. Créez un compte Purview si vous n’en avez pas déjà un.
 
 1. Accès réseau entre le compte Purview et Azure SQL Database.
-
 
 ### <a name="set-up-authentication-for-a-scan"></a>Configurer l’authentification pour une analyse
 
@@ -101,7 +100,7 @@ Le principal de service ou l’identité managée doivent avoir l’autorisation
 
     > [!Note]
     > `Username` est soit votre propre principal de service, soit l’identité managée de Purview. En savoir plus sur les [rôles de base de données fixes et leurs fonctionnalités](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
-    
+
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Ajouter le principal de service aux informations d’identification de Purview et du coffre de clés
 
 > [!Note]

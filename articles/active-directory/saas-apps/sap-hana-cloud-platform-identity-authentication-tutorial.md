@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: dc0cd57eb32baaeac0850337bbead3a73dec9292
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eeee49a49e4d0c7269056cee9975303c4f22e69b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897334"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124746199"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SAP Cloud Platform Identity Authentication
 
@@ -37,7 +37,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* SAP Cloud Platform Identity Authentication prend en charge l’authentification unique lancée par le **fournisseur de services** et le **fournisseur d’identité**
+* SAP Cloud Platform Identity Authentication prend en charge l’authentification unique lancée par le **fournisseur de services** et par le **fournisseur d’identité**.
+* SAP Cloud Platform Identity Authentication prend en charge l’[attribution automatisée d’utilisateurs](sap-cloud-platform-identity-authentication-provisioning-tutorial.md).
 
 Avant de rentrer dans les détails techniques, il est essentiel de comprendre les concepts que vous allez voir. SAP Cloud Platform Identity Authentication et les services de fédération Active Directory (AD FS) vous permettent d’implémenter l’authentification unique entre les applications ou les services protégés par Azure AD (comme IdP) et les applications et services SAP protégés par SAP Cloud Platform Identity Authentication.
 
@@ -89,13 +90,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **SAP Cloud Platform Identity Authentication**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<IAS-tenant-id>.accounts.ondemand.com`
+    a. Dans la zone de texte **Identificateur**, tapez une valeur au format suivant : `<IAS-tenant-id>.accounts.ondemand.com`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
 
@@ -106,7 +107,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Informations d’authentification unique pour Domaine et URL SAP Cloud Platform Identity Authentication](common/metadata-upload-additional-signon.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `{YOUR BUSINESS APPLICATION URL}`
+    Dans la zone de texte **URL de connexion**, tapez une valeur au format suivant : `{YOUR BUSINESS APPLICATION URL}`
 
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez-la à jour avec l’URL de connexion réelle. Utilisez l’URL de connexion spécifique de votre application métier. En cas de doute, contactez [l’équipe du support technique de SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/capabilities/security/trustcenter.html).
@@ -191,6 +192,9 @@ L’option de fédération des identités est désactivée par défaut. Si la f�
 
 Pour savoir comment activer ou désactiver la fédération des identités avec SAP Cloud Platform Identity Authentication, consultez « Activer la fédération des identités avec SAP Cloud Platform Identity Authentication » dans [Configure Identity Federation with the User Store of SAP Cloud Platform Identity Authentication (Configurer la fédération des identités avec le magasin d’utilisateurs de SAP Cloud Platform Identity Authentication)](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/c029bbbaefbf4350af15115396ba14e2.html).
 
+> [!NOTE]
+> SAP Cloud Platform Identity Authentication prend également en charge l’attribution automatique d’utilisateurs. Des informations supplémentaires sur la configuration de cette fonctionnalité sont disponibles [ici](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
@@ -205,7 +209,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’application SAP Cloud Platform Identity Authentication pour laquelle vous avez configuré l’authentification unique
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette SAP Cloud Platform Identity Authentication dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de SAP Cloud Platform Identity Authentication pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette SAP Cloud Platform Identity Authentication dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de SAP Cloud Platform Identity Authentication pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

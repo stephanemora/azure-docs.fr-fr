@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/24/2021
-ms.openlocfilehash: ef8c1a50cd3568c6cec9bdb053b02e6e14741eb0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 09/10/2021
+ms.openlocfilehash: 7dcf326ea0834bdf644e2b717517f67d41d330e0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644676"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743284"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partager et recevoir des données d’Azure SQL Database et d’Azure Synapse Analytics
 
@@ -259,6 +259,8 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
    Pour ouvrir une invitation à partir d’un e-mail, recherchez dans votre boîte de réception une invitation émanant de votre fournisseur de données. L’invitation provient de Microsoft Azure et s’intitule **Invitation Azure Data Share de <yourdataprovider@domain.com>** . Cliquez sur **Afficher l’invitation** pour voir votre invitation dans Azure. 
 
    Pour ouvrir l’invitation directement à partir du portail Azure, recherchez **Invitations Azure Data Share** dans le portail Azure. Vous accédez à la liste des invitations Data Share.
+
+   Si vous êtes utilisateur invité d’un locataire, il vous est demandé de vérifier votre adresse e-mail pour le locataire avant d’afficher l’invitation Data Share pour la première fois. Une fois la vérification effectuée, elle est valide pendant 12 mois.
 
    ![Liste des invitations](./media/invitations.png "Liste des invitations") 
 

@@ -1,28 +1,28 @@
 ---
 title: Copier des données à partir de SAP ECC
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de SAP ECC vers des magasins de données récepteurs pris en charge.
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données de SAP ECC vers des banques de données réceptrices prises en charge.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/28/2020
-ms.openlocfilehash: bf20bc4b3e796f118b829cc979af1ff4ac75a0c6
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 47e7b51a75569ea1c23910b78a1b5396759381f7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316817"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764067"
 ---
-# <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copier des données de SAP ECC avec Azure Data Factory
+# <a name="copy-data-from-sap-ecc-using-azure-data-factory-or-synapse-analytics"></a>Copier des données de SAP ECC à l’aide d’Azure Data Factory ou de Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de SAP ECC (SAP Enterprise Central Component). Pour plus d’informations, consultez l’article [Vue d’ensemble d’activité de copie](copy-activity-overview.md).
 
 >[!TIP]
->Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, consultez le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) offrant une présentation détaillée sur chaque connecteur SAP, une comparaison et des conseils.
+>Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP, consultez le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) offrant une présentation détaillée sur chaque connecteur SAP, une comparaison et des conseils.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -50,7 +50,7 @@ La version 7.0 ou ultérieure fait référence à la version SAP NetWeaver au l
 1. Utilisez l’interface graphique utilisateur SAP pour vous connecter au système SAP. 
 2. Accédez à **Système** -> **État**. 
 3. Vérifiez la version de SAP_BASIS et assurez-vous qu’elle est supérieure ou égale à 701.  
-      ![Vérifier SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+      :::image type="content" source="./media/connector-sap-table/sap-basis.png" alt-text="Vérifier SAP_BASIS":::
 
 >[!TIP]
 >Pour copier des données à partir de SAP ECC via une table ou un affichage SAP, utilisez le connecteur de [Table SAP](connector-sap-table.md), qui est plus rapide et plus évolutif.
@@ -77,7 +77,7 @@ Utilisez les étapes suivantes pour créer un service lié à SAP ECC dans l’i
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -212,9 +212,9 @@ Les propriétés prises en charge dans la section `source` de l’activité de c
 
 ## <a name="data-type-mappings-for-sap-ecc"></a>Mappage de type de données pour SAP ECC
 
-Lorsque vous copiez des données de SAP ECC, les mappages suivants sont utilisés entre les types de données OData pour les données SAP ECC et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
+Lorsque vous copiez des données à partir de SAP ECC, les mappages suivants sont utilisés à partir des types de données OData pour les données SAP ECC vers les types de données intermédiaires que le service utilise en interne. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
 
-| Type de données OData | Type de données intermédiaires d’Azure Data Factory |
+| Type de données OData | Type de données de service intermédiaire |
 |:--- |:--- |
 | `Edm.Binary` | `String` |
 | `Edm.Boolean` | `Bool` |
@@ -241,4 +241,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l’activité de copie d’Azure Data Factory, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

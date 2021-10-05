@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/11/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 1588dedad6778993bc2db6307103e614a8f772ef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3b722cecc932370af8bcde7e374263a25d40c347
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562820"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094668"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Créer et utiliser des environnements logiciels dans Azure Machine Learning
 
@@ -91,6 +91,7 @@ env = Environment.get(workspace=ws, name="AzureML-sklearn-0.24-ubuntu18.04-py37-
 curated_clone = env.clone("customize_curated")
 ```
 
+
 ### <a name="use-conda-dependencies-or-pip-requirements-files"></a>Utiliser des dépendances Conda ou des fichiers de spécifications PIP
 
 Vous pouvez créer un environnement à partir d’une spécification Conda ou d’un fichier d’exigences pip. Utilisez la méthode [`from_conda_specification()`](/python/api/azureml-core/azureml.core.environment.environment#from-conda-specification-name--file-path-) ou [`from_pip_requirements()`](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-). Dans l'argument de la méthode, indiquez le nom de votre environnement et le chemin d'accès du fichier souhaité. 
@@ -107,14 +108,7 @@ myenv = Environment.from_pip_requirements(name = "myenv",
 
 ### <a name="enable-docker"></a>Activer Docker
 
-Lorsque vous activez Docker, Azure Machine Learning génère une image Docker et crée un environnement Python dans ce conteneur, en fonction de vos spécifications. Les images de Docker sont mises en cache et réutilisées : la première exécution dans un nouvel environnement prend généralement plus de temps que la génération de l’image.
-
-La section [`DockerSection`](/python/api/azureml-core/azureml.core.environment.dockersection) de la classe `Environment` d'Azure Machine Learning vous permet de personnaliser et de contrôler en détail le système d'exploitation invité sur lequel vous exécutez votre apprentissage. La variable `arguments` peut être utilisée pour spécifier des arguments supplémentaires à transmettre à la commande d’exécution Docker.
-
-```python
-# Creates the environment inside a Docker container.
-myenv.docker.enabled = True
-```
+Azure Machine Learning génère une image Docker et crée un environnement Python dans ce conteneur, en fonction de vos spécifications. Les images de Docker sont mises en cache et réutilisées : la première exécution dans un nouvel environnement prend généralement plus de temps que la génération de l’image. Pour les exécutions locales, spécifiez Docker dans le [RunConfiguration](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py#variables). 
 
 Par défaut, l'image Docker nouvellement créée apparaît dans le registre de conteneurs associé à l'espace de travail.  Le nom du référentiel est au format *azureml/azureml_\<uuid\>* . La partie identificateur unique (*uuid*) du nom correspond à un hachage qui est calculé à partir de la configuration de l'environnement. Cette correspondance permet au service de déterminer si une image de l'environnement donné existe déjà pour être réutilisée.
 
@@ -130,7 +124,7 @@ myenv.docker.base_image_registry="your_registry_location"
 
 >[!IMPORTANT]
 > Azure Machine Learning prend uniquement en charge les images Docker qui fournissent les logiciels suivants :
-> * Ubuntu 18.04 ou version ultérieure.
+> * Ubuntu 18.04 ou version ultérieure
 > * Conda 4.7.# ou version ultérieure.
 > * Python 3.6+.
 > * Un interpréteur de commandes compatible POSIX disponible sous /bin/sh est nécessaire dans toute image conteneur utilisée pour l’apprentissage. 
@@ -262,12 +256,6 @@ conda_dep.add_pip_package("pillow")
 
 # Adds dependencies to PythonSection of myenv
 myenv.python.conda_dependencies=conda_dep
-```
-
-Vous pouvez également ajouter des variables d’environnement à votre environnement. Celles-ci sont ensuite accessibles à l’aide de la commande os.environ.get dans votre script d’apprentissage.
-
-```python
-myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 ```
 
 >[!IMPORTANT]

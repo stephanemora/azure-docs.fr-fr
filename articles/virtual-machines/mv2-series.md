@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 75a9a8f9888c0e3773135aa407938601b74bab0e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: eccc5389330fd43025dbb66835b82e45d0284df9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690269"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216096"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -43,8 +43,9 @@ Machines virtuelles de série Mv2 dotées de la technologie Hyper-Threading d’
 
 - Windows Server 2019 ou version ultérieure
 - SUSE Linux Enterprise Server 12 SP4 et versions ultérieures ou SUSE Linux Enterprise Server 15 SP1 et versions ultérieures
-- Red Hat Enterprise Linux 7.6, 7.7, 8.1 ou version ultérieure 
-- Oracle Enterprise Linux 7.7 ou version ultérieure
+- Red Hat Enterprise Linux 7.6 ou version ultérieure, et 8.1 ou version ultérieure
+- Oracle Enterprise Linux 7.7 ou version ultérieure, et 8.1 ou version ultérieure
+- Ubuntu 18.04 avec le noyau 5.4.0-azure ou version ultérieure
 
 <sup>2</sup> [Tailles avec contraintes de cœurs disponibles](./constrained-vcpu.md).
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/25/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29e9341427b74c2395288ac85ee98d8ff44bd02e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: e0376e13c0519920a30229eafdc8fc66fb7c242f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968198"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585555"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de fournisseur d'identité SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -156,7 +156,7 @@ L’élément **OutputClaimsTransformations** peut contenir une collection d’�
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| PartnerEntity | Oui | URL des métadonnées du fournisseur d’identité SAML. Copiez les métadonnées du fournisseur d’identité et ajoutez-les à l’intérieur de l’élément CDATA `<![CDATA[Your IDP metadata]]>` |
+| PartnerEntity | Oui | URL des métadonnées du fournisseur d’identité SAML. Ou copier les métadonnées du fournisseur d'identité et les intégrer dans l'élément CDATA `<![CDATA[Your IDP metadata]]>`. L'incorporation des métadonnées du fournisseur d'identité n'est pas recommandée. Le fournisseur d’identité peut modifier les paramètres ou mettre à jour le certificat. Si les métadonnées du fournisseur d’identité ont été modifiées, récupérez les nouvelles métadonnées et mettez à jour votre stratégie avec la nouvelle. |
 | WantsSignedRequests | Non | Indique si le profil technique exige que toutes les demandes d’authentification sortantes soient signées. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`. Quand la valeur est `true`, la clé de chiffrement **SamlMessageSigning** doit être spécifiée et toutes les demandes d’authentification sortantes sont signées. Si la valeur est `false`, les paramètres **SigAlg** et **Signature** (chaîne de requête ou paramètre d’envoi) sont omis de la demande. Ces métadonnées contrôlent également l’attribut **AuthnRequestsSigned** des métadonnées, qui est généré dans les métadonnées du profil technique Azure AD B2C partagées avec le fournisseur d’identité. Azure AD B2C ne signe pas la demande si la valeur de **WantsSignedRequests** dans les métadonnées du profil technique est définie sur `false` et si les métadonnées du fournisseur identité **WantAuthnRequestsSigned** sont définies sur `false` ou ne sont pas spécifiées. |
 | XmlSignatureAlgorithm | Non | Méthode utilisée par Azure AD B2C pour signer la demande SAML. Ces métadonnées contrôlent la valeur du paramètre **SigAlg** (chaîne de requête ou paramètre d’envoi) dans la demande SAML. Valeurs possibles : `Sha256`, `Sha384`, `Sha512` ou `Sha1` (par défaut). Veillez à configurer l’algorithme de signature des deux côtés avec la même valeur. Utilisez uniquement l’algorithme pris en charge par votre certificat. |
 | WantsSignedAssertions | Non | Indique si le profil technique exige que toutes les assertions entrantes soient signées. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`. Si la valeur est `true`, toutes les sections d’assertions `saml:Assertion` envoyées par le fournisseur d’identité à Azure AD B2C doivent être signées. Si la valeur est `false`, le fournisseur d’identité ne doit pas signer les assertions, mais même s’il le fait, Azure AD B2C ne validera pas la signature. Ces métadonnées contrôlent également l’indicateur de métadonnées **WantsAssertionsSigned**, qui est généré dans les métadonnées du profil technique Azure AD B2C partagées avec le fournisseur d’identité. Si vous désactivez la validation des assertions, vous pouvez également désactiver la validation de signature de réponse (pour plus d’informations, consultez **ResponsesSigned**). |
@@ -168,7 +168,7 @@ L’élément **OutputClaimsTransformations** peut contenir une collection d’�
 | IncludeAuthnContextClassReferences | Non | Spécifie une ou plusieurs références d’URI identifiant des classes de contexte d’authentification. Par exemple, pour autoriser un utilisateur à se connecter uniquement avec un nom d’utilisateur et un mot de passe, définissez la valeur sur `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Pour autoriser la connexion avec nom d’utilisateur et mot de passe sur une session protégée (SSL/TLS), spécifiez `PasswordProtectedTransport`. Pour obtenir des conseils concernant les URI **AuthnContextClassRef** pris en charge, consultez la documentation de votre fournisseur d’identité. Spécifiez plusieurs URI sous la forme d’une liste délimitée par des virgules. |
 | IncludeKeyInfo | Non | Indique si la demande d’authentification SAML contient la clé publique ou le certificat lorsque la liaison est définie sur `HTTP-POST`. Valeurs possibles : `true` ou `false`. |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
-|SingleLogoutEnabled| No| Indique si, lors de la connexion, le profil technique tente de se déconnecter des fournisseurs d’identité fédérés. Pour plus d’informations, consultez [Déconnexion d’une session Azure AD B2C](session-behavior.md#sign-out).  Valeurs possibles : `true` (par défaut) ou `false`.|
+|SingleLogoutEnabled| Non| Indique si, lors de la connexion, le profil technique tente de se déconnecter des fournisseurs d’identité fédérés. Pour plus d’informations, consultez [Déconnexion d’une session Azure AD B2C](session-behavior.md#sign-out).  Valeurs possibles : `true` (par défaut) ou `false`.|
 |ForceAuthN| No| Passe la valeur ForceAuthN dans la demande d’authentification SAML pour déterminer si l’IDP SAML externe est contraint d’inviter l’utilisateur à s’authentifier. Par défaut, Azure AD B2C affecte la valeur false à ForceAuthN lors de la connexion initiale. Si la session est ensuite réinitialisée (par exemple, à l’aide de `prompt=login` dans OIDC), la valeur ForceAuthN est alors définie sur `true`. La définition de l’élément de métadonnées comme indiqué ci-dessous force la valeur de toutes les requêtes à l’IDP externe.  Valeurs possibles : `true` ou `false`.|
 
 

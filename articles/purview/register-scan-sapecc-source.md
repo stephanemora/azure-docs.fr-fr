@@ -4,15 +4,15 @@ description: Cet article explique comment inscrire une source SAP ECC dans Azur
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
-ms.openlocfilehash: f9cd8601ef3e59de3c11073d7ac73176367f4fc9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 6d6764d98b71c01abef66fbd7392017fe638ba5a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724265"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212042"
 ---
 # <a name="register-and-scan-sap-ecc-source"></a>Inscrire et analyser la source SAP ECC
 
@@ -80,7 +80,7 @@ Dans l’écran **Inscrire des sources (SAP ECC)** , procédez comme suit :
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1.  Dans le centre d’administration, cliquez sur Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour créer un runtime d’intégration auto-hébergé.
+1.  Dans le centre d’administration, sélectionnez Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour créer un runtime d’intégration auto-hébergé.
 
 2.  Accédez aux **Sources**
 
@@ -110,11 +110,11 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
 
     :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="Analyser SAP ECC" border="true":::
 
-6.  Cliquez sur **Continuer**.
+6.  Sélectionnez **Continuer**.
 
 7.  Choisissez votre **déclencheur d’analyse**. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
 
-8.  Vérifiez votre analyse et cliquez sur **Enregistrer et exécuter**.
+8.  Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Affichage des analyses et des exécutions d’analyse
 

@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/24/2021
-ms.openlocfilehash: 39c8ed3f8d8b11839964ac376ac35badd6546411
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/10/2021
+ms.openlocfilehash: afdc363c53790f1710ee274d5430416e415059fd
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824622"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059945"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Une fois que vous avez terminé de transformer vos données, écrivez-les dans un magasin de destination à l’aide de la transformation du récepteur. Chaque flux de données requiert la transformation d'au moins un récepteur. Vous pouvez cependant écrire dans autant de récepteurs que nécessaire pour terminer votre flux de transformations. Pour écrire dans des récepteurs supplémentaires, créez de nouveaux flux via de nouvelles branches et des fractionnements conditionnels.
 
@@ -35,7 +37,7 @@ Les jeux de données inlined sont recommandés lorsque vous utilisez des schéma
 
 Pour utiliser un jeu de données inlined, sélectionnez le format de votre choix à l’aide du sélecteur **Type de récepteur**. Au lieu de sélectionner un jeu de données récepteur, sélectionnez le service lié auquel vous souhaitez vous connecter.
 
-![Capture d’écran montrant l’option Inlined sélectionnée.](media/data-flow/inline-selector.png "Capture d’écran montrant l’option Inlined sélectionnée.")
+:::image type="content" source="media/data-flow/inline-selector.png" alt-text="Capture d’écran montrant l’option Inlined sélectionnée.":::
 
 ## <a name="workspace-db-synapse-workspaces-only"></a>BASE de l’espace de travail (espaces de travail Synapse uniquement)
 
@@ -44,7 +46,7 @@ Lorsque vous utilisez des flux de données dans des espaces de travail Azure Syn
 > [!NOTE]
 > Le connecteur de base de données de l’espace de travail Azure Synapse est actuellement en version préliminaire publique et peut uniquement fonctionner avec les bases de données Spark Lake pour l’instant
 
-![Capture d’écran montrant la base de donnée de l’espace de travail sélectionnée.](media/data-flow/syms-sink.png "Capture d’écran montrant l’option Inlined sélectionnée.")
+:::image type="content" source="media/data-flow/syms-sink.png" alt-text="Capture d’écran montrant la base de donnée de l’espace de travail sélectionnée.":::
 
 ##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> Types de récepteurs pris en charge
 
@@ -76,11 +78,12 @@ La vidéo suivant explique un certain nombre d’options de récepteur pour les 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
-![Capture d’écran montrant les paramètres du récepteur.](media/data-flow/sink-settings.png "Capture d’écran montrant les paramètres du récepteur.")
+:::image type="content" source="media/data-flow/sink-settings.png" alt-text="Capture d’écran montrant les paramètres du récepteur.":::
 
 **Dérive de schéma** : La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité du service à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes. Activez **Autoriser la dérive de schéma** pour écrire des colonnes supplémentaires, en plus de ce qui est défini dans le schéma de données du récepteur.
 
-**Valider le schéma** : Si l’option Valider le schéma est sélectionnée, le flux de données échoue si une colonne du schéma source entrant est introuvable dans la projection source ou que les types de données ne correspondent pas. Utilisez ce paramètre pour que les données sources respectent le contrat de votre projection définie. Il est utile dans les scénarios de source de base de données pour signaler que les noms ou les types de colonne ont changé.
+**Valider le schéma** : si l’option Valider le schéma est sélectionnée, le flux de données échoue si une colonne dans la projection du récepteur est introuvable dans le magasin du récepteur, ou si les types de données ne correspondent pas. Utilisez ce paramètre pour que le schéma du récepteur respecte le contrat de votre projection définie. Il est utile dans les scénarios de récepteur de base de données pour signaler que les noms ou les types de colonne ont changé.
+
 
 ## <a name="cache-sink"></a>Récepteur de cache
 
@@ -90,11 +93,11 @@ Un *récepteur de cache* existe lorsqu’un flux de données écrit des données
 
 Pour écrire dans un récepteur de cache, ajoutez une transformation de récepteur et sélectionnez **Cache** comme type de récepteur. Contrairement à d’autres types de récepteurs, vous ne devez pas sélectionner un jeu de données ou un service lié, car vous n’écrivez pas dans un magasin externe. 
 
-![Sélectionner le récepteur de cache](media/data-flow/select-cache-sink.png "Sélectionner le récepteur de cache")
+:::image type="content" source="media/data-flow/select-cache-sink.png" alt-text="Sélectionner le récepteur de cache":::
 
 Dans les paramètres du récepteur, vous pouvez éventuellement spécifier les colonnes clés du récepteur de cache. Elles sont utilisées comme conditions de correspondance lors de l’utilisation de la fonction `lookup()` dans une recherche dans le cache. Si vous spécifiez des colonnes clés, vous ne pouvez pas utiliser la fonction `outputs()` dans une recherche dans le cache. Pour en savoir plus sur la syntaxe de recherche dans le cache, consultez [recherches mises en cache](concepts-data-flow-expression-builder.md#cached-lookup).
 
-![Colonnes clés du récepteur de cache](media/data-flow/cache-sink-key-columns.png "Colonnes clés du récepteur de cache")
+:::image type="content" source="media/data-flow/cache-sink-key-columns.png" alt-text="Colonnes clés du récepteur de cache":::
 
 Par exemple, si je spécifie une seule colonne clé de `column1` dans un récepteur de cache appelé `cacheExample`, l’appel de `cacheExample#lookup()` aurait un paramètre spécifiant la ligne à laquelle le récepteur de cache doit correspondre. La fonction génère une colonne complexe unique avec des sous-colonnes pour chaque colonne mappée.
 
@@ -113,12 +116,12 @@ Lorsque vous désactivez le mappage automatique, vous pouvez ajouter des mappage
 
 Par défaut, les données sont écrites dans plusieurs récepteurs selon un ordre non déterministe. Le moteur d’exécution écrit les données en parallèle à l’issue de la logique de transformation et l’ordre des récepteurs peut varier d’une exécution à l’autre. Pour spécifier l’ordre exact des récepteurs, activez **Ordre des récepteurs personnalisé** sous l’onglet **Général** du flux de données. Quand cette option est activée, les récepteurs sont écrits séquentiellement dans l’ordre croissant.
 
-![Capture d’écran montrant l’Ordre des récepteurs personnalisé.](media/data-flow/custom-sink-ordering.png "Capture d’écran montrant l’Ordre des récepteurs personnalisé.")
+:::image type="content" source="media/data-flow/custom-sink-ordering.png" alt-text="Capture d’écran montrant l’Ordre des récepteurs personnalisé.":::
 
 > [!NOTE]
 > Lors de l’utilisation de [recherches mises en cache](./concepts-data-flow-expression-builder.md#cached-lookup), assurez-vous que l’ordre des récepteurs mis en cache est défini sur 1, le plus bas (ou le premier) dans le classement.
 
-![Ordre des récepteurs personnalisé](media/data-flow/cache-2.png "Ordre des récepteurs personnalisé")
+:::image type="content" source="media/data-flow/cache-2.png" alt-text="Ordre des récepteurs personnalisé":::
 
 ### <a name="sink-groups"></a>Groupes de récepteurs
 

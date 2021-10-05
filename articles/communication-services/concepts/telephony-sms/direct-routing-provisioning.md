@@ -8,12 +8,13 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 079ef0c70641100e0b2efe7d08d79dc218a83abc
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: pstn
+ms.openlocfilehash: b6fa8523a347f9191c607ce3ba50b32f2d088886
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259030"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636018"
 ---
 # <a name="session-border-controllers-and-voice-routing"></a>Contrôleurs SBC et routage vocal
 Le routage direct Azure Communication Services vous permet de connecter votre infrastructure de téléphonie existante à Azure. Cet article liste les étapes principales nécessaires pour connecter un contrôleur SBC (Session Border Controller) pris en charge au routage direct et comment fonctionne le routage vocal pour la ressource de communication activée. 
@@ -48,6 +49,9 @@ Quand vous ajoutez une configuration de routage direct à une ressource, tous le
 ## <a name="voice-routing-examples"></a>Exemples de routage vocal
 Les exemples suivants illustrent le routage vocal dans un flux d’appel.
 
+> [!NOTE]
+> Dans tous les exemples, alors que la route vocale supérieure a une priorité plus élevée, les contrôleurs SBC dans une route sont essayés dans un ordre aléatoire.
+
 ### <a name="one-route-example"></a>Exemple avec une route :
 Si vous créez une route vocale avec un modèle `^\+1(425|206)(\d{7})$` et que vous y ajoutez `sbc1.contoso.biz` et `sbc2.contoso.biz`, quand l’utilisateur effectue un appel à `+1 425 XXX XX XX` ou `+1 206 XXX XX XX`, l’appel est tout d’abord routé vers le contrôleur SBC `sbc1.contoso.biz` ou `sbc2.contoso.biz`. Si aucun des contrôleurs SBC n’est disponible, l’appel est abandonné.
 
@@ -58,7 +62,7 @@ Supposons que vous créez une route vocale avec un modèle `^\+1(425|206)(\d{7})
 Supposons que vous créez une route vocale avec un modèle `^\+1(425|206)(\d{7})$`, que vous y ajoutez `sbc1.contoso.biz` et `sbc2.contoso.biz`, que vous créez une deuxième route avec le même modèle avec `sbc3.contoso.biz` et `sbc4.contoso.biz`, puis que vous créez une troisième route avec `^+1(\d[10])$` avec `sbc5.contoso.biz`. Dans ce cas, quand l’utilisateur effectue un appel à `+1 425 XXX XX XX` ou `+1 206 XXX XX XX`, l’appel est tout d’abord routé vers le contrôleur SBC `sbc1.contoso.biz` ou `sbc2.contoso.biz`. Si aucun des deux contrôleurs sbc1 et sbc2 n’est disponible, la route ayant une priorité inférieure est essayée (`sbc3.contoso.biz` et `sbc4.contoso.biz`). Si aucun des contrôleurs SBC d’une deuxième route n’est disponible, la troisième route est essayée. Si le contrôleur sbc5 n’est pas non plus disponible, l’appel est abandonné. De plus, si un utilisateur compose `+1 321 XXX XX XX`, l’appel passe à `sbc5.contoso.biz` et, s’il n’est pas disponible, l’appel est abandonné.
 
 > [!NOTE]
-> Dans tous les exemples, alors que la route vocale supérieure a une priorité plus élevée, les contrôleurs SBC dans une route sont essayés dans un ordre aléatoire.
+> Le basculement vers le contrôleur SBC suivant dans le routage vocal fonctionne uniquement pour les codes de réponse 408, 503 et 504.
 
 > [!NOTE]
 > Dans tous les exemples, si le numéro composé ne correspond pas au modèle, l’appel est abandonné, sauf s’il existe un numéro acheté pour la ressource de communication et que ce numéro a été utilisé comme `alternateCallerId` dans l’application. 

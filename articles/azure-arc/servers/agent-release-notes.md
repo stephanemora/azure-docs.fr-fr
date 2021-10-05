@@ -4,12 +4,12 @@ description: Cet article contient des notes de publication pour l’agent des se
 ms.topic: overview
 ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4008a41629ac2e71e1abdb91e30f2d6b9350538
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 027d682a6f9727edb7ce39ac1eeea9947b2e4957
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431601"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628531"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Nouveautés de l’agent des serveurs avec Azure Arc
 
@@ -20,6 +20,16 @@ L’agent Connected Machine des serveurs avec Azure Arc reçoit des amélioratio
 - Résolution des bogues
 
 Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. Si vous recherchez des éléments antérieurs aux six derniers mois, vous les trouverez dans l’[archive des nouveautés de l’agent des serveurs avec Azure Arc](agent-release-notes-archive.md).
+
+## <a name="september-2021"></a>Septembre 2021
+
+Version 1.11
+
+### <a name="fixed"></a>Fixe
+
+- L’agent peut maintenant être installé sur les systèmes Windows avec la stratégie [Objets système : les différences entre majuscules et minuscules ne doivent pas être prises en compte pour les sous-systèmes autres que Windows](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) définie sur Désactivée.
+- L’agent de stratégie Guest Configuration réessaiera automatiquement si une erreur se produit pendant les événements de démarrage ou de redémarrage du service.
+- Correction d’un problème qui empêchait les stratégies d’audit de Guest Configuration de s’exécuter correctement sur les ordinateurs Linux.
 
 ## <a name="august-2021"></a>Août 2021
 
@@ -81,19 +91,8 @@ Version 1.6
    - Ajout de la prise en charge de signature V2 pour la validation de l’extension.
    - Mise à jour mineure de la journalisation des données.
 
-## <a name="april-2021"></a>Avril 2021
-
-Version 1.5
-
-### <a name="new-features"></a>Nouvelles fonctionnalités
-
-- Ajout de la prise en charge de Red Hat Enterprise Linux 8 et CentOS Linux 8.
-- Nouveau paramètre `-useStderr` pour diriger l’erreur et la sortie détaillée vers stderr.
-- Nouveau paramètre `-json` pour diriger les résultats de sortie au format JSON (en cas d’utilisation avec -useStderr).
-- Collecter d’autres métadonnées d’instance : fabricant, modèle et ID de la ressource de cluster (pour les nœuds Azure Stack HCI).
- 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Avant d’évaluer ou d’activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d’ensemble de l’agent Machine connectée](agent-overview.md) pour en savoir plus sur les exigences et les détails techniques relatifs à l’agent, ainsi que sur les méthodes de déploiement.
+- Avant d’évaluer ou d’activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d’ensemble de l’agent Machine connectée](agent-overview.md) pour en savoir plus sur les spécifications et les détails techniques relatifs à l’agent, ainsi que sur les méthodes de déploiement.
 
 - Consultez le [Guide de planification et de déploiement](plan-at-scale-deployment.md) pour planifier le déploiement de serveurs avec Azure Arc à n’importe quelle échelle et implémenter la gestion et la supervision centralisées.

@@ -1,20 +1,20 @@
 ---
-title: Inscrire un serveur erwin Mart et configurer des analyses dans Azure Purview
+title: Inscrire un serveur Erwin Mart et configurer des analyses
 description: Cet article explique comment inscrire un serveur erwin Mart dans Azure Purview et configurer une analyse.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 7/16/2021
-ms.openlocfilehash: 2b6c9f621c4c18a172e12bc93387eb75451cb851
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 8077658b644853f9ce0789a1d0863b3bde902818
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736339"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211523"
 ---
-# <a name="register-and-scan-erwin-mart-server-preview"></a>Inscrire et analyser un serveur erwin Mart (préversion)
+# <a name="register-and-scan-erwin-mart-server-preview"></a>Inscrire et analyser un serveur Erwin Mart (préversion)
 
 Cet article explique comment inscrire un serveur erwin Mart dans Purview et configurer une analyse.
 
@@ -71,7 +71,7 @@ Sur l’écran Inscrire des sources (erwin), procédez comme suit :
 4.  Entrez le **nom de l’application**.
 
     >[!Note]
-    > Vous pouvez trouver les détails ci-dessus en accédant jusqu’à votre modèle de données erwin. Cliquez sur Mart -\> Connexion pour afficher les détails relatifs au nom du serveur, au port et au nom de l’application.
+    > Vous pouvez trouver les détails ci-dessus en accédant jusqu’à votre modèle de données erwin. Sélectionnez Mart -\> Connexion pour afficher les détails relatifs au nom du serveur, au port et au nom de l’application.
 
     :::image type="content" source="media/register-scan-erwin-source/erwin-details.png" alt-text="Rechercher des détails erwin" border="true":::
     
@@ -86,7 +86,7 @@ Sur l’écran Inscrire des sources (erwin), procédez comme suit :
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1.  Dans le centre d’administration, cliquez sur Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré sur la machine virtuelle sur laquelle s’exécute l’instance erwin Mart. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
+1.  Dans le centre d’administration, sélectionnez Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré sur la machine virtuelle sur laquelle s’exécute l’instance erwin Mart. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
 
 2.  Accédez aux **Sources**.
 
@@ -124,13 +124,13 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
     :::image type="content" source="media/register-scan-erwin-source/setup-scan.png" alt-text="Déclencher une analyse" border="true":::
    
 
-6.  Cliquez sur **Tester la connexion**.
+6.  Sélectionnez **Test Connection** (Tester la connexion).
 
-7.  Cliquez sur **Continuer**.
+7.  Sélectionnez **Continuer**.
 
 8.  Choisissez votre **déclencheur d’analyse**. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
 
-9.  Vérifiez votre analyse et cliquez sur **Enregistrer et exécuter**.
+9.  Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Affichage des analyses et des exécutions d’analyse
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec LiquidFiles | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à LiquidFiles'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LiquidFiles.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 09/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 482d47c69da61ce932127d1e450f106ee02b4172
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 2c20c03e61d7fa7055d1044d69cacc8b234ad8f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111571620"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636645"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Didacticiel : Intégration d’Azure Active Directory avec LiquidFiles
+# <a name="tutorial-azure-ad-sso-integration-with-liquidfiles"></a>Tutoriel : Intégration de l’authentification unique Azure AD à LiquidFiles
 
 Dans ce tutoriel, vous allez apprendre à intégrer LiquidFiles à Azure Active Directory (Azure AD). Quand vous intégrez LiquidFiles à Azure AD, vous pouvez :
 
@@ -32,6 +32,9 @@ Pour configurer l’intégration d’Azure AD avec LiquidFiles, vous avez besoi
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement LiquidFiles pour lequel l’authentification unique est activée.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 

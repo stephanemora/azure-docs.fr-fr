@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: f9ce6f3c7898a492400f6a8cec62e65ab8777e15
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 129c0af62663fcc37621db0d2f37e5fdee55d05c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770862"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209639"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Démarrage rapide : Créer une application de démonstration dans le portail (Recherche cognitive Azure)
 
@@ -133,7 +133,7 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’application de démonstration est utile pour le prototypage, car vous pouvez simuler une expérience utilisateur final sans avoir à écrire de code JavaScript ou front-end. Pour plus d’informations sur les fonctionnalités front-end, commencez par la navigation par facettes :
+L’application de démonstration est utile pour le prototypage, car vous pouvez simuler une expérience d’utilisateur final sans avoir à écrire de code JavaScript ou front-end, mais à mesure que vous vous approchez de la preuve de concept dans votre propre projet, passez en revue l’exemple de code de bout en bout le plus proche d’une application réelle :
 
 > [!div class="nextstepaction"]
-> [Guide pratique pour générer un filtre de facette](search-filters-facets.md)
+> [Ajouter une recherche à des applications web](tutorial-csharp-overview.md)

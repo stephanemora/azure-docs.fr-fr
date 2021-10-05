@@ -9,37 +9,39 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 74c65a28688906b4c9cfecf786f5862e31143ead
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: ac32f01849054017394d420668d1361e7c597dfb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804337"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751610"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Didacticiel : Intégration d’Azure Active Directory avec Zscaler ZSCloud
 
 L’objectif de ce tutoriel est de montrer comment intégrer Zscaler ZSCloud dans Azure Active Directory (Azure AD). Quand vous intégrez Zscaler ZSCloud à Azure AD, vous pouvez :
 
-- Contrôler qui a accès à Zscaler ZSCloud dans Azure AD.
-- Permettre à vos utilisateurs de se connecter automatiquement à Zscaler ZSCloud avec leur compte Azure AD.
-- Gérer vos comptes à un emplacement central : le Portail Azure.
+* Contrôler qui a accès à Zscaler ZSCloud dans Azure AD.
+* Permettre à vos utilisateurs de se connecter automatiquement à Zscaler ZSCloud avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Zscaler ZSCloud, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
-- Un abonnement Zscaler ZSCloud pour lequel l’authentification unique est activée.
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Zscaler ZSCloud pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-- Zscaler ZSCloud prend en charge l’authentification unique initiée par le **fournisseur de services**
+* Zscaler ZSCloud prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-- Zscaler ZSCloud prend en charge l’attribution d’utilisateurs **juste-à-temps**
+* Zscaler ZSCloud prend en charge l’attribution d’utilisateurs **juste-à-temps**.
+
+* Zscaler ZSCloud prend en charge l’[attribution automatisée d’utilisateurs](zscaler-zscloud-provisioning-tutorial.md).
 
 ## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Ajouter Zscaler ZSCloud à partir de la galerie
 
@@ -88,7 +90,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application Zscaler ZSCloud s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
-   | Nom     | Attribut source   |
+   | Name     | Attribut source   |
    | -------- | ------------------ |
    | memberOf | user.assignedroles |
 
@@ -141,15 +143,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez l’utilisateur tel que **Britta Simon** dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-   ![Capture d’écran montrant la boîte de dialogue Utilisateurs et groupes où vous pouvez sélectionner un utilisateur.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_users.png)
+   ![Capture d’écran montrant la boîte de dialogue Utilisateurs et groupes où vous pouvez sélectionner un utilisateur.](./media/zscaler-zscloud-tutorial/users.png)
 
 6. Dans la boîte de dialogue **Sélectionner un rôle**, choisissez le rôle d’utilisateur approprié dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-   ![Capture d’écran montrant la boîte de dialogue Sélectionner un rôle où vous pouvez sélectionner un rôle d’utilisateur.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_roles.png)
+   ![Capture d’écran montrant la boîte de dialogue Sélectionner un rôle où vous pouvez sélectionner un rôle d’utilisateur.](./media/zscaler-zscloud-tutorial/roles.png)
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
 
-   ![Capture d’écran montrant la boîte de dialogue Add Assignment dans laquelle vous pouvez sélectionner Assign.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
+   ![Capture d’écran montrant la boîte de dialogue Add Assignment dans laquelle vous pouvez sélectionner Assign.](./media/zscaler-zscloud-tutorial/assignment.png)
 
    > [!NOTE]
    > Le rôle d’accès par défaut n’est pas pris en charge, car il empêcherait le provisionnement. Il ne peut donc pas être sélectionné lors de l’affectation d’utilisateurs.
@@ -168,7 +170,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 4. Sélectionnez **Administration > Authentification > Paramètres d'authentification** et procédez comme suit :
 
-   ![Capture d’écran montrant le site Zscaler avec les étapes décrites.](./media/zscaler-zscloud-tutorial/ic800206.png "Administration")
+   ![Capture d’écran montrant le site Zscaler avec les étapes décrites.](./media/zscaler-zscloud-tutorial/setting.png "Administration")
 
    a. Sous Type d'authentification, choisissez **SAML**.
 
@@ -176,7 +178,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 5. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit, puis cliquez sur Enregistrer.  
 
-   ![Gérer les utilisateurs et l’authentification](./media/zscaler-zscloud-tutorial/ic800208.png "Manage Users & Authentication")
+   ![Gérer les utilisateurs et l’authentification](./media/zscaler-zscloud-tutorial/attributes.png "Manage Users & Authentication")
 
    a. Dans la zone de texte **URL du portail SAML**, collez l'**URL de connexion** que vous avez copiée sur le portail Azure.
 
@@ -196,7 +198,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 6. Dans la page **Configure User Authentication** , procédez comme suit :
 
-   ![Capture d’écran montrant la boîte de dialogue Configure User Authentication avec l’option Activate sélectionnée.](./media/zscaler-zscloud-tutorial/ic800207.png)
+   ![Capture d’écran montrant la boîte de dialogue Configure User Authentication avec l’option Activate sélectionnée.](./media/zscaler-zscloud-tutorial/active.png)
 
    a. Passez la souris sur le menu **Activation** en bas à gauche.
 
@@ -210,17 +212,17 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Pour ouvrir la boîte de dialogue **Options Internet**, sélectionnez **Options Internet** dans le menu **Outils**.
 
-   ![Options Internet](./media/zscaler-zscloud-tutorial/ic769492.png &quot;Options Internet")
+   ![Options Internet](./media/zscaler-zscloud-tutorial/network.png &quot;Options Internet")
 
 3. Cliquez sur l’onglet **Connexions** .
 
-   ![Connexions](./media/zscaler-zscloud-tutorial/ic769493.png "Connexions")
+   ![Connexions](./media/zscaler-zscloud-tutorial/server.png "Connexions")
 
 4. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
 
 5. Dans la section Serveur proxy, procédez comme suit :
 
-   ![Serveur proxy](./media/zscaler-zscloud-tutorial/ic769494.png "Serveur proxy")
+   ![Serveur proxy](./media/zscaler-zscloud-tutorial/internet-options.png "Serveur proxy")
 
    a. Sélectionnez **Utiliser un serveur proxy pour le réseau local**.
 
@@ -241,15 +243,18 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Zscaler�
 > [!Note]
 > Si vous avez besoin de créer un utilisateur manuellement, contactez l’[équipe du support technique Zscaler ZSCloud](https://help.zscaler.com/).
 
+> [!NOTE]
+> Zscaler ZSCloud prend également en charge l’attribution automatique d’utilisateurs. Des informations supplémentaires sur la configuration de cette fonctionnalité sont disponibles [ici](./zscaler-zscloud-provisioning-tutorial.md).
+
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-- Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Zscaler ZSCloud, où vous pouvez lancer le flux de connexion.
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Zscaler ZSCloud, où vous pouvez lancer le flux de connexion.
 
-- Accédez directement à l’URL de connexion à Zscaler ZSCloud pour y lancer le flux de connexion.
+* Accédez directement à l’URL de connexion à Zscaler ZSCloud pour y lancer le flux de connexion.
 
-- Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Zscaler ZSCloud dans Mes applications, vous êtes redirigé vers l’URL de connexion à Zscaler ZSCloud. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Zscaler ZSCloud dans Mes applications, vous êtes redirigé vers l’URL de connexion à Zscaler ZSCloud. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

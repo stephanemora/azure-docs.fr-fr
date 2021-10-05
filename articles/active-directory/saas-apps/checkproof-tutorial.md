@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d6e1c99bd70cedd678cbf3dcef4ef66a594d969
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 631d65b7119d071961b6fd48bd13e152ac7f2321
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728423"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661542"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-checkproof"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à CheckProof
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * CheckProof prend en charge l’authentification unique initiée par le **fournisseur d’identité**.
+* CheckProof prend en charge le [provisionnement automatisé des utilisateurs](checkproof-provisioning-tutorial.md).
 
 ## <a name="add-checkproof-from-the-gallery"></a>Ajouter CheckProof à partir de la galerie
 
@@ -135,13 +136,16 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Page de création d’utilisateur CheckProof.](./media/checkproof-tutorial/user.png)
 
+> [!NOTE]
+>CheckProof prend également en charge le provisionnement automatique des utilisateurs. Vous trouverez [ici](./checkproof-provisioning-tutorial.md) plus d’informations sur la façon de configurer le provisionnement automatique des utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
 * Dans le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance CheckProof pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette CheckProof dans Mes applications, vous devez être connecté automatiquement à l’application CheckProof pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette CheckProof dans Mes applications, vous devez être connecté automatiquement à l’application CheckProof pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

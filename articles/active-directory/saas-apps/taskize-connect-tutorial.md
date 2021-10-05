@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Taskize Connect | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Taskize Connect'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Taskize Connect.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 09/23/2021
 ms.author: jeedes
-ms.openlocfilehash: a2b61d82a54770b820ec6c23b160fa78dcf9810b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: bf6046b92e65a1184fe39657d359e0381aa9f7f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114455877"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553147"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-taskize-connect"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Taskize Connect
+# <a name="tutorial-azure-ad-sso-integration-with-taskize-connect"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Taskize Connect
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Taskize Connect à Azure AD (Azure Active Directory). Quand vous intégrez Taskize Connect à Azure AD, vous pouvez :
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Taskize Connect prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**.
+* Taskize prend en charge l’[attribution automatique d’utilisateurs](taskize-connect-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -142,6 +143,8 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 >[!Note]
 >Si vous devez créer un utilisateur manuellement, contactez l’[équipe du support technique Taskize Connect](mailto:support@taskize.com).
 
+Taskize prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./taskize-connect-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -156,7 +159,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans Portail Azure : vous devez être connecté automatiquement à l’instance de Taskize Connect pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Taskize Connect dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Taskize Connect pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Taskize Connect dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Taskize Connect pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

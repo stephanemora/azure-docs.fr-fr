@@ -1,16 +1,16 @@
 ---
-title: Connecter des machines hybrides à Azure à partir du portail Azure
-description: Cet article explique comment installer l’agent et connecter des machines à Azure à l’aide d’Azure Arc enabled servers dans le portail Azure.
+title: Connecter des machines hybrides à Azure à l'aide d'un script de déploiement
+description: Cet article explique comment installer l’agent et connecter des machines à Azure à l’aide de serveurs compatibles avec Azure Arc à l’aide du script de déploiement que vous créez ans le portail Azure.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: bcccb9bbc4db14c2bc5553b1c88099f7b0d7f5d1
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 832e54538c6eb44e90dbd7ccb8ef804e0b0c45b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563822"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651975"
 ---
-# <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connecter des machines hybrides à Azure à partir du portail Azure
+# <a name="connect-hybrid-machines-to-azure-using-a-deployment-script"></a>Connecter des machines hybrides à Azure à l'aide d'un script de déploiement
 
 Vous pouvez activer les serveurs avec Azure Arc pour une seule machine ou un petit nombre de machines Windows ou Linux dans votre environnement en effectuant une série d’étapes manuellement. Vous pouvez également utiliser une méthode automatisée en exécutant un script de modèle que nous fournissons. Ce script automatise le téléchargement et l’installation des deux agents.
 
@@ -158,7 +158,7 @@ Si le démarrage de l’agent échoue une fois l’installation terminée, reche
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Vérifier la connexion avec Azure Arc
 
-Une fois l’agent installé et configuré pour qu’il se connecte aux serveurs activés par Azure Arc, accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
+Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte aux serveurs avec Azure Arc, accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
 
 ![Connexion au serveur réussie](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -168,4 +168,4 @@ Une fois l’agent installé et configuré pour qu’il se connecte aux serveurs
 
 - Consultez le [Guide de planification et de déploiement](plan-at-scale-deployment.md) pour planifier le déploiement de serveurs avec Azure Arc à n’importe quelle échelle et implémenter la gestion et la supervision centralisées.
 
-- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, vérifiez que la machine crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse avec [VM Insights](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.
+- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration d’invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, à vérifier que la machine crée des rapports sur l’espace de travail Log Analytics prévu, à activer la surveillance avec [VM Insights](../../azure-monitor/vm/vminsights-enable-policy.md) et bien plus encore.

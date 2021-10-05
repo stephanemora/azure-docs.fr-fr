@@ -1,14 +1,14 @@
 ---
 title: Pratiques de sécurité recommandées
 description: Lorsque vous utilisez Azure Lighthouse, il est important de prendre en compte la sécurité et le contrôle d’accès.
-ms.date: 03/12/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 897f09c41d550d6200cc3d78743bb3b010f2c402
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 52bc5301633f8e9d92aeaeee22ecf34b6458fccb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768265"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782363"
 ---
 # <a name="recommended-security-practices"></a>Pratiques de sécurité recommandées
 
@@ -44,6 +44,9 @@ Par exemple, vous pouvez utiliser une structure telle que celle-ci :
 Une fois que vous avez créé ces groupes, vous pouvez affecter des utilisateurs en fonction des besoins. Ajoutez uniquement les utilisateurs qui ont vraiment besoin d’un accès. Veillez à vérifier régulièrement l’appartenance aux groupes et à supprimer tous les utilisateurs dont l’inclusion n’est plus appropriée ou nécessaire.
 
 N’oubliez pas que, lorsque vous [intégrez des clients via une offre de service managé public](../how-to/publish-managed-services-offers.md), tout groupe (ou utilisateur ou principal de service) que vous incluez aura les mêmes autorisations pour chaque client achetant le plan. Pour affecter différents groupes afin de collaborer avec chaque client, vous devez publier un plan privé distinct exclusif pour chaque client, ou intégrer des clients individuellement à l’aide de modèles Azure Resource Manager. Par exemple, vous pouvez publier un plan public disposant d’un accès très limité, puis travailler directement avec le client pour intégrer ses ressources afin d’obtenir un accès supplémentaire à l’aide d’un modèle de ressource Azure personnalisé qui accorde un accès supplémentaire en fonction des besoins.
+
+> [!TIP]
+> Vous pouvez également créer des *autorisations éligibles* qui permettent aux utilisateurs de votre locataire de gestion d’élever temporairement leur rôle. Les autorisations éligibles vous permettent de réduire le nombre d’attributions permanentes de rôles privilégiés à des utilisateurs, ce qui contribue à réduire les risques de sécurité liés aux accès privilégiés attribués aux utilisateurs de votre locataire. Cette fonctionnalité est actuellement en préversion publique et a des exigences spécifiques en matière de licences. Pour plus d’informations, consultez [Créer des autorisations éligibles](../how-to/create-eligible-authorizations.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

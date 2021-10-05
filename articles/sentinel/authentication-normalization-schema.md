@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: b2eeec44054f57857e0da08134f6bada3aaf24f6
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: e0cab6a9d2d4c341cf326383e11b289bf606d37a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122535386"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755186"
 ---
 # <a name="azure-sentinel-authentication-normalization-schema-reference-public-preview"></a>Informations de référence sur le schéma de normalisation de l’authentification Azure Sentinel (préversion publique)
 
@@ -80,6 +80,7 @@ Les champs suivants sont générés par Log Analytics pour chaque enregistrement
 |---------|---------|---------|
 |<a name ="timegenerated"></a>**TimeGenerated**     |  DATETIME       |Heure à laquelle l’événement a été généré par l’appareil de création de rapports.         |
 |**_ResourceId**     | guid        |  ID de ressource Azure de l’appareil ou du service de création de rapports, ou l’ID de ressource de redirecteur de journal pour les événements transférés avec Syslog, CEF ou WEF.       |
+| **Type** | String | La table d’origine à partir de laquelle l’enregistrement a été récupéré. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, et ont les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
 |     |         |         |
 
 > [!NOTE]
@@ -95,7 +96,7 @@ Les champs d’événement sont communs à tous les schémas et décrivent l’a
 | **EventMessage**        | Facultatif    | Chaîne     |     Message général ou description, inclus dans l’enregistrement ou généré depuis l’enregistrement.   |
 | **EventCount**          | Obligatoire   | Integer    |     Nombre d’événements décrits par l’enregistrement. <br><br>Cette valeur est utilisée quand la source prend en charge l’agrégation, et un seul enregistrement peut représenter plusieurs événements. <br><br>Pour les autres sources, affectez à la valeur `1`. <br><br>**Remarque** : Ce champ est inclus pour des raisons de cohérence, mais il n’est généralement pas utilisé pour les événements d’authentification.  |
 | **EventStartTime**      | Obligatoire   | Date/heure  |      Si la source prend en charge l’agrégation et que l’enregistrement représente plusieurs événements, ce champ spécifie l’heure à laquelle le premier événement a été généré. Sinon, ce champ associe le champ [TimeGenerated](#timegenerated).<br><br>**Remarque** : Ce champ est inclus pour des raisons de cohérence, mais il n’est généralement pas utilisé pour les événements d’authentification.  |
-| **EventEndTime**        | Obligatoire   | Alias      |      Alias au champ [TimeGenerated](#timegenerated).    |
+| **EventEndTime**        | Obligatoire   | Alias      |      Alias du champ [TimeGenerated](#timegenerated).    |
 | **EventType**           | Obligatoire   | Énuméré |    Décrit l’opération signalée par l’enregistrement. <br><br>Pour les enregistrements d’authentification, les valeurs prises en charge sont les suivantes : <br>- `Logon` <br>- `Logoff`<br><br>**Remarque** : La valeur peut être fournie dans l’enregistrement source avec des termes différents, qui doivent être normalisés avec ces valeurs. La valeur d’origine doit être stockée dans le champ [EventOriginalType](#eventoriginaltype).|
 | <a name ="eventoriginaltype"></a>**EventOriginalType**           | Facultatif   | Chaîne |    Type d’événement, ou ID, tel qu’il est fourni dans l’enregistrement source. <br><br>Exemple : `4625`|
 | **EventResult**         | Obligatoire   | Énuméré |  Décrit le résultat de l’événement, normalisé à l’une des valeurs prises en charge suivantes : <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (non applicable) <br><br>**Remarque** : La valeur peut être fournie dans l’enregistrement source avec des termes différents, qui doivent être normalisés avec ces valeurs. <br><br>La source peut également fournir uniquement une valeur pour le champ [EventResultDetails](#eventresultdetails), qui doit être analysé pour obtenir la valeur **EventResult**. |

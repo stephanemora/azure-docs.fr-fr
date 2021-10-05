@@ -1,22 +1,25 @@
 ---
-title: Insights sur les ressources en lien avec vos données dans Azure Purview (préversion)
+title: Insights relatifs aux ressources en lien avec vos données dans Azure Purview
 description: Ce guide pratique explique comment afficher et utiliser les rapports Purview sur les insights relatifs aux ressources en lien avec vos données.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 11/20/2020
-ms.openlocfilehash: b9a207ffa14a18a5f4421fd21cebed28290b5ea6
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 09/27/2021
+ms.openlocfilehash: 8879edc7d1858cff5871c5339da4857d81f5c2d8
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183078"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217018"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Insights relatifs aux ressources en lien avec vos données dans Azure Purview
 
 Ce guide pratique explique comment accéder aux rapports sur les insights relatifs aux ressources Azure Purview en lien avec vos données, ainsi que comment les afficher et les filtrer.
+
+> [!IMPORTANT]
+> Azure Purview est actuellement disponible en PRÉVERSION. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
 Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivantes :
 
@@ -33,7 +36,7 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 
 * Configurez et effectuez une analyse sur le type de source.
 
-Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md).
+Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview](manage-data-sources.md).
 
 ## <a name="use-purview-asset-insights"></a>Utiliser les insights relatifs aux ressources dans Purview
 
@@ -48,11 +51,11 @@ Dans Azure Purview, vous pouvez inscrire et analyser les types de sources. Une f
 
    :::image type="content" source="./media/asset-insights/portal-access.png" alt-text="Lancer Purview à partir du portail Azure":::
 
-1. Dans la page d’**accueil** de Purview, sélectionnez la vignette **View insights (Afficher les insights)** pour accéder à la zone **Insights** :::image type="icon" source="media/asset-insights/ico-insights.png" border="false":::.
+1. Sur la page **d'accueil de** Purview, sélectionnez **Insights** dans le menu de gauche.
 
    :::image type="content" source="./media/asset-insights/view-insights.png" alt-text="Afficher vos insights dans le portail Azure":::
 
-1. Dans la zone **Insights** :::image type="icon" source="media/asset-insights/ico-insights.png" border="false":::, sélectionnez **Assets (Ressources)** pour afficher le rapport Purview **Asset insights (Insights relatifs aux ressources)** .
+1. Dans la zone **Insights**, sélectionnez **Assets (Ressources)** pour afficher le rapport Purview **Asset insights (Insights relatifs aux ressources)** .
 
 ### <a name="view-asset-insights"></a>Afficher des insights relatifs aux ressources
 
@@ -90,7 +93,7 @@ Les deux graphes suivants dans les insights relatifs aux ressources montrent une
    > [!NOTE]
    > Si l’analyse a été exécutée une seule fois au cours des 30 derniers jours ou si une modification du catalogue telle que l’ajout ou la suppression d’une classification s’est produite une seule fois en 30 jours, les informations sur les modifications ci-dessus sont vides.
 
-1. Si vous cliquez sur le type de source, consultez les dossiers du haut avec les principaux changements de nombres de ressources.
+1. Voir les dossiers les plus importants avec le nombre de postes les plus élevés lorsque vous sélectionnez le type de source.
 
 1. Sélectionnez le chemin d’accès pour afficher la liste des ressources.
 

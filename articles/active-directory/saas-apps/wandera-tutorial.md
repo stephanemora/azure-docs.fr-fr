@@ -1,7 +1,6 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Wandera RADAR Admin | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Wandera RADAR Admin'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Wandera RADAR Admin.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 7f2658261e89ab82c59cdb9b3491766e95491c92
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: c6606494bcdcc006634d4bbb4405933e0adb8ebb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985179"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653794"
 ---
 # <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>Tutoriel : Intégrer Wandera RADAR Admin à Azure Active Directory
 
@@ -81,7 +80,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://radar.wandera.com/saml/acs/<TENANT_ID>`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contactez [l’équipe de support client de Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure. Remplacez avec précaution la partie <tenant id> de l’URL ci-dessus par l’ID de locataire indiqué dans la page **Settings** > **Administration** > **Single Sign-On** de votre compte Wandera.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contactez [l’équipe de support client de Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure. Remplacez avec précaution la partie \<tenant id\> de l’URL ci-dessus par l’ID de locataire indiqué dans la page **Settings** > **Administration** > **Single Sign-On** de votre compte Wandera.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -157,8 +156,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure. Vous êtes alors automatiquement connecté à l’instance de Wandera RADAR Admin pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Wandera RADAR Admin dans Mes applications vous connecte automatiquement à l’instance de Wandera RADAR Admin pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Wandera RADAR Admin dans Mes applications vous connecte automatiquement à l’instance de Wandera RADAR Admin pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Wandera RADAR Admin, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Après avoir configuré Wandera RADAR Admin, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

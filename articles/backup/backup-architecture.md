@@ -2,13 +2,13 @@
 title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 06/23/2021
-ms.openlocfilehash: 532ca138a9f003f38dac9245f4478b81e2d827f7
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.date: 09/01/2021
+ms.openlocfilehash: 2523d0fc9a8e4843fc0d3d41b5ed35c89bace325
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112541659"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430375"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -81,17 +81,6 @@ Le tableau suivant présente les différents types de sauvegardes utilisées pou
 **Sauvegarde différentielle** | Une sauvegarde différentielle est basée sur la sauvegarde de données complète précédente la plus récente.<br/><br/> Elle capture uniquement les données qui ont changé depuis la sauvegarde complète. |  Vous pouvez déclencher au plus une sauvegarde différentielle par jour.<br/><br/> Vous ne pouvez pas configurer une sauvegarde complète et une sauvegarde différentielle le même jour.
 **Sauvegarde de fichier journal** | une sauvegarde de fichier journal permet d’effectuer une restauration ponctuelle à la seconde donnée. | Au plus, vous pouvez configurer des sauvegardes du journal des transactions toutes les 15 minutes.
 
-### <a name="comparison-of-backup-types"></a>Comparaison des types de sauvegardes
-
-La consommation du stockage, l’objectif de délai de récupération (RTO) et la consommation réseau varient pour chaque type de sauvegarde. L’illustration suivante compare les types de sauvegarde :
-
-- La source de données A est composée de 10 blocs de stockage A1-A10, qui sont sauvegardés mensuellement.
-- Les blocs A2, A3, A4 et A9 ont changé lors du premier mois et le bloc A5 a changé lors du mois suivant.
-- Pour les sauvegardes différentielles, le deuxième mois, les blocs A2, A3, A4 et A9 qui ont changé sont sauvegardés. Lors du troisième mois, ces mêmes blocs sont à nouveau sauvegardés, ainsi que le bloc A5 qui a changé. Les blocs modifiés continuent d’être sauvegardés jusqu’à la prochaine sauvegarde complète.
-- Pour les sauvegardes incrémentielles, le deuxième mois, les blocs A2, A3, A4 et A9 sont marqués comme modifiés et transférés. Lors du troisième mois, seul le bloc A5 qui a changé est marqué et transféré.
-
-![Illustration montrant des comparaisons entre méthodes de sauvegarde](./media/backup-architecture/backup-method-comparison.png)
-
 ## <a name="sap-hana-backup-types"></a>Types de sauvegarde SAP HANA
 
 Le tableau suivant présente les différents types de sauvegardes utilisées pour les bases de données SAP HANA et leur fréquence d’utilisation :
@@ -102,6 +91,17 @@ Le tableau suivant présente les différents types de sauvegardes utilisées pou
 | **Sauvegarde différentielle** | Une sauvegarde différentielle est basée sur la sauvegarde de données complète précédente la plus récente. <br><br> Elle capture uniquement les données qui ont changé depuis la sauvegarde complète précédente. | Vous pouvez planifier au plus une sauvegarde différentielle par jour.  <br><br> Vous ne pouvez pas configurer une sauvegarde complète et une sauvegarde différentielle le même jour. |
 | **Sauvegarde incrémentielle** | Une sauvegarde incrémentielle est basée sur la sauvegarde de données complète/différentielle/incrémentielle précédente la plus récente. <br><br> Elle capture uniquement les données qui ont changé depuis la sauvegarde de données précédente. | Vous pouvez planifier au plus une sauvegarde incrémentielle par jour. <br><br> Vous ne pouvez pas planifier à la fois des sauvegardes différentielles et incrémentielles sur une base de données. Un seul type de sauvegarde delta peut être planifié. <br><br> Vous ne pouvez pas configurer une sauvegarde complète et une sauvegarde différentielle le même jour. |k
 | **Sauvegarde de fichier journal** | une sauvegarde de fichier journal permet d’effectuer une restauration ponctuelle à la seconde donnée. | Au plus, vous pouvez configurer des sauvegardes du journal des transactions toutes les 15 minutes. |
+
+## <a name="comparison-of-backup-types"></a>Comparaison des types de sauvegardes
+
+La consommation du stockage, l’objectif de délai de récupération (RTO) et la consommation réseau varient pour chaque type de sauvegarde. L’illustration suivante compare les types de sauvegarde :
+
+- La source de données A est composée de 10 blocs de stockage A1-A10, qui sont sauvegardés mensuellement.
+- Les blocs A2, A3, A4 et A9 ont changé lors du premier mois et le bloc A5 a changé lors du mois suivant.
+- Pour les sauvegardes différentielles, le deuxième mois, les blocs A2, A3, A4 et A9 qui ont changé sont sauvegardés. Lors du troisième mois, ces mêmes blocs sont à nouveau sauvegardés, ainsi que le bloc A5 qui a changé. Les blocs modifiés continuent d’être sauvegardés jusqu’à la prochaine sauvegarde complète.
+- Pour les sauvegardes incrémentielles, le deuxième mois, les blocs A2, A3, A4 et A9 sont marqués comme modifiés et transférés. Lors du troisième mois, seul le bloc A5 qui a changé est marqué et transféré.
+
+![Diagramme montrant que la consommation de stockage, l'objectif de temps de récupération (RTO) et la consommation du réseau varient pour chaque type de sauvegarde.](./media/backup-architecture/backup-method-comparison.png)
 
 ## <a name="backup-features"></a>Fonctionnalités de sauvegarde
 

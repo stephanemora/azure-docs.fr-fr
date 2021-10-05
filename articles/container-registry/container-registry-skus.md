@@ -2,13 +2,13 @@
 title: Niveaux de service et fonctionnalités du registre
 description: Découvrez les fonctionnalités et les limites (quotas) des niveaux de service (SKU) De base, Standard et Premium d’Azure Container Registry.
 ms.topic: article
-ms.date: 06/24/2021
-ms.openlocfilehash: 8c27426cae6d80e31aef3d7ef9b75d28a14bd923
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.date: 08/12/2021
+ms.openlocfilehash: 7f9fe5d461dede4510d3fc8069f42e7950803984
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113437537"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582330"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Niveaux de service Azure Container Registry
 
@@ -62,6 +62,26 @@ L’envoi d’une seule image `nginx:latest` de 133 Mo sur un registre de conte
 Vous pouvez être confronté à une limitation des opérations de tirage et d’envoi quand le registre détermine que le taux de requêtes dépasse les limites autorisées pour le niveau de service du registre. Vous pouvez alors voir une erreur HTTP 429 de type `Too many requests`.
 
 La limitation peut se produire temporairement quand vous générez une rafale d’opérations de tirage et d’envoi d’images sur une période très brève, même si le taux moyen d’opérations de lecture et d’écriture est compris dans les limites du registre. Vous devrez peut-être implémenter une logique de nouvelle tentative avec un backoff dans votre code ou réduire le taux maximal de requêtes adressées au registre.
+
+## <a name="show-registry-usage"></a>Afficher l'utilisation du registre
+
+Utilisez la commande [AZ ACR Show-usage](/cli/az/acr#az_acr_show_usage) ou l’API REST [liste des utilisations](/rest/api/containerregstry/registries/list-usages) pour obtenir un instantané de la consommation actuelle du stockage et d’autres ressources du Registre, en comparaison avec les limites du niveau de service de ce registre. L’utilisation du stockage s’affiche également sur la page **Vue d’ensemble** du registre dans le portail.
+
+Les informations d’utilisation vous aident à prendre des décisions sur [la modification du niveau de service](#changing-tiers) lorsque votre registre est proche d’une limite. Ces informations vous permettent également de [gérer la consommation](container-registry-best-practices.md#manage-registry-size). 
+
+> [!NOTE]
+> L'utilisation du stockage du registre ne doit être utilisée qu'à titre indicatif et peut ne pas refléter les opérations récentes du registre. Surveillez la [mesure StorageUsed](monitor-service-reference.md#container-registry-metrics) du Registre pour obtenir des données à jour. 
+
+En fonction du niveau de service de votre registre, les informations sur l'utilisation comprennent tout ou partie des éléments suivants, ainsi que la limite de ce niveau :
+
+* Stockage consommé en octets<sup>1</sup>
+* Nombre de [webhooks](container-registry-webhook.md)
+* Nombre de [géo-réplications](container-registry-geo-replication.md) (y compris le réplica de démarrage)
+* Nombre de [points de terminaison privés](container-registry-private-link.md)
+* Nombre de [règles d’accès IP](container-registry-access-selected-networks.md)
+* Nombre de [liaisons de réseau virtuel](container-registry-vnet.md)
+
+<sup>1</sup>Dans un registre géo-répliqué, l’utilisation du stockage est indiquée pour la région d’hébergement. Multiplier par le nombre de réplications pour le stockage de registre total consommé.
 
 ## <a name="changing-tiers"></a>Changer de niveau
 

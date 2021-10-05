@@ -11,17 +11,17 @@ ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance faciale, logiciel de reconnaissance faciale, analyse faciale, correspondance de visage, application de reconnaissance faciale, recherche de visage par image, recherche de reconnaissance faciale
-ms.openlocfilehash: 15d8043beb32d8f3c7fa1b237e1ba25310983b86
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 9375b8b482076da9e308c9309c4f264118cccfa0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822285"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663323"
 ---
 # <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
 
 > [!WARNING]
-> Le 11 juin 2020, Microsoft a annoncé qu’il ne vendra pas de technologie de reconnaissance faciale aux services de police des États-Unis tant qu’un règlement strict fondé sur les droits de l’homme n’aura pas été promulgué. Par conséquent, les clients ne doivent pas utiliser les fonctionnalités de reconnaissance faciale ni les fonctionnalités comprises dans les services Azure comme Visage ou Video Indexer, s’ils représentent, ou autorisent l’utilisation de ces services par ou pour, un service de police des États-Unis. Lorsque vous créez une ressource Visage, vous devez, dans le portail Azure, indiquer que vous avez compris et que vous acceptez de ne pas utiliser le service par ou pour un service de police aux États-Unis et que vous avez consulté la [documentation sur l’IA responsable (RAI)](https://go.microsoft.com/fwlink/?linkid=2164191) et que vous utiliserez ce service conformément à cette documentation.
+> Le 11 juin 2020, Microsoft a annoncé qu’il ne vendra pas de technologie de reconnaissance faciale aux services de police des États-Unis tant qu’un règlement strict fondé sur les droits de l’homme n’aura pas été promulgué. Par conséquent, les clients ne doivent pas utiliser les fonctionnalités de reconnaissance faciale ni les fonctionnalités comprises dans les services Azure comme Visage ou Video Indexer, s’ils représentent, ou autorisent l’utilisation de ces services par ou pour, un service de police des États-Unis. Lorsque vous créez une ressource Visage, vous devez, dans le portail Azure, indiquer que vous avez compris et que vous acceptez de ne pas utiliser le service par ou pour un service de police aux États-Unis et que vous avez consulté la [documentation sur l’IA responsable (RAI)](../cognitive-services-apis-create-account-cli.md#prerequisites) et que vous utiliserez ce service conformément à cette documentation.
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
@@ -57,7 +57,7 @@ Les entreprises et les applications modernes peuvent utiliser les opérations d�
 
 ### <a name="identification"></a>Identification
 
-L’identification des visages peut être considérée comme une correspondance de type « un-à-plusieurs ». Les candidats correspondants sont retournés en fonction de la similarité de leurs données de visage et le visage faisant l’objet de la requête. Ce scénario est utilisé pour accorder l’accès dans un bâtiment à un certain groupe de personnes ou pour vérifier l’utilisateur d’un appareil.
+L’identification de visage peut s’employer à résoudre une correspondance « un-à-plusieurs » d’un visage sur une image comparé à un ensemble de visages dans un référentiel sécurisé. Les candidats correspondants sont retournés en fonction de la similarité de leurs données de visage et le visage faisant l’objet de la requête. Ce scénario est utilisé pour accorder l’accès dans un bâtiment à un certain groupe de personnes ou pour vérifier l’utilisateur d’un appareil.
 
 L’image suivante est un exemple de base de données nommée `"myfriends"`. Chaque groupe peut contenir jusqu’à 1 million d’objets Personne différents. Chaque objet Personne peut avoir jusqu’à 248 visages enregistrés.
 
@@ -67,7 +67,11 @@ Après avoir créé et formé un groupe, vous pouvez effectuer l’identificatio
 
 ### <a name="verification"></a>Vérification
 
-L’opération de vérification répond à la question « Ces deux visages appartiennent-ils à la même personne ? ». La vérification est également appelée correspondance de type « un-à-un », car les données de visage de sondage sont comparées à un seul visage inscrit. La vérification est utilisée dans le scénario d’identification pour vérifier si une correspondance donnée est exacte. 
+L’opération de vérification répond à la question « Ces deux visages appartiennent-ils à la même personne ? ». 
+
+La vérification est également une correspondance « un-à-un » d’un visage sur une image comparé à un visage sur une photo ou dans un référentiel sécurisé
+
+Elle peut être utilisée dans les scénarios de vérification d’identité ou de contrôle d’accès pour vérifier qu’une image correspond à une image précédemment capturée (par exemple, à partir d’une photo provenant d’une carte d’identité délivrée par un gouvernement).
 
 Pour plus d’informations sur la vérification de l’identité, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’API [Identifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) et [Vérifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 

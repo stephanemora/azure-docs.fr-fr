@@ -4,16 +4,15 @@ description: En savoir plus sur la connexion d’une fabrique de données à Azu
 ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
-ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 08/24/2021
-ms.openlocfilehash: e38c990622806e5e769626acb84377fc468a25a2
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.date: 09/27/2021
+ms.openlocfilehash: 5d5b1ed8a20bc459370a9bb7e437e1f5c977714d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966503"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217978"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Connecter Data Factory à Azure Purview (préversion)
 
@@ -42,7 +41,9 @@ Pour établir la connexion sur l’interface utilisateur de création de Data Fa
 
 3. Une fois connecté, vous pouvez voir le nom du compte Purview sous l’onglet **Compte Purview**.
 
-Les informations de connexion de Purview sont stockées dans la ressource de la fabrique de données, comme ci-dessous. Pour établir la connexion de manière programmatique, vous pouvez mettre à jour la fabrique de données et ajouter les paramètres `purviewConfiguration`.
+Si votre compte Purview est protégé par un pare-feu, créez les points de terminaison privés managés pour Purview. En savoir plus sur la façon de permettre à Data Factory d'[accéder à un compte sécurisé Purview](how-to-access-secured-purview-account.md). Vous pouvez le faire lors de la connexion initiale, ou modifier une connexion existante ultérieurement.
+
+Les informations de connexion de Purview sont stockées dans la ressource de la fabrique de données, comme ci-dessous. Pour établir la connexion de manière programmatique, vous pouvez mettre à jour la fabrique de données et ajouter les paramètres `purviewConfiguration`. Lorsque vous voulez pousser le lignage à partir des activités SSIS, ajouter également une `catalogUri`balise supplémentaire.
 
 ```json
 {
@@ -55,8 +56,11 @@ Les informations de connexion de Purview sont stockées dans la ressource de la 
             "purviewResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupname>/providers/Microsoft.Purview/accounts/<PurviewAccountName>"
         }
     },
-    "identity": {...},
     ...
+    "identity": {...},
+    "tags": {
+        "catalogUri": "<PurviewAccountName>.catalog.purview.azure.com //Note: used for SSIS lineage only"
+    }
 }
 ```
 
@@ -70,15 +74,26 @@ L’identité managée de la fabrique de données est utilisée pour authentifie
 
 - Pour un compte Purview créé **le 18 août 2021 ou après**, accordez le rôle **Curateur de données** à l’identité managée de la fabrique de données sur votre **collection racine** Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview](../purview/catalog-permissions.md) et comment [Ajouter des rôles et restreindre l’accès par le biais de regroupements](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    Lors de la connexion de la fabrique de données à Purview sur l’interface utilisateur de création, ADF tente d’ajouter automatiquement une telle attribution de rôle. Si vous avez un rôle **Administrateurs de collection** sur la collection racine Purview, cette opération s’effectue avec succès.
+    Lors de la connexion de la fabrique de données à Purview sur l’interface utilisateur de création, ADF tente d’ajouter automatiquement une telle attribution de rôle. Si vous détenez le rôle **Administrateur de collection** sur la collection racine Purview et que vous avez accès au compte Purview à partir de votre réseau, cette opération s’effectue avec succès.
 
 - Pour un compte Purview créé **avant le 18 août 2021**, accordez à l’identité managée de la fabrique de données le rôle Azure [**Curateur de données Purview**](../role-based-access-control/built-in-roles.md#purview-data-curator) intégré à votre compte Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview - Autorisations héritées](../purview/catalog-permissions.md#legacy-permission-guide).
 
     Lors de la connexion de la fabrique de données à Purview sur l’interface utilisateur de création, ADF tente d’ajouter automatiquement une telle attribution de rôle. Si vous avez le rôle intégré Azure **Propriétaire** ou **Administrateur de l’accès utilisateur** sur le compte Purview, cette opération est effectuée avec succès.
 
-L’avertissement ci-dessous peut apparaître si vous disposez du privilège de lecture des informations d’attribution de rôle Purview et que le rôle requis n’est pas accordé. Pour vous assurer que la connexion est correctement configurée pour l’envoi (push) de traçabilité de pipeline, accédez à votre compte Purview et vérifiez si le rôle **Curateur de données Purview** est accordé à l’identité managée de la fabrique de données. Si ce n’est pas le cas, ajoutez manuellement l’attribution de rôle.
+## <a name="monitor-purview-connection"></a>Contrôle de la connexion Purview
 
-:::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Capture d’écran de l’avertissement lors de l’inscription d’un compte Purview.":::
+Une fois que vous avez connecté l'usine de données à un compte Purview, vous voyez la page suivante avec des détails sur les capacités d'intégration activées.
+
+:::image type="content" source="./media/data-factory-purview/monitor-purview-connection-status.png" alt-text="Capture d'écran permettant de contrôler l'état de l'intégration entre Azure Data Factory et Purview.":::
+
+Pour **le lignage des données-pipeline**, vous pouvez voir l’état suivant :
+
+- **Connecté** : la fabrique de données est connectée au compte Purview. Notez que cela indique que l'usine de données est associée à un compte Purview et qu'elle a la permission d'y pousser la lignée. Si votre compte Purview est protégé par un pare-feu, vous devez également vous assurer que le runtime d'intégration utilisé pour exécuter les activités et effectuer la traçabilité push peut atteindre le compte Purview. En savoir plus sur [Accéder à un compte Azure Purview sécurisé à partir d'Azure Data Factory](how-to-access-secured-purview-account.md).
+- **Déconnecté** : L'usine de données ne peut pas pousser le lignage vers Purview car le rôle de curateur de données Purview n'est pas accordé à l'identité gérée de l'usine de données. Pour résoudre ce problème, accédez à votre compte Purview pour vérifier l'attribution des rôles, et accordez manuellement le rôle si nécessaire. Pour plus d’informations, consultez la section [configurer l’authentification](#set-up-authentication) .
+- **Inconnu**: Data Factory ne peut pas vérifier l’état. Les raisons possibles sont :
+
+    - Impossible d'atteindre le compte Purview depuis votre réseau actuel car le compte est protégé par un pare-feu. Vous pouvez lancer l’interface de chargement automatique à partir d’un réseau privé qui dispose d’une connectivité à votre compte Purview à la place.
+    - Vous n'avez pas le droit de vérifier les affectations de rôles sur le compte Purview. Vous pouvez contacter l'administrateur du compte Purview pour qu'il vérifie l'attribution des rôles pour vous. Pour en savoir plus sur le rôle Purview nécessaire, consultez la section [Configuration de l'authentification](#set-up-authentication).
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Rapporter les données de traçabilité à Azure Purview
 
@@ -94,4 +109,4 @@ Une fois que vous avez connecté la fabrique de données à un compte Purview, v
 
 [Découvrir et explorer des données dans ADF avec Purview](how-to-discover-explore-purview-data.md)
 
-[Guide de l’utilisateur sur la traçabilité du Data Catalog dans Azure Purview](../purview/catalog-lineage-user-guide.md)
+[Accéder à un compte Purview sécurisé](how-to-access-secured-purview-account.md)

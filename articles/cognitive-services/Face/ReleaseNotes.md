@@ -1,30 +1,30 @@
 ---
-title: Nouveautés du service Visage
+title: Nouveautés du service Visage Azure
 titleSuffix: Azure Cognitive Services
-description: Les notes de publication du service Visage comportent un historique des modifications apportées aux différentes versions.
+description: Tenez-vous informé des versions récentes et des mises à jour du service Visage Azure.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 04/26/2021
+ms.date: 09/08/2021
 ms.author: pafarley
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: fc61f94969311fedaa3fadb8c26e710537198f45
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.custom: contperf-fy21q3, contperf-fy22q1
+ms.openlocfilehash: d68ff884063f81eccccbd2dcd4d3bd05485f5ef9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018598"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750859"
 ---
-# <a name="whats-new-in-face-service"></a>Nouveautés du service Visage
+# <a name="whats-new-in-azure-face-service"></a>Nouveautés du service Visage Azure
 
-Le service Visage Azure est mis à jour régulièrement. Lisez cet article pour vous tenir informé des améliorations de fonctionnalités, des correctifs et des mises à jour de la documentation.
+Le service Visage Azure est mis à jour régulièrement. Lisez cet article pour vous tenir informé des nouvelles fonctionnalités, améliorations, correctifs, ainsi que des mises à jour de la documentation.
 
 ## <a name="april-2021"></a>Avril 2021
 
-### <a name="persondirectory"></a>PersonDirectory
+### <a name="persondirectory-data-structure"></a>Structure de données PersonDirectory
 
 * Pour effectuer des opérations de reconnaissance faciale, comme Identifier et Rechercher semblables, les clients de l’API Visage doivent créer une liste assortie d’objets **Person**. Le nouveau **PersonDirectory** est une structure de données qui contient des ID uniques, des chaînes de nom facultatives et des chaînes de métadonnées utilisateur facultatives pour chaque identité **Person** ajoutée à l’annuaire. Actuellement, l’API Visage offre la structure **LargePersonGroup** qui a des fonctionnalités similaires, mais est limitée à 1 million d’identités. La structure **PersonDirectory** peut atteindre 75 millions d’identités. Une autre différence majeure entre **PersonDirectory** et les structures de données précédentes est que vous n’avez plus besoin d’effectuer des appels d’entraînement une fois que vous avez ajouté des visages à un objet **Person** (le processus de mise à jour est automatiquement effectué). Pour plus d’informations, consultez [Utiliser la structure PersonDirectory](Face-API-How-to-Topics/use-persondirectory.md).
 

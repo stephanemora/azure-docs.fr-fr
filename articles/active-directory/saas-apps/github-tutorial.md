@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 12d80ee98ceef33221b7713703e8106bada6470c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fdd62a5acdc0c470b8b675d650b88839093dcbf4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750431"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124834220"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à une organisation GitHub Enterprise Cloud
+# <a name="tutorial-azure-ad-sso-integration-with-a-github-enterprise-cloud-organization"></a>Tutoriel : Intégration d’Azure Active Directory à une organisation GitHub Enterprise Cloud
 
 Ce tutoriel explique comment intégrer une **organisation** GitHub Enterprise Cloud à Azure Active Directory (Azure AD). L’intégration d’une organisation GitHub Enterprise Cloud à Azure AD vous permet d’effectuer les opérations suivantes :
 
@@ -27,19 +27,18 @@ Ce tutoriel explique comment intégrer une **organisation** GitHub Enterprise Cl
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à une organisation GitHub Enterprise Cloud, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Une organisation GitHub créée dans [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), ce qui nécessite le [plan de facturation GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Une organisation GitHub créée dans [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), ce qui nécessite le [plan de facturation GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* GitHub prend en charge l’authentification unique initiée par le **fournisseur de services**
+* GitHub prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-* GitHub prend en charge le [provisionnement d’utilisateurs **automatique** (invitations d’organisation)](github-provisioning-tutorial.md)
-
+* GitHub prend en charge l’[attribution **automatique** d’utilisateurs (invitations d’organisation)](github-provisioning-tutorial.md).
 
 ## <a name="adding-github-from-the-gallery"></a>Ajout de GitHub à partir de la galerie
 
@@ -83,9 +82,8 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://github.com/orgs/<Organization ID>/sso`
 
-
     > [!NOTE]
-    > Notez qu’il ne s’agit pas des valeurs réelles. Vous devez mettre à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Nous vous suggérons d’utiliser ici la valeur de chaîne unique dans l’identificateur. Accédez à la section d’administration de GitHub pour extraire ces valeurs.
+    > Notez qu’il ne s’agit pas des valeurs réelles. Vous devez mettre à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL d’authentification réels. Nous vous suggérons d’utiliser ici la valeur de chaîne unique dans l’identificateur. Accédez à la section d’administration de GitHub pour extraire ces valeurs.
 
 5. L’application GitHub s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **Identificateur d’utilisateur unique (ID de nom)** est mappé avec **user.userprincipalname**. L’application GitHub s’attend à ce que **Identificateur d’utilisateur unique (ID de nom)** soit mappé avec **user.mail**. Vous devez donc modifier le mappage d’attributs. Pour cela, cliquez sur l’icône **Modifier** et changez le mappage d’attributs.
 
@@ -98,7 +96,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 7. Dans la section **Configurer GitHub**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
-
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -137,7 +134,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 3. Cochez la case **Activer l’authentification SAML**, révélant ainsi les champs de configuration de l’authentification unique, puis effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant la section « SAML Single Sign-on » avec « Enable SAML authentication » avec des zones de texte d’URL mises en évidence.](./media/github-tutorial/saml-sso.png)
+    ![Capture d’écran montrant la section « SAML Single Sign-on » avec « Enable SAML authentication » avec des zones de texte d’URL mises en évidence.](./media/github-tutorial/authentication.png)
 
     a. Copiez la valeur du champ **URL d’authentification unique** et collez-la dans la zone de texte **URL de connexion** de la section **Configuration SAML de base** du portail Azure.
     
@@ -157,11 +154,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     
     e. Mettez à jour l’**URL Assertion Consumer Service (URL de réponse)** à partir de l’URL par défaut pour que l’URL dans GitHub corresponde à celle de l’inscription de l’application Azure.
 
-    ![image](./media/github-tutorial/tutorial_github_sha.png)
+    ![Capture d’écran montrant l’image.](./media/github-tutorial/certificate.png)
 
 5. Cliquez sur **Tester la configuration SAML** pour vérifier l’absence d’échecs ou d’erreurs de validation pendant l’authentification unique (SSO).
 
-    ![Paramètres](./media/github-tutorial/test.png)
+    ![Capture d’écran montrant les paramètres.](./media/github-tutorial/test.png)
 
 6. Cliquez sur **Enregistrer**.
 
@@ -182,13 +179,13 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 3. Cliquez sur **Invite member**.
 
-    ![Inviter des utilisateurs](./media/github-tutorial/invite-member.png "Inviter des utilisateurs")
+    ![Capture d’écran montrant Inviter des utilisateurs.](./media/github-tutorial/invite-member.png "Inviter des utilisateurs")
 
 4. Dans la boîte de dialogue **Invite member**, procédez comme suit :
 
     a. Dans la zone de texte **E-mail** , tapez l’adresse de messagerie du compte de Britta Simon.
 
-    ![Inviter des personnes](./media/github-tutorial/email-box.png "Inviter des personnes")
+    ![Capture d’écran montrant Inviter des personnes.](./media/github-tutorial/email-box.png "Inviter des personnes")
 
     b. Cliquez sur **Send Invitation**.
 
@@ -205,7 +202,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion GitHub pour lancer le flux de connexion à partir de là.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette GitHub dans Mes applications vous redirige vers l’URL de connexion GitHub. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette GitHub dans Mes applications vous redirige vers l’URL de connexion GitHub. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

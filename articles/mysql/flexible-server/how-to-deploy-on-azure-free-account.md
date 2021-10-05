@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e8f678db8b5df57ec716d80c9bde04a2ecc2b7a3
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 2472a3495b872a17b073a86a6d99c6ddbf218343
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122780105"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755345"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-mysql---flexible-server-for-free"></a>Utilisez un compte gratuit Azure pour essayer gratuitement la Base de données Azure pour MySQL - Serveur Flexible
 
@@ -34,7 +34,10 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Compte gratuit Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
 
 
-## <a name="create-an-instance-of-azure-database-for-mysql---flexible-server"></a>Créez une instance de Base de données Azure pour MySQL - Serveur Flexible
+## <a name="create-an-azure-database-for-mysql---flexible-server"></a>Créer un serveur flexible Azure Database pour MySQL
+
+Dans cet article, vous allez utiliser le portail Azure pour créer un serveur flexible avec la méthode de connectivité d’accès public. Vous pouvez également consulter les démarrages rapides respectifs pour créer un serveur flexible à l’aide d’[Azure CLI](./quickstart-create-server-cli.md) ou d’un [modèle ARM](./quickstart-create-arm-template.md), ou [au sein d’un réseau virtuel](./quickstart-create-connect-server-vnet.md).
+
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre compte gratuit Azure. 
     
@@ -109,7 +112,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-and-create.png" alt-text="Capture d’écran montrant le panneau Vérifier + créer.":::
 
     >[!IMPORTANT]
-    >Tant que vous utilisez votre compte gratuit Azure et que votre utilisation gratuite des services se situe dans les limites mensuelles (pour afficher des informations sur l’utilisation, consultez la section [**Surveiller et suivre l’utilisation des services gratuits**](#monitor-and-track-free-services-usage) ci-dessous), vous ne serez pas facturé pour le service. Nous travaillons actuellement à l’amélioration de l’expérience **Résumé des coûts** pour les services gratuits. 
+    >Lors de la création de l’instance Serveur flexible à partir de votre compte gratuit Azure, vous voyez toujours un **coût estimé par mois** dans le panneau **Calcul + Stockage : Récapitulatif des coûts** et l’onglet **Vérifier + créer** . Toutefois, tant que vous utilisez votre compte gratuit Azure et que votre utilisation gratuite des services est comprise dans les limites mensuelles (pour afficher des informations sur l’utilisation, voir la section [**Surveiller et suivre l’utilisation des services gratuits**](#monitor-and-track-free-services-usage) ci-dessous), vous n’êtes pas facturé pour le service. Nous travaillons actuellement à l’amélioration de l’expérience **Résumé des coûts** pour les services gratuits. 
     
 1. Sélectionnez **Créer** pour approvisionner le serveur. 
  

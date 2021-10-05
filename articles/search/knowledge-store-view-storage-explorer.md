@@ -7,51 +7,49 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: ee6e17e6fe52125d75f2782b1fa77215045787a3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/10/2021
+ms.openlocfilehash: d87ec3fa05e1740b5cba7b4230894f1df822ac1f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532233"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784621"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Voir une base de connaissances avec l’Explorateur Stockage
 
-Une [base de connaissances](knowledge-store-concept-intro.md) est créée par un ensemble de compétences et enregistrée dans Stockage Azure. Cet article explique comment afficher le contenu d’une base de connaissances à l’aide de Explorateur Stockage dans le portail Azure.
+Un [magasin de connaissances](knowledge-store-concept-intro.md) est un contenu créé par des compétences Recherche cognitive Azure et enregistré dans Stockage Azure. Cet article explique comment afficher le contenu d’une base de connaissances à l’aide d’Explorateur Stockage dans le Portail Azure.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
-+ Créez une base de connaissances dans le [portail Azure](knowledge-store-create-portal.md) ou via [Postman et des API REST](knowledge-store-create-rest.md).
-
-+ Vous aurez également besoin du nom du compte de stockage Azure contenant la base de connaissances, ainsi que de sa clé d’accès provenant du portail Azure.
+Commencez avec un magasin de connaissances existant créé dans le [Portail Azure](knowledge-store-create-portal.md) ou à l’aide des [API REST](knowledge-store-create-rest.md). Les procédures pas à pas pour le portail et REST créent une base de connaissances dans Stockage Table Azure.
 
 ## <a name="start-storage-explorer"></a>Démarrez Explorateur Stockage.
 
 1. Dans le portail Azure, [ouvrez le compte de stockage](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) que vous avez utilisé pour créer la base de connaissances.
 
-1. Dans le volet de navigation de gauche du compte de stockage, cliquez sur **Explorateur Stockage**.
+1. Dans le volet de navigation de gauche du compte de stockage, sélectionnez **Explorateur Stockage**.
 
-## <a name="view-edit-and-query-tables"></a>Afficher, modifier et interroger des tables
+## <a name="edit-and-query-tables"></a>Modifier et interroger des tables
 
-Les procédures pas à pas pour le portail et REST créent une base de connaissances dans Stockage Table.
+1. Développez la liste **TABLES** pour afficher la liste des projections de tables Azure créées durant la création de la base de connaissances. Si vous avez utilisé l’article de démarrage rapide ou REST pour créer le magasin de connaissances, les tables contiennent du contenu relatif aux révisions client d’un hôtel européen.
 
-1. Développez la liste **TABLES** pour afficher la liste des projections de tables Azure créées durant la création de la base de connaissances. Le contenu des tables doit avoir trait aux évaluations d’hôtels.
-
-1. Sélectionnez une table pour voir les données enrichies, notamment les phrases clés et les scores de sentiment.
+1. Sélectionnez une table dans la liste.
 
    ![Afficher des tables dans l’Explorateur Stockage](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Afficher des tables dans l’Explorateur Stockage")
 
-1. Pour changer le type de données d’une valeur de table ou pour changer des valeurs individuelles dans votre table, cliquez sur **Modifier**. Quand vous changez le type de données d’une colonne dans une ligne de table, il s’applique à toutes les lignes.
+1. Pour modifier le type de données, le nom de la propriété ou les valeurs de données individuelles de votre table, cliquez sur **Modifier**.
 
    ![Modifier une table dans l’Explorateur Stockage](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Modifier une table dans l’Explorateur Stockage")
 
-1. Pour exécuter des requêtes, cliquez sur **Requête** dans la barre de commandes, puis entrez vos conditions.  
+1. Pour exécuter des requêtes, sélectionnez **Requête** dans la barre de commandes, puis entrez vos conditions.
 
    ![Interroger une table dans l’Explorateur Stockage](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Interroger une table dans l’Explorateur Stockage")
 
+Dans Explorateur Stockage, vous ne pouvez interroger qu’une seule table à la fois à l’aide de la [syntaxe de requête prise en charge](/rest/api/storageservices/Querying-Tables-and-Entities). Pour interroger plusieurs tables, envisagez d’utiliser Power BI à la place.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Connectez cette base de connaissances à Power BI pour effectuer une analyse plus approfondie, ou allez plus loin avec le code en utilisant l’API REST et Postman pour créer une autre base de connaissances.
+Connectez ce magasin de connaissances pour Power BI afin de créer des visualisations qui incluent plusieurs tables.
 
 > [!div class="nextstepaction"]
 > [Connexion avec Power BI](knowledge-store-connect-power-bi.md)

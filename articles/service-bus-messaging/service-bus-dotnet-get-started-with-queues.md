@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 08/16/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e315542d8d58a58fa4e2cea8bbab4768af0596eb
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: b84ff908404c2d18f86ddd63fa14a9854fdf72d6
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252388"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079330"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Échanger des messages avec des files d’attente Azure Service Bus (.NET)
 Ce guide de démarrage rapide montre comment envoyer et recevoir des messages vers et depuis une file d’attente Service Bus à l’aide de la bibliothèque .NET [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/).
@@ -25,7 +25,7 @@ Ce guide de démarrage rapide montre comment envoyer et recevoir des messages ve
 - **Créez un espace de noms et une file d’attente Service Bus**. Suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer un espace de noms et une file d’attente Service Bus. 
 
     > [!IMPORTANT]
-    > Notez la **chaîne de connexion** pour votre espace de noms Service Bus et le nom de la **file d’attente** que vous avez créée. Vous les utiliserez ultérieurement dans ce tutoriel. 
+    > Notez la [**chaîne de connexion principale**](./service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string) pour votre espace de noms Service Bus et le nom de la **file d’attente** que vous avez créée. Vous les utiliserez ultérieurement dans ce tutoriel. 
 
 
 ## <a name="send-messages"></a>Envoyer des messages
@@ -59,7 +59,7 @@ Cette section montre comment créer une application console .NET Core pour envoy
 ### <a name="add-code-to-send-messages-to-the-queue"></a>Ajouter du code pour envoyer des messages à la file d’attente
 
 1. Remplacez le contenu de **Program.cs** par le code suivant. Voici les étapes importantes du code.  
-    1. Crée un objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) à l’aide de la chaîne de connexion à l’espace de noms. 
+    1. Crée un objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) à l’aide de la chaîne de connexion principale à l’espace de noms. 
     1. Utilise la méthode [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) sur l’objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) pour créer un objet [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) pour la file d’attente Service Bus spécifique.     
     1. Crée un objet [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) à l’aide de la méthode [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
     1. Ajoutez des messages au lot à l’aide de [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
@@ -134,7 +134,7 @@ Cette section montre comment créer une application console .NET Core pour envoy
             }
         }   
         ``` 
-1. Remplacez `<NAMESPACE CONNECTION STRING>` par la chaîne de connexion de votre espace de noms Service Bus, et remplacez `<QUEUE NAME>` par le nom de la file d’attente.
+1. Remplacez `<NAMESPACE CONNECTION STRING>` par la chaîne de connexion principale à votre espace de noms Service Bus. et remplacez `<QUEUE NAME>` par le nom de la file d’attente.
 1. Générez le projet et vérifiez qu’il ne présente pas d’erreurs. 
 1. Exécutez le programme et attendez le message de confirmation.
     
@@ -182,7 +182,7 @@ Dans cette section, vous allez ajouter du code pour récupérer des messages à 
 
 1. Remplacez le contenu de **Program.cs** par le code suivant. Voici les étapes importantes du code.
     Voici les étapes importantes du code :
-    1. Crée un objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) à l’aide de la chaîne de connexion à l’espace de noms. 
+    1. Crée un objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) à l’aide de la chaîne de connexion principale à l’espace de noms. 
     1. Appelle la méthode [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) sur l'objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) pour créer un objet [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) pour la file d’attente Service Bus spécifiée. 
     1. Spécifie des gestionnaires pour les événements [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) et [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) de l’objet [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor). 
     1. Démarre le traitement des messages en appelant l’objet [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) sur l'objet [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor). 
@@ -272,7 +272,7 @@ Dans cette section, vous allez ajouter du code pour récupérer des messages à 
             }
         }
         ```
-1. Remplacez `<NAMESPACE CONNECTION STRING>` par la chaîne de connexion de votre espace de noms Service Bus, et remplacez `<QUEUE NAME>` par le nom de la file d’attente. 
+1. Remplacez `<NAMESPACE CONNECTION STRING>` par la chaîne de connexion principale à votre espace de noms Service Bus. et remplacez `<QUEUE NAME>` par le nom de la file d’attente. 
 1. Générez le projet et vérifiez qu’il ne présente pas d’erreurs.
 1. Exécutez l’application réceptrice. Vous devriez voir les messages reçus. Appuyez sur n’importe quelle touche pour arrêter le récepteur et l’application. 
 

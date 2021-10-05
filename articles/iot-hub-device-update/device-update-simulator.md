@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7381d7f233bc813118f310b08352d1642904a907
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: d5a860455a66dc7db137b8d0eb7aad942271ef90
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753792"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566309"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Tutoriel Device Update pour Azure IoT Hub avec l’agent de référence du simulateur Ubuntu (18.04 x64)
 
@@ -128,7 +128,7 @@ Démarrez l’agent Device Update sur vos nouveaux appareils logiciels.
 
 Remplacez `<device connection string>` par votre chaîne de connexion.
 ```shell
-./AducIotAgentSim-microsoft-swupdate -c '<device connection string>'
+sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
 ```
 
 or
@@ -161,7 +161,7 @@ Agent running. [main]
 
 ## <a name="import-update"></a>Importer la mise à jour
 
-1. Téléchargez l’[exemple de manifeste d’importation](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) et l’[exemple de mise à jour d’image](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+1. Téléchargez l’[exemple de manifeste d’importation](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Sim.json) et l’[exemple de mise à jour d’image](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu). _Remarque_ : Il s’agit de fichiers de mise à jour réutilisés issus du tutoriel Raspberry Pi. La mise à jour de ce tutoriel sera simulée, par conséquent, le contenu du fichier n’a pas d’importance. 
 2. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez à votre hub IoT avec Device Update. Ensuite, sélectionnez l’option Mises à jour de l’appareil sous Gestion automatique des appareils dans la barre de navigation de gauche.
 
 3. Sélectionnez l’onglet Mises à jour.
@@ -196,7 +196,7 @@ Agent running. [main]
 
 3. Sélectionnez l’onglet Groupes en haut de la page. 
 
-4. Sélectionnez le bouton Ajouter pour créer un nouveau groupe.
+4. Sélectionnez le bouton Ajouter pour créer un groupe.
 
 5. Sélectionnez l’étiquette IoT Hub que vous avez créée à l’étape précédente à partir de la liste. Sélectionnez Créer un groupe de mises à jour.
 

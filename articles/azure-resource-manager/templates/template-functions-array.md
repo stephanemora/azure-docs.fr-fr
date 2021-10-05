@@ -2,13 +2,13 @@
 title: Fonctions de modèle - tableaux
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (ARM) pour travailler avec des tableaux.
 ms.topic: conceptual
-ms.date: 05/11/2021
-ms.openlocfilehash: 62704fc3ac6b4198e35d09f9951b9239bd95ce5a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/08/2021
+ms.openlocfilehash: 25fb249e1840a7538fa1dd14f3b1a930bbefdfee
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959740"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755992"
 ---
 # <a name="array-functions-for-arm-templates"></a>Fonctions de tableau pour les modèles ARM
 
@@ -52,45 +52,7 @@ Tableau.
 
 L’exemple suivant montre comment utiliser la fonction de tableau avec des types différents.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "intToConvert": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "stringToConvert": {
-      "type": "string",
-      "defaultValue": "efgh"
-    },
-    "objectToConvert": {
-      "type": "object",
-      "defaultValue": {
-        "a": "b",
-        "c": "d"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "intOutput": {
-      "type": "array",
-      "value": "[array(parameters('intToConvert'))]"
-    },
-    "stringOutput": {
-      "type": "array",
-      "value": "[array(parameters('stringToConvert'))]"
-    },
-    "objectOutput": {
-      "type": "array",
-      "value": "[array(parameters('objectToConvert'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/array.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -123,38 +85,7 @@ Chaîne ou tableau de valeurs concaténées.
 
 L’exemple suivant montre comment combiner deux tableaux.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [
-        "1-1",
-        "1-2",
-        "1-3"
-      ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [
-        "2-1",
-        "2-2",
-        "2-3"
-      ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "return": {
-      "type": "array",
-      "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/concat-array.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -162,27 +93,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) suivant montre comment combiner deux valeurs de chaîne et retourner une chaîne concaténée.
+L’exemple suivant montre comment combiner deux valeurs de chaîne et retourner une chaîne concaténée.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "prefix": {
-      "type": "string",
-      "defaultValue": "prefix"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "concatOutput": {
-      "type": "string",
-      "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/concat-string.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -211,58 +124,7 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 L’exemple suivant montre comment utiliser contains avec différents types :
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "OneTwoThree"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'e')]"
-    },
-    "stringFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'z')]"
-    },
-    "objectTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'one')]"
-    },
-    "objectFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'a')]"
-    },
-    "arrayTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'three')]"
-    },
-    "arrayFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'four')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/contains.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -295,50 +157,7 @@ Tableau. Quand aucun paramètre n’est fourni, un tableau vide est retourné.
 
 L’exemple suivant montre comment utiliser createArray avec différents types :
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringArray": {
-      "type": "array",
-      "value": "[createArray('a', 'b', 'c')]"
-    },
-    "intArray": {
-      "type": "array",
-      "value": "[createArray(1, 2, 3)]"
-    },
-    "objectArray": {
-      "type": "array",
-      "value": "[createArray(parameters('objectToTest'))]"
-    },
-    "arrayArray": {
-      "type": "array",
-      "value": "[createArray(parameters('arrayToTest'))]"
-    },
-    "emptyArray": {
-      "type": "array",
-      "value": "[createArray()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/createarray.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -370,42 +189,7 @@ Retourne **True** si la valeur est vide ; sinon, **False**.
 
 L’exemple suivant vérifie si un tableau, un objet et une chaîne sont vides.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": []
-    },
-    "testObject": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": ""
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testArray'))]"
-    },
-    "objectEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testObject'))]"
-    },
-    "stringEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/empty.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -435,30 +219,7 @@ Type (chaîne, entier, tableau ou objet) du premier élément d’un tableau ou 
 
 L’exemple suivant montre comment utiliser la première fonction avec un tableau et une chaîne.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayOutput": {
-      "type": "string",
-      "value": "[first(parameters('arrayToTest'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[first('One Two Three')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/first.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -479,60 +240,17 @@ Retourne un tableau ou un objet unique avec les éléments communs à partir des
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |objet ou tableau |La première valeur à utiliser pour rechercher des éléments communs. |
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
-| arguments supplémentaires |Non |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
+| arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour rechercher des éléments communs. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Tableau ou objet avec les éléments communs.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
-L’exemple suivant indique comment utiliser l’intersection avec les tableaux et les objets :
+L’exemple suivant indique comment utiliser l’intersection avec les tableaux et les objets.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "z",
-        "three": "c"
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "objectOutput": {
-      "type": "object",
-      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/intersection.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -561,30 +279,7 @@ Type (chaîne, entier, tableau ou objet) du dernier élément d’un tableau ou 
 
 L’exemple suivant indique comment utiliser la dernière fonction avec un tableau et une chaîne.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayOutput": {
-      "type": "string",
-      "value": "[last(parameters('arrayToTest'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[last('One Two Three')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/last.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -609,57 +304,11 @@ Retourne le nombre d’éléments d’un tableau, les caractères d’une chaîn
 
 Un entier.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
-L’exemple suivant montre comment utiliser la longueur avec un tableau et une chaîne :
+L’exemple suivant montre comment utiliser la longueur avec un tableau et une chaîne.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "One Two Three"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "propA": "one",
-        "propB": "two",
-        "propC": "three",
-        "propD": {
-          "propD-1": "sub",
-          "propD-2": "sub"
-        }
-      }
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayLength": {
-      "type": "int",
-      "value": "[length(parameters('arrayToTest'))]"
-    },
-    "stringLength": {
-      "type": "int",
-      "value": "[length(parameters('stringToTest'))]"
-    },
-    "objectLength": {
-      "type": "int",
-      "value": "[length(parameters('objectToTest'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -698,31 +347,9 @@ Entier représentant la valeur maximale.
 
 ### <a name="example"></a> Exemple
 
-L’exemple suivant montre comment utiliser max avec un tableau et une liste d’entiers :
+L’exemple suivant montre comment utiliser max avec un tableau et une liste d’entiers.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[max(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[max(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/max.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -749,31 +376,9 @@ Entier représentant la valeur minimale.
 
 ### <a name="example"></a> Exemple
 
-L’exemple suivant indique comment utiliser la fonction min avec un tableau et une liste d’entiers :
+L’exemple suivant indique comment utiliser la fonction min avec un tableau et une liste d’entiers.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[min(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[min(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/min.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -801,31 +406,9 @@ Tableau d’entiers.
 
 ### <a name="example"></a> Exemple
 
-L’exemple suivant montre comment utiliser la fonction range :
+L’exemple suivant montre comment utiliser la fonction range.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "startingInt": {
-      "type": "int",
-      "defaultValue": 5
-    },
-    "numberOfElements": {
-      "type": "int",
-      "defaultValue": 3
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "rangeOutput": {
-      "type": "array",
-      "value": "[range(parameters('startingInt'),parameters('numberOfElements'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/range.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -844,7 +427,7 @@ Retourne un tableau avec tous les éléments après le nombre spécifié dans le
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
-| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
+| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est retourné. |
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -854,45 +437,7 @@ Tableau ou chaîne.
 
 L’exemple suivant ignore le nombre spécifié d’éléments dans le tableau et le nombre spécifié de caractères dans une chaîne.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "elementsToSkip": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    },
-    "charactersToSkip": {
-      "type": "int",
-      "defaultValue": 4
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "array",
-      "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/skip.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -905,14 +450,14 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `take(originalValue, numberToTake)`
 
-Retourne un tableau avec le nombre spécifié d’éléments à partir du début du tableau, ou une chaîne avec le nombre spécifié de caractères à partir du début de la chaîne.
+Retourne un tableau ou une chaîne. Un tableau possède le nombre spécifié d’éléments depuis le début du tableau. Une chaîne possède le nombre de caractères spécifié à partir du début de la chaîne.
 
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
-| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
+| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne, tous les éléments du tableau ou de la chaîne sont retournés. |
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -922,45 +467,7 @@ Tableau ou chaîne.
 
 L’exemple suivant prend le nombre spécifié d’éléments du tableau, et les caractères d’une chaîne.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "elementsToTake": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    },
-    "charactersToTake": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "array",
-      "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/take.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
@@ -983,58 +490,15 @@ Retourne un tableau ou un objet unique avec tous les éléments communs à parti
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
 | arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
 Objet ou tableau.
 
 ### <a name="example"></a>Exemple
 
-L’exemple suivant indique comment utiliser l’intersection avec les tableaux et les objets :
+L’exemple suivant indique comment utiliser l’intersection avec les tableaux et les objets.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c1"
-      }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "three": "c2",
-        "four": "d",
-        "five": "e"
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "three", "four" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "objectOutput": {
-      "type": "object",
-      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/union.json":::
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 

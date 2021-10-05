@@ -3,15 +3,15 @@ title: Bonnes pratiques
 description: Meilleures pratiques recommandées pour obtenir de meilleurs résultats
 author: ariye
 ms.author: crtreasu
-ms.date: 03/12/2021
+ms.date: 09/10/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
-ms.openlocfilehash: 0a092b45b341af37e4251951b06d1211fa6c600a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 119837282409719a194341467a5d8164a46431b9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983795"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777580"
 ---
 # <a name="best-practices"></a>Meilleures pratiques
 
@@ -31,16 +31,24 @@ Nous vous recommandons d’essayer certaines de ces étapes pour obtenir les mei
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Mixed-Reality/Azure-Object-Anchors-Detection-and-Alignment-Best-Practices/player]
 
-- Le Kit de développement logiciel (SDK) d’exécution inclus requiert une zone de recherche fournie par l’utilisateur pour rechercher et détecter le ou les objets physiques. La zone de recherche peut être un cadre englobant, une sphère, un tronc de vue ou une combinaison de ceux-ci. Pour éviter une détection erronée, il est préférable de définir une zone de recherche suffisamment grande pour couvrir l’objet. Lorsque vous utilisez les exemples d’applications fournis, vous pouvez vous baser sur un côté de l’objet à environ 2 mètres de la surface la plus proche et démarrer l’application.
-- Avant de démarrer l’application Azure Object Anchors sur un appareil HoloLens 2, supprimez les hologrammes à proximité de votre lieu de travail en passant par les paramètres principaux de vos appareils (***Paramètres -> Système -> Hologrammes***).
+- Le Kit de développement logiciel (SDK) d’exécution inclus requiert une zone de recherche fournie par l’utilisateur pour rechercher et détecter le ou les objets physiques. La zone de recherche peut être un cadre englobant, une sphère, un tronc de vue ou une combinaison de ceux-ci. Pour éviter une détection erronée, définissez une zone de recherche suffisamment grande pour couvrir l’objet. Lorsque vous utilisez les exemples d’applications fournis, démarrez l’application en la plaçant à environ 2 mètres de la surface la plus proche.
+- Avant de démarrer l’application Azure Object Anchors sur un appareil HoloLens 2, supprimez toutes les Hologrammes à l’aide de l’application **Paramètres**.
+  Accédez à **Système** -> **Hologrammes**, puis sélectionnez **Supprimer tous les hologrammes** pour commencer avec un nouveau mappage.
 
-  Cette étape garantit que, si un nouvel objet comme une voiture est présent dans le même espace que celui occupé précédemment par un autre, ou si l’objet a été déplacé à partir de l’espace cible, les anciens hologrammes non pertinents ne sont pas conservés et créent une visualisation confuse de l’objet actuellement affiché.
-- Après avoir supprimé les hologrammes et avant de démarrer l’application, analysez l’objet, une voiture par exemple, en observant l’objet tout en déplaçant l’appareil d’environ 1 à 2 mètres et en faisant lentement le tour de l’objet une ou deux fois.
+  L’effacement des hologrammes permet aux objets d’être correctement détectés dans leurs positions actuelles au cas où ils ont été déplacés récemment.
+- Après avoir supprimé les hologrammes et avant de démarrer l’application, analysez l’objet en marchant autour de lui à une distance de 1 ou 2 mètres plusieurs fois, en portant l’HoloLens.
 
-  Cette étape garantit que toutes les estimations de surface résiduelles créées dans votre espace par des objets et des analyses antérieurs sont actualisées avec les surfaces de l’objet cible actuel que vous allez utiliser. Sinon, l’application peut voir des surfaces fantômes doubles entraînant un alignement incorrect de votre modèle 3D et des hologrammes associés. L’analyse préalable de l’objet réduit également considérablement la latence de détection Azure Object Anchors, par exemple de 30 à 5 secondes.
-- Pour les objets sombres et hautement réfléchissants, vous devrez peut-être analyser l’objet dans une plage plus rapprochée et en déplaçant votre tête vers le haut, le bas, et vers la gauche et la droite pour que l’appareil puisse voir les surfaces sous plusieurs angles et à plusieurs distances.
-- Si vous constatez une détection d’objet incorrecte, comme une orientation retournée ou une pose incorrecte telle qu’un modèle incliné, vous devez visualiser le mappage spatial. Les résultats incorrects sont souvent dus à une reconstruction de surface médiocre ou incomplète. Vous pouvez supprimer les hologrammes, analyser l’objet et réexécuter la détection d’objet sur l’application.
+  L’analyse préalable d’un objet et d’un environnement permet de nettoyer les surfaces résiduelles créées à partir d’objets et d’analyses antérieurs.
+  Sinon, l’application peut voir des surfaces fantômes entraînant un alignement incorrect de votre modèle 3D et des hologrammes associés. L’analyse préalable de l’objet peut également réduire considérablement la latence de détection Azure Object Anchors, par exemple de 30 à 5 secondes.
+- Pour les objets sombres et hautement réfléchissants, vous devrez peut-être analyser l'objet à une distance plus rapprochée sous plusieurs angles et à plusieurs distances.
 - Le Kit de développement logiciel (SDK) d’exécution inclus fournit quelques paramètres permettant aux utilisateurs d’ajuster la détection, comme illustré dans nos exemples d’applications. Les paramètres par défaut fonctionnent correctement pour la plupart des objets. Si vous devez les ajuster pour des objets spécifiques, voici quelques recommandations :
   - Utilisez un seuil de couverture de surface inférieur si l’objet physique est grand, sombre ou brillant.
   - Autorisez un petit changement d’échelle (par exemple, 0,1) pour un grand objet comme une voiture.
   - Autorisez un écart, en degrés, entre la direction verticale locale de l’objet et la gravité lorsque l’objet se trouve sur une pente.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce guide, vous avez appris quelques bonnes pratiques pour obtenir les meilleurs résultats lors de l’utilisation d’Azure Object Anchors pour détecter un objet. Voici quelques articles connexes :
+
+> [!div class="nextstepaction"]
+> [Résolution des problèmes de détection d’objets](./troubleshoot/object-detection.md)

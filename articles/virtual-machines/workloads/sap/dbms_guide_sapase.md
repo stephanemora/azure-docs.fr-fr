@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/13/2020
+ms.date: 09/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74d5bee95ae91eb11f249518f49b711d9649db01
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: aabb53a573ee8a3ccc5d98ab8316fee560dbf625
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603901"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles SAP ASE Azure pour charge de travail SAP
 
@@ -182,10 +182,14 @@ Nous recommandons d’appliquer la compression avant le chargement sur Azure pou
 La compression des données et des éléments LOB fonctionne au sein d’une machine virtuelle hébergée dans Azure Virtual Machines comme en local. Pour savoir comment vérifier si la compression est déjà utilisée dans une base de données SAP ASE existante, consultez [Note de support SAP n° 1750510](https://launchpad.support.sap.com/#/notes/1750510). Pour plus d’informations sur la compression de base de données SAP ASE, consultez [Note de support SAP n° 2121797](https://launchpad.support.sap.com/#/notes/2121797)
 
 ## <a name="high-availability-of-sap-ase-on-azure"></a>Haute disponibilité de SAP ASE sur Azure 
-Le Guide de l’utilisateur du HADR décrit l’installation et la configuration d’une solution SAP ASE « Always On » à 2 nœuds.  De plus, un troisième nœud de reprise d’activité est également pris en charge. SAP ASE prend en charge de nombreuses configurations à haute disponibilité, notamment les disques partagés et le clustering de système d’exploitation natif (adresse IP flottante). La seule configuration prise en charge sur Azure est d’utiliser le gestionnaire d’incidents sans adresse IP flottante.  La méthode d’adresse IP flottante ne fonctionnera pas sur Azure.  Le noyau SAP est une application qui prend en charge la haute disponibilité et connaît les serveurs SAP ASE principaux et secondaires. Il n’existe aucune intégration étroite entre SAP ASE et Azure, l’équilibreur de charge interne Azure n’est pas utilisé. Par conséquent, la documentation SAP ASE standard doit être suivie à partir du [Guide de l’utilisateur du HADR SAP ASE](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html) 
+Le Guide de l’utilisateur du HADR décrit l’installation et la configuration d’une solution SAP ASE « Always On » à 2 nœuds.  De plus, un troisième nœud de reprise d’activité est également pris en charge. SAP ASE prend en charge de nombreuses [configurations](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.4.1/en-US/9b40a3c038a34cbda1064312aa8d25a4.html) de haute disponibilité, notamment le disque partagé et la mise en grappe de systèmes d'exploitation natifs (tels que Pacemaker et Windows Server Failover Cluster). Il existe deux configurations de haute disponibilité prises en charge pour SAP ASE sur Azure :
+
+- HA Aware avec Fault Manager - Le noyau SAP est une application "HA Aware" et connaît les serveurs SAP ASE primaires et secondaires. Il n’existe aucune intégration étroite entre SAP ASE et Azure, l’équilibreur de charge interne Azure n’est pas utilisé.  La solution est documentée dans le [Guide de l’utilisateur SAP ASE HADR](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html)
+- Adresse IP flottante avec le gestionnaire d’erreurs : cette solution peut être utilisée pour les applications SAP Business Suite et non-SAP Business Suite.  Cette solution utilise Azure ILB et le moteur de base de données SAP ASE fournissent un port de sondage.  Le gestionnaire d’erreurs appellera SAPHostAgent pour démarrer ou arrêter une adresse IP flottante secondaire sur les hôtes ASE.  Cette solution est documentée dans la note [SAP #3086679 - SYB : Fault Manager : adresse IP flottante sur Microsoft Azure](https://launchpad.support.sap.com/#/notes/3086679)
+
 
 > [!NOTE]
-> La seule configuration prise en charge sur Azure est d’utiliser le gestionnaire d’incidents sans adresse IP flottante.  La méthode d’adresse IP flottante ne fonctionnera pas sur Azure. 
+> Les temps de basculement et les autres caractéristiques des solutions de haute disponibilité ou d’adresse IP flottante sont similaires.  Pour choisir entre ces deux solutions, les clients doivent effectuer leurs propres tests et évaluations en tenant compte de facteurs tels que les temps de basculement planifiés et non planifiés et d'autres procédures opérationnelles.  
 
 ### <a name="third-node-for-disaster-recovery"></a>Troisième nœud pour la reprise d’activité
 Au-delà de l’utilisation de SAP ASE Always On pour la haute disponibilité locale, vous souhaiterez peut-être étendre la configuration à un nœud répliqué de manière asynchrone dans une autre région Azure. Pour plus d’informations, consultez [Installation Procedure for Sybase 16. 3 Patch Level 3 Always-on + DR on Suse 12.3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).

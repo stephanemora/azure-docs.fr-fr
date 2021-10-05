@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 65f4963f23d97ca2e3af34febb0d5dbea652fc12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c579f87cd9fc8bc071b0abf8acc8ffe5f7d538b0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646977"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801065"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Shopify Plus
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Shopify Plus prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**.
+* Shopify Plus prend en charge l’[attribution automatique d’utilisateurs](shopify-plus-provisioning-tutorial.md).
 
 ## <a name="add-shopify-plus-from-the-gallery"></a>Ajouter Shopify Plus à partir de la galerie
 
@@ -133,6 +134,9 @@ Si vous souhaitez configurer l’authentification unique pour **Shopify Plus**, 
 
 Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Shopify Plus. Revenez à la section **Users** (Utilisateurs) pour ajouter un utilisateur en entrant son adresse e-mail et ses autorisations. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+> [!NOTE]
+> Shopify Plus prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./shopify-plus-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ### <a name="enforce-saml-authentication"></a>Appliquer l’authentification SAML
 
 > [!NOTE]
@@ -165,7 +169,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance de Shopify Plus pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Shopify Plus dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Shopify Plus pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Shopify Plus dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Shopify Plus pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

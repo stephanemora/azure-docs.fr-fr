@@ -9,36 +9,38 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d43a3fddec2c72302ecd607dedec9e4cb340ad3
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 4e4529fccf6051a3376b3b3ecda715e672c61a90
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802915"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124756372"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à PrinterLogic
 
 Ce tutoriel explique comment intégrer PrinterLogic à Azure AD (Azure Active Directory). Quand vous intégrez PrinterLogic à Azure AD, vous pouvez :
 
-- Contrôler, dans Azure AD, qui a accès à PrinterLogic.
-- Permettre à vos utilisateurs de se connecter automatiquement à PrinterLogic avec leur compte Azure AD.
-- Gérer vos comptes à un emplacement central : le Portail Azure.
+* Contrôler, dans Azure AD, qui a accès à PrinterLogic.
+* Permettre à vos utilisateurs de se connecter automatiquement à PrinterLogic avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-- Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-- Un abonnement PrinterLogic pour lequel l’authentification unique (SSO) est activée.
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement PrinterLogic pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-- PrinterLogic prend en charge l’authentification SSO lancée par **le fournisseur de services (SP) et le fournisseur d’identité (IdP)** .
-- PrinterLogic prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+* PrinterLogic prend en charge l’authentification SSO lancée par **le fournisseur de services (SP) et le fournisseur d’identité (IdP)** .
+* PrinterLogic prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+
+* PrinterLogic prend en charge le [provisionnement d’utilisateurs automatisé](printer-logic-saas-provisioning-tutorial.md).
 
 ## <a name="add-printerlogic-from-the-gallery"></a>Ajouter PrinterLogic à partir de la galerie
 
@@ -140,21 +142,23 @@ Pour configurer l’authentification unique côté **PrinterLogic**, vous devez 
 
 Dans cette section, un utilisateur appelé Britta Simon est créé dans PrinterLogic. PrinterLogic prend en charge le provisionnement d’utilisateurs juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans PrinterLogic, un utilisateur est créé après l’authentification.
 
+PrinterLogic prend aussi en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./printer-logic-saas-provisioning-tutorial.md) sur la manière de configurer ce dernier.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
 #### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-- Cliquez sur **Tester cette application** dans le portail Azure. Une redirection est effectuée vers l’URL de connexion à PrinterLogic, où vous pouvez lancer le flux de connexion.
+* Cliquez sur **Tester cette application** dans le portail Azure. Une redirection est effectuée vers l’URL de connexion à PrinterLogic, où vous pouvez lancer le flux de connexion.
 
-- Accédez directement à l’URL de connexion à PrinterLogic, puis lancez le flux de connexion à partir de cet emplacement.
+* Accédez directement à l’URL de connexion à PrinterLogic, puis lancez le flux de connexion à partir de cet emplacement.
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors connecté automatiquement à l’instance de PrinterLogic pour laquelle vous avez configuré l’authentification SSO.
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors connecté automatiquement à l’instance de PrinterLogic pour laquelle vous avez configuré l’authentification SSO.
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette PrinterLogic dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de PrinterLogic pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette PrinterLogic dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de PrinterLogic pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

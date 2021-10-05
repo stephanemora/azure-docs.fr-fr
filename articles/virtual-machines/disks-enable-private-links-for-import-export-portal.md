@@ -4,15 +4,15 @@ description: Activez Private Link pour vos disques managés avec le portail Azur
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 09/03/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b023f7f068d1dc52c073519cc7e7f308e5d86ad0
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: c38c1ec60b3a7fbeb65f85e4560c4495ab93a031
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696454"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754819"
 ---
 # <a name="restrict-importexport-access-for-managed-disks-using-azure-private-link"></a>Restreindre l’accès à l’importation/exportation de disques managés à l’aide d’Azure Private Link
 
@@ -38,7 +38,7 @@ Pour utiliser Private Link afin d’exporter et d’importer des disques managé
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-create-basics.png" alt-text="Capture d’écran du volet de création d’accès au disque. Indiquez le nom souhaité, sélectionnez une région, sélectionnez un groupe de ressources, puis continuez":::
 
-1. Sélectionnez **Vérifier + créer**.
+1. Sélectionnez **Revoir + créer**.
 1. Une fois votre ressource créée, accédez directement à celle-ci.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Capture d’écran du bouton Accéder à la ressource dans le portail":::
@@ -75,7 +75,7 @@ Vous devez ensuite créer un point de terminaison privé et le configurer pour l
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, troisième volet. Les options Réseau virtuel et Sous-réseau sont mises en évidence.":::
 
-1. Sélectionnez **Vérifier + créer**.
+1. Sélectionnez **Revoir + créer**.
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Activer un point de terminaison privé sur votre disque
 
@@ -88,6 +88,32 @@ Vous devez ensuite créer un point de terminaison privé et le configurer pour l
 1. Sélectionnez **Enregistrer**.
 
 Vous avez à présent configuré une liaison privée qui vous permet d’importer et d’exporter votre disque managé.
+
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+**Q : Quel est l’avantage de l’utilisation de liaisons privées pour l’exportation et l’importation de disques managés ?**
+
+**R :** Vous pouvez utiliser Private Link pour limiter le processus d’exportation et d’importation aux disques managés uniquement à partir de votre réseau virtuel Azure.
+
+**Q : Comment s’assurer qu’un disque peut être exporté ou importé uniquement par le biais d’Azure Private Link ?**
+
+**R :** Vous devez définir la propriété **DiskAccessId** sur une instance d’un objet d’accès au disque. En outre, vous pouvez définir la propriété **NetworkAccessPolicy** sur **AllowPrivate**.
+
+**Q : Puis-je lier plusieurs réseaux virtuels au même objet d’accès au disque ?**
+
+**R :** Non. Actuellement, vous pouvez lier un objet d’accès au disque à un seul réseau virtuel.
+
+**Q : Puis-je lier un réseau virtuel à un objet d’accès au disque dans un autre abonnement ?**
+
+**R :** Non. Actuellement, vous pouvez lier un objet d’accès au disque à un seul réseau virtuel dans le même abonnement.
+
+**Q : Combien d’exportations ou d’importations utilisant le même objet d’accès au disque peuvent se produire en même temps ?**
+
+**R :** Vous pouvez avoir cinq exportations ou importations simultanées.
+
+**Q : Puis-je utiliser l’URI SAS d’un disque ou d’une capture instantanée pour télécharger le disque dur virtuel sous-jacent d’une machine virtuelle dans le même sous-réseau que le sous-réseau du point de terminaison privé associé au disque ?**
+
+**R :** Non. Vous pouvez effectuer cette opération uniquement pour une machine virtuelle qui se trouve dans le même sous-réseau que le sous-réseau du point de terminaison privé associé au disque.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

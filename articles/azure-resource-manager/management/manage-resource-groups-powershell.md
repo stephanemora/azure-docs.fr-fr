@@ -3,15 +3,15 @@ title: Gérer des groupes de ressources - Azure PowerShell
 description: Utilisez Azure PowerShell pour gérer vos groupes de ressources dans Azure Resource Manager. Montre comment créer, lister et supprimer des groupes de ressources.
 author: mumian
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/10/2021
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f8d73eda0bb6b6d09a8979cf00bfc2cc8a3105b5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c3bb028186155cc3af47f8efb293b7dbe61e13c9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951286"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124731049"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gérer des groupes de ressources Azure Resource Manager à l'aide d'Azure PowerShell
 
@@ -24,84 +24,76 @@ Autres articles sur la gestion des groupes de ressources :
 
 ## <a name="what-is-a-resource-group"></a>Qu’est-ce qu’un groupe de ressources
 
-Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Le groupe de ressources peut inclure toutes les ressources de la solution, ou uniquement celles que vous souhaitez gérer en tant que groupe. Pour déterminer comment allouer des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation. En règle générale, il convient d’ajouter des ressources qui partagent le même cycle de vie dans un même groupe de ressources afin de pouvoir facilement les déployer, les mettre à jour et les supprimer en tant que groupe.
+Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Le groupe de ressources peut inclure toutes les ressources de la solution, ou uniquement celles que vous souhaitez gérer en tant que groupe. Pour déterminer comment ajouter des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation. En règle générale, il convient d’ajouter des ressources qui partagent le même cycle de vie dans un même groupe de ressources afin de pouvoir facilement les déployer, les mettre à jour et les supprimer en tant que groupe.
 
-Le groupe de ressources stocke des métadonnées sur les ressources. Quand vous spécifiez un emplacement pour le groupe de ressources, vous indiquez donc où stocker ces métadonnées. Pour des raisons de conformité, vous devrez peut-être vous assurer que vos données sont stockées dans une région particulière.
-
-Le groupe de ressources stocke des métadonnées sur les ressources. Lorsque vous spécifiez un emplacement pour le groupe de ressources, vous indiquez où stocker ces métadonnées.
+Le groupe de ressources stocke des métadonnées sur les ressources. Lorsque vous spécifiez un emplacement pour le groupe de ressources, vous indiquez où stocker ces métadonnées. Pour des raisons de conformité, vous devrez peut-être vous assurer que vos données sont stockées dans une région particulière.
 
 ## <a name="create-resource-groups"></a>Créer des groupes de ressources
 
-Le script PowerShell suivant crée un groupe de ressources.
+Pour créer un groupe de ressources, utilisez [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name demoResourceGroup -Location westus
+New-AzResourceGroup -Name exampleGroup -Location westus
 ```
 
 ## <a name="list-resource-groups"></a>Répertorier les groupes de ressources
 
-Le script PowerShell suivant répertorie les groupes de ressources de votre abonnement.
+Pour répertorier les groupes de ressources de votre abonnement, utilisez la commande [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup).
 
 ```azurepowershell-interactive
 Get-AzResourceGroup
 ```
 
-Pour obtenir un groupe de ressources :
+Pour obtenir un groupe de ressources spécifique, indiquez son nom.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Get-AzResourceGroup -Name $resourceGroupName
+Get-AzResourceGroup -Name exampleGroup
 ```
 
 ## <a name="delete-resource-groups"></a>Supprimer des groupes de ressources
 
-Le script PowerShell suivant supprime un groupe de ressources :
+Pour supprimer un groupe de ressources, utilisez la commande [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Remove-AzResourceGroup -Name $resourceGroupName
+Remove-AzResourceGroup -Name exampleGroup
 ```
 
 Pour plus d’informations sur l’ordre dans lequel Azure Resource Manager supprime des ressources, voir [Suppression d’un groupe de ressources par Azure Resource Manager](delete-resource-group.md).
 
-## <a name="deploy-resources-to-an-existing-resource-group"></a>Déployer des ressources sur un groupe de ressources existant
+## <a name="deploy-resources"></a>Déployer des ressources
 
-Voir [Déployer des ressources sur un groupe de ressources existant](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
+Vous pouvez déployer des ressources Azure à l’aide d’Azure PowerShell ou en déployant un modèle ARM (Azure Resource Manager) ou un fichier Bicep.
 
-Pour valider le déploiement d'un groupe de ressources, consultez [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment).
+L’exemple suivant permet de créer un compte de stockage. Le nom que vous fournissez pour le compte de stockage doit être unique dans Azure.
 
-## <a name="deploy-a-resource-group-and-resources"></a>Déployer un groupe de ressources et des ressources
+```azurepowershell-interactive
+New-AzStorageAccount -ResourceGroupName exampleGroup -Name examplestore -Location westus -SkuName "Standard_LRS"
+```
 
-Vous pouvez créer un groupe de ressources et déployer des ressources sur ce groupe à l'aide d'un modèle Resource Manager. Pour plus d'informations, consultez [Créer un groupe de ressources et déployer des ressources](../templates/deploy-to-subscription.md#resource-groups).
+Pour déployer un modèle ARM ou un fichier Bicep, utilisez la commande [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-## <a name="redeploy-when-deployment-fails"></a>Redéploiement en cas d’échec du déploiement
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile storage.bicep
+```
 
-Cette fonctionnalité est également appelée *Annulation en cas d’erreur*. Pour plus d'informations, consultez [Redéploiement en cas d'échec du déploiement](../templates/rollback-on-error.md).
+Pour des informations complètes sur le déploiement d’un modèle ARM, consultez [Déployer des ressources à l’aide de modèles ARM et d’Azure PowerShell](../templates/deploy-powershell.md).
 
-## <a name="move-to-another-resource-group-or-subscription"></a>Déplacer vers un autre groupe de ressources ou abonnement
-
-Vous pouvez déplacer les ressources du groupe vers un autre groupe de ressources. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](move-resource-group-and-subscription.md).
+Pour plus d'informations sur le déploiement d’un fichier Bicep, consultez [Déployer des ressources à l’aide de Bicep et d’Azure PowerShell](../bicep/deploy-powershell.md).
 
 ## <a name="lock-resource-groups"></a>Verrouiller des groupes de ressources
 
-Le verrouillage empêche d’autres utilisateurs de votre organisation de supprimer ou de modifier accidentellement des ressources stratégiques, telles qu’une ressource, un groupe de ressources ou un abonnement Azure. 
+Le verrouillage empêche les utilisateurs de votre organisation de supprimer ou de modifier accidentellement des ressources critiques. 
 
-Le script suivant verrouille un groupe de ressources pour empêcher sa suppression.
+Pour empêcher la suppression d’un groupe de ressources et de ses ressources, utilisez la commande [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName $resourceGroupName 
+New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleGroup
 ```
 
-Le script suivant obtient tous les verrous relatifs à un groupe de ressources :
+Pour obtenir les verrous d’un groupe de ressources, utilisez la commande [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock).
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Get-AzResourceLock -ResourceGroupName $resourceGroupName 
+Get-AzResourceLock -ResourceGroupName exampleGroup
 ```
 
 Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](lock-resources.md).
@@ -112,104 +104,7 @@ Vous pouvez appliquer des balises à des groupes de ressources pour organiser lo
 
 ## <a name="export-resource-groups-to-templates"></a>Exporter des groupes de ressources dans des modèles
 
-Une fois que vous avez configuré votre groupe de ressources, vous pouvez afficher un modèle Resource Manager pour celui-ci. L’exportation du modèle offre deux avantages :
-
-- Automatisez les futurs déploiements de la solution, car le modèle contient la totalité de l’infrastructure.
-- Familiarisez-vous avec la syntaxe des modèles en consultant la notation JSON (JavaScript Object Notation) qui représente votre solution.
-
-Pour exporter toutes les ressources d’un groupe de ressources, utilisez l’applet de commande [AzResourceGroup d’exportation](/powershell/module/az.resources/Export-AzResourceGroup) et indiquez le nom du groupe de ressources.
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Export-AzResourceGroup -ResourceGroupName $resourceGroupName
-```
-
-Il enregistre le modèle dans un fichier local.
-
-Plutôt que d’exporter toutes les ressources dans le groupe de ressources, vous pouvez sélectionner les ressources à exporter.
-
-Pour exporter une ressource, transmettez cet ID de ressource.
-
-```azurepowershell-interactive
-$resource = Get-AzResource `
-  -ResourceGroupName <resource-group-name> `
-  -ResourceName <resource-name> `
-  -ResourceType <resource-type>
-Export-AzResourceGroup `
-  -ResourceGroupName <resource-group-name> `
-  -Resource $resource.ResourceId
-```
-
-Pour exporter plusieurs ressources, transmettez les ID de ressource dans un tableau.
-
-```azurepowershell-interactive
-Export-AzResourceGroup `
-  -ResourceGroupName <resource-group-name> `
-  -Resource @($resource1.ResourceId, $resource2.ResourceId)
-```
-
-Lorsque vous exportez le modèle, vous pouvez spécifier si des paramètres sont utilisés dans celui-ci. Par défaut, les paramètres des noms de ressource sont inclus, mais ils n’ont pas de valeur par défaut. Vous devez transmettre cette valeur de paramètre pendant le déploiement.
-
-```json
-"parameters": {
-  "serverfarms_demoHostPlan_name": {
-    "defaultValue": null,
-    "type": "String"
-  },
-  "sites_webSite3bwt23ktvdo36_name": {
-    "defaultValue": null,
-    "type": "String"
-  }
-}
-```
-
-Dans la ressource, le paramètre est utilisé pour le nom.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2016-09-01",
-    "name": "[parameters('serverfarms_demoHostPlan_name')]",
-    ...
-  }
-]
-```
-
-Si vous utilisez le paramètre `-IncludeParameterDefaultValue` lors de l’exportation du modèle, le paramètre de modèle inclut une valeur par défaut qui est définie sur la valeur actuelle. Vous pouvez utiliser cette valeur par défaut ou remplacer la valeur par défaut en transmettant une valeur différente.
-
-```json
-"parameters": {
-  "serverfarms_demoHostPlan_name": {
-    "defaultValue": "demoHostPlan",
-    "type": "String"
-  },
-  "sites_webSite3bwt23ktvdo36_name": {
-    "defaultValue": "webSite3bwt23ktvdo36",
-    "type": "String"
-  }
-}
-```
-
-Si vous utilisez le paramètre `-SkipResourceNameParameterization` lors de l’exportation du modèle, les paramètres des noms de ressources ne sont pas inclus dans le modèle. Au lieu de cela, le nom de ressource est défini directement sur la ressource sur sa valeur actuelle. Vous ne pouvez pas personnaliser le nom au cours du déploiement.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2016-09-01",
-    "name": "demoHostPlan",
-    ...
-  }
-]
-```
-
-La fonctionnalité d’exportation de modèle ne prend pas en charge l’exportation des ressources Azure Data Factory. Pour en savoir plus sur la façon dont vous pouvez exporter des ressources Data Factory, consultez [Copier ou cloner une fabrique de données dans Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
-
-Pour exporter des ressources créées par le biais du modèle de déploiement classique, vous devez [les migrer vers le modèle de déploiement de Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
-
-Pour plus d’informations, consultez [Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure](../templates/export-template-portal.md).
+Pour aider à créer des modèles ARM, vous pouvez exporter un modèle à partir de ressources existantes. Pour plus d’informations, consultez [Utiliser Azure PowerShell pour exporter un modèle](../templates/export-template-powershell.md). 
 
 ## <a name="manage-access-to-resource-groups"></a>Gérer l'accès aux groupes de ressources
 
@@ -219,5 +114,3 @@ Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-bas
 
 - Pour vous familiariser avec Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](overview.md).
 - Pour vous familiariser avec la syntaxe des modèles Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../templates/syntax.md).
-- Pour apprendre à développer des modèles, consultez les [tutoriels pas à pas](../index.yml).
-- Pour accéder aux schémas liés aux modèles Azure Resource Manager, consultez [Informations de référence sur les modèles](/azure/templates/).

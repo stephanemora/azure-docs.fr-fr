@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
-ms.openlocfilehash: 8bd100826564ac865a17bf869ad54ce3f9ceef5d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 8004ef319efc08610f9c1a5de16b7c430d51d666
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525169"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209176"
 ---
 # <a name="view-edit-and-delete-assets-in-purview-catalog"></a>Visualiser, modifier et supprimer des ressources dans le catalogue Purview
 
@@ -71,7 +71,7 @@ Les termes du glossaire des ressources sont un vocabulaire géré pour les terme
 
 ## <a name="editing-assets"></a>Modification des ressources
 
-Vous pouvez modifier une ressource en cliquant sur l’icône Modifier en haut à gauche de la ressource.
+Vous pouvez modifier une ressource en sélectionnant l’icône Modifier en haut à gauche de la ressource.
 
 :::image type="content" source="media/catalog-asset-details/asset-edit-delete.png" alt-text="Boutons de modification et de suppression d’une ressource":::
 
@@ -89,7 +89,7 @@ Si vous effectuez une mise à jour au niveau de la colonne, comme ajouter une de
 
 ## <a name="deleting-assets"></a>Suppression de ressources
 
-Vous pouvez supprimer une ressource en cliquant sur l’icône Supprimer sous le nom de la ressource.
+Vous pouvez supprimer une ressource en sélectionnant l’icône Supprimer sous le nom de la ressource.
 
 ### <a name="delete-behavior-explained"></a>Explication du comportement des suppressions
 

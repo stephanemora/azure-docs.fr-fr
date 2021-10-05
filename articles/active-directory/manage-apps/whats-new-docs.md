@@ -1,7 +1,7 @@
 ---
 title: Nouveautés dans la gestion des applications Azure Active Directory
 description: Gestion des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,38 @@ ms.author: davidmu
 author: davidmu1
 manager: CelesteDG
 reviewer: napuri
-ms.openlocfilehash: d95c81256dcb58b64273d6062563daf38dfdb4fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a5de6a248d389c90cbc67f59b0b94f53c35821f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531598"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810032"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à la gestion des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière de gestion des applications d’entreprise, consultez [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="august-2021"></a>Août 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Protéger contre le hameçonnage de consentement](protect-against-consent-phishing.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Configurer des classifications d’autorisations](configure-permission-classifications.md)
+- [Configurer le consentement du propriétaire du groupe pour des applications qui accèdent aux données de groupe](configure-user-consent-groups.md)
+- [Mesures relatives aux applications surprivilégiées ou suspectes dans Azure Active Directory](manage-application-permissions.md)
+- [Gestion du consentement pour les applications et évaluation des demandes de consentement](manage-consent-requests.md)
+- [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md)
+- [Démarrage rapide : ajouter une application à votre locataire](add-application-portal.md)
+- [Affecter des utilisateurs et des groupes à une application d’entreprise](assign-user-or-group-access-portal.md)
+- [Gestion de l’accès aux applications](what-is-access-management.md)
+- [Gestion des applications Azure Active Directory : Nouveautés](whats-new-docs.md)
+- [Planifier la configuration de Mes applications Azure Active Directory](my-apps-deployment-plan.md)
+- [Options avancées de signature de certificat dans un jeton SAML](certificate-signing-options.md)
+- [Créer des collections sur le portail Mes applications](access-panel-collections.md)
+
 
 ## <a name="july-2021"></a>Juillet 2021
 

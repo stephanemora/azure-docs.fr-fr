@@ -3,18 +3,18 @@ title: Administration du portail Azure EA
 description: Cet article présente les tâches courantes à la charge d’un administrateur dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/25/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: bf887ad515f8c4349fcff54d25be1c70a30d018f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: ede22b400b597c8cc474d49f65341bb5b24ea118
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123098317"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216761"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -198,7 +198,7 @@ Les administrateurs d’entreprise peuvent associer des comptes existants à des
 
 1. Connectez-vous au portail Azure EA en tant qu’administrateur d’entreprise.
 1. Sélectionnez **Gérer** dans le volet de navigation de gauche.
-1. Sélectionnez **Service**.
+1. Sélectionnez **Compte**.
 1. Placez le pointeur sur la ligne contenant le compte, puis sélectionnez l’icône du crayon à droite.
 1. Sélectionnez le service dans le menu déroulant.
 1. Sélectionnez **Enregistrer**.

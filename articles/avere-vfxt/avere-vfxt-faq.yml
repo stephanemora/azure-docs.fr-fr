@@ -8,12 +8,12 @@ metadata:
   ms.date: 12/19/2019
   ms.author: rohogue
   ms.custom: references_regions
-  ms.openlocfilehash: 1d5230119afa33c05878d11e407e80acdc10f15a
-  ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+  ms.openlocfilehash: 241bcb1e164bf8f0233e7110ffcdd9630e870e8d
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/13/2021
-  ms.locfileid: "113657015"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124751095"
 title: Questions fréquentes (FAQ) sur Avere vFXT pour Azure
 summary: Cet article fournit des réponses qui peuvent vous aider à déterminer si le système Avere vFXT pour Azure est adapté à vos besoins. Il contient des informations de base sur Avere vFXT et explique comment le système fonctionne avec d'autres composants Azure et avec des produits de fournisseurs externes.
 sections:
@@ -101,7 +101,7 @@ sections:
   - question: >
       L’environnement Avere vFXT se met-il à l’échelle ?
     answer: >
-      La taille du cluster Avere vFXT peut aller de trois à 24 nœuds de machine virtuelle. Contactez le support technique Azure pour obtenir de l'aide sur la planification si vous pensez que vous avez besoin d'un cluster de plus de neuf nœuds. Plus les nœuds sont nombreux, plus l'architecture de déploiement doit être vaste.
+      La taille du cluster Avere vFXT peut aller de trois à 20 nœuds de machine virtuelle. Si vous avez besoin d’aide pour planifier la taille de cluster appropriée pour votre workflow, contactez le support technique Azure.
   - question: >
       L’environnement Avere vFXT se met-il automatiquement à l’échelle ?
     answer: >

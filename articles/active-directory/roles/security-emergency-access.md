@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7fb48f71a891493220440d56a50e3c72510892
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f840d72698790be10630fe182f4655554ff23962
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524967"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748380"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gérer des comptes d’accès d’urgence dans Azure AD
 
@@ -44,9 +44,9 @@ Créez plusieurs comptes d’accès d’urgence. Ces comptes doivent être des c
 Lors de la configuration de ces comptes, les conditions suivantes doivent être remplies :
 
 - Les comptes d’accès d’urgence ne doivent être associés à aucun utilisateur au sein de l’organisation. Veillez à ce que vos comptes d’accès d’urgence ne soient pas connectés à un matériel fourni à un employé et voyageant avec celui-ci, tel un téléphone mobile, un module de sécurité matériel, ou d’autres informations d’identification propres à l’employé. Cette précaution de sécurité couvre les cas où un employé n’est pas joignable alors que les informations d’identification doivent être fournies. Il est important de s’assurer que tous les appareils inscrits sont conservés dans un endroit sûr et connu, disposant de plusieurs moyens de communication avec Azure AD.
-- Le mécanisme d’authentification utilisé pour un compte d’accès d’urgence doit être distinct de celui utilisé par d’autres comptes administratifs, y compris d’autres comptes d’accès d’urgence.  Par exemple, si votre administrateur normal se connecte par authentification MFA locale, l’authentification multifacteur Azure AD sera un mécanisme différent.  En revanche, si l’authentification multifacteur Azure AD est votre principal composant d’authentification pour vos comptes administratifs, envisagez une approche différente pour ces derniers, par exemple l’accès conditionnel avec un fournisseur MFA tiers au moyen de contrôles personnalisés.
+- Utilisez l’authentification forte pour vos comptes d’accès d’urgence et assurez-vous qu’elle n’utilise pas les mêmes méthodes d’authentification que vos autres comptes d’administration. Par exemple, si votre compte d’administrateur normal utilise l’application Microsoft Authenticator pour une authentification forte, utilisez une clé de sécurité FIDO2 pour vos comptes d’urgence. Tenez compte des [dépendances entre les différentes méthodes d’authentification](../fundamentals/resilience-in-credentials.md) afin d’éviter d’ajouter des exigences externes dans le processus d’authentification.
 - L’appareil ou les informations d’identification ne doivent pas expirer ou faire potentiellement l’objet d’un nettoyage automatisé en raison d’une utilisation insuffisante.  
-- Vous devez rendre l’attribution de rôle d’administrateur général permanente pour vos comptes d’accès d’urgence. 
+- Dans Azure AD Privileged Identity Management, vous devez rendre l’attribution de rôle d’administrateur général permanente (et non éligible) pour vos comptes d’accès d’urgence. 
 
 ### <a name="exclude-at-least-one-account-from-phone-based-multi-factor-authentication"></a>Exclure au moins un compte de l’authentification multifacteur par téléphone
 
@@ -56,11 +56,11 @@ Cependant, au moins un de vos comptes d’accès d’urgence ne doit pas avoir l
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Exclure au moins un compte des stratégies d’accès conditionnel
 
-En cas d’urgence, vous ne souhaitez pas qu’une stratégie risque de vous empêcher d’accéder pour résoudre un problème. Au moins un compte d’accès d’urgence doit être exclu de toutes les stratégies d’accès conditionnel.
+En cas d’urgence, vous ne souhaitez pas qu’une stratégie risque de vous empêcher d’accéder pour résoudre un problème. Si vous utilisez l’accès conditionnel, au moins un compte d’accès d’urgence doit être exclu de toutes les stratégies d’accès conditionnel.
 
 ## <a name="federation-guidance"></a>Conseils sur la fédération
 
-Certaines organisations utilisent les services de domaine Active Directory et ADFS ou un fournisseur d’identité similaire pour se fédérer dans Azure AD. [Il ne doit y avoir aucun compte local avec des privilèges d’administration](../fundamentals/protect-m365-from-on-premises-attacks.md). La maîtrise ou l’authentification de l’approvisionnement pour les comptes ayant des privilèges d’administration en dehors d’Azure AD ajoute un risque inutile en cas de panne ou de compromission de ces systèmes.
+Certaines organisations utilisent les services de domaine AD et AD FS ou un fournisseur d’identité similaire pour se fédérer dans Azure AD. L’accès d’urgence pour les systèmes locaux et l’accès d’urgence pour les services cloud doivent être distincts, sans aucune dépendance l’un par rapport à l’autre. La maîtrise ou l’authentification de l’approvisionnement pour les comptes ayant des privilèges d’accès d’urgence provenant d’autres systèmes ajoute un risque inutile en cas de panne de ces systèmes.
 
 ## <a name="store-account-credentials-safely"></a>Stocker les informations d’identification de compte en toute sécurité
 
@@ -158,4 +158,4 @@ Ces étapes doivent être effectuées à intervalles réguliers et pour les prin
 - [S’inscrire à Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) si ce n’est déjà fait
 - [Comment exiger la vérification en deux étapes pour un utilisateur](../authentication/howto-mfa-userstates.md)
 - [Configurer des protections supplémentaires pour les administrateurs généraux dans Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts) si vous utilisez Microsoft 365
-- [Commencer une vérification de l’accès des administrateurs généraux](../privileged-identity-management/pim-how-to-start-security-review.md) et [opérer une transition des administrateurs généraux existants vers des rôles d’administrateur plus spécifiques](permissions-reference.md)
+- [Commencer une vérification de l’accès des administrateurs généraux](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) et [opérer une transition des administrateurs généraux existants vers des rôles d’administrateur plus spécifiques](permissions-reference.md)

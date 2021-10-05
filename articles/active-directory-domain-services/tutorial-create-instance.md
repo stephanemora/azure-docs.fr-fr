@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 09/15/2021
 ms.author: justinha
-ms.openlocfilehash: 3ff8ffe39a84f9a1eeddd7de01ad8db44f73d52c
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 2080cf50a5837b2b4347f03a77496f5d6215e958
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112199175"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605389"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Créer et configurer un domaine managé Azure Active Directory Domain Services
 
@@ -41,11 +41,12 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Vous devez disposer des privilèges d’*Administrateur global* dans votre locataire Azure AD pour activer Azure AD DS.
 * Vous avez besoin de privilèges de *Contributeur* dans votre abonnement Azure pour créer les ressources Azure AD DS nécessaires.
+* Vous avez besoin d’un réseau virtuel avec des serveurs DNS qui peuvent interroger l’infrastructure nécessaire, comme le stockage. Des serveurs DNS qui ne peuvent pas effectuer de requêtes Internet générales peuvent empêcher de créer un domaine managé. 
 
 Bien que ce ne soit pas obligatoire pour Azure AD DS, nous vous recommandons de [configurer la réinitialisation de mot de passe en libre-service (SSPR)][configure-sspr] pour le locataire Azure AD. Les utilisateurs peuvent changer leur mot de passe sans SSPR, mais SSPR aide s’ils oublient leur mot de passe et doivent les réinitialiser.
 
 > [!IMPORTANT]
-> Une fois que vous avez créé un domaine managé, vous ne pouvez plus le déplacer vers un autre groupe de ressources, réseau virtuel, abonnement, etc. Veillez à sélectionner l’abonnement, le groupe de ressources, la région et le réseau virtuel les plus appropriés quand vous déployez le domaine managé.
+> Vous ne pouvez pas déplacer le domaine managé vers un autre abonnement, un autre groupe de ressources, une autre région, un autre réseau virtuel ou sous-réseau après l’avoir créé. Veillez à sélectionner l’abonnement, le groupe de ressources, la région, le réseau virtuel et le sous-réseau les plus appropriés quand vous déployez le domaine managé.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 

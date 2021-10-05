@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: 87780dbc3a7d492f0fd0fec8839ef26bb092b2eb
-  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+  ms.openlocfilehash: a0d8c83209f5d96d10cacd95d85fc45f2d09b44b
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/24/2021
-  ms.locfileid: "122777551"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128669072"
 title: Forum aux questions sur Application Gateway
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -60,7 +60,11 @@ sections:
 
       Pour la référence SKU v2, ouvrez la ressource IP publique et sélectionnez **Configuration**. Le champ **Étiquette du nom DNS (facultatif)** est disponible pour configurer le nom DNS.
   - question: Quels sont les paramètres du délai de maintien de connexion et du délai d’inactivité TCP ?
-    answer: "Le *délai d’expiration Keep-Alive* régit la durée pendant laquelle Application Gateway attend qu’un client envoie une autre requête HTTP sur une connexion permanente avant de la réutiliser ou de la fermer. Le *délai d’inactivité TCP* régit la durée pendant laquelle une connexion TCP est maintenue ouverte en cas d’absence d’activité. \n\nLe *délai d’expiration Keep-Alive* est de 120 secondes dans la référence SKU Application Gateway v1 et de 75 secondes dans la référence SKU v2. Par défaut, le *délai d’inactivité TCP* est de 4 minutes sur l’adresse IP virtuelle du serveur frontal des SKU v1 et v2 d’Application Gateway. Vous pouvez configurer la valeur du délai d’inactivité TCP sur les passerelles d’applications v1 et v2 pour qu’elle soit comprise entre 4 et 30 minutes. Pour les passerelles d’application v1 et v2, vous devrez accéder à l’IP publique de la passerelle d’application et modifier le délai d’inactivité TCP sous le panneau « Configuration » de l’IP publique sur le portail. Vous pouvez définir la valeur du délai d’inactivité TCP de l’IP publique via PowerShell en exécutant les commandes suivantes : \n\n```azurepowershell-interactive\n$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup\n$publicIP.IdleTimeoutInMinutes = \"15\"\nSet-AzPublicIpAddress -PublicIpAddress $publicIP\n```\n"
+    answer: "Le *délai d’expiration Keep-Alive* régit la durée pendant laquelle Application Gateway attend qu’un client envoie une autre requête HTTP sur une connexion permanente avant de la réutiliser ou de la fermer. Le *délai d’inactivité TCP* régit la durée pendant laquelle une connexion TCP est maintenue ouverte en cas d’absence d’activité. \n\nLe *délai d’expiration Keep-Alive* est de 120 secondes dans la référence SKU Application Gateway v1 et de 75 secondes dans la référence SKU v2. Par défaut, le *délai d’inactivité TCP* est de 4 minutes sur l’adresse IP virtuelle du serveur frontal des SKU v1 et v2 d’Application Gateway. Vous pouvez configurer la valeur du délai d’inactivité TCP sur les passerelles d’applications v1 et v2 pour qu’elle soit comprise entre 4 et 30 minutes. Pour les passerelles d’application v1 et v2, vous devrez accéder à l’IP publique de la passerelle d’application et modifier le délai d’inactivité TCP sous le panneau « Configuration » de l’IP publique sur le portail. Le changement de la valeur de l’adresse IP privée n’est pas prise en charge. Vous pouvez définir la valeur du délai d’inactivité TCP de l’IP publique via PowerShell en exécutant les commandes suivantes : \n\n```azurepowershell-interactive\n$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup\n$publicIP.IdleTimeoutInMinutes = \"15\"\nSet-AzPublicIpAddress -PublicIpAddress $publicIP\n```\n"
+  - question: Est-ce que je peux renommer ma ressource Application Gateway ?
+    answer: Non. Il n’existe aucun moyen de renommer une ressource Application Gateway. Vous devez créer une ressource portant un autre nom.
+  - question: Existe-t-il un moyen de restaurer une passerelle applicative et son IP publique si elle a été supprimée ?
+    answer: Non. Il n’existe aucun moyen de restaurer une ressource Application Gateway ou son IP publique une fois qu’elles sont supprimées. Vous devez créer une ressource.
   - question: L’adresse IP ou le nom DNS changent-ils pendant la durée de vie d’Application Gateway ?
     answer: Dans la référence SKU Application Gateway V1, l’adresse IP virtuelle peut changer si vous arrêtez et démarrez la passerelle d’application. Le nom DNS associé à la passerelle d’application, quant à lui, ne change pas pendant toute la durée de vie de la passerelle. Le nom DNS ne changeant pas, vous devez utiliser un alias CNAME et le faire pointer vers l’adresse DNS de la passerelle d’application. Dans la référence SKU Application Gateway V2, vous pouvez définir l’adresse IP comme étant statique, de sorte que l’adresse IP et le nom DNS ne changent pas pendant la durée de vie de la passerelle d’application.
   - question: Application Gateway prend-il en charge les adresses IP statiques ?
@@ -96,6 +100,8 @@ sections:
     answer: Non. Application Gateway v2 ne prend pas en charge les demandes de proxy avec l’authentification NTLM.
   - question: Le cookie d’affinité d’Application Gateway prend-il en charge l’attribut SameSite ?
     answer: "Oui, la [mise à jour v80](https://chromiumdash.appspot.com/schedule) du [navigateur Chromium](https://www.chromium.org/Home) a permis que les cookies HTTP sans attribut SameSite soient traités comme SameSite=Lax. Cela signifie que le cookie d’affinité d’Application Gateway ne sera pas envoyé par le navigateur dans un contexte tiers. \n\nPour prendre en charge ce scénario, Application Gateway injecte un autre cookie appelé *ApplicationGatewayAffinityCORS* en plus du cookie *ApplicationGatewayAffinity* existant.  Ces cookies sont similaires, mais le cookie *ApplicationGatewayAffinityCORS* a deux attributs supplémentaires qui lui sont ajoutés : *SameSite=None; Secure*. Ces attributs maintiennent les sessions rémanentes même pour les requêtes cross-origin. Pour plus d’informations, consultez la [section Affinité basée sur les cookies](configuration-http-settings.md#cookie-based-affinity).\n"
+  - question: Qu’est-ce qu’un écouteur actif par rapport à un écouteur inactif ?
+    answer: "Un écouteur actif est un écouteur associé à une règle **et** qui envoie du trafic à un pool back-end. Un écouteur qui redirige **uniquement** du trafic n’est pas un écouteur actif. Les écouteurs associés à des règles de redirection ne sont pas considérés comme actifs. Si les règles de redirection constituent une règle basée sur des chemins, alors tous les chemins qu’elles contiennent doivent rediriger du trafic, sans quoi l’écouteur est considéré comme actif. Pour plus de détails sur les limites de composants individuels, consultez [Limites, quotas et contraintes des services et abonnements Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits). \n"
 - name: Performances
   questions:
   - question: Comment Application Gateway prend-il en charge la haute disponibilité et la scalabilité ?

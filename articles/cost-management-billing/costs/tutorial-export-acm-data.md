@@ -3,18 +3,18 @@ title: 'Tutoriel : Créer et gérer des données exportées depuis Azure Cost M
 description: Cet article vous montre comment créer et gérer des données Azure Cost Management exportées pour les utiliser dans des systèmes externes.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/05/2021
+ms.date: 09/16/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f6d640d40b586e435e1484fce8d6560a961ba6ac
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5c27f34adcf427a82f425f7ef4cf24a4ae843bc4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731944"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648769"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -241,7 +241,7 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 ### <a name="export-schedule"></a>Planification des exportations
 
-Les exportations planifiées dépendent de l’heure et du jour de la semaine de la création initiale des exportations. Quand vous créez une exportation planifiée, l’exportation s’exécute selon la même fréquence pour chaque exportation ultérieure. Par exemple, pour une exportation des coûts en cumul mensuel à ce jour définie sur une fréquence quotidienne, l'exportation s'exécute tous les jours. De même, pour une exportation hebdomadaire, l’exportation s’exécute toutes les semaines le même jour que celui planifié. Le temps de remise exact de l'exportation n'est pas garanti et les données exportées sont disponibles dans un délai de quatre heures.
+Les exportations planifiées dépendent de l’heure et du jour de la semaine de la création initiale des exportations. Quand vous créez une exportation planifiée, l’exportation s’exécute selon la même fréquence pour chaque exportation ultérieure. Par exemple, pour une exportation des coûts en cumul mensuel à ce jour définie sur une fréquence quotidienne, l'exportation s'exécute tous les jours. De même, pour une exportation hebdomadaire, l’exportation s’exécute toutes les semaines le même jour que celui planifié. Le temps de remise exact de l’exportation n’est pas garanti, et les données exportées sont disponibles dans un délai d’exécution de quatre heures.
 
 Chaque exportation crée un fichier, ce qui signifie que les exportations antérieures ne sont pas écrasées.
 
@@ -295,6 +295,14 @@ Voici un exemple de fichier manifeste _manifest.json.
   ]
 }
 ```
+
+### <a name="export-versions"></a>Versions d’exportation
+
+Lorsque vous créez une exportation planifiée dans le portail Azure ou à l’aide de l’API, l’exécution se fait toujours sur la version d’exportation utilisée au moment de la création. Azure conserve vos exportations créées précédemment sur la même version, à moins que vous ne la mettiez à jour. En procédant ainsi, vous évitez toute modification des frais et des champs CSV si la version d’exportation est modifiée. Lorsque la fonctionnalité d’exportation change au fil du temps, les noms de champs sont parfois modifiés et de nouveaux champs sont ajoutés.
+
+Si vous souhaitez utiliser les données et champs les plus récents à votre disposition, nous vous recommandons de créer une nouvelle exportation dans le portail Azure. Pour mettre à jour une exportation existante vers la version la plus récente, effectuez cette opération dans le portail Azure ou à l’aide de la dernière version de l’API d’exportation. La mise à jour d’une exportation existante peut vous amener à constater de légères différences dans les champs et les frais des fichiers produits par la suite.
+
+
 ## <a name="verify-that-data-is-collected"></a>Vérifier que les données sont collectées
 
 Vous pouvez facilement vérifier que vos données Cost Management sont collectées et visualiser le fichier CSV exporté avec l’Explorateur Stockage Azure.

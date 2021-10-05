@@ -7,21 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: 627ec77af4e492b4f22404972729cecdb1c40f06
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 09/08/2021
+ms.openlocfilehash: 6511764697adcd6c8743efe41d276ccef3ff1bb0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801602"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823905"
 ---
-# <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Comment créer un index dans plusieurs langues dans Recherche cognitive Azure
+# <a name="create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Créer un index dans plusieurs langues dans Recherche cognitive Azure
 
 Une condition requise dans une application de recherche multilingue est la possibilité d’effectuer une recherche et de récupérer les résultats dans la langue de l’utilisateur. Dans la Recherche cognitive Azure, une manière de remplir les conditions de langue d’une application multilingue consiste à créer des champs dédiés au stockage de chaînes dans une langue spécifique, puis à limiter la recherche en texte intégral à ces seuls champs au moment de la requête.
 
-+ Dans les définitions de champ, définissez un analyseur de langue qui appelle les règles linguistiques de la langue cible. Pour afficher la liste complète des analyseurs pris en charge, consultez [Ajouter des analyseurs linguistiques](index-add-language-analyzers.md).
++ Dans les définitions de champ, [spécifiez un analyseur de langue](index-add-language-analyzers.md) qui appelle les règles linguistiques de la langue cible. 
 
-+ À la demande de requête, définissez les paramètres pour étendre la recherche de texte aux champs spécifiques, puis écarter les résultats de tous les champs qui ne fournissent pas de contenu compatible avec l’expérience de recherche que vous souhaitez offrir.
++ Dans la demande de requête, définissez le paramètre `searchFields` permettant d'étendre la recherche en texte intégral à des champs spécifiques, puis utilisez `select` pour renvoyer uniquement les champs dont le contenu est compatible.
 
 Le succès de cette technique dépend de l’intégrité du contenu des champs. La Recherche cognitive Azure ne convertit pas les chaînes et n’effectue pas de détection de la langue dans le cadre de l’exécution de la requête. Il vous appartient de vous assurer que les champs contiennent les chaînes que vous attendez.
 
@@ -141,7 +141,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ [Analyseurs de langage](index-add-language-analyzers.md)
++ [Ajouter un analyseur de langage](index-add-language-analyzers.md)
 + [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)
 + [API REST de recherche de documents](/rest/api/searchservice/search-documents)
 + [Vue d’ensemble de l’enrichissement de l’IA](cognitive-search-concept-intro.md)

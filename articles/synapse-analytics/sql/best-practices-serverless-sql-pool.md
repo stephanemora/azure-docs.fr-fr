@@ -10,27 +10,27 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 655294aaf575dd828c3be6f135984eaf8c851fb6
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: ba56b46f28eda42e7de0fcaa090d0cc309410cdb
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479757"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091328"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Meilleures pratiques pour un pool SQL serverless dans Azure Synapse Analytics
 
-Cet article présente un ensemble de meilleures pratiques pour l’utilisation d’un pool SQL serverless. Un pool SQL serverless est une ressource dans Azure Synapse Analytics.
+Cet article présente un ensemble de meilleures pratiques pour l’utilisation d’un pool SQL serverless. Un pool SQL serverless est une ressource dans Azure Synapse Analytics. Si vous utilisez un pool SQL dédié, consultez [Meilleures pratiques pour les pools SQL dédiés](best-practices-dedicated-sql-pool.md) afin d’obtenir des instructions spécifiques.
 
-Un pool SQL serverless vous permet d’interroger des fichiers dans vos comptes de stockage Azure. Il ne dispose pas de capacités de stockage ou d’ingestion locales. Cela qui signifie que tous les fichiers que la requête cible sont externes au pool SQL serverless. Tout ce qui est lié à la lecture de fichiers à partir du stockage peut avoir un impact sur les performances des requêtes.
+Un pool SQL serverless vous permet d’interroger des fichiers dans vos comptes de stockage Azure. Il ne dispose pas de capacités de stockage ou d’ingestion locales. Tous les fichiers que les requêtes ciblent sont externes au pool SQL serverless. Tout ce qui est lié à la lecture de fichiers à partir du stockage peut avoir un impact sur les performances des requêtes.
 
 Voici quelques recommandations générales :
 - Assurez-vous que vos applications clientes sont colocalisées avec le pool SQL Server serverless.
-  - Si vous utilisez des applications clientes en dehors d'Azure (par exemple, Power BI Desktop, SSMS, ADS), vérifiez que vous utilisez le pool serverless d'une région proche de votre ordinateur client.
+  - Si vous utilisez des applications clientes en dehors d'Azure (par exemple, Power BI Desktop, SSMS, ADS), vérifiez que vous utilisez le pool serverless d’une région proche de votre ordinateur client.
 - Assurez-vous que le stockage (Azure Data Lake, Cosmos DB) et le pool SQL serverless se trouvent dans la même région.
 - Essayez d'[optimiser la disposition du stockage](#prepare-files-for-querying) en utilisant le partitionnement et en maintenant vos fichiers dans une fourchette comprise entre 100 Mo et 10 Go.
 - Si vous renvoyez un grand nombre de résultats, assurez-vous que vous utilisez SSMS ou ADS, et non Synapse Studio. Synapse Studio est un outil web qui n'est pas conçu pour les jeux de résultats volumineux. 
-- Si vous filtrez les résultats par colonne de chaînes, essayez d'utiliser un classement `BIN2_UTF8`.
-- Essayez de mettre en cache les résultats côté client en utilisant le mode d'importation de Power BI ou Azure Analysis Services, et actualisez-les régulièrement. Les pools SQL serverless ne peuvent pas fournir une expérience interactive en mode Requête directe de Power BI si vous utilisez des requêtes complexes ou si vous traitez une grande quantité de données.
+- Si vous filtrez les résultats par colonne de chaînes, essayez d’utiliser un classement `BIN2_UTF8`.
+- Essayez de mettre en cache les résultats côté client en utilisant le mode d’importation de Power BI ou Azure Analysis Services, et actualisez-les régulièrement. Les pools SQL serverless ne peuvent pas fournir une expérience interactive en mode Requête directe de Power BI si vous utilisez des requêtes complexes ou si vous traitez une grande quantité de données.
 
 ## <a name="client-applications-and-network-connections"></a>Applications clientes et connexions réseau
 

@@ -1,19 +1,20 @@
 ---
-title: Exemples d’interface Azure CLI pour l’API Core (SQL) Azure Cosmos DB
-description: Exemples d’interface Azure CLI pour l’API Core (SQL) Azure Cosmos DB
+title: Exemples Azure CLI pour Azure Cosmos DB | Microsoft Docs
+description: Cet article répertorie plusieurs exemples de code Azure CLI disponibles pour l’interaction avec Azure Cosmos DB. Affichez des exemples CLI spécifiques aux API.
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 09/17/2021
 ms.author: mjbrown
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5f68f09b8d97e9d653f1551c2ca1fe5ed5a47b0e
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: cosmos db, exemples azure cli, exemples de code azure cli, exemples de scripts azure cli
+ms.openlocfilehash: 4529b51ff5109bfa6b8814b23e7e82844e7fb95c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117539"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567715"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Exemples Azure CLI pour l’API (SQL) Core Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]

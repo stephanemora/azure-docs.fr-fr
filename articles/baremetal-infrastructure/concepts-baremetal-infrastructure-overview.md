@@ -3,13 +3,13 @@ title: Qu'est-ce que BareMetal Infrastructure sur Azure ?
 description: Fournit une vue d'ensemble de BareMetal Infrastructure sur Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 07/13/2021
-ms.openlocfilehash: 135de43f26b969d3df79f6ec7348d295493e5134
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.date: 09/27/2021
+ms.openlocfilehash: 744378fc00bc443fdae3babefdf626eacbf486e7
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765807"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154866"
 ---
 #  <a name="what-is-baremetal-infrastructure-on-azure"></a>Qu'est-ce que BareMetal Infrastructure sur Azure ?
 
@@ -36,8 +36,8 @@ L’infrastructure Bare Metal est conçue pour les charges de travail critiques 
 BareMetal Infrastructure offre les avantages suivants :
 
 - Matériel certifié pour les charges de travail spécialisées
-    - SAP (reportez-vous à la [Note SAP N°1928533](https://launchpad.support.sap.com/#/notes/1928533))
-    - Oracle (reportez-vous au [Document Oracle N°948372.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52))
+    - SAP (reportez-vous à la [Note SAP N°1928533](https://launchpad.support.sap.com/#/notes/1928533)) Vous aurez besoin d’un compte SAP pour l’accès.)
+    - Oracle (reportez-vous au [Document Oracle N°948372.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52)). Vous aurez besoin d’un compte Oracle pour l’accès.)
 - Instance BareMetal non hypervisée, propriété de locataire unique
 - Faible latence entre les machines virtuelles d'applications hébergées sur Azure et les instances BareMetal (0,35 ms)
 - Tous les disques SSD Flash et NVMe

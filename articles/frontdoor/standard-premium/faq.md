@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/18/2021
 ms.author: duau
-ms.openlocfilehash: be1ffdecb727426f914a74970a720f4f19e51824
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 378ba28eaa4b68cb1d05fa0af5c11ca95bd52a8b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534938"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210323"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Questions fréquentes sur Azure Front Door Standard/Premium (préversion)
 
@@ -126,6 +126,8 @@ Autre façon de verrouiller votre application pour accepter le trafic uniquement
         </system.webServer>
     </configuration>
     ```
+
+* Azure Front Door prend également en charge la balise de service *AzureFrontDoor.Frontend*, qui fournit la liste des adresses IP que les clients utilisent lorsqu'ils se connectent à Front Door. Vous pouvez utiliser la balise de service *AzureFrontDoor.Frontend* lorsque vous contrôlez le trafic sortant qui doit être autorisé à se connecter aux services déployés derrière Azure Front Door. Azure Front Door prend également en charge une balise de service supplémentaire, *AzureFrontDoor.FirstParty* , pour une intégration interne avec d'autres services Azure. Voir les [balises de service disponibles](../../virtual-network/service-tags-overview.md#available-service-tags) pour plus de détails sur les cas d'utilisation des balises de service Azure Front Door.
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>L’adresse IP anycast peut-elle changer pendant la durée de vie de ma porte d’entrée ?
 

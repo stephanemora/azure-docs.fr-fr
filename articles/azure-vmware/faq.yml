@@ -6,12 +6,12 @@ metadata:
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
   ms.date: 08/19/2021
-  ms.openlocfilehash: 716605f2a617d5f02d93596e760156b58f9ddcb2
-  ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+  ms.openlocfilehash: 536dfd9fa71c2f6eaefe25ada08f537868cf3f58
+  ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/20/2021
-  ms.locfileid: "122514662"
+  ms.lasthandoff: 09/26/2021
+  ms.locfileid: "129061710"
 title: Questions fréquentes sur Azure VMware Solution
 summary: Cette page répond aux questions fréquentes sur Azure VMware Solution.
 sections:
@@ -43,7 +43,7 @@ sections:
   - question: Comment les tarifs sont-ils structurés pour Azure VMware Solution ?
     answer: Pour toute question générale sur les tarifs, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/azure-vmware) relative à Azure VMware Solution.
   - question: Est-ce que VMware HCX Enterprise est disponible ? Si oui, quel est son prix ?
-    answer: VMware HCX Enterprise est disponible avec Azure VMware Solution en tant que fonction/service *en préversion*. Bien que la solution VMware HCX Enterprise pour Azure VMware Solution soit en préversion, il s’agit d’une fonction ou d’un service gratuit qui est soumis aux conditions générales du service en préversion. Une fois le service VMware HCX Enterprise mis à la disposition générale, vous recevrez un préavis de 30 jours indiquant le basculement de la facturation. Après cela, vous pouvez désactiver ou refuser le service.
+    answer: Si vous envisagez d’utiliser VMware HCX Enterprise, vérifiez que vous avez activé le module complémentaire VMware HCX Enterprise par le biais d’une [demande de support](https://rc.portal.azure.com/#create/Microsoft.Support). Il s’agit d’un essai gratuit de 12 mois dans Azure VMware Solution.
   - question: Le trafic entre la solution locale et Azure VMware Solution sur ExpressRoute entraînera-t-il des frais de transfert de données sortantes dans le plan de facturation à l’usage ?
     answer: "Le trafic dans le circuit ExpressRoute d’Azure VMware Solution n’est pas mesuré de quelque manière que ce soit. Le trafic entre votre circuit ExpressRoute qui se connecte à votre site local et Azure est facturé conformément aux plans de tarification d’ExpressRoute.\n\n- **Azure VMware Solution pour réseau virtuel** passe par un circuit ExpressRoute interne et est gratuit dans la même région qu’Azure VMware Solution. Toutefois, si le circuit ExpressRoute interne est connecté entre régions, des frais de transfert de données s’appliquent.\n\n- **Azure VMware Solution local** passe par un réseau virtuel ou ExpressRoute Global Reach (entre l’ExpressRoute interne et l’ExpressRoute externe). Il est toujours gratuit de fournir la connexion au réseau virtuel (mentionné ci-dessus) ou d’utiliser ExpressRoute Global Reach s’il se situe dans la région où l’instance Azure VMware Solution est déployée. \n"
   - question: Quand la facturation à l’usage commence-t-elle et se termine-t-elle pour les clusters Azure VMware Solution en évaluation gratuite ?

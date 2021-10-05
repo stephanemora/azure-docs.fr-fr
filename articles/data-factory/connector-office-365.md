@@ -1,27 +1,27 @@
 ---
-title: Copier des données depuis Office 365 avec Azure Data Factory
+title: Copier des données à partir d’Office 365
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’Office 365 vers des banques de données réceptrices prises en charge.
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données d’Office 365 vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2019
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 58f760514c38529dc059d7150392e6a98e48f2da
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 45f4f771d2cb289b9893bb8243add86df36ac915
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308221"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815035"
 ---
-# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données dans Azure depuis Office 365 avec Azure Data Factory
+# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-or-synapse-analytics"></a>Copier des données depuis Office 365 avec Azure Data Factory ou Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory s’intègre avec [Microsoft Graph data connect](/graph/data-connect-concept-overview) et vous permet de transférer de façon progressive vers Azure les données de votre organisation présentes dans votre locataire Office 365, de créer des applications d’analytique et d’extraire des insights basés sur ces riches ressources de données. L’intégration avec Privileged Access Management fournit un contrôle d’accès sécurisé pour les données organisées dans Office 365.  Reportez-vous à [ce lien](/graph/data-connect-concept-overview) pour une vue d’ensemble sur Microsoft Graph data connect et à [ce lien](/graph/data-connect-policies#licensing) pour les informations de licence.
+Les pipelines Azure Data Factory et Synapse Analytics s’intègrent à [Microsoft Graph data connect](/graph/data-connect-concept-overview) et vous permettent de transférer de façon progressive vers Azure les données de votre organisation présentes dans votre locataire Office 365, de créer des applications d’analytique et d’extraire des insights basés sur ces riches ressources de données. L’intégration avec Privileged Access Management fournit un contrôle d’accès sécurisé pour les données organisées dans Office 365.  Reportez-vous à [ce lien](/graph/data-connect-concept-overview) pour une vue d’ensemble sur Microsoft Graph data connect et à [ce lien](/graph/data-connect-policies#licensing) pour les informations de licence.
 
-Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’Office 365. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l’activité de copie pour copier des données d’Office 365. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 Le connecteur ADF Office 365 et Microsoft Graph data connect favorisent l’ingestion à grande échelle de différents types de jeux de données à partir de boîtes aux lettres prenant en charge l’e-mail Exchange, notamment le carnet d’adresses, les événements de calendrier, les messages, les informations utilisateur, les paramètres de boîte aux lettres, etc.  Reportez-vous [ici](/graph/data-connect-datasets) pour voir la liste complète des jeux de données disponibles.
@@ -29,7 +29,7 @@ Le connecteur ADF Office 365 et Microsoft Graph data connect favorisent l’ing
 À ce stade, au sein d’une seule activité de copie, vous pouvez seulement **copier des données depuis Office 365 dans [Stockage Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) et [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) au format JSON** (type setOfObjects). Si vous voulez charger des données Office 365 dans d’autres types de banques de données ou dans d’autres formats, vous pouvez faire suivre la première activité de copie d’une autre activité de copie pour charger les données dans une des [banques de données de destination ADF prises en charge](copy-activity-overview.md#supported-data-stores-and-formats) (reportez-vous à la colonne « prise en charge en tant que récepteur »du tableau « Banques de données et formats pris en charge »).
 
 >[!IMPORTANT]
->- L’abonnement Azure contenant la fabrique de données et la banque de données réceptrice doit être sous le même locataire Azure Active Directory (Azure AD) que le locataire Office 365.
+>- L’abonnement Azure contenant la fabrique de données ou l’espace de travail Synapse et la banque de données réceptrice doit être sous le même locataire Azure Active Directory (Azure AD) que le locataire Office 365.
 >- Vérifiez que la région Azure Integration Runtime utilisée pour l’activité de copie et la destination se trouvent dans la même région que celle où se trouve la boîte aux lettres des utilisateurs du locataire Office 365. Pour comprendre comment l’emplacement d’Azure Integration Runtime est déterminé, suivez [ce lien](concepts-integration-runtime.md#integration-runtime-location). Consultez [ce tableau](/graph/data-connect-datasets#regions) pour obtenir la liste des régions Office et des régions Azure correspondantes prises en charge.
 >- L’authentification d’un principal de service est le seul mécanisme d’authentification pris en charge pour Stockage Blob Azure, Azure Data Lake Storage Gen1 et Azure Data Lake Storage Gen2 comme magasins de destination.
 
@@ -77,7 +77,7 @@ Utilisez les étapes suivantes pour créer un service lié à Office 365 dans l�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -105,7 +105,7 @@ Les propriétés prises en charge pour le service lié Office 365 sont les suiva
 | office365TenantId | ID de locataire Azure auquel le compte Office 365 appartient. | Oui |
 | servicePrincipalTenantId | Spécifiez les informations du locataire où se trouve votre application web Azure AD. | Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui |
-| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. | Oui |
+| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité. | Oui |
 | connectVia | Runtime d’intégration à utiliser pour la connexion à la banque de données.  À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |
 
 >[!NOTE]
@@ -326,4 +326,4 @@ Pour copier des données à partir d’Office 365, les propriétés prises en c
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

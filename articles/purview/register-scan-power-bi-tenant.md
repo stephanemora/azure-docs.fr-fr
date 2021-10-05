@@ -1,20 +1,20 @@
 ---
-title: Inscrire et analyser un locataire Power BI (préversion)
+title: Enregistrez et numérisez un locataire Power BI
 description: Découvrez comment inscrire et analyser un locataire Power BI à l’aide du portail Azure Purview.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 07/28/2021
-ms.openlocfilehash: c29070f85fe0024113b6d5d4857733b23b522615
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/27/2021
+ms.openlocfilehash: 8290c4c31cca383692a4ce5908d56e1b686c4213
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527641"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211477"
 ---
-# <a name="register-and-scan-a-power-bi-tenant-preview"></a>Inscrire et analyser un locataire Power BI (préversion)
+# <a name="register-and-scan-a-power-bi-tenant"></a>Enregistrez et numérisez un locataire Power BI
 
 Cet article explique comment inscrire et analyser un locataire Power BI à l’aide du portail Azure Purview.
 
@@ -60,13 +60,16 @@ Pour configurer l’authentification, créez un groupe de sécurité et ajoutez-
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image illustrant comment permettre aux principaux de service d’obtenir des autorisations d’API d’administration Power BI en lecture seule":::
 
-1. Sélectionnez **Paramètre de l’API** > **Améliorer les réponses des API d’administration avec des métadonnées détaillées** > Activer le bouton bascule pour permettre au mappage de données Purview de découvrir automatiquement les métadonnées détaillées des jeux de données de Power BI dans le cadre de ses analyses.
+1. Sélectionnez les **paramètres de l'API d'administration** >  **Améliorer les réponses de l'API d'administration avec des métadonnées détaillées** > Activez la bascule pour permettre à Purview Data Map de découvrir automatiquement les métadonnées détaillées des ensembles de données Power BI dans le cadre de ses analyses.
+
+    > [!IMPORTANT]
+    > Après avoir mis à jour les paramètres de l'API Admin sur votre locataire Power BI, attendez environ 15 minutes avant d'enregistrer une analyse et de tester la connexion.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-sub-artifacts.png" alt-text="Image montrant la configuration du portail d’administration Power BI pour activer l’analyse des sous-artefacts.":::
 
     > [!Caution]
     > Lorsque vous autorisez le groupe de sécurité que vous avez créé (dont l’identité managée Purview est membre) à utiliser des API d’administration Power BI en lecture seule, vous l’autorisez également à accéder aux métadonnées (telles que le tableau de bord et les noms de rapports, les propriétaires, les descriptions) pour tous vos artefacts Power BI dans ce locataire. Une fois que les métadonnées ont été extraites dans Azure Purview, les autorisations de Purview, et non celles de Power BI, déterminent qui peut voir ces métadonnées.
-
+  
     > [!Note]
     > Vous pouvez supprimer le groupe de sécurité de vos paramètres de développeur, mais les métadonnées précédemment extraites ne seront pas supprimées du compte Purview. Vous pouvez les supprimer séparément, si vous le souhaitez.
 
@@ -126,7 +129,7 @@ Pensez à utiliser ce guide si le locataire Azure AD dans lequel se trouve le lo
 
 1. Téléchargez les [Modules PowerShell d’analyse gérée](https://github.com/Azure/Purview-Samples/blob/master/Cross-Tenant-Scan-PowerBI/ManagedScanningPowerShell.zip) et extrayez leur contenu à l’emplacement de votre choix.
 
-2. Sur votre ordinateur, entrez **PowerShell** dans la zone de recherche de la barre des tâches Windows. Dans la liste des résultats de recherche, cliquez avec le bouton droit sur **Windows PowerShell**, puis sélectionnez **Exécuter en tant qu’administrateur**.
+2. Sur votre ordinateur, entrez **PowerShell** dans la zone de recherche de la barre des tâches Windows. Dans la liste de recherche, sélectionnez et maintenez (ou cliquez avec le bouton droit de la souris) **Windows PowerShell**, puis sélectionnez **Exécuter en tant qu'administrateur**.
 
 
 3. Installez et importez le module sur votre ordinateur s’il n’a pas encore été installé.
@@ -181,7 +184,7 @@ Pensez à utiliser ce guide si le locataire Azure AD dans lequel se trouve le lo
    
    4. Créez l’URL de connexion spécifique au locataire pour votre principal du service en exécutant l’URL suivante dans votre navigateur web :
    
-     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonece=67890
+     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
     
     Veillez à remplacer les paramètres par les informations qui conviennent : <purview_tenant_id> correspond à l’ID Azure Active Directory (GUID) où le compte Azure Purview est approvisionné.
     <client_id_to_delegate_the_pbi_admin> correspond à l’ID d’application correspondant à votre principal de service
@@ -224,6 +227,7 @@ Pensez à utiliser ce guide si le locataire Azure AD dans lequel se trouve le lo
 
 -   Dans le cas d’un scénario multilocataire, aucune expérience utilisateur n’est actuellement disponible pour inscrire et analyser le multilocataire Power BI.
 -   La modification du multilocataire Power BI inscrit auprès de PowerShell à l’aide de Purview Studio altère l’inscription de la source de données et se traduit par un comportement d’analyse incohérent.
+-   Passez en revue [Power BI limitations d’analyse des métadonnées](/power-bi/admin/service-admin-metadata-scanning).
 
         
 ## <a name="next-steps"></a>Étapes suivantes

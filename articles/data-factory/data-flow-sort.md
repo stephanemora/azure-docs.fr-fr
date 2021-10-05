@@ -1,7 +1,7 @@
 ---
 title: Transformation de tri dans le flux de données de mappage
+description: Apprenez-en davantage sur la transformation de tri des données de mappage dans les pipelines Azure Data Factory et Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Transformation du tri des données de mappage d’Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/14/2020
-ms.openlocfilehash: 88253393820892f20544f5cbf6a83b21e24e8ec8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 8781836be58403dfef130f55fa698b281360e641
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642065"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059879"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>Transformation de tri dans le flux de données de mappage
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 La transformation de tri permet de trier les lignes entrantes sur le flux de données actuel. Il est possible de sélectionner les colonnes une par une et de les trier par ordre croissant ou décroissant.
 
@@ -28,7 +30,7 @@ La transformation de tri permet de trier les lignes entrantes sur le flux de don
 
 ## <a name="configuration"></a>Configuration
 
-![Paramètres de tri](media/data-flow/sort.png "Trier")
+:::image type="content" source="media/data-flow/sort.png" alt-text="Paramètres de tri":::
 
 **Insensible à la casse :** si vous souhaitez ou non ignorer la casse lors du tri de champs de chaîne ou de texte.
 
@@ -55,7 +57,7 @@ Pour modifier ou extraire une valeur de colonne avant d’appliquer le tri, plac
 
 ### <a name="example"></a>Exemple
 
-![Paramètres de tri](media/data-flow/sort.png "Trier")
+:::image type="content" source="media/data-flow/sort.png" alt-text="Paramètres de tri":::
 
 Le flux de données correspondant à la configuration de tri ci-dessus est présenté dans l’extrait de code suivant.
 

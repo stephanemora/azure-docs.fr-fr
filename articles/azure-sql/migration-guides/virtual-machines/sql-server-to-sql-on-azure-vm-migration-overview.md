@@ -9,13 +9,13 @@ ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: chadam
-ms.date: 11/06/2020
-ms.openlocfilehash: bf7cf597d97f1316d43546382cbac140c3ba6fff
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/07/2021
+ms.openlocfilehash: afca22d3a0775e470becfbd31a2f67d99552938d
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532602"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541666"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Vue d’ensemble de la migration : SQL Server vers SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -65,7 +65,7 @@ Le tableau suivant décrit les différences entre les deux stratégies de migrat
 | **Stratégie de migration** | **Description** | **Quand utiliser** |
 | --- | --- | --- |
 | **Lift-and-shift** | Utilisez la stratégie de migration Lift-and-shift pour déplacer l’intégralité des serveurs SQL physiques ou virtuels de leur emplacement actuel vers une instance SQL sur une machine virtuelle Azure sans aucune modification du système d’exploitation ou de la version de SQL Server. Pour effectuer une migration Lift-and-shift, consultez [Azure Migrate](../../../migrate/migrate-services-overview.md). <br /><br /> Le serveur source reste en ligne et traite les requêtes, tandis que le serveur source et le serveur de destination synchronisent les données, ce qui permet une migration presque transparente. | À utiliser pour les migrations simples aux migrations à très grande échelle, applicable aussi aux scénarios comme la sortie d’un centre de données. <br /><br /> Modifications de code minimales ou nulles requises pour les bases de données ou les applications SQL des utilisateurs, ce qui permet des migrations globales plus rapides. <br /><br />Aucune étape supplémentaire n’est requise pour la migration des services décisionnels tels que [SSIS](/sql/integration-services/sql-server-integration-services), [SSRS](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) et [SSAS](/analysis-services/analysis-services-overview). |
-|**Migrer** | Utilisez une stratégie de migration lorsque vous souhaitez mettre à niveau la version cible du serveur SQL et/ou du système d’exploitation. <br /> <br /> Sélectionnez une machine virtuelle Azure sur Place de marché Azure ou une image SQL Server préparée qui correspond à la version source de SQL Server. | À utiliser lorsqu’il est nécessaire ou souhaitable d’utiliser des fonctionnalités disponibles dans des versions plus récentes de SQL Server, ou lorsqu’il est nécessaire de mettre à niveau les versions héritées de SQL Server et/ou du système d’exploitation qui ne sont plus prises en charge.  <br /> <br /> Peut nécessiter des modifications de l’application ou de la base de données utilisateur pour prendre en charge la mise à niveau du serveur SQL. <br /><br />Il peut y avoir des considérations supplémentaires relatives à la migration des [services décisionnels](#business-intelligence) s’ils s’inscrivent dans le cadre de la migration. |
+|**Migrer** | Utilisez une stratégie de migration lorsque vous souhaitez mettre à niveau la version cible du serveur SQL et/ou du système d’exploitation. <br /> <br /> Sélectionnez une machine virtuelle Azure sur Place de marché Azure ou une image SQL Server préparée qui correspond à la version source de SQL Server. <br/> <br/> Utilisez l'[extension Azure SQL Migration for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) pour migrer une ou plusieurs bases de données SQL Server vers SQL Server sur des machines virtuelles Azure avec un minimum de temps d'arrêt. | À utiliser lorsqu’il est nécessaire ou souhaitable d’utiliser des fonctionnalités disponibles dans des versions plus récentes de SQL Server, ou lorsqu’il est nécessaire de mettre à niveau les versions héritées de SQL Server et/ou du système d’exploitation qui ne sont plus prises en charge.  <br /> <br /> Peut nécessiter des modifications de l’application ou de la base de données utilisateur pour prendre en charge la mise à niveau du serveur SQL. <br /><br />Il peut y avoir des considérations supplémentaires relatives à la migration des [services décisionnels](#business-intelligence) s’ils s’inscrivent dans le cadre de la migration. |
 
 
 ## <a name="lift-and-shift"></a>Migration lift-and-shift  
@@ -91,6 +91,7 @@ Le tableau suivant détaille toutes les méthodes disponibles pour migrer votre 
 
 |**Méthode** | **Version source minimale** | **Version cible minimale** | **Contrainte de taille de la sauvegarde source** | **Remarques** |
 | --- | --- | --- | --- | --- |
+| **[Extension de migration Azure SQL pour Azure Data Studio](../../../dms/migration-using-azure-data-studio.md)** | SQL Server 2005 | SQL Server 2008 | [Limite de stockage de machine virtuelle Azure](../../../index.yml) |  Il s'agit d'une extension basée sur un assistant facile à utiliser dans Azure Data Studio pour la migration de base(s) de données SQL Server vers SQL Server sur des machines virtuelles Azure. Utilisez la compression afin de réduire la taille de la sauvegarde pour le transfert. <br /><br /> L'extension Azure SQL Migration for Azure Data Studio offre des capacités d'évaluation et de migration dans une interface utilisateur simple.  |
 | **[Sauvegarde dans un fichier](sql-server-to-sql-on-azure-vm-individual-databases-guide.md#migrate)** | SQL Server 2008 SP4 | SQL Server 2008 SP4| [Limite de stockage de machine virtuelle Azure](../../../index.yml) |  Il s’agit d’une technique simple et éprouvée pour déplacer des bases de données d’une machine à l’autre. Utilisez la compression afin de réduire la taille de la sauvegarde pour le transfert. <br /><br /> **Automatisation et scripts** : [Transact-SQL (T-SQL)](/sql/t-sql/statements/backup-transact-sql) et [AzCopy dans Stockage Blob](../../../storage/common/storage-use-azcopy-v10.md)  |
 | **[Sauvegarde vers une URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)** | SQL Server 2012 SP1 CU2 | SQL Server 2012 SP1 CU2| 12,8 To pour SQL Server 2016, sinon 1 To | Autre façon de déplacer le fichier de sauvegarde sur la machine virtuelle à l’aide du stockage Azure. Utilisez la compression afin de réduire la taille de la sauvegarde pour le transfert. <br /><br /> **Automatisation et scripts** :  [T-SQL ou plan de maintenance](/sql/relational-databases/backup-restore/sql-server-backup-to-url) |
 | **[Assistant Migration de données Microsoft (DMA)](/sql/dma/dma-overview)** | SQL Server 2005| SQL Server 2008 SP4| [Limite de stockage de machine virtuelle Azure](../../../index.yml) |  L’[Assistant Migration de données](/sql/dma/dma-overview) évalue SQL Server localement, puis effectue une mise à niveau en toute transparence vers les versions ultérieures de SQL Server ou migre vers SQL Server sur les machines virtuelles Azure, Azure SQL Database ou Azure SQL Managed Instance. <br /><br /> Ne doit pas être utilisée sur des bases de données utilisateur compatibles le flux de fichier.<br /><br /> L’Assistant Migration de données offre également la possibilité de migrer des [identifiants SQL et Windows](/sql/dma/dma-migrateserverlogins) et d’évaluer des [packages SSIS](/sql/dma/dma-assess-ssis). <br /><br /> **Automatisation et scripts** : [Interface de ligne de commande](/sql/dma/dma-commandline) |
@@ -152,7 +153,7 @@ Pour commencer la migration de vos bases de données SQL Server vers SQL Server 
 - Pour en savoir plus sur Azure SQL, consultez :
    - [Options de déploiement](../../azure-sql-iaas-vs-paas-what-is-overview.md)
    - [SQL Server sur machines virtuelles Azure](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
-   - [Outil de calcul du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [Calculatrice du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
 - Pour plus d’informations sur l’infrastructure et le cycle d’adoption pour les migrations cloud, consultez :

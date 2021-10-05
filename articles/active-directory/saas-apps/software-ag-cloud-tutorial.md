@@ -1,7 +1,6 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Software AG Cloud | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Software AG Cloud'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Software AG Cloud.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: CelesteDG
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c2a2446da0e1ccf1b3dab88fe898b179291ddaba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 900cb7892331db3e78314a5de6bfb432f40990c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98726110"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558476"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Software AG Cloud
 
@@ -151,7 +150,7 @@ Dans cette section, vous créez un utilisateur appelé Britta Simon dans Softwar
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec l’option suivante. 
 
-En supposant que Microsoft Azure est configuré en tant que fournisseur dans Software AG Cloud, accédez à `www.softwareag.cloud` et cliquez sur le bouton de connexion, puis entrez le nom de l’environnement. Dans l’écran suivant, cliquez sur le lien « Log in with <IDP NAME> » (Se connecter avec <IDP NAME>), puis entrez les informations d’identification. Une fois authentifié, vous êtes connecté à la page d’accueil de Software AG Cloud.
+En supposant que Microsoft Azure est configuré en tant que fournisseur dans Software AG Cloud, accédez à `www.softwareag.cloud` et cliquez sur le bouton de connexion, puis entrez le nom de l’environnement. Dans l’écran suivant, cliquez sur le lien « Log in with \<IDP NAME\> » (Se connecter avec \<IDP NAME\>), puis entrez les informations d’identification. Une fois authentifié, vous êtes connecté à la page d’accueil de Software AG Cloud.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

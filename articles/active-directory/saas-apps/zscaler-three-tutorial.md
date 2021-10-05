@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: d30b4e60ef93b8dccc7e9ed4966eeb7d9570df43
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2b75a4d4973a1aed74c1280dfab50753086eee37
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096942"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807842"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zscaler Three
 
@@ -40,6 +40,8 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Zscaler Three prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 * Zscaler Three prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+
+* Zscaler Three prend en charge le [provisionnement d’utilisateurs automatisé](zscaler-three-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -214,6 +216,9 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans Zscaler Thre
 > [!Note]
 > Si vous devez créer un utilisateur manuellement, contactez l’[équipe de support Zscaler Three](https://www.zscaler.com/company/contact).
 
+> [!NOTE]
+> Zscaler Three prend aussi en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./zscaler-three-provisioning-tutorial.md) sur la manière de configurer ce dernier.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -222,7 +227,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Zscaler Three pour y lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Zscaler Three dans Mes applications, vous êtes redirigé vers l’URL de connexion à Zscaler Three. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Zscaler Three dans Mes applications, vous êtes redirigé vers l’URL de connexion à Zscaler Three. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

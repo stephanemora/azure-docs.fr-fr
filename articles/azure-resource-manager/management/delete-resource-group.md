@@ -2,14 +2,14 @@
 title: Supprimer un groupe de ressources et des ressources
 description: Décrit comment supprimer des groupes de ressources et des ressources. Décrit comment Azure Resource Manager organise la suppression des ressources pendant la suppression d’un groupe de ressources. Décrit les codes de réponse et comment Resource Manager les gère pour déterminer si la suppression a réussi.
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 09/28/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ccf5a9b1fac50dbf96d648acbf625b360bafb249
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 7995539ededec882b0b69e5ba3d1c5ef42adbcdc
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315234"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211230"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Suppression d’un groupe de ressources et de ressources Azure Resource Manager
 
@@ -119,13 +119,13 @@ az resource delete \
 
 ---
 
-## <a name="required-access"></a>Accès requis
+## <a name="required-access-and-deletion-failures"></a>Échecs d’accès et de suppression requis
 
 Pour supprimer un groupe de ressources, vous devez accéder à l’action Supprimer pour la ressource **Microsoft. Resources/subscriptions/resourceGroups**. Vous devez également supprimer toutes les ressources du groupe de ressources.
 
 Pour obtenir la liste des opérations, consultez [Opérations du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md). Pour obtenir la liste des rôles intégrés, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
-Si vous disposez de l’accès requis, mais que la demande de suppression échoue, cela peut être dû à la présence d’un [verrou](lock-resources.md) sur le groupe de ressources.
+Si vous disposez de l'accès requis, mais que la demande de suppression échoue, c'est peut-être parce qu'il existe un [verrou sur les ressources ou le groupe de ressources](lock-resources.md). Même si vous n’avez pas verrouillé manuellement un groupe de ressources, il a peut-être été [automatiquement verrouillé par un service associé](lock-resources.md#managed-applications-and-locks). Ou bien, la suppression peut échouer si les ressources sont connectées à des ressources dans d'autres groupes de ressources qui ne sont pas supprimées. Par exemple, vous ne pouvez pas supprimer un réseau virtuel avec des sous-réseaux qui sont toujours utilisés par une machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Arc
 description: Découvrez ce qu’est le service Azure Arc et comment il permet aux clients d’activer la gestion et la gouvernance de leurs ressources hybrides avec d’autres services et fonctionnalités Azure.
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: 878e1b9166a10a071d3870edcc70d1775fbcd914
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 7a900a7a0454f4dff5cdfe98f611982c33617c1d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867122"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124832355"
 ---
 # <a name="azure-arc-overview"></a>Vue d’ensemble d’Azure Arc
 
@@ -56,7 +56,7 @@ Les fonctionnalités clés d’Azure Arc sont les suivantes :
 
 Voici les détails du tarif des fonctionnalités disponibles aujourd’hui avec Azure Arc.
 
-### <a name="arc-enabled-servers"></a>Serveurs avec Arc
+### <a name="azure-arc-enabled-servers"></a>Serveurs avec Azure Arc
 
 Les fonctionnalités suivantes du plan de contrôle Azure Arc sont proposées sans coût supplémentaire :
 
@@ -70,11 +70,11 @@ Les fonctionnalités suivantes du plan de contrôle Azure Arc sont proposées sa
 
 * Gestion des mises à jour.
 
-Tout service Azure utilisé sur des serveurs avec Arc, par exemple Azure Security Center ou Azure Monitor, est facturé sur la base des tarifs de ce service. Pour plus d’informations, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
+Tout service Azure utilisé sur des serveurs avec Azure Arc, comme Azure Security Center ou Azure Monitor, est facturé sur la base des tarifs de ce service. Pour plus d’informations, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Kubernetes avec Azure Arc
 
-Tout service Azure qui est utilisé sur Kubernetes avec Arc, par exemple Azure Security Center ou Azure Monitor, est facturé sur la base des tarifs de ce service. Pour plus d’informations sur les tarifs des configurations Kubernetes avec Azure Arc, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
+Tout service Azure utilisé sur Kubernetes avec Azure Arc, comme Azure Security Center ou Azure Monitor, est facturé sur la base des tarifs de ce service. Pour plus d’informations sur les tarifs des configurations Kubernetes avec Azure Arc, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
 
 ### <a name="azure-arc-enabled-data-services"></a>Services de données avec Azure Arc
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/09/2020
+ms.date: 09/10/2021
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a7897590f8803be105eabb5cdee194e6574e8b9
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 96e2f7176f85d5571ce73c4efdd592dd3964400d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696658"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781514"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -327,6 +327,93 @@ Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour 
     ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2015-07-01
     ```
+
+## <a name="view-elevate-access-logs"></a>Afficher les journaux d’accès avec élévation de privilèges
+
+Lorsque l’accès est élevé, une entrée est ajoutée aux journaux. En tant qu’administrateur général dans Azure AD, vous souhaiterez peut-être vérifier quand l’accès a été élevé et qui l’a fait. Les entrées de journal d’accès élevé n’apparaissent pas dans les journaux d’activité standard, mais apparaissent dans les journaux d’activité de l’annuaire. Cette section décrit les différentes façons dont vous pouvez afficher les journaux d’accès avec élévation de privilèges.
+
+### <a name="view-elevate-access-logs-using-the-azure-portal"></a>Afficher les journaux d’accès avec élévation de privilèges à l’aide du Portail Azure
+
+1. Suivez les étapes décrites plus haut dans cet article pour élever votre accès.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général.
+
+1. Sélectionnez **Surveiller** > **Journal d’activité**.
+
+1. Définissez la liste **Activité** sur **Activité d’annuaire**.
+
+1. Recherchez l’opération suivante, qui signifie l’action d’accès avec élévation de privilèges.
+
+    `Assigns the caller to User Access Administrator role`
+
+    ![Capture d’écran montrant les journaux d’activité de l’annuaire dans Moniteur.](./media/elevate-access-global-admin/monitor-directory-activity.png)
+
+1. Suivez les étapes décrites plus haut dans cet article pour supprimer l’accès avec élévation de privilèges.
+
+### <a name="view-elevate-access-logs-using-azure-cli"></a>Afficher les journaux d’accès avec élévation de privilèges à l’aide d’Azure CLI
+
+1. Suivez les étapes décrites plus haut dans cet article pour élever votre accès.
+
+1. Utilisez la commande [az login](/cli/azure/reference-index#az_login) pour vous connecter en tant qu’administrateur général.
+
+1. Utilisez la commande [az rest](/cli/azure/reference-index#az_rest) pour effectuer l’appel suivant, dans lequel vous devrez filtrer par une date comme indiqué dans l’exemple de tampon et spécifier un nom de fichier où vous souhaitez stocker les journaux.
+
+    L’`url` appelle une API pour récupérer les journaux dans Microsoft.Insights. La sortie sera enregistrée dans votre fichier.
+
+    ```azurecli
+    az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
+    ```
+
+1.  Dans le fichier de sortie, recherchez `elevateAccess`.
+
+    Le journal ressemble à ce qui suit, dans lequel vous pouvez voir l’horodatage du moment où l’action s’est produite et qui l’a appelée.
+
+    ```json
+      "submissionTimestamp": "2021-08-27T15:42:00.1527942Z",
+      "subscriptionId": "",
+      "tenantId": "33333333-3333-3333-3333-333333333333"
+    },
+    {
+      "authorization": {
+        "action": "Microsoft.Authorization/elevateAccess/action",
+        "scope": "/providers/Microsoft.Authorization"
+      },
+      "caller": "user@example.com",
+      "category": {
+        "localizedValue": "Administrative",
+        "value": "Administrative"
+      },
+    ```
+
+1. Suivez les étapes décrites plus haut dans cet article pour supprimer l’accès avec élévation de privilèges.
+
+### <a name="delegate-access-to-a-group-to-view-elevate-access-logs-using-azure-cli"></a>Déléguer l’accès à un groupe pour afficher les journaux d’accès avec élévation de privilèges à l’aide d’Azure CLI
+
+Si vous souhaitez être en mesure d’obtenir régulièrement les journaux d’accès avec élévation de privilèges, vous pouvez déléguer l’accès à un groupe, puis utiliser Azure CLI.
+
+1. Ouvrez **Azure Active Directory** > **Groupes**.
+
+1. Créez un groupe de sécurité et notez l’ID d’objet de groupe.
+
+1. Suivez les étapes décrites plus haut dans cet article pour élever votre accès.
+
+1. Utilisez la commande [az login](/cli/azure/reference-index#az_login) pour vous connecter en tant qu’administrateur général.
+
+1. Utilisez la commande [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour affecter le rôle [Lecteur](built-in-roles.md#reader) au groupe qui peut lire uniquement les journaux au niveau de l’annuaire figurant dans `Microsoft/Insights`.
+
+    ```azurecli
+    az role assignment create --assignee "{groupId}" --role "Reader" --scope "/providers/Microsoft.Insights"
+    ```
+
+1. Ajoutez un utilisateur qui lira les journaux dans le groupe créé précédemment.
+
+1. Suivez les étapes décrites plus haut dans cet article pour supprimer l’accès avec élévation de privilèges.
+
+Un utilisateur du groupe peut maintenant exécuter régulièrement la commande [az rest](/cli/azure/reference-index#az_rest) pour afficher les journaux d’accès avec élévation de privilèges.
+
+```azurecli
+az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

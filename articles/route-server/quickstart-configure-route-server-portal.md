@@ -5,20 +5,23 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 09/01/2021
+ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: 36be075345dcacdf8246f46462a2665718f27e7e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: a6714867b5b863f608e3282c5e6f3bb0d2425969
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424795"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091480"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>Démarrage rapide : Créer et configurer Route Server en utilisant le portail Azure
 
 Cet article vous aide à configurer Azure Route Server pour effectuer un appairage avec une appliance virtuelle réseau (NVA) dans votre réseau virtuel en utilisant le portail Azure. Azure Route Server va apprendre les routes provenant de l’appliance virtuelle réseau et il les programmera sur les machines virtuelles du réseau virtuel. Azure Route Server publiera également les routes du réseau virtuel menant à l’appliance virtuelle réseau. Pour plus d’informations, consultez [Azure Route Server](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagramme de l’environnement de déploiement du serveur de routes avec le portail Azure." border="false":::
+
+> [!IMPORTANT]
+> Si vous avez un serveur de routes Azure créé avant le 1er septembre et qu’il n’a pas d’adresse IP publique associée, vous devez recréer le serveur de routes pour qu’il puisse obtenir une adresse IP à des fins de gestion.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +36,7 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
 
 ### <a name="create-a-route-server"></a>Créer un serveur de routage
 
-1. Atteindre https://aka.ms/routeserver.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis recherchez et sélectionnez le **serveur de routes**.
 
 1. Sélectionnez **+ Créer un serveur de routage**.
 

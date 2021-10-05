@@ -1,14 +1,14 @@
 ---
-title: Configurer une stratégie de rétention dans Azure DevTest Labs | Microsoft Docs
+title: Définir la stratégie de rétention
 description: Découvrez comment configurer une stratégie de rétention, nettoyer la fabrique et mettre hors service des images anciennes à partir de DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 4e642d7dc0733e55caa4ed62e3382ef4422030f9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 91baf275a1ff85cadd0e1226ceb2f1ff529189c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727533"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642868"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurer une stratégie de rétention dans Azure DevTest Labs
 Cet article couvre la définition d’une stratégie de conservation, le nettoyage de la fabrique et la suppression des anciennes images dans tous les autres DevTest Labs de l’organisation. 
@@ -67,4 +67,3 @@ L’ajout d’une nouvelle image à votre fabrique est également simple. Quand 
 1. [Planifier votre génération/mise en production](/azure/devops/pipelines/build/triggers?tabs=designer) pour exécuter périodiquement la fabrique d’images. Elle actualise vos images générées par la fabrique de façon régulière.
 2. Créez d’autres images golden pour votre fabrique. Vous pouvez également envisager de [créer des artefacts](devtest-lab-artifact-author.md) pour générer un script avec des éléments supplémentaires de vos tâches de configuration de machine virtuelle et inclure les artefacts dans vos images de fabrique.
 4. Créez une [génération/mise en production distincte](/azure/devops/pipelines/overview) pour exécuter le script **DistributeImages** séparément. Vous pouvez exécuter ce script quand vous apportez des modifications à Labs.json et obtenir ainsi des images copiées vers les labos cibles sans devoir recréer toutes les images.
-

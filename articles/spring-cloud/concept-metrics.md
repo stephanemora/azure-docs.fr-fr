@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: d09b2aff00d32dc3865c13e2aaab94a0a86464e3
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 26d95493042d259029bc6a9428b016bbceb5681b
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533271"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154239"
 ---
 # <a name="metrics-for-azure-spring-cloud"></a>Métriques pour Azure Spring Cloud
 
@@ -177,6 +177,20 @@ Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostic
 >| tomcat.sessions.expired | tomcat.sessions.expired | Count | Nombre de sessions qui ont expiré |
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Nombre de sessions qui n’ont pas été créées parce que le nombre maximal de sessions actives a été atteint. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Nombre de sessions actives Tomcat |
+
+### <a name="ingress"></a>Entrée
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Nom complet             | Nom de la métrique Azure        | Unité           | Détails                                                                                                                                                                          |
+>|--------------------------|--------------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+>| Octets reçus           | IngressBytesReceived     | Octets          | Nombre d’octets reçus par Azure Spring Cloud à partir des clients                                                                                                                   |
+>| Octets envoyés               | IngressBytesSent         | Octets          | Nombre d’octets envoyés par Azure Spring Cloud aux clients                                                                                                                         |
+>| Demandes                 | IngressRequests          | Count          | Compte des demandes des clients par Azure Spring Cloud.                                                                                                                         |
+>| Demandes ayant échoué          | IngressFailedRequests    | Count          | Nombre de requêtes échouées par Azure Spring Cloud de la part des clients                                                                                                                  |
+>| État de la réponse          | IngressResponseStatus    | Count          | Statut de la réponse HTTP renvoyée par Azure Spring Cloud. La distribution des codes d'état de la réponse peut être classée en catégories 2xx, 3xx, 4xx et 5xx. |
+>| Temps de réponse            | IngressResponseTime      | Secondes        | Temps de réponse Http retourné par Azure Spring Cloud                                                                                                                                  |
+>| Débit en (octets/s)  | IngressBytesReceivedRate | BytesPerSecond | Nombre d’octets reçus par Azure Spring Cloud à partir des clients                                                                                                                 |
+>| Débit sortant (octets/s) | IngressBytesSentRate     | BytesPerSecond | Octets envoyés par seconde par Azure Spring Cloud aux clients                                                                                                                       |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

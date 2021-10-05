@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/28/2021
 ms.topic: how-to
-ms.openlocfilehash: acbaa73fe51bd1de51084d0ec2752702ae96c66a
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: f0e0e947a91da29048144a94b9651e4584f26b41
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469956"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094107"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Créer et gérer une application Azure IoT Central sur le portail des CSP
 
@@ -76,7 +76,7 @@ Pour plus d’informations, consultez [Abonnements Azure](../../guides/developer
 
 ## <a name="location"></a>Emplacement
 
-L’**emplacement** correspond à la [zone géographique](https://azure.microsoft.com/global-infrastructure/geographies/) où vous souhaitez créer l’application. D'une façon générale, il est recommandé de choisir l'emplacement qui est physiquement le plus proche de vos appareils pour obtenir des performances optimales. Actuellement, vous pouvez créer une application IoT Central dans les zones géographiques **Australie**, **Asie-Pacifique**, **Europe**, **États-Unis**, **Royaume-Uni** ou **Japon**. Une fois que vous avez choisi un emplacement, vous ne pouvez pas par la suite déplacer votre application dans un autre emplacement.
+L’**emplacement** correspond à l’emplacement où vous souhaitez créer l’application. D'une façon générale, il est recommandé de choisir l'emplacement qui est physiquement le plus proche de vos appareils pour obtenir des performances optimales. Actuellement, vous pouvez créer une application IoT Central dans les régions : **Australie Est**, **USA Centre**, **USA Est**, **USA Est 2**, **Japon Est**, **Europe Nord**, **Asie Sud-Est**, **Royaume-Uni Sud**, **Europe Ouest** et **USA Ouest**. Une fois que vous avez choisi un emplacement, vous ne pouvez pas par la suite déplacer votre application dans un autre emplacement.
 
 ## <a name="application-template"></a>Modèle d’application
 

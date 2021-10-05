@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 71a2ad9d9a9b3c4f8c2be23859782cdb7a38e13f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 946aa1a6a177dd89c851e977ac783806e8a9dcc5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112464878"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652222"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zenya"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zenya
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Zenya prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Zenya prend en charge l’[attribution automatique d’utilisateurs](iprova-provisioning-tutorial.md).
 
 ## <a name="add-zenya-from-the-gallery"></a>Ajouter Zenya à partir de la galerie
 
@@ -198,6 +199,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 10. Faites défiler jusqu’à la fin de la page, puis sélectionnez **Finish** (Terminer).
 
+> [!NOTE]
+> Zenya prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez [ici](./iprova-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -206,7 +210,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Zenya pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Zenya dans Mes applications vous redirige vers l’URL de connexion à Zenya. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Zenya dans Mes applications vous redirige vers l’URL de connexion à Zenya. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

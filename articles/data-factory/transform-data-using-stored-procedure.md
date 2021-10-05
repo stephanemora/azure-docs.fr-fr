@@ -1,32 +1,32 @@
 ---
 title: Transformer des données à l’aide de l’activité de procédure stockée
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Explique comment utiliser l’activité de procédure stockée SQL Server pour appeler une procédure stockée dans Azure SQL Database/Data Warehouse à partir d’un pipeline Data Factory.
+description: Explique comment utiliser l’activité de procédure stockée SQL Server pour appeler une procédure stockée dans Azure SQL Database/Data Warehouse à partir d’un pipeline Azure Data Factory ou Synapse Analytics.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 11/27/2018
-ms.openlocfilehash: c3815bfca83d6dcf789a780a2d82ff1d4bb62285
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: d2dacc3379d1587352c7593c3766294613229fad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534905"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798348"
 ---
-# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory
+# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory-or-synapse-analytics"></a>Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory ou Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-stored-proc-activity.md)
 > * [Version actuelle](transform-data-using-stored-procedure.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Vous utilisez des activités de transformation dans un [pipeline](concepts-pipelines-activities.md) Data Factory pour transformer et traiter des données brutes en prévisions et en analyses. L’activité de procédure stockée est l’une des activités de transformation prises en charge par Data Factory. Cet article s’appuie sur l’article [Transformer des données](transform-data.md) qui présente une vue d’ensemble de la transformation des données et des activités de transformation prises en charge dans Data Factory.
+Vous utilisez des activités de transformation dans un [pipeline](concepts-pipelines-activities.md) Data Factory ou Synapse pour transformer et traiter des données brutes en prévisions et en analyses. L’activité de procédure stockée est l’une des activités de transformation prises en charge par les pipelines. Cet article s’ajoute à l’article [Transformer des données](transform-data.md) qui présente une vue d’ensemble de la transformation de données et des activités de transformation prises en charge.
 
 > [!NOTE]
-> Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](introduction.md) et suivez le tutoriel : [Tutoriel : Transformer des données](tutorial-transform-data-spark-powershell.md) avant de lire cet article. 
+> Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](introduction.md) et suivez le tutoriel : [Tutoriel : Transformer des données](tutorial-transform-data-spark-powershell.md) avant de lire cet article.  Pour en savoir plus sur Synapse Analytics, consultez [Qu’est-ce qu’Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 Vous pouvez utiliser l’activité de procédure stockée pour appeler une procédure stockée dans l’une des banques de données suivantes dans votre entreprise ou sur une machine virtuelle Azure : 
 
@@ -76,7 +76,7 @@ Le tableau suivant décrit ces paramètres JSON :
 | storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure stockée. Utilisez `"param1": { "value": "param1Value","type":"param1Type" }` pour transmettre les valeurs des paramètres et leur type pris en charge par la source de données. Pour passer la valeur Null en paramètre, utilisez `"param1": { "value": null }` (tout en minuscules). | Non       |
 
 ## <a name="parameter-data-type-mapping"></a>Mappage du type de données du paramètre
-Le type de données que vous spécifiez pour le paramètre est le type Azure Data Factory correspondant à celui de la source de données que vous utilisez. Vous trouverez les mappages de types de données pour votre source de données décrits dans la documentation relative aux connecteurs. Par exemple :
+Le type de données que vous spécifiez pour le paramètre est le type de service interne correspondant à celui de la source de données que vous utilisez. Vous trouverez les mappages de types de données pour votre source de données décrits dans la documentation relative aux connecteurs. Par exemple :
 
 - [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#data-type-mapping-for-azure-synapse-analytics)
 - [Mappage de types de données Azure SQL Database](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)

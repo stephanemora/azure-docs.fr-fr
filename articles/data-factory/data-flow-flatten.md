@@ -1,7 +1,7 @@
 ---
 title: Transformation d’aplatissement dans le flux de données de mappage
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Dénormalisez des données hiérarchiques à l’aide de la transformation d’aplatissement.
+description: Dénormalisez des données hiérarchiques à l’aide de la transformation d’aplatissement dans les pipelines Azure Data Factory et Synapse Analytics.
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: e632260e8af6e4bac9fac9ec43f25bf636b98b4d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 17bac4e1efc514440943cb474f2f86a7148d2ef4
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641412"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060135"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Transformation d’aplatissement dans le flux de données de mappage
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Utilisez la transformation d’aplatissement pour prendre des valeurs de tableau à l’intérieur de structures hiérarchiques, par exemple au format JSON, et les dérouler dans des lignes individuelles. Ce processus est appelé « dénormalisation ».
 
@@ -27,7 +29,7 @@ Utilisez la transformation d’aplatissement pour prendre des valeurs de tableau
 
 La transformation d’aplatissement contient les paramètres de configuration suivants :
 
-![Paramètres d’aplatissement](media/data-flow/flatten1.png "Paramètres d’aplatissement")
+:::image type="content" source="media/data-flow/flatten1.png" alt-text="Paramètres d’aplatissement":::
 
 ### <a name="unroll-by"></a>Dérouler par
 
@@ -47,7 +49,7 @@ Pour vérifier votre sortie de mappage, reportez-vous à l’onglet Inspection e
 
 La transformation d’aplatissement prend en charge le mappage basé sur des règles, ce qui vous permet de créer des transformations dynamiques et flexibles qui aplatiront les tableaux en fonction des règles, et aplatiront les structures en fonction des niveaux de la hiérarchie.
 
-![Modèle d’aplatissement](media/data-flow/flatten-pattern.png "Modèles d’aplatissement")
+:::image type="content" source="media/data-flow/flatten-pattern.png" alt-text="Modèle d’aplatissement":::
 
 ### <a name="matching-condition"></a>Condition de correspondance
 
@@ -55,7 +57,7 @@ Entrez une condition de correspondance de modèle pour la ou les colonnes que vo
 
 ### <a name="deep-column-traversal"></a>Parcours de colonne en profondeur
 
-Paramètre facultatif qui indique à ADF de gérer toutes les sous-colonnes d’un objet complexe individuellement au lieu de gérer l’objet complexe comme une colonne entière.
+Paramètre facultatif qui indique au service de gérer toutes les sous-colonnes d’un objet complexe individuellement au lieu de gérer l’objet complexe comme une colonne entière.
 
 ### <a name="hierarchy-level"></a>Niveau de hiérarchie
 

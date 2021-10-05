@@ -1,7 +1,6 @@
 ---
 title: Créer et récupérer des attributs d’une clé managée dans Azure Key Vault – Azure PowerShell
 description: Guide de démarrage rapide montrant comment définir et récupérer une clé managée dans Azure Key Vault à l’aide d’Azure PowerShell
-services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/26/2021
@@ -11,12 +10,12 @@ ms.subservice: keys
 tags:
 - azure-resource-manager
 ms.custom: devx-track-azurepowershell - mode-api
-ms.openlocfilehash: 6f2588ce3dc2add87b845d5c4ff6255171b6af08
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 0658d715c7d7b2e7a34cd8fbd9ec3f76d9a67d10
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670011"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550439"
 ---
 # <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>Démarrage rapide : Définir et récupérer une clé managée dans Azure Key Vault à l’aide de PowerShell
 
@@ -56,7 +55,7 @@ Utilisez l’applet de commande Azure PowerShell [New-AzKeyVaultManagedHsm](/pow
 - Nom du HSM managé : chaîne de 3 à 24 caractères qui ne peut contenir que des chiffres (0-9), des lettres (a-z, A-Z) et des traits d’union (-).
 
   > [!Important]
-  > Chaque HSM managé doit avoir un nom unique. Remplacez <your-unique-managed-hsm-name> par le nom de votre HSM managé dans les exemples suivants.
+  > Chaque HSM managé doit avoir un nom unique. Remplacez \<your-unique-managed-hsm-name\> par le nom de votre HSM managé dans les exemples suivants.
 
 - Groupe de ressources nommé : **myResourceGroup**.
 - Localisation : **EastUS**.

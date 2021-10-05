@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 4a392ab735368b9850397e1e921590f898d273c1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 198d11d85cacb984808db5449524812a151d82b7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557462"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821309"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-templafy-saml2"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Templafy SAML2
 
@@ -39,6 +39,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Templafy SAML2 prend en charge l’authentification unique initiée par le **fournisseur de services**.
 * Templafy SAML2 prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+* Templafy SAML2 prend en charge l’[attribution automatisée d’utilisateurs](templafy-saml-2-provisioning-tutorial.md).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -144,6 +145,8 @@ Pour configurer l’authentification unique côté **Templafy SAML2**, vous deve
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans Templafy SAML2. Templafy SAML2 prend en charge l’attribution d’utilisateurs juste-à-temps, qui est activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Templafy SAML2, il en est créé un après l’authentification.
 
+Templafy SAML2 prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./templafy-saml-2-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -152,7 +155,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Templafy SAML2, puis initiez le flux de connexion à partir de cet emplacement.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Templafy SAML2 dans Mes applications, vous êtes redirigé vers l’URL de connexion à Templafy SAML2. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Templafy SAML2 dans Mes applications, vous êtes redirigé vers l’URL de connexion à Templafy SAML2. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

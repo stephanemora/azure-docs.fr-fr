@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 31a653df08108bc4f5d75e6dbbc6f31144be8b7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa73892fb74e329b8d02abf90f149595686bcf37
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956024"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124738047"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thrive-lxp"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Thrive LXP
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Thrive LXP prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Thrive LXP prend en charge l’[attribution automatisée d’utilisateurs](thrive-lxp-provisioning-tutorial.md).
 
 ## <a name="adding-thrive-lxp-from-the-gallery"></a>Ajout de Thrive LXP à partir de la galerie
 
@@ -49,7 +50,6 @@ Pour configurer l’intégration de Thrive LXP à Azure AD, vous devez ajouter 
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Thrive LXP** dans la zone de recherche.
 1. Sélectionnez **Thrive LXP** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-thrive-lxp"></a>Configurer et tester l’authentification unique Azure AD pour Thrive LXP
 
@@ -92,6 +92,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer Thrive LXP**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -124,6 +125,8 @@ Pour configurer l’authentification unique côté **Thrive LXP**, vous devez en
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Thrive LXP. Contactez l’[équipe du support technique Thrive LXP](mailto:support@thrivelearning.com) pour ajouter des utilisateurs à la plateforme Thrive LXP. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+Thrive LXP prend également en charge l’attribution automatique d’utilisateurs. Des informations supplémentaires sur la configuration de cette fonctionnalité sont disponibles [ici](./thrive-lxp-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -132,7 +135,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Thrive LXP pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Thrive LXP dans Mes applications, vous êtes redirigé vers l’URL de connexion à Thrive LXP. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Thrive LXP dans Mes applications, vous êtes redirigé vers l’URL de connexion à Thrive LXP. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

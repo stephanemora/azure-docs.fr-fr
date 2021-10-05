@@ -8,31 +8,21 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/01/2021
+ms.date: 09/27/2021
 ms.topic: how-to
-ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
-ms.openlocfilehash: 2da9b19bb0d2bcdf09cb478898590d55398b2cc9
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
+ms.openlocfilehash: c445ee7d2567595d1602e2e895f0c3203f16dff6
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122563544"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079615"
 ---
 # <a name="set-up-automl-training-with-python"></a>Configurer l’apprentissage AutoML avec Python
 
-Dans ce guide, découvrez comment configurer l’exécution d’un apprentissage AutoML avec le [kit de développement logiciel (SDK) Python Azure Machine Learning](/python/api/overview/azure/ml/intro) à l’aide de l’AutoML Azure Machine Learning. Le ML automatisé choisit pour vous un algorithme et des hyperparamètres, et génère un modèle prêt pour le déploiement. Vous pouvez utiliser plusieurs options pour configurer ces types d’expériences.
+Dans ce guide, découvrez comment configurer l’exécution d’un apprentissage AutoML (Machine Learning automatisé) avec le [kit de développement logiciel (SDK) Python Azure Machine Learning](/python/api/overview/azure/ml/intro) à l’aide de l’AutoML Azure Machine Learning. Le ML automatisé choisit pour vous un algorithme et des hyperparamètres, et génère un modèle prêt pour le déploiement. Ce guide fournit des détails sur les différentes options que vous pouvez utiliser pour configurer des expériences ML automatisées.
 
 Pour obtenir un exemple de bout en bout, consultez [Tutoriel : AutoML - Former un modèle de régression](tutorial-auto-train-models.md).
-
-Options de configuration disponibles dans le ML automatisé :
-
-* Sélectionnez votre type d’expérience : Classification, régression ou prévision de séries chronologiques
-* Source de données, formats et récupération de données
-* Choisir votre cible de calcul (locale ou distante)
-* Paramètres de l’expérience de machine learning automatisé
-* Exécuter une expérience de machine learning automatisé
-* Explorer les métriques du modèle
-* Inscrire et déployer un modèle
 
 Si vous préférez une expérience sans code, vous pouvez également [Configurer un apprentissage AutoML sans code dans Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
@@ -86,7 +76,8 @@ Le code suivant crée un TabularDataset à partir d’une URL web. Consultez [Cr
 from azureml.core.dataset import Dataset
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
 dataset = Dataset.Tabular.from_delimited_files(data)
-  ```
+```
+
 **Pour les expériences de calcul locales**, nous recommandons les dataframes pandas pour accélérer les temps de traitement.
 
   ```python
@@ -133,7 +124,7 @@ Ensuite, l’endroit où le modèle doit être entraîné est déterminé. Une e
 
 * Votre machine **locale**, comme un poste de travail local ou un ordinateur portable : en général, quand vous avez un petit jeu de données et que vous êtes toujours dans la phase d’exploration. Consultez [ce notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) pour un exemple de calcul local. 
  
-* Une machine **distante** dans le cloud : la [capacité de calcul managée Azure Machine Learning](concept-compute-target.md#amlcompute) est un service managé qui permet d’entraîner des modèles de machine learning sur des clusters de machines virtuelles Azure. 
+* Une machine **distante** dans le cloud : la [capacité de calcul managée Azure Machine Learning](concept-compute-target.md#amlcompute) est un service managé qui permet d’entraîner des modèles de machine learning sur des clusters de machines virtuelles Azure. L’instance de calcul est également prise en charge en tant que cible de calcul.
 
     Consultez [ce notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) pour obtenir un exemple distant utilisant le calcul managé Azure Machine Learning. 
 
@@ -145,42 +136,28 @@ Ensuite, l’endroit où le modèle doit être entraîné est déterminé. Une e
 
 Vous pouvez utiliser plusieurs options pour configurer des expériences de ML automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`. Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
-Voici quelques exemples :
+L’exemple suivant est destiné à une tâche de classification. L’expérience utilise l’AUC pondéré comme [métrique principale](#primary-metric) et présente un délai d’expiration défini sur 30 minutes et 2 plis de validation croisée.
 
-1. Expérience de classification utilisant l’AUC pondéré comme métrique principale avec le délai d’expiration (exprimé en minutes) défini sur 30 minutes et 2 plis de validation croisée.
+```python
+    automl_classifier=AutoMLConfig(task='classification',
+                                   primary_metric='AUC_weighted',
+                                   experiment_timeout_minutes=30,
+                                   blocked_models=['XGBoostClassifier'],
+                                   training_data=train_data,
+                                   label_column_name=label,
+                                   n_cross_validations=2)
+```
+Vous pouvez également configurer des tâches de prévision qui nécessitent une configuration supplémentaire. Pour plus d’informations, consultez l’article [Configurer AutoML pour la prévision de séries chronologiques](how-to-auto-train-forecast.md). 
 
-   ```python
-       automl_classifier=AutoMLConfig(task='classification',
-                                      primary_metric='AUC_weighted',
-                                      experiment_timeout_minutes=30,
-                                      blocked_models=['XGBoostClassifier'],
-                                      training_data=train_data,
-                                      label_column_name=label,
-                                      n_cross_validations=2)
-   ```
-1. Voici un exemple d’une expérience de régression définie pour se terminer au bout de 60 minutes, avec cinq plis de validation croisée.
-
-   ```python
-      automl_regressor = AutoMLConfig(task='regression',
-                                      experiment_timeout_minutes=60,
-                                      allowed_models=['KNN'],
-                                      primary_metric='r2_score',
-                                      training_data=train_data,
-                                      label_column_name=label,
-                                      n_cross_validations=5)
-   ```
-
-
-1. Les tâches de prévision requièrent une configuration supplémentaire. Pour plus d’informations, consultez l’article [Configurer AutoML pour la prévision de séries chronologiques](how-to-auto-train-forecast.md). 
-
-    ```python
+```python
     time_series_settings = {
-        'time_column_name': time_column_name,
-        'time_series_id_column_names': time_series_id_column_names,
-        'forecast_horizon': n_test_periods
-    }
+                            'time_column_name': time_column_name,
+                            'time_series_id_column_names': time_series_id_column_names,
+                            'forecast_horizon': n_test_periods
+                           }
     
-    automl_config = AutoMLConfig(task = 'forecasting',
+    automl_config = AutoMLConfig(
+                                 task = 'forecasting',
                                  debug_log='automl_oj_sales_errors.log',
                                  primary_metric='normalized_root_mean_squared_error',
                                  experiment_timeout_minutes=20,
@@ -189,8 +166,9 @@ Voici quelques exemples :
                                  n_cross_validations=5,
                                  path=project_folder,
                                  verbosity=logging.INFO,
-                                 **time_series_settings)
-    ```
+                                 **time_series_settings
+                                )
+```
     
 ### <a name="supported-models"></a>Modèles pris en charge
 
@@ -224,22 +202,16 @@ classification ; | régression ; | Prévision de séries chronologiques
 ||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
 
 ### <a name="primary-metric"></a>Métrique principale
-Le paramètre `primary metric` détermine la métrique à utiliser pendant l’entraînement du modèle dans un but d’optimisation. Les métriques disponibles que vous pouvez sélectionner sont déterminées par le type de tâche choisi. Le tableau ci-dessous présente les métriques principales valides pour chaque type de tâche.
 
-Le choix d’une métrique principale pour l’optimisation du ML automatisé dépend de nombreux facteurs. Nous vous recommandons avant tout de choisir une métrique correspondant au mieux à vos besoins métier. Examinez ensuite si la métrique convient pour votre profil de jeu de données (taille des données, plage, distribution de classe, etc.).
+Le paramètre `primary_metric` détermine la métrique à utiliser pendant l’entraînement du modèle dans un but d’optimisation. Les mesures disponibles que vous pouvez sélectionner sont déterminées par le type de tâche que vous choisissez.
+
+Le choix d’une métrique principale pour l’optimisation du ML automatisé dépend de nombreux facteurs. Nous vous recommandons avant tout de choisir une métrique correspondant au mieux à vos besoins métier. Examinez ensuite si la métrique convient pour votre profil de jeu de données (taille des données, plage, distribution de classe, etc.). Les sections suivantes résument les mesures principales recommandées en fonction du type de tâche et du scénario d’entreprise. 
 
 Pour découvrir les définitions spécifiques de ces métriques, consultez [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).
 
-|classification ; | régression ; | Prévision de séries chronologiques
-|--|--|--
-|`accuracy`| `spearman_correlation` | `normalized_root_mean_squared_error`
-|`AUC_weighted` | `normalized_root_mean_squared_error` | `r2_score`
-|`average_precision_score_weighted` | `r2_score` | `normalized_mean_absolute_error`
-|`norm_macro_recall` | `normalized_mean_absolute_error` | 
-|`precision_score_weighted` |
-
 #### <a name="metrics-for-classification-scenarios"></a>Métriques pour les scénarios de classification 
-Il se peut que la publication de métriques seuils telles que `accuracy`, `average_precision_score_weighted`, `norm_macro_recall` et `precision_score_weighted` ne permette pas d’obtenir une bonne optimisation pour des jeux de données de petite taille ou présentant une asymétrie (déséquilibre) de classe conséquente, ou lorsque la valeur de métrique attendue est très proche de 0.0 ou 1.0. Dans ces cas, `AUC_weighted` peut être un meilleur choix pour la métrique principale. Une fois l’opération de ML automatisé terminée, vous pouvez choisir le modèle gagnant en fonction de la métrique la plus adaptée à vos besoins métier.
+
+Il se peut que les mesures hors seuil telles que `accuracy`, `average_precision_score_weighted`, `norm_macro_recall` et `precision_score_weighted` ne permettent pas d’obtenir une bonne optimisation pour des jeux de données de petite taille ou présentant une asymétrie (déséquilibre) de classe conséquente, ou lorsque la valeur de métrique attendue est très proche de 0.0 ou 1.0. Dans ces cas, `AUC_weighted` peut être un meilleur choix pour la métrique principale. Une fois l’opération de ML automatisé terminée, vous pouvez choisir le modèle gagnant en fonction de la métrique la plus adaptée à vos besoins métier.
 
 | Métrique | Exemple(s) de cas d’usage |
 | ------ | ------- |
@@ -263,6 +235,7 @@ Dans ce cas, `normalized_mean_absolute_error` et `normalized_root_mean_squared_e
 | `normalized_mean_absolute_error` |  |
 
 #### <a name="metrics-for-time-series-forecasting-scenarios"></a>Métriques pour les scénarios de prévision de séries chronologiques
+
 Les recommandations sont similaires à celles indiquées pour les scénarios de régression. 
 
 | Métrique | Exemple(s) de cas d’usage |
@@ -300,15 +273,15 @@ La formation des ensembles peut être désactivée à l’aide des paramètres b
 
 ```python
 automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        training_data=data_train,
-        label_column_name=label,
-        n_cross_validations=5,
-        enable_voting_ensemble=False,
-        enable_stack_ensemble=False
-        )
+                                 task='classification',
+                                 primary_metric='AUC_weighted',
+                                 experiment_timeout_minutes=30,
+                                 training_data=data_train,
+                                 label_column_name=label,
+                                 n_cross_validations=5,
+                                 enable_voting_ensemble=False,
+                                 enable_stack_ensemble=False
+                                )
 ```
 
 Plusieurs arguments par défaut peuvent être fournis en tant que `kwargs` dans un objet `AutoMLConfig` pour modifier le comportement par défaut de l’ensemble.
@@ -333,27 +306,27 @@ Le code suivant montre un exemple de spécification d’un comportement d’ense
 
 ```python
 ensemble_settings = {
-    "ensemble_download_models_timeout_sec": 600
-    "stack_meta_learner_type": "LogisticRegressionCV",
-    "stack_meta_learner_train_percentage": 0.3,
-    "stack_meta_learner_kwargs": {
-        "refit": True,
-        "fit_intercept": False,
-        "class_weight": "balanced",
-        "multi_class": "auto",
-        "n_jobs": -1
-    }
-}
+                     "ensemble_download_models_timeout_sec": 600
+                     "stack_meta_learner_type": "LogisticRegressionCV",
+                     "stack_meta_learner_train_percentage": 0.3,
+                     "stack_meta_learner_kwargs": {
+                                                    "refit": True,
+                                                    "fit_intercept": False,
+                                                    "class_weight": "balanced",
+                                                    "multi_class": "auto",
+                                                    "n_jobs": -1
+                                                  }
+                    }
 
 automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        training_data=train_data,
-        label_column_name=label,
-        n_cross_validations=5,
-        **ensemble_settings
-        )
+                                 task='classification',
+                                 primary_metric='AUC_weighted',
+                                 experiment_timeout_minutes=30,
+                                 training_data=train_data,
+                                 label_column_name=label,
+                                 n_cross_validations=5,
+                                 **ensemble_settings
+                                )
 ```
 
 <a name="exit"></a> 
@@ -405,7 +378,8 @@ Chaque nœud du cluster fait office de machine virtuelle individuelle capable d�
 
 Pour faciliter la gestion des exécutions enfants et le moment où elles peuvent intervenir, nous vous recommandons de créer un cluster dédié par expérience et de faire correspondre le nombre de `max_concurrent_iterations` de votre expérience avec le nombre de nœuds du cluster. Ainsi, vous utilisez tous les nœuds du cluster en même temps que les exécutions/itérations enfants simultanées de votre choix.
 
-Configurez `max_concurrent_iterations` dans votre objet `AutoMLConfig`. S’il n’est pas configuré, par défaut, une seule exécution/itération enfant simultanée est autorisée par expérience.  
+Configurez `max_concurrent_iterations` dans votre objet `AutoMLConfig`. S’il n’est pas configuré, par défaut, une seule exécution/itération enfant simultanée est autorisée par expérience.
+Dans le cas d’une instance de calcul, `max_concurrent_iterations` peut être défini comme étant le même que le nombre de cœurs sur la machine virtuelle de l’instance de calcul.
 
 ## <a name="explore-models-and-metrics"></a>Explorer les modèles et les métriques
 
@@ -443,7 +417,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-Pour une exécution locale ou à distance qui vient d’être envoyée et formée à partir du même notebook d’expérience, vous pouvez passer le meilleur modèle à l’aide de la méthode `get_output()`. 
+Pour une exécution locale ou à distance envoyée et formée à partir du même notebook d’expérience, vous pouvez passer le meilleur modèle à l’aide de la méthode `get_output()`. 
 
 ```python
 best_run, fitted_model = run.get_output()
@@ -559,9 +533,9 @@ Pour plus d’informations sur la création d’une configuration de déploiemen
 
 L’interprétabilité de modèles vous permet de comprendre pourquoi vos modèles ont effectué des prédictions, ainsi que les valeurs d’importance des caractéristiques sous-jacentes. Le SDK comprend différents packages pour l’activation des caractéristiques d’interprétabilité de modèles, aussi bien au moment de l’entraînement qu’au moment de l’inférence, pour les modèles locaux et déployés.
 
-Pour obtenir des exemples de code sur la façon d’activer les caractéristiques d’interprétabilité spécifiquement au sein d’expériences de ML automatisé, consultez le [guide pratique](how-to-machine-learning-interpretability-automl.md).
+Découvrez comment [activer les caractéristiques d’interprétabilité](how-to-machine-learning-interpretability-automl.md) spécifiquement au sein d’expériences de ML automatisé.
 
-Pour obtenir des informations générales sur la façon dont les explications de modèle et l’importance des caractéristiques peuvent être activées dans d’autres domaines du SDK en dehors du machine learning automatisé, consultez l’article de présentation du [concept](how-to-machine-learning-interpretability.md) de l’interprétabilité.
+Pour obtenir des informations générales sur la façon dont les explications de modèle et l’importance des caractéristiques peuvent être activées dans d’autres domaines du SDK en dehors du Machine Learning automatisé, consultez l’[article de présentation du concept de l’interprétabilité](how-to-machine-learning-interpretability.md).
 
 > [!NOTE]
 > Le modèle ForecastTCN n’est actuellement pas pris en charge par le client d’explication. Ce modèle ne retourne pas de tableau de bord s’il est retourné comme meilleur modèle et ne prend pas en charge les exécutions d’explications à la demande.

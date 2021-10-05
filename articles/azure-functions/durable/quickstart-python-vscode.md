@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: d84bc4977593a379fda817db67aaccd71793a787
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 235fa649245e973e934e0930b4490f4e4701c94b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752309"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571499"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Créer votre première fonction durable en Python
 
@@ -144,7 +144,7 @@ Pour terminer, vous ajouterez une fonction déclenchée par HTTP qui démarrera 
     | Prompt | Valeur | Description |
     | ------ | ----- | ----------- |
     | Sélectionner un modèle pour votre fonction | Démarrage HTTP Durable Functions | Créer une fonction de démarrage HTTP |
-    | Fournir un nom de fonction | DurableFunctionsHttpStart | Nom de votre fonction d’activité |
+    | Fournir un nom de fonction | DurableFunctionsHttpStart | Nom de votre fonction cliente |
     | Niveau d’autorisation | Anonyme | À des fins de démonstration, autorisez l’appel sans authentification à la fonction |
 
 Vous avez ajouté une fonction déclenchée par HTTP qui démarre une orchestration. Ouvrez *DurableFunctionsHttpStart/\_\_init__.py* pour voir qu’elle se sert de `client.start_new` pour démarrer une nouvelle orchestration. Elle utilise ensuite `client.create_check_status_response` pour retourner une réponse HTTP contenant des URL qui peuvent être utilisées pour superviser et gérer la nouvelle orchestration.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/06/2020
-ms.openlocfilehash: c19c25e43fc8f7905d7cee9f344999a26f28bc17
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 2fd44eb0eca6986111a8300bdd4f48bda611d08d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533124"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569597"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solution Container Monitoring dans Azure Monitor
 
@@ -18,15 +18,20 @@ ms.locfileid: "122533124"
 
 Cet article explique comment configurer et utiliser la solution Container Monitoring d’Azure Monitor, qui vous permet d’afficher et de gérer vos hôtes de conteneur Docker et Windows dans un emplacement unique. Docker est un système de virtualisation logicielle utilisé pour créer des conteneurs qui automatisent le déploiement de logiciels dans leur infrastructure informatique.
 
+> [!IMPORTANT]
+> La solution de surveillance des conteneurs est progressivement abandonnée. Pour surveiller vos environnements Kubernetes, nous vous recommandons d'utiliser [Azure Monitor Container insights](container-insights-onboard.md)
+
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 La solution montre les conteneurs qui sont actuellement exécutés, l’image conteneur qu’ils exécutent et où ils s’exécutent. Vous pouvez afficher des informations d’audit détaillées montrant les commandes utilisées avec les conteneurs. Vous pouvez résoudre des problèmes de conteneurs en consultant des journaux d’activité centralisés et en y effectuant des recherches sans devoir afficher à distance les hôtes Docker ou Windows. Vous pouvez rechercher des conteneurs bruyants et consommant des ressources excessives sur un ordinateur hôte. Et vous pouvez consulter des informations centralisées sur le processeur, la mémoire, le stockage ainsi que l’utilisation et les performances du réseau. Sur les ordinateurs exécutant Windows, vous pouvez centraliser et comparer les journaux d’activité des conteneurs Windows Server, Hyper-V et Docker. La solution prend en charge les orchestrateurs de conteneur suivants :
 
 - Docker Swarm
 - DC/OS
-- Kubernetes
 - Service Fabric
-- Red Hat OpenShift
+
+Nous vous recommandons d’utiliser Azure Monitor Insights container pour surveiller vos Kubernetes et Red Hat OpenShift :
+- AKS ([configurer Container Insights pour AKS](container-insights-enable-existing-clusters.md))
+- Red Hat OpenShift ([Configurer les perspectives de conteneurs en utilisant Azure Arc](container-insights-enable-arc-enabled-clusters.md))
 
 Si vous avez des conteneurs déployés dans [Azure Service Fabric](../../service-fabric/service-fabric-overview.md), nous vous recommandons d’activer la [solution Service Fabric](../../service-fabric/service-fabric-diagnostics-oms-setup.md) et cette solution pour inclure la surveillance des événements de cluster. Avant d’activer la solution Service Fabric, consultez [Utilisation de la solution Service Fabric](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) pour comprendre ce qu’elle fournit et comment l’utiliser.
 
@@ -126,7 +131,7 @@ Après avoir installé Docker, utilisez les paramètres suivants pour votre hôt
 Démarrez le conteneur pour lequel activer la surveillance. Modifiez et utilisez l’exemple suivant :
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
 ```
 
 **Pour tous les hôtes de conteneur Linux Azure Government, y compris CoreOS :**
@@ -134,7 +139,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 Démarrez le conteneur pour lequel activer la surveillance. Modifiez et utilisez l’exemple suivant :
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
 ```
 
 **Passage de l’utilisation d’un agent Linux installé à un agent exécuté dans un conteneur**
@@ -148,7 +153,7 @@ Vous pouvez exécuter l’agent Log Analytics en tant que service global sur Doc
 - Exécutez la commande suivante sur le nœud principal.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
     ```
 
 ##### <a name="secure-secrets-for-docker-swarm"></a>Sécuriser les secrets pour Docker Swarm
@@ -177,7 +182,7 @@ Pour Docker Swarm, une fois que vous avez créé le secret de l’ID de l’espa
 3. Exécutez la commande ci-après pour monter les secrets sur l’agent Log Analytics en conteneur.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
     ```
 
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Configurer un agent Log Analytics pour Red Hat OpenShift
@@ -214,7 +219,7 @@ Dans cette section, nous allons aborder les étapes nécessaires à l’installa
     ```
     [ocpadmin@khm-0 ~]$ oc describe ds oms  
     Name:           oms  
-    Image(s):       microsoft/oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
     Selector:       name=omsagent  
     Node-Selector:  zone=default  
     Labels:         agentVersion=1.4.0-12  
@@ -278,7 +283,7 @@ Si vous souhaitez utiliser des secrets pour sécuriser l’ID et la clé primair
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
     Name:           oms  
-    Image(s):       microsoft/oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
     Selector:       name=omsagent  
     Node-Selector:  zone=default  
     Labels:         agentVersion=1.4.0-12  

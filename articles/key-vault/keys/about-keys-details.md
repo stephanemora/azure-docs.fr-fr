@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7dc8d113b8d47ea75938cc7fcd7c24c8a132a3b4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 3f3db4b694dd825b15cf80be247bf43780e1d381
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471750"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562998"
 ---
 # <a name="key-types-algorithms-and-operations"></a>Types de clés, algorithmes et opérations
 
@@ -75,7 +75,7 @@ Le tableau suivant présente un résumé des types de clés et des algorithmes p
 
 ##  <a name="key-operations"></a>Opérations sur les clés
 
-Le HSM managé prend en charge les opérations suivantes sur les clés :  
+Key Vault, y compris Managed HSM, prend en charge les opérations suivantes sur les objets clés :  
 
 -   **Créer** : permet à un client de créer une clé dans Key Vault. La valeur de la clé est générée par le coffre de clés et stockée, mais n’est pas communiquée au client. Les clés asymétriques peuvent être créées dans un coffre de clés.  
 -   **Importer** : permet à un client d’importer une clé existante dans Key Vault. Des clés asymétriques peuvent être importées dans un coffre de clés selon diverses méthodes d’empaquetage dans un construct JWK. 

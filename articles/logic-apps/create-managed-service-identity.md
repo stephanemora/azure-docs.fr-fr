@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: article
 ms.date: 06/25/2021
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
-ms.openlocfilehash: 76edcac6b77b70928cb2d6cd378b421b68b3d3ef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 884decde4df80f6e8837245faad0136fe715371f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531778"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775198"
 ---
 # <a name="authenticate-access-to-azure-resources-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
@@ -30,16 +30,12 @@ Cet article montre comment configurer les deux genres d’identité managée pou
 
 Azure Logic Apps prend en charge les [*identités managées* affectées par le système](../active-directory/managed-identities-azure-resources/overview.md) et les [*identités managées* affectées par l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md), que vous pouvez partager dans un groupe d’applications logiques, selon l’emplacement d’exécution de vos flux de travail d’application logique :
 
-* Une application logique basée multilocataire (plan de consommation) prend en charge l’identité affectée par le système et une identité affectée par l’utilisateur *unique*. Toutefois, au niveau de l’application logique ou au niveau de la connexion, vous ne pouvez utiliser qu’un seul type d’identité managée, car vous ne pouvez pas activer les deux à la fois.
-
-  Une application logique à locataire unique (plan standard) prend actuellement en charge uniquement l’identité affectée par le système.
-
-  Pour plus d’informations sur les applications multilocataire (plan de consommation) et à locataire unique (plan standard), consultez la documentation [Comparaison entre locataire unique et multilocataire et environnement de service d’intégration](single-tenant-overview-compare.md).
+* Le type de ressource **Application logique (Consommation)** prend en charge l’utilisation de l’identité affectée par le système ou d’une *seule* identité affectée par l’utilisateur. Toutefois, au niveau de l’application logique ou au niveau de la connexion, vous ne pouvez utiliser qu’un seul type d’identité managée, car vous ne pouvez pas activer les deux à la fois. Actuellement, le type de ressource **Application logique (Standard)** prend uniquement en charge l’identité affectée par le système, qui est automatiquement activée, et non l’identité affectée par l’utilisateur. Pour plus d’informations sur ces différents types de ressource d’application logique, consultez [Architecture monolocataire ou multilocataire et environnement de service d’intégration](single-tenant-overview-compare.md).
 
 <a name="built-in-managed-identity"></a>
 <a name="managed-connectors-managed-identity"></a>
 
-* Seules les opérations de connecteur intégrées et managées spécifiques qui prennent en charge l’authentification ouverte Azure AD peuvent utiliser une identité managée pour l’authentification. Le tableau suivant fournit uniquement une *sélection d’exemples*. Pour obtenir une liste plus complète, consultez [Types d’authentification pour les déclencheurs et les actions qui prennent en charge l’authentification](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+* Seules les opérations de connecteur intégrées et managées spécifiques qui prennent en charge l’authentification ouverte Azure AD (Azure AD OAuth) peuvent utiliser une identité managée pour l’authentification. Le tableau suivant fournit uniquement une *sélection d’exemples*. Pour obtenir une liste plus complète, consultez [Types d’authentification pour les déclencheurs et les actions qui prennent en charge l’authentification](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
   | Type d'opération | Opérations prises en charge |
   |----------------|----------------------|
@@ -56,6 +52,12 @@ Azure Logic Apps prend en charge les [*identités managées* affectées par le s
 * Ressource Azure cible à laquelle vous souhaitez accéder. Dans cette ressource, vous allez ajouter un rôle pour l’identité managée, ce qui permet à l’application logique d’authentifier l’accès à la ressource cible.
 
 * Application logique où vous souhaitez utiliser le [déclencheur ou les actions qui prennent en charge les identités managées](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+
+  | Type de ressource d’application logique | Prise en charge des identités managées |
+  |-------------------------|--------------------------|
+  | **Application logique (consommation)** | Affectée par le système ou par l’utilisateur |
+  | **Application logique (standard)** | Identité affectée par le système (activée automatiquement) |
+  |||
 
 ## <a name="enable-managed-identity"></a>Activer une identité managée
 

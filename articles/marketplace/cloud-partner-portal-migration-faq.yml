@@ -1,22 +1,22 @@
 ### YamlMime:FAQ
 metadata:
-  title: Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires - Place marché commerciale Microsoft
+  title: FAQ sur la migration Portail Cloud Partner - Place de marché commerciale Microsoft - Azure
   description: Réponses aux questions fréquemment posées sur la transition des offres du portail Cloud Partner vers l’Espace partenaires.
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: article
   author: keferna
   ms.author: keferna
-  ms.date: 07/14/2020
-  ms.openlocfilehash: 4015d78469f08450d81495f61800f68f980b9b02
-  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+  ms.date: 09/27/2021
+  ms.openlocfilehash: 0a74c3e25e7c6c9341950160afef1edfc98460ba
+  ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/25/2021
-  ms.locfileid: "122866339"
-title: Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
+  ms.lasthandoff: 09/27/2021
+  ms.locfileid: "129080785"
+title: Questions fréquentes (FAQ) sur la migration depuis le Portail Cloud Partner
 summary: >
-  Le portail Cloud Partner a fait l’objet d’une transition vers l’Espace partenaires. L’Espace partenaires offre une expérience simplifiée et intégrée pour la publication de nouvelles offres sur [Microsoft AppSource](https://appsource.microsoft.com/) ou la [Place de marché Azure](https://azuremarketplace.microsoft.com/) et pour la gestion des offres existantes qui ont été migrées à partir du portail Cloud Partner. Toutes les fonctions du portail Cloud Partner sont disponibles dans l’Espace partenaires. Cet article répond aux questions fréquentes sur ce sujet.
+  Le portail Cloud Partner a fait l’objet d’une transition vers l’Espace partenaires. L’Espace partenaires offre une expérience simplifiée et intégrée pour la publication de nouvelles offres sur [Microsoft AppSource](https://appsource.microsoft.com/) ou la [Place de marché Azure](https://azuremarketplace.microsoft.com/), ainsi que pour la gestion des offres existantes qui ont été migrées à partir du portail Cloud Partner. Toutes les fonctions du portail Cloud Partner sont disponibles dans l’Espace partenaires. Cet article répond aux questions fréquemment posées sur la transition du portail Cloud Partner vers l’Espace partenaires.
 sections:
 - name: Ignoré
   questions:
@@ -30,9 +30,9 @@ sections:
 
       | --- | --- |
 
-      | Compte | Vous n’avez pas besoin de créer un nouveau compte Espace partenaires ; vous pouvez utiliser vos informations d’identification existantes du portail Cloud Partner pour vous connecter à l’Espace partenaires, où vous allez maintenant gérer votre compte, les utilisateurs, les autorisations et la facturation. Le contrat d’éditeur et les informations sur le profil de l’entreprise sont migrés vers votre nouveau compte Espace partenaires, ainsi que les informations de profil de paiement, les comptes d’utilisateur et les autorisations, ainsi que les offres actives. En savoir plus dans [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](manage-account.md). |
+      | Compte | Vous n’avez pas besoin de créer un nouveau compte Espace partenaires. Vous pouvez utiliser vos informations d’identification existantes du portail Cloud Partner pour vous connecter à l’Espace partenaires, où vous allez maintenant gérer votre compte, les utilisateurs, les autorisations et la facturation. Le contrat d’éditeur et les informations sur le profil de l’entreprise sont migrés vers votre nouveau compte Espace partenaires, ainsi que les informations de profil de paiement, les comptes d’utilisateur et les autorisations, ainsi que les offres actives. En savoir plus dans [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](manage-account.md). |
 
-      | Expérience de publication d’offre et de gestion des offres | Nous avons déplacé vos données d’offre du portail Cloud Partner vers l’Espace partenaires. Maintenant, vous accédez à vos offres dans l’Espace partenaires, qui offre une expérience utilisateur améliorée et une interface intuitive. Découvrez comment [Mettre à jour une offre existante dans la place de marché commerciale](update-existing-offer.md). |
+      | Expérience de publication d’offre et de gestion des offres | Nous avons déplacé vos données d’offre du portail Cloud Partner vers l’Espace partenaires. Maintenant, vous accédez à vos offres dans l’Espace partenaires, qui offre une expérience utilisateur améliorée et une interface intuitive. Découvrez comment [Mettre à jour une offre existante dans la Place de marché commerciale](update-existing-offer.md). |
 
       | Disponibilité de vos offres sur la Place de marché commerciale | Aucun changement. Si votre offre est active dans la place de marché commerciale, elle restera active. |
 
@@ -59,46 +59,25 @@ sections:
 
       | --- | --- | --- |
 
-      | Page Toutes les offres | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
+      | Page Toutes les offres | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/marketplace-offers/overview](https://partner.microsoft.com/dashboard/marketplace-offers/overview) |
 
-      | Page Tous les éditeurs | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
+      | Page Tous les éditeurs | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/organization/identity](https://partner.microsoft.com/dashboard/account/v3/organization/identity) |
 
-      | Profil de publication | [https://cloudpartner.azure.com/#profile](https://cloudpartner.azure.com/#profile) | [https://partner.microsoft.com/dashboard/account/management](https://partner.microsoft.com/dashboard/account/management) |
+      | Profil de publication | [https://cloudpartner.azure.com/#profile](https://cloudpartner.azure.com/#profile) | [https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#developer](https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#developer) |
 
-      | Page Utilisateurs | [https://cloudpartner.azure.com/#users](https://cloudpartner.azure.com/#users) | [https://partner.microsoft.com/dashboard/account/usermanagement](https://partner.microsoft.com/dashboard/account/usermanagement) |
+      | Page Utilisateurs | [https://cloudpartner.azure.com/#users](https://cloudpartner.azure.com/#users) | [https://partner.microsoft.com/dashboard/account/v3/usermanagement#users](https://partner.microsoft.com/dashboard/account/v3/usermanagement#users) |
 
-      | Page Historique | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | La fonctionnalité d’historique n’est pas encore prise en charge dans l’Espace partenaires. |
+      | Page Historique | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | La fonctionnalité Historique est accessible dans chacune des offres. |
 
-      | Tableau de bord Insights | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
+      | Tableau de bord Insights | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/insights/analytics/overview](https://partner.microsoft.com/dashboard/insights/analytics/overview) |
 
       | Rapport de paiements | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 
       |||
   - question: >
-      Différences dans le rapport de revenu
-    answer: >
-      Voici les différences dans le rapport de revenu entre l’ancien Portail Cloud Partner et l’actuel Espace partenaires :
-
-
-      | Portail des partenaires cloud | Espace partenaire |
-
-      | --- | --- |
-
-      | **Lien** : https://cloudpartner.azure.com/ | **Lien** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory et https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-
-      | **Navigation** : Rapports de paiement fournis dans le paiement des insights | **Navigation** : Rapports de paiement fournis dans l’Espace partenaires – Icône de paiement |
-
-      | **Étendue** :<ul><li>La transaction par ligne est visible, quand l’encaissement est en cours, quand elle est terminée et quand elle est payée.</li><li>Rapports : montre toutes les lignes une fois que le bon de commande est créé, notamment l’encaissement et la facturation en cours ainsi que l’état de l’encaissement et les lignes qui ne peuvent pas encore être payés.</li></ul> | **Étendue** :<ul><li>Montre les lignes une fois qu’elles sont considérées comme des revenus éligibles.</li><li>Les clients paient d’abord Microsoft, puis les éditeurs de logiciels indépendants peuvent voir le rapport de paiement commencer.</li><li>Le rapport de revenu ne montre pas l’encaissement ni la facturation en cours.</li></ul> |
-
-      | **Transaction non prête pour le paiement** : Facturation en cours | **Transaction non prête pour le paiement** : Estimation du prochain paiement : Le paiement est dans l’état non traité. |
-
-      | **Statut de paiement** : n/a | **Statut de paiement** :<ul><li>Non traité : Le revenu est éligible au paiement.</li><li>Ensuite : Le revenu sera envoyé à l’éditeur à l’occasion du prochain paiement mensuel.</li><li>Envoyé : Le paiement a été envoyé à votre banque.</li></ul> |
-
-      |||
-  - question: >
       Qu’en est-il des offres que j’ai publiées dans le portail Cloud Partner ?
     answer: >
-      Les offres ont été déplacées vers l’Espace partenaires. Vous pourrez y accéder une fois que vous vous serez connecté à l’Espace partenaires, à l’exception des offres Dynamics Nav Managed Service et Cortana Intelligence. Si votre offre était active sur la Place de marché commerciale, elle continuera à être active et vos clients pourront toujours l’acheter et la déployer sans interruption. Pour plus d’informations, consultez la question suivante **Quelles offres ont été déplacées vers l’Espace partenaires ?** .
+      Les offres ont été déplacées vers l’Espace partenaires. Vous pourrez y accéder une fois que vous vous serez connecté à l’Espace partenaires, à l’exception des offres Dynamics Nav Managed Service et Cortana Intelligence. Si votre offre était active sur la Place de marché commerciale, elle continuera à être active et vos clients pourront toujours l’acheter et la déployer sans interruption. Pour plus d’informations, consultez la question suivante **Quelles offres ont été déplacées vers l’Espace partenaires ?**.
   - question: >
       Quelles offres ont été déplacées vers l’Espace partenaires ?
     answer: >
@@ -134,45 +113,9 @@ sections:
 
       | Service managé | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Planifier une offre de service managé pour la place de marché commerciale de Microsoft](./plan-managed-service-offer.md). |
 
-      | Dynamics Nav Managed Service | Non | Microsoft a fait évoluer Dynamics NAV Managed Service en [Dynamics 365 Business Central](/dynamics365/business-central/). Nous avons donc supprimé les offres actives Dynamics NAV Managed Service dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles dans AppSource, transformez-les en offres Dynamics 365 Business Central et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Créer une offre Dynamics 365 pour Business Central](dynamics-365-business-central-offer-setup.md). |
+      | Dynamics Nav Managed Service | Non | Microsoft a fait évoluer Dynamics NAV Managed Service en [Dynamics 365 Business Central](/dynamics365/business-central/). Nous avons donc supprimé les offres actives Dynamics NAV Managed Service dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles dans AppSource, transformez-les en offres Dynamics 365 Business Central et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/dashboard/marketplace-offers/overview). En savoir plus dans [Créer une offre Dynamics 365 pour Business Central](dynamics-365-business-central-offer-setup.md). |
 
       | Cortana Intelligence | Non | Microsoft a fait évoluer la feuille de route pour Cortana Intelligence. Nous avons donc supprimé les offres actives Cortana Intelligence dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles sur la place de marché commerciale, transformez-les en offres SaaS (Software as a Service) et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Planifier une offre SaaS pour la place de marché commerciale](./plan-saas-offer.md). |
-  - question: >
-      Je ne trouve pas mes offres du portail Cloud Partner dans l’Espace partenaires
-    answer: >
-      Ce que vous voyez dans l’Espace partenaires dépend des programmes auxquels vous êtes inscrit, des comptes auxquels vous appartenez, des rôles utilisateur et des autorisations qui vous ont été attribués. De nombreux programmes de l’Espace partenaires sont disponibles et vous pourriez être inscrit à plusieurs d’entre eux. Vous pouvez également avoir accès à plusieurs comptes avec les mêmes informations d’identification utilisateur.
-
-
-      Les offres que vous avez créées dans le portail Cloud Partner sont disponibles dans l’Espace partenaires sous le programme **Place de marché commerciale** et sous le compte utilisé pour créer les offres. Procédez comme suit pour vérifier que vous affichez le bon programme et le bon compte. Pour obtenir d’autres conseils de dépannage, consultez [Gérer votre compte Espace partenaires](/partner-center/partner-center-account-setup).
-
-
-      ### <a name="access-the-right-program-in-partner-center"></a>Accéder au programme approprié dans l’Espace partenaires
-
-
-      1. Connectez-vous à [l’Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2166002) avec les informations d’identification utilisées pour vous connecter au portail Cloud Partner. Le volet de navigation sur la gauche affiche les options associées aux programmes auxquels vous êtes inscrit.
-
-          Exemple : supposons que vous ayez accès à trois programmes : le programme MPN, le programme Références et le programme Place de marché commerciale. Lorsque vous vous connectez à l’Espace partenaires, ces trois programmes s’affichent dans le volet de navigation.
-
-      2. Sélectionnez **Place de marché commerciale** > **Vue d’ensemble** pour accéder à vos offres.
-
-          Si vous ne voyez pas le programme Place de marché commerciale dans le volet de navigation à gauche, le compte est peut-être erroné. Suivez la procédure décrite ci-après pour accéder au compte approprié.
-
-          [![Screenshot that shows the Partner Center Overview menu](media/cpp-pc-faq/overview-menu.png "Affiche le menu Vue d’ensemble de l’Espace partenaires")](media/cpp-pc-faq/overview-menu.png#lightbox)
-
-      ### <a name="access-the-right-account-in-partner-center"></a>Accéder au compte approprié dans l’Espace partenaires
-
-
-      Si vous êtes membre de plusieurs comptes, un bouton de sélection de compte marqué par deux flèches s’affiche dans le menu de navigation à gauche de l’Espace partenaires. Sélectionnez le bouton de sélection de compte pour afficher la liste de tous les comptes auxquels vous appartenez. Sélectionnez un compte dans la liste pour y accéder et voir l’ensemble des programmes et des informations sur ce compte. Si le bouton de sélection de compte ne s’affiche pas dans le menu de navigation, cela signifie que vous êtes membre d’un seul compte.
-
-
-      [![Screenshot shows the Partner Center account picker button.](media/cpp-pc-faq/picker-button.png "Affiche le bouton de sélection de compte de l’Espace partenaires")](media/cpp-pc-faq/picker-button.png#lightbox)
-  - question: >
-      Comment créer de nouvelles offres ?
-    answer: >
-      Accédez au programme Place de marché commerciale dans [l’Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165935) pour créer des offres.
-
-
-      [![Screenshot shows the Partner Center Overview menu.](media/cpp-pc-faq/new-offer.png "Affiche le menu Vue d’ensemble de l’Espace partenaires")](media/cpp-pc-faq/new-offer.png#lightbox)
   - question: >
       Je ne parviens pas à me connecter et je dois ouvrir un ticket de support
     answer: >
@@ -181,78 +124,6 @@ sections:
       Où se trouvent les instructions d’utilisation de l’Espace partenaires ?
     answer: >
       Accédez à la [documentation sur la place de marché commerciale](index.yml). Pour voir des articles d’aide sur la création d’offres dans l’Espace partenaires, développez **Créer et gérer des offres**.
-  - question: >
-      Quelles sont les différences en matière de publication et de gestion des offres ?
-    answer: >
-      Voici quelques différences entre le portail Cloud Partner et l’Espace partenaires.
-
-
-      ### <a name="modular-publishing-capabilities"></a>Fonctionnalités de publication modulaires
-
-
-      L’Espace partenaires fournit une option de publication modulaire qui vous permet de sélectionner les modifications que vous souhaitez publier au lieu de toujours publier toutes les mises à jour à la fois. Par exemple, l’écran suivant montre que les seules modifications sélectionnées à publier sont les modifications apportées à **Propriétés** et **Référencement de l’offre**. Les modifications que vous apportez dans la page Préversion ne seront pas publiées.
-
-
-      [![Screenshot shows the Partner Center Review and publish page.](media/cpp-pc-faq/review-page.png "Affiche la page Révision et publication de l’Espace partenaires")](media/cpp-pc-faq/review-page.png#lightbox)
-
-
-      Les mises à jour que vous ne publiez pas sont enregistrées en tant que brouillons. Continuez à utiliser la préversion de votre offre afin de la vérifier avant de la rendre accessible au public.
-
-
-      ### <a name="enhanced-preview-options"></a>Options d’aperçu améliorées
-
-
-      L’Espace partenaires comprend une [fonctionnalité de comparaison](update-existing-offer.md#compare-changes-to-your-offer) avec des options de filtrage améliorées. Cela vous permet d’effectuer des comparaisons entre la préversion et la version active de l’offre.
-
-
-      [![Screenshot shows the Partner Center compare feature.](media/cpp-pc-faq/compare.png "Affiche la fonctionnalité de comparaison de l’Espace partenaires")](media/cpp-pc-faq/compare.png#lightbox)
-
-
-      ### <a name="branding-and-navigation-changes"></a>Changements dans la personnalisation et la navigation
-
-
-      Vous remarquerez certaines modifications de personnalisation. Par exemple, les *Références SKU* sont appelées *Plans* dans l’Espace partenaires.
-
-
-      [![Screenshot shows the Partner Center Plans page.](media/cpp-pc-faq/plans.png "Affiche la page Plans de l’Espace partenaires")](media/cpp-pc-faq/plans.png#lightbox)
-
-
-      De plus, les informations que vous fournissiez précédemment dans les pages **Place de marché** ou **Détails de la vitrine** (Service de conseil, application Power BI) du portail Cloud Partner sont maintenant recueillies dans la page **Référencement de l’offre** dans l’Espace partenaires :
-
-
-      [![La capture d’écran montre la page Référencement de l’offre dans l’Espace partenaires.](./media/cpp-pc-faq/offer-listing.png) ](./media/cpp-pc-faq/offer-listing.png#lightbox)
-
-
-      Les informations que vous fournissiez précédemment pour les références SKU dans une seule page du portail Cloud Partner peuvent maintenant être recueillies dans plusieurs pages de l’Espace partenaires :
-
-
-      - Page de configuration du plan
-
-      - Page de référencement du plan
-
-      - Page de disponibilité du plan
-
-      - Page de configuration technique du plan, comme illustré ici :
-
-
-      [![Affiche la page de configuration technique de l’Espace partenaires.](media/cpp-pc-faq/technical-configuration.png)](media/cpp-pc-faq/technical-configuration.png#lightbox)
-
-
-      Votre ID d’offre est maintenant affiché dans la barre de navigation gauche de l’offre :
-
-
-      ![Affiche l’emplacement de l’ID de l’offre de l’Espace partenaires](media/cpp-pc-faq/offer-id.png)
-
-
-      ### <a name="stop-selling-an-offer"></a>Arrêter la vente d’une offre
-
-
-      Vous pouvez demander à [arrêter la distribution d’une offre](update-existing-offer.md#stop-distribution-of-an-offer-or-plan) sur la Place de marché directement du portail de l’Espace partenaires. L’option est disponible dans la page **Vue d’ensemble de l’offre** de votre offre.
-
-
-      [![La capture d’écran montre la page de l’Espace partenaires permettant d’arrêter de vendre une offre.](media/cpp-pc-faq/stop-sell.png "Affiche la page de l’Espace partenaires pour arrêter la vente d’une offre")](media/cpp-pc-faq/stop-sell.png#lightbox)
-
-      <br><br>
   - question: >
       Les API REST du portail Cloud Partner sont-elles toujours prises en charge ?
     answer: >
@@ -265,6 +136,6 @@ sections:
 
       | POST Publish, GoLive, Cancel | Pour les offres migrées, l’en-tête de réponse aura un format différent, mais continuera à fonctionner de la même façon, indiquant un chemin relatif pour récupérer l’état de l’opération. | Lors de l’envoi d’une des requêtes POST correspondantes pour une offre, l’en-tête d’emplacement aura l’un des deux formats suivants en fonction de l’état de migration de l’offre : <ul><li>Offres non migrées : `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Offres migrées : `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 
-      | Opération GET | Pour les offres qui prenaient auparavant en charge le champ « notification-email » dans la réponse, ce champ est déprécié et n’est plus retourné pour les offres migrées. | Pour les offres migrées, nous n’enverrons plus de notifications à la liste des e-mails spécifiés dans les requêtes. Au lieu de cela, le service d’API s’alignera sur le processus de notification par e-mail dans l’Espace partenaires pour envoyer des e-mails. Plus précisément, les notifications de progression de l’opération seront envoyées à l’adresse e-mail définie dans la section Coordonnées du vendeur de vos paramètres de compte dans l’Espace partenaires.<br><br>Vérifiez que l’adresse e-mail définie dans la section Coordonnées du vendeur dans [Paramètres du compte](https://partner.microsoft.com/dashboard/account/management) de l’Espace partenaires est correcte pour recevoir les notifications. |
+      | Opération GET | Pour les offres qui prenaient auparavant en charge le champ « notification-email » dans la réponse, ce champ est déprécié et n’est plus retourné pour les offres migrées. | Pour les offres migrées, nous n’enverrons plus de notifications à la liste des e-mails spécifiés dans les requêtes. Au lieu de cela, le service d’API s’alignera sur le processus de notification par e-mail dans l’Espace partenaires pour envoyer des e-mails. Plus précisément, les notifications de progression de l’opération seront envoyées à l’adresse e-mail définie dans la section Coordonnées du vendeur de vos paramètres de compte dans l’Espace partenaires.<br><br>Pour recevoir les notifications, vérifiez que l’adresse e-mail définie est correcte dans la section Coordonnées des [Paramètres du compte](https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#developer) de l’Espace partenaires. |
 
       |||

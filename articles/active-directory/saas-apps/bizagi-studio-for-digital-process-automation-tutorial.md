@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 390f5c60ec016ab87ae62cfbc8373fc1b485adc8
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 61990018951fa9dfb65ba374bac2f05363f8ce14
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112199499"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629841"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bizagi-for-digital-process-automation"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Bizagi for Digital Process Automation
 
@@ -40,6 +40,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un projet Bizagi à l’aide des services ou du serveur Automation.
 
 * Bizagi for Digital Process Automation prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Bizagi for Digital Process Automation prend en charge l’[attribution automatisée d’utilisateurs](bizagi-studio-for-digital-process-automation-provisioning-tutorial.md).
 
 ## <a name="add-bizagi-for-digital-process-automation-from-the-gallery"></a>Ajouter Bizagi for Digital Process Automation à partir de la galerie
 
@@ -126,6 +127,8 @@ Pour configurer l’authentification unique côté **Bizagi for Digital Process 
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Bizagi for Digital Process Automation. Collaborez avec l’[équipe du support technique de Bizagi for Digital Process Automation](mailto:jarvein.rivera@bizagi.com) pour ajouter les utilisateurs à la plateforme Bizagi for Digital Process Automation. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
+Bizagi for Digital Process Automation prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./bizagi-studio-for-digital-process-automation-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -134,7 +137,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Bizagi for Digital Process Automation pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Bizagi for Digital Process Automation dans Mes applications, cette opération redirige vers l’URL de connexion à Bizagi for Digital Process Automation. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Bizagi for Digital Process Automation dans Mes applications, cette opération redirige vers l’URL de connexion à Bizagi for Digital Process Automation. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 31f4390541020a7315d9168369898dff1cd854f7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 52197330ae274cf8cb338328d3202d7367fe431d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727475"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Didacticiel : Intégration d’Azure Active Directory à Proxyclick
 
@@ -38,6 +38,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Proxyclick prend en charge l’authentification unique lancée par le fournisseur de services et le fournisseur d’identité.
+
+* Proxyclick prend en charge le [provisionnement d’utilisateurs automatisé](proxyclick-provisioning-tutorial.md).
 
 ## <a name="add-proxyclick-from-the-gallery"></a>Ajouter Proxyclick à partir de la galerie
 
@@ -176,6 +178,9 @@ Pour créer un compte d’utilisateur, procédez comme suit :
 
     1. Sélectionnez **Add User** (Ajouter un utilisateur).
 
+> [!NOTE]
+> Proxyclick prend également en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./proxyclick-provisioning-tutorial.md) sur la façon de configurer ce dernier.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -190,7 +195,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Sur le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance de Proxyclick pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Proxyclick dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Proxyclick pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Proxyclick dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Proxyclick pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

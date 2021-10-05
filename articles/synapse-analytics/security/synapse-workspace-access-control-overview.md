@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: b92603e5aa9f7c42a2e4789353077058b1fc6ea9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6ee619e6036b9d8bc3b0323bc793903dab0a2735
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730926"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207318"
 ---
 # <a name="azure-synapse-access-control"></a>Contrôle d’accès Azure Synapse 
 
@@ -48,7 +48,7 @@ Pour *créer* ces ressources, vous devez être propriétaire ou contributeur Azu
 Synapse prend en charge deux modèles de développement.
 
 - **Développement direct Synapse**. Vous développez et déboguez du code dans Synapse Studio, puis vous le **publiez** pour l’enregistrer et l’exécuter.  Le service Synapse constitue la seule source fiable de modification et d’exécution du code.  Tout travail non publié est perdu quand vous fermez Synapse Studio.  
-- **Développement compatible Git**. Vous développez et déboguez du code dans Synapse Studio, puis vous **validez** les modifications apportées à une branche de travail d’un dépôt Git. Le travail effectué sur une ou plusieurs branches est intégré à une branche de collaboration, à partir de laquelle vous **publiez** sur le service. Le dépôt Git est la seule source fiable pour l’édition de code, et le service celle pour l’exécution. Les modifications doivent être validées dans le dépôt Git, ou publiées dans le service avant de fermer Synapse Studio. [Apprenez-en davantage](../cicd/continuous-integration-deployment.md) sur l’utilisation de Synapse Analytics avec Git.
+- **Développement compatible Git**. Vous développez et déboguez du code dans Synapse Studio, puis vous **validez** les modifications apportées à une branche de travail d’un dépôt Git. Le travail effectué sur une ou plusieurs branches est intégré à une branche de collaboration, à partir de laquelle vous **publiez** sur le service. Le dépôt Git est la seule source fiable pour l’édition de code, et le service celle pour l’exécution. Les modifications doivent être validées dans le dépôt Git, ou publiées dans le service avant de fermer Synapse Studio. [Apprenez-en davantage](../cicd/continuous-integration-delivery.md) sur l’utilisation de Synapse Analytics avec Git.
 
 Dans les deux modèles de développement, tout utilisateur ayant accès à Synapse Studio peut créer des artefacts de code. En revanche, vous avez besoin d’autorisations supplémentaires pour publier des artefacts dans le service et lire des artefacts publiés, également pour valider des modifications dans Git, exécuter du code et accéder à des données liées, protégées par des informations d’identification.
 
@@ -76,7 +76,7 @@ Le créateur d’un espace de travail est assigné en tant qu’administrateur A
 
 **Pools SQL serverless** : Les administrateurs Synapse disposent d’autorisations `db_owner` (`DBO`) sur le pool SQL serverless, « intégré ». Pour accorder à d’autres utilisateurs l’accès à des pools SQL serverless, les administrateurs Synapse doivent exécuter des scripts SQL sur chaque pool serverless.  
 
-**Pools SQL dédiés** : l’autorisation d’administrateur Active Directory est accordée au créateur de l’espace de travail et aux identités managées pour les ressources Azure de l’espace de travail.  L’autorisation d’accès aux pools SQL dédiés n’est, sinon, pas octroyée automatiquement. Pour accorder à d’autres utilisateurs ou groupes l’accès aux pools SQL dédiés, l’administrateur Active Directory doit exécuter des scripts SQL sur chaque pool SQL dédié.
+**Pools SQL dédiés** : les administrateurs Synapse se voient accorder des autorisations `db_owner` (`DBO`) sur les pools SQL dédiés. l’autorisation d’administrateur Active Directory est accordée au créateur de l’espace de travail et aux identités managées pour les ressources Azure de l’espace de travail.  L’autorisation d’accès aux pools SQL dédiés n’est, sinon, pas octroyée automatiquement. Pour accorder à d’autres utilisateurs ou groupes l’accès aux pools SQL dédiés, l’administrateur Active Directory doit exécuter des scripts SQL sur chaque pool SQL dédié.
 
 Consultez [Guide pratique pour configurer le contrôle d’accès Synapse](./how-to-set-up-access-control.md) qui donne des exemples de scripts SQL permettant d’accorder des autorisations SQL dans les pools SQL.  
 

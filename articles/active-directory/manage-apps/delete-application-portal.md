@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Supprimer une application de votre locataire'
+title: 'Démarrage rapide : Supprimer une application d’entreprise'
+description: Supprimez une application d’entreprise dans Azure Active Directory.
 titleSuffix: Azure AD
-description: Ce guide de démarrage rapide utilise le portail Azure pour supprimer une application de votre locataire Azure Active Directory (Azure AD).
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,59 +9,47 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 09/22/2021
 ms.author: davidmu
-ms.reviewer: alamaral
-ms.openlocfilehash: a29ac9aa0cecaefb3d9ada87b60d2bebb8c5269b
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.reviewer: ergleenl
+ms.openlocfilehash: 16bc055ed2b47ee5c212fa26387599a8d4ada7a8
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112418"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058194"
 ---
-# <a name="quickstart-delete-an-application-from-your-tenant"></a>Démarrage rapide : Supprimer une application de votre locataire
+# <a name="quickstart-delete-an-enterprise-application-in-azure-active-directory"></a>Démarrage rapide : Supprimer une application d’entreprise dans Azure Active Directory
 
-Ce guide de démarrage rapide utilise le portail Azure pour supprimer une application qui a été ajoutée à votre locataire Azure Active Directory (Azure AD).
+Dans ce guide de démarrage rapide, vous utilisez le Centre d’administration Azure Active Directory pour supprimer une application qui a été ajoutée à votre locataire Azure Active Directory (Azure AD).
 
-Pour en savoir plus sur SSO et Azure, consultez [Qu’est-ce que l’authentification unique (SSO)](what-is-single-sign-on.md).
+Il est recommandé d’utiliser un environnement de non-production pour tester les étapes de ce guide de démarrage rapide.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour supprimer une application de votre locataire Azure AD, vous avez besoin des éléments suivants :
+Pour supprimer une application d’entreprise, il faut :
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un des rôles suivants : Administrateur général, Administrateur d’application cloud, Administrateur d’application ou propriétaire du principal de service.
-- Facultatif : effectuer [Voir vos applications](view-applications-portal.md).
-- Facultatif : effectuer [Ajouter une application](add-application-portal.md).
-- Facultatif : effectuer [Configurer une application](add-application-portal-configure.md).
-- Facultatif : suivre [Affecter des utilisateurs à une application](add-application-portal-assign-users.md).
-- Facultatif : effectuer [Configurer l’authentification unique](add-application-portal-setup-sso.md).
+- Réalisation des étapes décrites dans [Démarrage rapide : Ajouter une application d’entreprise](add-application-portal.md).
 
->[!IMPORTANT]
->Pour tester les étapes de ce guide de démarrage rapide, utilisez un environnement de non-production.
+## <a name="delete-an-enterprise-application"></a>Supprimer une application d’entreprise
 
-> [!NOTE]
->Pour supprimer une application d’Azure AD, un utilisateur doit se voir attribuer l’un des rôles suivants : administrateur général, administrateur d’application Cloud, administrateur d’application ou propriétaire du principal de service.
+Pour supprimer une application d’entreprise :
 
-## <a name="delete-an-application-from-your-azure-ad-tenant"></a>Supprimer une application de votre locataire Azure AD
+1. Accédez au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) et connectez-vous avec l’un des rôles listés dans les prérequis.
+1. Dans le menu de gauche, sélectionnez **Applications d’entreprise**. Le volet **Toutes les applications** s’ouvre et affiche une liste des applications de votre locataire Azure AD. Recherchez et sélectionnez l’application que vous souhaitez supprimer. Par exemple, **Azure AD SAML Toolkit 1**.
+1. Dans la section **Gérer** du volet gauche, sélectionnez **Propriétés**.
+1. En haut du volet **Propriétés**, sélectionnez **Supprimer**, puis **Oui** pour confirmer que vous souhaitez supprimer l’application de votre locataire Azure AD.
 
-Pour supprimer une application de votre locataire Azure AD :
-
-1. Dans le portail Azure AD, sélectionnez **Applications d’entreprise**. Ensuite, recherchez et sélectionnez l’application que vous souhaitez supprimer. Dans ce cas, nous voulons supprimer **360 en ligne**.
-1. À la section **Gérer** dans le volet gauche, sélectionnez **Propriétés**.
-1. Sélectionnez **Supprimer**, puis sélectionnez **Oui** pour confirmer que vous souhaitez supprimer l’application de votre locataire Azure AD.
-
-:::image type="content" source="media/add-application-portal/delete-application.png" alt-text="Capture d’écran de l’écran Propriétés illustrant le changement de logo.":::
-
-> [!TIP]
-> Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](/graph/application-saml-sso-configure-api).
+    :::image type="content" source="media/delete-application-portal/delete-application.png" alt-text="Supprimer une application d’entreprise.":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsque vous aurez terminé cette série de guides de démarrage rapide, supprimez l'application pour nettoyer votre locataire de test. La suppression d’application est traitée dans ce guide de démarrage rapide.
+Lorsque vous aurez terminé cette série de guides de démarrage rapide, supprimez l’application pour nettoyer votre locataire de test. La suppression d’application est traitée dans ce guide de démarrage rapide.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez terminé la série de guides de démarrage rapide. Ensuite, pour en savoir plus sur l’authentification unique (SSO), consultez [Qu’est-ce que l’authentification unique ?](what-is-single-sign-on.md) Vous pouvez aussi en apprendre davantage sur les bonnes pratiques relatives à la gestion des applications.
+En savoir plus sur la planification d’un déploiement d’authentification unique.
 > [!div class="nextstepaction"]
-> [Bonnes pratiques relatives à la gestion des applications](application-management-fundamentals.md)
+> [Planifier un déploiement de l’authentification unique](plan-sso-deployment.md)

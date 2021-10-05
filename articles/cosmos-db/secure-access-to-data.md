@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/30/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b0fcfba6f72ef5e87be5c3301338a2c09598accf
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 10c914847da1f466ae88ea4ec7ffe269560c8e5d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253425"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671086"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +35,9 @@ Les clés principales/secondaires donnent accès à toutes les ressources admini
 ### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> Rotation et régénération des clés
 
 > [!NOTE]
-> Suivez les instructions décrites [ici](database-security.md#key-rotation) pour faire pivoter et régénérer les clés de l’API Azure Cosmos DB pour Mongo DB, l’API Cassandra, l’API Gremlin ou l’API Table.
+> La section suivante décrit les étapes permettant d’effectuer la rotation et de régénérer des clés pour l’API SQL. Si vous utilisez une autre API, consultez les sections [API Azure Cosmos DB pour Mongo DB](database-security.md?tabs=mongo-api#key-rotation), [API Cassandra](database-security.md?tabs=cassandra-api#key-rotation), [API Gremlin](database-security.md?tabs=gremlin-api#key-rotation) ou [API Table](database-security.md?tabs=table-api#key-rotation).
+>
+> Pour surveiller les mises à jour et la régénération des clés de votre compte, consultez l’article [Surveiller les mises à jour de clés avec des métriques et des alertes](monitor-account-key-updates.md).
 
 Le processus de rotation et de régénération des clés est simple. Tout d’abord, assurez-vous que **votre application utilise régulièrement la clé primaire ou la clé secondaire** pour accéder à votre compte Azure Cosmos DB. Puis, suivez les étapes présentées ci-dessous.
 

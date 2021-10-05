@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 0f800d2d42d0d8815021f1582b04750d87aa5abc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be90f5bdbd34201672cd2b39c7bbbe53e4de38cf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651411"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572050"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Salesforce
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
     ![Extension My apps](common/install-myappssecure-extension.png)
 
-1. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Salesforce** pour être dirigé vers l’application Salesforce. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Salesforce. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 13.
+1. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Salesforce** pour être dirigé vers l’application Salesforce. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à l’authentification unique Salesforce. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 13.
 
     ![Configuration](common/setup-sso.png)
 
@@ -177,6 +177,14 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
     ![Configurer l’authentification unique – Provisionnement d’utilisateurs activé](./media/salesforce-tutorial/salesforcexml.png)
 
+    > [!NOTE]
+    > Si vous avez configuré SAML JIT, vous devez effectuer une étape supplémentaire dans la section **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** . L’application Salesforce s’attend à recevoir certaines assertions SAML, ce qui vous oblige à ajouter des mappages d’attributs spécifiques à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs requis par Salesforce.
+    
+    ![Capture d’écran montrant le volet des attributs JIT obligatoires.](./media/salesforce-tutorial/just-in-time-attributes-required.png)
+    
+    Si vous rencontrez encore des problèmes liés à l’attribution d’utilisateurs avec SAML JIT, consultez la [configuration requise pour l’attribution juste-à-temps et les champs d’assertion SAML](https://help.salesforce.com/s/articleView?id=sf.sso_jit_requirements.htm&type=5). En règle générale, un échec de JIT s’accompagne d’une erreur semblable à `We can't log you in because of an issue with single sign-on. Contact your Salesforce admin for help.`
+
+
 1. Dans le volet de navigation de gauche de Salesforce, cliquez sur **Company Settings** pour développer la section associée, puis cliquez sur **My Domain**.
 
     ![Configurer l’authentification unique – My domain](./media/salesforce-tutorial/sf-my-domain.png)
@@ -204,7 +212,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Salesforce pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Salesforce dans Mes applications, vous êtes connecté automatiquement à l’instance de Salesforce pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Salesforce dans le portail Mes applications, vous êtes connecté automatiquement à l’application Salesforce pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Introduction au portail Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="test-sso-for-salesforce-mobile"></a>Tester l’authentification unique pour Salesforce (Mobile)
 
@@ -216,7 +224,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
     ![Application mobile Salesforce – Domaine personnalisé](media/salesforce-tutorial/mobile-app2.png)
 
-1. Entrez vos informations d’identification Azure AD pour vous connecter à l’application Salesforce, puis cliquez sur **Next** (Suivant).
+1. Entrez vos informations d’identification Azure AD pour vous connecter à l’application Salesforce, puis cliquez sur **Next** (Suivant).
 
     ![Application mobile Salesforce – Informations d’identification Azure AD](media/salesforce-tutorial/mobile-app3.png)
 

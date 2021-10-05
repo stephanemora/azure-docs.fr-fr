@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f0412b6e67ff62247feb3f8643553c5a6101ad73
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 7d6111a68be8bc195b7268a778a77facdd944772
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892667"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084129"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Démarrage rapide : Créer une application App Service à l’aide d’un modèle ARM
 
@@ -106,7 +106,7 @@ Le tableau suivant détaille les paramètres par défaut et leur description :
 ::: zone pivot="platform-windows"
 Exécutez le code ci-dessous pour déployer une application .NET Framework sur Windows en utilisant Azure CLI. 
 
-Replace <abbr title="Les caractères valides sont `a-z`, `0-9` et `-`.">`<app-name>`</abbr> par un nom d’application global unique. Pour découvrir d’autres <abbr title="Vous pouvez également utiliser le portail Azure, Azure PowerShell ou l’API REST.">méthodes de déploiement</abbr>, consultez [Déployer des modèles](../azure-resource-manager/templates/deploy-powershell.md). Vous trouverez d’autres exemples de [modèles Azure App Service ici](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
+Replace <abbr title="Les caractères valides sont `a-z`, `0-9` et `-`."> \<app-name> </abbr> par un nom d’application global unique. Pour découvrir d’autres <abbr title="Vous pouvez également utiliser le portail Azure, Azure PowerShell ou l’API REST.">méthodes de déploiement</abbr>, consultez [Déployer des modèles](../azure-resource-manager/templates/deploy-powershell.md). Vous trouverez d’autres exemples de [modèles Azure App Service ici](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -118,7 +118,7 @@ az deployment group create --resource-group myResourceGroup \
 ::: zone pivot="platform-linux"
 Exécutez le code ci-dessous pour créer une application Python sur Linux. 
 
-Replace <abbr title="Les caractères valides sont `a-z`, `0-9` et `-`.">`<app-name>`</abbr> par un nom d’application global unique.
+Remplacez \<app-name\> par un nom d’application global unique. Les caractères valides sont `a-z`, `0-9` et `-`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -153,6 +153,7 @@ Pour déployer une autre pile de langages, mettez à jour <abbr title="Ce modèl
 ::: zone pivot="platform-linux"
 <details>
 <summary>Comment déployer une autre pile de langages ?</summary>
+ 
 Pour déployer une autre pile de langage, mettez à jour `linuxFxVersion` avec les valeurs appropriées. Des exemples sont présentés ci-dessous. Pour afficher les versions actuelles, exécutez la commande suivante dans Cloud Shell : `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
 
 | Langage    | Exemple :                                               |

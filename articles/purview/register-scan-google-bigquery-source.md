@@ -4,15 +4,15 @@ description: Cet article explique comment inscrire un projet Google BigQuery dan
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 7/15/2021
-ms.openlocfilehash: d88df617e994f4a609b12dff0419fd673f8207d1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: caaf78e14669d67f525e5756efd8e2fd301f9b38
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121721928"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218531"
 ---
 # <a name="register-and-scan-google-bigquery-source-preview"></a>Inscrire et analyser la source Google BigQuery (préversion)
 
@@ -56,14 +56,14 @@ Sur l’écran Inscrire des sources (Google BigQuery), procédez comme suit :
 
 3.  Sélectionnez une collection ou créez-en une (facultatif).
 
-4.  Cliquez sur **Inscrire**.
+4.  Sélectionnez **Inscription**.
     :::image type="content" source="media/register-scan-google-bigquery-source/configure-sources.png" alt-text="Configurer la source BigQuery" border="true":::
 
 ## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1.  Dans le centre d’administration, cliquez sur Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
+1.  Dans le centre d’administration, sélectionnez Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
 
 2.  Accédez aux **Sources**.
 
@@ -83,7 +83,7 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
     - Indiquer l’ID de messagerie du compte de service dans le champ nom d’utilisateur. Par exemple, xyz\@developer.gserviceaccount.com
     - Enregistrer un fichier de clé privée du compte de service au format JSON dans le coffre de clés
 
-    Pour créer une nouvelle clé privée à partir de la plateforme Cloud de Google, dans le menu de navigation, cliquez sur IAM et Admin- \> Comptes de service- \> Sélectionner un projet- \> cliquez sur l’adresse de messagerie du compte de service pour lequel vous souhaitez créer une clé. Pour cela, \> cliquez sur l’onglet **Clés**\>, cliquez sur le menu déroulant **Ajouter une clé**, puis sélectionnez Créer une clé. Choisissez maintenant le format JSON.
+    Pour créer une nouvelle clé privée à partir de la plateforme cloud de Google, dans le menu de navigation, sélectionnez IAM et Admin -\> Comptes de service -\> sélectionnez un projet -\> sélectionnez l’adresse de messagerie du compte de service pour lequel vous souhaitez créer une clé -\> sélectionnez l’onglet **Clés** -\> sélectionnez le menu déroulant **Ajouter une clé**, puis sélectionnez Créer une clé. Choisissez maintenant le format JSON.
 
       > [!Note]
       > Le contenu de la clé privée est enregistré dans un fichier temporaire sur la machine virtuelle lorsque les processus d’analyse sont en cours d’exécution. Ce fichier temporaire est supprimé une fois que les analyses sont terminées avec succès. En cas d’échec de l’analyse, le système continue à réessayer jusqu’à ce qu’il réussisse. Assurez-vous que l’accès est correctement limité sur la machine virtuelle où SHIR est en cours d’exécution.**
@@ -107,13 +107,13 @@ L’utilisation de NOT et des caractères spéciaux n’est pas autorisée.
     f.  **Mémoire maximale disponible** : mémoire maximale (en Go) disponible sur la machine virtuelle du client pouvant être utilisée par les processus d’analyse. Cela dépend de la taille du serveur Google BigQuery à analyser.
         :::image type="content" source="media/register-scan-google-bigquery-source/scan.png" alt-text="Analyser la source BigQuery" border="true":::
 
-6.  Cliquez sur **Tester la connexion**.
+6.  Sélectionnez **Test Connection** (Tester la connexion).
 
-7.  Cliquez sur **Continuer**.
+7.  Sélectionnez **Continuer**.
 
 8.  Choisissez votre **déclencheur d’analyse**. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
 
-9.  Vérifiez votre analyse et cliquez sur **Enregistrer et exécuter**.
+9.  Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Affichage des analyses et des exécutions d’analyse
 

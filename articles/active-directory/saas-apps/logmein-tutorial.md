@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/18/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 907b627a260bf552555dca63936af6495fb987c6
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: d818299a8de1983dbf3db02d9b1f53ea0499cc2a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112453751"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124783327"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-logmein"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à LogMeIn
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * LogMeIn prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
+* LogMeIn prend en charge le [provisionnement d’utilisateurs automatisé](logmein-provisioning-tutorial.md).
 
 ## <a name="adding-logmein-from-the-gallery"></a>Ajout de LogMeIn à partir de la galerie
 
@@ -145,6 +146,9 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
     ![Capture d’écran des champs utilisateur.](./media/logmein-tutorial/create-user.png)
 
+> [!NOTE]
+> LogMeIn prend également en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./logmein-provisioning-tutorial.md) sur la façon de configurer ce dernier.
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -159,7 +163,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors automatiquement connecté à l’instance de LogMeIn pour laquelle vous avez configuré l’authentification unique 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette LogMeIn dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. S’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de LogMeIn pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette LogMeIn dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. S’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de LogMeIn pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

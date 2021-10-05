@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 38def2b5af3a5f0f9a32c2b681bd0ee95ca44086
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d1f6cf3fc8b5c59d765e61299609b0e11ba1bf5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102174680"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592030"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutoriel : Ajouter la connexion à Microsoft à une application web ASP.NET
 
@@ -376,7 +376,7 @@ Pour inscrire votre application et ajouter manuellement les informations d’ins
    1. Copiez l’URL SSL. Vous allez ajouter cette URL à la liste des URI de redirection dans la liste des URI de redirection du portail d’inscription à l’étape suivante.<br/><br/>![Propriétés d’un projet](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
    
 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
-1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoires + abonnements** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour basculer vers le locataire dans lequel vous voulez inscrire l’application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
 1. Entrez un **nom** pour votre application (par exemple, `ASPNET-Tutorial`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
@@ -426,7 +426,7 @@ Pour voir les revendications de l’utilisateur, sélectionnez le lien permettan
 
 Une fois que vous avez accédé à la vue de contrôleur, vous devez voir un tableau qui contient les propriétés de base de l’utilisateur :
 
-|Propriété |Value |Description |
+|Propriété |Valeur |Description |
 |---|---|---|
 |**Nom** |Nom complet de l’utilisateur | Prénom et nom de l’utilisateur
 |**Nom d’utilisateur** |utilisateur<span>@domain.com</span> | Nom d’utilisateur utilisé pour identifier l’utilisateur|

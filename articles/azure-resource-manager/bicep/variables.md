@@ -4,13 +4,13 @@ description: Décrit comment définir des variables dans Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: b2f696adbad88cd424f2292b333069a7b80a13b2
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 09/10/2021
+ms.openlocfilehash: 040e40d20fe81bb72493f087c9d0583a911b1ee7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634954"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733339"
 ---
 # <a name="variables-in-bicep"></a>Variables dans Bicep
 
@@ -32,6 +32,7 @@ Vous pouvez utiliser la valeur d’un paramètre ou d’une autre variable lors 
 param inputValue string = 'deployment Parameter'
 
 var stringVar = 'myVariable'
+
 var concatToVar =  '${stringVar}AddToVar'
 var concatToParam = '${inputValue}AddToParam'
 ```
@@ -43,6 +44,12 @@ Dans l’exemple suivant, une valeur de chaîne est créée pour un nom de compt
 ```bicep
 var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
 ```
+
+L’exemple suivant ne déploie aucune ressource. Il montre comment déclarer des variables de types différents.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variables.bicep":::
+
+Vous pouvez utiliser des boucles pour déclarer une variable de tableau qui a un nombre dynamique d’éléments. Pour plus d’informations, consultez [Itération de variable dans Bicep](loop-variables.md).
 
 ## <a name="use-variable"></a>Utiliser une variable
 
@@ -69,18 +76,13 @@ output stgOutput string = storageName
 
 Étant donné que les noms de compte de stockage doivent utiliser des minuscules, la variable `storageName` utilise la fonction `toLower` pour mettre la valeur `storageNamePrefix` en minuscules. La fonction `uniqueString` crée une valeur unique à partir de l’ID du groupe de ressources. Les valeurs sont concaténées en une chaîne.
 
-## <a name="example-template"></a>Exemple de modèle
-
-Le modèle suivant ne déploie aucune ressource. Il montre quelques façons de déclarer des variables de types différents.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variables.bicep":::
-
 ## <a name="configuration-variables"></a>Variables de configuration
 
 Vous pouvez définir des variables qui contiennent des valeurs associées pour la configuration d’un environnement. Vous définissez la variable en tant qu’objet avec les valeurs. L’exemple suivant illustre un objet qui contient des valeurs pour deux environnements : **test** et **prod**. Transmettez l’une de ces valeurs au cours du déploiement.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variablesconfigurations.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variablesconfigurations.bicep":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les propriétés disponibles pour les variables, consultez [Présentation de la structure et de la syntaxe des fichiers Bicep](file.md).
+- Pour en savoir plus sur l’utilisation de boucles avec la déclaration de variable, consultez [Itération de variable dans Bicep](loop-variables.md).

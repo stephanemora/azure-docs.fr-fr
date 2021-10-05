@@ -7,18 +7,21 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: 1682a1b80f3b2d85e0d263b9ea2648da2b57a561
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ca21e367752451f01c7ee8d1fc9596cfcb74029b
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430897"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094440"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Démarrage rapide : Créer et configurer Route Server à l’aide d’Azure CLI 
 
 Cet article vous aide à configurer Azure Route Server pour effectuer un peering avec une appliance virtuelle réseau (NVA) dans votre réseau virtuel à l’aide d’Azure PowerShell. Serveur de routes apprend les routes provenant de votre appliance virtuelle réseau et il les programme sur les machines virtuelles du réseau virtuel. Azure Route Server publiera également les routes du réseau virtuel menant à l’appliance virtuelle réseau. Pour plus d’informations, consultez [Serveur de routes Azure](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagramme de l’environnement de déploiement du serveur de routes avec l’interface Azure CLI" border="false":::
+
+> [!IMPORTANT]
+> Si vous avez un serveur de routes Azure créé avant le 1er septembre et qu’il n’a pas d’adresse IP publique associée, vous devez recréer le serveur de routes pour qu’il puisse obtenir une adresse IP à des fins de gestion.
 
 ##  <a name="prerequisites"></a>Prérequis 
 
@@ -188,7 +191,7 @@ Si vous disposez d’ExpressRoute et d’une passerelle VPN Azure dans le même 
         --allow-b2b-traffic false 
     ``` 
 
-## <a name="troubleshooting"></a>Dépannage 
+## <a name="troubleshooting"></a>Résolution des problèmes 
 
 Utilisez [az network routeserver peering list-advertised-routes](/cli/azure/network/routeserver/peering#az_network_routeserver_peering_list_advertised_routes) pour afficher les itinéraires annoncés par le serveur de routes Azure :
 

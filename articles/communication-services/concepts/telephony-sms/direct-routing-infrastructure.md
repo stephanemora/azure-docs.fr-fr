@@ -9,12 +9,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.openlocfilehash: 3ab9c444fbd2413d0534aba7b1db62198e92a82f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b03779f9c56d2ebcc4d070165cdf29a54e78d269
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609685"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060950"
 ---
 # <a name="azure-direct-routing-infrastructure-requirements"></a>Conditions requises de l’infrastructure de routage direct Azure 
 
@@ -156,16 +156,13 @@ La plage de ports des processeurs multimédias est indiquée dans le tableau sui
 
 ## <a name="media-traffic-media-processors-geography"></a>Traffic multimédia : Emplacement géographique des processeurs multimédias
 
-Le trafic multimédia transite par des composants appelés processeurs multimédias. Les processeurs multimédias sont placés dans les mêmes centres de données que les proxys SIP. En outre, il existe d’autres processeurs multimédias pour optimiser le flux multimédia. Par exemple, nous n’avons pas de composant proxy SIP en Australie (SIP transite via Singapour ou Hong Kong, R.A.S.), mais nous avons un processeur multimédia local en Australie. La nécessité d’utiliser des processeurs multimédias localement est dictée par la latence que nous expérimentons en envoyant du trafic longue distance, par exemple de l’Australie à Singapour ou à Hong-Kong (R.A.S.). Bien que la latence dans l’exemple de trafic transitant de l’Australie à Hong Kong (R.A.S.) ou à Singapour soit acceptable pour préserver une qualité d’appel correcte pour le trafic SIP, ce n’est pas le cas pour le trafic multimédia en temps réel.
-
-Emplacements où les composants Proxy SIP et Processeur multimédia sont tous deux déployés :
+Le trafic multimédia transite par des composants appelés processeurs multimédias. Les processeurs multimédias sont placés dans les mêmes centres de données que les proxys SIP :
 - USA (deux dans les centres de données USA Ouest et USA Est)
 - Europe (centres de données d’Amsterdam et de Dublin)
 - Asie (centre de données de Singapour et de Hong Kong, R.A.S.)
 - Australie (centres de données Australie Est et Sud-Ouest)
-
-Emplacements où seuls des processeurs multimédias sont déployés (SIP transite via le centre de données le plus proche listé ci-dessus) :
 - Japon (centres de données Japon Est et Ouest)
+
 
 
 ## <a name="media-traffic-codecs"></a>Traffic multimédia : Codecs

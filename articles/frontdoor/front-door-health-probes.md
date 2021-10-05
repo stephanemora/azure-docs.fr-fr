@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2021
 ms.author: duau
-ms.openlocfilehash: 6fb47cf8c3bea7080151d635620bde549070060d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6ccd231c69d69900f81ab91d39eada1f67c7886f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084985"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792464"
 ---
 # <a name="health-probes"></a>Sondes d’intégrité
 
@@ -64,6 +64,8 @@ Pour déterminer l’intégrité, le service Azure Front Door utilise le même p
 
 3. Front Door mesure et maintient la latence (durée aller-retour) pour chaque ensemble de backends considérés comme sains.
 
+> [!NOTE]
+> Si un seul point de terminaison est membre de plusieurs pools principaux, Azure Front Door optimise le nombre de sondes d’intégrité envoyées au serveur principal pour réduire la charge sur le serveur principal. Les demandes de sonde d’intégrité sont envoyées en fonction de l’intervalle d’échantillonnage configuré le plus bas. L’intégrité du point de terminaison dans tous les pools est déterminée par les réponses des mêmes sondes d’intégrité.
 
 ## <a name="complete-health-probe-failure"></a>Mettre fin à l’échec des sondes d’intégrité
 

@@ -5,15 +5,15 @@ author: mgoedtel
 ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
-ms.date: 06/30/2021
+ms.date: 09/09/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 16e271cf6183dce74fad3075a2e8336030960a08
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: bcc4d9183bf60e37c1d024462d7ab924df1f671e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966636"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210767"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Démarrage rapide : Connecter un cluster Kubernetes existant à Azure Arc
 
@@ -47,12 +47,11 @@ Dans ce guide de démarrage rapide, vous allez découvrir les avantages d’util
     > Le cluster doit disposer d'au moins un nœud de système d'exploitation et d'une architecture de type `linux/amd64`. Les clusters uniquement dotés de nœuds `linux/arm64` ne sont pas encore pris en charge.
 
 * Fichier `kubeconfig` et contexte pointant vers votre cluster.
-* Autorisations d'accès en « lecture » et en « écriture » sur le type de ressource Kubernetes avec Azure Arc (`Microsoft.Kubernetes/connectedClusters`).
+* Autorisations d’accès en « lecture » et en « écriture » sur le type de ressource Kubernetes avec Azure Arc (`Microsoft.Kubernetes/connectedClusters`).
 
-* Installez la [dernière version de Helm 3](https://helm.sh/docs/intro/install).
+* Installez [Helm 3](https://helm.sh/docs/intro/install). Vérifiez que la version de Helm 3 est &lt; 3.7.0.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
 
 * [Azure PowerShell version 5.9.0 ou ultérieure](/powershell/azure/install-az-ps)
 
@@ -79,9 +78,9 @@ Dans ce guide de démarrage rapide, vous allez découvrir les avantages d’util
     > Le cluster doit disposer d'au moins un nœud de système d'exploitation et d'une architecture de type `linux/amd64`. Les clusters uniquement dotés de nœuds `linux/arm64` ne sont pas encore pris en charge.
 
 * Fichier `kubeconfig` et contexte pointant vers votre cluster.
-* Autorisations d'accès en « lecture » et en « écriture » sur le type de ressource Kubernetes avec Azure Arc (`Microsoft.Kubernetes/connectedClusters`).
+* Autorisations d’accès en « lecture » et en « écriture » sur le type de ressource Kubernetes avec Azure Arc (`Microsoft.Kubernetes/connectedClusters`).
 
-* Installez la [dernière version de Helm 3](https://helm.sh/docs/intro/install).
+* Installez [Helm 3](https://helm.sh/docs/intro/install). Vérifiez que la version de Helm 3 est &lt; 3.7.0.
 
 ---
 
@@ -96,9 +95,9 @@ Dans ce guide de démarrage rapide, vous allez découvrir les avantages d’util
 | `https://management.azure.com` (pour le Cloud Azure), `https://management.usgovcloudapi.net` (pour Azure US Government) | Requis pour que l’agent se connecte à Azure et inscrive le cluster. |
 | `https://<region>.dp.kubernetesconfiguration.azure.com` (pour le Cloud Azure), `https://<region>.dp.kubernetesconfiguration.azure.us` (pour Azure US Government) | Point de terminaison du plan de données permettant à l’agent d’envoyer (push) le statut et de récupérer (fetch) les informations de configuration. |
 | `https://login.microsoftonline.com`, `login.windows.net` (pour le Cloud Azure), `https://login.microsoftonline.us` (pour Azure US Government) | Requis pour extraire et mettre à jour des jetons Azure Resource Manager. |
-| `https://mcr.microsoft.com` | Requis pour extraire des images conteneurs pour les agents Azure Arc.                                                                  |
+| `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Requis pour extraire des images conteneurs pour les agents Azure Arc.                                                                  |
 | `https://gbl.his.arc.azure.com` |  Requis pour obtenir le point de terminaison régional pour l’extraction des certificats Managed Service Identity (MSI) attribués par le système. |
-| `https://*.his.arc.azure.com` (pour le Cloud Azure), `https://usgv.his.arc.azure.us` (pour Azure US Government) |  Indispensable à l’extraction des certificats attribués par le système dans le cadre des identités managées pour les ressources Azure. |
+| `https://*.his.arc.azure.com` (pour le cloud Azure), `https://usgv.his.arc.azure.us` et `https://gbl.his.arc.azure.us` (pour Azure US Government) |  Nécessaire pour tirer (pull) les certificats d’identité managée affectée par le système. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | Pour les scénarios basés sur les [connexions de cluster](cluster-connect.md) et sur les [localisations personnalisées](custom-locations.md). |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Inscrire les fournisseurs pour Kubernetes avec Azure Arc
@@ -247,21 +246,11 @@ Si votre cluster se trouve derrière un serveur proxy sortant, Azure CLI et les 
 
 1. Définissez les variables d’environnement nécessaires pour Azure CLI afin d’utiliser le serveur proxy sortant :
 
-    * Si vous utilisez bash, exécutez la commande suivante avec les valeurs appropriées :
-
-        ```bash
-        export HTTP_PROXY=<proxy-server-ip-address>:<port>
-        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-        ```
-
-    * Si vous utilisez PowerShell, exécutez la commande suivante avec les valeurs appropriées :
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
 
 2. Exécutez la commande connect avec les paramètres de proxy spécifiés :
 
@@ -270,8 +259,9 @@ Si votre cluster se trouve derrière un serveur proxy sortant, Azure CLI et les 
     ```
 
     > [!NOTE]
-    > * Certaines requêtes réseau, telles que celles impliquant une communication de service à service dans le cluster, doivent être séparées du trafic qui est routé via le serveur proxy pour les communications sortantes. Vous pouvez utiliser le paramètre `--proxy-skip-range` pour spécifier la plage CIDR et les points de terminaison en les séparant par des virgules afin qu’aucune communication depuis les agents vers ces points de terminaison ne passe par le proxy sortant. Au minimum, la plage CIDR des services dans le cluster doit être spécifiée en tant que valeur pour ce paramètre. Par exemple, supposons que `kubectl get svc -A` retourne une liste de services qui, tous, ont des valeurs ClusterIP dans la plage `10.0.0.0/16`. La valeur à spécifier pour `--proxy-skip-range` est donc « 10.0.0.0/16,kubernetes.default.svc ».
+    > * Certaines requêtes réseau, telles que celles impliquant une communication de service à service dans le cluster, doivent être séparées du trafic qui est routé via le serveur proxy pour les communications sortantes. Vous pouvez utiliser le paramètre `--proxy-skip-range` pour spécifier la plage CIDR et les points de terminaison en les séparant par des virgules afin qu’aucune communication depuis les agents vers ces points de terminaison ne passe par le proxy sortant. Au minimum, la plage CIDR des services dans le cluster doit être spécifiée en tant que valeur pour ce paramètre. Par exemple, supposons que `kubectl get svc -A` retourne une liste de services qui, tous, ont des valeurs ClusterIP dans la plage `10.0.0.0/16`. La valeur à spécifier ensuite pour `--proxy-skip-range` est `10.0.0.0/16,kubernetes.default.svc,.svc.cluster.local,.svc`.
     > * `--proxy-http`, `--proxy-https` et `--proxy-skip-range` sont attendus pour la plupart des environnements de serveurs proxy sortants. `--proxy-cert` est nécessaire *uniquement* si vous devez injecter les certificats approuvés attendus par le serveur proxy dans le magasin de certificats approuvés des pods d’agents.
+    > * Le proxy sortant doit être configuré pour autoriser les connexions websocket.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -279,13 +269,11 @@ Si votre cluster se trouve derrière un serveur proxy sortant, Azure PowerShell
 
 1. Définissez les variables d’environnement nécessaires pour Azure PowerShell afin d’utiliser le serveur proxy sortant :
 
-    * Exécutez la commande suivante avec les valeurs appropriées :
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
+    ```powershell
+    $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+    $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+    $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+    ```
 
 2. Exécutez la commande connect avec les paramètres de proxy spécifiés :
 
@@ -332,7 +320,7 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 ## <a name="6-view-azure-arc-agents-for-kubernetes"></a>6. Voir les agents Azure Arc pour Kubernetes
 
-Un Kubernetes à extension Azure Arc déploie quelques opérateurs dans l’espace de noms `azure-arc`.
+Kubernetes avec Azure Arc déploie quelques opérateurs dans l’espace de noms `azure-arc`.
 
 1. Visualisez ces déploiements et ces pods à l’aide de :
 
@@ -375,7 +363,7 @@ az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
 >[!NOTE]
-> La suppression de la ressource Kubernetes avec Azure Arc à l’aide du portail Azure entraîne la suppression de toutes les ressources de configuration associées mais *pas* des agents s’exécutant sur le cluster. Il est recommandé de suivre la bonne pratique qui consiste à supprimer la ressource Kubernetes avec Azure Arc via `az connectedk8s delete` au d’utiliser le portail Azure.
+> La suppression de la ressource Kubernetes avec Azure Arc à l’aide du portail Azure entraîne la suppression de toutes les ressources de configuration associées mais *pas* des agents s’exécutant sur le cluster. La meilleure pratique consiste à suivre consiste à supprimer la ressource Kubernetes avec Azure Arc via la commande `az connectedk8s delete` au d’utiliser le portail Azure.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -386,7 +374,7 @@ Remove-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName Azure
 ```
 
 >[!NOTE]
-> La suppression de la ressource Kubernetes avec Azure Arc à l’aide du portail Azure entraîne la suppression de toutes les ressources de configuration associées mais *pas* des agents s’exécutant sur le cluster. Il est recommandé de suivre la bonne pratique qui consiste à supprimer la ressource Kubernetes avec Azure Arc via `Remove-AzConnectedKubernetes` au d’utiliser le portail Azure.
+> La suppression de la ressource Kubernetes avec Azure Arc à l’aide du portail Azure entraîne la suppression de toutes les ressources de configuration associées mais *pas* des agents s’exécutant sur le cluster. La meilleure pratique consiste à suivre consiste à supprimer la ressource Kubernetes avec Azure Arc via la commande `Remove-AzConnectedKubernetes` au d’utiliser le portail Azure.
 
 ---
 

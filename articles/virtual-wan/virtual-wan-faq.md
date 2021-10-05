@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 7b0045ccfd54d956ef8ae7fd2eb1b38705aafd31
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: c4c31314ca8e559748425518258e0eec965d9c09
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122566144"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754429"
 ---
 # <a name="virtual-wan-faq"></a>FAQ sur Virtual WAN
 
@@ -34,7 +34,9 @@ Il existe deux types de réseaux Virtual WAN : De base et Standard. Dans le ré
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>Comment les zones de disponibilité et la résilience sont-elles gérées dans Virtual WAN ?
 
-Virtual WAN est une collection de hubs et de services mis à votre disposition dans le hub. L’utilisateur peut avoir autant de WAN virtuels qu’il en a besoin. Dans un hub Virtual WAN, il existe plusieurs services tels que VPN, ExpressRoute, etc. Chacun de ces services (hormis le Pare-feu Azure) est déployé dans une région de zones de disponibilité, si cette région prend en charge les zones de disponibilité. Si une région devient une zone de disponibilité après le déploiement initial dans le hub, l’utilisateur peut recréer les passerelles, ce qui déclenche le déploiement d’une zone de disponibilité. Toutes les passerelles sont provisionnées dans un hub sous la forme active-active, ce qui implique une résilience intégrée au sein d’un hub. Les utilisateurs peuvent se connecter à plusieurs hubs s’ils souhaitent une résilience entre les régions.
+Virtual WAN est une collection de hubs et de services mis à votre disposition dans le hub. L’utilisateur peut avoir autant de WAN virtuels qu’il en a besoin. Dans un hub Virtual WAN, il existe plusieurs services tels que VPN, ExpressRoute, etc. Chacun de ces services est automatiquement déployé dans les zones de disponibilité (hormis Pare-feu Azure) si la région prend en charge les zones de disponibilité. Si une région devient une zone de disponibilité après le déploiement initial dans le hub, l’utilisateur peut recréer les passerelles, ce qui déclenche le déploiement d’une zone de disponibilité. Toutes les passerelles sont provisionnées dans un hub sous la forme active-active, ce qui implique une résilience intégrée au sein d’un hub. Les utilisateurs peuvent se connecter à plusieurs hubs s’ils souhaitent une résilience entre les régions. 
+
+Actuellement, le Pare-feu Azure peut être déployé pour prendre en charge les zones de disponibilité à l’aide du Portail Azure Firewall Manager, de [PowerShell](/powershell/module/az.network/new-azfirewall?view=azps-6.3.0#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) ou de l’interface CLI. Il n’existe actuellement aucun moyen de configurer un pare-feu existant pour qu’il soit déployé sur plusieurs zones de disponibilité. Vous devez supprimer et redéployer votre Pare-feu Azure. 
 
 Alors que le concept de Virtual WAN est global, la ressource Virtual WAN réelle est basée sur Resource Manager et déployée de manière régionale. Si la région du WAN virtuel présente elle-même un problème, tous les hubs de ce WAN virtuel continueront à fonctionner en l’état, mais l’utilisateur ne pourra pas créer de nouveaux hubs tant que la région du WAN virtuel ne sera pas disponible.
 

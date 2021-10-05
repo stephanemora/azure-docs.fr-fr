@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 5e4091138f51fdd5af4052895cdb75c2390f7ce5
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a927232bab058ff461ff1158739a6b4d390e1c56
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459728"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679462"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
@@ -168,6 +168,7 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 ## <a name="troubleshooting-tips"></a>Conseils de dépannage
 *  Si la création d’un utilisateur n’aboutit pas et qu’il existe un événement de journal d’audit doté du code « 1789003 », cela signifie que l’utilisateur provient d’un domaine non vérifié.
 *  Dans certains cas, les utilisateurs reçoivent l'erreur « ERREUR : Champ E-mail manquant : Vous devez fournir une adresse électronique Erreur renvoyée par Facebook : Le traitement de la requête HTTP a entraîné une exception. » Pour plus d’informations, consultez la réponse HTTP renvoyée par la propriété « Response » de cette exception. Cette opération a été retentée 0 fois. Une nouvelle tentative sera effectuée après cette date. Cette erreur est due au fait que les clients mappent les messages, plutôt que userPrincipalName, à la messagerie Facebook, mais que certains utilisateurs n’ont pas d’attribut de messagerie. Pour éviter les erreurs et provisionner avec succès les utilisateurs qui ont échoué dans Workplace from Facebook, modifiez le mappage de l'attribut de l'email de Workplace from Facebook en Coalesce([mail],[userPrincipalName]) ou désassignez l'utilisateur de Workplace from Facebook, ou fournissez une adresse email pour l'utilisateur.  
+*  Il existe une option dans Workplace qui autorise l’existence d’[utilisateurs sans adresse e-mail](https://www.workplace.com/resources/tech/account-management/email-less#enable). Si ce paramètre est activé côté Workplace, le provisionnement côté Azure doit être redémarré pour que les utilisateurs sans adresse e-mail puissent être créés dans Workplace.  
 
 
 ## <a name="change-log"></a>Journal des modifications

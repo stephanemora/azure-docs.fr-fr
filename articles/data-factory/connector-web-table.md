@@ -1,28 +1,28 @@
 ---
-title: Copier des données de Table web à l’aide d’Azure Data Factory
+title: Copier des données à partir d’une table web
+description: Découvrez le connecteur Table web, qui vous permet de copier des données d’une table web vers des banques de données prises en charge en tant que récepteurs par Azure Data Factory et Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez le connecteur Table web d’Azure Data Factory, qui vous permet de copier des données d’une Table web vers des banques de données prises en charge par Data Factory en tant que récepteurs.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 680ea9139a17f20038b78f0399fe849ca0990532
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: af6423b58cb2eba4fca0d902270afee03a733637
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311165"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782681"
 ---
-# <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copier des données de Table web à l’aide d’Azure Data Factory
+# <a name="copy-data-from-web-table-by-using-azure-data-factory-or-synapse-analytics"></a>Copier des données d’une table web à l’aide d’Azure Data Factory ou de Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-web-table-connector.md)
 > * [Version actuelle](connector-web-table.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données de Table web. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l’activité de copie dans Azure Data Factory ou Synapse Analytics pour copier des données à partir d’une base de données de table web. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 Les différences entre ce connecteur Table web, le [connecteur REST](connector-rest.md) et le [connecteur HTTP](connector-http.md) sont les suivantes :
 
@@ -184,24 +184,24 @@ Pour obtenir l’index d’une table que vous devez configurer dans les [propri�
 1. Lancez **Excel 2016** et basculez vers l’onglet **Données**.
 2. Cliquez sur **Nouvelle requête** dans la barre d’outils, pointez sur **À partir d’autres sources** et cliquez sur **À partir du web**.
 
-    ![Menu Power Query](./media/copy-data-from-web-table/PowerQuery-Menu.png)
+    :::image type="content" source="./media/copy-data-from-web-table/PowerQuery-Menu.png" alt-text="Menu Power Query":::
 3. Dans la boîte de dialogue **À partir du web**, entrez l’**URL** que vous utiliseriez dans le service lié JSON (par exemple https://en.wikipedia.org/wiki/), ainsi que le chemin à spécifier pour le jeu de données (par exemple : AFI%27s_100_Years...100_Movies), puis cliquez sur **OK**.
 
-    ![Boîte de dialogue À partir du web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
+    :::image type="content" source="./media/copy-data-from-web-table/FromWeb-DialogBox.png" alt-text="Boîte de dialogue À partir du web":::
 
     URL utilisée dans cet exemple : https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. Si la boîte de dialogue **Accéder au contenu web** apparaît, sélectionnez **l’URL** et **l’authentification** adéquates, puis cliquez sur **Se connecter**.
 
-   ![Boîte de dialogue Accéder au contenu web](./media/copy-data-from-web-table/AccessWebContentDialog.png)
+   :::image type="content" source="./media/copy-data-from-web-table/AccessWebContentDialog.png" alt-text="Boîte de dialogue Accéder au contenu web":::
 5. Cliquez sur un élément de **table** dans l’arborescence pour afficher le contenu de la table, puis sur le bouton **Modifier** du bas.  
 
-   ![Boîte de dialogue Navigateur](./media/copy-data-from-web-table/Navigator-DialogBox.png)
+   :::image type="content" source="./media/copy-data-from-web-table/Navigator-DialogBox.png" alt-text="Boîte de dialogue Navigateur":::
 6. Dans la fenêtre **Éditeur de requête**, cliquez sur **Éditeur avancé** dans la barre d’outils.
 
-    ![Bouton Éditeur avancé](./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png)
+    :::image type="content" source="./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png" alt-text="Bouton Éditeur avancé":::
 7. Dans la boîte de dialogue Éditeur avancé, le numéro en regard de « Source » est l’index.
 
-    ![Éditeur avancé - Index](./media/copy-data-from-web-table/AdvancedEditor-Index.png)
+    :::image type="content" source="./media/copy-data-from-web-table/AdvancedEditor-Index.png" alt-text="Éditeur avancé - Index":::
 
 Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https://www.microsoft.com/download/details.aspx?id=39379) pour obtenir l’index. Pour plus d’informations, consultez l’article [Se connecter à une page web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) . Les étapes sont identiques si vous utilisez [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
@@ -211,4 +211,4 @@ Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https:/
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

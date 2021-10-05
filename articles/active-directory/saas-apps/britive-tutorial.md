@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/25/2020
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 74f449afe2081feecfe7f0194b20429314ec572d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82230b0cb4f78e95dca7331ac9284503aea2fc48
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92456668"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630586"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-britive"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Britive
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer Britive avec Azure AD (Azur
 * Contrôler dans Azure AD l’accès à Britive
 * Permettre aux utilisateurs de se connecter automatiquement à Britive avec leurs comptes Azure AD
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,25 +37,25 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Britive prend en charge l’authentification SSO lancée par le **SP (fournisseur de services)**
-* Une fois que vous avez configuré Britive, vous pouvez appliquer des contrôles de session, qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Britive prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Britive prend en charge le [provisionnement d’utilisateurs automatisé](britive-provisioning-tutorial.md).
 
 ## <a name="adding-britive-from-the-gallery"></a>Ajout de Britive à partir de la galerie
 
 Pour configurer l’intégration de Britive avec Azure AD, vous devez ajouter Britive à votre liste d’applications SaaS managées, à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, dans la zone de recherche, tapez **Britive**.
 1. Sélectionnez **Britive** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-britive"></a>Configurer et tester l’authentification unique Azure AD pour Britive
+## <a name="configure-and-test-azure-ad-sso-for-britive"></a>Configurer et tester l’authentification unique Azure AD pour Britive
 
 Configurez et testez l’authentification SSO Azure AD avec Britive à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification SSO fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans Britive.
 
-Pour configurer et tester l’authentification SSO Azure AD avec Britive, suivez les indications des modules ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Britive, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -70,9 +68,9 @@ Pour configurer et tester l’authentification SSO Azure AD avec Britive, suive
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration d’application **Britive**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans le portail Azure, dans la page d’intégration d’application **Britive**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -112,15 +110,9 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Britive**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-britive-sso"></a>Configurer l’authentification SSO pour Britive
@@ -129,11 +121,11 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 1. Cliquez sur l’**Icône Paramètres administrateur**, puis sélectionnez **Sécurité**.
 
-    ![Capture d’écran montrant le site web Britive avec Settings et Security sélectionnés.](./media/britive-tutorial/configure1.png)
+    ![Capture d’écran montrant le site web Britive avec Settings et Security sélectionnés.](./media/britive-tutorial/security.png)
 
 1. Sélectionnez **Configuration SSO**, puis effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant SSO Configuration, où vous entrez les informations de cette étape.](./media/britive-tutorial/configure2.png)
+    ![Capture d’écran montrant SSO Configuration, où vous entrez les informations de cette étape.](./media/britive-tutorial/configuration.png)
 
     a. Copiez la valeur **Audience/Entity ID** (ID d’entité/d’audience), puis collez-la dans la zone de texte **Identificateur (ID d’entité)** de la section **Configuration SAML de base** du portail Azure.
 
@@ -147,30 +139,29 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
 1. Cliquez sur l’**Icône Paramètres administrateur**, puis sélectionnez **Administration des utilisateurs**.
 
-    ![Capture d’écran montrant le site web Britive avec Settings et User Administration sélectionnés.](./media/britive-tutorial/user1.png)
+    ![Capture d’écran montrant le site web Britive avec Settings et User Administration sélectionnés.](./media/britive-tutorial/user.png)
 
 1. Cliquez sur **AJOUTER UN UTILISATEUR**.
 
-    ![Capture d’écran montrant le bouton ADD USER.](./media/britive-tutorial/user2.png)
+    ![Capture d’écran montrant le bouton ADD USER.](./media/britive-tutorial/add-user.png)
 
 1. Indiquez tous les détails nécessaires relatifs à l’utilisateur en fonction des exigences de votre organisation, puis cliquez sur **AJOUTER UN UTILISATEUR**.
 
-    ![Capture d’écran montrant la page Add a User, où vous pouvez entrer des informations sur l’utilisateur.](./media/britive-tutorial/user3.png)
+    ![Capture d’écran montrant la page Add a User, où vous pouvez entrer des informations sur l’utilisateur.](./media/britive-tutorial/user-fields.png)
+
+> [!NOTE]
+>Britive prend également en charge le provisionnement automatique d’utilisateurs ; vous trouverez plus d’informations [ici](./britive-provisioning-tutorial.md) sur la façon de configurer ce dernier.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Britive dans le volet d’accès, vous êtes automatiquement connecté à la plateforme Britive pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Britive à partir de laquelle vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion à Britive pour lancer le flux de connexion.
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Britive dans Mes applications, vous êtes redirigé vers l’URL de connexion à Britive. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer Britive avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré Britive, vous pouvez appliquer le contrôle de session, qui protège votre organisation en temps réel contre l’exfiltration et l’infiltration de ses données sensibles. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

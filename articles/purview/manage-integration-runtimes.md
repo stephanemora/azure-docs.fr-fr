@@ -4,15 +4,15 @@ description: Cet article décrit la procédure à suivre pour créer et gérer d
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 1b2748664046c97258ee3414b741075627064bbc
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 09/27/2021
+ms.openlocfilehash: 1a51af8fd34516ca87d7ab98332221a308480193
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867479"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217134"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Création et gestion d’un runtime d’intégration auto-hébergé
 
@@ -24,13 +24,36 @@ Cet article explique comment créer et gérer un runtime d’intégration auto-h
 > [!IMPORTANT]
 > Si vous avez créé votre compte Azure Purview après le 18 août 2021, veillez à télécharger et à installer la dernière version du runtime d’intégration auto-hébergé à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
 
+## <a name="prerequisites"></a>Prérequis
+
+- Les versions de Windows Server prises en charge sont les suivantes :
+  - Windows 8.1
+  - Windows 10
+  - Windows Server 2012
+  - Windows Server 2012 R2
+  - Windows Server 2016
+  - Windows Server 2019
+
+L’installation du runtime d’intégration auto-hébergé sur un contrôleur de domaine n’est pas prise en charge.
+
+- Le runtime d’intégration auto-hébergé nécessite un système d’exploitation 64 bits avec .NET Framework 4.7.2 ou ultérieur. Consultez [Configuration système requise pour .NET Framework](/dotnet/framework/get-started/system-requirements) pour plus d’informations.
+- La configuration minimale recommandée pour la machine exécutant le runtime d’intégration auto-hébergé correspond à un processeur à 2 GHz avec 4 cœurs, 8 Go de RAM et 80 Go d’espace disponible sur le disque dur. Pour plus d'informations sur la configuration requise, consultez [Télécharger](https://www.microsoft.com/download/details.aspx?id=39717).
+- Si la machine hôte est en veille prolongée, le runtime d’intégration auto-hébergé ne répond pas aux demandes de données. Configurez un plan d’alimentation approprié sur l’ordinateur avant d’installer le runtime d’intégration auto-hébergé. Si la machine est configurée pour se mettre en veille prolongée, le programme d'installation du runtime d’intégration auto-hébergé ouvre un message.
+- Vous devez disposer de droits d'administrateur sur la machine pour correctement installer et configurer le runtime d’intégration auto-hébergé.
+- Les analyses sont effectuées à une fréquence spécifique, selon le calendrier que vous avez établi. L'utilisation du processeur et de la RAM sur la machine suit le même modèle avec des périodes de pointe et d’inactivité. L'utilisation des ressources dépend aussi fortement de la quantité de données qui sont analysées. Lorsque plusieurs tâches de numérisation sont en cours, vous constatez une augmentation de l'utilisation des ressources aux heures de pointe.
+- Les tâches peuvent échouer lors de l’extraction de données aux formats Parquet, ORC ou Avro.
+
+## <a name="setting-up-a-self-hosted-integration-runtime"></a>Installation d’un runtime d’intégration auto-hébergé
+
+Pour créer et installer un runtime d’intégration auto-hébergé, suivez les procédures ci-dessous.
+
 ## <a name="create-a-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé
 
-1. Sur la page d’accueil de Purview Studio, sélectionnez **Centre de gestion** dans le volet de navigation gauche.
+1. Dans la page d’accueil de [Purview Studio](https://web.purview.azure.com/resource/), sélectionnez **Data Map** dans le volet de navigation gauche.
 
 2. Sous **Sources et analyse** dans le volet gauche, sélectionnez **Runtimes d’intégration**, puis **+ Nouveau**.
 
-   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Clic sur Runtimes d’intégration.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Sélectionnez sur IR.":::
 
 3. Sur la page **Configuration des runtimes d’intégration**, sélectionnez **Auto-hébergé** pour créer un runtime d’intégration auto-hébergé, puis **Continuer**.
 
@@ -98,13 +121,13 @@ En fonction de vos sources, vous devrez peut-être également autoriser les doma
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>Gestion d’un runtime d’intégration auto-hébergé
 
-Pour modifier un runtime d’intégration auto-hébergé, accédez à **Runtimes d’intégration** dans le **Centre de gestion**, sélectionnez le runtime d’intégration, puis cliquez sur Modifier. Vous pouvez alors mettre à jour la description, copier la clé ou en regénérer de nouvelles.
+Vous pouvez modifier un runtime d'intégration hébergé par vous-même en accédant à **Integration runtimes** dans le **Management center**, en sélectionnant l'IR, puis en sélectionnant edit. Vous pouvez alors mettre à jour la description, copier la clé ou en regénérer de nouvelles.
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime.png" alt-text="Modification du runtime d’intégration":::
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="Modification des détails du runtime d’intégration":::
 
-Pour supprimer un runtime d’intégration auto-hébergé, accédez à **Runtimes d’intégration** dans le Centre de gestion, sélectionnez le runtime d’intégration, puis cliquez sur **Supprimer**. Une fois le runtime d’intégration supprimé, toutes les analyses en cours qui en dépendent échouent.
+Vous pouvez supprimer un runtime d'intégration auto-hébergé en accédant à **Integration runtimes** dans le Management center, en sélectionnant l'IR, puis en sélectionnant **Supprimer**. Une fois le runtime d’intégration supprimé, toutes les analyses en cours qui en dépendent échouent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

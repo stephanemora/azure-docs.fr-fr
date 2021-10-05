@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 08/19/2021
+ms.date: 09/12/2021
 ms.author: memildin
-ms.openlocfilehash: 0e9988aa7779d85714d6e1562af78c3a5bf0e1ff
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 2d78588e900becc8fc802f1e4665b4fe533f0f6a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444689"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766841"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Changements importants à venir sur Azure Security Center
 
@@ -28,7 +28,7 @@ Si vous recherchez les notes de publication les plus récentes, vous les trouver
 
 | Modifications planifiées       | Date estimée de la modification |
 |----------------------|---------------------------|
-| [L’implémentation héritée de la norme ISO 27001 est remplacée par la nouvelle norme ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| Août 2021|
+| [L’implémentation héritée de la norme ISO 27001 est remplacée par la nouvelle norme ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| Septembre 2021|
 | [Modification du préfixe de certains types d’alerte de « ARM_ » à « VM_ »](#changing-prefix-of-some-alert-types-from-arm_-to-vm_)                                          | Octobre 2021|
 | [Modifications apportées aux suggestions pour la gestion des solutions de protection des points de terminaison](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Quatrième trimestre 2021    |
 | [Améliorations apportées à la recommandation pour classer les données sensibles dans les bases de données SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | PREMIER TRIMESTRE 2022    |
@@ -36,7 +36,7 @@ Si vous recherchez les notes de publication les plus récentes, vous les trouver
 
 ### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>L’implémentation héritée de la norme ISO 27001 est remplacée par la nouvelle norme ISO 27001:2013
 
-**Date estimée de la modification :** Août 2021
+**Date estimée de la modification :** septembre 2021
 
 L’implémentation héritée de la norme ISO 27001 sera supprimée du tableau de bord de conformité réglementaire de Security Center. Si vous effectuez le suivi de la conformité ISO 27001 avec Security Center, intégrez la nouvelle norme ISO 27001:2013 pour tous les groupes d’administration ou abonnements appropriés, car la norme ISO 27001 actuelle sera bientôt supprimée du tableau de bord.
 

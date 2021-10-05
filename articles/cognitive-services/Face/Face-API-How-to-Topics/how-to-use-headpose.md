@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/23/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c53686338ae45971519735edce0ac62a0544ac2e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bbb43768aee85d5c3cde83563645fa649a4cbcc4
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744777"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092183"
 ---
 # <a name="use-the-headpose-attribute"></a>Utiliser l’attribut HeadPose
 
@@ -25,7 +25,7 @@ Dans ce guide, vous allez voir comment utiliser l’attribut HeadPose d’un vis
 
 Le rectangle de visage, retourné avec chaque visage détecté, marque l’emplacement et la taille du visage dans l’image. Par défaut, ce rectangle est toujours aligné avec l’image (ses côtés sont verticaux et horizontaux). Cela peut s’avérer inefficace pour encadrer des visages qui n’apparaissent pas en entier. Dans les situations où vous souhaitez découper programmatiquement des visages dans une image, il est préférable d’être en mesure de faire pivoter le rectangle à rogner.
 
-L’exemple d’application [WPF Visage de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) utilise l’attribut HeadPose pour faire pivoter les rectangles des visages détectés.
+L’exemple d’application [Cognitive Services Face WPF (Windows Presentation Foundation)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) utilise l’attribut HeadPose pour faire pivoter les rectangles des visages détectés.
 
 ### <a name="explore-the-sample-code"></a>Explorer l’exemple de code
 

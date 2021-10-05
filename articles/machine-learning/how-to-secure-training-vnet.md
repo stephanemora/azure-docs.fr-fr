@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/04/2021
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: b4b7f35173b4f1d6d83d9b7ffd937704750f5502
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.date: 09/24/2021
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
+ms.openlocfilehash: 1bb8066af887005848f711437d33257ae2118e46
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122603966"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093475"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -28,7 +28,7 @@ Dans cet article, vous allez apprendre à sécuriser les environnements d’entr
 > * [Présentation du réseau virtuel](how-to-network-security-overview.md)
 > * [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
 > * [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
-> * [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+> * [Activer les fonctionnalités du studio](how-to-enable-studio-virtual-network.md)
 > * [Utiliser le DNS personnalisé](how-to-custom-dns.md)
 > * [Utiliser un pare-feu](how-to-access-azureml-behind-firewall.md)
 >
@@ -50,7 +50,7 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 
 + Pour déployer des ressources dans un réseau virtuel ou un sous-réseau, votre compte d’utilisateur doit disposer d’autorisations pour les actions suivantes dans le contrôle d’accès en fonction du rôle Azure (Azure RBAC) :
 
-    - « Microsoft.Network/virtualNetworks/*/read » sur la ressource de réseau virtuel. Ceci n’est pas nécessaire pour les déploiements de modèle ARM
+    - « Microsoft.Network/virtualNetworks/*/read » sur la ressource de réseau virtuel. Cela n’est pas nécessaire pour les déploiements de modèles Azure Resource Manager (ARM)
     - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
 
     Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](../role-based-access-control/built-in-roles.md#networking).
@@ -63,7 +63,8 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
     * Un cluster de calcul peut être mis à l’échelle de manière dynamique. S’il n’y a pas assez d’adresses IP non attribuées, le cluster est alloué partiellement.
     * Une instance de calcul nécessite une seule adresse IP.
 
-* Assurez-vous qu’il n’existe pas de stratégie ni de verrous de sécurité qui restreignent les autorisations pour gérer le réseau virtuel. Lors de la vérification des stratégies ou des verrous, examinez l’abonnement et le groupe de ressources du réseau virtuel.
+* Pour créer une instance de calcul [sans adresse IP publique](#no-public-ip) (fonctionnalité d’évaluation), votre espace de travail doit utiliser un point de terminaison privé pour se connecter au réseau virtuel. Pour plus d’informations, consultez [Configurer un point de terminaison privé pour un espace de travail Azure Machine Learning](how-to-configure-private-link.md).
+* Assurez-vous qu’il n’existe pas de stratégie ou de verrous de sécurité qui restreignent les autorisations de gérer le réseau virtuel. Lors de la vérification des stratégies ou des verrous, examinez l’abonnement et le groupe de ressources du réseau virtuel.
 * Vérifiez si vos stratégies ou verrous de sécurité sur l’abonnement ou le groupe de ressources du réseau virtuel restreignent les autorisations pour gérer le réseau virtuel. 
 * Si vous prévoyez de sécuriser le réseau virtuel en limitant le trafic, consultez la section [Accès Internet public obligatoire](#required-public-internet-access).
 * Le sous-réseau utilisé pour déployer l’instance/le cluster de calcul ne doit pas être délégué à un autre service. Par exemple, il ne doit pas être délégué à ACI.
@@ -88,7 +89,13 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 
         :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Capture d’écran de NSG":::
 
-    * Une seule IP publique. Si vous avez des affectations Azure Policy qui interdisent la création d’IP publiques, le déploiement du cluster/des instances échouera.
+
+        > [!TIP]
+        > Si votre instance de calcul n’utilise pas d’adresse IP publique (fonctionnalité d’évaluation), ces règles de groupe de sécurité réseau entrantes ne sont pas requises. Si vous utilisez également un cluster de calcul, celui-ci aura toujours besoin de ces règles.
+    * Pour les clusters de calcul, une adresse IP publique. Si vous avez des affectations Azure Policy qui interdisent la création d’adresses IP publiques, le déploiement du calcul échouera.
+
+    * Pour l’instance de calcul, il est désormais possible de supprimer l’adresse IP publique (fonctionnalité d’évaluation). Si vous avez des affectations Azure Policy qui interdisent la création d’adresses IP publiques, le déploiement du cluster/des instances échouera.
+
     * Un seul équilibreur de charge
 
     Pour les clusters de calcul, ces ressources sont supprimées chaque fois que le cluster effectue un scale-down à 0 nœud et créées chaque fois que le cluster effectue un scale-up.
@@ -109,6 +116,7 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 * Lorsque votre espace de travail utilise un point de terminaison privé, l’instance de calcul est accessible uniquement depuis le réseau virtuel. Si vous utilisez un fichier DNS ou hosts personnalisé, ajoutez une entrée pour `<instance-name>.<region>.instances.azureml.ms`. Mappez cette entrée à l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md).
 * Les stratégies de point de terminaison de service de réseau virtuel ne fonctionnent pas pour les comptes de stockage système de l’instance/du cluster de calcul.
 * Si le stockage et l’instance de calcul se trouvent dans des régions différentes, vous pourriez voir des délais d’attente intermittents.
+* Si Azure Container Registry pour votre espace de travail utilise un point de terminaison privé pour se connecter au réseau virtuel, vous ne pouvez pas utiliser une identité managée pour l’instance de calcul. Pour utiliser une identité managée avec l’instance de calcul, ne placez pas le registre de conteneurs dans le réseau virtuel.
 * Si vous souhaitez utiliser des notebooks Jupyter sur une instance de calcul :
 
     * Ne désactivez pas la communication WebSocket. Assurez-vous que votre réseau autorise les communications WebSocket vers `*.instances.azureml.net` et `*.instances.azureml.ms`.
@@ -117,10 +125,12 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 * Les __clusters de calcul__ peuvent être créés dans une région différente de celle de votre espace de travail. Cette fonctionnalité est en __préversion__ et n’est disponible que pour les __clusters de calcul__ et pas les instances de calcul. Lorsque vous utilisez une autre région pour le cluster, les limitations suivantes s’appliquent :
 
     * Si les ressources associées à votre espace de travail, telles que le stockage, se trouvent dans un autre réseau virtuel que le cluster, configurez l’appairage de réseaux virtuels entre les réseaux. Pour en savoir plus, consultez [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
-    * Si vous utilisez un espace de travail avec point de terminaison privé, la création du cluster dans une autre région __n’est pas prise en charge__.
     * Vous pouvez constater une augmentation de la latence du réseau et des coûts de transfert de données. La latence et les coûts peuvent survenir lors de la création du cluster et lors de l’exécution de travaux sur celui-ci.
 
     Des instructions telles que l’utilisation des règles de groupe de sécurité réseau, les itinéraires définis par l’utilisateur et les spécifications d’entrée/sortie s’appliquent normalement lors de l’utilisation d’une région différente de celle de l’espace de travail.
+
+    > [!WARNING]
+    > Si vous utilisez un __espace de travail avec point de terminaison privé__, la création du cluster dans une autre région __n’est pas prise en charge__.
 
 ### <a name="azure-databricks"></a>Azure Databricks
 
@@ -139,7 +149,7 @@ Pour plus d’informations sur l’utilisation d’Azure Databricks dans un rés
 
 Pour plus d’informations sur l’utilisation d’une solution de pare-feu, consultez [Utiliser un pare-feu avec Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 
-## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clusters et instances de calcul 
+## <a name="compute-clusters"></a><a name="compute-cluster"></a>Clusters de calcul
 
 Utilisez les onglets ci-dessous pour choisir la façon dont vous envisagez de créer un cluster de calcul :
 
@@ -158,10 +168,11 @@ Procédez comme suit pour créer un cluster de calcul dans Azure Machine Learnin
 
 1. Dans la section __Paramètres de configuration__, définissez le __nom du calcul__, le __réseau virtuel__ et le __sous-réseau__.
 
+    :::image type="content" source="media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="La capture d’écran illustre la définition du nom de calcul, du réseau virtuel et du sous-réseau.":::
+
     > [!TIP]
     > Si votre espace de travail utilise un point de terminaison privé pour se connecter au réseau virtuel, le champ de sélection __Réseau virtuel__ est grisé.
-
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Capture d’écran des paramètres du réseau virtuel":::
+    > 
 
 1. Sélectionnez __Créer__ pour créer le cluster de calcul.
 
@@ -210,7 +221,26 @@ Une fois le processus de création terminé, vous pouvez entraîner votre modèl
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### <a name="inbound-traffic"></a>Trafic entrant
+## <a name="compute-instance"></a>Instance de calcul
+
+Pour connaître les étapes de création d’une instance de calcul déployée dans un réseau virtuel, consultez [Créer et gérer une instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md).
+
+### <a name="no-public-ip-for-compute-instances-preview"></a><a name="no-public-ip"></a>Aucune adresse IP publique pour les instances de calcul (préversion)
+
+Lorsque vous **n’activez aucune adresse IP publique**, votre instance de calcul n’utilise pas d’adresse IP publique pour la communication avec les dépendances. Au lieu de cela, elle communique uniquement au sein du réseau virtuel à l’aide de l’écosystème Azure Private Link, ainsi que des points de terminaison de service/privé, ce qui évite de recourir à une adresse IP publique. Aucune adresse IP publique ne supprime l’accès et la détectabilité du nœud d’instance de calcul à partir d’Internet, ce qui élimine un vecteur de menace significatif. Les instances de calcul effectuent également un filtrage de paquets pour rejeter tout le trafic provenant de l’extérieur du réseau virtuel. **Aucune instance d’adresse IP publique** n’est dépendante de l’espace de travail [Azure Private Link](how-to-configure-private-link.md) pour Azure Machine Learning. 
+
+Pour que les **connexions sortantes** fonctionnent, vous devez configurer un pare-feu de sortie tel que le pare-feu Azure avec des itinéraires définis par l’utilisateur. Par exemple, vous pouvez utiliser un pare-feu configuré avec la [configuration entrante/sortante](how-to-access-azureml-behind-firewall.md) et acheminer le trafic ici en définissant une table de routage sur le sous-réseau dans lequel l’instance de calcul est déployée. L’entrée de table de routage peut définir le tronçon suivant de l’adresse IP privée du pare-feu avec le préfixe d’adresse 0.0.0.0/0.
+
+Une instance de calcul pour laquelle **aucune adresse IP publique** n’est activée n’a **aucune exigence de communication entrante** provenant d’Internet public par rapport à celles de l’instance de calcul IP publique. Plus précisément, aucune règle de groupe de sécurité réseau entrante (`BatchNodeManagement`, `AzureMachineLearning`) n’est requise.
+
+Une instance de calcul sans **adresse IP publique** vous oblige également à désactiver les stratégies réseau de point de terminaison privé et les stratégies réseau de service de liaison privée. Ces exigences proviennent du service Azure Private Link et des points de terminaison privés et ne sont pas spécifiques à Azure Machine Learning. Suivez les instructions de la [désactivation des stratégies réseau pour l’adresse IP source du service Private Link](../private-link/disable-private-link-service-network-policy.md) pour définir les paramètres `disable-private-endpoint-network-policies` et `disable-private-link-service-network-policies` sur le sous-réseau du réseau virtuel.
+
+Pour créer une instance de calcul d’adresse IP non publique (fonctionnalité d’évaluation) dans Studio, cochez la case **Aucune adresse IP publique** dans la section du réseau virtuel.
+Vous ne pouvez pas non plus créer d’instance de calcul IP publique via un modèle ARM. Dans le modèle ARM, définissez le paramètre enableNodePublicIP sur false.
+
+[!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
+
+## <a name="inbound-traffic"></a>Trafic entrant
 
 [!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
 
@@ -268,6 +298,6 @@ Cet article fait partie d’une série sur la sécurisation d’un workflow Azur
 * [Présentation du réseau virtuel](how-to-network-security-overview.md)
 * [Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
 * [Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
-* [Activer les fonctionnalités de Studio](how-to-enable-studio-virtual-network.md)
+* [Activer les fonctionnalités du studio](how-to-enable-studio-virtual-network.md)
 * [Utiliser le DNS personnalisé](how-to-custom-dns.md)
 * [Utiliser un pare-feu](how-to-access-azureml-behind-firewall.md)

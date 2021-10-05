@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 10c06f5b36de880302f17dc17c1d47d5209dd902
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ffca17efa59a0544e06bb3bd4fbae1d812f2823
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97588469"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819204"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Comment planifier une offre de services de conseil dans le marketplace commercial
 
@@ -90,7 +90,7 @@ Le marketplace commercial prend en charge cinq types de service de conseil :
 * **Preuve de concept** : implémentation de portée limitée pour déterminer si une solution répond aux exigences du client.
 * **Atelier** : engagement interactif réalisé dans les locaux du client. Il peut inclure une formation, des réunions d’information, des évaluations ou des démonstrations reposant sur les données ou l’environnement du client.
 
-Votre service doit avoir une durée fixe et prédéterminée pouvant atteindre 10 semaines. La durée du service doit être rendue explicite dans la publication de l’offre.
+Votre service doit avoir une durée prédéterminée pouvant atteindre 12 mois. La durée du service doit être explicitement définie dans la publication de l’offre.
 
 ## <a name="customer-leads"></a>Prospects
 
@@ -160,7 +160,7 @@ Vous pouvez également utiliser des balises HTML pour mettre en forme votre desc
 
 **Mots clés de recherche** (facultatif) : Entrez jusqu’à trois mots clés que les clients pourront utiliser pour rechercher votre offre dans les magasins en ligne. Vous n’avez pas besoin d’inclure le **nom** et la **description** de l’offre.
 
-**Durée** : Votre offre de service de conseil doit avoir une durée prédéterminée de 10 semaines maximum.
+**Durée** : votre offre de service de conseil doit avoir une durée prédéterminée de 12 mois maximum.
 
 **Coordonnées** : Dans Espace partenaires, vous êtes invité à fournir le nom, l’adresse e-mail et le numéro de téléphone de deux personnes de votre entreprise (vous pouvez être l’un des deux contacts). Nous utiliserons ces informations pour communiquer avec vous concernant votre offre. Elles ne sont pas présentées aux clients, mais peuvent être communiquées à des partenaires fournisseurs de solutions cloud (CSP).
 

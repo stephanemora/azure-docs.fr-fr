@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 09/08/2021
 ms.author: alkohli
 ms.localizationpriority: high
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: d5334314626d29dc9e3047bc382d41fcfa318a1d
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 0bf9eb2eab829e22e72f19fc4da4575166ea2755
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469515"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743355"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Tutoriel : Commander Azure Data Box Heavy
 
@@ -62,6 +62,8 @@ Avant de commencer, assurez-vous que :
 ## <a name="order-data-box-heavy"></a>Commander un Data Box Heavy
 
 [!INCLUDE [order-data-box-via-portal](../../includes/data-box-order-portal.md)]
+
+L’équipe Data Box vous contactera pour obtenir plus d’informations sur vos exigences afin de déterminer si le service Data Box Heavy est disponible à l’emplacement requis. La commande reste dans l’état **Commandé** jusqu’à ce qu’elle ait été examinée. L’équipe vous avertira si, pour une raison quelconque, elle ne peut pas honorer votre commande.
 
 ## <a name="track-the-order"></a>Suivre la commande
 

@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide pour envoyer des données de télémétrie d’appareils à Azure IoT Hub
-description: Ce guide de démarrage rapide montre aux développeurs d’appareils comment connecter un appareil à Azure IoT Hub de manière sécurisée. Vous utilisez Azure IoT device SDK pour C, C#, Python, Node.js ou Java afin d’exécuter une application cliente sur un appareil simulé, puis vous vous connectez à IoT Hub pour envoyer des données de télémétrie.
+description: Ce guide de démarrage rapide montre aux développeurs d’appareils comment connecter un appareil à Azure IoT Hub de manière sécurisée. Vous utilisez Azure IoT device SDK pour C, C#, Python, Node.js ou Java afin de créer un client d’appareil simulé pour Windows, Linux ou Raspberry Pi OS (Raspian). Enfin, vous connectez l’appareil à Azure IoT Hub et envoyez les données de télémétrie.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 08/03/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 0ac38398f31c2256761c0f1b75d03f2fafeb65f8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f7b1543b91d604b6640bf97877bf2c134deee866
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744399"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094044"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-hub"></a>Démarrage rapide : Envoyer des données de télémétrie depuis un appareil à Azure IoT Hub
+# <a name="quickstart-send-telemetry-from-an-iot-plug-and-play-device-to-azure-iot-hub"></a>Démarrage rapide : Envoyer des données de télémétrie à partir d’un appareil IoT Plug-and-Play vers Azure IoT Hub
 
 **S’applique à** : [Développeurs d’applications pour appareils](about-iot-develop.md#device-application-development)
 
