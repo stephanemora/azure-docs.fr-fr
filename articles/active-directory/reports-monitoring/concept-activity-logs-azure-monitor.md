@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e21e22e231ea5998cf15c7b2982180da91fe49aa
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e7d66bd74263bd23c02cf465b1483ffe610179ee
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733427"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657915"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Journaux d’activité Azure Active Directory dans Azure Monitor
 
@@ -41,7 +41,7 @@ Vous pouvez acheminer les journaux d’activité Azure Active Directory (Azure A
 
 Vous pouvez acheminer les journaux d’audit Azure AD et authentifier des journaux d’activité vers votre compte de stockage Azure, un Event Hub, des journaux d’activité Azure Monitor ou une solution personnalisée à l’aide de cette fonctionnalité. 
 
-* **Journaux d’audit**: Le [rapport d’activité des journaux d’audit](concept-audit-logs.md) vous permet de consulter l’historique de toutes les tâches effectuées dans votre locataire.
+* **Journaux d’audit** : le [rapport d’activité des journaux d’audit](concept-audit-logs.md) vous permet d’accéder aux informations sur les modifications appliquées à votre locataire, telles que la gestion des utilisateurs et des groupes, ou les mises à jour appliquées aux ressources de votre locataire.
 * **Journaux d’activité de connexion** : Le [rapport d’activité de connexion](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches consignées dans les journaux d’audit.
 
 > [!NOTE]

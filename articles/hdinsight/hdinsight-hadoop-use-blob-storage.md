@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: c4cbce0bce0b495bee9a2f9c717f21de665f29f7
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 5c0a735d01d91de3a114e373791037285c29c09b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280335"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272658"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -28,16 +28,16 @@ Dans cet article, vous découvrez le fonctionnement du stockage Azure avec des c
 
 | Type de compte de stockage | Services pris en charge | Niveaux de performances pris en charge |Niveaux de performances non pris en charge| Niveaux d’accès pris en charge |
 |----------------------|--------------------|-----------------------------|---|------------------------|
-| StorageV2 (usage général v2)  | Objet blob     | standard                    |Premium| Chaud, froid, archive\*   |
-| Stockage (v1 universel)   | Objet blob     | standard                    |Premium| N/A                    |
-| BlobStorage                    | Objet blob     | standard                    |Premium| Chaud, froid, archive\*   |
+| StorageV2 (usage général v2)  | Objet blob     | Standard                    |Premium| Chaud, froid, archive\*   |
+| Stockage (v1 universel)   | Objet blob     | Standard                    |Premium| N/A                    |
+| BlobStorage                    | Objet blob     | Standard                    |Premium| Chaud, froid, archive\*   |
 
 Nous vous déconseillons d’utiliser le conteneur d’objets blob par défaut pour stocker des données d’entreprise. Nous vous recommandons de supprimer le conteneur d’objets blob par défaut après chaque utilisation pour réduire les coûts de stockage. Le conteneur par défaut contient les journaux des applications et du système. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
 
 Le partage d’un conteneur blob en tant que système de fichiers par défaut sur plusieurs clusters n’est pas pris en charge.
 
 > [!NOTE]  
-> Le niveau d’accès archive est un niveau hors connexion dont la latence de récupération de plusieurs heures n’est pas recommandée pour une utilisation avec HDInsight. Pour plus d’informations, voir [Niveau d’accès archive](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+> Le niveau d’accès archive est un niveau hors connexion dont la latence de récupération de plusieurs heures n’est pas recommandée pour une utilisation avec HDInsight. Pour plus d’informations, voir [Niveau d’accès archive](../storage/blobs/access-tiers-overview.md#archive-access-tier).
 
 ## <a name="access-files-from-within-cluster"></a>Accès aux fichiers à partir de l’intérieur d’un cluster
 

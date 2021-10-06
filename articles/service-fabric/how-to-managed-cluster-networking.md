@@ -3,12 +3,12 @@ title: Configurer les paramètres réseau pour les clusters Service Fabric manag
 description: Découvrez comment configurer votre cluster géré par Service Fabric pour les règles de groupe de sécurité réseau, l’accès aux port RDP, les règles d’équilibrage de charge, etc.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: d953e9cd96c509a2410087588125b023613b380c
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 432246ca0550e4fab678a3a190221de88ce04478
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867357"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638417"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Configurer les paramètres réseau pour les clusters Service Fabric managés
 
@@ -199,7 +199,9 @@ Les clusters Service Fabric gérés créent automatiquement des règles NAT de
 
    ![Règles NAT entrantes][Inbound-NAT-Rules]
 
-   Par défaut, pour les clusters Windows, le port frontend se trouve dans la plage 50000 et plus et le port cible est le port 3389, qui correspond au service RDP sur le nœud cible.
+   Par défaut, pour les clusters Windows, l’allocation du Port frontal démarre à 50000 et le port cible est le port 3389, lequel est mappé au service RDP sur le nœud cible.
+   >[!NOTE]
+   > Si vous utilisez la fonctionnalité BYOLB et que vous souhaitez utiliser le protocole RDP, vous devez configurer un pool NAT séparément. Cela ne crée pas automatiquement de règles NAT pour ces types de nœuds.
 
 4. Connectez-vous à distance au nœud (instance de groupe identique) spécifique. Vous pouvez utiliser le nom d’utilisateur et le mot de passe que vous avez définis lors de la création du cluster ou de toutes autres informations d’identification que vous avez configurées.
 
@@ -315,7 +317,7 @@ Les clusters gérés n’activent pas le protocole IPv6 par défaut. Cette fonct
             }
    ```
 
-2. Déployez votre cluster géré avec IPv6. Personnalisez l’[exemple de modèle](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-IPv6/AzureDeploy.json) en fonction des besoins ou créez votre propre modèle.
+2. Déployez votre cluster géré avec IPv6. Personnalisez l’[exemple de modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-IPv6) en fonction des besoins ou créez votre propre modèle.
    Dans l’exemple suivant, nous allons créer un groupe de ressources nommé `MyResourceGroup` dans `westus`, et déployer un cluster avec cette fonctionnalité activée.
    ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
@@ -403,7 +405,7 @@ Cette fonctionnalité permet aux clients d’utiliser un réseau virtuel existan
    > [!NOTE]
    > VNetRoleAssignmentID doit être un [GUID](../azure-resource-manager/templates/template-functions-string.md#examples-16). Si vous redéployez un modèle incluant cette attribution de rôle, vérifiez que le GUID est celui utilisé à l’origine. Nous vous suggérons d’exécuter ceci de façon isolée ou de supprimer cette ressource du modèle de cluster après le déploiement, car elle ne doit être créée qu’une seule fois.
 
-   Voici un exemple complet de [modèle Azure Resource Manager (ARM) qui crée un sous-réseau de réseau virtuel et effectue une attribution de rôle](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/SFMC-VNet-RoleAssign.json), que vous pouvez utiliser pour cette étape.
+   Voici un exemple complet de [modèle Azure Resource Manager (ARM) qui crée un sous-réseau de réseau virtuel et effectue une attribution de rôle](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOVNET/createVNet-assign-role.json), que vous pouvez utiliser pour cette étape.
 
 3. Configurez la propriété `subnetId` pour le déploiement de cluster une fois le rôle configuré comme ci-dessous :
 
@@ -419,7 +421,7 @@ Cette fonctionnalité permet aux clients d’utiliser un réseau virtuel existan
             ...
             }
    ```
-   Consultez l’[exemple de modèle Apporter votre propre cluster de réseau virtuel](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/AzureDeploy.json) ou personnalisez votre propre cluster.
+   Consultez l’[exemple de modèle Apporter votre propre cluster de réseau virtuel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOVNET) ou personnalisez votre propre cluster.
 
 4. Déployez le modèle Azure Resource Manager (ARM) de cluster géré configuré.
 
@@ -437,7 +439,7 @@ Les clusters gérés créent un Azure Load Balancer et un nom de domaine complet
 
 * Utiliser une adresse IP statique d’équilibreur de charge préconfigurée pour le trafic privé ou public
 * Mapper un équilibreur de charge à un type de nœud spécifique
-* Configurer des règles de groupe de sécurité réseau par type de nœud, car chaque type de nœud est déployé dans son propre réseau virtuel
+* Configurer des règles de groupe de sécurité réseau par type de nœud, car chaque type de nœud est déployé dans son propre sous-réseau avec un NSG unique 
 * Maintenir les stratégies et contrôles existants que vous avez peut-être mis en place
 
 > [!NOTE]
@@ -445,7 +447,7 @@ Les clusters gérés créent un Azure Load Balancer et un nom de domaine complet
 
 **Exigences concernant les fonctionnalités**
  * Les types d’Azure Load Balancer de référence (SKU) De base et Standard sont pris en charge
- * Des pools principal et NAT doivent être configurés sur l’Azure Load Balancer existant. Pour un exemple, consultez l’[exemple complet de création et attribution de rôle ici](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role). 
+ * Des pools principal et NAT doivent être configurés sur l’Azure Load Balancer existant. Pour un exemple, consultez l’[exemple complet de création et attribution de rôle ici](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json). 
 
 Voici quelques exemples de scénarios pour lesquels les clients peuvent utiliser ceci :
 
@@ -532,7 +534,7 @@ Pour configurer l’apport de votre propre équilibreur de charge :
 
 5. Configurez éventuellement les règles de groupe de sécurité réseau de cluster géré appliquées au type de nœud pour autoriser tout trafic requis que vous avez configuré sur l’Azure Load Balancer. Autrement, le trafic sera bloqué.
 
-   Pour un exemple d’ouverture de règles de trafic entrant, consultez le [modèle Azure Resource Manager (ARM) Apporter votre propre équilibreur de charge](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/AzureDeploy.json).
+   Pour un exemple d’ouverture de règles de trafic entrant, consultez le [modèle Azure Resource Manager (ARM) Apporter votre propre équilibreur de charge](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB).
 
 6. Déployer le modèle ARM de cluster géré configuré
 

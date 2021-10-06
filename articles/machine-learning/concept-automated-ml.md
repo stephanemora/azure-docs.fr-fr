@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment Azure Machine Learning peut générer automatiquement un modèle en utilisant les paramètres et les critères que vous fournissez avec le Machine Learning automatisé.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: conceptual
 author: cartacioS
 ms.author: sacartac
 ms.date: 07/01/2021
 ms.custom: automl
-ms.openlocfilehash: 55cf993dd8f4dad17533ef759e135c1604a48901
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 51094590cde45093731e1ac593f4f706e3dad660
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061387"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427017"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Qu’est-ce que le Machine Learning automatisé (AutoML) ?
 

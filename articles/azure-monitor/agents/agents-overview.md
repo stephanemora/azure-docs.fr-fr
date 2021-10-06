@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
-ms.openlocfilehash: 204c7a75eed5be4b6c3aca91d59011fd2b1327b5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8542f3e39669135295073f4f937c6edfdd5127cf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532771"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566536"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Vue d’ensemble des agents Azure Monitor
 
@@ -29,9 +29,9 @@ Les tableaux suivants permettent de comparer rapidement les agents Azure Monitor
 | | Agent Azure Monitor | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dépendance<br>agent |
 |:---|:---|:---|:---|:---|
 | **Environnements pris en charge** | Azure<br>Autre cloud (Azure Arc)<br>Local (Azure Arc)  | Azure | Azure<br>Autre cloud<br>Local | Azure<br>Autre cloud<br>Local | 
-| **Exigences liées à l’agent**  | None | Aucune | None | Requiert l’agent Log Analytics |
+| **Exigences liées à l’agent**  | None | None | None | Requiert l’agent Log Analytics |
 | **Données collectées** | Journaux des événements<br>Performances | Journaux des événements<br>Événements ETW<br>Performances<br>Journaux basés sur des fichiers<br>Journaux d’activité IIS<br>Journaux d’application .NET<br>Vidages sur incident<br>Journaux de diagnostics de l’agent | Journaux des événements<br>Performances<br>Journaux basés sur des fichiers<br>Journaux d’activité IIS<br>Insights et solutions<br>Autres services | Dépendances de processus<br>Métriques de connexion réseau |
-| **Données envoyées à** | Journaux Azure Monitor<br>Métriques Azure Monitor | Stockage Azure<br>Métriques Azure Monitor<br>Event Hub | Journaux Azure Monitor | Journaux Azure Monitor<br>(via l’agent Log Analytics) |
+| **Données envoyées à** | Journaux Azure Monitor<br>Métriques Azure Monitor<sup>1</sup> | Stockage Azure<br>Métriques Azure Monitor<br>Event Hub | Journaux Azure Monitor | Journaux Azure Monitor<br>(via l’agent Log Analytics) |
 | **Services et**<br>**fonctionnalités**<br>**pris en charge** | Log Analytics<br>Metrics Explorer | Metrics Explorer | VM Insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM Insights<br>Service Map |
 
 ### <a name="linux-agents"></a>Agents Linux
@@ -39,12 +39,12 @@ Les tableaux suivants permettent de comparer rapidement les agents Azure Monitor
 | | Agent Azure Monitor | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dépendance<br>agent |
 |:---|:---|:---|:---|:---|:---|
 | **Environnements pris en charge** | Azure<br>Autre cloud (Azure Arc)<br>Local (Azure Arc) | Azure | Azure<br>Autre cloud<br>Local | Azure<br>Autre cloud<br>Local | Azure<br>Autre cloud<br>Local |
-| **Exigences liées à l’agent**  | None | Aucune | Aucune | None | Requiert l’agent Log Analytics |
+| **Exigences liées à l’agent**  | None | None | None | None | Requiert l’agent Log Analytics |
 | **Données collectées** | syslog<br>Performances | syslog<br>Performances | Performances | syslog<br>Performances| Dépendances de processus<br>Métriques de connexion réseau |
 | **Données envoyées à** | Journaux Azure Monitor<br>Métriques Azure Monitor<sup>1</sup> | Stockage Azure<br>Event Hub | Métriques Azure Monitor | Journaux Azure Monitor | Journaux Azure Monitor<br>(via l’agent Log Analytics) |
 | **Services et**<br>**fonctionnalités**<br>**pris en charge** | Log Analytics<br>Metrics Explorer | | Metrics Explorer | VM Insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM Insights<br>Service Map |
 
-<sup>1</sup> Il existe actuellement une limitation sur l’agent Azure Monitor pour Linux, où Métriques Azure Monitor comme *seule* destination n’est pas pris en charge. Vous pouvez l’utiliser avec Journaux Azure Monitor. Cette limitation sera levée dans la prochaine mise à jour de l’extension.
+<sup>1</sup>[Cliquez ici](../essentials/metrics-custom-overview.md#quotas-and-limits) pour passer en revue les autres limitations liées à l’utilisation d’Azure Monitor Metrics. Sur Linux, l’utilisation d’Azure Monitor Metrics comme seule destination est prise en charge dans la version v. 1.10.9.0 ou ultérieure. 
 
 ## <a name="azure-monitor-agent"></a>Agent Azure Monitor
 
@@ -54,7 +54,7 @@ Utilisez l’agent Azure Monitor si vous avez besoin de faire ce qui suit :
 
 - Collecter les journaux et les métriques d’invités sur n’importe quelle machine sur Azure, dans d’autres clouds ou en local. ([Serveurs avec Azure Arc](../../azure-arc/servers/overview.md) requis pour les machines extérieures à Azure.) 
 - Gérer la configuration de la collecte de données de manière centralisée, à l’aide de [règles de collecte de données](./data-collection-rule-overview.md) et d’utilisation de modèles ou de stratégies Azure Resource Manager (ARM) pour la gestion globale
-- Envoyer des données aux Journaux Azure Monitor et aux Métriques Azure Monitor à des fins d’analyse avec Azure Monitor. 
+- Envoyer des données aux Journaux Azure Monitor et aux Métriques Azure Monitor (Préversion) à des fins d’analyse avec Azure Monitor. 
 - Tirez parti du filtrage des événements Windows ou de l’hébergement multiple pour les journaux sur Windows et Linux
 <!--- Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
@@ -144,6 +144,7 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 
 | Système d’exploitation | Agent Azure Monitor | Agent Log Analytics | Agent de dépendances | Extension Diagnostics | 
 |:---|:---:|:---:|:---:|:---:|
+| Windows Server 2022                                      | X |   |   |   |
 | Windows Server 2019                                      | X | X | X | X |
 | Windows Server 2019 Core                                 | X |   |   |   |
 | Windows Server 2016                                      | X | X | X | X |
@@ -153,9 +154,11 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
 | Windows Server 2008 R2                                   |   |   | X | X |
 | Windows Server 2008 SP2                                   |   | X |  |  |
-| Windows 10 Entreprise<br>(multisession inclus) et Pro<br>(Scénarios de serveur uniquement)  | X | X | X | X |
-| Windows 8 Entreprise et Professionnel<br>(Scénarios de serveur uniquement)  |   | X | X |   |
-| Windows 7 SP1<br>(Scénarios de serveur uniquement)                 |   | X | X |   |
+| Windows 10 Entreprise<br>(multisession inclus) et Pro<br>(Scénarios de serveur uniquement<sup>1</sup>)  | X | X | X | X |
+| Windows 8 Entreprise et Professionnel<br>(Scénarios de serveur uniquement<sup>1</sup>)  |   | X | X |   |
+| Windows 7 SP1<br>(Scénarios de serveur uniquement<sup>1</sup>)                 |   | X | X |   |
+
+<sup>1</sup> Exécuter le système d’exploitation sur le matériel du serveur, c’est-à-dire les machines toujours connectées, toujours sous tension et sans exécuter d’autres charges de travail (PC, bureau, navigateur, etc.)
 
 ### <a name="linux"></a>Linux
 

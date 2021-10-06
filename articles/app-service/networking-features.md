@@ -1,18 +1,18 @@
 ---
 title: Fonctionnalités réseau
 description: Découvrez les fonctionnalités réseau d’Azure App Service, ainsi que les fonctionnalités nécessaires à la sécurité et autres.
-author: ccompy
+author: madsd
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 03/26/2021
-ms.author: ccompy
+ms.date: 09/20/2021
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 85409230565c9311621faa18b5c8834c57c33c99
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: aa54c96864476cfd42d1d91e61ce293e919f9069
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459907"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592695"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
@@ -51,7 +51,7 @@ Pour tout cas d’usage, il peut y avoir plusieurs façons de résoudre le probl
 | Prendre en charge les besoins SSL en fonction des adresses IP pour votre application | Adresse attribuée par l’application |
 | Prendre en charge une adresse entrante dédiée non partagée pour votre application | Adresse attribuée par l’application |
 | Restreindre l’accès à votre application à partir d’un ensemble d’adresses bien définies | Restrictions d'accès |
-| Restreindre l’accès à votre application à partir des ressources d’un réseau virtuel | Points de terminaison de service </br> ASE ILB </br> Instances Private Endpoint |
+| Restreindre l’accès à votre application à partir des ressources d’un réseau virtuel | Points de terminaison de service </br> Équilibreur de charge interne (ILB) ASE </br> Instances Private Endpoint |
 | Exposer votre application sur une adresse IP privée dans votre réseau virtuel | ASE ILB </br> Instances Private Endpoint </br> Adresse IP privée pour le trafic entrant sur une instance Application Gateway avec des points de terminaison de service |
 | Protéger votre application avec un pare-feu d’applications web (WAF) | Application Gateway et ASE ILB </br> Application Gateway avec des points de terminaison privés </br> Application Gateway avec des points de terminaison de service </br> Azure Front Door avec des restrictions d’accès |
 | Équilibrer la charge du trafic vers vos applications dans différentes régions | Azure Front Door avec des restrictions d’accès | 
@@ -62,7 +62,7 @@ Les cas d’usage en sortie suivants suggèrent comment utiliser les fonctionnal
 | Cas d’usage en sortie | Fonctionnalité |
 |---------------------|-------------------|
 | Accéder à des ressources dans un réseau virtuel Azure situé dans la même région | Intégration au réseau virtuel </br> ASE |
-| Accéder à des ressources dans un réseau virtuel Azure situé dans une région différente | Intégration au réseau virtuel avec passerelle obligatoire </br> ASE et homologation de réseau virtuel mondial |
+| Accéder à des ressources dans un réseau virtuel Azure situé dans une région différente | Intégration VNET et appairage du réseau virtuel </br> Intégration au réseau virtuel avec passerelle obligatoire </br> ASE et homologation de réseau virtuel mondial |
 | Accéder à des ressources sécurisées avec des points de terminaison de service | Intégration au réseau virtuel </br> ASE |
 | Accéder à des ressources dans un réseau privé non connecté à Azure | les connexions hybrides |
 | Accéder à des ressources via des circuits Azure ExpressRoute | Intégration au réseau virtuel </br> ASE | 
@@ -103,7 +103,7 @@ Pour découvrir comment définir une adresse sur votre application, consultez [A
 
 Les restrictions d’accès vous permettent de filtrer les demandes *entrantes*. L’action de filtrage a lieu sur les rôles front-end situés en amont des déploiements des rôles de travail où vos applications s’exécutent. Étant donné que les rôles de serveur frontal sont en amont des rôles de travail, vous pouvez considérer les restrictions d’accès comme une protection de vos applications au niveau du réseau. 
 
-Cette fonctionnalité vous permet de créer une liste de règles d’autorisation et de refus qui sont évaluées par ordre de priorité. Elle est similaire à la fonctionnalité de groupe de sécurité réseau (NSG) dans Azure Networking. Vous pouvez utiliser cette fonctionnalité dans un environnement ASE ou dans le service mutualisé. Lorsque vous l’utilisez avec un ASE ILB ou point de terminaison privé, vous pouvez restreindre l’accès à partir de blocs d’adresses privées.
+Cette fonctionnalité vous permet de créer une liste de règles d’autorisation et de refus qui sont évaluées par ordre de priorité. Elle est similaire à la fonctionnalité de groupe de sécurité réseau (NSG) dans Azure Networking. Vous pouvez utiliser cette fonctionnalité dans un environnement ASE ou dans le service mutualisé. Lorsqu’elle est utilisée avec un ASE ILB, vous pouvez restreindre l’accès à partir de blocs d’adresses privées.
 > [!NOTE]
 > Vous pouvez configurer Jusqu’à 512 règles de restrictions par application. 
 
@@ -122,7 +122,10 @@ Pour découvrir comment activer cette fonctionnalité, voir [Restrictions d’ac
 
 #### <a name="access-restriction-rules-based-on-service-endpoints"></a>Règles de restriction d’accès basées sur des points de terminaison de service 
 
-Les points de terminaison de service vous permettent de verrouiller l’accès *entrant* à votre application, de façon que l’adresse source doive faire partie d’un ensemble de sous-réseaux que vous sélectionnez. Cette fonctionnalité opère conjointement avec les restrictions d’accès IP. Les points de terminaison de service ne sont pas compatibles avec le débogage à distance. Si vous voulez utiliser le débogage à distance avec votre application, votre client ne peut pas se trouver dans un sous-réseau dans lequel des points de terminaison de service sont activés. Le processus de définition de points de terminaison de service est similaire au processus de définition de restrictions d’accès IP. Vous pouvez créer une liste d’autorisation/de refus des règles d’accès qui inclut des adresses publiques, ainsi que des sous-réseaux dans vos réseaux virtuels. 
+Les points de terminaison de service vous permettent de verrouiller l’accès *entrant* à votre application, de façon que l’adresse source doive faire partie d’un ensemble de sous-réseaux que vous sélectionnez. Cette fonctionnalité opère conjointement avec les restrictions d’accès IP. Les points de terminaison de service ne sont pas compatibles avec le débogage à distance. Si vous voulez utiliser le débogage à distance avec votre application, votre client ne peut pas se trouver dans un sous-réseau dans lequel des points de terminaison de service sont activés. Le processus de définition de points de terminaison de service est similaire au processus de définition de restrictions d’accès IP. Vous pouvez créer une liste d’autorisation/de refus des règles d’accès qui inclut des adresses publiques, ainsi que des sous-réseaux dans vos réseaux virtuels.
+
+> [!NOTE]
+> Les règles de restriction d’accès basées sur les points de terminaison de service ne sont pas prises en charge sur les applications qui utilisent le protocole SSL basé sur IP ([adresse affectée](#app-assigned-address)à l’application).
 
 Cas d’usage de cette fonctionnalité :
 
@@ -153,7 +156,7 @@ Voici quelques cas d’usage du filtrage d’en-tête HTTP :
 
 ### <a name="private-endpoint"></a>Point de terminaison privé
 
-Un point de terminaison privé est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à votre application web via une liaison privée Azure. Un point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, ce qui a pour effet d’introduire l’application web dans votre réseau virtuel. Cette fonctionnalité s’applique uniquement aux flux *entrants* dans votre application web.
+Private Endpoint est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à votre application Web Azure Private Link. Un point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, ce qui a pour effet d’introduire l’application Web dans votre réseau virtuel. Cette fonctionnalité s’applique uniquement aux flux *entrants* dans votre application web.
 Pour plus d’informations, consultez [Utilisation de points de terminaison privés pour une application web Azure][privateendpoints].
 
 Cas d’usage de cette fonctionnalité :
@@ -196,23 +199,25 @@ L’intégration au réseau virtuel App Service avec passerelle obligatoire perm
 
 Cette fonctionnalité résout le problème d’accès aux ressources dans d’autres réseaux virtuels. Elle permet même de se connecter via un réseau virtuel à d’autres réseaux virtuels ou à des réseaux locaux. Elle ne fonctionne pas avec des réseaux virtuels connectés via ExpressRoute, mais fonctionne avec des réseaux connectés via un VPN site à site. Il est généralement inapproprié d’utiliser cette fonctionnalité à partir d’une application dans un environnement ASE, car celui-ci est déjà dans votre réseau virtuel. Cas d’usage de cette fonctionnalité :
 
-* Accéder aux ressources sur des adresses IP privées dans vos réseaux virtuels Azure. 
-* Accéder aux ressources locales s’il existe un VPN site à site. 
-* Accéder aux ressources de réseaux virtuels appairés. 
+* Accéder aux ressources sur des adresses IP privées dans vos réseaux virtuels Classiques.
+* Accéder aux ressources locales s’il existe un VPN site à site.
+* Accédez aux ressources des réseaux virtuels inter-régions qui ne sont pas appariées à un réseau virtuel VNET dans la région. 
 
 Lorsque cette fonctionnalité est activée, votre application utilise le serveur DNS avec lequel le réseau virtuel de destination est configuré. Pour plus d’informations sur cette fonctionnalité, consultez [Intégration au réseau virtuel App Service][vnetintegrationp2s]. 
 
-### <a name="vnet-integration"></a>Intégration au réseau virtuel
+### <a name="regional-vnet-integration"></a>Intégration au réseau virtuel régional
 
 L’intégration au réseau virtuel avec passerelle obligatoire est utile, mais elle ne résout pas le problème d’accès aux ressources via ExpressRoute. En plus de devoir transiter par des connexions ExpressRoute, il est nécessaire que les applications soient en mesure d’effectuer des appels à des services sécurisés par point de terminaison de service. Une autre fonctionnalité d’intégration au réseau virtuel peut répondre à ces besoins. 
 
 La nouvelle fonctionnalité Intégration au réseau virtuel vous permet de placer le back end de votre application dans un sous-réseau d’un réseau virtuel Resource Manager situé dans la même région que votre application. Cette fonctionnalité n’est pas disponible à partir d’un environnement ASE, qui se trouve déjà dans un réseau virtuel. Cas d’usage de cette fonctionnalité :
 
 * Accéder à des ressources de réseaux virtuels Resource Manager dans la même région.
+* Accédez aux ressources des réseaux virtuels appairés, y compris les connexions inter-régions.
 * Accéder à des ressources sécurisées avec des points de terminaison de service. 
 * Accéder à des ressources accessibles via des connexions ExpressRoute ou VPN.
-* Aider à sécuriser tout le trafic sortant. 
-* Forcer le tunneling de tout le trafic sortant. 
+* Accédez aux ressources des réseaux privés sans le besoin ni les frais associés à une passerelle de Réseau virtuel.
+* Aider à sécuriser tout le trafic sortant.
+* Forcer le tunneling de tout le trafic sortant.
 
 ![Diagramme illustrant l’intégration au réseau virtuel.](media/networking-features/vnet-integration.png)
 
@@ -226,20 +231,18 @@ Un environnement ASE est un déploiement monolocataire d’Azure App Service, qu
 * Accéder à des ressources via ExpressRoute.
 * Exposer vos applications avec une adresse privée dans votre réseau virtuel. 
 * Accéder à des ressources via des points de terminaison de service. 
+* Accéder à des ressources via des points de terminaison privés. 
 
-Avec un environnement ASE, vous n’avez pas besoin d’utiliser des fonctionnalités telles que l’intégration au réseau virtuel ou des points de terminaison de service, car l’ASE est déjà dans votre réseau virtuel. Si vous souhaitez accéder à des ressources telles que SQL ou Stockage Azure sur des points de terminaison de service, activez les points de terminaison de service sur le sous-réseau ASE. Si vous souhaitez accéder à des ressources dans le réseau virtuel, vous n’avez pas besoin d’effectuer de configuration supplémentaire. Si vous souhaitez accéder à des ressources via ExpressRoute, vous êtes déjà dans le réseau virtuel et n’avez pas besoin de configurer quoi que ce soit sur l’environnement ASE ou les applications qu’il contient. 
+Avec un environnement ASE, vous n’avez pas besoin d’utiliser l’intégration VNET car l’ASE est déjà dans votre réseau virtuel. Si vous souhaitez accéder à des ressources telles que SQL ou Stockage Azure sur des points de terminaison de service, activez les points de terminaison de service sur le sous-réseau ASE. Si vous souhaitez accéder à des ressources dans le réseau virtuel ou à des points de terminaison privé, vous n’avez pas besoin d’effectuer de configuration supplémentaire. Si vous souhaitez accéder à des ressources via ExpressRoute, vous êtes déjà dans le réseau virtuel et n’avez pas besoin de configurer quoi que ce soit sur l’environnement ASE ou les applications qu’il contient. 
 
 Étant donné que les applications dans un ASE ILB peuvent être exposées sur une adresse IP privée, vous pouvez facilement ajouter des appareils de pare-feu d’applications web pour exposer uniquement les applications que vous souhaitez sur Internet tout en sécurisant le reste. Cette fonctionnalité peut faciliter le développement d’applications multiniveaux. 
 
 Certaines choses ne sont actuellement pas possibles à partir du service mutualisé, mais le sont à partir d’un environnement ASE. Voici quelques exemples :
 
-* Exposer vos applications sur une adresse IP privée.
-* Sécuriser l’ensemble du trafic sortant avec des contrôles réseau qui ne font pas partie de votre application.
 * Héberger vos applications dans un service monolocataire. 
 * Effectuer un scale-up vers beaucoup plus d’instances que ne le permet le service mutualisé. 
 * Charger des certificats clients d’autorité de certification privée à l’usage de vos applications avec des points de terminaison sécurisés par l’autorité de certification privée.
 * Forcer l’utilisation du protocole TLS 1.1 pour toutes les applications hébergées dans le système, sans possibilité de le désactiver au niveau de l’application. 
-* Fournir une adresse sortante dédiée pour toutes les applications dans votre environnement ASE qui ne sont pas partagées avec des clients. 
 
 ![Diagramme illustrant un environnement ASE dans un réseau virtuel.](media/networking-features/app-service-environment.png)
 
@@ -308,7 +311,7 @@ Si vous analysez App Service, vous trouverez plusieurs ports exposés pour les c
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Gestion | 454, 455 |
-|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  FTP/FTPS    | 21, 990, 10001-10300 |
 |  Débogage distant de Visual Studio  |  4020, 4022, 4024 |
 |  Service Web Deploy | 8172 |
 |  Utilisation de l’infrastructure | 7654, 1221 |

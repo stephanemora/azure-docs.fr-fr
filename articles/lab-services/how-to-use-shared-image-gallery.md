@@ -3,12 +3,12 @@ title: Utiliser une galerie d’images partagées dans Azure Lab Services | Micr
 description: Découvrez comment configurer un compte de laboratoire pour utiliser une galerie d’images partagées, afin qu’un utilisateur puisse partager une image avec d’autres personnes et que ces autres personnes puissent utiliser l’image pour créer un modèle de machine virtuelle dans le laboratoire.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: caba089d5f3f0f9ec50f575a06ce9fad1bf8ef8f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8a0cd273d2444281fd2c43823aaa822b5e476ed0
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524932"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450545"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Utiliser une galerie d’images partagées dans Azure Lab Services
 
@@ -30,7 +30,7 @@ Voici les deux scénarios que cette fonctionnalité prend en charge :
     Quand une image est enregistrée dans une galerie d’images partagées, Azure Lab Services réplique l’image enregistrée dans d’autres régions disponibles au sein de la même [zone géographique](https://azure.microsoft.com/global-infrastructure/geographies/). Ainsi, l’image est disponible pour les labos créés dans d’autres régions de la même zone géographique. L’enregistrement d’images dans une galerie d’images partagées entraîne un coût supplémentaire, qui comprend le coût de toutes les images répliquées. Ce coût est distinct du coût d’utilisation d’Azure Lab Services. Pour plus d’informations sur les tarifs liés à Shared Image Gallery, consultez [Vue d’ensemble de Shared Image Gallery - Facturation](../virtual-machines/shared-image-galleries.md#billing).
     
 ## <a name="prerequisites"></a>Prérequis
-- Créez une galerie d’images partagées à l’aide [d’Azure PowerShell](../virtual-machines/shared-images-powershell.md) ou [d’Azure CLI](../virtual-machines/shared-images-cli.md).
+- Créer une [galerie d’images partagées](../virtual-machines/create-gallery.md).
 - Vous avez associé la galerie d’images partagées au compte de laboratoire. Pour obtenir des instructions détaillées, consultez [Attach or detach a shared image gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md) (Attacher ou détacher une galerie d’images partagées dans Azure Lab Services).
 
 ## <a name="save-an-image-to-the-shared-image-gallery"></a>Enregistrer une image dans la galerie d’images partagées
@@ -52,8 +52,10 @@ Une fois qu’une galerie d’images partagées est associée, un administrateur
 
     Une fois l’image enregistrée dans la galerie d’images partagées, vous pouvez utiliser cette image à partir de la galerie lors de la création d’un autre laboratoire. Vous pouvez aussi charger une image dans la galerie d’images partagées en dehors du contexte d’un lab. Pour plus d'informations, consultez les pages suivantes :
 
-    - [Vue d’ensemble de Shared Image Gallery](../virtual-machines/shared-images-powershell.md)
+
+    - [Vue d’ensemble de Shared Image Gallery](../virtual-machines/shared-image-galleries.md)
     - [Approches recommandées pour la création d’images personnalisées](approaches-for-custom-image-creation.md)
+
 
     > [!IMPORTANT]
     > Quand vous [enregistrez une image de modèle d’un lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) dans Azure Lab Services vers Shared Image Gallery, l’image est chargée dans la galerie en tant qu’**image spécialisée**. Les [images spécialisées](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) conservent les informations spécifiques à la machine et les profils utilisateur. Vous pouvez toujours charger directement une image généralisée dans la galerie en dehors d’Azure Lab Services.    

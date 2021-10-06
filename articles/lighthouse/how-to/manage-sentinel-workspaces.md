@@ -3,12 +3,12 @@ title: Gérer les espaces de travail Azure Sentinel à grande échelle
 description: Azure Lighthouse vous aide à gérer efficacement Azure Sentinel sur des ressources client déléguées.
 ms.date: 08/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 44efc4afeb3ea238b5a8a29d8f12a7bfb4f6d621
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d6eba4cab51fa18164cc5f44e579be23ef8e74a5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527727"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777808"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gérer les espaces de travail Azure Sentinel à grande échelle
 
@@ -85,9 +85,9 @@ Vous pouvez utiliser l’automatisation pour gérer plusieurs espaces de travail
 
 ## <a name="monitor-security-of-office-365-environments"></a>Analyser la sécurité des environnements Office 365
 
-Utilisez Azure Lighthouse conjointement avec Azure Sentinel pour analyser la sécurité des environnements Office 365 entre les locataires. Tout d’abord, [les connecteurs de données Office 365 doivent être activés dans le client géré](../../sentinel/connect-office-365.md) afin que les informations sur les activités des utilisateurs et des administrateurs dans Exchange et SharePoint (y compris OneDrive) puissent être ingérées dans un espace de travail Azure Sentinel au sein du locataire géré. Cela comprend des détails sur des actions telles que le téléchargement de fichiers, les demandes d’accès envoyées, les changements apportés aux événements de groupe et les opérations de boîtes aux lettres, ainsi que des informations sur les utilisateurs qui ont effectué les actions. Les [alertes DLP Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) sont également prises en charge dans le cadre du connecteur Office 365 intégré.
+Utilisez Azure Lighthouse conjointement avec Azure Sentinel pour analyser la sécurité des environnements Office 365 entre les locataires. Tout d’abord, [les connecteurs de données Office 365 doivent être activés dans le client géré](../../sentinel/data-connectors-reference.md#microsoft-office-365) afin que les informations sur les activités des utilisateurs et des administrateurs dans Exchange et SharePoint (y compris OneDrive) puissent être ingérées dans un espace de travail Azure Sentinel au sein du locataire géré. Cela comprend des détails sur des actions telles que le téléchargement de fichiers, les demandes d’accès envoyées, les changements apportés aux événements de groupe et les opérations de boîtes aux lettres, ainsi que des informations sur les utilisateurs qui ont effectué les actions. Les [alertes DLP Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) sont également prises en charge dans le cadre du connecteur Office 365 intégré.
 
-Vous pouvez activer le [connecteur Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md) pour diffuser en continu des alertes et des journaux Cloud Discovery dans Azure Sentinel. Cela vous permet de bénéficier d’une visibilité accrue sur vos applications et de fonctionnalités d’analytique sophistiquées pour identifier et combattre les cybermenaces et de contrôler le déplacement des données. Les journaux d’activité pour MCAS peuvent être [utilisés à l’aide du format CEF (Common Event format)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
+Vous pouvez activer le [connecteur Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas) pour diffuser en continu des alertes et des journaux Cloud Discovery dans Azure Sentinel. Cela vous permet de bénéficier d’une visibilité accrue sur vos applications et de fonctionnalités d’analytique sophistiquées pour identifier et combattre les cybermenaces et de contrôler le déplacement des données. Les journaux d’activité pour MCAS peuvent être [utilisés à l’aide du format CEF (Common Event format)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
 
 Après avoir configuré les connecteurs de données Office 365, vous pouvez utiliser des capacités d’Azure Sentinel entre locataires, telles que l’affichage et l’analyse des données dans les classeurs, l’utilisation de requêtes pour créer des alertes personnalisées et la configuration de playbooks pour répondre aux menaces.
 

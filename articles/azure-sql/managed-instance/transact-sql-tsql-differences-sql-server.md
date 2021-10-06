@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: mathoma, bonova, danil
 ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 801bfe634281ffc795bd0f9c56089f915be52ac6
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 7f9067d2f568c3f3d65b89508d85046970c9e334
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083787"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273416"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,7 +70,7 @@ Limites :
 - Une instance gérée SQL permet de sauvegarder une base de données d’instance vers une sauvegarde comprenant jusqu’à 32 bandes, ce qui est suffisant pour des bases de données allant jusqu’à 4 To si la compression de sauvegarde est utilisée.
 - Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base de données qui est chiffrée avec Transparent Data Encryption (TDE) managé par le service. TDE managé par le service oblige le chiffrement des sauvegardes à l’aide d’une clé de chiffrement TDE interne. La clé ne pouvant pas être exportée, vous ne pouvez pas restaurer la sauvegarde. utilisez des sauvegardes automatiques et la restauration dans le temps, ou utilisez [TDE managé par le client (BYOK)](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) à la place. Vous pouvez également désactiver le chiffrement sur la base de données.
 - Les sauvegardes natives effectuées sur une instance gérée ne peuvent pas être restaurées sur un serveur SQL. Cela s’explique par le fait que Managed Instance dispose d’une version de base de données interne supérieure à toute version de SQL Server.
-- Pour sauvegarder ou restaurer une base de données vers/à partir d'un stockage Azure, il est nécessaire de créer une signature d'accès partagé (SAS) : un URI qui vous accorde des droits d'accès restreints aux ressources du stockage Azure [En savoir plus sur ce point](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart#restore-from-a-backup-file-using-t-sql). L'utilisation des clés d'accès pour ces scénarios n'est pas prise en charge.
+- Pour sauvegarder ou restaurer une base de données vers/à partir d'un stockage Azure, il est nécessaire de créer une signature d'accès partagé (SAS) : un URI qui vous accorde des droits d'accès restreints aux ressources du stockage Azure [En savoir plus sur ce point](restore-sample-database-quickstart.md#restore-from-a-backup-file-using-t-sql). L'utilisation des clés d'accès pour ces scénarios n'est pas prise en charge.
 - La taille maximale de la bande de sauvegarde en utilisant la commande `BACKUP` dans une instance gérée SQL est de 195 Go, ce qui représente la taille maximale des objets blob. Augmentez le nombre de bandes défini dans la commande de sauvegarde pour réduire la taille de chaque bande et ainsi ne pas dépasser cette limite.
 
     > [!TIP]

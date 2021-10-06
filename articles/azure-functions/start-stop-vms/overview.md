@@ -5,21 +5,18 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
-ms.openlocfilehash: 3e2946bf493da2570106fdb554704ef7f286b7cb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 24872e96333aeb67661c462e54acebc62b32c8aa
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562783"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455415"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Vue d’ensemble de la fonctionnalité Start/Stop VMs v2 (préversion)
 
 La fonctionnalité Start/Stop VMs v2 (préversion) démarre ou arrête les machines virtuelles Azure sur plusieurs abonnements. Elle démarre ou arrête les machines selon une planification définie par l’utilisateur, fournit des insights via [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) et peut envoyer des notifications à l’aide de [groupes d’actions](../../azure-monitor/alerts/action-groups.md). La fonctionnalité peut gérer les machines virtuelles Azure Resource Manager et les machines virtuelles classiques dans la plupart des scénarios.
 
 Cette nouvelle version de Start/Stop VMs v2 (préversion) fournit une option d’automatisation low-cost décentralisée pour les clients qui souhaitent optimiser les coûts de leurs machines virtuelles. Elle offre les mêmes fonctionnalités que la [version d’origine](../../automation/automation-solution-vm-management.md) disponible avec Azure Automation, mais est conçue pour tirer parti des technologies les plus récentes dans Azure.
-
-> [!NOTE]
-> Si vous rencontrez des problèmes lors du déploiement ou lors de l’utilisation de Start/Stop VMs v2 (préversion), ou si vous avez une question connexe, vous pouvez soumettre un problème sur [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Le signalement d’un incident au support Azure à partir du [site de support Azure](https://azure.microsoft.com/support/options/) n’est pas disponible pour cette préversion. 
 
 ## <a name="overview"></a>Vue d’ensemble
 

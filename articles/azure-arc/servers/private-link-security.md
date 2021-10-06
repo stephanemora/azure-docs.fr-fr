@@ -2,13 +2,13 @@
 title: Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Arc
 description: Apprenez à utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Arc.
 ms.topic: conceptual
-ms.date: 07/20/2021
-ms.openlocfilehash: 1bd683631e9a7edb321abb56ed423cac11b42557
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 09/14/2021
+ms.openlocfilehash: 53bd9310c193d4fad1d550fbf33446754c30ecd6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467998"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631511"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-arc"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Arc
 
@@ -26,7 +26,7 @@ Cet article explique quand utiliser une Étendue de liaison privée Azure Arc (p
 Grâce à Azure Private Link, vous pouvez :
 
 - vous connecter en privé à Azure Arc sans ouvrir d'accès au réseau public ;
-- vérifier que les données de la machine ou du serveur Azure Arc ne sont accessibles que via des réseaux privés autorisés. Cela s'applique également aux données provenant des [extensions de machines virtuelles](manage-vm-extensions.md) installées sur la machine ou le serveur et qui fournissent un support de gestion et de surveillance post-déploiement ;
+- Vérifiez que les données de la machine ou du serveur Azure Arc ne sont accessibles que via des réseaux privés autorisés. Cela s'applique également aux données provenant des [extensions de machines virtuelles](manage-vm-extensions.md) installées sur la machine ou le serveur et qui fournissent un support de gestion et de surveillance post-déploiement ;
 - empêcher l'exfiltration de données de vos réseaux privés en définissant des serveurs Azure Arc spécifiques et d'autres ressources de services Azure, comme Azure Monitor, qui se connectent via votre point de terminaison privé ;
 - connecter en toute sécurité votre réseau privé local à Azure Arc à l'aide d'ExpressRoute et de Private Link ;
 - Conservez tout le trafic au sein du réseau principal Microsoft Azure.
@@ -57,7 +57,7 @@ La connectivité aux autres ressources Azure à partir d'un serveur Azure Arc me
 
 ## <a name="restrictions-and-limitations"></a>Limitations et restrictions
 
-L'objet Étendue de liaison privée des serveurs Azure Arc présente un certain nombre de limites à prendre en compte lors de la planification de votre configuration Private Link :
+L'objet de l’Étendue de liaison privée des serveurs Azure Arc présente un certain nombre de limites à prendre en compte lors de la planification de votre configuration Private Link.
 
 - Vous ne pouvez associer qu'une seule Étendue de liaison privée Azure Arc à un réseau virtuel.
 
@@ -65,9 +65,9 @@ L'objet Étendue de liaison privée des serveurs Azure Arc présente un certain 
 
 - Toutes les machines locales doivent utiliser le même point de terminaison privé en résolvant les bonnes informations de point de terminaison privé (nom d'enregistrement FQDN et adresse IP privée) à l'aide du même redirecteur DNS. Pour plus d'informations, consultez [Configuration DNS des points de terminaison privés Azure](../../private-link/private-endpoint-dns.md).
 
-- La machine ou le serveur Azure Arc, l'Étendue de liaison privée Azure Arc et le réseau virtuel doivent se trouver dans la même région Azure.
+- Le serveur Azure Arc et l'Étendue de liaison privée Azure Arc doivent se trouver dans la même région Azure. Le point de terminaison privé et le réseau virtuel doivent également se trouver dans la même région Azure, mais cette région peut être différente de celle de votre étendue de lien privée Azure arc et du serveur Azure Arc.
 
-- Dans le cadre de la préversion, le trafic vers les étiquettes de service Azure Active Directory et Azure Resource Manager doit être autorisé via votre pare-feu de réseau local. 
+- Dans le cadre de la préversion, le trafic vers les étiquettes de service Azure Active Directory et Azure Resource Manager doit être autorisé via votre pare-feu de réseau local.
 
 - D'autres services Azure, comme Azure Monitor, ont besoin de leurs propres points de terminaison privés sur votre réseau virtuel.
 
@@ -228,9 +228,9 @@ Si vous prévoyez d'utiliser des liaisons privées pour un nombre limité de mac
 ## <a name="connect-to-an-azure-arc-enabled-servers"></a>Se connecter à des serveurs Azure Arc
 
 > [!NOTE]
-> La version minimale prise en charge d'Azure Arc Connected Machine Agent avec point de terminaison privé est la version 1.4. Le script de déploiement des serveurs Azure Arc généré sur le portail télécharge la dernière version.
+> La version minimale prise en charge de l’agent de la machine Azure Arc avec point de terminaison privé est la version 1.4. Le script de déploiement des serveurs Azure Arc généré sur le portail télécharge la dernière version.
 
-### <a name="configure-a-new-arc-enabled-server-to-use-private-link"></a>Configurer un nouveau serveur Azure Arc pour utiliser une liaison privée
+### <a name="configure-a-new-azure-arc-enabled-server-to-use-private-link"></a>Configurer un nouveau serveur Azure Arc pour utiliser une liaison privée
 
 Lorsque vous connectez une machine ou un serveur à des serveurs Azure Arc pour la première fois, vous avez la possibilité de le connecter à une Étendue de liaison privée. Procédez comme suit : 
 
@@ -257,7 +257,7 @@ Lorsque vous connectez une machine ou un serveur à des serveurs Azure Arc pour 
 
     1. Sélectionnez **Suivant : Balises**.
 
-1. Si vous avez sélectionné **Ajouter plusieurs serveurs**, dans la liste déroulante de la page **Authentification**, sélectionnez le principal de service créé pour les serveurs Azure Arc. Si vous n'avez pas créé de principal de service pour les serveurs Azure Arc, consultez d'abord la [procédure de création d'un principal de service](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) pour vous familiariser avec les autorisations requises et les étapes à suivre pour en créer un. Sélectionnez **Suivant : Étiquettes** pour continuer.
+1. Si vous avez sélectionné **Ajouter plusieurs serveurs**, sur la page **Authentification**, sélectionnez le principal de service créé pour les serveurs Azure arc dans la liste déroulante. Si vous n'avez pas créé de principal de service pour les serveurs Azure Arc, consultez d'abord la [procédure de création d'un principal de service](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) pour vous familiariser avec les autorisations requises et les étapes à suivre pour en créer un. Sélectionnez **Suivant : Étiquettes** pour continuer.
 
 1. Dans la page **Balises**, passez en revue les suggestions de **balises d’emplacement physique** par défaut et entrez une valeur, ou spécifiez une ou plusieurs **Balises personnalisées** en fonction de vos standards.
 
@@ -274,9 +274,9 @@ Le script renverra des messages d'état qui vous indiqueront si l'intégration a
 > [!NOTE]
 > Si vous déployez Connected Machine Agent sur un serveur Linux, vous serez peut-être confronté à une attente de cinq minutes pendant la vérification de la connectivité du réseau, suivie d'une erreur indiquant `you do not have access to login.windows.net`, même si votre pare-feu est correctement configuré. Il s'agit d'un problème connu qui sera corrigé dans une version ultérieure de l'agent. L'intégration devrait malgré tout aboutir si votre pare-feu est correctement configuré.
 
-### <a name="configure-an-existing-arc-enabled-server"></a>Configurer un serveur Azure Arc existant
+### <a name="configure-an-existing-azure-arc-enabled-server"></a>Configurer un serveur Azure Arc existant
 
-Pour permettre aux serveurs Azure Arc qui ont été configurés avant votre étendue de liaison privée de commencer à utiliser l'Étendue de liaison privée des serveurs Azure Arc, procédez comme suit.
+Pour permettre aux serveurs Azure Arc qui ont été configurés avant l’étendue de votre liaison privée, vous pouvez autoriser ces derniers à commencer à utiliser l'Étendue de liaison privée des serveurs Azure Arc en réalisant les étapes suivantes.
 
 1. Sur le portail Azure, accédez à votre ressource Étendue de liaison privée Azure Arc.
 

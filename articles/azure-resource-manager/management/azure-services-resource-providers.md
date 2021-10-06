@@ -2,14 +2,14 @@
 title: Fournisseurs de ressources par les services Azure
 description: Répertorie tous les espaces de noms de fournisseurs de ressources pour Azure Resource Manager et affiche le service Azure de chaque espace de noms.
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dae2c2c3af6da9b946ce6e81260f4c124c474a42
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c10fb3e92b4d7c31a311cad980ffdfca9b891c9c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562273"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657972"
 ---
 # <a name="resource-providers-for-azure-services"></a>Fournisseurs de ressources pour les services Azure
 
@@ -99,8 +99,9 @@ Les fournisseurs de ressources marqués avec **- inscrit** sont inscrits par dé
 | Microsoft.HanaOnAzure | [SAP HANA sur Azure (grandes instances)](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Module de sécurité matériel (HSM) dédié Azure](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
-| Microsoft.HealthcareApis | [Azure API pour FHIR](../../healthcare-apis/fhir/index.yml) |
-| Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
+| Microsoft.HealthcareApis (API Azure pour FHIR) | [Azure API pour FHIR](../../healthcare-apis/azure-api-for-fhir/index.yml) |
+| Microsoft.HealthcareApis (API de santé) | [API Healthcare](../../healthcare-apis/index.yml) |
+| Microsoft.HybridCompute | [Serveurs avec Azure Arc](../../azure-arc/servers/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.HybridNetwork  | [Network Function Manager](../../network-function-manager/index.yml) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
@@ -109,8 +110,8 @@ Les fournisseurs de ressources marqués avec **- inscrit** sont inscrits par dé
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [Key Vault](../../key-vault/index.yml) |
-| Microsoft.Kubernetes | [Service Azure Kubernetes sur Azure Stack HCI](/azure-stack/aks-hci/) |
-| Microsoft.KubernetesConfiguration | [Service Azure Kubernetes sur Azure Stack HCI](/azure-stack/aks-hci/) |
+| Microsoft.Kubernetes | [Kubernetes compatible avec Azure Arc](../../azure-arc/kubernetes/index.yml) |
+| Microsoft.KubernetesConfiguration | [Kubernetes compatible avec Azure Arc](../../azure-arc/kubernetes/index.yml) |
 | Microsoft.Kusto | [Explorateur de données Azure](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 7d7c07227741487bc62b1a6ef01680ccf326efd7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6d1850ce3c0f8e9fb69159f6677bad3e3bfd0d57
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672895"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351553"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-vida"></a>Tutoriel : Intégration de l’authentification unique Azure AD à VIDA
 
@@ -98,9 +98,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | Nom | Attribut source|
     | ---------------- | --------- |
     | assignedroles | user.assignedroles |
-
-    > [!NOTE]
-    > VIDA attend des rôles pour les utilisateurs affectés à l’application. Veuillez configurer ces rôles dans Azure AD pour pouvoir affecter les rôles appropriés aux utilisateurs. Pour comprendre comment configurer des rôles dans Azure AD, consultez [cette page](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

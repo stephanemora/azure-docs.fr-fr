@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 2a9cf8f74410f69d95b0f6944025220de2c94c08
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 308cd5186d97e87ff044db496809b04def41265b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588144"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667118"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-to-iot-central-application"></a>Guide pratique pour connecter des appareils avec des certificats X.509 à une application IoT Central
 
@@ -78,7 +78,7 @@ Notez l’emplacement de ces fichiers. Vous en aurez besoin ultérieurement.
 
 1. Ouvrez votre application IoT Central et accédez à **Administration** dans le volet gauche, puis sélectionnez **Connexion de l’appareil**.
 
-1. Sélectionnez **+ Créer un groupe d’inscriptions**, puis créez un nouveau groupe d’inscriptions appelé _MyX509Group_ avec un type d’attestation **Certificats (X.509)** .
+1. Sélectionnez **+ Nouveau**, puis créez un nouveau groupe d’inscriptions appelé _MyX509Group_ avec un type d’attestation **Certificats (X.509)** .
 
 1. Ouvrez le groupe d’inscriptions que vous avez créé, puis sélectionnez **Gérer le principal**.
 
@@ -102,7 +102,7 @@ Après avoir enregistré le groupe d’inscriptions, prenez note de l’étendue
 
 ### <a name="run-sample-device-code&quot;></a>Exécuter l’exemple de code d’appareil
 
-:::zone pivot="programming-language-csharp"
+:::zone pivot=&quot;programming-language-csharp&quot;
 
 Si vous utilisez Windows, les certificats X.509 doivent se trouver dans le magasin de certificats Windows pour que l’exemple fonctionne. Pour ajouter des certificats dans le magasin :
 
@@ -387,7 +387,7 @@ Pour modifier l’exemple de code afin d’utiliser les certificats :
 1. Exécutez le script et vérifiez que l’appareil est correctement provisionné :
 
     ```cmd/sh
-    node simple_thermostat.js
+    node pnpTemperatureController.js
     ```
 
 :::zone-end
@@ -508,7 +508,7 @@ L’appareil est maintenant configuré avec le certificat X.509.
 
 ### <a name="run-a-sample-individual-enrollment-device"></a>Exécuter un exemple d’appareil d’inscription individuelle
 
-1. Copiez les fichiers _mytestselfcertprimary_key.pem_ et _mytestselfcertprimary_cert.pem_ dans le dossier _azure-iot-sdk-node/device/samples/pnp_ contenant l’application **simple_thermostat.js**. Vous avez utilisé cette application quand que vous avez effectué le tutoriel [Connecter un appareil (JavaScript)](./tutorial-connect-device.md).
+1. Copiez les fichiers _mytestselfcertprimary_key.pem_ et _mytestselfcertprimary_cert.pem_ dans le dossier _azure-iot-sdk-node/device/samples/pnp_ contenant l’application **pnpTemperatureController.js**. Vous avez utilisé cette application quand que vous avez effectué le tutoriel [Connecter un appareil (JavaScript)](./tutorial-connect-device.md).
 
 1. Modifiez les variables d’environnement que vous avez utilisées dans l’exemple ci-dessus comme suit :
 
@@ -566,7 +566,7 @@ Pour connecter l’appareil IoT Edge à IoT Central à l’aide du certificat 
     sudo systemctl restart iotedge
     ```
 
-Pour en savoir plus, consultez [Créer et provisionner un appareil IoT Edge à l’aide de certificats X.509](../../iot-edge/how-to-auto-provision-x509-certs.md).
+Pour en savoir plus, consultez [Créer et configurer des appareils IoT Edge à grande échelle sur Linux à l’aide de certificats X.509](../../iot-edge/how-to-provision-devices-at-scale-linux-x509.md).
 
 ## <a name="connect-an-iot-edge-leaf-device"></a>Connecter un appareil de nœud terminal IoT Edge
 

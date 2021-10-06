@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment les calculs et les magasins de données Azure Machine Learning fournissent le chiffrement des données au repos et en transit.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 08/02/2021
-ms.openlocfilehash: 2a838d2c1206cbc1a73e00d3ff41337400a08676
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e367f6685e73cb6cdfd9e777e6cb554c186c616c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524876"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429221"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Chiffrement des données avec Azure Machine Learning
 
@@ -36,6 +36,8 @@ L'indicateur `hbi_workspace` contrôle la quantité de [données que Microsoft c
 * Lance le chiffrement du disque de travail local dans votre cluster de calcul Azure Machine Learning, à condition que vous n’ayez créé aucun cluster dans cet abonnement. Autrement, vous devez ouvrir un ticket de support pour activer le chiffrement du disque de travail de vos clusters de calcul. 
 * Nettoie votre disque de travail local entre les exécutions.
 * Transmet en toute sécurité les informations d’identification de votre compte de stockage, de votre registre de conteneurs et de votre compte SSH de la couche d’exécution à vos clusters de calcul en utilisant votre coffre de clés.
+
+Lorsque cet indicateur est défini sur True, l’impact possible sur la résolution des problèmes est accru. Cela peut se produire parce que certaines données de télémétrie ne sont pas envoyées à Microsoft et qu’il y a moins de visibilité sur les taux de réussite ou les types de problèmes, et ne peut par conséquent pas être en mesure de réagir de manière proactive lorsque cet indicateur est True.
 
 > [!TIP]
 > L’indicateur `hbi_workspace` n’a pas d’impact sur le chiffrement en transit, uniquement sur le chiffrement au repos.

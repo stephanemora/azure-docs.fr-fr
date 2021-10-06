@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: a487cba5026da827276f2e7681c0d362127a4e27
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 63cf40d5d7fcea55cd5de27d2b4d65691d9d0311
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204834"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651994"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Application Gateway v2 avec mise à l’échelle automatique et redondance interzone 
 
@@ -36,7 +36,7 @@ La nouvelle référence SKU v2 inclut les améliorations suivantes :
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-La référence SKU Standard_v2 et WAF_v2 est disponible dans les régions suivantes : USA Centre Nord, USA Centre Sud, USA Ouest, USA Ouest 2, USA Est, USA Est 2, USA Centre, Europe Nord, Europe Ouest, Asie Sud-Est, France Centre, Royaume-Uni Ouest, Japon Est, Japon Ouest, Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Canada Est, Asie Est, Corée Centre, Corée Sud, Royaume-Uni Sud, Inde Centre, Inde Ouest, Inde Sud.
+La référence SKU Standard_v2 et WAF_v2 est disponible dans les régions suivantes : USA Centre Nord, USA Centre Sud, USA Ouest, USA Ouest 2, USA Est, USA Est 2, USA Centre, Europe Nord, Europe Ouest, Asie Sud-Est, France Centre, Royaume-Uni Ouest, Japon Est, Japon Ouest, Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Canada Est, Asie Est, Corée Centre, Corée Sud, Royaume-Uni Sud, Inde Centre, Inde Ouest, Inde Sud, Inde Ouest Jio, Norvège Est, Suisse Nord, EAU Nord, Afrique du Nord Sud, Allemagne Centre Ouest.
 
 ## <a name="pricing"></a>Tarifs
 

@@ -2,14 +2,14 @@
 title: Sauvegarder des disques managés Azure avec Azure PowerShell
 description: Découvrez comment sauvegarder des disques managés Azure avec Azure PowerShell.
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 09/17/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31259bdbdc99fd307337cd6059f9160a0aeaf05e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: beb6a266a9436b7c26f5786c5f5a57f10fb9319a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672129"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672653"
 ---
 # <a name="back-up-azure-managed-disks-using-azure-powershell"></a>Sauvegarder des disques managés Azure avec Azure PowerShell
 
@@ -155,7 +155,50 @@ Les coffres de sauvegarde requièrent des autorisations sur le disque et le grou
 
 ### <a name="assign-permissions"></a>Attribuer des autorisations
 
-L’utilisateur doit affecter peu d’autorisations via RBAC au coffre (représenté par le fichier MSI de coffre) et le disque approprié et/ou le RG de disque. Elles peuvent être effectuées via le Portail ou PowerShell. Toutes les autorisations associées sont détaillées dans les points 1, 2, 3 de [cette section](backup-managed-disks.md#configure-backup).
+L’utilisateur doit affecter peu d’autorisations via RBAC au coffre (représenté par le fichier MSI de coffre) et le disque approprié et/ou le RG de disque. Elles peuvent être effectuées via le Portail ou PowerShell.
+
+Le coffre Sauvegarde utilise l’identité managée pour accéder à d’autres ressources Azure. Il est nécessaire, pour configurer la sauvegarde des disques managés, que l’identité managée du coffre Sauvegarde dispose d’un ensemble d’autorisations sur les disques sources et les groupes de ressources dans lesquels les instantanés sont créés et gérés.
+
+Une identité managée affectée par le système est limitée à une par ressource et liée au cycle de vie de celle-ci. Vous pouvez accorder des autorisations à l’identité managée à l’aide du contrôle d’accès en fonction du rôle Azure (RBAC Azure). L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Découvrez-en plus sur les [identités managées](/azure/active-directory/managed-identities-azure-resources/overview).
+
+Pour configurer la sauvegarde des disques managés, assurez-vous que les conditions préalables suivantes sont remplies :
+
+- Attribuez le rôle **Lecteur de sauvegarde de disque** à l’identité managée du Coffre de sauvegarde sur le Disque source à sauvegarder.
+
+  1. Accédez au disque à sauvegarder.
+  1. Accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter des attributions de rôles**.
+  1. Dans le volet contextuel droit, sélectionnez **Lecteur de sauvegarde de disque** dans la liste déroulante **Rôle**.
+  1. Sélectionnez l’identité managée du Coffre Sauvegarde, puis **Enregistrer**.
+  
+     >[!Tip]
+     >Tapez le nom du Coffre de sauvegarde pour sélectionner l’identité managée du coffre.
+
+  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-inline.png" alt-text="Capture d’écran montrant le processus permettant d’attribuer le rôle de Lecteur de sauvegarde de disque à l’identité managée du Coffre de sauvegarde sur le Disque source qui doit être sauvegardé." lightbox="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-expanded.png":::
+
+- Attribuez le rôle **Contributeur d’instantanés de disque** à l’identité managée du Coffre de sauvegarde sur le Groupe de ressources dans lequel les sauvegardes sont créées et gérées par le service de Sauvegarde Azure. Les instantanés de disque sont stockés dans l’un des groupes de ressources de votre abonnement. Pour permettre au service de Sauvegarde Azure de créer, de stocker et de gérer des instantanés, vous devez accorder des autorisations d’accès au coffre Sauvegarde.
+
+  1. Accédez au groupe de ressources, par exemple _SnapshotRG_, qui se trouve dans le même abonnement que le disque à sauvegarder.
+  1. Accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter des attributions de rôles**.
+  1. Dans le volet contextuel droit, sélectionnez **Contributeur d’instantanés de disque** dans la liste déroulante **Rôle**. 
+  1. Sélectionnez l’identité managée du Coffre Sauvegarde, puis **Enregistrer**.
+  
+     >[!Tip]
+     >Tapez le nom du coffre Sauvegarde pour sélectionner l’identité managée du coffre.
+
+  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-inline.png" alt-text="Capture d’écran montrant le processus d’attribution du rôle de Contributeur d’instantanés de disque à l’identité managée du Coffre de sauvegarde sur le groupe de ressources." lightbox="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-expanded.png":::
+
+- Vérifiez que l’identité managée du coffre Sauvegarde possède le bon ensemble d’attributions de rôles sur le disque source et le groupe de ressources servant de magasin de données d’instantanés.
+
+  1. Accédez à **Coffre de sauvegarde** -> **Identité** et sélectionnez **Attributions de rôle Azure**.
+ 
+     :::image type="content" source="./media/backup-managed-disks-ps/select-azure-role-assignments-inline.png" alt-text="Capture d’écran montrant la sélection des attributions de rôles Azure." lightbox="./media/backup-managed-disks-ps/select-azure-role-assignments-expanded.png":::
+
+  1. Vérifiez que le rôle, le nom de la ressource et le type de ressource sont corrects.
+ 
+     :::image type="content" source="./media/backup-managed-disks-ps/verify-role-assignment-details-inline.png" alt-text="Capture d’écran montrant la vérification du rôle, du nom de la ressource et du type de ressource." lightbox="./media/backup-managed-disks-ps/verify-role-assignment-details-expanded.png":::
+
+>[!Note]
+>Même si les attributions de rôles apparaissent correctement sur le portail, l’application de l’autorisation sur l’identité managée du coffre de sauvegarde peut prendre environ 15 minutes.
 
 ### <a name="prepare-the-request"></a>Préparer la requête
 

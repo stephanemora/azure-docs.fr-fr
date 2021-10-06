@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 633925c8e7a990bcdfa822f77996072f87ae7e90
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: aa802843f76f2707d2df1d9018b60a1e8090cfb5
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753302"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438801"
 ---
 # <a name="migrate-manually-from-azure-virtual-desktop-classic"></a>Migration manuelle à partir d’Azure Virtual Desktop (classique)
 
@@ -79,6 +79,8 @@ Pour migrer manuellement d’Azure Virtual Desktop (classique) vers Azure Virtua
 Pour éviter les temps d’arrêt, vous devez commencer par inscrire vos hôtes de session existants auprès des pools d’hôtes intégrés à Azure Resource Manager dans plusieurs petits groupes à la fois. Ensuite, transférez lentement vos utilisateurs vers les nouveaux groupes d’applications intégrés à Azure Resource Manager.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Si vous souhaitez savoir comment migrer automatiquement votre déploiement, accédez à [Migrer automatiquement à partir du Bureau virtuel Azure (classique)](automatic-migration.md).
 
 Une fois la migration effectuée, découvrez comment fonctionne Azure Virtual Desktop en consultant [nos tutoriels](create-host-pools-azure-marketplace.md). Apprenez-en davantage sur les fonctionnalités de gestion avancées décrites dans [Développer un pool d’hôtes existant](expand-existing-host-pool.md) et [Personnaliser les propriétés RDP](customize-rdp-properties.md).
 

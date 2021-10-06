@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7e0f3e2ab306c46851e4c2ffcb6acf5824326282
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 88c320d8296972ee84776aa232d688cc9e981f83
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113564353"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349642"
 ---
 # <a name="localization-string-ids"></a>ID de chaînes de localisation
 
@@ -28,7 +28,7 @@ L’élément **Localization** vous permet de prendre en charge plusieurs param�
 Les ID suivants sont utilisés pour une définition de contenu avec un ID de `api.signuporsignin`, et un [profil technique autodéclaré](self-asserted-technical-profile.md).
 
 | id | Valeur par défaut | Version de mise en page |
-| -- | ------------- | ------ |
+| --- | ------------- | ------ |
 | **forgotpassword_link** | Vous avez oublié votre mot de passe ? | `All` |
 | **createaccount_intro** | Vous n’avez pas de compte ? | `All` |
 | **button_signin** | Se connecter | `All` |
@@ -96,7 +96,7 @@ L’exemple suivant localise le fournisseur d’identité Facebook pour l’arab
 ### <a name="sign-up-or-sign-in-error-messages"></a>Messages d’erreur d’inscription ou de connexion
 
 | id | Valeur par défaut |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfInvalidPassword** | Votre mot de passe est incorrect. |
 | **UserMessageIfPasswordExpired**| Votre mot de passe a expiré.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Nous ne trouvons pas votre compte. |
@@ -146,7 +146,7 @@ L’exemple suivant localise le fournisseur d’identité Facebook pour l’arab
 Voici les ID pour une définition de contenu avec un ID `api.localaccountsignup` ou pour toute définition de contenu qui commence par `api.selfasserted`, telle que `api.selfasserted.profileupdate` et `api.localaccountpasswordreset`, et un [profil technique autodéclaré](self-asserted-technical-profile.md).
 
 | id | Valeur par défaut |
-| -- | ------------- |
+| --- | ------------- |
 | **ver_sent** | Le code de vérification a été envoyé à : |
 | **ver_but_default** | Default |
 | **cancel_message** | L'utilisateur a annulé la saisie d'informations auto-confirmées |
@@ -185,7 +185,7 @@ Voici les ID pour une définition de contenu avec un ID `api.localaccountsignup`
 ### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Messages d’erreur des pages d’inscription et autodéclarées
 
 | id | Valeur par défaut |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Un utilisateur avec l’ID spécifié existe déjà. Choisissez-en un autre. |
 | **UserMessageIfClaimNotVerified** | Revendication non vérifiée : {0} |
 | **UserMessageIfIncorrectPattern** | Modèle incorrect pour : {0} |
@@ -259,7 +259,7 @@ L’exemple suivant illustre l’utilisation de certains des éléments d’inte
 Voici les ID pour une définition de contenu avec un ID `api.phonefactor` et un [profil technique de facteur de forme de téléphone](phone-factor-technical-profile.md).
 
 | id | Valeur par défaut | Version de mise en page |
-| -- | ------------- | ------ |
+| --- | ------------- | ------ |
 | **button_verify** | M’appeler | `All` |
 | **country_code_label** | Indicatif de pays | `All` |
 | **cancel_message** | L'utilisateur a annulé l'authentification multifacteur | `All` |
@@ -283,7 +283,7 @@ Voici les ID pour une définition de contenu avec un ID `api.phonefactor` et un 
 | **invalid_number** | Entrez un numéro de téléphone valide | `All` |
 | **intro_sms** | Nous avons le numéro suivant en mémoire pour vous. Nous enverrons un code par SMS afin de vous authentifier. | `All` |
 | **intro_entry_mixed** | Entrez un numéro ci-dessous auquel nous pouvons envoyer un code par SMS ou que nous pouvons appeler pour vous authentifier. | `All` |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ | `All` |
+| **number_pattern** | `^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$` | `All` |
 | **intro_sms_p** |Nous avons les numéros suivants en mémoire pour vous. Choisissez un numéro auquel nous pouvons envoyer un code par SMS afin de vous authentifier. | `All` |
 | **requiredField_countryCode** | Sélectionnez le code de votre pays | `All` |
 | **requiredField_number** | Entrez votre numéro de téléphone | `All` |
@@ -361,7 +361,7 @@ L’exemple suivant illustre l’utilisation de certains des éléments d’inte
 Voici les ID d’un [contrôle d’affichage de vérification](display-control-verification.md) avec la [version de mise en page](page-layout.md) 2.1.0 ou ultérieure.
 
 | id | Valeur par défaut |
-| -- | ------------- |
+| --- | ------------- |
 |intro_msg <sup>*</sup>| La vérification est nécessaire. Cliquez sur le bouton Envoyer.|
 |success_send_code_msg | Le code de vérification a été envoyé. Veuillez le copier dans la zone d’entrée ci-dessous.|
 |failure_send_code_msg | Nous rencontrons des problèmes de la vérification de votre adresse e-mail. Entrez une adresse e-mail valide et réessayez.|
@@ -402,7 +402,7 @@ Remarque : L’élément `intro_msg` est masqué et ne s’affiche pas sur la p
 Voici les ID d’un [contrôle d’affichage de vérification](display-control-verification.md) avec la [version de mise en page](page-layout.md) 2.0.0.
 
 | id | Valeur par défaut |
-| -- | ------------- |
+| --- | ------------- |
 |verification_control_but_change_claims |Modifier |
 |verification_control_fail_send_code |Impossible d’envoyer le code, réessayez plus tard. |
 |verification_control_fail_verify_code |Impossible de vérifier le code, réessayez plus tard. |
@@ -432,7 +432,7 @@ Voici les ID d’un [contrôle d’affichage de vérification](display-control-v
 Voici les ID des messages d’erreur de [profil technique du service Restful](restful-technical-profile.md) :
 
 | id | Valeur par défaut |
-| -- | ------------- |
+| --- | ------------- |
 |DefaultUserMessageIfRequestFailed | Échec de l’établissement de la connexion au point de terminaison du service Restful. URL du service Restful : {0} |
 |UserMessageIfCircuitOpen | {0}URL du service Restful : {1} |
 |UserMessageIfDnsResolutionFailed | Échec de la résolution du nom d’hôte du point de terminaison du service Restful. URL du service Restful : {0} |
@@ -457,7 +457,7 @@ Voici les ID des messages d’erreur de [profil technique du service Restful](re
 Voici les ID des messages d’erreur de [profil technique Azure AD MFA](multi-factor-auth-technical-profile.md) :
 
 | id | Valeur par défaut |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfCouldntSendSms | Impossible d’envoyer un SMS au téléphone. Essayez un autre numéro de téléphone. |
 |UserMessageIfInvalidFormat | Le format de votre numéro de téléphone n’est pas valide. Corrigez-le, puis réessayez.|
 |UserMessageIfMaxAllowedCodeRetryReached | Code erroné entré trop de fois. Réessayez plus tard.|
@@ -485,7 +485,7 @@ Voici les ID des messages d’erreur de [profil technique Azure AD MFA](multi-fa
 Voici les ID des messages d’erreur de [profil technique Azure AD SSPR](aad-sspr-technical-profile.md) :
 
 | id | Valeur par défaut |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfChallengeExpired | Le code a expiré.|
 |UserMessageIfInternalError | Le service de courrier a rencontré une erreur interne. Réessayez plus tard.|
 |UserMessageIfThrottled | Vous avez envoyé trop de requêtes. Réessayez plus tard.|
@@ -511,8 +511,8 @@ Voici les ID des messages d’erreur de [profil technique Azure AD SSPR](aad-ssp
 
 Voici les ID d’un message d’erreur de [profil technique à mot de passe à usage unique](one-time-password-technical-profile.md)
 
-| id | Valeur par défaut |
-| -- | ------------- |
+| id | Valeur par défaut | Description | 
+| --- | ------------- | ----------- |
 | UserMessageIfSessionDoesNotExist | Non | Message à afficher à l'utilisateur si la session de vérification du code a expiré. Indique soit que le code a expiré, soit que le code n'a jamais été généré pour un identificateur donné. |
 | UserMessageIfMaxRetryAttempted | Non | Message à afficher à l'utilisateur s'il a dépassé les tentatives de vérification maximales autorisées. |
 | UserMessageIfMaxNumberOfCodeGenerated | Non | Message à afficher à l’utilisateur si la génération de code a dépassé le nombre maximal de tentatives autorisé. |
@@ -540,7 +540,7 @@ Voici les ID d’un message d’erreur de [profil technique à mot de passe à u
 Voici les ID des messages d’erreur relatifs aux transformations de revendications :
 
 | id | Transformation de revendications | Valeur par défaut |
-| -- | ------------- |------------- |
+| --- | ------------- |------------- |
 |UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Échec de comparaison des valeurs de la revendication booléenne pour le type de revendication « inputClaim ».| 
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Échec de comparaison des valeurs de la revendication : L’opérande de gauche fourni est supérieur à l’opérande de droite.|
 |UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Échec de comparaison des valeurs de la revendication à l’aide de StringComparison « OrdinalIgnoreCase ».|

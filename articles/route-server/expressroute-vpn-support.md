@@ -1,27 +1,23 @@
 ---
-title: À propos de la prise en charge d’ExpressRoute et de VPN Azure par Azure Route Server (préversion)
+title: À propos de la prise en charge d’ExpressRoute et de VPN Azure par le Serveur de routes Azure
 description: Découvrez comment Azure Route Server interagit avec les passerelles ExpressRoute et VPN Azure.
 services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: 6e588c7c0381c6825bcf75cbbe28a1dd6b865940
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa109544ce890c4a8fae4775010a722791fbe5a7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101678558"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426073"
 ---
-# <a name="about-azure-route-server-preview-support-for-expressroute-and-azure-vpn"></a>À propos de la prise en charge d’ExpressRoute et de VPN Azure par Azure Route Server (préversion)
+# <a name="about-azure-route-server-support-for-expressroute-and-azure-vpn"></a>À propos de la prise en charge d’ExpressRoute et de VPN Azure par le Serveur de routes Azure
 
 Non seulement Azure Route Server prend en charge les appliances virtuelles réseau (NVA) tierces s’exécutant sur Azure, mais il s’intègre parfaitement aux passerelles ExpressRoute et VPN Azure. Vous n’avez pas besoin de configurer ou de gérer le peering BGP entre la passerelle et Azure Route Server. Vous pouvez activer l’échange de routage entre la passerelle et Azure Route Server d’une simple [modification de configuration](quickstart-configure-route-server-powershell.md#route-exchange).
 
-> [!IMPORTANT]
-> Azure Route Server (préversion) est en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 

@@ -7,12 +7,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-monitoring
 ms.date: 07/07/2021
-ms.openlocfilehash: 53adbd28ad0b24b224f2427de0b108ce7f123dfd
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: d3404dbd28c662734fe7319f83b69b4c45234332
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092525"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356179"
 ---
 # <a name="monitoring-key-vault-data-reference"></a>Informations de référence sur la supervision des données Key Vault
 
@@ -25,12 +25,12 @@ Cette section répertorie toutes les métriques de plateforme collectées automa
 
 |Type de métrique | Fournisseur de ressources / espace de noms du type<br/> et lien vers des métriques individuelles |
 |-------|-----|
-| Key Vault | [Microsoft.KeyVault/vaults](/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults) |
-| HSM managé | [Microsoft.KeyVault/managedhsms](/azure-monitor/platform/resource-logs-categories.#microsoftkeyvaultmanagedhsms) 
+| Key Vault | [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults) |
+| HSM managé | [Microsoft.KeyVault/managedhsms](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultmanagedhsms) 
 
 ### <a name="key-vault-metrics"></a>Métriques de Key Vault
 
-Fournisseur de ressources et type : [Microsoft.keyvault/vaults](/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults)
+Fournisseur de ressources et type : [Microsoft.keyvault/vaults](/azure/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults)
 
 | Nom | Métrique | Unité | Type | Description |
 |:-------|:-----|:------------|:------------------|
@@ -40,11 +40,11 @@ Fournisseur de ressources et type : [Microsoft.keyvault/vaults](/azure-monitor/
 | Latence globale de l'API de service | ServiceApiLatency | Millisecondes | Average | Latence globale des demandes de l’API de service |
 | Résultats totaux de l'API de service | ServiceApiResult | Count | Count | Nombre total de résultats de l’API de service |
 
-Pour plus d’informations, consultez la liste de [toutes les métriques de plateforme prises en charge dans Azure Monitor](/azure-monitor/platform/metrics-supported).
+Pour plus d’informations, consultez la liste de [toutes les métriques de plateforme prises en charge dans Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 ## <a name="metric-dimensions"></a>Dimensions de métrique
 
-Pour plus d’informations sur les dimensions de métrique, consultez [Métriques multidimensionnelles](/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Pour plus d’informations sur les dimensions de métrique, consultez [Métriques multidimensionnelles](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics).
 
 Key Vault a les dimensions suivantes associées à ses métriques :
 
@@ -58,12 +58,12 @@ Key Vault a les dimensions suivantes associées à ses métriques :
 
 Cette section répertorie les types de journaux de ressources que vous pouvez collecter pour Key Vault.
 
-Pour obtenir des informations de référence, consultez la liste [Microsoft.KeyVault/vaults](/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultvaults).  Pour plus d’informations, consultez [Journalisation d’Azure Key Vault](logging.md).
+Pour obtenir des informations de référence, consultez la liste [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultvaults).  Pour plus d’informations, consultez [Journalisation d’Azure Key Vault](logging.md).
 
 |Type de journal de ressources | Fournisseur de ressources / espace de noms du type<br/> et lien vers des métriques individuelles |
 |-------|-----|
-| Key Vault | [Microsoft.KeyVault/vaults](/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultmanagedhsms) |
-| HSM managé | [Microsoft.KeyVault/managedhsms](/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultvaults) 
+| Key Vault | [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultmanagedhsms) |
+| HSM managé | [Microsoft.KeyVault/managedhsms](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultvaults) 
 
 ## <a name="azure-monitor-logs-tables"></a>Tables Azure Monitor Logs
 
@@ -73,11 +73,11 @@ Cette section fait référence à toutes les tables Kusto d’Azure Monitor Logs
 |-------|-----|
 | [Key Vault](/azure/azure-monitor/reference/tables/tables-resourcetype#key-vaults) | |
 
-Pour obtenir une référence de toutes les tables Azure Monitor Logs/Log Analytics, consultez la [référence relative aux tables Azure Monitor Logs](/azure-monitor/reference/tables/tables-resourcetype).
+Pour obtenir une référence de toutes les tables Azure Monitor Logs/Log Analytics, consultez la [référence relative aux tables Azure Monitor Logs](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ### <a name="diagnostics-tables"></a>Tables de diagnostic
 
-Key Vault utilise les [Diagnostics Azure](/azure-monitor/reference/tables/azurediagnostics), la table [Activité Azure](/azure-monitor/reference/tables/azureactivity) et les tables de [Métriques Azure](/azure-monitor/reference/tables/azuremetrics) pour stocker les informations du journal des ressources. Les colonnes suivantes sont pertinentes.
+Key Vault utilise les [Diagnostics Azure](/azure/azure-monitor/reference/tables/azurediagnostics), la table [Activité Azure](/azure/azure-monitor/reference/tables/azureactivity) et les tables de [Métriques Azure](/azure/azure-monitor/reference/tables/azuremetrics) pour stocker les informations du journal des ressources. Les colonnes suivantes sont pertinentes.
 
 **Diagnostics Azure**
 
@@ -100,4 +100,4 @@ Key Vault utilise les [Diagnostics Azure](/azure-monitor/reference/tables/azured
 ## <a name="see-also"></a>Voir aussi
 
 - Pour obtenir une description de la surveillance d’Azure Key Vault, consultez [Surveillance d’Azure Key Vault](monitor-key-vault.md).
-- Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources).
+- Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).

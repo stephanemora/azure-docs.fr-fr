@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: eec1c595119e225468bdbbe76f506b5b330a1beb
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7dfc80ba0117e5481370bacd18941bf622a99edb
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212396"
+ms.locfileid: "129274346"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Cas d’utilisation pour Azure Data Box Gateway
 
@@ -40,7 +40,7 @@ L’un des principaux avantages de Data Box Gateway est la possibilité d’ing�
 
 Utilisez Data Box Gateway quand vous souhaitez conserver vos données à long terme dans le cloud. Vous pouvez utiliser le niveau de stockage Archive pour la conservation à long terme.
 
-Le niveau Archive est optimisé pour stocker les données qui sont rarement sollicitées pendant au moins 180 jours. Le niveau Archive offre les coûts de stockage les plus bas, mais a les coûts d’accès les plus élevés. Pour plus d’informations, consultez [Niveau d’accès archive](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+Le niveau Archive est optimisé pour stocker les données qui sont rarement sollicitées pendant au moins 180 jours. Le niveau Archive offre les coûts de stockage les plus bas, mais a les coûts d’accès les plus élevés. Pour plus d’informations, consultez [Niveau d’accès archive](../storage/blobs/access-tiers-overview.md#archive-access-tier).
 
 ### <a name="move-data-to-the-archive-tier"></a>Déplacer des données vers le niveau Archive
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 69ddda7bd88218a3667b16bfdc9fa33aa5349ff6
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: 7eb1855717817da1f7b46e512c1a14268ce1a937
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112573937"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478479"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Basculement et mise à jour corrective pour Azure Cache pour Redis
 
@@ -74,13 +74,43 @@ Chaque fois qu’un basculement se produit, les caches Standard et Premium doive
 
 ## <a name="how-does-a-failover-affect-my-client-application"></a>Quel est l’impact d’un basculement sur mon application cliente ?
 
-Le nombre d’erreurs détectées par l’application cliente dépend du nombre d’opérations en attente, sur cette connexion, au moment du basculement. Toute connexion acheminée par le biais du nœud ayant fermé ses connexions constate des erreurs. De nombreuses bibliothèques de clients peuvent lever différents types d’erreurs en cas d’interruption des connexions, notamment des exceptions de délai d’expiration, des exceptions de connexion ou des exceptions de socket. Le nombre et le type d’exceptions dépendent de l’emplacement de la demande dans le chemin du code quand le cache ferme ses connexions. Par exemple, une opération qui envoie une requête mais qui ne reçoit pas de réponse quand le basculement se produit peut obtenir une exception de délai d’expiration. Les nouvelles requêtes sur l’objet de connexion fermé reçoivent des exceptions de connexion jusqu’à ce que la connexion soit rétablie.
+Des applications clientes pourraient recevoir des erreurs de leur Azure Cache pour Redis. Le nombre d’erreurs détectées par une application cliente dépend du nombre d’opérations en attente sur cette connexion au moment du basculement. Toute connexion acheminée via le nœud ayant fermé ses connexions rencontre des erreurs.
+
+De nombreuses bibliothèques clientes peuvent lever différents types d’erreurs en cas d’interruption des connexions, à savoir :
+
+- exceptions de délai d’attente
+- exceptions de connexion
+- exceptions de socket
+
+Le nombre et le type d’exceptions dépendent de l’emplacement de la demande dans le chemin du code quand le cache ferme ses connexions. Par exemple, une opération qui envoie une requête mais qui ne reçoit pas de réponse quand le basculement se produit peut obtenir une exception de délai d’expiration. Les nouvelles requêtes sur l’objet de connexion fermé reçoivent des exceptions de connexion jusqu’à ce que la connexion soit rétablie.
 
 La plupart des bibliothèques clientes tentent de se reconnecter au cache si elles sont configurées pour ce faire. Toutefois, des bogues imprévus peuvent parfois placer les objets de bibliothèque dans un état irrécupérable. Si les erreurs persistent plus longtemps qu’une durée préconfigurée, l’objet de connexion doit être recréé. Dans Microsoft.NET et d’autres langages orientés objet, il est possible de recréer la connexion sans redémarrer l’application à l’aide d’un [modèle Lazy\<T\>](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
 
-### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>Puis-je être notifié à l’avance d’une maintenance planifiée ?
+### <a name="can-i-be-notified-in-advance-of-planned-maintenance"></a>Puis-je être notifié à l’avance d’une maintenance planifiée ?
 
-Azure Cache pour Redis publie désormais des notifications via un canal de publication et d’abonnement appelé [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md), environ 30 secondes avant les mises à jour planifiées. Les notifications sont des notifications de runtime. Elles sont spécialement conçues pour les applications qui peuvent utiliser des disjoncteurs permettant de contourner le cache ou les commandes de mémoire tampon, par exemple, pendant les mises à jour planifiées. Ce mécanisme ne peut pas vous avertir plusieurs jours ni même plusieurs heures à l’avance.
+Azure Cache pour Redis publie des notifications via un canal de publication et d’abonnement (Pub/Sub) nommé [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md), environ 30 secondes avant les mises à jour planifiées. Les notifications sont des notifications de runtime.
+
+Les notifications sont destinées aux applications qui utilisent des disjoncteurs pour contourner le cache, ou aux applications qui mettent en mémoire les commandes. Par exemple, le cache peut être contourné lors des mises à jour planifiées.
+
+Le canal `AzureRedisEvents` n’est pas un mécanisme capable de vous avertir plusieurs jours ou heures à l’avance. Le canal peut informer les clients des événements de maintenance de serveur planifiés à venir, susceptibles d’affecter la disponibilité du serveur.
+
+De nombreuses bibliothèques clientes Redis populaires prennent en charge l’abonnement à des canaux Pub/Sub. La réception de notifications à partir du canal `AzureRedisEvents` est généralement un ajout simple à votre application cliente.
+
+Une fois votre application abonnée à `AzureRedisEvents`, elle reçoit une notification 30 secondes avant qu’un événement de maintenance affecte un nœud. La notification contient des détails sur l’événement à venir et indique s’il affecte un nœud principal ou de réplica.
+
+Une autre notification est envoyée quelques minutes plus tard, une fois l’opération de maintenance accomplie.
+
+Votre application utilise le contenu de la notification pour prendre des mesures afin d’éviter d’utiliser le cache pendant la maintenance. Un cache peut implémenter un modèle de disjoncteur ayant pour effet d’acheminer le trafic à l’extérieur du cache pendant l’opération de maintenance. Au lieu de cela, le trafic est envoyé directement à un magasin persistant. La notification ne vise pas à alerter une personne en lui laissant du temps pour prendre des mesures manuelles.
+
+Dans la plupart des cas, votre application n’a pas besoin de s’abonner aux notifications `AzureRedisEvents` ou d’y répondre. Au lieu de cela, nous vous recommandons d’implémenter une [génération dans la résilience](#build-in-resiliency).
+
+Avec un niveau de résilience suffisant, les applications gèrent correctement tout épisode bref de perte de connexion ou d’indisponibilité du cache, comme lors d’une maintenance de nœud. Il peut également arriver que votre application perde inopinément sa connexion au cache sans avertissement de `AzureRedisEvents`, en raison d’erreurs réseau ou d’autres événements.
+
+Nous ne vous recommandons de vous abonner à `AzureRedisEvents` que dans quelques cas notables :
+
+- Applications sujettes à des exigences de performances extrêmes, où même des retards mineurs doivent être évités. Dans de tels scénarios, le trafic peut être réacheminé sans heurt vers un cache auxiliaire avant le début de la maintenance sur le cache actif.
+- Applications qui lisent explicitement des données à partir du réplica plutôt qu’à partir des nœuds principaux. Pendant la maintenance sur un nœud de réplica, l’application peut basculer temporairement vers la lecture de données à partir des nœuds principaux.
+- Applications qui ne peuvent pas courir le risque que des opérations d’écriture échouent silencieusement ou réussissent sans confirmation, ce qui peut se produire lorsque des connexions sont fermées à des fins de maintenance. Si ces situations risquent d’entraîner une perte de données dangereuse, l’application peut suspendre ou rediriger de manière proactive les commandes d’écriture avant le début planifié de la maintenance.
 
 ### <a name="client-network-configuration-changes"></a>Modifications de la configuration réseau du client
 
@@ -106,6 +136,8 @@ Reportez-vous aux modèles de conception ci-dessous pour créer des clients rés
 Pour tester la résilience d’une application cliente, utilisez un [redémarrage](cache-administration.md#reboot) comme déclencheur manuel pour les interruptions de connexion.
 
 En outre, nous vous recommandons de [planifier des mises à jour](cache-administration.md#schedule-updates) sur un cache pour appliquer des correctifs de runtime Redis pendant des fenêtres hebdomadaires spécifiques. Ces fenêtres correspondent généralement à des périodes où le trafic de l’application cliente est faible pour éviter les incidents potentiels.
+
+Pour plus d’informations, consultez [Résilience des connexions](cache-best-practices-connection.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

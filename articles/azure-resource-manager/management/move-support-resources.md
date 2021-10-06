@@ -2,13 +2,13 @@
 title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources, un nouvel abonnement ou une nouvelle région.
 ms.topic: conceptual
-ms.date: 09/08/2021
-ms.openlocfilehash: 14ef825ec2e11d76b90161dc7cf3d8814c8daa04
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/04/2021
+ms.openlocfilehash: b5086256142c4ce72111dddcacaf19c4a40cdc35
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124764333"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429335"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -1183,7 +1183,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement | Changement de région |
 > | ------------- | ----------- | ---------- | ----------- |
-> | connectedclusters | Oui | Oui | Non |
+> | connectedclusters | Non | Non | Non |
 > | registeredsubscriptions | Non | Non | Non |
 
 ## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguration

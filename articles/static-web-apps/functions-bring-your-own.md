@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/07/2021
 ms.author: cshoe
-ms.openlocfilehash: 6c56a9dd3a39f26fe4f050114145e0ebcbc083b2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 7925bd70488106943f0030e6b26534938fbc7d36
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556133"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570889"
 ---
 # <a name="bring-your-own-functions-to-azure-static-web-apps"></a>Apporter vos propres fonctions à Azure Static Web Apps
 
@@ -43,7 +43,7 @@ https://red-sea-123.azurestaticapps.net/api/getProducts
 
 Avant d’associer une application Azure Functions existante, vous devez d’abord ajuster la configuration de votre application web statique.
 
-1. Définissez la valeur `api_location` sur une chaîne vide (`""`) dans le fichier de [configuration du flux de travail](./github-actions-workflow.md).
+1. Définissez la valeur `api_location` sur une chaîne vide (`""`) dans le fichier de [configuration du flux de travail](./build-configuration.md).
 
 1. Ouvrez votre instance Static Web Apps dans le [portail Azure](https://portal.azure.com).
 
@@ -62,7 +62,7 @@ Avant d’associer une application Azure Functions existante, vous devez d’ab
     :::image type="content" source="media/functions-bring-your-own/azure-static-web-apps-link-existing-functions-app.png" alt-text="Lier une application Azure Functions existante":::
 
 > [!IMPORTANT]
-> Veillez à définir la valeur `api_location` sur une chaîne vide (`""`) dans le fichier de [configuration du flux de travail](./github-actions-workflow.md) avant de lier une application Azure Functions existante.
+> Veillez à définir la valeur `api_location` sur une chaîne vide (`""`) dans le fichier de [configuration du flux de travail](./build-configuration.md) avant de lier une application Azure Functions existante.
 
 ## <a name="deployment"></a>Déploiement
 
@@ -73,7 +73,7 @@ Vous êtes responsable de la configuration d’un [flux de travail de déploieme
 - **Authentification et autorisation :** Si les stratégies d’authentification et d’autorisation ne sont pas déjà configurées sur votre application Azure Functions existante, l’application web statique dispose d’un accès exclusif à l’API. Pour rendre votre application Azure Functions accessible à d’autres applications, ajoutez un autre fournisseur d’identité ou modifiez les paramètres de sécurité afin d’autoriser l’accès non authentifié.
 
   > [!NOTE]
-  > Si vous activez l’authentification et l’autorisation dans votre application Azure Functions liée, elle doit utiliser le fournisseur d’authentification et d’autorisation Azure App Service version 2.
+  > Si vous activez l’authentification et l’autorisation dans votre application de Fonctions liée, elle doit utiliser le fournisseur d’authentification et d’autorisation du Service App Azure version 2.
 
 - **Accessibilité publique obligatoire :** Une application Azure Functions existante ne doit pas appliquer les configurations de sécurité suivantes.
   - Restriction de l’adresse IP de l’application Azure Functions.
@@ -84,7 +84,7 @@ Vous êtes responsable de la configuration d’un [flux de travail de déploieme
 ## <a name="restrictions"></a>Restrictions
 
 - Une seule application Azure Functions est disponible pour une seule application web statique.
-- La valeur `api_location` dans la [configuration du flux de travail](./github-actions-workflow.md) doit être définie sur une chaîne vide.
+- La valeur `api_location` dans la [configuration du flux de travail](./build-configuration.md) doit être définie sur une chaîne vide.
 - Prise en charge uniquement dans l’environnement de production d’Azure Static Web Apps.
 - Bien que votre application Azure Functions puisse répondre à différents déclencheurs, l’application web statique peut uniquement accéder aux fonctions via des points de terminaison HTTP.
 

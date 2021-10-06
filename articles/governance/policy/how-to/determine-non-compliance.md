@@ -1,14 +1,14 @@
 ---
 title: Déterminer les causes de non-conformité
 description: De nombreuses raisons peuvent expliquer une ressource non conforme. Découvrez comment identifier l'origine d'une non-conformité.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 886ef03e0170f5605f047cdde08384e1bc2786f0
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 3c4076673adfe3253a418cc648592e72a8979b5a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769830"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433802"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Déterminer les causes de non-conformité
 
@@ -78,9 +78,13 @@ Ces détails expliquent les raisons pour lesquelles une ressource est actuelleme
 
 ### <a name="compliance-reasons"></a>Motifs de conformité
 
-La matrice suivante mappe chaque _motif_ possible à la [condition](../concepts/definition-structure.md#conditions) responsable dans la définition de stratégie :
+Les [modes gestionnaire des ressources](../concepts/definition-structure.md#resource-manager-modes) et les [modes fournisseur de ressources](../concepts/definition-structure.md#resource-provider-modes) ont chacun des _raisons_ de non-conformité.
 
-|Motif | Condition |
+#### <a name="general-resource-manager-mode-compliance-reasons"></a>Raisons générales de conformité du mode gestionnaire des ressources
+
+Le tableau suivant mappe chaque _raison_ du [mode gestionnaire des ressources](../concepts/definition-structure.md#resource-manager-modes) à la [condition](../concepts/definition-structure.md#conditions) responsable dans la définition de stratégie :
+
+|Motif |Condition |
 |-|-|
 |La valeur actuelle doit contenir la valeur cible en tant que clé. |containsKey ou **not** notContainsKey |
 |La valeur actuelle doit contenir la valeur cible. |contains ou **not** notContains |
@@ -104,15 +108,33 @@ La matrice suivante mappe chaque _motif_ possible à la [condition](../concepts/
 |La valeur actuelle ne doit pas correspondre à la valeur cible (non-sensibilité à la casse). |notMatchInsensitively ou **not** matchInsensitively |
 |Aucune ressource associée ne correspond aux détails de l'effet dans la définition de stratégie. |Aucune ressource du type défini dans **then.details.type** n'est associée à la ressource définie dans la portion **if**. |
 
+#### <a name="aks-resource-provider-mode-compliance-reasons"></a>Raisons de conformité du mode fournisseur de ressources AKS
+
+Le tableau suivant mappe chaque _raison_ du `Microsoft.Kubernetes.Data`
+[mode fournisseur de ressources](../concepts/definition-structure.md#resource-provider-modes) à l’état responsable du [modèle de contrainte](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) dans la définition de stratégie :
+
+|Motif |Description du motif du modèle de contrainte |
+|-|-|
+|Constraint/TemplateCreateFailed |La ressource n’a pas pu être créée pour une définition de stratégie avec une contrainte/un modèle qui ne correspond pas à une contrainte/un modèle existant sur le cluster par nom des métadonnées de ressource. |
+|Constraint/TemplateUpdateFailed |La mise à jour de la contrainte/du modèle a échoué pour une définition de stratégie avec une contrainte/un modèle qui correspond à un modèle/contrainte existant sur le cluster par le nom des métadonnées de ressource. |
+|Constraint/TemplateInstallFailed |La génération de la contrainte/du modèle a échoué, et ils n’ont pas pu être installés sur le cluster pour une opération de création ou de mise à jour. |
+|ConstraintTemplateConflicts |Le modèle est en conflit avec une ou plusieurs définitions de stratégie utilisant le même nom de modèle avec une source différente. |
+|ConstraintStatusStale |Il existe un état « Audit » existant, mais Gatekeeper n’a pas effectué d’audit au cours de la dernière heure. |
+|ConstraintNotProcessed |Il n’y a pas d’état, et Gatekeeper n’a pas effectué d’audit au cours de la dernière heure. |
+|InvalidConstraint/Template |Le serveur API a rejeté la ressource en raison d’un YAML incorrect. Cette raison peut également être due à une incompatibilité de type de paramètre (exemple : chaîne fournie pour un entier)
+
+> [!NOTE]
+> Pour les attributions de stratégie et les modèles de contrainte existants sur le cluster, si la contrainte/le modèle échoue, le cluster est protégé en conservant la contrainte/le modèle existant. Le cluster signale comme non conforme jusqu’à ce que la défaillance soit résolue sur l’attribution de stratégie ou les réparations spontanées du module complémentaire. Pour plus d’informations sur la gestion des conflits, consultez [Conflits de modèle de contrainte](../concepts/policy-for-kubernetes.md#constraint-template-conflicts).
+
 ## <a name="component-details-for-resource-provider-modes"></a>Détails du composant pour les modes du fournisseur de ressources
 
-Pour les affectations avec un [mode Fournisseur de ressources](../concepts/definition-structure.md#resource-manager-modes), sélectionnez la ressource _non conforme_ pour ouvrir une vue plus détaillée. Sous l’onglet **Conformité des composants**, vous pouvez obtenir des informations supplémentaires spécifiques au mode Fournisseur de ressources sur la stratégie attribuée, qui indique le _composant_ **non conforme** et l’**ID du composant**.
+Pour les affectations avec un [mode Fournisseur de ressources](../concepts/definition-structure.md#resource-provider-modes), sélectionnez la ressource _non conforme_ pour ouvrir une vue plus détaillée. Sous l’onglet **Conformité des composants**, vous pouvez obtenir des informations supplémentaires spécifiques au mode Fournisseur de ressources sur la stratégie attribuée, qui indique le _composant_ **non conforme** et l’**ID du composant**.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Capture d’écran de l’onglet Conformité des composants et des détails de conformité pour une affectation de mode de fournisseur de ressources." border="false":::
 
 ## <a name="compliance-details-for-guest-configuration"></a>Détails de conformité pour la configuration invité
 
-Pour les stratégies _auditIfNotExists_ de la catégorie _Guest Configuration_, plusieurs paramètres peuvent être évalués dans la machine virtuelle et vous devez examiner les détails par paramètre. Par exemple, si vous effectuez un audit pour obtenir la liste des stratégies de mot de passe et qu’une seule d’entre-elles a l’état _Non conforme_, vous devez connaître les stratégies de mot de passe spécifiques qui ne sont pas conformes et pourquoi.
+Pour les définitions de stratégie de la catégorie _Configuration d’invité_, plusieurs paramètres peuvent être évalués dans la machine virtuelle et vous devez examiner les détails par paramètre. Par exemple, si vous effectuez un audit pour obtenir la liste des paramètres de sécurité et qu’une seule d’entre-elles a l’état _Non conforme_, vous devez connaître les paramètres de sécurité spécifiques qui ne sont pas conformes et la raison à cela.
 
 Vous ne serez peut-être pas autorisé à vous connecter directement à la machine virtuelle, mais devrez indiquer pourquoi elle est _Non conforme_.
 
@@ -127,6 +149,15 @@ Dans le volet Détails de conformité, sélectionnez le lien **Dernière ressour
 La page **Affectation d'invité** affiche les détails de conformité disponibles. Chaque ligne de la vue représente une évaluation effectuée au sein de la machine. Dans la colonne **Raison**, une phrase s’affiche pour décrire la raison pour laquelle l’attribution d’invité est _Non conforme_. Par exemple, si vous auditez les stratégies de mot de passe, la colonne **Raison** affiche du texte, dont la valeur actuelle de chaque paramètre.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Capture d’écran des détails de conformité de l’affectation d’invité." border="false":::
+
+### <a name="view-configuration-assignment-details-at-scale"></a>Afficher les détails d’attribution de configuration à grande échelle
+
+Vous pouvez utiliser la fonctionnalité de configuration d’invité en dehors des affectations Azure Policy.
+Par exemple, [Azure Automanage](../../../automanage/automanage-virtual-machines.md) crée des affectations de configuration d’invité, ou vous pouvez [affecter des configurations quand vous déployez des machines](guest-configuration-create-assignment.md).
+
+Pour afficher toutes les affectations de configuration d’invité dans votre locataire, dans le portail Azure, ouvrez la page **Affectations d’invités**. Pour afficher les informations de conformité détaillées, sélectionnez chaque affectation en utilisant le lien figurant dans la colonne « Nom ».
+
+:::image type="content" source="../media/determine-non-compliance/guest-config-assignment-view.png" alt-text="Capture d’écran de la page Affectation d’invité." border="true":::
 
 ## <a name="change-history-preview"></a><a name="change-history"></a>Historique des modifications (préversion)
 

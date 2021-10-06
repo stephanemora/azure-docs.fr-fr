@@ -4,16 +4,16 @@ description: Décrit comment utiliser la tâche Azure Spring Cloud pour Azure Pi
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 09/13/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2ac965e54a66eb2489ae7a4bfa9cac363f494b4f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: b3e5520f91301471bfc9df6bbd4a9cd4a8bc6a6a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533289"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666056"
 ---
 # <a name="automate-application-deployments-to-azure-spring-cloud"></a>Automatiser les déploiements d’applications dans Azure Spring Cloud
 
@@ -27,17 +27,15 @@ La vidéo suivante décrit l’automatisation de bout en bout à l’aide des ou
 
 > [!VIDEO https://www.youtube.com/embed/D2cfXAbUwDc?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
+::: zone pivot="programming-language-csharp"
+
 ## <a name="create-an-azure-resource-manager-service-connection"></a>Créer une connexion de service Azure Resource Manager
 
-Pour découvrir comment créer une connexion de service Azure Resource Manager à votre projet Azure DevOps, consultez [cet article](/azure/devops/pipelines/library/connect-to-azure). Veillez à sélectionner le même abonnement que celui utilisé pour votre instance de service Azure Spring Cloud.
+Tout d’abord, créez une connexion de service du Gestionnaire de ressource Azure à votre projet Azure DevOps. Pour obtenir des instructions, consultez [Se connecter à Microsoft Azure](/azure/devops/pipelines/library/connect-to-azure). Veillez à sélectionner le même abonnement que celui utilisé pour votre instance de service Azure Spring Cloud.
 
 ## <a name="build-and-deploy-apps"></a>Créer et déployer des applications
 
-::: zone pivot="programming-language-csharp"
-
-### <a name="deploy-artifacts"></a>Déployer des artefacts
-
-Vous pouvez générer et déployer vos projets à l’aide d’une série de tâches. Cet extrait de code définit des variables, une tâche .NET Core pour générer l’application et une tâche Azure Spring Cloud pour déployer l’application.
+Vous pouvez désormais générer et déployer vos projets à l’aide d’une série de tâches. Le modèle de Pipelines Azure suivant définit des variables, une tâche .NET Core pour générer l’application et une tâche Azure Spring Cloud pour déployer l’application.
 
 ```yaml
 variables:
@@ -47,7 +45,6 @@ variables:
   planetAppName: 'planet-weather-provider'
   solarAppName: 'solar-system-weather'
   serviceName: '<your service name>'
-
 
 steps:
 # Restore, build, publish and package the zipped planet app
@@ -90,33 +87,65 @@ steps:
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-### <a name="deploy-artifacts"></a>Déployer des artefacts
+## <a name="set-up-an-azure-spring-cloud-instance-and-an-azure-devops-project"></a>Configurer une instance Azure Spring Cloud et un projet Azure DevOps
 
-#### <a name="to-production"></a>En production
+Tout d’abord, procédez comme suit pour configurer une instance Azure Spring Cloud existante à utiliser avec Azure DevOps.
 
-Vous pouvez générer et déployer vos projets à l’aide d’une série de tâches. Cet extrait de code définit tout d’abord une tâche Maven pour générer l’application, suivie d’une deuxième tâche qui déploie le fichier JAR à l’aide de la tâche Azure Spring Cloud pour Azure Pipelines.
+1. Accédez à votre instance Azure Spring Cloud, puis créez une nouvelle application. 
+1. Accédez au portail Azure DevOps, puis créez un nouveau projet sous l’organisation que vous avez choisie. Si vous ne possédez pas d’organisation Azure DevOps, vous pouvez en créer une gratuitement.
+1. Sélectionnez **Repos**, puis importez le [code de démonstration Spring Boot](https://github.com/spring-guides/gs-spring-boot) dans le référentiel.
 
-```yaml
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-- task: AzureSpringCloud@0
-  inputs:
-    azureSubscription: '<your service connection name>'
-    Action: 'Deploy'
-    AzureSpringCloud: <your Azure Spring Cloud service>
-    AppName: <app-name>
-    UseStagingDeployment: false
-    DeploymentName: 'default'
-    Package: ./target/your-result-jar.jar
-```
+## <a name="create-an-azure-resource-manager-service-connection"></a>Créer une connexion de service Azure Resource Manager
 
-#### <a name="blue-green-deployments"></a>Déploiement Blue-Green
+Ensuite, créez une connexion de service du Gestionnaire de ressource Azure à votre projet Azure DevOps. Pour obtenir des instructions, consultez [Se connecter à Microsoft Azure](/azure/devops/pipelines/library/connect-to-azure). Veillez à sélectionner le même abonnement que celui utilisé pour votre instance de service Azure Spring Cloud.
 
-Le déploiement présenté dans la section précédente reçoit immédiatement le trafic de l’application lors du déploiement. Parfois, les développeurs souhaitent tester leurs applications dans l’environnement de production, mais avant que l’application ne reçoive le trafic des clients.
+## <a name="build-and-deploy-apps"></a>Créer et déployer des applications
 
-L’extrait de code suivant génère l’application de la même façon que ci-dessus, puis la déploie dans un déploiement intermédiaire. Dans cet exemple, le déploiement intermédiaire doit déjà exister. Pour une autre approche, consultez [Stratégies de déploiement bleu-vert](concepts-blue-green-deployment-strategies.md).
+Vous pouvez désormais générer et déployer vos projets à l’aide d’une série de tâches. Les sections suivantes présentent différentes options de déploiement de votre application à l’aide d’Azure DevOps.
+
+### <a name="deploy-using-a-pipeline"></a>Déployer à l’aide d’un pipeline
+
+Pour déployer un pipeline, procédez comme suit :
+
+1. Sélectionnez **Pipelines**, puis créez un nouveau pipeline avec un modèle Maven.
+1. Modifiez le fichier *azure-pipelines.yml* pour définir le `mavenPomFile` champ sur *« complete/pom.xml »* .
+1. Sélectionnez **Afficher l’assistant** sur le côté droit, puis sélectionnez le modèle **Azure Spring Cloud** .
+1. Sélectionnez la connexion de service que vous avez créée pour votre abonnement Azure, puis sélectionnez votre instance Spring Cloud et votre instance d’application. 
+1. Désactiver **Utiliser le déploiement intermédiaire**.
+1. Définissez **Package ou dossier** sur *complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar*.
+1. Sélectionnez **Ajouter** pour ajouter cette tâche à votre pipeline.
+  
+   Les paramètres de votre pipeline doivent correspondre à l’image suivante.
+
+   :::image type="content" source="media/spring-cloud-how-to-cicd/pipeline-task-setting.jpg" alt-text="Capture d’écran des paramètres du pipeline." lightbox="media/spring-cloud-how-to-cicd/pipeline-task-setting.jpg":::
+
+   Vous pouvez également générer et déployer vos projets à l’aide du modèle de pipeline suivant. Cet exemple définit tout d’abord une tâche Maven pour générer l’application, suivie d’une deuxième tâche qui déploie le fichier JAR à l’aide de la tâche Azure Spring Cloud pour Azure Pipelines.
+
+   ```yaml
+   steps:
+   - task: Maven@3
+     inputs:
+       mavenPomFile: 'complete/pom.xml'
+   - task: AzureSpringCloud@0
+     inputs:
+       azureSubscription: '<your service connection name>'
+       Action: 'Deploy'
+       AzureSpringCloud: <your Azure Spring Cloud service>
+       AppName: <app-name>
+       UseStagingDeployment: false
+       DeploymentName: 'default'
+       Package: ./target/your-result-jar.jar
+   ```
+
+3. Sélectionnez **Enregistrer et exécuter**, puis attendez que la tâche se termine.
+
+### <a name="blue-green-deployments"></a>Déploiement Blue-Green
+
+Le déploiement présenté dans la section précédente reçoit immédiatement le trafic de l’application lors du déploiement. Cela vous permet de tester l’application dans l’environnement de production avant de recevoir le trafic des clients.
+
+#### <a name="edit-the-pipeline-file"></a>Modifier le fichier du pipeline
+
+Pour générer l’application de la même façon que celle présentée précédemment et la déployer dans un déploiement intermédiaire, utilisez le modèle suivant. Dans cet exemple, le déploiement intermédiaire doit déjà exister. Pour une autre approche, consultez [Stratégies de déploiement bleu-vert](concepts-blue-green-deployment-strategies.md).
 
 ```yaml
 steps:
@@ -140,9 +169,49 @@ steps:
     UseStagingDeployment: true
 ```
 
+#### <a name="use-the-releases-section"></a>Utiliser la section Publications
+
+Les étapes suivantes vous montrent comment activer un déploiement Blue-Green à partir de la section **Publications** .
+
+1. Sélectionnez **Pipelines**, créez un nouveau pipeline pour votre build Maven et publiez l’artefact.
+   1. sélectionnez **Azure Repos Git** pour votre emplacement de code.
+   1. Sélectionnez un référentiel dans lequel se trouve votre code.
+   1. Sélectionnez le modèle **Maven** et modifiez le fichier pour définir le `mavenPomFile` champ sur *`complete/pom.xml`* .
+   1. Sélectionnez **Afficher l’Assistant** sur le côté droit et sélectionnez le modèle **Publier les artefacts de build**.
+   1. Définissez le **Chemin d’accès à publier** sur *complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar*.
+   1. Sélectionnez **Enregistrer et exécuter**.
+
+1. Sélectionnez **Publications**, puis **Créer une publication**.
+1. Ajoutez un nouveau pipeline, puis sélectionnez **Travail vide** pour créer un travail.
+1. Sous **Etapes**, sélectionnez la ligne **1 travail, 0 tâche**
+
+   :::image type="content" source="media/spring-cloud-how-to-cicd/create-new-job.jpg" alt-text="Capture d’écran montrant où sélectionner pour ajouter une tâche à un travail.":::
+
+   1. Sélectionnez le **+** pour ajouter une tâche au travail.
+   1. Recherchez le modèle **Azure Spring Cloud**, puis sélectionnez **Ajouter** pour ajouter la tâche au travail.
+   1. Sélectionnez **Déploiement Azure Spring Cloud :** pour modifier la tâche.
+   1. Complétez cette tâche avec les informations de votre application, puis désactivez l'**Utilisation du déploiement intermédiaire**.
+   1. Activez **Créer un déploiement intermédiaire s’il n’en existe pas**, puis entrez un nom dans **Déploiement**.
+   1. Sélectionnez **Enregistrer** pour enregistrer cette tâche.
+   1. Sélectionnez **OK**.
+1. Sous l'onglet **Pipeline**, sélectionnez ensuite **Ajouter un artefact**.
+   1. Sous **source (pipeline de Build),** sélectionnez le pipeline créé précédemment.
+   1. Sélectionnez **Ajouter**, puis **Enregistrer**.
+1. Sélectionnez **1 travail, 1 tâche** sous **Etapes**.
+1. Accédez à la tâche de **Déploiement Azure Spring Cloud** à l'**Etape 1**, puis sélectionnez les points de suspension en regard de **Package ou dossier**.
+1. Sélectionnez *spring-boot-complete-0.0.1-SNAPSHOT.jar* dans la boîte de dialogue, puis sélectionnez **OK**.
+
+   :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Capture d’écran de la boîte de dialogue « Sélectionner un fichier ou un dossier ».":::
+
+1. Sélectionnez le **+** pour ajouter une autre tâche **Azure Spring Cloud** au travail.
+2. Modifiez l’action pour **Définir le déploiement de production**.
+3. Sélectionnez **Enregistrer**, puis **Créer une publication** pour démarrer automatiquement le déploiement. 
+
+Pour vérifier l’état de publication actuel de votre application, sélectionnez **Afficher la publication**. Une fois cette tâche terminée, accédez au Portail Azure pour vérifier l’état de votre application.
+
 ### <a name="deploy-from-source"></a>Déployer à partir de la source
 
-Il est possible de déployer directement sur Azure sans étape de génération distincte.
+Pour déployer directement sur Azure sans étape de génération distincte, utilisez le modèle de pipeline suivant.
 
 ```yaml
 - task: AzureSpringCloud@0

@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 169f0b76e1009931d51339fe6b058ca24608af30
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ad59bae5d0d5309dea15effefd29a23e8029cd5b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061045"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587705"
 ---
 # <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Disponibilité et continuité opérationnelle dans Recherche cognitive Azure
 
@@ -106,9 +106,7 @@ Si vous utilisez l’API REST Recherche cognitive Azure pour [envoyer (push) le 
 
 ## <a name="disaster-recovery-and-service-outages"></a>Récupération d’urgence et pannes de service
 
-Bien que nous puissions récupérer vos données, Recherche cognitive Azure ne fournit pas de basculement instantané du service en cas de panne au niveau du centre de données ou du cluster. Si un cluster tombe en panne dans le centre de données, l’équipe d’exploitation le détecte et tente de restaurer le service. Vous rencontrerez un temps d’arrêt pendant la restauration de service, mais vous pouvez demander des crédits de service afin de compenser une indisponibilité du service conformément au [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
-
-Si le service ne doit pas être interrompu même en cas de défaillances catastrophiques qui échappent au contrôle de Microsoft, vous pouvez [approvisionner un service supplémentaire](search-create-service-portal.md) dans une autre région et mettre en œuvre une stratégie de géoréplication pour assurer une redondance complète des index sur tous les services.
+Comme indiqué dans le [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/), nous garantissons un haut niveau de disponibilité pour les demandes de requête d’index lorsqu’une instance du service de Recherche cognitive Azure est configurée avec au moins deux réplicas, et les demandes de mise à jour d’index lorsqu’une instance du service de Recherche cognitive Azure est configurée avec trois réplicas ou plus. Cependant, il n'existe actuellement aucun mécanisme intégré de récupération d'urgence. Si le service ne doit pas être interrompu même en cas de défaillances catastrophiques qui échappent au contrôle de Microsoft, nous vous recommandons d’approvisionner un service supplémentaire dans une autre région et de mettre en œuvre une stratégie de géoréplication pour assurer une redondance complète des index sur tous les services.
 
 Les clients qui utilisent des [indexeurs](search-indexer-overview.md) pour remplir et actualiser les index peuvent gérer la récupération d’urgence par le biais d’indexeurs propres à la région qui exploitent la même source de données. Deux services situés dans des régions différentes, chacun exécutant un indexeur, peuvent indexer la même source de données pour bénéficier de la géoredondance. Si vous indexez à partir de sources de données qui sont aussi géoredondantes, sachez que les indexeurs de Recherche cognitive Azure ne peuvent assurer qu’une indexation incrémentielle (en fusionnant les mises à jour de documents nouveaux, modifiés ou supprimés) à partir de réplicas principaux. À l’occasion d’un basculement, veillez à refaire pointer l’indexeur vers le nouveau réplica principal. 
 

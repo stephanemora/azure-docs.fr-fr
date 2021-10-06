@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 3b2ad11abb7d1a3e64deef1ca49d9f84f03e5879
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 8e592f8783bb0659a453c8d7d54cddf921f5b1e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498337"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606928"
 ---
 # <a name="copy-data-from-google-cloud-storage-to-azure-storage-by-using-azcopy-preview"></a>Copier les données de Google Cloud Storage vers Stockage Azure à l’aide d’AzCopy (préversion)
 
@@ -21,19 +21,20 @@ AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copi
 
 > [!IMPORTANT]
 > La copie de données de Google Cloud Storage vers le Stockage Azure est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Choisissez comment vous allez fournir des informations d’identification d’autorisation.
 
-* Pour autoriser avec Stockage Azure, utilisez Azure Active Directory (AD) ou un jeton SAS (signature d’accès partagé).
+- Pour autoriser avec Stockage Azure, utilisez Azure Active Directory (AD) ou un jeton SAS (signature d’accès partagé).
 
-* Pour autoriser l’utilisation de Google Cloud Storage, utilisez une clé de compte de service.
+- Pour autoriser l’utilisation de Google Cloud Storage, utilisez une clé de compte de service.
 
 ### <a name="authorize-with-azure-storage"></a>Autoriser avec Stockage Azure
 
 Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour télécharger AzCopy, et découvrez comment vous pouvez fournir des informations d’identification au service de stockage.
 
-> [!NOTE] 
+> [!NOTE]
 > Les exemples de cet article partent du principe que vous avez fourni des informations d’identification d’autorisation en utilisant Azure AD (Azure Active Directory).
 >
 > Si vous préférez utiliser un jeton SAS pour autoriser l’accès aux données d’objets blob, vous pouvez ajouter ce jeton à l’URL de ressource dans chaque commande AzCopy. Par exemple : `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
@@ -57,7 +58,7 @@ AzCopy utilise l’API [Placer un bloc à partir d’une URL](/rest/api/storages
 > [!TIP]
 > Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
- Ces exemples fonctionnent également avec les comptes qui ont un espace de noms hiérarchique. [L’accès multiprotocole sur Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) vous permet d’utiliser la même syntaxe d’URL (`blob.core.windows.net`) sur ces comptes. 
+ Ces exemples fonctionnent également avec les comptes qui ont un espace de noms hiérarchique. [L’accès multiprotocole sur Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) vous permet d’utiliser la même syntaxe d’URL (`blob.core.windows.net`) sur ces comptes.
 
 ### <a name="copy-an-object"></a>Copier un objet
 
@@ -72,7 +73,6 @@ Utilisez la même syntaxe d’URL (`blob.core.windows.net`) pour les comptes qui
 ```azcopy
 azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'
 ```
-
 
 ### <a name="copy-a-directory"></a>Copier un répertoire
 
@@ -119,7 +119,7 @@ Utilisez la même syntaxe d’URL (`blob.core.windows.net`) pour les comptes qui
 azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
 ```
 
-### <a name="copy-all-buckets-in-a-google-cloud-project"></a>Copier tous les compartiments dans un projet Google Cloud 
+### <a name="copy-all-buckets-in-a-google-cloud-project"></a>Copier tous les compartiments dans un projet Google Cloud
 
 Tout d’abord, définissez `GOOGLE_CLOUD_PROJECT` sur l’ID de projet Google Cloud.
 
@@ -135,7 +135,7 @@ Utilisez la même syntaxe d’URL (`blob.core.windows.net`) pour les comptes qui
 azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
 ```
 
-### <a name="copy-a-subset-of-buckets-in-a-google-cloud-project"></a>Copier un sous-ensemble de compartiments dans un projet Google Cloud 
+### <a name="copy-a-subset-of-buckets-in-a-google-cloud-project"></a>Copier un sous-ensemble de compartiments dans un projet Google Cloud
 
 Tout d’abord, définissez `GOOGLE_CLOUD_PROJECT` sur l’ID de projet Google Cloud.
 
@@ -155,13 +155,13 @@ azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccou
 
 Google Cloud Storage possède un ensemble de conventions d’attribution de noms aux compartiments différent des conteneurs d’objets blob Azure. Vous pouvez les découvrir [ici](https://cloud.google.com/storage/docs/naming-buckets). Si vous choisissez de copier un groupe de compartiments dans un compte de stockage Azure, l’opération de copie peut échouer en raison des différences en matière d’attributions de noms.
 
-AzCopy gère trois des problèmes les plus courants qui peuvent survenir : les compartiments contenant des points, les compartiments contenant des tirets consécutifs et les compartiments contenant des traits de soulignement. Les noms de compartiment Google Cloud Storage peuvent contenir des points et des traits d’union consécutifs, ce qui n’est pas le cas d’un conteneur dans Azure. AzCopy remplace les points par des traits d’union et les traits d’union consécutifs par un nombre qui représente le nombre de traits d’union consécutifs (par exemple, un compartiment nommé `my----bucket` devient `my-4-bucket`. Si le nom du compartiment comporte un trait de soulignement (`_`), AzCopy remplace le trait de soulignement par un trait d’union (par exemple : un compartiment nommé `my_bucket` devient `my-bucket`. 
+AzCopy gère trois des problèmes les plus courants qui peuvent survenir : les compartiments contenant des points, les compartiments contenant des tirets consécutifs et les compartiments contenant des traits de soulignement. Les noms de compartiment Google Cloud Storage peuvent contenir des points et des traits d’union consécutifs, ce qui n’est pas le cas d’un conteneur dans Azure. AzCopy remplace les points par des traits d’union et les traits d’union consécutifs par un nombre qui représente le nombre de traits d’union consécutifs (par exemple, un compartiment nommé `my----bucket` devient `my-4-bucket`. Si le nom du compartiment comporte un trait de soulignement (`_`), alors AzCopy remplace ce trait de soulignement par un trait d’union. Par exemple, un compartiment nommé `my_bucket` devient `my-bucket`.
 
 ## <a name="handle-differences-in-object-naming-rules"></a>Gérer les différences dans les règles d’attributions de noms aux objets
 
 Google Cloud Storage possède un ensemble de conventions d’attribution de noms aux objets différent des objets blob Azure. Vous pouvez les découvrir [ici](https://cloud.google.com/storage/docs/naming-objects).
 
-Le stockage Azure n’autorise pas les noms d’objets (ou tout segment dans le chemin d’accès du répertoire virtuel) à se terminer par des points (par exemple `my-bucket...`). Les points de fin sont supprimés lorsque l’opération de copie est effectuée. 
+Le stockage Azure n’autorise pas les noms d’objets (ou tout segment dans le chemin d’accès du répertoire virtuel) à se terminer par des points (par exemple `my-bucket...`). Les points de fin sont supprimés lorsque l’opération de copie est effectuée.
 
 ## <a name="handle-differences-in-object-metadata"></a>Gérer les différences dans les métadonnées d’objets
 
@@ -199,7 +199,7 @@ Vous trouverez plus d’exemples dans ces articles :
 - [Exemples : Téléchargement](storage-use-azcopy-blobs-download.md)
 - [Exemples : Copier entre comptes](storage-use-azcopy-blobs-copy.md)
 - [Exemples : Synchroniser](storage-use-azcopy-blobs-synchronize.md)
-- [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
+- [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
 - [Exemples : Azure Files](storage-use-azcopy-files.md)
 - [Tutoriel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 

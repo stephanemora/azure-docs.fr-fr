@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 09/20/2021
 ms.author: tisande
-ms.openlocfilehash: 7fee5b4133cc048576ff0b794d441fac3ee162e6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: a8d1dc69ef64726f55dffd20221a19c3f3114964
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035941"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595139"
 ---
 # <a name="azure-cosmos-db-integrated-cache-frequently-asked-questions"></a>Forum aux questions sur le cache intégré d’Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,6 +55,10 @@ Nous disposerons d’un contrat SLA/SLO de disponibilité sur la passerelle déd
 ### <a name="the-integrated-cache-is-only-available-for-sql-core-api-right-now-are-you-planning-on-releasing-it-for-other-apis-as-well"></a>Le cache intégré est disponible uniquement pour l’API SQL (Core) actuellement. Envisagez-vous également de le proposer pour d’autres API ?
 
 Le développement du cache intégré au-delà de l’API SQL est planifié à long terme, mais après la préversion publique initiale du cache intégré.
+
+### <a name="what-consistency-does-the-integrated-cache-support"></a>Quelle est la cohérence prise en charge par le cache intégré ?
+
+Le cache intégré prend en charge la session et la cohérence éventuelle. Vous pouvez également configurer le [MaxIntegratedCacheStaleness](integrated-cache.md#maxintegratedcachestaleness)facultatif, qui place une limite supérieure sur les données mises en cache.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,15 +4,15 @@ description: Décrit le fonctionnement de la détection d’anomalie, le moment 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.author: mingshen
-author: mingshen-ms
+author: saasguide
+ms.author: souchak
 ms.date: 09/27/2021
-ms.openlocfilehash: ff4600cd1b107fb041123191f80f9da4f50af5ac
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 8e8989eabc08b98b8b0bac922d7c998496c74a1c
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081171"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455149"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Service de détection d’anomalie pour la facturation à l’usage
 

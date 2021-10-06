@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 9b8699598a9bac4781346ff939736b2bd6ee72f2
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: d38c2518b3504b79f70c58aff1e6cf832d05c8a5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113429941"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633904"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Options de calcul et de stockage dans Azure Database pour MySQL - Serveur flexible (Préversion)
 
@@ -40,7 +40,7 @@ Pour choisir un niveau de calcul, utilisez le tableau suivant comme point de dé
 | Usage général | La plupart des charges de travail professionnelles qui nécessitent une capacité de calcul et de mémoire équilibrée avec un débit d’E/S extensible. Il s’agit, par exemple, de serveurs destinés à l’hébergement d’applications web et mobiles, ainsi que d’autres applications d’entreprise.|
 | Mémoire optimisée | Charges de travail de base de données haute performance qui nécessitent des performances en mémoire suffisantes pour un traitement plus rapide des transactions et une simultanéité plus élevée. Il s’agit, par exemple, de serveurs destinés au traitement de données en temps réel et à des applications transactionnelles ou analytiques haute performance.|
 
-Une fois que vous avez créé un serveur, le niveau de calcul, la taille de calcul et la taille de stockage ont changé. La mise à l’échelle du calcul requiert un redémarrage et prend entre 60 et 120 secondes, alors que la mise à l’échelle du stockage ne nécessite pas de redémarrage. Vous pouvez également augmenter ou réduire la période de rétention de sauvegarde de manière indépendante. Pour plus d’informations, consultez la section [Ressources de mise à l’échelle](#scale-resources).
+Une fois que vous avez créé un serveur, le niveau de calcul, la taille de calcul et la taille de stockage peuvent être modifiés. La mise à l’échelle du calcul requiert un redémarrage et prend entre 60 et 120 secondes, alors que la mise à l’échelle du stockage ne nécessite pas de redémarrage. Vous pouvez également augmenter ou réduire la période de rétention de sauvegarde de manière indépendante. Pour plus d’informations, consultez la section [Ressources de mise à l’échelle](#scale-resources).
 
 ## <a name="compute-tiers-size-and-server-types"></a>Niveaux de calcul, tailles et types de serveurs
 

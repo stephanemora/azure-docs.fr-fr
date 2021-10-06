@@ -4,23 +4,25 @@ description: Décrit comment définir et consommer un module et comment utiliser
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/15/2021
-ms.openlocfilehash: 5e092a0b7f27379cf9fdc488c7a56a295ce17d25
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/14/2021
+ms.openlocfilehash: 53bc8d80f1954694b8bdb262cdec25bb4506b221
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525365"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672834"
 ---
 # <a name="use-bicep-modules"></a>Utiliser des modules Bicep
 
-Bicep vous permet d’arrêter une solution complexe en modules. Un module Bicep est un ensemble d’une ou plusieurs ressources à déployer ensemble. Les modules extraient des détails complexes de la déclaration des ressources brutes, ce qui peut améliorer la lisibilité. Vous pouvez réutiliser ces modules et les partager avec d’autres personnes. Les modules Bicep sont transposés dans un seul modèle ARM avec des [modèles imbriqués](../templates/linked-templates.md#nested-template) pour le déploiement.
+Bicep vous permet d’arrêter une solution complexe en modules. Un module Bicep est simplement un fichier Bicep qui est déployé à partir d’un autre fichier Bicep. Vous pouvez encapsuler des détails complexes de la déclaration de ressource dans un module, ce qui améliore la lisibilité des fichiers qui utilisent le module. Vous pouvez réutiliser ces modules et les partager avec d’autres personnes. Les modules Bicep sont transposés dans un seul modèle du Gestionnaire de ressource Azure avec des [modèles imbriqués](../templates/linked-templates.md#nested-template) pour le déploiement.
+
+Cet article explique comment définir et utiliser les modules.
 
 Pour voir un tutoriel, consultez [Déployer des ressources Azure à l’aide de modèles Bicep](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
 
 ## <a name="define-modules"></a>Définir des modules
 
-Chaque fichier Bicep peut être utilisé comme un module. Un module expose uniquement les paramètres et les sorties comme contrat pour d’autres fichiers Bicep. Les paramètres et les sorties sont facultatifs.
+Chaque fichier Bicep peut être utilisé comme un module. Un module expose uniquement les paramètres et les sorties comme un contrat avec d’autres fichiers Bicep. Les paramètres et les sorties sont facultatifs.
 
 Le fichier Bicep suivant peut être déployé directement pour créer un compte de stockage ou être utilisé en tant que module.  La section suivante vous montre comment utiliser les modules :
 
@@ -71,7 +73,7 @@ Utilisez le mot clé _module_ pour utiliser un module. Le fichier Bicep suivant 
 param namePrefix string
 param location string = resourceGroup().location
 
-module stgModule './storageAccount.bicep' = {
+module stgModule 'storageAccount.bicep' = {
   name: 'storageDeploy'
   params: {
     storagePrefix: namePrefix
@@ -118,22 +120,11 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
+Vous pouvez déployer un module plusieurs fois à l’aide de boucles. Pour plus d’informations, voir [Itération de sorties dans Bicep](loop-modules.md).
+
 ## <a name="configure-module-scopes"></a>Configurer les étendues du module
 
-Lors de la déclaration d’un module, vous pouvez fournir une propriété _étendue_ pour définir l’étendue selon laquelle le module doit être déployé :
-
-```bicep
-module stgModule './storageAccount.bicep' = {
-  name: 'storageDeploy'
-  scope: resourceGroup('someOtherRg') // pass in a scope to a different resourceGroup
-  params: {
-    storagePrefix: namePrefix
-    location: location
-  }
-}
-```
-
-La propriété _étendue_ peut être omise lorsque l’étendue cible du module et l’étendue cible du parent sont les mêmes. Lorsque la propriété d’étendue n’est pas fournie, le module est déployé au niveau de l’étendue cible du parent.
+Lors de la déclaration d’un module, vous pouvez définir une étendue pour le module qui est différente de l’étendue pour le fichier Bicep conteneur. Utilisez la propriété `scope` pour définir l’étendue du module. Lorsque la propriété d’étendue n’est pas fournie, le module est déployé au niveau de l’étendue cible du parent.
 
 Le fichier Bicep suivant montre comment créer un groupe de ressources et déployer un module dans le groupe de ressources :
 
@@ -166,15 +157,59 @@ module stgModule './storageAccount.bicep' = {
 output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
 
-La propriété d’étendue doit être définie sur un objet d’étendue valide. Si votre fichier Bicep déploie un groupe de ressources, un abonnement ou un groupe d’administration, vous pouvez définir l’étendue d’un module sur le nom symbolique de cette ressource. Cette approche est illustrée dans l’exemple précédent où un groupe de ressources est créé et utilisé pour l’étendue d’un module.
+L’exemple suivant déploie sur des groupes de ressources existants.
 
-Vous pouvez également utiliser les fonctions d’étendue pour obtenir une étendue valide. Ces fonctions sont les suivantes :
+```bicep
+targetScope = 'subscription'
+
+resource firstRG 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
+  name: 'demogroup1'
+}
+
+resource secondRG 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
+  name: 'demogroup2'
+}
+
+module storage1 'storageAccount.bicep' = {
+  name: 'westusdeploy'
+  scope: firstRG
+  params: {
+    storagePrefix: 'stg1'
+    location: 'westus'
+  }
+}
+
+module storage2 'storageAccount.bicep' = {
+  name: 'eastusdeploy'
+  scope: secondRG
+  params: {
+    storagePrefix: 'stg2'
+    location: 'eastus'
+  }
+}
+```
+
+La propriété d’étendue doit être définie sur un objet d’étendue valide. Si votre fichier Bicep déploie un groupe de ressources, un abonnement ou un groupe d’administration, vous pouvez définir l’étendue d’un module sur le nom symbolique de cette ressource. Vous pouvez également utiliser les fonctions d’étendue pour obtenir une étendue valide. 
+
+Ces fonctions sont les suivantes :
 
 - [resourceGroup](bicep-functions-scope.md#resourcegroup)
 - [subscription](bicep-functions-scope.md#subscription)
 - [managementGroup](bicep-functions-scope.md#managementgroup)
 - [client](bicep-functions-scope.md#tenant)
 
+L’exemple suivant utilise la fonction `managementGroup` pour définir l’étendue.
+
+```bicep
+param managementGroupName string
+
+module  'module.bicep' = {
+  name: 'deployToMG'
+  scope: managementGroup(managementGroupName)
+}
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour voir un tutoriel, consultez [Déployer des ressources Azure à l’aide de modèles Bicep](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
+- Pour passer une valeur sensible à un module, utilisez la fonction [getSecret](bicep-functions-resource.md#getsecret) .
+- Vous pouvez déployer un module plusieurs fois à l’aide de boucles. Pour plus d’informations, voir [Itération de sorties dans Bicep](loop-modules.md).

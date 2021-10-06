@@ -8,12 +8,12 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b5abad1e83f33acb32fbba97616c81f47677295
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 7e73d987ad8029d1ee65af0f92173561230af599
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112118361"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589242"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurer un VPN point à site (P2S) sur Windows pour l’utiliser avec Azure Files
 Vous pouvez utiliser une connexion VPN point à site (P2S) pour monter vos partages de fichiers Azure sur SMB en dehors d’Azure, sans ouvrir le port 445. Une connexion VPN point à site est une connexion VPN entre Azure et un client individuel. Pour utiliser une connexion VPN P2S avec Azure Files, une connexion VPN P2S doit être configurée pour chaque client qui souhaite se connecter. Si de nombreux clients doivent se connecter à vos partages de fichiers Azure depuis votre réseau local, vous pouvez utiliser une connexion VPN site à site (S2S) au lieu d’une connexion point à site pour chaque client. Pour plus d’informations, consultez [Configurer un VPN site à site pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md).
@@ -333,6 +333,65 @@ Invoke-Command `
     }
 ```
 
+## <a name="rotate-vpn-root-certificate"></a>Faire pivoter le certificat racine VPN
+Si un certificat racine doit être pivoté en raison d’une expiration ou de nouvelles exigences, vous pouvez ajouter un nouveau certificat racine à la passerelle de réseau virtuel existante sans avoir à redéployer la passerelle de réseau virtuel.  Une fois le certificat racine ajouté à l’aide de l’exemple de script suivant, vous devez recréer le [certificat du client VPN](#create-client-certificate).  
+
+Remplacez `<resource-group-name>`, `<desired-vpn-name-here>` et `<new-root-cert-name>` par vos propres valeurs, puis exécutez le script.
+
+```PowerShell
+#Creating the new Root Certificate
+$ResourceGroupName = "<resource-group-name>"
+$vpnName = "<desired-vpn-name-here>"
+$NewRootCertName = "<new-root-cert-name>"
+
+$rootcertname = "CN=$NewRootCertName"
+$certLocation = "Cert:\CurrentUser\My"
+$date = get-date -Format "MM_yyyy"
+$vpnTemp = "C:\vpn-temp_$date\"
+$exportedencodedrootcertpath = $vpnTemp + "P2SRootCertencoded.cer"
+$exportedrootcertpath = $vpnTemp + "P2SRootCert.cer"
+
+if (-Not (Test-Path $vpnTemp)) {
+    New-Item -ItemType Directory -Force -Path $vpnTemp | Out-Null
+}
+
+$rootcert = New-SelfSignedCertificate `
+    -Type Custom `
+    -KeySpec Signature `
+    -Subject $rootcertname `
+    -KeyExportPolicy Exportable `
+    -HashAlgorithm sha256 `
+    -KeyLength 2048 `
+    -CertStoreLocation $certLocation `
+    -KeyUsageProperty Sign `
+    -KeyUsage CertSign
+
+Export-Certificate `
+    -Cert $rootcert `
+    -FilePath $exportedencodedrootcertpath `
+    -NoClobber | Out-Null
+
+certutil -encode $exportedencodedrootcertpath $exportedrootcertpath | Out-Null
+
+$rawRootCertificate = Get-Content -Path $exportedrootcertpath
+
+[System.String]$rootCertificate = ""
+foreach($line in $rawRootCertificate) { 
+    if ($line -notlike "*Certificate*") { 
+        $rootCertificate += $line 
+    } 
+}
+
+#Fetching gateway details and adding the newly created Root Certificate.
+$gateway = Get-AzVirtualNetworkGateway -Name $vpnName -ResourceGroupName $ResourceGroupName
+
+Add-AzVpnClientRootCertificate `
+    -PublicCertData $rootCertificate `
+    -ResourceGroupName $ResourceGroupName `
+    -VirtualNetworkGatewayName $gateway `
+    -VpnClientRootCertificateName $NewRootCertName
+
+```
 ## <a name="see-also"></a>Voir aussi
 - [Considérations réseau pour l’accès direct à un partage réseau Azure](storage-files-networking-overview.md)
 - [Configurer un VPN point à site (P2S) sous Linux pour une utilisation avec Azure Files](storage-files-configure-p2s-vpn-linux.md)

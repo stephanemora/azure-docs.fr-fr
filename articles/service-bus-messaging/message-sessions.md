@@ -2,16 +2,16 @@
 title: Sessions de messagerie Azure Service Bus | Microsoft Docs
 description: Cet article explique comment utiliser des sessions pour permettre un traitement conjoint et ordonné de séquences illimitées de messages associés.
 ms.topic: article
-ms.date: 04/19/2021
-ms.openlocfilehash: f3b6eae7b7f4d609df5067187595230aa6b86dba
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 09/01/2021
+ms.openlocfilehash: 98430d7b9db857de6dc3dfb37e61908b236591f2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987161"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433437"
 ---
 # <a name="message-sessions"></a>Sessions de message
-Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles **premier entré, premier sorti (FIFO**) et **requête-réponse**. Cet article explique comment utiliser des sessions pour implémenter ces modèles lors de l’utilisation de Service Bus. 
+Les sessions Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles **premier entré, premier sorti (FIFO**) et **requête-réponse**. Cet article explique comment utiliser des sessions pour implémenter ces modèles lors de l’utilisation de Service Bus. 
 
 > [!NOTE]
 > Le niveau de base de Service Bus ne prend pas en charge les sessions. Les niveaux standard et premium prennent en charge les sessions. Pour connaître les différences entre ces niveaux, voir [Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -19,14 +19,14 @@ Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et ch
 ## <a name="first-in-first-out-fifo-pattern"></a>Modèle premier entré, premier sorti (FIFO)
 Pour garantir l’application de la méthode FIFO dans Service Bus, utilisez des sessions. Service Bus n’est pas normatif concernant la nature de la relation entre les messages, et ne définit aucun modèle spécifique pour déterminer le début et la fin d’une séquence de messages.
 
-Lors de l’envoi de messages dans une rubrique ou dans une file d’attente, tout expéditeur peut créer une session en définissant la propriété d’**ID de session** sur un identificateur défini par l’application qui est unique à la session. Au niveau du protocole AMQP 1.0, cette valeur est mappée sur la propriété *group-id*.
+Lors de l’envoi de messages dans une rubrique ou dans une file d’attente, tout expéditeur peut créer une session en définissant la propriété d’**ID de session** sur un identificateur défini par l’application qui est unique à la session. Au niveau du protocole **AMQP 1.0**, cette valeur est mappée sur la propriété **group-id**.
 
 Dans les files d’attente ou abonnements prenant en compte la session, les sessions entrent en action quand au moins un message existe avec l’ID de session. Une fois qu’une session existe, aucune heure ou API ne définissent son expiration ou sa disparition. Il est théoriquement possible de recevoir un message pour une session le jour même, puis le message suivant un an après et, si l’ID de session correspond, Service Bus considère alors qu’il s’agit de la même session.
 
 Toutefois, en général, une application détermine précisément le début et la fin d’un ensemble de messages associés. Service Bus ne définit pas de règles spécifiques. Par exemple, votre application pourrait définir la propriété **Label** du premier message sur **start**, celle des messages intermédiaires sur **content** et celle du dernier message sur **end**. La position relative des messages de contenu peut être calculée comme étant égale à la différence entre la valeur *SequenceNumber* du message actuel et la valeur *SequenceNumber* du message présentant la valeur **start**.
 
 > [!IMPORTANT]
-> Lorsque les sessions sont activées sur une file d’attente ou un abonnement, les applications client ***ne peuvent plus*** envoyer/recevoir des messages standard. Tous les messages doivent être envoyés dans le cadre d’une session (en définissant l’ID de session) et reçus en acceptant la session.
+> Lorsque les sessions sont activées sur une file d’attente ou un abonnement, les applications clientes ***ne peuvent plus*** _ envoyer/recevoir de messages normaux. Tous les messages doivent être envoyés dans le cadre d’une session (en définissant l’ID de session) et reçus en acceptant la session.
 
 Les API relatives aux sessions existent sur les clients de file d’attente et d’abonnement. Il existe un modèle impératif qui contrôle le moment où les sessions et les messages sont reçus, ainsi qu’un modèle basé sur un gestionnaire qui simplifie la gestion de la boucle de réception. 
 

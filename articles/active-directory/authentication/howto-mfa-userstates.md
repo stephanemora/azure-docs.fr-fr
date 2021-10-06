@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd22b7068507358b3b9cff0b97ce9bf6f3cabc1e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 066e0a48442825785bc2c413c0e7d40ca470f45d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124762946"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353241"
 ---
 # <a name="enable-per-user-azure-ad-multi-factor-authentication-to-secure-sign-in-events"></a>Activer Azure AD Multi-Factor Authentication par utilisateur pour sécuriser les événements de connexion
 
@@ -83,7 +83,7 @@ Dès que vous avez activé les utilisateurs, informez-les-en par e-mail. Informe
 
 Si vos utilisateurs ont été activés à l'aide d'une authentification Azure AD MFA appliquée par Azure ou reposant sur l'utilisateur, la commande PowerShell suivante peut vous aider à passer à une authentification Azure AD MFA basée sur l'accès conditionnel.
 
-Exécutez ce script PowerShell dans une fenêtre ISE ou enregistrez-le en tant que fichier `.PS1` à exécuter localement. L’opération peut uniquement être effectuée à l’aide du [module MSOnline](/powershell/module/msonline/?view=azureadps-1.0#msonline). 
+Exécutez ce script PowerShell dans une fenêtre ISE ou enregistrez-le en tant que fichier `.PS1` à exécuter localement. L’opération peut uniquement être effectuée à l’aide du [module MSOnline](/powershell/module/msonline#msonline). 
 
 ```PowerShell
 # Sets the MFA requirement state

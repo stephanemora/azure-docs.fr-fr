@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment activer HTTPS avec TLS version 1.2 pour sécuriser un service web déployé par le biais d’Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: jhirono
 author: jhirono
 ms.date: 07/07/2021
 ms.topic: how-to
-ms.openlocfilehash: ca7a6e424125980f79ccb6521df0d7b87a9ce456
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 8194b5c170186c5498e181e00f27c91156ae4ada
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694964"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428176"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning
 

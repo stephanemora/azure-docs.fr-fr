@@ -8,19 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 09/21/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 8752a80eb4b5faae3566ce1e7bbd70dd61b26ba1
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 35b4d70ae5e1b7e93b08c7ebe16e5707172ed792
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219611"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672340"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
 L’API Analyse de texte est mise à jour de manière continue. Pour vous informer des développements récents, cet article vous fournit des informations sur les nouvelles versions et fonctionnalités.
+
+## <a name="september-2021"></a>Septembre 2021
+
+* À partir de la version `3.0.017010001-onprem-amd64`, l’Analyse de texte pour le conteneur d’intégrité peut désormais être appelée à l’aide de la bibliothèque cliente. Pour plus d’informations, consultez [Comment installer et exécuter des conteneurs d’Analyse de texte](how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support).
+
 
 ## <a name="august-2021"></a>Août 2021
 

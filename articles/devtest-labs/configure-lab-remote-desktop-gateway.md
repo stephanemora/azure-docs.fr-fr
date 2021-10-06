@@ -1,14 +1,14 @@
 ---
-title: Configurer un labo pour utiliser une passerelle des services Bureau à distance dans Azure DevTest Labs
+title: Configurer un laboratoire pour utiliser la passerelle du Bureau à distance
 description: Découvrez comment configurer un labo dans Azure DevTest Labs avec une passerelle des services Bureau à distance afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: b15d4d39199c1a30eae292ece67f4553b656f530
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fcafc9f035d57e7685ffc3646cecaf27b60684f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639587"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652412"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurer votre labo dans Azure DevTest Labs pour utiliser une passerelle des services Bureau à distance
 Dans Azure DevTest Labs, vous pouvez configurer une passerelle des services Bureau à distance pour votre labo afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP. Le labo fournit un emplacement centralisé permettant aux utilisateurs de votre labo de voir toutes les machines virtuelles auxquelles ils ont accès et de s’y connecter. Le bouton **Se connecter** dans la page **Machine virtuelle** crée un fichier RDP spécifique à la machine que vous pouvez ouvrir pour vous connecter à cette dernière. Vous pouvez personnaliser et sécuriser davantage la connexion RDP en connectant votre labo à une passerelle des services Bureau à distance. 

@@ -6,48 +6,41 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d061b766a973f8c867fb97da6d42c625589d2f27
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 395b3d14571b9cf8ab2080c77aadf686dc8aea29
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783402"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599276"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurer la réplication d’objets pour des objets blob de blocs
 
-La réplication d’objets copie de façon asynchrone des objets blob de blocs entre un compte de stockage source et un compte de destination. Pour en savoir plus sur le sujet, consultez [Réplication d’objets](object-replication-overview.md).
+La réplication d’objets copie de façon asynchrone des objets blob de blocs entre un compte de stockage source et un compte de destination. Lorsque vous configurez la réplication d’objets, vous créez une stratégie de réplication qui spécifie le compte de stockage source et le compte de destination. Une stratégie de réplication comprend une ou plusieurs règles qui spécifient un conteneur source et un conteneur de destination et indiquent quels objets blob de blocs du conteneur source seront répliqués. Pour plus d’informations sur la réplication d’objets, consultez [Réplication d’objets pour les objets Blob de blocs](object-replication-overview.md).
 
-Lorsque vous configurez la réplication d’objets, vous créez une stratégie de réplication qui spécifie le compte de stockage source et le compte de destination. Une stratégie de réplication comprend une ou plusieurs règles qui spécifient un conteneur source et un conteneur de destination et indiquent quels objets blob de blocs du conteneur source seront répliqués.
+Cet article explique comment configurer une stratégie de réplication d’objets à l’aide du portail Azure, de PowerShell ou de l’interface CLI Azure. Vous pouvez également utiliser l’une des bibliothèques clientes du fournisseur de ressources Stockage Azure pour configurer la réplication d’objets.
 
-Cet article explique comment configurer la réplication d’objets pour votre compte de stockage à l’aide de Portail Azure, de PowerShell ou d’Azure CLI. Vous pouvez également utiliser l’une des bibliothèques clientes du fournisseur de ressources Stockage Azure pour configurer la réplication d’objets.
+## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-## <a name="create-a-replication-policy-and-rules"></a>Créer une stratégie et des règles de réplication
-
-Avant de configurer la réplication d’objets, créez les comptes de stockage source et de destination, s’ils n’existent pas déjà. Les deux comptes doivent être des comptes de stockage v2 universels. Pour plus d’informations, consultez la rubrique [Créer un compte Stockage Azure](../common/storage-account-create.md).
+Avant de configurer la réplication d’objets, créez les comptes de stockage source et de destination, s’ils n’existent pas déjà. Les comptes source et de destination peuvent être des comptes de stockage à usage général v2 ou des comptes d’objets Blob de blocs Premium (préversion). Pour plus d’informations, consultez la rubrique [Créer un compte Stockage Azure](../common/storage-account-create.md).
 
 La réplication d’objets requiert que le contrôle de version des blobs soit activé pour le compte source et le compte de destination, et que le flux de modification de blob soit activé pour le compte source. Pour en savoir plus sur le contrôle de version des blobs, consultez [Contrôle de version des objets blob](versioning-overview.md). Pour en savoir plus sur le flux de modification, consultez [Prise en charge du flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md). Gardez à l’esprit que l’activation de ces fonctionnalités peut occasionner des coûts supplémentaires.
 
-Un compte de stockage peut servir de compte source pour un maximum de deux comptes de destination. Les comptes source et de destination peuvent se trouver dans la même région ou dans des régions différentes. Ils peuvent également résider dans différents abonnements et locataires Azure Active Directory (Azure AD). Vous pouvez créer une seule stratégie de réplication pour chaque paire de comptes.
-
-Lorsque vous configurez une réplication d’objet, vous créez une stratégie de réplication sur le compte de destination via le fournisseur de ressources de Stockage Azure. Une fois la stratégie de réplication créée, le service Stockage Azure lui attribue un ID de stratégie. Vous devez ensuite associer cette stratégie de réplication au compte source à l’aide de l’ID de stratégie. Pour que la réplication ait lieu, l’ID de stratégie doit être le même sur les comptes source et de destination.
-
 Pour configurer une stratégie de réplication d’objet pour un compte de stockage, vous devez être titulaire du rôle **Contributeur** Azure Resource Manager, étendu au niveau du compte de stockage ou à un niveau supérieur. Pour plus d’informations, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) dans la documentation Contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 
-### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Configurer la réplication d’objets lorsque vous avez accès aux deux comptes de stockage
+> [!IMPORTANT]
+> La réplication d’objets pour les comptes d’objets Blob de blocs Premium est actuellement en **PRÉVERSION**. Pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou plus généralement non encore en disponibilité générale, consultez [l’Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Si vous avez accès aux comptes de stockage source et de destination, vous pouvez configurer la stratégie de réplication d’objet sur les deux comptes.
+## <a name="configure-object-replication-with-access-to-both-storage-accounts"></a>Configurer la réplication d’objets avec accès aux deux comptes de stockage
 
-Avant de configurer la réplication d’objets dans le portail Azure, créez les conteneurs source et de destination dans leurs comptes de stockage respectifs, s’ils n’existent pas déjà. Activez également le contrôle de version des blobs et le flux de modification sur le compte source, et le contrôle de version des blobs sur le compte de destination.
+Si vous avez accès aux comptes de stockage source et de destination, vous pouvez configurer la stratégie de réplication d’objet sur les deux comptes. Les exemples suivants montrent comment configurer la réplication d’objets avec le portail Azure, PowerShell ou l’interface CLI Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+### <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-Le portail Azure crée automatiquement la stratégie sur le compte source une fois que vous l’avez configurée pour le compte de destination.
+Quand vous configurez la réplication d’objets dans le portail Azure, vous devez uniquement configurer la stratégie sur le compte source. Le portail Azure crée automatiquement la stratégie sur le compte de destination une fois que vous l’avez configurée pour le compte source.
 
 Pour créer une stratégie de réplication dans le portail Azure, procédez comme suit :
 
@@ -79,11 +72,11 @@ Une fois que vous avez configuré la réplication d’objet, le portail Azure af
 
 :::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Capture d’écran montrant la stratégie de réplication d’objet dans le portail Azure":::
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Pour créer une stratégie de réplication à l’aide de PowerShell, commencez par installer la version [2.5.0](https://www.powershellgallery.com/packages/Az.Storage/2.5.0) ou une version ultérieure du module PowerShell Az.Storage. Pour en savoir plus sur l’installation d’Azure PowerShell, voir [Installer Azure PowerShell avec PowerShellGet](/powershell/azure/install-az-ps).
 
-L’exemple suivant montre comment créer une stratégie de réplication sur les comptes source et de destination. N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
+L’exemple suivant montre comment créer d’abord une stratégie de réplication sur le compte de destination, puis sur le compte source. N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
 
 ```powershell
 # Sign in to your Azure account.
@@ -131,7 +124,7 @@ $rule1 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainer
     -PrefixMatch b
 $rule2 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainerName2 `
     -DestinationContainer $destContainerName2  `
-    -MinCreationTime 2020-05-10T00:00:00Z
+    -MinCreationTime 2021-09-01T00:00:00Z
 
 # Create the replication policy on the destination account.
 $destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
@@ -146,7 +139,7 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
     -InputObject $destPolicy
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour créer une stratégie de réplication avec Azure CLI, commencez par installer Azure CLI version 2.11.1 ou ultérieure. Pour plus d’informations, consultez [Prise en main d’Azure CLI](/cli/azure/get-started-with-azure-cli).
 
@@ -185,7 +178,7 @@ az storage container create \
     --auth-mode login
 az storage container create \
     --account-name <dest-storage-account> \
-    --name dest-container-1 \
+    --name dest-container-2 \
     --auth-mode login
 ```
 
@@ -199,7 +192,7 @@ az storage account or-policy create \
     --destination-account <dest-storage-account> \
     --source-container source-container-1 \
     --destination-container dest-container-1 \
-    --min-creation-time '2020-09-10T00:00:00Z' \
+    --min-creation-time '2021-09-01T00:00:00Z' \
     --prefix-match a
 
 ```
@@ -230,43 +223,14 @@ az storage account or-policy show \
 
 ---
 
-### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>Configurer la réplication d’objets lorsque vous avez accès uniquement au compte de destination
+## <a name="configure-object-replication-with-access-to-only-the-destination-account"></a>Configurer la réplication d’objets avec accès uniquement au compte de destination
 
 Si vous n’avez pas d’autorisation sur le compte de stockage source, vous pouvez configurer la réplication d’objets sur le compte de destination, et fournir un fichier JSON contenant la définition de stratégie à un autre utilisateur pour créer la même stratégie sur le compte source. Par exemple, si le compte source se trouve dans un locataire Azure AD différent de celui du compte de destination, vous pouvez adopter cette approche pour configurer la réplication d’objets.
 
-Gardez à l’esprit que, pour créer la stratégie, vous devez être titulaire du rôle **Contributeur** Azure Resource Manager étendu au niveau du compte de stockage de destination ou à un niveau supérieur. Pour plus d’informations, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) dans la documentation Contrôle d’accès en fonction du rôle Azure (Azure RBAC).
+> [!NOTE]
+> La réplication d’objets entre locataires est autorisée par défaut pour un compte de stockage. Pour empêcher la réplication entre les locataires, vous pouvez définir la propriété **AllowCrossTenantReplication** (préversion) pour interdire la réplication d’objets entre locataires pour vos comptes de stockage. Pour plus d’informations, consultez [Empêcher la réplication d’objets entre locataires sur le Répertoire actif Azure](object-replication-prevent-cross-tenant-policies.md).
 
-Le tableau suivant récapitule les valeurs à utiliser pour l’ID de stratégie et les ID de règle dans le fichier JSON de chaque scénario.
-
-| Lorsque vous créez le fichier JSON pour ce compte... | Définissez l’ID de stratégie sur cette valeur | Définissez les ID de règle sur cette valeur |
-|-|-|-|
-| Compte de destination | Valeur de chaîne *par défaut*. Le service Stockage Azure créera la valeur d’ID de stratégie pour vous. | Chaîne vide. Le service Stockage Azure créera les valeurs d’ID de règle pour vous. |
-| Compte source | Valeur de l’ID de stratégie retournée quand vous téléchargez la stratégie définie sur le compte de destination en tant que fichier JSON. | Valeurs des ID de règle retournés quand vous téléchargez la stratégie définie sur le compte de destination en tant que fichier JSON. |
-
-L’exemple suivant définit une stratégie de réplication sur le compte de destination avec une règle unique correspondant au préfixe *b*, et définit l’heure de création minimale des objets blob à répliquer. N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
-
-```json
-{
-  "properties": {
-    "policyId": "default",
-    "sourceAccount": "<source-account>",
-    "destinationAccount": "<dest-account>",
-    "rules": [
-      {
-        "ruleId": "",
-        "sourceContainer": "<source-container>",
-        "destinationContainer": "<destination-container>",
-        "filters": {
-          "prefixMatch": [
-            "b"
-          ],
-          "minCreationTime": "2020-08-028T00:00:00Z"
-        }
-      }
-    ]
-  }
-}
-```
+Les exemples de cette section montrent comment configurer la stratégie de réplication d’objets sur le compte de destination, puis obtenir le fichier JSON pour cette stratégie qu’un autre utilisateur peut utiliser pour configurer la stratégie sur le compte source.
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
@@ -310,7 +274,9 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Pour utiliser le fichier JSON afin de définir la stratégie de réplication sur le compte source avec PowerShell, récupérez le fichier local et convertissez-le de JSON en objet. Appelez ensuite la commande [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) pour configurer la stratégie sur le compte source, comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs entre crochets dans le chemin d’accès du fichier par vos propres valeurs :
+Pour utiliser le fichier JSON afin de définir la stratégie de réplication sur le compte source avec PowerShell, récupérez le fichier local et convertissez-le de JSON en objet. Appelez ensuite la commande [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) pour configurer la stratégie sur le compte source, comme indiqué dans l’exemple suivant.
+
+Lors de l’exécution de l’exemple, veillez à définir le `-ResourceGroupName` paramètre sur le groupe de ressources pour le compte source et le `-StorageAccountName` paramètre sur le nom du compte source. De même, n’oubliez pas de remplacer les valeurs entre crochets et le chemin d’accès du fichier par vos propres valeurs :
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -443,6 +409,7 @@ az storage account or-policy delete \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble de la réplication d’objets](object-replication-overview.md)
+- [Réplication d'objets blob de blocs](object-replication-overview.md)
+- [Empêcher la réplication d’objets entre les locataires du Répertoire actif Azure](object-replication-prevent-cross-tenant-policies.md)
 - [Activer et gérer le contrôle de version des objets blob](versioning-enable.md)
 - [Flux de modification dans Stockage Blob Azure](storage-blob-change-feed-how-to.md)

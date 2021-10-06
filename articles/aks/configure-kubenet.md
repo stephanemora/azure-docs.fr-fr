@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 59eb3874a7f0de9eba1f5b75204618c887cb9bb2
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: d206e92eeea06b8e8a95a74c7a253eae5280eb5f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525841"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607802"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
@@ -224,6 +224,8 @@ Limites :
 * Une table de route personnalisée doit être associée au sous-réseau avant de créer le cluster AKS.
 * La ressource de table de route associée ne peut pas être mise à jour après la création du cluster. Même si la ressource de table de route ne peut pas être mise à jour, les règles personnalisées peuvent être modifiées dans la table de route.
 * Chaque cluster AKS doit utiliser une table de route unique pour tous les sous-réseaux associés au cluster. Vous ne pouvez pas réutiliser une table de route avec plusieurs clusters en raison du risque de chevauchement des CIDR de pods et de règles d’acheminement contradictoires.
+* Vous ne pouvez pas fournir votre propre sous-réseau et table de routage avec une identité managée affectée par le système. Pour fournir votre propre sous-réseau et table de routage, vous devez utiliser une [identité managée affectée par l’utilisateur][user-assigned managed identity], affecter des autorisations avant la création du cluster et vérifier que l’identité affectée par l’utilisateur dispose d’autorisations en écriture sur votre sous-réseau personnalisé et table de routage personnalisée.
+* L’utilisation de la même table de routage avec plusieurs clusters AKS n’est pas prise en charge.
 
 Après avoir créé une table de route personnalisée et l’avoir associée à votre sous-réseau dans votre réseau virtuel, vous pouvez créer un nouveau cluster AKS qui utilise votre table de route.
 Vous devez utiliser l’ID de sous-réseau pour l’emplacement où vous envisagez de déployer votre cluster AKS. Ce sous-réseau doit également être associé à votre table de route personnalisée.
@@ -267,3 +269,4 @@ Maintenant qu’un cluster AKS est déployé dans votre sous-réseau de réseau 
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
+[user-assigned managed identity]: use-managed-identity.md#bring-your-own-control-plane-mi

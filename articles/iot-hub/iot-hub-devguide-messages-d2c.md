@@ -11,12 +11,12 @@ ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: b460c906806cc9c9beb9c9e037d1096feea098a3
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: cfa6865ee7facdc00303f725de78a3e523ff301d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114404399"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595989"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -28,9 +28,9 @@ Le routage des messages vous permet d’envoyer des messages de vos appareils ve
 
 * **Le filtrage des données avant leur routage vers différents points de terminaison** en appliquant des requêtes avancées. Le routage de messages vous permet d’interroger les propriétés et le corps d’un message, ainsi que les étiquettes et les propriétés d’un jumeau d’appareil. Découvrez plus d’informations sur l’utilisation de [requêtes dans le routage des messages](iot-hub-devguide-routing-query-syntax.md).
 
-IoT Hub doit pouvoir accéder en écriture à ces points de terminaison de service pour que le routage des messages fonctionne. Si vous configurez vos points de terminaison via le portail Azure, les autorisations nécessaires sont ajoutées pour vous. Veillez à configurer vos services pour prendre en charge le débit prévu. Par exemple, si vous utilisez Event Hubs comme point de terminaison personnalisé, vous devez configurer les **unités de débit** pour ce hub d’événements afin qu’il puisse gérer l’entrée des événements que vous envisagez d’envoyer via le routage des messages IoT Hub. De même, lors de l’utilisation d’une file d’attente Service Bus comme point de terminaison, vous devez configurer la **taille maximale** afin que la file d’attente puisse contenir toutes les données entrantes, jusqu’à ce qu’elles soient sorties par les consommateurs. Lorsque vous configurez votre solution IoT pour la première fois, vous devrez peut-être surveiller vos points de terminaison supplémentaires et apporter les modifications nécessaires en fonction de la charge réelle.
+IoT Hub doit pouvoir accéder en écriture à ces points de terminaison de service pour que le routage des messages fonctionne. Si vous configurez vos points de terminaison via le portail Azure, les autorisations nécessaires sont ajoutées pour vous. Veillez à configurer vos services pour prendre en charge le débit prévu. Par exemple, si vous utilisez Event Hubs comme point de terminaison personnalisé, vous devez configurer les **unités de débit** pour ce hub d’événements afin qu’il puisse gérer l’entrée des événements que vous envisagez d’envoyer via le routage des messages IoT Hub. De même, lors de l’utilisation d’une file d’attente Service Bus comme point de terminaison, vous devez configurer la **taille maximale** afin que la file d’attente puisse contenir toutes les données entrantes, jusqu’à ce qu’elles soient sorties par les consommateurs. Quand vous configurez pour la première fois votre solution IoT, vous devrez peut-être surveiller vos autres points de terminaison et effectuer les ajustements nécessaires à la charge réelle.
 
-IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour tous les envois de messages appareil-à-cloud à des fins d'interopérabilité entre les protocoles. Si un message correspond à plusieurs routes qui pointent vers le même point de terminaison, IoT Hub ne remet ce message qu’une seule fois à ce point de terminaison. Par conséquent, vous n’avez pas besoin de configurer une déduplication sur votre file d’attente ou votre rubrique Service Bus. Dans les files d’attente partitionnées, l’affinité de la partition assure le classement des messages. Utilisez ce tutoriel pour découvrir comment [configurer le routage des messages](tutorial-routing.md).
+IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour tous les envois de messages appareil-à-cloud à des fins d'interopérabilité entre les protocoles. Si un message correspond à plusieurs routes qui pointent vers le même point de terminaison, IoT Hub ne remet ce message qu’une seule fois à ce point de terminaison. Par conséquent, vous n’avez pas besoin de configurer une déduplication sur votre file d’attente ou votre rubrique Service Bus. Utilisez ce tutoriel pour découvrir comment [configurer le routage des messages](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Points de terminaison de routage
 
@@ -38,7 +38,7 @@ Un hub IoT a un point de terminaison intégré par défaut (**messages/événeme
 
 Chaque message est routé vers tous les points de terminaison dont il correspond aux requêtes de routage. En d’autres termes, un message peut être routé vers plusieurs points de terminaison.
 
-Si votre point d’accès personnalisé est configuré avec un pare-feu, envisagez d’utiliser l’[exception des premiers tiers Microsoft approuvés](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources).
+Si votre point de terminaison personnalisé est configuré avec un pare-feu, envisagez d’utiliser l’[exception des premiers tiers Microsoft approuvés](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources).
 
 IoT Hub prend actuellement en charge les points de terminaison suivants :
 
@@ -53,11 +53,11 @@ Vous pouvez utiliser [l’intégration et les SDK standard Event Hubs](iot-hub-d
 
 ## <a name="azure-storage-as-a-routing-endpoint"></a>Stockage Azure en tant que point de terminaison de routage
 
-Il existe deux services de stockage vers lesquels IoT Hub peut acheminer des messages : les comptes de [stockage d’objets Blob Azure](../storage/blobs/storage-blobs-introduction.md) et [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Les comptes Azure Data Lake Storage sont des comptes de stockage compatibles avec [l’espace de noms hiérarchique](../storage/blobs/data-lake-storage-namespace.md) basés sur le stockage d’objets Blob. Les deux utilisent des objets Blob pour leur stockage.
+il existe deux services de stockage IoT Hub qui peuvent acheminer des messages vers : les comptes [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md) et [Data Lake Storage Gen2 Azure](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Les comptes Azure Data Lake Storage sont des comptes de stockage compatibles avec [l’espace de noms hiérarchique](../storage/blobs/data-lake-storage-namespace.md) basés sur le stockage d’objets Blob. Les deux utilisent des objets Blob pour leur stockage.
 
-IoT Hub prend en charge l’écriture de données sur Stockage Azure au format [Apache Avro](https://avro.apache.org/) ainsi qu’au format JSON. La valeur par défaut est AVRO. Quand vous utilisez l’encodage JSON, vous devez définir contentType sur **application/json** et contentEncoding sur **UTF-8** dans les [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties) du message. Ces deux valeurs sont insensibles à la casse. Si ce codage n’est pas défini, IoT Hub écrit les messages dans un format codé base-64.
+IoT Hub prend en charge l’écriture de données sur le Stockage Azure au format [Apache Avro](https://avro.apache.org/) ainsi qu’au format JSON. La valeur par défaut est AVRO. Quand vous utilisez l’encodage JSON, vous devez définir contentType sur **application/json** et contentEncoding sur **UTF-8** dans les [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties) du message. Ces deux valeurs sont insensibles à la casse. Si ce codage n’est pas défini, IoT Hub écrit les messages dans un format codé base-64.
 
-Le format d’encodage ne peut être défini qu’au moment de configurer le point de terminaison du stockage de blobs ; il ne peut pas être modifié pour un point de terminaison existant. Pour changer les formats d’encodage d’un point de terminaison existant, vous devez supprimer et recréer le point de terminaison personnalisé avec le format souhaité. Une stratégie utile peut consister à créer un nouveau point de terminaison personnalisé avec le format d’encodage souhaité et à ajouter un itinéraire parallèle à ce point de terminaison. De cette façon, vous pouvez vérifier vos données avant de supprimer le point de terminaison existant.
+Le format d’encodage ne peut être défini qu’au moment de configurer le point de terminaison du stockage de blobs ; il ne peut pas être modifié pour un point de terminaison existant. Pour changer les formats d’encodage d’un point de terminaison existant, vous devrez supprimer et recréer le point de terminaison personnalisé avec le format souhaité. Une stratégie utile peut consister à créer un nouveau point de terminaison personnalisé avec le format d’encodage souhaité et à ajouter un itinéraire parallèle à ce point de terminaison. De cette façon, vous pouvez vérifier vos données avant de supprimer le point de terminaison existant.
 
 Vous pouvez sélectionner le format d’encodage à l’aide de l’API REST de création ou de mise à jour de hub IoT, en particulier [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le [portail Azure](https://portal.azure.com), [Azure CLI](/cli/azure/iot/hub/routing-endpoint) ou [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). L’image suivante illustre la façon de sélectionner le format d’encodage dans le portail Azure.
 
@@ -71,7 +71,7 @@ IoT Hub regroupe les messages dans des lots et écrit les données dans un stock
 
 Vous pouvez utiliser n’importe quelle convention de nommage des fichiers, mais vous devez utiliser tous les jetons listés. IoT Hub écrit dans un objet blob vide s’il n’y a aucune donnée à écrire.
 
-Nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de partition peut changer pendant un [basculement initié par Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) ou pendant un [basculement manuel](iot-hub-ha-dr.md#manual-failover) IoT Hub. Vous pouvez utiliser l’[API Lister les blobs](/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) pour lister les fichiers. Consultez l’exemple suivant à titre de conseils et d’aide.
+Nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de partition peut changer pendant un [basculement initié par Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) ou pendant un [basculement manuel](iot-hub-ha-dr.md#manual-failover) IoT Hub. Vous pouvez utiliser l’[API Lister les blobs](/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) pour lister les fichiers. Consultez l’exemple suivant à titre d’aide.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)
@@ -126,7 +126,7 @@ Vous pouvez activer/désactiver la route de secours dans le portail Azure -> Pan
 
 ## <a name="non-telemetry-events"></a>Événements autres que les événements de télémétrie
 
-En plus de la télémétrie des appareils, le routage des messages permet également l’envoi d’événements de modification des jumeaux d’appareil, des événements du cycle de vie des appareils, des événements de modification du jumeau numérique et des événements d’état de la connexion de l’appareil. Par exemple, si une route est créée avec la source de données définie sur **Événements de modification de jumeau d’appareil**, IoT Hub envoie les messages au point de terminaison qui contient la modification du jumeau d’appareil. De même, si une route est créée avec la source de données définie sur **Événements de cycle de vie d’appareil**, IoT Hub envoie un message qui indique si l’appareil a été supprimé ou créé. Dans le cadre [d’Azure IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md), un développeur peut créer des routes avec une source de données définie sur les **événements de modification du jumeau numérique**. IoT Hub envoie des messages chaque fois qu’une propriété de jumeau numérique est définie ou modifiée, qu’un jumeau numérique est remplacé ou quand un événement de modification se produit pour le jumeau d’appareil sous-jacent. Enfin, si une route est créée avec la source de données définie sur **Événements d’état de la connexion de l’appareil**, IoT Hub envoie un message qui indique si l’appareil a été connecté ou déconnecté.
+En plus de la télémétrie des appareils, le routage des messages permet également l’envoi d’événements de modification des jumeaux d’appareil, des événements du cycle de vie des appareils, des événements de modification des jumeaux numériques et des événements d’état de la connexion de l’appareil. Par exemple, si une route est créée avec la source de données définie sur **Événements de modification de jumeau d’appareil**, IoT Hub envoie les messages au point de terminaison qui contient la modification du jumeau d’appareil. De même, si une route est créée avec la source de données définie sur **Événements de cycle de vie d’appareil**, IoT Hub envoie un message qui indique si l’appareil a été supprimé ou créé. Dans le cadre [d’Azure IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md), un développeur peut créer des routes avec une source de données définie sur les **événements de modification du jumeau numérique**. IoT Hub envoie des messages chaque fois qu’une propriété de jumeau numérique est définie ou modifiée, qu’un jumeau numérique est remplacé ou quand un événement de modification se produit pour le jumeau d’appareil sous-jacent. Enfin, si une route est créée avec la source de données définie sur **Événements d’état de la connexion de l’appareil**, IoT Hub envoie un message qui indique si l’appareil a été connecté ou déconnecté.
 
 
 [IoT Hub s’intègre également à Azure Event Grid](iot-hub-event-grid.md) pour publier des événements d’appareils et prendre en charge les intégrations en temps réel ainsi que l’automatisation des workflows basés sur ces événements. Pour découvrir ce qui convient le mieux à votre scénario, consultez les [différences principales entre le routage des messages et Event Grid](iot-hub-event-grid-routing-comparison.md).
@@ -137,17 +137,11 @@ Pour recevoir des événements d’état de connexion de l’appareil, un appare
 
 La liaison appareil-à-cloud reste ouverte tant que l’appareil envoie des données de télémétrie.
 
-Si la connexion de l’appareil est intermittente, c’est-à-dire si l’appareil se connecte et se déconnecte fréquemment, IoT Hub n’envoie pas chaque état de connexion unique, mais publie l’état de connexion actuel pris à un instantané périodique de 60 s jusqu’à ce que la connexion soit rétablie. Si vous recevez un même événement d’état de connexion avec des numéros de séquence différents ou des événements d’état de connexion différents, cela signifie que l’état de connexion de l’appareil a changé.
+Si la connexion de l’appareil est intermittente (c’est-à-dire si l’appareil se connecte et se déconnecte fréquemment), IoT Hub n’envoie pas les états de connexion un par un, mais publie l’état de connexion actuel pris dans un instantané périodique de 60 s jusqu’à ce que la connexion soit rétablie. Si vous recevez un même événement d’état de connexion avec des numéros de séquence différents ou des événements d’état de connexion différents, cela signifie que l’état de connexion de l’appareil a changé.
 
 ## <a name="testing-routes"></a>Test des routes
 
 Quand vous créez un nouvelle route ou que modifiez une route existante, vous devez tester la requête de route avec un exemple de message. Vous pouvez tester des routes individuelles ou toutes les routes à la fois. Aucun message n’est routé vers les points de terminaison pendant le test. Vous pouvez utiliser le portail Azure, Azure Resource Manager, Azure PowerShell et Azure CLI pour les tests. Les résultats vous permettent de déterminer si l’exemple de message correspondait ou non à la requête, ou si le test n’a pas pu s’exécuter, l’exemple de message ou la syntaxe de la requête étant incorrects. Pour plus d’informations, consultez [Tester une route](/rest/api/iothub/iothubresource/testroute) et [Tester toutes les routes](/rest/api/iothub/iothubresource/testallroutes).
-
-## <a name="ordering-guarantees-with-at-least-once-delivery"></a>L’ordonnancement garantit au moins une remise
-
-Le routage des messages IoT Hub garantit au moins une remise de messages aux points de terminaison. Cela signifie qu’il peut y avoir des messages en double et qu’une série de messages peuvent être retransmis en respectant l’ordre d’origine des messages. Par exemple, si l’ordre d’origine des messages est [1, 2, 3, 4], vous pouvez recevoir une séquence de messages telle que [1, 2, 1, 2, 3, 1, 2, 3, 4]. La garantie d’ordonnancement fait que, si vous recevez le message [1], il est toujours suivi de [2, 3, 4].
-
-Pour gérer les doublons, nous vous recommandons de marquer un identificateur unique dans les propriétés de l’application du message au point d’origine, qui est généralement un appareil ou un module. Le service consommant les messages peut gérer les messages en double à l’aide de cet identificateur.
 
 ## <a name="latency"></a>Latence
 

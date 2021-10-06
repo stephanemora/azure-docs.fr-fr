@@ -4,25 +4,26 @@ titleSuffix: Azure Machine Learning
 description: En savoir plus sur les réseaux de portes programmables in situ (FGPA, field-programmable gate array). Vous pouvez déployer un service web sur un FPGA avec Azure Machine Learning pour que la latence de l’inférence soit très faible.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: bfb29a00dbef95007eba6ca69f9a38d0f23d2da2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bfebb2dd7a73684887a2fa78d8d82ac26f2b7e50
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524616"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425522"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Déployer des modèles ML sur des réseaux de portes programmables in situ (FGPA, field-programmable gate array) avec Azure Machine Learning 
 
 Dans cet article, vous allez en apprendre davantage sur les FPGA et le déploiement de vos modèles ML sur un FPGA Azure à l’aide du [package Python de modèles accélérés matériellement](/python/api/azureml-accel-models/azureml.accel) d’[Azure Machine Learning](overview-what-is-azure-machine-learning.md).
 
 ## <a name="what-are-fpgas"></a>Présentation des FPGA
+
 Les FPGA contiennent un tableau de blocs logiques programmables et une hiérarchie d’interconnexions reconfigurables. Les interconnexions permettent la configuration de ces blocs de différentes façons après leur fabrication. Par rapport aux autres circuits intégrés, les FPGA offrent une combinaison de programmabilité et de performances. 
 
 Les FPGA permettent d’obtenir une latence faible pour les requêtes d’inférence en temps réel (ou notation de modèle). Les requêtes asynchrones (traitement par lot) ne sont pas nécessaires. Le traitement par lots peut entraîner une latence, car davantage de données doivent être traitées. Les implémentations des unités de traitement neuronal ne nécessitent pas de traitement par lots. Ainsi, la latence peut être plusieurs fois inférieure à celle des UC et des GPU.

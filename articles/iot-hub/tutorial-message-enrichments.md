@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 0d6c90120d050b6896161f50332faf447c3ed67b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aca884ebbfc10cc847bade34ea1a9bd73ada18c9
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788850"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458394"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutoriel : Utiliser des enrichissements de messages IoT Hub
 
@@ -48,7 +48,7 @@ Dans le cadre de ce tutoriel, vous allez effectuer les tâches suivantes :
 
 ## <a name="retrieve-the-iot-c-samples-repository"></a>Récupérer le référentiel d’exemples C# IoT
 
-Téléchargez les [exemples C# IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) à partir de GitHub et décompressez-les. Ce référentiel contient plusieurs applications, scripts et modèles Resource Manager. Voici ceux que vous devez utiliser dans le cadre de ce tutoriel :
+Téléchargez les [exemples C# IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip) à partir de GitHub et décompressez-les. Ce référentiel contient plusieurs applications, scripts et modèles Resource Manager. Voici ceux que vous devez utiliser dans le cadre de ce tutoriel :
 
 * Pour la méthode manuelle, il existe un script CLI qui est utilisé pour créer les ressources. Ce script se trouve dans /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. Ce script crée les ressources et configure le routage des messages. Après avoir exécuter ce script, créez manuellement les enrichissements de messages à l’aide du [Portail Azure](https://portal.azure.com).
 * Pour la méthode automatisée, il existe un modèle Azure Resource Manager. Le modèle se trouve dans /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json. Ce modèle crée les ressources, configure le routage des messages, puis configure les enrichissements de messages.

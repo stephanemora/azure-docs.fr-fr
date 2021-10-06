@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Apprenez ce qu’est l’apprentissage automatique responsable et comment l’utiliser avec Azure Machine Learning pour comprendre les modèles, protéger les données et contrôler le cycle de vie des modèles.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 02/25/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: aeff928c14bd61a374f8b2610f35c0347a7cfc39
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: aea475773ce7b283a0c11333f01f4228a1bcbe30
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106062418"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424651"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Qu’est-ce que l’apprentissage automatique responsable ? (préversion)
 

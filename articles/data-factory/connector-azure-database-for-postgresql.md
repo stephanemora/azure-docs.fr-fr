@@ -1,26 +1,26 @@
 ---
 title: Copier et transformer des données dans Azure Database pour PostgreSQL
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Apprenez à copier et à transformer des données dans Azure Database pour PostgreSQL à l’aide d’Azure Data Factory.
-ms.author: susabat
-author: ssabat
+description: Apprenez à copier et à transformer des données dans la Base de données Azure pour PostgreSQL à l’aide d’Azure Data Factory.
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: b74588bf1a8f5aacabc273fb9a473a8cb4f1154d
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 2f17e5a90eac6941786a08044132867dadcb9ca0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314144"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592440"
 ---
-# <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Database pour PostgreSQL à l’aide d’Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-database-for-postgresql-using-azure-data-factory-or-synapse-analytics"></a>Copier et transformer des données dans la Base de données Azure pour PostgreSQL à l’aide d’Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure Database pour PostgreSQL, et utiliser Data Flow pour transformer les données dans Azure Database pour PostgreSQL. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article indique comment utiliser l’activité de copie dans Azure Data Factory et les pipelines Synapse Analytics pour copier des données depuis et vers la Base de données Azure pour PostgreSQL, et utiliser Data Flow pour transformer les données dans la Base de données Azure pour PostgreSQL. Pour en savoir plus, lisez les articles d’introduction d’[Azure Data Factory](introduction.md) et d’[Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 Ce connecteur est spécialisé pour le [service Azure Database pour PostgreSQL](../postgresql/overview.md). Pour copier des données à partir d’une base de données PostgreSQL générique locale ou située dans le cloud, utilisez le [connecteur PostgreSQL](connector-postgresql.md).
 
@@ -32,7 +32,7 @@ Ce connecteur Azure Database pour PostgreSQL est pris en charge pour les activit
 - [Mappage de flux de données](concepts-data-flow-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
 
-Actuellement, le flux de données dans Azure Data Factory prend en charge Azure Database pour PostgreSQL – Serveur unique, mais pas Serveur flexible ou Hyperscale (Citus) ; le flux de données dans Azure Synapse Analytics prend en charge toutes les saveurs de PostgreSQL.
+Actuellement, le flux de données dans Azure Data Factory prend en charge la Base de données Azure pour PostgreSQL – Serveur unique, à l’exclusion du Serveur flexible ou Hyperscale (Citus) ; le flux de données dans Azure Synapse Analytics prend en charge toutes les saveurs de PostgreSQL.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -121,7 +121,7 @@ Voici un exemple de chaîne de connexion typique : `Server=<server>.postgres.dat
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez [Jeux de données dans Azure Data Factory](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Azure Database pour PostgreSQL.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Azure Database pour PostgreSQL.
 
 Pour copier des données d’Azure Database pour PostgreSQL, affectez la valeur **AzurePostgreSqlTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
@@ -148,7 +148,7 @@ Pour copier des données d’Azure Database pour PostgreSQL, affectez la valeur 
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez [Pipelines et activités dans Azure Data Factory](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par une source Azure Database pour PostgreSQL.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition des activités, consultez [Pipelines et activités](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par une source Azure Database pour PostgreSQL.
 
 ### <a name="azure-database-for-postgresql-as-source"></a>Azure Database pour PostgreSQL en tant que source
 
@@ -158,6 +158,12 @@ Pour copier des données d’Azure Database pour PostgreSQL, affectez la valeur 
 |:--- |:--- |:--- |
 | type | La propriété type de la source de l’activité de copie doit être définie sur **AzurePostgreSqlSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple, `SELECT * FROM mytable` ou `SELECT * FROM "MyTable"`. Notez que dans PostgreSQL, le nom de l’entité est traité comme insensible à la casse s’il n’est pas placé entre guillemets. | Non (si la propriété tableName du jeu de données est spécifiée) |
+| partitionOptions | Spécifie les options de partitionnement des données utilisées pour charger des données à partir d’Azure SQL Database. <br>Les valeurs autorisées sont les suivantes : **None** (valeur par défaut), **PhysicalPartitionsOfTable** et **DynamicRange**.<br>Lorsqu’une option de partition est activée (autrement dit, pas `None`), le degré de parallélisme pour charger simultanément des données à partir d’une instance Azure SQL Database est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de l’activité de copie. | Non |
+| partitionSettings | Spécifiez le groupe de paramètres pour le partitionnement des données. <br>S’applique lorsque l’option de partitionnement n’est pas `None`. | Non |
+| ***Sous `partitionSettings`:*** | | |
+| partitionColumnName | Spécifiez le nom de la colonne source **en type entier ou date/DateHeure** (`int`, `smallint`, `bigint`, `date`, `smalldatetime`, `datetime`, `datetime2` ou `datetimeoffset`) qu’utilisera le partitionnement par plages de valeurs pour la copie en parallèle. S’il n’est pas spécifié, l’index ou la clé primaire de la table seront automatiquement détectés et utilisés en tant que colonne de partition.<br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Si vous utilisez une requête pour récupérer des données sources, utilisez `?AdfDynamicRangePartitionCondition ` dans la clause WHERE. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la Base de données pour PostgreSQL](#parallel-copy-from-azure-database-for-postgresql). | Non |
+| partitionUpperBound | Valeur maximale de la colonne de partition pour le fractionnement de la plage de partition. Cette valeur est utilisée pour décider du stride de la partition, et non pour filtrer les lignes de la table. Toutes les lignes de la table ou du résultat de la requête seront partitionnées et copiées. Si la valeur n’est pas spécifiée, l’activité de copie la détecte automatiquement.  <br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la Base de données pour PostgreSQL](#parallel-copy-from-azure-database-for-postgresql). | Non |
+| partitionLowerBound | Valeur minimale de la colonne de partition pour le fractionnement de la plage de partition. Cette valeur est utilisée pour décider du stride de la partition, et non pour filtrer les lignes de la table. Toutes les lignes de la table ou du résultat de la requête seront partitionnées et copiées. Si la valeur n’est pas spécifiée, l’activité de copie la détecte automatiquement.<br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la Base de données pour PostgreSQL](#parallel-copy-from-azure-database-for-postgresql). | Non |
 
 **Exemple** :
 
@@ -237,6 +243,54 @@ Pour copier des données vers Azure Database pour PostgreSQL, les propriétés s
 ]
 ```
 
+## <a name="parallel-copy-from-azure-database-for-postgresql"></a>Copie parallèle à partir de la Base de données Azure pour PostgreSQL
+
+Le connecteur de la Base de données Azure dans l’activité de copie propose un partitionnement de données intégré pour copier des données en parallèle. Vous trouverez des options de partitionnement de données dans l’onglet **Source** de l’activité de copie.
+
+![Capture d’écran représentant les options de partition](.\media\connector-azure-database-for-postgresql/connector-postgresql-partition-options.png)
+
+Lorsque vous activez la copie partitionnée, l’activité de copie exécute des requêtes en parallèle sur la Base de données Azure pour la source PostgreSQL afin de charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, le service génère et exécute simultanément quatre requêtes en fonction de l’option de partition et des paramètres que vous avez spécifiés, et chaque requête récupère une partie des données à partir de votre Base de données Azure pour PostgreSQL.
+
+Il vous est recommandé d’activer la copie en parallèle avec partitionnement des données, notamment lorsque vous chargez une grande quantité de données à partir de votre Base de données Azure pour PostgreSQL. Voici quelques suggestions de configurations pour différents scénarios. Lors de la copie de données dans un magasin de données basé sur un fichier, il est recommandé d’écrire les données dans un dossier sous la forme de plusieurs fichiers (spécifiez uniquement le nom du dossier). Les performances seront meilleures qu’avec l’écriture de données dans un seul fichier.
+
+| Scénario                                                     | Paramètres suggérés                                           |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Chargement complet à partir d’une table volumineuse, avec des partitions physiques.        | **Option de partition** : Partitions physiques de la table. <br><br/>Pendant l’exécution, le service détecte automatiquement les partitions physiques et copie les données par partition. |
+| Chargement complet d’une table volumineuse, sans partitions physiques, avec une colonne d’entiers ou DateHeure pour le partitionnement des données. | **Options de partition** : Partition dynamique par spécification de plages de valeurs.<br>**Colonne de partition** (facultatif) : Spécifiez la colonne utilisée pour partitionner les données. Si la valeur n’est pas spécifiée, la colonne de l’index ou de la clé primaire est utilisée.<br/>**Limite supérieure de partition** et **limite inférieure de partition** (facultatif) : Spécifiez si vous souhaitez déterminer le stride de la partition. Cela ne permet pas de filtrer les lignes de la table ; toutes les lignes de la table sont partitionnées et copiées. Si les valeurs ne sont pas spécifiées, l’activité de copie les détecte automatiquement.<br><br>Par exemple, si les valeurs de la colonne de partition « ID » sont comprises entre 1 et 100, et que vous définissez la limite inférieure à 20 et la limite supérieure à 80, avec la copie parallèle sur 4, le service récupère des données par 4 partitions, les ID dans la plage <=20, [21, 50], [51, 80] et >=81, respectivement. |
+| Chargement d’une grande quantité de données à l’aide d’une requête personnalisée, sans partitions physiques, et avec une colonne d’entiers ou de date/DateHeure pour le partitionnement des données. | **Options de partition** : Partition dynamique par spécification de plages de valeurs.<br>**Requête**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Colonne de partition** : Spécifiez la colonne utilisée pour partitionner les données.<br>**Limite supérieure de partition** et **limite inférieure de partition** (facultatif) : Spécifiez si vous souhaitez déterminer le stride de la partition. Cela ne permet pas de filtrer les lignes de la table ; toutes les lignes du résultat de la requête sont partitionnées et copiées. Si la valeur n’est pas spécifiée, l’activité de copie la détecte automatiquement.<br><br>Lors de l’exécution, le service remplace `?AdfRangePartitionColumnName` par le nom réel de la colonne et les plages de valeurs de chaque partition et les envoie à la Base de données Azure pour PostgreSQL. <br>Par exemple, si les valeurs de la colonne de partition « ID » sont comprises entre 1 et 100, et que vous définissez la limite inférieure à 20 et la limite supérieure à 80, avec la copie parallèle sur 4, le service récupère des données par 4 partitions, les ID dans la plage <=20, [21, 50], [51, 80] et >=81, respectivement. <br><br>Voici d’autres exemples de requêtes pour différents scénarios :<br> 1. Interroger l’ensemble de la table : <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Interroger une table avec une sélection de colonnes et des filtres de la clause WHERE supplémentaires : <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Effectuer une requête avec des sous-requêtes : <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Effectuer une requête avec une partition dans une sous-requête : <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+|
+
+Meilleures pratiques pour charger des données avec l’option de partition :
+
+1. Choisissez une colonne distinctive comme colonne de partition (p. ex. : clé primaire ou clé unique) pour éviter l’asymétrie des données. 
+2. Si la table possède une partition intégrée, utilisez l’option de partition « Partitions physiques de la table » pour obtenir de meilleures performances.    
+3. Si vous utilisez Azure Integration Runtime pour copier des données, vous pouvez définir des « [unités d’intégration de données (DIU)](copy-activity-performance-features.md#data-integration-units) » plus grandes (>4) pour utiliser davantage de ressources de calcul. Vérifiez les scénarios applicables ici.
+4. Le « [degré de parallélisme de copie](copy-activity-performance-features.md#parallel-copy) » contrôle le nombre de partitions : un nombre trop élevé nuit parfois aux performances. Il est recommandé de définir ce nombre selon (DIU ou nombre de nœuds d'IR auto-hébergé) * (2 à 4).
+
+**Exemple : chargement complet à partir d’une table volumineuse, avec des partitions physiques**
+
+```json
+"source": {
+    "type": "AzurePostgreSqlSource",
+    "partitionOption": "PhysicalPartitionsOfTable"
+}
+```
+
+**Exemple : requête avec partition dynamique par spécification de plages de valeurs**
+
+```json
+"source": {
+    "type": "AzurePostgreSqlSource",
+    "query": "SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>",
+    "partitionOption": "DynamicRange",
+    "partitionSettings": {
+        "partitionColumnName": "<partition_column_name>",
+        "partitionUpperBound": "<upper_value_of_partition_column (optional) to decide the partition stride, not as data filter>",
+        "partitionLowerBound": "<lower_value_of_partition_column (optional) to decide the partition stride, not as data filter>"
+    }
+}
+```
+
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
 Lors de la transformation de données dans le flux de données de mappage, vous pouvez lire et écrire dans des tables à partir d’Azure Database pour PostgreSQL. Pour plus d’informations, consultez la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans le flux de données de mappage. Vous pouvez choisir d’utiliser un jeu de données Azure Database pour PostgreSQL ou un [jeu de données inlined](data-flow-source.md#inline-datasets) en tant que type de source et de récepteur.
@@ -296,7 +350,7 @@ IncomingStream sink(allowSchemaDrift: true,
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
-Pour plus d’informations sur les propriétés, consultez [Activité Lookup dans Azure Data Factory](control-flow-lookup-activity.md).
+Pour plus d’informations sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l'activité de copie d'Azure Data Factory, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats) pour obtenir la liste des sources et magasins de données pris en charge en tant que récepteurs par l’activité de copie.

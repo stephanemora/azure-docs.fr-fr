@@ -1,15 +1,15 @@
 ---
-title: Automatiser l’ajout d’un utilisateur de labo dans Azure DevTest Labs | Microsoft Docs
+title: Automatiser l’ajout d’un utilisateur de laboratoire
 description: Cet article explique comment automatiser l’ajout d’un utilisateur à un laboratoire dans Azure DevTest Labs à l’aide de modèles Azure Resource Manager, de PowerShell et de CLI.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 70f8e2740a53c7bb855d3796efa438e9c9ff0ffa
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8582c6cf807a9a96f2cc7da78c93de988d14792b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965229"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592258"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatiser l’ajout d’un utilisateur de labo à un labo dans Azure DevTest Labs
 Azure DevTest Labs vous permet de créer rapidement des environnements de développement/test en libre-service à l’aide du Portail Azure. Toutefois, si vous disposez de plusieurs équipes et de plusieurs instances DevTest Labs, l’automatisation du processus de création peut vous faire gagner du temps. Les [modèles Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) vous permettent de créer des labos, des machines virtuelles de labo, des images personnalisées et des formules, et d’ajouter des utilisateurs de manière automatisée. Cet article concerne spécifiquement l’ajout d’utilisateurs à une instance DevTest Labs.
@@ -160,7 +160,8 @@ Ensuite, déployez le modèle Resource Manager à l’aide de la cmdlet PowerShe
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateParameterFile .\azuredeploy.parameters.json -TemplateFile .\azuredeploy.json
 ```
 
-Il est important de noter que le nom du déploiement de groupe et le GUID d’attribution de rôle doivent être uniques. Si vous essayez de déployer une attribution de ressources en spécifiant un GUID non unique, vous obtiendrez une erreur `RoleAssignmentUpdateNotPermitted`.
+> [!NOTE] 
+> Le nom du déploiement de groupe et le GUID d’attribution de rôle doivent être uniques. Si vous essayez de déployer une attribution de ressources en spécifiant un GUID non unique, vous obtiendrez une erreur `RoleAssignmentUpdateNotPermitted`.
 
 Si vous prévoyez d’utiliser le modèle à plusieurs reprises pour ajouter plusieurs objets Active Directory au rôle Utilisateur de DevTest Labs pour votre labo, envisagez d’utiliser des objets dynamiques dans votre commande PowerShell. L’exemple ci-après utilise la cmdlet [New-Guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid) pour spécifier de manière dynamique le nom du déploiement de groupe de ressources et le GUID d’attribution de rôle.
 

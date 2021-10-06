@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 06/25/2021
 ms.author: pafarley
-ms.openlocfilehash: f21313a357c5c86087d3505cfdf654d9958d3893
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: d247626607f5fd4b517d7436c21ae33ed5727220
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982363"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353313"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Intégrer le stockage Azure pour les notifications et la sauvegarde
 
@@ -39,7 +39,7 @@ Ensuite, accédez à votre ressource de stockage dans le portail Azue. Accédez 
 * Si vous envisagez d’utiliser la fonctionnalité de sauvegarde de modèle, sélectionnez le rôle **Contributeur aux données Blob du stockage** et ajoutez votre ressource d’entraînement Custom Vision comme membre. Sélectionnez **Vérifier + attribuer** pour terminer.
 * Si vous envisagez d’utiliser la fonctionnalité de file d’attente de notification, sélectionnez le rôle **Contributeur aux données en file d’attente du stockage** et ajoutez votre ressource d’entraînement Custom Vision comme membre. Sélectionnez **Vérifier + attribuer** pour terminer.
 
-Pour obtenir de l’aide concernant les attributions de rôle, consultez [Attribuer des rôles Azure à l’aide du portail Azure](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Pour obtenir de l’aide concernant les attributions de rôle, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="get-integration-urls"></a>Obtenir les URL d'intégration
 

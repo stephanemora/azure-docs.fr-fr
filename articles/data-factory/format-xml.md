@@ -1,22 +1,22 @@
 ---
-title: Format XML dans Azure Data Factory
+title: Format XML
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Cette rubrique décrit comment traiter le format XML dans Azure Data Factory.
+description: Cette rubrique explique comment traiter le format XML dans les pipelines Azure Data Factory et Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 9ee58b4afc33109ad8c205606e52fd1d76695d30
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 202c2ea7014ea0295fb342b1fc7fabd70d87ac29
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257302"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743554"
 ---
-# <a name="xml-format-in-azure-data-factory"></a>Format XML dans Azure Data Factory
+# <a name="xml-format-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Format XML dans les pipelines Azure Data Factory et Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -89,8 +89,8 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 | namespacePrefixes | Mappage URI d’espace de noms à préfixe utilisé pour nommer les champs lors de l’analyse du fichier xml.<br/>Si un fichier XML a un espace de noms et que celui-ci est activé, par défaut, le nom du champ est le même que dans le document XML.<br>Si un élément est défini pour l’URI d’espace de noms dans ce mappage, le nom du champ est `prefix:fieldName`. | Non |
 | detectDataType | Indique s’il faut détecter les types de données entier, double et booléen. Valeurs autorisées : **true** (par défaut) et **false**.| Non |
 | compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
-| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `ZipDeflateReadSettings`* )  | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
-| preserveCompressionFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `TarGZipReadSettings` ou `TarReadSettings`* ) | S'applique lorsque le jeu de données d'entrée est configuré avec la compression **TarGzip**/**Tar**. Indique si le nom du fichier source compressé doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source compressed file>/`. <br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers en double dans différents fichiers sources afin d’éviter toute course ou tout comportement inattendu. | Non |
+| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `ZipDeflateReadSettings`* )  | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , le service écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, le service écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
+| preserveCompressionFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `TarGZipReadSettings` ou `TarReadSettings`* ) | S'applique lorsque le jeu de données d'entrée est configuré avec la compression **TarGzip**/**Tar**. Indique si le nom du fichier source compressé doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , le service écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source compressed file>/`. <br>– Lorsque la valeur est définie sur **false**, le service écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers en double dans différents fichiers sources afin d’éviter toute course ou tout comportement inattendu. | Non |
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 

@@ -4,12 +4,12 @@ description: Développer des fonctions avec Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aa48731248c9e51d680bc0e1b396115c54edbcd7
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: d44de94ef30976a35bbfeddf68b60068b952fbde
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260857"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450878"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -19,7 +19,7 @@ En tant que développeur Python, vous pouvez également être intéressé par l�
 
 | Prise en main | Concepts| Scénarios/exemples |
 |--|--|--|
-| <ul><li>[Fonction Python avec Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Fonction Python avec le terminal/l’invite de commandes](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guide du développeur](functions-reference.md)</li><li>[Options d’hébergement](functions-scale.md)</li><li>[Considérations relatives aux&nbsp;performances](functions-best-practices.md)</li></ul> | <ul><li>[Classification d’images avec PyTorch](machine-learning-pytorch.md)</li><li>[Exemple Azure Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning avec TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Parcourir les exemples Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Fonction Python avec Visual Studio Code](./create-first-function-vs-code-python.md)</li><li>[Fonction Python avec le terminal/l’invite de commandes](./create-first-function-cli-python.md)</li></ul> | <ul><li>[Guide du développeur](functions-reference.md)</li><li>[Options d’hébergement](functions-scale.md)</li><li>[Considérations relatives aux&nbsp;performances](functions-best-practices.md)</li></ul> | <ul><li>[Classification d’images avec PyTorch](machine-learning-pytorch.md)</li><li>[Exemple Azure Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning avec TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Parcourir les exemples Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
 > Même si vous pouvez [développer votre solution Azure Functions basée sur Python localement sur Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python n’est pris en charge que sur un plan d’hébergement basé sur Linux lors de l’exécution dans Azure. Consultez la liste des combinaisons [système d’exploitation/runtime](functions-scale.md#operating-systemruntime) prises en charge.
@@ -267,13 +267,11 @@ Pour en savoir plus sur la journalisation, consultez [Surveiller l’exécution 
 
 ### <a name="log-custom-telemetry"></a>Enregistrer une télémétrie personnalisée
 
-La télémétrie des journaux est collectée pour les applications de Fonction via le Runtime de Fonctions par défaut. Ces données de télémétrie finissent comme des traces dans les Insights d’applications. La télémétrie des requêtes et des dépendances pour certains services Azure est également collectée par défaut via des [Liaisons de fonction](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings?tabs=csharp#supported-bindings). Pour collecter des données de télémétrie de requête/dépendance personnalisées (et non pas via des liaisons), vous pouvez utiliser les [Extensions Python OpenCensus](https://github.com/census-ecosystem/opencensus-python-extensions-azure) pour envoyer des données de télémétrie personnalisées à votre instance Insights d’applications.
-
-Vous trouverez la liste des bibliothèques prises en charge [ici](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
+Par défaut, le runtime Functions collecte les journaux et d’autres données de télémétrie générées par vos fonctions. Ces données de télémétrie finissent comme des traces dans les Insights d’applications. La télémétrie des requêtes et des dépendances pour certains services Azure est également collectée par défaut via des [déclencheurs et des liaisons](functions-triggers-bindings.md#supported-bindings). Pour collecter une requête et des données de télémétrie de dépendance personnalisées en dehors des liaisons, vous pouvez utiliser les [Extensions Python OpenCensus](https://github.com/census-ecosystem/opencensus-python-extensions-azure), qui envoient des données de télémétrie personnalisées à votre instance Application Insights. Vous trouverez une liste des extensions prises en charge dans le [référentiel OpenCensus](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
 
 >[!NOTE]
-> Pour utiliser les Extensions OpenCensus Python, vous devez activer les [Extensions Python](#python-worker-extensions) en définissant `PYTHON_ENABLE_WORKER_EXTENSIONS` vers `1` dans `local.settings.json` et paramètres d’application
->
+>Pour utiliser les extensions Python OpenCensus, vous devez activer les [Extensions Python Worker](#python-worker-extensions) dans votre application de fonction en affectant la valeur `PYTHON_ENABLE_WORKER_EXTENSIONS` à `1` dans vos[paramètres d’application](functions-how-to-use-azure-function-app-settings.md#settings).
+
 
 ```
 // requirements.txt

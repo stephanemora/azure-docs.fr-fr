@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Sécurisez les ressources d’espace de travail Azure Machine Learning et les environnements de calcul à l’aide d’un réseau virtuel Azure isolé.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 09/24/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: 1844d9a84714231aac7cb399239c31a6af62661c
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 1d1389b5627f18c8772a55300a89dca9d0de4917
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093513"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423516"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Sécuriser les ressources d’espace de travail Azure Machine Learning à l’aide de réseaux virtuels
@@ -168,7 +168,7 @@ Pour activer toutes les fonctionnalités Studio, consultez [Utiliser le studio A
 
 ### <a name="limitations"></a>Limites
 
-[L’étiquetage des données assisté par ML](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) ne prend pas en charge les comptes de stockage par défaut derrière un réseau virtuel. À la place, utilisez un compte de stockage différent de celui par défaut pour l’étiquetage des données assisté par ML. 
+[L’étiquetage des données assisté par ML](how-to-create-image-labeling-projects.md#use-ml-assisted-data-labeling) ne prend pas en charge les comptes de stockage par défaut derrière un réseau virtuel. À la place, utilisez un compte de stockage différent de celui par défaut pour l’étiquetage des données assisté par ML. 
 
 > [!TIP]
 > Tant qu’il ne s’agit pas du compte de stockage par défaut, le compte utilisé par l’étiquetage des données peut être sécurisé derrière le réseau virtuel. 

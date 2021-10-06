@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
-ms.openlocfilehash: 07f208753265e35bbc51c74f74a87a1742fa52ff
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 14d6aedf282819e8fcd7c5f03ff182a991954607
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114727476"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279162"
 ---
 # <a name="search-over-azure-blob-storage-content"></a>Rechercher dans le contenu Stockage Blob Azure
 
@@ -54,7 +54,7 @@ L’indexeur d’objets blob est assorti de paramètres de configuration et pren
 
 ### <a name="supported-access-tiers"></a>Niveaux d’accès pris en charge
 
-Les [niveaux d’accès](../storage/blobs/storage-blob-storage-tiers.md) au service Stockage Blob sont chaud, froid et archive. Les indexeurs ne peuvent accéder qu’aux niveaux chaud et froid. 
+Les [niveaux d’accès](../storage/blobs/access-tiers-overview.md) au service Stockage Blob sont chaud, froid et archive. Les indexeurs ne peuvent accéder qu’aux niveaux chaud et froid. 
 
 ### <a name="supported-content-types"></a>Types de contenu pris en charge
 

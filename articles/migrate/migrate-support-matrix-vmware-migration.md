@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 6365499aff4508e40d8e2aa2ed61471f4fbff2fe
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 1217acb5911366b8e3943d414aeeeaf8a9e5e1e1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721262"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357244"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Tableau de prise en charge pour la migration VMware
 
@@ -73,15 +73,12 @@ Le tableau récapitule les exigences de la migration sans agent concernant les m
 > [!Note]
 > En plus de la connectivité Internet, pour les machines virtuelles Linux, assurez-vous que les packages suivants sont installés pour réussir l’installation de l’agent Linux Microsoft Azure (waagent) :
 >- Python 2.6+
->- Python-setuptool
->- systemmd
 >- OpenSSL 1.0+
 >- OpenSSH 5.3+
 >- Utilitaires de système de fichiers : sfdisk, fdisk, mkfs, séparés
 >- Outils de mot de passe : chpasswd, sudo
 >- Outils de traitement de texte : sed, grep
 >- Outils réseau : ip-route
->- Activer le rc.local sur la machine virtuelle source
 
 > [!TIP]
 >  Le portail Azure vous permet de sélectionner jusqu’à 10 machines virtuelles à la fois pour configurer la réplication. Pour répliquer davantage de machines virtuelles, vous pouvez utiliser le portail pour ajouter les machines virtuelles à répliquer dans plusieurs lots de 10 machines virtuelles, ou utiliser l’interface Azure Migrate PowerShell pour configurer la réplication. Veillez à ne pas configurer une réplication simultanée sur plus que le nombre maximal de machines virtuelles prises en charge pour des réplications simultanées.

@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 30b7e34f2a791cfd8dec1a6d8e81d706fa07939f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de0aa3f3149141ddacd7906297656d58b8fad24c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91631220"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633998"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Codes d’erreur d’API REST Azure Key Vault
  
@@ -131,6 +131,8 @@ Une erreur HTTP 403 signifie que la requête a été authentifiée (elle connaî
 - L’adresse IP de la ressource à l’origine de la requête n’est pas approuvée dans les paramètres de pare-feu du coffre de clés.
 
 Une erreur HTTP 403 se produit souvent lorsque l’application du client n’utilise pas l’ID client à laquelle le client s’attend. Cela signifie généralement que les stratégies d’accès ne sont pas correctement configurées pour l’identité appelante réelle.
+
+Si vous recevez une erreur 403 immédiatement après avoir ajouté une identité à la stratégie d’accès, vous pouvez la gérer en ajoutant une nouvelle tentative périodique.
 
 ### <a name="troubleshooting-403"></a>Résolution des problèmes 403
 

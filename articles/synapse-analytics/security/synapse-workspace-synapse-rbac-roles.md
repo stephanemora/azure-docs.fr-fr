@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d898bc4fe0afa268f9aef3ab4282ebb249e61b4
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 6b6c2cbf04b0e68f86bd11b8295c54b8c65d0360
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081450"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352787"
 ---
 # <a name="synapse-rbac-roles"></a>Rôles RBAC Synapse
 
@@ -93,8 +93,8 @@ workspaces/pipelines/write, delete|Administrateur Synapse</br>Contributeur Synap
 workspaces/triggers/write, delete|Administrateur Synapse</br>Contributeur Synapse</br>Éditeur d'artefact Synapse
 workspaces/datasets/write, delete|Administrateur Synapse</br>Contributeur Synapse</br>Éditeur d'artefact Synapse
 workspaces/libraries/write, delete|Administrateur Synapse</br>Administrateur Synapse Apache Spark</br>Contributeur Synapse</br>Éditeur d'artefact Synapse
-workspaces/linkedServices/write, delete|Administrateur Synapse</br>Contributeur Synapse</br>Éditeur d'artefact Synapse</br>Gestionnaire des données liées Synapse
-workspaces/credentials/write, delete|Administrateur Synapse</br>Contributeur Synapse</br>Éditeur d'artefact Synapse</br>Gestionnaire des données liées Synapse
+workspaces/linkedServices/write, delete|Administrateur Synapse</br>Administrateur Synapse Apache Spark</br>Administrateur Synapse SQL</br>Contributeur Synapse</br>Éditeur d'artefact Synapse</br>Gestionnaire des données liées Synapse
+workspaces/credentials/write, delete|Administrateur Synapse</br>Administrateur Synapse Apache Spark</br>Administrateur Synapse SQL</br>Contributeur Synapse</br>Éditeur d'artefact Synapse</br>Gestionnaire des données liées Synapse
 workspaces/notebooks/viewOutputs/action|Administrateur Synapse</br>Administrateur Synapse Apache Spark</br>Contributeur Synapse</br>Éditeur d'artefact Synapse</br>Utilisateur d'artefact Synapse
 workspaces/pipelines/viewOutputs/action|Administrateur Synapse</br>Contributeur Synapse</br>Éditeur d'artefact Synapse</br>Utilisateur d'artefact Synapse
 workspaces/linkedServices/useSecret/action|Administrateur Synapse</br>Utilisateur d’informations d’identification Synapse

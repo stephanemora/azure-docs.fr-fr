@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/21/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5b973d17e10f3dbb75f5208d9003b4f8118b37c7
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7fc9731769f568107a1ce6dacb5658fe164bd616
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110932"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657516"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Encoder avec une échelle de débit générée automatiquement
 
@@ -31,13 +31,13 @@ Cet article explique comment utiliser l’encodeur standard dans Media Services 
 
 ### <a name="encoding-for-streaming"></a>Encodage pour la diffusion en continu
 
-Quand vous utilisez le préréglage **AdaptiveStreaming** dans une **transformation**, vous obtenez une sortie qui convient pour une diffusion via des protocoles de streaming comme HLS et DASH. Quand vous utilisez ce préréglage, l’encodeur détermine automatiquement le nombre de couches vidéo à générer, ainsi que le débit et la résolution. Le contenu en sortie contient des fichiers MP4 où l’audio encodé en AAC et la vidéo encodée en H.264 ne sont pas entrelacés.
+Lorsque vous utilisez le préréglage **AdaptiveStreaming** ou **H265AdaptiveStreaming** dans **Transform**, vous recevez une sortie appropriée pour la remise via des protocoles de diffusion en continu tels que TLS et DASH. Quand vous utilisez ce préréglage, l’encodeur détermine automatiquement le nombre de couches vidéo à générer, ainsi que le débit et la résolution. Le contenu de sortie contient des fichiers MP4 où les données audio encodées en AAC et soit une vidéo encodée en H. 264 (dans le cas de la présélection AdaptiveStreaming) ou en H. 265/HEVC (dans le cas de la présélection H265AdaptiveStreaming). Les fichiers MP4 de sortie ne sont pas entrelacés.
 
 Pour voir un exemple d’utilisation de cette présélection, consultez [Diffuser un fichier](stream-files-dotnet-quickstart.md).
 
 ## <a name="output"></a>Output
 
-Cette section présente trois exemples de couches vidéo de sortie produites par l’encodeur Media Services suite à un encodage avec la présélection **AdaptiveStreaming**. Dans tous les cas, la sortie contient un fichier MP4 audio uniquement avec des données audio stéréo encodées à 128 Kbits/s.
+Cette section présente trois exemples des couches vidéo de sortie produites par l’encodeur des Services Media à la suite de l’encodage avec les préréglages **AdaptiveStreaming**(H. 264) ou **H265AdaptiveStreaming** (HEVC). Dans tous les cas, la sortie contient un fichier MP4 audio uniquement avec des données audio stéréo encodées à 128 Kbits/s.
 
 ### <a name="example-1"></a>Exemple 1
 Une source avec une hauteur de « 1080 » et une fréquence d’images de « 29.970 » crée 6 couches vidéo :
@@ -71,7 +71,15 @@ Une source avec une hauteur de « 360 » et une fréquence d’images de « 29.9
 |2|270|480|440|
 |3|180|320|230|
 
+
+## <a name="content-aware-encoding-comparison"></a>Comparaison du codage sensible au contenu
+
+Les [préréglages d’encodage dépendant du contenu](./encode-content-aware-concept.md) offrent une meilleure solution sur les préréglages de diffusion en continu adaptative en analysant le contenu source avant de choisir le bon ensemble de vitesses de transmission et de résolution à utiliser dans l’échelle.
+Il est recommandé de tester les [préréglages d’encodage prenant en charge le contenu](./encode-content-aware-concept.md) avant d’utiliser l’échelle statique et fixe fournie par les préréglages de diffusion en continu à débit adaptatif.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Diffuser un fichier](stream-files-dotnet-quickstart.md)
+> [Diffuser un fichier en continu](stream-files-dotnet-quickstart.md)
+>  [En utilisant les préréglages d’encodage dépendant du contenu](./encode-content-aware-concept.md)
+> [Utilisation de l’encodage dépendant du contenu](./encode-content-aware-how-to.md)

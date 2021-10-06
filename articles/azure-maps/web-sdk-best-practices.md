@@ -1,19 +1,17 @@
 ---
 title: Meilleures pratiques pour le kit de développement logiciel (SDK) Web Azure Maps | Microsoft Azure Maps
 description: Découvrez des conseils et astuces pour optimiser l’utilisation de votre kit de développement logiciel (SDK) Web Azure Maps.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 3/22/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: cpendle
-ms.openlocfilehash: 630b354768e3ad0882911f11a99cca06fc87154e
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 3bcf3125e09ee2023e36b3eefc5d34d4a1215c4e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234426"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439359"
 ---
 # <a name="azure-maps-web-sdk-best-practices"></a>Meilleures pratiques pour le kit de développement logiciel (SDK) Web Azure Maps
 
@@ -25,7 +23,7 @@ En général, lorsque vous cherchez à améliorer les performances de la carte, 
 
 ## <a name="security-basics"></a>Concepts de base de la sécurité
 
-La partie la plus importante de votre application est sa sécurité. Si votre application n’est pas sécurisée, un pirate peut gâcher n’importe quelle application, quelle que soit la qualité de l’expérience utilisateur. Voici quelques conseils pour assurer la sécurité de votre application Azure Maps. Quand vous utilisez Azure, veillez à vous familiariser avec les outils de sécurité mis à votre disposition. Consultez ce document pour obtenir une [présentation de la sécurité Azure](../security/fundamentals/overview.md).
+La partie la plus importante de votre application est sa sécurité. Si votre application n’est pas sécurisée, un pirate peut entacher n’importe quelle application, quelle que soit la qualité de l’expérience utilisateur. Voici quelques conseils pour assurer la sécurité de votre application Azure Maps. Quand vous utilisez Azure, veillez à vous familiariser avec les outils de sécurité mis à votre disposition. Consultez ce document pour obtenir une [présentation de la sécurité Azure](../security/fundamentals/overview.md).
 
 > [!IMPORTANT]
 > Azure Maps fournit deux méthodes d’authentification.
@@ -37,7 +35,7 @@ La partie la plus importante de votre application est sa sécurité. Si votre ap
 
 ### <a name="secure-your-private-data"></a>Sécuriser vos données privées
 
-Lorsque des données sont ajoutées dans des kits de développement logiciel (SDK) interactifs Azure Maps, elles sont affichées localement sur l’appareil de l’utilisateur final et ne sont jamais renvoyées sur Internet.
+Lorsque des données sont ajoutées aux kits de développement logiciel (SDK) interactifs Azure Maps, elles sont affichées localement sur l’appareil de l’utilisateur final et ne sont jamais renvoyées sur Internet.
 
 Si votre application charge des données qui ne doivent pas être accessibles publiquement, assurez-vous que les données sont stockées dans un emplacement sécurisé, qu’elles sont accessibles de manière sécurisée et que l’application elle-même est verrouillée et n’est disponible que pour les utilisateurs de votre choix. Si l’une de ces étapes est ignorée, une personne non autorisée peut potentiellement accéder à ces données. Azure Active Directory peut vous aider à verrouiller cette défaillance.
 
@@ -57,11 +55,11 @@ Si vous auto-hébergez le kit de développement logiciel (SDK) Web Azure Maps vi
 
 ## <a name="optimize-initial-map-load"></a>Optimiser le chargement de mappage initial
 
-Lors du chargement d’une page web, l’une des premières choses que vous souhaitez faire est de commencer à afficher quelque chose dès que possible afin que l’utilisateur ne s’affiche pas sur un écran vide.
+Lors du chargement d’une page Web, l’une des premières choses que vous souhaitez est l’obtention d’un affichage dès que possible afin que l’utilisateur ne visualise pas un écran vide.
 
 ### <a name="watch-the-maps-ready-event"></a>Regarder l’événement ready des mappages
 
-De même, lorsque le mappage se charge initialement souvent, il est souhaitable de charger les données le plus rapidement possible, de sorte que l’utilisateur n’examine pas un mappage vide. Étant donné que le mappage charge les ressources de façon asynchrone, vous devez attendre qu’il soit prêt à interagir avec avant d’essayer de générer vos propres données sur celui-ci. Il existe deux événements que vous pouvez attendre, un événement `load` et un événement `ready`. L’événement de chargement est déclenché une fois que le mappage a fini de charger complètement l’affichage de la carte initiale et que chaque mosaïque a été chargée. L’événement ready se déclenche quand les ressources de mappage minimales nécessaires au démarrage de l’interaction avec le mappage. L’événement ready peut souvent se déclencher dans la moitié de l’événement de charge et vous permettre ainsi de commencer à charger vos données dans le mappage plus tôt.
+De même, lorsque le mappage se charge initialement, il est souvent souhaitable de charger les données le plus rapidement possible, de sorte que l’utilisateur ne soit pas face à un mappage vide. Étant donné que le mappage charge les ressources de façon asynchrone, vous devez attendre qu’il soit prêt à interagir avec avant d’essayer de générer vos propres données sur celui-ci. Il existe deux événements que vous pouvez attendre, un événement `load` et un événement `ready`. L’événement de chargement est déclenché une fois que le mappage a fini de charger complètement l’affichage de la carte initiale et que chaque mosaïque a été chargée. L’événement ready se déclenche quand les ressources de mappage minimales nécessaires au démarrage de l’interaction avec le mappage. L’événement ready peut souvent se déclencher dans la moitié de l’événement de charge et vous permettre ainsi de commencer à charger vos données dans le mappage plus tôt.
 
 ### <a name="lazy-load-the-azure-maps-web-sdk"></a>Chargement différé dans le kit de développement logiciel (SDK) Web Azure Maps
 
@@ -70,7 +68,7 @@ L’exemple de code suivant montre comment retarder le chargement du kit de dév
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Chargement différé du mappage" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Chargement différé du mappage" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le stylet <a href='https://codepen.io/azuremaps/pen/vYEeyOv'>Chargement différé de la carte</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -180,7 +178,7 @@ Contrairement à la plupart des couches des contrôles Azure Maps Web qui utilis
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Réutilisation d’une fenêtre contextuelle avec plusieurs épingles' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pin</a> (Réutilisation d’une fenêtre contextuelle avec plusieurs épingles) Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Réutilisation d’une fenêtre contextuelle avec plusieurs épingles' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pin</a> (Réutilisation d’une fenêtre contextuelle avec plusieurs épingles) Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Cela dit, si vous avez seulement quelques points à afficher sur le mappage, la simplicité des marqueurs HTML peut être préférable. En outre, les marqueurs HTML peuvent être facilement glissés si nécessaire.
@@ -225,7 +223,7 @@ L’exemple de code suivant est un moyen simple d’animer une couche de symbole
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Animation de la couche de symboles" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Animation de la couche de symboles" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez l’<a href='https://codepen.io/azuremaps/pen/oNgGzRd'>animation de couche de symboles</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -310,7 +308,7 @@ Filtre une boucle sur toutes les données d’une source de données et vérifie
 * Si vous utilisez la classe `DataSource`, arrêtez ces données dans des sources de données distinctes. Essayez d’équilibrer le nombre de sources de données avec la complexité du filtre. Un trop grand nombre de sources de données peut entraîner des problèmes de performances. Par conséquent, vous devrez peut-être effectuer des tests pour savoir ce qui convient le mieux à votre scénario.
 * Lorsque vous utilisez un filtre complexe sur une couche, envisagez d’utiliser plusieurs couches avec des expressions de style pour réduire la complexité du filtre. Évitez de créer une série de couches avec des styles codés en dur lorsque les expressions de style peuvent être utilisées comme un grand nombre de couches, ce qui peut également entraîner des problèmes de performances.
 
-### <a name="make-sure-expressions-dont-produce-errors"></a>S’assurer que les expressions ne produisent pas d’erreurs
+### <a name="make-sure-expressions-dont-produce-errors"></a>Veillez à ce que les expressions ne produisent pas d’erreurs
 
 Les expressions sont souvent utilisées pour générer du code afin d’effectuer des calculs ou des opérations logiques au moment du rendu. Tout comme le code dans le reste de votre application, assurez-vous que les calculs et le sens logique ne sont pas susceptibles d’engendrer des erreurs. Les erreurs dans les expressions entraînent des problèmes lors de l’évaluation de l’expression, ce qui peut entraîner des problèmes de réduction du niveau de performance et de rendu.
 
@@ -353,11 +351,11 @@ Les expressions peuvent être puissantes et parfois complexes. Plus l’expressi
 
 Voici quelques conseils pour déboguer certains des problèmes courants rencontrés lors du développement avec le kit de développement logiciel (SDK) Azure Maps Web.
 
-**Pourquoi le mappage ne s’affiche-t-il pas lorsque je charge le contrôle web ?**
+**Pourquoi le mappage ne s’affiche-t-il pas lorsque je charge le contrôle Web ?**
 
 Effectuez les actions suivantes :
 
-* Vérifiez que vous avez ajouté les options d’authentification ajoutées au mappage. Si ce n’est pas le cas, le mappage est chargé avec un canevas vide, car il ne peut pas accéder aux données du mappage de base sans authentification et les erreurs 401 apparaissent dans l’onglet Réseau des outils de développement du navigateur.
+* Vérifiez que vous avez ajouté les options d’authentification ajoutées au mappage. Si ce n’est pas le cas, le mappage est chargé avec un canevas vide, car il ne peut pas accéder aux données du mappage de base sans authentification et les erreurs 401 apparaissent dans l’onglet réseau des outils de développement du navigateur.
 * Vérifiez que vous disposez d’une connexion Internet.
 * Consultez la console pour rechercher les erreurs des outils de développement du navigateur. Certaines erreurs peuvent empêcher l’affichage du mappage. Déboguez votre application.
 * Assurez-vous d’utiliser un [navigateur pris en charge](supported-browsers.md).
@@ -375,8 +373,8 @@ Points à vérifier :
 
 **Pourquoi les icônes ou le texte de la couche de symboles apparaissent-ils au mauvais endroit ?**
 Vérifiez que les options `anchor` et `offset` sont correctement configurées pour s’aligner sur la partie de l’image ou du texte que vous souhaitez aligner avec la coordonnée du mappage.
-Si le symbole n’est simplement pas à sa place lors de la rotation du mappage, activez l'option `rotationAlignment`. Par défaut, les symboles que nous allons faire pivoter avec le point de vue des cartes s’affichent à la verticale pour l’utilisateur. Toutefois, selon votre scénario, il peut être souhaitable de verrouiller le symbole à l’orientation du mappage. Affectez à l’option `rotationAlignment` la valeur `’map’` pour effectuer cette opération.
-Si le symbole n’est simplement pas à sa place lors de l’inclinaison du mappage, vérifiez l'option `pitchAlignment`. Par défaut, les symboles restent à la hauteur du point de vue de la carte, car le mappage est incliné. Toutefois, selon votre scénario, il peut être souhaitable de verrouiller le symbole à l’inclinaison du mappage. Affectez à l’option `pitchAlignment` la valeur `’map’` pour effectuer cette opération.
+Si le symbole n’est simplement pas à sa place lors de la rotation du mappage, activez l'option `rotationAlignment`. Par défaut, les symboles que nous allons faire pivoter avec le point de vue des cartes s’affichent à la verticale pour l’utilisateur. Toutefois, selon votre scénario, il peut être souhaitable de verrouiller le symbole à l’orientation du mappage. Affectez à l’option `rotationAlignment` la valeur `'map'` pour effectuer cette opération.
+Si le symbole n’est simplement pas à sa place lors de l’inclinaison du mappage, vérifiez l'option `pitchAlignment`. Par défaut, les symboles restent à la hauteur du point de vue de la carte, car le mappage est incliné. Toutefois, selon votre scénario, il peut être souhaitable de verrouiller le symbole à l’inclinaison du mappage. Affectez à l’option `pitchAlignment` la valeur `'map'` pour effectuer cette opération.
 
 **Pourquoi certaines de mes données ne s’affichent-elles pas sur le mappage ?**
 

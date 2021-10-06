@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 2fbb03ae08d1146b51a4a73f1b2260443c1609d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 08e68fc4a5aa2de2c2b0e0bbd326620fadc11022
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531379"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455832"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Connexion d’un appareil IoT Edge en aval à une passerelle Azure IoT Edge
 
@@ -90,7 +90,7 @@ D’autres commandes device-identity, notamment `add-children`, `list-children` 
 >[!NOTE]
 >Si vous souhaitez établir des relations parent-enfant par programme, vous pouvez utiliser le [Kit de développement logiciel IOT Hub servic ](../iot-hub/iot-hub-devguide-sdks.md) C#, Java ou Node.js.
 >
->Voici un [exemple d’affectation d’un appareil enfant](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) avec le SDK C#. La tâche `RegistryManager_AddAndRemoveDeviceWithScope()` montre comment créer par programmation une hiérarchie à trois couches. Un appareil IoT Edge se trouve dans la couche 1 en tant que parent. Un autre appareil IoT Edge se trouve dans la couche 2, qui sert à la fois d’enfant et de parent. Enfin, un appareil IoT se trouve dans la couche 3, en tant qu’appareil enfant de la couche enfant la plus basse.
+>Voici un [exemple d’affectation d’un appareil enfant](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs) avec le SDK C#. La tâche `RegistryManager_AddAndRemoveDeviceWithScope()` montre comment créer par programmation une hiérarchie à trois couches. Un appareil IoT Edge se trouve dans la couche 1 en tant que parent. Un autre appareil IoT Edge se trouve dans la couche 2, qui sert à la fois d’enfant et de parent. Enfin, un appareil IoT se trouve dans la couche 3, en tant qu’appareil enfant de la couche enfant la plus basse.
 
 ## <a name="prepare-certificates"></a>Préparer les certificats
 

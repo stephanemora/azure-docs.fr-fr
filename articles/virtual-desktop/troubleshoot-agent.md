@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 718648be0f4a5ec9dd3520127552138b8471d57c
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 31a65c31558940ba7e39e21c8b6e33ffa8e7c9b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710480"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633654"
 ---
 # <a name="troubleshoot-common-azure-virtual-desktop-agent-issues"></a>Résoudre des problèmes courants liés à l’Agent Azure Virtual Desktop
 
@@ -113,7 +113,7 @@ Pour résoudre ce problème, vérifiez que vous pouvez atteindre BrokerURI et Br
 Accédez à **Observateur d’événements** > **Journaux Windows** > **Application**. Si vous voyez un événement dont l’ID est 3703 et dont la description contient la chaîne « RD Gateway Url: is not accessible », cela signifie que l’agent ne peut pas atteindre les URL de passerelle. Pour vous connecter correctement à votre hôte de session et autoriser le trafic réseau vers ces points de terminaison à ignorer les restrictions, vous devez débloquer les URL de la [Liste des URL requises](safe-url-list.md). Assurez-vous également que vos paramètres de pare-feu ou de proxy ne bloquent pas ces URL. Le déblocage de ces URL est nécessaire pour utiliser Azure Virtual Desktop.
 
 Pour résoudre ce problème, vérifiez que vos paramètres de pare-feu et/ou de DNS ne bloquent pas ces URL :
-1. [Utiliser le Pare-feu Azure pour protéger les déploiements de Azure Virtual Desktop.](../firewall/protect-windows-virtual-desktop.md).
+1. [Utiliser le Pare-feu Azure pour protéger les déploiements de Azure Virtual Desktop.](../firewall/protect-azure-virtual-desktop.md).
 2. Configurez vos [Paramètres DNS de Pare-feu Azure](../firewall/dns-settings.md)
 
 ## <a name="error-3019"></a>Erreur: 3019
@@ -243,7 +243,7 @@ Pour résoudre ce problème, réinstallez la pile côte à côte :
 3. Cliquez sur **Panneau de configuration** > **Programmes** > **Programmes et fonctionnalités**.
 4. Désinstallez la dernière version de la **Pile réseau SxS des services Bureau à distance** ou la version indiquée dans **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations** sous **ReverseConnectListener**.
 5. Ouvrez une fenêtre de console en tant qu’administrateur et accédez à **Program Files** > **Microsoft RDInfra**.
-6. Sélectionnez le composant **SxSStack** ou exécutez la commande **msiexec/i SxsStack-<version>.msi** pour installer le MSI.
+6. Sélectionnez le composant **SxSStack** ou exécutez la commande **`msiexec /i SxsStack-<version>.msi`** pour installer le MSI.
 8. Redémarrez votre machine virtuelle.
 9. Revenez à l’invite de commandes, puis exécutez la commande **qwinsta**.
 10. Vérifiez que **Listen** (Écouter) est affiché en regard du composant de la pile installé à l’étape 6.
@@ -381,5 +381,5 @@ Si le problème persiste, créez un cas de support en incluant des informations 
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Azure Virtual Desktop, consultez [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Pour plus d’informations sur le service, consultez [Environnement Azure Virtual Desktop](environment-setup.md).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-monitor/essentials/activity-log.md).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/templates/deployment-history.md).

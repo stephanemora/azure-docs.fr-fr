@@ -3,12 +3,12 @@ title: Améliorer l’excellence opérationnelle avec Advisor
 description: Utilisez Azure Advisor pour améliorer et atteindre l’excellence opérationnelle de vos abonnements Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 0b938a0c7a42182bb8d2a50b48d65a0844d952a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 151edab6c389e32abaaa73fec3012fa3bdcdf75a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579961"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650417"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Atteindre l’excellence opérationnelle à l’aide d’Azure Advisor
 
@@ -69,6 +69,8 @@ Azure Advisor détecte que l’environnement de validation est activé pour un t
 ## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>Activer Traffic Analytics pour obtenir des insights sur les modèles de trafic des ressources Azure
 Traffic Analytics est une solution cloud qui offre une visibilité sur l’activité des utilisateurs et des applications dans Azure. Traffic Analytics analyse les journaux de flux du groupe de sécurité réseau Network Watcher pour fournir des insights sur le flux de trafic. Avec Traffic Analytics, vous pouvez afficher les éléments du réseau qui utilisent le plus de bande passante lors des déploiements Azure et non Azure, détecter les ports ouverts, les protocoles et les flux malveillants de votre environnement, et optimiser le déploiement de votre réseau pour de meilleures performances. Vous pouvez traiter les journaux de flux toutes les 10 ou 60 minutes, ce qui vous permet d’analyser plus rapidement votre trafic. Il est recommandé d’activer Traffic Analytics pour vos ressources Azure. 
 
+## <a name="increase-vcpu-limits-for-your-deployments-for-pay-as-you-go-subscription-preview"></a>Augmenter les limites de processeurs virtuels pour vos déploiements pour l’abonnement avec paiement à l’accès (Préversion)
+Cette expérience a été créée pour fournir un moyen simple d’augmenter le quota afin de vous aider à répondre à vos besoins croissants et éviter tout problème de déploiement en raison des limitations de quota. Nous avons activé une option « correctif rapide » pour les abonnements limités afin de fournir une option simple en un clic pour augmenter le quota de processeurs virtuels de 10 à 20. Cette approche simplifiée appelle l'[API REST de quota](https://techcommunity.microsoft.com/t5/azure-governance-and-management/using-the-new-quota-rest-api/ba-p/2183670) pour le compte de l’utilisateur afin d’augmenter le quota.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

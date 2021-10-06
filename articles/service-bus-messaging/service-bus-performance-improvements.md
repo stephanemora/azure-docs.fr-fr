@@ -3,12 +3,12 @@ title: Meilleures pratiques pour améliorer les performances à l’aide de Azur
 description: Explique comment utiliser Service Bus pour optimiser les performances lors de l’échange de messages répartis.
 ms.topic: article
 ms.date: 08/30/2021
-ms.openlocfilehash: d7bd692809504bb16607a431e879f0abfff953cb
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 51b8005f9aa3b53bbcb8d78b83c4449992cf0210
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225252"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560713"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
 
@@ -84,13 +84,14 @@ AMQP est le plus efficace, car il maintient la connexion à Service Bus. Il perm
 > Le protocole SBMP est disponible uniquement pour .NET Framework. AMQP est le protocole par défaut pour .NET Standard.
 
 ## <a name="choosing-the-appropriate-service-bus-net-sdk"></a>Choix du Kit de développement logiciel (SDK) .NET Service Bus approprié
-Il existe trois Kits de développement logiciel (SDK) .NET Azure Service Bus pris en charge. Leurs API sont similaires, et il peut être difficile de choisir entre les deux. Reportez-vous au tableau suivant pour vous aider à prendre votre décision. Le Kit de développement logiciel (SDK) Azure.Messaging.ServiceBus est le plus récent, et nous vous recommandons de l’utiliser plutôt que d’autres SDK. Les Kits de développement logiciel (SDK) Azure.Messaging.ServiceBus et Microsoft.Azure.ServiceBus sont tous deux modernes, performants et compatibles sur différentes plateformes. En outre, ils prennent en charge AMQP sur WebSockets et font partie de la collection de Kits de développement logiciel (SDK) .NET Azure de projets open source.
+
+Le package `Azure.Messaging.ServiceBus` est le dernier kit de développement logiciel (SDK) .net Azure Service Bus disponible à partir du 2020 novembre. Il existe deux SDK .NET plus anciens qui continuent de recevoir des correctifs de bogues critiques, mais nous vous encourageons vivement à utiliser à la place le dernier Kit de développement logiciel (SDK). Lisez le [Guide de migration](https://aka.ms/azsdk/net/migrate/sb) pour plus d’informations sur la façon de migrer les anciens SDK.
 
 | Package NuGet | Espace(s) de noms principal(-aux) | Plateforme(s) minimale(s) | Protocole(s) |
 |---------------|----------------------|---------------------|-------------|
-| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plateforme Windows universelle 10.0.16299 | AMQP<br>HTTP |
+| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) (**dernière version**) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plateforme Windows universelle 10.0.16299 | AMQP<br>HTTP |
 | [Microsoft.Azure.ServiceBus ](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plateforme Windows universelle 10.0.16299 | AMQP<br>HTTP |
-| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
+| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) (**héritage**) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 Pour plus d’informations sur la prise en charge minimale de la plateforme .NET Standard, consultez [Prise en charge de l’implémentation .NET](/dotnet/standard/net-standard#net-implementation-support).
 
@@ -102,9 +103,13 @@ Nous vous recommandons de ne pas fermer ni de supprimer ces objets après l’en
 
 # <a name="microsoftazureservicebus-sdk"></a>[Kit de développement logiciel (SDK) Microsoft.Azure.ServiceBus](#tab/net-standard-sdk)
 
+> Veuillez noter qu’un package Azure.Messaging.ServiceBus plus récent est disponible à partir de novembre 2020. Bien que le package Microsoft.Azure.ServiceBus continuera de recevoir des correctifs de bogues critiques, nous vous encourageons fortement à le mettre à niveau. Pour plus d’informations, consultez le [Guide de migration](https://aka.ms/azsdk/net/migrate/sb) .
+
 Des objets clients Service Bus, tels que les implémentations de [`IQueueClient`][QueueClient] ou [`IMessageSender`][MessageSender], doivent être inscrits pour l’injection de dépendances en tant que singletons (ou instanciés une fois et partagés). Nous déconseillons de fermer les structures de messagerie ou les files d’attente, les rubriques ou les clients d’abonnement après avoir envoyé un message, et de les recréer lorsque vous envoyez le message suivant. La fermeture d’une fabrique de messagerie supprime la connexion au service Service Bus. Une nouvelle connexion est établie lors de la recréation de la fabrique. 
 
 # <a name="windowsazureservicebus-sdk"></a>[Kit de développement logiciel (SDK) WindowsAzure.ServiceBus](#tab/net-framework-sdk)
+
+> Veuillez noter qu’un package Azure.Messaging.ServiceBus plus récent est disponible à partir de novembre 2020. Bien que le package Microsoft.Azure.ServiceBus continuera de recevoir des correctifs de bogues critiques, nous vous encourageons fortement à le mettre à niveau. Pour plus d’informations, consultez le [Guide de migration](https://aka.ms/azsdk/net/migrate/sb) .
 
 Des objets clients Service Bus, tels que `QueueClient` ou `MessageSender`, sont créés via un objet [MessagingFactory][MessagingFactory], qui assure également la gestion interne des connexions. Nous déconseillons de fermer les structures de messagerie ou les files d’attente, les rubriques ou les clients d’abonnement après avoir envoyé un message, et de les recréer lorsque vous envoyez le message suivant. La fermeture d’une structure de messagerie supprime la connexion à Service Bus et une nouvelle connexion est établie au moment de la recréation de la structure. 
 

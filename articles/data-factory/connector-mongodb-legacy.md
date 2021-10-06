@@ -1,32 +1,32 @@
 ---
 title: Copier des données à partir de MongoDB
+description: Découvrez comment utiliser l'activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics hérité pour copier des données de MongoDB vers des banques de données réceptrices prises en charge.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory hérité pour copier des données de MongoDB vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: f4ad8489e696a903621636a361dfc8ff1f4751c1
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: b014cf900cccc056e09f84966a059160de930239
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305218"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750635"
 ---
-# <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copier des données à partir de MongoDB à l’aide d’Azure Data Factory (hérité)
+# <a name="copy-data-from-mongodb-using-azure-data-factory-or-synapse-analytics-legacy"></a>Copier des données depuis MongoDB à l'aide d'Azure Data Factory ou de Synapse Analytics (hérité)
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Version actuelle](connector-mongodb.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données MongoDB. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment utiliser l'activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données à partir d'une base de données MongoDB. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 >[!IMPORTANT]
->ADF a publié un nouveau connecteur MongoDB qui améliore la prise en charge native de MongoDB par rapport à cette implémentation basée sur ODBC. Pour en savoir plus, consultez l’article [Connecteur MongoDB](connector-mongodb.md). Ce connecteur MongoDB existant est toujours pris en charge tel quel pour une compatibilité en amont, tandis que pour toute nouvelle charge de travail, vous devez utiliser le nouveau connecteur.
+>Le service a publié un nouveau connecteur MongoDB qui améliore la prise en charge native de MongoDB par rapport à cette implémentation basée sur ODBC. Pour en savoir plus, consultez l'article [Connecteur MongoDB](connector-mongodb.md). Ce connecteur MongoDB hérité est toujours pris en charge tel quel pour une compatibilité descendante, tandis que pour toute nouvelle charge de travail, vous devez utiliser le nouveau connecteur.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -55,7 +55,7 @@ Utilisez les étapes suivantes pour créer un service lié à MongoDB dans l’i
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -86,7 +86,7 @@ Les propriétés prises en charge pour le service lié MongoDB sont les suivante
 | databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |Oui |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données MongoDB.<br/>Les valeurs autorisées sont les suivantes : **De base**, et **Anonyme**. |Oui |
 | username |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
-| mot de passe |Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui (si l’authentification de base est utilisée). |
+| mot de passe |Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui (si l’authentification de base est utilisée). |
 | authSource |Nom de la base de données MongoDB que vous souhaitez utiliser pour vérifier vos informations d’identification pour l’authentification. |Non. Par défaut, l’authentification de base utilise le compte d’administrateur et la base de données spécifiés à l’aide de la propriété databaseName. |
 | enableSsl | Indique si les connexions au serveur sont chiffrées à l’aide du protocole TLS. La valeur par défaut est false.  | Non |
 | allowSelfSignedServerCert | Indique si les certificats auto-signés provenant du serveur sont autorisés ou non. La valeur par défaut est false.  | Non |
@@ -198,9 +198,9 @@ Le service Azure Data Factory déduit le schéma à partir d’une collection Mo
 
 ## <a name="data-type-mapping-for-mongodb"></a>Mappage de type de données pour MongoDB
 
-Lors de la copie de données de MongoDB, les mappages suivants sont utilisés entre les types de données MongoDB et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
+Lors de la copie de données de MongoDB, les mappages suivants sont utilisés entre les types de données MongoDB et les types de données intermédiaires utilisés dans le service en interne. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
-| Type de données MongoDB | Type de données intermédiaires de Data Factory |
+| Type de données MongoDB | Type de données de service intermédiaire |
 |:--- |:--- |
 | Binary |Byte[] |
 | Boolean |Boolean |
@@ -209,7 +209,7 @@ Lors de la copie de données de MongoDB, les mappages suivants sont utilisés en
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| Chaîne |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalisé en colonnes aplaties avec « _ » comme séparateur imbriqué |
 
@@ -220,12 +220,12 @@ Lors de la copie de données de MongoDB, les mappages suivants sont utilisés en
 
 ## <a name="support-for-complex-types-using-virtual-tables"></a>Prise en charge des types complexes à l’aide de tables virtuelles
 
-Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à votre base de données MongoDB et copier des données à partir de cette dernière. Pour les types complexes tels que des tableaux ou des objets avec des types différents entre les documents, le pilote normalise de nouveau les données dans les tables virtuelles correspondantes. En particulier, si une table contient de telles colonnes, le pilote génère les tables virtuelles suivantes :
+Le service utilise un pilote ODBC intégré pour assurer la connexion à votre base de données MongoDB et copier des données à partir de cette dernière. Pour les types complexes tels que des tableaux ou des objets avec des types différents entre les documents, le pilote normalise de nouveau les données dans les tables virtuelles correspondantes. En particulier, si une table contient de telles colonnes, le pilote génère les tables virtuelles suivantes :
 
 * Une **table de base**, qui contient les mêmes données que la table réelle, à l’exception des colonnes de type complexe. La table de base utilise le même nom que la table réelle qu’elle représente.
 * Une **table virtuelle** pour chaque colonne de type complexe, qui étend les données imbriquées. Le nom des tables virtuelles est composé du nom de la table réelle, d’un séparateur « _ » et du nom du tableau ou de l’objet.
 
-Les tables virtuelles font référence aux données présentées dans la table réelle, de manière à permettre au pilote d’accéder aux données dénormalisées. Vous pouvez accéder au contenu des tableaux MongoDB en interrogeant et en joignant les tables virtuelles.
+Les tables virtuelles font référence aux données présentées dans la table réelle, de manière à permettre au pilote d'accéder aux données dénormalisées. Vous pouvez accéder au contenu des tableaux MongoDB en interrogeant et en joignant les tables virtuelles.
 
 ### <a name="example"></a>Exemple
 
@@ -267,4 +267,4 @@ Les tables suivantes montrent les tables virtuelles qui représentent les tablea
 | 2222 |1 |2 |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

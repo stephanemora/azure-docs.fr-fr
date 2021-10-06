@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 9/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 894d16e1a72243bee9aff1fff2778ec75c2af6ec
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0e1193dea6826e4188a7d8f933d2c0a2637a72c1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227149"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650151"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Inscription automatique auprès de l’extension SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -94,13 +94,17 @@ Pour ce faire, procédez comme suit :
 1. Enregistrez [ce script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/EnableBySubscription.ps1).
 1. Accédez à l’emplacement où vous avez enregistré le script à l’aide d’une invite de commandes d’administration ou d’une fenêtre PowerShell. 
 1. Connectez-vous à Azur (`az login`).
-1. Exécutez le script en passant SubscriptionIds comme paramètres, comme   
-   `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
+1. Exécutez le script en passant SubscriptionIds comme paramètres. Si aucun abonnement n’est spécifié, le script active l’inscription automatique pour tous les abonnements dans le compte d’utilisateur.    
 
-   Par exemple : 
+   La commande suivante active l’inscription automatique pour deux abonnements : 
 
    ```console
    .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb
+   ```
+   La commande suivante active l’inscription automatique pour tous les abonnements : 
+
+   ```console
+   .\EnableBySubscription.ps1
    ```
 
 Les erreurs d’inscription sont stockées dans `RegistrationErrors.csv` situé dans le même répertoire que celui où vous avez enregistré et exécuté le script `.ps1`. 

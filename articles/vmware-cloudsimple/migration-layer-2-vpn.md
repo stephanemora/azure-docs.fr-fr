@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1b4b3e85323e2023afb67b2175377cb9b2d13a4f
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 7f327e0eecbfe51095f3f533dc787cc9aeedfb1e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177509"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638308"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrer des charges de travail à l’aide de réseaux étendus de couche 2
 
@@ -414,7 +414,7 @@ ENCAP       : GENEVE
 
 ## <a name="obtain-the-peer-code-for-l2vpn-on-the-nsx-t-side"></a>Obtenir le code homologue pour L2VPN côté NSX-T
 
-Obtenez le code homologue du point de terminaison NSX-T. Le code homologue est requis lors de la configuration du point de terminaison distant. La valeur L2VPN <session-id> peut être obtenue à partir de la section précédente. Pour plus d’informations, consultez le [Guide de l’API NSX-T 2.3](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html).
+Obtenez le code homologue du point de terminaison NSX-T. Le code homologue est requis lors de la configuration du point de terminaison distant. La valeur L2VPN \<session-id\> peut être obtenue à partir de la section précédente. Pour plus d’informations, consultez le [Guide de l’API NSX-T 2.3](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html).
 
 ```
 GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes

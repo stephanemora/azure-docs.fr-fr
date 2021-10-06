@@ -1,22 +1,20 @@
 ---
 title: La géoréplication active
 description: Utilisez la géoréplication active pour créer des bases de données secondaires de bases de données individuelles accessibles en lecture dans Azure SQL Database dans des régions de centres de données identiques ou différentes.
-services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
-ms.devlang: ''
 ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 04/28/2021
-ms.openlocfilehash: 1ab4655df0233fdea13f507f8b80b5caa92dc9d6
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 071947c4e0e3989abd4aaa4c68b860d99a8a0c43
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284326"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357836"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Création et utilisation de la géoréplication active - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +25,7 @@ La géoréplication active est une fonctionnalité Azure SQL Database qui vous p
 > La fonctionnalité de géoréplication active pour Azure SQL Hyperscale [est désormais disponible en préversion publique](https://aka.ms/hsgeodr). Les limitations actuelles incluent : un seul géosecondaire dans la même région ou dans une autre région, basculement forcé et planifié non pris en charge pour le moment, restauration de base de données à partir d'un géosecondaire non prise en charge, utilisation d'un géosecondaire en tant que base de données source pour la copie de base de données ou en tant que principal pour un autre géosecondaire non prise en charge
 > 
 > Si vous devez faire du géosecondaire une zone géographique primaire (base de données accessible en écriture), procédez comme suit :
-> 1. Rompez le lien de géoréplication à l’aide du cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) dans PowerShell ou [az sql db replica delete-link](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_delete_link) pour Azure CLI. La base de données secondaire deviendra alors une base de données autonome accessible en écriture. Toutes les modifications de données validées sur la base de données primaire mais pas encore répliquées sur la base de données secondaire seront perdues. Ces modifications peuvent être récupérées lorsque l'ancienne base de données primaire est disponible ou, dans certains cas, en restaurant l'ancienne base de données primaire au dernier point disponible dans le temps.
+> 1. Rompez le lien de géoréplication à l’aide du cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) dans PowerShell ou [az sql db replica delete-link](/cli/azure/sql/db/replica#az_sql_db_replica_delete_link) pour Azure CLI. La base de données secondaire deviendra alors une base de données autonome accessible en écriture. Toutes les modifications de données validées sur la base de données primaire mais pas encore répliquées sur la base de données secondaire seront perdues. Ces modifications peuvent être récupérées lorsque l'ancienne base de données primaire est disponible ou, dans certains cas, en restaurant l'ancienne base de données primaire au dernier point disponible dans le temps.
 > 2. Si l'ancienne base de données primaire est disponible, supprimez-la, puis configurez la géoréplication pour la nouvelle base de données primaire (une nouvelle base de données secondaire sera amorcée). 
 > 3. Mettez à jour les chaînes de connexion de votre application en conséquence.
 

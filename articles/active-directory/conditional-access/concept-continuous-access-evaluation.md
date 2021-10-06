@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: jlu
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5e3804ae4fd386668f4c34d11172e7f3dd1ae62
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 18cc593e3aa1f50dcdaeaea32d7ac584f8bd4a24
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128595393"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354070"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -67,22 +67,22 @@ Ce processus permet l’émergence du scénario dans lequel des utilisateurs per
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
-| **Exchange Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **SharePoint Online** | Prise en charge | Prise en charge | Pris en charge | Prise en charge | Prise en charge |
+| **Exchange Online** | Prise en charge | Pris en charge | Prise en charge | Pris en charge | Prise en charge |
 
 | | Applications web Office | Applications Win32 Office | Office pour iOS | Office pour Android | Office pour Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
-| **Exchange Online** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **SharePoint Online** | Non pris en charge | Prise en charge | Pris en charge | Pris en charge | Prise en charge |
+| **Exchange Online** | Non pris en charge | Prise en charge | Pris en charge | Pris en charge | Prise en charge |
 
 | | Web OneDrive | OneDrive Win32 | IOS OneDrive | Android OneDrive | Mac OneDrive |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Pris en charge |
+| **SharePoint Online** | Prise en charge | Pris en charge | Prise en charge | Pris en charge | Pris en charge |
 
 | | Teams web | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Teams Service** | Pris en charge | Prise en charge | Prise en charge | Prise en charge | Pris en charge |
-| **SharePoint Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **Teams Service** | Pris en charge | Pris en charge | Pris en charge | Pris en charge | Pris en charge |
+| **SharePoint Online** | Prise en charge | Prise en charge | Prise en charge | Pris en charge | Prise en charge |
 | **Exchange Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
 
 ## <a name="client-capabilities"></a>Fonctionnalités du client
@@ -93,10 +93,10 @@ Avant l’évaluation de l’accès continu, les clients essayaient de relire le
 
 | | Web | Win32 | iOS | Android | Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Outlook** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
-| **Équipes** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
-| **Office** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
-| **OneDrive** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **Outlook** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Prise en charge |
+| **Équipes** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Prise en charge |
+| **Office** | Non pris en charge | Prise en charge | Pris en charge | Pris en charge | Prise en charge |
+| **OneDrive** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Prise en charge |
 
 ### <a name="token-lifetime"></a>Durée de vie des jetons
 
@@ -144,7 +144,7 @@ Dans l’exemple suivant, un administrateur d’accès conditionnel a configuré
 À partir de cette page, vous pouvez limiter les utilisateurs et les groupes bénéficiaire de la préversion.
 
 > [!NOTE]
-> Vous pouvez interroger Microsoft Graph via [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&tabs=http#request-body) pour vérifier la configuration de l’évaluation continue de l’accès dans votre locataire. Une réponse HTTP 200 et le corps de réponse associé indiquent si l’évaluation continue de l’accès est activée ou désactivée dans votre locataire. L’évaluation continue de l’accès n’est pas configurée si Microsoft Graph renvoie une réponse HTTP 404.
+> Vous pouvez interroger Microsoft Graph via [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&preserve-view=true&tabs=http#request-body) pour vérifier la configuration de l’évaluation continue de l’accès dans votre locataire. Une réponse HTTP 200 et le corps de réponse associé indiquent si l’évaluation continue de l’accès est activée ou désactivée dans votre locataire. L’évaluation continue de l’accès n’est pas configurée si Microsoft Graph renvoie une réponse HTTP 404.
 
 ![Activation de la préversion de l’évaluation continue de l’accès dans le portail Azure](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
@@ -206,7 +206,7 @@ Quand plusieurs utilisateurs collaborent simultanément sur un document, l’acc
 - La fermeture de l’application Office
 - Après une période de 10 heures
 
-Pour réduire cette durée, un administrateur SharePoint peut réduire la durée de vie maximale des sessions de cocréation pour les documents stockés dans SharePoint Online et OneDrive Entreprise, en [configurant une stratégie d’emplacement réseau dans SharePoint Online](/sharepoint/control-access-based-on-network-location). Une fois cette configuration modifiée, la durée de vie maximale des sessions de cocréation est réduite à 15 minutes, et peut être ajustée davantage à l’aide de la commande SharePoint Online PowerShell « [Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps) ».
+Pour réduire cette durée, un administrateur SharePoint peut réduire la durée de vie maximale des sessions de cocréation pour les documents stockés dans SharePoint Online et OneDrive Entreprise, en [configurant une stratégie d’emplacement réseau dans SharePoint Online](/sharepoint/control-access-based-on-network-location). Une fois cette configuration modifiée, la durée de vie maximale des sessions de cocréation est réduite à 15 minutes, et peut être ajustée davantage à l’aide de la commande SharePoint Online PowerShell « [Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant) ».
 
 ### <a name="enable-after-a-user-is-disabled"></a>Activer après la désactivation d’un utilisateur
 

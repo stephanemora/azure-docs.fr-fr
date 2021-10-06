@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/24/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a7f066a350eae18b9c847d206310cfc3ab8bd57
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 4e980417c2c48455e43143fb2f870a63d6395f94
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112913380"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546203"
 ---
 # <a name="operating-system-upgrade"></a>Mise à niveau du système d’exploitation
 Cet article décrit en détail les mises à niveau du système d’exploitation sur les grandes instances HANA (HLI), également appelées infrastructure complète (BareMetal).
@@ -28,7 +28,7 @@ Cet article décrit en détail les mises à niveau du système d’exploitation 
 >La mise à niveau du système d’exploitation est sous votre responsabilité. Le support des opérations Microsoft peut vous guider dans les domaines clés de la mise à niveau, mais consultez également votre fournisseur de système d’exploitation lorsque vous planifiez une mise à niveau.
 
 Pendant l’approvisionnement de l’unité HLI, l’équipe des opérations Microsoft installe le système d’exploitation.
-Vous devez mettre à jour le système d’exploitation. Par exemple, vous devez effectuer la mise à jour corrective, le réglage, la mise à niveau, etc., sur le HLI. Avant d’apporter des modifications majeures au système d’exploitation, par exemple, une mise à niveau de SP1 vers SP2, contactez l’équipe des opérations de Microsoft en ouvrant un ticket de support. Ils peuvent ensuite vous consulter. Nous vous recommandons d’ouvrir ce ticket au moins une semaine avant la mise à niveau. 
+Vous devez mettre à jour le système d’exploitation. Par exemple, vous devez effectuer la mise à jour corrective, le réglage, la mise à niveau, etc., sur le HLI. Avant d’apporter des modifications majeures au système d’exploitation, par exemple, une mise à niveau de SP1 vers SP2, contactez l’équipe des opérations de Microsoft en ouvrant un ticket de support. Ils vous consulteront. Nous vous recommandons d’ouvrir ce ticket au moins une semaine avant la mise à niveau. 
 
 Veuillez inclure dans votre ticket :
 

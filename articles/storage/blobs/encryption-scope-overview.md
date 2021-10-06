@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0d8f1a7e0312ea350a5a34c13d8389b240c14476
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7cb5d96c7651713f02d606be1038f55cd430162f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472466"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599237"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Étendues de chiffrement pour le stockage d'objets blob
 
 Les étendues de chiffrement vous permettent de gérer le chiffrement à l'aide d'une clé étendue à un conteneur ou à un objet blob individuel. Vous pouvez utiliser des étendues de chiffrement pour créer des limites sécurisées entre les données qui résident dans le même compte de stockage mais qui appartiennent à des clients différents.
 
 Pour plus d'informations sur l'utilisation des étendues de chiffrement, consultez [Créer et gérer des étendues de chiffrement](encryption-scope-manage.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-encryption-scopes-work"></a>Fonctionnement des étendues de chiffrement
 
@@ -32,13 +30,13 @@ Les opérations de lecture sur un objet blob qui a été créé avec une étendu
 
 ### <a name="key-management"></a>Gestion des clés
 
-Lorsque vous définissez une étendue de chiffrement, vous pouvez spécifier si elle est protégée par une clé gérée par Microsoft ou par une clé gérée par le client stockée dans Azure Key Vault. Différentes étendues de chiffrement sur le même compte de stockage peuvent utiliser des clés gérées par Microsoft ou par le client. En outre, vous pouvez à tout moment basculer le type de clé utilisé pour protéger une étendue de chiffrement d'une clé gérée par le client vers une clé gérée par Microsoft, ou vice versa. Pour plus d'informations sur les clés gérées par le client, consultez [Clés gérées par le client pour le chiffrement du Stockage Azure](../common/customer-managed-keys-overview.md). Pour plus d’informations sur les clés managées par Microsoft, consultez [À propos de la gestion des clés de chiffrement](../common/storage-service-encryption.md#about-encryption-key-management).
+Lorsque vous définissez une étendue de chiffrement, vous pouvez spécifier si elle est protégée par une clé gérée par Microsoft ou par une clé gérée par le client stockée dans Azure Key Vault. Différentes étendues de chiffrement sur le même compte de stockage peuvent utiliser des clés gérées par Microsoft ou par le client. En outre, vous pouvez à tout moment basculer le type de clé utilisé pour protéger une étendue de chiffrement d'une clé managée par le client vers une clé managée par Microsoft, ou vice versa. Pour plus d'informations sur les clés gérées par le client, consultez [Clés gérées par le client pour le chiffrement du Stockage Azure](../common/customer-managed-keys-overview.md). Pour plus d’informations sur les clés managées par Microsoft, consultez [À propos de la gestion des clés de chiffrement](../common/storage-service-encryption.md#about-encryption-key-management).
 
 Si vous définissez une étendue de chiffrement avec une clé gérée par le client, vous pouvez choisir de mettre à jour la version de la clé automatiquement ou manuellement. Si vous optez pour la mise à jour automatique de la version de la clé, le service Stockage Azure recherche quotidiennement dans le coffre de clés ou dans le HSM managé la présence d'une nouvelle version de la clé gérée par le client et procède automatiquement à la mise jour. Pour plus d'informations sur la mise à jour d'une clé gérée par le client, consultez [Mettre à jour la version de la clé](../common/customer-managed-keys-overview.md#update-the-key-version).
 
 Azure Policy fournit une stratégie intégrée pour exiger que les étendues de chiffrement utilisent des clés gérées par le client. Pour plus d’informations, consultez la section **Stockage** dans [Définitions de stratégies intégrées Azure Policy](../../governance/policy/samples/built-in-policies.md#storage).
 
-Un compte de stockage peut comporter jusqu'à 10 000 étendues de chiffrement protégées par des clés gérées par le client dont la version est automatiquement mise à jour. Si votre compte de stockage comporte déjà 10 000 étendues de chiffrement protégées par des clés gérées par le client qui sont mises à jour automatiquement, la version des clés doit être mise à jour manuellement pour toutes les étendues de chiffrement supplémentaires protégées par des clés gérées par le client.  
+Un compte de stockage peut comporter jusqu'à 10 000 étendues de chiffrement protégées par des clés gérées par le client dont la version est automatiquement mise à jour. Si votre compte de stockage comporte déjà 10 000 étendues de chiffrement protégées par des clés gérées par le client qui sont mises à jour automatiquement, la version des clés doit être mise à jour manuellement pour toutes les étendues de chiffrement supplémentaires protégées par des clés gérées par le client.
 
 ### <a name="infrastructure-encryption"></a>Chiffrement d’infrastructure
 
@@ -82,7 +80,16 @@ Gardez à l’esprit que les clés gérées par le client sont protégées par l
 > [!IMPORTANT]
 > Il n’est pas possible de supprimer une étendue de chiffrement.
 
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
 
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

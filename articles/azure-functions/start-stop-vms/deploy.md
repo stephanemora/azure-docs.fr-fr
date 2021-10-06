@@ -5,19 +5,16 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 51488a6694b843821110127640281a2da9986862
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dc44fc58b8832c30ed1b740eb6637f1fc8ed1413
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744758"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129454959"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>Déployer Start/Stop VMs v2 (préversion)
 
 Effectuez les étapes de cette rubrique dans l’ordre pour installer la fonctionnalité Start/Stop VMs v2 (préversion). Une fois le processus d’installation terminé, configurez les planifications pour les adapter à vos besoins.
-
-> [!NOTE]
-> Si vous rencontrez des problèmes lors du déploiement, que vous rencontrez un problème lors de l’utilisation de Start/Stop VMs V2 (préversion) ou si vous avez une question connexe, vous pouvez envoyer un problème sur [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). L’envoi d’un incident au support Azure à partir du [site de support Azure](https://azure.microsoft.com/support/options/) n’est pas disponible pour cette préversion. 
 
 ## <a name="permissions-considerations"></a>Considérations relatives aux autorisations
 Gardez à l’esprit les points suivants avant et pendant le déploiement :

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, divswa, azla
 ms.topic: how-to
 ms.date: 07/16/2021
-ms.openlocfilehash: 5328fad1530ee8dd7b4a2c79581d443488c44b28
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4b1c6d33146233882dd4ee0656c2d1ee7ee6ec79
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453838"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589717"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-using-azure-logic-apps-and-enterprise-integration-pack"></a>Échanger des messages X12 dans le cadre d’une intégration d’entreprise B2B en utilisant Azure Logic Apps et Enterprise Integration Pack
 
@@ -348,7 +348,7 @@ Pour spécifier ces numéros de version de document et types de messages, procé
 
    Pour mettre à jour votre schéma, procédez comme suit :
 
-   1. Dans le Portail Azure, accédez à votre compte d’intégration. Recherchez et téléchargez votre schéma. Remplacez le type de message et renommez le fichier de schéma, puis chargez votre schéma révisé dans votre compte d’intégration. Pour plus d’informations, consultez [Modifier les schémas](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas).
+   1. Dans le Portail Azure, accédez à votre compte d’intégration. Recherchez et téléchargez votre schéma. Remplacez le type de message et renommez le fichier de schéma, puis chargez votre schéma révisé dans votre compte d’intégration. Pour plus d’informations, consultez [Modifier un schéma](logic-apps-enterprise-integration-schemas.md#edit-schema).
 
    1. Dans les paramètres de message du contrat, sélectionnez le schéma révisé.
 

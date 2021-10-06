@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d5e34ee5013a6f4ad28779e92536ff2d8ef868
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 449a0ecd02e12816a9a9952fad0446f392ff4af7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730765"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352887"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Méthodes d’authentification dans Azure Active Directory – Jetons OATH 
 
@@ -58,6 +58,9 @@ L’opération peut prendre plusieurs minutes selon la taille du fichier CSV. S�
 Une fois que toutes les erreurs ont été résolues, l’administrateur peut activer chaque clé en sélectionnant **Activer** pour le jeton et en entrant l’OTP affiché sur le jeton. Vous pouvez activer un maximum de 200 jetons OATH toutes les 5 minutes. 
 
 Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des applications d’authentification, comme l’application Microsoft Authenticator, configurées pour une utilisation à tout moment. Les jetons OATH de matériel ne peuvent pas être attribués aux utilisateurs invités dans le locataire de ressources.
+
+>[!IMPORTANT]
+>La préversion n’est prise en charge ni dans Azure Government ni dans les clouds souverains.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

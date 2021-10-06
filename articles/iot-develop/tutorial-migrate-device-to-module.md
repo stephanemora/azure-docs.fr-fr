@@ -1,18 +1,18 @@
 ---
 title: Tutoriel - Connecter un module générique Azure IoT Plug-and-Play | Microsoft Docs
 description: Tutoriel - Utiliser l’exemple de code d’appareil IoT Plug-and-Play en C# dans un module générique.
-author: lizross
-ms.author: lizross
+author: RamIoTMalhotra
+ms.author: ramal
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: 3ff845e1ef74e8bf1f98da519d8d2d9657755e96
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 44dca3cd3cd7803271fba6abae72de5c54782c1f
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091119"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457408"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutoriel : Connecter un module IoT Plug-and-Play (C#)
 
@@ -108,7 +108,7 @@ Pour ouvrir et préparer l’exemple de projet :
     | IOTHUB_DEVICE_SECURITY_TYPE | connectionString |
     | IOTHUB_MODULE_CONNECTION_STRING | Chaîne de connexion de module que vous avez notée précédemment |
 
-    Pour en savoir plus sur l’exemple de configuration, consultez l’[exemple de fichier Lisez-moi](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/master/iot-hub/Samples/device/PnpDeviceSamples/readme.md).
+    Pour en savoir plus sur l’exemple de configuration, consultez l’[exemple de fichier Lisez-moi](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/readme.md).
 
 ## <a name="modify-the-code"></a>Modifier ce code.
 

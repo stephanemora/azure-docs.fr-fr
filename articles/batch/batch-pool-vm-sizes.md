@@ -2,14 +2,14 @@
 title: Choisir des tailles et des images de machines virtuelles pour les pools
 description: Quelle taille de machine virtuelle et quelle version de système d’exploitation choisir parmi celles disponibles pour les nœuds de calcul dans des pools Azure Batch
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 09/02/2021
 ms.custom: seodec18
-ms.openlocfilehash: bff6ef88345b280e2c977661814630af38fbe9d5
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 64dc4f11d5b80f0b493ca393f9a04521090c02cb
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224823"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437055"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille et une image de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -19,7 +19,16 @@ Lorsque vous sélectionnez une taille de nœud pour un pool Azure Batch, vous av
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pools dans la configuration de la machine virtuelle
 
-Les pools Batch dans la configuration de la machine virtuelle prennent en charge presque toutes les [tailles de machine virtuelle](../virtual-machines/sizes.md). Consultez le tableau suivant pour en savoir plus sur les tailles prises en charge et les restrictions.
+Les pools Batch dans la configuration de la machine virtuelle prennent en charge presque toutes les [tailles de machine virtuelle](../virtual-machines/sizes.md). Les tailles de machines virtuelles prises en charge dans une région peuvent être obtenues via les [API de gestion par lots](batch-apis-tools.md#batch-management-apis), ainsi que les [outils en ligne de commande](batch-apis-tools.md#batch-command-line-tools) (applets de commande PowerShell et interface CLI Azure).  Par exemple, la [commande CLI Azure batch](/cli/azure/batch/location#az_batch_location_list_skus) pour répertorier les tailles de machines virtuelles prises en charge dans une région est :
+
+```azurecli-interactive
+az batch location list-skus --location
+                            [--filter]
+                            [--maxresults]
+                            [--subscription] 
+```
+
+Pour chaque série de machines virtuelles, le tableau suivant indique également si les séries et les tailles de machine virtuelle sont prises en charge par Batch.
 
 | Série de la machine virtuelle  | Tailles prises en charge |
 |------------|---------|

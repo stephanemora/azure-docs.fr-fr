@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: f3b6c41006c18e1b5e211b36756250dba28ae1d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/03/2021
+ms.openlocfilehash: 192d18349b783cccb8548dc0983c6d3e386f39e9
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532121"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468327"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partitionnement dans l'API Cassandra Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -86,9 +86,20 @@ Lorsque les données sont renvoyées, elles sont triées en fonction de la clé 
 
 :::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Capture d’écran montrant les données retournées triées par la clé de clustering.":::
 
+> [!WARNING]
+> Lors de l’interrogation de données, si vous souhaitez filtrer *uniquement* sur l’élément de valeur de clé de partition d’une clé primaire composée (comme c’est le cas ci-dessus), assurez-vous d'*ajouter explicitement un index secondaire sur la clé de partition* :
+>
+>    ```shell
+>    CREATE INDEX ON uprofile.user (user);
+>    ```
+>
+> l’API Azure Cosmos DB Cassandra n’applique pas les index aux clés de partition par défaut, et l’index dans ce scénario peut améliorer considérablement les performances des requêtes. Pour plus d’informations, consultez notre article sur l'[indexation secondaire](secondary-indexing.md) .
+
 Avec des données ainsi modélisées, plusieurs enregistrements, regroupés par utilisateur, peuvent être attribués à chaque partition. Nous pouvons donc émettre une requête qui est efficacement acheminée par la `partition key` (dans ce cas, `user`) pour obtenir tous les messages d'un utilisateur donné. 
 
 :::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Diagramme montrant comment plusieurs enregistrements peuvent être attribués à chaque partition, regroupés par utilisateur." border="false":::
+
+
 
 
 ## <a name="composite-partition-key"></a>Clé de partition composite

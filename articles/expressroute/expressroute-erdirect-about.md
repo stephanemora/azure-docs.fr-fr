@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 08/31/2021
 ms.author: duau
-ms.openlocfilehash: c6f06df11e0e17f37d7cfcbba6ed4fb8c224f824
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 01de2c75cbb6c1f8b2e153e18add612608e75ac7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123029859"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433978"
 ---
 # <a name="about-expressroute-direct"></a>À propose de ExpressRoute Direct
 
@@ -37,7 +37,7 @@ Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser Express
     ```
 
 1. Inscrivez votre abonnement pour la préversion publique à l’aide de la commande suivante :
-1. 
+
     ```azurepowershell-interactive
     Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
     ```
@@ -100,14 +100,24 @@ ExpressRoute Direct prend en charge le balisage VLAN QinQ et Dot1Q.
 
 * Grâce au **balisage VLAN Dot1Q**, il est possible d’avoir un VLAN balisé unique pour chaque paire de ports ExpressRoute Direct. Une balise-C (C-Tag) utilisée sur un peering doit être unique sur tous les circuits et peerings de la paire de ports ExpressRoute Direct.
 
-## <a name="workflow"></a>Workflow
+## <a name="workflows"></a>Workflows
 
-[![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+### <a name="set-up-expressroute-direct"></a>Configurer ExpressRoute Direct
+
+:::image type="content" source="./media/expressroute-erdirect-about/set-up-workflow.png" alt-text="Diagramme du flux de travail de la configuration d’ExpressRoute Direct." lightbox="./media/expressroute-erdirect-about/set-up-workflow-expanded.png":::
+
+### <a name="delete-expressroute-direct"></a>Supprimer ExpressRoute Direct
+
+:::image type="content" source="./media/expressroute-erdirect-about/delete-workflow.png" alt-text="Diagramme du flux de travail de suppression d’ExpressRoute Direct." lightbox="./media/expressroute-erdirect-about/delete-workflow-expanded.png":::
 
 ## <a name="sla"></a>Contrat SLA
 
-ExpressRoute Direct fournit le même contrat de niveau de service professionnel avec des connexions redondantes Active/Active dans le réseau mondial Microsoft. L’infrastructure ExpressRoute est redondante, et la connectivité au réseau mondial Microsoft est redondante, différente, et s’adapte correctement aux exigences du client. 
+ExpressRoute Direct fournit le même contrat de niveau de service professionnel avec des connexions redondantes Active/Active dans le réseau mondial Microsoft. L’infrastructure ExpressRoute est redondante, et la connectivité au réseau mondial Microsoft est redondante, différente, et s’adapte correctement aux exigences du client.
+
+## <a name="pricing"></a>Tarifs
+
+Pour plus d’informations sur la facturation d’ExpressRoute Direct, consultez le [FAQ d’ExpressRoute](expressroute-faqs.md#when-does-billing-start-and-stop-for-the-expressroute-direct-port-pairs). Pour plus de détails, consultez [Tarification d'ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Configurer ExpressRoute Direct](expressroute-howto-erdirect.md)
+Découvrez comment [configurer ExpressRoute Direct](expressroute-howto-erdirect.md).

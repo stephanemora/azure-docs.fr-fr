@@ -3,17 +3,17 @@ title: Vue d’ensemble des alertes classiques dans Azure Monitor
 description: Les alertes classiques sont désormais déconseillées. Les alertes vous permettent d’analyser des mesures de ressources, événements ou journaux d’activité Azure, puis d’envoyer des alertes quand une condition spécifiée est remplie.
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.openlocfilehash: bce29c94c3cbacd5b7e38cf30b699ab5ca57f904
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad5d9be6c13f272e4e3845093a73c1cc50a38f86
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045426"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543814"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
 
 > [!NOTE]
-> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](./alerts-overview.md). Les alertes classiques sont [retirées](./monitoring-classic-retirement.md) pour les utilisateurs du cloud public, avec une utilisation limitée jusqu’au **31 mai 2021**. Les alertes classiques pour Azure Government Cloud et Azure China 21Vianet seront mises hors service le **29 février 2024**.
+> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](./alerts-overview.md). Les alertes classique sont [hors service](./monitoring-classic-retirement.md) pour les utilisateurs du cloud public. Les alertes classiques pour Azure Government Cloud et Azure China 21Vianet seront mises hors service le **29 février 2024**.
 >
 
 Azure vous permet de définir des conditions sur des données et d’être informé quand les dernières données de monitoring répondent à ces conditions.

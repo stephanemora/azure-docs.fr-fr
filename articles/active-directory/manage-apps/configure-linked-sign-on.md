@@ -1,6 +1,7 @@
 ---
-title: Comprendre l’authentification liée dans Azure Active Directory
-description: Comprendre l’authentification liée dans Azure Active Directory.
+title: Ajouter l’authentification unique liée à une application
+description: Ajoutez l’authentification unique liée à une application dans le Répertoire actif Azure.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -8,49 +9,43 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/30/2020
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: dd5421eaf8dbb251c5df5bc4e1fd92fb8ed25243
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c8404b7ec361c90a6153cadc7ec6a71efb17fd1c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562798"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639619"
 ---
-# <a name="understand-linked-sign-on"></a>Comprendre l’authentification liée
+# <a name="add-linked-single-sign-on-to-an-application-in-azure-active-directory"></a>Ajoutez l’authentification unique liée à une application dans le Répertoire actif Azure
 
-Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications, vous avez appris à utiliser Azure AD comme fournisseur d’identité (IdP) pour une application. Dans le guide de démarrage rapide, vous configurez l’authentification unique par SAML ou OIDC. Une autre option consiste à utiliser **Authentification liée**. Cet article décrit plus en détail l’option d’authentification liée.
+Cet article explique comment configurer l’authentification unique (SSO) liée à votre application dans le Répertoire actif Azure (Azure AD). L’authentification unique liée SSO permet à Azure AD de fournir l’authentification unique à une application qui est déjà configurée pour l’authentification unique dans un autre service. L’option liée vous permet de configurer l’emplacement cible lorsqu’un utilisateur sélectionne l’application dans le portail Mes applications ou Microsoft 365 de votre organisation.
 
-L’option **Authentification liée** vous permet de configurer l’emplacement cible lorsqu’un utilisateur sélectionne l’application dans le portail [Mes applications](https://myapps.microsoft.com/) ou Office 365 de votre organisation.
+L’option liée SSO ne fournit pas de fonctionnalité d’authentification via Azure AD. L’option définit simplement l’emplacement auquel les utilisateurs sont envoyés lorsqu’ils sélectionnent l’application sur le portail Mes applications ou Microsoft 365.
 
-Voici quelques scénarios courants dans lesquels l’option d’authentification liée est utile :
-
+Voici quelques scénarios courants dans lesquels l’option d’authentification liée SSo est utile :
 - Ajouter un lien vers une application web personnalisée qui utilise actuellement la fédération, par exemple les services de fédération Active Directory (AD FS).
-- Ajouter des liens ciblés vers des pages SharePoint spécifiques ou d’autres pages web dont vous souhaitez qu’elles s’affichent uniquement sur vos volets d’accès d’utilisateurs.
-- Ajoutez un lien vers une application qui ne requiert pas d’authentification.
- L’option **Authentification liée** ne fournit pas de fonctionnalité d’authentification via des informations d’identification Azure AD. Toutefois, vous pouvez toujours utiliser les autres fonctionnalités d’**Applications d’entreprise**. Par exemple, vous pouvez utiliser les journaux d’audit et ajouter un logo et un nom d’application personnalisés.
+- Ajouter des liens profonds vers des pages Web spécifiques que vous souhaitez afficher sur vos pages d’accès d’utilisateurs.
+- Ajoutez un lien vers une application qui ne requiert pas d’authentification. L’option liée ne fournit pas de fonctionnalité d’authentification par le biais des informations d’identification Azure AD, mais vous pouvez toujours utiliser les autres fonctionnalités des applications d’entreprise. Par exemple, vous pouvez utiliser les journaux d’audit et ajouter un logo et un nom d’application personnalisés.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Prérequis
 
-Pour être efficace rapidement, suivez la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications. Dans le démarrage rapide, où vous configurez l’authentification unique, vous trouverez également l’option **Authentification liée**.
+Pour configurer une option liée SSO dans votre locataire Azure AD, vous devez :
+-   Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+-   Un des rôles suivants : Administrateur général, Administrateur d’application cloud, Administrateur d’application ou propriétaire du principal de service.
+-   Application qui prend en charge l’authentification unique liée.
 
-L’option **Authentification liée** ne fournit pas de fonctionnalité d’authentification via Azure AD. L’option définit simplement l’emplacement auquel les utilisateurs sont envoyés lorsqu’ils sélectionnent l’application sur [Mes applications](https://myapps.microsoft.com/) ou le lanceur d’applications Microsoft 365.  Étant donné que la connexion ne fournit pas de fonctionnalité de connexion via Azure AD, l’accès conditionnel n’est pas disponible pour les applications configurées avec l’authentification unique liée.
+## <a name="configure-linked-based-single-sign-on"></a>Configurer l’authentification unique liée
 
-> [!IMPORTANT]
-> Dans certains cas, l’option **Authentification unique** n’est pas accessible pour une application sous **Applications d’entreprise**.
->
-> Si l’application a été inscrite à l’aide d’**Inscriptions d’applications**, la capacité d’authentification unique est configurée pour utiliser OIDC OAuth par défaut. Dans ce cas, l’option **Authentification unique** ne s’affiche pas dans le volet de navigation sous **Applications d’entreprise**. Quand vous utilisez **inscriptions d’applications** pour ajouter votre application personnalisée, vous configurez les options dans le fichier du manifeste. Pour en savoir plus sur le fichier manifeste, consultez [Manifeste d’application Azure Active Directory](../develop/reference-app-manifest.md). Pour en savoir plus sur les standards SSO, consultez [Authentification et autorisation avec la plateforme d’identités Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform).
->
-> D’autres scénarios dans lesquels **l’authentification unique** sera absente de la navigation incluent les cas où une application est hébergée dans un autre locataire ou si votre compte ne dispose pas des autorisations requises (administrateur général, administrateur d’application Cloud, administrateur d’application ou propriétaire du principal de service). Les autorisations peuvent également être à l’origine d’un scénario dans lequel vous pouvez ouvrir **l’authentification unique**, mais vous ne pourrez pas l’enregistrer. Pour en savoir plus sur les rôles d’administrateur Azure AD, consultez [Rôles intégrés Azure AD](../roles/permissions-reference.md).
-
-### <a name="configure-link"></a>Configurer le lien
-
-Pour définir le lien d’une application, sélectionnez **Authentification liée** sur la page **Authentification unique**. Entrez ensuite le lien et sélectionnez **Enregistrer**. Vous avez besoin d’un rappel pour trouver ces options ? Consultez la [série de démarrages rapides](view-applications-portal.md).
-
-Une fois que vous avez configuré une application, assignez-lui des utilisateurs et des groupes. Lorsque vous affectez des utilisateurs, vous pouvez contrôler le moment où l’application s’affiche dans [Mes applications](https://myapps.microsoft.com/) ou le lanceur d’applications Microsoft 365.
+1.  Connectez-vous au [portail Azure](https://portal.azure.com) avec le rôle approprié.
+2.  Sélectionnez **Répertoire actif Azure**, puis **Applications d’entreprise**.
+3.  Recherchez et sélectionnez l’application que vous souhaitez ajouter à l’authentification unique SSO.
+4.  Sélectionnez **Authentification unique**, puis sélectionnez **Liée**.
+5.  Saisissez l’URL de la page d’authentification de l’application.
+6.  Sélectionnez **Enregistrer**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Affecter des utilisateurs et des groupes à l’application](./assign-user-or-group-access-portal.md)
-- [Configurer le provisionnement automatique d’un compte utilisateur](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+- [Gérer l’accès aux applications](what-is-access-management.md)

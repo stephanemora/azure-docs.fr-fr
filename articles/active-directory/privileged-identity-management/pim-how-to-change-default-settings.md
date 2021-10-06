@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/25/2021
+ms.date: 09/14/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 558f8b720992f44a747689cb0e69436507b685c4
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 31d58536b1af26d037b3c53f04bcae5c9359ff47
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866993"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606700"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
@@ -78,9 +78,9 @@ Pour exiger une authentification multifacteur afin d’activer l’attribution d
 
 ### <a name="on-active-assignment"></a>Lors de l’attribution active
 
-Dans certains cas, vous pourriez vouloir attribuer un rôle à un utilisateur pour une courte durée (une journée, par exemple). Les utilisateurs attribués n’ont alors pas besoin de demander l’activation. Dans ce scénario, Privileged Identity Management ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
+Avec cette option, les administrateurs doivent effectuer une authentification multifacteur avant de créer une attribution de rôle actif (par opposition à éligible). La Gestion de l’identité privilégiée ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
 
-Pour exiger une authentification multifacteur lorsque l’attribution est active, sélectionnez l’option **Exiger Azure Multifactor Authentication lors de l’attribution active** sous l’onglet Attribution de l’option **Modifier le paramètre du rôle**.
+Pour exiger une authentification multifacteur lorsque l’attribution est active, sélectionnez l’option **Exiger l’Authentification multifacteur Azure lors de l’attribution active** sous l’onglet Attribution de l’option **Modifier le paramètre du rôle**.
 
 Pour plus d’informations, consultez [Authentification multifacteur et Privileged Identity Management](pim-how-to-require-mfa.md).
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/25/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9cf7fd49562f83976a10150d953a0afc8b994ed4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 55a7ba39db8dcb255e578a1ba193b6f384ba8224
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102790"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426699"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problèmes et solutions connus relatifs à la conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD
 
@@ -106,33 +106,27 @@ Vous trouverez ci-dessous des exemples de requêtes pour vous aider à décrire 
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
-        {
-            "op": "Add",
-            "path": "nickName",
-            "value": [
-                {
-                    "value": "Babs"
-                }
-            ]
-        }
-    ]
-}   
+    {
+        "op": "Add",
+        "path": "nickName",
+        "value": "Babs"
+     }
+   ]
+}
+
   ```
 
 **Avec indicateur de fonctionnalité**
   ```json
-  {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "add",
-            "value": {
-                "nickName": "Babs"
-            }
-        }
-    ]
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+  "Operations": [
+    {
+      "op": "add",
+      "path": "nickName",
+      "value": "Babs"
+    }
+  ]
 }
   ```
 

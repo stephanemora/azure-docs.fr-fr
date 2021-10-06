@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: eee11a2f50dbc0d3121d3ba603e85d3700e333bb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 253433c98ce2da8e69fadf82ff9e5902e5a990ef
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294020"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542230"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrez vos ressources IaaS vers Azure Resource Manager avant le 1er mars 2023 
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows
 
 En 2014, nous avons lancé IaaS (Infrastructure as a Service) sur [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Nous en avons depuis lors amélioré les fonctionnalités. Comme Azure Resource Manager intègre désormais des fonctionnalités IaaS complètes et d’autres avancées, nous avons déprécié la gestion des machines virtuelles IaaS via [Azure Service Manager](/azure/virtual-machines/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) le 28 février 2020. Cette fonctionnalité sera entièrement mise hors service le 1er mars 2023. 
 
@@ -31,10 +33,11 @@ Les machines virtuelles créées en utilisant le modèle de déploiement Classiq
 - Le 1er mars 2023, les abonnements qui n’auront pas migré vers Azure Resource Manager seront informés du calendrier de suppression des machines virtuelles classiques restantes.  
 
 Cette mise hors service n’affecte *pas* les services et fonctionnalités Azure suivants : 
-- [Azure Cloud Services (classique)](../cloud-services/cloud-services-choose-me.md)
 - Comptes de stockage *non* utilisés par des machines virtuelles classiques 
 - Réseaux virtuels *non* utilisés par des machines virtuelles classiques 
 - Autres ressources Classic
+
+Le retrait des Services Cloud Azure (classique) a été annoncé en août 2021 [ici](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
 
 ## <a name="what-resources-are-available-for-this-migration"></a>Quelles ressources sont disponibles pour cette migration ?
 

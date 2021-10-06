@@ -9,33 +9,32 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 05/10/2021
-ms.openlocfilehash: 8fe1623dde29160c674d32edb470b57231e4b3b1
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 91c6893320273ae29cb504715b5f27365a0161be
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810573"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434229"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Créer des utilisateurs invités Azure AD et les définir comme administrateurs Azure AD
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-> [!NOTE]
-> Cet article est en **préversion publique**.
+Dans Azure Active Directory (Azure AD), les utilisateurs invités sont des utilisateurs qui ont été importés dans l’instance Azure AD active à partir d’autres annuaires Azure Active Directory ou en dehors de celle-ci. Par exemple, parmi les utilisateurs invités peuvent figurer des utilisateurs issus d’autres annuaires Azure Active Directory ou de comptes comme *\@outlook.com*, *\@hotmail.com*, *\@live.com* ou *\@gmail.com*. 
 
-Dans Azure Active Directory (Azure AD), les utilisateurs invités sont des utilisateurs qui ont été importés dans l’instance Azure AD active à partir d’autres annuaires Azure Active Directory ou en dehors de celle-ci. Par exemple, parmi les utilisateurs invités peuvent figurer des utilisateurs issus d’autres annuaires Azure Active Directory ou de comptes comme *\@outlook.com*, *\@hotmail.com*, *\@live.com* ou *\@gmail.com*. Cet article montre comment créer un utilisateur invité Azure AD et définir cet utilisateur comme administrateur Azure AD pour le serveur logique Azure SQL, sans que cet utilisateur invité ait besoin de faire partie d’un groupe dans Azure AD.
+Cet article explique comment créer un utilisateur invité Azure AD et définir celui-ci en tant qu’administrateur Azure AD pour Azure SQL Managed Instance ou le [serveur logique dans Azure](logical-servers.md) utilisé par Azure SQL Database et Azure Synapse Analytics, sans avoir à ajouter l’utilisateur invité à un groupe dans Azure AD.
 
 ## <a name="feature-description"></a>Description de la fonctionnalité
 
-Cette fonctionnalité lève la limitation actuelle qui veut que seuls les utilisateurs invités peuvent se connecter à Azure SQL Database, SQL Managed Instance ou Azure Synapse Analytics s’ils sont membres d’un groupe créé dans Azure AD. Le groupe devait être mappé à un utilisateur manuellement à l’aide de l’instruction [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) dans une base de données spécifique. Dès lors qu’un utilisateur de base de données a été créé pour le groupe Azure AD contenant l’utilisateur invité, celui-ci peut se connecter à la base de données en utilisant Azure Active Directory avec l’authentification MFA. Dans cette **préversion publique**, il est possible de créer des utilisateurs invités et de les connecter directement à SQL Database, SQL Managed Instance ou Azure Synapse sans avoir à les ajouter préalablement à un groupe Azure AD, puis à créer un utilisateur de base de données pour ce groupe Azure AD.
+Cette fonctionnalité lève la limitation actuelle qui veut que seuls les utilisateurs invités peuvent se connecter à Azure SQL Database, SQL Managed Instance ou Azure Synapse Analytics s’ils sont membres d’un groupe créé dans Azure AD. Le groupe devait être mappé à un utilisateur manuellement à l’aide de l’instruction [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) dans une base de données spécifique. Dès lors qu’un utilisateur de base de données a été créé pour le groupe Azure AD contenant l’utilisateur invité, celui-ci peut se connecter à la base de données en utilisant Azure Active Directory avec l’authentification MFA. Il est possible de créer des utilisateurs invités et de connecter ceux-ci directement à SQL Database, SQL Managed Instance ou Azure Synapse sans avoir à les ajouter préalablement à un groupe Azure AD, puis à créer un utilisateur de base de données pour ce groupe Azure AD.
 
-Cette fonctionnalité vous donne aussi la possibilité de définir l’utilisateur invité Azure AD directement comme administrateur AD pour le serveur logique Azure SQL. La fonctionnalité existante qui permet à l’utilisateur invité de faire partie d’un groupe Azure AD et à ce groupe d’être défini comme administrateur Azure AD pour le serveur logique SQL Azure n’est pas affectée. Les utilisateurs invités de la base de données qui font partie d’un groupe Azure AD ne sont pas non plus affectés par ce changement.
+Cette fonctionnalité vous donne aussi la possibilité de définir l’utilisateur invité Azure AD directement comme administrateur AD pour le serveur logique ou une instance gérée. La fonctionnalité existante (permettant que l’utilisateur invité fasse partie d’un groupe Azure AD pouvant être défini comme administrateur Azure AD pour le serveur logique ou l’instance gérée) n’est *pas* affectée. Les utilisateurs invités de la base de données qui font partie d’un groupe Azure AD ne sont pas non plus affectés par ce changement.
 
 Pour plus d’informations sur la prise en charge existante des utilisateurs invités utilisant des groupes Azure AD, consultez [Utilisation de l’authentification multifacteur Azure Active Directory](authentication-mfa-ssms-overview.md).
 
 ## <a name="prerequisite"></a>Configuration requise
 
-- Le module [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) (ou version supérieure) est nécessaire quand vous utilisez PowerShell pour définir un utilisateur invité comme administrateur Azure AD pour le serveur logique Azure SQL.
+- Le module [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) (ou version supérieure) est nécessaire quand vous utilisez PowerShell pour définir un utilisateur invité comme administrateur Azure AD pour le serveur logique ou l’instance gérée.
 
 ## <a name="create-database-user-for-azure-ad-guest-user"></a>Créer un utilisateur de base de données pour l’utilisateur invité Azure AD 
 
@@ -94,25 +93,42 @@ Suivez ces étapes pour créer un utilisateur de base de données à partir d’
 
 ## <a name="setting-a-guest-user-as-an-azure-ad-admin"></a>Définition d’un utilisateur invité comme administrateur Azure AD
 
-Suivez ces étapes pour définir un utilisateur invité Azure AD comme administrateur Azure AD pour le serveur logique SQL.
+Définissez l’administrateur Azure AD à l’aide du portail Azure, d’Azure PowerShell ou d’Azure CLI. 
 
-### <a name="set-azure-ad-admin-for-sql-database-and-azure-synapse"></a>Définir l’administrateur Azure AD pour SQL Database et Azure Synapse
+### <a name="azure-portal"></a>Portail Azure 
+
+Pour configurer un administrateur Azure AD pour un serveur logique ou une instance gérée à l’aide du portail Azure, procédez comme suit : 
+
+1. Ouvrez le [Portail Azure](https://portal.azure.com). 
+1. Accédez aux paramètres **Azure Active Directory** de votre SQL Server ou instance gérée. 
+1. Sélectionnez **Définir l’administrateur**. 
+1. Dans la fenêtre d’invite d’Azure AD, tapez l’utilisateur invité, par exemple, `guestuser@gmail.com` . 
+1. Sélectionnez ce nouvel utilisateur, puis enregistrez l’opération. 
+
+Pour plus d’informations, consultez [Définition d’administrateur Azure AD](authentication-aad-configure.md#azure-ad-admin-with-a-server-in-sql-database). 
+
+
+### <a name="azure-powershell-sql-database-and-azure-synapse"></a>Azure PowerShell (SQL Database et Azure Synapse)
+
+Pour configurer un utilisateur invité Azure AD pour un serveur logique, procédez comme suit :  
 
 1. Vérifiez que l’utilisateur invité (par exemple, `user1@gmail.com`) est déjà ajouté à votre instance Azure AD.
 
-1. Exécutez la commande PowerShell suivante pour ajouter l’utilisateur invité comme administrateur Azure AD pour votre serveur logique Azure SQL :
+1. Exécutez la commande PowerShell suivante pour ajouter l’utilisateur invité comme administrateur Azure AD pour votre serveur logique :
 
-    - Remplacez `<ResourceGroupName>` par le nom de votre groupe de ressources Azure qui contient le serveur logique Azure SQL.
-    - Remplacez `<ServerName>` par le nom de votre serveur logique Azure SQL. Si le nom de votre serveur est `myserver.database.windows.net`, remplacez `<Server Name>` par `myserver`.
+    - Remplacez `<ResourceGroupName>` par le nom de votre groupe de ressources Azure contenant le serveur logique.
+    - Remplacez `<ServerName>` par le nom de votre serveur logique. Si le nom de votre serveur est `myserver.database.windows.net`, remplacez `<Server Name>` par `myserver`.
     - Remplacez `<DisplayNameOfGuestUser>` par le nom de votre utilisateur invité.
 
     ```powershell
     Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -ServerName <ServerName> -DisplayName <DisplayNameOfGuestUser>
     ```
 
-    Vous pouvez aussi utiliser la commande Azure CLI [az sql server ad-admin](/cli/azure/sql/server/ad-admin) pour définir l’utilisateur invité comme administrateur Azure AD pour votre serveur logique Azure SQL.
+Vous pouvez aussi utiliser la commande Azure CLI [az sql server ad-admin](/cli/azure/sql/server/ad-admin) pour définir l’utilisateur invité comme administrateur Azure AD pour votre serveur logique.
 
-### <a name="set-azure-ad-admin-for-sql-managed-instance"></a>Définir un administrateur Azure AD pour SQL Managed Instance
+### <a name="azure-powershell-sql-managed-instance"></a>Azure PowerShell (SQL Managed Instance)
+
+Pour configurer un utilisateur invité Azure AD pour une instance gérée, procédez comme suit :  
 
 1. Vérifiez que l’utilisateur invité (par exemple, `user1@gmail.com`) est déjà ajouté à votre instance Azure AD.
 
@@ -129,13 +145,8 @@ Suivez ces étapes pour définir un utilisateur invité Azure AD comme administr
     Set-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -InstanceName "<ManagedInstanceName>" -DisplayName <DisplayNameOfGuestUser> -ObjectId <AADObjectIDOfGuestUser>
     ```
 
-    Vous pouvez aussi utiliser la commande Azure CLI [az sql mi ad-admin](/cli/azure/sql/mi/ad-admin) pour définir l’utilisateur invité comme administrateur Azure AD pour votre SQL Managed Instance.
+Vous pouvez aussi utiliser la commande Azure CLI [az sql mi ad-admin](/cli/azure/sql/mi/ad-admin) pour définir l’utilisateur invité comme administrateur Azure AD pour votre instance gérée.
 
-## <a name="limitations"></a>Limitations
-
-Le portail Azure présente une limitation qui empêche la sélection d’un utilisateur invité Azure AD comme administrateur Azure AD pour SQL Managed Instance. Pour les comptes invités extérieurs à votre instance Azure AD comme *\@outlook.com*, *\@hotmail.com*, *\@live.com* ou *\@gmail.com*, le sélecteur d’administrateur AD présente ces comptes, mais ils sont grisés et ne peuvent pas être sélectionnés. Utilisez les [commandes PowerShell ou CLI](#setting-a-guest-user-as-an-azure-ad-admin) mentionnées ci-dessus pour définir l’administrateur Azure AD. Un groupe Azure AD contenant l’utilisateur invité peut aussi être défini comme administrateur Azure AD pour l’instance gérée SQL.
-
-Cette fonction sera activée pour SQL Managed Instance avant la mise à disposition générale de cette fonctionnalité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

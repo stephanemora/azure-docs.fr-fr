@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ddbe9ff6a3dfa195d0739205c3e32070b170f30
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92674504"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560749"
 ---
 # <a name="azure-farmbeats-apis"></a>API Azure FarmBeats
 
@@ -70,15 +70,15 @@ Voici les en-têtes de requête les plus courants qui doivent être spécifiés 
 
 **En-tête** | **Description et exemple**
 --- | ---
-Content-Type  | Format de la demande (Content-Type: application/<format>). Pour les API Azure FarmBeats Datahub, le format est JSON. Content-Type: application/json
-Autorisation  | Spécifie le jeton d’accès requis pour effectuer un appel d’API. Autorisation : Porteur <jeton-accès>
+Content-Type  | Format de la demande (Content-Type: application/\<format\>). Pour les API Azure FarmBeats Datahub, le format est JSON. Content-Type: application/json
+Autorisation  | Spécifie le jeton d’accès requis pour effectuer un appel d’API. Autorisation : Porteur \<Access-Token\>
 Acceptation | Format de la réponse. Pour les API Azure FarmBeats Datahub, le format est JSON. Accept: application/json
 
 ### <a name="api-requests"></a>Requêtes d’API
 
 Pour effectuer une requête d’API REST, vous devez combiner la méthode HTTP (GET, POST, PUT ou DELETE), l’URL du service d’API, l’URI de la ressource à interroger, à laquelle envoyer les données, à mettre à jour ou à supprimer, puis ajouter un ou plusieurs en-têtes de requête HTTP.
 
-L’URL du service d’API est votre URL Datahub, par exemple, https://\<yourdatahub-website-name>.azurewebsites.net.
+L’URL du service d’API est votre URL Datahub, par exemple, `https://<yourdatahub-website-name>.azurewebsites.net`.
 
 Si vous le souhaitez, vous pouvez inclure des paramètres de requête à des appels GET pour filtrer les données dans les réponses, en limiter la taille et les trier.
 
@@ -158,7 +158,7 @@ Les API Azure FarmBeats sont accessibles à un utilisateur ou à une inscription
     - Revenez à **Vue d’ensemble**, puis cliquez sur le lien à côté de **Gérer l’application dans le répertoire local**.
     - Accédez à **Propriétés** pour capturer l’**ID d’objet**.
 
-4. Accédez à votre Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) et procédez comme suit :
+4. Accédez à votre Datahub Swagger (`https://<yourdatahub>.azurewebsites.net/swagger/index.html`) et procédez comme suit :
     - Accédez à l’**API RoleAssignment**.
     - Effectuez un appel POST afin de créer un objet **RoleAssignment** pour l’**ID d’objet** que vous venez de créer.
  

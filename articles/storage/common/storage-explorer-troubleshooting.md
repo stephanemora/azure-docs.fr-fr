@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 9015e3ce69042a2e7d96588956becff889827ab3
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 3feae35a4b7c98ea317bb9cec5dd54ca3f5db63c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225189"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562511"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -23,7 +23,7 @@ Ce guide résume les solutions aux problèmes couramment rencontrés dans l’Ex
 
 ## <a name="azure-rbac-permissions-issues"></a>Problèmes d’autorisations Azure RBAC
 
-Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) permet une gestion d’accès très précise pour les ressources Azure en combinant des jeux d’autorisations dans des _rôles_. Voici quelques stratégies permettant d’optimiser le fonctionnement d’Azure RBAC dans Explorateur Stockage.
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) permet une gestion d’accès très précise pour les ressources Azure en combinant des jeux d’autorisations dans des *rôles*. Voici quelques stratégies permettant d’optimiser le fonctionnement d’Azure RBAC dans Explorateur Stockage.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Comment accéder à mes ressources dans l’Explorateur Stockage ?
 
@@ -31,22 +31,22 @@ Si vous avez des difficultés à accéder aux ressources de stockage via Azure R
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>Problème d’autorisations « Lecture : Répertorier/obtenir le ou les comptes de stockage »
 
-Vous devez être autorisé à lister les comptes de stockage. Pour obtenir cette autorisation, le rôle _Lecteur_ doit vous être attribué.
+Vous devez être autorisé à lister les comptes de stockage. Pour obtenir cette autorisation, le rôle *Lecteur* doit vous être attribué.
 
 #### <a name="list-storage-account-keys"></a>Répertorier les clés de compte de stockage
 
-L’Explorateur Stockage peut également utiliser des clés de compte pour authentifier les requêtes. Vous pouvez accéder aux clés de compte par le biais de rôles plus puissants, comme le rôle _Contributeur_.
+L’Explorateur Stockage peut également utiliser des clés de compte pour authentifier les requêtes. Vous pouvez accéder aux clés de compte par le biais de rôles plus puissants, comme le rôle *Contributeur*.
 
 > [!NOTE]
 > Les clés d’accès accordent des autorisations illimitées à toute personne qui les détient. Par conséquent, nous vous déconseillons de transmettre ces clés aux utilisateurs du compte. Si vous devez révoquer des clés d’accès, vous pouvez les regénérer à partir du [portail Azure](https://portal.azure.com/).
 
 #### <a name="data-roles"></a>Rôles de données
 
-Vous devez disposer d’au moins un rôle qui accorde l’accès en lecture aux données à partir des ressources. Par exemple, si vous voulez lister ou télécharger des objets blob, vous devez au moins détenir le rôle _Lecteur des données Blob du stockage_.
+Vous devez disposer d’au moins un rôle qui accorde l’accès en lecture aux données à partir des ressources. Par exemple, si vous voulez lister ou télécharger des objets blob, vous devez au moins détenir le rôle *Lecteur des données Blob du stockage*.
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Pourquoi ai-je besoin d’un rôle d’accès à la couche de gestion pour voir mes ressources dans l’Explorateur Stockage ?
 
-Le stockage Azure présente deux couches d’accès : _gestion_ et _données_. Les abonnements et les comptes de stockage sont accessibles via la couche de gestion. Les conteneurs, objets blob et autres ressources de données sont accessibles via la couche de données. Par exemple, si vous souhaitez obtenir la liste de vos comptes de stockage depuis Azure, vous devez envoyer une requête au point de terminaison de gestion. Si vous voulez consulter la liste des conteneurs d’objets blob dans un compte, vous envoyez une requête au point de terminaison du service approprié.
+Le stockage Azure présente deux couches d’accès : *gestion* et *données*. Les abonnements et les comptes de stockage sont accessibles via la couche de gestion. Les conteneurs, objets blob et autres ressources de données sont accessibles via la couche de données. Par exemple, si vous souhaitez obtenir la liste de vos comptes de stockage depuis Azure, vous devez envoyer une requête au point de terminaison de gestion. Si vous voulez consulter la liste des conteneurs d’objets blob dans un compte, vous envoyez une requête au point de terminaison du service approprié.
 
 Les rôles Azure peuvent vous octroyer des autorisations d’accès à ces couches de données ou de gestion. Le rôle Lecteur vous accorde, par exemple, un accès en lecture seule aux ressources de la couche de gestion.
 
@@ -54,7 +54,7 @@ Les rôles Azure peuvent vous octroyer des autorisations d’accès à ces couch
 
 L’Explorateur Stockage vous permet d’accéder facilement à vos ressources en rassemblant les informations nécessaires pour vous connecter à vos ressources Azure. Par exemple, pour afficher vos conteneurs d’objets blob, l’Explorateur Stockage envoie une demande « lister les conteneurs » au point de terminaison du service blob. Pour obtenir ce point de terminaison, l’Explorateur Stockage recherche la liste des abonnements et comptes de stockage auxquels vous avez accès. Pour rechercher vos abonnements et comptes de stockage, l’Explorateur Stockage a aussi besoin d’un accès à la couche de gestion.
 
-Si vous ne disposez d’un rôle qui accorde une autorisation d’accès à la couche de gestion, l’Explorateur Stockage ne peut pas obtenir les informations dont il a besoin pour se connecter à la couche de données.
+Si vous ne disposez d’un rôle qui accorde une autorisation d’accès à la couche de gestion, l’Explorateur de stockage ne peut pas obtenir les informations dont il a besoin pour se connecter à la couche de données.
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Que se passe-t-il si je n’obtiens pas les autorisations d’accès à la couche de gestion que mon administrateur doit me fournir ?
 
@@ -72,7 +72,7 @@ Pour les autres types de ressource, nous n’avons actuellement pas de solution 
 1. Sélectionnez le type de ressource auquel vous voulez vous connecter.
 1. Sélectionnez **Signature d’accès partagé (SAS)** . Sélectionnez **Suivant**.
 1. Entrez l’URL SAS que vous avez reçue, et entrez un nom d’affichage unique pour la connexion. Sélectionnez **Suivant**, puis **Se connecter**.
- 
+
 Pour plus d’informations sur l’attachement à des ressources, consultez [Attacher à une ressource individuelle](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### <a name="recommended-azure-built-in-roles"></a>Rôles intégrés Azure recommandés
@@ -115,11 +115,11 @@ Si vous n’avez pas de copie des certificats auto-signés, essayez de communiqu
 Vous pouvez essayer d’effectuer les étapes suivantes pour les trouver :
 
 1. Installez OpenSSL.
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) : n’importe quelle version légère devrait suffire.
-    * Mac et Linux : normalement fourni avec votre système d’exploitation.
+    - [Windows](https://slproweb.com/products/Win32OpenSSL.html) : n’importe quelle version légère devrait suffire.
+    - Mac et Linux : normalement fourni avec votre système d’exploitation.
 2. Exécutez OpenSSL.
-    * Windows : ouvrez le répertoire d’installation, sélectionnez **/bin/** , puis double-cliquez sur **openssl.exe**.
-    * Mac et Linux : exécutez `openssl` à partir d’un terminal.
+    - Windows : ouvrez le répertoire d’installation, sélectionnez **/bin/** , puis double-cliquez sur **openssl.exe**.
+    - Mac et Linux : exécutez `openssl` à partir d’un terminal.
 3. Exécutez cette commande : `s_client -showcerts -connect <hostname>:443`, pour tout nom d’hôte Microsoft ou Azure derrière lequel se trouvent vos ressources de stockage. Vous trouverez la liste des noms d’hôte fréquemment utilisés par l’Explorateur Stockage ici.
 4. Recherchez les certificats auto-signés. Si le sujet `("s:")` et l’émetteur `("i:")` sont les mêmes, alors le certificat est très probablement auto-signé.
 5. Chaque fois que vous trouvez un certificat auto-signé, copiez et collez tout ce qui compris entre `-----BEGIN CERTIFICATE-----` et `-----END CERTIFICATE-----` dans un nouveau fichier .cer.
@@ -192,7 +192,7 @@ Si vous continuez à rencontrer des problèmes après avoir effectué une réini
 1. Ouvrir l’explorateur de stockage
 2. Supprimez tous les comptes, puis fermez l’Explorateur Stockage.
 3. Supprimez le dossier `.IdentityService` de votre machine. Sur Windows, le dossier se situe dans `C:\users\<username>\AppData\Local`. Pour Mac et Linux, vous pouvez trouver le dossier à la racine de votre répertoire utilisateur.
-4. Si vous exécutez Mac ou Linux, vous devez aussi supprimer l’entrée Microsoft.Developer.IdentityService du magasin de clés de votre système d’exploitation. Sur Mac, le magasin de clés est l’application *Gnome Keychain*. Dans Linux, l’application est généralement appelée _Keyring_, mais le nom peut être différent selon votre distribution.
+4. Si vous exécutez Mac ou Linux, vous devez aussi supprimer l’entrée Microsoft.Developer.IdentityService du magasin de clés de votre système d’exploitation. Sur Mac, le magasin de clés est l’application *Gnome Keychain*. Dans Linux, l’application est généralement appelée *Keyring*, mais le nom peut être différent selon votre distribution.
 6. Redémarrez l’Explorateur Stockage, puis réessayez de vous connecter.
 
 ### <a name="macos-keychain-errors-or-no-sign-in-window"></a>macOS : erreurs de trousseau ou aucune fenêtre de connexion
@@ -225,19 +225,19 @@ Si aucun des éléments ci-dessus ne s’applique à votre problème de connexio
 
 Si vous ne parvenez pas à récupérer vos abonnements après vous être connecté, essayez l’une des méthodes de dépannage suivantes :
 
-* Vérifiez que votre compte a accès aux abonnements attendus. Vous pouvez vérifier votre accès en vous connectant au portail de l’environnement Azure que vous essayez d’utiliser.
-* Vérifiez que vous êtes connecté via l’environnement Azure approprié (Azure, Azure Chine 21Vianet, Azure Allemagne, Azure US Government ou Environnement personnalisé).
-* Si vous vous trouvez derrière un serveur proxy, vérifiez que vous avez correctement configuré le proxy de l’Explorateur Stockage.
-* Essayez de supprimer et de rajouter le compte.
-* S’il existe un lien « Plus d’informations » ou « Détails de l’erreur », examinez les messages d’erreur signalés pour les locataires en échec. Si vous ne savez pas comment répondre aux messages d’erreur, n’hésitez pas à [signaler un problème dans GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+- Vérifiez que votre compte a accès aux abonnements attendus. Vous pouvez vérifier votre accès en vous connectant au portail de l’environnement Azure que vous essayez d’utiliser.
+- Vérifiez que vous êtes connecté via l’environnement Azure approprié (Azure, Azure Chine 21Vianet, Azure Allemagne, Azure US Government ou Environnement personnalisé).
+- Si vous vous trouvez derrière un serveur proxy, vérifiez que vous avez correctement configuré le proxy de l’Explorateur Stockage.
+- Essayez de supprimer et de rajouter le compte.
+- S’il existe un lien « Plus d’informations » ou « Détails de l’erreur », examinez les messages d’erreur signalés pour les locataires en échec. Si vous ne savez pas comment répondre aux messages d’erreur, n’hésitez pas à [signaler un problème dans GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="cant-remove-an-attached-storage-account-or-resource"></a>Impossible de supprimer un compte ou une ressource de stockage attachés
 
 Si vous ne pouvez pas supprimer un compte ou une ressource de stockage attachés via l’interface utilisateur, vous pouvez supprimer manuellement toutes les ressources attachées en supprimant les dossiers suivants :
 
-* Windows : `%AppData%/StorageExplorer`
-* MacOS : `/Users/<your_name>/Library/Application Support/StorageExplorer`
-* Linux : `~/.config/StorageExplorer`
+- Windows : `%AppData%/StorageExplorer`
+- MacOS : `/Users/<your_name>/Library/Application Support/StorageExplorer`
+- Linux : `~/.config/StorageExplorer`
 
 > [!NOTE]
 > Fermez l’Explorateur Stockage avant de supprimer ces dossiers.
@@ -280,9 +280,9 @@ Un outil de mise en réseau comme Fiddler peut vous aider à diagnostiquer les p
 1. Configurez votre outil de mise en réseau comme serveur proxy s’exécutant sur l’hôte local. Si vous devez continuer de travailler derrière un proxy réel, il vous faudra peut-être configurer votre outil de mise en réseau pour vous connecter via le proxy.
 2. Vérifiez le numéro de port utilisé par votre outil de mise en réseau.
 3. Configurez le proxy de l’Explorateur Stockage de façon à utiliser l’hôte local et le numéro de port de l’outil de mise en réseau (par exemple « localhost:8888 »).
- 
+
 Si ces paramètres sont définis correctement, l’outil de mise en réseau consignera les demandes réseau effectuées par l’Explorateur Stockage sur les points de terminaison de gestion et de service.
- 
+
 Si votre outil de mise en réseau ne semble pas consigner le trafic de l’Explorateur Stockage, essayez de le tester avec une autre application. Par exemple, entrez l’URL du point de terminaison de l’une de vos ressources de stockage (par exemple `https://contoso.blob.core.windows.net/`) dans un navigateur web. Vous recevrez une réponse de ce type :
 
   ![Exemple de code](./media/storage-explorer-troubleshooting/4022502_en_2.png)
@@ -295,8 +295,8 @@ Si votre outil de mise en réseau n’affiche que le trafic provenant d’autres
 
 Si les paramètres de votre proxy sont corrects, vous devrez peut-être contacter l’administrateur de votre serveur proxy pour effectuer les vérifications suivantes :
 
-* Vérifier que votre proxy ne bloque pas le trafic vers les points de terminaison de gestion ou de ressources Azure.
-* Vérifier le protocole d’authentification utilisé par votre serveur proxy. L’Explorateur Stockage ne prend en charge que les protocoles d’authentification de base. Il ne gère pas les proxys NTLM.
+- Vérifier que votre proxy ne bloque pas le trafic vers les points de terminaison de gestion ou de ressources Azure.
+- Vérifier le protocole d’authentification utilisé par votre serveur proxy. L’Explorateur Stockage ne prend en charge que les protocoles d’authentification de base. Il ne gère pas les proxys NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Message d’erreur indiquant qu’il est impossible de récupérer les enfants
 
@@ -317,17 +317,17 @@ Si vous obtenez ce message d’erreur pendant que vous essayez d’ajouter une c
 1. Démarrez l’Explorateur Stockage. Dans le menu, accédez à **Aide** > **Activer/désactiver les outils de développement**.
 2. Dans la fenêtre ouverte, sous l’onglet **Application**, accédez à **Stockage local** (côté gauche) > **file://** .
 3. Selon le type de la connexion avec laquelle vous rencontrez un problème, recherchez sa clé, puis copiez sa valeur dans un éditeur de texte. La valeur est un tableau constitué de vos noms de connexion personnalisés qui se présente comme suit :
-    * Comptes de stockage
-        * `StorageExplorer_CustomConnections_Accounts_v1`
-    * Conteneurs d’objets blob
-        * `StorageExplorer_CustomConnections_Blobs_v1`
-        * `StorageExplorer_CustomConnections_Blobs_v2`
-    * Partages de fichiers
-        * `StorageExplorer_CustomConnections_Files_v1`
-    * Files d’attente
-        * `StorageExplorer_CustomConnections_Queues_v1`
-    * Tables
-        * `StorageExplorer_CustomConnections_Tables_v1`
+    - Comptes de stockage
+        - `StorageExplorer_CustomConnections_Accounts_v1`
+    - Conteneurs d’objets blob
+        - `StorageExplorer_CustomConnections_Blobs_v1`
+        - `StorageExplorer_CustomConnections_Blobs_v2`
+    - Partages de fichiers
+        - `StorageExplorer_CustomConnections_Files_v1`
+    - Files d’attente
+        - `StorageExplorer_CustomConnections_Queues_v1`
+    - Tables
+        - `StorageExplorer_CustomConnections_Tables_v1`
 4. Une fois que vous avez enregistré vos noms de connexion actuels, définissez la valeur dans Outils de développement sur `[]`.
 
 Si vous souhaitez conserver les connexions non endommagées, vous pouvez suivre les étapes ci-dessous pour localiser les connexions endommagées. Si vous ne voyez pas d’inconvénient à perdre toutes les connexions existantes, vous pouvez ignorer ces étapes et suivre les instructions propres à la plateforme pour effacer vos données de connexion.
@@ -366,9 +366,9 @@ Si vous continuez de rencontrer cette erreur après avoir exécuté ces étapes 
 
 Si vous vous connectez à un service via une URL de signature d’accès partagé (SAP) et que vous rencontrez cette erreur :
 
-* Vérifiez que l’URL fournit les autorisations nécessaires pour lire ou répertorier les ressources.
-* Vérifiez que l’URL n’a pas expiré.
-* Si l’URL SAP est basée sur une stratégie d’accès, vérifiez que cette dernière n’a pas été révoquée.
+- Vérifiez que l’URL fournit les autorisations nécessaires pour lire ou répertorier les ressources.
+- Vérifiez que l’URL n’a pas expiré.
+- Si l’URL SAP est basée sur une stratégie d’accès, vérifiez que cette dernière n’a pas été révoquée.
 
 Si vous avez accidentellement procédé à un attachement au moyen d’une URL SAP non valide et que vous ne pouvez pas maintenant effectuer de détachement, suivez ces étapes :
 
@@ -400,49 +400,53 @@ L'Explorateur Stockage fourni dans le téléchargement .tar.gz est uniquement pr
 - Ubuntu 18.04 x64
 - Ubuntu 16.04 x64
 
-L’Explorateur Stockage exige l’installation de .NET Core sur votre système. Nous vous recommandons .NET Core 2.1, mais l’Explorateur Stockage fonctionnera également avec la version 2.2.
+L’Explorateur de stockage exige l’installation de .NET Core 3.1 sur votre système.
 
 > [!NOTE]
-> L’Explorateur Stockage 1.7.0 et versions antérieures nécessitent .NET Core 2.0. Si vous disposez d’une version plus récente de .NET Core, vous devrez appliquer une [mise à jour corrective de l’Explorateur Stockage](#patching-storage-explorer-for-newer-versions-of-net-core). Si vous exécutez l’Explorateur Stockage 1.8.0 ou une version ultérieure, vous devez utiliser .NET Core 2.1.
+> Les versions de l’Explorateur de stockage, de 1.8.0 à 1.20.1, requièrent .NET Core 2.1. L’Explorateur Stockage 1.7.0 et versions antérieures nécessitent .NET Core 2.0.
 
 ### <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Téléchargez le fichier .tar.gz de l’Explorateur Stockage.
 2. Installez le [runtime .NET Core](/dotnet/core/install/linux) :
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 
 ### <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Téléchargez le fichier .tar.gz de l’Explorateur Stockage.
 2. Installez le [runtime .NET Core](/dotnet/core/install/linux) :
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 
 ### <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Téléchargez le fichier .tar.gz de l’Explorateur Stockage.
 2. Installez le [runtime .NET Core](/dotnet/core/install/linux) :
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
+
 ---
 
 De nombreuses bibliothèques requise par l’Explorateur Stockage sont préinstallées avec les installations standard Canonical d’Ubuntu. Il se peut que certaines de ces bibliothèques soient manquantes dans les environnements personnalisés. Si vous rencontrez des problèmes lors du lancement de l’Explorateur Stockage, nous vous recommandons de vérifier si les packages suivants sont installés sur votre système :
@@ -470,16 +474,16 @@ Pour l’Explorateur Stockage 1.7.0 ou version antérieure, vous devrez peut-ê
 3. Décompressez le package.
 4. Ouvrez le dossier `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Copiez `StreamJsonRpc.dll` aux emplacements suivants dans le dossier de l’Explorateur Stockage :
-   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   - `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   - `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-the-azure-portal-doesnt-work"></a>« Ouvrir dans l’Explorateur » sur le portail Azure ne fonctionne pas
 
 Si le bouton **Ouvrir dans l’Explorateur** du portail Azure ne fonctionne pas, vérifiez que vous utilisez un navigateur compatible. Voici les navigateurs dont la compatibilité a été testée :
-* Microsoft Edge
-* Mozilla Firefox
-* Google Chrome
-* Microsoft Internet Explorer
+- Microsoft Edge
+- Mozilla Firefox
+- Google Chrome
+- Microsoft Internet Explorer
 
 ## <a name="gathering-logs"></a>Collecte des journaux
 
@@ -538,7 +542,7 @@ Partie 1 : Installer et configurer Fiddler
 6. Cliquez sur le bouton Actions.
 7. Choisissez « Trust Root Certificate » (Faire confiance au certificat racine), puis « Yes » (Oui) dans la boîte de dialogue suivante.
 8. Cliquez à nouveau sur le bouton Actions.
-9. Choisissez « Export Root Certificate to Desktop » (Exporter le certificat racine vers le Bureau).
+9. Choisissez « Exporter le certificat racine vers le Bureau »
 10. Accédez à votre Bureau.
 11. Recherchez le fichier FiddlerRoot.cer.
 12. Double-cliquez sur ce fichier pour l’ouvrir.
@@ -558,7 +562,7 @@ Partie 1 : Installer et configurer Fiddler
 Partie 2 : Reproduire le problème
 1. Fermez toutes les applications autres que Fiddler.
 2. Effacez le journal de Fiddler (icône X en haut à gauche, à côté du menu View [Affichage]).
-3. Facultatif/recommandé : Laissez Fiddler défini pendant quelques minutes. Si vous voyez des appels réseau apparaître, cliquez dessus avec le bouton droit et choisissez « Filter Now » (Filtrer) > « Hide <process name> » (Masquer <nom du processus>).
+3. Facultatif/recommandé : Laissez Fiddler défini pendant quelques minutes. Si vous voyez des appels réseau apparaître sans aucun lien avec l’Explorateur de stockage, cliquez dessus avec le bouton droit et choisissez « Filtrer maintenant » > « Masquer (nom du processus>) »
 4. Démarrez Explorateur Stockage.
 5. Reproduisez le problème
 6. Cliquez sur File (Fichier) > Save (Enregistrer) > All Sessions… (Toutes les sessions…), et enregistrez dans un endroit que vous n’oublierez pas.

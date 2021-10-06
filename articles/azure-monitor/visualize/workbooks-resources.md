@@ -2,17 +2,15 @@
 title: Paramètres de ressources des classeurs Azure Monitor
 description: Découvrez comment utiliser les paramètres de ressources pour choisir des ressources dans les classeurs. Utilisez les paramètres des ressources pour définir l’étendue à partir de laquelle les données sont extraites.
 services: azure-monitor
-manager: carmonm
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: d4a6d04f88544b3a4f9f9c0c0b290d17f5ef148d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dba84320bb753fa162d1c4eced5de5ae79de6f48
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725575"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436155"
 ---
 # <a name="workbook-resource-parameters"></a>Paramètres de ressources des classeurs
 
@@ -100,9 +98,9 @@ La valeur des sélecteurs de ressources peut provenir du contexte du classeur, d
 ## <a name="resource-parameter-options"></a>Options des paramètres de ressources
 | Paramètre | Explication | Exemple |
 | ------------- |:-------------|:-------------|
-| `{Applications}` | ID de la ressource sélectionnée | _/subscriptions/<ID-abonnement>/resourceGroups/<groupe-ressources>/providers/<type-ressource>/acmeauthentication_ |
+| `{Applications}` | ID de la ressource sélectionnée | _/subscriptions/\<sub-id\>/resourceGroups/\<resource-group\>/providers/\<resource-type\>/acmeauthentication_ |
 | `{Applications:label}` | Étiquette de la ressource sélectionnée | `acmefrontend` |
-| `{Applications:value}` | Valeur de la ressource sélectionnée | _’/subscriptions/<ID-abonnement>/resourceGroups/<groupe-ressources>/providers/<type-ressource>/acmeauthentication’_ |
+| `{Applications:value}` | Valeur de la ressource sélectionnée | _'/subscriptions/\<sub-id\>/resourceGroups/\<resource-group\>/providers/\<resource-type\>/acmeauthentication'_ |
 | `{Applications:name}` | Nom de la ressource sélectionnée | `acmefrontend` |
 | `{Applications:resourceGroup}` | Groupe de ressources de la ressource sélectionnée | `acmegroup` |
 | `{Applications:resourceType}` | Type de la ressource sélectionnée | _microsoft.insights/components_ |

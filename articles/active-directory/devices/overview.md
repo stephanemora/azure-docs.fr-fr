@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo, ravenn, spunukol, jogro, jploegert
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76c997cc1f4ed2be18e06838f6c30864456f7539
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4b689e27e6b65f5ace628d1f7cf12b246e6e516d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588235"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354801"
 ---
 # <a name="what-is-a-device-identity"></a>Qu’est-ce qu’une identité d’appareil ?
 
@@ -39,7 +39,7 @@ Le scénario d’appareil moderne se concentre sur deux de ces méthodes :
 - [inscription Azure AD.](concept-azure-ad-register.md) 
    - Apportez votre propre appareil (BYOD)
    - Appareil mobile (téléphone portable et tablette)
-- [Jonction Azure AD](concept-azure-ad-register.md)
+- [Jonction Azure AD](concept-azure-ad-join.md)
    - Appareils Windows 10 appartenant à votre organisation
    - [Windows Serveur 2019 et serveurs plus récents de votre organisation s’exécutant en tant que machines virtuelles dans Azure](howto-vm-sign-in-azure-ad-windows.md)
 

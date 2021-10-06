@@ -16,12 +16,12 @@ ms.date: 06/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2ff57c06fba085fd28e7e0b13ec6e503517cab7
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 665ca1dca46dbfcf1cdc5e07b0c4672f79dc586a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768678"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546811"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cet article décrit les conditions préalables et la configuration matérielle requise pour Azure Active Directory (Azure AD) Connect.
@@ -75,7 +75,7 @@ Pour en savoir plus sur la sécurisation de votre environnement Active Directory
 - Si l’authentification multifacteur est activée pour vos administrateurs généraux, l’URL https://secure.aadcdn.microsoftonline-p.com *doit* figurer dans la liste des sites de confiance. Vous êtes invité à ajouter ce site à la liste des sites de confiance lorsque vous êtes invité à passer un test d’authentification multifacteur et qu’il n’a pas encore été ajouté. Vous pouvez utiliser Internet Explorer pour l’ajouter à vos sites de confiance.
 - Si vous envisagez d'utiliser Azure AD Connect Health pour la synchronisation, assurez-vous que les conditions préalables d'Azure AD Connect Health sont également remplies. Pour plus d'informations, consultez [Installation de l'agent Azure AD Connect Health](how-to-connect-health-agent-install.md).
 
-#### <a name="harden-your-azure-ad-connect-server"></a>Renforcer votre serveur Azure AD Connect 
+### <a name="harden-your-azure-ad-connect-server"></a>Renforcer votre serveur Azure AD Connect 
 Nous vous recommandons de renforcer votre serveur Azure AD Connect afin de réduire la surface d’attaque de sécurité de ce composant essentiel de votre environnement informatique. En suivant ces recommandations, vous contribuez à atténuer certains risques de sécurité pour votre organisation.
 
 - Traitez Azure AD Connect de la même manière qu’un contrôleur de domaine et que d’autres ressources de niveau 0. Pour plus d’informations, consultez [Modèle de niveau d’administration Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
@@ -87,6 +87,7 @@ Nous vous recommandons de renforcer votre serveur Azure AD Connect afin de rédu
 - Implémentez des [stations de travail à accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) dédiées pour tous les membres du personnel disposant d’un accès privilégié aux systèmes informatiques de votre organisation. 
 - Suivez ces [instructions supplémentaires](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) pour réduire la surface d’attaque de votre environnement Active Directory.
 - Si vous souhaitez configurer des alertes pour superviser les modifications apportées à l’approbation établie entre votre Idp et Azure AD, lisez [Superviser les modifications apportées à la configuration de fédération](how-to-connect-monitor-federation-changes.md). 
+- Activez l’Authentification multifacteur (MFA) pour tous les utilisateurs disposant d’un accès privilégié dans Azure AD ou le répertoire actif. L’un des problèmes de sécurité liés à l’utilisation de AADConnect est que si une personne malveillante arrive à contrôler le serveur Azure AD Connect, elle peut également manipuler les utilisateurs dans Azure AD. Pour empêcher une personne malveillante d’utiliser ces fonctionnalités afin de contrôler des comptes Azure AD, MFA offre des protections de sorte que même si une personne malveillante gère le mot de passe d’un utilisateur à l’aide d’Azure AD Connect, elle ne pourra toujours pas contourner le second facteur.
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server utilisé par Azure AD Connect
 * Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Par défaut, une base de données locale SQL Server 2019 Express (version légère de SQL Server Express) est installée. SQL Server Express a une limite de 10 Go qui vous permet de gérer environ 100 000 objets. Si vous avez besoin de gérer un volume plus important d’objets annuaire, pointez l’Assistant d’installation vers une autre installation de SQL Server. Le type d’installation de SQL Server peut impacter les [performances d’Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).

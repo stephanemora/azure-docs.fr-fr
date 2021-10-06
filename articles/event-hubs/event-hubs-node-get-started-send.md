@@ -2,14 +2,14 @@
 title: Recevoir des événements d’Azure Event Hubs ou lui en envoyer en utilisant JavaScript (dernière version)
 description: Cet article décrit la procédure à suivre pour créer une application JavaScript qui reçoit des événements d’Azure Event Hubs et lui en envoie à l’aide du dernier package azure/event-hubs.
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/16/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 20308c54b7013015b92b013dc74768361660145e
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
+ms.openlocfilehash: 7422c10060d59bf7194cfb941061e8c5bc2b82cf
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113296826"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273985"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs"></a>Recevoir des événements des hubs d’événements ou leur en envoyer à l’aide de JavaScript (azure/event-hubs)
 Ce guide de démarrage rapide montre comment recevoir des événements d’un hub d’événements et lui en envoyer à l’aide du package JavaScript **azure/event-hubs**. 

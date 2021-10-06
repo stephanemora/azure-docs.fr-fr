@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 07/19/2021
-ms.openlocfilehash: ff0dc37b70861dae8cddb77ef984c27109eefc15
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/17/2021
+ms.openlocfilehash: d98d51158981c6b3aa04a0d8ea8b42b16d768d26
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525108"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665489"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurer un IR auto-hébergé en tant que proxy pour Azure-SSIS IR dans Azure Data Factory
 
@@ -51,7 +51,7 @@ Pour finir, vous téléchargez et installez la dernière version de l'IR auto-h�
   
   Si vous utilisez des pilotes OLEDB/ODBC/ADO.NET pour d’autres systèmes de base de données, comme PostgreSQL, MySQL, Oracle, etc., vous pouvez télécharger les versions 64 bits à partir de leur site web.
 - Si vous utilisez des composants de flux de données d'Azure Feature Pack dans vos packages, [téléchargez et installez Azure Feature Pack pour SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=54798) sur l'ordinateur où votre IR auto-hébergé est installé, si ce n'est déjà fait.
-- Si ce n’est pas déjà fait, [téléchargez et installez la version 64 bits du runtime Visual C++ (VC)](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) sur l’ordinateur où votre IR auto-hébergé est installé.
+- Si ce n’est pas déjà fait, [téléchargez et installez la version 64 bits du runtime Visual C++ (VC)](https://www.microsoft.com/en-us/download/details.aspx?id=40784) sur l’ordinateur où votre IR auto-hébergé est installé.
 
 ### <a name="enable-windows-authentication-for-on-premises-tasks"></a>Utiliser l'authentification Windows pour des tâches locales
 
@@ -73,7 +73,7 @@ Si ce n’est pas déjà fait, créez un service lié Stockage Blob Azure dans l
 >[!TIP]
 >Si vous sélectionnez la méthode du **Principal de service**, accordez au minimum à votre principal de service le rôle de *Contributeur aux données Blob du stockage*. Pour plus d’informations, consultez [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). Si vous sélectionnez la méthode **Identité managée**/**Identité managée affectée par l’utilisateur**, accordez à l’identité managée affectée par l’utilisateur/le système pour votre ADF un rôle approprié pour accéder au Stockage Blob Azure. Pour plus d’informations, consultez [Accéder à Stockage Blob Azure en utilisant l’authentification Azure Active Directory (Azure AD) avec l’identité managée affectée par l’utilisateur/le système pour votre ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
 
-![Préparer le service lié de stockage d’objets blob Azure pour la préproduction](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
+:::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png" alt-text="Préparer le service lié de stockage d’objets blob Azure pour la préproduction":::
 
 ## <a name="configure-an-azure-ssis-ir-with-your-self-hosted-ir-as-a-proxy"></a>Configurer une instance Azure-SSIS IR avec votre IR auto-hébergé en tant que proxy
 
@@ -93,7 +93,7 @@ Une fois votre IR auto-hébergé et votre service lié Stockage Blob Azure prêt
 
    1. Sélectionnez le bouton **Continuer**.
 
-   ![Paramètres avancés avec un IR auto-hébergé](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png" alt-text="Paramètres avancés avec un IR auto-hébergé":::
 
 Vous pouvez également configurer votre instance Azure-SSIS IR, qu’elle soit nouvelle ou existante, avec l’IR auto-hébergé en tant que proxy à l’aide de PowerShell.
 
@@ -139,30 +139,30 @@ Lors de la conception de nouveaux packages qui contiennent des tâches de flux d
 
 Lors de la conception de nouveaux packages qui contiennent des tâches de traitement/d'exécution de requêtes SQL exécutées localement, vous pouvez activer la propriété `ExecuteOnProxy` en lui attribuant la valeur *True* dans le volet **Propriétés** des tâches concernées.
 
-![Activer la propriété ConnectByProxy/ExecuteOnProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-proxy-properties.png)
+:::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-proxy-properties.png" alt-text="Activer la propriété ConnectByProxy/ExecuteOnProxy":::
 
 Vous pouvez également activer les propriétés `ConnectByProxy`/`ExecuteOnProxy` lorsque vous exécutez des packages existants, sans qu'il soit nécessaire de les modifier manuellement un par un. Nous avons deux options :
 - **Option A** : Ouvrir, regénérer et redéployer le projet contenant ces packages avec la dernière version de SSDT pour une exécution sur votre instance Azure-SSIS IR. Vous pouvez ensuite activer la propriété `ConnectByProxy` en choisissant la valeur *True* pour les gestionnaires de connexions appropriés qui apparaissent sous l'onglet **Gestionnaires de connexions** de la fenêtre contextuelle **Exécuter le package** lorsque vous exécutez des packages à partir de SSMS.
 
-  ![Activer la propriété ConnectByProxy/ExecuteOnProxy 2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png" alt-text="Activer la propriété ConnectByProxy/ExecuteOnProxy 2":::
 
   Vous pouvez aussi activer la propriété `ConnectByProxy` en lui affectant la valeur *True* pour les gestionnaires de connexions appropriés qui apparaissent sous l'onglet **Gestionnaires de connexions** de l'activité [Exécuter le package SSIS](./how-to-invoke-ssis-package-ssis-activity.md) lorsque vous exécutez des packages dans des pipelines Data Factory.
   
-  ![Activer la propriété ConnectByProxy/ExecuteOnProxy 3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png" alt-text="Activer la propriété ConnectByProxy/ExecuteOnProxy 3":::
 
 - **Option B** : Redéployer le projet contenant ces packages pour une exécution sur votre instance de SSIS IR. Vous pouvez ensuite activer les propriétés `ConnectByProxy`/`ExecuteOnProxy` en spécifiant leurs chemins de propriété, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`/`\Package\YourExecuteSQLTaskName.Properties[ExecuteOnProxy]`/`\Package\YourExecuteProcessTaskName.Properties[ExecuteOnProxy]`, et en leur attribuant la valeur *True* comme substitutions de propriétés sous l'onglet **Avancé** de la fenêtre contextuelle **Exécuter le package** lorsque vous exécutez des packages à partir de SSMS.
 
-  ![Activer la propriété ConnectByProxy/ExecuteOnProxy 4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png" alt-text="Activer la propriété ConnectByProxy/ExecuteOnProxy 4":::
 
   Vous pouvez aussi activer les propriétés `ConnectByProxy`/`ExecuteOnProxy` en spécifiant leurs chemins de propriété, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`/`\Package\YourExecuteSQLTaskName.Properties[ExecuteOnProxy]`/`\Package\YourExecuteProcessTaskName.Properties[ExecuteOnProxy]`, et en leur attribuant la valeur *True* comme substitutions de propriétés sous l'onglet **Substitutions de propriété** de l'activité [Exécuter le package SSIS](./how-to-invoke-ssis-package-ssis-activity.md) lorsque vous exécutez des packages dans des pipelines Data Factory.
   
-  ![Activer la propriété ConnectByProxy/ExecuteOnProxy 5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png" alt-text="Activer la propriété ConnectByProxy/ExecuteOnProxy 5":::
 
 ## <a name="debug-the-on-premises-tasks-and-cloud-staging-tasks"></a>Déboguer les tâches locales et les tâches intermédiaires cloud
 
-Sur votre IR auto-hébergé, vous trouverez les journaux du runtime dans le dossier *C:\ProgramData\SSISTelemetry* ainsi que les journaux d'exécution des tâches intermédiaires locales et des tâches de traitement/d'exécution des requêtes SQL dans le dossier *C:\ProgramData\SSISTelemetry\ExecutionLog*. Vous trouverez les journaux d’exécution des tâches de préproduction cloud dans votre SSISDB, dans les chemins de journalisation spécifiés ou dans Azure Monitor, selon que vous stockez vos packages dans SSISDB, que vous activez l’[intégration d’Azure Monitor](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor), etc. Vous trouverez également les ID uniques des tâches intermédiaires locales dans les journaux d’exécution des tâches intermédiaires dans le cloud. 
+Sur votre IR auto-hébergé, vous trouverez les journaux du runtime dans le dossier *C:\ProgramData\SSISTelemetry* ainsi que les journaux d'exécution des tâches intermédiaires locales et des tâches de traitement/d'exécution des requêtes SQL dans le dossier *C:\ProgramData\SSISTelemetry\ExecutionLog*. Vous trouverez les journaux d’exécution des tâches de préproduction cloud dans votre SSISDB, dans les chemins de journalisation spécifiés ou dans Azure Monitor, selon que vous stockez vos packages dans SSISDB, que vous activez l’[intégration d’Azure Monitor](./monitor-ssis.md), etc. Vous trouverez également les ID uniques des tâches intermédiaires locales dans les journaux d’exécution des tâches intermédiaires dans le cloud. 
 
-![ID unique de la première tâche intermédiaire](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
+:::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png" alt-text="ID unique de la première tâche intermédiaire":::
 
 Si vous avez créé des tickets de support client, vous pouvez sélectionner le bouton **Envoyer des journaux** sous l’onglet **Diagnostics** de **Microsoft Integration Runtime Configuration Manager**, qui est installé sur votre runtime d’intégration auto-hébergé pour envoyer les journaux récents d’opérations/exécution que nous allons examiner.
 
@@ -194,7 +194,7 @@ Voici des exemples de nos partenaires, [Theobald Software](https://kb.theobald-s
 
 ## <a name="enforce-tls-12"></a>Appliquer le protocole TLS 1.2
 
-Si vous devez utiliser un chiffrement renforcé ou un protocole réseau plus sécurisé (TLS 1.2) et, en même temps, désactiver les anciennes versions SSL/TLS sur votre IR auto-hébergé, vous pouvez télécharger et exécuter le script *main.cmd* qui se trouve dans le dossier *CustomSetupScript/UserScenarios/TLS 1.2* de notre conteneur d'objets blob de préversions publiques. À l'aide de l'[Explorateur Stockage Azure](https://storageexplorer.com/), vous pouvez vous connecter à notre conteneur d'objets blob de préversions publiques en entrant l'URI SAS suivant :
+Si vous avez besoin d’accéder aux magasins de données qui ont été configurés pour utiliser uniquement le protocole réseau de chiffrement le plus sécurisé (TLS 1.2), y compris votre Stockage d’objets Blob Azure pour la mise en lots, vous devez activer uniquement TLS 1.2 et désactiver les anciennes versions SSL/TLS en même temps sur votre IR auto-hébergé. Pour ce faire, vous pouvez télécharger et exécuter le script *main.cmd* que nous fournissons dans le dossier *CustomSetupScript/UserScenarios/TLS 1.2* de notre conteneur d’objets Blob en préversion publique. À l'aide de l'[Explorateur Stockage Azure](https://storageexplorer.com/), vous pouvez vous connecter à notre conteneur d'objets blob de préversions publiques en entrant l'URI SAS suivant :
 
 `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
 

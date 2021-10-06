@@ -1,10 +1,10 @@
 ---
 title: Révision de l’accès d’un package d’accès dans la gestion des droits d’utilisation Azure AD
-description: Découvrez comment effectuer une révision d’accès pour les packages d’accès de gestion des droits d’utilisation dans les révisions d’accès Azure Active Directory (préversion).
+description: Découvrez comment effectuer une révision d’accès pour les packages d’accès de gestion des droits d’utilisation dans les révisions d’accès du Répertoire actif Azure (préversion).
 services: active-directory
 documentationCenter: ''
 author: amsliu
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 07/22/2021
+ms.date: 09/15/2021
 ms.author: amsliu
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d034d3e64e6c74b076ba636822bbd6e04ad1f5
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9b86ddd01b155b54eaa954df2a67df907901b288
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440220"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639676"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Révision de l’accès d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -31,7 +31,7 @@ La gestion des droits d'utilisation d’Azure AD simplifie la gestion de l’acc
 
 Pour réviser les attributions de packages d’accès actives de l’utilisateur, le créateur d’une révision doit remplir les prérequis suivants :
 - Azure AD Premium P2
-- Administrateur général, administrateur de la gouvernance des identités, administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+- Administrateur général, administrateur de la Gouvernance des identités ou Administrateur d’utilisateurs
 
 Pour plus d’informations, consultez [Exigences des licences](entitlement-management-overview.md#license-requirements).
 
@@ -89,7 +89,7 @@ Une fois la révision d’accès ouverte, vous verrez les noms des utilisateurs 
 S’il existe plusieurs réviseurs, la dernière réponse envoyée est enregistrée. Prenons un exemple où un administrateur désigne deux réviseurs : Alice et Bob. Alice ouvre d’abord la révision et approuve l’accès. Avant la fin de la révision, Bob ouvre la révision et refuse l’accès. Dans ce cas, la dernière décision de refuser l’accès est enregistrée.
 
 >[!NOTE]
->Si l’accès est refusé à un utilisateur, il n’est pas immédiatement supprimé du package d’accès. L’utilisateur est supprimé du package d’accès à la fin de la révision ou si un administrateur arrête la révision. Toutefois, lorsqu’un utilisateur se voit accorder l’accès, l’approbation est instantanée, et elle est accordée même si la période de révision est toujours ouverte.
+>Si l’accès est refusé à un utilisateur dans la révision, il n’est pas immédiatement supprimé du package d’accès. L’utilisateur sera supprimé du package d’accès une fois les résultats de la révision appliqués après la fermeture de la révision. La révision se ferme automatiquement à la fin de la durée de la révision ou avant si un administrateur arrête manuellement la révision. 
 
 ### <a name="approve-or-deny-access-using-the-system-generated-recommendations"></a>Approuver ou refuser l’accès à l’aide des recommandations générées par le système
 

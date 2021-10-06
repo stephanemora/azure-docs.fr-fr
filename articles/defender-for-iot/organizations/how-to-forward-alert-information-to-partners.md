@@ -1,14 +1,14 @@
 ---
 title: Transférer les informations d’alerte
 description: Vous pouvez envoyer des informations d’alerte à des systèmes partenaires en utilisant des règles de transfert.
-ms.date: 07/12/2021
+ms.date: 08/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 8bad8461435d2ff223fe39d1bd4257cdf0948a4d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2136a58a383bb623edca69cb03c1c9c5530a107f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446835"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432358"
 ---
 # <a name="forward-alert-information"></a>Transférer les informations d’alerte
 
@@ -26,21 +26,36 @@ Les administrateurs Defender pour IoT sont autorisés à utiliser les règles de
 
 Les alertes fournissent des informations sur un large éventail d’événements opérationnels et de sécurité. Par exemple :
 
-  - Date et heure de l’alerte
+- Date et heure de l’alerte
 
-  - Moteur ayant détecté l’événement
+- Moteur ayant détecté l’événement
 
-  - Titre de l’alerte et message descriptif
+- Titre de l’alerte et message descriptif
 
-  - Gravité de l’alerte
+- Gravité de l’alerte
 
-  - Nom et adresse IP de la source et de la destination
+- Nom et adresse IP de la source et de la destination
 
-  - Trafic suspect détecté
+- Trafic suspect détecté
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/address-scan-detected-screen.png" alt-text="Analyse des adresses détectée.":::
 
 Les informations pertinentes sont envoyées aux systèmes partenaires lors de la création des règles de transfert.
+
+## <a name="about-forwarding-rules-and-certificates"></a>À propos des règles de transfert et des certificats
+
+Certaines règles de transfert autorisent le chiffrement et la validation de certificat entre le capteur ou la console de gestion locale, et le serveur du fournisseur intégré.
+
+Quand c’est le cas, le capteur ou la console de gestion locale est le client et l’initiateur de la session.  Les certificats sont généralement reçus du serveur ou utilisent le chiffrement asymétrique quand un certificat spécifique est fourni pour configurer l’intégration.
+
+Votre système Defender pour IoT a été configuré pour valider les certificats ou ignorer la validation de certificat.  Pour plus d’informations sur l’activation et la désactivation de la validation, consultez [À propos de la validation des certificats](how-to-deploy-certificates.md#about-certificate-validation).
+
+Si la validation est activée et que le certificat ne peut pas être vérifié, la communication entre Defender pour IoT et le serveur est interrompue.  Le capteur affiche un message d’erreur indiquant l’échec de la validation.  Si la validation est désactivée et que le certificat n’est pas valide, la communication continue.
+
+Les règles de transfert suivantes autorisent le chiffrement et la validation des certificats :
+- Syslog CEF
+- Azure Sentinel
+- QRadar
 
 ## <a name="create-forwarding-rules"></a>Créer des règles de transfert
 
@@ -54,7 +69,7 @@ Les informations pertinentes sont envoyées aux systèmes partenaires lors de la
 
    :::image type="content" source="media/how-to-work-with-alerts-sensor/create-forwarding-rule-screen.png" alt-text="Créer une icône Règle de transfert.":::
 
-1. Entrez un nom pour la règle de transfert. 
+1. Entrez un nom pour la règle de transfert.
 
 1. Sélectionnez le niveau de gravité.
 
@@ -111,7 +126,7 @@ Entrez les paramètres suivants :
 - Fuseau horaire de l’horodatage pour la détection d’alerte sur les SIEM.
 
 - Fichier de clé et fichier de certificat de chiffrement TLS pour les serveurs CEF (facultatif).
-    
+
 :::image type="content" source="media/how-to-work-with-alerts-sensor/configure-encryption.png" alt-text="Configurez votre chiffrement pour votre règle de transfert.":::
 
 | Champs de sortie des SMS à Syslog | Description |
@@ -122,34 +137,32 @@ Entrez les paramètres suivants :
 | Protocol | TCP ou UDP |
 | Message | Capteur : Nom du capteur.<br /> Alerte : Titre de l’alerte.<br /> Tapez : Type de l’alerte. Peut être **Violation de protocole**, **Violation de stratégie**, **Programme malveillant**, **Anomalie** ou **Opérationnelle**.<br /> Gravité : Gravité de l’alerte. Peut être **Avertissement**, **Mineur**, **Majeur** ou **Critique**.<br /> Source : Nom de l’appareil source.<br /> IP source : Adresse IP de l’appareil source.<br /> Destination : Nom de l’appareil de destination.<br /> Adresse IP de destination : Adresse IP de l’appareil de destination.<br /> Message : Message de l’alerte.<br /> Groupe d’alertes : Groupe d’alertes associé à l’alerte. |
 
-
 | Sortie de l’objet Syslog | Description |
 |--|--|
-| Date et heure |   Date et heure auxquelles le serveur Syslog a reçu les informations. |  
-| Priority |    User.Alert | 
-| HostName |    IP du capteur | 
+| Date et heure | Date et heure auxquelles le serveur Syslog a reçu les informations. |  
+| Priority | User.Alert |
+| HostName | IP du capteur |
 | Message | Nom du capteur : Nom de l’appliance. <br /> Heure de l’alerte : Heure à laquelle l’alerte a été détectée : Peut varier de l’heure du serveur Syslog et dépend de la configuration du fuseau horaire de la règle de transfert. <br /> Titre de l’alerte : Titre de l’alerte. <br /> Message d’alerte : Message de l’alerte. <br /> Gravité d’alerte : Gravité de l’alerte : **Avertissement**, **Mineur**, **Majeur** ou **Critique**. <br /> Type d’alerte : **Violation de protocole**, **Violation de stratégie**, **Programme malveillant**, **Anomalie** ou **Opérationnelle**. <br /> Protocole : Protocole de l’alerte.  <br /> **Source_MAC** : Adresse IP, nom, fournisseur ou système d’exploitation de l’appareil source. <br /> Destination_MAC : Adresse IP, nom, fournisseur ou système d’exploitation de l’appareil de destination. Si des données sont manquantes, la valeur sera **s.o.** . <br /> alert_group : Groupe d’alertes associé à l’alerte. |
-
 
 | Format de sortie CEF Syslog | Description |
 |--|--|
 | Date et heure | Date et heure auxquelles le serveur Syslog a reçu les informations. |
-| Priority | User.Alert | 
+| Priority | User.Alert |
 | HostName | Adresse IP du capteur |
 | Message | CEF:0 <br />Azure Defender pour IoT <br />Nom du capteur : Nom de l’appliance de détection. <br />Version du capteur <br />Titre de l’alerte : Titre de l’alerte. <br />msg : Message de l’alerte. <br />protocole : Protocole de l’alerte. <br />gravité :  **Avertissement**, **Mineur**, **Majeur** ou **Critique**. <br />type :  **Violation de protocole**, **Violation de stratégie**, **Programme malveillant**, **Anomalie** ou **Opérationnelle**. <br /> start : Heure à laquelle l’alerte a été détectée. <br />Peut varier de l’heure du serveur Syslog et dépend de la configuration du fuseau horaire de la règle de transfert. <br />src_ip : Adresse IP de l’appareil source.  <br />dst_ip : Adresse IP de l’appareil de destination.<br />cat : Groupe d’alertes associé à l’alerte.  |
 
 | Format de sortie LEEF Syslog | Description |
 |--|--|
-| Date et heure |   Date et heure auxquelles le serveur Syslog a reçu les informations. |  
-| Priority |    User.Alert | 
-| HostName |    IP du capteur |
+| Date et heure | Date et heure auxquelles le serveur Syslog a reçu les informations. |  
+| Priority | User.Alert |
+| HostName | IP du capteur |
 | Message | Nom du capteur : Nom de l’appliance Azure Defender pour IoT. <br />LEEF:1.0 <br />Azure Defender pour IoT <br />Capteur  <br />Version du capteur <br />Alerte Azure Defender pour IoT <br />titre : Titre de l’alerte. <br />msg : Message de l’alerte. <br />protocole : Protocole de l’alerte.<br />gravité :  **Avertissement**, **Mineur**, **Majeur** ou **Critique**. <br />type : Type de l’alerte : **Violation de protocole**, **Violation de stratégie**, **Programme malveillant**, **Anomalie** ou **Opérationnelle**. <br />start : Heure de l’alerte.Elle peut être différente de l’heure de la machine du serveur Syslog. (Cela dépend de la configuration du fuseau horaire.) <br />src_ip : Adresse IP de l’appareil source.<br />dst_ip : Adresse IP de l’appareil de destination. <br />cat : Groupe d’alertes associé à l’alerte. |
 
 Après avoir entré toutes les informations, sélectionnez **Envoyer**.
 
 ### <a name="webhook-server-action"></a>Action du serveur Webhook
 
-Envoyez des informations d’alerte à un serveur Webhook. L’utilisation de serveurs Webhook vous permet de configurer des intégrations qui s’abonnent à des événements d’alerte avec Defender pour IoT. Lors du déclenchement d’un événement d’alerte, la console de gestion envoie une charge utile HTTP POST à l’URL configurée du Webhook. Les Webhooks peuvent être utilisés pour mettre à jour un système SIEM externe, des systèmes SOAR, des systèmes de gestion des incidents, etc.   
+Envoyez des informations d’alerte à un serveur Webhook. L’utilisation de serveurs Webhook vous permet de configurer des intégrations qui s’abonnent à des événements d’alerte avec Defender pour IoT. Lors du déclenchement d’un événement d’alerte, la console de gestion envoie une charge utile HTTP POST à l’URL configurée du Webhook. Les Webhooks peuvent être utilisés pour mettre à jour un système SIEM externe, des systèmes SOAR, des systèmes de gestion des incidents, etc.
 
 **Pour définir une action de Webhook :**
 
@@ -162,6 +175,58 @@ Envoyez des informations d’alerte à un serveur Webhook. L’utilisation de se
 1. Dans les champs **Clé** et **Valeur**, personnalisez l’en-tête HTTP avec une définition de clé et de valeur. Les clés peuvent uniquement contenir des lettres, des chiffres, des tirets et des traits de soulignement. Les valeurs peuvent uniquement contenir une espace de début et/ou une espace de fin.
 
 1. Sélectionnez **Enregistrer**.
+
+### <a name="webhook-extended"></a>Webhook étendu
+
+Un webhook étendu peut être utilisé pour envoyer des données supplémentaires au point de terminaison. La fonctionnalité étendue inclut toutes les informations de l’alerte de webhook et ajoute les informations suivantes au rapport :
+
+- sensorID
+- sensorName
+- zoneID
+- zoneName
+- siteID
+- siteName
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- handled
+- additionalInformation
+
+**Pour définir une action étendue de webhook** :
+
+1. Dans la console de gestion, dans le volet gauche, sélectionnez **Transfert**.
+
+1. Ajoutez une règle de transfert en sélectionnant le bouton :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-icon.png" border="false":::.
+
+1. Ajoutez un nom explicite pour l’alerte de transfert.
+
+1. Sélectionner un niveau de gravité.
+
+1. Sélectionnez **Ajouter**.
+
+1. Dans la fenêtre déroulante Sélectionner un type, sélectionnez **Webhook étendu**.
+
+   :::image type="content" source="media/how-to-forward-alert-information-to-partners/webhook-extended.png" alt-text="Sélectionnez l’option Webhook étendu dans le menu déroulant Sélectionner un type.":::
+
+1. Dans le champ URL, ajoutez l’URL des données de point de terminaison.
+
+1. (Facultatif) Personnalisez l’en-tête HTTP avec une définition de clé et de valeur. Ajoutez un des en-têtes en sélectionnant le bouton :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-header.png" border="false":::.
+
+1. Sélectionnez **Enregistrer**.
+
+Une fois la règle de transfert Webhook étendu configurée, vous pouvez tester l’alerte à partir de l’écran Transfert de la console de gestion.
+
+**Pour tester la règle de transfert Webhook étendu** :
+
+1. Dans la console de gestion, dans le volet gauche, sélectionnez **Transfert**.
+
+1. Sélectionnez le bouton **Exécuter** pour tester votre alerte.
+
+    :::image type="content" source="media/how-to-forward-alert-information-to-partners/run-button.png" alt-text="Sélectionnez le bouton Exécuter pour tester votre règle de transfert.":::
+
+Vous saurez que la règle de transfert fonctionne si vous voyez s’afficher la notification Réussite.
+
+:::image type="content" source="media/how-to-forward-alert-information-to-partners/success.png" alt-text="L’alerte a fonctionné correctement si la notification Réussite s’affiche.":::
 
 ### <a name="netwitness-action"></a>Action NetWitness
 

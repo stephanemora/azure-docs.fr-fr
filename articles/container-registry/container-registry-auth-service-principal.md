@@ -3,12 +3,12 @@ title: S’authentifier avec un principal de service
 description: Fournir un accès aux images de votre registre de conteneurs privé à l’aide d’un principal du service Azure Active Directory.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: 7d64f63de3227394d1f69b2049f0a58dda35e6e6
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 117929df4c8b0fa7a54a23bcc039294122cd5afa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440715"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651880"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Authentification Azure Container Registry avec des principaux de service
 
@@ -16,7 +16,7 @@ Vous pouvez utiliser un principal de service Azure Active Directory (Azure AD) p
 
 ## <a name="what-is-a-service-principal"></a>Qu’est-ce qu’un principal de service ?
 
-Les *principaux de service* Azure AD donnent accès aux ressources Azure dans votre abonnement. Vous pouvez considérer un principal de service comme l’identité d’un utilisateur pour un service, le « service » étant n’importe quelle application, n’importe quel service ou n’importe quelle plateforme qui a besoin d’accéder aux ressources. Vous pouvez configurer un principal de service avec des droits d’accès limités aux ressources que vous spécifiez. Configurez ensuite votre application ou votre service pour qu’il utilise les informations d’identification du principal du service et accède à ces ressources.
+Les [*principaux de service*](../active-directory/develop/app-objects-and-service-principals.md) Azure AD donnent accès aux ressources Azure dans votre abonnement. Vous pouvez considérer un principal de service comme l’identité d’un utilisateur pour un service, le « service » étant n’importe quelle application, n’importe quel service ou n’importe quelle plateforme qui a besoin d’accéder aux ressources. Vous pouvez configurer un principal de service avec des droits d’accès limités aux ressources que vous spécifiez. Configurez ensuite votre application ou votre service pour qu’il utilise les informations d’identification du principal du service et accède à ces ressources.
 
 Dans le contexte d’Azure Container Registry, vous pouvez créer un principal du service Azure AD avec des autorisations d’extraction (pull), d’envoi (push) et d’extraction (pull), ou d’autres autorisations pour votre registre privé dans Azure. Pour obtenir la liste complète, consultez [Autorisations et rôles Azure Container Registry](container-registry-roles.md).
 
@@ -51,13 +51,13 @@ Vous trouverez les exemples de scripts précédents pour Azure CLI sur GitHub, a
 
 Une fois que vous disposez d’un principal de service auquel vous avez accordé l’accès à votre registre de conteneurs, vous pouvez configurer ses informations d’identification pour accéder aux services et applications sans périphérique de contrôle ou les entrer à l'aide de la commande `docker login`. Utilisez les valeurs suivantes :
 
-* **Nom d'utilisateur** - ID d’application du principal de service (également appelé *ID client*)
-* **Mot de passe** - mot de passe du principal de service (également appelé *clé secrète client*)
+* **Nom d’utilisateur** : **ID de l'application (client)** du principal du service
+* **Mot de passe** - mot de passe du principal de service **(clé secrète client)**
 
 Chaque valeur est au format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> Vous pouvez régénérer le mot de passe d’un principal du service en exécutant la commande [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset).
+> Vous pouvez régénérer le mot de passe (clé secrète client) d’un principal de service en exécutant la commande [az ad sp credential reset](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset).
 >
 
 ### <a name="use-credentials-with-azure-services"></a>Utiliser les informations d’identification avec les services Azure

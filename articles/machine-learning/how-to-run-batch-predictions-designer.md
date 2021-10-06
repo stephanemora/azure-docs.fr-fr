@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment créer un pipeline de prédiction par lot. Déployez le pipeline en tant que service web paramétrable et déclenchez-le à partir de n’importe quelle bibliothèque HTTP.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: keli19
 author: likebupt
 ms.date: 02/05/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: 9a766e3ff67a1ea76c396c304ead55ce0578739f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 85562dd33031ae0f392efac6aed6d5e4ecc5c2e5
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114458776"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428271"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
 

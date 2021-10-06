@@ -3,16 +3,16 @@ title: Développer des modules pour Azure IoT Edge | Microsoft Docs
 description: Développer des modules personnalisés pour Azure IoT Edge qui peuvent communiquer avec le runtime et IoT Hub
 author: kgremban
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fafb9475d308863113fa943d4e52cf3c1b5652cd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5a04acfdec42319b998b2854be9690bab360558c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524293"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550530"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Développer vos propres modules IoT Edge
 
@@ -81,7 +81,7 @@ Pour envoyer des messages de télémétrie appareil-à-cloud à l’aide du rout
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-L’envoi de messages de télémétrie appareil-à-cloud avec le répartiteur MQTT est similaire à la publication de messages sur des rubriques définies par l’utilisateur, mais en utilisant la rubrique spéciale IoT Hub suivante pour votre module : `devices/<device_name>/<module_name>/messages/events`. Les autorisations doivent être configurées de manière appropriée. Le pont MQTT doit également être configuré pour transférer les messages de cette rubrique vers le cloud.
+L’envoi de messages de télémétrie appareil-à-cloud avec le répartiteur MQTT est similaire à la publication de messages sur des rubriques définies par l’utilisateur, mais en utilisant la rubrique spéciale IoT Hub suivante pour votre module : `devices/<device_name>/modules/<module_name>/messages/events`. Les autorisations doivent être configurées de manière appropriée. Le pont MQTT doit également être configuré pour transférer les messages de cette rubrique vers le cloud.
 
 ::: moniker-end
 
@@ -90,7 +90,7 @@ Pour traiter les messages à l’aide du routage, commencez par configurer un it
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-Le traitement des messages à l’aide du répartiteur MQTT est similaire à l’abonnement à des messages sur des rubriques définies par l’utilisateur, mais en utilisant des rubriques spéciales IoT Edge de la file d’attente de sortie de votre module : `devices/<device_name>/<module_name>/messages/events`. Les autorisations doivent être configurées de manière appropriée. Si vous le souhaitez, vous pouvez envoyer de nouveaux messages dans les rubriques de votre choix.
+Le traitement des messages à l’aide du répartiteur MQTT est similaire à l’abonnement à des messages sur des rubriques définies par l’utilisateur, mais en utilisant des rubriques spéciales IoT Edge de la file d’attente de sortie de votre module : `devices/<device_name>/modules/<module_name>/messages/events`. Les autorisations doivent être configurées de manière appropriée. Si vous le souhaitez, vous pouvez envoyer de nouveaux messages dans les rubriques de votre choix.
 
 ::: moniker-end
 
@@ -165,6 +165,31 @@ Pour tous les langages du tableau suivant, IoT Edge prend en charge le développ
 IoT Edge 1.1 LTS est le dernier canal à prendre en charge les conteneurs Windows. À partir de la version 1.2, les conteneurs Windows ne sont pas pris en charge.
 
 Pour plus d’informations sur le développement avec des conteneurs Windows, reportez-vous à la version [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) de cet article.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+<!--1.2-->
+:::moniker range="iotedge-2020-11"
+
+## <a name="module-security"></a>Sécurité du module
+
+Vous devez développer vos modules en tenant compte de la sécurité. Pour en savoir plus sur la sécurisation de vos modules, consultez [sécurité Docker](https://docs.docker.com/engine/security/).
+
+Pour améliorer la sécurité des modules, IoT Edge désactive certaines fonctionnalités de conteneur par défaut. Vous pouvez remplacer les valeurs par défaut pour fournir des fonctionnalités privilégiées à vos modules, si nécessaire.
+
+### <a name="allow-elevated-docker-permissions"></a>Autoriser les autorisations Docker élevées
+
+Dans le fichier config.toml sur un appareil IoT Edge, il existe un paramètre appelé `allow_elevated_docker_permissions` . Quand la valeur est **true**, cet indicateur autorise l'`--privileged` indicateur ainsi que toutes les fonctionnalités supplémentaires que vous définissez dans le `CapAdd` champ HostConfig Docker dans les [options de création du conteneur](how-to-use-create-options.md).
+
+>[!NOTE]
+>Actuellement, cet indicateur a la valeur **true** par défaut, ce qui permet aux déploiements d’accorder des autorisations privilégiées aux modules. Nous vous recommandons de définir cet indicateur sur false pour améliorer la sécurité de l’appareil. À l’avenir, cet indicateur sera défini sur **false** par défaut.
+
+### <a name="enable-cap_chown-and-cap_setuid"></a>Activer CAP_CHOWN et CAP_SETUID
+
+Les fonctionnalités Docker **CAP_CHOWN** et **CAP_SETUID** sont désactivées par défaut. Ces fonctionnalités peuvent être utilisées pour écrire dans des fichiers sécurisés sur le périphérique hôte et éventuellement obtenir un accès racine.
+
+Si vous avez besoin de ces fonctionnalités, vous pouvez les réactiver manuellement à l’aide de CapADD dans les options de création du conteneur.
 
 :::moniker-end
 <!-- end 1.2 -->

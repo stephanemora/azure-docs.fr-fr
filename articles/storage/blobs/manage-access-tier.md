@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c9d16093b19fbcf1b8f0f60799c268d206fe956d
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 51bad8290bea95374349bfd00b69a4c6474b226a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596939"
 ---
 # <a name="manage-the-access-tier-of-a-blob-in-an-azure-storage-account"></a>Gérer le niveau d’accès d’un BLOB dans un compte de stockage Azure
 
@@ -60,7 +60,7 @@ $ctx = $storageAccount.Context
 #Select the blob from a container
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
-#Change the blob’s access tier to archive
+#Change the blob's access tier to archive
 $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ```
 
@@ -69,5 +69,5 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Comment gérer le niveau d’accès par défaut d’un compte de stockage Azure](../common/manage-account-default-access-tier.md)
-- [Découvrir comment réalimenter les données d’objets blob à partir du niveau Archive](archive-rehydrate-overview.md)
+- Découvrir comment [réalimenter les données d’objets blob à partir du niveau Archive](archive-rehydrate-overview.md)
 - [Vérifier la tarification du niveau chaud, froid et archive dans les comptes de stockage d’objets blob et GPv2 par région](https://azure.microsoft.com/pricing/details/storage/)

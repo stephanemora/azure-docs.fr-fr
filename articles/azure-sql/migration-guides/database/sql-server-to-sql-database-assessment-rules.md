@@ -10,12 +10,12 @@ author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: ab030e8e4b86fc669325099e13650f8e1c178986
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 17b3cd2c0257989a220be6b35e93d88db7225188
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835330"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457465"
 ---
 # <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Règles d’évaluation pour la migration de SQL Server vers Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -133,9 +133,6 @@ Ce serveur utilise la fonctionnalité Database Mail, qui n’est pas prise en ch
 
 **Recommandation**   
 Envisagez de migrer vers Azure SQL Database qui prend en charge Database Mail.  Vous pouvez également envisager d’utiliser Azure Functions et Sendgrid pour obtenir la fonctionnalité de courrier sur Azure SQL Database.
-
-Informations supplémentaires : [Envoyer un e-mail à partir d’Azure SQL Database à l’aide d’un script Azure Functions](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)
-
 
 ## <a name="database-principal-alias"></a>Alias principal de base de données<a id="DatabasePrincipalAlias"></a>
 

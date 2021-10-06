@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 5c19cfd69352d898c6f47c7256b8433164cd7eb9
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 0014c28b57480e8da301c57823cdba79cea67e96
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982993"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274895"
 ---
 # <a name="index-data-from-azure-blob-storage"></a>Indexer des données à partir du Stockage Blob Azure
 
@@ -32,7 +32,7 @@ Cet article utilise les API REST.
 
 ## <a name="supported-access-tiers"></a>Niveaux d’accès pris en charge
 
-Les [niveaux d’accès](../storage/blobs/storage-blob-storage-tiers.md) au service Stockage Blob sont chaud, froid et archive. Les indexeurs ne peuvent accéder qu’aux niveaux chaud et froid. 
+Les [niveaux d’accès](../storage/blobs/access-tiers-overview.md) au service Stockage Blob sont chaud, froid et archive. Les indexeurs ne peuvent accéder qu’aux niveaux chaud et froid. 
 
 <a name="SupportedFormats"></a>
 

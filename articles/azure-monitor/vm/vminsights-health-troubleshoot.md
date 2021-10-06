@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: 0d7cb5c8747707b950075c7201d90c5e208298db
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: a02b7d6fa5ef8369578f89a452df95a50ca34204
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112123447"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425173"
 ---
 # <a name="troubleshoot-vm-insights-guest-health-preview"></a>Résoudre des problèmes d’intégrité de l’invité VM Insights (préversion)
 Cet article décrit les étapes de dépannage que vous pouvez suivre lorsque vous rencontrez des problèmes d’intégrité sur VM Insights.
@@ -55,7 +55,7 @@ Votre installation n’a pas réussi et votre message d’erreur d’installatio
 ```
 Exiting with the following error: "Failed to install VM Guest Health Agent: exit status 1"install vmGuestHealthAgent service execution failed with exit code 37
 ```
-C’est probablement parce que l’agent invité de la machine virtuelle n’a pas pu acquérir le verrou pour le fichier de service. Essayez de redémarrer votre machine virtuelle, ce qui libérera le verrou.
+C’est probablement parce que l’Agent invité de la machine virtuelle n’a pas pu acquérir le verrou pour le fichier de service. Essayez de redémarrer votre machine virtuelle, ce qui libérera le verrou.
 
 
 ## <a name="upgrade-errors"></a>Erreurs de mise à niveau
@@ -74,7 +74,7 @@ C’est probablement parce que l’agent invité de la machine virtuelle n’a p
   - Pour Linux : Le démon est *vmGuestHealthAgent*. Le dossier d’état est */var/opt/vmGuestHealthAgent/* *.
   - Pour Windows : Le service est *VM Guest Health agent*. Le dossier d’état est _%ProgramData%\Microsoft\VMGuestHealthAgent\\*_ .
 - Vérifiez que l’agent Azure Monitor dispose d’une connectivité réseau. 
-  - À partir de la machine virtuelle, essayez d’effectuer un test ping sur _<region>.handler.control.monitor.azure.com_. Par exemple, pour une machine virtuelle dans la région westeurope, essayez d’effectuer un test ping sur _westeurope.handler.control.monitor.azure.com:443_.
+  - À partir de la machine virtuelle, essayez d’effectuer un test ping sur _\<region\>.handler.control.monitor.azure.com_. Par exemple, pour une machine virtuelle dans la région westeurope, essayez d’effectuer un test ping sur _westeurope.handler.control.monitor.azure.com:443_.
 - Vérifiez que la machine virtuelle est associée à une règle de collecte de données dans la même région que l’espace de travail Log Analytics.
   -  Reportez-vous à la rubrique **Créer une règle de collecte de données** dans [Activer l’intégrité des invités d’Azure Monitor pour machines virtuelles (préversion)](vminsights-health-enable.md) pour vous assurer que la structure de la règle de collecte de données est correcte. Faites particulièrement attention à la présence de la section de source de données *performanceCounters* configurée pour échantillonner trois compteurs et à la présence de la section *inputDataSources* dans la configuration de l’extension d’intégrité pour envoyer des compteurs à l’extension.
 -  Vérifiez la machine virtuelle à la recherche d’erreurs de l’extension d’intégrité.

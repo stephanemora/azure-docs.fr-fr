@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/18/2021
-ms.openlocfilehash: 61dbf2f83ad135cfdef6fffcc3a8c162d0a4c0cd
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 09/13/2021
+ms.openlocfilehash: fa1ea33e2e7987daa79267fb197981931ce1c2fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111451"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606263"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Architecture monolocataire ou multilocataire et environnement de service d’intégration pour Azure Logic Apps
 
@@ -121,12 +121,16 @@ Avec le type de ressource **Application logique (Standard)** , vous pouvez crée
 
   Créez un workflow avec état lorsque vous devez conserver, examiner ou référencer des données d’événements précédents. Ces workflows enregistrent et transfèrent toutes les entrées et les sorties de chaque action, ainsi que leurs états, dans un stockage externe qui permet d’examiner les détails et l’historique d’exécution à l’issue de chaque exécution. Les workflows avec état offrent une haute résilience en cas d’interruption. Une fois les services et systèmes restaurés, vous pouvez reconstituer les exécutions interrompues à partir de l’état enregistré et réexécuter les workflows jusqu’à leur terme. Les workflows avec état peuvent continuer à s’exécuter plus longtemps que les workflows sans état.
 
+  Par défaut, les flux de travail avec état dans les Apps Logic Azure à plusieurs locataires et à locataire unique s’exécutent de façon asynchrone. Toutes les actions basées sur HTTP suivent le [modèle d’opération asynchrone](/azure/architecture/patterns/async-request-reply)standard. Ce modèle spécifie qu’après l’appel d’une action HTTP ou l’envoi d’une requête à un point de terminaison, un service, un système ou une API, le récepteur retourne immédiatement la réponse [« 202 ACCEPTED »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Ce code confirme que le récepteur a accepté la requête, mais indique qu’il n’a pas terminé le traitement. La réponse peut inclure un `location` en-tête qui spécifie l’URI et un ID d’actualisation que l’appelant peut utiliser pour interroger ou vérifier l’état de la demande asynchrone jusqu’à ce que le récepteur arrête le traitement et retourne une réponse de réussite [« 200 OK »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou une autre réponse non-202. Toutefois, l’appelant n’a pas besoin d’attendre la fin du traitement de la requête et peut exécuter l’action suivante. Pour plus d’informations, consultez [L’intégration asynchrone des microservices permet l’autonomie des microservices](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+
 * *Sans état*
 
-  Créez un workflow sans état lorsque vous n’avez pas besoin de conserver, d’examiner ou de référencer des données d’événements précédents dans un stockage externe après chaque exécution pour les consulter ultérieurement. Ces workflows enregistrent toutes les entrées et les sorties pour chaque action et leurs états *uniquement en mémoire*, et non dans un stockage externe. Par conséquent, les workflows sans état offrent des temps d’exécution plus courts généralement inférieurs à cinq minutes, des performances plus rapides avec des temps de réponse plus courts, un débit plus élevé, et des coûts d’exécution réduits, car les détails et l’historique d’exécution ne sont pas enregistrés dans un stockage externe. Toutefois, en cas de panne, les exécutions interrompues ne sont pas automatiquement restaurées, de sorte que l’appelant doit relancer manuellement les exécutions interrompues. Ces workflows peuvent uniquement s’exécuter de façon synchrone.
+  Créez un workflow sans état lorsque vous n’avez pas besoin de conserver, d’examiner ou de référencer des données d’événements précédents dans un stockage externe après chaque exécution pour les consulter ultérieurement. Ces workflows enregistrent toutes les entrées et les sorties pour chaque action et leurs états *uniquement en mémoire*, et non dans un stockage externe. Par conséquent, les workflows sans état offrent des temps d’exécution plus courts généralement inférieurs à cinq minutes, des performances plus rapides avec des temps de réponse plus courts, un débit plus élevé, et des coûts d’exécution réduits, car les détails et l’historique d’exécution ne sont pas enregistrés dans un stockage externe. Toutefois, en cas de panne, les exécutions interrompues ne sont pas automatiquement restaurées, de sorte que l’appelant doit relancer manuellement les exécutions interrompues.
 
   > [!IMPORTANT]
   > Un workflow sans état offre les meilleures performances lors de la gestion des données ou du contenu, tel qu’un fichier, qui ne dépasse pas 64 Ko au *total*. Des tailles de contenu plus volumineuses, telles que plusieurs pièces jointes imposantes, peuvent ralentir considérablement les performances de votre workflow ou même provoquer le blocage de votre workflow en raison d’exceptions de mémoire insuffisante. Si votre workflow peut être amené à gérer des tailles de contenu supérieures, utilisez un workflow avec état à la place.
+
+  Les flux de travail sans état s’exécutent uniquement de façon synchrone, donc ils n’utilisent pas le [modèle d’opération asynchrone](/azure/architecture/patterns/async-request-reply) standard utilisé par les flux de travail avec état. Au lieu de cela, toutes les actions basées sur HTTP qui renvoient une réponse [« 202 ACCEPTÉ »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) passent à l’étape suivante de l’exécution du flux de travail. Si la réponse comprend un `location` en-tête, un flux de travail sans état n’interrogera pas l’URI spécifié pour vérifier l’état. Pour suivre le modèle d’opération asynchrone standard, utilisez un flux de travail avec état à la place.
 
   Pour faciliter le débogage, vous pouvez activer l’historique des exécutions pour un workflow sans état (ce qui a un certain impact sur les performances), puis le désactiver lorsque vous avez terminé. Pour plus d’informations, consultez [Créer des flux de travail basés sur un locataire dans Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) ou [Créer des flux de travail basés sur un locataire dans le portail Azure](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
@@ -137,19 +141,19 @@ Avec le type de ressource **Application logique (Standard)** , vous pouvez crée
 
 ### <a name="nested-behavior-differences-between-stateful-and-stateless-workflows"></a>Différences de comportement imbriqué entre les workflows avec état et sans état
 
-Vous pouvez [faire en sorte qu’un workflow puisse être appelé](../logic-apps/logic-apps-http-endpoint.md) à partir d’autres workflows qui existent dans la même ressource **Application logique (Standard)** à l’aide du [déclencheur Requête](../connectors/connectors-native-reqres.md), du [déclencheur Webhook HTTP](../connectors/connectors-native-webhook.md) ou de déclencheurs de connecteur géré de [type ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) pouvant recevoir des requêtes HTTPS.
+Vous pouvez [faire en sorte qu’un workflow puisse être appelé](logic-apps-http-endpoint.md) à partir d’autres workflows qui existent dans la même ressource **Application logique (Standard)** à l’aide du [déclencheur Requête](../connectors/connectors-native-reqres.md), du [déclencheur Webhook HTTP](../connectors/connectors-native-webhook.md) ou de déclencheurs de connecteur géré de [type ApiConnectionWebhook](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) pouvant recevoir des requêtes HTTPS.
 
 Voici les modèles de comportement que les workflows imbriqués peuvent suivre après qu’un workflow parent a appelé un workflow enfant :
 
 * Modèle d’interrogation asynchrone
 
-  Le flux de travail parent n’attend pas de réponse à son appel initial, mais vérifie continuellement l’historique des exécutions du flux de travail enfant jusqu’à la fin de l’exécution de celui-ci. Par défaut, les flux de travail avec état suivent ce modèle, qui est idéal pour les flux de travail enfants de longue durée susceptibles de dépasser les [limites de délai d’expiration de demande](../logic-apps/logic-apps-limits-and-config.md).
+  Le flux de travail parent n’attend pas de réponse à son appel initial, mais vérifie continuellement l’historique des exécutions du flux de travail enfant jusqu’à la fin de l’exécution de celui-ci. Par défaut, les flux de travail avec état suivent ce modèle, qui est idéal pour les flux de travail enfants de longue durée susceptibles de dépasser les [limites de délai d’expiration de demande](logic-apps-limits-and-config.md).
 
 * Modèle synchrone (« fire and forget »)
 
   Le flux de travail enfant accuse réception de l’appel en retournant immédiatement une réponse `202 ACCEPTED`, et le flux de travail parent continue jusqu’à l’action suivante sans attendre les résultats du flux de travail enfant. Au lieu de cela, le flux de travail parent reçoit les résultats lorsque le flux de travail enfant termine son exécution. Les flux de travail enfants avec état qui n’incluent pas d’action Réponse suivent toujours le modèle synchrone. Pour les flux de travail enfants avec état, vous pouvez consulter l’historique des exécutions.
 
-  Pour activer ce comportement, dans la définition JSON du flux de travail, définissez la propriété `operationOptions` sur la valeur `DisableAsyncPattern`. Pour plus d’informations, consultez [Types d’action et de déclencheur – Options d’opération](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  Pour activer ce comportement, dans la définition JSON du flux de travail, définissez la propriété `operationOptions` sur la valeur `DisableAsyncPattern`. Pour plus d’informations, consultez [Types d’action et de déclencheur – Options d’opération](logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Déclencher et attendre
 
@@ -173,7 +177,7 @@ Le modèle monolocataire et le type de ressource **Application logique (Standard
 
 * Créez des applications logiques et leurs workflows à partir de [plus de 400 connecteurs managés](/connectors/connector-reference/connector-reference-logicapps-connectors) pour les applications et services SaaS (Software-as-a-service) et PaaS (Platform-as-a-service), ainsi que des connecteurs pour les systèmes locaux.
 
-  * D’autres connecteurs gérés sont désormais disponibles en tant qu’opérations intégrées et s’exécutent de la même façon que d’autres opérations intégrées, comme Azure Functions. Les opérations intégrées s’exécutent en mode natif sur le runtime monolocataire Azure Logic Apps. Par exemple, ces opérations intégrées incluent Azure Service Bus, Azure Event Hubs, SQL Server et MQ.
+  * D’autres connecteurs gérés sont désormais disponibles en tant qu’opérations intégrées et s’exécutent de la même façon que d’autres opérations intégrées, comme Azure Functions. Les opérations intégrées s’exécutent en mode natif sur le runtime monolocataire Azure Logic Apps. Par exemple, les nouvelles opérations intégrées incluent le Service Bus Azure, les Hubs Azure Event, le Serveur SQL et MQ, DB2 et le Fichier hôte IBM .
 
     > [!NOTE]
     > Pour la version SQL Server intégrée, seule l’action **Exécuter une requête** peut se connecter directement aux réseaux virtuels Azure sans utiliser la [passerelle de données locale](logic-apps-gateway-connection.md).
@@ -191,10 +195,12 @@ Le modèle monolocataire et le type de ressource **Application logique (Standard
     > [!NOTE]
     > Pour utiliser ces actions dans des Azure Logic Apps monolocataires (Standard), vous devez disposer de mappages Liquid, de mappages XML ou de schémas XML. Vous pouvez charger ces artefacts sur le portail Azure à partir du menu des ressources de votre application logique, sous **Artefacts**, qui inclut les sections **Schémas** et **Mappages**. Vous pouvez également ajouter ces artefacts à votre dossier **Artefacts** du projet Visual Studio Code, en utilisant les **Mappages** et les **Schémas** correspondants. Vous pouvez ensuite utiliser ces artefacts sur plusieurs workflows au sein de la *même ressource d’application logique*.
 
-  * Les ressources **Application logique (Standard)** peuvent s’exécuter en tout lieu, car Azure Logic Apps génère des chaînes de connexion avec signature d’accès partagé (SAP) que ces applications logiques peuvent utiliser pour envoyer des demandes au point de terminaison du runtime de connexion cloud. Le service Logic Apps enregistre ces chaînes de connexion avec d’autres paramètres de l’application pour vous permettre de stocker facilement ces valeurs dans Azure Key Vault quand vous opérez un déploiement sur Azure.
+  * Les ressources **Application logique (Standard)** peuvent s’exécuter en tout lieu, car les Apps Logic Azure génèrent des chaînes de connexion avec signature d’accès partagé (SAP) que ces applications logiques peuvent utiliser pour envoyer des demandes au point de terminaison du runtime de connexion cloud. Le service Logic Apps enregistre ces chaînes de connexion avec d’autres paramètres de l’application pour vous permettre de stocker facilement ces valeurs dans Azure Key Vault quand vous opérez un déploiement sur Azure.
 
     > [!NOTE]
-    > Par défaut, l’[identité managée assignée par le système](../logic-apps/create-managed-service-identity.md) d’une ressource **Application logique (Standard)** est automatiquement activée pour authentifier les connexions au moment de l’exécution. Cette identité diffère des informations d’identification d’authentification ou de la chaîne de connexion que vous utilisez lors de la création d’une connexion. Si vous désactivez cette identité, les connexions ne fonctionneront pas au moment de l’exécution. Pour afficher ce paramètre, dans le menu de votre application logique, sous **Paramètres**, sélectionnez **Identité**.
+    > Par défaut, l’[identité managée assignée par le système](create-managed-service-identity.md) d’une ressource **Application logique (Standard)** est automatiquement activée pour authentifier les connexions au moment de l’exécution. Cette identité diffère des informations d’identification d’authentification ou de la chaîne de connexion que vous utilisez lors de la création d’une connexion. Si vous désactivez cette identité, les connexions ne fonctionneront pas au moment de l’exécution. Pour afficher ce paramètre, dans le menu de votre application logique, sous **Paramètres**, sélectionnez **Identité**.
+    >
+    > L’identité managée affectée par l’utilisateur n’est pas disponible actuellement sur le type de ressource **Application logique (standard)** .
 
 * Vous pouvez exécuter, tester et déboguer localement vos applications logiques et leurs workflows dans l’environnement de développement Visual Studio Code.
 
@@ -218,7 +224,7 @@ Le modèle monolocataire et le type de ressource **Application logique (Standard
 
 Pour la ressource **Application logique (Standard)** , ces capacités ont changé, ou elles sont actuellement limitées, non disponibles ou non prises en charge :
 
-* **Déclencheurs et actions** :Les déclencheurs et actions intégrés s’exécutent en mode natif dans le runtime d’Azure Logic Apps monolocataire tandis que les connecteurs gérés sont hébergés et exécutés sur Azure. Certains déclencheurs intégrés ne sont pas disponibles, tels que Fenêtre glissante et Traitement par lots. Pour démarrer un workflow avec ou sans état, utilisez le [déclencheur intégré Périodicité, Requête, HTTP, Webhook HTTP, Event Hubs ou Service Bus](../connectors/apis-list.md). Dans le concepteur, les déclencheurs et actions intégrés apparaissent sous l’onglet **Intégré**.
+* **Déclencheurs et actions** : Les déclencheurs et actions intégrés s’exécutent en mode natif dans le runtime des Apps Logic Azure, tandis que les connecteurs managés sont hébergés et exécutés dans Azure. Certains déclencheurs et actions intégrés ne sont pas disponibles, tels que la fenêtre glissante, le traitement par lots, les services Azure App et la gestion des API Azure. Pour démarrer un workflow avec ou sans état, utilisez le [déclencheur intégré Périodicité, Requête, HTTP, Webhook HTTP, Event Hubs ou Service Bus](../connectors/apis-list.md). Dans le concepteur, les déclencheurs et actions intégrés apparaissent sous l’onglet **Intégré**.
 
   Pour les workflows *avec état*, les [déclencheurs et les actions des connecteurs managés](../connectors/managed.md) s’affichent sous l’onglet **Azure**, à l’exception des opérations non disponibles répertoriées ci-dessous. Pour les workflows *sans état*, l’onglet **Azure** n’apparaît pas lorsque vous souhaitez sélectionner un déclencheur. Vous pouvez sélectionner uniquement des [*actions* de connecteur managé, et non des déclencheurs](../connectors/managed.md). Bien que vous puissiez activer les connecteurs gérés hébergés par Azure pour les workflows sans état, le concepteur n’affiche aucun déclencheur de connecteur géré que vous pouvez ajouter.
 
@@ -242,11 +248,17 @@ Pour la ressource **Application logique (Standard)** , ces capacités ont chang�
 
     * L’action intégrée, [Azure Logic Apps – Choisir un workflow d’application logique](logic-apps-http-endpoint.md) est désormais **Workflow Operations – Appeler un workflow dans cette application de workflow**.
 
-    * Certains [déclencheurs et actions intégrés pour les comptes d’intégration](../connectors/managed.md#integration-account-connectors) ne sont pas disponibles, par exemple, les actions de codage et de décodage **Fichier plat**.
+    * Certains [déclencheurs et actions pour les comptes d’intégration](../connectors/managed.md#integration-account-connectors) ne sont pas disponibles, par exemple, les actions de fichier plat, les actions AS2 (v2) et les actions RosettaNet.
 
     * Les [connecteurs gérés personnalisés](../connectors/apis-list.md#custom-apis-and-connectors) ne sont actuellement pas pris en charge. Toutefois, vous pouvez créer des *opérations intégrées personnalisées* lorsque vous utilisez Visual Studio Code. Pour plus d’informations, consultez [Créer des workflows monolocataires avec Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
-* Pour la transformation XML, le référencement d’assemblys à partir de mappages n’est pas pris en charge actuellement. Par ailleurs, seul XSLT 1.0 est actuellement pris en charge.
+* **Authentification**: les types d’authentification suivants ne sont actuellement pas disponibles pour le type de ressource **Application logique (standard)** :
+
+  * Authentification ouverte du Répertoire actif Azure (Azure AD OAuth) pour les appels entrants vers les déclencheurs basés sur une demande, tels que le déclencheur de Requête et le déclencheur Webhook HTTP.
+
+  * Identité managée affectée par l’utilisateur. À l’heure actuelle, seule l’identité managée affectée par le système est disponible et automatiquement activée.
+
+* **Transformation XML**: Prise en charge du référencement des ensembles à partir de mappages n’est pas disponible actuellement. Par ailleurs, seul XSLT 1.0 est actuellement pris en charge.
 
 * **Débogage des points d’arrêt dans Visual Studio Code** : Bien que vous puissiez ajouter et utiliser des points d’arrêt à l’intérieur du fichier **workflow.json** pour un workflow, les points d’arrêt sont pris en charge uniquement pour les actions pour le moment, et non pour les déclencheurs. Pour plus d’informations, consultez [Créer des workflows monolocataires dans Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
@@ -254,7 +266,7 @@ Pour la ressource **Application logique (Standard)** , ces capacités ont chang�
 
 * **Contrôle de zoom** : Le contrôle de zoom n’est pas disponible actuellement sur le concepteur.
 
-* **Cibles de déploiement** : Vous ne pouvez pas déployer le type de ressource **Application logique (Standard)** dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) ni dans les emplacements de déploiement Azure.
+* **Cibles de déploiement** : Vous ne pouvez pas déployer le type de ressource **Application logique (Standard)** dans un [environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) ni dans les emplacements de déploiement Azure.
 
 * **Gestion des API Azure** : Vous ne pouvez actuellement pas importer le type de ressource **Application logique (Standard)** dans Gestion des API Azure. Toutefois, vous pouvez importer le type de ressource **Application logique (Consommation)** .
 
