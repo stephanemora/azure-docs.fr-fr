@@ -9,13 +9,13 @@ ms.topic: how-to
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 04/06/2020
-ms.openlocfilehash: 058e602568083471cc5e0053dea0ed77b0b9474f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/21/2021
+ms.openlocfilehash: 9452b12a8ad26ec2da5c488dc83f624863a4c647
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524813"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582560"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configurer l’exportation en continu de la télémétrie de diagnostic d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -462,7 +462,10 @@ Consultez le tableau suivant pour obtenir des détails sur les métriques avanc�
 
 <sup>1</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat DTU.
 
-<sup>2</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat DTU. Actuellement, cette métrique n’est pas disponible pour les entrepôts de données ou bases de données Hyperscale.
+<sup>2</sup> Cette métrique est disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat DTU. Cette métrique n’est actuellement pas disponible pour les pools SQL Synapse Analytics.
+
+> [!NOTE]
+> Il se peut que les métriques de base et avancées ne soient pas disponibles pour les bases de données restées inactives pendant 7 jours ou plus.
 
 ### <a name="basic-logs"></a>Journaux de base
 

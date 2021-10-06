@@ -1,14 +1,14 @@
 ---
-title: Enregistrer et distribuer des images dans Azure DevTest Labs | Microsoft Docs
+title: Enregistrer et distribuer des images
 description: Cet article décrit les étapes à suivre pour enregistrer des images personnalisées à partir de machines virtuelles existantes dans Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: a5278626f8cdd4299912f3c952786422436fe916
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d89a792e66d227eaeb20e48c80d432aa0cf56871
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85476238"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623567"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Enregistrer les images personnalisées et les distribuer à plusieurs laboratoires
 Cet article décrit les étapes à suivre pour enregistrer des images personnalisées à partir de machines virtuelles existantes. Il explique également comment distribuer ces images personnalisées dans d’autres labs DevTest Labs de l’organisation.

@@ -4,18 +4,18 @@ description: Découvrez comment utiliser un modèle Resource Manager pour créer
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 02/14/2021
-ms.openlocfilehash: 15be0be2fc6d00f5a1fde9e716cf00f306537521
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/06/2021
+ms.openlocfilehash: 4be599679310e91205b6c95ae27ee5d6f78ad407
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956406"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539152"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure classique avec un modèle Resource Manager
 
 > [!WARNING]
-> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](./alerts-overview.md). Les alertes classiques sont [retirées](./monitoring-classic-retirement.md) pour les utilisateurs du cloud public, avec une utilisation limitée jusqu’au **31 mai 2021**. Les alertes classiques pour Azure Government Cloud et Azure China 21Vianet seront mises hors service le **29 février 2024**.
+> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](./alerts-overview.md). Les alertes classique sont [hors service](./monitoring-classic-retirement.md) pour les utilisateurs du cloud public. Les alertes classiques pour Azure Government Cloud et Azure China 21Vianet seront mises hors service le **29 février 2024**.
 >
 
 Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour configurer les alertes de mesures classiques Azure. Cela vous permet de configurer automatiquement des alertes sur vos ressources lorsqu’elles sont créées pour vous assurer que toutes les ressources sont analysées correctement.

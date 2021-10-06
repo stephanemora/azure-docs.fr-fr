@@ -1,17 +1,19 @@
 ---
-title: Gérer les ressources Azure Managed Instance pour Apache Cassandra avec Azure CLI
+title: Gérer les ressources avec Azure CLI - Azure Resource Manager | Microsoft Docs
 description: Découvrez les commandes courantes permettant d’automatiser la gestion de votre instance managée Azure pour Apache Cassandra à l’aide d’Azure CLI.
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/17/2021
 ms.author: thvankra
-ms.openlocfilehash: ee35faf70066ece0f1c799b7d04317a8cd28729d
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: interface cli azure resource manager
+ms.openlocfilehash: 72cada375a6c88f5a3401acb77f0a982d231d0a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517205"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663722"
 ---
 # <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Gérer les ressources Azure Managed Instance pour Apache Cassandra avec Azure CLI (préversion)
 
@@ -120,7 +122,7 @@ Répertoriez les clusters par ID d’abonnement à l’aide de la commande [az m
 
 ```azurecli-interactive
 # set your subscription id
-az account set -s <subscription id>
+az account set -s <subscriptionID>
 
 az managed-cassandra cluster list
 ```
@@ -136,7 +138,6 @@ Les sections suivantes montrent comment gérer les centres de données Azure Man
 * [Mettre à jour ou à l’échelle un centre de données](#update-datacenter)
 * [Mettre à jour la configuration Cassandra](#update-yaml)
 
-
 ### <a name="create-a-datacenter"></a><a id="create-datacenter"></a>Créer un centre de données
 
 Créez un centre de données à l’aide de la commande [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) :
@@ -146,7 +147,7 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 dataCenterLocation='eastus2'
-delegatedSubnetId='/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
+delegatedSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
 
 az managed-cassandra datacenter create \
     --resource-group $resourceGroupName \

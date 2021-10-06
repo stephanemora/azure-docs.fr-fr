@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: include
-ms.date: 08/16/2021
+ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: e73b49b92894d2871e474f42ad4ba31a7161677b
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 3a0a63d68c5a63eeb4ac7855b3541471814a734b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122265001"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129221066"
 ---
 - Conteneurs, partages et dossiers :
   - Ne copiez pas les fichiers directement sur les partages précréés. Vous devez créer un dossier dans le partage, puis copier les fichiers dans ce dossier.
@@ -25,5 +25,5 @@ ms.locfileid: "122265001"
   - Pour améliorer les performances lors des chargements de données, nous vous recommandons d’[activer les partages de fichiers volumineux sur le compte de stockage et d’augmenter la capacité de partage à 100 Tio](../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account). Les partages de fichiers volumineux sont uniquement pris en charge pour les comptes de stockage avec un stockage localement redondant (LRS).
   - S’il se produit des erreurs lors du chargement des données sur Azure, un journal des erreurs est créé dans le compte de stockage cible. Le chemin menant à ce journal des erreurs est disponible à l’issue du chargement ; vous pouvez consulter ce journal afin de procéder aux corrections. Ne supprimez pas les données de la source sans avoir préalablement vérifié les données chargées.
   - Les métadonnées de fichier et les autorisations NTFS peuvent être conservées lorsque les données sont chargées vers Azure Files en utilisant les instructions de [conservation des listes de contrôle d’accès, des attributs et des horodateurs de fichiers avec Azure Data Box](../articles/databox/data-box-file-acls-preservation.md).
-  - La hiérarchie des fichiers est conservée lors du chargement dans le Cloud. Par exemple, vous avez copié un fichier à ce chemin d’accès : `<container folder>\A\B\C.txt`. Ce fichier est téléchargé vers le même chemin d’accès virtuel dans le Cloud.
+  - La hiérarchie des fichiers est conservée durant le chargement vers le cloud pour les objets blob et Azure Files. Par exemple, vous avez copié un fichier à ce chemin d’accès : `<container folder>\A\B\C.txt`. Ce fichier est chargé vers le même chemin dans le cloud.
   

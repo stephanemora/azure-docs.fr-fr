@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/29/2021
+ms.date: 09/20/2021
 ms.author: tomfitz
-ms.openlocfilehash: 735f19f1c9f66db6d311c42528b36a44bf924ec0
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0375a43e2cee9c973a957d96a9f74353d9f1ac2c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227372"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910464"
 ---
 Les liaisons privées vous permettent d’accéder aux services Azure sur un point de terminaison privé de votre réseau virtuel. Lorsque vous combinez des liaisons privées avec des opérations d’Azure Resource Manager, vous empêchez les utilisateurs qui ne se trouvent pas sur le point de terminaison spécifique de gérer les ressources. Si un utilisateur malveillant obtient les informations d’identification d’un compte de votre abonnement, il ne peut pas gérer les ressources sans être sur le point de terminaison spécifique.
 
@@ -17,6 +17,9 @@ Une liaison privée procure les avantages de sécurité suivants :
 
 * **Accès privé** : les utilisateurs peuvent gérer les ressources à partir d’un réseau privé via un point de terminaison privé.
 * **Exfiltration des données** : l’accès aux ressources non incluses dans l’étendue est refusé aux utilisateurs.
+
+> [!NOTE]
+> Actuellement, Azure Kubernetes Service (AKS) ne prend pas en charge l’implémentation du point de terminaison privé ARM.
 
 ## <a name="understand-architecture"></a>Comprendre l’architecture
 

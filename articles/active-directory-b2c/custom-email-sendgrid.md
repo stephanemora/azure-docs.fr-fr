@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: daee0bc89804b8fe72845c411224b689452fe7d2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 67c5c15b81bf2007494cb78496a655e4e0d833fb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531420"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128568484"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Vérification des e-mails personnalisée avec SendGrid
 
@@ -49,7 +49,8 @@ Veillez à compléter la section dans laquelle vous [créez une clé API SendGri
 Stockez ensuite la clé API SendGrid dans une clé de stratégie Azure AD B2C pour que vos stratégies puissent y faire référence.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez votre annuaire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
@@ -205,7 +206,9 @@ La structure de l'objet JSON est définie par les ID en notation par points des 
 Ajoutez la transformation de revendications suivante à l'élément `<ClaimsTransformations>` dans `<BuildingBlocks>`. Effectuez les mises à jour suivantes dans le code XML de la transformation de revendications :
 
 * Mettez à jour la valeur InputParameter `template_id` avec l'ID du modèle transactionnel SendGrid que vous avez créé précédemment dans [Créer un modèle SendGrid](#create-sendgrid-template).
-* Mettez à jour la valeur de l'adresse `from.email`. Utilisez une adresse e-mail valide pour éviter que l’e-mail de vérification ne soit considéré comme un courrier indésirable.
+* Mettez à jour la valeur de l'adresse `from.email`. Utilisez une adresse e-mail valide pour éviter que l’e-mail de vérification ne soit considéré comme un courrier indésirable. 
+   > [!NOTE]
+   > Cette adresse de messagerie doit être vérifiée dans SendGrid sous Authentification de l’expéditeur avec une authentification de domaine ou une authentification d’expéditeur unique.
 * Mettez à jour la valeur du paramètre de saisie de la ligne d’objet `personalizations.0.dynamic_template_data.subject` avec une ligne d’objet appropriée pour votre organisation.
 
 ```xml

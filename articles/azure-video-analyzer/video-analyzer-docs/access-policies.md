@@ -3,12 +3,12 @@ title: Stratégies d’accès Azure Video Analyzer
 description: Cet article explique comment Azure Video Analyzer utilise les jetons JWT dans les stratégies d’accès pour sécuriser les vidéos.
 ms.topic: reference
 ms.date: 06/01/2021
-ms.openlocfilehash: 3cf450249567d07bf6855d115a0e39640074eeb0
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: fe421e429357000bf6380cdf18f3a029fea4f7c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604196"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670478"
 ---
 # <a name="access-policies"></a>Stratégies d'accès
 
@@ -130,31 +130,84 @@ Les clients doivent créer leurs propres jetons JWT, lesquels sont validés via 
 > [!NOTE]  
 > Video Analyzer prend en charge 20 stratégies au maximum.  ${System.Runtime.BaseResourceUrlPattern} permet une plus grande flexibilité d’accès à des ressources spécifiques via l’utilisation d’une stratégie d’accès et de plusieurs jetons.  Ces jetons autorisent ensuite l’accès à différentes ressources Video Analyzer en fonction de l’audience. 
 
+## <a name="creating-a-token"></a>Création d’un jeton
+
+Dans cette section, nous allons créer un jeton JWT que nous utiliserons ultérieurement dans l’article.  Nous allons utiliser un exemple d’application qui va générer le jeton JWT et vous fournir tous les champs requis pour créer la stratégie d’accès.
+
+> [!NOTE] 
+> Si vous savez comment générer un jeton JWT basé sur un certificat RSA ou ECC, vous pouvez ignorer cette section.
+
+1. Clonez le [dépôt des exemples C# AVA](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp). Ensuite, accédez au dossier d’application JWTTokenIssuer *src/jwt-token-issuer* et recherchez l’application JWTTokenIssuer.
+2. Ouvrez Visual Studio Code, puis accédez au dossier dans lequel vous avez téléchargé l’application JWTTokenIssuer. Ce dossier doit contenir le fichier *\*.csproj*.
+3. Dans le volet de l’explorateur, accédez au fichier *program.cs*.
+4. À la ligne 77, remplacez l’audience par le point de terminaison Video Analyzer, suivi de /videos/\*, de sorte qu’elle ressemble à ceci :
+
+   ```
+   https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
+   ```
+
+   > [!NOTE] 
+   > Le point de terminaison Video Analyzer se trouve dans la section de vue d’ensemble de la ressource Video Analyzer dans le portail Azure.
+
+   :::image type="content" source="media/player-widget/client-api-url.png" alt-text="Capture d’écran montrant le point de terminaison du widget du lecteur.":::
+    
+5. À la ligne 78, remplacez l’émetteur par la valeur de l’émetteur de votre certificat. Exemple : `https://contoso.com`
+6. Enregistrez le fichier .    
+
+   > [!NOTE]
+   > Vous pouvez être invité à sélectionner le message `Required assets to build and debug are missing from 'jwt token issuer'. Add them?`. Sélectionnez `Yes`.
+   
+   :::image type="content" source="media/player-widget/visual-studio-code-required-assets.png" alt-text="Capture d’écran montrant l’invite relative aux ressources nécessaires dans Visual Studio Code.":::
+   
+7. Ouvrez une fenêtre d’invite de commandes et accédez au dossier contenant les fichiers JWTTokenIssuer. Exécutez les deux commandes suivantes : `dotnet build`, suivie de `dotnet run`. Si vous avez l’extension C# sur Visual Studio Code, vous pouvez également appuyer sur F5 pour exécuter l’application JWTTokenIssuer.
+
+L’application est générée, puis exécutée. Une fois générée, elle crée un certificat auto-signé et génère les informations de jeton JWT à partir de ce certificat. Vous pouvez également exécuter le fichier JWTTokenIssuer.exe qui se trouve dans le dossier de débogage du répertoire à partir duquel JWTTokenIssuer a été généré. L’avantage de l’exécution de l’application est que vous pouvez spécifier des options d’entrée comme suit :
+
+- `JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]`
+
+JWTTokenIssuer crée le jeton JWT et les composants requis suivants :
+
+- `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
+
+Veillez à copier ces valeurs pour une utilisation ultérieure.
+
+
 ## <a name="creating-an-access-policy"></a>Création d’une stratégie d’accès
 
 Il existe deux façons de créer une stratégie d’accès.
 
 ### <a name="in-the-azure-portal"></a>Dans le portail Azure
 
-1. Connectez-vous au portail Azure et accédez au groupe de ressources où se trouve votre compte Video Analyzer.
-2. Sélectionnez la ressource Video Analyzer.
-3. Sous Video Analyzer, sélectionnez Stratégies d’accès
+1. Connectez-vous au portail Azure et accédez au groupe de ressources où se trouve votre compte Video Analyzer.
+1. Sélectionnez la ressource Video Analyzer.
+1. Sous **Video Analyzer**, sélectionnez **Stratégies d’accès**.
 
-   :::image type="content" source="./media/access-policies/access-policies-menu.png" alt-text="Menu Stratégies d’accès dans le portail Azure":::
-4. Cliquez sur nouveau, puis entrez ce qui suit :
+   :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="Widget de lecteur – Stratégies d’accès au portail.":::
+   
+1. Sélectionnez **Nouveau** et entrez les informations suivantes :
+
+   > [!NOTE] 
+   > Ces valeurs proviennent de l’application JWTTokenIssuer créée à l’étape précédente.
 
    - Nom de la stratégie d’accès : n’importe quel nom
+
    - Émetteur : doit correspondre à l’émetteur du jeton JWT 
-   - Audience : Audience du jeton JWT -- ${System.Runtime.BaseResourceUrlPattern} est la valeur par défaut. 
-   - Type de clé : kty 
-   - Algorithme : alg
-   - ID de clé : kid 
-   - N / Valeur X 
-   - E / Valeur Y 
 
-   :::image type="content" source="./media/access-policies/access-policies-portal.png" alt-text="Stratégies d’accès dans le portail Azure":::
-5. Cliquez sur `Save`.
+   - Audience : audience pour le jeton JWT -- `${System.Runtime.BaseResourceUrlPattern}` est la valeur par défaut.
 
+   - Type de clé : RSA 
+
+   - Algorithme : les valeurs prises en charge sont RS256, RS384, RS512
+
+   - ID de clé : généré à partir de votre certificat. Pour plus d’informations, consultez [Créer un jeton](#creating-a-token).
+
+   - Module clé RSA : généré à partir de votre certificat. Pour plus d’informations, consultez [Créer un jeton](#creating-a-token).
+
+   - Exposant clé RSA : généré à partir de votre certificat. Pour plus d’informations, consultez [Créer un jeton](#creating-a-token).
+
+   :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="Widget de lecteur – Portail des stratégies d’accès"::: 
+   
+1. Sélectionnez **Enregistrer**.
 ### <a name="create-access-policy-via-api"></a>Créer une stratégie d’accès via l’API
 
 Consultez l’API Azure Resource Manager (ARM) 

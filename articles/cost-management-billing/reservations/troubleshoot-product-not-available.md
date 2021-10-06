@@ -5,15 +5,15 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.author: banders
-ms.reviewer: yashar
+ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 10/27/2020
-ms.openlocfilehash: 8575d9d86d8e720122a295cf92fa571ef33d5b4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 09/20/2021
+ms.openlocfilehash: 51d30767c3e084ade041d22bac8a246aa5d1f502
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92798188"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631131"
 ---
 # <a name="troubleshoot-reservation-type-not-available"></a>Résoudre les problèmes de type de réservation non disponible
 
@@ -22,7 +22,7 @@ Cet article vous aide à comprendre et résoudre les problèmes des instances r�
 ## <a name="symptoms"></a>Symptômes
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez à **Réservations**.
-2. Sélectionnez **+ Ajouter** , puis sélectionnez un produit.
+2. Sélectionnez **+ Ajouter**, puis sélectionnez un produit.
 3. Sélectionnez l’onglet **Tous les produits**.
 4. Dans la liste des produits, sélectionnez-en un. Vous pouvez voir un des messages suivants :
     - `Product unavailable for the selected subscription or region. Contact support.`  
@@ -51,7 +51,7 @@ Votre abonnement a une restriction de quota. Les abonnements ont des limites qua
 
 La vérification pour vous permettre d’ajouter un produit particulier à votre panier et d’acheter une réservation est simple. Azure évalue le nombre total de cœurs de processeur disponibles pour votre abonnement et vérifie si ce nombre est supérieur au nombre de cœurs pour l’élément sélectionné.
 
-Azure ne vérifie pas le quota pour les instances réservées de l’étendue **Partagée**. L’avantage de l’instance réservée pour l’étendue partagée s’applique à tous les abonnements de l’inscription. Azure ne peut pas déterminer si vous avez suffisamment de cœurs pour l’ensemble de vos abonnements pour déployer la ressource. Quel que soit le quota, Azure vous permet toujours de sélectionner une taille de machine virtuelle quand l’étendue sélectionnée est « partagée ».
+Azure ne vérifie pas le quota pour les instances réservées de l’étendue **Partagée** ou de l’étendue **Groupe d’administration**. L’avantage de l’instance réservée pour l’étendue partagée s’applique à tous les abonnements de l’inscription. L’avantage des instances réservées pour l’étendue du groupe d’administration s’applique à tous les abonnements qui font partie du groupe d’administration et de l’étendue de facturation. Azure ne peut pas déterminer si vous avez suffisamment de cœurs pour l’ensemble de vos abonnements pour déployer la ressource. Quel que soit le quota, Azure vous permet toujours de sélectionner une taille de machine virtuelle quand l’étendue sélectionnée est « partagée » ou « groupe d’administration ».
 
 De plus, Azure n’effectue pas de vérification du quota pour les achats **recommandés**. Les recommandations sont basées sur l’utilisation active. Azure suppose que vous disposez de suffisamment de cœurs pour utiliser une taille de machine virtuelle spécifique, car vous avez déjà généré l’utilisation nécessaire pour créer la recommandation.
 
@@ -61,11 +61,11 @@ En fonction du message d’erreur que vous avez reçu, utilisez une des solution
 
 ### <a name="solution-1"></a>Solution 1
 
-Si vous voyez un message _Produit non disponible_ , sélectionnez le lien **Contacter le support technique** dans le message d’erreur pour demander l’ajout d’une exception pour votre abonnement. Les exceptions ne sont pas toujours accordées.
+Si vous voyez un message _Produit non disponible_, sélectionnez le lien **Contacter le support technique** dans le message d’erreur pour demander l’ajout d’une exception pour votre abonnement. Les exceptions ne sont pas toujours accordées.
 
 ### <a name="solution-2"></a>Solution 2
 
-Si vous voyez un message _Quota de cœurs insuffisant_ , vous pouvez changer l’étendue en **Partagée**. Une fois que vous avez acheté la réservation, vous pouvez changer l’étendue de la réservation de **Partagée** en **Unique**.
+Si vous voyez un message _Quota de cœurs insuffisant_, vous pouvez changer l’étendue en **Partagée**. Une fois que vous avez acheté la réservation, vous pouvez changer l’étendue de la réservation de **Partagée** en **Unique**.
 
 Vous pouvez aussi sélectionner le lien **Demander une augmentation de quota** dans le message d’erreur pour demander un quota de cœurs de processeur supplémentaire pour votre abonnement.
 

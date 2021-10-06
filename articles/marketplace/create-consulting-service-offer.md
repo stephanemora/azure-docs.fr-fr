@@ -7,17 +7,17 @@ ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.openlocfilehash: e9a0b2fe883fa46010fda74c58908128d05919e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/27/2021
+ms.openlocfilehash: af8e238d57d6168e8c9620177cbf8e97a7d08727
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92754208"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083014"
 ---
 # <a name="how-to-create-a-consulting-service-offer-in-the-commercial-marketplace"></a>Comment créer une offre de services de conseil dans le marketplace commercial
 
-Cet article explique comment créer une offre de services de conseil pour le marketplace commercial de Microsoft à l’aide d’Espace partenaires. 
+Cet article explique comment créer une offre de services de conseil pour le marketplace commercial de Microsoft à l’aide d’Espace partenaires.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -25,20 +25,46 @@ Pour publier une offre de service de conseil, vous devez respecter certaines con
 
 ## <a name="create-a-new-consulting-service-offer"></a>Créer une offre de service de conseil
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vues d’espaces de travail](#tab/workspaces-view)
+
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-2.  Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
-3.  Dans l’onglet Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Service de conseil**.
+1. Dans la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
 
-    ![Illustre le menu de navigation de gauche.](./media/new-offer-consulting-service.png)
+    [ ![Illustre la vignette des offres de la Place de marché dans la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-4. Dans la boîte de dialogue **Nouvelle offre**, entrez l’**ID de l’offre**. Cet ID est visible dans l’URL de la publication sur le marketplace commercial. Par exemple, si vous entrez test-offer-1 dans cette zone, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. Dans la page des offres de la Place de marché, sélectionnez **+ Nouvelle offre** > **Service de conseil**.
+
+    [ ![Illustre la liste des nouvelles offres dans la page des offres de la Place de marché.](./media/new-offer-consulting-service-workspaces.png) ](./media/new-offer-consulting-service-workspaces.png#lightbox)
+
+1. Dans la boîte de dialogue **Nouveau service de conseil**, entrez un **ID d’offre**. Cet ID est visible dans l’URL de la publication sur le marketplace commercial. Par exemple, si vous entrez test-offer-1 dans cette zone, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
     * Chaque offre au sein de votre compte doit avoir un ID d’offre unique.
     * Utilisez uniquement des lettres minuscules et des chiffres. L’ID de l’offre peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères.
     * Vous ne pouvez pas modifier L’ID de l’offre une fois que vous avez sélectionné **Créer**.
 
-5. Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires. Il n’est pas visible dans les magasins en ligne et est différent du nom de l’offre présenté aux clients.
-6. Pour générer l’offre et continuer, sélectionnez **Créer**.
+1. Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires. Il n’est pas visible dans les magasins en ligne et est différent du nom de l’offre présenté aux clients.
+1. Pour générer l’offre et continuer, sélectionnez **Créer**.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
+1. Dans l’onglet Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Service de conseil**.
+
+    ![Illustre le menu de navigation de gauche.](./media/new-offer-consulting-service.png)
+
+1. Dans la boîte de dialogue **Nouvelle offre**, entrez l’**ID de l’offre**. Cet ID est visible dans l’URL de la publication sur le marketplace commercial. Par exemple, si vous entrez test-offer-1 dans cette zone, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+
+    * Chaque offre au sein de votre compte doit avoir un ID d’offre unique.
+    * Utilisez uniquement des lettres minuscules et des chiffres. L’ID de l’offre peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères.
+    * Vous ne pouvez pas modifier L’ID de l’offre une fois que vous avez sélectionné **Créer**.
+
+1. Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires. Il n’est pas visible dans les magasins en ligne et est différent du nom de l’offre présenté aux clients.
+1. Pour générer l’offre et continuer, sélectionnez **Créer**.
+
+---
 
 ## <a name="configure-lead-management"></a>Configurer la gestion des prospects
 

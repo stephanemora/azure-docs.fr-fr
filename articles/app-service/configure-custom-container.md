@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: b812495d1046ffc1b9435c0dc2684dd61af89beb
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 6c202c3f192e9097eb3f861f53a384a60882dcd1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122865072"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657079"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurer un conteneur personnalisé pour Azure App Service
 
@@ -337,7 +337,8 @@ SSH permet d’établir une communication sécurisée entre un conteneur et un c
     EXPOSE 80 2222
     ```
 
-    Cette configuration n’autorise pas les connexions externes avec le conteneur. Le port 2222 du conteneur est accessible uniquement au sein du réseau de pont d’un réseau virtuel privé et n’est pas accessible à un attaquant sur Internet.
+    > [!NOTE] 
+    > Le mot de passe racine doit être exactement `Docker!` car il est utilisé par App Service pour vous permettre d’accéder à la session SSH avec le conteneur. Cette configuration n’autorise pas les connexions externes avec le conteneur. Le port 2222 du conteneur est accessible uniquement au sein du réseau de pont d’un réseau virtuel privé et n’est pas accessible à un attaquant sur Internet.
 
 - Dans le script de démarrage pour votre conteneur, démarrez le serveur SSH.
 
@@ -406,7 +407,7 @@ Les listes suivantes présentent des options de configuration Docker Compose pri
 #### <a name="unsupported-options"></a>Options non prises en charge
 
 - build (non autorisée)
-- depends_on (ignorée)
+- [depends_on](faq-app-service-linux.yml#how-do-i-use-depends-on-) (ignorée)
 - networks (ignorée)
 - secrets (ignorée)
 - ports autres que 80 et 8080 (ignorées)

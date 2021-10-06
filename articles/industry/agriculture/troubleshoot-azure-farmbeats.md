@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 39a6ea048ca68733bfe127757e1547f1af8b65d2
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 905b96f814ce89fee9fa24248e54eca3ddcb96cc
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762926"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351776"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Résoudre les problèmes liés à Azure FarmBeats
 
@@ -281,7 +281,7 @@ Ce problème peut se produire si des activités de maintenance sont effectuées 
 
 ## <a name="collect-logs-manually"></a>Collecter les journaux manuellement
 
-[Installez et déployez l’Explorateur Stockage Azure]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+[Installez et déployez l’Explorateur Stockage Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-in-datahub"></a>Collecter les journaux de travaux Azure Data Factory ou les journaux d’App Service dans DataHub
 

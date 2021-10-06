@@ -8,12 +8,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: 046d94202769845f58c7f528bddb37e29e0c312a
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: dcad59c6434f6751cba8633868a9dc9969ffc0ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122527985"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610531"
 ---
 # <a name="create-a-custom-event-trigger-to-run-a-pipeline-in-azure-data-factory"></a>Créer un déclencheur d’événements personnalisé pour exécuter un pipeline dans Azure Data Factory
 
@@ -96,7 +96,7 @@ Data Factory s'attend à ce que les événements suivent le [schéma d'événeme
 
 ## <a name="advanced-filtering"></a>Filtrage avancé
 
-Le déclencheur d’événements personnalisé prend en charge des fonctionnalités de filtrage avancées, similaires au [filtrage avancé Event Grid](../event-grid/event-filtering.md#advanced-filtering). Ces filtres conditionnels permettent aux pipelines d’être déclenchés en fonction des _valeurs_ de la charge utile d’événement. Par exemple, vous pouvez avoir un champ dans la charge utile d’événement, nommée _Department, et le pipeline doit se déclencher uniquement si _Department_ est égal à _Finance_. Vous pouvez également spécifier une logique complexe, telle que le champ _date_ dans la liste [1, 2, 3, 4, 5], le champ _month_ qui __n’est pas__ dans la liste [11, 12], le champ _tag_ qui contient l’un des éléments de [’Fiscal Year 2021’, ’FiscalYear2021’, ’FY2021’].
+Le déclencheur d’événements personnalisé prend en charge des fonctionnalités de filtrage avancées, similaires au [filtrage avancé Event Grid](../event-grid/event-filtering.md#advanced-filtering). Ces filtres conditionnels permettent aux pipelines d’être déclenchés en fonction des _valeurs_ de la charge utile d’événement. Par exemple, vous pouvez avoir un champ dans la charge utile d’événement, nommé _Department_, et le pipeline doit se déclencher uniquement si _Department_ est égal à _Finance_. Vous pouvez également spécifier une logique complexe, telle que le champ _date_ dans la liste [1, 2, 3, 4, 5], le champ _month_ qui __n’est pas__ dans la liste [11, 12], le champ _tag_ qui contient l’un des éléments de [’Fiscal Year 2021’, ’FiscalYear2021’, ’FY2021’].
 
  :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-5-advanced-filters.png" alt-text="Capture d’écran de la définition de filtres avancés pour le déclencheur d’événement client":::
 

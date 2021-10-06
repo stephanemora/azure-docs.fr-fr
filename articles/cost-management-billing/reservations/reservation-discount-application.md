@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 1dec8253d785973aa900434c10f85ec0a63e0599
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c2f8ab7f2f5dc392696cc9e887f401502e906c3b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574870"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559784"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>Comment une remise sur réservation est-elle appliquée ?
 
@@ -25,7 +25,7 @@ Lorsque vous arrêtez une ressource, la remise de réservation s'applique automa
 
 Par exemple, vous pourrez plus tard créer une ressource et disposer d'une réservation correspondante sous-utilisée. La remise de réservation s’applique automatiquement à la nouvelle ressource correspondante.
 
-Si elles s’exécutent dans différents abonnements au sein de votre compte/inscription, sélectionnez l’étendue alors définie comme partagée. Cette étendue partagée permet d’appliquer la remise de réservation à différents abonnements. Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour plus d’informations, voir [Gérer les réservations Azure](manage-reserved-vm-instance.md).
+Si elles s’exécutent dans différents abonnements au sein de votre compte/inscription, sélectionnez l’étendue alors définie comme partagée. Cette étendue partagée permet d’appliquer la remise de réservation à différents abonnements. Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour plus d’informations, voir [Gérer les réservations Azure](manage-reserved-vm-instance.md). Vous pouvez également utiliser l’étendue du groupe d’administration. Celui-ci applique la remise de réservation à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation.
 
 Une remise de réservation s’applique uniquement aux ressources associées aux types d’abonnements Entreprise, Contrat Client Microsoft, CSP, ou avec paiement à l’utilisation. Les ressources opérant dans le cadre d’un abonnement relevant d’autres types d’offres ne bénéficient d’aucune remise sur réservation.
 

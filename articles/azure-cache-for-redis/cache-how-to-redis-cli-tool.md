@@ -1,18 +1,18 @@
 ---
 title: Utiliser redis-cli avec Azure Cache pour Redis
 description: Apprenez à utiliser *redis-cli.exe* en tant qu'outil de ligne de commande pour interagir avec Azure Cache pour Redis en tant que client
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f3b99e7b1db248a09cf20e42391c1bf36584dcb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4e753f23a5dce895260c4b1daea0ae33947cc8f6
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128668865"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538203"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Utiliser l'outil de ligne de commande Redis avec Azure Cache pour Redis
 

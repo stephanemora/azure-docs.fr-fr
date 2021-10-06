@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: fichier descriptif
 description: Fichier include
 services: virtual-machines-linux
 author: cynthn
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 52082c22053a5a54a4462fb01012bdceff848a96
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 344a1952e106b9300e2441fdfcb5338ee846cfeb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113364930"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126057031"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributions et pilotes pris en charge
 
@@ -33,7 +33,7 @@ Les pilotes GRID redistribués par Azure ne fonctionnent pas sur les machines vi
 
 |Distribution|Pilote|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7 à 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2 <br/><br/>SUSE Linux Enterprise Server 15 SP2 | NVIDIA GRID 12.2, branche pilote [R460](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7 à 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2+ <br/><br/>SUSE Linux Enterprise Server 15 SP2 | NVIDIA GRID 13, branche de pilote [R470](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
 
 Visitez [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) pour obtenir la liste complète de tous les liens précédents du pilote Nvidia GRID.
 

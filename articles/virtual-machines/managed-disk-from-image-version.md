@@ -10,12 +10,12 @@ ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c747a62307f7f08892f3609f410a40875666bd33
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: fd6a1cf2cae56bf2d10fe4075caed019e2e72b7e
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687713"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123452246"
 ---
 # <a name="export-an-image-version-to-a-managed-disk"></a>Exporter une version d’image vers un disque managé
 
@@ -120,6 +120,6 @@ New-AzDisk -Disk $diskConfig `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également créer une version d’image à partir d’un disque géré à l’aide d’[Azure CLI](image-version-managed-image-cli.md) ou de [PowerShell](image-version-managed-image-powershell.md).
+Vous pouvez également créer une [version d’image](image-version.md) à partir d’un disque managé.
 
 

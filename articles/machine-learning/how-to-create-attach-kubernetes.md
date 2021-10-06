@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment créer un cluster de service Azure Kubernetes via Azure Machine Learning ou comment attacher un cluster AKS existant à votre espace de travail.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 04/08/2021
-ms.openlocfilehash: 62e7f1b770db05f4dcd5d84cdc5f6a769566a4bd
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 09/16/2021
+ms.openlocfilehash: f7e2a3311f9540413880d20839f56a4932519f1c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867587"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426356"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Créer et attacher un cluster Azure Kubernetes Service
 
@@ -44,7 +44,7 @@ Azure Machine Learning peut déployer des modèles Machine Learning entraînés 
 
     Les plages d’adresses IP autorisées ne fonctionnent qu’avec Standard Load Balancer.
 
-- > Pour attacher un cluster AKS à partir d’un __autre abonnement Azure__, vous (votre compte Azure AD) devez disposer du rôle **Contributeur** sur le cluster AKS. Vérifiez votre accès dans le [portail Azure](https://ms.portal.azure.com/).
+- Pour attacher un cluster AKS à partir d’un __autre abonnement Azure__, vous (votre compte Azure AD) devez disposer du rôle **Contributeur** sur le cluster AKS. Vérifiez votre accès dans le [portail Azure](https://ms.portal.azure.com/).
 
 - Si vous voulez utiliser un cluster AKS privé (avec Azure Private Link), vous devez d’abord créer le cluster, puis l’**attacher** à l’espace de travail. Pour plus d’informations, consultez [Créer un cluster Azure Kubernetes Service privé](../aks/private-clusters.md).
 
@@ -57,9 +57,7 @@ Azure Machine Learning peut déployer des modèles Machine Learning entraînés 
     > [!IMPORTANT]
     > Un cluster de __développement/test__ n’est pas approprié pour le trafic de production et peut augmenter les temps d’inférence. Par ailleurs, les clusters de développement/test ne garantissent pas une tolérance de panne.
 
-- Lors de la création ou de l’attachement d’un cluster, si celui-ci est destiné à la __production__, il doit contenir au moins 12 __processeurs virtuels__. Le nombre de processeurs virtuels doit être calculé en multipliant le __nombre de nœuds__ du cluster par le __nombre de cœurs__ fournis par la taille de machine virtuelle sélectionnée. Par exemple, si vous utilisez une taille de machine virtuelle de « Standard_D3_v2 », qui comporte 4 cœurs virtuels, vous devez définir le nombre de nœuds sur un nombre supérieur ou égal à 3.
-
-    Nous vous recommandons d’utiliser au moins 2 processeurs virtuels pour les clusters de __développement/test__.
+- Lors de la création ou de l’attachement d’un cluster, si celui-ci est destiné à la __production__, il doit contenir au moins __3 nœuds__. Pour un cluster __dev-test__, il doit contenir au moins 1 nœud.
 
 - Le kit de développement logiciel (SDK) Azure Machine Learning ne prend pas en charge la mise à l’échelle d'un cluster AKS. Pour mettre à l’échelle les nœuds du cluster, utilisez l’interface utilisateur de votre cluster AKS dans Azure Machine Learning Studio. Vous pouvez modifier le nombre de nœuds, mais pas la taille de machine virtuelle du cluster. Pour plus d’informations sur la mise à l’échelle des nœuds d’un cluster AKS, consultez les articles suivants :
 
@@ -85,9 +83,6 @@ Lorsque vous **créez** un cluster Azure Kubernetes Service à l’aide de l’u
 Ces méthodes de création d’un cluster AKS utilisent la version __par défaut__ du cluster. *La version par défaut change au fil du temps* et de la publication de nouvelles versions de Kubernetes.
 
 Lors de l’**attachement** d’un cluster AKS existant, nous prenons en charge toutes les versions d’AKS actuellement prises en charge.
-
-> [!IMPORTANT]
-> Actuellement, Azure Machine Learning ne prend pas en charge le déploiement de modèles vers AKS version **1.21.x**
 
 > [!IMPORTANT]
 > Azure Kubernetes Service utilise le [pilote Blobfuse FlexVolume](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) pour les versions 1.16 et antérieures et le [pilote CSI des objets blob](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) pour les versions 1.17 et ultérieures. Ainsi, il est important de redéployer ou de [mettre à jour le service web](how-to-deploy-update-web-service.md) après la mise à niveau du cluster afin d’effectuer le déploiement avec la méthode blobfuse adéquate pour la version du cluster.

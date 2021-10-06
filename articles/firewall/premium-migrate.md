@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/13/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 53587cbc54b9e59268e6ee348bb8956a0b9ca993
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 580dcb11ae04aaae78d2c15f24c2c08d1df6158d
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122525912"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061843"
 ---
 # <a name="migrate-to-azure-firewall-premium"></a>Migrer vers le Pare-feu Azure Premium
 
@@ -22,6 +22,8 @@ Vous pouvez migrer du Pare-feu Azure Standard vers le Pare-feu Azure Premium pou
 Les exemples suivants montrent comment :
 - Migrer une stratégie standard existante à l’aide d’Azure PowerShell
 - Migrez un pare-feu standard existant (avec les règles classiques) vers le Pare-feu Azure Premium avec une stratégie Premium.
+
+Si vous utilisez Terraform pour déployer le Pare-feu Azure, vous pouvez utiliser Terraform pour migrer vers le Pare-feu Azure Premium. Pour plus d'informations, consultez [Migrer le Pare-feu Azure Standard vers la version Premium à l'aide de Terraform](/azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json).
 
 ## <a name="performance-considerations"></a>Considérations relatives aux performances
 
@@ -37,7 +39,7 @@ Effectuez la migration de votre pare-feu pendant une période de maintenance pla
 
 `Transform-Policy.ps1` est un script Azure PowerShell qui crée une stratégie Premium à partir d’une stratégie standard existante.
 
-En fonction d’un ID de stratégie de pare-feu standard, le script le transforme en stratégie de Pare-feu Azure Premium. Le script se connecte d’abord à votre compte Azure, extrait la stratégie, transforme/ajoute différents paramètres, puis charge une nouvelle stratégie Premium. La nouvelle stratégie Premium est appelée `<previous_policy_name>_premium`.
+En fonction d’un ID de stratégie de pare-feu standard, le script le transforme en stratégie de Pare-feu Azure Premium. Le script se connecte d’abord à votre compte Azure, extrait la stratégie, transforme/ajoute différents paramètres, puis charge une nouvelle stratégie Premium. La nouvelle stratégie Premium est appelée `<previous_policy_name>_premium`. Dans le cas d'une transformation de stratégie enfant, le lien vers la stratégie parente est conservé.
 
 Exemple d’utilisation :
 
@@ -62,7 +64,7 @@ param (
     [string]
     $PolicyId,
 
-     #new firewallpolicy name, if not specified will be the previous name with the '_premium' suffix
+    #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
     [Parameter(Mandatory=$false)]
     [string]
     $NewPolicyName = ""
@@ -123,7 +125,7 @@ function TransformPolicyToPremium {
                         ResourceGroupName = $Policy.ResourceGroupName 
                         Location = $Policy.Location 
                         ThreatIntelMode = $Policy.ThreatIntelMode 
-                        BasePolicy = $Policy.BasePolicy 
+                        BasePolicy = $Policy.BasePolicy.Id
                         DnsSetting = $Policy.DnsSettings 
                         Tag = $Policy.Tag 
                         SkuTier = "Premium" 
@@ -153,7 +155,7 @@ function TransformPolicyToPremium {
 function ValidateAzNetworkModuleExists {
     Write-Host "Validating needed module exists"
     $networkModule = Get-InstalledModule -Name "Az.Network" -ErrorAction SilentlyContinue
-    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5)){
+    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5.0)){
         Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
         exit(1)
     }
@@ -164,6 +166,7 @@ ValidateAzNetworkModuleExists
 $policy = Get-AzFirewallPolicy -ResourceId $script:PolicyId
 ValidatePolicy -Policy $policy
 TransformPolicyToPremium -Policy $policy
+
 ```
 
 ## <a name="migrate-an-existing-standard-firewall-using-the-azure-portal"></a>Migrer un pare-feu standard existant à l’aide du portail Azure

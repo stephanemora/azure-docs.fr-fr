@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: ef86a65a03f27f62de769c599f96e1aa26862984
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 09c4f136d0c3a2e8ed0d2ea47dd23504a434a94e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562846"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208058"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Utiliser Azure Data Factory pour migrer des données d’un serveur Netezza local vers Azure 
 
@@ -34,7 +34,7 @@ Cet article fournit les informations suivantes à l’attention des ingénieurs 
 
 Azure Data Factory offre une architecture serverless qui autorise le parallélisme à différents niveaux. Si vous êtes développeur, cela signifie que vous pouvez créer des pipelines pour utiliser pleinement la bande passante du réseau et de la base de données afin d’optimiser le débit du déplacement des données pour votre environnement.
 
-![Diagramme des performances](media/data-migration-guidance-netezza-azure-sqldw/performance.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/performance.png" alt-text="Diagramme des performances":::
 
 Le diagramme précédent peut être interprété comme suit :
 
@@ -66,7 +66,7 @@ Cette section présente deux façons de migrer vos données.
 
 ### <a name="migrate-data-over-the-public-internet"></a>Migrer des données sur l’Internet public
 
-![Migrer des données sur l’Internet public](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-public-network.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-public-network.png" alt-text="Migrer des données sur l’Internet public":::
 
 Le diagramme précédent peut être interprété comme suit :
 
@@ -78,7 +78,7 @@ Le diagramme précédent peut être interprété comme suit :
 
 ### <a name="migrate-data-over-a-private-network"></a>Migrer des données sur un réseau privé 
 
-![Migrer des données sur un réseau privé](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png" alt-text="Migrer des données sur un réseau privé":::
 
 Le diagramme précédent peut être interprété comme suit :
 
@@ -112,7 +112,7 @@ Le diagramme précédent peut être interprété comme suit :
    
    - Vous pouvez également utiliser le [principal de service](./connector-azure-sql-data-warehouse.md#service-principal-authentication) ou l’[authentification SQL](./connector-azure-sql-data-warehouse.md#sql-authentication).
 
-- Quand vous n’utilisez pas d’identités managées pour les ressources Azure, nous vous recommandons vivement de [stocker les informations d’identification dans Azure Key Vault](./store-credentials-in-key-vault.md) pour faciliter la gestion centralisée et la rotation des clés sans avoir à modifier les services liés Azure Data Factory. Il s’agit également de l'une des [meilleures pratiques pour CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
+- Quand vous n’utilisez pas d’identités managées pour les ressources Azure, nous vous recommandons vivement de [stocker les informations d’identification dans Azure Key Vault](./store-credentials-in-key-vault.md) pour faciliter la gestion centralisée et la rotation des clés sans avoir à modifier les services liés Azure Data Factory. Il s’agit également de l'une des [meilleures pratiques pour CI/CD](./continuous-integration-delivery.md#best-practices-for-cicd). 
 
 ### <a name="migrate-initial-snapshot-data"></a>Migrer les données d’instantané initiales 
 
@@ -161,7 +161,7 @@ Quand vous rencontrez des erreurs de limitation, telles que signalées par l’a
 
 Considérez le pipeline suivant, construit pour migrer des données à partir du serveur Netezza local vers une base de données Azure Synapse Analytics :
 
-![Pipeline des tarifs](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png" alt-text="Pipeline des tarifs":::
 
 Supposons que les affirmations suivantes sont vraies : 
 
@@ -179,7 +179,7 @@ Supposons que les affirmations suivantes sont vraies :
 
 En fonction des hypothèses précédentes, voici les tarifs estimés : 
 
-![Tableau des tarifs](media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png" alt-text="Tableau des tarifs":::
 
 > [!NOTE]
 > Les tarifs indiqués dans le tableau précédent sont hypothétiques. Vos tarifs réels dépendent du débit réel dans votre environnement. Le prix de la machine Windows (avec le runtime d’intégration auto-hébergé installé) n’est pas inclus. 

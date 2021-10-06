@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: 22804015ebf0344c00e60c88f780fe22ba440b52
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: deb10f2b3e4e2b5e7d911992a601f66e1e557268
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774986"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211648"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Clusters Apache Hadoop avec des comptes de stockage avec transfert sécurisé dans Azure HDInsight
 
@@ -38,6 +38,21 @@ Pour mettre à jour un compte de stockage existant avec PowerShell, consultez [E
 Pour la commande Azure CLI [az storage account create](/cli/azure/storage/account#az_storage_account_create), vérifiez que le paramètre `--https-only` est défini sur `true`.
 
 Pour mettre à jour un compte de stockage existant avec Azure CLI, consultez [Exiger un transfert sécurisé avec Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
+
+### <a name="secure-transfer-errors"></a>Erreur(s) du transfert sécurisé
+
+
+Si vous avez activé par inadvertance l’option « Exiger un transfert sécurisé » après la création du cluster HDInsight, vous pouvez voir des messages d’erreur semblables à ce qui suit :
+
+`com.microsoft.azure.storage.StorageException: The account being accessed does not support http.`
+
+Pour les clusters HBase uniquement, vous pouvez essayer les étapes suivantes afin de restaurer la fonctionnalité de cluster :
+1. Arrêtez HBase à partir d’Ambari.
+2. Arrêtez HDFS dans Ambari.
+3. Dans Ambari, accédez à HDFS --> Configs --> Advanced --> fs.defaultFS
+4. Remplacez wasb par wasbs, puis enregistrez-le.
+5. Si vous utilisez la fonctionnalité des écritures accélérées, vous devez également changer « hbase.rootDir » dans les configurations hbase en remplaçant wasb par wasbs.
+6. Redémarrez tous les services nécessaires.
 
 ## <a name="add-additional-storage-accounts"></a>Ajouter des comptes de stockage
 

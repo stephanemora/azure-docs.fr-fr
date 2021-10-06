@@ -2,7 +2,6 @@
 title: Contrôle d’accès en fonction du rôle Azure – Custom Vision
 titleSuffix: Azure Cognitive Services
 description: Cet article vous explique comment configurer le contrôle d’accès en fonction du rôle Azure pour vos projets Custom Vision.
-services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 050b4011dbc46b6b6567965ed94847dbaf3560c6
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: e2f59dc309181308f409b3533d58d3b6b4b1fdd8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982309"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361879"
 ---
 # <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 
@@ -34,7 +33,7 @@ Azure RBAC peut être assigné à une ressource Custom Vision. Pour accorder l�
 1. Dans l’onglet **Membres**, sélectionnez un utilisateur, un groupe, un principal de service ou une identité managée.
 1. Dans l’onglet **Passer en revue + affecter**, sélectionnez **Passer en revue + affecter** pour affecter le rôle.
 
-Au bout de quelques minutes, le rôle sélectionné est attribué à la cible dans l’étendue sélectionnée. Pour recevoir del’aide relative à ces étapes, consultez [Attribuer des rôles Azure à l’aide du Portail Azure](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Au bout de quelques minutes, le rôle sélectionné est attribué à la cible dans l’étendue sélectionnée. Pour recevoir del’aide relative à ces étapes, consultez [Attribuer des rôles Azure à l’aide du Portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="custom-vision-role-types"></a>Types de rôles Custom Vision
 

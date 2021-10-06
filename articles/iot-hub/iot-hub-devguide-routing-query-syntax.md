@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 14a235337a1b3bf26874cffe8893f0c21f2ed9f7
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 814ed1001c39b48a5aa93162cb54ec520050eb66
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517871"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457560"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
@@ -147,7 +147,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Cet exemple montre comment gérer l’encodage du corps en JavaScript. Si vous voulez voir un exemple en C#, téléchargez les [exemples C# Azure IOT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Décompressez le fichier master.zip. Le fichier Program.cs de la solution Visual Studio *SimulatedDevice* montre comment encoder et envoyer des messages à un hub IoT. Il s’agit du même exemple que celui utilisé pour tester le routage des messages, comme expliqué dans le [tutoriel Routage des messages](tutorial-routing.md). En bas de Program.cs, il a également une méthode pour lire l’un des fichiers encodés, le décoder et le réécrire au format ASCII afin que vous puissiez le lire. 
+> Cet exemple montre comment gérer l’encodage du corps en JavaScript. Si vous voulez voir un exemple en C#, téléchargez les [exemples C# Azure IOT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Décompressez le fichier master.zip. Le fichier Program.cs de la solution Visual Studio *SimulatedDevice* montre comment encoder et envoyer des messages à un hub IoT. Il s’agit du même exemple que celui utilisé pour tester le routage des messages, comme expliqué dans le [tutoriel Routage des messages](tutorial-routing.md). En bas de Program.cs, il a également une méthode pour lire l’un des fichiers encodés, le décoder et le réécrire au format ASCII afin que vous puissiez le lire. 
 
 
 ### <a name="query-expressions"></a>Expressions de requête

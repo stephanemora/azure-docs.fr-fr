@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb1347b0dfcb2be5c485e503fb87c5a70dd7d30c
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92363451"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153783"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marquer votre application avec la mention « éditeur vérifié »
 
@@ -42,13 +42,13 @@ Assurez-vous d'avoir respecté les [conditions préalables](publisher-verificati
 
 1. Vérifiez que vous êtes connecté avec une [authentification multifacteur](../fundamentals/concept-fundamentals-mfa-get-started.md) à un compte d’organisation (Azure AD) autorisé à apporter des modifications aux applications que vous souhaitez marquer avec la mention « éditeur vérifié » et sur le compte MPN dans l’Espace partenaires.
 
-    - Dans Azure AD, cet utilisateur doit être membre d’un des [rôles](../roles/permissions-reference.md) suivants : Administrateur d'application, Administrateur d'application cloud, Administrateur général. 
+    - Dans Azure AD, cet utilisateur doit être membre d’un des [rôles](../roles/permissions-reference.md) suivants : Administrateur d’application, Administrateur d’application cloud ou Administrateur général. 
 
     - Dans l'Espace partenaires, cet utilisateur doit disposer des [rôles](/partner-center/permissions-overview) suivants : Administrateur MPN, Administrateur de comptes ou Administrateur général (rôle partagé maîtrisé dans Azure AD). 
 
-1. Accédez au portail d’inscription des applications :  
+1. Accédez au panneau **Inscriptions d’applications** :  
 
-1. Cliquez sur une application que vous souhaitez marquer avec la mention « éditeur vérifié » et ouvrez le panneau Personnalisation. 
+1. Cliquez sur une application à marquer avec la mention « Éditeur vérifié », puis ouvrez le panneau **Personnalisation**. 
 
 1. Vérifiez que le [domaine de l’éditeur](howto-configure-publisher-domain.md) de l’application est défini. 
 

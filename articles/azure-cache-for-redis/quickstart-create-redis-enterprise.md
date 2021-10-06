@@ -1,18 +1,18 @@
 ---
 title: 'Démarrage rapide : Créer un cache Redis Enterprise'
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment créer une instance Azure Cache pour Redis dans les niveaux Enterprise
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 97d87ab28b4b2b000fe0e9b1517e43c79984e74e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7733f9df7f314dfdc0369075b96477e301825ce6
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128563652"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537321"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache"></a>Démarrage rapide : Créer un cache Redis Enterprise
 

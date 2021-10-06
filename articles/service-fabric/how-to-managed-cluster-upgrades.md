@@ -3,12 +3,12 @@ title: Mettre à niveau des clusters managés Azure Service Fabric
 description: Découvrez les options de mise à niveau de votre cluster managé Azure Service Fabric.
 ms.topic: how-to
 ms.date: 08/23/2021
-ms.openlocfilehash: b30f240325eda83428a19377e63d5a7f37f88169
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 3374a67d2b404234feafd4bc621fd5fef745b3f4
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122865054"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546694"
 ---
 # <a name="manage-service-fabric-managed-cluster-upgrades"></a>Gérer les mises à niveau des clusters managés Service Fabric
 
@@ -53,12 +53,12 @@ Pour modifier le mode de mise à niveau de votre cluster à l’aide d’un mod�
 
 ```json
 {
-"apiVersion": "2021-05-01",
-"type": "Microsoft.ServiceFabric/managedClusters",
-"properties": {
-        "ClusterUpgradeMode": "Manual",
-        "ClusterCodeVersion": "8.0.514.9590"
-        }
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedClusters",
+  "properties": {
+    "clusterUpgradeMode": "Manual",
+    "clusterCodeVersion": "8.0.514.9590"
+  }
 }
 ```
 
@@ -74,12 +74,12 @@ Pour configurer les mises à niveau automatiques et le déploiement par vagues, 
 
 ```json
 {
-"apiVersion": "2021-05-01",
-"type": "Microsoft.ServiceFabric/managedClusters",
-"properties": {
-        "ClusterUpgradeMode": "Automatic",
-        "clusterUpgradeCadence": "Wave1",
-        }  
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedClusters",
+  "properties": {
+    "clusterUpgradeMode": "Automatic",
+    "clusterUpgradeCadence": "Wave1"
+  }
 }
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: fichier descriptif
 description: Fichier include
 services: storage
 author: fauhse
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 4/05/2021
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: 52e1accfb5f5bb762cc2833a19e1caa3daa4a03d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 8b425646e9b416129d951cc78db3d05c26b0e6e8
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462186"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123484729"
 ---
 ```console
-robocopy /MT:128 /R:1 /W:1 /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
+robocopy /MT:128 /R:1 /W:1 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
 ```
 
 | Commutateur                | Signification |
@@ -37,3 +37,6 @@ robocopy /MT:128 /R:1 /W:1 /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG
 | `/LFSM`               | **Uniquement pour les cibles avec stockage hiérarchisé** </br>Spécifie que Robocopy fonctionne en mode « espace libre faible ». Ce commutateur est utile uniquement pour les cibles avec stockage hiérarchisé, susceptibles de manquer de capacité locale avant que Robocopy puisse se terminer. Il a été spécifiquement ajouté à des fins d’utilisation avec une cible de hiérarchisation cloud Azure File Sync activée. Il peut être utilisé indépendamment d’Azure File Sync. Dans ce mode, Robocopy s’interrompt chaque fois qu’une copie de fichier réduit l’espace libre du volume de destination en dessous d’une valeur « plancher ». Cette valeur peut être spécifiée par la forme `/LFSM:n` de l’indicateur. Le paramètre `n` est spécifié en base 2 : `nKB`, `nMB` ou `nGB`. Si `/LFSM` est spécifié sans valeur plancher explicite, le plancher est défini sur 10 % de la taille du volume de destination. Le mode d’espace libre faible n’est pas compatible avec `/MT`, `/EFSRAW`, `/B` ou `/ZB`. |
 | `/Z`                  | **Utiliser avec prudence** </br>Copie les fichiers en mode redémarrage. Ce commutateur est recommandé uniquement dans un environnement réseau instable. Elle réduit considérablement les performances de copie en raison d’une journalisation supplémentaire. |
 | `/ZB`                 | **Utiliser avec prudence** </br>Utilise le mode de redémarrage. En cas d’accès refusé, cette option utilise le mode de sauvegarde. Cette option réduit considérablement les performances de copie en raison des points de contrôle. |
+
+> [!IMPORTANT]
+> Utilisez Windows Server 2019 avec au moins la [mise à jour du système d’exploitation KB5005103](https://support.microsoft.com/topic/august-26-2021-kb5005103-os-build-18363-1766-preview-4e23362c-5e43-4d8f-95e5-9fdade60605f) du 26 août 2021. Celle-ci contient des correctifs importants pour certains scénarios RoboCopy.

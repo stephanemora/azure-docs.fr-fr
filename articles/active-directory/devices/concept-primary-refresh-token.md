@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 09/13/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29b000ee3231361ccdca4c2909e093cdaef6bc04
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: cf76e5ffc7b3eabae7366805ed1a87d262854992
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866516"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630107"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -69,14 +69,14 @@ Dans les scénarios avec appareils inscrits dans Azure AD, le plug-in Azure AD W
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>Quelle est la durée de validité d’un PRT ?
 
-Une fois émis, un PRT est valide pendant 14 jours et il est renouvelé en continu tant que l’utilisateur utilise activement l’appareil.  
+Une fois émis, un PRT est valide pendant 90 jours et est renouvelé continuellement tant que l’utilisateur utilise activement l’appareil.  
 
 ## <a name="how-is-a-prt-used"></a>Comment un PRT est-il utilisé ?
 
 Un PRT est utilisé par deux composants clés dans Windows :
 
 * **Plug-in Azure AD CloudAP** : Pendant la connexion à Windows, le plug-in Azure AD CloudAP fait une demande de PRT depuis Azure AD en utilisant les informations d’identification fournies par l’utilisateur. Il met également en cache le PRT pour permettre la connexion avec des informations mises en cache lorsque l’utilisateur n’a pas accès à une connexion internet.
-* **Plug-in Azure AD WAM** : Lorsque les utilisateurs tentent d’accéder aux applications, le plug-in Azure AD WAM utilise le PRT pour activer l’authentification unique sur Windows 10. Le plug-in Azure AD WAM utilise le PRT pour demander des jetons d’actualisation et d’accès pour les applications qui s’appuient sur WAM pour les demandes de jeton. Il active également l’authentification unique sur les navigateurs en injectant le PRT dans les demandes de navigateur. Le SSO du navigateur sous Windows 10 est pris en charge par Microsoft Edge (en mode natif), Chrome (via les extensions [Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) ou [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)) ou Mozilla Firefox v91+ (via le [paramètre SSO de Windows](https://support.mozilla.org/en-US/kb/windows-sso)).
+* **Plug-in Azure AD WAM** : Lorsque les utilisateurs tentent d’accéder aux applications, le plug-in Azure AD WAM utilise le PRT pour activer l’authentification unique sur Windows 10. Le plug-in Azure AD WAM utilise le PRT pour demander des jetons d’actualisation et d’accès pour les applications qui s’appuient sur WAM pour les demandes de jeton. Il active également l’authentification unique sur les navigateurs en injectant le PRT dans les demandes de navigateur. Dans Windows 10, l’authentification unique dans le navigateur est prise en charge sur Microsoft Edge (en mode natif), sur Chrome (par le biais des extensions [Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) ou [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)) ou sur Mozilla Firefox v91+ ([paramètre d’authentification unique Windows](https://support.mozilla.org/kb/windows-sso) de Firefox)
 
 ## <a name="how-is-a-prt-renewed"></a>Comment un PRT est-il renouvelé ?
 

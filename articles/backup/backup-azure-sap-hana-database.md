@@ -2,13 +2,13 @@
 title: Sauvegarder une base de données SAP HANA sur Azure avec Sauvegarde Azure
 description: Dans cet article, découvrez comment sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 05/28/2021
-ms.openlocfilehash: 9267a3a27823249116e74c6aba9321cfdfd0e338
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 09/27/2021
+ms.openlocfilehash: 9b78a6ed1e36b925bc5d0205effc00eb1b868f5f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681345"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084167"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 
@@ -25,11 +25,7 @@ Dans cet article, vous allez apprendre à :
 > * Exécuter un travail de sauvegarde à la demande
 
 >[!NOTE]
->Depuis le 1er août 2020, la sauvegarde SAP HANA pour RHEL (7.4, 7.6, 7.7 et 8.1) est en disponibilité générale.
-
->[!NOTE]
->**La suppression réversible pour SQL Server dans une machine virtuelle Azure et la suppression réversible pour SAP HANA dans les charges de travail de machine virtuelle Azure** sont maintenant disponibles en préversion.<br>
->Pour vous inscrire à la préversion, écrivez-nous à l’adresse suivante : [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+Reportez-vous à la [matrice de prise en charge des sauvegardes SAP HANA](sap-hana-backup-support-matrix.md) pour en savoir plus sur les configurations et les scénarios pris en charge.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,6 +44,8 @@ Le tableau suivant répertorie les différentes alternatives que vous pouvez uti
 | Balises FQDN de Pare-feu Azure          | Plus faciles à gérer, car les FQDN requis sont gérés automatiquement | Utilisabes avec Pare-feu Azure uniquement                         |
 | Autoriser l’accès aux FQDN/adresses IP du service | Aucun coût supplémentaire   <br><br>  Fonctionne avec toutes les appliances de sécurité réseau et tous les pare-feu | Il peut être nécessaire d’accéder à un large éventail d’adresses IP ou de FQDN   |
 | Utiliser un proxy HTTP                 | Un seul point d’accès Internet aux machines virtuelles                       | Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy         |
+| [Point de terminaison de service de réseau virtuel](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Peut être utilisé pour le stockage Azure (= coffre Recovery Services).     <br><br>     Offre un avantage important pour optimiser les performances du trafic du plan de données.          |         Ne peut pas être utilisé pour Azure AD, le service de sauvegarde Azure.    |
+| Appliance virtuelle réseau      |      Peut être utilisée pour le stockage Azure, Azure AD, le service de sauvegarde Azure. <br><br> **Plan de données**   <ul><li>      Stockage Azure : `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **Plan de gestion**  <ul><li>  Azure AD : autorisez l'accès aux noms de domaine complets mentionnés dans les sections 56 et 59 de [Microsoft 365 Common et Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Service de sauvegarde Azure : `.backup.windowsazure.com` </li></ul> <br>Apprenez-en davantage sur les [étiquettes de service du Pare-feu Azure](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.).       |  Ajoute une surcharge au trafic du plan de données et réduit le débit/les performances.  |
 
 De plus amples informations sur l’utilisation de ces options sont disponibles ci-dessous :
 
@@ -95,6 +93,12 @@ Lorsque vous sauvegardez une base de données SAP HANA qui s’exécute sur une 
 > Il n’existe aucune prise en charge de proxy de niveau de service. Autrement dit, le trafic via le proxy à partir de certains ou peu de services (services de sauvegarde Azure) n’est pas pris en charge. La totalité du trafic ou des données peut être routée par proxy ou non.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+
+## <a name="enable-cross-region-restore"></a>Activer la restauration inter-régions
+
+Dans le coffre Recovery Services, vous pouvez activer la restauration inter-région. Vous devez activer la restauration inter-région avant de configurer et de protéger les sauvegardes sur vos bases de données HANA. Découvrez [comment activer la restauration inter-région](/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+
+[Apprenez-en davantage](/azure/backup/backup-azure-recovery-services-vault-overview) sur la restauration inter-région.
 
 ## <a name="discover-the-databases"></a>Détecter les bases de données
 

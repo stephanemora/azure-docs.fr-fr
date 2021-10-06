@@ -2,13 +2,13 @@
 title: Vue d’ensemble de l’intégration de partenaires (Azure Event Grid)
 description: Fournit une vue d’ensemble de l’intégration en tant que partenaire Event Grid.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 9af80efc1ba342768f9bb6d504f921b52494d955
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.date: 09/28/2021
+ms.openlocfilehash: 0c4c43673a0ae2f8094f176e57c203051fd0bea4
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890705"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233140"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Vue d’ensemble de l’intégration de partenaires (Azure Event Grid)
 

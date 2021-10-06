@@ -4,21 +4,24 @@ description: 'Services Go-To-Market : les ressources Microsoft que les éditeur
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2021
+ms.date: 09/23/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: dcd7c7c64c0a686abe88b9e0d5810ff84aab27f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9d957adf84bf6f9cf9b48c5d5554d27206d8c382
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524871"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708373"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
 Vous avez publié une offre sur le marketplace commercial de Microsoft, et vous souhaitez maintenant qu’elle se vende bien. Nous vous proposons les avantages (commerciaux, techniques et marketing) dont vous avez besoin pour accélérer la croissance de votre offre.
 
 Une fois que votre offre est active sur Microsoft AppSource ou Place de marché Azure, accédez à [Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165457) pour accéder à vos avantages marketing, commerciaux et techniques éligibles et les activer. Les avantages de la place de marché se cumulent en fonction de l’engagement et des ventes de votre place de marché commerciale. Plus vous vous engagez, plus vous recevez en retour.
+
+> [!NOTE]
+> Les montants ($) référencés dans les images de cet article correspondent aux niveaux d’avantages du programme Marketplace Rewards, qui sont basés sur les ventes facturées cumulées ou les sièges vendus par le biais de Microsoft AppSource et de la Place de marché Azure.
 
 ## <a name="marketplace-rewards"></a>Récompenses de la place de marché
 

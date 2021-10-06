@@ -1,22 +1,22 @@
 ---
 title: Partager des images de machine virtuelle avec les galeries partagées
 description: Découvrez comment utiliser les galeries d’images partagées pour partager des images de machine virtuelle Linux au sein de votre organisation.
-author: axayjo
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 6/8/2021
-ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: f00f98ac9e6350aa09d3fa67c1c87677fef2db6f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a62c7c80ad2e785e9f09b68d9a5ec9ca7d355800
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532162"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129454997"
 ---
 # <a name="shared-image-galleries-overview"></a>Vue d’ensemble des galeries d’images partagées
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 Shared Image Gallery est un service qui vous permet de structurer et d’organiser vos images. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -123,7 +123,7 @@ La galerie d’images partagées vous permet de spécifier le nombre de réplica
 Avec la galerie d’images partagées, vous pouvez désormais déployer jusqu’à 1 000 instances de machines virtuelles dans un groupe de machines virtuelles identiques (à partir de 600 avec des images managées). Le réplicas d’images permettent d’optimiser les performances d’un déploiement, sa fiabilité et sa cohérence.   Vous pouvez définir un nombre de réplicas différents dans chaque région cible, selon les besoins de mise à l’échelle de la région. Comme chaque réplica est une copie complète de votre image, cela vous permet de mettre à l’échelle vos déploiements de façon linéaire, en fonction de chaque réplica supplémentaire. Nous le savons bien, les images et les régions ne sont jamais les mêmes. Voici néanmoins la recommandation générale à suivre pour créer des réplicas dans une région :
 
 - Pour les déploiements qui ne concernent pas des groupes de machines virtuelles identiques : pour chaque lot de 20 machines virtuelles que vous créez simultanément, nous vous recommandons de ne garder qu’un réplica. Par exemple, si vous créez 120 machines virtuelles simultanément à l’aide de la même image dans une région, nous vous conseillons de conserver au moins 6 réplicas de votre image. 
-- Pour les déploiements de groupes de machines virtuelles identiques : pour chaque déploiement de groupe identique avec un maximum de 600 instances, nous vous recommandons de garder au moins un réplica. Ainsi, si vous créez 5 groupes identiques simultanément, chacun doté de 600 instances de VM utilisant la même image dans une seule région, nous vous suggérons de conserver au moins 5 réplicas de votre image. 
+- Pour les déploiements de groupes de machines virtuelles identiques : pour chaque lot que vous créez simultanément, nous vous recommandons de ne garder qu'un réplica.
 
 De plus, nous recommandons toujours de surapprovisionner le nombre de réplicas, à cause de facteurs tels que la taille des images, le contenu et le type de système d’exploitation.
 
@@ -236,13 +236,13 @@ Pour lister toutes les ressources de galerie d’images partagées des différen
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-Pour plus d’informations, consultez **Gérer les ressources de la galerie** avec [Azure CLI](update-image-resources-cli.md) ou [PowerShell](update-image-resources-powershell.md).
+Pour plus d'informations, consultez [Répertorier, mettre à jour et supprimer des ressources d'image](update-image-resources.md).
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>Puis-je déplacer mon image existante vers la galerie d’images partagées ?
  
 Oui. Il existe 3 scénarios basés sur les types d’images.
 
- Scénario 1 : Si vous avez une image managée, vous pouvez créer une définition et une version de cette image. Pour plus d’informations, consultez **Effectuer une migration à partir d’une image managée vers une version d’image** avec [Azure CLI](image-version-managed-image-cli.md) ou [PowerShell](image-version-managed-image-powershell.md).
+ Scénario 1 : Si vous avez une image managée, vous pouvez créer une définition et une version de cette image. Pour plus d'informations, consultez [Créer une définition d'image et une version d'image](image-version.md).
 
  Scénario 2 : Si vous avez une image non managée, vous pouvez créer une image managée de l’image, puis créer une définition et une version de cette image. 
 
@@ -253,11 +253,11 @@ Oui. Il existe 3 scénarios basés sur les types d’images.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Puis-je créer une version d’image à partir d’un disque spécialisé ?
 
-Oui, vous pouvez créer une machine virtuelle à partir d’une image spécialisée en utilisant l’interface [CLI](vm-specialized-image-version-cli.md), [PowerShell](vm-specialized-image-version-powershell.md) ou l’API. 
+Oui, vous pouvez créer une machine virtuelle à partir d'une [image spécialisée](windows/create-vm-specialized.md). 
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Une fois la ressource de galerie d’images partagées créée, puis-je la déplacer vers un autre abonnement ?
 
-Non, vous ne pouvez pas déplacer la ressource de galerie d’images partagées vers un autre abonnement. Vous pouvez répliquer les versions de l’image se trouvant dans la galerie vers d’autres régions ou copier une image d’une autre galerie à l’aide d’[Azure CLI](image-version-another-gallery-cli.md) ou de [PowerShell](image-version-another-gallery-powershell.md).
+Non, vous ne pouvez pas déplacer la ressource de galerie d’images partagées vers un autre abonnement. Vous pouvez répliquer les versions de l'image se trouvant dans la galerie vers d'autres régions ou copier une [image d'une autre galerie](image-version.md).
 
 ### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>Puis-je répliquer mes versions d’image entre des clouds tels qu’Azure China 21Vianet, Azure Allemagne et Azure Government ?
 
@@ -323,4 +323,4 @@ En outre, vous pouvez publier et étiqueter vos questions avec `azure-virtual-ma
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment déployer des images partagées avec [Azure CLI](shared-images-cli.md) et [PowerShell](shared-images-powershell.md).
+Découvrez comment déployer des images partagées avec [Azure CLI](create-gallery.md) et [PowerShell](create-gallery.md).

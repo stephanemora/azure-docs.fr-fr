@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 116b1e2afded3ceee0d249e326e721ca420dcf17
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7940d48edb94bfa89ccc3310172a09519ffc729a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641470"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831361"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Déduplication de lignes et recherche de valeurs Null à l’aide d’extraits de flux de données
 
@@ -30,7 +30,7 @@ En utilisant des extraits de code dans des flux de données de mappage, vous pou
 
 1. Sélectionnez l’onglet **Paramètres de la source**, ajoutez une transformation source, puis connectez-la à l’un de vos jeux de données.
 
-    ![Capture d’écran du volet « Paramètres de la source » pour l’ajout d’un type de source.](media/data-flow/snippet-adf-2.png)
+    :::image type="content" source="media/data-flow/snippet-adf-2.png" alt-text="Capture d'écran du volet &quot;Paramètres de la source&quot; pour l'ajout d'un type de source.":::
 
     Les extraits de code de vérification de la déduplication et de la valeur Null utilisent des modèles génériques qui tirent parti de la dérive du schéma de flux de données. Les extraits de code fonctionnent avec n’importe quel schéma de votre jeu de données, ou avec des jeux de données qui n’ont pas de schéma prédéfini.
 
@@ -38,7 +38,7 @@ En utilisant des extraits de code dans des flux de données de mappage, vous pou
 
 1. [Accédez à la page de documentation du script de flux de données et copiez l’extrait de code pour les lignes distinctes.](./data-flow-script.md#distinct-row-using-all-columns)
 
-    ![Capture d’écran d’un extrait de code source.](media/data-flow/snippet-adf-3.png)
+    :::image type="content" source="media/data-flow/snippet-adf-3.png" alt-text="Capture d’écran d’un extrait de code source.":::
 
 1. Dans votre script, après la définition de `source1`, appuyez sur Entrée, puis collez l’extrait de code.
 
@@ -48,7 +48,7 @@ En utilisant des extraits de code dans des flux de données de mappage, vous pou
 
    * Vous pouvez également connecter la nouvelle transformation dans le concepteur en sélectionnant le flux entrant à partir du nouveau nœud de transformation dans le graphique.
 
-     ![Capture d’écran du volet « Paramètres de fractionnement conditionnel ».](media/data-flow/snippet-adf-4.png)
+     :::image type="content" source="media/data-flow/snippet-adf-4.png" alt-text="Capture d'écran du volet &quot;Paramètres de fractionnement conditionnel&quot;.":::
 
    À présent, votre flux de données supprime les doublons de lignes de votre source à l’aide de la transformation d’agrégation, qui regroupe toutes les lignes à l’aide d’un hachage général pour toutes les valeurs de colonne.
     
@@ -60,7 +60,7 @@ En utilisant des extraits de code dans des flux de données de mappage, vous pou
 
    Votre graphique de flux de données doit maintenant ressembler à ceci :
 
-    ![Capture d’écran du graphique de flux de données.](media/data-flow/snippet-adf-1.png)
+    :::image type="content" source="media/data-flow/snippet-adf-1.png" alt-text="Capture d’écran du graphique de flux de données.":::
 
   Vous avez maintenant créé un flux de données fonctionnel avec des déduplications génériques et des contrôles de valeur Null en récupérant les extraits de code existants de la bibliothèque de scripts de flux de données et en les ajoutant à votre conception existante.
 

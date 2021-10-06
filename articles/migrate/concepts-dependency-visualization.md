@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: 240f87a6b3154995340830e1861c8a76e6e3557f
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 55e8efc7b49f14f6eb4cfe399866e53df29e3e36
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259671"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767059"
 ---
 # <a name="dependency-analysis"></a>Analyse des dépendances
 
@@ -31,7 +31,7 @@ Deux options permettent de déployer l’analyse des dépendances.
 
 **Option** | **Détails** | **Cloud public** | **Azure Government**
 ----  |---- | ----
-**Sans agent** | Interroge les données des serveurs sur VMware à l’aide d’API vSphere.<br/><br/> Vous n’avez pas besoin d’installer des agents sur les serveurs.<br/><br/> Cette option est actuellement en préversion uniquement pour les serveurs sur VMware. | Pris en charge. | Pris en charge.
+**Sans agent** | Interroge les données des serveurs sur VMware à l’aide d’API vSphere.<br/><br/> Vous n’avez pas besoin d’installer des agents sur les serveurs.<br/><br/> Cette option est actuellement uniquement disponible pour les serveurs sur VMware. | Pris en charge. | Pris en charge.
 **Analyse basée sur les agents** | Utilise la [solution Service Map](../azure-monitor/vm/service-map.md) dans Azure Monitor pour activer la visualisation et l’analyse des dépendances.<br/><br/> Vous devez installer des agents sur chaque serveur local à analyser. | Prise en charge | Non pris en charge.
 
 ## <a name="agentless-analysis"></a>Analyse sans agent

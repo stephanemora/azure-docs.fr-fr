@@ -4,12 +4,12 @@ description: Cet article fournit des détails sur les informations réseau requi
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 2c3b00a3d60db16c3b768494f8630587a16033d8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2dd5d0d0c309e835fee8a55e9fa991a0efeaf729
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114465796"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231593"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Détails de la configuration réseau d’Azure Automation
 
@@ -26,7 +26,7 @@ Le port et les URL suivants sont requis pour Runbook Worker hybride et pour la c
 
 ### <a name="network-planning-for-hybrid-runbook-worker"></a>planification réseau pour Runbook Worker hybride
 
-Pour qu’un système ou un utilisateur Runbook Worker hybride puisse se connecter et s’inscrire dans Azure Automation, il doit avoir accès au numéro de port et aux URL décrits dans cette section. Le Worker doit également avoir accès aux [ports et URL requis pour l’agent Log Analytics](../azure-monitor/agents/agent-windows.md) pour pouvoir se connecter à l’espace de travail Azure Monitor Log Analytics.
+Pour qu’un système ou un utilisateur Runbook Worker hybride puisse se connecter et s’inscrire dans Azure Automation, il doit avoir accès au numéro de port et aux URL décrits dans cette section. Le Worker doit également avoir accès aux [ports et URL requis pour l’agent Log Analytics](../azure-monitor/agents/log-analytics-agent.md) pour pouvoir se connecter à l’espace de travail Azure Monitor Log Analytics.
 
 Si vous avez un compte Automation défini pour une région spécifique, vous pouvez restreindre la communication du Runbook Worker hybride à ce centre de données régional. Examinez les [enregistrements DNS utilisés par Azure Automation](how-to/automation-region-dns-records.md) pour identifier les enregistrements DNS obligatoires.
 

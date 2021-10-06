@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ece3693fa183ba31de569e7db632c3d294c10437
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: de462f24f05b93f40453cd74c85a41b5c11ac0d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187178"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656300"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Utiliser des scripts de déploiement dans des modèles ARM
 
@@ -40,6 +40,10 @@ La ressource de script de déploiement n'est disponible que dans les régions o�
 
 > [!NOTE]
 > La logique de nouvelle tentative pour la connexion à Azure est désormais intégrée au script wrapper. Si vous accordez des autorisations dans le même modèle que vos scripts de déploiement, le service de script de déploiement tente de se connecter pendant 10 minutes avec un intervalle de 10 secondes jusqu’à la réplication de l’attribution de rôle d’identité managée.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur le kit de ressources de test de modèle ARM, et pour obtenir une aide pratique, consultez [Étendre des modèles ARM à l’aide de scripts de déploiement](/learn/modules/extend-resource-manager-template-deployment-scripts) sur **Microsoft Learn**.
 
 ## <a name="configure-the-minimum-permissions"></a>Configurer les autorisations minimales
 

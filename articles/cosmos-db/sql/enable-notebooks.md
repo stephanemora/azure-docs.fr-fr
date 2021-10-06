@@ -5,20 +5,22 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 09/24/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: ae854f35326be99c0b6e1ac88db9c56fba865787
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 03a493807b0f7eb0f6e1f08794a53b18b3a7dbe4
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116197"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060514"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Activer les notebooks pour un compte Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
+> La fonctionnalité de notebook est temporairement désactivée. L’équipe d’Azure Cosmos DB travaille sur un correctif.  
+>
 > Les notebooks intégrés pour Azure Cosmos DB sont actuellement disponibles dans [29 régions](#supported-regions). Pour utiliser des notebooks, [créez un compte](#create-a-new-cosmos-account) ou [activez les notebooks sur un compte existant](#enable-notebooks-in-an-existing-cosmos-account) dans l’une de ces régions 
 
 Les notebooks Jupyter intégrés dans Azure Cosmos DB vous permettent d’analyser et de visualiser vos données via le portail Azure. Cet article décrit comment activer cette fonctionnalité pour votre compte Azure Cosmos DB.
@@ -81,7 +83,7 @@ Les notebooks intégrés pour Azure Cosmos DB sont actuellement disponibles dans
 - Centre de l’Australie
 - Centre de l’Australie 2
 - Australie Est
-- Sud-Australie Est
+- Australie Sud-Est
 - Brésil Sud
 - Centre du Canada
 - Est du Canada

@@ -4,28 +4,28 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment utiliser la bibliothèque de l’analyseur pour analyser des modèles DTDL.
 author: baanders
 ms.author: baanders
-ms.date: 8/13/2021
+ms.date: 9/2/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 584d4ba9de922cd035a70850f723550b02863e16
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: e77fc64277cd0210a4741bc6828b5f1f72cf0e73
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606594"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831009"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Analyser et valider des modèles avec la bibliothèque de l’analyseur DTDL
 
 Les [modèles](concepts-models.md) dans Azure Digital Twins sont définis à l’aide du langage DTDL (Digital Twins Definition Language) basé sur JSON-LD. **Il est recommandé de valider les modèles hors connexion avant de les charger sur une instance Azure Digital Twins.**
 
-Pour vous aider à effectuer cette opération, une bibliothèque d’analyse DTDL côté client .NET est fournie sur NuGet : [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
+Pour vous aider à valider vos modèles, une bibliothèque d'analyse DTDL côté client .NET est fournie sur NuGet : [Microsoft. Azure. DigitalTwins. parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
 Vous pouvez utiliser la bibliothèque de l’analyseur directement dans votre code C#, ou utiliser l’exemple de projet de code indépendant du langage basé sur la bibliothèque de l’analyseur : [Exemple de validateur DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## <a name="use-the-dtdl-validator-sample"></a>Utiliser l’exemple de validateur DTDL
 
-Le [Validateur DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) est un exemple de projet pouvant valider des documents de modèle afin de s’assurer que le DTDL est valide. Il est basé sur la bibliothèque de l’analyseur .NET et est indépendant du langage. Vous pouvez l’utiliser avec le bouton *Télécharger le fichier ZIP* sur le lien de l’exemple.
+Le [Validateur DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) est un exemple de projet pouvant valider des documents de modèle afin de s’assurer que le DTDL est valide. Elle est basée sur la bibliothèque de l'analyseur .NET et est indépendant du langage. Vous pouvez l’utiliser avec le bouton *Télécharger le fichier ZIP* sur le lien de l’exemple.
 
 Le code source montre des exemples d’utilisation de la bibliothèque de l’analyseur. Vous pouvez utiliser l’exemple de validateur peut être utilisé comme utilitaire de ligne de commande pour valider une arborescence de répertoires de fichiers DTDL. Il fournit également un mode interactif.
 
@@ -53,11 +53,11 @@ Pour plus d’informations sur cet exemple, consultez le code source ou exécute
 
 ## <a name="use-the-net-parser-library"></a>Utiliser la bibliothèque d’analyseur .NET 
 
-La bibliothèque [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) fournit un accès par modèle aux définitions DTDL agissant essentiellement comme équivalent de C# pour DTDL. Vous pouvez l’utiliser indépendamment du [Kit de développement logiciel (SDK) Azure Digital Twins](concepts-apis-sdks.md), en particulier pour la validation de DTDL dans un éditeur visuel ou de texte. Elle est utile pour s’assurer que vos fichiers de définition de modèle sont valides avant d’essayer de les charger vers le service.
+La bibliothèque [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) fournit un accès par modèle aux définitions DTDL agissant essentiellement comme équivalent de C# pour DTDL. Vous pouvez l’utiliser indépendamment du [Kit de développement logiciel (SDK) Azure Digital Twins](concepts-apis-sdks.md), en particulier pour la validation de DTDL dans un éditeur visuel ou de texte. Elle est utile pour s'assurer que vos fichiers de définition de modèle sont valides avant d'essayer de les charger vers le service.
 
 Pour utiliser la bibliothèque de l’analyseur, vous devez lui fournir un ensemble de documents DTDL. En règle générale, vous récupérez ces documents de modèle à partir du service, mais vous pouvez également les rendre disponibles localement si votre client était initialement responsable de les charger sur le service. 
 
-Voici le flux de travail général pour l’utilisation de l’analyseur :
+Voici le flux de travail général pour l'utilisation de l'analyseur :
 1. Récupérez tout ou partie des documents DTDL du service.
 2. Transmettez les documents DTDL en mémoire retournés à l’analyseur.
 3. L’analyseur valide le jeu de documents qui lui est transmis et retourne des informations détaillées sur l’erreur. Cette fonctionnalité est utile dans des scénarios d’éditeur.
@@ -86,5 +86,5 @@ Le code suivant montre un exemple d’utilisation de la bibliothèque de l’ana
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez fini d’écrire vos modèles, découvrez comment les télécharger (et effectuer d’autres opérations de gestion) avec les API DigitalTwinsModels :
+Une fois que vous avez fini d'écrire vos modèles, découvrez comment les télécharger (et effectuer d'autres opérations de gestion) avec les API DigitalTwinsModels :
 * [Gérer des modèles DTDL](how-to-manage-model.md)

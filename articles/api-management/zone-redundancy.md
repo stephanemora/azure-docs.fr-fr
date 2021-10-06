@@ -5,14 +5,14 @@ author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 08/11/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: references_regions
-ms.openlocfilehash: 2415a07a215c99a1775593aae403af6f84b308fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d43d6e7b04e117e4144356ac22ea2858408405df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532906"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582839"
 ---
 # <a name="availability-zone-support-for-azure-api-management"></a>Prise en charge des zones de disponibilité pour la Gestion des API Azure 
 
@@ -63,7 +63,7 @@ Dans le portail, vous pouvez éventuellement activer la redondance de zone lorsq
 1. Sélectionnez un emplacement existant ou **+ Ajouter** dans la barre supérieure. L’emplacement doit [prendre en charge les zones de disponibilité](#supported-regions).
 1. Sélectionnez le nombre d’ **[Unités](upgrade-and-scale.md)** d’échelle dans l’emplacement.
 1. Dans **Zones de disponibilité**, sélectionnez une ou plusieurs zones. Le nombre d’unités sélectionnées doit être réparti uniformément entre les zones de disponibilité. Par exemple, si vous avez sélectionné 3 unités, sélectionnez 3 zones afin que chaque zone héberge une unité.
-1. Si l’instance Gestion des API est déployée dans un [réseau virtuel](api-management-using-with-vnet.md), configurez les paramètres de réseau virtuel dans l’emplacement. Sélectionnez un réseau virtuel, un sous-réseau et une adresse IP publique existants qui sont disponibles à l’emplacement.
+1. Si l’instance Gestion des API est déployée dans un [réseau virtuel](api-management-using-with-vnet.md), configurez des paramètres de réseau virtuel dans l’emplacement en sélectionnant un réseau virtuel, un sous-réseau et une adresse IP publique existants disponibles dans l’emplacement. Pour un emplacement existant, le réseau virtuel et le sous-réseau doivent être configurés à partir du panneau Réseau virtuel.
 1. Sélectionnez **Appliquer**, puis **Enregistrer**.
 
 :::image type="content" source="media/zone-redundancy/add-location-zones.png" alt-text="Activer la redondance de zone":::

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1434f689f8f629fd04ec0c0b059a1298b32d5ac9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 39108c5c5fd823e313ce616fbb4f6d6135e7d81e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532787"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645756"
 ---
 # <a name="legal-holds-for-immutable-blob-data"></a>Conservation légale des données d’objets blob immuables
 
@@ -53,7 +53,7 @@ Une conservation légale au niveau du conteneur doit être associée à une ou p
 
 #### <a name="audit-logging"></a>Journalisation d’audit
 
-Chaque conteneur avec une conservation légale en vigueur fournit un journal d’audit de stratégie.  Le journal comporte l’identifiant utilisateur, le type de commande, les timestamps et les balises d’archivage juridique. Ce journal d’audit est conservé pendant toute la durée de vie de la stratégie, conformément aux instructions réglementaires SEC 17a-4(f).
+Chaque conteneur avec une conservation légale en vigueur fournit un journal d’audit de stratégie. Le journal comporte l’identifiant utilisateur, le type de commande, les timestamps et les balises d’archivage juridique. Ce journal d’audit est conservé pendant toute la durée de vie de la stratégie, conformément aux instructions réglementaires SEC 17a-4(f).
 
 Le [Journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md) fournit un journal plus complet de l’ensemble des activités du service de gestion. Les [Journaux de ressources Azure](../../azure-monitor/essentials/platform-logs-overview.md) conservent des informations sur les opérations de données. Il est de la responsabilité de l’utilisateur de stocker ces journaux de manière persistante, car ceux-ci peuvent être nécessaires à des fins réglementaires ou autres.
 

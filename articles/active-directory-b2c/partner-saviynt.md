@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: fe5a2114a99b7867ac5e51b6bf9ec542ad47ca13
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 2685570bb14cf177f0a658196aa1750f9d8e02a1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257889"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558345"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Tutoriel de configuration de Saviynt avec Azure Active Directory B2C
 
@@ -76,37 +76,22 @@ Le diagramme d’architecture suivant illustre l’implémentation.
 ### <a name="create-an-azure-ad-application-for-saviynt"></a>Créer une application Azure AD pour Saviynt
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/#home).
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Inscription d’applications** > **Nouvelle inscription**.
+1. Entrez un Nom pour l’application. Par exemple, Saviynt, puis sélectionnez **Créer**.
+1. Accédez à **Autorisations de l’API** et sélectionnez **+Ajouter une autorisation**.
+1. La page Demander des autorisations d’API apparaît. Sélectionnez l’onglet **API Microsoft** et sélectionnez **Microsoft Graph** comme API Microsoft couramment utilisées.
+1. Accédez à la page suivante, puis sélectionnez **Permissions d’application**.
+1. Sélectionnez **Répertoire**, puis cochez les cases **Directory.Read.All** et **Directory.ReadWrite.All**.
+1. Sélectionnez **Ajouter des autorisations**. Passez en revue les autorisations ajoutées.
+1. Sélectionnez **Accorder le consentement de l’administrateur pour le répertoire par défaut** > **Enregistrer**.
+1. Accédez à **Certificats et secrets** et sélectionnez **+Ajouter une clé secrète client**. Entrez la description de la clé secrète client, sélectionnez l’option d’expiration, puis sélectionnez **Ajouter**.
+1. La clé secrète est générée et affichée dans la section Clé secrète client. Vous devrez l’utiliser ultérieurement.
 
-2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
-
-3. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
-
-4. Sélectionnez **Inscription d’applications** > **Nouvelle inscription**.
-
-5. Entrez un Nom pour l’application. Par exemple, Saviynt, puis sélectionnez **Créer**.
-
-6. Accédez à **Autorisations de l’API** et sélectionnez **+Ajouter une autorisation**.
-
-7. La page Demander des autorisations d’API apparaît. Sélectionnez l’onglet **API Microsoft** et sélectionnez **Microsoft Graph** comme API Microsoft couramment utilisées.
-
-8. Accédez à la page suivante, puis sélectionnez **Permissions d’application**.
-
-9. Sélectionnez **Répertoire**, puis cochez les cases **Directory.Read.All** et **Directory.ReadWrite.All**.
-
-10. Sélectionnez **Ajouter des autorisations**. Passez en revue les autorisations ajoutées.
-
-11. Sélectionnez **Accorder le consentement de l’administrateur pour le répertoire par défaut** > **Enregistrer**.
-
-12. Accédez à **Certificats et secrets** et sélectionnez **+Ajouter une clé secrète client**. Entrez la description de la clé secrète client, sélectionnez l’option d’expiration, puis sélectionnez **Ajouter**.
-
-13. La clé secrète est générée et affichée dans la section Clé secrète client.
-
-    >[!NOTE]
-    > Vous aurez besoin de la clé secrète client plus tard.
-
-14. Accédez à **Vue d’ensemble** et récupérez l’**ID client** et l’**ID de locataire**.
-
-15. L’ID de locataire, l’ID client et la clé secrète client seront nécessaires pour terminer l’installation dans Saviynt.
+1. Accédez à **Vue d’ensemble** et récupérez l’**ID client** et l’**ID de locataire**.
+1. L’ID de locataire, l’ID client et la clé secrète client seront nécessaires pour terminer l’installation dans Saviynt.
 
 ### <a name="enable-saviynt-to-delete-users"></a>Permettre à Saviynt de supprimer des utilisateurs
 

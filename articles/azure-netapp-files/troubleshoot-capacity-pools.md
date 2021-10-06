@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 759759b67582b241d0bab1e043dd15e54a804faf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ca7f042aaa97967d47dd9f35afaa647e0d37361
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251537"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407263"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Résoudre les problèmes de pools de capacités
 
@@ -43,7 +43,7 @@ Cet article décrit les résolutions des problèmes que vous pouvez rencontrer l
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-* [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md)
+* [Créer un pool de capacités](azure-netapp-files-set-up-capacity-pool.md)
 * [Gérer un pool de capacités de QoS manuel](manage-manual-qos-capacity-pool.md)
 * [Changer dynamiquement le niveau de service d’un volume](dynamic-change-volume-service-level.md)
 * [Redimensionner un pool de capacités ou un volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)

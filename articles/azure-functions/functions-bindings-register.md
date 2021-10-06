@@ -3,14 +3,14 @@ title: Inscrire des extensions de liaison Azure Functions
 description: Découvrez comment inscrire une extension de liaison Azure Functions en fonction de votre environnement.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 08/16/2020
+ms.date: 09/14/2020
 ms.author: cshoe
-ms.openlocfilehash: bfcefb23fa68e2aa70d4680fcca2462b24322014
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 262e0fc02632465a03391dbfeaa0902d1b6b9ec3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562415"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609749"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Inscrire des extensions de liaison Azure Functions
 
@@ -20,7 +20,7 @@ Les applications des fonctions de la bibliothèque de classes .NET utilisent des
 
 Le tableau suivant indique quand et comment vous inscrivez des liaisons.
 
-| Environnement de développement |Inscription<br/> dans Functions 1.x  |Inscription<br/> dans Functions 3.x/2.x  |
+| Environnement de développement |Inscription<br/> dans Functions 1.x  |Inscription<br/> dans Functions 2.x ou version ultérieure  |
 |-------------------------|------------------------------------|------------------------------------|
 |Portail Azure|Automatique|Automatique<sup>*</sup>|
 |Langages non-.NET|Automatique|Utiliser des [offres groupées d’extensions](#extension-bundles) (recommandé) ou [installer des extensions de manière explicite](#explicitly-install-extensions)|

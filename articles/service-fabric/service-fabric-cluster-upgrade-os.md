@@ -1,14 +1,15 @@
 ---
 title: Mise à niveau du système d’exploitation Linux pour Azure Service Fabric
 description: Découvrir les options de migration de votre cluster Azure Service Fabric vers un autre système d’exploitation Linux
+manager: tassb
 ms.topic: conceptual
 ms.date: 09/14/2021
-ms.openlocfilehash: 8f52481e7c457445dc842e86f7b05c3568502da4
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 4a5b1a97fde977fa4ba64a4a23d0c57725595c37
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278008"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128700558"
 ---
 # <a name="upgrading-linux-os-for-azure-service-fabric"></a>Mise à niveau du système d’exploitation Linux pour Azure Service Fabric
 
@@ -30,7 +31,7 @@ Voici l’approche générale :
 
     * Assurez-vous que les charges de travail existantes continuent de fonctionner correctement une fois le nouveau type de nœud de système d’exploitation cible créé. Si vous constatez des problèmes, apportez les modifications requises dans l’application ou les packages d’ordinateurs préinstallés avant de procéder à la suppression de l’ancien type de nœud.
 3. Marquez l’ancien type de nœud principal « isPrimary » : false. Cela aboutira à l’exécution d’un ensemble de mises à niveau de longue durée pour la transition de tous les nœuds initiaux.
-4. (Pour les types de nœuds de durabilité Bronze UNIQUEMENT) : connectez-vous au cluster via [sfctl](service-fabric-sfctl.md) / [PowerShell](/powershell/module/ServiceFabric) / [FabricClient](/dotnet/api/system.fabric.fabricclient) et désactivez tous les nœuds de l’ancien type de nœud.
+4. (Pour les types de nœuds de durabilité Bronze UNIQUEMENT) : connectez-vous au cluster via [sfctl](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl) / [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/?view=azureservicefabricps) / [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) et désactivez tous les nœuds de l’ancien type de nœud.
 5. Supprimez les anciens types de nœuds.
 
 > [!NOTE]
@@ -42,9 +43,9 @@ Voici l’approche générale :
 > [!NOTE]
 > Les étapes ci-dessous montrent comment créer rapidement un prototype de migration de type de nœud via les applets de commande Az PowerShell dans un cluster de TEST uniquement. Pour les clusters de production confrontés à un réel trafic opérationnel, les mêmes étapes sont censées être effectuées en émettant des mises à niveau ARM, afin de préserver la reproductibilité et une source déclarative cohérente de vérité.
 
-1. Mettez à jour le paramètre vmImage sur la ressource de cluster Service Fabric avec [Update-AzServiceFabricVmImage](/powershell/module/az.servicefabric/update-azservicefabricvmimage) :
+1. Mettez à jour le paramètre vmImage sur la ressource de cluster Service Fabric avec [Update-AzServiceFabricVmImage](https://docs.microsoft.com/powershell/module/az.servicefabric/update-azservicefabricvmimage) :
 
-    [Azure PowerShell](/powershell/azure/install-az-ps):
+    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps):
     ```powershell
     # Replace subscriptionId, resourceGroup, clusterName with ones corresponding to your cluster.
     $subscriptionId="cea219db-0593-4b27-8bfa-a703332bf433"

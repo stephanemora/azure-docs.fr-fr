@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 09/07/2021
-ms.openlocfilehash: 8c44d6e92f2943f3c565e80d42d9d0c474fddd4f
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 62f895fdea75ff97154910c177cda04413663d68
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542248"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352037"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Vue d’ensemble de la migration : de SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -171,7 +171,7 @@ Par défaut, Azure Database Migration Service prend uniquement en charge la migr
 
 Après le redémarrage du service, les connexions d’utilisateur ou de groupe Windows apparaissent dans la liste des connexions disponibles pour la migration. Pour toutes les connexions d’utilisateur ou de groupe Windows que vous migrez, vous êtes invité à fournir le nom de domaine associé. Les comptes d’utilisateur de service (comptes avec le nom de domaine NT AUTHORITY) et les comptes d’utilisateur virtuels (comptes avec le nom de domaine NT SERVICE) ne sont pas pris en charge. Pour en savoir plus, consultez [Comment migrer des utilisateurs et des groupes Windows dans une instance SQL vers Azure SQL Managed Instance en utilisant le langage T-SQL](../../managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md).
 
-Une autre solution consiste à utiliser l’[utilitaire PowerShell](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) spécialement conçu par les architectes de migration de données Microsoft. Cet utilitaire s’appuie sur PowerShell pour créer un script T-SQL en vue de recréer les connexions et de sélectionner les utilisateurs de base de données de la source vers la cible. 
+Une autre solution consiste à utiliser l’[utilitaire PowerShell](https://www.microsoft.com/download/details.aspx?id=103111) spécialement conçu par les architectes de migration de données Microsoft. Cet utilitaire s’appuie sur PowerShell pour créer un script T-SQL en vue de recréer les connexions et de sélectionner les utilisateurs de base de données de la source vers la cible. 
 
 L’utilitaire PowerShell mappe automatiquement les comptes Windows Server Active Directory aux comptes Azure AD et peut effectuer une recherche d’UPN pour chaque connexion à l’instance Active Directory source. L’utilitaire scripte les rôles personnalisés du serveur et de la base de données, ainsi que l’appartenance aux rôles et les autorisations des utilisateurs. Les bases de données autonomes ne sont pas encore prises en charge et seul un sous-ensemble des autorisations SQL Server possibles est scripté. 
 

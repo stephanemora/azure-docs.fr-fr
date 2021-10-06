@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 05/16/2021
-ms.openlocfilehash: c3010cb1d972bb898fd8346266166bb632191ead
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 609a0edaa15c9ce9d71655bbb358168806202ea9
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259082"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400588"
 ---
 # <a name="managed-connectors-in-azure-logic-apps"></a>Connecteurs managés dans Azure Logic Apps
 
@@ -610,8 +610,8 @@ Pour plus d’informations, consultez les rubriques suivantes :
 <!-- Integration account connector docs -->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Encoder et décoder des messages qui utilisent le protocole AS2"
 [edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Encoder et décoder des messages qui utilisent le protocole EDIFACT"
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Décoder les messages qui utilisent le protocole EDIFACT"
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Encoder les messages qui utilisent le protocole EDIFACT"
+[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Décoder les messages qui utilisent le protocole EDIFACT"
+[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Encoder les messages qui utilisent le protocole EDIFACT"
 [x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Encoder et décoder des messages qui utilisent le protocole X12"
 [x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Décoder les messages qui utilisent le protocole X12"
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encoder les messages qui utilisent le protocole X12"

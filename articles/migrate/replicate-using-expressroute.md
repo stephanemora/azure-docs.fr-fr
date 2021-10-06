@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: c16b4a91f297621fa96e0e18f816d77e9f3b4e2a
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: a1752e1ea264f8abacfee575546f7bdf6b5eb966
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112322401"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624080"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Répliquer des données via ExpressRoute avec Azure Migrate : migration de serveur
 
@@ -156,7 +156,7 @@ Pour valider la connexion de liaison privée, effectuez une résolution DNS du p
 
 Voici un exemple illustrant la résolution DNS du compte de stockage de cache. 
 
-- Entrez nslookup _nom-compte-stockage_.blob.core.windows.nett. Remplacez <nom-compte-stockage> par le nom du compte de stockage de cache créé par Azure Migrate.  
+- Entrez nslookup _nom-compte-stockage_.blob.core.windows.nett. Remplacez \<storage-account-name\> par le nom du compte de stockage de cache créé par Azure Migrate.  
 
     Vous recevrez un message similaire à celui ci :  
 

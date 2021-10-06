@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e7bcfe1afc063d89bc6a5339bf62521cd644b8ca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1c769cdac870c7384495d41158bd7ad516608575
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048338"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632953"
 ---
 # <a name="register-a-saas-application"></a>Inscrire une application SaaS
 
@@ -109,7 +109,14 @@ Exemple de réponse :
   }
 ```
 
-La valeur du champ `"access_token"` dans la réponse est le `<access_token>` que vous donnerez comme paramètre d’autorisation pour appeler toutes les API d’approvisionnement SaaS et de mesure de la Place de marché.
+| Élément | Description |
+| ------- | ----------- |
+| `access_token` | Cet élément est le `<access_token>` que vous donnerez comme paramètre d’autorisation pour appeler toutes les API d’approvisionnement SaaS et de mesure de la Place de marché. Lors de l’appel d’une API REST sécurisée, le jeton est incorporé dans le champ d’en-tête de requête `Authorization` comme un jeton « du porteur », autorisant l’API à authentifier l’appelant. | 
+| `expires_in` | Le nombre de secondes pendant lesquelles le jeton d’accès est toujours valide, avant d’expirer, à partir de son émission. L’heure d’émission est accessible dans la revendication `iat` du jeton. |
+| `expires_on` | L’intervalle de temps lorsque le jeton d’accès expire. La date est exprimée en nombre de secondes à partir de « 1970-01-01T0:0:0Z UTC » (correspond à la revendication `exp` du jeton). |
+| `not_before` | L’intervalle de temps pendant lequel le jeton d’accès prend effet, et peut être accepté. La date est exprimée en nombre de secondes à partir de « 1970-01-01T0:0:0Z UTC » (correspond à la revendication `nbf` du jeton). |
+| `resource` | La ressource pour laquelle le jeton d’accès a été demandé, correspondant au paramètre de chaîne de requête `resource` de la requête. |
+| `token_type` | Le type de jeton, qui est un jeton d’accès « du porteur », ce qui signifie que la ressource peut donner l’accès au porteur de ce jeton. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

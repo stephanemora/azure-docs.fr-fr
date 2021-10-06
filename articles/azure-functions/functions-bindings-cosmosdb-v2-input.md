@@ -3,15 +3,15 @@ title: Liaison d'entrée Azure Cosmos DB pour Functions 2.x et versions ulté
 description: Apprenez à utiliser la liaison d'entrée Azure Cosmos DB dans Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 09/01/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 5566ca21b9ac1f0491673af21d85201a2fd18efc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 50a4e4ecbfb646603411944a2e65944b536aeb43
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110451242"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615963"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Liaison d'entrée Azure Cosmos DB pour Azure Functions 2.x et versions ultérieures
 
@@ -35,6 +35,7 @@ Cette section contient les exemples suivants :
 * [Déclencheur HTTP, ID de recherche à partir des données de routage, utilisation de SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
 * [Déclencheur HTTP, obtenir plusieurs documents, utilisation de SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c)
 * [Déclencheur HTTP, obtenir plusieurs documents, utilisation de DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c)
+* [Déclencheur HTTP, recevoir plusieurs documents à l’aide de CosmosClient (extension v4)](#http-trigger-get-multiple-docs-using-cosmosclient-c)
 
 Les exemples font référence à un type `ToDoItem` simple :
 
@@ -351,6 +352,68 @@ namespace CosmosDBSamplesV2
                     log.LogInformation(result.Description);
                 }
             }
+            return new OkResult();
+        }
+    }
+}
+```
+
+<a id="http-trigger-get-multiple-docs-using-cosmosclient-c"></a>
+
+### <a name="http-trigger-get-multiple-docs-using-cosmosclient"></a>Déclencheur HTTP, obtenir plusieurs documents, utilisation de CosmosClient
+
+L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui récupère une liste de documents. Cette fonction est déclenchée par une requête HTTP. Le code utilise une instance `CosmosClient` fournie par la liaison Azure Cosmos DB, disponible dans la [version d’extension 4. x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), pour lire une liste de documents. L’instance `CosmosClient` peut également être utilisée pour les opérations d’écriture.
+
+```csharp
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Cosmos;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+
+namespace CosmosDBSamplesV2
+{
+    public static class DocsByUsingCosmosClient
+    {  
+        [FunctionName("DocsByUsingCosmosClient")]
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",
+                Route = null)]HttpRequest req,
+            [CosmosDB(
+                databaseName: "ToDoItems",
+                containerName: "Items",
+                Connection = "CosmosDBConnection")] CosmosClient client,
+            ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+
+            var searchterm = req.Query["searchterm"].ToString();
+            if (string.IsNullOrWhiteSpace(searchterm))
+            {
+                return (ActionResult)new NotFoundResult();
+            }
+
+            Container container = client.GetDatabase("ToDoItems").GetContainer("Items");
+
+            log.LogInformation($"Searching for: {searchterm}");
+
+            QueryDefinition queryDefinition = new QueryDefinition(
+                "SELECT * FROM items i WHERE CONTAINS(i.Description, @searchterm)")
+                .WithParameter("@searchterm", searchterm);
+            using (FeedIterator<ToDoItem> resultSet = container.GetItemQueryIterator<ToDoItem>(queryDefinition))
+            {
+                while (resultSet.HasMoreResults)
+                {
+                    FeedResponse<ToDoItem> response = await resultSet.ReadNextAsync();
+                    ToDoItem item = response.First();
+                    log.LogInformation(item.Description);
+                }
+            }
+
             return new OkResult();
         }
     }
@@ -1620,7 +1683,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs).
 
-Le constructeur de l’attribut accepte le nom de la base de données et le nom de la collection. Pour plus d’informations sur ces paramètres et d’autres propriétés que vous pouvez configurer, consultez [la section de configuration suivante](#configuration).
+Le constructeur de l’attribut accepte le nom de la base de données et le nom de la collection. Dans la [version d’extension 4. x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), certains paramètres et propriétés ont été supprimés ou renommés. Pour plus d’informations sur ces paramètres et autres propriétés que vous pouvez configurer, consultez la [section de configuration suivante](#configuration).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
@@ -1654,10 +1717,10 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction**     | n/a | Cette propriété doit être définie sur `in`.         |
 |**name**     | n/a | Nom du paramètre de liaison qui représente le document dans la fonction.  |
 |**databaseName** |**DatabaseName** |Base de données contenant le document.        |
-|**collectionName** |**CollectionName** | Nom de la collection qui contient le document. |
+|**collectionName** <br> ou <br> **containerName**|**CollectionName** <br> ou <br> **ContainerName**| Nom de la collection qui contient le document. <br><br> Dans [la version 4. x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `ContainerName`. |
 |**id**    | **Id** | ID du document à récupérer. Cette propriété prend en charge les [expressions de liaison](./functions-bindings-expressions-patterns.md). Ne définissez pas à la fois les propriétés `id` et **sqlQuery**. Si vous ne définissez aucune des deux, l’ensemble de la collection est récupéré. |
 |**sqlQuery**  |**SqlQuery**  | Requête SQL Azure Cosmos DB utilisée pour récupérer plusieurs documents. La propriété prend en charge les liaisons d’exécution, comme dans cet exemple : `SELECT * FROM c where c.departmentId = {departmentId}`. Ne définissez pas à la fois les propriétés `id` et `sqlQuery`. Si vous ne définissez aucune des deux, l’ensemble de la collection est récupéré.|
-|**connectionStringSetting**     |**ConnectionStringSetting**|Nom du paramètre d’application contenant votre chaîne de connexion Azure Cosmos DB. |
+|**connectionStringSetting** <br> ou <br> **connection**  |**ConnectionStringSetting** <br> ou <br> **Connection**|Nom du paramètre d’application contenant votre chaîne de connexion Azure Cosmos DB. <br><br> Dans [la version 4. x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `Connection`. La valeur est le nom d’un paramètre d’application qui contient soit la chaîne de connexion soit une section de configuration ou un préfixe qui définit la connexion. Consultez [Connexions](./functions-reference.md#connections). |
 |**partitionKey**|**PartitionKey**|Spécifie la valeur de la clé de partition pour la recherche. Peut inclure des paramètres de liaison. Requis pour les recherches dans les collections [partitionnées](../cosmos-db/partitioning-overview.md#logical-partitions).|
 |**preferredLocations**| **PreferredLocations**| (Facultatif) Définit les endroits par défaut (régions) des comptes de base de données géorépliqués dans le service Azure Cosmos DB. Les valeurs doivent être séparées par des virgules. Par exemple, « USA Est, USA Centre Sud, Europe Nord ». |
 

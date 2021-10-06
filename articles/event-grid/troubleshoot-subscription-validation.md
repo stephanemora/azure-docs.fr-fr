@@ -2,13 +2,13 @@
 title: Azure Event Grid - Résoudre les problèmes de validation des abonnements
 description: Cet article explique comment résoudre les problèmes de validation des abonnements.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 857760182675d5673a3b09495c2faaf7372a4164
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/28/2021
+ms.openlocfilehash: 8db9d36b31c96187f985f98c4c2a1c79f4e58218
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94592938"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230491"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Résoudre des problèmes de validation d’abonnements Azure Event Grid
 Si, pendant la création d’un abonnement aux événements, vous voyez un message d’erreur tel que `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation`, cela est le signe d’un échec dans le processus de négociation de la validation. Pour résoudre cette erreur, vérifiez les points suivants :

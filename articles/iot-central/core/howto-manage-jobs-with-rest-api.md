@@ -3,16 +3,16 @@ title: Utiliser l’API REST pour gérer les travaux dans Azure IoT Central
 description: Comment utiliser l’API REST IoT Central pour créer et gérer les travaux dans une application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/21/2020
+ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9eeb3619697e1b602053cac77fc42ae13663c388
-ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
+ms.openlocfilehash: 47548b3c7e1fa7503e3f30c155755d6fe4f29031
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113516193"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667043"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-create-and-manage-jobs"></a>Comment utiliser l’API REST IoT Central pour créer et gérer les travaux
 
@@ -30,6 +30,11 @@ Cet article décrit comment utiliser l’API `/jobs/{job_id}` pour contrôler le
 Chaque appel d’API REST IoT Central nécessite un en-tête d’autorisation. Pour plus d’informations, consultez [Comment authentifier et autoriser les appels d’API REST d’IoT Central](howto-authorize-rest-api.md).
 
 Pour obtenir la documentation de référence sur l’API REST IoT Central, consultez [Informations de référence sur l’API REST d’Azure IoT Central](/rest/api/iotcentral/).
+
+> [!TIP]
+> L’[API en préversion](/rest/api/iotcentral/1.1-previewdataplane/jobs) inclut la prise en charge de la nouvelle [fonctionnalité « organisations »](howto-create-organizations.md).
+
+Pour savoir comment créer et gérer des travaux dans l’interface utilisateur, consultez [Gérer des appareils en bloc dans votre application Azure IoT Central](howto-manage-devices-in-bulk.md).
 
 ## <a name="job-payloads"></a>Charges utiles de travail
 

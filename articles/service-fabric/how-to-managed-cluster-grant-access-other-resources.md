@@ -3,12 +3,12 @@ title: Accorder à une application l’accès à d’autres ressources Azure sur
 description: Cet article explique comment accorder à votre application Service Fabric avec identité managée l’accès à d’autres ressources Azure prenant en charge l’authentification basée sur Azure Active Directory sur un cluster managé Service Fabric.
 ms.topic: article
 ms.date: 5/10/2021
-ms.openlocfilehash: 2ef9aafec204225be03915b7af4ac3f6b4eeecae
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: ba85736779f44d5874bb4a080ce0da1c5ba764f8
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689237"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544694"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-on-a-service-fabric-managed-cluster"></a>Accorder à l’identité managée d’une application Service Fabric l’accès à des ressources Azure sur un cluster managé Service Fabric
 
@@ -38,68 +38,71 @@ De même que pour l’accès au stockage, vous pouvez tirer parti de l’identit
 L’exemple suivant illustre l’octroi d’accès à un coffre par le biais d’un déploiement de modèle. Ajoutez le ou les extraits de code ci-dessous comme une autre entrée sous l’élément `resources` du modèle. L’exemple montre l’octroi d’accès pour les types d’identité attribués par l’utilisateur et attribués par le système, respectivement. Choisissez celui qui convient.
 
 ```json
-    # under 'variables':
+{
   "variables": {
-        "userAssignedIdentityResourceId" : "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
-    }
-    # under 'resources':
+    "userAssignedIdentityResourceId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
+  },
+  "resources": [
     {
-        "type": "Microsoft.KeyVault/vaults/accessPolicies",
-        "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2018-02-14",
-        "properties": {
-            "accessPolicies": [
-                {
-                    "tenantId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]",
-                    "objectId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]",
-                    "dependsOn": [
-                        "[variables('userAssignedIdentityResourceId')]"
-                    ],
-                    "permissions": {
-                        "keys":         ["get", "list"],
-                        "secrets":      ["get", "list"],
-                        "certificates": ["get", "list"]
-                    }
-                }
-            ]
-        }
-    },
+      "type": "Microsoft.KeyVault/vaults/accessPolicies",
+      "name": "[concat(parameters('keyVaultName'), '/add')]",
+      "apiVersion": "2018-02-14",
+      "properties": {
+        "accessPolicies": [
+          {
+            "tenantId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+            "objectId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]",
+            "dependsOn": [
+              "[variables('userAssignedIdentityResourceId')]"
+            ],
+            "permissions": {
+              "keys": [ "get", "list" ],
+              "secrets": [ "get", "list" ],
+              "certificates": [ "get", "list" ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 Et pour les identités managées attribuées par le système :
 ```json
-    # under 'variables':
+{
   "variables": {
-        "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/managedClusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
-    }
-    # under 'resources':
+    "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/managedClusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
+  },
+  "resources": [
     {
-        "type": "Microsoft.KeyVault/vaults/accessPolicies",
-        "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2018-02-14",
-        "properties": {
-            "accessPolicies": [
-            {
-                    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
-                    "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
-                    "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
-                    "dependsOn": [
-                        "[variables('sfAppSystemAssignedIdentityResourceId')]"
-                    ],
-                    "permissions": {
-                        "secrets": [
-                            "get",
-                            "list"
-                        ],
-                        "certificates": 
-                        [
-                            "get", 
-                            "list"
-                        ]
-                    }
-            },
+      "type": "Microsoft.KeyVault/vaults/accessPolicies",
+      "name": "[concat(parameters('keyVaultName'), '/add')]",
+      "apiVersion": "2018-02-14",
+      "properties": {
+        "accessPolicies": [
+          {
+            "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+            "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+            "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
+            "dependsOn": [
+              "[variables('sfAppSystemAssignedIdentityResourceId')]"
+            ],
+            "permissions": {
+              "secrets": [
+                "get",
+                "list"
+              ],
+              "certificates": [
+                "get",
+                "list"
+              ]
+            }
+          }
         ]
-        }
+      }
     }
+  ]
+}
 ```
 
 Pour plus d’informations, consultez [Coffres - Mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).

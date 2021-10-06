@@ -1,18 +1,18 @@
 ---
 title: Mise en réseau d’App Service Environment
 description: Détails de la mise en réseau d’App Service Environment
-author: ccompy
+author: madsd
 ms.assetid: 6f262f63-aef5-4598-88d2-2f2c2f2bfc24
 ms.topic: article
 ms.date: 06/30/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 89a14dc204e10231a134477650081396fc8e433f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 177a9095a6a1cfb15a7bd17e106406521d1eda14
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531405"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639013"
 ---
 # <a name="app-service-environment-networking"></a>Mise en réseau d’App Service Environment
 
@@ -21,7 +21,19 @@ ms.locfileid: "122531405"
 > 
 
 
-App Service Environment (ASE) est un déploiement monolocataire d’Azure App Service qui héberge des applications web, des applications API et des applications de fonction. Lorsque vous installez un environnement ASE, vous choisissez le réseau virtuel Azure (VNet) dans lequel vous souhaitez qu’il soit déployé. L’ensemble de l’application de trafic entrant et sortant se trouve à l’intérieur du réseau virtuel que vous spécifiez. ASE est déployé dans un sous-réseau unique de votre réseau virtuel. Rien d’autre ne peut être déployé dans ce même sous-réseau. Le sous-réseau doit être délégué à Microsoft.Web/HostingEnvironments.
+App Service Environment (ASE) est un déploiement monolocataire d’Azure App Service qui héberge des applications web, des applications API et des applications de fonction. Lorsque vous installez un environnement ASE, vous choisissez le réseau virtuel Azure (VNet) dans lequel vous souhaitez qu’il soit déployé. L’ensemble de l’application de trafic entrant et sortant se trouve à l’intérieur du réseau virtuel que vous spécifiez. ASE est déployé dans un sous-réseau unique de votre réseau virtuel. Rien d’autre ne peut être déployé dans ce même sous-réseau.
+
+## <a name="subnet-requirements"></a>Configuration requise du sous-réseau
+
+Le sous-réseau doit être vide et délégué à Microsoft.Web/hostingEnvironments.
+
+La taille du sous-réseau peut avoir une incidence sur les limites de mise à l’échelle des instances de plan App Service au sein de l’ASE. Nous vous recommandons d’utiliser un espace d’adressage/24 (256 adresses) pour votre sous-réseau afin de garantir un nombre suffisant d’adresses pour prendre en charge la mise à l’échelle de production.
+
+Pour utiliser un sous-réseau plus petit, vous devez tenir compte des détails suivants relatifs à l’ASE et à la configuration réseau.
+
+Tout sous-réseau donné possède cinq adresses réservées aux fins de gestion. En plus des adresses de gestion, ASE mettra à l’échelle de manière dynamique l’infrastructure de prise en charge et utilisera entre 4 et 27 adresses, en fonction de la configuration, de l’échelle et de la charge. Les adresses restantes peuvent être utilisées pour les instances du plan d’App Service. La taille minimale de votre sous-réseau est un espace d’adressage/27 (32 adresses).
+
+L’effet de l’exécution d’adresses insuffisantes est que vous pouvez être limité à la montée en charge de vos plans d’App Service dans l’ASE ou vous pouvez constater une latence accrue pendant la charge du trafic intensif si nous ne sommes pas en mesure de mettre à l’échelle l’infrastructure de prise en charge.
 
 ## <a name="addresses"></a>Adresses 
 
@@ -32,7 +44,7 @@ ASE dispose des informations réseau suivantes lors de sa création :
 | Réseau virtuel ASE | Réseau virtuel dans lequel ASE est déployé |
 | Sous-réseau de l’ASE | Sous-réseau dans lequel ASE est déployé |
 | Suffixe de domaine | Suffixe de domaine utilisé par les applications réalisées dans cet environnement ASE |
-| Adresse IP virtuelle | Il s’agit du type d’adresse IP virtuelle utilisé par ASE. Les deux valeurs possibles sont interne et externe |
+| Adresse IP virtuelle | Ce paramètre représente l’adresse IP virtuelle utilisée par l’ASE. Les deux valeurs possibles sont interne et externe |
 | Adresse entrante | L’adresse entrante correspond à l’adresse à laquelle vos applications sur cet environnement ASE sont atteintes. Si vous avez une adresse IP virtuelle interne, il s’agit d’une adresse de votre sous-réseau ASE. Si l’adresse est externe, il s’agit d’une adresse publique |
 | Adresses sortantes par défaut | Les applications de cet environnement ASE utilisent cette adresse, par défaut, lors de l’établissement d’appels sortants vers Internet |
 

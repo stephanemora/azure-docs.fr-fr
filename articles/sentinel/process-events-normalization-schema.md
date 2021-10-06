@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: e0afdfcd03bb0b4cc3f8399fa1af79e72b1e4ed8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dd9f0c69b610b54ae6f07661ba15d9f0cf22b3ea
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784448"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407206"
 ---
 # <a name="azure-sentinel-process-event-normalization-schema-reference-public-preview"></a>Informations de référence sur le schéma de normalisation des événements de processus Azure Sentinel (préversion publique)
 
@@ -177,7 +177,7 @@ Le schéma d’événement de processus fait référence aux entités suivantes,
 | **ActingProcessFileOriginalName** | Facultatif     | Chaîne     |Nom de fichier d’origine de produit issu des informations de version dans le fichier image du processus agissant.       <br><br> Exemple : `Notepad++.exe` |
 | **ActingProcessIsHidden**          | Facultatif     | Booléen    |      Indique si le processus agissant est en mode masqué.  |
 | **ActingProcessInjectedAddress**   | Facultatif     | Chaîne     |      Adresse mémoire dans laquelle le processus agissant responsable est stocké.           |
-| **ActingProcessId**| Obligatoire    | int        | ID de processus (PID) du processus agissant.<br><br>Exemple : `48610176`           <br><br>**Remarque** : Le type est défini en tant que *chaîne* pour la prise en charge de différents systèmes. Cependant, sur Windows et Linux cette valeur doit être numérique. <br><br>Si vous utilisez un ordinateur Windows ou Linux et avez utilisé un type différent, assurez-vous de convertir les valeurs. Par exemple, si vous avez utilisé une valeur hexadécimale, convertissez-la en valeur décimale.    |
+| **ActingProcessId**| Obligatoire    | Chaîne        | ID de processus (PID) du processus agissant.<br><br>Exemple : `48610176`           <br><br>**Remarque** : Le type est défini en tant que *chaîne* pour la prise en charge de différents systèmes. Cependant, sur Windows et Linux cette valeur doit être numérique. <br><br>Si vous utilisez un ordinateur Windows ou Linux et avez utilisé un type différent, assurez-vous de convertir les valeurs. Par exemple, si vous avez utilisé une valeur hexadécimale, convertissez-la en valeur décimale.    |
 | **ActingProcessGuid**              | Facultatif     | string     |  Identificateur unique (GUID) généré du processus agissant. Permet d’identifier le processus entre les systèmes.  <br><br> Exemple : `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ActingProcessIntegrityLevel**    | Facultatif     | Chaîne     |       Chaque processus a un niveau d’intégrité représenté dans son jeton. Les niveaux d’intégrité déterminent le niveau de protection ou l’accès au processus. <br><br> Windows définit les niveaux d’intégrité suivants : **low**, **medium**, **high** et **system**. Les utilisateurs Standard reçoivent un niveau d’intégrité moyen (**medium**) et les utilisateurs avec élévation de privilège reçoivent un niveau d’intégrité élevé (**high**). <br><br> Pour plus d’informations, consultez [Contrôle d’intégrité obligatoire - Applications Win32](/windows/win32/secauthz/mandatory-integrity-control). |
 | **ActingProcessMD5**               | Facultatif     | Chaîne     |Hachage MD5 du fichier image du processus agissant.  <br><br>Exemple : `75a599802f1fa166cdadb360960b1dd0`|
@@ -195,7 +195,7 @@ Le schéma d’événement de processus fait référence aux entités suivantes,
 | **ParentProcessFileVersion**       | Facultatif     | Chaîne     | Version de produit issue des informations de version dans le fichier image du processus parent.    <br><br> Exemple : `7.9.5.0` |
 | **ParentProcessIsHidden**          | Facultatif     | Booléen    |   Indique si le processus parent est en mode masqué.  |
 | **ParentProcessInjectedAddress**   | Facultatif     | Chaîne     |    Adresse mémoire dans laquelle le processus parent responsable est stocké.           |
-| **ParentProcessId**| Obligatoire    | entier    | ID de processus (PID) du processus parent.   <br><br>     Exemple : `48610176`    |
+| **ParentProcessId**| Obligatoire    | Chaîne    | ID de processus (PID) du processus parent.   <br><br>     Exemple : `48610176`    |
 | **ParentProcessGuid**              | Facultatif     | Chaîne     |  Identificateur unique (GUID) généré du processus parent.  Permet d’identifier le processus entre les systèmes.    <br><br> Exemple : `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 | **ParentProcessIntegrityLevel**    | Facultatif     | Chaîne     |   Chaque processus a un niveau d’intégrité représenté dans son jeton. Les niveaux d’intégrité déterminent le niveau de protection ou l’accès au processus. <br><br> Windows définit les niveaux d’intégrité suivants : **low**, **medium**, **high** et **system**. Les utilisateurs Standard reçoivent un niveau d’intégrité moyen (**medium**) et les utilisateurs avec élévation de privilège reçoivent un niveau d’intégrité élevé (**high**). <br><br> Pour plus d’informations, consultez [Contrôle d’intégrité obligatoire - Applications Win32](/windows/win32/secauthz/mandatory-integrity-control). |
 | **ParentProcessMD5**               | Facultatif     | MD5        | Hachage MD5 du fichier image du processus parent.  <br><br>Exemple : `75a599802f1fa166cdadb360960b1dd0`|

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment évaluer et corriger l’impartialité de vos modèles Machine Learning à l’aide de Fairlearn et du Kit de développement logiciel (SDK) Python pour Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: 86916a14c79e9e2432dc5fb03da66081d4bab737
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: fa55476edb7e286fece50e0310dba95787c2b569
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525465"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426147"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utiliser Azure Machine Learning avec le package open source Fairlearn pour évaluer l’impartialité des modèles Machine Learning (version préliminaire)
 

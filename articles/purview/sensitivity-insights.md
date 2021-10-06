@@ -4,19 +4,22 @@ description: Ce guide pratique explique comment afficher et utiliser les rapport
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 01/17/2021
-ms.openlocfilehash: d3b828aab13a822c307119dca64dac81c9201d5b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.date: 09/27/2021
+ms.openlocfilehash: cf3540f439396f3e4308eae10077693de440827f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122563968"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213961"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights relatifs aux étiquettes de confidentialité de vos données dans Azure Purview
 
 Ce guide pratique explique comment accéder aux insights relatifs à la sécurité fournis par les étiquettes de confidentialité appliquées à vos données, ainsi que la façon de les consulter et de les filtrer.
+
+> [!IMPORTANT]
+> Les aperçus d'étiquettes de confidentialité Azure Purview sont actuellement disponibles en PRÉVERSION. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
 Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, compartiments Amazon S3.
 
@@ -40,11 +43,11 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 
 - [Étendez les étiquettes de confidentialité de Microsoft 365 aux ressources dans Azure Purview](create-sensitivity-label.md), et créez ou sélectionnez les étiquettes que vous souhaitez appliquer à vos données.
 
-- Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
+- Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d'informations, consultez [Gérer des sources de données dans Azure Purview](manage-data-sources.md) et [Créer un ensemble de règles d'analyse](create-a-scan-rule-set.md).
 
 - Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#roles).
 
-Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Étiqueter automatiquement vos données dans Azure Purview](create-sensitivity-label.md).
+Pour plus d'informations, consultez [Gérer des sources de données dans Azure Purview](manage-data-sources.md) et [Étiqueter automatiquement vos données dans Azure Purview](create-sensitivity-label.md).
 
 ## <a name="use-purview-sensitivity-labeling-insights"></a>Utiliser les insights Purview relatifs à l’étiquetage de confidentialité
 
@@ -74,7 +77,7 @@ Purview utilise les mêmes classifications, également appelées [types d’info
     > [!NOTE]
     > Si ce rapport est vide, vous n’avez peut-être pas étendu vos étiquettes de confidentialité à Azure Purview. Pour plus d’informations, consultez [Étiqueter automatiquement vos données dans Azure Purview](create-sensitivity-label.md).
 
-   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Insights relatifs à l’étiquetage de confidentialité" lightbox="media/insights/sensitivity-labeling-insights.png":::
+   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Insights relatifs à l’étiquetage de confidentialité":::
 
    La page principale d’**Insights relatifs à l’étiquetage de confidentialité** affiche les zones suivantes :
 
@@ -99,7 +102,7 @@ Dans l’un des graphiques **Insights relatifs à l’étiquetage de confidentia
 
 Par exemple :
 
-:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Exploration hiérarchique des étiquettes de confidentialité" lightbox="media/insights/sensitivity-label-drilldown.png":::
+:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Exploration hiérarchique des étiquettes de confidentialité":::
 
 Pour en savoir plus, effectuez l’une des actions suivantes :
 

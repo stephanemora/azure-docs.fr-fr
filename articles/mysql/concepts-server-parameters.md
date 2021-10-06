@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 709732e996e0ffda7c3ae7f2f1199522c0b22e51
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 0aeaf068de0bdcc06deb3e28575047b459b56b27
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256620"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426109"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Paramètres de serveur dans Azure Database pour MySQL
 
@@ -85,7 +85,7 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/innod
 |Mémoire optimisée|16|65498251264|134217728|65498251264|
 |Mémoire optimisée|32|132070244352|134217728|132070244352|
 
-#### <a name="servers-on-general-purpose-storage-v1-supporting-up-to-16-tb"></a>Serveurs sur [Stockage v1 universel (prenant en charge jusqu’à 16 To)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
+#### <a name="servers-on-general-purpose-storage-v2-supporting-up-to-16-tb"></a>Serveurs sur [Stockage v2 universel (prenant en charge jusqu’à 16 To)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
 
 |**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut (octets)**|**Valeur minimale (octets)**|**Valeur maximale (octets)**|
 |---|---|---|---|---|

@@ -1,19 +1,19 @@
 ---
-title: Fichier include
+title: fichier descriptif
 description: Fichier include
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 09/29/2021
+ms.date: 05/17/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: eb9d1b1221c1a12f88b7f0d766fa5007bfc3b156
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 8dddf347cfa46b24e990365765e1587526fd084c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129378082"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129095926"
 ---
 | Abréviation | Emplacement | Région |
 | --- | --- | --- |
@@ -70,7 +70,6 @@ ms.locfileid: "129378082"
 | LIS | Lisbonne, Portugal | Europe Nord |
 | LON | Londres, Royaume-Uni | Royaume-Uni Sud, Europe |
 | LOS | Lagos, Nigeria | Afrique |
-| LTS | Londres, Royaume-Uni | Royaume-Uni Sud, Europe |
 | MAA | Chennai, Inde | Inde Centre |
 | MAD | Madrid, Espagne | Espagne Centre, Europe |
 | MAN | Manchester, Royaume-Uni | Royaume-Uni Ouest, Europe |

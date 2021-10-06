@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, azla
 ms.topic: how-to
 ms.date: 09/13/2021
-ms.openlocfilehash: ed101e95a8580274661fd19d752a478677359641
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0fedae22564d9bb393952e65a737d73e1fd254f9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647192"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350484"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -897,7 +897,7 @@ Voici des informations sur les certificats auto-signés TLS/SSL :
 
 * Pour les applications logiques situées dans l’environnement Azure Logic Apps multilocataire global, les opérations HTTP n’autorisent pas les certificats TLS/SSL auto-signés. Si votre application logique émet un appel HTTP vers un serveur et présente un certificat auto-signé TLS/SSL, l’appel HTTP échouera avec une erreur `TrustFailure`.
 
-* Pour les applications logiques dans l’environnement Azure Logic Apps à locataire unique, les opérations HTTP prennent en charge les certificats TLS/SSL auto-signés. Toutefois, vous devez effectuer quelques étapes supplémentaires pour ce type d’authentification. Dans le cas contraire, l’appel échoue. Pour plus d’informations, consultez [Authentification par certificat TSL/SSL pour Azure Logic Apps à un seul locataire](../connectors/connectors-native-http.md#tsl-ssl-certificate-authentication).
+* Pour les applications logiques dans l’environnement Azure Logic Apps à locataire unique, les opérations HTTP prennent en charge les certificats TLS/SSL auto-signés. Toutefois, vous devez effectuer quelques étapes supplémentaires pour ce type d’authentification. Dans le cas contraire, l’appel échoue. Pour plus d’informations, consultez [Authentification par certificat TSL/SSL pour Azure Logic Apps à un seul locataire](../connectors/connectors-native-http.md#tlsssl-certificate-authentication).
 
   Si vous souhaitez utiliser le certificat client ou Azure Active Directory Open Authentication (Azure AD OAuth) avec le type d’informations d’identification « Certificat » à la place, vous devez effectuer quelques étapes supplémentaires pour ce type d’authentification. Dans le cas contraire, l’appel échoue. Pour plus d’informations, consultez [Certificat client ou Azure Active Directory Open Authentication (Azure AD OAuth) avec le type d’informations d’identification « Certificat » pour Azure Logic Apps à locataire unique](../connectors/connectors-native-http.md#client-certificate-authentication).
 

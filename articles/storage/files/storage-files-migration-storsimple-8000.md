@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: f51f4b9a838a7a08259b280c4d9cd185b42e588b
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: dbf422beeea23cee975b5721c7becae95bf24b6c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112116974"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434613"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migration de StorSimple 8100 et 8600 vers Azure File Sync
 
@@ -585,9 +585,11 @@ Avant de commencer, il est recommandé d’observer quelque temps votre nouveau 
 
 Votre migration est terminée.
 
+---
+
 > [!NOTE]
 > Vous avez des questions ou rencontrez des problèmes ?</br>
-> Nous sommes là pour vous aider : AzureFilesMigration@microsoft.com.
+> Nous sommes là pour vous aider : :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-migration-email.png" alt-text="Adresse de messagerie en un mot : migration Azure Files à microsoft point com":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

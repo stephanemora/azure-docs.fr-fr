@@ -4,19 +4,19 @@ description: Découvrez comment créer une règle de modèle de jeu de ressource
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/15/2021
-ms.openlocfilehash: 00b3abc14207e2cb20d61f20639bf326a426cf37
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.date: 09/27/2021
+ms.openlocfilehash: c2d6f90bf9a3e3b3f7c03db1ab0a4fbf258703eb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813606"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218866"
 ---
 # <a name="create-resource-set-pattern-rules"></a>Créer des règles de modèle de jeu de ressources
 
-Les systèmes de traitement de données à l’échelle stockent généralement une table unique sur un disque en tant que fichiers multiples. Ce concept est représenté dans Azure Purview à l’aide de jeux de ressources. Dans le catalogue de données, un jeu de ressources est un objet unique qui représente un grand nombre de ressources dans le stockage. Pour plus d’informations, consultez [Présentation des jeux de ressources](concept-resource-sets.md).
+Les systèmes de traitement de données à grande échelle stockent généralement une seule table sous forme de plusieurs fichiers. Ce concept est représenté dans Azure Purview à l’aide de jeux de ressources. Dans le catalogue de données, un jeu de ressources est un objet unique qui représente un grand nombre de ressources dans le stockage. Pour plus d’informations, consultez [Présentation des jeux de ressources](concept-resource-sets.md).
 
 Lors de l’analyse d’un compte de stockage, Azure Purview se sert d’un ensemble de modèles définis pour déterminer si un groupe d’éléments constitue un jeu de ressources. Dans certains cas, le regroupement en jeu de ressources d’Azure Purview peut ne pas refléter précisément votre patrimoine de données. Les règles de modèle de jeu de ressources vous permettent de personnaliser ou de changer la manière dont Azure Purview détecte les ressources regroupées comme jeux de ressources et la façon dont elles sont affichées dans le catalogue.
 
@@ -26,12 +26,13 @@ Les règles de modèle sont actuellement prises en charge dans les types de sour
 - Azure Files
 - Amazon S3
 
+La fonctionnalité relative aux ensembles de ressources avancés doit être activée pour permettre la création de règles de modèle d’ensemble de ressources. Pour en savoir plus, consultez [Présentation des ensembles de ressources avancés](concept-resource-sets.md#advanced-resource-sets).
 
 ## <a name="how-to-create-a-resource-set-pattern-rule"></a>Comment créer une règle de modèle de jeu de ressources
 
 Suivez les étapes ci-dessous pour créer une règle de modèle de jeu de ressources :
 
-1. Accédez au centre de gestion. Sélectionnez **Règles de modèle** dans le menu sous l’en-tête Jeux de ressources. Sélectionnez **+ Nouveau** pour créer un ensemble de règles.
+1. Accédez au service Data Map. Sélectionnez **Règles de modèle** dans le menu situé sous l’en-tête Gestion de la source. Sélectionnez **+ Nouveau** pour créer un ensemble de règles.
 
    :::image type="content" source="media/how-to-resource-set-pattern-rules/create-new-scoped-resource-set-rule.png" alt-text="Créer une règle de modèle de jeu de ressources" border="true":::
 
@@ -53,7 +54,7 @@ Suivez les étapes ci-dessous pour créer une règle de modèle de jeu de ressou
 
       :::image type="content" source="media/how-to-resource-set-pattern-rules/scoped-resource-set-rule-example.png" alt-text="Créer une nouvelle règle de configuration." border="true":::
 
-1. Enregistrez la règle en cliquant sur **Ajouter**.
+1. Enregistrez la règle en sélectionnant **Ajouter**.
 
 > [!NOTE]
 > Après la création d’une règle de modèle, toutes les nouvelles analyses appliquent la règle lors de l’ingestion. Les ressources existantes dans le catalogue de données sont mises à jour via un processus en arrière-plan, ce qui peut prendre jusqu’à quelques heures. 

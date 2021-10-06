@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c4c0c26d413f856e522af00d29798630263ed20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89231144"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633390"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -495,7 +495,54 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |User Management|Mettre à jour une configuration d’appareil|
 |User Management|Mettre à jour un rôle|
 
+## <a name="entitlement-management"></a>Gestion des droits d’utilisation
 
+|Catégorie d’audit|Activité|
+|---|---|
+|Gestion des droits d’utilisation|Ajouter une attribution de rôle de Gestion des droits d’utilisation|
+|Gestion des droits d’utilisation|L’administrateur affecte directement l’utilisateur au package d’accès|       
+|Gestion des droits d’utilisation|L’administrateur supprime directement l’attribution du package d’accès utilisateur|
+|Gestion des droits d’utilisation|Approuver une demande d’attribution de package d’accès|
+|Gestion des droits d’utilisation|Affecter un utilisateur en tant que sponsor externe|
+|Gestion des droits d’utilisation|Affecter un utilisateur en tant que sponsor interne|
+|Gestion des droits d’utilisation|Demande d’affectation du package d’accès à l’approbation automatique|
+|Gestion des droits d’utilisation|Annuler la demande d’affectation du package d’accès|
+|Gestion des droits d’utilisation|Créer un package d’accès|
+|Gestion des droits d’utilisation|Créer une stratégie d’attribution du package d’accès|
+|Gestion des droits d’utilisation|Créer une demande de mise à jour utilisateur de l’attribution du package d’accès|   
+|Gestion des droits d’utilisation|Créer un catalogue de package d’accès|
+|Gestion des droits d’utilisation|Créer une organisation connectée|  
+|Gestion des droits d’utilisation|Créer une action personnalisée|
+|Gestion des droits d’utilisation|Créer une demande de suppression de ressource|
+|Gestion des droits d’utilisation|Créer une demande de ressource|
+|Gestion des droits d’utilisation|Créer un package d’accès|
+|Gestion des droits d’utilisation|Supprimer la stratégie d’attribution du package d’accès|
+|Gestion des droits d’utilisation|Supprimer un catalogue de package d’accès|
+|Gestion des droits d’utilisation|Supprimer une organisation connectée|
+|Gestion des droits d’utilisation|Refuser la demande d’affectation du package d’accès|
+|Gestion des droits d’utilisation|La Gestion des droits d’utilisation supprime la demande d’attribution du package d’accès pour l’utilisateur|
+|Gestion des droits d’utilisation|Exécuter une action personnalisée|
+|Gestion des droits d’utilisation|Étendre l’attribution d’un package d’accès|
+|Gestion des droits d’utilisation|Échec de la demande d’affectation du package d’accès|
+|Gestion des droits d’utilisation|Satisfaire la demande d’attribution du package d’accès|
+|Gestion des droits d’utilisation|Satisfaire l’attribution de ressources du package d’accès| 
+|Gestion des droits d’utilisation|Satisfaire partiellement la demande d’attribution du package d’accès|
+|Gestion des droits d’utilisation|Prêt à satisfaire la demande d’attribution du package d’accès|
+|Gestion des droits d’utilisation|Supprimer l’attribution de rôle de gestion des droits d’utilisation|
+|Gestion des droits d’utilisation|Supprimer l’attribution de ressources du package d’accès|
+|Gestion des droits d’utilisation|Supprimer l’utilisateur en tant que sponsor externe|
+|Gestion des droits d’utilisation|Supprimer l’utilisateur en tant que sponsor interne|
+|Gestion des droits d’utilisation|Planifier une attribution de package d’accès future|
+|Gestion des droits d’utilisation|Mettre à jour le package d’accès|
+|Gestion des droits d’utilisation|Mettre à jour la stratégie d’attribution du package d’accès|
+|Gestion des droits d’utilisation|Mettre à jour le catalogue du package d’accès|
+|Gestion des droits d’utilisation|Mettre à jour la ressource du catalogue du package d’accès|
+|Gestion des droits d’utilisation|Mettre à jour une organisation connectée|
+|Gestion des droits d’utilisation|Mettre à jour une action personnalisée|
+|Gestion des droits d’utilisation|L’utilisateur demande l’attribution du package d’accès|
+|Gestion des droits d’utilisation|L’utilisateur demande une attribution de package d’accès pour le compte du principal du service|
+|Gestion des droits d’utilisation|Demandes de l’utilisateur pour étendre l’attribution du package d’accès|
+|Gestion des droits d’utilisation|Demande de suppression de l’attribution du package d’accès par l’utilisateur|
 
 
 
@@ -523,14 +570,17 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 
 |Catégorie d’audit|Activité|
 |---|---|
-|Autres|Créer une approbation de demande|
-|Autres|Supprimer une révision d’accès|
-|User Management|Supprimer un réviseur pour la révision d’accès|
-|User Management|Demander l’application du résultat de révision|
-|User Management|Demander l’arrêt de la révision|
-|User Management|Examiner l’affectation d’application|
-|User Management|Examiner l’appartenance au groupe|
-|User Management|Examiner l’appartenance au rôle Rbac|
+|Utilisateurs invités|Supprimer un utilisateur externe|
+|Utilisateurs invités|E-mail non envoyé, utilisateur désabonné|
+|Utilisateurs invités|E-mail souscrit|
+|Utilisateurs invités|E-mail annulé|
+|Utilisateurs invités|E-mail d’invitation|
+|Utilisateurs invités|Inviter un utilisateur externe|
+|Utilisateurs invités|Inviter un utilisateur externe avec l’état réinitialiser l’invitation|
+|Utilisateurs invités|Inviter un utilisateur interne sur B2B Collaboration|
+|Utilisateurs invités|Utiliser une invitation d’utilisateur externe|
+|Utilisateurs invités|Création d’un locataire viral|
+|Utilisateurs invités|Création d’un utilisateur viral|
 
 
 ## <a name="microsoft-identity-manager-mim"></a>Microsoft Identity Manager (MIM)

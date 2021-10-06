@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 6d9f5538d377be1414089e591559344bde4f381a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2567a75c0accd7e2bb932d8578e1a225518f5ce3
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98795642"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092753"
 ---
 # <a name="security-tokens"></a>Jetons de sécurité
 
@@ -26,7 +26,7 @@ Un fournisseur d’identité centralisé est particulièrement utile pour les ap
 
 **Jeton d’accès** : Un jeton d’accès est un jeton de sécurité émis par un [serveur d’autorisation](developer-glossary.md#authorization-server) dans le cadre d’un flux [OAuth 2.0](active-directory-v2-protocols.md). Il contient des informations sur l’utilisateur et la ressource à laquelle le jeton est destiné. Les informations peuvent être utilisées pour accéder à des API web et à d’autres ressources protégées. Les jetons d’accès sont validés par des ressources pour accorder l’accès à une application cliente. Pour en savoir plus sur la façon dont la plateforme d’identités Microsoft émet des jetons d’accès, consultez [Jetons d’accès](access-tokens.md).
 
-**Jeton d’actualisation** : Les jetons d’accès n’étant valides que pendant une courte période, les serveurs d’autorisation émettent parfois un jeton d’actualisation en même temps que le jeton d’accès. L’application cliente peut alors échanger ce jeton d’actualisation contre un nouveau jeton d’accès si nécessaire. Pour en savoir plus sur la façon dont la plateforme d’identités Microsoft utilise des jetons d’actualisation pour révoquer des autorisations, consultez [Révocation des jetons](access-tokens.md#token-revocation).
+**Jeton d’actualisation** : Les jetons d’accès n’étant valides que pendant une courte période, les serveurs d’autorisation émettent parfois un jeton d’actualisation en même temps que le jeton d’accès. L’application cliente peut alors échanger ce jeton d’actualisation contre un nouveau jeton d’accès si nécessaire. Pour en savoir plus sur la façon dont la plateforme d’identités Microsoft utilise les jetons d’actualisation pour révoquer les autorisations, consultez [Jetons d’actualisation](refresh-tokens.md).
 
 **Jeton d’ID** : Les jetons d’ID sont envoyés à l’application cliente dans le cadre d’un flux [OpenID Connect](v2-protocols-oidc.md). Ils peuvent être envoyés en même temps qu’un jeton d’accès ou à la place de celui-ci. Les jetons d’ID sont utilisés par le client pour authentifier l’utilisateur. Pour en savoir plus sur la façon dont la plateforme d’identités Microsoft émet des jetons d’ID, consultez [Jetons d’ID](id-tokens.md).
 

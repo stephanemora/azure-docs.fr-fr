@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 52966adfeffc137bf9edd95c61887dbc98f02aa6
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 673835a3e3112bf433faeba815e65c6203dd9ce8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221512"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603806"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -44,6 +44,10 @@ Les organisations qui utilisent Azure AD B2C comme solution de gestion des ident
 2. L’utilisateur peut utiliser un compte local Azure AD B2C ou tout autre fournisseur d’identité fédéré (s’il est configuré) pour s’authentifier.
 3. Si l’utilisateur se connecte à l’aide d’un fournisseur d’identité fédéré, une réponse de jeton est envoyée à Azure AD B2C.
 4. Azure AD B2C génère une assertion SAML et l’envoie à l’application.
+
+Regardez cette vidéo pour apprendre à intégrer des applications SAML avec Azure AD B2C. 
+
+>[!Video https://www.youtube.com/embed/r2TIVBCm7v4]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -95,7 +99,8 @@ Pour établir une relation d’approbation entre votre application et Azure AD B
 Vous devez enregistrer votre certificat dans votre client Azure AD B2C.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire contenant votre locataire.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sélectionnez **Tous les services** dans l’angle supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Dans la page **de présentation**, sélectionnez **Identity Experience Framework**.
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
@@ -292,7 +297,8 @@ Remplacez `<tenant-name>` par le nom de votre locataire Azure AD B2C. Remplacez
 Pour qu’Azure AD B2C approuve votre application, vous créez une inscription d’application Azure AD B2C. L’inscription contient des informations de configuration telles que le point de terminaison des métadonnées de l’application.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire contenant votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Entrez un **Nom** pour l’application. Par exemple, entrez **SAMLApp1**.

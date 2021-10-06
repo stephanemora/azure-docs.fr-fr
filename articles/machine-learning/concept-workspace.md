@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2021
-ms.openlocfilehash: 37e6573e1bc26bc79477cf532ef442964f760985
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 32d5602a4f71b1e66e135fe2478f2d9b10b8424d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226783"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129219189"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -115,7 +115,12 @@ Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement 
 
   Si vous souhaitez utiliser un compte Stockage Azure existant, il ne doit pas s’agir d’un compte BlobStorage ou Premium (Premium_LRS ou Premium_GRS). Il ne peut pas non plus comporter d’espace de noms hiérarchique (utilisé avec Azure Data Lake Storage Gen2). Ni le stockage Premium ni les espaces de noms hiérarchiques ne sont pris en charge avec le compte de stockage _par défaut_ de l’espace de travail. Ils peuvent en revanche être utilisés avec des comptes de stockage _autres que les comptes par défaut_.
   
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) : Enregistre les conteneurs docker que vous utilisez pendant la formation et lorsque vous déployez un modèle. Pour réduire les coûts, ACR est **chargé en différé** jusqu’à la création des images de déploiement.
++ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) : inscrit les conteneurs Docker utilisés pour les composants suivants :
+    * [Environnements Azure Machine Learning](concept-environments.md) pour l’entraînement et le déploiement de modèles
+    * [AutoML](concept-automated-ml.md) pour le déploiement
+    * [Profilage des données](how-to-connect-data-ui.md#data-profile-and-preview)
+
+    Pour réduire les coûts, ACR fait l’objet d’un **chargement différé** jusqu’à ce que les images soient nécessaires.
 
     > [!NOTE]
     > Si votre paramètre d’abonnement exige l’ajout de balises aux ressources qu’il contient, Azure Container Registry (ACR) créé par Azure Machine Learning échouera, car il est impossible de définir des balises sur ACR.

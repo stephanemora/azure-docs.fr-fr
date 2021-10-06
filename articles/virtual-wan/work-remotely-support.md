@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: c82bce78f82e28d4accc97ec816e6b1edc9346cf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ad8a365550b25906c7fb4fabda725b21abe97417
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532611"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123477759"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Azure Virtual WAN et prise en charge du travail à distance
 
@@ -51,7 +51,7 @@ Le Virtual WAN de base fournit uniquement un VPN site à site. Pour que les util
 
 ## <a name="additional-information"></a><a name="other considerations"></a>Informations supplémentaires
 
-Virtual WAN prend en charge plusieurs hubs par région/localisation. Pour plus d’informations sur les emplacements, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md). Chaque concentrateur prend en charge jusqu’à 10 000 connexions d’utilisateurs distants, 1 000 connexions de branche, quatre circuits ExpressRoute et 500 connexions de réseau virtuel. Lorsque vous mettez à l’échelle les utilisateurs distants, si vous avez des questions, n’hésitez pas à rechercher de l’aide en envoyant un e-mail à azurevirtualwan@microsoft.com. Si vous avez besoin d’un support technique, veillez à ouvrir un ticket de support à partir du portail Azure pour obtenir de l’aide.
+Virtual WAN prend en charge plusieurs hubs par région/localisation. Pour plus d’informations sur les emplacements, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md). Chaque concentrateur prend en charge jusqu’à 100 000 connexions d’utilisateurs distants, 1 000 connexions de branche, quatre circuits ExpressRoute et 500 connexions de réseau virtuel. Lorsque vous mettez à l’échelle les utilisateurs distants, si vous avez des questions, n’hésitez pas à rechercher de l’aide en envoyant un e-mail à azurevirtualwan@microsoft.com. Si vous avez besoin d’un support technique, veillez à ouvrir un ticket de support à partir du portail Azure pour obtenir de l’aide.
 
 ## <a name="faq"></a><a name="faq"></a>Forum Aux Questions
 

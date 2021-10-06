@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: c6b4f6b9ce5486efcba4a7cb291a1720e25adf62
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 00f083dd5b8ed056f31d268017e56a571fb3b913
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533106"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434265"
 ---
-# <a name="azure-monitor-logs-data-security"></a>Sécurité des données des Journaux Azure Monitor
+# <a name="azure-monitor-logs-data-security"></a>Sécurité des données des journaux Azure Monitor
 Ce document est destiné à fournir des informations propres aux [Journaux Azure Monitor](../logs/data-platform-logs.md) en complément des informations disponibles sur le [Centre de confidentialité Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
 Cet article décrit les procédures de collecte, de traitement et de sécurisation des données par Azure Monitor. Vous pouvez utiliser des agents pour la connexion au service Web, utiliser Operations Manager pour collecter des données opérationnelles ou récupérer des données à partir des diagnostics Azure pour une utilisation par Azure Monitor. 

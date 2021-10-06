@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/21/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 6d345dcb2344c4f39eed7ce4da6b24cc9f717358
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2173afc4d96bd387f264d313696c41f0e6cbd84e
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569961"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272179"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 
@@ -629,7 +629,7 @@ Renvoie « Joh ».
 | š, ś, ș, ş, s̄, s̱ | s |  Š, Ś, Ș, Ş, S̄, S̱ | S | 
 | ť, ț, t̄, ṯ | t | Ť, Ț, T̄, Ṯ | T | 
 | ü, ù, û, ú, ů, ű, ū, ū́, ū̀, ū̂, ū̃, u̇̄, ǖ, ṻ, ṳ̄, u̱ | u |  Ü, Ù, Û, Ú, Ů, Ű, Ū, Ū́, Ū̀, Ū̂, Ū̃, U̇̄, Ǖ, Ṻ, Ṳ̄, U̱ | U | 
-| ÿ, ý, ȳ, ȳ́, ȳ̀, ȳ̃, y̱ | o | Ÿ, Ý, Ȳ, Ȳ́, Ȳ̀, Ȳ̃, Y̱ | O | 
+| ÿ, ý, ȳ, ȳ́, ȳ̀, ȳ̃, y̱ | y | Ÿ, Ý, Ȳ, Ȳ́, Ȳ̀, Ȳ̃, Y̱ | Y | 
 | ź, ž, ż, z̄, ẕ | z | Ź, Ž, Ż, Z̄, Ẕ | Z | 
 
 
@@ -702,7 +702,7 @@ Exemple de valeur renvoyée : *7/2/2021 3:33:38 PM*
 
 **Remarques :**
 
-* Si le paramètre *wordSeparators* n’est pas spécifié, PCase appelle en interne la fonction .NET [ToTitleCase](https://docs.microsoft.com/dotnet/api/system.globalization.textinfo.totitlecase?view=net-5.0) pour convertir la chaîne *source* dans la casse adéquate. La fonction .NET *ToTitleCase* prend en charge un ensemble complet de [catégories de caractères Unicode](https://www.unicode.org/reports/tr44/#General_Category_Values) comme séparateurs de mots. 
+* Si le paramètre *wordSeparators* n’est pas spécifié, PCase appelle en interne la fonction .NET [ToTitleCase](/dotnet/api/system.globalization.textinfo.totitlecase) pour convertir la chaîne *source* dans la casse adéquate. La fonction .NET *ToTitleCase* prend en charge un ensemble complet de [catégories de caractères Unicode](https://www.unicode.org/reports/tr44/#General_Category_Values) comme séparateurs de mots. 
   * Espace
   * Caractère de nouvelle ligne
   * Caractères de *contrôle* tels que CRLF
@@ -722,7 +722,7 @@ Exemple de valeur renvoyée : *7/2/2021 3:33:38 PM*
 
 Supposons que vous approvisionniez les attributs *FirstName* et *LastName* auprès de SAP SuccessFactors et que dans HR, ces deux attributs sont en majuscules. À l’aide de la fonction PCase, vous pouvez convertir le nom dans la casse adéquate comme illustré ci-dessous. 
 
-| Expression | Entrée | Sortie | Notes |
+| Expression | Entrée | Output | Notes |
 | --- | --- | --- | --- |
 | `PCase([firstName])` | *firstName* = "PABLO GONSALVES (SECOND)" | "Pablo Gonsalves (Second)" | Comme le paramètre *wordSeparators* n’est pas spécifié, la fonction *PCase* utilise le jeu de caractères de séparation de mots par défaut. |
 | `PCase([lastName]," '-")` | *lastName* = "PINTO-DE'SILVA" | "Pinto-De'Silva" | La fonction *PCase* utilise les caractères dans le paramètre *wordSeparators* pour identifier les mots et les convertir dans la casse adéquate. |

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: 7b0d43cec561040e98688a216165d7a4ed88c3d2
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: b4b953c527010cb4ec15f0adf52df6bb3b0d7db0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635174"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674943"
 ---
 # <a name="access-a-compute-instance-terminal-in-your-workspace"></a>Accès à un terminal d’instance de calcul dans votre espace de travail
 
@@ -81,7 +81,7 @@ Ou vous pouvez installer des packages directement dans Jupyter Notebook ou RStud
 ## <a name="add-new-kernels"></a>Ajouter de nouveaux noyaux
 
 > [!WARNING]
->  Lors de la personnalisation de l’instance de calcul, veillez à ne pas supprimer les environnements conda **azureml_py36** ou **azureml_py38**.  Ne supprimez pas les noyaux **Python 3.6 - AzureML** ou **Python 3.8 - AzureML**. Ils sont tous les deux nécessaires pour le bon fonctionnement de Jupyter/JupyterLab.
+>  Lors de la personnalisation de l’instance de calcul, veillez à ne pas supprimer les environnements conda **azureml_py36** ou **azureml_py38**.  Ne supprimez pas les noyaux **Python 3.6 - AzureML** et **Python 3.8 - AzureML**. Ils sont tous les deux nécessaires pour le bon fonctionnement de Jupyter/JupyterLab.
 
 Pour ajouter un nouveau noyau Jupyter à l’instance de calcul :
 

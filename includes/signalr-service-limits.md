@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2020
 ms.author: zhshang
-ms.openlocfilehash: 328a3d088ea21ec55f5e06cfbfc307fca2b03afa
-ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
+ms.openlocfilehash: f5b197448529e953d5d7d188b00a88d60e87e900
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113644368"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123453774"
 ---
 | Ressource | Limite par défaut | Limite maximale | 
 | --- | --- | --- |
@@ -36,3 +36,7 @@ ms.locfileid: "113644368"
 Pour demander une mise à jour des limites par défaut de votre abonnement, ouvrez un ticket de support.
 
 Pour obtenir davantage d’informations sur la comptabilisation des connexions et des messages, consultez [Messages et connexions dans Azure SignalR Service](../articles/azure-signalr/signalr-concept-messages-and-connections.md).
+
+Si vos besoins dépassent les limites, passez du niveau Gratuit au niveau Standard et ajoutez des unités. Pour plus d’informations, consultez [Comment mettre à l’échelle une instance d’Azure SignalR Service ?](../articles/azure-signalr/signalr-howto-scale-signalr.md). 
+
+Si vos besoins dépassent les limites d’une seule instance, ajoutez des instances. Pour plus d’informations, consultez [Comment mettre à l’échelle SignalR Service avec plusieurs instances ?](../articles/azure-signalr/signalr-howto-scale-multi-instances.md).

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.reviewer: mariozi
-ms.openlocfilehash: 3580ae78497426f1399981035e861bc51c912144
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 725ebc0dbb8b037dcfcde8d154353fd7cf0a1a59
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697554"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208090"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Chiffrer Azure Data Factory avec des clés gérées par le client
 
@@ -149,7 +149,7 @@ Par défaut, la configuration de CMK n’est pas incluse dans le modèle ARM (Az
 
   :::image type="content" source="media/enable-customer-managed-key/07-include-in-template.png" alt-text="Capture d’écran montrant l’inclusion du paramètre de clé gérée par le client dans le modèle ARM.":::
 
-Les paramètres suivants seront ajoutés dans le modèle ARM. Ces propriétés peuvent être paramétrées dans des pipelines d’intégration et de livraison continues en modifiant la [configuration des paramètres Azure Resource Manager](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template).
+Les paramètres suivants seront ajoutés dans le modèle ARM. Ces propriétés peuvent être paramétrées dans des pipelines d’intégration et de livraison continues en modifiant la [configuration des paramètres Azure Resource Manager](continuous-integration-delivery-resource-manager-custom-parameters.md).
 
   :::image type="content" source="media/enable-customer-managed-key/08-template-with-customer-managed-key.png" alt-text="Capture d’écran montrant l’inclusion du paramètre de clé gérée par le client dans le modèle Azure Resource Manager.":::
 

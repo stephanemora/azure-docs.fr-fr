@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 8897e6da3b3d70f9b7d0434dade86e4f2ceb9c50
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 696db5ef934dd0aca5a7485e7d40bf85d0cd8cb4
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094421"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473295"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Tableau de prise en charge pour la migration de serveurs physiques
 
@@ -59,6 +59,7 @@ Le tableau résume la prise en charge de serveurs physiques que vous souhaitez m
 **Multipath I/O** | Non pris en charge.
 **Cartes réseau associées** | Non pris en charge.
 **IPv6** | Non pris en charge.
+**Pilotes PV/outils XenServer** | Non pris en charge.
 
 
 

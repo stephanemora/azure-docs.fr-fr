@@ -3,17 +3,17 @@ title: " Mettre à jour les services web"
 titleSuffix: Azure Machine Learning
 description: Découvrez comment actualiser un service web déjà déployé dans Azure Machine Learning. Vous pouvez mettre à jour des paramètres tels que le modèle, l’environnement et le script d’entrée.
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: c25dbb3c03bb4c03a511b4e526ff8248bd0096c8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cbcda2cc8bf9621ce6b323bc2b80a3af5da12bba
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641994"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428974"
 ---
 # <a name="update-a-deployed-web-service"></a>Mettre à jour un service web déployé
 

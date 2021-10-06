@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Découvrez la façon dont Azure Machine Learning s’intègre à un référentiel Git local pour suivre les informations relatives au référentiel, aux branches et aux validations actuelles dans le cadre d’une exécution de formation.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 04/08/2021
-ms.openlocfilehash: 37c7d94bfb645e444b4fb937823dcb8d56bcb9c7
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 3ff019488bff9d2e1088aae37902bb274f77470b
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112457730"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424594"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Intégration de Git pour Azure Machine Learning
 

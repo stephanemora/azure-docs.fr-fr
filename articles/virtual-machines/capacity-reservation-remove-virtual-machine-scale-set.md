@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 2d8f9c7c73b4cb5d0f617893a7d981b94d30b344
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 03b89b1b8c0221795f58ff28addd4fdeaad5053e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128553094"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532580"
 ---
 # <a name="remove-a-virtual-machine-scale-set-association-from-a-capacity-reservation-group"></a>Supprimer une association de groupe de machines virtuelles identiques d’un groupe de réservations de capacité 
 
@@ -28,14 +28,6 @@ Vous pouvez modifier l’association de deux façons :
 > [!IMPORTANT]
 > La réservation de capacité est actuellement en version préliminaire publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="register-for-capacity-reservation"></a>S’inscrire à la réservation de capacité 
-
-Avant de pouvoir utiliser la fonctionnalité Réservation de capacité, vous devez [inscrire votre abonnement pour la préversion](capacity-reservation-overview.md#register-for-capacity-reservation). L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour finaliser l’inscription de la fonctionnalité.
-
-> [!NOTE]
-> La réservation de capacité à la demande est disponible pour les groupes de machines virtuelles identiques en mode d’orchestration uniforme uniquement dans les régions sélectionnées. Pour vérifier si votre région est prise en charge, accédez au [Traqueur de déploiement de groupe de machines virtuelles identiques uniformes](https://aka.ms/vmssuniformdeploymenttracker).
-
 
 ## <a name="deallocate-the-virtual-machine-scale-set"></a>Libérer un groupe de machines virtuelles identiques
 

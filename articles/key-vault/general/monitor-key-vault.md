@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 09/21/2021
 ms.author: mbaldwin
 ms.custom: subject-monitoring
-ms.openlocfilehash: 753dbf0bdaa1e97a04422b567dcbc199717bbd71
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: fbb92ac1d1d6992a78577a8dfc062d6730302f2d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207301"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353351"
 ---
 # <a name="monitoring-azure-key-vault"></a>Supervision d’Azure Key Vault
 
@@ -84,7 +84,7 @@ Pour obtenir la liste des tables utilisées par les Journaux de surveillance Azu
 > [!IMPORTANT]
 > Quand vous sélectionnez **Journaux** dans le menu Key Vault, Log Analytics est ouvert avec l’étendue de requête définie sur le coffre de clés actuel. Cela signifie que les requêtes de journal n’incluront que les données de cette ressource. Si vous voulez exécuter une requête qui inclut des données provenant d’autres coffres de clé ou d’autres services Azure, sélectionnez **Journaux** dans le menu **Azure Monitor**. Pour plus d’informations, consultez [Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor](/azure/azure-monitor/log-query/scope/).
 
-Voici quelques requêtes que vous pouvez entrer dans la barre de recherche **Recherche dans les journaux** pour superviser plus facilement vos ressources Key Vault. Ces requêtes fonctionnent avec le [nouveau langage](/azure-monitor/logs/log-query-overview).
+Voici quelques requêtes que vous pouvez entrer dans la barre de recherche **Recherche dans les journaux** pour superviser plus facilement vos ressources Key Vault. Ces requêtes fonctionnent avec le [nouveau langage](/azure/azure-monitor/logs/log-query-overview).
 
 * Des demandes sont-elles lentes ?
 
@@ -181,7 +181,7 @@ Voici quelques requêtes que vous pouvez entrer dans la barre de recherche **Rec
 
 Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes affectant votre système avant que vos clients ne les remarquent. Vous pouvez définir des alertes sur des [métriques](../../azure-monitor/platform/alerts-metric-overview.md), sur des [journaux](../../azure-monitor/platform/alerts-unified-log.md) et sur le [journal d’activité](../../azure-monitor/platform/activity-log-alerts.md). Les différents types d’alertes présentent des avantages et des inconvénients
 
-Si vous créez ou exécutez une application qui utilise Azure Key Vault, les [Insights d’application Azure Monitor](/azure-monitor/overview#application-insights.md) peuvent vous proposer des types d’alertes supplémentaires.
+Si vous créez ou exécutez une application qui utilise Azure Key Vault, les [Insights d’application Azure Monitor](/azure/azure-monitor/overview#application-insights) peuvent vous proposer des types d’alertes supplémentaires.
 
 Voici quelques règles d’alerte courantes et recommandées pour Azure Key Vault.
 

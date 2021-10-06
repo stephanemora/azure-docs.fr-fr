@@ -4,13 +4,13 @@ description: Explique comment définir des paramètres dans un fichier Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 8701d437a34d364ff6f6e2d58cbf84dc28a79798
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 09/13/2021
+ms.openlocfilehash: b53402dfaa274c57d40ef7814b7920dc7eb0a8c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634210"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619511"
 ---
 # <a name="parameters-in-bicep"></a>Paramètres dans Bicep
 
@@ -20,7 +20,11 @@ Resource Manager résout les valeurs des paramètres avant de démarrer les opé
 
 Chaque paramètre doit être défini sur l’un des [types de données](data-types.md).
 
-## <a name="minimal-declaration"></a>Déclaration minimale
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les paramètres et pour obtenir des conseils pratiques, consultez [Créer des modèles Bicep réutilisables en utilisant des paramètres](/learn/modules/build-reusable-bicep-templates-parameters) sur **Microsoft Learn**.
+
+## <a name="declaration"></a>Déclaration
 
 Chaque paramètre a besoin d’un nom et d’un type. Un paramètre ne peut pas avoir le même nom qu’une variable, qu’une ressource, qu’une sortie ou qu’un autre paramètre dans la même étendue.
 
@@ -32,18 +36,27 @@ param demoObject object
 param demoArray array
 ```
 
-## <a name="decorators"></a>Décorateurs
+## <a name="default-value"></a>Valeur par défaut
 
-Les paramètres utilisent des décorateurs pour les contraintes ou les métadonnées. Les décorateurs sont au format `@expression` et sont placés au-dessus de la déclaration du paramètre.
+Vous pouvez spécifier une valeur par défaut pour un paramètre. La valeur par défaut est utilisée quand aucune valeur n’est fournie pendant le déploiement.
 
 ```bicep
-@expression
-param stgAcctName string
+param demoParam string = 'Contoso'
 ```
 
-Dans les sections ci-dessous, cet article montre comment utiliser les décorateurs disponibles dans un fichier Bicep.
+Vous pouvez utiliser des expressions avec la valeur par défaut. Les expressions ne sont pas autorisées avec d’autres propriétés de paramètre. Vous ne pouvez pas utiliser la fonction [reference](bicep-functions-resource.md#reference) ni aucune des fonctions [list](bicep-functions-resource.md#list) dans la section parameters. Ces fonctions obtiennent l’état d’exécution d’une ressource et ne peuvent pas être exécutées avant le déploiement quand des paramètres sont résolus.
+
+```bicep
+param location string = resourceGroup().location
+```
+
+Vous pouvez utiliser une autre valeur de paramètre pour générer une valeur par défaut. Le modèle suivant construit un nom de plan d’hôte à partir du nom de site.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
 
 ## <a name="secure-parameters"></a>Paramètres sécurisés
+
+Les paramètres utilisent des décorateurs pour les contraintes ou les métadonnées. Les décorateurs sont au format `@expression` et sont placés au-dessus de la déclaration du paramètre.
 
 Vous pouvez marquer les paramètres de chaîne ou d’objet comme sécurisés. La valeur d’un paramètre sécurisé n’est pas enregistrée dans l’historique de déploiement et n’est pas journalisée.
 
@@ -65,39 +78,6 @@ Vous pouvez définir des valeurs autorisées pour un paramètre. Vous fournissez
   'two'
 ])
 param demoEnum string
-```
-
-## <a name="default-value"></a>Valeur par défaut
-
-Vous pouvez spécifier une valeur par défaut pour un paramètre. La valeur par défaut est utilisée quand aucune valeur n’est fournie pendant le déploiement.
-
-```bicep
-param demoParam string = 'Contoso'
-```
-
-Pour spécifier une valeur par défaut ainsi que d’autres propriétés pour le paramètre, utilisez la syntaxe suivante.
-
-```bicep
-@allowed([
-  'Contoso'
-  'Fabrikam'
-])
-param demoParam string = 'Contoso'
-```
-
-Vous pouvez utiliser des expressions avec la valeur par défaut. Vous ne pouvez pas utiliser la fonction [reference](bicep-functions-resource.md#reference) ni aucune des fonctions [list](bicep-functions-resource.md#list) dans la section parameters. Ces fonctions obtiennent l’état d’exécution d’une ressource et ne peuvent pas être exécutées avant le déploiement quand des paramètres sont résolus.
-
-Les expressions ne sont pas autorisées avec d’autres propriétés de paramètre.
-
-```bicep
-param location string = resourceGroup().location
-```
-
-Vous pouvez utiliser une autre valeur de paramètre pour générer une valeur par défaut. Le modèle suivant construit un nom de plan d’hôte à partir du nom de site.
-
-```bicep
-param siteName string = 'site${uniqueString(resourceGroup().id)}'
-param hostingPlanName string = '${siteName}-plan'
 ```
 
 ## <a name="length-constraints"></a>Contraintes de longueur
@@ -154,62 +134,8 @@ Il peut s’avérer plus facile d’organiser des valeurs connexes en les transm
 
 L’exemple suivant illustre un paramètre qui est un objet. La valeur par défaut affiche les propriétés attendues pour l’objet. Ces propriétés sont utilisées lors de la définition de la ressource à déployer.
 
-```bicep
-param vNetSettings object = {
-  name: 'VNet1'
-  location: 'eastus'
-  addressPrefixes: [
-    {
-      name: 'firstPrefix'
-      addressPrefix: '10.0.0.0/22'
-    }
-  ]
-  subnets: [
-    {
-      name: 'firstSubnet'
-      addressPrefix: '10.0.0.0/24'
-    }
-    {
-      name: 'secondSubnet'
-      addressPrefix: '10.0.1.0/24'
-    }
-  ]
-}
-resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
-  name: vNetSettings.name
-  location: vNetSettings.location
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        vNetSettings.addressPrefixes[0].addressPrefix
-      ]
-    }
-    subnets: [
-      {
-        name: vNetSettings.subnets[0].name
-        properties: {
-          addressPrefix: vNetSettings.subnets[0].addressPrefix
-        }
-      }
-      {
-        name: vNetSettings.subnets[1].name
-        properties: {
-          addressPrefix: vNetSettings.subnets[1].addressPrefix
-        }
-      }
-    ]
-  }
-}
-```
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterobject.bicep":::
 
-## <a name="example-templates"></a>Exemples de modèles
-
-Les exemples suivants illustrent des scénarios d’utilisation de paramètres.
-
-|Modèle  |Description  |
-|---------|---------|
-|[Paramètres avec fonctions pour les valeurs par défaut](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterswithfunctions.bicep) | Montre comment utiliser les fonctions Bicep durant la définition des valeurs par défaut des paramètres. Le fichier Bicep ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
-|[Objet de paramètre](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterobject.bicep) | Montre comment utiliser un objet pour un paramètre. Le fichier Bicep ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 798d0aaa6f4423679576c37a0af7bf64de37a313
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
+ms.openlocfilehash: f128aac2135b85c3e612ce1249766b7e5db29f05
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112428809"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549616"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configuration des points de terminaison réseau Azure File Sync
 Azure Files et Azure File Sync fournissent deux principaux types de points de terminaison pour l’accès aux partages de fichiers Azure : 
@@ -30,7 +30,7 @@ Avant de lire le présent guide, nous vous recommandons de lire [Considérations
 Cet article suppose que vous avez :
 - Vous avez un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - Vous avez déjà créé un partage de fichiers Azure dans un compte de stockage auquel vous souhaitez vous connecter à partir d’un emplacement local. Pour savoir comment créer un partage de fichiers Azure, consultez [Créer un partage de fichiers Azure](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
-- Vous avez déjà créé un service de synchronisation de stockage et vous l’avez inscrit auprès de votre serveur de fichiers Windows. Pour savoir comment déployer Azure File Sync, consultez [Déploiement d’Azure File Sync](file-sync-deployment-guide.md).
+- Pour autoriser le trafic de domaine vers les points de terminaison suivants, consultez [Points de terminaison de service Azure](../file-sync/file-sync-firewall-and-proxy.md#firewall) :
 
 De plus :
 - Si vous envisagez d’utiliser Azure PowerShell, [installez-en la dernière version](/powershell/azure/install-az-ps).

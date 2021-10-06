@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 03/16/2020
-ms.openlocfilehash: 3fe1862f951b83c6514bda061650b912e9230e46
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: ae8bbad9d99837bd1cd0d21b66a37c895b816f2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533094"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642658"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configurer un abonnement de la Place de marché Azure pour les versions d'évaluation hébergées
 
@@ -57,10 +57,13 @@ Cet article explique comment configurer un abonnement de la Place de marché Azu
     13. Pour générer une clé secrète pour l’Azure AD App :
         1. Dans **Gérer l’application**, sélectionnez **Certificat et secrets**.
         2. Sous Secrets client, sélectionnez **Nouveau secret client**.
-        3. Entrez une description, par exemple *Version d'évaluation*, puis sélectionnez une durée appropriée. La version d'évaluation s’interrompt une fois cette clé expirée. Vous devez alors générer et fournir à AppSource une nouvelle clé.
+
+             :::image type="content" source="./media/test-drive/new-client-secret.png" alt-text="Ajout d’un secret client.":::
+
+        3. Entrez une description, par exemple *Version d'évaluation*, puis sélectionnez une durée appropriée. Étant donné que le test drive s’interrompt lorsque cette clé expire, vous devrez générer une nouvelle clé et la fournir à AppSource. Nous vous recommandons d’utiliser une durée maximale de 24 mois.
         4. Sélectionnez **Ajouter** pour générer le secret de l’application Azure. Copiez cette valeur, car elle sera masquée dès que vous quitterez ce panneau. Vous aurez besoin de cette valeur ultérieurement lors de la configuration de votre version d'évaluation.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Ajout d’un secret client.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-customer.png" alt-text="Ajout d’un secret client.":::
 
 5. Ajoutez le rôle de principal de service à l’application pour permettre à l’application Azure AD de supprimer des utilisateurs de votre locataire Azure.
     1. Ouvrez une invite de commandes PowerShell d’administration.
@@ -99,22 +102,20 @@ Cet article explique comment configurer un abonnement de la Place de marché Azu
             > - Ouvrez SharePoint et partagez la table de données avec le groupe de sécurité.
 
 7. Ajoutez l’application Azure nouvellement créée en tant qu’utilisateur d’application à votre instance CRM Test Drive. Cette étape s’applique uniquement aux offres Dynamics 365 Customer Engagement.
-    1. Ajoutez un nouvel utilisateur dans **Azure Active Directory**. Seules les valeurs **Nom** et **Nom d’utilisateur** (appartenant au même locataire) sont nécessaires pour créer cet utilisateur. Laissez les autres champs à leurs valeurs par défaut. Copiez la valeur de nom d’utilisateur.
-    2. Connectez-vous à **Instance CRM** et sélectionnez **Paramètre** > **Sécurité** > **Utilisateurs**.
-    3. Modifiez la vue sur **Utilisateurs de l’application**.
+    1. Connectez-vous à **Instance CRM** et sélectionnez **Paramètre** > **Sécurité** > **Utilisateurs**.
+    2. Modifiez la vue sur **Utilisateurs de l’application**.
 
         :::image type="content" source="./media/test-drive/application-users.png" alt-text="Définition des informations de compte pour un utilisateur.":::
 
-    4. Ajoutez un nouvel utilisateur (Assurez-vous que le formulaire est destiné à l’UTILISATEUR DE L’APPLICATION).
-    5. Entrez le même nom d’utilisateur dans les champs **E-mail principal** et **Nom d’utilisateur**. Ajoutez l’**Azure ApplicationId** dans **ID d’application**.
-    6. Donnez le **Nom complet** de votre choix.
-    7. Sélectionnez **Enregistrer**.
-    8. Sélectionnez **Gérer les rôles**.
-    9. Attribuez un rôle de sécurité personnalisé ou OOB qui contient des privilèges de lecture, d’écriture et d’attribution de rôles, par exemple *Administrateur système*.
+    3. Ajoutez un nouvel utilisateur (Assurez-vous que le formulaire est destiné à l’UTILISATEUR DE L’APPLICATION).
+    4. Ajoutez l’**Azure ApplicationId** créé ci-dessus dans **ID d’application**.
+    5. Sélectionnez **Enregistrer**.
+    6. Sélectionnez **Gérer les rôles**.
+    7. Attribuez un rôle de sécurité personnalisé ou OOB qui contient des privilèges de lecture, d’écriture et d’attribution de rôles, par exemple *Administrateur système*.
 
         :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="Sélection des privilèges de rôle.":::
 
-    10. Activez également le privilège **Agir pour le compte d’un autre utilisateur**.
+    10. Activez le privilège **Agir pour le compte d’un autre utilisateur**.
     11. Affectez à l’utilisateur de l’application le rôle de sécurité personnalisé que vous avez créé pour votre version d'évaluation.
 
 ## <a name="set-up-for-dynamics-365-for-operations"></a>Configurer pour Dynamics 365 for Operations
@@ -156,7 +157,7 @@ Cet article explique comment configurer un abonnement de la Place de marché Azu
         3. Entrez une description, par exemple *Version d'évaluation*, puis sélectionnez une durée appropriée. La version d'évaluation s’interrompt une fois cette clé expirée. Vous devez alors générer et fournir à AppSource une nouvelle clé.
         4. Sélectionnez **Ajouter** pour générer le secret de l’application Azure. Copiez cette valeur, car elle sera masquée dès que vous quitterez ce panneau. Vous aurez besoin de cette valeur ultérieurement lors de la configuration de votre version d'évaluation.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Ajout d’un secret client.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-operations.png" alt-text="Montre l’ajout d’un secret client.":::
 
 4. Ajoutez le rôle de principal de service à l’application pour permettre à l’application Azure AD de supprimer des utilisateurs de votre locataire Azure.
     1. Ouvrez une invite de commandes PowerShell d’administration.

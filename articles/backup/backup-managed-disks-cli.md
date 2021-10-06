@@ -2,13 +2,13 @@
 title: Sauvegarder des disques managés Azure à l’aide de l’interface Azure CLI
 description: Découvrez comment sauvegarder des disques managés Azure avec l’interface Azure CLI.
 ms.topic: conceptual
-ms.date: 06/18/2021
-ms.openlocfilehash: 42bbc54a545cdddf049163b3040d9701f4304a52
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.date: 09/17/2021
+ms.openlocfilehash: ce1e4b3f88e844165581c95f74955de04686855b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112381206"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659690"
 ---
 # <a name="back-up-azure-managed-disks-using-azure-cli"></a>Sauvegarder des disques managés Azure à l’aide de l’interface Azure CLI
 
@@ -33,7 +33,7 @@ Pour plus d’informations sur la disponibilité par région, les scénarios pri
 
 Un coffre Sauvegarde est une entité de stockage dans Azure qui stocke les données de sauvegarde de diverses charges de travail plus récentes prises en charge par la Sauvegarde Azure, notamment des serveurs Azure Database pour PostgreSQL, des objets blobs dans un compte de stockage et des disques Azure. Les coffres de sauvegarde facilitent l’organisation de vos données de sauvegarde tout en réduisant le temps nécessaire à leur gestion. Les coffres Sauvegarde sont basés sur le modèle Azure Resource Manager, qui fournit des fonctionnalités améliorées pour sécuriser les données de sauvegarde.
 
-Avant de créer un coffre Sauvegarde, choisissez la redondance de stockage des données dans le coffre. Ensuite, procédez à la création du coffre Sauvegarde avec cette redondance de stockage et l’emplacement. Dans cet article, nous allons créer un coffre Sauvegarde _TestBkpVault_ dans la région _westus_ sous le groupe de ressources _testBkpVaultRG_. Utilisez la commande [Newaz dataprotection vault create](/cli/azure/dataprotection/backup-vault?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_vault_create) pour créer un coffre Sauvegarde. Pour plus d’informations, consultez [Création d’un coffre Sauvegarde](./backup-vault-overview.md#create-a-backup-vault).
+Avant de créer un coffre Sauvegarde, choisissez la redondance de stockage des données dans le coffre. Ensuite, procédez à la création du coffre Sauvegarde avec cette redondance de stockage et l’emplacement. Dans cet article, nous allons créer un coffre Sauvegarde _TestBkpVault_ dans la région _westus_ sous le groupe de ressources _testBkpVaultRG_. Utilisez la commande [az dataprotection vault create](/cli/azure/dataprotection/backup-vault?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_vault_create) pour créer un coffre Sauvegarde. Pour plus d’informations, consultez [Création d’un coffre Sauvegarde](./backup-vault-overview.md#create-a-backup-vault).
 
 ```azurecli-interactive
 az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVault -l westus --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
@@ -283,7 +283,7 @@ az dataprotection backup-vault update -g testBkpVaultRG --vault-name TestBkpVaul
 
 ### <a name="assign-permissions"></a>Attribuer des autorisations
 
-Vous devez affecter quelques autorisations via RBAC au coffre (représenté par le fichier MSI de coffre) et le disque approprié et/ou le RG de disque. Elles peuvent être effectuées via le portail Azure ou l’interface CLI. Toutes les autorisations associées sont détaillées dans les points 1, 2 et 3 dans [Configurer une sauvegarde](backup-managed-disks.md#configure-backup).
+Vous devez affecter quelques autorisations via RBAC au coffre (représenté par le fichier MSI de coffre) et le disque approprié et/ou le RG de disque. Elles peuvent être effectuées via le portail Azure ou l’interface CLI. Pour affecter des autorisations associées, consultez les [prérequis à la configuration de la sauvegarde de disques managés](backup-managed-disks-ps.md#assign-permissions).
 
 ### <a name="prepare-the-request"></a>Préparer la requête
 

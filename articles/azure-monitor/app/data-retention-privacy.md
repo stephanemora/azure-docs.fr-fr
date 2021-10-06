@@ -4,12 +4,12 @@ description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3e37024e4fef3e989977ef76b0508aeb66d93b7a
-ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
+ms.openlocfilehash: d0ef5131d97b16e63e40c903d456713eddb84218
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113616124"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232719"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -316,4 +316,3 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur 
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md
-

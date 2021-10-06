@@ -9,13 +9,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
-ms.date: 11/27/2019
-ms.openlocfilehash: 13b1e22f1e1e5f51d524e80d0bf102b744fbec3d
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.date: 08/20/2021
+ms.openlocfilehash: b4d169a46f499e83d0abf5d3145d67a3f6fdf03b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684592"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439212"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Connecter un capteur RuuviTag à votre application Azure IoT Central
 
@@ -46,8 +46,8 @@ Pour intégrer un capteur RuuviTag dans votre instance d’application Azure IoT
 
 Pour ajouter un modèle d'appareil RuuviTag :
 
-1. Accédez à l’onglet ***Modèles d’appareil** _ dans le volet gauche, sélectionnez _*+ Nouveau** :  ![Créer un modèle d’appareil](./media/howto-connect-ruuvi/devicetemplate-new.png). La page vous donne la possibilité de ***Créer un modèle personnalisé**_ ou d’_ *_Utiliser un modèle d’appareil préconfiguré_**
-1. Sélectionnez le modèle d'appareil RuuviTag dans la liste des modèles d'appareil préconfigurés, comme indiqué ci-dessous :  ![Sélectionner le modèle d'appareil RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. Accédez à l’onglet ***Modèles d’appareil** _ dans le volet gauche, sélectionnez _*+ Nouveau** :  ![Créer un modèle d’appareil](./media/howto-connect-ruuvi/device-template-new.png). La page vous donne la possibilité de ***Créer un modèle personnalisé**_ ou d’_ *_Utiliser un modèle d’appareil préconfiguré_**
+1. Sélectionnez le modèle d’appareil multi-capteur RuuviTag dans la liste des modèles d’appareil préconfigurés, comme indiqué ci-dessous :  ![Sélectionner le modèle d’appareil RuuviTag](./media/howto-connect-ruuvi/device-template-pre-configured.png)
 1. Sélectionnez ***Suivant : Personnaliser*** pour passer à l'étape suivante.
 1. Dans l'écran suivant, sélectionnez ***Créer*** pour intégrer le modèle d'appareil C500 à votre application IoT Central.
 
@@ -59,7 +59,7 @@ Comme indiqué précédemment, pour connecter le capteur RuuviTag à votre appli
 1. Retirez le couvercle du RuuviTag et tirez sur la languette en plastique pour sécuriser la connexion avec la batterie.
 1. Placez le capteur RuuviTag à proximité d’une passerelle Rigado Cascade 500 déjà configurée dans votre application IoT Central.
 1. En quelques secondes, votre RuuviTag doit apparaître dans la liste des appareils d'IoT Central.  
-    ![Liste des appareils RuuviTag](./media/howto-connect-ruuvi/ruuvi-devicelist.png)
+    ![Liste des appareils RuuviTag](./media/howto-connect-ruuvi/ruuvi-device-list.png)
 
 Vous pouvez maintenant utiliser ce capteur RuuviTag dans votre application IoT Central.  
 

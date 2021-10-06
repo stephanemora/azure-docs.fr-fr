@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 954519f766c5c9f79fa0c8f61ed45f260743a0c2
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 01a483e43429f45562cbb464e2b595023bd2ad5f
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527942"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091024"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -54,9 +54,9 @@ Non. L’attribution d’adresses IP aux volumes Azure NetApp Files est dynamiqu
 
 Non, actuellement Azure NetApp Files ne prend pas en charge le réseau virtuel à double pile (IPv4 et IPv6).  
 
-### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>Le nombre d’adresses IP à l’aide de solutions VMware Azure pour les montages de système d’exploitation invités est-il [limité à 1000](azure-netapp-files-resource-limits.md#resource-limits) ?
+### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>Le nombre d'adresses IP à l'aide d'Azure VMware Solution pour les montages de système d'exploitation invités est-il [limité à 1 000](azure-netapp-files-resource-limits.md#resource-limits) ?
 
-Non. Les solutions VMware Azure se trouvent derrière une passerelle ER qui se comporte comme sur des systèmes locaux. Le nombre d’« hôtes » et d’« invités » AVS n’est pas visible pour Azure NetApp Files, et la limite d’adresse IP de 1000 ne s’applique pas.
+Non. Azure VMware Solution se trouve derrière une passerelle ER qui se comporte comme sur des systèmes locaux. Le nombre d’« hôtes » et d’« invités » AVS n’est pas visible pour Azure NetApp Files, et la limite d’adresse IP de 1000 ne s’applique pas.
  
 ## <a name="security-faqs"></a>Forum aux questions sur la sécurité
 
@@ -108,7 +108,7 @@ Toutefois, vous ne pouvez pas créer de stratégies Azure (stratégies de nommag
 
 ### <a name="when-i-delete-an-azure-netapp-files-volume-is-the-data-deleted-safely"></a>Lorsque je supprime un volume Azure NetApp Files, les données sont-elles supprimées en toute sécurité ? 
 
-La suppression d’un volume Azure NetApp Files est effectuée par programmation dans le serveur principal (couche d’infrastructure physique) avec effet immédiat. L’opération de suppression comprend la suppression des clés utilisées pour chiffrer les données au repos. Il n’existe aucune option pour un scénario de récupération d’un volume supprimé une fois l’opération de suppression exécutée avec succès (via des interfaces telles que le portail Azure et l’API).
+La suppression d'un volume Azure NetApp Files est effectuée par programmation avec effet immédiat. L’opération de suppression comprend la suppression des clés utilisées pour chiffrer les données au repos. Il n’existe aucune option pour un scénario de récupération d’un volume supprimé une fois l’opération de suppression exécutée avec succès (via des interfaces telles que le portail Azure et l’API).
 
 ## <a name="performance-faqs"></a>Questions fréquentes relatives aux performances
 
@@ -277,7 +277,7 @@ Size: 4096            Blocks: 8          IO Block: 65536  directory
 Oui, la [capacité de capture instantanée consommée](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) est comptabilisée dans l’espace approvisionné du volume. En cas de saturation du volume, envisagez d’effectuer les actions suivantes :
 
 * [Redimensionnez le volume](azure-netapp-files-resize-capacity-pools-or-volumes.md).
-* [Supprimez les captures instantanées plus anciennes](azure-netapp-files-manage-snapshots.md#delete-snapshots) pour libérer de l’espace dans le volume d’hébergement. 
+* [Supprimez les captures instantanées plus anciennes](snapshots-delete.md) pour libérer de l’espace dans le volume d’hébergement. 
 
 ### <a name="does-azure-netapp-files-support-auto-grow-for-volumes-or-capacity-pools"></a>Azure NetApp Files prend-il en charge la croissance automatique pour des volumes ou des pools de capacité ?
 
@@ -317,7 +317,7 @@ Par défaut, vos données restent dans la région dans laquelle vous déployez v
     
 Azure NetApp Files fournit les volumes NFS et SMB.  N’importe quel outil de copie basé sur le fichier peut être utilisé pour répliquer des données entre régions Azure. 
 
-La fonctionnalité de [réplication inter-région](cross-region-replication-introduction.md) vous permet de répliquer de façon asynchrone des données à partir d’un volume Azure NetApp Files (source) d’une région vers un autre volume Azure NetApp Files (destination) d’une autre région.  En outre, vous pouvez [créer un nouveau volume à l’aide d’une capture instantanée d’un volume existant](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume).
+La fonctionnalité de [réplication inter-région](cross-region-replication-introduction.md) vous permet de répliquer de façon asynchrone des données à partir d’un volume Azure NetApp Files (source) d’une région vers un autre volume Azure NetApp Files (destination) d’une autre région.  En outre, vous pouvez [créer un nouveau volume à l’aide d’une capture instantanée d’un volume existant](snapshots-restore-new-volume.md).
 
 NetApp offre une solution SaaS, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  La solution vous permet de répliquer les données NFS ou SMB dans des exportations NFS ou partages SMB d’Azure NetApp Files. 
 
@@ -336,6 +336,34 @@ Non. Azure Data Box ne prend pas en charge Azure NetApp Files actuellement.
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Est-ce que la migration avec le service Azure Import/Export est prise en charge ?
 
 Non. Le service Azure Import/Export ne prend pas en charge Azure NetApp Files actuellement.
+
+## <a name="azure-netapp-files-backup-faqs"></a>FAQ sur la sauvegarde Azure NetApp Files
+
+Cette section répond aux questions relatives à la fonctionnalité de [sauvegarde Azure NetApp Files](backup-introduction.md). 
+
+### <a name="when-do-my-backups-occur"></a>Quand mes sauvegardes se produisent-elles ?   
+
+Les sauvegardes Azure NetApp Files démarrent dans un laps de temps aléatoire après la saisie de la fréquence d'une stratégie de sauvegarde. Par exemple, les sauvegardes hebdomadaires sont initiées dimanche dans un intervalle affecté de façon aléatoire après 00 h 00 (minuit). Cette heure ne peut pas être modifiée par les utilisateurs pour l'instant. La sauvegarde de base est lancée dès que vous attribuez la stratégie de sauvegarde au volume.
+
+### <a name="what-happens-if-a-backup-operation-encounters-a-problem"></a>Que se passe-t-il si une opération de sauvegarde rencontre un problème ?
+
+Si un problème se produit pendant une opération de sauvegarde, la sauvegarde Azure NetApp Files retente automatiquement l'opération, sans intervention de l'utilisateur. Si les nouvelles tentatives continuent d'échouer, la sauvegarde Azure NetApp Files signale l'échec de l'opération.
+
+### <a name="can-i-change-the-location-or-storage-tier-of-my-backup-vault"></a>Puis-je modifier l'emplacement ou le niveau de stockage de mon coffre de sauvegarde ?
+
+Non, Azure NetApp Files gère automatiquement l'emplacement des données de sauvegarde dans le stockage Azure, et cet emplacement ou le niveau de stockage Azure ne peuvent pas être modifiés par l'utilisateur.
+
+### <a name="what-types-of-security-are-provided-for-the-backup-data"></a>Quels sont les types de sécurité fournis pour les données de sauvegarde ?
+
+Azure NetApp Files utilise le chiffrement AES-256 bits pendant l'encodage des données de sauvegarde reçues. En outre, les données chiffrées sont transmises en toute sécurité au stockage Azure à l'aide de connexions HTTPS TLSv 1.2. La sauvegarde Azure NetApp Files dépend de la fonctionnalité intégrée de chiffrement au repos du compte de stockage Azure pour le stockage des données de sauvegarde.
+
+### <a name="what-happens-to-the-backups-when-i-delete-a-volume-or-my-netapp-account"></a>Qu'advient-il des sauvegardes lorsque je supprime un volume ou mon compte NetApp ? 
+
+ Lorsque vous supprimez un volume Azure NetApp Files, les sauvegardes sont conservées. Si vous ne souhaitez pas que les sauvegardes soient conservées, désactivez les sauvegardes avant de supprimer le volume. Lorsque vous supprimez un compte NetApp, les sauvegardes sont toujours conservées et affichées sous d'autres comptes NetApp du même abonnement, afin qu'elles soient toujours disponibles pour la restauration. Si vous supprimez tous les comptes NetApp dans le cadre d'un abonnement, vous devez veiller à désactiver les sauvegardes avant de supprimer tous les volumes sous tous les comptes NetApp.
+
+### <a name="whats-the-systems-maximum-backup-retries-for-a-volume"></a>Quel est le nombre maximum de nouvelles tentatives de sauvegarde du système pour un volume ?  
+
+Le système effectue dix nouvelles tentatives lors du traitement d'une tâche de sauvegarde planifiée. En cas d'échec du travail, le système ne parvient pas à effectuer la sauvegarde. En cas de sauvegarde planifiée (en fonction de la stratégie configurée), le système tente de sauvegarder les données toutes les heures. Si de nouveaux instantanés non transférés (ou ayant échoué au cours de la dernière tentative) sont disponibles, ces instantanés sont pris en compte pour le transfert. 
 
 ## <a name="product-faqs"></a>FAQ relative au produit
 

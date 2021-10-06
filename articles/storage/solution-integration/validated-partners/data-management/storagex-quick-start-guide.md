@@ -8,12 +8,12 @@ ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 8613d641f305f93598ac070c5eaaeee5fed81b8d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 4b3f85c06c8dccd5873556c8c1ebfe1f0087b11e
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290240"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407605"
 ---
 # <a name="migrate-data-to-azure-with-data-dynamics-storagex"></a>Migrer des données vers Azure avec Data Dynamics StorageX
 
@@ -124,7 +124,7 @@ Pour plus d’informations, consultez les pages suivantes :
 Toutes les migrations SMB nécessitent qu’Active Directory soit correctement configuré avant d’ajouter des ressources. Nous allons utiliser une implémentation de Azure NetApp Files existante avec un nouveau volume pour la cible de migration. Avant de pouvoir créer un volume Azure NetApp Files, nous devons :
 
 - [Créer un compte Azure NetApp Files](../../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal#create-a-netapp-account)
-- [Créer un pool de capacité](../../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal#set-up-a-capacity-pool)
+- [Créer un pool de capacité](../../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal#create-a-capacity-pool)
 - [Joindre Azure NetApp Files compte à domaine Active Directory](../../../../azure-netapp-files/create-active-directory-connections.md)
 
 Une fois la configuration de Azure NetApp Files effectuée, nous pouvons créer un partage que nous utiliserons pour la migration. 

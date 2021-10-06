@@ -13,12 +13,12 @@ ms.date: 06/09/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 39c8f669b8577278a7654db92ae87d55758505ff
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3c9af18a00d4880c34307525b735f8cef4d2685c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787165"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230833"
 ---
 # <a name="differences-between-adalnet-and-msalnet-apps"></a>Différences entre les applications ADAL.NET et MSAL.NET
 
@@ -52,7 +52,7 @@ Accorder                             | MSAL.NET                                 
 --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 Interactive                       | [Acquisition des jetons de manière interactive dans MSAL.NET](scenario-desktop-acquire-token-interactive.md)    | [Authentification interactive](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows)                                              |
 Authentification Windows intégrée | [Authentification Windows intégrée](scenario-desktop-acquire-token-integrated-windows-authentication.md)         | [Authentification intégrée sur Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos))  |
-Nom d’utilisateur / mot de passe               | [Authentification par nom d’utilisateur et mot de passe](scenario-desktop-acquire-token-username-password.md)                      | [Acquisition des jetons avec un nom d’utilisateur et un mot de passe](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)                                        |
+Nom d’utilisateur / mot de passe               | [Authentification par nom d'utilisateur/mot de passe](scenario-desktop-acquire-token-username-password.md)                      | [Acquisition des jetons avec un nom d’utilisateur et un mot de passe](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)                                        |
 Flux de code d’appareil                  | [Flux de code d’appareil](scenario-desktop-acquire-token-device-code-flow.md)                    | [Profil d’appareil pour les appareils sans navigateurs web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers)                                |
 
 ### <a name="confidential-client-applications"></a>Applications clientes confidentielles
